@@ -172,7 +172,7 @@ export default function Imp35506EndpointPositivityMapViz() {
         the R2 ladder past N=1000 (imp-35221/imp-35324/imp-35412); does NOT change the imp-35412
         slack denominator (the endpoint DP45 dt/2 worst-case is kept); C_mb GUE-conditional per
         imp-486 UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict,
-        NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        NO QED.
       </div>
 
       <p style={{ color: '#475569', fontSize: '0.75rem', marginTop: '0.75rem' }}>

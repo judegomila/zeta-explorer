@@ -184,7 +184,6 @@ export default function Imp34494ResidueErrorBarViz() {
         by the same Newton divided-difference method on the same imp-34237 rows (not copied from
         the imp-34449 doc-comment). Surrogate finite-difference re-read, NOT a rigorous asymptotic;
         the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&le;0.2 remains SOTA.
       </div>
     </div>
   );

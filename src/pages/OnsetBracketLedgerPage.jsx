@@ -122,8 +122,7 @@ export default function OnsetBracketLedgerPage() {
           </div>
           <div style={{ marginTop: 10, color: 'var(--ink-soft)', fontSize: 13 }}>
             <span style={{ color: 'var(--green)', fontWeight: 600 }}>Basin margin:</span>{' '}
-            {lo.toFixed(7)} − 0.72 = {ledger.basinMargin.toFixed(7)} &gt; 0.18 — basin-conditional C_Lip holds independent of c_glob.{' '}
-            PT Λ ≤ 0.2 remains SOTA.
+            {lo.toFixed(7)} − 0.72 = {ledger.basinMargin.toFixed(7)} &gt; 0.18 — basin-conditional C_Lip holds independent of c_glob.{' '}.
           </div>
           <div style={{ marginTop: 8, color: 'var(--terra-dk)', fontSize: 12 }}>
             {ledger.globalConstantStatus}
@@ -152,7 +151,7 @@ export default function OnsetBracketLedgerPage() {
           <div style={{ marginTop: 8, color: 'var(--faint)', fontSize: 12 }}>
             HONEST: does NOT close c_glob — the gap ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(5)},{' '}
             {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(5)}] stays OPEN. Basin-conditional C_Lip
-            unaffected; PT Λ ≤ 0.2 remains the rigorous SOTA. No QED for c_glob itself.
+            unaffected. No QED for c_glob itself.
           </div>
         </div>
 

@@ -196,7 +196,7 @@ export default function Imp33731SigmaRampCurvatureViz() {
         asymptotic, and the C_mb GUE-conditional per imp-486 is untouched. This page adds no new
         derivation; it gives the imp-33701 curvature finding a visual surface. No bound changes;
         establishes no operator positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict,
-        NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        NO QED.
       </div>
     </div>
   );

@@ -207,7 +207,7 @@ export default function Imp34965ItersToFloorCeilBoundaryGeometryViz() {
         the inherited imp-3220/imp-3406 surrogate map, IEEE-754 double precision, no interval
         enclosure. The C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb GUE-conditional per imp-486 are
         UNTOUCHED; imp-3066 K_a&ge;0 untouched; changes no bound; establishes no operator positivity;
-        no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA. Named residual
+        no RH verdict, NO QED. Named residual
         sub-gap imp-34926a (uniform-in-N ceil(x) &le; m_exact) remains OPEN.
       </div>
     </div>

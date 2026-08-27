@@ -511,8 +511,7 @@ export default function RHProofStateDashboardPage() {
               GUE-conditional share σ&nbsp;&rarr;&nbsp;0) but is <strong>still only parity-with-PT</strong> — the
               ported machinery IS PT&apos;s own Λ&nbsp;&le;&nbsp;0.2 barrier theorem (imp-35419 C2), so it matches
               0.2 and does not beat it. σ is nonzero at every finite N, and C_mb stays GUE-conditional per
-              imp-486, untouched by the port. Documentation only — no bound changes; PT Λ&nbsp;&le;&nbsp;0.2
-              remains SOTA.
+              imp-486, untouched by the port. Documentation only — no bound changes.
             </div>
 
             {/* E_flow */}

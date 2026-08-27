@@ -193,8 +193,7 @@ export default function Imp34575NearPoleResolvabilityFloorsViz() {
         k* ~ {kStar.toFixed(5)}, reusing the imp-34310 linear near-pole model. The component model
         is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
         GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
-        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED.
       </div>
     </div>
   );

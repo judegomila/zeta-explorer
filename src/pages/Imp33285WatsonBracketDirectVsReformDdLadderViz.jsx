@@ -231,8 +231,7 @@ export default function Imp33285WatsonBracketDirectVsReformDdLadderViz() {
         only, of an already-verified table (imp-33248). Measurement/
         reconstruction only, not a proof; mass-feasibility is
         necessary-but-not-sufficient; operator positivity (imp-3066 K_a &ge; 0)
-        is UNTOUCHED. RH-equivalent, NO QED. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        is UNTOUCHED. RH-equivalent, NO QED.
       </div>
     </div>
   );

@@ -191,8 +191,7 @@ export default function Imp35308ReentryBandViz() {
         (floor-independence) is binding: the band slides &gt;10 decades per factor-2 change in the
         machine-epsilon representation constant EPS_FP, a floor-artifact absent from the true
         continuum. R1 / the imp-35243a surrogate-fidelity certificate stay OPEN; changes no bound;
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
+        establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

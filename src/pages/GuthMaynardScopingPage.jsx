@@ -24,7 +24,7 @@ export default function GuthMaynardScopingPage() {
           body={
             'Zero-density estimates are positive upper bounds on off-line zeros; they can never certify N=0, ' +
             'so this cannot move the rigorous Λ≤0.2 bound and does not imply RH. It feeds prime gaps / ' +
-            'short-interval PNT / L-function results. Platt–Trudgian Λ≤0.2 remains SOTA. NO QED.'
+            'short-interval PNT / L-function results. NO QED.'
           }
         />
 

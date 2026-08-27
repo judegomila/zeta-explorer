@@ -122,8 +122,7 @@ export default function Imp36203EShareFiveLandmarkDecayCurveViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only consumer of
         the baked imp-36185 viz-data (itself reusing the recorded imp-36111 combined-sequence
         literals verbatim); no new derivation, no bound changed. C_C GUE-conditional (imp-2642 /
-        imp-2643 / imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2
-        remains SOTA.
+        imp-2643 / imp-486) untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

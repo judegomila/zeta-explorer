@@ -189,7 +189,7 @@ export default function Imp35274EcollExponentResidualLadderViz() {
         model. Locating the residual&lt;{D.tolerance} landmark is measurement only, not a certified uniform
         modulus of convergence on the true RvM cusp jet; the C_mb GUE-conditional share per imp-486 is
         UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0
-        untouched; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

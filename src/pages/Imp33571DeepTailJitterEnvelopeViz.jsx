@@ -180,7 +180,7 @@ export default function Imp33571DeepTailJitterEnvelopeViz() {
         cross-platform libm variation; the robust reading is the qualitative recurrence and
         intensification with depth. Mass-feasibility is necessary-but-not-sufficient; the
         operator-level K_a &ge; 0 sign-positivity (imp-3066) remains untouched. No RH verdict, NO
-        QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

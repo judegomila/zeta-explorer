@@ -104,8 +104,7 @@ export default function Imp34015F2MagShareDriftViz() {
         {ND.aggregate_mag_share_F2}) is a net figure over the whole 5-decade window, not a per-rung
         property -- locally F2 carries anywhere from {ND.mag_share_F2_min} to {ND.mag_share_F2_max}.
         The inherited imp-3220/imp-3406 component model is NOT a rigorous asymptotic; changes no bound;
-        imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian
-        Lambda&lt;=0.2 remains SOTA.
+        imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED.
       </div>
     </div>
   );

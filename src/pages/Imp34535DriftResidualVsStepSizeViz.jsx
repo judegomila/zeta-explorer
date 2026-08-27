@@ -241,7 +241,7 @@ export default function Imp34535DriftResidualVsStepSizeViz() {
         imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the -2 asymptote and C_C =
         (1/8)sqrt(3 pi) (imp-2714) ansatz are UNTOUCHED; the C_mb GUE-conditional share per imp-486 is
         UNTOUCHED; imp-3066 K_a &ge; 0 untouched; changes no bound; no operator positivity; no RH
-        verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

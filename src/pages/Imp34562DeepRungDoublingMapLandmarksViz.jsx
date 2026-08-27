@@ -104,8 +104,7 @@ export default function Imp34562DeepRungDoublingMapLandmarksViz() {
         component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; the
         surrogate resid_exp(k) is descriptive, not derived; the C_mb GUE-conditional per imp-486 and the
         C_C 1/8 ansatz (imp-2642/imp-2643) are untouched. Changes no bound, establishes no operator
-        positivity, imp-3066 K_a &ge; 0 untouched, no RH claim, NO QED. Platt-Trudgian &Lambda; &le; 0.2
-        remains SOTA.
+        positivity, imp-3066 K_a &ge; 0 untouched, no RH claim, NO QED.
       </div>
     </div>
   );

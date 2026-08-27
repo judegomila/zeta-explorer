@@ -251,7 +251,7 @@ export default function CShockNumericalCoincidencePage() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Pure cross-validation of two
         degree-0 scalars. Neither quantity is an operator step; neither proves nor weakens RH.
         The off-diagonal endpoint-Hankel step (imp-3066) remains the lone obstruction and is
-        untouched here. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        untouched here.
         {' '}<strong style={{ color: '#ef4444' }}>COINCIDENCE verdict — not structural.</strong>
       </div>
 

@@ -162,8 +162,7 @@ export default function Imp35139EflowQeffProfileViz() {
         imp-35039 q_eff(x) and E_coll-log-derivative literals verbatim (no new computation).
         Measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 untouched; establishes no operator positivity; imp-3066
-        K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

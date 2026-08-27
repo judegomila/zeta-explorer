@@ -150,7 +150,6 @@ export default function Imp35386KempBracketingLadderViz() {
         inherited imp-35264 numbers -- adds a chart, no new measurement. Changes no bound, does
         NOT discharge O3 / H3 / H4 / G6a, imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0
         UNTOUCHED, C_mb remains GUE-conditional (imp-486). RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

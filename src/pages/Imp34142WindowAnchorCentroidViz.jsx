@@ -154,8 +154,7 @@ export default function Imp34142WindowAnchorCentroidViz() {
         exponent at its centroid rather than its start. The inherited
         imp-3220/imp-3406 component model is NOT a rigorous asymptotic;
         changes no bound; imp-3066 K_a&gt;=0 untouched; C_mb GUE-conditional
-        per imp-486 untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains
-        SOTA.
+        per imp-486 untouched; NO QED.
       </div>
     </div>
   );

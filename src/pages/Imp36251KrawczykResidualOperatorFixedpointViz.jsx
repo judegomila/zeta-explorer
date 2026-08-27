@@ -132,7 +132,6 @@ export default function Imp36251KrawczykResidualOperatorFixedpointViz() {
         R1-R6 requirements (certified value, certified derivative enclosure, machine (H1)/(H2) tests,
         directed-rounding layer, seed + assembly) are untouched; imp-34687a stays UNIMPLEMENTED and
         imp-34714a stays OPEN. C_mb stays GUE-conditional (imp-486); no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

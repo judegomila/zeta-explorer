@@ -219,8 +219,7 @@ export default function Imp3586SigmaCrossingLogisticDropViz() {
         only -- no proof, no reduction below RH. The crossings are certified roots on the exact
         imp-3220/imp-3406/imp-3463 sub-terms, and the drop profile is a central-difference
         reading of the same sigma(N), not a fresh derivation. The imp-3066 K_a &ge; 0
-        sign-positivity residual remains untouched; Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA.
+        sign-positivity residual remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

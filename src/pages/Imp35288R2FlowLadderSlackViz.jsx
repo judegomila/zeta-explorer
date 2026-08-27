@@ -217,8 +217,7 @@ export default function Imp35288R2FlowLadderSlackViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page reusing the
         imp-35150/imp-35190/imp-35221/imp-35235 baked t_c literals verbatim (no new computation).
         Measurement/certification only; C_mb stays GUE-conditional (imp-486); changes no bound;
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda &le; 0.2
-        remains SOTA.
+        establishes no operator positivity; no RH verdict, NO QED.
         <br />
         <br />
         <strong style={{ color: '#94a3b8' }}>imp-35416 cross-check:</strong> an independent RK4 +

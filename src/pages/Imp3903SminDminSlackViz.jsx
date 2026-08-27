@@ -195,7 +195,7 @@ export default function Imp3903SminDminSlackViz() {
         CHARACTERIZATION (the residual mechanism), not its inequality &mdash; LEMMA 3854 stays a
         valid (loose) over-bound and the certified K_paper enclosure is untouched. Measurement only;
         the imp-3870-sub-concavity-fit sub-gap stays open; no new Lambda bound; imp-3066 K_a &ge; 0
-        positivity untouched; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA. NO QED.
+        positivity untouched. NO QED.
       </div>
     </div>
   );

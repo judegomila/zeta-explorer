@@ -224,7 +224,7 @@ export default function Imp34825WindingCountLadderViz() {
         claim was a time-orientation error, not a numerical one; the monotonicity itself is classical
         (de Bruijn 1950 Thm&nbsp;13 + jet lemma), not a new theorem. Establishes no new bound: the lower
         side is hard-capped (Lambda&nbsp;&gt;&nbsp;0 iff RH false) and the upper side re-derives the
-        existing Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 architecture. NO QED; PT 0.2 remains SOTA.
+        existing Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 architecture. NO QED.
       </div>
     </div>
   );

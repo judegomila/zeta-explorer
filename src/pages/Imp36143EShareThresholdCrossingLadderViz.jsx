@@ -178,9 +178,7 @@ export default function Imp36143EShareThresholdCrossingLadderViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation-only consumer of
         the baked imp-36097, imp-36046, imp-36138, and imp-36155 viz-data literals (all reusing the
         recorded imp-35971 / imp-35889 shares); no new derivation, no bound changed. C_C GUE-conditional
-        (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2
-        remains SOTA.
+        (imp-2642 / imp-2643 / imp-486) untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -247,7 +247,6 @@ export default function Imp33591DeepTailCrossSolverNodeBudgetViz() {
         (imp-33537/imp-33557), but the rungs shown here sit firmly inside it.
         Mass-feasibility is necessary-but-not-sufficient; the operator-level
         positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

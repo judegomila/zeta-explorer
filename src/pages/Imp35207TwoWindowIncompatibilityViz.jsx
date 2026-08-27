@@ -163,7 +163,7 @@ export default function Imp35207TwoWindowIncompatibilityViz() {
         the imp-35168 verdict that no fixed mesoscopic strip serves both the propagation lemma
         and the I3 accumulation constant; I3 stays OPEN; assessment only; establishes no operator
         positivity; changes no bound; C_mb GUE-conditional per imp-486 untouched; no RH verdict,
-        NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        NO QED.
       </div>
     </div>
   );

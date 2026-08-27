@@ -171,7 +171,7 @@ export default function Imp34475FourLocatorClusterAxisViz() {
         locator value and gap reused verbatim from imp-34441 (which itself reuses imp-33723 /
         imp-33721 / imp-3444 verbatim) -- no recomputation. Reader-facing diagnostic, NOT a
         rigorous asymptotic; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no
-        bound; no RH verdict, NO QED. Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        bound; no RH verdict, NO QED.
       </div>
     </div>
   );

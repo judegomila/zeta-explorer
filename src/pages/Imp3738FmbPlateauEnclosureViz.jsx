@@ -210,8 +210,7 @@ export default function Imp3738FmbPlateauEnclosureViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> rigorous real-analysis enclosure
         given the Odlyzko zero table as input (no RH, no GUE, no local law); discharges the
         cond-fmb-nonregression-above-1e4 hypothesis and retires the maxSmoothScaleRatio = 2.15 heuristic
-        slack. It does NOT touch cond-CH or the other conditional legs of bound-imp-1088-finite-1e6, and
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA. NO QED.
+        slack. It does NOT touch cond-CH or the other conditional legs of bound-imp-1088-finite-1e6, and. NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

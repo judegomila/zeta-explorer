@@ -178,8 +178,7 @@ export default function Imp34763CmbElasticitySigmaPeakViz() {
         surrogate crossover map. This does NOT discharge the GUE conditional on C_mb (imp-486) &mdash; C_mb is
         treated as a free knob to quantify leverage, not tightened. Even the GUE saturation C_mb&nbsp;=&nbsp;1
         gives sigma_max&nbsp;&lt;&nbsp;1, so a tighter C_mb only LOWERS the peak, never raises it. Changes no
-        bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2
-        remains SOTA.
+        bound; establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

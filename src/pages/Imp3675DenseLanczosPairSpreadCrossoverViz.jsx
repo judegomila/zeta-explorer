@@ -129,8 +129,7 @@ export default function Imp3675DenseLanczosPairSpreadCrossoverViz() {
         confirms the imp-3619 deep-rung sigma_3 and the fourth-pair lambda_7=lambda_8 degeneracy
         against an independent solver, and identifies the N=2000 Lanczos loss as a Krylov
         reorthogonalization artifact. Does NOT construct the missing magnitude and does NOT
-        attempt the imp-3066 K_a &ge; 0 positivity. RH-equivalent; Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        attempt the imp-3066 K_a &ge; 0 positivity. RH-equivalent.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

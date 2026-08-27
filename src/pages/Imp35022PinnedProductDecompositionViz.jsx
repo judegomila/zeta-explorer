@@ -120,8 +120,7 @@ export default function Imp35022PinnedProductDecompositionViz() {
         magnitude bound on the window-variable factor, not on g* itself. Viz-only page rendering
         imp-34956 literals verbatim (r0 derived as product/g*, no new computation). Measurement only on
         the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; changes no bound;
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2
-        remains SOTA.
+        establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

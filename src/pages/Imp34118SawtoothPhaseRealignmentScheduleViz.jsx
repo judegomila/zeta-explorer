@@ -181,8 +181,7 @@ export default function Imp34118SawtoothPhaseRealignmentScheduleViz() {
         1/16384); freezes at {frozenLevels.join(', ')}. {finding.V4_first_descent_at_1024_corrects_imp33983}{' '}
         Component model is the inherited imp-3220/imp-3406
         extrapolation, not a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8
-        ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a&gt;=0 UNTOUCHED; NO QED; Platt-Trudgian
-        Lambda&lt;=0.2 remains SOTA.
+        ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a&gt;=0 UNTOUCHED; NO QED.
       </div>
 
       <div

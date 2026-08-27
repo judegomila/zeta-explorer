@@ -278,8 +278,7 @@ export default function Imp34667FourRungRoundoffFloorLadderViz() {
         as-is -- this diagnoses finite-difference conditioning, it does not rehabilitate the model.
         The -2 asymptote and C_C&nbsp;=&nbsp;(1/8)sqrt(3&nbsp;pi) (imp-2714) ansatz are UNTOUCHED;
         C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; changes
-        no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        no bound; establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

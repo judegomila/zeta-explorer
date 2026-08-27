@@ -223,7 +223,6 @@ export default function Imp35400EflowFartailTwoComponentLadderViz() {
         a rigorous asymptotic; E_flow &gt; 0 strictness (imp-33848) untouched; C_mb GUE-conditional
         per imp-486 UNTOUCHED; E_coll far-tail exponent 1/2 per imp-3463; imp-3066 K_a&nbsp;&ge;&nbsp;0
         untouched; changes no bound, establishes no operator positivity, no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains the SOTA unconditional bound.
       </div>
     </div>
   );

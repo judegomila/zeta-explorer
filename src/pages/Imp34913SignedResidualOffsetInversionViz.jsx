@@ -139,7 +139,7 @@ export default function Imp34913SignedResidualOffsetInversionViz() {
         to the existing sign_bands). Measurement on the INHERITED imp-3220/imp-3406 surrogate crossover map;
         IEEE-754 double precision, no interval enclosure; the C_C 1/8 ansatz (imp-2642/imp-2643) and the C_mb
         GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a&ge;0 untouched; changes no bound; establishes
-        no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

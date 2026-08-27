@@ -143,8 +143,7 @@ export default function Imp34361EflowCrossoverOffsetCohortIndexPage() {
         already-published measurements. The offset and its E_flow attribution are real, reproducible
         readings under the inherited imp-3220/imp-3406 conditional-share extrapolation -- not a
         derived mathematical bound. It changes no bound and patches no literal. C_mb GUE-conditional
-        per imp-486 untouched; imp-3066 K_a&ge;0 untouched; RH-equivalent, NO QED; Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        per imp-486 untouched; imp-3066 K_a&ge;0 untouched; RH-equivalent, NO QED.
       </div>
     </div>
   );

@@ -145,8 +145,7 @@ export default function Imp33953ResidExpHumpArgmaxCrossoverViz() {
         crossover k_cross&sim;{K_CROSS} is a distinct pointwise quantity. The component model is the
         inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb
         GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
-        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED.
       </div>
     </div>
   );

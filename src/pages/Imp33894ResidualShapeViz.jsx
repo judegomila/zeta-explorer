@@ -155,8 +155,7 @@ export default function Imp33894ResidualShapeViz() {
         the imp-33843 log-linear-over-power-law form selection (R^2 &sim;0.99715 unchanged). The
         component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic;
         the OLS surrogate is descriptive, not derived. No bound changes; establishes no operator
-        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED.
       </div>
 
       <div

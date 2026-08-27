@@ -194,8 +194,7 @@ export default function Imp3900H2FluxConvexityViz() {
         exists, and it reads m on the mesoscopic strip y_star = 4d rather than the microscopic y &rarr; 0
         continuum. H2 stays UNWRITTEN as a certificate, the G6a K4 caustic-regularity route stays WHOLLY
         NEW, and G6a_shock_lipschitz stays OPEN. Scoping/measurement only; no positivity, no bridge closure,
-        no RH claim; imp-3066 K_a &ge; 0 positivity untouched; Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA. NO QED.
+        no RH claim; imp-3066 K_a &ge; 0 positivity untouched. NO QED.
       </div>
     </div>
   );

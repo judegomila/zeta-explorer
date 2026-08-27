@@ -164,7 +164,6 @@ export default function Imp35957RdirectFloorHeightSweepViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/diagnostic only, double
         precision; instantiates no interval, ports no operator, changes no bound. imp-34714a REMAINS
         OPEN. C_C = 1/8 (imp-2642/2643) and C_mb GUE-conditional (imp-486) UNTOUCHED. NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

@@ -173,8 +173,7 @@ export default function Imp35118BernsteinSignatureLadderViz() {
         derivative signs ONLY: it establishes no operator positivity, no Bernstein/Levy-Khintchine
         representation is constructed here (that follows from, but is not shown by, this sign chart),
         and it changes no bound. C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz
-        (imp-2642/imp-2643) are untouched; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2
-        remains SOTA.
+        (imp-2642/imp-2643) are untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

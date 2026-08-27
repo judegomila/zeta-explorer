@@ -246,7 +246,7 @@ export default function Imp33930CrossoverFixedPointConvergenceViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP33760_CAVEAT_BANNER} Conditional-share
         diagnostic, NOT an RH bound; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&nbsp;&ge;&nbsp;0
-        untouched; RH-equivalent, NO QED. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+        untouched; RH-equivalent, NO QED.
       </div>
     </div>
   );

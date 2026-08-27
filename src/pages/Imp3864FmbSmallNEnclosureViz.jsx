@@ -175,8 +175,7 @@ export default function Imp3864FmbSmallNEnclosureViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of an existing
         derivation-only assessment (imp-3729); no new bound, no new computation. The N &ge; 1e4 segment is
-        rigorous (imp-3725); the N &lt; 1e4 segment is illustrative only. imp-3066 untouched; Platt-Trudgian
-        Lambda &le; 0.2 remains the rigorous SOTA. NO QED.
+        rigorous (imp-3725); the N &lt; 1e4 segment is illustrative only. imp-3066 untouched. NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

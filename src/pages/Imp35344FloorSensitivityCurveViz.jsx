@@ -122,7 +122,7 @@ export default function Imp35344FloorSensitivityCurveViz() {
         infinite-precision continuum has no machine-epsilon floor and hence no counterpart to this
         curve at all &mdash; the line exists only because the surrogate is discrete and
         floor-limited (imp-35243). Changes no bound; establishes no operator positivity; no RH
-        verdict, NO QED. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

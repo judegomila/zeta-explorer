@@ -131,7 +131,7 @@ export default function Imp35482SigmaPeakPlateauWidthSqrtScalingViz() {
         Discharges nothing: the imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; the C_C
         = (1/8)&nbsp;sqrt(3&nbsp;pi) ansatz (imp-2642/imp-2643), E_trunc = 3.06e-5 (imp-2631), and the
         imp-398 C_F prefactor are UNTOUCHED; changes no bound; establishes no operator positivity; no
-        RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        RH verdict, NO QED.
       </div>
     </div>
   );

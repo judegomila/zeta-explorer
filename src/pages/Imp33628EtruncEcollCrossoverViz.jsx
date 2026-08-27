@@ -184,8 +184,7 @@ export default function Imp33628EtruncEcollCrossoverViz() {
         -- the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic. The E_trunc route is GUE-conditional-free but the C_mb GUE-conditional share
         per imp-486 is untouched; changes no bound; establishes no operator positivity; imp-3066
-        K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        K_a &ge; 0 remains untouched. No RH verdict, NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

@@ -128,7 +128,6 @@ export default function Imp35663DecadeSpanGrowthViz() {
         the imp-35553 span ladder verbatim; no new derivation, no bound changed. Measurement only
         on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED;
         changes no bound, establishes no operator positivity, no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
 
       <RelatedLinks

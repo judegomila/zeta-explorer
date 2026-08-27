@@ -247,7 +247,7 @@ export default function Imp33547TiltClosureOffsetFractionViz() {
         RH-equivalent scale class. This is a closure extrapolation of a fixed-weight moment-ratio
         drift decomposition; it establishes no operator positivity. Mass-feasibility is
         necessary-but-not-sufficient, and the operator-level K_a &ge; 0 sign-positivity (imp-3066)
-        remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA. No QED.
+        remains untouched. No QED.
       </div>
     </div>
   );

@@ -171,8 +171,7 @@ export default function Imp33831EflowResidRatioLadderViz() {
         from only &sim;{HEAD_ROE.toFixed(1)}x at the head (k=6) to &sim;{TAIL_ROE.toFixed(1)}x in
         the tail (k=11) -- the imp-33773 M2 "~1900x" figure is the tail endpoint of this trend, not
         a uniform order-of-magnitude gap. No bound changes; establishes no operator
-        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        positivity; imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED.
       </div>
 
       <div

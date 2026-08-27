@@ -138,7 +138,7 @@ export default function Imp33298FifthPairPrecisionCollapseViz() {
         surrogate, not the actual Gram eigenvectors, so this confirms the mechanism and order of
         magnitude, not the exact per-rung realized constant. Adds no new Lambda bound, does not
         re-certify the pairing (imp-3668), and does not attempt the imp-3066 K_a &ge; 0 positivity.
-        RH-equivalent, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        RH-equivalent, NO QED.
       </div>
     </div>
   );

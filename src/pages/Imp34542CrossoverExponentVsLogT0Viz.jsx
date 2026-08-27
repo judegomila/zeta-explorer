@@ -215,8 +215,7 @@ export default function Imp34542CrossoverExponentVsLogT0Viz() {
         component model (imp-3220/imp-3406 extrapolation) is NOT a rigorous asymptotic; the
         &minus;2 asymptote and C_C = (1/8)sqrt(3&nbsp;pi) (imp-2714) ansatz are UNTOUCHED; the
         C_mb GUE-conditional share per imp-486 is UNTOUCHED; imp-3066 K_a &ge; 0 untouched; changes
-        no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2
-        remains SOTA.
+        no bound; no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

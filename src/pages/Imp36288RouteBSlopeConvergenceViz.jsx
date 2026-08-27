@@ -151,7 +151,7 @@ export default function Imp36288RouteBSlopeConvergenceViz() {
         CONSUMABLE-MODULO-ANCHOR); per imp-36151, Route-B owning the only pinned per-N exponent does
         NOT mean the imp-36045 Route-C &gt; Route-B ranking reflects a faster exponent -- that ranking
         is on unconditional-consumability readiness. Certifies no bound; C_mb GUE-conditional
-        (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains SOTA.
+        (imp-486) untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

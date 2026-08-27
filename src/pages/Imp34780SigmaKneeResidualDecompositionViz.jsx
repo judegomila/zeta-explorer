@@ -197,7 +197,7 @@ export default function Imp34780SigmaKneeResidualDecompositionViz() {
         and imp-34756 literals verbatim (no new computation). This is a conditional-share diagnostic on the
         INHERITED imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic, and NOT an RH bound. The C_mb
         GUE-conditional share per imp-486 is UNTOUCHED; far-tail exponent stays 1/2 (imp-3463); no operator
-        positivity established; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity established; no RH verdict, NO QED.
       </div>
     </div>
   );

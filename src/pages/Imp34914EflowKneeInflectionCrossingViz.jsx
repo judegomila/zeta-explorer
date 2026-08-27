@@ -199,7 +199,7 @@ export default function Imp34914EflowKneeInflectionCrossingViz() {
         Measurement/derivation on the INHERITED imp-3220/imp-3406 surrogate crossover map; the C_mb
         GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; changes no
         bound; establishes no operator positivity; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO
-        QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        QED.
       </div>
     </div>
   );

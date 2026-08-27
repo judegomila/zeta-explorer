@@ -151,7 +151,7 @@ export default function Imp34495DeflowDecayViz() {
         kEnd&nbsp;&asymp;&nbsp;{IMP34495_FP_FLOOR_KEND}; rows deeper than that are FIT-EXTRAPOLATED,
         not observed. Surrogate finite-difference fit within the inherited imp-3220/imp-3406
         component model, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED;
-        changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

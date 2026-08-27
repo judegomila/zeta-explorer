@@ -133,7 +133,6 @@ export default function Imp34960RawTotalCrossingViz() {
         imp-3220/imp-3406 surrogate crossover map, NOT a rigorous asymptotic; C_mb GUE-conditional
         per imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; far-tail exponent stays 1/2
         (imp-3463); changes no bound; establishes no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

@@ -149,8 +149,7 @@ export default function Imp35564FartailProductDecayViz() {
         <strong style={{ color: '#94a3b8' }}>Measurement only:</strong> viz-data only, re-exporting
         the imp-35535 ladder verbatim; no new derivation, no bound changed. Measurement only on the
         inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no
-        bound, establishes no operator positivity, no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        bound, establishes no operator positivity, no RH verdict, NO QED.
       </div>
     </div>
   );

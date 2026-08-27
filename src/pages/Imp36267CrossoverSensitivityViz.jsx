@@ -181,7 +181,6 @@ export default function Imp36267CrossoverSensitivityViz() {
         specific imp-2631 value, not an intrinsic landmark. C_C = (1/8) sqrt(3&nbsp;pi)
         (imp-2642 / imp-2643) and the C_mb GUE-conditional caveat (imp-486) are UNTOUCHED; imp-35337a
         stays OPEN; changes no bound, establishes no operator positivity, no RH verdict; NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains SOTA.
       </div>
     </div>
   );

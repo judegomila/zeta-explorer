@@ -185,7 +185,7 @@ export default function Imp34198EcollResidualMilestoneLadderViz() {
         inherited imp-3220/imp-3406 extrapolation is NOT a rigorous asymptotic;
         changes no bound; establishes no operator positivity; imp-3066
         K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO
-        QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        QED.
       </div>
     </div>
   );

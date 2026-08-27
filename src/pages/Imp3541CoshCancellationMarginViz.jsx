@@ -249,8 +249,7 @@ export default function Imp3541CoshCancellationMarginViz() {
         cancellation-safety of a degree-2 integrand term across k; it establishes no operator
         positivity. Mass-feasibility is necessary-but-not-sufficient and the degree-2 face carries
         no feasibility comparison at all (imp-3469). The operator-level K_a &ge; 0 sign-positivity
-        residual (imp-3066) remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA.
+        residual (imp-3066) remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

@@ -238,7 +238,7 @@ export default function Imp3697AWeightDecayCrosscheckViz() {
         only -- this visualizes the imp-3665 numeric confirmation of a decay-rate premise used
         inside a mass-feasibility diagnostic. It establishes NO operator positivity. RH-equivalent,
         necessary-but-not-sufficient. The imp-3066 K_a &ge; 0 sign-positivity obstruction remains
-        untouched; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        untouched.
       </div>
     </div>
   );

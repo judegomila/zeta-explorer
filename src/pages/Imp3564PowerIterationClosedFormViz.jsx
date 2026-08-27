@@ -240,7 +240,7 @@ export default function Imp3564PowerIterationClosedFormViz() {
         rung, with the prefactor C a single least-squares fit (not derived from first principles)
         and the N=1000/1200 extrapolations untested against a re-swept reference. It does not
         construct the missing imp-3066 K_a &ge; 0 sign-positivity residual, which remains
-        untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

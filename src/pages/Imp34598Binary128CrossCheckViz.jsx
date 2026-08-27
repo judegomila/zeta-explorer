@@ -139,8 +139,7 @@ export default function Imp34598Binary128CrossCheckViz() {
         component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; the surrogate resid_exp(k) is descriptive, not derived; the C_mb
         GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
-        positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

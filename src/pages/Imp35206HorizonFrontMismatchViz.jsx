@@ -180,7 +180,7 @@ export default function Imp35206HorizonFrontMismatchViz() {
         backward flow; t_c(N) is an empirical OLS fit. Confirms the imp-35167 M5 mismatch is real but
         ASYMPTOTIC (not visible across the accessible zero range); I2/M5 stay OPEN; the sandwich
         remains a valid CONDITIONAL bracket; C_mb GUE-conditional per imp-486 untouched; changes no
-        bound; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        bound; no RH verdict, NO QED.
       </div>
     </div>
   );

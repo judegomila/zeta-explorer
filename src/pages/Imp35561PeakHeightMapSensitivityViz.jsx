@@ -132,7 +132,6 @@ export default function Imp35561PeakHeightMapSensitivityViz() {
         nothing: the imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; the C_C = (1/8)&nbsp;
         sqrt(3&nbsp;pi) ansatz (imp-2642/imp-2643) and E_trunc = 3.06e-5 (imp-2631) are UNTOUCHED;
         changes no bound; establishes no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
 
       <RelatedLinks

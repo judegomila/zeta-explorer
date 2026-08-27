@@ -236,8 +236,7 @@ export default function Imp33267AWeightDualPathTau25To30Viz() {
         reconciliation only, RH-equivalent, necessary-but-not-sufficient. It reconciles two
         quadratures for a fixed autocorrelation weight used inside a mass-feasibility diagnostic;
         it establishes NO operator positivity. The operator-level K_a &ge; 0 sign-positivity
-        (off-diagonal endpoint-Hankel step, imp-3066) remains untouched. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA. No QED.
+        (off-diagonal endpoint-Hankel step, imp-3066) remains untouched. No QED.
       </div>
     </div>
   );

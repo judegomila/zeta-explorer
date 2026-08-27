@@ -101,7 +101,7 @@ export default function Imp34052F3LandmarkThreeWaySpreadViz() {
         {m2.e2_vs_e1_decades.toFixed(2)} at 0.1%) is the restored RvM sub-leading terms; the E2-&gt;E3
         offset ({m1.e3_vs_e2_decades.toFixed(2)} / {m2.e3_vs_e2_decades.toFixed(2)} decades) is the
         imp-33949 finite-log-T0 shortfall of the leading law -- no new mechanism. C_mb GUE-conditional per
-        imp-486 untouched; changes no bound; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        imp-486 untouched; changes no bound; NO QED.
       </div>
     </div>
   );

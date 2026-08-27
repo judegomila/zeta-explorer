@@ -164,8 +164,7 @@ export default function Imp33214SaddleRatioDeepTailRecoveryViz() {
         only -- no proof, no reduction below RH. This extends a moment-ratio convergence
         diagnostic into the deep-n tail; mass-feasibility is necessary-but-not-sufficient and
         the operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.
-        The imp-3849 and imp-3731 assertions are left intact. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        The imp-3849 and imp-3731 assertions are left intact.
       </div>
     </div>
   );

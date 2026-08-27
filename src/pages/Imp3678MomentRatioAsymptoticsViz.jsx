@@ -220,7 +220,7 @@ export default function Imp3678MomentRatioAsymptoticsViz() {
         only -- this visualizes the imp-3646 large-n asymptotics of a fixed-weight Taylor
         remainder coefficient family. It establishes NO operator positivity. RH-equivalent,
         necessary-but-not-sufficient. The imp-3066 K_a &ge; 0 sign-positivity obstruction
-        remains untouched; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA. No QED.
+        remains untouched. No QED.
       </div>
     </div>
   );

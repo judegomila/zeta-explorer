@@ -132,7 +132,7 @@ export default function Imp36025EShareStackedBarViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of the imp-35977 baked
         viz-data (itself reusing the recorded imp-35889 shares) as a stacked bar chart. Measurement /
         presentation only; changes no bound; C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO
-        QED. Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        QED.
       </div>
     </div>
   );

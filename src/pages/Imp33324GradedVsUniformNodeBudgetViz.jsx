@@ -252,7 +252,6 @@ export default function Imp33324GradedVsUniformNodeBudgetViz() {
         measurement only, of an already-verified table (imp-33295). Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is
         UNTOUCHED; the NPHI=10 truncation is inherited upstream. RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

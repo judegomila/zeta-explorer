@@ -180,7 +180,6 @@ export default function Imp34999KrawczykMarginInfimumBandEndpointViz() {
         itself; sub-gap imp-34714a REMAINS OPEN and F(m)=0 stays a double-precision artifact. C_C 1/8
         ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a&ge;0
         untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

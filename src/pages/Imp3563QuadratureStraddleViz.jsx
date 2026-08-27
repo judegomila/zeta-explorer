@@ -220,7 +220,7 @@ export default function Imp3563QuadratureStraddleViz() {
         quadrature-scheme-INVARIANT, not a midpoint-extrapolation-model artifact. It does not
         give xi* a closed form (the imp-3470 stationarity equation stays transcendental) and does
         not construct the missing imp-3066 K_a &ge; 0 sign-positivity residual, which remains
-        untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        untouched.
       </div>
     </div>
   );

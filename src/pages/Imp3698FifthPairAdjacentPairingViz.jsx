@@ -219,7 +219,7 @@ export default function Imp3698FifthPairAdjacentPairingViz() {
         against an independent dense full-spectrum solver. It does NOT establish the
         fifth-pair amplitude LAW (a distinct pending ticket) and does NOT construct the
         missing magnitude or attempt the imp-3066 K_a &ge; 0 positivity. RH-equivalent, NO
-        QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        QED.
       </div>
     </div>
   );

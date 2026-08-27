@@ -166,8 +166,7 @@ export default function Imp3566CoshSinhMarginContrastViz() {
         only &mdash; no proof, no reduction below RH. This certifies floating-point
         cancellation-safety of the degree-2 and degree-3 integrand terms across k; it establishes
         no operator positivity. Mass-feasibility is necessary-but-not-sufficient. The
-        operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA. (Min margins measured:
+        operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. (Min margins measured:
         cosh {IMP3566_MIN_MARGIN_COSH.toExponential(2)}, sinh {IMP3566_MIN_MARGIN_SINH.toExponential(2)}.)
       </div>
 

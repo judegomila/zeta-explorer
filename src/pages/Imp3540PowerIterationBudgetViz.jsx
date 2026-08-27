@@ -195,8 +195,7 @@ export default function Imp3540PowerIterationBudgetViz() {
         only -- no proof, no reduction below RH. The budget ladder and fixed-budget gap curve are
         two views of the same skew-Toeplitz top-singular-gap shrinkage imp-3505 diagnosed
         (later fit in closed form by imp-3530); they do not construct the missing K_a &ge; 0
-        sign-positivity residual (imp-3066), which remains untouched. Platt-Trudgian &Lambda;
-        &le; 0.2 remains the rigorous SOTA.
+        sign-positivity residual (imp-3066), which remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

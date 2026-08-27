@@ -160,8 +160,7 @@ export default function Imp35934KappaSweepLadderViz() {
         derivation, no heavy data-module import, no re-running the summation schemes at page load);
         measurement only; certifies no W1 bound; evaluates no true H&#8320;; instantiates no
         interval; verifies no inequality; establishes no positivity; the W1 A&nbsp;+&nbsp;B&nbsp;-
-        &nbsp;C certificate at T_PT stays GREENFIELD (imp-35681 Part A). NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        &nbsp;C certificate at T_PT stays GREENFIELD (imp-35681 Part A). NO QED.
       </div>
 
       <RelatedLinks

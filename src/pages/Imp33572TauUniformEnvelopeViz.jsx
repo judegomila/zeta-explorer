@@ -170,8 +170,7 @@ export default function Imp33572TauUniformEnvelopeViz() {
         K_a &ge; 0 sign-positivity (imp-3066) remains untouched. The exact ULP digits are a
         single-lattice arithmetic-floor figure inherited from imp-33312 and can shift under
         cross-platform libm variation; the robust reading is the tight-at-low-tau,
-        slack-at-high-tau margin shape. No RH verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        slack-at-high-tau margin shape. No RH verdict, NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

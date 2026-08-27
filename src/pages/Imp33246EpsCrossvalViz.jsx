@@ -192,8 +192,7 @@ export default function Imp33246EpsCrossvalViz() {
         assembly only, at the RH-equivalent scale class; all three solvers share the finite NPHI=10
         kernel truncation, so the agreement pins the sign-change to that truncated-kernel model, not
         to a certified error bound. Mass-feasibility is necessary-but-not-sufficient; operator
-        positivity (imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0) is UNTOUCHED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA. NO QED; imp-3849/imp-3868/imp-3895/imp-3918
+        positivity (imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0) is UNTOUCHED. NO QED; imp-3849/imp-3868/imp-3895/imp-3918
         assertions left intact.
       </div>
     </div>

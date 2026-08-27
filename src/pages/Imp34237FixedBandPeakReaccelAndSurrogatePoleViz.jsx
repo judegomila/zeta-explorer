@@ -360,7 +360,7 @@ export default function Imp34237FixedBandPeakReaccelAndSurrogatePoleViz() {
         {IMP34237_RESID_ZERO_KSTAR.toFixed(5)}, so windows past kEnd ={' '}
         {IMP34237_FIRST_BREAKDOWN_KEND.toFixed(1)} are undefined, not merely unswept. Descriptive
         surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED;
-        imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        imp-3066 K_a&ge;0 untouched; NO QED.
       </div>
 
       <div

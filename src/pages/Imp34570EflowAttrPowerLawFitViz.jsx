@@ -249,7 +249,7 @@ export default function Imp34570EflowAttrPowerLawFitViz() {
         machinery. Descriptive surrogate, NOT a rigorous asymptotic; the component model is the
         inherited imp-3220/imp-3406 extrapolation; the C_mb GUE-conditional per imp-486 is
         UNTOUCHED; changes no bound; establishes no operator positivity; imp-3066 K_a &ge; 0
-        untouched. No RH verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains SOTA.
+        untouched. No RH verdict, NO QED.
       </div>
     </div>
   );

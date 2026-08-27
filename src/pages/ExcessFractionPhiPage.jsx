@@ -374,7 +374,7 @@ export default function ExcessFractionPhiPage() {
           <em>divergence characterisation</em> of the degree-0 scalar ratio, not a proof.
           The area-weighted mean price of the forced even cosh-completion has no finite value.
           The off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction
-          and is untouched here. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+          and is untouched here.
         </div>
 
         <div className="card" style={cardBaseLeft('var(--brass)')}>

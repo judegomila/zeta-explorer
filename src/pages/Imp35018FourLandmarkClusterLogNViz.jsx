@@ -162,7 +162,7 @@ export default function Imp35018FourLandmarkClusterLogNViz() {
         inherited from the imp-3220/imp-3406 surrogate crossover map) -- no recomputation.
         Reader-facing diagnostic, NOT a rigorous asymptotic; the C_mb GUE-conditional per imp-486
         is UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO
-        QED. Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        QED.
       </div>
     </div>
   );

@@ -145,8 +145,7 @@ export default function Imp33587BandCrossingFloorClimbViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation of an
         already-established band-conditional measurement (imp-33557). It changes no bound and
         patches no literal. Mass-feasibility is necessary-but-not-sufficient; the operator-level
-        positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
       </div>
     </div>
   );

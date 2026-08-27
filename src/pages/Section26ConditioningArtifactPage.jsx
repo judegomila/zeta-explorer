@@ -254,7 +254,7 @@ export default function Section26ConditioningArtifactPage() {
               {' '}The scalar-cosh-core ceiling is tanh(aU) = tanh(3) &#x2248; {TANH_CEILING.toFixed(5)} &lt; 1.
               The divergence of the raw norm is entirely a monomial-conditioning artifact.
               This is a scalar-core statement and does NOT close K_a&#x2265;G_shear (the
-              indefinite shear-Gram operator step). PT Lambda&#x2264;0.2 remains SOTA.
+              indefinite shear-Gram operator step).
             </span>
           </div>
         </div>

@@ -191,8 +191,7 @@ export default function Imp34016SigmaExponentVsLogT0Viz() {
         re-expression of the imp-33816 curve on a different axis, no proof, no
         fresh derivation. The inherited imp-3220/imp-3406/imp-33582 component
         model is NOT a rigorous asymptotic; changes no bound; imp-3066 K_a&gt;=0
-        untouched; C_mb GUE-conditional per imp-486 untouched; NO QED;
-        Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        untouched; C_mb GUE-conditional per imp-486 untouched; NO QED.
       </div>
     </div>
   );

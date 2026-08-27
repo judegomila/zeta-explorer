@@ -174,8 +174,7 @@ export default function Imp3374OverflowDegreeViz() {
         visualizes the imp-3253 reconciliation of two already-established overflow fractions. It
         establishes NO operator positivity and does not itself re-derive the degree-0 ~64% (that
         gap is a named imp-3253 sub-gap). RH-equivalent, necessary-but-not-sufficient. The
-        imp-3066 off-diagonal endpoint-Hankel obstruction remains untouched; Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA. No QED.
+        imp-3066 off-diagonal endpoint-Hankel obstruction remains untouched. No QED.
       </div>
     </div>
   );

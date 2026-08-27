@@ -267,7 +267,7 @@ export default function Imp34377ResidExpPoleCohortIndexPage() {
         already-published measurements. k* ~ 21.28 is a real, reproducible surrogate boundary attached
         to one specific inherited extrapolation, not a derived mathematical ceiling. It changes no
         bound and patches no literal. C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0
-        untouched; RH-equivalent, NO QED; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        untouched; RH-equivalent, NO QED.
       </div>
     </div>
   );

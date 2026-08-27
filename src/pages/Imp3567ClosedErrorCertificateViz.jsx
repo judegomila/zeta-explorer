@@ -131,8 +131,7 @@ export default function Imp3567ClosedErrorCertificateViz() {
         for the small-a moment-tail error of the A-weighted masses; it establishes no operator
         positivity. Mass-feasibility is necessary-but-not-sufficient, and the degree-2 face
         carries no feasibility comparison at all (imp-3469: D_2 = 0). The operator-level
-        K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA. (Worst tail/sharp-bound ratio across all
+        K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. (Worst tail/sharp-bound ratio across all
         rungs and a: {IMP3567_WORST_TAIL_OVER_SHARP.toFixed(3)}, strictly below 1.)
       </div>
     </div>

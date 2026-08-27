@@ -189,7 +189,6 @@ export default function Imp33594EnvelopeUnderReferenceLibmViz() {
         platform survey; it changes no bound and patches no literal. Mass-
         feasibility is necessary-but-not-sufficient; the operator-level
         positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

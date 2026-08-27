@@ -175,7 +175,7 @@ export default function Imp34873SigmaKneeD3HalvingLadderViz() {
         bound. C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched;
         far-tail exponent stays 1/2 (imp-3463); establishes no operator positivity; the
         E_flow-reinstatement sub-gap (imp-34796/imp-34820/imp-34837) is inherited UNCHANGED; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

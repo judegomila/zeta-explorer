@@ -181,7 +181,6 @@ export default function Imp34810CrossoverNStencilOrderBandViz() {
         the imp-34711-validated 1e100 window -- it certifies nothing about the true q3. C_C&nbsp;=&nbsp;
         (1/8)&radic;(3&pi;) (imp-2714) and C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&nbsp;
         &ge;&nbsp;0 untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

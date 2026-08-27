@@ -184,7 +184,7 @@ export default function Imp3633TwinSkewToeplitzGapLadderViz() {
         section-gap exponents and one amplitude ratio read off a converged Krylov reference
         spectrum, corroborating an EMPIRICAL a_j &prop; (j&sup2;-1) ordering, not deriving it. Does
         NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a &ge; 0
-        positivity. RH-equivalent; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        positivity. RH-equivalent.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

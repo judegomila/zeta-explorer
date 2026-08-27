@@ -173,8 +173,7 @@ export default function Imp34809SigmaKneeThirdOrderResidualBudgetViz() {
         numerical claim. Conditional-share diagnostic on the inherited imp-3220/imp-3406
         extrapolation, NOT an RH bound. C_mb GUE-conditional per imp-486 untouched; imp-3066
         K_a&nbsp;&ge;&nbsp;0 untouched; far-tail exponent stays 1/2 (imp-3463); establishes no
-        operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains
-        SOTA.
+        operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -188,8 +188,7 @@ export default function Imp34664PoleWindowBiasVarianceViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only, isRigorous false.
         Descriptive surrogate fit of the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; the C_mb GUE-conditional per imp-486 is untouched; changes no bound; establishes no
-        operator positivity; imp-3066 K_a&gt;=0 untouched; no RH verdict, NO QED; Platt-Trudgian
-        Lambda&lt;=0.2 remains SOTA.
+        operator positivity; imp-3066 K_a&gt;=0 untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

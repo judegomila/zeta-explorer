@@ -141,7 +141,7 @@ export default function Imp35347FixedPointContractionViz() {
         this contraction feeds remains a feature of the analytic surrogate 15&ndash;25 decades above the
         Platt&ndash;Trudgian verified-zero height (&asymp;3e12); the imp-35243 surrogate-fidelity assessment
         (R1&ndash;R4) stays OPEN, imp-35111a/imp-35174a are untouched by this page, establishes no operator
-        positivity, no RH claim, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity, no RH claim, NO QED.
       </div>
     </div>
   );

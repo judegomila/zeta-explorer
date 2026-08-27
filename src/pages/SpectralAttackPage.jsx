@@ -1332,8 +1332,7 @@ function ConditioningCollapseBars() {
           Structural diagnostic on the same representative degree-{IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING.construction.degree}{' '}
           monomial-moment truncation as imp-3066 &mdash; <strong style={{ color: 'var(--ink)' }}>not</strong> the
           section-26 Gram. The orthonormalized operator norm ({m.operatorNormGramSchmidt.toFixed(2)}) carries no
-          RH verdict; positivity was not attempted; this is not a proof or reduction. Platt-Trudgian
-          &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+          RH verdict; positivity was not attempted; this is not a proof or reduction.
         </div>
       </div>
     </div>
@@ -1360,7 +1359,7 @@ function G7PerronFloorHonestBanner() {
         the <em>open</em> admissible half-line, <strong style={{ color: 'var(--brass-dk)' }}>no uniform positive floor exists to certify
         a K_a&#8201;&ge;&#8201;0 argument from the kernel alone</strong> &mdash; that route must instead independently pin
         a&middot;U away from 0 (residual GAP-G7-SMIN, still open). Diagnostic on the same representative truncation;
-        no RH verdict; Platt-Trudgian &Lambda;&#8201;&le;&#8201;0.2 remains the rigorous SOTA.
+        no RH verdict.
       </div>
     </div>
   );

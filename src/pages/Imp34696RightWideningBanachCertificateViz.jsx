@@ -165,8 +165,7 @@ export default function Imp34696RightWideningBanachCertificateViz() {
         precision, not interval-arithmetic enclosures (imp-34676a sub-gap open: g(N) &lt; N above
         N_cross is sampled, not proved). Certifies a property of the inherited imp-3220/imp-3406
         surrogate crossover map; C_C 1/8 ansatz untouched; C_mb GUE-conditional per imp-486 untouched;
-        changes no bound; no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&lt;=0.2 remains SOTA.
+        changes no bound; no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

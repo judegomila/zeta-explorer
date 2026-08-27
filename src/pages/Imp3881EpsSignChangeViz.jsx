@@ -225,7 +225,7 @@ export default function Imp3881EpsSignChangeViz() {
         correction diagnostic; mass-feasibility is necessary-but-not-sufficient and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. The
         sign-change at n=149 is independently cross-checked across three quadrature families in
-        imp-3918. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        imp-3918.
       </div>
     </div>
   );

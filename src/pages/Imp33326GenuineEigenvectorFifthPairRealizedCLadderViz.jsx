@@ -194,7 +194,7 @@ export default function Imp33326GenuineEigenvectorFifthPairRealizedCLadderViz() 
         Confirms the imp-33272 surrogate order carries to the true eigenvectors but does NOT
         derive the per-rung value from first principles, does NOT re-certify the pairing
         (imp-3668), and adds NO new Lambda bound. imp-3066 K_a &ge; 0 UNTOUCHED. RH-equivalent,
-        NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        NO QED.
       </div>
     </div>
   );

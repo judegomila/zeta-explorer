@@ -117,7 +117,7 @@ export default function Imp34985PinnedProductWindowSensitivityViz() {
         the noise floor, and far too small to resolve on this chart. Viz-only page rendering imp-34956
         literals verbatim (no new bound). Measurement only on the inherited imp-3220/imp-3406 surrogate;
         C_mb GUE-conditional per imp-486; changes no bound; establishes no operator positivity; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

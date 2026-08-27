@@ -180,8 +180,7 @@ export default function Imp33931FartailFloorSensitivityScatterViz() {
         already-established imp-33708 floor-sensitivity measurement (isRigorous: false). The
         far-tail landmark N-values are ROBUST qualitatively (they always exist and stay ordered) but
         FRAGILE quantitatively (~2.1 decades of movement across the 10x floor sweep). Changes no
-        bound; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; RH-EQUIVALENT; NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+        bound; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; RH-EQUIVALENT; NO QED.
       </div>
     </div>
   );

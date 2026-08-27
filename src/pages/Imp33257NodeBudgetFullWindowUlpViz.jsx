@@ -209,8 +209,7 @@ export default function Imp33257NodeBudgetFullWindowUlpViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only; measures nothing
         new and makes no claim beyond what imp-33232 already established. Accuracy measurement/rule-design
         audit, RH-equivalent scale class; mass-feasibility is necessary-but-not-sufficient. Operator
-        positivity (imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0) is UNTOUCHED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA. NO QED; imp-33232 assertions left intact.
+        positivity (imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0) is UNTOUCHED. NO QED; imp-33232 assertions left intact.
       </div>
     </div>
   );

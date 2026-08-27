@@ -166,7 +166,7 @@ export default function Imp34963EflowCrossingStrengthPowerLawViz() {
         the GUE conditional (C_mb GUE-conditional per imp-486); the power-law origin argument is a
         hint, not a derivation. C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED; imp-3066 K_a&ge;0
         untouched; far-tail exponent stays 1/2 (imp-3463); changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

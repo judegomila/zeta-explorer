@@ -186,7 +186,6 @@ export default function Imp33300MajorantOverchargePlateauViz() {
         exact reframing only -- a finite 10-plateau [1e4, 1e6] measurement, not a certified
         N-uniform statement. Adds no new Lambda bound, does not tighten imp-3910's certified
         C &le; 54.56, and does not touch imp-3066's K_a &ge; 0 positivity. RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

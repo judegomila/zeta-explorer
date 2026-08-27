@@ -169,7 +169,6 @@ export default function Imp3256CrossvalPage() {
         <strong>one</strong> number, not two independently converged values. This is a same-object
         precision-rounding identity, not independent corroborating evidence. Numerical
         cross-validation only, RH-EQUIVALENT; the operator-positivity residual (imp-3066) is untouched.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

@@ -156,7 +156,7 @@ export default function Imp3612FitBiasDepthSweepViz() {
         this certifies the decay ORDER (p=2) of a fixed-weight Taylor remainder and explains a
         fit-bias artifact; it establishes NO operator positivity. RH-equivalent,
         necessary-but-not-sufficient; the imp-3066 K_a &ge; 0 sign-positivity obstruction is
-        UNTOUCHED. No RH verdict, no QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        UNTOUCHED. No RH verdict, no QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

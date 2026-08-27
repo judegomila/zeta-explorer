@@ -221,7 +221,7 @@ export default function Imp34779CrossoverGppCurvatureGuardViz() {
         dense cross-check (imported literals, no new computation). This guards the curvature bound of the
         INHERITED imp-3220/imp-3406 surrogate crossover map; it changes no bound. The C_mb GUE-conditional
         share per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are UNTOUCHED; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

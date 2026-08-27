@@ -193,7 +193,6 @@ export default function Imp33613BandCrossingCrossSolverNodeBudgetViz() {
         latticeJitterCaveat); the robust reading is the qualitative smallest-clearing-grid metric,
         not the exact 385/513 node counts. Mass-feasibility is necessary-but-not-sufficient; the
         operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

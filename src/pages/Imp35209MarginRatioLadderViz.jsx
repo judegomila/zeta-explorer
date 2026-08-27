@@ -206,8 +206,7 @@ export default function Imp35209MarginRatioLadderViz() {
         imp-35076 nine-rung margin-ratio ladder verbatim (no new computation) with the imp-35152 G-a
         between-rung gap shown schematically as shaded bands. Verification only, on the inherited
         model-cusp surrogate; does not discharge H3, H4, or gap G-a; establishes no operator
-        positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

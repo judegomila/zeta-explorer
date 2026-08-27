@@ -171,7 +171,7 @@ export default function Imp33570SigmaFarTailSlopeSqrtFractionViz() {
         &mdash; the underlying component model is the inherited imp-3220/imp-3406 extrapolation,
         NOT a rigorous asymptotic. C_C is GUE-conditional per imp-486; changes no bound; imp-3066
         K_a &ge; 0 remains untouched; no positivity, no bridge closure, no RH claim. No RH verdict,
-        NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

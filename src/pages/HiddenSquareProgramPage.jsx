@@ -233,7 +233,7 @@ export default function HiddenSquareProgramPage() {
                 <InlineMath math="R = G_{\rm pass}^{-1/2} G_{\rm shear} G_{\rm pass}^{-1/2}" /> is
                 RH-equivalent: a faithful, information-preserving restatement of <InlineMath math="K_a \succeq 0" />,
                 not a reduction to something cheaper. Platt{'–'}Trudgian{' '}
-                <InlineMath math="\Lambda \le 0.2" /> remains the rigorous SOTA.
+                <InlineMath math="\Lambda \le 0.2" />.
               </p>
             </div>
           </div>

@@ -108,7 +108,7 @@ export default function Imp34050EndpointPeakModelTournamentViz() {
         only, no proof, no fresh derivation. {IMP33982_ENDPOINT_PEAK_POWER_LAW_MODEL_SELECTION.finding.R3_verdict_and_caveat}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; the power law is fit
         by log-log OLS (a log-space, not response-space, optimum); C_mb GUE-conditional per imp-486
-        untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        untouched; NO QED.
       </div>
     </div>
   );

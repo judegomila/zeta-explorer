@@ -169,8 +169,7 @@ export default function Imp33832SaturationCurvatureHumpVsKViz() {
         derivation either. It gives the k = 6..13 hump ladder a visual surface confirming the
         global argmax sits at the k = {humpArgmaxK} crossover decade, an interior maximum rather
         than a window-edge artifact. No bound changes; establishes no operator positivity;
-        imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        imp-3066 K_a &ge; 0 remains untouched. No RH verdict, NO QED.
       </div>
     </div>
   );

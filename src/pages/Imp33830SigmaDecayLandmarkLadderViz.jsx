@@ -166,8 +166,7 @@ export default function Imp33830SigmaDecayLandmarkLadderViz() {
         -- imp-33828 changes no value and derives nothing new, and this page adds no new
         derivation either. It simply gives the six-landmark N-ordered cross-reference a visual
         surface. No bound changes; establishes no operator positivity; imp-3066 K_a &ge; 0
-        remains untouched. No RH verdict, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA.
+        remains untouched. No RH verdict, NO QED.
       </div>
     </div>
   );

@@ -109,8 +109,7 @@ export default function Imp35664FartailCrossingHeightMapSensitivityViz() {
         the imp-35577 crossings table verbatim; no new derivation, no bound changed. Discharges
         nothing: the imp-35337a surrogate-vs-true fidelity sub-gap stays OPEN; the imp-3220/imp-3406
         surrogate inheritance is UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no
-        bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        bound; establishes no operator positivity; no RH verdict, NO QED.
       </div>
 
       <RelatedLinks

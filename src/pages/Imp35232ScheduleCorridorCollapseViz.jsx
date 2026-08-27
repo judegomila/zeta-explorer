@@ -204,8 +204,7 @@ export default function Imp35232ScheduleCorridorCollapseViz() {
         imp-35220 tabulation literals verbatim (no new computation). Measurement on the inherited
         imp-3220/imp-3406 surrogate; imp-35127 I3 field-Lipschitz requirement stays OPEN (localized to
         the N poles at y=0, per imp-35196); C_mb GUE-conditional per imp-486 untouched; changes no
-        bound, establishes no operator positivity, no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        bound, establishes no operator positivity, no RH verdict, NO QED.
       </div>
     </div>
   );

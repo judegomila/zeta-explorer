@@ -213,7 +213,7 @@ export default function Imp34622EflowAttrFpFloorSlopeDriftViz() {
         is an inherited surrogate numerator, NOT a rigorous asymptotic; the component model is the
         inherited imp-3220/imp-3406 extrapolation; C_mb GUE-conditional per imp-486 UNTOUCHED;
         imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no operator positivity; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

@@ -127,7 +127,6 @@ export default function Imp34983SigmaKneeCrossingCmbSensitivityViz() {
         (imp-486), but the tight point-level landing on R&nbsp;~&nbsp;{R_DS} is C_mb-specific. Measurement
         only on the inherited imp-3220/imp-3406 surrogate; C_mb swept as a sensitivity knob, its pinned
         value UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

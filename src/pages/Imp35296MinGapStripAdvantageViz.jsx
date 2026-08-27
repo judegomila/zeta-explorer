@@ -160,7 +160,6 @@ export default function Imp35296MinGapStripAdvantageViz() {
         Assessment only; the residual missing input is still an a-priori g_min(t)&nbsp;&gt;&nbsp;0
         whole-trajectory bound (imp-35167 M2/M5), which stays OPEN; C_mb GUE-conditional (imp-486)
         untouched; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

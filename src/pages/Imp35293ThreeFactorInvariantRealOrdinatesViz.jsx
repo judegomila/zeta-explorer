@@ -168,7 +168,7 @@ export default function Imp35293ThreeFactorInvariantRealOrdinatesViz() {
         imp-35238 baked nearFrontTable/invariantTrajectory literals verbatim (no new computation).
         Measurement only; beta itself still diverges ~1/g_min toward the front, so M2/M5 stay OPEN;
         C_mb GUE-conditional (imp-486) untouched; changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda &le; 0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -324,8 +324,7 @@ export default function Imp34101SerialDependenceTestPanelViz() {
         sample reads the "cycle" as the single curved imp-33858 hump, not a stationary oscillation. This does
         not change the RMSE (~0.116, ~12% multiplicative), does not re-open the imp-33843 form selection, and
         touches no bound. The inherited imp-3220/imp-3406 component model is not a rigorous asymptotic; C_mb
-        GUE-conditional per imp-486 untouched; C_C 1/8 ansatz untouched; imp-3066 K_a&gt;=0 untouched; NO QED;
-        Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        GUE-conditional per imp-486 untouched; C_C 1/8 ansatz untouched; imp-3066 K_a&gt;=0 untouched; NO QED.
       </div>
     </div>
   );

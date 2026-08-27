@@ -181,7 +181,7 @@ export default function Imp36192I2TruncationBlowupViz() {
         documented Gronwall-vacuous exactly at this collision front. So none of the three
         obligations (G-step-error here, G-interval-enclosure, G-gronwall) is independently
         dischargeable. {IMP36250_SHARED_DELTA_LO_TRIAD_CROSS_REFERENCE.circularityStatement} All
-        three stay OPEN; NO QED; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA.
+        three stay OPEN; NO QED.
       </div>
     </div>
   );

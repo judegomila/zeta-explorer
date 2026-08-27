@@ -166,8 +166,7 @@ export default function Imp34981LandmarkGapReconstructionLadderViz() {
         is exact; the ladder shown here is entirely a sigma-to-N CONVERSION diagnostic on the
         inherited imp-3220/imp-3406 surrogate crossover map. C_mb GUE-conditional per imp-486 and
         C_C 1/8 ansatz UNTOUCHED; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound;
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

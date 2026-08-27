@@ -113,7 +113,7 @@ export default function Imp34852CmbSweepSignFlipLadderViz() {
         crossover map, NOT a rigorous asymptotic; sub-gap imp-34714a REMAINS OPEN (no machine certificate).
         C_mb is treated as a free knob -- this does NOT discharge the GUE conditional (imp-486). The
         C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) ansatz (imp-2642/imp-2643) is UNTOUCHED; changes no bound; no
-        operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

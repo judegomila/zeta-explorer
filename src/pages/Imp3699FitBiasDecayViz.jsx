@@ -230,8 +230,7 @@ export default function Imp3699FitBiasDecayViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement only -- this
         visualizes the imp-3670 observable decay-rate readout used inside a mass-feasibility
         diagnostic. It establishes NO operator positivity. RH-equivalent, necessary-but-not-sufficient.
-        The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched; Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA. Named residual sg-3670-lnn-saddle-not-asymptotic-at-n18.
+        The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched. Named residual sg-3670-lnn-saddle-not-asymptotic-at-n18.
       </div>
     </div>
   );

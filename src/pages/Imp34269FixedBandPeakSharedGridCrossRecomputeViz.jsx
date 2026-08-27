@@ -239,7 +239,7 @@ export default function Imp34269FixedBandPeakSharedGridCrossRecomputeViz() {
         Verification/cross-recompute only -- neither imp-34196 nor imp-34109 is strengthened or
         overturned, this only certifies they measure the same thing. Descriptive OLS surrogate,
         NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
-        K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        K_a&ge;0 untouched; NO QED.
       </div>
 
       <div

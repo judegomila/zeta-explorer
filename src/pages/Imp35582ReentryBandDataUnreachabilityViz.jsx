@@ -128,8 +128,7 @@ export default function Imp35582ReentryBandDataUnreachabilityViz() {
         iterate-COUNT, not a Lambda lever, so even a perfect R1t closure would move no bound;
         R1t and the imp-35243a certificate stay OPEN; C_mb GUE-conditional per imp-486
         UNTOUCHED; this page derives no remainder, discharges nothing, changes no bound,
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -240,8 +240,7 @@ export default function Imp34986CrossoverNumeratorPolynomialLadderViz() {
         hand-derived imp-34957 literals exactly (matches={String(matchesExtension)}). This is a
         verification of the INHERITED imp-3220/imp-3406 surrogate-map derivative signs ONLY. C_mb
         GUE-conditional per imp-486 and the C_C 1/8 ansatz are untouched; establishes no operator
-        positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2
-        remains SOTA.
+        positivity; changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -228,7 +228,7 @@ export default function Imp34939KrawczykHeadroomH2CeilingBandViz() {
         on the gamma(n)/k eps surrogate models of the imp-34687a directed-rounding layer, not the layer
         itself; imp-34714a REMAINS OPEN. C_C 1/8 ansatz (imp-2642/imp-2643) and C_mb GUE-conditional per
         imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

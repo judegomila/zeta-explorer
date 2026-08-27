@@ -98,8 +98,7 @@ export default function Imp35665PinskerBridgeViz() {
         the imp-35556 Pinsker-bridge literals verbatim; no new derivation, no bound changed.
         Discharges nothing: imp-35556a (no in-repo common functional lower-bounding E_coll from KL)
         and imp-35337a stay OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound;
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        establishes no operator positivity; no RH verdict, NO QED.
       </div>
 
       <RelatedLinks

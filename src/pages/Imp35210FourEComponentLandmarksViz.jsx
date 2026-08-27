@@ -147,8 +147,7 @@ export default function Imp35210FourEComponentLandmarksViz() {
         NOT a rigorous asymptotic. The L3 landmark is the sigma(N) = E_coll/E(N) = 1/2 crossover
         (imp-33723): sigma(N) itself is a GUE-conditional diagnostic SHARE of the surrogate, not a
         Lambda lever -- moving it changes no bound. The C_mb GUE-conditional per imp-486 is
-        UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&le;0.2 remains SOTA.
+        UNTOUCHED; establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

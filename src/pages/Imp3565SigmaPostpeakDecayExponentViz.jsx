@@ -246,8 +246,7 @@ export default function Imp3565SigmaPostpeakDecayExponentViz() {
         no proof, no reduction below RH. p(N) is a local central-difference exponent on the exact
         imp-3220/imp-3406/imp-3463 sub-terms, not a derived closed form; it quantifies the roadmap's
         qualitative "monotone decay toward 0" claim but does not construct the missing imp-3066
-        K_a &ge; 0 sign-positivity residual, which remains untouched. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        K_a &ge; 0 sign-positivity residual, which remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

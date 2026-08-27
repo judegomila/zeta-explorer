@@ -232,8 +232,7 @@ export default function Imp3658PlantedReplicaArgmaxDriftViz() {
         confirms the imp-3601 asserted drift law and the imp-3558
         discriminator, not a new bound on |P1|. No positivity, no bridge
         closure, NO QED. The imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0
-        positivity remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains
-        the rigorous SOTA.
+        positivity remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

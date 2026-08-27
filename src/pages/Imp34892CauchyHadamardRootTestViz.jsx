@@ -189,8 +189,7 @@ export default function Imp34892CauchyHadamardRootTestViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-34863 root/ratio/step-probe literals verbatim (no new computation). Measurement on the
         INHERITED imp-3220/imp-3406 surrogate; the C_mb GUE-conditional per imp-486 is UNTOUCHED;
-        changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        changes no bound; establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

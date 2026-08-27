@@ -291,7 +291,6 @@ export default function Imp3657SigmaCrossoverTcClosedformPinViz() {
         measurement/derivation only -- a conditional-share diagnostic, NOT an
         RH bound. No positivity, no bridge closure, NO QED. The imp-3066
         off-diagonal endpoint-Hankel K_a &ge; 0 positivity remains untouched.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

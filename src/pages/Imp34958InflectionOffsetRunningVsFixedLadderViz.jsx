@@ -229,7 +229,7 @@ export default function Imp34958InflectionOffsetRunningVsFixedLadderViz() {
         imp-34933 ladder/decayExponent/shrinkFactor literals verbatim (no new computation). Measurement
         on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 untouched; establishes no operator positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched;
-        changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        changes no bound; no RH verdict, NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

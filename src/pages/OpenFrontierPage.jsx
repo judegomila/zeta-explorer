@@ -1465,7 +1465,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'EXACT WHOLE-BLOCK PRODUCT · UNCONDITIONAL POSITIVE LIMSUP / RH-CONDITIONAL NEGATIVE RECURRENCE',
     title: 'The deep prefix block aggregates to a sign-changing ballot',
     formula:
-      'Y_N,δ=exp(Σ_{u=A_N}^{B_N}Λ₃₂,₂₁(105N,u)); unconditionally Y_N,δ>1 i.o.; RH ⇒ Y_N,1/128<1 i.o.',
+      'Y_N,δ=exp(Σ_{u=A_N}^{B_N}Λ₃₂,₂₁(105N,u)); unconditionally Y_N,δ>1 i.o; RH ⇒ Y_N,1/128<1 i.o.',
     detail:
       'Let G_M=B_M/P_M=∏_{v<M}K_v and L_N=2⌊105δN⌋+1. Multiplying every exact ordered prefix gives Y_N,δ={G₅₁₂₀N²¹G₂₂₀₅N⁶⁴/G₃₃₆₀N⁷⁴}^L_N∏_{u=A_N}^{B_N}G₃₂ᵤ²¹/G₂₁ᵤ³², simultaneously a finite factorial, prime-power, and Kᵥ comparison. Its shifted prime-square pole and an Oδ(N²) discrete-transfer lemma prove limsup log Y_N,δ/N⁵ᐟ²≥𝔅δ>0 unconditionally, hence Y_N,δ>1 infinitely often. For δ=1/128, RH plus T122 gives log Y_N,1/128≤−(21/2560−o(1))ND_N<0 infinitely often. Thus RH makes the exact product take both strict signs around one; this is recurrence, not a contradiction. ' +
       'The averaged multiplier has zeros z_n=log 2/log(32/21)+2πin/log(32/21)+O(1/n), with Re z_n→1.645595…>3/2. This blind lattice blocks the standard zero-free-multiplier/Landau converse only: no z_n is asserted to coincide with 1+ρ, and no alternative RH equivalence is disproved. At N=128, v₂(Y)=3544370084>0 while v₅(Y)=−9274951931<0, excluding divisibility in both orientations. Also G_{M+1}G_{M−1}/G_M² is >1 for composite M and <1 for prime M≥3, so neither global convexity nor concavity supports Jensen. These no-gos do not determine real order or RH.',
@@ -1817,7 +1817,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
       'ARBITRARY HISTORY-DEPENDENT RANDOMNESS REDUCES TO CRITICAL PREDICTABLE MARGINAL BUDGET · INDEPENDENT CORRELATION OPEN',
     title: 'Only the predictable marginal can carry the sign',
     formula:
-      'Σ(a_v−p_v)𝒞_c(v)=o(X³ᐟ²) a.s.;  P_(c,δ)(X)=Σ|p_v−δ||𝒞_c(v)|',
+      'Σ(a_v−p_v)𝒞_c(v)=o(X³ᐟ²) a.s;  P_(c,δ)(X)=Σ|p_v−δ||𝒞_c(v)|',
     detail:
       'Let a_v be any binary selector adapted to an arbitrary history and let p_v=E(a_v|F_(v−1)) be its predictable selection probability. The centered innovation Σ(a_v−p_v)𝒞_c(v) is always a martingale. On RH its quadratic variation is O_c(X²log⁴X), so Doob maximal inequality and Borel–Cantelli make it o(X³ᐟ²) almost surely—without independence, stationarity, Markov structure, or mixing. ' +
       'The selected cumulative therefore decomposes exactly into δ times the T139 wave, the predictable drift Σ(p_v−δ)𝒞_c(v), and a subcritical random error. If the absolute response budget Σ|p_v−δ||𝒞_c(v)| is o(X³ᐟ²), both critical excursions and both selected row signs survive. Conversely, eventual one-sidedness requires positive critical predictable response budget. This holds statewise for finite or countable history-dependent controllers and exact factorial/lcm products. ' +

@@ -170,8 +170,7 @@ export default function Imp35936ReqHeightMultipleSigmaViz() {
         re-running the bisection sweep at page load); measurement only; the ~
         {IMP35936_PT_ANCHOR.multiple.toFixed(2)}x figure is the multiple AT the PT-verified height, not
         an asymptotic floor -- the multiple would keep descending below it for smaller sigma / larger
-        height; establishes no operator positivity; imp-35337a stays OPEN; NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        height; establishes no operator positivity; imp-35337a stays OPEN; NO QED.
       </div>
 
       <RelatedLinks

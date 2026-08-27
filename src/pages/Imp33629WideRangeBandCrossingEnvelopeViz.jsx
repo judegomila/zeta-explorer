@@ -187,7 +187,7 @@ export default function Imp33629WideRangeBandCrossingEnvelopeViz() {
         measurement only, of an already-verified scan (imp-33599). It changes no bound and patches
         no literal (imp-33213/imp-33316/imp-33557/imp-33579/imp-33599 intact). Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is
-        UNTOUCHED. RH-equivalent, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        UNTOUCHED. RH-equivalent, NO QED.
       </div>
     </div>
   );

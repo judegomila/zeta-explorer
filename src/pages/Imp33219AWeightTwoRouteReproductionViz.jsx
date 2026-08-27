@@ -234,7 +234,6 @@ export default function Imp33219AWeightTwoRouteReproductionViz() {
         NOT bound the O(e<sup>-4 tau</sup>) Watson tail (sg-3844-watson-tail); this establishes no
         operator positivity, mass-feasibility is necessary-but-not-sufficient, and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

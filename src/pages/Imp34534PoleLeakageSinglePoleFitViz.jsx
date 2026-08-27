@@ -228,8 +228,7 @@ export default function Imp34534PoleLeakageSinglePoleFitViz() {
         fit only. The component model is the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous
         asymptotic; the residExp simple-zero structure is a numerical/structural observation, not a
         derivation; the C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no
-        operator positivity; imp-3066 K_a &ge; 0 untouched; no RH verdict, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains SOTA.
+        operator positivity; imp-3066 K_a &ge; 0 untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

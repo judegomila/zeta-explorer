@@ -144,7 +144,7 @@ export default function Imp3655FlowGapResidualLadderViz() {
         imp-3617 sub-gap imp-3617-fourthorder-fd-floor, it does NOT reach the ~1e-13 exact-identity
         floor; a plateau survives from the neglected O(eps<sup>4</sup>) term and the finite-difference
         curvature evaluation. The imp-3066 off-diagonal endpoint-Hankel K<sub>a</sub> &ge; 0 positivity
-        obstruction remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        obstruction remains untouched.
       </div>
     </div>
   );

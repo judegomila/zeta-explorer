@@ -216,8 +216,7 @@ export default function Imp34238SevenCrossingsOnsetLadderViz() {
         imp-34185 chart and shows the full onset ladder alpha = 1, 3, 5; does not re-derive the
         m_prime &rarr; C_ren map off-axis/off-exponent. H4 (imp-33766) is NOT discharged;
         G6a_shock_lipschitz stays OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
-        off-diagonal endpoint-Hankel K_a&gt;=0 UNTOUCHED; NO QED; Platt-Trudgian Lambda&lt;=0.2
-        remains the rigorous SOTA.
+        off-diagonal endpoint-Hankel K_a&gt;=0 UNTOUCHED; NO QED.
       </div>
     </div>
   );

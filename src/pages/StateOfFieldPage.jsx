@@ -35,7 +35,7 @@ const PROGRAMS = [
       'Model ζ near height T by the characteristic polynomial of a random unitary matrix (dictionary N ↔ log T). Predicts moment asymptotics (Keating–Snaith 2000, CFKRS recipe) and the Fyodorov–Hiary–Keating law for the maximum of |ζ| — the latter now essentially confirmed (Annals 2024).',
     obstruction:
       'A statistical/heuristic model. Only the k=1 (1918) and k=2 (1926) moments are proven; no asymptotic for k ≥ 3 exists. It supports RH powerfully (Montgomery–Odlyzko GUE spacing) but assumes it in most statements and supplies no operator.',
-    refs: 'Keating–Snaith (2000); Harper arXiv:1305.4618; Arguin et al.; FHK arXiv:2007.00988, 2307.00982',
+    refs: 'Keating–Snaith (2000); Harper arXiv:1305.4618; Arguin et al; FHK arXiv:2007.00988, 2307.00982',
     engages: [
       { to: '/pair-correlation', label: 'Pair correlation (this program)' },
       { to: '/gue-comparison', label: 'GUE comparison' },

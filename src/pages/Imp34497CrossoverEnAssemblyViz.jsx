@@ -142,7 +142,6 @@ export default function Imp34497CrossoverEnAssemblyViz() {
         assembly and the L_pt comparison are reused verbatim from imp-34453. Measurement only within
         the inherited imp-3220/imp-3406 component model, NOT a rigorous asymptotic; C_mb
         GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&le;0.2 remains SOTA.
       </div>
     </div>
   );

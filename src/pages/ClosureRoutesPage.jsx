@@ -549,7 +549,6 @@ function OffDiagHankelObstructionPanel() {
         cover fails nor that it holds on the genuine Gram. The deliverable is only the existence and
         magnitude of the off-diagonal cross-terms and the strictly-positive operator/diagonal gap that
         scalar domination cannot reach. Positivity was <strong>not attempted</strong>.
-        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3066-offdiagonal-hankel-obstruction.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
@@ -628,7 +627,6 @@ function AnalyticCeilingConcentratingFamilyPanel() {
         Rigorous NEGATIVE result about the SCALAR cosh passive core ONLY, proved over the full
         L2([0,U]) span (not merely this trial family). Does NOT touch the operator-positivity
         residual K<sub>a</sub>&thinsp;&ge;&thinsp;0, makes NO claim the cover holds or fails, carries NO RH verdict.
-        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3288-analytic-ceiling-lemma.js &mdash; a={L.a}, U={L.U}, concentrating ladder &delta;&isin;[{ladder[n - 1].delta},{ladder[0].delta}].
@@ -715,8 +713,7 @@ function ConditionalShareUShapePanel() {
         <strong style={{ color: '#c23a1c' }}>Scope (imp-3220):</strong>{' '}
         ASSESSMENT ONLY: E<sub>coll</sub> is the sole GUE-conditional sub-term (C<sub>H</sub> = 1/8 ansatz, the
         C<sub>mb</sub>&thinsp;&le;&thinsp;1 conditional of imp-486); E<sub>flow</sub> and E<sub>trunc</sub> are already
-        unconditionally rigorous. No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian
-        &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        unconditionally rigorous. No positivity, no bridge closure, no RH claim, NO QED.
       </div>
       <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(109,85,184,0.05)', border: '1px solid rgba(109,85,184,0.18)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
         <strong style={{ color: '#6d55b8' }}>C<sub>H</sub> load-bearing note (imp-3324/imp-3392):</strong>{' '}
@@ -753,8 +750,7 @@ function ConditionalShareUShapePanel() {
         does not vanish linearly in thr: imp-34248 factors it into a linear target-share prefactor and a
         log-softened E<sub>flow</sub> ratio, giving a super-linear composite decay exponent &asymp;{IMP34248_CROSSOVER_SURPLUS_SMALL_THR_ASYMPTOTIC.olsFits.deep_tail_composite_slope}
         {' '}(deep-tail OLS) &mdash; strictly faster than thr, strictly slower than thr<sup>3</sup>. All three are
-        derivation/measurement only on the inherited extrapolation component model; NO QED, Platt&ndash;Trudgian
-        &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        derivation/measurement only on the inherited extrapolation component model; NO QED,.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3220-en-bridge-fidelity-frontier.js &mdash; N&isin;{'{2..10'}<sup>6</sup>{'}'}, dual-axis (&sigma;(N) left, E_coll/E_flow right).
@@ -1128,8 +1124,7 @@ function GKFamilyHandoverPanel() {
         <strong style={{ color: '#3f6b86' }}>Scope (imp-3520):</strong>{' '}
         UX/visualization only, reusing the identical imp-3486/imp-3465/imp-3406 sub-term formulas &mdash; no
         re-derivation, frontier-direction. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity
-        (imp-3066) untouched, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains
-        the rigorous SOTA.
+        (imp-3066) untouched, no RH claim, NO QED.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3486-critical-decay-exponent.js formulas recomputed at N&isin;[10<sup>2</sup>,10<sup>7</sup>]
@@ -1233,7 +1228,7 @@ function CInfThirdExtrapolationLadderPanel() {
         The Wynn top-triple estimate lands {m.gapAboveBand > 0 ? `${m.gapAboveBand.toExponential(2)} above` : 'inside'} the
         imp-3407 band top, so the three-route min-max span ({m.threeRouteSpan.toExponential(2)}) did NOT tighten versus
         the prior two-route spread ({m.priorSpread.toExponential(2)}). Certification only &mdash; no closed form, no
-        positivity, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        positivity, no RH claim, NO QED.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3445-C-inf-third-extrapolation-wynn.js &mdash; U&isin;{'{'}10,15,22.5,33.75{'}'}, h=0.025,
@@ -1334,7 +1329,6 @@ function Degree0VsDegree2KLadderPanel() {
         degree-2 (absolute) mass, which instead scales as a&sup2; (U-independent, fixed by the second
         genuine-Phi autocorrelation moment M<sub>2</sub>). RH-EQUIVALENT, necessary-but-not-sufficient;
         operator positivity (imp-3066) untouched, no RH verdict.
-        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3469-degree2-bridge-mass-scaling.js &mdash; base cell (a,U)=(0.5,6), s=3, k&isin;{'{'}2,3,4,6,8{'}'}.
@@ -1629,7 +1623,6 @@ function Degree2DeficitAThresholdPanel() {
         B<sub>2</sub>/D<sub>2</sub> is defined (a&gt;aStar) it is enormous, so no physically meaningful
         degree-2 feasibility ratio emerges within the small-a construction band; the imp-3469
         D<sub>2</sub>=0 conclusion stands. Operator positivity (imp-3066) UNTOUCHED, no RH verdict.
-        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3487-degree2-deficit-a-threshold.js &mdash; NPHI=10, T_A=6, aStar bisected to 200 iters.
@@ -1748,7 +1741,7 @@ function CaptureConstantIndependentNormConvergencePanel() {
         Cross-validation only &mdash; an independent Krylov/Jacobi operator-norm recomputation confirms the
         imp-3467 assembled C is not a power-iteration artifact. Does NOT construct the missing magnitude and
         does NOT attempt the imp-3066 K<sub>a</sub>&nbsp;&ge;&nbsp;0 positivity; RH-EQUIVALENT, no RH verdict,
-        no QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        no QED.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3485-Ttilde-independent-operator-norm-crossval.js &mdash; U&isin;{'{'}4,6,8,10,12,16,20{'}'},
@@ -1865,7 +1858,7 @@ function PSDPeakSlopeStationarityPanel() {
         Locates the peak-slope maximizer to machine precision; does NOT give &xi;* or the sup an
         elementary closed form (P2(&xi;)=0 is transcendental). C<sub>&infin;</sub>&asymp;0.1751 stays a
         determined number. RH-EQUIVALENT, necessary-but-not-sufficient; operator positivity (imp-3066)
-        untouched, no RH verdict. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        untouched, no RH verdict.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3470-Ttilde-spectral-peak-xistar-obstruction.js &mdash; baked reference profile,
@@ -1932,8 +1925,7 @@ function TtildeClosedFormAndCertificationPanel() {
         &xi;* or &Phi;hat), so C<sub>&infin;</sub>&asymp;0.1751 remains a determined number, not a closed
         constant; the certification cross-checks that number, it does not construct one. Neither module
         attempts the imp-3066 K<sub>a</sub>&nbsp;&ge;&nbsp;0 positivity. RH-EQUIVALENT,
-        necessary-but-not-sufficient, no RH verdict, NO QED. Platt&ndash;Trudgian
-        &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        necessary-but-not-sufficient, no RH verdict, NO QED.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3400-Ttilde-spectral-slope-closed-form.js, imp-3407-C-inf-independent-extrapolation-certification.js
@@ -2022,7 +2014,6 @@ function SigmaCHSaturationPanel() {
         <strong style={{ color: '#c23a1c' }}>Scope (imp-3324):</strong>{' '}
         ASSESSMENT ONLY: C<sub>H</sub> is load-bearing for the absolute E<sub>coll</sub> budget (linear) but NOT for the
         conditional share &sigma;, which saturates toward 1. No positivity, no bridge closure, no RH claim, NO QED.
-        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3324-sigma-CH-sensitivity.js &mdash; N*=10<sup>6</sup>, C<sub>H</sub>&isin;[0.0625,&thinsp;1.0], dual-axis (&sigma;(C_H) left, &sigma;(1&minus;&sigma;) right).
@@ -2100,7 +2091,7 @@ function CaptureOvershootKneePanel() {
         <strong style={{ color: '#c23a1c' }}>Scope (imp-3219):</strong>{' '}
         RH-EQUIVALENT diagnostic only: locating the capture overshoot peak is a cutoff-localization
         measurement, NOT a construction of the missing operator-norm magnitude or the K<sub>a</sub>&thinsp;&ge;&thinsp;0
-        positivity residual. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+        positivity residual.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: 'var(--font-mono)' }}>
         Source: imp-3219-mupass-bridge-overshoot-knee.js &mdash; a=0.5, U=6, N=200, fine lag-band sweep.
@@ -2208,7 +2199,6 @@ function RawBasisOpGapDegreeSweepViz() {
           Growing &#x2016;R&#x2016; in the raw monomial basis is NOT a claim that the cover fails &mdash; the
           basis is not the section-26 Gram and the divergence is a known monomial-conditioning effect.
           Orthogonalizing the basis DOES tame the gap: imp-3086 (see correction below) finds the gap collapses from ~3.63 to ~0.09 &mdash; largely a basis-conditioning artifact &mdash; while a smaller residual gap survives.
-          Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -2291,7 +2281,6 @@ function BasisConditioningCorrectionPanel() {
           Measured on the same representative degree-4 monomial-moment truncation as imp-3066
           (a=0.5, U=6); NOT the section-26 Gram. The orthogonalized operator norm (~{M.operatorNormGramSchmidt.toFixed(3)})
           carries no RH verdict. Positivity not attempted; bare-V pilot not re-run.
-          Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -2550,7 +2539,7 @@ function OperatorGapCollapseViz() {
           Measured on the SAME representative degree-4 monomial-moment truncation as imp-3066 (chosen to
           EXHIBIT the off-diagonal cross-terms), NOT the section-26 Gram. Only the a&middot;U scaling of the
           obstruction magnitude is asserted — the gap claims neither that the cover fails nor that it holds.
-          Positivity was not attempted. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+          Positivity was not attempted.
         </p>
       </div>
 
@@ -2676,7 +2665,7 @@ function DeHomogOffDiagSTrendViz() {
         <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Measured on the same representative degree-4 monomial-moment truncation as imp-3066/3085, NOT the
           section-26 Gram. The scale invariance is a property of the de-homogenized R, not the bare Gram
-          entries. Positivity was not attempted. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+          entries. Positivity was not attempted.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -2848,8 +2837,7 @@ function PhiProfileLogLogViz() {
         &phi;(s)e<sup>s</sup>/K&rarr;1 as s&rarr;&infin;
         (ratio within ~10<sup>&minus;7</sup> of 1 at s=20).{" "}
         imp-3105 landmarks: s*&asymp;1.48895 (phi=1), s_c1&asymp;1.91504 (handoff; exact phi&asymp;0.378 &ne; envelope&asymp;0.157), s_c2&asymp;4.31751 (re-crossing, artifact).{" "}
-        Degree-0 scalar measure only; RH-EQUIVALENT; NOT the operator step.{" "}
-        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        Degree-0 scalar measure only; RH-EQUIVALENT; NOT the operator step.{" "}.
       </p>
     </div>
   );
@@ -3224,8 +3212,7 @@ function BridgeMarginRatioCurvePanel() {
         </div>
         <p style={{ color: "#877b67", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           B/D &gt; 1 kills the impossibility option but is necessary-but-not-sufficient; the operator-level
-          K&#x2090;&thinsp;&#x2265;&thinsp;0 endpoint-Hankel obstruction (imp-3066) is untouched. Platt&ndash;Trudgian
-          &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          K&#x2090;&thinsp;&#x2265;&thinsp;0 endpoint-Hankel obstruction (imp-3066) is untouched.
         </p>
       </div>
       <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
@@ -3343,7 +3330,6 @@ function AsymOnsetDerivativeViz() {
           c*=0.93185 is algebraic. This closes the asymmetric multi-body class onset for the
           R&rarr;&infin; opposite-lattice configuration only; whether that class is the GLOBAL
           infimum remains an open sub-gap. The 0.72 basin is preserved (margin=0.1828).
-          Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -3441,7 +3427,7 @@ function CShockMarginCurveViz() {
         </div>
         <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Certifies an already-proven cap (imp-2786: C<sub>shock</sub> &lt; 1/3 in closed form). NOT a new
-          bound, does NOT close C<sub>H</sub>. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+          bound, does NOT close C<sub>H</sub>.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -3550,7 +3536,7 @@ function CShockSubMarginCurveViz() {
         <p style={{ color: "#877b67", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Diagnostic of the imp-2786 proven cap. The crossing N<sub>*</sub>&asymp;203 identifies where the closed form
           fails but physically realized assemblies (N&ge;2458) sit far above it with margin &ge; 0.0447 (imp-3132 floor
-          (2&minus;&radic;3)/6). NOT a new bound; does NOT close C<sub>H</sub>. Platt&ndash;Trudgian &Lambda;&le;0.2 remains SOTA.
+          (2&minus;&radic;3)/6). NOT a new bound; does NOT close C<sub>H</sub>.
         </p>
       </div>
       <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
@@ -3666,7 +3652,7 @@ function ResidualGapLimitCurveViz() {
           The limit curve G(s)=tanh(s)&minus;tanh(s/2) is on the same representative
           monomial-moment truncation as imp-3066/imp-3086/imp-3102/imp-3104/imp-3125; NOT the
           section-26 Gram. A strictly-positive surviving residual gap neither claims the cover
-          holds nor that it fails. Platt&ndash;Trudgian &Lambda;&le;0.2 remains rigorous SOTA.
+          holds nor that it fails.
         </div>
       </div>
       <p style={{ marginTop: 8, color: "#877b67", fontSize: 11, fontFamily: mono }}>
@@ -3871,7 +3857,6 @@ function ResidualGapDegreeSweepViz() {
           Measured on the same monomial-moment truncation as imp-3086/3102/3104; NOT the section-26 Gram.
           Diagonal floor tanh(aU/2) = tanh(1.5)&asymp;{floorDiag.toFixed(5)} is pinned DEG-independent at
           the constant direction j=0. A saturating, strictly-positive survivor carries no cover claim.
-          Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -4036,7 +4021,7 @@ function CoshMonomialConditioningViz() {
         This quantifies WHERE the monomial-moment orthogonalizer can be trusted &mdash; NOT whether
         the cover holds or fails. The trust boundary is setup-dependent (a=0.5, U=6, NQ=4000
         midpoint panels, IEEE double). A higher-precision or better-conditioned basis would push
-        it further. Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
+        it further.
       </div>
       <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
         Source: imp-3153-cosh-monomial-conditioning-ceiling.js &mdash; a=0.5, U=6, DEG&isin;&#123;2,4,6,8,10,12,14,16&#125;, 1/eps&asymp;{recEps.toExponential(2)}.
@@ -4652,7 +4637,7 @@ function SmoothCoreLagContrastCeilingViz() {
           Gaussian/exponential family never gets that far: its lag-contrast ratio is capped
           well below verdict for every weight and length scale sampled, sharpening the search
           toward a sharper-than-smooth lag structure. Measurement only, RH-equivalent, no
-          positivity attempted; Platt-Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+          positivity attempted.
         </div>
       </div>
     </div>
@@ -4732,8 +4717,7 @@ function MultiharmonicScalarCoreSaturationViz() {
           100% of the genuine-&Phi; autocorrelation mass sits below lag &asymp;&thinsp;0.435, where even
           cosh(2at)/cosh(at) exceeds 1 by only &asymp;&thinsp;7%, so every harmonic looks like the constant 1 on
           the support that controls the shear. Confirms the section26-mupass "no scalar core works" verdict from a
-          strictly larger family than imp-2686 tested. Measurement only, RH-equivalent, no positivity attempted;
-          Platt-Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+          strictly larger family than imp-2686 tested. Measurement only, RH-equivalent, no positivity attempted.
         </div>
       </div>
     </div>
@@ -5029,7 +5013,7 @@ function USweeOverflowFractionViz() {
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3199-overflow-fraction-cell-sweep.js &mdash; DIAGNOSTIC; overflow-support only;
-        NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        NOT a reduction.
       </p>
     </div>
   );
@@ -5135,7 +5119,7 @@ function UnderflowArtifactVsTrueFractionViz() {
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3216-overflow-support-length-closed-form.js (uLadder) &mdash; DIAGNOSTIC; overflow-support
-        geometry only; NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        geometry only; NOT a reduction.
       </p>
     </div>
   );
@@ -5249,7 +5233,7 @@ function TruncationThresholdHorizonViz() {
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3322-spread-contraction-discriminator.js (d1ThresholdSweep) &mdash; DIAGNOSTIC; overflow-support
-        geometry only; NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        geometry only; NOT a reduction.
       </p>
     </div>
   );
@@ -5363,7 +5347,7 @@ function TwoTailUnderflowHorizonsViz() {
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3309-two-tail-underflow-horizons.js &mdash; closed-form horizons vs measured largest-representable-lag
         agree to &lt;3e-3; band width {M.bandWidthClosed.toFixed(5)}&thinsp;&asymp;&thinsp;(1/4)ln2. DIAGNOSTIC; confirms
-        imp-3216 finding E2; NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        imp-3216 finding E2; NOT a reduction.
       </p>
     </div>
   );
@@ -5525,7 +5509,7 @@ function NuMuRatioDivergenceViz() {
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3384-interior-crossover-below-horizon.js &mdash; DIAGNOSTIC; overflow-support geometry only;
-        NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+        NOT a reduction.
       </p>
     </div>
   );
@@ -5717,7 +5701,7 @@ function BridgeSignMagnitudeDecompositionViz() {
         </div>
         <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           Sign result is trivial (follows from Phi&thinsp;&ge;&thinsp;0) and does not advance K&#x2090;&thinsp;&ge;&thinsp;0.
-          Positivity was not attempted. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          Positivity was not attempted.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -5836,7 +5820,6 @@ function CaptureRatioVsUViz() {
           r &#8776; C/U is a leading-order fit (r&middot;U drifts {M.ratioTimesUMin.toFixed(3)}&ndash;{M.ratioTimesUMax.toFixed(3)}
           {' '}across the grid), not an exact identity, and the ratio is essentially a-independent at fixed U
           (unlike the imp-3085 gap, which tracks s = a&middot;U). Positivity was not attempted.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -5957,7 +5940,7 @@ function RawDiagonalRDegreeGrowthLawViz() {
           The hollow degree markers (D&thinsp;&ge;&thinsp;4) are IEEE-754 double precision-floored, not
           reliable decay data &mdash; the geometric law is fit only on D&thinsp;&isin;&thinsp;{'{'}1,2,3{'}'}
           and extrapolated. RH-EQUIVALENT diagnostic; the off-diagonal endpoint-Hankel step (imp-3066)
-          remains the lone obstruction, untouched. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          remains the lone obstruction, untouched.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6038,8 +6021,7 @@ function CInfFixedResolutionConvergenceViz() {
           C&#8734; is a determined number fixed by Richardson extrapolation of the fixed-resolution
           ladder (two independent extrapolations agree to &#8776;1e&minus;4), not a closed-form
           identity; the imp-3066 off-diagonal endpoint-Hankel K&#8339;&thinsp;&ge;&thinsp;0 magnitude
-          remains the lone obstruction. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains
-          the rigorous SOTA.
+          remains the lone obstruction.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6125,7 +6107,7 @@ function SinhToLinearShearLimitViz() {
           The equality is certified numerically (Richardson extrapolation + power iteration), not by a symbolic
           proof that the O(a&sup2;) sinh-nonlinearity vanishes exactly in the norm ratio. The a&#8209;free
           linear-shear characterization is diagnostic; the imp-3066 off-diagonal endpoint-Hankel magnitude remains
-          the lone obstruction. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          the lone obstruction.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6266,7 +6248,7 @@ function SinhResidualVanishingRateViz() {
           The O(a&sup2;) rate is certified numerically (log-log fit + point-to-point local exponents), matching the
           sinh(a&Delta;) = a&Delta;(1 + (a&Delta;)&sup2;/6 + &hellip;) expansion, not a symbolic proof that a&sup2; is the
           exact leading correction. Diagnostic only; the imp-3066 off-diagonal endpoint-Hankel magnitude remains the
-          lone obstruction. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          lone obstruction.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6409,8 +6391,7 @@ function CofUScalingViz() {
         <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
           q &#8776; {q.toFixed(3)} and q_lin &#8776; {qLin.toFixed(3)} are fitted numerically over a 7-point U-grid, not
           derived symbolically; the O(a&sup2;) rate itself stays pinned (p(U) = 2.000 at every cutoff). Diagnostic
-          only; the imp-3066 off-diagonal endpoint-Hankel magnitude remains the lone obstruction. Platt&ndash;Trudgian
-          &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          only; the imp-3066 off-diagonal endpoint-Hankel magnitude remains the lone obstruction.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6518,8 +6499,7 @@ function CaptureRatioShearGramClusterSummaryPanel() {
           Every diagnostic above is a reconciliation, convergence check, or algebraic identity at the scalar /
           rank-2 level. None of them touch the off-diagonal endpoint-Hankel operator contraction
           K&#x2090;&thinsp;&#x2265;&thinsp;0 (imp-3066), which remains the single irreducible RH-equivalent
-          residual across the entire cluster. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the
-          rigorous SOTA; NO QED.
+          residual across the entire cluster; NO QED.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6627,8 +6607,7 @@ function MomentLadderClusterSummaryPanel() {
           A-weighted degree-2 (absolute-measure) Taylor structure. None of them touch the off-diagonal
           endpoint-Hankel operator contraction K&#x2090;&thinsp;&#x2265;&thinsp;0 (imp-3066), which remains the
           single irreducible RH-equivalent residual across the entire cluster. Mass-feasibility is
-          necessary-but-not-sufficient and the degree-2 face carries no feasibility ratio at all. Platt&ndash;Trudgian
-          &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA; NO QED.
+          necessary-but-not-sufficient and the degree-2 face carries no feasibility ratio at all; NO QED.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6693,7 +6672,7 @@ function Imp3351CellIndependenceTable() {
           every cell &mdash; the symmetric-about-0 spectrum is an algebraic consequence of the rank-2 hollow
           antisymmetry Gshear&nbsp;=&nbsp;pq<sup>T</sup>&thinsp;&minus;&thinsp;qp<sup>T</sup>, independent of (a, U, &Phi;).
           This is a structural diagnostic, not a positivity result; the imp-3066 off-diagonal endpoint-Hankel
-          residual is untouched. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          residual is untouched.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -6803,7 +6782,7 @@ function Imp3404FullSpectrumViz() {
           fraction 2&mu;<sup>2</sup>/||G<sub>shear</sub>||<sub>F</sub><sup>2</sup> is 1 to within {m.maxExtremalEnergyFractionDev.toExponential(1)}
           at every cell &mdash; the two extremes carry the ENTIRE spectral energy, so there are no intermediate eigenvalues to vary
           from cell to cell. This strengthens imp-3351 (extremal identity only) to the whole spectrum, but changes nothing about the
-          binding imp-3066 off-diagonal endpoint-Hankel residual. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
+          binding imp-3066 off-diagonal endpoint-Hankel residual.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -7046,7 +7025,6 @@ function LeftmostZeroDriftVsLnNphiViz() {
           u<sub>0</sub>(NPHI) is a pure truncation artifact of the finite sum (the untruncated de&nbsp;Bruijn&ndash;Newman
           &Phi; is positive on all of R) and recedes to &minus;&infin; as NPHI grows; it never touches the
           imp-3197/imp-3257 [0,U] window and leaves the imp-3066 operator-norm magnitude obstruction untouched.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -7109,7 +7087,6 @@ function Imp3402DriftRateFitPanel() {
         &Phi;<sub>NPHI</sub> (the untruncated de Bruijn&ndash;Newman &Phi; is positive on all of R); the
         imp-3197/imp-3257 [0,U] window and the binding imp-3066 operator-norm magnitude obstruction
         K<sub>a</sub>&nbsp;&ge;&nbsp;0 are entirely untouched. No new positivity, no reduction, NO QED.
-        Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3402-leftmost-zero-drift-rate-fit.js; parent: imp-3347; refined by: imp-3403.
@@ -7281,7 +7258,6 @@ function Imp3403ResidualShrinkLawViz() {
           correction, and the Gaussian curvature enters only at the subdominant +O(1/NPHI&sup2;) order. The
           leftmost zero is a truncation artifact receding to &minus;&infin; (the untruncated &Phi; is positive on
           all of R); the imp-3066 off-diagonal endpoint-Hankel obstruction remains untouched.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -7436,7 +7412,6 @@ function ResidualGapConvergenceRateViz() {
           Empirical least-squares rate over DEG in &#123;2,4,6,8,10&#125; inside the imp-3104 numerically-trustworthy
           range; NOT a proved asymptotic order. The off-diagonal endpoint-Hankel operator step (imp-3066)
           remains the lone obstruction and is untouched.
-          Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains the rigorous SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -7536,7 +7511,7 @@ function ResidualExponentSLimitViz() {
           corroborating-only. The s&nbsp;&rarr;&nbsp;&infin; limit is UNRESOLVED &mdash; past s&nbsp;&asymp;&nbsp;6, G(s)&nbsp;&rarr;&nbsp;0
           forces resid into catastrophic cancellation below the numerical floor. The finding is that p does NOT
           saturate to 2 within reach, NOT that a specific limit was established. The endpoint-Hankel operator
-          step (imp-3066) remains the lone obstruction and is untouched. Platt&ndash;Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
+          step (imp-3066) remains the lone obstruction and is untouched.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -7917,7 +7892,6 @@ export default function ClosureRoutesPage() {
         </div>
         <p style={{ marginTop: 12, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3007-mupass-overflow-cover.js &mdash; RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction.
-          Platt&ndash;Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
         </p>
       </div>
 
@@ -8025,7 +7999,7 @@ export default function ClosureRoutesPage() {
         </div>
         <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3199-overflow-fraction-cell-sweep.js &mdash; DIAGNOSTIC; overflow-support only;
-          NOT a reduction; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+          NOT a reduction.
         </p>
         <div
           style={{
@@ -8053,7 +8027,7 @@ export default function ClosureRoutesPage() {
           double-precision snapshots</strong>, not deleted, but should be read through this correction. See{' '}
           <span style={{ fontFamily: mono, color: '#877b67' }}>imp-3216-overflow-support-length-closed-form.js</span>{' '}
           (verdict: {IMP3216_OVERFLOW_SUPPORT_LENGTH_CLOSED_FORM.measured.verdict}). DIAGNOSTIC correction; no new
-          positivity; Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains SOTA.
+          positivity.
         </div>
       </div>
 
@@ -8221,7 +8195,6 @@ export default function ClosureRoutesPage() {
           R&thinsp;=&thinsp;G<sub>pass</sub><sup>&minus;&frac12;</sup> G<sub>shear</sub> G<sub>pass</sub><sup>&minus;&frac12;</sup> contraction)
           is explicitly <strong style={{ color: '#c23a1c' }}>out of scope and untouched</strong>.
           RH-EQUIVALENT; STRUCTURAL/DIAGNOSTIC; NOT a reduction; NOT a proof.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </div>
         <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3065-residual-deficit-quadrature-2026-06-30.js
@@ -8479,7 +8452,6 @@ export default function ClosureRoutesPage() {
           DEG-trend (FIXED, strictly positive) and the reproduced ~19.4-20% overflow fraction
           are the deliverables. Necessary-but-NOT-sufficient: a nonzero deg-2 deficit neither
           proves nor disproves the operator cover. No RH verdict.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </div>
         <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3154-genuine-deg2-deficit-degree-sweep.js &mdash; a=0.5, U=6, N=200, DEG&isin;&#123;2,4,6,8,10&#125;.
@@ -8532,7 +8504,6 @@ export default function ClosureRoutesPage() {
           NO RH verdict: they neither claim the cover holds nor that it fails. Only the a&middot;U
           scaling of the basis-invariant survivor is asserted. Positivity was not attempted;
           the bare-V pilot (imp-1240) is not re-run.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </div>
         <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3102-orthogonalized-gap-aU-grid.js &mdash; a&isin;&#123;0.5,0.3,0.2,0.1&#125;, U&isin;&#123;4,6,8,10&#125;, DEG=4, NQ=4000.
@@ -8588,7 +8559,6 @@ export default function ClosureRoutesPage() {
           NOT the section-26 Gram. The measured &#x2016;R<sub>orth</sub>&#x2016; and DEG-trend carry
           NO RH verdict: a converging bounded norm neither claims the cover holds nor that it fails.
           Positivity not attempted; bare-V pilot (imp-1240) not re-run.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </div>
         <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3104-orthogonalized-opnorm-degree-sweep.js &mdash; a=0.5, U=6, DEG&isin;[2,12], NQ=4000.
@@ -8670,7 +8640,6 @@ export default function ClosureRoutesPage() {
           The integrability result for the imp-3064 scalar ratio &phi;(s) neither proves nor weakens RH;
           the off-diagonal endpoint-Hankel operator step (imp-3066) remains the lone obstruction and
           is untouched. No finite mean to report.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 remains the rigorous SOTA.
         </div>
         <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3106-excess-fraction-integrability.js &mdash; s0=arcsinh(1)&asymp;0.88137, C&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.onsetDivergence.onsetConstant.toFixed(5)}, K&asymp;{IMP3106_EXCESS_FRACTION_INTEGRABILITY.convergentTail.tailConstant.toFixed(5)}.

@@ -123,7 +123,7 @@ export default function Imp34876ShrinkRatioLimitViz() {
         ladder/deepProbes literals verbatim (no new computation). Accuracy assessment on the inherited
         imp-3220/imp-3406 surrogate crossover map; the C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz
         (imp-2642/imp-2643) are UNTOUCHED; changes no bound; establishes no operator positivity; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

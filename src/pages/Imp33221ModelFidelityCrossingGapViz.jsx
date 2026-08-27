@@ -244,7 +244,7 @@ export default function Imp33221ModelFidelityCrossingGapViz() {
         between the imp-3665 super-exponential surrogate A(tau) and the real Phi-autocorrelation
         A(tau); it establishes no operator positivity, mass-feasibility is
         necessary-but-not-sufficient, and the operator-level K_a &ge; 0 sign-positivity residual
-        (imp-3066) remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        (imp-3066) remains untouched.
       </div>
     </div>
   );

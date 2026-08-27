@@ -216,8 +216,7 @@ export default function Imp34439ThirdDiffPoleOrderViz() {
         singularity; the component model is the inherited imp-3220/imp-3406 extrapolation, NOT a
         rigorous asymptotic; the fixed step h = 0.25 is not small versus x near the pole, so the
         reported order is effective, not a rigorous continuous-limit exponent; the C_mb GUE-conditional
-        per imp-486 is UNTOUCHED; imp-3066 K_a&ge;0 untouched; changes no bound; NO QED; Platt-Trudgian
-        Lambda&le;0.2 remains the SOTA unconditional bound.
+        per imp-486 is UNTOUCHED; imp-3066 K_a&ge;0 untouched; changes no bound; NO QED.
       </div>
     </div>
   );

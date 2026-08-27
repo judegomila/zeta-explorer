@@ -212,7 +212,7 @@ export default function Imp34830DirectedRoundingWidthBoundViz() {
         imp-34714a machine certificate, which REMAINS OPEN. Inherited imp-3220/imp-3406 surrogate crossover
         map; C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) (imp-2642/imp-2643) and C_mb GUE-conditional per imp-486
         untouched; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

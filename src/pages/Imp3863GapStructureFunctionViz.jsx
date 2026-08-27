@@ -165,8 +165,7 @@ export default function Imp3863GapStructureFunctionViz() {
         -- no proof, no reduction below RH. S_2(r) is a purely equal-time statistic: it clears
         REQ-i (a genuine two-point profile) but attaches no backward-flow depth s(y) and so fails
         REQ-ii, confirming the imp-3714 K3 near-miss classification empirically. imp-3066 off-diagonal
-        endpoint-Hankel K_a &ge; 0 positivity remains untouched. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA. G6a_shock_lipschitz stays OPEN.
+        endpoint-Hankel K_a &ge; 0 positivity remains untouched. G6a_shock_lipschitz stays OPEN.
       </div>
     </div>
   );

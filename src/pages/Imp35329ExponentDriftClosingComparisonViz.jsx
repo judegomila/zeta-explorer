@@ -200,7 +200,7 @@ export default function Imp35329ExponentDriftClosingComparisonViz() {
         three already-certified conditional-share diagnostics on the inherited imp-3220/imp-3406
         component model; establishes no new numerical claim, no re-derivation, no operator
         positivity. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; no RH verdict,
-        NO QED. Platt-Trudgian Lambda &le; 0.2 remains SOTA.
+        NO QED.
       </div>
     </div>
   );

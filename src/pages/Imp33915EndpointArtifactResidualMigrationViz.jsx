@@ -118,8 +118,7 @@ export default function Imp33915EndpointArtifactResidualMigrationViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> measurement/endpoint-artifact test
         only, no proof, no fresh derivation. {IMP33877_WIDENING_FIT_TAIL_ENDPOINT_ARTIFACT_TEST.finding.R2_largest_residual_migrates_to_and_grows_at_the_new_endpoint}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; the OLS surrogate is
-        descriptive, not derived; C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian
-        Lambda&lt;=0.2 remains SOTA.
+        descriptive, not derived; C_mb GUE-conditional per imp-486 untouched; NO QED.
       </div>
     </div>
   );

@@ -139,8 +139,7 @@ export default function Imp3589CoshOverestimationFactorViz() {
         residual-shape factor S_n(a) &ge; 1 staying within 0.045% of 1 across the ladder, so the
         over-estimation is dominated by the cosh(a T_A) inflation constant, not the residual
         shape. Mass-feasibility is necessary-but-not-sufficient; the operator-level K_a &ge; 0
-        sign-positivity (imp-3066) remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA.
+        sign-positivity (imp-3066) remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

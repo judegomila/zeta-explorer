@@ -178,8 +178,7 @@ export default function Imp34765SigmaKneeCfElasticityViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page presenting the imp-34729
         C_F-elasticity measurement (imported literals, no new computation) for the INHERITED imp-3220/imp-3406
         surrogate crossover map. C_mb stays GUE-conditional (imp-486); far-tail exponent stays 1/2 (imp-3463);
-        changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        changes no bound; establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

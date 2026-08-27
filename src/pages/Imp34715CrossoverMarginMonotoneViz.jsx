@@ -177,7 +177,6 @@ export default function Imp34715CrossoverMarginMonotoneViz() {
         imp-3220/imp-3406 surrogate crossover map; C_C = (1/8)&radic;(3&pi;) 1/8 ansatz
         (imp-2642/imp-2643) and the C_mb GUE-conditional share per imp-486 are UNTOUCHED; imp-3066
         K_a &ge; 0 untouched; changes no bound; no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains SOTA.
       </div>
     </div>
   );

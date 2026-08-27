@@ -165,7 +165,6 @@ export default function Imp33237EpsFieldRobustTransferModulusViz() {
         open -- the eps'_true certificate for the true xi backward-heat-flow
         field error, and the E(N)-chain bracket rearchitecture that routes the
         C_H * W_1^{'{1/2}'} leg through this channel. RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

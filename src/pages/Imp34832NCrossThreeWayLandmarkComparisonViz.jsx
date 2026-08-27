@@ -118,7 +118,7 @@ export default function Imp34832NCrossThreeWayLandmarkComparisonViz() {
         SURROGATE; sub-gap imp-34714a REMAINS OPEN (no machine certificate). The C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;)
         ansatz (imp-2642/imp-2643) is UNTOUCHED; the C_mb GUE-conditional share per imp-486 is UNTOUCHED;
         imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no operator positivity; no RH verdict, NO
-        QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        QED.
       </div>
     </div>
   );

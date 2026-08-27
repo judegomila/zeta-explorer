@@ -198,7 +198,7 @@ export default function Imp34356M2CeilingExactFitCoeffLadderViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-data only, baked literals
         reproducing the imp-34267 measurement; no new derivation, no bound changed. Descriptive
         surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED;
-        imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        imp-3066 K_a&ge;0 untouched; NO QED.
       </div>
     </div>
   );

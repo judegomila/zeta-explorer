@@ -145,7 +145,7 @@ export default function Imp34037RealnessResidualVsThetaViz() {
         the model cusp rho(x) = |x|^-alpha. This re-expresses the imp-33970 closed form for display;
         it does not re-derive the m_prime -&gt; C_ren map off-axis/off-exponent. H4 (imp-33766) is NOT
         discharged; G6a_shock_lipschitz stays OPEN; imp-3066 off-diagonal endpoint-Hankel K_a&gt;=0
-        UNTOUCHED; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains the rigorous SOTA.
+        UNTOUCHED; NO QED.
       </div>
     </div>
   );

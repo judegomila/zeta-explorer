@@ -200,8 +200,7 @@ export default function Imp33243RecoveryRateFitViz() {
         -- no proof, no reduction below RH. This fits the decay rate of a moment-ratio
         convergence diagnostic; mass-feasibility is necessary-but-not-sufficient and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.
-        The imp-3869 and imp-3735 assertions are left intact. Platt-Trudgian &Lambda;
-        &le; 0.2 remains the rigorous SOTA.
+        The imp-3869 and imp-3735 assertions are left intact.
       </div>
     </div>
   );

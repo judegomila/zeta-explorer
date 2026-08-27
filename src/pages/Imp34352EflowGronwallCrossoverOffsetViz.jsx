@@ -196,7 +196,7 @@ export default function Imp34352EflowGronwallCrossoverOffsetViz() {
         literals reproducing the imp-34270 measurement; no new derivation, no bound changed.
         Derivation/measurement only, conditional-share diagnostic, NOT a rigorous asymptotic;
         C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz (imp-2642/imp-2643) UNTOUCHED;
-        imp-3066 K_a&ge;0 untouched; no RH verdict, NO QED; Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        imp-3066 K_a&ge;0 untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

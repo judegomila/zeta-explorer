@@ -235,8 +235,7 @@ export default function Imp35138SigmaDeepTailThresholdLadderViz() {
         deep-tail threshold-crossing literals verbatim via the shared sigma-n-subterms.js helper (no new
         computation). Measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic;
         C_mb GUE-conditional per imp-486 untouched; establishes no operator positivity; imp-3066
-        K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no RH verdict, NO QED.
       </div>
 
       <div

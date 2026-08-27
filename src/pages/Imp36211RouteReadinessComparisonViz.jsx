@@ -111,7 +111,7 @@ export default function Imp36211RouteReadinessComparisonViz() {
         (density squeeze) wins because it produces a per-N bound by construction and its residual
         G3a_max_gap is not proven irreducible; Route A's residual C_mb is proven IRREDUCIBLE (imp-486);
         Route B's per-N upgrade re-imports GUE/ESY. Ranking closes NOTHING; discharges no gap; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
 
       <div

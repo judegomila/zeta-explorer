@@ -162,7 +162,6 @@ export default function Imp35275KrawczykHeadroomBandProfileViz() {
         surrogate; the imp-34714a machine certificate REMAINS OPEN and F(m)&nbsp;=&nbsp;0 stays a
         double-precision artifact; C_C&nbsp;1/8 ansatz (imp-2642/2643) and C_mb GUE-conditional per imp-486
         UNTOUCHED; changes no bound; establishes no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

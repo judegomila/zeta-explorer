@@ -211,7 +211,6 @@ export default function Imp33864CrenGapOnsetLadderViz() {
         uniform bound needs the analytic tracking of C_ren through the fold-modulus back-conversion,
         not a fitted onset rate at finite N -- and says nothing about the coupled H3 curvature rung.
         G6a_shock_lipschitz STAYS OPEN. No positivity; imp-3066 K_a &ge; 0 UNTOUCHED. NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

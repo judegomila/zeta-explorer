@@ -262,8 +262,7 @@ export default function Imp3880SaddleRatioInnerConvergedViz() {
         moment-ratio convergence diagnostic; mass-feasibility is necessary-but-not-sufficient and
         the operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. The
         imp-3731 assertions are left intact -- the red curve above is a correctly-reproduced,
-        coarse-inner-resolution artifact, not an error in imp-3731's own code. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        coarse-inner-resolution artifact, not an error in imp-3731's own code.
       </div>
     </div>
   );

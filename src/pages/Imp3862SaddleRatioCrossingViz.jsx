@@ -185,7 +185,6 @@ export default function Imp3862SaddleRatioCrossingViz() {
         only -- no proof, no reduction below RH. This pins the convergence-diagnostic crossing of
         a moment-ratio ladder; mass-feasibility is necessary-but-not-sufficient and the
         operator-level K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

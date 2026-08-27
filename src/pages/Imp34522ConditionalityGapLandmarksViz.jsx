@@ -80,8 +80,7 @@ export default function Imp34522ConditionalityGapLandmarksViz() {
         quantities per imp-2564, NOT &Lambda; bounds. R(N) = L_pt/E(N) measures a GUE-conditional
         headroom (C_mb per imp-486) over the unconditional finite-height beat L_pt &sim; 0.121, within
         the inherited imp-3220/imp-3406 component model, which is not a rigorous asymptotic. No
-        positivity, no bridge closure, no bound change, no RH claim, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains SOTA.
+        positivity, no bridge closure, no bound change, no RH claim, NO QED.
       </div>
     </div>
   );

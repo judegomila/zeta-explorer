@@ -145,7 +145,7 @@ export default function Imp33677ClusterPeakGapSequenceViz() {
         shift under a different platform libm; the robust reading is the qualitative irregular-spacing verdict,
         not the exact numbers. It changes no bound and patches no literal. Mass-feasibility is
         necessary-but-not-sufficient; the operator-level positivity (imp-3066 K_a &ge; 0) is UNTOUCHED.
-        RH-equivalent, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        RH-equivalent, NO QED.
       </div>
     </div>
   );

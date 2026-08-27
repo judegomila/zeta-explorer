@@ -175,8 +175,7 @@ export default function Imp3375InterloperMarginViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> presentation only, measure-only
         -- this visualizes an independent re-integration of the imp-3277 finding on three isolated-
         pair models tuned to measured Theta(0) values; it establishes no theorem and no
-        unconditional claim beyond the tested rows. RH-equivalent, necessary-but-not-sufficient.
-        Platt-Trudgian Lambda &le; 0.2 remains the rigorous SOTA. No QED.
+        unconditional claim beyond the tested rows. RH-equivalent, necessary-but-not-sufficient. No QED.
       </div>
     </div>
   );

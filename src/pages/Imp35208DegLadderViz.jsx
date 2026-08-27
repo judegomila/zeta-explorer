@@ -197,8 +197,7 @@ export default function Imp35208DegLadderViz() {
         Confirms the discrete truncation-size DEG axis does NOT act as a softening lever on the
         imp-3066 exponential-shear metric-pair family; this is scoped to that family, not other
         kernel classes; imp-3066 K_a&nbsp;&ge;&nbsp;0 and G7 stay OPEN and untouched; establishes no
-        operator positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        operator positivity; changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

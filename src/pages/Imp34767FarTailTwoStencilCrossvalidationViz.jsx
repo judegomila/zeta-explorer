@@ -219,7 +219,7 @@ export default function Imp34767FarTailTwoStencilCrossvalidationViz() {
         property of the inherited imp-3220/imp-3406 component model, not an independent physical claim.
         C_C&nbsp;=&nbsp;(1/8)&radic;(3&pi;) (imp-2714) and the C_mb GUE-conditional share per imp-486 are
         UNTOUCHED; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

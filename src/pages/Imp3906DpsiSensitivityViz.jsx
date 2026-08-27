@@ -246,8 +246,7 @@ export default function Imp3906DpsiSensitivityViz() {
         VERIFICATION of an existing lemma (imp-3854), not a new bound &mdash; LEMMA-3854 is
         CONFIRMED at every sampled point and stays a valid (loose) over-bound. Only 3 of the 10
         imp-3725 plateaus are verified here (imp-3874-sub-all-plateaus stays open); no new Lambda
-        bound; imp-3066 K_a &ge; 0 positivity untouched; Platt-Trudgian &Lambda; &le; 0.2 remains
-        the rigorous SOTA. NO QED.
+        bound; imp-3066 K_a &ge; 0 positivity untouched. NO QED.
       </div>
     </div>
   );

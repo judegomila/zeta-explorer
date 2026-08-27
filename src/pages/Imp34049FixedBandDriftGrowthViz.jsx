@@ -117,7 +117,7 @@ export default function Imp34049FixedBandDriftGrowthViz() {
         only, no proof, no fresh derivation. {IMP33987_FIXED_BAND_CONVEX_DRIFT_EXPONENT.finding.F2_growth_exponent_strongly_super_linear}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; the OLS surrogate and the
         growth-exponent classification are descriptive, not derived; C_mb GUE-conditional per imp-486
-        untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        untouched; NO QED.
       </div>
     </div>
   );

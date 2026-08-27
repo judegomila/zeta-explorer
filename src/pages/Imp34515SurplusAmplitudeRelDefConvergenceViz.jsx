@@ -192,8 +192,7 @@ export default function Imp34515SurplusAmplitudeRelDefConvergenceViz() {
         reproducing the imp-34473/imp-34507 measurements; no new derivation, no bound changed.
         Component model is the inherited imp-34329/imp-34248/imp-34174/imp-33743 extrapolation,
         NOT a rigorous asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8 ansatz
-        untouched; imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains the
-        SOTA unconditional bound.
+        untouched; imp-3066 K_a&ge;0 untouched; NO QED.
       </div>
     </div>
   );

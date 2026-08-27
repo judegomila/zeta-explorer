@@ -150,7 +150,6 @@ export default function Imp34033F1WideningDriftViz() {
         {(DRIFT.F2_drift_log_share * 100).toFixed(1)}% and F3 ~
         {(DRIFT.F3_drift_log_share * 100).toFixed(1)}%. The model is NOT a rigorous asymptotic;
         establishes no operator positivity; imp-3066 K_a&gt;=0 untouched; no RH verdict; NO QED.
-        Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
       </div>
     </div>
   );

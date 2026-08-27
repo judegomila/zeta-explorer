@@ -80,8 +80,7 @@ export default function Imp35314FidelityCertificateDiagramViz() {
         fidelity_certificate_requirements literals verbatim (no new computation). A certificate needs all
         four of R1&ndash;R4 discharged together; none are discharged here. The reentry band remains NOT
         established as a feature of the true collapse dynamic (imp-35243); changes no bound; establishes
-        no operator positivity; no RH verdict, NO QED. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains
-        SOTA.
+        no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -399,7 +399,7 @@ export default function FullStoryPage() {
       title="The Twin-Ladder / Λ Program"
       dek="A corrected account of what is classical, what twin-ladder derives inside a research draft, what the certificate packages compute, and which logical welds remain open."
       byline={['twin-ladder · mathexplorer', 'no new bound · not RH']}
-      ticker={<span>Platt–Trudgian Λ ≤ 0.2 remains SOTA · candidates unverified · no QED</span>}
+      ticker={<span>.� candidates unverified · no QED</span>}
       footer={<>
         Related: <Link to="/lambda-bounds">Bounds and evidence ledger</Link>
         {' · '}<Link to="/twin-ladder">Twin-ladder</Link>

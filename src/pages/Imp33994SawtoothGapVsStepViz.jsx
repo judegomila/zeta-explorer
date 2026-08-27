@@ -109,7 +109,7 @@ export default function Imp33994SawtoothGapVsStepViz() {
         only, no proof, no fresh derivation. {finding.P1_gap_bounded_by_half_step}{' '}
         {finding.P2_gap_not_proportional_to_step} The sawtooth prediction reproduces the measured
         gap at every rung to less than 1e-3. imp-33878/imp-33905 untouched; C_mb GUE-conditional
-        per imp-486 untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        per imp-486 untouched; NO QED.
       </div>
     </div>
   );

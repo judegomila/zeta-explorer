@@ -135,8 +135,7 @@ export default function Imp35320SignLadderRoundoffCeilingViz() {
         sign change: the analytic ladder holds for ALL n by the imp-34880 coefficient-positivity
         induction (re-verified exactly to n=22 by imp-35107). MEASUREMENT ONLY on the inherited
         imp-3220/imp-3406 surrogate map; C_mb GUE-conditional per imp-486; establishes no operator
-        positivity; changes no bound; no RH verdict, NO QED. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2
-        remains SOTA.
+        positivity; changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

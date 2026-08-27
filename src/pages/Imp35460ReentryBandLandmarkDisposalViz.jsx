@@ -142,8 +142,7 @@ export default function Imp35460ReentryBandLandmarkDisposalViz() {
         imp-34997a / imp-35243a stay OPEN; route (ii) itself remains to be formalized (imp-35357).
         C_C&nbsp;=&nbsp;(1/8)&nbsp;sqrt(3&nbsp;pi) ansatz (imp-2642/2643) and C_mb GUE-conditional
         per imp-486 UNTOUCHED; far-tail exponent stays 1/2 (imp-3463); changes no bound;
-        establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -146,7 +146,7 @@ export default function Imp35362N2000CollisionEnvelopeViz() {
         marginal, not full-precision (the dt/2 cross-family gap is nonzero, unlike the exact tie at
         dt); per imp-35324 the R2 ladder largest-N-robustly-certified stays at 1000, NOT advanced to
         2000. C_mb stays GUE-conditional (imp-486); changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

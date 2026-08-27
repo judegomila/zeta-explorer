@@ -233,7 +233,6 @@ export default function Imp33676FullRangeBandClearingOverviewViz() {
         JITTER-DRIVEN grid-accuracy phenomenon of the arithmetic-floor lattice (per-rung ULP bounces
         and libm exp/pow variation), not a fixed or certified growth law -- only the qualitative,
         persistent re-intensifying clustered-spike structure is robust. RH-equivalent, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
     </div>
   );

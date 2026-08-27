@@ -193,7 +193,7 @@ export default function Imp35254EflowFartailTwoTermLawViz() {
         Derivation/measurement only on the inherited imp-3220/imp-3406 extrapolation, NOT
         rigorous; E_flow &gt; 0 strictness (imp-33848) untouched; C_mb GUE-conditional
         (imp-486) untouched; changes no bound; establishes no operator positivity; no RH
-        verdict, NO QED. Platt-Trudgian Lambda &le; 0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

@@ -214,8 +214,7 @@ export default function Imp34438EflowRatioRExponentLadderViz() {
         inherited imp-34174/imp-33743 extrapolation component model, which is NOT a rigorous asymptotic. E_flow
         is the benign mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT touch the divergent
         C_Lip collision-Gronwall; the C_mb GUE-conditional per imp-486 is UNTOUCHED (E_coll untouched); the C_C
-        1/8 ansatz (imp-2642/imp-2643) is untouched; imp-3066 K_a&ge;0 untouched; changes no bound; NO QED;
-        Platt-Trudgian Lambda&le;0.2 remains the SOTA unconditional bound.
+        1/8 ansatz (imp-2642/imp-2643) is untouched; imp-3066 K_a&ge;0 untouched; changes no bound; NO QED.
       </div>
     </div>
   );

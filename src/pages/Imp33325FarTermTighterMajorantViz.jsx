@@ -239,8 +239,7 @@ export default function Imp33325FarTermTighterMajorantViz() {
         of an already-verified feasibility assessment (imp-33290). The over-charge
         is removable by a provable tighter bound, but N-uniform certification is
         NOT achieved -- it relocates to the open imp-33250 residual dg2. imp-3066
-        K_a &ge; 0 is UNTOUCHED; Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA. NO QED.
+        K_a &ge; 0 is UNTOUCHED. NO QED.
       </div>
     </div>
   );

@@ -150,8 +150,7 @@ export default function Imp36204KbnKahanTwoEpisodeSeparationViz() {
         the baked imp-36186 viz-data (itself reusing the recorded imp-36062/imp-36076 per-rung
         literals verbatim, per imp-36112's reconciliation); no new derivation, no bound changed.
         The W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) and the certified
-        length-N interval sum stays MECHANICAL (imp-35725); no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        length-N interval sum stays MECHANICAL (imp-35725); no RH verdict, NO QED.
       </div>
     </div>
   );

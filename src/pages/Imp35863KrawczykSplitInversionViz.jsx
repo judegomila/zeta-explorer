@@ -187,7 +187,7 @@ export default function Imp35863KrawczykSplitInversionViz() {
         measurement on the inherited imp-3220/imp-3406 surrogate; imp-34714a machine certificate
         REMAINS OPEN and F(m)=0 stays a double-precision artifact; C_C 1/8 (imp-2642/2643) and C_mb
         GUE-conditional per imp-486 UNTOUCHED; changes no bound, establishes no operator positivity,
-        no RH verdict. NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        no RH verdict. NO QED.
       </div>
 
       <RelatedLinks

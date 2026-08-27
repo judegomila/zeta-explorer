@@ -220,7 +220,7 @@ export default function Imp35864DebruijnDigitLadderViz() {
         no ~520-digit recomputation at page load); measures ONLY the exp(-&pi;x/8) underflow-driven
         mantissa-digit requirement off the imp-35781-measured accumulator scale K; evaluates no true
         H&#8320; at high precision, extends no evaluator, certifies no value at any height, changes no
-        bound. NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        bound. NO QED.
       </div>
 
       <RelatedLinks

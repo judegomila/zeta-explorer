@@ -165,7 +165,6 @@ export default function Imp35549HeightMapDivergenceViz() {
         conventions land, does NOT establish which map (if either) is more accurate; measurement
         only on the inherited imp-3220/imp-3406 surrogate family; C_mb GUE-conditional per imp-486
         UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

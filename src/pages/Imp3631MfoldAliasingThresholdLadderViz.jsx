@@ -191,8 +191,7 @@ export default function Imp3631MfoldAliasingThresholdLadderViz() {
         NOT give xi* or the sup a closed form (the imp-3470 stationarity
         equation stays transcendental) and does not extend the finite-domain
         (0, 400] measurement. The imp-3066 off-diagonal endpoint-Hankel
-        K_a &ge; 0 positivity remains untouched. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        K_a &ge; 0 positivity remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

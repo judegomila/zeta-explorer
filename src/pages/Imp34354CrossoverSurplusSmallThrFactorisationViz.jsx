@@ -272,8 +272,7 @@ export default function Imp34354CrossoverSurplusSmallThrFactorisationViz() {
         only within the inherited imp-34174/imp-33743 extrapolation component model, which is NOT a rigorous
         asymptotic; E_flow is the benign mesoscopic-Gronwall term (imp-2845) and its vanishing here does NOT
         touch the divergent C_Lip collision-Gronwall; C_mb GUE-conditional per imp-486 UNTOUCHED; C_C 1/8
-        ansatz untouched; imp-3066 K_a&ge;0 untouched; NO QED; Platt-Trudgian Lambda&le;0.2 remains the SOTA
-        unconditional bound.
+        ansatz untouched; imp-3066 K_a&ge;0 untouched; NO QED.
       </div>
     </div>
   );

@@ -171,7 +171,6 @@ export default function Imp36287KbnFloorHeadroomDivergenceViz() {
         no W1 bound, instantiates no directed-rounding interval, evaluates no true H_0, verifies no
         inequality, changes no bound, establishes no positivity. C_mb GUE-conditional (imp-486)
         untouched; the W1 A + B - C certificate at T_PT stays GREENFIELD; no RH verdict, NO QED.
-        Platt-Trudgian &Lambda; &le; 0.2 remains SOTA.
       </div>
     </div>
   );

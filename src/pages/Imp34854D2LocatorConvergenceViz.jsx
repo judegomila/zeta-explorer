@@ -183,7 +183,7 @@ export default function Imp34854D2LocatorConvergenceViz() {
         literals verbatim (no new computation). Component model is the inherited imp-3220/imp-3406 surrogate
         crossover map, NOT a rigorous asymptotic; the imp-34796/imp-34820 E_flow-reinstatement sub-gap REMAINS
         OPEN. The C_mb GUE-conditional per imp-486 is UNTOUCHED; changes no bound; establishes no operator
-        positivity; no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -171,8 +171,7 @@ export default function Imp35865SummationSchemeLadderViz() {
         pessimistic imp-35761 ceilings, sit&nbsp;&ge;10 orders below the imp-35760 O(1) barrier margin
         |A_t&nbsp;+&nbsp;B_t|&nbsp;-&nbsp;|C_t|; evaluates no true H&#8320;; instantiates no interval;
         verifies no inequality; establishes no positivity; the W1 A&nbsp;+&nbsp;B&nbsp;-&nbsp;C
-        certificate at T_PT stays GREENFIELD (imp-35681 Part A). NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        certificate at T_PT stays GREENFIELD (imp-35681 Part A). NO QED.
       </div>
 
       <RelatedLinks

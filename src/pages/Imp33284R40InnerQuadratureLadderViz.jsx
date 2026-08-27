@@ -156,8 +156,7 @@ export default function Imp33284R40InnerQuadratureLadderViz() {
         only -- no proof, no reduction below RH. This ladder tabulates the inner-quadrature
         sensitivity of a single moment-ratio diagnostic (R_40) used inside a mass-feasibility
         check; mass-feasibility is necessary-but-not-sufficient and the operator-level K_a &ge; 0
-        sign-positivity residual (imp-3066) remains untouched. Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        sign-positivity residual (imp-3066) remains untouched.
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ export default function FormalizationReviewPage() {
           body={
             'Every result here is classical (Hermite–Poulain; de Bruijn 1950). This is verified, reusable ' +
             'foundational infrastructure that fills a mathlib gap — it is NOT new mathematics and NOT progress ' +
-            'on RH or on Λ ≥ 0. Platt–Trudgian Λ ≤ 0.2 remains the rigorous SOTA. No QED.'
+            'on RH or on Λ ≥ 0. No QED.'
           }
         />
 

@@ -142,8 +142,7 @@ export default function Imp34244KpssL0FlipShiftRankingViz() {
         sensitivity measurement only; no new computation. The l=0 un-HAC borderline being dissected
         is FRAGILE and endpoint-driven; the HAC-corrected (l&ge;1) non-rejection eta_mu &#126;0.149 is
         UNCHANGED and remains the primary reading. C_mb GUE-conditional per imp-486 UNTOUCHED;
-        imp-3066 K_a&gt;=0 UNTOUCHED; no RH verdict; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains
-        the rigorous SOTA.
+        imp-3066 K_a&gt;=0 UNTOUCHED; no RH verdict; NO QED.
       </div>
     </div>
   );

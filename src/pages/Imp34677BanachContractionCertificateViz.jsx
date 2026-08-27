@@ -237,7 +237,6 @@ export default function Imp34677BanachContractionCertificateViz() {
         interval-arithmetic (imp-34650a sub-gap open). Certifies a property of the inherited
         imp-3220/imp-3406 surrogate crossover map; C_C 1/8 ansatz untouched; C_mb GUE-conditional per
         imp-486 untouched; changes no bound; no operator positivity; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
       </div>
     </div>
   );

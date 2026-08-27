@@ -260,8 +260,7 @@ export default function Imp3929HorizonElasticitySharpeningViz() {
         is the weighted path-local majorant, whose collapse to an explicit C/Dmin&sup2; constant is a
         named open sub-gap (imp-3898-sub-tail-weight-constant); LEMMA-3854 stays a valid loose
         over-bound. Only the 3 imp-3874-verified plateaus are shown here; no new Lambda bound;
-        imp-3066 K_a &ge; 0 positivity untouched; Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous
-        SOTA. NO QED.
+        imp-3066 K_a &ge; 0 positivity untouched. NO QED.
       </div>
     </div>
   );

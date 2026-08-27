@@ -201,8 +201,7 @@ export default function Imp3252ScaledMuPage() {
         finite-N-resolution convergence (the continuum operator norm), while the bottom panel is a
         floating-point residual around an identity that holds exactly at every N by construction (the
         hollow rank-2 antisymmetry forces min eig = -mu = -&Vert;Gshear&Vert;). The binding
-        RH-equivalent K_a &ge; 0 sign-positivity residual (imp-3066) is untouched. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        RH-equivalent K_a &ge; 0 sign-positivity residual (imp-3066) is untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

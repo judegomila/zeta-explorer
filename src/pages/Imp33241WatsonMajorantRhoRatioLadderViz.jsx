@@ -221,7 +221,7 @@ export default function Imp33241WatsonMajorantRhoRatioLadderViz() {
         only, of an already-verified table (imp-33208). Verification/measurement
         only, not a proof; mass-feasibility is necessary-but-not-sufficient;
         operator positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO
-        QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        QED.
       </div>
     </div>
   );

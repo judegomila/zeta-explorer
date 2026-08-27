@@ -202,8 +202,7 @@ export default function Imp34078PointwiseVsWindowExponentViz() {
         only, co-tabulating two inherited exponent estimators on a shared N
         ladder. The component model is the inherited imp-3220/imp-3406
         extrapolation, NOT a rigorous asymptotic; changes no bound; imp-3066
-        K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED;
-        Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        K_a&gt;=0 untouched; C_mb GUE-conditional per imp-486 untouched; NO QED.
       </div>
     </div>
   );

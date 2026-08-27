@@ -112,8 +112,7 @@ export default function Imp35628ReqSeverityRankingViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Scoping-only presentation of
         the imp-35551 severity ranking (no fresh derivation, no heavy data-module import); assesses
         reachability, discharges nothing; changes no bound; establishes no operator positivity;
-        C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED.
       </div>
     </div>
   );

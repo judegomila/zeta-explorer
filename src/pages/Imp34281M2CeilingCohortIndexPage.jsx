@@ -181,8 +181,7 @@ export default function Imp34281M2CeilingCohortIndexPage() {
         already-published measurements. kEnd*~21.281 is a real, reproducible, well-conditioned
         number attached to one specific inherited surrogate at one specific window width -- not a
         derived mathematical ceiling. It changes no bound and patches no literal. C_mb
-        GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0 untouched; RH-equivalent, NO QED;
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        GUE-conditional per imp-486 untouched; imp-3066 K_a&ge;0 untouched; RH-equivalent, NO QED.
       </div>
 
       <div

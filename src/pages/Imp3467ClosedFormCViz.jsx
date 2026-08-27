@@ -131,8 +131,7 @@ export default function Imp3467ClosedFormCViz() {
         route is the extrapolated cross-check that converges to the same number. The imp-3470 obstruction
         confirms the peak value xi*~12.11 stays transcendental — no third independent closed-form number
         exists to overlay, only the confirmation that no elementary maximizer is available. The binding
-        RH-equivalent K_a &ge; 0 sign-positivity residual (imp-3066) is untouched. Platt-Trudgian &Lambda;
-        &le; 0.2 remains the rigorous SOTA.
+        RH-equivalent K_a &ge; 0 sign-positivity residual (imp-3066) is untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

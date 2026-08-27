@@ -217,7 +217,7 @@ export default function Imp3542DegreeDMissFactorViz() {
         of the absolute-measure degree-d bridge-mass integrand across d; it establishes no operator
         positivity. Mass-feasibility is necessary-but-not-sufficient and the degree-d faces carry no
         feasibility comparison (imp-3469). The operator-level K_a &ge; 0 sign-positivity residual
-        (imp-3066) remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        (imp-3066) remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

@@ -197,8 +197,7 @@ export default function Imp3681SubFloorReplicaFoldinCrossoverViz() {
         floor is lower, ~{IMP3681_N_FOLD_EXACT.toFixed(2)}). It does NOT give xi* or the sup a closed
         form (the imp-3470 stationarity equation stays transcendental) and does not extend the
         finite-domain (0, 400] measurement of |P1|. RH-equivalent, necessary-but-not-sufficient; the
-        imp-3066 K_a &ge; 0 positivity remains the lone obstruction, untouched. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        imp-3066 K_a &ge; 0 positivity remains the lone obstruction, untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

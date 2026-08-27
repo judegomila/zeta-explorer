@@ -223,8 +223,7 @@ export default function Imp3543XiStarRobustnessViz() {
         {IMP3543_PEAK_SLOPE.toExponential(3)}, far-tail max ratio &lt; 1%); the coarse-grid
         panel is an aliasing artifact shown deliberately to document why the grid must be
         co-refined, not a competing finding. Neither panel constructs the missing K_a &ge; 0
-        sign-positivity residual (imp-3066), which remains untouched. Platt-Trudgian &Lambda;
-        &le; 0.2 remains the rigorous SOTA.
+        sign-positivity residual (imp-3066), which remains untouched.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

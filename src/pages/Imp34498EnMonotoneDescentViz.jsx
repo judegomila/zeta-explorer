@@ -113,7 +113,7 @@ export default function Imp34498EnMonotoneDescentViz() {
         landmarks are reused verbatim from imp-34434. Measurement only within the inherited
         imp-3220/imp-3406 component model, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 UNTOUCHED; E(N) are bridge CONSTANTS not the headline inequality (imp-2564);
-        changes no bound; no RH verdict, NO QED. Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -194,7 +194,7 @@ export default function Imp35233BetaFrontLawNUniformityViz() {
         certify N-uniformity over the full trajectory (the sup diverges as g_min&nbsp;&rarr;&nbsp;0);
         M5 horizon-front mismatch stays OPEN; imp-2563 sandwich untouched (valid CONDITIONAL bracket);
         C_mb GUE-conditional per imp-486 untouched; changes no bound, establishes no operator
-        positivity, no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        positivity, no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -160,8 +160,7 @@ export default function Imp3700MesoscopicShockScaleSeparationViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> visualization only -- this charts the
         imp-3671 STRUCTURALLY SILENT verdict (obstruction S2, scale mismatch). Combined with the independent
         type/dimension obstruction S1, G6a_shock_lipschitz stays OPEN. RH-equivalent, necessary-but-not-sufficient.
-        The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched; Platt-Trudgian &Lambda; &le; 0.2
-        remains the rigorous SOTA.
+        The imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched.
       </div>
     </div>
   );

@@ -235,8 +235,7 @@ export default function Imp3861MomentRatioDecayLadderViz() {
         only -- no proof, no reduction below RH. This pins the large-n decay order of a
         subleading moment-ratio correction that feeds the imp-3713/imp-3731 exact-saddle-ratio
         crossing model; mass-feasibility is necessary-but-not-sufficient and the operator-level
-        K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched. Platt-Trudgian &Lambda;
-        &le; 0.2 remains the rigorous SOTA.
+        K_a &ge; 0 sign-positivity residual (imp-3066) remains untouched.
       </div>
     </div>
   );

@@ -166,7 +166,7 @@ export default function Imp33264FifthPairSpreadLadderN2800ExtendedViz() {
         Rules out a coherent power law but does NOT pin a resolved growth exponent, does
         NOT re-certify the pairing (imp-3668), does NOT establish the fifth-pair amplitude
         law, and does NOT attempt the imp-3066 K_a &ge; 0 positivity. RH-equivalent, NO
-        QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        QED.
       </div>
     </div>
   );

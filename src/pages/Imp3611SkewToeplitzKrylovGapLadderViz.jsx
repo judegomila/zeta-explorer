@@ -236,8 +236,7 @@ export default function Imp3611SkewToeplitzKrylovGapLadderViz() {
         re-measures and corrects a Krylov-truncation deficit in a previously baked gap; it does
         NOT construct the missing magnitude and does NOT attempt the imp-3066 K_a &ge; 0
         positivity. RH-equivalent, necessary-but-not-sufficient; the -2 exponent is a corroborated
-        empirical heuristic, not a proven asymptotic. Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA.
+        empirical heuristic, not a proven asymptotic.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

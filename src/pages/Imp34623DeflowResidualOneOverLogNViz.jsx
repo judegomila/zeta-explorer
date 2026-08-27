@@ -179,7 +179,7 @@ export default function Imp34623DeflowResidualOneOverLogNViz() {
         resolvable to next order from these six rungs. The inherited imp-3220/imp-3406 component
         model is NOT a rigorous asymptotic; changes no bound; establishes no operator positivity;
         C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

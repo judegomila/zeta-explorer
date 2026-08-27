@@ -171,7 +171,7 @@ export default function Imp34098EndpointTroughMigrationViz() {
         {IMP34022_ARGMIN_ARGMAX_MIGRATION_SYMMETRY.finding.R2_asymmetric_absolute_magnitude_near_symmetric_relative_amplification}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; the OLS surrogate is
         descriptive, not derived; C_mb GUE-conditional per imp-486 untouched; imp-3066 K_a&gt;=0 untouched;
-        NO QED; Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        NO QED.
       </div>
     </div>
   );

@@ -178,7 +178,7 @@ export default function Imp35077ConjugatePairDarbouxTrajectoryViz() {
         recomputation on this page). Measurement only on the inherited imp-3220/imp-3406 extrapolation
         surrogate; C_mb GUE-conditional per imp-486 untouched; changes no bound; establishes no operator
         positivity; imp-3066 K_a&nbsp;&ge;&nbsp;0 untouched; far-tail exponent stays 1/2 (imp-3463); no RH
-        verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

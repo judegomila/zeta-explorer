@@ -114,7 +114,7 @@ export default function Imp36226ClusteredVsDefaultDepthScalingViz() {
         {IMP36226_FINDING.clusteredOrderFlattensRelativeToDefault}. Both fits are descriptive log-log
         slopes over a fixed floor-scatter dataset, not certified growth laws; neither certifies a W1
         bound. The W1 A + B - C certificate at T_PT stays GREENFIELD; C_mb stays GUE-conditional
-        (imp-486); no RH verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        (imp-486); no RH verdict, NO QED.
       </div>
     </div>
   );

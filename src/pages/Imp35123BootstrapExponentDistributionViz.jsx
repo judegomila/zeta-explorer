@@ -121,8 +121,7 @@ export default function Imp35123BootstrapExponentDistributionViz() {
         it changes no bound and does NOT discharge the GUE conditional (C_mb GUE-conditional per imp-486). The
         C_C 1/8 ansatz (imp-2642/imp-2643) is untouched, establishes no operator positivity, imp-3066 K_a &ge; 0
         untouched, and the far-tail exponent stays 1/2 (imp-3463). "p is non-rational" is a statement about the
-        SURROGATE fit, not a structural or arithmetic fact. No RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        SURROGATE fit, not a structural or arithmetic fact. No RH verdict, NO QED.
       </div>
     </div>
   );

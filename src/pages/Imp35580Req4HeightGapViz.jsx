@@ -123,7 +123,6 @@ export default function Imp35580Req4HeightGapViz() {
         local-law rate, which itself does NOT yet rigorously exist (imp-35538 REQ 2); this page
         derives no remainder, discharges nothing, changes no bound, establishes no operator
         positivity; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED.
-        Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
       </div>
     </div>
   );

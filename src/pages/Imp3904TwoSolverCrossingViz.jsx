@@ -213,8 +213,7 @@ export default function Imp3904TwoSolverCrossingViz() {
         only, at the RH-equivalent scale class; both solvers share the finite NPHI=10 kernel
         truncation, so this removes the Simpson-order worry, not the kernel-truncation floor.
         Mass-feasibility is necessary-but-not-sufficient; operator positivity (imp-3066 off-diagonal
-        endpoint-Hankel K_a &ge; 0) is UNTOUCHED. Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA. NO QED; imp-3849/imp-3731 assertions left intact.
+        endpoint-Hankel K_a &ge; 0) is UNTOUCHED. NO QED; imp-3849/imp-3731 assertions left intact.
       </div>
     </div>
   );

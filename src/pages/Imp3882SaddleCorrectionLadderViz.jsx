@@ -361,7 +361,7 @@ export default function Imp3882SaddleCorrectionLadderViz() {
         only -- no proof, no reduction below RH. This illustrates a truncated ASYMPTOTIC Laplace
         expansion (direction-confirming, not a certified error bound); mass-feasibility is
         necessary-but-not-sufficient and the operator-level K_a &ge; 0 sign-positivity residual
-        (imp-3066) remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        (imp-3066) remains untouched.
       </div>
     </div>
   );

@@ -125,7 +125,7 @@ export default function Imp34200LtoPerPairInfluenceBarChartViz() {
         not derived; the OLS surrogate is descriptive; the imp-33843 log-linear-vs-power-
         law FORM verdict is UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes
         no bound; establishes no operator positivity; imp-3066 K_a&gt;=0 untouched; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&lt;=0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

@@ -159,7 +159,7 @@ export default function Imp35483EflowFartailRemnantSub1e3CrossingViz() {
         the sigma(N) landmarks and does NOT cover this remnant quantity). E_flow &gt; 0 strictness
         (imp-33848) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; E_coll far-tail exponent
         1/2 per imp-3463; changes no bound; establishes no operator positivity; no RH verdict, NO
-        QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        QED.
       </div>
     </div>
   );

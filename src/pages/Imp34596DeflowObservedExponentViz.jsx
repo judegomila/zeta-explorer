@@ -175,8 +175,7 @@ export default function Imp34596DeflowObservedExponentViz() {
         pInf&nbsp;&asymp;&nbsp;1 is CONSISTENT with, not identical to, the analytic target. Surrogate
         finite-difference fit within the inherited imp-3220/imp-3406 component model, NOT a rigorous
         asymptotic; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; establishes no
-        operator positivity; imp-3066 K_a &ge; 0 untouched; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&le;0.2 remains SOTA.
+        operator positivity; imp-3066 K_a &ge; 0 untouched; no RH verdict, NO QED.
       </div>
     </div>
   );

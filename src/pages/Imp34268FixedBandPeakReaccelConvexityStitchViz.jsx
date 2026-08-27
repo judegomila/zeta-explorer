@@ -331,8 +331,7 @@ export default function Imp34268FixedBandPeakReaccelConvexityStitchViz() {
         literals reproducing the imp-34268 measurement; no new derivation, no bound changed.
         Descriptive OLS surrogate/fit, NOT a rigorous asymptotic; C_mb GUE-conditional per
         imp-486 UNTOUCHED; imp-3066 K_a&ge;0 untouched; the functional form of the convex
-        branch (quadratic, exponential, or pole-driven) is an OPEN sub-gap; NO QED;
-        Platt-Trudgian Lambda&le;0.2 remains SOTA.
+        branch (quadratic, exponential, or pole-driven) is an OPEN sub-gap; NO QED.
       </div>
 
       <div

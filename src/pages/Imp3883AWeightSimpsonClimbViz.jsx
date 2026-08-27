@@ -209,7 +209,7 @@ export default function Imp3883AWeightSimpsonClimbViz() {
         only -- an accuracy/convergence reconciliation of two quadratures for a fixed autocorrelation
         weight, RH-equivalent and necessary-but-not-sufficient. It establishes NO operator
         positivity; the imp-3066 K_a &ge; 0 sign-positivity obstruction remains untouched. No RH
-        verdict, no QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        verdict, no QED.
       </div>
     </div>
   );

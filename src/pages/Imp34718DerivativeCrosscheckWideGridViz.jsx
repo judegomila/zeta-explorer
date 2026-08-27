@@ -266,7 +266,7 @@ export default function Imp34718DerivativeCrosscheckWideGridViz() {
         imp-34650a interval-arithmetic upgrade (still OPEN); C_C&nbsp;=&nbsp;(1/8)sqrt(3&nbsp;pi)
         (imp-2642/imp-2643) and C_mb GUE-conditional (imp-486) untouched; imp-3066
         K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; establishes no operator positivity; no RH
-        verdict, NO QED. Platt-Trudgian Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        verdict, NO QED.
       </div>
     </div>
   );

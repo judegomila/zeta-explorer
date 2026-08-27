@@ -118,7 +118,7 @@ export default function RouteBLimsupPage() {
             has an unconditional <em>rate</em> but <InlineMath tex={"E(N)\\to 0"} /> is{' '}
             <strong style={{ color: 'var(--terra-dk)' }}>gated on the RH-hard constant C_H</strong> (imp-2640 negative;
             corrected imp-3321) — that is a different, harder object than this lim-sup. <strong>Platt–Trudgian{' '}
-            <InlineMath tex={"\\Lambda\\le 0.2"} /> remains the rigorous SOTA.</strong>
+            <InlineMath tex={"\\Lambda\\le 0.2"} />.</strong>
           </p>
         </div>
 

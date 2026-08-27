@@ -207,8 +207,7 @@ export default function Imp35234RhoDeviationLogLogModulusViz() {
         inherited imp-3220/imp-3406/imp-33646 model-cusp surrogate is an empirical estimate, not a certified
         modulus of convergence; does NOT discharge O3 or G6a_shock_lipschitz (both stay OPEN); establishes no
         operator positivity; imp-3066 off-diagonal endpoint-Hankel K_a&nbsp;&ge;&nbsp;0 UNTOUCHED; C_mb
-        GUE-conditional per imp-486; changes no bound; no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        GUE-conditional per imp-486; changes no bound; no RH verdict, NO QED.
       </div>
     </div>
   );

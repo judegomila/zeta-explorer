@@ -126,7 +126,7 @@ export default function Imp35345ExtrapolationGapViz() {
         log10&nbsp;N axis only to make the {D2.reentry_decades_above_verified.toFixed(1)}&ndash;
         {D2.exit_decades_above_verified.toFixed(1)}-decade extrapolation visible; it does not certify the band
         against any independent witness. Changes no bound; establishes no operator positivity; no RH verdict, NO
-        QED. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 remains SOTA.
+        QED.
       </div>
     </div>
   );

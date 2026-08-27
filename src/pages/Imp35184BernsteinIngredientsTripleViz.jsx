@@ -211,8 +211,7 @@ export default function Imp35184BernsteinIngredientsTripleViz() {
         g. The Bernstein ingredients (killing term a, drift b, L&eacute;vy measure d&mu;) are structural
         properties of the SURROGATE map, NOT of the RH operator; establishes no operator positivity. The
         C_mb GUE-conditional per imp-486 and the C_C 1/8 ansatz (imp-2642/imp-2643) are untouched; changes
-        no bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED. Platt-Trudgian
-        Lambda&nbsp;&le;&nbsp;0.2 remains SOTA.
+        no bound; far-tail exponent stays 1/2 (imp-3463); no RH verdict, NO QED.
       </div>
     </div>
   );

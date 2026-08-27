@@ -239,7 +239,6 @@ export default function Imp3613ReplicaFoldInGeometryViz() {
         transcendental) and does not extend the finite-domain (0, 400]
         measurement. RH-equivalent, necessary-but-not-sufficient; the imp-3066
         K_a &ge; 0 positivity remains the lone obstruction, untouched.
-        Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

@@ -177,8 +177,7 @@ export default function Imp3635FlowFactorBandViz() {
         floor-invariance and ~0.996 band are Gronwall-insensitive, not a
         frozen-constant artifact. It does not establish a bridge closure or
         touch imp-3066 off-diagonal endpoint-Hankel K_a &ge; 0 positivity,
-        which remains untouched. Platt-Trudgian &Lambda; &le; 0.2 remains the
-        rigorous SOTA. NO QED.
+        which remains untouched. NO QED.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

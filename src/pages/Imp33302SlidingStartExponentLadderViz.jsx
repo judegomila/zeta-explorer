@@ -175,7 +175,7 @@ export default function Imp33302SlidingStartExponentLadderViz() {
         imp-33274 sliding-start measurement only -- a finite six-rung OLS fit ladder, not a
         certified N-uniform statement. Adds no new Lambda bound, does not tighten imp-3910's
         certified C &le; 54.56, and does not touch imp-3066's K_a &ge; 0 positivity.
-        RH-equivalent, NO QED. Platt-Trudgian &Lambda; &le; 0.2 remains the rigorous SOTA.
+        RH-equivalent, NO QED.
       </div>
     </div>
   );

@@ -149,8 +149,7 @@ export default function Imp33573R40CrossSolverNodeBudgetViz() {
         exact node counts are jittery arithmetic-floor lattice properties (imp-33249/imp-33277/
         imp-33295 latticeJitterCaveat); the robust reading is the ORDER of the budgets, not the
         exact counts. Mass-feasibility is necessary-but-not-sufficient; the operator-level
-        positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED. Platt-Trudgian
-        &Lambda; &le; 0.2 remains the rigorous SOTA.
+        positivity (imp-3066 K_a &ge; 0) is UNTOUCHED. RH-equivalent, NO QED.
       </div>
     </div>
   );

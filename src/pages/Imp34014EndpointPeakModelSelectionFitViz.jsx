@@ -142,8 +142,7 @@ export default function Imp34014EndpointPeakModelSelectionFitViz() {
         only, no proof, no fresh derivation. {MS.finding.R2_strength_positive_not_decisive}{' '}
         The component model is the inherited imp-3220/imp-3406 extrapolation; both forms are
         descriptive, not derived; the imp-33843 log-linear-vs-power-law verdict is untouched;
-        C_mb GUE-conditional per imp-486 untouched; NO QED; Platt-Trudgian Lambda&lt;=0.2 remains
-        SOTA.
+        C_mb GUE-conditional per imp-486 untouched; NO QED.
       </div>
     </div>
   );

@@ -211,8 +211,7 @@ export default function Imp3677SkewToeplitzKrylovDepthVsNLawViz() {
         construct the missing magnitude and does NOT attempt the imp-3066 K_a &ge; 0
         positivity. The matched-pair sweep needed to discriminate log vs sqrt vs linear for a
         FIXED pair was later carried out by imp-3663 (see the related page below).
-        RH-equivalent, necessary-but-not-sufficient. Platt-Trudgian &Lambda; &le; 0.2 remains
-        the rigorous SOTA.
+        RH-equivalent, necessary-but-not-sufficient.
       </div>
 
       <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>

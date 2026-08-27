@@ -159,8 +159,7 @@ export default function Imp35294EflowFartailResidualMonotoneViz() {
         imp-35237 baked anchors literals verbatim (no new computation). Cross-check only; the
         component model is the imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; E_flow
         &gt; 0 strictness (imp-33848) untouched; C_mb GUE-conditional (imp-486) untouched; changes
-        no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian
-        Lambda &le; 0.2 remains SOTA.
+        no bound; establishes no operator positivity; no RH verdict, NO QED.
       </div>
     </div>
   );

@@ -82,7 +82,6 @@ export default function HomePageEditorial() {
       {/* KPIs */}
       <div className="ed-full"><div className="ed-kpis">
         <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
-        <div className="ed-kpi"><b>3.0×10¹²</b><span>verified height</span></div>
         <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>38</b><span>routes mapped</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/what-we-know"><b style={{ color: 'var(--terra-dk)' }}>2</b><span>no-go theorems</span></Link>
         <div className="ed-kpi"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></div>

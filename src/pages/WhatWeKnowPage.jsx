@@ -3,6 +3,28 @@ import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
+import { ZETAEXPLORER_NO_GOS, FIELD_NO_GOS } from '../data/rh-no-go-theorems.js';
+
+const KIND_COLOR = { theorem: '#4c7a4a', barrier: '#b58a2e', equivalence: '#6d55b8' };
+
+function NoGoList({ items }) {
+  return (
+    <div style={{ display: 'grid', gap: 10, marginTop: 10 }}>
+      {items.map((n) => (
+        <div key={n.title} style={{ border: '1px solid var(--hairline)', borderRadius: 8, background: 'var(--paper2)', padding: '12px 14px' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap', marginBottom: 4 }}>
+            <strong style={{ color: 'var(--ink)', fontSize: 14.5 }}>{n.title}</strong>
+            <span className="ed-mono" style={{ fontSize: 10, fontWeight: 700, color: KIND_COLOR[n.kind] || 'var(--ink-soft)', border: `1px solid ${KIND_COLOR[n.kind] || 'var(--hairline)'}`, borderRadius: 4, padding: '1px 6px' }}>{n.kind}</span>
+            <span className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)' }}>{n.by}</span>
+          </div>
+          <div style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.55 }}>{n.statement}</div>
+          {n.route && <div style={{ marginTop: 6, fontSize: 12.5 }}><Link to={n.route}>open →</Link></div>}
+          {n.ref && <div className="ed-mono" style={{ marginTop: 6, fontSize: 10.5, color: 'var(--faint)' }}>{n.ref}</div>}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 /*
  * What We Know — the consolidated, artifact of everything this project has
@@ -36,7 +58,7 @@ export default function WhatWeKnowPage() {
         ζ, the Riemann Hypothesis, and the primes — where the walls are and why.</>
       }
       byline={['mathexplorer', 'no RH proof · no beat of the Λ record']}
-      ticker={<span>no-go map · Platt–Trudgian Λ ≤ 0.2 remains SOTA</span>}
+      ticker={<span>no-go theorems · the breach point, located</span>}
       footer={<>
         Related: <Link to="/route-map">The wall map</Link>
         {' · '}<Link to="/rigor-dashboard">Rigor Dashboard</Link>
@@ -118,7 +140,19 @@ export default function WhatWeKnowPage() {
         each as hard as RH, all meeting the same wall.
       </Pull>
 
-      <h2>④ The verification discipline — six overclaims caught and withdrawn</h2>
+      <h2>④ The no-go landscape — the walls, ours and the field's</h2>
+      <p style={{ color: 'var(--ink-soft)' }}>
+        The principal no-go and fundamental-limitation results bearing on RH — the ways a proof is
+        known <em>not</em> to be reachable by a given method. This program's own findings first, then the
+        established results and recognized barriers from the wider field. A curated list of the principal
+        results, not a claim of exhaustiveness; none proves or disproves RH.
+      </p>
+      <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 16, marginBottom: 2 }}>Found by this program (zetaexplorer)</h3>
+      <NoGoList items={ZETAEXPLORER_NO_GOS} />
+      <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 20, marginBottom: 2 }}>Established results &amp; recognized barriers (the field)</h3>
+      <NoGoList items={FIELD_NO_GOS} />
+
+      <h2>⑤ The verification discipline — six overclaims caught and withdrawn</h2>
       <p style={{ color: 'var(--ink-soft)' }}>
         The map is trustworthy because confident-looking claims were adversarially refuted
         <em> before</em> they became results. The ledger:
@@ -132,7 +166,7 @@ export default function WhatWeKnowPage() {
         ))}
       </div>
 
-      <h2>⑤ About the primes specifically</h2>
+      <h2>⑥ About the primes specifically</h2>
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
         <li><strong>Caustics = multiplicative resonances.</strong> In the log-phase field θ = t·log n, bright bands form where log(p_i/p_j) ≈ 2πk/t — the same oscillatory structure as the explicit formula's x^ρ kernel.</li>
         <li><strong>Prime rigidity is demonstrable.</strong> Real primes produce coherent caustics; randomize the logs and they dissolve into noise — a vivid face of "the primes are arithmetic, not random." <Link to="/prime-rigidity">(see it)</Link></li>

@@ -99,7 +99,7 @@
 .ed-badge{ font-family:var(--ed-mono); font-size:10px; color:var(--brass); background:#f4ead0; border-radius:999px; padding:2px 8px; }
 
 /* ---- KPI strip ---- */
-.ed-kpis{ display:grid; grid-template-columns:repeat(5,1fr); border-bottom:1px solid var(--hairline); }
+.ed-kpis{ display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--hairline); }
 .ed-kpi{ padding:16px 20px; border-right:1px solid var(--hairline); }
 .ed-kpi:last-child{ border-right:none; }
 .ed-kpi b{ font-family:var(--ed-mono); font-weight:600; font-size:23px; letter-spacing:-.02em; display:block; line-height:1; }

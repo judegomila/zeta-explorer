@@ -73,7 +73,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:
-      "Submit the Section 4.7 missing-implication chain to Aristotle as a C-status (conditional) Lean proof: from dist(C97,L)>=m97, |A97 H_t0/B_t0 - Q97|<=|A97|eps_tr, and the strict global reserve |E97|<R_ex, derive dist(Q97,L)>0, hence A97 H_t0/B_t0 avoids the closed negative ray, hence wind(H_t0/B_t0)=0, hence Theorem 4.1(ii). Take the argument principle as an explicit hypothesis (mathlib lacks it, as Aristotle already flagged for the base-case). Machine-checks the LOGIC from packet estimate to the de Bruijn conclusion; the analytic antecedent (the one open family) stays open. NO QED.",
+      "Submit the Section 4.7 missing-implication chain to Aristotle as a C-status (conditional) Lean proof: from dist(C97,L)>=m97, |A97 H_t0/B_t0 - Q97|<=|A97|eps_tr, and the strict global reserve |E97|<R_ex, derive dist(Q97,L)>0, hence A97 H_t0/B_t0 avoids the closed negative ray, hence wind(H_t0/B_t0)=0, hence Theorem 4.1(ii). CONSUME the kernel-verified general argument principle on rectangles (windingRect_eq_sum_analyticOrder, Aristotle job9 via the dbn audit session; delivery location TBA) instead of hypothesizing it — mathlib lacks it, but a verified form now exists. Machine-checks the LOGIC from packet estimate to the de Bruijn conclusion; the analytic antecedent (the one open family) stays open. NO QED.",
     rationale: 'Permuting the Zeta Twin Ladder Section 4.7: the exact logical path from the packet estimate to the Lambda conclusion; formalizing it isolates precisely which analytic input (the open family) is missing.',
     estimatedComplexity: 'high',
     dependsOn: ['imp-95002'],

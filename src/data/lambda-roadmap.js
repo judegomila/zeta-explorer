@@ -131,6 +131,46 @@ export const LAMBDA_BOUNDS = [
       'does not prove RH. Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
   },
   {
+    id: 'local-sharper-candidate-01758354',
+    label: 'Sharper unreviewed candidate: Λ ≤ 0.1758354',
+    kind: 'upper-private-proof-candidate',
+    value: 0.1758354,
+    claimedUnconditional: true,
+    established: false,
+    countsAsEstablishedUpperBound: false,
+    accepted: false,
+    published: false,
+    peerReviewed: false,
+    status: 'unreviewed-proof-candidate',
+    route: '/lambda-01758354-candidate',
+    source: 'This project — four-gate barrier certificate (2026)',
+    note:
+      'A sharper computer-assisted candidate below 0.1787854: a revised mollifier and an ' +
+      'extended finite lane certify four independent gates, each machine-checked in Arb interval ' +
+      'arithmetic with the reduction Lean-checked. Not established, not peer-reviewed, not RH; ' +
+      'Platt–Trudgian Λ ≤ 0.2 remains the benchmark.',
+  },
+  {
+    id: 'permutation-completion-contract-014',
+    label: 'Strict Λ ≤ 0.14 completion contract (fail-closed — a contract, not a bound)',
+    kind: 'completion-contract',
+    value: 0.14,
+    claimedUnconditional: false,
+    established: false,
+    countsAsEstablishedUpperBound: false,
+    accepted: false,
+    status: 'completion-contract-open',
+    route: '/permutation-architecture',
+    source: 'This project — “Permuting the Zeta Twin Ladder” (2026-08-24)',
+    note:
+      'A FAIL-CLOSED CONTRACT, not a proved bound: t0 + y0^2/2 = 7/50 = 0.14 would follow if three ' +
+      'zero-free statements hold. Two are closed within scope (the Platt–Trudgian verified height ' +
+      'supplies one; a rational intermediate box closes another). The route reduces to ONE open ' +
+      'family — a uniform correlated lower-edge enclosure |C_E,17| < 0.27968819555261474 on ' +
+      '690988 ≤ N ≤ 54799999 — with the [B_v,Π_p] noncommuting weld as the decisive object. Not ' +
+      'promoted; Λ ≤ 0.2 remains SOTA.',
+  },
+  {
     id: 'our-target-sota',
     label: 'Λ ≤ 0.02 target',
     kind: 'our-target',

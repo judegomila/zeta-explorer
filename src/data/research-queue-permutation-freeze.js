@@ -1,8 +1,9 @@
 /**
  * @module research-queue-permutation-freeze
- * @fileoverview STAGED research tickets from the permutation-architecture +
- * twistor papers (Gomila 2026-08), ready to be spliced into the main
- * improvement-queue.js TICKETS array (not the trailing *_ASSERTIONS arrays).
+ * @fileoverview Research tickets from the permutation-architecture + twistor
+ * papers (Gomila 2026-08). SPLICED into improvement-queue.js's IMPROVEMENT_QUEUE
+ * array on 2026-08-27 (inline copies, so the fleet's string-parser sees them);
+ * this module is kept as the human-readable manifest of the batch.
  *
  * Kept in a dedicated file on purpose: improvement-queue.js is a ~84k-line
  * file the autonomous fleet writes continuously, so direct injection risks

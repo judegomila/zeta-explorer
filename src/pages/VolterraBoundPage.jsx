@@ -30,8 +30,8 @@ const THREADS = [
     to: '/collapse-chain',
     blurb:
       'Shows the §15-27 program is a single statement: 7+ paper conjectures reduce ' +
-      'two-ways to the norm bound below. 60+ rows of empirical support sit ~5000x ' +
-      'from saturation.',
+      'two-ways to the norm bound below. (The once-quoted ~5000x margin was a ' +
+      'homogeneity artifact, not evidence.)',
   },
   {
     id: 'imp-1267',
@@ -99,13 +99,16 @@ export default function VolterraBoundPage() {
 
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
           Seven or more paper conjectures across §15-27 reduce, two-ways, to this one
-          statement. The empirical evidence (60+ measured rows) clears the threshold by a
-          wide margin — roughly a factor of <InlineMath math="5000\times" /> from
-          saturation in the controllable regime — while the Hilbert-Schmidt bound
-          (imp-1267) supplies an <em>analytical</em> proof that{' '}
+          statement. The empirical evidence (60+ measured rows) clears the threshold —
+          the oft-quoted factor of <InlineMath math="5000\times" /> from saturation, though
+          that margin was later shown to be a <strong>homogeneity artifact</strong> (it measured a
+          scale-miscalibrated bare operator, so it is <em>not</em> evidence for the conjecture;
+          see the corrections ledger on <Link to="/what-we-know">What&nbsp;We&nbsp;Know</Link>).
+          The Hilbert-Schmidt bound (imp-1267) supplies an <em>analytical</em> proof that{' '}
           <InlineMath math="\|V_{a,\Phi}\| \le 1" /> for <InlineMath math="a \lesssim 2" />.
           The open frontier is <InlineMath math="a \gtrsim 2.3" />, where the bound
-          diverges as <InlineMath math="J_a \sim e^{4a}" /> and rigorous control is lost.
+          diverges as <InlineMath math="J_a \sim e^{4a}" /> and rigorous control is lost — and the
+          statement itself is RH-equivalent, not a shortcut.
         </p>
 
         <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Supporting threads</h2>

@@ -441,8 +441,8 @@ export default function DashboardPage() {
             detail={weil.value?.detail}
           />
           <MetricCard
-            title="Proof Completeness"
-            subtitle="Sections proven or numerically verified"
+            title="ZPO Model Diagnostic"
+            subtitle="S1–S8 model sections proven or numerically verified — a finite-model diagnostic, not RH proof progress"
             loading={proof.loading}
             error={proof.error}
             status={proof.value?.status}

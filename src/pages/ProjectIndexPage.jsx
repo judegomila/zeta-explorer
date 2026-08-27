@@ -69,27 +69,23 @@ export default function ProjectIndexPage() {
         {/* Current Research Status */}
         <div className="card" style={{ marginBottom: 24, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--terra)', borderRadius: 8, padding: '16px 18px' }}>
           <h3 style={{ color: 'var(--terra)', fontSize: 15, marginBottom: 12 }}>Current Research Status</h3>
-          <div style={{ marginBottom: 14 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-              <span style={{ color: 'var(--ink-soft)', fontSize: 12 }}>Bayesian confidence (Lax-Phillips path)</span>
-              <span style={{ color: 'var(--terra)', fontWeight: 700, fontSize: 14, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>~80%</span>
-            </div>
-            <div style={{ height: 8, borderRadius: 4, background: 'rgba(217,80,46,0.15)', overflow: 'hidden' }}>
-              <div style={{ width: '80%', height: '100%', background: 'linear-gradient(90deg, #c23a1c, #d9502e)', borderRadius: 4 }} />
-            </div>
-          </div>
           <div style={{ marginBottom: 12, padding: '10px 14px', borderRadius: 6, background: 'rgba(181,138,46,0.06)', border: '1px solid rgba(181,138,46,0.30)' }}>
-            <div style={{ color: 'var(--brass-dk)', fontSize: 12, fontWeight: 600, marginBottom: 4 }}>Single Remaining Open Gap</div>
+            <div style={{ color: 'var(--brass-dk)', fontSize: 12, fontWeight: 600, marginBottom: 4 }}>Where the program actually stands</div>
             <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6 }}>
-              Prove the Lax-Phillips scattering operator for the Twin-Ladder Bridge Hamiltonian satisfies the LP contraction semigroup axioms.
-              If confirmed, poles of S&#x2082;&#x2081; are confined to &#x3c3;=&#xbd;, closing the proof.
+              RH is open. The program's frontier: computer-assisted candidates Λ ≤ 0.1787854 (reviewed by Dan
+              Romik) and Λ ≤ 0.1758354, plus a fail-closed Λ ≤ 0.14 completion contract reduced to one open
+              family. Across the mapped routes, every shortcut below RH is either not rigorous or RH-equivalent —
+              see the <Link to="/state-of-program">State of the Program</Link> and{' '}
+              <Link to="/what-we-know">the no-go landscape</Link>. (An earlier "~80% Bayesian confidence,
+              one gap from proof" Lax–Phillips framing was an overclaim and is retired; the historical S-matrix
+              exploration below is kept as a record.)
             </div>
           </div>
           <div style={{ color: 'var(--faint)', fontSize: 11, lineHeight: 1.7 }}>
             <strong style={{ color: 'var(--ink-soft)' }}>What is RH?</strong>{' '}
             The Riemann Hypothesis asks whether all non-trivial zeros of &#x3b6;(s) lie on Re(s)=&#xbd;.
-            The Twin-Ladder Bridge approach encodes this via an S-matrix: &#x3b6;-zeros are poles of S&#x2082;&#x2081; = &#x3b6;(2s)/&#x3b6;(s),
-            and Lax-Phillips operator theory bounds where those poles can live.
+            The historical Twin-Ladder Bridge S-matrix picture encoded &#x3b6;-zeros as poles of S&#x2082;&#x2081; = &#x3b6;(2s)/&#x3b6;(s);
+            the exact cascade later placed those zeros in the denominator as poles, and the route was abandoned as a proof path.
           </div>
         </div>
 

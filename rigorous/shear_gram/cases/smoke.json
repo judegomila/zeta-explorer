@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "debranges-gram-case/v1",
+  "id": "smoke-rational-upper-half-plane",
+  "a": "1/8",
+  "nodes": [
+    {
+      "re": "0",
+      "im": "1/4"
+    },
+    {
+      "re": "1/2",
+      "im": "1/3"
+    }
+  ],
+  "precision_bits": [
+    128,
+    256,
+    512
+  ],
+  "theta_crosscheck": {
+    "enabled": true,
+    "cutoff_u": "1",
+    "theta_terms": 6
+  }
+}

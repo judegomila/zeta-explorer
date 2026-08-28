@@ -178,6 +178,103 @@ export default function PermutationArchitecturePage() {
           </table>
         </div>
 
+        {/* The permutation atlas (§9) */}
+        <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>The permutation atlas — every family classified</h2>
+        <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
+          Every admissible word has the correlation-preserving, modulus-last <strong>normal form</strong>:
+          complete → direct/dual correlate → heat + prime masks → exact transform → shell or graph
+          recombination → Schur closure (if used) → one scalar bound. Against that normal form, every
+          rearrangement family is classified by its exact invariant — so "try every permutation" is closed,
+          not combinatorial:
+        </p>
+        <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', marginTop: 8 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+            <thead>
+              <tr style={{ background: 'var(--paper2)', textAlign: 'left', color: 'var(--faint)' }}>
+                <th style={{ padding: '8px 12px' }}>Permutation family</th><th style={{ padding: '8px 12px' }}>Exact invariant</th><th style={{ padding: '8px 12px' }}>Proof consequence</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['All 25! prime orders', 'R₉₇ and E₉₇', 'choose order for conditioning only'],
+                ['Divisor / 25-defect / five-shell / Heat–Euler fiber forms', 'the same scalar cocycle', 'alternative coordinates; budgets cannot be added'],
+                ['DFT / real-phase chirp / block isometries', 'coefficient ℓ² norm', 'common remainder transports exactly; center still open'],
+                ['Independent bicomplex sectors', 'maximum sector residual', 'no improvement'],
+                ['Unitary twistor rotations', 'spectrum and residual norm', 'no improvement'],
+                ['Graph compressions', 'correlated average residual', 'POSSIBLE GAIN — conditional on characteristic invariance and complement gap'],
+                ['Core/tail basis rotations', 'singular values & Schur expression', 'no missing tail gap is created'],
+                ['Early componentwise moduli', 'no recoverable complex sum', 'FORBIDDEN when correlation is needed'],
+              ].map(([f, inv, c]) => (
+                <tr key={f} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
+                  <td style={{ padding: '7px 12px', color: 'var(--ink)', fontWeight: 600 }}>{f}</td>
+                  <td style={{ padding: '7px 12px' }}>{inv}</td>
+                  <td style={{ padding: '7px 12px', fontWeight: /POSSIBLE|FORBIDDEN/.test(c) ? 600 : 400, color: /POSSIBLE/.test(c) ? '#4c7a4a' : /FORBIDDEN/.test(c) ? '#c23a1c' : undefined }}>{c}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.6, marginTop: 10 }}>
+          The only families with possible gain are <strong>graph compressions</strong> (the §6.2 correlated
+          graph isometry, where the anti-Hermitian parts can genuinely cancel — the operator analogue of
+          retaining both ladder phases — gated on characteristic invariance and a Schur complement gap) and
+          the <strong>moving-reference Rouché gluing</strong> (the reference Q need not sit in a fixed
+          half-plane; overlapping analytic phase charts glue by winding). Everything isometric or
+          "information-preserving" alone — bicomplex sectors, twistor rotations, exact Fourier moves — is
+          provably no-gain; heat methods enter only through the proof-bearing freeze–thaw closures
+          (characteristic bridge, tail coercivity + Schur closure, the Duhamel heat/cutoff commutator, and
+          the shell-and-collision thaw theorem).
+        </p>
+
+        {/* The route atlas (§10) */}
+        <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>The route atlas — eight stacks, readiness-ranked</h2>
+        <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
+          Two rankings differ: the closest route to a <em>checkable new theorem</em> is not the shortest route
+          to RH. The L-function functor and the bicomplex–twistor interface are <strong>enabling tests, not
+          additional proof mechanisms</strong> — neither has a conclusion until it feeds one of these rows:
+        </p>
+        <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', marginTop: 8 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+            <thead>
+              <tr style={{ background: 'var(--paper2)', textAlign: 'left', color: 'var(--faint)' }}>
+                <th style={{ padding: '8px 10px' }}>#</th><th style={{ padding: '8px 12px' }}>Route</th><th style={{ padding: '8px 12px' }}>Exact payoff if completed</th><th style={{ padding: '8px 12px' }}>Decisive open theorem</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['1', 'Global P97 barrier', 'non-effective Λ < 0.14 from strict source completion', 'uniform correlated center / shifted-alias packet enclosure'],
+                ['2', 'Enlarged slab + new tail', 'explicit Λ ≤ 0.1399', 'certify the rectangular-slab inheritance (4.4) and the new final-time tail (4.5)'],
+                ['3', 'Hermite–Biehler / de Branges', 'fixed-time bound; at t = 0, RH', 'arithmetic HB contraction and half-plane exhaustion'],
+                ['4', 'Weil-positive characteristic system', 'RH at t = 0', 'classical Weil positivity with a global limit theorem'],
+                ['5', 'Argument-principle exhaustion', 'fixed-time real-rootedness; at t = 0, RH', 'uniform near-axis and infinite-tail control'],
+                ['6', 'Collision-free heat dynamics', 'descent from a real-rooted time to target time', 'exclude every collision and escape at infinity'],
+                ['7', 'Self-adjoint characteristic pencil', 'RH if the determinant is Ξ', 'noncircular characteristic identity and tail closure'],
+                ['8', 'Diagonal t ↓ 0 family', 'RH from complete rows with endpoints tending to zero', 'a global certificate at every row'],
+              ].map(([n, r, p, d]) => (
+                <tr key={n} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
+                  <td style={{ padding: '7px 10px', fontFamily: 'var(--ed-mono)' }}>{n}</td>
+                  <td style={{ padding: '7px 12px', color: 'var(--ink)', fontWeight: 600 }}>{r}</td>
+                  <td style={{ padding: '7px 12px' }}>{p}</td>
+                  <td style={{ padding: '7px 12px' }}>{d}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div style={{ borderLeft: '3px solid var(--blue, #3f6b86)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '12px 16px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>a second explicit target — the conditional 0.1399 row</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.55, margin: 0 }}>
+            Route 2 trades the single cocycle weld for two sharply delimited tasks: with{' '}
+            <InlineMath tex="y_* = 33/200,\ t_* = 10103/80000" />, a rectangular-slab inheritance lemma plus a
+            directed proof of <InlineMath tex="H_{t_*}(x+iy) \ne 0" /> on the enlarged region would give{' '}
+            <InlineMath tex="\Lambda \le 0.1399" />. Neither hypothesis is certified by the present project —
+            an exact research target, not a reported improvement. Certified exclusions also close several
+            tempting shortcuts: independent macro budgets discard essential cancellation; generic low-rank
+            rough transforms cannot close the residual; raw tiling needs &gt; 7.2×10²⁶ cells. The missing
+            producer must exploit the specific paired heat–log family and batch the integer windows analytically.
+          </p>
+        </div>
+
         {/* Formalization status */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Machine-verified (Lean 4, Aristotle wave 1)</h2>
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

@@ -158,10 +158,10 @@ export default function HomePageEditorial() {
             <Link to="/oscillators">/oscillators →</Link></div>
           <div className="ed-step"><span className="num">STEP 2</span>
             <div className="ed-stepfig"><WireframeAnim kind="twinladder" /></div>
-            <h3>Twin-ladder shear</h3>
-            <div className="eq"><InlineMath tex="K_a = K_0 + D_{a,R} + K^{S}" /></div>
-            <p>Couple two rung-stacks; the antisymmetric shear is the de Branges Wronskian of ξ. Positivity ⇔ a zero-free strip.</p>
-            <Link to="/twin-ladder">/twin-ladder →</Link></div>
+            <h3>Shifted de Branges kernel</h3>
+            <div className="eq"><InlineMath tex="K_a^{\mathrm{dB}}(w,z) \succeq 0" /></div>
+            <p>Full Gram-kernel positivity confines every zero to the width-a central strip. The raw antisymmetric shear is only one indefinite factor, not the positive object by itself.</p>
+            <Link to="/hidden-square-program">/hidden-square-program →</Link></div>
           <div className="ed-step"><span className="num">STEP 3</span>
             <div className="ed-stepfig"><WireframeAnim kind="wave" /></div>
             <h3>The a-dial</h3>
@@ -208,7 +208,7 @@ export default function HomePageEditorial() {
       {/* interactive twin-ladder explorer */}
       <div className="ed-full"><section className="ed-sec">
         <div className="ed-shead"><div><div className="ed-lbl">interactive</div><h2>The twin ladder, live</h2></div>
-          <p>Drag the shift a and watch the shear against the positive core.</p></div>
+          <p>Drag the shift a and inspect the finite shear comparison. This is a diagnostic, not a positivity certificate.</p></div>
         <Suspense fallback={<div className="ed-mono" style={{ color: 'var(--faint)', padding: '40px 0' }}>Loading the explorer…</div>}>
           <TwinLadderViz />
         </Suspense>

@@ -112,6 +112,38 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
     },
   ]),
 
+  resourceBoundedSalvage: {
+    statement:
+      'For canonical base-b digits, unbounded time-bounded description length at ' +
+      'any budget eventually larger than linear implies irrationality: every fixed ' +
+      'rational has an O(N)-time long-division program of constant description length.',
+    representationWarning:
+      'This applies to exact canonical digits, not merely certified Cauchy ' +
+      'approximations. Johansson computes p-bit approximations to a fixed zeta value ' +
+      'in p^(3/2+o(1)) bit operations, so approximation names are resource-shallow.',
+    carryBoundary:
+      'Settling the exact first N base-b digits can require extra precision governed ' +
+      'by ||b^N zeta(5)||. A lower bound here is already Diophantine content; the ' +
+      'Euler product supplies no known route to it.',
+    verdict:
+      'Logically valid but not a simplification. It asks for a serious exact-digit ' +
+      'complexity lower bound that is stronger than irrationality.',
+  },
+
+  ensembleAperiodicity: {
+    statement:
+      'Zudilin proved that at least one of zeta(5), zeta(7), zeta(9), zeta(11) is ' +
+      'irrational. Hence the vector word of their simultaneous base-b digits is not ' +
+      'ultimately periodic in any fixed base.',
+    factorComplexity:
+      'By Morse-Hedlund, the vector word has factor complexity p_v(l)>=l+1 for ' +
+      'every l>=1.',
+    scope:
+      'This is a genuine unconditional odd-zeta information theorem, but it is ' +
+      'collective: it does not identify zeta(5), and it does not imply positive ' +
+      'finite-state dimension.',
+  },
+
   exactIrrationalityCriterion: {
     statement:
       'Construct A_n,B_n in Z such that L_n=A_n*zeta(5)-B_n is nonzero and ' +
@@ -153,6 +185,38 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
     warning:
       'For nested shrinking brackets, denominator escape is equivalent to the ' +
       'irrationality conclusion. Verification through n=50 is evidence only.',
+    exactAudit:
+      'Exact arithmetic through n=50 gives -log10(width)=3.84583*n+O(1) and ' +
+      'log10(h)=1.91890*n+O(1) over n=10..50. The ratio tends numerically to 1/2; ' +
+      'at n=50, h^2*width=1.83118 and log(h)/-log(width)=0.500687.',
+    interpretation:
+      'The common continued-fraction prefix grows but shows no closed recurrence. ' +
+      'The construction currently appears to expose more of the continued fraction ' +
+      'of zeta(5), not to create an independent symbolic sign law.',
+  },
+
+  brownZudilinScalarBudget: {
+    status: 'REPRODUCED — ARITHMETIC DEFICIT REMAINS POSITIVE',
+    parameterRay: '(8,16,10,15,12,16,18,13)',
+    analyticExponent:
+      'C0=lim log|Q_n*zeta(5)-P_n|/n=-31.5529693481.',
+    denominatorExponent:
+      'The raw LCM exponent 84 is reduced by the 7!=5040 symmetry gain ' +
+      '34.3942518668, leaving C2=49.6057481332.',
+    clearedBudget:
+      'C0+C2=18.0527787851 nats per n=26.04465443 bits per n. Since this is ' +
+      'positive, the cleared integer linear form grows instead of tending to zero.',
+    quality:
+      'The reproduced approximation-quality exponent is 0.86597135546; the ' +
+      'irrationality threshold is strictly greater than 1.',
+    closureOptions:
+      'At fixed analytic decay, the denominator exponent must fall by 36.3925%, ' +
+      'or an equivalent 18.0527787851 nats per n must come from analytic or mixed ' +
+      'determinant cancellation.',
+    auditWarning:
+      'The public v3 preprint calls its optimized denominator inclusion an ' +
+      'experimental observation whose detailed proof is omitted. Treat that ' +
+      'inclusion as a written-verification obligation before using it downstream.',
   },
 
   externalFrontier2026: {
@@ -172,19 +236,30 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'periods. A genuine projected contour/period representation, a holonomic ' +
       'determinant theorem, or an extension to signed/complex cycles is needed ' +
       'before positivity can certify nonvanishing.',
+    rectangularThreshold:
+      'If an ideal d_max^5 denominator theorem can be achieved for five independent ' +
+      'parameters, the optimistic benchmark is Sup_rec < exp(-11/6)=0.1598797461. ' +
+      'For one explicit full-dimensional M_0,8 subcone, the actual top-five LCM ' +
+      'order statistic instead gives the conditional sufficient target ' +
+      'Sup_rec < exp(-13/4)=0.0387742078, assuming the uniform Brown-Zudilin ' +
+      'five-LCM inclusion. Scalar Rhin-Viola savings cannot be inserted without ' +
+      'a uniform row/column theorem.',
   },
 
   nextExperiment: Object.freeze([
-    'Reproduce the Brown-Zudilin 0.86 approximation exponent with exact arithmetic.',
+    'Write and verify the omitted optimized Brown-Zudilin denominator inclusion.',
+    'Construct a fixed signed or relative-cycle Mellin representation of the projected zeta(5) form.',
     'Build small projected moment matrices over M_0,8 parameter boxes, not a single ray.',
-    'Factor row/column denominator lattices using the 7!-symmetry and record exact determinants.',
-    'Track analytic determinant contraction minus arithmetic denominator growth.',
-    'Use numerics only to select a module family; the deliverable is an infinite nonvanishing and diameter bound.',
+    'Test whether determinant cancellation beats 18.0527787851 nats per scalar row.',
+    'Prove uniform row/column denominator savings and a transfinite-diameter bound below the resulting threshold.',
   ]),
 
   references: Object.freeze([
-    'F. Brown and W. Zudilin, On cellular rational approximations to zeta(5), Adv. Math. 495 (2026), 110967; arXiv:2210.03391.',
+    'F. Brown and W. Zudilin, On cellular rational approximations to zeta(5), arXiv:2210.03391v3 (2026 preprint).',
     'F. Brown, Mellin transforms, transfinite diameter and rational approximations of integrals, arXiv:2604.20741 (2026).',
+    'F. Johansson, Rapid computation of special values of Dirichlet L-functions, arXiv:2110.10583.',
+    'M. Morse and G. A. Hedlund, Symbolic Dynamics II: Sturmian Trajectories, Amer. J. Math. 62 (1940), 1-42.',
+    'W. Zudilin, One of the numbers zeta(5), zeta(7), zeta(9), zeta(11) is irrational, arXiv:math/0206176.',
     'B. Adamczewski and Y. Bugeaud, On the complexity of algebraic numbers I, Ann. of Math. 165 (2007), 547-565.',
     'D. H. Bailey and R. E. Crandall, On the random character of fundamental constant expansions, Exp. Math. 10 (2001), 175-190.',
   ]),
@@ -213,6 +288,14 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT_ASSERTIONS = Object.freeze([
   {
     name: 'Brown criterion is not claimed to solve zeta(5)',
     check: () => /NOT YET APPLIED/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.externalFrontier2026.status),
+  },
+  {
+    name: 'reproduced scalar budget remains on the losing side',
+    check: () => /18\.0527787851/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.brownZudilinScalarBudget.clearedBudget),
+  },
+  {
+    name: 'resource-bounded claim is restricted to exact canonical digits',
+    check: () => /exact canonical digits/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.resourceBoundedSalvage.representationWarning),
   },
 ]);
 

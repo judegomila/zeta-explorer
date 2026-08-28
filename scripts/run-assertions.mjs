@@ -7626,6 +7626,14 @@ const DATA_MODULES = [
   // ~22.68 -> ~23.30, above the near-tail band tops) -- not yet flat, per-decade drift < 1.03x, a residual
   // O(1/t) correction asymptoting on top of the leading 1/(t-1)^2 law. Measurement only; changes no bound; NO QED.
   '/src/data/imp-34948-inflection-offset-far-tail-ladder-extension.js',
+  // imp-36177: LADDERS the imp-33744 SIGMA-SPACE inflection offset offsetSigma = 1/2 - sigma(N_infl) =
+  // -g_prime/(2 g^2) across eight decades 1e8..1e22 (imp-34948 locators reused verbatim), distinct from the
+  // imp-34933/imp-34948 N-POSITION offset N_infl/N_half - 1. imp-33744 records only ONE sigma-value point
+  // (~2.1e-3 at N ~ 3.27e9). The offset decays MONOTONICALLY ~2.92e-3 -> ~4.11e-4; the closed form -g_prime/(2 g^2)
+  // reproduces it to < 2e-5 relative at every rung; the local decay exponent d ln offsetSigma/d ln t drifts from
+  // ~-1.898 (near 1e8..1e14) to ~-1.994 (far 1e16..1e22), converging to the analytic -2, and the 1/(t-1)^2
+  // overshoot fades +12.4% -> -1.5% -- the log-factor running fades toward the pure power law. Measurement only; NO QED.
+  '/src/data/imp-36177-sigma-infl-offset-decade-ladder.js',
   // imp-35027: FITS the imp-34948 far-tail diagnostic band P(t) = offsetN*(t-1)^2 to a C + D/t model over the
   // rungs 1e14..1e18 (imp-34948 locators reused verbatim), resolving imp-34948-s un-flattened slow drift into a
   // leading constant plus a 1/t tail: sigmoid C ~ 8.58, D ~ -13.07 (R^2 ~ 0.994); ramp C ~ 25.49, D ~ -90.41
@@ -11714,6 +11722,20 @@ const DATA_MODULES = [
   // toggling on a scale of ~1; verdict does not track kappa. Measurement only; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36113-kbn-kahan-intermittency-fine-resolution.js',
+  // imp-36178 (numerical, opus-4-8, api-pool): DERIVE the mechanism of the imp-36112 transient
+  // N~1500-3000 KBN-vs-classic-Kahan separation episode (or refute a clean law) on the imp-35852
+  // clustered worst order via three instrumented diagnostics. (1) REFUTES the imp-36076 proposed
+  // "|s|<|x| lossy else-branch" mechanism: 0 lossy branch steps at every N (fixed-form and
+  // branch-correct low parts never differ; only the trivial first term has |s|<|x|). (2) The two
+  // running accumulators diverge at >80% of steps at EVERY N -- 862/1000 at the TIED N=1000 vs
+  // 1385/1500 at the SEPARATED N=1500 -- so trajectory divergence is generic, not episodic.
+  // (3) ACTUAL mechanism: the final results differ by EXACTLY 0 or EXACTLY 1 ULP of the O(1) final
+  // sum (~1.11e-16), never more -- a binary terminal-rounding toggle. The transient band is NOT
+  // distinct: the same 1-ULP toggle fires at N=50000, set by the equidistributed irrational-phase
+  // fractional position of the exact-sum tail on the double grid, with no closed form in N, so a
+  // clean law does NOT exist. Precision NON-binding (~1e-19 floor); W1 certificate
+  // GREENFIELD/MECHANICAL; imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36178-transient-separation-mechanism.js',
   // imp-36114 (numerical, opus-4-8, api-pool): fit the imp-36062 KBN/classic-Kahan normalized-error
   // RATIO versus N above the ~34000 onset across a 12-rung ladder [35000..488602]. Result: NONE of
   // three candidate forms fits -- power law in N (R^2~0.15), power law in kappa (R^2~0.15), and
@@ -12064,6 +12086,14 @@ const DATA_MODULES = [
   // three-term share stacked-area/decay chart without the 16.7MB zeros bundle. Presentation
   // only; changes no bound; NO QED.
   '/src/data/imp-36185-e-share-five-landmark-tail-decay-viz-data.js',
+  // imp-36179 (numerical, opus-4-8, api-pool): CROSS-VALIDATES the imp-36111 merged five-landmark
+  // shareColl decay sequence (0.783 -> 0.716 -> 0.407 -> 0.100 -> 0.0099) against an INDEPENDENT
+  // direct recomputation of shareColl = E_coll / (E_coll + E_trunc + E_flow) at each baked landmark
+  // N (E_trunc = 3.06e-5 imp-2631; E_flow = C_F (log T0/T0) exp|t_c| imp-398; E_coll = C_C sqrt(log
+  // T0/N), C_C = (1/8) sqrt(3 pi) imp-2642/imp-2643). Fresh reproduces the baked bars to <= 1.7e-4
+  // (worst at the rounded-0.783 elbow; <= 2.4e-5 elsewhere) and confirms strict monotone decay.
+  // Measurement only; changes no bound; C_C GUE-conditional; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-36179-sharecoll-decay-crossvalidation.js',
   // imp-36186 (ux, sonnet-4-6, sonnet): import-light viz-data module baking the imp-36112 merged
   // two-episode KBN-vs-classic-Kahan separation record (transient/tie-plateau/persistent) as
   // plain literals so an analysis tab can render it without the 16.7MB zeros bundle.
@@ -12298,6 +12328,16 @@ const DATA_MODULES = [
   // product node, ONLY at the F=0 centre N_cross (round-to-nearest product shave, bounded, ratio ~1.84).
   // Derivation only; both widths remain MODELS; imp-34714a/imp-34687a open; NO QED.
   '/src/data/imp-36175-krawczyk-residual-2x-ratio-opdag-derivation.js',
+  // imp-95008 (proof, fable-5, fable): the noncommuting weld [B_v, Pi_p]. Two
+  // unconditional lemmas + a conditional corollary: (1) exact alias decomposition
+  // [B, Pi_p] = (1/p) sum_{h=1..p-1} [B, M_h] (h=0 contributes zero defect for ANY B);
+  // (2) bounded-overlap l2 collapse ||sum a_h||^2 <= K sum ||a_h||^2 (Pythagorean
+  // equality at K=1). Together they reduce the five-shell correlated weld to
+  // single-shell packet masses times one overlap constant K and identify the page
+  // named sub-gap scalar sum w(h)^2 lambda(h)^(-2/3) as the exact quadratic controller.
+  // K near the fold, the scalar itself, and the l2-to-scalar step remain open;
+  // changes no bound; NO QED.
+  '/src/data/imp-95008-weld-alias-l2-collapse.js',
 ];
 
 let ALL_MODULES = FAST_MODE

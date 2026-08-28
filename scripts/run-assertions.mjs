@@ -9829,6 +9829,17 @@ const DATA_MODULES = [
   // of a/(2-a). Four self-executing assertions. Measurement only on the inherited
   // surrogate; imp-34714a stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35783-krawczyk-surplus-raw-da-times-sinf.js',
+  // imp-35828: ISOLATE the O(a^3) coefficient of the imp-35762/imp-35396 no-shift
+  // Krawczyk band-top surplus. Expanding M_G.M_FP = (1 - a/2 - a^2/4 - ...)(1 + a + a^2
+  // + a^3 + ...) to third order gives 2/(2-a), so surplus_noOffset/S_inf = a/2 + a^2/4 +
+  // a^3/8 + ... is a single geometric series with a^k coefficient (1/2)^k: the leading
+  // O(a^3) surplus coefficient is 1/8 (term S_inf.a^3/8) and the full O(a^3)+ tail is
+  // exactly S_inf.a^3/(4(2-a)) = the ~0.026 curvature-vs-Taylor2 gap identically. At
+  // band-top a~0.043176 the 0.025707 gap = S_inf.a^3/8 = 0.025152 (97.8%) + O(a^4)
+  // remainder S_inf.a^4/(8(2-a)) = 5.55e-4 (2.2%); no genuine cross term exists. Four
+  // self-executing assertions. Derivation only on the inherited surrogate; imp-34714a
+  // stays OPEN; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-35828-krawczyk-surplus-o3-coefficient.js',
   // imp-35727: ENUMERATE the ingredients a rigorous interval-arithmetic-CERTIFIED
   // winding (argument-principle) zero count on the boundary of the transition
   // rectangle R = [T_PT, T_PT+Delta] x [-h, h] needs BEYOND the held-but-EXPERIMENTAL

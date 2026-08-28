@@ -596,7 +596,25 @@ export default function OddZetaPage() {
                 with computability. But no such theorem is known for <InlineMath tex={"\\zeta(5)"} />;
                 any finite digit sample is compatible with an eventually periodic continuation.
               </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                A time-bounded version is valid only for <em>exact canonical digits</em>: rationals have a
+                constant-size, linear-time long-division program. Certified Cauchy approximations do not help;
+                fixed zeta values can be approximated in <InlineMath tex={"p^{3/2+o(1)}"} /> bit operations.
+                Exact digit extraction instead meets the Diophantine carry boundary{' '}
+                <InlineMath tex={"\\lVert b^N\\zeta(5)\\rVert"} />.
+              </p>
             </div>
+          </div>
+          <div style={{ marginTop: 12, padding: 12, background: 'rgba(63,107,134,0.06)', borderRadius: 8 }}>
+            <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: 0 }}>
+              <strong style={{ color: 'var(--blue)' }}>One unconditional ensemble theorem:</strong>{' '}
+              Zudilin's result that at least one of{' '}
+              <InlineMath tex={"\\zeta(5),\\zeta(7),\\zeta(9),\\zeta(11)"} /> is irrational implies that their
+              simultaneous digit-vector word is aperiodic in every fixed base. Its factor complexity therefore
+              satisfies <InlineMath tex={"p_v(\\ell)\\ge \\ell+1"} /> for every{' '}
+              <InlineMath tex={"\\ell"} />. This is genuine odd-zeta information, but it does not identify which
+              coordinate is irrational.
+            </p>
           </div>
         </div>
 
@@ -615,6 +633,13 @@ export default function OddZetaPage() {
                 exclusion signs or a uniform balanced-cylinder determinant inequality. Finite verification
                 is evidence only; denominator escape is essentially the irrationality step.
               </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The exact run certifies 187 continued-fraction entries and, conditionally on rationality, a
+                96-digit lower bound for the denominator. Empirically{' '}
+                <InlineMath tex={"-\\log_{10}(U_n-L_n)\\sim3.84583n"} /> and{' '}
+                <InlineMath tex={"\\log_{10}h(I_n)\\sim1.91890n"} />, but the exclusion side is irregular and the
+                elementary endpoint determinant bound deteriorates. No symbolic escape recurrence has emerged.
+              </p>
             </div>
             <div style={{ padding: 12, background: 'var(--paper)', borderRadius: 8, border: '1px solid var(--hairline)' }}>
               <h3 style={{ color: 'var(--blue)', fontSize: 13, marginBottom: 6 }}>External: Brown 2026</h3>
@@ -625,6 +650,13 @@ export default function OddZetaPage() {
                 determinants are nonzero, clear the exact denominator lattices, and establish a strict
                 transfinite-diameter/denominator product below one. The criterion is proved, but no{' '}
                 <InlineMath tex={"\\zeta(5)"} /> application is currently complete.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The reproduced scalar budget is concrete:{' '}
+                <InlineMath tex={"C_0=-31.55297"} /> and <InlineMath tex={"C_2=49.60575"} />, leaving{' '}
+                <InlineMath tex={"C_0+C_2=18.05278"} /> nats, or <InlineMath tex={"26.04465"} /> missing bits,
+                per step. The projected <InlineMath tex={"\\zeta(5)"} /> Hankel matrix is already indefinite at{' '}
+                <InlineMath tex={"2\\times2"} />, so Brown's automatic positive-moment nonvanishing cannot be used.
               </p>
             </div>
           </div>

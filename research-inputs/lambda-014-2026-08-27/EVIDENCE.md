@@ -30,6 +30,25 @@ workspace versions.
 | `AIRY_ENDPOINT_KERNEL_THEOREM.md` | `81d35dc7bc9b0f62c4e9436bd7c67cdabf646353ab76573415b89521843dc749` |
 | `VERTICAL_GAMMA_THEOREM.md` | `5aacc475419c7ea76db3415d88429a2ee5a1c84c3cd64882d99f3e76ff3254bc` |
 
+## 28 August proof-reduction roots
+
+The latest progress note is committed as Git blob
+'0e67a3b65e7acff3f787b9c614c23fd9d84316a9'. The source packages remain
+outside the app repository; their SHA-256 trust roots are:
+
+| Workspace package or note | SHA-256 |
+|---|---|
+| early P97 event-DAG manifest | '9425c6de638f647960892c5f14c503f87ccc7f8042acf9894a2f76022e03399a' |
+| directional-center v2 manifest | 'd2e0fc5215c0fa42cebadae84a5f59e72d2f37eabc8561ca6bd1496ea51c30d7' |
+| vertical real-attenuation atlas manifest | 'af46389f3710e996ef13ac230931a21ba56e1dd9443e15b72f2d58887179b298' |
+| complementary-terms theorem | '08704eb3833411a2e2d62be42ae9b4c41f5e1cad3385d95732af18cdcc3b1386' |
+| directional-reduction adversarial audit | '49c8db1cd7e88c0ffb01bcdde9e6391a4a7e8b911a037531d9bb0f56b7f1e17e' |
+
+The smooth-tail point atlases and the 398-cell endpoint planner are explicitly
+diagnostic/design evidence. They are not listed as proof roots, because a
+complete interval producer for the B-dual interior and both vertical faces
+does not yet exist.
+
 ## Replay contract
 
 From an extracted full archive:

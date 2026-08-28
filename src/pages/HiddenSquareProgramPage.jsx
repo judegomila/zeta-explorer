@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
@@ -20,6 +20,11 @@ import {
  * Editorial (warm) re-theme: full-width shell, identical structure/data.
  */
 const S = HIDDEN_SQUARE_PROGRAM_SECTION;
+const FINITE_GRAM_STATUSES = new Set([
+  'CERTIFIED-POSITIVE-FINITE-GRAM',
+  'CERTIFIED-NEGATIVE-WITNESS',
+  'INCONCLUSIVE',
+]);
 
 // Editorial card: warm paper background + hairline border, colored left rule.
 function cardBaseLeft(accent) {
@@ -175,6 +180,119 @@ function ArithmeticBlockDiagnostic() {
   );
 }
 
+function FiniteGramCertificateCard() {
+  const [certificateState, setCertificateState] = useState({ phase: 'loading' });
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    fetch('/certificates/debranges-gram/smoke.json', {
+      cache: 'no-store',
+      signal: controller.signal,
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error(`certificate request returned ${response.status}`);
+        return response.json();
+      })
+      .then((certificate) => {
+        const hasRequiredFields =
+          FINITE_GRAM_STATUSES.has(certificate?.status) &&
+          typeof certificate?.input?.a === 'string' &&
+          certificate.input.a.length > 0 &&
+          Array.isArray(certificate?.input?.nodes) &&
+          certificate.input.nodes.length > 0 &&
+          Number.isInteger(certificate?.selectedPrecisionBits) &&
+          certificate.selectedPrecisionBits > 0 &&
+          /^[0-9a-f]{64}$/.test(certificate?.hashes?.canonicalCertificateSha256);
+        const hasFiniteOnlyScope =
+          certificate?.finiteGramOnly === true &&
+          certificate?.rhClaim === false &&
+          certificate?.rhSolved === false &&
+          certificate?.claimComplete === false;
+
+        if (!hasRequiredFields || !hasFiniteOnlyScope) {
+          throw new Error('certificate schema or finite-only scope guard failed');
+        }
+        setCertificateState({ phase: 'ready', certificate });
+      })
+      .catch((error) => {
+        if (error.name !== 'AbortError') {
+          setCertificateState({ phase: 'unavailable' });
+        }
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  if (certificateState.phase === 'loading') {
+    return (
+      <Card accent="var(--brass-dk)">
+        <div aria-live="polite" style={{ color: 'var(--faint)', fontSize: 13 }}>
+          Loading the static finite-Gram certificate…
+        </div>
+      </Card>
+    );
+  }
+
+  if (certificateState.phase !== 'ready') {
+    return (
+      <Card accent="var(--brass-dk)">
+        <div style={{ color: 'var(--brass-dk)', fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', letterSpacing: 0.5 }}>
+          STATIC FINITE-GRAM ARTIFACT · UNAVAILABLE
+        </div>
+        <p aria-live="polite" style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: '8px 0 0' }}>
+          The certificate could not be loaded or did not pass its finite-only scope guard. No numerical
+          conclusion is inferred; the exact correction above is unaffected.
+        </p>
+      </Card>
+    );
+  }
+
+  const { certificate } = certificateState;
+  const statusColor = certificate.status.includes('NEGATIVE')
+    ? 'var(--terra-dk)'
+    : certificate.status.includes('POSITIVE')
+      ? 'var(--green)'
+      : 'var(--brass-dk)';
+  const hash = certificate.hashes.canonicalCertificateSha256;
+
+  return (
+    <Card accent={statusColor}>
+      <div style={{ color: statusColor, fontSize: 11, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', letterSpacing: 0.5 }}>
+        STATIC ARB/BALL ARTIFACT · FINITE GRAM ONLY
+      </div>
+      <h3 style={{ color: statusColor, fontSize: 18, margin: '8px 0 10px' }}>Interval-certified finite-Gram calculation</h3>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 10 }}>
+        {[
+          ['STATUS', certificate.status],
+          ['BRIDGE THICKNESS a', certificate.input.a],
+          ['NODE COUNT', String(certificate.input.nodes.length)],
+          ['PRECISION', `${certificate.selectedPrecisionBits} bits`],
+        ].map(([label, value]) => (
+          <div key={label} style={{ padding: 10, background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 6 }}>
+            <div style={{ color: 'var(--faint)', fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{label}</div>
+            <div style={{ color: label === 'STATUS' ? statusColor : 'var(--ink-soft)', marginTop: 4, fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))', overflowWrap: 'anywhere' }}>
+              {value}
+            </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ padding: 10, marginTop: 10, background: 'var(--paper)', border: '1px solid var(--hairline)', borderRadius: 6 }}>
+        <div style={{ color: 'var(--faint)', fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>CANONICAL CERTIFICATE SHA-256</div>
+        <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', overflowWrap: 'anywhere' }}>{hash}</div>
+      </div>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: '12px 0 0' }}>
+        This result applies only to this prescribed finite Gram matrix, at this one bridge thickness and node set.
+        It does not establish positivity for other nodes or shifts, does not close the continuum problem, and does
+        not prove RH.
+      </p>
+      <div style={{ color: 'var(--faint)', fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))', marginTop: 8 }}>
+        finiteGramOnly=true · rhClaim=false · rhSolved=false · claimComplete=false
+      </div>
+    </Card>
+  );
+}
+
 export default function HiddenSquareProgramPage() {
   return (
     <div className="ed-root">
@@ -209,6 +327,8 @@ export default function HiddenSquareProgramPage() {
             constants rescale with the app’s <InlineMath math="\cos(2zu)" /> convention.
           </p>
         </Card>
+
+        <FiniteGramCertificateCard />
 
         {/* Synthesis diagram up top */}
         <Card accent="#3f6b86">

@@ -231,6 +231,24 @@ export default function PermutationArchitecturePage() {
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-weld-alias-l2-collapse.js</code>.
             This promotes no bound.
           </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '10px 0 0' }}>
+            <strong>Follow-up — the fold geometry is inverted (unconditional):</strong> the shifted denominators{' '}
+            <InlineMath tex="k - h/p" /> form an exactly <InlineMath tex="(1/p)" />-separated set with{' '}
+            <InlineMath tex="|k - h/p| \ge 1/p" /> (a curvature floor, so no single Airy packet amplitude exceeds{' '}
+            <InlineMath tex="C\,w(h)\,p^{1/3}" />), and the stationary-point spacing{' '}
+            <InlineMath tex="|u - u'| = v|d - d'|/(dd')" /> <em>grows</em> toward the curvature floor. Adjacent-alias
+            supports therefore become disjoint at the fold end (provably so in the fold-most dyadic block at p = 97);
+            overlap accrues only at the high-curvature end, with the per-block bracket{' '}
+            <InlineMath tex="K(\Delta) \le 1 + \lfloor 8cp\,\Delta^{2-\beta}/v \rfloor" />. Under the quadratic-Fresnel
+            curvature normalization <InlineMath tex="\lambda = |k - h/p|" />, the named scalar has the N-free
+            worst-case-curvature majorant{' '}
+            <InlineMath tex="2p^{-4/3}\textstyle\sum_{j \le (p-1)/2} j^{-2/3} \approx 0.03811" /> at p = 97 (the
+            floor-only cap is 0.21540), so the window-uniformity demand reduces to one normalization constant in the
+            separable case. The paper-phase normalization, the packet-width constants, and the ℓ²-to-pointwise step
+            remain open. Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-alias-separation-curvature-floor.js</code>.
+            This promotes no bound.
+          </p>
         </div>
 
         {/* Five alternative gates */}

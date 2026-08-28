@@ -2920,6 +2920,16 @@ const DATA_MODULES = [
   // (0.86566, 0.89802] against the imp-3270 located ceiling c_half; c_glob stays OPEN there. 10
   // self-executing assertions (rate matches direct N-body, majorant, worst-case monotonicity, honesty).
   '/src/data/sg1c-cglo-lower-bound-2026-07-02.js',
+  // fable-frontier 2026-08-28: CLOSURE of the global asymmetric multi-body isolation constant.
+  // The imp-3236 worst-case majorant (dense one-sided half-lattice) is EXACTLY summable --
+  // partial fractions telescope to 2 - 2[psi(1+2/rho)-psi(1+1/rho)] -- so the universal sharp
+  // bound on d_1^2 drho/ds over ALL globally-minimal-pair configs is exactly the imp-3270
+  // R(rho), and c_glob = c_half = 0.8980208880762339 in closed form (the (0.86566, 0.89802]
+  // interval collapses to its upper endpoint). Ties handled by max-of-branches Dini; sharpness
+  // and attainment certified against direct N-body rates; 20000-config deterministic adversarial
+  // sweep with zero bound violations. Closes sg1c-r2-isolation-persistence (R1 stays open);
+  // C_Lip stays basin-conditional; PT Lambda <= 0.2 stays SOTA. 10 self-executing assertions.
+  '/src/data/sg1c-cglo-closure-2026-08-28.js',
   // imp-3237: does a THIRD independent integrator + a wider asymmetric environment family beat the
   // imp-3200 Config-B onset 0.9015828? A 5th-order Dormand-Prince (DOPRI5) step + central finite
   // difference (distinct tableau AND order from the imp-3200 RK4 check) reproduces the Config-B onset
@@ -11736,6 +11746,19 @@ const DATA_MODULES = [
   // clean law does NOT exist. Precision NON-binding (~1e-19 floor); W1 certificate
   // GREENFIELD/MECHANICAL; imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36178-transient-separation-mechanism.js',
+  // imp-36196 (numerical, opus-4-8, api-pool): assess whether a CONDITIONING-NUMBER or a
+  // TERM-CANCELLATION law predicts the imp-36112 transient N~1500-3000 KBN-vs-classic-Kahan
+  // separation episode -- the two candidate laws named in the ticket that imp-36178 did not test.
+  // On the imp-35852 clustered worst order against an exact per-N BigInt reference, all three
+  // natural coarse predictors FAIL: (C1) the imp-36076 |s|<|x| KBN else-branch fires 0 times
+  // non-trivially at every rung; (C2) the cancellation conditioning number kappa(N)=(sum|t_k|)/|sum t_k|
+  // is monotone increasing (~62->889) while the separated flag is intermittent (on 1500-3000, off
+  // 10000-30000, on 50000+), so a monotone quantity cannot track it; (C3) the classic-Kahan
+  // compensation-loss count is uncorrelated (tied N=10000 has 3 loss events, separated N=2000 has 0).
+  // So the episode is order-/bit-specific, consistent with imp-36178s 1-ULP terminal-toggle finding;
+  // named sub-gap (exact bit-level fold-underflow predictor) stays OPEN. Precision NON-binding;
+  // W1 certificate GREENFIELD/MECHANICAL; imp-486 untouched; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-36196-transient-separation-mechanism-probe.js',
   // imp-36114 (numerical, opus-4-8, api-pool): fit the imp-36062 KBN/classic-Kahan normalized-error
   // RATIO versus N above the ~34000 onset across a 12-rung ladder [35000..488602]. Result: NONE of
   // three candidate forms fits -- power law in N (R^2~0.15), power law in kappa (R^2~0.15), and

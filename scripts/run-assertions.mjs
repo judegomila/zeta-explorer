@@ -10708,6 +10708,18 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; surrogate; imp-34714a stays OPEN; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35810-cancellation-onset-height.js',
+  // imp-35802 (numerical, measurement): recompute the imp-35766 surplus-split ratio R = -dFP/dG at N ~ 1e19..1e22
+  // via the subtraction-free R(N) = 2 (aLo/a)(1-a)/(1-aLo). FINDING: the clean form is O(1)-conditioned and
+  // reliable through 1e22 (matches the model R-2 = 2 eps/(1-a) to the machine floor), while the naive
+  // dG = S_inf(M_G-1) form is non-monotone float garbage past 1e18 -- upturn 2.00043 -> 2.00058 at 1e19/1e20,
+  // degenerate collapse to EXACTLY 2.0 at 1e21, blowup to 2.028985507 at 1e22 -- confirming the imp-35766 (B3)
+  // upturn is a double-precision cancellation artifact, NOT a break in the -a/2 vs a balance (clean R pinned
+  // ~2.0004). HONEST CORRECTION: R does NOT descend to 2 beyond the PT anchor -- the band-top->PT descent was
+  // the 1/(1-a) factor (spent by a ~ 1.5e-7); beyond, R-2 plateaus at the frozen O(delta) floor and drifts
+  // imperceptibly UP (~+3.7e-8 over ~9 decades), so the a->0 limit is 2 + 2 eps_inf ~ 2.0004, not 2. Five
+  // self-executing assertions. imp-34714a stays OPEN; F(m)=0 an artifact; changes no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-35802-cancellation-free-ratio-beyond-1e18.js',
   // imp-35848 (numerical, measurement): TABULATE the imp-35810 float-cancellation onset across the tol
   // ladder {1e-4,1e-5,1e-6,1e-7,1e-8}, quantifying the (C2) envelope match and (C3) tol-robustness that
   // imp-35810 asserted only qualitatively. Reusing measure()/sustained-3-point crossing verbatim: the

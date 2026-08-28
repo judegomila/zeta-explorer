@@ -152,6 +152,54 @@ export default function PermutationArchitecturePage() {
           Fresnel–Airy transition packets whose correlated sum must stay coupled through the five shells or the 25
           defects — that commutator, not the already-paired smooth interior, is where the route lives.
         </p>
+        <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>alias-packet coupling — quantitative structure</div>
+          <p style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            Each nonzero alias contributes a Fresnel–Airy transition packet with amplitude set by two exact scales: the
+            prime-comb weight <InlineMath tex="w(h)" /> at frequency <InlineMath tex="h/p" /> and the phase curvature{' '}
+            <InlineMath tex="\lambda" /> of the shifted stationary point <InlineMath tex="u = v/(k - h/p)" />. Away from
+            curvature degeneracy each packet obeys the stationary-phase bound{' '}
+            <InlineMath tex="|I_h| \le C\, w(h)\, \lambda^{-1/2}" />; where two stationary points coalesce (near the fold)
+            it passes through the Airy regime <InlineMath tex="|I_h| \le C\, w(h)\, \lambda^{-1/3}" />. Because the five
+            shells carry Fourier-disjoint supports (the exact five-shell identity), cross-shell products drop out of the
+            correlated sum, so the coupling collapses to an intra-shell <InlineMath tex="\ell^2" /> sum over{' '}
+            <InlineMath tex="h" />, repeated across the five shells and 25 defects — not the <InlineMath tex="\ell^1" />{' '}
+            termwise sum, which is too coarse to fit the 0.0655627 reserve.
+          </p>
+          <p style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '10px 0 0' }}>
+            <strong>Named sub-gap:</strong> the one quantity still un-enclosed is the uniform aliased second moment{' '}
+            <InlineMath tex="\sum_{h\neq 0} w(h)^2\, \lambda(h)^{-2/3}" /> (Airy-regime majorant), bounded uniformly over{' '}
+            <InlineMath tex="690988 \le N \le 54799999" /> and both seam sides. A uniform bound on that single scalar
+            closes the correlated coupling; without it the weld <InlineMath tex="[\mathcal{B}_v,\Pi_p]\neq 0" /> stays
+            open. No bound is promoted.
+          </p>
+        </div>
+
+        <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>assessment — the single van der Corput / stationary-phase majorant is refuted (imp-95006)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The tempting non-tiling route is a <em>single</em> uniform second-derivative (van der Corput) or
+            stationary-phase majorant of the shifted Fresnel–Airy alias packets across the whole window
+            <InlineMath tex="\,690988 \le N \le 54799999" />. The reserve is tight: the measured correlated peak of
+            <InlineMath tex="\,|C_{E,17}|" /> sits at <InlineMath tex="\approx 0.2141255" />, leaving only
+            <InlineMath tex="\,0.0655627 = 0.27968819555261474 - 0.2141255\," /> of enclosure budget to the strict target.
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            <strong>Obstruction.</strong> After the stationary-phase reduction, a van der Corput bound is an
+            <em> amplitude</em> majorant: it dominates each packet by its envelope mass and then triangle-sums across
+            the five shells, giving an enclosure width no smaller than
+            <InlineMath tex="\,\sum_g \lVert Z_g\rVert_1 - |C_{E,17}|" />. But the value <InlineMath tex="\approx 0.2141" />
+            is achieved through inter-shell phase cancellation (the five-shell identity, the anti-Hermitian complement),
+            so the discarded cancellation mass is <em>positive and non-small</em> — the same structural loss that makes
+            raw tiling diverge. A shell-decoupled majorant therefore cannot fit the <InlineMath tex="0.0655627" />
+            reserve; it reproduces the divergence it was meant to avoid. <strong>Named sub-gap:</strong> a uniform
+            enclosure must retain the correlated phase <em>across</em> shells rather than majorize per shell — either
+            through the noncommuting weld <InlineMath tex="[\mathcal{B}_v,\Pi_p]" /> (bound the correlated alias coupling
+            directly, imp-95008) or through a <em>coercive</em> quadratic form on the five-shell sum (the physical-bulk /
+            cubic-canonical gates, imp-95007), not an envelope bound. This does not promote Λ ≤ 0.14; it closes the
+            single-majorant family as a rigorous obstruction and routes the reserve to the correlated-phase gates.
+          </p>
+        </div>
 
         {/* Five alternative gates */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Five alternative sufficient gates</h2>

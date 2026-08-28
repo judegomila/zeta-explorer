@@ -97,3 +97,23 @@ de Bruijn Thm 13 itself, Koksma–Hlawka (absent from mathlib, heavy).
 - imp-35068's `isRigorous: true` means exact-integer-arithmetic n≤12, NOT all-n — clarified in-module.
 - POLYNOMIAL_DE_BRUIJN.md:88 wrote the flow as forward convolution Ξ∗G_t; ENTIRE_ROADMAP.md:108
   and imp-34813 fix the sign — corrected to the ENTIRE_ROADMAP convention.
+
+## Wave 4 — SUBMITTED 2026-08-28 (six jobs; poller armed)
+- entirelp_sorry 8e391235 — BONUS: the verbatim exists_heatOp_approx_tendsto
+  target at EntireLP.lean:328-334 (the probe tree's LAST sorry), drafted with
+  the false-former-axiom counterexample F_n = (n!/(2n)!)z^{2n} quoted as a
+  warning (generic approximants fail; order/type control mandatory).
+- mingap_sandwich 2dd89653 (#7) — imp-2563 wording wins on the h_β
+  sup-over-all-pairs question; residual imp-2683-sub-punctured named, left open.
+- trap_threshold 675c3e09 (#8) — exact (√73−5)/8 and (√73−7)/4; DRAFTING-PASS
+  CATCH: the static inequality corrected to NON-strict (equality at S=1/2 and
+  S=2Θ_b); consumes the delivered theta_trap interfaces.
+- jet_lemma 6e628722 (#11) — banked hermiteReal results cited verbatim;
+  simplicity + the s<0 half flagged as NOT covered by them.
+- flow_blindness db607b47 (#12) — hRT packaging mirrored verbatim from
+  MathlibBridge:126-172; Rodgers–Tao stays a hypothesis per the triage.
+- shear_gram 4a97dec3 (#15) — finite-dimensional per the ledger; the op-norm
+  spelling flagged as the load-bearing mathlib choice.
+No ledger-vs-source overrides needed in jobs 26-30. Running tally: 31 jobs,
+zero quota anomalies. If wave 4 clears, the full 15-target ledger + the last
+probe sorry are all covered.

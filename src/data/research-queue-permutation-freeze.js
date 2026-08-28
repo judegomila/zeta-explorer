@@ -99,7 +99,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     id: 'imp-95006',
     title: 'Attack the one open family of the Lambda<=0.14 completion contract: a uniform correlated enclosure |C_E,17| < 0.27968819555261474 on 690988 <= N <= 54799999, for every window parameter and both seam sides',
     category: 'proof',
-    priority: 'high',
+    priority: 'critical',
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:
@@ -127,7 +127,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     id: 'imp-95008',
     title: 'Analyze the one noncommuting weld [B_v, Pi_p] != 0: bound the shifted Fresnel-Airy alias packets (h != 0, u=v/(k-h/p)) and their correlated coupling through the five shells / 25 defects',
     category: 'proof',
-    priority: 'high',
+    priority: 'critical',
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:
@@ -143,7 +143,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     id: 'imp-95009',
     title: 'Attack the graph-compression possible-gain family: a correlated direct/dual graph isometry W_U with anti-Hermitian cancellation, gated on characteristic invariance and a Schur complement gap',
     category: 'proof',
-    priority: 'high',
+    priority: 'critical',
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:
@@ -157,7 +157,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
     id: 'imp-95010',
     title: 'Attack the moving-reference Rouche gluing permutation: replace the fixed rough center by a moving analytic reference Q with winding computed by |F-Q|<|Q| chart-gluing (eq. 44), where cancellation makes the constant-center budget too rigid',
     category: 'proof',
-    priority: 'high',
+    priority: 'critical',
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:

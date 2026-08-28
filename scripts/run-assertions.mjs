@@ -12473,6 +12473,21 @@ const DATA_MODULES = [
   // K near the fold, the scalar itself, and the l2-to-scalar step remain open;
   // changes no bound; NO QED.
   '/src/data/imp-95008-weld-alias-l2-collapse.js',
+  // imp-95008 continuation (proof, fable-5, fable): arithmetic separation of the
+  // shifted alias denominators. UNCONDITIONAL: the set {k - h/p} is exactly
+  // (1/p)-separated and |k - h/p| >= 1/p (curvature floor, so no Airy packet
+  // amplitude exceeds C w(h) p^(1/3)); the stationary-point spacing
+  // v|d-d prime|/(d d prime) GROWS toward the curvature floor, INVERTING the
+  // imp-95008 residual-(a) geometry (fold-end packets provably disjoint at p=97;
+  // overlap accrues only at the high-curvature end, explicit dyadic bracket
+  // K <= 1 + floor(8 c p Delta^(2-beta)/v) per block). CONDITIONAL on the
+  // quadratic-Fresnel curvature normalization: the named scalar has the N-free
+  // closed-form majorant 2 p^(-4/3) sum_{j<=(p-1)/2} j^(-2/3) ~ 0.03811 at p=97
+  // (5.65x below the floor-only cap 0.21540), with exact integral brackets;
+  // window-uniformity of residual (b) collapses to one normalization constant in
+  // the separable case. Paper-phase normalization, packet-width constants,
+  // ceiling D, and the l2-to-pointwise step remain open; changes no bound; NO QED.
+  '/src/data/imp-95008-alias-separation-curvature-floor.js',
   // imp-95011 (numerical, opus-4-8, api-pool): the Gate-2 oscillation probe
   // (imp-95007 first computation). Delivers a falsifiable kill-criteria decision
   // procedure probeVerdict(L, sampledSup) for the C_E,17 carrier trajectory and

@@ -110,6 +110,21 @@ export const IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR = Object.freeze(
     denominatorGapFactor: 'E(N) / E_trunc ~ 1.010 at the landmarks (E_flow negligible, E_coll ~ 1% of E_trunc)',
   }),
 
+  // imp-36271 field-sourcing audit: confirm shareCollThere really holds E_coll / E(N*) and NOT a
+  // mislabelled sigma-axis coordinate (~0.4995 in the imp-35968 / imp-36139 crossover convention).
+  fieldSourcingAudit: Object.freeze({
+    ticket: 'imp-36271',
+    reusedField: 'IMP35971_ETRUNC_SOLE_SURVIVOR_HEIGHT.soleSurvivor.sigma',
+    definedAs: 'sigma = E_coll / E_N in imp-35971 parts(N), where E_N = E_trunc + E_flow + E_coll = E(N)',
+    holdsCollisionShare: true, // it stores E_coll / E(N*), the intended collision SHARE
+    trueShareCollAtStar: SOLE_SURVIVOR.sigma, // ~ 9.9010e-3
+    // Independent cross-check: E_coll/E(N*) = (E_coll/E_trunc) / (E(N*)/E_trunc) = ratioCollOverTrunc / eNOverTrunc.
+    // A sigma-AXIS coordinate (~0.4995) could not reproduce this value; the share (~9.90e-3) does.
+    shareFromRatioReconstruction: +(SOLE_SURVIVOR.ratioCollOverTrunc / SOLE_SURVIVOR.eNOverTrunc).toExponential(4),
+    namingCollisionIsCosmetic: true, // the 0.4995 sigma-axis coordinate is a DIFFERENT convention, not this field
+    fingerprintAssertionUsesCorrectQuantity: true, // imp36155-share-below-ratio-at-star passes on the true share
+  }),
+
   conclusion:
     'The imp-36097 shareColl < 1% crossing (N_cross ~ 4.624381e13, log10 ~ 13.6651) and the ' +
     'imp-35971 E_trunc sole-survivor height (N* ~ 4.7214e13, log10 ~ 13.6741) are separated by a ' +
@@ -195,6 +210,21 @@ export const IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR_ASSERTIONS = [
     holds: () => {
       const s = IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR.soleSurvivor;
       return s.shareCollThere < s.ratioCollOverTrunc && s.shareCollThere < 0.01;
+    },
+  },
+  {
+    id: 'imp36155-sharecoll-field-sourcing-audit',
+    why: 'imp-36271: the reused SOLE_SURVIVOR.sigma must hold the collision SHARE E_coll/E(N*) (~9.90e-3), not a sigma-axis coordinate (~0.4995); cross-checked against ratioCollOverTrunc/eNOverTrunc.',
+    holds: () => {
+      const r = IMP36155_SHARECOLL_CROSSING_PRECEDES_SOLE_SURVIVOR;
+      const a = r.fieldSourcingAudit;
+      return (
+        a.holdsCollisionShare === true &&
+        a.trueShareCollAtStar < 0.01 &&
+        Math.abs(a.trueShareCollAtStar - 9.901e-3) < 5e-5 &&
+        Math.abs(a.trueShareCollAtStar - a.shareFromRatioReconstruction) < 1e-4 &&
+        r.soleSurvivor.shareCollThere === a.trueShareCollAtStar
+      );
     },
   },
   {

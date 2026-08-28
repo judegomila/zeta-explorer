@@ -777,6 +777,102 @@ export const LAMBDA_CHAIN_STEPS = [
             'beyond the Platt-Trudgian verified height -- OPEN.',
           machinery: 'imp-321, imp-3220, imp-3406, imp-35100, imp-35149',
           feedsInto: 'the headline Step-4 rate E(N) -> 0',
+          // imp-36195 (scoping/enumeration ONLY; discharges nothing, changes no
+          // bound, no operator positivity, respects the imp-2519 no-overclaim
+          // guard, NO QED): the assembled E(N) = E_coll + E_trunc + E_flow has
+          // only ever been evaluated at finite N in floating point on the
+          // imp-321 ladder (plus the imp-2860 SINGLE-point N* = 1e4 outward-
+          // rounded bracket). Enumerate WITHOUT claiming discharge the concrete
+          // ingredients an interval-arithmetic (per-rung, machine-checked) or
+          // N-uniform (all-N, closed-form) verification of the ASSEMBLED formula
+          // would require, and grade which leg is a bounded engineering
+          // extension vs which is analytically blocked.
+          assembledCheckScoping: {
+            question:
+              'What does a rigorous verification of the ASSEMBLED E(N) formula ' +
+              '(all three terms, discharged constants carried through) require, ' +
+              'beyond the existing finite-N float64 ladder rows and the imp-2860 ' +
+              'single-point N* = 1e4 interval bracket?',
+            twoLegs:
+              'Two distinct verification targets are conflated in the raw ' +
+              'obligation. LEG-A (interval, per-rung): extend the imp-2860 ' +
+              'single-N* outward-rounded [E_lo, E_hi] to EVERY rung of the ' +
+              'imp-321 ladder, certifying the tabulated float64 rows against ' +
+              'rounding. LEG-B (N-uniform, all-N): a closed-form envelope ' +
+              'E(N) <= f(N) with f explicitly decreasing and f(N) -> 0 holding ' +
+              'for ALL N, including ABOVE the finite ladder. These have very ' +
+              'different difficulty and are graded separately below.',
+            legA_intervalPerRung: {
+              grade:
+                'bounded engineering extension of imp-2860, BLOCKED only by the ' +
+                'two sibling obligations (constants + C_H), not by new analysis',
+              ingredients: [
+                'A1: retype each of the three sub-terms as an outward-rounded ' +
+                  'Interval-VALUED FUNCTION of N over the ladder, not a single ' +
+                  'working point. imp-2860 brackets E_flow, E_coll, E_trunc only ' +
+                  'at N* = 1e4; the per-rung check re-instantiates each bracket at ' +
+                  'every imp-321 N using the same interval-arithmetic primitives ' +
+                  '(src/math/interval-arithmetic.js outward-rounded log/sqrt/div).',
+                'A2: carry the DISCHARGED constants from the two sibling ' +
+                  'obligations. Until G-Etrunc-Eflow-constants pins the E_flow / ' +
+                  'E_trunc constants unconditionally and G6a supplies a proven ' +
+                  'C_H (not the imp-2642 C_H = 0.127 ANSATZ), the per-rung sum ' +
+                  'certifies only NUMERIC WIDTH under rounding, exactly the ' +
+                  'imp-2860 caveat -- not that E(N) is a true upper bound.',
+                'A3: resolve the imp-2715 non-co-additivity at EACH rung. E_trunc ' +
+                  'and E_coll must be instantiated at the SAME height per N; the ' +
+                  'per-rung check must pick, for every N, whether the fixed PT ' +
+                  'strip (sigma = 3/4, E_trunc = 3.06e-5) or a moving strip ' +
+                  'governs, so no rung pastes brackets from incompatible ' +
+                  'instantiation heights (the double-count imp-2715 flags).',
+              ],
+            },
+            legB_Nuniform: {
+              grade:
+                'analytically BLOCKED; not reachable by extending the point-' +
+                'interval toolkit',
+              ingredients: [
+                'B1: a monotone-decay / tail lemma E(N) <= f(N) valid for ALL N, ' +
+                  'replacing the finite tabulated rungs. The imp-321 ladder is ' +
+                  'finite (stops at N_max); no finite table certifies asymptotic ' +
+                  'behaviour, so an explicit ABOVE-LADDER tail certificate is ' +
+                  'required, which the point-evaluation Interval class does not ' +
+                  'supply (it encloses values at points, not envelopes over an ' +
+                  'unbounded N-range).',
+                'B2: a decay that actually reaches 0. HONEST STATUS (imp-35164): ' +
+                  'on the CURRENT surrogate E(N) does NOT tend to 0 -- it floors ' +
+                  'at the fixed-strip constant E_trunc = 3.06e-5, and imp-35100 ' +
+                  'shows that constant floor can OUTLIVE the vanishing GUE-' +
+                  'conditional E_coll. So LEG-B is not merely un-run: as written ' +
+                  'the assembled surrogate has no N-uniform decay to certify.',
+                'B3: the vanishing-strip Knob A (imp-35149): the only scoped ' +
+                  'route that gives E(N) -> 0 is an N-indexed GROWING verified ' +
+                  'height T_v(N) at fixed abscissa, whose hard obligation R3 is ' +
+                  'an unconditional supply of T_v(N) -> infinity BEYOND the ' +
+                  'Platt-Trudgian verified height X ~ 3e12 -- OPEN, and the same ' +
+                  'more-verified-height lever the G6a weakerGapAssessment (C6) ' +
+                  'and the PT-floor audit both land on.',
+              ],
+            },
+            verdict:
+              'LEG-A (per-rung interval) is a bounded extension of imp-2860 that ' +
+              'is nonetheless GATED by the two sibling obligations: it can only ' +
+              'certify the tabulated rows against rounding, never that E(N) is a ' +
+              'true bound, until the E_flow / E_trunc constants and C_H are ' +
+              'discharged. LEG-B (N-uniform) is analytically blocked -- the ' +
+              'assembled surrogate as written floors at E_trunc = 3.06e-5 and ' +
+              'has no decay to certify, so LEG-B reduces to the OPEN vanishing-' +
+              'strip Knob A (T_v(N) -> infinity beyond X ~ 3e12).',
+            conclusion:
+              'An interval-arithmetic assembled-E(N) check is reachable per-rung ' +
+              'but vacuous until the constants and C_H are pinned; an N-uniform ' +
+              'check is not reachable at all on the current surrogate and inherits ' +
+              'the same more-verified-height wall as the rest of the program. ' +
+              'G-EN-ladder-verify stays OPEN; changes no bound; C_mb stays GUE-' +
+              'conditional (imp-486); Platt-Trudgian Lambda <= 0.2 stays SOTA; ' +
+              'NO QED.',
+            by: 'imp-36195',
+          },
           closed: false,
         },
       ],

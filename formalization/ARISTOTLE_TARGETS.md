@@ -14,7 +14,10 @@ chain (consuming the kernel-verified rectangle argument principle, audit-repo
 PR #30) · twistor Lemma 6.1. Already verified: the frozen-rung set
 (lean-aristotle/frozen-rung/), the DBN base case, RealRootedPreservation.lean.
 
-## Wave 2 (ranked; #1–#5 SUBMITTED 2026-08-28 as jobs 15–19: newton_inequality
+## Waves 2–3 (ranked; #1–#5 submitted as jobs 15–19; #6/#9/#10/#13/#14 SUBMITTED
+2026-08-28 as wave 3: ramanujan_reversal 4d99dee9, gilbreath_package d8e586ff,
+r1fn_sharp_cap 60cbaeb3, isolation_onset 78f6557d, maxmodulus_growth 7a400632;
+#7/#8/#11/#12/#15 held pending quota behavior. Wave 2 ids: newton_inequality
 05cc5d33, crossover_sign_induction 054f776f, theta_trap a8f6f09a,
 heat_discriminant_ode 9c625fea, burgers_heat c397b9d1 — with the drafting-pass
 corrections noted per-target below)
@@ -55,14 +58,18 @@ corrections noted per-target below)
 9. **Isolation-onset closed forms** (E, low-med) — R2-T sign law; c* = √(2+√3)−1 as the
    unique (0,1) root via u = ρ²+2ρ ⇒ u²−2u−2 = 0. (Class theorem; c_glob stays open.)
 10. **Ramanujan-reversal identity imp-35068** (E, low-med) — P_n(u) = u^{n−1}R_n(1/u) for all n
-    (currently numeric n≤12); corollary row sum P_n(1) = n^{n−1} (Cayley). Upgrades an
-    identification to a theorem + closes the unproved row-sum conjecture.
+    (currently numeric n≤12); corollary row sum P_n(1) = n^{n−1} (Cayley). NOTE (drafting pass):
+    the row-sum corollary needs R_n(1) = n^{n−1} (classical Shor/Zeng, cited-not-proved in-repo) —
+    if Aristotle proves it, bonus theorem; if hypothesized, the corollary is CONDITIONAL on it.
+    Upgrades an identification to a theorem + closes the unproved row-sum conjecture.
 11. **Jet-lemma corollary** (E, low-med) — e^{−sD²}x^{2m} = scaled Hermite (2m simple real
     roots, s>0; none s<0); mostly free from HeatCorollaries hermiteReal results.
 12. **Flow-blindness SL2 no-go package** (C on Rodgers–Tao, med-high) — soft-class closure of
     Φ_ε + cosine-transform = H_{−ε} identity; RT as named hypothesis (hRT pattern exists).
-13. **`MaxModulusGrowthFromOrder` discharge** (E, low) — order ≤ σ ⇒ M_f(R) ≤ exp(R^{σ+ε});
-    EReal/limsup unwinding; makes coefficientOrder_le_order unconditional.
+13. **`MaxModulusGrowthFromOrder` discharge** (E, low) — CORRECTED (drafting pass, source
+    wins): the actual def at EntireOrderEquiv.lean:185 is STRICT order < σ ⇒ eventually
+    M_f(R) ≤ exp(R^σ) (no ε); job 7a400632 targets the verbatim def. Makes
+    coefficientOrder_le_order unconditional.
 14. **Gilbreath lemma package** (E, low) — mod-2 binomial-transform lemma + row propagation +
     finite lock certificate. src/math/gilbreath.js (complete proofs in source).
 15. **Shear-Gram norm identity imp-3343** (E, low-med) — ‖G‖_HS = √2‖G‖_op for rank-2

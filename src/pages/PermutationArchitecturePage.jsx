@@ -178,6 +178,28 @@ export default function PermutationArchitecturePage() {
           </table>
         </div>
 
+        {/* Formalization status */}
+        <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Machine-verified (Lean 4, Aristotle wave 1)</h2>
+        <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
+          Five components of this architecture were autoformalized (Harmonic Aristotle) and kernel-verified
+          against mathlib v4.28 — <code>lake build</code> green, zero <code>sorry</code>/<code>axiom</code>, every theorem on the three standard
+          axioms, and an independent statement-faithfulness review rating all five faithful with non-vacuous
+          hypothesis packages. Sources: <code>formalization/lean-aristotle/permutation-calculus/</code>.
+        </p>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.7, fontSize: 14, color: 'var(--ink-soft)' }}>
+          <li><strong>Permutation-defect lemma</strong> (Lemma 3.1): <code className="ed-mono" style={{ fontSize: 12 }}>norm_permProd_sub_one_le_sum</code> — for contractions and any permutation π, ‖T_π − T_id‖ ≤ Σ over inversions of the commutator norms; plus the weighted noncontractive form and the bubble-chain combinatorial core. Unconditional.</li>
+          <li><strong>Anti-Hermitian strip bound</strong> (Prop 2.1): <code className="ed-mono" style={{ fontSize: 12 }}>abs_im_le_of_represented</code> (|Im x| ≤ η) and <code className="ed-mono" style={{ fontSize: 12 }}>deBruijnNewman_le_of_global_representation</code> (Λ ≤ t + η²/2) — the latter is by design a conditional wrapper: (G) global representation and (S) the de Bruijn strip contraction enter as explicit named hypotheses, exactly as in the paper.</li>
+          <li><strong>Five-shell identity</strong> (eqs. 11–12): <code className="ed-mono" style={{ fontSize: 12 }}>five_shell_identity</code> — E₉₇ = (1−A)Y₄(0) − A·ΣZ_g(0), <em>unconditional</em>, with the disjoint-Fourier-support orthogonality proved, not assumed.</li>
+          <li><strong>The §4.7 implication chain</strong>: <code className="ed-mono" style={{ fontSize: 12 }}>theorem4_chain</code> — from hypotheses (H0)–(H6), including the load-bearing (H3) R_ex ≤ m₉₇ − |A₉₇|ε_tr and the strict open weld (H4) ‖E₉₇‖ &lt; R_ex, derives winding 0 (a continuous-logarithm predicate, derived not assumed) and concludes Theorem 4.1(ii) at the exact row constants. The (H6) argument-principle packaging is dischargeable against a separately kernel-verified general argument principle on rectangles.</li>
+          <li><strong>Twistor heat compatibility</strong> (Lemma 6.1): <code className="ed-mono" style={{ fontSize: 12 }}>heat_compat_on_range</code> — I_K Â₊ = Â₋ I_K on ran F₊ from the paper's three intertwining relations.</li>
+        </ul>
+        <p style={{ fontSize: 13, color: 'var(--faint)', lineHeight: 1.6 }}>
+          Autoformalization caveat (unchanged from the frozen-rung set): proofs are kernel-verified; faithfulness
+          of statements to the intended mathematics was independently reviewed but is not a referee. The open
+          weld ‖E₉₇‖ &lt; R_ex — the one open family above — remains an <em>assumed</em> input to the chain: nothing
+          here promotes Λ ≤ 0.14.
+        </p>
+
         {/* Status + links */}
         <div style={{ borderLeft: '3px solid var(--green)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '26px 0 8px' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status</div>

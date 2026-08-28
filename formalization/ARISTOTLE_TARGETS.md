@@ -5,9 +5,10 @@ compiled 2026-08-28 by a corpus-wide scout. E = exact/unconditional statement;
 C = conditional implication (machine-check the logic; antecedent stays open).
 
 **In flight (wave 1, submitted 2026-08-27 via the dbn audit session pipeline;
-projects ba4468a2, cc9ccae7, 7f037bfe, a9a5af2e, db03b70f — all five results
-back sorry-free 2026-08-28; kernel builds + axiom audits + independent
-faithfulness review in progress):** permutation-defect
+projects ba4468a2, cc9ccae7, 7f037bfe, a9a5af2e, db03b70f — DELIVERED 2026-08-28 to
+lean-aristotle/permutation-calculus/: all five kernel-verified (lake build green,
+zero sorry/axiom, three standard axioms only) and rated FAITHFUL by the
+independent review):** permutation-defect
 lemma · anti-Hermitian strip bound · five-shell identity E97 · §4.7 implication
 chain (consuming the kernel-verified rectangle argument principle, audit-repo
 PR #30) · twistor Lemma 6.1. Already verified: the frozen-rung set

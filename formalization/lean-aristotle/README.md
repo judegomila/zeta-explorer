@@ -22,3 +22,15 @@ non-vacuous counting identity). Complements the human write-up
 
 Toolchain leanprover/lean4:v4.28.0; imports resolve as `FR.*`. Build in a mathlib v4.28
 project.
+
+## `permutation-calculus/` — the freeze-calculus / twistor wave (2026-08-28)
+Five kernel-verified projects from "Permuting the Zeta Twin Ladder" + the twistor
+framework paper: `permutation_defect/` (Lemma 3.1 adjacent-swap commutator bound),
+`antihermitian_strip/` (Prop 2.1, |Im x| ≤ η and the conditional Λ ≤ t + η²/2 wrapper),
+`five_shell_identity/` (the unconditional E₉₇ five-shell identity, orthogonality proved),
+`section47_chain/` (the (H0)–(H6) ⇒ Theorem 4.1(ii) implication chain, winding derived),
+`twistor_heat_compat/` (Lemma 6.1 heat compatibility on ran F₊). All lake-build green on
+v4.28.0, zero sorry/axiom, three standard axioms only; independent faithfulness review:
+all five FAITHFUL, hypothesis packages satisfiability-checked. See
+permutation-calculus/README.md for the full verification record and referee checklist.
+The §4.7 open weld ‖E₉₇‖ < R_ex remains an assumed input — nothing here promotes Λ ≤ 0.14.

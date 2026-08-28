@@ -182,6 +182,7 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  '/src/data/imp-35974-w1-tree-shape-N-ladder.js',
   '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',
   '/src/data/lambda-N1e6-unconditional-beat.js',

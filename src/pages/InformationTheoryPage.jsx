@@ -329,7 +329,10 @@ export default function InformationTheoryPage() {
           <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.8 }}>
             The <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta page</Link> records the full
             audit, the exact positive-cone/Farey closure target, and Brown's 2026 multi-parameter
-            Mellin/transfinite-diameter criterion as a research direction—not a completed proof.
+            Mellin/transfinite-diameter criterion as a research direction—not a completed proof. The latest
+            source audit also removes proof-ready status from the first five-ray diameter benchmark: its
+            nonconstant <InlineMath tex={"\\zeta(5)"} /> coefficients collapse, although its rational moment
+            tail does not, while the denominator and projected-cycle inputs remain unproved.
           </p>
         </div>
 

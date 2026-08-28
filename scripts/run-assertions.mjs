@@ -10101,6 +10101,20 @@ const DATA_MODULES = [
   // exponent is pinned. Nine self-executing assertions. Measurement only; certifies no W1 bound;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36212-w1-pairwise-slack-depth-clustered-75shape-fit.js',
+  // imp-36233 (numerical, S-frontier): MEASURE the empirical order-5 total-time-derivative
+  // growth exponent of the backward-Dyson RHS field f_k = -sum 1/(x_k-x_j) as the min gap
+  // delta shrinks, against the imp-36192 I2 predicted delta^-9 local-truncation scaling. The
+  // order-5 total derivative x_k^(5) = d^5 x_k/dt^5 is the elementary-differential magnitude
+  // that carries the RK4 LTE (~C dt^5 x^(5)); it is computed EXACTLY (auto-diff of the ODE via
+  // Taylor recursion, x_k^(5)=5!*C_{k,5}), NOT finite-difference, on a genuine multi-particle
+  // field (colliding pair at +-delta/2 plus 3 fixed spectators). Result CONFIRMS delta^-9:
+  // deep-tail (delta<=1e-5) exponent -9.000000, full-ladder LS slope -9.000003, and the leading
+  // prefactor pins to 1680 (two-body control matches the closed form 1680*delta^-9 to ~1e-6).
+  // So the RK4 LTE ~ dt^5 delta^-9 forces dt <= eps^(1/5) delta^(9/5), rendering any
+  // delta-independent (hence N-independent) fixed step vacuous in the boundary layer, exactly
+  // the I2 CRUX. Six self-executing assertions. Measurement only; bounds no truncation error;
+  // certifies no step bound; G-step-error stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36233-order5-elementary-differential-delta-scaling.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never
@@ -12313,6 +12327,15 @@ const DATA_MODULES = [
   // NOT executed (achieved-N undefined while Steps 3-4 OPEN); no status string touched;
   // imp-2519 no-overclaim guard preserved; NO QED.
   '/src/data/imp-36173-b2-tstar-checklist-ladder.js',
+  // imp-36238 (numerical, opus-4-8, api-pool): pins the EXACT ordinate count N_star
+  // at which T_star(N) = effectiveHeightForN(N) first reaches the Platt-Trudgian 3e12
+  // height, refining the coarse imp-36173 N ~ 1.236e13 rung. Measures the crossing two
+  // ways -- forward count N_star = zeroCountAtHeight(3e12) ~ 1.236240301966e13 and a
+  // 200-step fine bisection of effectiveHeightForN(N) < 3e12 -- which agree to machine
+  // epsilon, and cross-checks the imp-327 self-inverse round-trip (rel = 0 at this rung).
+  // The hand-rounded 1.236e13 rung sits ~1.94e-4 below N_star. Measurement only; executes
+  // no B2; changes no bound; imp-2519 no-overclaim guard preserved; NO QED.
+  '/src/data/imp-36238-tstar-pt-crossover-exact-N.js',
   // imp-36229 (content, sonnet-4-6, sonnet): import-light glossary-companion entry
   // restating the imp-36180 three ESY-input layers (I spectral-measure statement /
   // II rigidity scale / III C_mb coupling) verbatim, naming what each layer supplies
@@ -12405,6 +12428,17 @@ const DATA_MODULES = [
   // imp-36175 product-node shave, sharp at the F=0 centre). Import-light (no height map); algebra only; both
   // widths remain MODELS; imp-34714a/imp-34687a open; changes no bound; NO QED.
   '/src/data/imp-36199-krawczyk-residual-2x-closed-form-homogeneity.js',
+  // imp-36235 (numerical, opus-4-8, api-pool): extends the imp-36017 VALUE-node surrogate-vs-layer ~2x
+  // measurement to the imp-36154 R2 DERIVATIVE node [F-prime(m)] = 1 - K*2pi/([T0] log([T0]/2pi)). FINDING:
+  // (D1) the imp-35969 nextafter surrogate OVER-estimates the correctly-rounded directed LAYER width
+  // everywhere (conservative, never under) -- SAME verdict as the value node; (D2) up the 1e13..1e21 axis
+  // the ratio LOCKS TO EXACTLY 2.0 (at large height the K*2pi/(T0 log) term collapses, leaving the 1-P
+  // subtraction at 2 ULP surrogate vs 1 ULP layer) -- the value-node ~2x factor CARRIES OVER; (D3) at
+  // N_cross the derivative ratio ~2.33 sits ABOVE 2, the OPPOSITE side from the value node ~1.84 (the
+  // divide/product ops carry non-negligible propagated width at the centre). Surrogate is a valid UPPER
+  // model of the derivative node too; the imp-36219 (H1) slack is unaffected. Measurement only; both widths
+  // remain MODELS; imp-34714a/imp-34687a open; changes no bound; NO QED.
+  '/src/data/imp-36235-krawczyk-derivative-node-surrogate-conservativeness.js',
   // imp-95008 (proof, fable-5, fable): the noncommuting weld [B_v, Pi_p]. Two
   // unconditional lemmas + a conditional corollary: (1) exact alias decomposition
   // [B, Pi_p] = (1/p) sum_{h=1..p-1} [B, M_h] (h=0 contributes zero defect for ANY B);

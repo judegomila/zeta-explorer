@@ -12361,6 +12361,15 @@ const DATA_MODULES = [
   // product node, ONLY at the F=0 centre N_cross (round-to-nearest product shave, bounded, ratio ~1.84).
   // Derivation only; both widths remain MODELS; imp-34714a/imp-34687a open; NO QED.
   '/src/data/imp-36175-krawczyk-residual-2x-ratio-opdag-derivation.js',
+  // imp-36199 (numerical, opus-4-8, api-pool): the CLOSED-FORM origin of the same exact-2 surrogate/layer
+  // ratio -- an algebraic homogeneity identity rather than a numerical sweep. The op-DAG width is the linear
+  // functional W[c](t) = c_L t_L + c_G t_G + c_F t_F; the directed LAYER has count 1 at every node and the
+  // outward SURROGATE has count 2 at every node, so R = 2 (sum t_i)/(sum t_i) = 2 EXACTLY for any nonzero
+  // weight vector -- dominance-free (imp-36175 dominant-node route is sufficient, not necessary) and
+  // a-independent because a cancels top-vs-bottom. The only departure is a per-node count deficit (the
+  // imp-36175 product-node shave, sharp at the F=0 centre). Import-light (no height map); algebra only; both
+  // widths remain MODELS; imp-34714a/imp-34687a open; changes no bound; NO QED.
+  '/src/data/imp-36199-krawczyk-residual-2x-closed-form-homogeneity.js',
   // imp-95008 (proof, fable-5, fable): the noncommuting weld [B_v, Pi_p]. Two
   // unconditional lemmas + a conditional corollary: (1) exact alias decomposition
   // [B, Pi_p] = (1/p) sum_{h=1..p-1} [B, M_h] (h=0 contributes zero defect for ANY B);
@@ -12371,6 +12380,17 @@ const DATA_MODULES = [
   // K near the fold, the scalar itself, and the l2-to-scalar step remain open;
   // changes no bound; NO QED.
   '/src/data/imp-95008-weld-alias-l2-collapse.js',
+  // imp-95011 (numerical, opus-4-8, api-pool): the Gate-2 oscillation probe
+  // (imp-95007 first computation). Delivers a falsifiable kill-criteria decision
+  // procedure probeVerdict(L, sampledSup) for the C_E,17 carrier trajectory and
+  // a REGIME MAP proving the batching premise is decision-decisive: a smooth
+  // stationary-phase carrier (phase ~ sqrt N) has per-unit-N increment L << 1e-2
+  // (batching survives) while an unsmoothed alias carrier (phase ~ N) has
+  // L >> 1e-2 (batching dies). Honest partial: the true arithmetic C_E,17
+  // sampled sup and L are an OFFLINE/NATIVE job (sub-gap
+  // imp-95011-sub-arithmetic-carrier-scan) UNMEASURED here; the surrogate
+  // numbers demonstrate the machinery, not the arithmetic. Changes no bound; NO QED.
+  '/src/data/imp-95011-gate2-oscillation-probe.js',
 ];
 
 let ALL_MODULES = FAST_MODE

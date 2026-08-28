@@ -196,7 +196,7 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
   },
 
   brownZudilinScalarBudget: {
-    status: 'REPRODUCED — ARITHMETIC DEFICIT REMAINS POSITIVE',
+    status: 'CONDITIONAL REPRODUCTION — ARITHMETIC DEFICIT REMAINS POSITIVE',
     parameterRay: '(8,16,10,15,12,16,18,13)',
     analyticExponent:
       'C0=lim log|Q_n*zeta(5)-P_n|/n=-31.5529693481.',
@@ -215,13 +215,59 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'determinant cancellation.',
     auditWarning:
       'The public v3 preprint calls its optimized denominator inclusion an ' +
-      'experimental observation whose detailed proof is omitted. Treat that ' +
-      'inclusion as a written-verification obligation before using it downstream.',
+      'experimental observation whose detailed proof is omitted. The reproduced ' +
+      'C2 and 0.86597 quality are therefore conditional on that arithmetic input.',
+  },
+
+  headOnMellinAudit: {
+    status: 'ONE DETERMINANT THEOREM; DENOMINATOR AND CYCLE GAPS REMAIN',
+    denominatorSource:
+      'Brown-Zudilin v3 labels equation (42), the five-LCM inclusion, an ' +
+      'experimental observation and skips the remaining coefficient computation. ' +
+      'No public proof code or later primary-source proof was found.',
+    strictInteriorNormalizationFailure:
+      'At a=(1,1,1,1,1,1,1,1), all 28 orbit forms equal 1, so equation (42) ' +
+      'has multiplier 1, while the paper\'s own P_1=87/4. The printed ' +
+      'coefficientwise lattice inclusion therefore fails even with strict ' +
+      'all-orbit positivity.',
+    boundaryCounterexample:
+      'For a=(1,0,0,0,1,0,0,0), all 17 convergence forms are nonnegative, ' +
+      'the top five h values are 2,1,1,1,1, and I=zeta(2)-1/2, I\'= -1/4. ' +
+      'Thus d_2 P=1/2 is not integral. The paper\'s P_2=1190161/384 also ' +
+      'contradicts its printed d_n^5 P_n integrality at n=2. A bounded ' +
+      'normalization is missing, and convergence alone does not provide the ' +
+      'all-orbit positivity used later. Exact recurrence data through n=19 are ' +
+      'consistent with universal correction factors 2 and 12, but do not prove ' +
+      'a corrected multi-parameter theorem.',
+    fiveRayCollapse:
+      'For a(v)=(v1,0,0,0,v2,v4+v5,v3+v4,v5), the exact binomial sum gives ' +
+      'Q(a(v))=0 for every v!=0, and five orbit coordinates are -v1,...,-v5. ' +
+      'This is Q-degeneracy, not moment degeneracy: the first 5-by-5 rational ' +
+      'projected tail has determinant 95/2^20, so the block including the origin ' +
+      'has determinant 95*zeta(5)/2^20. The experimental denominator rule was ' +
+      'applied outside its plausible positivity chamber. At v=(1,1,1,1,1), its ' +
+      'multiplier is 32 but I\'=-5/96, so the rational coefficient clears only ' +
+      'to -5/3; a correction divisible by 3 is necessary on this cone.',
+    cycleDefect:
+      'The printed I\'\' residue descent is off by a factor two at a=0, its ' +
+      'literal torus intersects a polar hypersurface at every radius, and it misses ' +
+      'wall-crossing terms on boundary parameters. No fixed analytic chain for I\' ' +
+      'has yet been supplied.',
+    scalarHankelTheorem:
+      'Conditional on the printed recurrence identity, the symmetric projected ' +
+      'sequence has indicial ' +
+      'exponent -5/2 at all three characteristic roots. Its generating function is ' +
+      'therefore nonrational, so Kronecker\'s theorem proves that the principal ' +
+      'Hankel determinants are nonzero infinitely often.',
+    geometricDiagnostic:
+      'The five-coordinate real image has the rigorous diagnostic bound ' +
+      'Sup_rec <= 4^(-11/15)*exp(-8/15)=0.2122587567 and an inscribed-box lower ' +
+      'bound 0.00803875. These do not supply a projected zeta(5) criterion.',
   },
 
   externalFrontier2026: {
     name: 'Brown multi-parameter Mellin / transfinite-diameter criterion',
-    status: 'PROMISING GENERAL CRITERION — NOT YET APPLIED TO ZETA(5)',
+    status: 'AUDITED GENERAL CRITERION — NOT YET APPLIED TO ZETA(5)',
     criterion:
       'For growing Mellin moment modules with nonzero determinant, Brown\'s ' +
       'criterion combines multivariate transfinite diameter with the determinant ' +
@@ -229,29 +275,28 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'denominator limit below 1 yields nonzero integer forms tending to zero.',
     candidateApplication:
       'Lift the Brown-Zudilin M_0,8 family from a single parameter ray to growing ' +
-      'modules of projected zeta(5) forms, then prove determinant nonvanishing and ' +
-      'a transfinite-diameter/denominator product below 1.',
+      'modules of projected zeta(5) forms. A repaired five-generator algebra ' +
+      'containing the symmetric ray has infinite Hankel rank, but no controlled ' +
+      'rectangular determinant, denominator lattice, or projected support bound.',
     mainObstacle:
-      'The Brown-Zudilin zeta(5) form is obtained by projecting away parasitic ' +
-      'periods. A genuine projected contour/period representation, a holonomic ' +
-      'determinant theorem, or an extension to signed/complex cycles is needed ' +
-      'before positivity can certify nonvanishing.',
+      'Four proof obligations remain coupled: a correctly hypothesized denominator ' +
+      'theorem, a genuine fixed projected relative cycle including wall terms, ' +
+      'degree-controlled multi-parameter determinant nonvanishing, and a strict ' +
+      'transfinite-diameter/denominator inequality.',
     rectangularThreshold:
-      'If an ideal d_max^5 denominator theorem can be achieved for five independent ' +
-      'parameters, the optimistic benchmark is Sup_rec < exp(-11/6)=0.1598797461. ' +
-      'For one explicit full-dimensional M_0,8 subcone, the actual top-five LCM ' +
-      'order statistic instead gives the conditional sufficient target ' +
-      'Sup_rec < exp(-13/4)=0.0387742078, assuming the uniform Brown-Zudilin ' +
-      'five-LCM inclusion. Scalar Rhin-Viola savings cannot be inserted without ' +
-      'a uniform row/column theorem.',
+      'No current numerical threshold is proof-ready. The exp(-13/4) figure ' +
+      'survives only as a conditional order-statistic target: its five-ray cone ' +
+      'has negative orbit coordinates, and no uniform corrected denominator ' +
+      'theorem, projected cycle, or growing-box determinant theorem is proved. ' +
+      'Actual row and column denominator matrices must be established first.',
   },
 
   nextExperiment: Object.freeze([
-    'Write and verify the omitted optimized Brown-Zudilin denominator inclusion.',
-    'Construct a fixed signed or relative-cycle Mellin representation of the projected zeta(5) form.',
-    'Build small projected moment matrices over M_0,8 parameter boxes, not a single ray.',
-    'Test whether determinant cancellation beats 18.0527787851 nats per scalar row.',
-    'Prove uniform row/column denominator savings and a transfinite-diameter bound below the resulting threshold.',
+    'State and prove a strict-interior replacement for the experimental five-LCM inclusion.',
+    'Construct a fixed projected relative cycle with the factor-two and wall-crossing terms corrected.',
+    'Certify the printed scalar recurrence, then use its Hankel theorem to select degree-controlled modules.',
+    'Compute the actual row and column denominator determinants before setting a diameter target.',
+    'Only then prove a transfinite-diameter times denominator limit strictly below one.',
   ]),
 
   references: Object.freeze([
@@ -288,6 +333,23 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT_ASSERTIONS = Object.freeze([
   {
     name: 'Brown criterion is not claimed to solve zeta(5)',
     check: () => /NOT YET APPLIED/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.externalFrontier2026.status),
+  },
+  {
+    name: 'experimental five-LCM input is not promoted to a theorem',
+    check: () => /experimental observation/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.denominatorSource),
+  },
+  {
+    name: 'strict-interior normalization failure is explicit',
+    check: () => /P_1=87\/4/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.strictInteriorNormalizationFailure),
+  },
+  {
+    name: 'five-ray audit distinguishes Q and moment degeneracy',
+    check: () => /Q\(a\(v\)\)=0/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.fiveRayCollapse) &&
+      /95\/2\^20/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.fiveRayCollapse),
+  },
+  {
+    name: 'scalar projected Hankel nonvanishing is retained',
+    check: () => /nonzero infinitely often/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.scalarHankelTheorem),
   },
   {
     name: 'reproduced scalar budget remains on the losing side',

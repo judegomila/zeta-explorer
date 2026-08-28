@@ -12360,6 +12360,17 @@ const DATA_MODULES = [
   // numerical divergence. Imports parent LAYER II verbatim; establishes no rigidity;
   // C_mb stays GUE-conditional (imp-486); NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36221-layer-ii-rigidity-scale-tabulation.js',
+  // imp-36237 (numerical, opus-4-8, api-pool): complements imp-36221 by measuring the same
+  // LAYER II rigidity ratio r(T)=(typical |gamma_k-classical|)/(mean spacing) INSIDE the
+  // certified window [1e4,1e6], resolved to the actual ten imp-3725 H_raw-plateau rungs (heights
+  // = the verbatim Odlyzko record-pair ordinates gammaLeft), and pairs each rung with the
+  // true-flow enclosure bound KpaperBound<=2.4238e-6 that supports it. FINDING: r is flat and
+  // order-unity across the window (0.3324->0.3578, ~7.6% drift), the slow sqrt(log log T) growth,
+  // no blow-up; the window-local enclosure supplies the layer-II input at a flat scale over all
+  // ~1.7e6 zeros it covers but window-LOCALLY only. Imports parent LAYER II + imp-3725 rows
+  // verbatim; establishes no rigidity; N-uniform stays OPEN; C_mb GUE-conditional (imp-486);
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36237-layer-ii-rigidity-scale-across-window.js',
   // imp-36242 (content, sonnet-4-6, sonnet): import-light glossary/Concepts headword
   // restating the imp-36193 G-interval-enclosure five-ingredient E1-E5 requirement list
   // (certified seed / directed rounding / pole reduction crux / width control / N-dependence

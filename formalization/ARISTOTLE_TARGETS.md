@@ -14,10 +14,20 @@ chain (consuming the kernel-verified rectangle argument principle, audit-repo
 PR #30) · twistor Lemma 6.1. Already verified: the frozen-rung set
 (lean-aristotle/frozen-rung/), the DBN base case, RealRootedPreservation.lean.
 
-## Waves 2–3 (ranked; #1–#5 submitted as jobs 15–19; #6/#9/#10/#13/#14 SUBMITTED
-2026-08-28 as wave 3: ramanujan_reversal 4d99dee9, gilbreath_package d8e586ff,
-r1fn_sharp_cap 60cbaeb3, isolation_onset 78f6557d, maxmodulus_growth 7a400632;
-#7/#8/#11/#12/#15 held pending quota behavior. Wave 2 ids: newton_inequality
+## Waves 2–3 — DELIVERED 2026-08-28 (nine dirs at lean-aristotle/ +
+WAVES_2_3_README.md; all builds green, zero nonstandard axioms; 8× FAITHFUL +
+1× MINOR DRIFT: burgers IsHeatFlow is global-in-s, disclosed — carry that
+caveat on any app quote). Per-target verdicts in the README. Action items:
+newton_inequality port to erase the probe sorry (in progress);
+maxmodulus_growth corollary name-collision (rename before landing beside
+EntireOrderEquiv.lean:286). #10 ramanujan_reversal (4d99dee9) reported
+COMPLETE sorry-free with ALL FOUR theorems for all n — including
+R_n(1)=n^{n−1} PROVED FROM SCRATCH (Abel's binomial + tree-function ODE in
+ℚ⟦X⟧, absent from mathlib) — pending local kernel + faithfulness gates; if
+confirmed, BOTH imp-35068 conjectures (row sum, subleading) upgrade to
+unconditional theorems. #7/#8/#11/#12/#15 still held. Original submission ids:
+wave 3: gilbreath_package d8e586ff, r1fn_sharp_cap 60cbaeb3, isolation_onset
+78f6557d, maxmodulus_growth 7a400632. Wave 2 ids: newton_inequality
 05cc5d33, crossover_sign_induction 054f776f, theta_trap a8f6f09a,
 heat_discriminant_ode 9c625fea, burgers_heat c397b9d1 — with the drafting-pass
 corrections noted per-target below)

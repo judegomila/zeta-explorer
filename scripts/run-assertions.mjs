@@ -12327,6 +12327,16 @@ const DATA_MODULES = [
   // from the OPEN residue for the deterministic arithmetic seed. Imports the parent
   // layer verbatim; claims NO sub-input established; C_mb stays GUE-conditional; NO QED.
   '/src/data/imp-36241-layer-i-local-semicircle-input-scope.js',
+  // imp-36221 (numerical, opus-4-8): tabulates imp-36180 LAYER II (the microscopic
+  // rigidity SCALE) over an N/height ladder -- the location-fluctuation / mean-spacing
+  // ratio r(T)=sqrt((1/(2pi^2)) log log T) the C_mb coupling would consume for the
+  // deterministic arithmetic seed vs the same order-unity scale the DBM literature
+  // guarantees only for random/regular data. Finding: the ratio stays order-unity
+  // (~0.34-0.46, no blow-up), so the gap is a conditionality/certification-range gap
+  // (window-certified [1e4,1e6] ~1.7e6 zeros; conjectural/uncertified beyond), not a
+  // numerical divergence. Imports parent LAYER II verbatim; establishes no rigidity;
+  // C_mb stays GUE-conditional (imp-486); NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36221-layer-ii-rigidity-scale-tabulation.js',
   // imp-36242 (content, sonnet-4-6, sonnet): import-light glossary/Concepts headword
   // restating the imp-36193 G-interval-enclosure five-ingredient E1-E5 requirement list
   // (certified seed / directed rounding / pole reduction crux / width control / N-dependence

@@ -5,27 +5,46 @@ compiled 2026-08-28 by a corpus-wide scout. E = exact/unconditional statement;
 C = conditional implication (machine-check the logic; antecedent stays open).
 
 **In flight (wave 1, submitted 2026-08-27 via the dbn audit session pipeline;
-projects ba4468a2, cc9ccae7, 7f037bfe, a9a5af2e, db03b70f):** permutation-defect
+projects ba4468a2, cc9ccae7, 7f037bfe, a9a5af2e, db03b70f — all five results
+back sorry-free 2026-08-28; kernel builds + axiom audits + independent
+faithfulness review in progress):** permutation-defect
 lemma · anti-Hermitian strip bound · five-shell identity E97 · §4.7 implication
 chain (consuming the kernel-verified rectangle argument principle, audit-repo
 PR #30) · twistor Lemma 6.1. Already verified: the frozen-rung set
 (lean-aristotle/frozen-rung/), the DBN base case, RealRootedPreservation.lean.
 
-## Wave 2 (ranked)
+## Wave 2 (ranked; #1–#5 SUBMITTED 2026-08-28 as jobs 15–19: newton_inequality
+05cc5d33, crossover_sign_induction 054f776f, theta_trap a8f6f09a,
+heat_discriminant_ode 9c625fea, burgers_heat c397b9d1 — with the drafting-pass
+corrections noted per-target below)
 
-1. **`newton_inequality` sorry** (E, low) — e_k² ≥ e_{k−1}e_{k+1} for real-rooted p;
-   already STATED in lean-mathlib-probe/HeatCorollaries.lean:191 (1 of 2 sorrys in
-   the tree); proof = iterated differentiation (banked) + degree-2 discriminant.
+1. **`newton_inequality` sorry** (E, low) — CORRECTED SHAPE (drafting pass): the
+   actual sorried statement is the normalized-coefficient log-concavity form
+   (p.coeff k / choose k)² ≥ product of neighbours, NOT literal e_k² ≥ e_{k−1}e_{k+1};
+   the submitted job targets the verbatim signature at HeatCorollaries.lean:191 so it
+   can drop-in replace the sorry. The naive "iterated differentiation + discriminant"
+   route is incomplete as worded (needs a degree-lowering device, e.g. reversal, not
+   banked) — proof route left to Aristotle.
 2. **Θ-trap core package** (E, med) — dg/ds = −(4/g)(1−Θ) exact; dΘ/ds identity;
-   Theorem A (Θ≤1/4 invariant, sharp); Corollary A1/E1 (t_c ≤ g²/(8(1−Θ*))).
+   Theorem A (Θ≤1/4 invariant, sharp); Corollary E1 t_c ≤ g²/(8(1−Θ*)) (A1 is the
+   Θ*=1/4 case, g²/6). PACKAGING NOTE (drafting pass): flow existence/C¹/no-collision
+   and E1's absolute continuity were silent in the sources — now explicit named
+   hypotheses; A1's adjacency-persistence is a hypothesis in all but name (imp-3049/
+   3277 only measure it); nothing is claimed for Θ* persistence on (0.443, 0.5073)
+   per the source's own refutation band.
    src/data/sg1-theta-contraction.js + sg1c-theta-trap-theorems.js (proofs in source).
 3. **Heat-discriminant ODE S4-1/S4-2** (E, low-med) — d/ds log Disc = −8Σ 1/(x_i−x_j)²
    + the vanishing symmetric triple-sum lemma. imp-2563-discriminant-tc-characterization.js (QED in source).
-4. **Exact finite-N Burgers/heat identity** (E, low-med) — ∂_s M = ∂_z²M − 2M∂_zM exactly;
-   monic P satisfies forward heat eq ⇒ finite Taylor sum. Bridges to RealRootedPreservation heatOp.
+4. **Exact finite-N Burgers/heat identity** (E, low-med) — SIGN NOTE (drafting pass):
+   M(z,s) = Σ_k 1/(x_k(s)−z) = −P′/P (NOT +P′/P; the PDE ∂_s M = ∂_z²M − 2M∂_zM is not
+   invariant under M ↦ −M — with +P′/P the nonlinear term flips sign). Monic P satisfies
+   the forward heat equation ⇒ finite Taylor sum; signs per ENTIRE_ROADMAP §3 e^{−tD²}.
+   Bridges to RealRootedPreservation heatOp.
 5. **Crossover all-orders sign induction imp-34880** (E, low) — P_{n+1} = nuP_n+(2n−1)P_n−uP_n′,
    positivity via multiplier (2n−1−k) ≥ n; boundary forms (n−1)!, (2n−3)!!. Prose QED in source,
-   never machine-executed (numerics double-inexact past n=15).
+   never machine-executed (numerics double-inexact past n=15). SCOPE (drafting pass): the
+   submitted job covers the polynomial-family package only (the source's rigorous H2 part);
+   the surrogate-map H1 derivation is excluded per the source's own NO-QED scope note.
 6. **Lemma R1-FN sharp excursion cap** (E, low-med) — Θ ≤ 1−2/N sharp, exact Θ_max(N),
    balanced-lattice maximiser. sg1c-theta-trap-theorems.js:844 (full static proof).
 7. **Min-gap sandwich Theorem B + s=0 β-discharge** (C, med-high) — two-sided t_c pinch

@@ -118,16 +118,21 @@ export default function RouteMapPage() {
         <div style={{ marginBottom: 24, borderBottom: '1px solid var(--hairline)', paddingBottom: 18 }}>
           <h1 style={{ margin: '0 0 10px', color: 'var(--ink)', fontFamily: 'var(--ed-display, Georgia, serif)', fontSize: 34, fontWeight: 600 }}>RH / Λ Route Map</h1>
           <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: '72ch' }}>
-            The complete map of every route the project has tried —{' '}
+            The map of every route the project had tried as of {FULL_ROUTE_MAP.date} —{' '}
             <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong> across 5 clusters, classified by
-            status and genuine remaining opportunity (full-route-map workflow, {FULL_ROUTE_MAP.date}).
-            The one-line truth: <strong>there is no shortcut below RH anywhere in the map</strong> —
+            status and genuine remaining opportunity (full-route-map workflow, frozen {FULL_ROUTE_MAP.date}).
+            Routes opened since that snapshot live on their own pages; the newest is the{' '}
+            <Link to="/permutation-architecture" style={{ color: 'var(--brass-dk)' }}>permutation architecture</Link>{' '}
+            with its fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound).
+            The one-line truth of the frozen map: <strong>there is no shortcut below RH anywhere in it</strong> —
             the inherited Dyson/collision routes seeking to drive Λ to zero funnel into the{' '}
             <strong style={{ color: 'var(--brass)' }}>C_H Hölder-½ shock modulus</strong> (RH-hard at the
-            modulus). Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark;
+            modulus). The peer-reviewed benchmark is Platt–Trudgian Λ ≤ 0.2;
             the public 0.1875 certificate-package claim remains unrefereed. Separately, the standalone
             repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an
-            unconditional proof. The bound is not established, has been reviewed by Dan Romik, and is not RH.
+            unconditional proof (the bound is not established, has been reviewed by Dan Romik, and is not RH),
+            and a sharper four-gate candidate reaches Λ ≤ 0.1758354 (unrefereed) —{' '}
+            <Link to="/lambda-01758354-candidate" style={{ color: 'var(--brass-dk)' }}>candidate page</Link>.
           </p>
         </div>
 
@@ -328,8 +333,8 @@ export default function RouteMapPage() {
             </div>
             <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6 }}>
               {C_SHOCK_N_DEPENDENCE_IMP3070.honestNote} This viz certifies the uniformity of an
-              already-proven cap; it does NOT close C_H. Platt-Trudgian Λ ≤ 0.2 remains
-              the peer-reviewed benchmark; the separate public 0.1875 claim does not close this route.
+              already-proven cap; it does NOT close C_H. The separate public 0.1875 claim does not
+              close this route either.
             </div>
           </div>
         </div>
@@ -421,8 +426,7 @@ export default function RouteMapPage() {
               SCOPE — REPRESENTATIVE TRUNCATION, NO RH VERDICT
             </div>
             <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.6 }}>
-              {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.honestCaveat.opNormCarriesNoRHVerdict}{' '}
-              {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.honestCaveat.sota}.
+              {IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION.honestCaveat.opNormCarriesNoRHVerdict}
             </div>
           </div>
         </div>

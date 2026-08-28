@@ -656,14 +656,6 @@ const CONCEPTS = [
 
   // ── New Proof-Status Concepts ──
   {
-    id: 'c-h-wall',
-    category: 'proof',
-    term: 'C_H Wall (Gronwall Obstruction)',
-    definition: "The unresolved Gronwall amplification constant C_H that bounds backward heat-flow in the Twin-Ladder Bridge collision analysis. C_H exists (the flow is bounded) but pinning its numerical value is as hard as RH itself — making it an \"RH-hard\" obstruction. This wall is the primary gap blocking a fully rigorous E_flow bound.",
-    formula: 'E_{\\text{flow}} \\leq C_H \\cdot |t_c|^{1/2}, \\quad C_H \\text{ finite} \\Longleftrightarrow \\text{RH}',
-    intuition: "Like a speed limit that exists but whose exact value requires solving RH to certify — the wall that currently blocks unconditional rigor in the backward-flow analysis.",
-  },
-  {
     id: 'phase-vortex-rh',
     category: 'proof',
     term: 'Phase Vortex & RH',
@@ -690,18 +682,18 @@ const CONCEPTS = [
   {
     id: 'ch-wall',
     category: 'proof',
-    term: 'C_H Wall',
+    term: 'C_H Wall (Gronwall Obstruction)',
     symbol: 'C_H',
-    definition: "The principal unresolved constant barrier in the Twin-Ladder Bridge program. C_H = C_shock * C_Lip / 4 enters the Gronwall backward-flow integral, which diverges at the eigenvalue collision time t_c, making the C_H discharge RH-equivalent and unconditionally undischargeable by the current route. imp-2640 confirmed the Gronwall discharge fails; imp-2632 showed the OLS-fitted t_c is not rigorous. See /state-of-program for full C_H-pending status.",
+    definition: "The Gronwall amplification constant C_H = C_shock * C_Lip / 4 in the backward heat-flow collision analysis. C_H exists (the flow is bounded), but the Gronwall backward-flow integral diverges at the eigenvalue collision time t_c, so no unconditional numerical certification of C_H is available on this route: the discharge is closed, not pending. imp-2640 confirmed the Gronwall discharge fails; imp-2642 showed the 1/8 gap-to-time coefficient is leading-order only; imp-2632 showed the OLS-fitted t_c is not rigorous. C_H blocks the collision/backward-flow discharge specifically — it does not block E_flow, which is the benign mesoscopic-Gronwall term with an unconditional bound (imp-2845). The C_Lip field-channel reroute (imp-3933) bypasses this wall in the vector-field-error channel rather than discharging it. See /state-of-program.",
     formula: 'C_H = \\frac{C_{\\mathrm{shock}} \\cdot C_{\\mathrm{Lip}}}{4}',
-    intuition: "C_H is the #1 named wall in the route map. Every integral certificate bounding the backward Gronwall flow must ultimately pin C_H to an explicit value — and no unconditional bound exists yet. Until C_H is certified, every beat estimate is an ceiling only.",
+    intuition: "A speed limit that exists but whose exact value the Gronwall route cannot certify — the divergent collision integral closes that route rather than leaving it pending. Until some other channel certifies the collision-side constant, every beat estimate that leans on it is a ceiling only.",
   },
   {
     id: 'honest-ceiling',
     category: 'proof',
     term: 'Ceiling',
-    definition: "Project-standard label for a constant or estimate that is numerically consistent with being an upper bound across all tested N, but is NOT a rigorous unconditional upper bound.-ceiling results are reported with explicit disclaimers. The canonical example is the finite-N* beat: empirically below threshold but blocked by C_H. See /state-of-program.",
-    intuition: "A ceiling you can measure but not yet prove. The value never exceeds the threshold in experiments, but an undischarged constant (like C_H) means the ceiling could in principle be higher.-ceiling is the opposite of a certified interval-arithmetic bound.",
+    definition: "Project-standard label for a constant or estimate that is numerically consistent with being an upper bound across all tested N, but is NOT a rigorous unconditional upper bound. Ceiling results are reported with explicit disclaimers. The canonical example is the finite-N* beat: empirically below threshold but blocked by C_H. See /state-of-program.",
+    intuition: "A ceiling you can measure but not yet prove. The value never exceeds the threshold in experiments, but an undischarged constant (like C_H) means the ceiling could in principle be higher. A ceiling is the opposite of a certified interval-arithmetic bound.",
   },
   {
     id: 'overclaim-ledger',
@@ -714,7 +706,7 @@ const CONCEPTS = [
     category: 'proof',
     term: "Finite-N* Beat (Estimate)",
     symbol: 'E_{\\text{coll}}(N^*) < 0.2',
-    definition: "The observation that at N*=1e4 the computed eigenvalue-collision energy E_coll falls below the Lambda <= 0 threshold (~0.2). This is a numerical estimate, not a rigorous unconditional result. The beat is rigorous-modulo-C_H: if the undischarged constant C_H were certified from above, the estimate would become unconditional. Until C_H is certified, the N* beat is an-ceiling result, never a QED finite-N beat. The claim of a rigorously-pinned E_coll (imp-2633) was corrected internally. See /state-of-program.",
+    definition: "The observation that at N*=1e4 the computed eigenvalue-collision energy E_coll falls below the Lambda <= 0 threshold (~0.2). This is a numerical estimate, not a rigorous unconditional result. The beat is rigorous-modulo-C_H: if the undischarged constant C_H were certified from above, the estimate would become unconditional. Until C_H is certified, the N* beat is a ceiling result, never a QED finite-N beat. The claim of a rigorously-pinned E_coll (imp-2633) was corrected internally. See /state-of-program.",
     formula: 'E_{\\text{coll}}(N^*) < 0.2 \\;(\\text{numerical, rigorous-modulo-}C_H)',
     intuition: "The computation says below threshold at N=10000, but the proof says we cannot yet certify this unconditionally because C_H is unknown. Like a measurement with an unresolved systematic error — the central value looks good, but the error bar has no certified bound until C_H is discharged.",
   },
@@ -839,7 +831,7 @@ const CONCEPTS = [
     category: 'proof',
     term: 'E(N) -> E_trunc: An Ingredient of L_pt, Not a Rival Bound',
     symbol: 'E(N) \\xrightarrow{N\\to\\infty} E_{\\text{trunc\\_pt}} \\approx 3.06\\times10^{-5} \\;\\subset\\; L_{pt} = L_{\\text{cond}} + E_{\\text{trunc\\_pt}}',
-    definition: "imp-34434 tabulates the bridge total E(N) = E_trunc + E_flow(N) + E_coll(N) and finds it monotone decreasing with no interior minimum, settling on an N-independent floor E_trunc_pt ~ 3.06e-5 as N -> infinity. It is tempting to read that floor as a competing estimate of the Lambda beat -- since 3.06e-5 sits roughly 3954x below L_pt~0.121 (imp-459) and roughly 6536x below the Platt-Trudgian SOTA bound 0.2 -- but that comparison is a category confusion. E_trunc_pt is not an independent quantity racing L_pt to a smaller number; per imp-459's definition L_pt(sigma,N0) = L_cond(N0) + E_trunc_pt(sigma), it is already one of the two additive pieces INSIDE L_pt's assembly.",
+    definition: "imp-34434 tabulates the bridge total E(N) = E_trunc + E_flow(N) + E_coll(N) and finds it monotone decreasing with no interior minimum, settling on an N-independent floor E_trunc_pt ~ 3.06e-5 as N -> infinity. It is tempting to read that floor as a competing estimate of the Lambda beat -- since 3.06e-5 sits roughly 3954x below L_pt~0.121 (imp-459) and roughly 6536x below the peer-reviewed Platt-Trudgian bound 0.2 -- but that comparison is a category confusion. E_trunc_pt is not an independent quantity racing L_pt to a smaller number; per imp-459's definition L_pt(sigma,N0) = L_cond(N0) + E_trunc_pt(sigma), it is already one of the two additive pieces INSIDE L_pt's assembly.",
     formula: 'L_{pt} = \\underbrace{L_{\\text{cond}}(N_0)}_{\\text{tcProj+E\\_flow+E\\_coll at }N_0} + \\underbrace{E_{\\text{trunc\\_pt}}(\\sigma)}_{\\text{the imp-34434 floor}},\\quad E_{\\text{trunc\\_pt}}=\\frac{2\\,e_I(\\sigma)}{\\kappa(\\sigma)}\\,T_{PT}^{-\\kappa(\\sigma)}',
     intuition: "E(N) is a bridge assembly-error budget (imp-2564): Lambda(N) <= |t_c(N)| + E(N) is the actual inequality, not E(N) itself. So E(N) -> E_trunc_pt says only that the assembly-error floor shrinks to a fixed constant as N grows -- it says nothing directly about Lambda. That same constant, E_trunc_pt (the Ingham zero-density truncation term at Platt-Trudgian's verified height T_PT=3e12), is precisely the piece imp-459 ADDS to L_cond to build the finite-height beat L_pt: at the optimized sigma_opt=0.75 it evaluates to ~3.06e-5, pushing L_pt down to ~0.121. Comparing imp-34434's floor to L_pt is therefore comparing a sub-term to the whole sum it is already folded into -- like noting that a company's shipping-cost line item is smaller than its total revenue and concluding shipping costs are outcompeting revenue. The correct reading: as sigma and N0 are tuned (imp-447 -> imp-459), driving E_trunc_pt down is exactly HOW L_pt was improved from ~sigma=0.61's looser bound toward ~0.121, not a rival path to a smaller bound. None of this changes any RH bound: the component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; C_mb remains GUE-conditional per imp-486; no QED.",
   },

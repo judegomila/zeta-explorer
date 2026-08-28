@@ -275,10 +275,7 @@ export default function RigorousNumericsStagesPage() {
           <p
             style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 14 }}
           >
-            {R.title} — {R.paperRef}
-          </p>
-          <p style={{ marginTop: 6, color: 'var(--faint)', fontFamily: mono, fontSize: 11 }}>
-            Historic app-mapping source: {R.historicalPaperRef}
+            {R.title} — §20 of the consolidated twin-ladder paper
           </p>
         </div>
 
@@ -510,6 +507,10 @@ export default function RigorousNumericsStagesPage() {
               ← the atlas
             </Link>
           </div>
+          <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 16 }}>
+            Source: <code>{R.paperRef}</code>. Historic app-mapping source:{' '}
+            <code>{R.historicalPaperRef}</code>.
+          </p>
         </div>
       </div>
     </div>

@@ -262,8 +262,20 @@ export default function PaperPage() {
             <StatusRow
               label="candidate"
               value="Λ ≤ 0.1787854"
-              status={`${candidate.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail reports ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} gates per precision. Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.`}
+              status={`${candidate.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail reports ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} gates per precision. Computer-assisted candidate for an unconditional proof; reviewed by Dan Romik, being prepared for public release; unrefereed; bound not established; not RH.`}
               color="var(--blue)"
+            />
+            <StatusRow
+              label="candidate"
+              value="Λ ≤ 0.1758354"
+              status={<>Four Arb interval gates; Lean-checked reduction. Unrefereed; bound not established; not RH. See the <Link to="/lambda-01758354-candidate" style={{ color: 'var(--blue)' }}>candidate page</Link>.</>}
+              color="var(--blue)"
+            />
+            <StatusRow
+              label="contract — not a bound"
+              value="Λ ≤ 0.14 (conditional)"
+              status={<>Fail-closed completion contract, not a bound: one open family |C_E,17| &lt; 0.2796881955526147 on 690988 ≤ N ≤ 54799999 remains. See the <Link to="/permutation-architecture" style={{ color: 'var(--brass-dk)' }}>permutation architecture</Link>.</>}
+              color="var(--brass-dk)"
             />
           </div>
           <P>
@@ -279,7 +291,10 @@ export default function PaperPage() {
             self-corrections, a strict <InlineMath tex="PF_2" /> kernel result, a rigorous
             <InlineMath tex="PF_5" /> obstruction, and a computer-assisted candidate for an
             unconditional proof of <InlineMath tex="\Lambda\le0.1787854" />. That candidate bound is not
-            established, has been reviewed by Dan Romik, and is not RH. The program has
+            established, has been reviewed by Dan Romik, and is not RH. A sharper candidate{' '}
+            <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked reduction, unrefereed)
+            and the fail-closed <InlineMath tex="\Lambda\le0.14" /> completion contract — a contract,
+            not a bound, with one open family — extend the same ledger. The program has
             not supplied the non-circular all-shifts positivity theorem or the complete
             global residual inequality needed for RH; the surviving frontier is equivalent to RH.
           </P>

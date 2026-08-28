@@ -18,6 +18,14 @@ import { CAUGHT_OVERCLAIMS, OVERCLAIM_COUNT } from '../data/overclaim-ledger.js'
 
 const TRUTHS = STATE_OF_PROGRAM_TRUTHS;
 
+// Render-site badge label (2026-08-28 currency pass): the data module keeps the
+// badge string 'UNREVIEWED CANDIDATE' because build assertions
+// (imp-2967-state-of-program-overclaim-cross-check.js) key on it; the displayed
+// label reflects the current review status — reviewed by Dan Romik, unrefereed.
+function displayBadge(badge) {
+  return badge === 'UNREVIEWED CANDIDATE' ? 'UNREFEREED CANDIDATE' : badge;
+}
+
 export default function StateOfProgramPage() {
   return (
     <div className="ed-root">
@@ -32,7 +40,7 @@ export default function StateOfProgramPage() {
             <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
             <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
             the public fixed-height package, and the standalone private candidate package. The one-line truth:{' '}
-            <strong>Λ ≤ 0.1787854 is a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik), and a sharper four-gate candidate reaches Λ ≤ 0.1758354; neither bound is established or refereed, and neither is RH.</strong>
+            <strong>Λ ≤ 0.1787854 is a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik, being prepared for public release), and a sharper four-gate candidate reaches Λ ≤ 0.1758354; neither bound is established or refereed, and neither is RH. A further Λ ≤ 0.14 statement is a fail-closed completion contract with one open family, not a bound.</strong>
           </p>
         </div>
 
@@ -51,11 +59,16 @@ export default function StateOfProgramPage() {
                   padding: '2px 7px',
                 }}
               >
-                {t.badge}
+                {displayBadge(t.badge)}
               </span>
               <strong style={{ color: 'var(--ink)', fontSize: 14.5 }}>{t.title}</strong>
             </div>
             <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.6 }}>{t.body}</div>
+            {t.route && (
+              <div style={{ marginTop: 8, fontSize: 12.5 }}>
+                <Link to={t.route}>{t.routeLabel || t.route} →</Link>
+              </div>
+            )}
           </div>
         ))}
 

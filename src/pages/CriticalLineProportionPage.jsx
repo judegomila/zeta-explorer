@@ -4,16 +4,22 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { CRITICAL_LINE_PROPORTION as RECORDS, RH_TARGET } from '../data/critical-line-proportion.js';
 
 /* The critical-line-proportion dimension: κ = proportion of nontrivial zeros PROVEN
-   on Re s = 1/2. RH ⟺ κ = 100%. Sibling to the Λ-bound timeline. All values are
-   peer-reviewed literature results (not project claims). */
+   on Re s = 1/2. RH ⟺ κ = 100%. Sibling to the Λ-bound timeline. Entries through
+   2020 are peer-reviewed literature results; the 2026 ≥2/3 entry is an external
+   AI-produced result (Anthropic/Claude), Lean-checked and reviewed by Conrey and
+   Goldston but NOT peer-reviewed — it is tracked separately and never adopted as
+   the flat record. None are this project's claims. */
 
 const pct = (p) => (p == null ? null : (p * 100));
-const current = RECORDS.filter((r) => r.proportion != null).slice(-1)[0];
+// The peer-reviewed record (PRZZ 2020, 5/12) and the external unrefereed AI
+// result (2026, >= 2/3) are kept as separate tiers.
+const peerRecord = RECORDS.filter((r) => r.proportion != null && !r.aiResult).slice(-1)[0];
+const aiExternal = RECORDS.find((r) => r.aiResult);
 
 export default function CriticalLineProportionPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>record: ≥ {pct(current.proportion).toFixed(2)}% on the line</span>} />
+      <EditorialHeader ticker={<span>peer-reviewed record: ≥ {pct(peerRecord.proportion).toFixed(2)}% on the line · external AI result (unrefereed): ≥ {pct(aiExternal.proportion).toFixed(2)}%</span>} />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div className="ed-lbl">the critical-line proportion</div>
         <h1 className="ed-h1" style={{ fontSize: 'clamp(26px,3.6vw,38px)', marginTop: 6 }}>
@@ -22,21 +28,29 @@ export default function CriticalLineProportionPage() {
         <p style={{ color: 'var(--ink-soft)', fontSize: 17, maxWidth: '60ch', marginTop: 12 }}>
           A second classical dimension of progress on the Riemann Hypothesis, distinct from the de Bruijn–Newman Λ
           bound and from verified zero height: the proportion <b>κ</b> of nontrivial zeros <em>proven</em> to lie on
-          the critical line Re s = ½. RH is exactly the statement that <b>κ = 100%</b>. The current unconditional
-          record is <b>≥ {pct(current.proportion).toFixed(2)}%</b> ({current.label.replace(/^≥\s*/, '')}, {current.authors.join(', ')}, {current.year}).
+          the critical line Re s = ½. RH is exactly the statement that <b>κ = 100%</b>. The peer-reviewed
+          unconditional record is <b>≥ {pct(peerRecord.proportion).toFixed(2)}%</b> ({peerRecord.label.replace(/^≥\s*/, '')}, {peerRecord.authors.join(', ')}, {peerRecord.year}).
+          A {aiExternal.year} external result ({aiExternal.authors.join(', ')}) claims <b>≥ {pct(aiExternal.proportion).toFixed(2)}%</b> (optimised
+          0.6725) unconditionally — Lean-checked and reviewed by Conrey and Goldston, but not peer-reviewed; it is
+          tracked as a separate tier, not adopted as the record.
         </p>
 
-        {/* progress bar 0 -> current -> 100 */}
-        <div style={{ margin: '34px 0 40px' }}>
-          <div className="ed-lbl" style={{ marginBottom: 10 }}>0% → current record → 100% (RH)</div>
+        {/* progress bar: two markers — peer-reviewed record vs external unrefereed result */}
+        <div style={{ margin: '34px 0 46px' }}>
+          <div className="ed-lbl" style={{ marginBottom: 10 }}>0% → peer-reviewed record → external unrefereed result → 100% (RH)</div>
           <div style={{ position: 'relative', height: 26, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderRadius: 6, overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: `${pct(current.proportion)}%`, background: 'var(--brass)', opacity: 0.35 }} />
-            <div style={{ position: 'absolute', top: 0, bottom: 0, left: `${pct(current.proportion)}%`, width: 2, background: 'var(--brass-dk)' }} />
+            <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: `${pct(peerRecord.proportion)}%`, background: 'var(--brass)', opacity: 0.35 }} />
+            <div style={{ position: 'absolute', top: 0, left: `${pct(peerRecord.proportion)}%`, bottom: 0, width: `${pct(aiExternal.proportion) - pct(peerRecord.proportion)}%`, background: 'var(--brass)', opacity: 0.12 }} />
+            <div style={{ position: 'absolute', top: 0, bottom: 0, left: `${pct(peerRecord.proportion)}%`, width: 2, background: 'var(--brass-dk)' }} />
+            <div style={{ position: 'absolute', top: 0, bottom: 0, left: `${pct(aiExternal.proportion)}%`, width: 2, background: 'var(--blue)', opacity: 0.7 }} />
           </div>
-          <div style={{ position: 'relative', height: 20, fontFamily: 'var(--ed-mono)', fontSize: 11, color: 'var(--faint)' }}>
+          <div style={{ position: 'relative', height: 34, fontFamily: 'var(--ed-mono)', fontSize: 11, color: 'var(--faint)' }}>
             <span style={{ position: 'absolute', left: 0 }}>0%</span>
-            <span style={{ position: 'absolute', left: `${pct(current.proportion)}%`, transform: 'translateX(-50%)', color: 'var(--brass-dk)' }}>
-              {pct(current.proportion).toFixed(1)}% (2020)
+            <span style={{ position: 'absolute', left: `${pct(peerRecord.proportion)}%`, transform: 'translateX(-50%)', color: 'var(--brass-dk)' }}>
+              {pct(peerRecord.proportion).toFixed(1)}% ({peerRecord.year}, peer-reviewed)
+            </span>
+            <span style={{ position: 'absolute', left: `${pct(aiExternal.proportion)}%`, transform: 'translateX(-50%)', top: 16, color: 'var(--blue)' }}>
+              {pct(aiExternal.proportion).toFixed(1)}% ({aiExternal.year}, external · unrefereed)
             </span>
             <span style={{ position: 'absolute', right: 0, color: 'var(--terra-dk)' }}>100% = RH</span>
           </div>
@@ -67,17 +81,19 @@ export default function CriticalLineProportionPage() {
             <tr style={{ background: 'rgba(217,80,46,0.05)' }}>
               <td style={{ padding: '10px', fontFamily: 'var(--ed-mono)', color: 'var(--terra-dk)', fontWeight: 600 }}>goal</td>
               <td style={{ padding: '10px', fontFamily: 'var(--ed-mono)', color: 'var(--terra-dk)', fontWeight: 600, whiteSpace: 'nowrap' }}>{RH_TARGET.label}</td>
-              <td style={{ padding: '10px', color: 'var(--ink-soft)' }} colSpan={2}>κ = 100% is the Riemann Hypothesis. The 100% − {pct(current.proportion).toFixed(2)}% gap is what remains open on this axis.</td>
+              <td style={{ padding: '10px', color: 'var(--ink-soft)' }} colSpan={2}>κ = 100% is the Riemann Hypothesis. The gap above the peer-reviewed record (100% − {pct(peerRecord.proportion).toFixed(2)}%) — and above even the unrefereed external ≥ {pct(aiExternal.proportion).toFixed(2)}% claim — is what remains open on this axis.</td>
             </tr>
           </tbody>
         </table>
 
         <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)', marginTop: 30 }}>
           <div className="tlab">Scope</div>
-          <p>These are rigorous, unconditional <em>lower bounds</em> on the proportion of zeros on the line — a
-            different axis from the Λ bound (Platt–Trudgian Λ ≤ 0.2, the rigorous benchmark) and from verified zero
-            height (X ≈ 3×10¹²). None of them proves RH; RH is the limit κ → 100%. This project's twin-ladder work
-            targets the Λ / verified-height axis, not this proportion.</p>
+          <p>The entries through 2020 are rigorous, peer-reviewed, unconditional <em>lower bounds</em> on the
+            proportion of zeros on the line — a different axis from the Λ bound (Platt–Trudgian Λ ≤ 0.2, the
+            peer-reviewed benchmark) and from verified zero height (X ≈ 3×10¹²). The 2026 ≥ 2/3 entry is an external
+            AI-produced claim (Anthropic), Lean-checked and reviewed by Conrey and Goldston but not peer-reviewed, so
+            it is listed as a separate tier rather than as the record. None of these proves RH; RH is the limit
+            κ → 100%. This project's twin-ladder work targets the Λ / verified-height axis, not this proportion.</p>
         </div>
 
         <div className="ed-postfoot" style={{ marginTop: 34 }}>

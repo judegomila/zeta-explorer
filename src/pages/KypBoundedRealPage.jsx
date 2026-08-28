@@ -221,7 +221,7 @@ export default function KypBoundedRealPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>KYP Bounded-Real (Apps M&ndash;O)</h1>
         <p style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 14, marginBottom: 8 }}>
-          {K.title} &mdash; {K.paperRef}
+          {K.title} &mdash; Apps M&ndash;O of the consolidated twin-ladder paper, pp. 97&ndash;110
         </p>
 
         {/* ─── Verdict banner (imp-2785) ─── */}
@@ -423,6 +423,9 @@ export default function KypBoundedRealPage() {
             </Link>
             <Link to="/">← the atlas</Link>
           </div>
+          <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 16 }}>
+            Source: <code>{K.paperRef}</code>.
+          </p>
         </div>
       </div>
     </div>

@@ -27,7 +27,22 @@ const GRADE = {
     bg: 'rgba(181,138,46,0.14)',
     border: 'rgba(181,138,46,0.45)',
   },
+  'computer-assisted candidate': {
+    label: 'candidate · unrefereed',
+    fg: 'var(--blue)',
+    bg: 'rgba(63,107,134,0.14)',
+    border: 'rgba(63,107,134,0.45)',
+  },
 };
+
+// Render-site copy pass (2026-08-28 currency audit): the PT Λ ≤ 0.2 benchmark
+// is stated once on this page (the accepted-benchmark evidence card); repeated
+// "remains …benchmark / SOTA" tag-lines in ledger-row notes are suppressed here.
+function displayNotes(notes) {
+  return (notes || '')
+    .replace(/Platt[–-]Trudgian Λ ≤ 0\.2 remains (?:the peer-reviewed benchmark|SOTA);?\s*/g, '')
+    .trim();
+}
 
 function GradeBadge({ status }) {
   const grade = GRADE[status] || GRADE['public-unrefereed'];
@@ -202,11 +217,18 @@ export default function LambdaTimelinePage() {
             href="https://doi.org/10.5281/zenodo.21175533"
           />
           <EvidenceCard
-            label="private proof candidate · unreviewed"
+            label="private proof candidate · Romik-reviewed · unrefereed"
             value="Λ ≤ 0.1787854"
-            detail="Candidate for an unconditional computer-assisted proof; not established, accepted, published, or peer reviewed. Private review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea."
+            detail="Candidate for an unconditional computer-assisted proof; reviewed by Dan Romik and being prepared for public release; unrefereed, not established or accepted. Private review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea."
             color="#3f6b86"
             route="/newman-lambda-01787854-candidate"
+          />
+          <EvidenceCard
+            label="sharper proof candidate · unrefereed"
+            value="Λ ≤ 0.1758354"
+            detail="Four independent gates machine-checked in Arb interval arithmetic, with the reduction to the gates Lean-checked; unrefereed, not established. The lowest value the barrier method currently reaches."
+            color="#3f6b86"
+            route="/lambda-01758354-candidate"
           />
         </div>
 
@@ -292,7 +314,7 @@ export default function LambdaTimelinePage() {
                       {entry.method}
                     </div>
                     <div style={{ color: 'var(--faint)', fontSize: 11, lineHeight: 1.55, marginTop: 5 }}>
-                      {entry.citation} {entry.notes}
+                      {entry.citation} {displayNotes(entry.notes)}
                     </div>
                   </div>
                 </div>
@@ -328,7 +350,8 @@ export default function LambdaTimelinePage() {
         >
           A ledger entry records that a claim and package exist. It is not a correctness
           endorsement. The app keeps the accepted, public-unrefereed, and
-          private-unreviewed-proof-candidate layers separate throughout.
+          unrefereed-proof-candidate layers (the 0.1787854 candidate is reviewed by Dan Romik;
+          neither candidate is refereed) separate throughout.
         </div>
 
         <div

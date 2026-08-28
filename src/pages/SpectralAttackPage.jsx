@@ -1201,7 +1201,7 @@ function ShellOnsetLadderSection() {
 // (off-basin g0 * dTheta/dW_1 = 16/27, flat to machine precision over a deep
 // g0-halving sweep). This SURFACES the certified result; it does not recompute
 // it. MANDATORY caveat: scale-law SIGNATURE only -- does NOT close the
-// off-basin divergence; PT Lambda <= 0.2 stays the rigorous SOTA.
+// off-basin divergence; the finite-N beat stays an estimate.
 function ConditioningCollapseBars() {
   const m = IMP3086_ORTHOGONALIZED_BASIS_CONDITIONING.measured;
   // Three quantities, each measured in the raw diagonal-only (imp-3066) basis vs the
@@ -1439,7 +1439,7 @@ function CThetaFlatInvariantPanel() {
 // column is reconstructed as product/g0 from the certified CTHETA_FLAT_INVARIANT
 // table (the flat product g0*dTheta/dW_1 = 16/27); the on-basin column is onDW
 // straight from CTHETA_ON_BASIN_VANISHING. UX only: does NOT close the off-basin
-// divergence; PT Lambda <= 0.2 stays SOTA.
+// divergence; the finite-N beat stays an estimate.
 function CThetaSensitivityLogLogPlot() {
   const off = CTHETA_FLAT_INVARIANT.table.map((r) => ({ g0: r.g0, dW: r.product / r.g0 }));
   const on = CTHETA_ON_BASIN_VANISHING.table.map((r) => ({ g0: r.g0, dW: r.onDW }));
@@ -1538,8 +1538,7 @@ function CThetaSensitivityLogLogPlot() {
           The two lines separate exactly at &rho;* = 2/3 (where &#x398; hits the Theorem-A trap 1/4): below it
           the on-basin sensitivity vanishes, above it the off-basin sensitivity diverges as 1/g&#x2080;. This
           MEASURES why the reconditioning is only basin-conditional; it does not remove the off-basin
-          blowup. Platt-Trudgian &Lambda;&nbsp;&le;&nbsp;0.2 stays the rigorous SOTA; the finite-N*=1e4
-          beat stays an ESTIMATE. No false QED.
+          blowup. The finite-N*=1e4 beat stays an ESTIMATE. No false QED.
         </div>
       </div>
     </div>
@@ -2376,16 +2375,20 @@ export default function SpectralAttackPage() {
       <h1 className="ed-h1" style={{ marginBottom: 10 }}>Spectral Attack on RH</h1>
           <AnimationEmbed id="spectral-attack" />
       <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 24 }}>
-        A systematic multi-pronged attack combining information theory, twistor geometry,
-        thermodynamic phase analysis, and ZX-calculus to build a confinement proof for zeta zeros.
+        A systematic multi-pronged exploration combining information theory, twistor geometry,
+        thermodynamic phase analysis, and ZX-calculus to map how zeta zeros are confined near
+        the critical line.
       </p>
 
       <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid var(--brass)' }}>
         <h3 style={{ color: 'var(--brass)', fontSize: 14, marginBottom: 8 }}>The Strategy</h3>
         <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-          Instead of relying on a single proof technique, we combine <strong>six independent measures</strong> that
+          Instead of relying on a single technique, we combine <strong>six independent measures</strong> that
           all point to <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} />. If these measures are genuinely independent
-          (low pairwise correlation), the combined evidence is exponentially stronger than any single measure.
+          (low pairwise correlation), the combined evidence is stronger than any single measure — but
+          it stays evidence, not a route to proof: no accumulation of soft (arithmetic-free) measures
+          can decide RH (<Link to="/flow-blindness-no-go" style={{ color: 'var(--brass)' }}>the flow-blindness no-go</Link>).
+          The six vectors are diagnostics of where confinement structure lives.
         </p>
       </div>
 

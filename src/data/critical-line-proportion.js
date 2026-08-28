@@ -63,7 +63,7 @@ export const CRITICAL_LINE_PROPORTION = Object.freeze([
     authors: ['K. Pratt', 'N. Robles', 'A. Zaharescu', 'D. Zeindler'],
     proportion: 5 / 12,
     label: '≥ 5/12 (41.67%)',
-    method: 'More than five-twelfths of the zeros lie on the critical line — the current unconditional record.',
+    method: 'More than five-twelfths of the zeros lie on the critical line — the current peer-reviewed unconditional record.',
     citation: 'K. Pratt, N. Robles, A. Zaharescu, D. Zeindler, Res. Math. Sci. 7 (2020), no. 2.',
     current: true,
     note: 'The current peer-reviewed unconditional record (Levinson-mollifier lineage).',

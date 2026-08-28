@@ -418,7 +418,7 @@ export default function PaperAuditDashboardPage() {
           <div style={{ color: 'var(--faint)', fontSize: 12, fontFamily: mono, lineHeight: 1.5 }}>
             RH-equivalent items: {D.openGapRecharacterization.rhEquivalent.items.join(' · ')}
             <span style={{ marginLeft: 12, color: 'var(--hairline)' }}>
-              PT Lambda ≤ 0.2 remains the peer-reviewed benchmark · public 0.1875 package unrefereed · no QED
+              PT Λ ≤ 0.2 is the peer-reviewed benchmark; program candidates Λ ≤ 0.1787854 (computer-assisted, reviewed by Dan Romik, unrefereed) and Λ ≤ 0.1758354 (unrefereed) · no QED
             </span>
           </div>
         </section>

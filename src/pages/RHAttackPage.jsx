@@ -43,7 +43,7 @@ export default function RHAttackPage() {
 
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack &middot; RH attack</span>} />
+      <EditorialHeader ticker={<span>proof-path map: what each RH route still requires</span>} />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1">RH Attack Strategies</h1>
@@ -210,8 +210,11 @@ export default function RHAttackPage() {
             </p>
             <BlockMath tex={"\\mathcal{H}\\psi_n = E_n\\psi_n, \\quad E_n = \\gamma_n \\;\\Longrightarrow\\; \\text{Re}(\\rho_n) = \\tfrac{1}{2}"} />
             <p style={{ color: AMBER, fontSize: 11, marginTop: 8, fontWeight: 600 }}>
-              Status: Operator not constructed. The Berry-Keating <InlineMath tex={"\\hat{H} = \\hat{x}\\hat{p}"} /> quantization
-              is the leading candidate.
+              Status: Operator not constructed, and no leading candidate: the naive
+              Berry-Keating <InlineMath tex={"\\hat{H} = \\hat{x}\\hat{p}"} /> quantization reproduces only the
+              mean zero density — no self-adjoint <InlineMath tex={"xp"} /> realization with the zeros as its
+              spectrum is known (<Link to="/berry-keating-xp" style={{ color: AMBER }}>failure exhibit</Link>).
+              The spectral family stays open; see <Link to="/state-of-field" style={{ color: AMBER }}>the state of the field</Link>.
             </p>
           </div>
 

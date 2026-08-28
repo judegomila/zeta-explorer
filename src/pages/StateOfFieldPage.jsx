@@ -59,6 +59,21 @@ const PROGRAMS = [
     ],
   },
   {
+    key: 'critical-line-proportion',
+    title: 'Critical-line proportion / mollifiers',
+    leaders: 'Levinson · Conrey · Pratt–Robles–Zaharescu–Zeindler',
+    status: 'RIGOROUS — partial proportions, not RH',
+    color: '#4c7a4a',
+    idea:
+      'Prove that a positive proportion of the nontrivial zeros lie exactly on the critical line, via mollified moment computations. Levinson (1974) reached 1/3, Conrey (1989) reached 2/5, and the peer-reviewed record is 5/12 ≈ 0.4167 (Pratt–Robles–Zaharescu–Zeindler 2020). In August 2026 an external Claude/Anthropic project announced an unconditional ≥ 2/3 (0.6725, simple and on-line) result — Lean-checked and reviewed by Conrey and Goldston, but not peer-reviewed, so it is not adopted here as the record.',
+    obstruction:
+      'The mollifier method gives proportions strictly below 1; each gain costs a longer mollifier and the method saturates well short of 100%. Proving the proportion is exactly 1 is not RH either — RH requires every zero on the line, not almost all.',
+    refs: 'Levinson (1974); Conrey (1989); Pratt–Robles–Zaharescu–Zeindler, Res. Math. Sci. (2020); external 2026 ≥2/3 announcement (unrefereed)',
+    engages: [
+      { to: '/critical-line-proportion', label: 'Critical-line proportion (this program)' },
+    ],
+  },
+  {
     key: 'spectral',
     title: 'Spectral / Hilbert–Pólya',
     leaders: 'Connes · Berry–Keating · (de Branges, refuted)',
@@ -101,7 +116,7 @@ const PEOPLE = [
   ['Kaisa Matomäki', 'Turku — Matomäki–Radziwiłł short intervals; Chowla progress'],
   ['Louis-Pierre Arguin', 'Oxford — Fyodorov–Hiary–Keating extreme values'],
   ['Alain Connes', 'IHÉS — noncommutative-geometry / trace-formula program'],
-  ['Brian Conrey', 'AIM — >2/5 of zeros on the line; CFKRS moment conjectures'],
+  ['Brian Conrey', 'AIM — proved >2/5 of zeros on the line (1989; refereed record now 5/12, PRZZ 2020); CFKRS moment conjectures'],
   ['Jon Keating · Nina Snaith', 'Oxford / Bristol — RMT–moments bridge; FHK'],
   ['Peter Sarnak', 'IAS — Katz–Sarnak zero statistics; families of L-functions'],
   ['Enrico Bombieri', 'IAS, Fields 1974 — RH for curves over finite fields; the Clay statement'],

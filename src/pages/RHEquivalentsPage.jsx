@@ -81,8 +81,14 @@ export default function RHEquivalentsPage() {
             }}
           >
             The <strong style={{ color: 'var(--green)' }}>de Bruijn–Newman Λ = 0</strong> equivalent
-            is the project anchor — the entire Λ-attack chain (Routes A/B/C) targets
-            Λ ≤ 0 unconditionally, which combined with Rodgers–Tao 2020 (Λ ≥ 0) yields RH.
+            is the project anchor statement. Since Rodgers–Tao 2020 proved Λ ≥ 0, the statement
+            Λ ≤ 0 is itself equivalent to RH — there is no route that targets it as an intermediate
+            step, and the <Link to="/flow-blindness-no-go">flow-blindness no-go</Link> rules out
+            reaching Λ ≤ 0 by soft (arithmetic-free) methods. What the program produces are finite
+            upper-bound candidates — Λ ≤ 0.1787854 and Λ ≤ 0.1758354 (computer-assisted,
+            unrefereed) — and a fail-closed{' '}
+            <Link to="/permutation-architecture">Λ ≤ 0.14 completion contract</Link> (a contract,
+            not a bound).
           </p>
         </div>
 

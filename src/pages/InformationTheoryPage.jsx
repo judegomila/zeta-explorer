@@ -285,13 +285,16 @@ export default function InformationTheoryPage() {
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
             There is a deep link between algorithmic information theory and the irrationality of zeta values,
             connecting to the <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta irrationality attack</Link>.
-            The Kolmogorov complexity of odd zeta values grows faster than any logarithmic bound:
+            It is conjectured (unproven) that the Kolmogorov complexity of odd zeta values grows
+            faster than any logarithmic bound:
           </p>
           <BlockMath tex={"K\\bigl(\\zeta(2n+1) \\,|\\, N\\bigr) \\gg \\log N"} />
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-            This happens because the Euler product forces specific digit patterns that resist compression.
-            The prime oscillators impose correlations across all scales, making the decimal expansion of each
-            odd zeta value algorithmically random in a precise sense.
+            The heuristic: the Euler product forces specific digit patterns that resist compression,
+            and the prime oscillators impose correlations across all scales. No such lower bound is a
+            theorem — proving it would settle the irrationality of every odd zeta value, and only
+            ζ(3) is known irrational. See the heuristic-analogy caveat on{' '}
+            <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>the odd-zeta page</Link>.
           </p>
           <div className="two-col" style={{ marginTop: 12, gap: 16 }}>
             <div style={{ padding: 12, background: 'rgba(181,138,46,0.08)', borderRadius: 8 }}>

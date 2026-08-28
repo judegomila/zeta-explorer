@@ -331,14 +331,14 @@ export default function TwinLadderPaperRoadmapPage() {
 
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>
-            Twin-Ladder Paper Roadmap (v52){' '}
+            Historic Twin-Ladder Paper Roadmap{' '}
             <FreshnessStamp date={R.generatedAt.slice(0, 10)} note="roadmap index" />
           </h1>
           <p style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 14 }}>
             {R.paperTitle} — {R.paperSubtitle}
           </p>
           <p style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)', marginTop: 4 }}>
-            {R.paperVersion} · {R.paperDate} · {R.paperTotalPages} pages · {R.paperMainSectionCount} main sections + 42 appendix entries
+            {R.paperDate} · {R.paperTotalPages} pages · {R.paperMainSectionCount} main sections + 42 appendix entries · source: consolidated twin-ladder paper (v52 archive file)
           </p>
         </div>
 

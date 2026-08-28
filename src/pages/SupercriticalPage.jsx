@@ -45,9 +45,9 @@ export default function SupercriticalPage() {
             'Two clarity flags for this page. (a) The numeric thermodynamic panel uses a partial Euler product ' +
             'truncated at primes ≤ 199; that finite-N sum is an ESTIMATE of the primon-gas quantities (and only ' +
             'genuinely convergent for σ > 1), never a rigorous bound on ζ. (b) The de Bruijn-Newman bound ' +
-            'Λ ≤ 0.2 (Platt-Trudgian/Polymath15) and Λ ≥ 0 (Rodgers-Tao) shown below are CITED state-of-the-art ' +
+            'Λ ≤ 0.2 (Platt-Trudgian/Polymath15) and Λ ≥ 0 (Rodgers-Tao) shown below are cited peer-reviewed ' +
             'results — see /lambda-bounds and the /route-map — not outputs of this thermodynamic picture, which is ' +
-            'an interpretive lens, not a route below the rigorous SOTA.'
+            'an interpretive lens.'
           }
         />
 
@@ -64,10 +64,13 @@ export default function SupercriticalPage() {
             <strong style={{ color: 'var(--terra-dk)' }}>empirically killed</strong>: systematic numerics found
             no such transition anywhere in the strip. The thermodynamic framework on this page remains
             a valid interpretive lens (primon gas, Bost-Connes), but it does not supply a proof route.
-            The live proof thread is{' '}
-            <strong style={{ color: 'var(--green)' }}>topological winding</strong> (Twin-Ladder Bridge winding number /
-            Cauchy-index approach). See the{' '}
-            <Link to="/route-map" style={{ color: 'var(--blue)' }}>route map</Link> for the live program state.
+            The topological-winding thread that once succeeded this route is also closed: the winding /
+            Cauchy-index argument re-derives Λ ≥ 0 and is capped by the same architecture as the
+            Λ ≤ 0.2 bound. The program's current frontier is the two unrefereed Λ candidates
+            (Λ ≤ 0.1787854 and Λ ≤ 0.1758354) and the Λ ≤ 0.14 completion contract with its one
+            open enclosure family — see{' '}
+            <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>the permutation architecture</Link> and{' '}
+            <Link to="/lambda-01758354-candidate" style={{ color: 'var(--blue)' }}>the Λ ≤ 0.1758354 candidate</Link>.
           </p>
         </div>
 

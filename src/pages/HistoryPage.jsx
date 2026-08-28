@@ -962,7 +962,7 @@ export default function HistoryPage() {
           </p>
         </div>
 
-        <FreshnessBanner date="2026-07-08" note="public timeline of the zeta function & RH, through Guth–Maynard (2024)" />
+        <FreshnessBanner date="2026-08-28" note="public timeline of the zeta function & RH, through the 2026 computer-assisted Λ candidates" />
 
       <div className="filter-bar" style={{ marginTop: 20 }}>
         <button
@@ -1205,10 +1205,10 @@ export default function HistoryPage() {
 
           {/* Rodgers-Tao */}
           <ResultExplainer
-            title="de Bruijn-Newman Constant Λ = 0 (2020)"
+            title="de Bruijn–Newman Constant Λ ≥ 0 (Rodgers–Tao 2020)"
             author="Rodgers & Tao"
             color="#ec4899"
-            tldr="RH is true 'by the narrowest possible margin.' The heat parameter Λ at which zeros first leave the critical line is exactly 0."
+            tldr="Rodgers and Tao proved Λ ≥ 0: if RH is true, it is true 'by the narrowest possible margin.' The heat parameter Λ at which zeros first leave the critical line equals 0 exactly if RH holds — Λ = 0 is open."
             math={"\\Lambda \\geq 0 \\quad \\text{(proved)}, \\quad \\text{RH} \\iff \\Lambda \\leq 0 \\implies \\Lambda = 0 \\text{ if RH is true}"}
             explanation="De Bruijn showed that if you 'heat-flow' the xi function (Gaussian smoothing), zeros stay real for sufficiently large flow time τ ≥ Λ. Newman conjectured Λ ≥ 0. Rodgers and Tao proved this using a barrier argument: if Λ < 0, then running the heat flow backward by |Λ| would push zeros off the real axis, contradicting the structure of the xi function."
             whyItMatters="Combined with RH ⟹ Λ ≤ 0 (de Bruijn 1950), this means Λ = 0 exactly if RH is true. The zeta function is at the exact threshold between 'all zeros real' (Λ ≤ 0) and 'some zeros complex' (Λ > 0)."
@@ -1246,7 +1246,10 @@ export default function HistoryPage() {
         <p style={{ color: 'var(--faint)', fontSize: 14, lineHeight: 1.8 }}>
           After nearly 170 years, the Riemann Hypothesis remains unproven. Over <strong style={{ color: 'var(--ink)' }}>10<sup>13</sup> zeros</strong> have
           been verified computationally. The proportion known to lie on the critical line is
-          at least <strong style={{ color: 'var(--ink)' }}>40%</strong> (Conrey 1989). The de Bruijn-Newman
+          at least <strong style={{ color: 'var(--ink)' }}>5/12</strong> (Pratt–Robles–Zaharescu–Zeindler
+          2020, peer-reviewed); a 2026 external computer-assisted result claims ≥ 2/3 (0.6725) unconditionally
+          (Lean-checked, reviewed by Conrey and Goldston, not peer-reviewed) — see{' '}
+          <Link to="/critical-line-proportion" style={{ color: 'var(--brass-dk)' }}>critical-line proportion</Link>. The de Bruijn-Newman
           constant has been shown to be exactly zero if and only if RH holds. Zero-density estimates
           continue to tighten, and connections to random matrix theory, quantum mechanics, and
           dynamical systems grow deeper each decade. The prize remains $1,000,000.

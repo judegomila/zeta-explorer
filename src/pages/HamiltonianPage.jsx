@@ -258,13 +258,15 @@ export default function HamiltonianPage() {
 
         {/* ── Weil connection ────────────────────────────────────────────── */}
         <div className="card" style={{ ...cardLeft(BRIDGE), marginTop: 24 }}>
-          <h3 style={{ ...h3Style(BRIDGE), fontSize: 14 }}>Connection: Weil Quadratic Form (Connes 2026)</h3>
+          <h3 style={{ ...h3Style(BRIDGE), fontSize: 14 }}>Connection: Weil Quadratic Form (Weil&apos;s criterion)</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
             The Hamiltonian minimization at <InlineMath tex={"\\sigma = \\tfrac{1}{2}"} /> has a deep
-            connection to the <strong>Weil quadratic form</strong>. Connes (2026) showed that the Weil
-            positivity condition <InlineMath tex={"W(g \\star \\tilde{g}) \\geq 0"} /> is equivalent to
-            RH, and that extremizing this form using only primes {"<"} 13 approximates 50 zeros with
-            accuracy up to <InlineMath tex={"10^{-55}"} />. In Twin-Ladder Bridge terms: the Hamiltonian <InlineMath tex={"\\mathcal{H}"} /> being
+            connection to the <strong>Weil quadratic form</strong>. Weil&apos;s classical criterion states
+            that the positivity condition <InlineMath tex={"W(g \\star \\tilde{g}) \\geq 0"} /> is
+            equivalent to RH; Connes (2026) engaged this criterion by extremizing the form using only
+            primes {"<"} 13, approximating 50 zeros with accuracy up
+            to <InlineMath tex={"10^{-55}"} />. Because the criterion is an equivalence, establishing
+            the positivity is not a route around RH — it is RH restated. In Twin-Ladder Bridge terms: the Hamiltonian <InlineMath tex={"\\mathcal{H}"} /> being
             bounded below is the physical manifestation of Weil positivity. The explicit formula
             that drives the spectral decomposition above is the <em>same</em> formula that defines
             the Weil kernel. See the{' '}
@@ -289,16 +291,21 @@ export default function HamiltonianPage() {
             Each prime <InlineMath tex={"p"} /> defines a periodic orbit of
             period <InlineMath tex={"T_p = \\log p"} /> and
             action <InlineMath tex={"S_p = \\tfrac{1}{2}\\log p"} />.
-            The Maslov index correction reshapes the eigenvalue condition into
-            the <InlineMath tex={"\\tfrac{1}{4} + t^2"} /> form, ensuring that the quantized
-            energies <InlineMath tex={"E_n"} /> correspond to the nontrivial zeros:
+            In the semiclassical heuristic, the Maslov index correction would reshape the
+            eigenvalue condition into the <InlineMath tex={"\\tfrac{1}{4} + t^2"} /> form, so that
+            the quantized energies <InlineMath tex={"E_n"} /> would correspond to the nontrivial
+            zeros. This is a model-level analogy, not an established quantization: no self-adjoint
+            realization of <InlineMath tex={"xp"} /> with the zeta zeros as spectrum is known (see{' '}
+            <Link to="/berry-keating-xp" style={{ color: BRIDGE }}>Berry–Keating xp</Link> and{' '}
+            <Link to="/what-we-know" style={{ color: BRIDGE }}>what we know</Link>).
           </p>
           <BlockMath tex={"E_n \\;\\longleftrightarrow\\; \\rho_n = \\tfrac{1}{2} + i\\gamma_n"} />
           <p style={{ ...bodyText, marginTop: 12 }}>
             <strong>Connection to the Twin-Ladder Bridge model:</strong> the <InlineMath tex={"xp"} /> Hamiltonian is the
             continuum limit of the discrete ladder Hamiltonian used in the prime oscillator chain. In
             the Twin-Ladder Bridge picture every prime contributes a separate oscillator; taking the product over all
-            primes and passing to the continuum recovers the Berry-Keating operator.
+            primes and passing to the continuum formally recovers the Berry-Keating operator (a
+            heuristic correspondence, subject to the same no-go).
           </p>
         </div>
 

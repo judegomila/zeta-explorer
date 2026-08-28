@@ -15,12 +15,13 @@ const AREAS = [
   {
     key: 'lambdaUpper', wireframe: 'wave',
     title: 'Λ Upper-Bound Routes',
-    blurb: 'Every route that tries to push the de Bruijn–Newman bound Λ below the Platt–Trudgian 0.2 — the barrier method, the finite-N beat, the Burgers lim-sup, and where each one funnels into the C_H wall.',
+    blurb: 'Every route that tries to push the de Bruijn–Newman bound Λ below the Platt–Trudgian 0.2 — the barrier method, the finite-N beat, the Burgers lim-sup, and where each one funnels into the C_H wall. Newest: the permutation architecture, a fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound) with one open coefficient family.',
     entryPoints: [
       { to: '/lambda-bounds', label: 'The bounds ledger' },
       { to: '/verified-height-lever', label: 'The one lever below 0.2' },
       { to: '/theorem-b-threshold', label: 'Theorem-B threshold' },
       { to: '/pt-floor-audit', label: 'What binds the floor' },
+      { to: '/permutation-architecture', label: 'The freeze calculus & the 0.14 contract' },
     ],
   },
   {

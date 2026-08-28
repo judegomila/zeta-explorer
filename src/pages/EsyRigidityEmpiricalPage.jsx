@@ -343,10 +343,16 @@ export default function EsyRigidityEmpiricalPage() {
             rigidity and closes <strong>none</strong> of the rigorous obstacles
             O1-O3. In particular the ESY local-law constant
             {' '}<code>C_H</code> (the <code>polylog(N)^A</code> prefactor) remains
-            <strong> undischargeable</strong> by any finite-N fit — it is the
-            repo&apos;s #1 wall, the same constant that blocks turning this
-            empirical consistency into an asymptotic improvement of the
-            Polymath15 Lambda bound. See{' '}
+            <strong> undischargeable</strong> by any finite-N fit — a
+            <strong> closed wall for this ESY route</strong> (closed three ways),
+            the constant that blocked turning this empirical consistency into an
+            asymptotic improvement of the Polymath15 Lambda bound. The program&apos;s
+            current open object is elsewhere: the one open enclosure family of the
+            Λ ≤ 0.14 completion contract — see{' '}
+            <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>
+              /permutation-architecture
+            </Link>{' '}
+            and{' '}
             <Link to="/lambda-bounds" style={{ color: 'var(--blue)' }}>
               /lambda-bounds
             </Link>{' '}
@@ -505,7 +511,7 @@ export default function EsyRigidityEmpiricalPage() {
 
         {/* Parallel-ticket cross-reference. */}
         <div style={{ marginBottom: 16, fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--faint)' }}>
-          Parallel SOTA-attack tickets in flight: {D.parallelTickets.join(', ')}
+          Parallel-agent batch (2026-05): {D.parallelTickets.join(', ')}
         </div>
 
         {/* Related pages + home. */}

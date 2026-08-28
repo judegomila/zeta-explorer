@@ -46,7 +46,7 @@ export default function LambdaCandidate01758354Page() {
 
       <p>The tail gate <InlineMath tex="D<1" /> was the second obstruction. Extending the verified strip height to <InlineMath tex="N^\ast = 6\times10^6" /> closes it; at the earlier height the tail did not certify.</p>
 
-      <Pull>The reduction to the four gates is Lean-checked; the gates themselves are Arb interval computations. Neither step is a referee. Λ ≤ 0.2 remains the state of the art.</Pull>
+      <Pull>The reduction to the four gates is Lean-checked; the gates themselves are Arb interval computations. Neither step is a referee.</Pull>
 
       <h2>Status</h2>
       <p>This is a candidate: the reduction is formalized, the numerics are interval-rigorous, but the pipeline has not been independently audited end to end. It is the lowest value the barrier method currently reaches, below <Link to="/newman-lambda-01787854-candidate">the 0.1787854 package</Link>, and consistent with the finding that the <Link to="/pt-floor-audit">verified height binds the floor</Link>.</p>

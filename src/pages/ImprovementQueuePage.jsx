@@ -203,8 +203,15 @@ function ProofImpact({ items }) {
   return (
     <div style={{ marginBottom: 32 }}>
       <h2 className="ed-h2" style={{ marginBottom: 12, borderBottom: '1px solid #d5c9b2', paddingBottom: 8 }}>
-        Proof Impact — Section Breakdown
+        Section Breakdown (legacy S5/S6/S7 view)
       </h2>
+      <p style={{ fontSize: 12, color: '#877b67', marginBottom: 12, maxWidth: 700, lineHeight: 1.6 }}>
+        Grouping by the historical S5/S6/S7 &ldquo;proof section&rdquo; tags of the
+        early twin-ladder/ZPO model. That model is retired as a route (the T3
+        hypothesis was shown to be a zero-free-strip statement in disguise);
+        the tags are kept only to index old tickets. Current tickets target
+        the Λ-bound program and mostly carry no section tag.
+      </p>
       {sections.map(s => (
         <div key={s} style={{ marginBottom: 24 }}>
           <h3 style={{ color: '#8c6a1d', fontSize: 15, marginBottom: 8, fontFamily: 'var(--font-mono)' }}>
@@ -243,9 +250,9 @@ function ProofImpact({ items }) {
 function AcceleratingSection() {
   const strategies = [
     {
-      title: 'Parallel Agents',
+      title: 'Parallel Agents (historical S5/S6/S7 era)',
       color: '#c23a1c',
-      content: 'Launch 4+ agents simultaneously working on independent proof paths: S5 spectral, S7 circuit/scattering, S6 energy landscape, and CY geometric lift. Each agent works in isolation using separate worktrees. Results are merged periodically via a coordinator agent that checks cross-section consistency.',
+      content: 'Early-phase protocol; the proof paths named below are the retired section tags. Launch 4+ agents simultaneously working on independent proof paths: S5 spectral, S7 circuit/scattering, S6 energy landscape, and CY geometric lift. Each agent works in isolation using separate worktrees. Results are merged periodically via a coordinator agent that checks cross-section consistency.',
       code: '// Launch from separate terminals:\n// Agent 1: S5 spectral realization\n// Agent 2: S7 scattering matrix\n// Agent 3: S6 energy landscape\n// Agent 4: CY geometric lift\n// Coordinator merges every 30 min',
     },
     {
@@ -285,16 +292,16 @@ function AcceleratingSection() {
       code: '// Memory categories for RH proof work:\n//\n// DISCOVERIES (persist across all sessions):\n// "S5: Berry-Keating spectrum matches zeros to 10^-6 for N<50"\n// "S5: Connes trace formula arithmetic side converges for P<200"\n// "S5: Selberg geodesic-prime isomorphism confirmed for genus 2"\n//\n// FAILED APPROACHES (avoid repeating):\n// "FAILED: Direct Selberg comparison — wrong genus assumption"\n// "FAILED: Naive Euler product in critical strip — diverges"\n//\n// PROOF STATE TRACKING:\n// "S5 status: 3/4 sub-lemmas proved, spectral gap bound open"\n// "S6 status: GUE confirmed, Tracy-Widom edge test passed N=1000"\n// "S7 status: Mertens bound approach successful, unitarity proved"\n//\n// PREFERENCES:\n// "User prefers Connes NCG notation over Deninger for S5"\n// "Display math with full derivation steps, not just results"',
     },
     {
-      title: 'Multi-Session Proof Coordination',
+      title: 'Multi-Session Proof Coordination (historical S5/S6/S7 era)',
       color: '#3f6b86',
-      content: 'Open multiple Claude Code sessions simultaneously, each specialized for a different proof avenue. Session 1: S5 spectral theory — Connes trace formula, Berry-Keating operator, Selberg comparison. Session 2: S7 circuit theory — Darlington synthesis, Mertens bounds, unitarity convergence. Session 3: S6 statistical mechanics — GUE pair correlation, Tracy-Widom edge statistics, Weil positivity. Session 4: New approaches — Calabi-Yau geometry, information theory, Langlands connections. Merge protocol: each session commits to its own feature branch, with periodic merges to main after build verification. Conflict resolution: if two sessions modify the same math module, the session with the higher-priority proof section (S5 > S7 > S6) takes precedence, and the other rebases.',
+      content: 'Early-phase protocol; the S5 spectral avenue named below is retired (see the banner above). Open multiple Claude Code sessions simultaneously, each specialized for a different proof avenue. Session 1: S5 spectral theory — Connes trace formula, Berry-Keating operator, Selberg comparison. Session 2: S7 circuit theory — Darlington synthesis, Mertens bounds, unitarity convergence. Session 3: S6 statistical mechanics — GUE pair correlation, Tracy-Widom edge statistics, Weil positivity. Session 4: New approaches — Calabi-Yau geometry, information theory, Langlands connections. Merge protocol: each session commits to its own feature branch, with periodic merges to main after build verification. Conflict resolution: if two sessions modify the same math module, the session with the higher-priority proof section (S5 > S7 > S6) takes precedence, and the other rebases.',
       code: '// === MULTI-SESSION LAUNCH PROTOCOL ===\n//\n// Terminal 1 — S5 Spectral Realization:\n// claude "Focus on S5: Connes trace, Berry-Keating, Selberg.\n//         Branch: feature/s5-spectral"\n//\n// Terminal 2 — S7 Circuit / Scattering:\n// claude "Focus on S7: Darlington unitarity, Mertens bounds.\n//         Branch: feature/s7-scattering"\n//\n// Terminal 3 — S6 Energy Landscape:\n// claude "Focus on S6: GUE, Tracy-Widom, Weil positivity.\n//         Branch: feature/s6-energy"\n//\n// Terminal 4 — New Approaches:\n// claude "Explore CY geometry, info theory, Langlands.\n//         Branch: feature/new-approaches"\n//\n// === MERGE PROTOCOL (every 30 min) ===\n// 1. Each session: git commit && git push\n// 2. Coordinator: git merge feature/* into main\n// 3. Run npm run build to verify no conflicts\n// 4. Cross-validate: check all numerical results agree\n// 5. Priority on conflict: S5 > S7 > S6 > new',
     },
     {
-      title: 'Formal Verification with Lean4',
+      title: 'Formal Verification with Lean4 (now live)',
       color: '#c23a1c',
-      content: 'Integrate the Lean4 theorem prover to formally verify key proof steps. Priority targets: (1) S1 Euler product convergence identity, (2) S3 functional equation symmetry, (3) S4 eta regularization bounds. Mathlib already provides NumberTheory.ZetaFunction, NumberTheory.ArithmeticFunction, and Analysis.SpecificLimits.Basic for foundational lemmas. Roadmap: start by formalizing the basic algebraic identities (Euler product finite truncation), then ladder composition (twin oscillator coupling commutativity), then bridge unitarity (Darlington S-matrix is unitary in the N-limit). Each formalized lemma becomes a bulletproof building block; lemmas that resist formalization reveal the true proof gaps.',
-      code: '-- Lean4: Euler product identity (pseudocode)\nimport Mathlib.NumberTheory.ZetaFunction\nimport Mathlib.Analysis.SpecificLimits.Basic\n\ntheorem euler_product_truncated (N : Nat) (s : Complex)\n    (hs : s.re > 1) :\n    ∏ p in (Finset.filter Nat.Prime (Finset.range N)),\n      (1 - p ^ (-s))⁻¹ =\n    ∑ n in smoothNumbers N,\n      n ^ (-s) := by\n  induction N with\n  | zero => simp\n  | succ n ih => sorry -- extend via sieve\n\n-- Next: ladder_composition_commutes\n-- Then: darlington_unitarity_limit',
+      content: 'Originally a roadmap card ("integrate the Lean4 theorem prover..."); formalization is no longer hypothetical. The program runs a live Lean 4 pipeline via the Aristotle autoformalization service: wave-1 verified results live in formalization/lean-aristotle/permutation-calculus/, including the frozen-rung proposition set checked against mathlib, and hypothesis (H6) of the §4.7 chain is discharged via a kernel-verified rectangle argument-principle formalization. Statements are autoformalized, proved or refuted by the prover, and the checked artifacts are committed to the repo; lemmas that resist formalization mark real gaps.',
+      code: '-- Live pipeline (current):\n-- formalization/lean-aristotle/permutation-calculus/\n--   wave-1 verified Lean results (mathlib)\n--   frozen-rung proposition set: verified\n--   (H6) rectangle argument principle:\n--     kernel-verified\n--\n-- Flow: statement -> Aristotle autoformalize\n--   -> Lean 4 proof search -> kernel check\n--   -> commit checked artifact',
     },
     {
       title: 'Continuous Improvement Pipeline',
@@ -310,11 +317,34 @@ function AcceleratingSection() {
         marginBottom: 4,
         borderBottom: '1px solid #d5c9b2', paddingBottom: 8,
       }}>
-        Meta: Accelerating with Claude Code
+        Meta: Accelerating with Claude Code (archived early-phase playbook)
       </h2>
+      <div style={{
+        padding: '12px 16px',
+        marginBottom: 16,
+        marginTop: 12,
+        background: 'rgba(194,58,28,0.07)',
+        border: '1px solid rgba(194,58,28,0.30)',
+        borderRadius: 8,
+        fontSize: 13,
+        color: '#4a4238',
+        lineHeight: 1.7,
+        maxWidth: 900,
+      }}>
+        <strong>Historical document.</strong> This tab is the workflow playbook
+        from the program&apos;s first phase and is kept as a record, not as
+        current strategy. The S5/S6/S7 &ldquo;proof section&rdquo; avenues it
+        organizes work around are retired: the S5 spectral route
+        (Berry&ndash;Keating operator, Connes trace formula) runs into the
+        known no-gos for a self-adjoint xp realization, and the twin-ladder
+        model&apos;s T3 hypothesis was later shown to be a zero-free-strip
+        statement in disguise. The generic tooling patterns (worktrees,
+        background runs, build gates) remain in use, pointed at the Λ-bound
+        program instead.
+      </div>
       <p style={{ color: '#4a4238', fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
-        Practical strategies for maximizing throughput on the RH proof using Claude Code&apos;s
-        agent capabilities. Each strategy is designed to multiply effective work rate.
+        The strategy cards below describe how early sessions parallelized work
+        across the then-current proof sections.
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))', gap: 16 }}>
         {strategies.map((s, i) => (
@@ -409,11 +439,14 @@ export default function ImprovementQueuePage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Improvement Queue &mdash; Road to RH</h1>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Improvement Queue</h1>
           <p style={{ color: '#4a4238', maxWidth: 700, lineHeight: 1.7 }}>
             A prioritized queue of concrete improvements targeting proof gaps, visualizations,
-            accuracy, and workflow acceleration. Each item is ranked by its impact on proving
-            the Riemann Hypothesis through the Twin-Ladder Bridge framework.
+            accuracy, and workflow acceleration. Each item is ranked by its impact on the
+            Λ-bound program &mdash; tightening rigorous bounds on the de Bruijn&ndash;Newman
+            constant. There is no shortcut framing here: the program&apos;s own no-go results
+            rule out every soft route to RH, so tickets target specific bound components,
+            verification gates, and infrastructure.
           </p>
         </div>
 

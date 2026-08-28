@@ -60,7 +60,7 @@ export default function CrossAttackPage() {
               <li><strong style={{ color: 'var(--terra-dk)' }}>CY Modularity:</strong> Ramanujan bound satisfaction (finite-field RH analog)</li>
               <li><strong style={{ color: 'var(--terra)' }}>Li Coefficients:</strong> <InlineMath tex={'\\lambda_n > 0'} /> for all <InlineMath tex={'n \\geq 1'} /> iff RH holds</li>
               <li><strong style={{ color: 'var(--brass-dk)' }}>Hamiltonian Convexity:</strong> Twin-Ladder Bridge Hamiltonian strictly convex at <InlineMath tex={'\\sigma=\\tfrac{1}{2}'} /></li>
-              <li><strong style={{ color: 'var(--green)' }}>S-Matrix Confinement:</strong> Darlington unitarity constrains transmission zeros</li>
+              <li><strong style={{ color: 'var(--green)' }}>S-Matrix Confinement:</strong> Darlington unitarity — abandoned as a proof path (wrong divisor: the zeta zeros sit generically as <em>poles</em> of <InlineMath tex={'S_{21} = \\zeta(2s)/\\zeta(s)'} />, and unitarity alone does not confine transmission zeros); kept here only as a measured signal</li>
             </ul>
           </div>
           <div className="card" style={cardBaseLeft('var(--brass-dk)')}>
@@ -69,7 +69,7 @@ export default function CrossAttackPage() {
               If two attacks are strongly correlated (Pearson |r| &gt; 0.7), they are likely measuring
               the same underlying structure and are <em>redundant</em>. Independent attacks (|r| &lt; 0.3)
               provide genuinely distinct evidence. The effective number of independent constraints is
-              what determines overall proof strength.
+              what determines how much distinct information the battery carries.
             </p>
             <BlockMath tex={
               'N_{\\text{eff}} = \\left( \\sum_{k=1}^{9} \\lambda_k^2 \\right)^{-1} \\cdot \\left( \\sum_{k=1}^{9} \\lambda_k \\right)^2'
@@ -93,11 +93,12 @@ export default function CrossAttackPage() {
             Red cells indicate <strong>redundant</strong> pairs that measure essentially the same phenomenon.
           </p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginTop: 12 }}>
-            The key principle: if <InlineMath tex={'k'} /> independent attacks each individually support RH
-            with confidence <InlineMath tex={'1 - \\epsilon'} />, the combined confidence
-            is <InlineMath tex={'1 - \\epsilon^k'} />, growing exponentially with the number of
-            independent lines of evidence. This is why attack independence matters more than the
-            strength of any single attack.
+            Independence tells you how many genuinely distinct diagnostics you have — it does not
+            compound into proof strength. RH-class statements sit at a "barely true" boundary
+            (Rodgers–Tao <InlineMath tex={'\\Lambda \\ge 0'} />), where soft numerical evidence cannot
+            decide <InlineMath tex={'\\Lambda = 0'} />, and no accumulation of soft measures proves RH
+            (<Link to="/flow-blindness-no-go" style={{ color: 'var(--green)' }}>the flow-blindness no-go</Link>).
+            These nine channels are evidence and structure maps, not partial proofs.
           </p>
         </div>
 

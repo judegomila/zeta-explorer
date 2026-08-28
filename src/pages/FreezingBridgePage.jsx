@@ -160,7 +160,7 @@ export default function FreezingBridgePage() {
             {S.title} (§{S.paperSection})
           </h1>
           <p style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 13 }}>
-            §{S.paperSection} of the twin-ladder consolidated draft v52 ·
+            §{S.paperSection} of the consolidated twin-ladder paper ·
             pages {S.paperPageRange[0]}–{S.paperPageRange[1]} · ticket{' '}
             <code style={{ color: 'var(--blue)' }}>{S.ticketId}</code>
           </p>
@@ -314,7 +314,7 @@ export default function FreezingBridgePage() {
 
         {/* ─── Sibling sections ─── */}
         <div className="card" style={{ marginTop: 24, ...cardBaseLeft('var(--green)') }}>
-          <div style={cardLabel}>Sibling sections of the v52 paper</div>
+          <div style={cardLabel}>Sibling sections of the twin-ladder paper</div>
           <ul style={{ paddingLeft: 18, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>
             {S.relatedSections.map((r) => (
               <li key={r.ticket} style={{ marginBottom: 10 }}>

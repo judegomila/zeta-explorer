@@ -7,21 +7,25 @@
 //   PEER-REVIEWED = Platt-Trudgian Lambda <= 0.2 (NOT this program)
 //   PUBLIC CLAIM  = Lambda <= 0.1875 certificate package, locally repaired,
 //                   listed publicly but unrefereed
-//   PRIVATE CANDIDATE = Lambda <= 0.1787854, an unreviewed
-//                       computer-assisted candidate for an unconditional proof;
-//                       bound not established, not peer reviewed, and not RH
+//   PRIVATE CANDIDATE = Lambda <= 0.1787854, a computer-assisted candidate for
+//                       an unconditional proof; reviewed by Dan Romik and being
+//                       prepared for public release; bound not established,
+//                       not refereed, and not RH
 //   SHARPER CANDIDATE = Lambda <= 0.1758354 (four Arb gates + Lean-checked
 //                       reduction), below 0.1787854; unrefereed, not established,
 //                       does not displace PT, not RH
+//   CONTRACT      = Lambda <= 0.14 completion contract (fail-closed; a contract,
+//                   not a bound), reduced to one open family on /permutation-architecture
 //   ESTIMATE      = finite-N* = 1e4 modeled figure, gated on the undischargeable C_H
 //   RH-EQUIVALENT = Volterra ||V|| <= 1 collapse (a rename, not a reduction)
 //   REFUTED       = the thin-strip sub-RH shortcut is a dead artifact (imp-2630)
-//   OPEN-HARD     = C_H / G6a remains the wall for Dyson/collision routes
+//   OPEN-HARD     = C_H / G6a is the confirmed wall for Dyson/collision routes;
+//                   the known discharge routes are closed, so it is not a live lever
 //
 // Intentionally has NO imports so it stays light and never drags in the
 // 16.7MB zeros bundle through a page import.
 
-export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-08-24';
+export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-08-28';
 
 export const STATE_OF_PROGRAM_TRUTHS = [
   {
@@ -45,12 +49,13 @@ export const STATE_OF_PROGRAM_TRUTHS = [
   {
     badge: 'UNREVIEWED CANDIDATE',
     color: '#22d3ee',
-    title: 'The standalone private review repository presents Λ ≤ 0.1787854 as an unreviewed computer-assisted candidate for an unconditional proof',
+    title: 'The standalone private review repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof — reviewed by Dan Romik, unrefereed',
     body:
       'Standalone tag review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea packages claimed certificates for a compact slab, a final-time zero-free half-strip, ' +
       'a fresh replay of all 3,149,013 finite rows, corrected 10.50 finite and tail error bounds, and an exact Polymath ' +
-      'criterion weld. These ingredients form an unreviewed computer-assisted candidate for an unconditional proof. ' +
-      'The bound is not established and has not been peer reviewed. It is not a proof of RH, which requires Λ ≤ 0.',
+      'criterion weld. These ingredients form a computer-assisted candidate for an unconditional proof. It has been ' +
+      'reviewed by Dan Romik and is being prepared for public release. The bound is not established and has not been peer ' +
+      'reviewed — an individual review is not refereeing. It is not a proof of RH, which requires Λ ≤ 0.',
   },
   {
     badge: 'SHARPER CANDIDATE',
@@ -62,6 +67,20 @@ export const STATE_OF_PROGRAM_TRUTHS = [
       '0.1787854 candidate. It is the lowest value the barrier method currently reaches. Neither the Arb gates nor the Lean ' +
       'reduction is a referee: the pipeline has not been independently audited end to end, the bound is not established, and it ' +
       'does not displace Platt-Trudgian Λ ≤ 0.2. It is not a proof of RH, which requires Λ ≤ 0.',
+  },
+  {
+    badge: 'CONTRACT',
+    color: '#fb923c',
+    title: 'Λ ≤ 0.14 is a fail-closed completion contract, not a bound',
+    body:
+      'The permutation-architecture route states t0 + y0²/2 = 7/50 = 0.14 as a completion contract: the value follows ' +
+      'only if three zero-free statements hold, and the construction fails closed otherwise. Two statements are closed ' +
+      'within scope (the Platt-Trudgian verified height supplies one; a rational intermediate box closes another). The ' +
+      'route reduces to ONE open family — a uniform correlated lower-edge enclosure |C_E,17| < 0.2796881955526147 on ' +
+      '690988 ≤ N ≤ 54799999 — with the [B_v,Π_p] noncommuting weld as the decisive object. No Λ ≤ 0.14 bound is ' +
+      'claimed or promoted.',
+    route: '/permutation-architecture',
+    routeLabel: 'Permutation architecture: the contract and its one open family',
   },
   {
     badge: 'ESTIMATE',
@@ -97,12 +116,17 @@ export const STATE_OF_PROGRAM_TRUTHS = [
   {
     badge: 'OPEN-HARD',
     color: '#22d3ee',
-    title: 'C_H / G6a remains the main wall for the Dyson/collision route family',
+    title: 'C_H / G6a is the confirmed wall for the Dyson/collision route family — not a live lever',
     body:
       'The established Dyson/collision compositions funnel into the C_H / G6a Hölder-½ shock modulus ' +
-      '(Step-4 bridge / Polymath15). An N-uniform bound would upgrade their finite estimate and asymptotic target. ' +
+      '(Step-4 bridge / Polymath15). The wall is RH-HARD-CONFIRMED and the known discharge routes are closed: the ' +
+      'Gronwall attack diverges at the collision (imp-2640), C_H is equivalent to a uniform all-height minimal-gap ' +
+      'lower bound (imp-35147), and re-architecting the metric relocates but does not remove the multi-body isolation ' +
+      'term. An N-uniform C_H bound is therefore graded RH-hard — consistent with the no-shortcut finding above, it is ' +
+      'not a pending upgrade path, and the finite-N* figure stays an estimate. ' +
       'The separate fixed-height 0.1787854 candidate package does not consume C_H and does not close this older route. ' +
-      'Its bound is not established, has not been peer reviewed, and is not RH. ' +
       'The exact global Twin Ladder residual inequality remains equivalent to RH rather than a strict reduction.',
+    route: '/what-we-know',
+    routeLabel: 'What we know: the wall and no-go landscape',
   },
 ];

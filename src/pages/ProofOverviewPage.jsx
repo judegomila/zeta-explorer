@@ -163,7 +163,9 @@ export default function ProofOverviewPage() {
             <div className="card" style={{ borderLeft: '3px solid #b58a2e', padding: 16 }}>
               <h3 style={{ color: '#b58a2e', marginTop: 0 }}>Evidence, not proof</h3>
               <ul style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
-                <li>candidate <InlineMath tex="\Lambda\le0.1787854" /> (and computer-assisted; bound not established).</li>
+                <li>Computer-assisted candidate <InlineMath tex="\Lambda\le0.1787854" /> (reviewed by Dan Romik; unrefereed; bound not established).</li>
+                <li>Computer-assisted candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked reduction; unrefereed) — <Link to="/lambda-01758354-candidate" style={{ color: '#3f6b86' }}>candidate page</Link>.</li>
+                <li>The <InlineMath tex="\Lambda\le0.14" /> completion contract — a fail-closed contract, not a bound; one open family remains — <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>permutation architecture</Link>.</li>
                 <li>Finite energy and curvature plots.</li>
                 <li>GUE-like numerical statistics for computed zeros.</li>
                 <li>Li coefficients checked over finite ranges.</li>
@@ -196,14 +198,18 @@ export default function ProofOverviewPage() {
             separation between the exact algebraic Euler embedding and the physical LC analogy. The
             twin-ladder shift-bridge formulation supplies a cleaner RH-equivalent target. Separately, the
             standalone repository presents the positive bound <InlineMath tex="\Lambda\le0.1787854" /> as
-            a computer-assisted candidate for an unconditional proof. The bound is not
-            established, has been reviewed by Dan Romik, and is not RH.
+            a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik; unrefereed;
+            bound not established). A sharper candidate <InlineMath tex="\Lambda\le0.1758354" /> (four
+            Arb gates, Lean-checked reduction, unrefereed) and the <InlineMath tex="\Lambda\le0.14" />{' '}
+            completion contract — a fail-closed contract, not a bound — sit alongside it. None of these is RH.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Link to="/full-story" style={{ color: '#3f6b86' }}>Corrected full story</Link>
             <Link to="/control" style={{ color: '#3f6b86' }}>Control-theory correction</Link>
             <Link to="/paper-audit-dashboard" style={{ color: '#3f6b86' }}>twin-ladder audit</Link>
             <Link to="/newman-lambda-01787854-candidate" style={{ color: '#3f6b86' }}>Candidate package</Link>
+            <Link to="/lambda-01758354-candidate" style={{ color: '#3f6b86' }}>0.1758354 candidate</Link>
+            <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>0.14 contract</Link>
           </div>
         </div>
 

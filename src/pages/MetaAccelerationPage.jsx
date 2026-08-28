@@ -229,9 +229,11 @@ export default function MetaAccelerationPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Meta Acceleration</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            Status dashboard for the auto-improvement engine, the Λ attack
-            progress, and open gaps between the current unconditional claim and
-            a finite-height Riemann Hypothesis statement.
+            Status dashboard for the auto-improvement engine, plus the archived
+            phase record of the early Λ attack (imp-314..344 era). The current
+            Λ frontier is summarized in the card below; the live technical
+            state is on <Link to="/state-of-program" style={{ color: 'var(--blue)' }}>/state-of-program</Link>{' '}
+            and <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>/permutation-architecture</Link>.
           </p>
         </div>
 
@@ -258,20 +260,59 @@ export default function MetaAccelerationPage() {
           <span>latest research session; queue loaded dynamically</span>
         </div>
 
-        {/* ── Headline Λ claim ──────────────────────────────────────────── */}
+        {/* ── Current Λ frontier ────────────────────────────────────────── */}
         <div
           className="card"
           style={{ ...cardBaseLeft('var(--brass-dk)'), marginBottom: 24 }}
         >
           <div style={{ fontSize: 11, color: 'var(--faint)', marginBottom: 6 }}>
-            Current strongest unconditional claim (imp-344 capstone)
+            Current Λ frontier
           </div>
           <div
             style={{
               fontFamily: 'var(--ed-mono, var(--font-mono))',
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: 700,
               color: 'var(--brass-dk)',
+              marginBottom: 8,
+            }}
+          >
+            Λ ≤ 0.2 (Platt–Trudgian) — the peer-reviewed benchmark
+          </div>
+          <div style={{ fontSize: 12, color: 'var(--ink-soft)', marginBottom: 10, lineHeight: 1.55 }}>
+            Program candidates below it, both unrefereed:{' '}
+            <Link to="/newman-lambda-01787854-candidate" style={{ color: 'var(--blue)' }}>
+              Λ ≤ 0.1787854
+            </Link>{' '}
+            (computer-assisted; reviewed by Dan Romik; being prepared for
+            public release) and{' '}
+            <Link to="/lambda-01758354-candidate" style={{ color: 'var(--blue)' }}>
+              Λ ≤ 0.1758354
+            </Link>{' '}
+            (four Arb gates, Lean-checked reduction). The{' '}
+            <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>
+              Λ ≤ 0.14 completion contract
+            </Link>{' '}
+            is a fail-closed contract, not a bound: one enclosure family
+            remains open, |C_E,17| &lt; 0.2796881955526147 on
+            690988 ≤ N ≤ 54799999.
+          </div>
+        </div>
+
+        {/* ── Historical imp-344 capstone card ─────────────────────────── */}
+        <div
+          className="card"
+          style={{ ...cardBaseLeft('var(--faint)'), marginBottom: 24 }}
+        >
+          <div style={{ fontSize: 11, color: 'var(--faint)', marginBottom: 6 }}>
+            Historical — imp-344 capstone claim (superseded)
+          </div>
+          <div
+            style={{
+              fontFamily: 'var(--ed-mono, var(--font-mono))',
+              fontSize: 14,
+              fontWeight: 700,
+              color: 'var(--ink-soft)',
               marginBottom: 8,
             }}
           >
@@ -288,24 +329,16 @@ export default function MetaAccelerationPage() {
               padding: '8px 12px',
               borderRadius: 6,
               border: '1px solid var(--hairline)',
+              lineHeight: 1.5,
             }}
           >
-            <strong style={{ color: 'var(--terra-dk)' }}>Not a statement about:</strong>{' '}
-            {strongestClaim.notAStatementAbout}
-          </div>
-          <div
-            style={{
-              fontSize: 11,
-              color: 'var(--faint)',
-              background: 'var(--paper)',
-              padding: '8px 12px',
-              borderRadius: 6,
-              border: '1px solid var(--hairline)',
-              marginTop: 8,
-            }}
-          >
-            <strong style={{ color: 'var(--terra-dk)' }}>Finite-height RH corollary:</strong>{' '}
-            {strongestClaim.finiteHeightCorollaryRH}
+            This was the claim the imp-344 capstone assembly recorded at the
+            time. A later cross-check (ROUTE_MAP_CROSS_CHECK, 2026-06-19)
+            reclassified the G6-bridge chain as an <strong>estimate</strong>{' '}
+            gated on the undischarged C_H shock modulus, and the C_H wall was
+            subsequently closed as a no-go — so this chain does not establish
+            any Λ bound. It is kept here as a phase record only. Rodgers–Tao
+            proved Λ ≥ 0; Λ = 0 ⟺ RH remains open.
           </div>
         </div>
 
@@ -413,8 +446,15 @@ git log --oneline -10                    # engine commits`}
           </div>
         </div>
 
-        {/* ── Three routes toward a finite-height RH statement ─────── */}
-        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Three routes to a finite-height RH statement</h2>
+        {/* ── Three routes (historical, imp-344 era) ─────────────────── */}
+        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Historical phase record — three routes (imp-344 era)</h2>
+        <p style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 12, maxWidth: 760, lineHeight: 1.55 }}>
+          The three-route decomposition below was the gap structure of the Λ
+          attack as of the imp-344 capstone. It was superseded by the C_H
+          reclassification, the candidate bounds, and the one-open-family 0.14
+          contract — see <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>/permutation-architecture</Link>.
+          Status chips reflect the state at the time, not the current program.
+        </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 16, marginBottom: 24 }}>
           {Object.entries(routes).map(([key, route]) => (
             <div key={key} className="card" style={cardBaseLeft(routeColor(key))}>
@@ -438,8 +478,15 @@ git log --oneline -10                    # engine commits`}
           ))}
         </div>
 
-        {/* ── Open gaps ─────────────────────────────────────────────── */}
-        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Open gaps</h2>
+        {/* ── G1–G6 gap list (historical, imp-344 era) ─────────────────── */}
+        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>G1–G6 gap list (historical, imp-344 era)</h2>
+        <p style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 12, maxWidth: 760, lineHeight: 1.55 }}>
+          This was the open-gap ledger of the imp-336..344 phase. It is not the
+          current gap structure: the chain these gaps blocked was later
+          reclassified as an estimate gated on the C_H modulus (a closed
+          no-go), and the live open item is the 0.14 contract&apos;s single
+          enclosure family.
+        </p>
         <div className="card" style={{ marginBottom: 24 }}>
           <div style={{ display: 'grid', gap: 10 }}>
             {OPEN_GAPS.map((g) => (
@@ -477,12 +524,18 @@ git log --oneline -10                    # engine commits`}
           </div>
         </div>
 
-        {/* ── Genuine remaining opportunities ──────────────────────── */}
-        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Genuine remaining opportunities</h2>
+        {/* ── Route-map opportunities (2026-06-19 snapshot) ─────────── */}
+        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Route-map opportunities (2026-06-19 snapshot, superseded)</h2>
         <div className="card" style={{ marginBottom: 24, borderLeftWidth: 3, borderLeftColor: 'var(--brass)' }}>
-          <div style={{ fontSize: 11, color: 'var(--brass)', marginBottom: 10 }}>
-            Ranked by actionability. None of these routes bypasses RH — the ceiling is Platt-Trudgian
-            Lambda &le; 0.2. All entries below are NON-refuted and NOT RH-reformulations.
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)', marginBottom: 10, lineHeight: 1.5 }}>
+            Ranking from the June 2026 route map, kept as a dated snapshot —
+            not current strategy. The #1 item (the C_H / G6a shock modulus)
+            was subsequently closed as a no-go, and Λ work moved below the 0.2
+            benchmark via the candidate bounds and the{' '}
+            <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>
+              0.14 completion contract
+            </Link>{' '}
+            (one open enclosure family).
           </div>
           <div style={{ display: 'grid', gap: 10 }}>
             {RANKED_OPPORTUNITIES.map((opp) => (
@@ -520,8 +573,13 @@ git log --oneline -10                    # engine commits`}
           </div>
         </div>
 
-        {/* ── Phases timeline ───────────────────────────────────────── */}
-        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Phase timeline</h2>
+        {/* ── Phases timeline (historical) ──────────────────────────── */}
+        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Phase timeline (historical, phases 5–11)</h2>
+        <p style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 12, maxWidth: 760, lineHeight: 1.55 }}>
+          What each early phase shipped, recorded in the past tense as the
+          program&apos;s phase history. Later phases run through the ticket
+          queue and are not tracked in this list.
+        </p>
         <div style={{ display: 'grid', gap: 12, marginBottom: 24 }}>
           {PHASES.map((phase) => (
             <div key={phase.id} className="card" style={cardBaseLeft('var(--brass)')}>
@@ -799,10 +857,16 @@ git log --oneline -10                    # engine commits`}
         {/* ── Latest session teaser ─────────────────────────────────── */}
         {latestSession && (
           <>
-            <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Latest research session</h2>
+            <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Last journaled session (historical)</h2>
             <div className="card" style={{ ...cardBaseLeft('var(--green)'), marginBottom: 24 }}>
               <div style={{ fontWeight: 700, marginBottom: 4 }}>
                 {latestSession.date} — {latestSession.title}
+              </div>
+              <div style={{ fontSize: 11, color: 'var(--faint)', marginTop: 6, lineHeight: 1.5 }}>
+                Dated session note: the journal&apos;s last entry is{' '}
+                {latestSession.date}, which predates the C_H-wall closure and
+                the current candidate/contract frontier. The figures below are
+                what that session recorded, not the current state.
               </div>
               {latestSession.lambdaHeadline && (
                 <div
@@ -816,7 +880,8 @@ git log --oneline -10                    # engine commits`}
                     borderRadius: 4,
                   }}
                 >
-                  Λ headline at session end:{' '}
+                  Λ headline recorded at that session&apos;s end (empirical
+                  session-end estimate, not a program bound):{' '}
                   <strong style={{ color: 'var(--brass-dk)' }}>
                     {latestSession.lambdaHeadline.end}
                   </strong>
@@ -830,7 +895,7 @@ git log --oneline -10                    # engine commits`}
                 // tab. Normalize to a string (with a string fallback) before
                 // interpolating into JSX.
                 <div style={{ fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
-                  <strong>Main-line blocker at session end:</strong>{' '}
+                  <strong>Main-line blocker recorded at that session&apos;s end (the C_H wall has since been closed as a no-go):</strong>{' '}
                   {typeof latestSession.mainLineBlocker === 'string'
                     ? latestSession.mainLineBlocker
                     : `${latestSession.mainLineBlocker.label || ''}${

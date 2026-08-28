@@ -54,6 +54,95 @@ function gapSeverityChip(severity) {
   return CHIPS[severity] || CHIPS.open;
 }
 
+// ── Render-site copy pass (2026-08-28 currency audit) ──────────────────────
+// The data module (lambda-roadmap.js) is pinned by build assertions and is not
+// edited. Two display adjustments happen here instead:
+//   1. The Platt-Trudgian Λ ≤ 0.2 benchmark is stated once on this page, on the
+//      peer-reviewed-benchmark card itself; the repeated "remains …benchmark /
+//      SOTA" tag-lines on the other cards are suppressed.
+//   2. The 0.1787854 candidate carries its current review status: reviewed by
+//      Dan Romik, being prepared for public release, unrefereed.
+
+const PT_REFRAIN_AFTER_SEMICOLON = /;\s*(?:Platt[–-]Trudgian\s+)?Λ ≤ 0\.2 remains[^.]*\./g;
+const PT_REFRAIN_SENTENCE = /\s*(?:Platt[–-]Trudgian\s+)?Λ ≤ 0\.2 remains[^.]*\./g;
+
+function displayNote(b) {
+  let note = b.note || '';
+  if (b.kind !== 'upper-peer-reviewed-benchmark') {
+    note = note
+      .replace(PT_REFRAIN_AFTER_SEMICOLON, '.')
+      .replace(PT_REFRAIN_SENTENCE, '');
+  }
+  if (b.id === 'local-fixed-height-candidate-01787854') {
+    note = note.replace(
+      'the claim is private, unpublished, unpeer-reviewed, not accepted, and does not prove RH.',
+      'the claim is a computer-assisted candidate that has been reviewed by Dan Romik and is ' +
+      'being prepared for public release; it is unrefereed, not accepted, and does not prove RH.',
+    );
+  }
+  return note.trim();
+}
+
+function displayLabel(b) {
+  if (b.id === 'local-fixed-height-candidate-01787854') {
+    return 'Proof candidate (Romik-reviewed, unrefereed): Λ ≤ 0.1787854';
+  }
+  if (b.id === 'local-sharper-candidate-01758354') {
+    return 'Sharper candidate (unrefereed): Λ ≤ 0.1758354';
+  }
+  return b.label;
+}
+
+function displayStatus(status) {
+  return status === 'unreviewed-proof-candidate' ? 'unrefereed-proof-candidate' : status;
+}
+
+function displayTLDR(tldr) {
+  return (tldr || '')
+    .replace(
+      'Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed upper-bound benchmark.',
+      'Platt-Trudgian Lambda <= 0.2 is the peer-reviewed upper-bound benchmark.',
+    )
+    .replace(
+      'A separate private v3 package proposes Lambda <= 0.1787854 as an unreviewed ' +
+      'computer-assisted proof candidate for an unconditional bound; it is not established, ' +
+      'published, peer-reviewed, or accepted, and RH still requires Lambda <= 0.',
+      'A separate private v3 package proposes Lambda <= 0.1787854 as a computer-assisted proof ' +
+      'candidate for an unconditional bound — reviewed by Dan Romik and being prepared for public ' +
+      'release, but unrefereed and not established. A sharper four-gate candidate reaches ' +
+      'Lambda <= 0.1758354 (four Arb-checked gates, Lean-checked reduction; unrefereed, not ' +
+      'established). The strict Lambda <= 0.14 statement is a fail-closed completion contract ' +
+      'reduced to one open family, not a bound. RH still requires Lambda <= 0.',
+    );
+}
+
+// Chain-step caveats repeat the PT tag-line in ASCII form; same suppression.
+const ASCII_PT_REFRAIN =
+  'Platt-Trudgian Lambda <= 0\\.2 (?:remains|stays) (?:the peer-reviewed benchmark|SOTA)';
+function displayCaveat(text) {
+  return (text || '')
+    .replace(new RegExp(`;\\s*${ASCII_PT_REFRAIN}\\.`, 'g'), '.')
+    .replace(new RegExp(`;\\s*${ASCII_PT_REFRAIN};\\s*`, 'g'), '; ')
+    .replace(new RegExp(`\\s*${ASCII_PT_REFRAIN};\\s*`, 'g'), ' ')
+    .trim();
+}
+
+function displayCurrentStatus(status) {
+  return (status || '')
+    .replace(
+      'STATUS RECONCILED 2026-07-28: Platt-Trudgian Lambda <= 0.2 remains the accepted peer-reviewed benchmark.',
+      'STATUS RECONCILED 2026-07-28: Platt-Trudgian Lambda <= 0.2 is the accepted peer-reviewed benchmark.',
+    )
+    .replace(
+      'is an unreviewed computer-assisted proof candidate for an unconditional 0.1787854 bound.',
+      'is a computer-assisted proof candidate for an unconditional 0.1787854 bound, reviewed by Dan Romik and unrefereed.',
+    )
+    .replace(
+      'The candidate is unpublished, unpeer-reviewed, unaccepted, and it does not prove RH.',
+      'The candidate is being prepared for public release; it is unrefereed, unaccepted, and it does not prove RH.',
+    );
+}
+
 function ticketLink(id) {
   return (
     <Link
@@ -102,7 +191,7 @@ function cardBaseLeft(color) {
 export default function LambdaBoundsPage() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>Λ bounds ledger · PT Λ ≤ 0.2 SOTA</span>} />
+      <EditorialHeader ticker={<span>Λ bounds ledger</span>} />
       <div className="ed-full" style={{ padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Λ Bounds &amp; RH Roadmap</h1>
@@ -185,16 +274,16 @@ export default function LambdaBoundsPage() {
                       : 'var(--blue)',
                 }}
               >
-                {b.label}
+                {displayLabel(b)}
               </div>
               <div style={{ marginBottom: 8 }}>
-                <span style={statusChip(b.status)}>{b.status}</span>
+                <span style={statusChip(b.status)}>{displayStatus(b.status)}</span>
               </div>
               <div style={{ fontSize: 11, color: 'var(--faint)', marginBottom: 6 }}>
                 {b.source}
               </div>
               <div style={{ fontSize: 11, color: 'var(--ink-soft)' }}>
-                {b.note}
+                {displayNote(b)}
               </div>
               {b.route && (
                 <Link
@@ -254,11 +343,11 @@ export default function LambdaBoundsPage() {
               }}
             >
               <strong style={{ color: 'var(--brass-dk)' }}>TL;DR:</strong>{' '}
-              {LAMBDA_ROADMAP.currentStatusTLDR}
+              {displayTLDR(LAMBDA_ROADMAP.currentStatusTLDR)}
             </div>
           )}
           <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
-            {LAMBDA_ROADMAP.currentStatus}
+            {displayCurrentStatus(LAMBDA_ROADMAP.currentStatus)}
           </div>
           <div
             style={{
@@ -571,7 +660,7 @@ export default function LambdaBoundsPage() {
                       </li>
                     ))}
                   </ul>
-                  <div style={{ fontStyle: 'italic' }}>{s.rigorousUpgradeGap.caveat}</div>
+                  <div style={{ fontStyle: 'italic' }}>{displayCaveat(s.rigorousUpgradeGap.caveat)}</div>
                 </div>
               )}
               <div>

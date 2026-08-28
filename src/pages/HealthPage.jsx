@@ -123,7 +123,7 @@ function computeProofCompleteness() {
       value: `${done} / ${total}`,
       // Derive the percentage from done/total (the same counts shown as "5 / 8")
       // rather than result.completeness, which can come back undefined -> "NaN%".
-      detail: `Proof Completeness (${total ? Math.round((done / total) * 100) : 0}%)`,
+      detail: `ZPO model diagnostic (${total ? Math.round((done / total) * 100) : 0}%) — finite-model diagnostic, not RH proof progress`,
       completeness: total ? done / total : 0,
     };
   });
@@ -462,11 +462,23 @@ export default function HealthPage() {
               Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
             </span>
             <span style={{ color: '#877b67', fontSize: 12, marginLeft: 10 }}>
-              (computer-assisted candidate for an unconditional proof)
+              (computer-assisted candidate; reviewed by Dan Romik; unrefereed)
+            </span>
+          </div>
+          <div>
+            <span style={{ fontFamily: 'var(--ed-mono, var(--font-mono))', fontSize: 16, fontWeight: 700, color: '#3f6b86' }}>
+              Λ ≤ 0.1758354
+            </span>
+            <span style={{ color: '#877b67', fontSize: 12, marginLeft: 10 }}>
+              (four Arb gates, Lean-checked reduction; unrefereed — <Link to="/lambda-01758354-candidate" style={{ color: '#3f6b86' }}>candidate page</Link>)
             </span>
           </div>
           <div style={{ color: '#4a4238', fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
-            BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
+            BOUNDS NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
+          </div>
+          <div style={{ color: '#4a4238', fontSize: 11, flexBasis: '100%' }}>
+            Separately, a fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound; one open
+            family) is documented at <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>/permutation-architecture</Link>.
           </div>
         </div>
 
@@ -478,7 +490,7 @@ export default function HealthPage() {
           <MetricRow label="Potapov J-Contractivity" loading={potapov.loading} error={potapov.error} status={potapov.value?.status} value={potapov.value?.value} detail={potapov.value?.detail || 'potapovFactorization(60, 15)'} />
           <MetricRow label="GUE Spacing" loading={gue.loading} error={gue.error} status={gue.value?.status} value={gue.value?.value} detail={gue.value?.detail || 'montgomeryOdlyzko(100, 30)'} />
           <MetricRow label="Weil Positivity" loading={weil.loading} error={weil.error} status={weil.value?.status} value={weil.value?.value} detail={weil.value?.detail || 'weilPositivityTest([0.5..10], 80, 50)'} />
-          <MetricRow label="Proof Completeness" loading={proof.loading} error={proof.error} status={proof.value?.status} value={proof.value?.value} detail={proof.value?.detail || 'assembleCompleteProof(30, 50)'} />
+          <MetricRow label="ZPO Model Diagnostic" loading={proof.loading} error={proof.error} status={proof.value?.status} value={proof.value?.value} detail={proof.value?.detail || 'assembleCompleteProof(30, 50) — finite-model diagnostic, not RH proof progress'} />
         </div>
 
         {/* Proof Chain */}
@@ -514,7 +526,17 @@ export default function HealthPage() {
         {CONDITIONS.open.map(c => <ConditionRow key={c.id} cond={c} color="red" />)}
 
         {/* Lean Status */}
-        <SectionHeader title={`Lean 4 Formalization (total sorrys: ${totalSorrys}, axioms: ${totalAxioms})`} />
+        <SectionHeader title={`Lean 4 Formalization — dated snapshot 2026-04-12 (total sorrys: ${totalSorrys}, axioms: ${totalAxioms})`} />
+        <div style={{
+          fontSize: 12, color: '#4a4238', lineHeight: 1.6, marginBottom: 10,
+          padding: '8px 12px', borderRadius: 7, background: 'rgba(63,107,134,0.06)',
+          border: '1px solid #3f6b86',
+        }}>
+          The rows below are a snapshot of the legacy Lean files as of 2026-04-12. Newer Lean 4
+          formalization sets exist outside this snapshot: the 2026-08 Aristotle-verified frozen-rung
+          and permutation-calculus sets (repository <code>formalization/lean-aristotle/</code>),
+          including the verified rectangle argument-principle result discharging (H6) of the §4.7 chain.
+        </div>
         {LEAN_STATUS.files.map(f => <LeanRow key={f.file} file={f} />)}
 
         {/* Footer links */}

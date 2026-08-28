@@ -77,7 +77,7 @@ export default function ShiftBridgePositivityPage() {
       title={S.title}
       dek="An RH-equivalent positivity criterion: recenter xi on the critical line, run a one-parameter shift a > 0, and read RH off strict de Branges kernel positivity for every bridge thickness. The a-dial / shift-bridge positivity geometry, with the corrected twin-ladder endpoint and common-zero caveat."
       byline={[
-        `Historic audit provenance: ${S.historicalPaperSource}, pages ${S.historicalPaperPageRange[0]}–${S.historicalPaperPageRange[1]}`,
+        `Historic audit provenance: the consolidated twin-ladder PDF, pages ${S.historicalPaperPageRange[0]}–${S.historicalPaperPageRange[1]}`,
         'shift-bridge positivity',
       ]}
       ticker={<span>reformulation · RH-equivalent conjectures · not a new bound</span>}

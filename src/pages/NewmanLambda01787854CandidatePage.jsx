@@ -4,8 +4,9 @@ import PostLayout, { TheoremBox, Pull, InlineMath, BlockMath } from '../componen
 import { NEWMAN_LAMBDA_01787854_CANDIDATE as CANDIDATE } from '../data/newman-lambda-01787854-candidate.js';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
-/* Editorial (post reading-view) presentation of the Λ ≤ 0.1787854 unreviewed
-   proof candidate. All numbers, bounds, and caveats are sourced verbatim from
+/* Editorial (post reading-view) presentation of the Λ ≤ 0.1787854 unrefereed
+   proof candidate (reviewed by Dan Romik, being prepared for public release).
+   All numbers, bounds, and caveats are sourced verbatim from
    src/data/newman-lambda-01787854-candidate.js and the prior page; this file
    only restyles them. It makes no mathematical claim of its own — the bound
    is a computer-assisted candidate, not an established theorem. */
@@ -69,15 +70,15 @@ export default function NewmanLambda01787854CandidatePage() {
   return (
     <PostLayout
       grade="CANDIDATE"
-      meta={['proof candidate', 'intended unconditional form', 'external review open']}
-      title="Λ ≤ 0.1787854 — Unreviewed Proof Candidate"
+      meta={['proof candidate', 'intended unconditional form', 'reviewed by Dan Romik · unrefereed']}
+      title="Λ ≤ 0.1787854 — Unrefereed Proof Candidate"
       dek={
         'A sealed computer-assisted package proposing an unconditional proof. Its intended ' +
-        'argument assumes no unproved conjecture, but the mathematical reductions and ' +
-        'proof-to-code correspondence have not been independently validated. The proposed ' +
-        'bound is therefore not an established theorem.'
+        'argument assumes no unproved conjecture. The package has been reviewed by Dan Romik ' +
+        'and is being prepared for public release; it has not been peer-reviewed, so the ' +
+        'proposed bound is not an established theorem.'
       }
-      byline={['de Bruijn–Newman · mathexplorer', 'computer-assisted · unreviewed']}
+      byline={['de Bruijn–Newman · mathexplorer', 'computer-assisted · unrefereed']}
       footer={<>
         <a href={refereePaper.publicPath} target="_blank" rel="noreferrer">Read the v3 referee PDF ({refereePaper.pages} pages)</a>
         {' · '}<a href={refereePaper.releaseAssetUrl} target="_blank" rel="noreferrer">Immutable release PDF</a>
@@ -108,7 +109,7 @@ export default function NewmanLambda01787854CandidatePage() {
       <AnimationEmbed id="zetasota" />
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
-        <div className="tlab">Unreviewed candidate · intended unconditional form · external review open</div>
+        <div className="tlab">Unrefereed candidate · reviewed by Dan Romik · being prepared for public release</div>
         <BlockMath tex="\boxed{\Lambda\le\frac{893927}{5000000}=0.1787854}" />
         <BlockMath tex={exactTarget.identityTex} />
         <p style={{ fontSize: 14, color: 'var(--ink-soft)' }}>

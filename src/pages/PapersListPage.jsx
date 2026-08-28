@@ -74,7 +74,8 @@ export default function PapersListPage() {
             it rests on a many-body constant C_H that remains undischarged (no rigorous upper bound). The
             Volterra-operator collapse (&#8741;V&#8741;&nbsp;&le;&nbsp;1) is equivalent to RH, not a proof of it.
             Treat each saved paper according to its displayed evidence grade. The 0.1787854
-            draft has an intended unconditional logical form but remains reviewed by Dan Romik.
+            draft has an intended unconditional logical form but remains unrefereed (it has been
+            reviewed by Dan Romik and is being prepared for public release).
           </p>
         </div>
 

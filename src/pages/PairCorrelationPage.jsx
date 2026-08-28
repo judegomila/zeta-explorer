@@ -432,6 +432,16 @@ export default function PairCorrelationPage() {
             microscopic Fourier extent <code>~ log N &gt;&gt; 1</code>, deep in
             the shaded band, where the identity remains OPEN.
           </p>
+          <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.55 }}>
+            The proved <code>|alpha| &lt; 1</code> band is not only an obstruction map: a
+            Sylvester-inertia reading of exactly this Montgomery pair-correlation input has since
+            yielded an unconditional &ge; 2/3 (optimised 0.6725) simple-and-on-line proportion
+            (Claude/Anthropic, Aug 2026 — external to this project, Lean-checked, reviewed by
+            Conrey and Goldston, not peer-reviewed). See{' '}
+            <Link to="/critical-line-proportion" style={{ color: 'var(--terra-dk)' }}>
+              the critical-line proportion page
+            </Link>.
+          </p>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',

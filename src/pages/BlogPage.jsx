@@ -53,7 +53,7 @@ export default function BlogPage() {
           </p>
           <p>
             It's the most important unsolved problem in mathematics. There's a $1 million
-            prize. It's been open for 165 years.
+            prize. It's been open for more than 165 years.
           </p>
         </Section>
 
@@ -248,7 +248,7 @@ export default function BlogPage() {
         <Section title="Where this stands (private project)" color="var(--brass-dk)">
           <p>
             This is a private, exploratory research project — nothing here is a published or
-            externally asserted result. The rigorous state-of-the-art on the de Bruijn-Newman
+            externally asserted result. The peer-reviewed benchmark on the de Bruijn-Newman
             constant is <strong>&Lambda; &le; 0.2</strong> (Platt&ndash;Trudgian), together with{' '}
             <strong>&Lambda; &ge; 0</strong> (Rodgers&ndash;Tao); neither is a result of this project.
           </p>

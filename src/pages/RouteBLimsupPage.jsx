@@ -117,8 +117,7 @@ export default function RouteBLimsupPage() {
             Separately, the <em>finite-N</em> error bridge <InlineMath tex={"|\\Lambda-(-t_c(N))|\\le E(N)"} />{' '}
             has an unconditional <em>rate</em> but <InlineMath tex={"E(N)\\to 0"} /> is{' '}
             <strong style={{ color: 'var(--terra-dk)' }}>gated on the RH-hard constant C_H</strong> (imp-2640 negative;
-            corrected imp-3321) — that is a different, harder object than this lim-sup. <strong>Platt–Trudgian{' '}
-            <InlineMath tex={"\\Lambda\\le 0.2"} />.</strong>
+            corrected imp-3321) — that is a different, harder object than this lim-sup.
           </p>
         </div>
 
@@ -135,7 +134,7 @@ export default function RouteBLimsupPage() {
             <em>"unconditional modulo the finite-N validity of the collision formula."</em> The route-map "RIGOROUS-SOTA"
             tag and the imp-341/344 "UNCONDITIONALLY" wording should be regraded <strong>CLOSED-MODULO</strong>, and the
             stale <code>G6_PER_N_BOUND</code> / "C_H = 1/8 RIGOROUS" block in <code>dyson-burgers-shock.js</code>{' '}
-            corrected. No false QED; PT <InlineMath tex={"\\Lambda\\le 0.2"} /> unaffected.
+            corrected. No false QED.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 12, fontSize: 13 }}>
             <Link to="/route-map" style={{ color: 'var(--brass)' }}>→ Full route map</Link>

@@ -397,8 +397,10 @@ export default function GapClosingPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Gap Analysis &amp; Closing</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            Three critical gaps stand between the Twin-Ladder Bridge framework and a proof of RH.
-            This page provides computational infrastructure to understand and close each gap.
+            The Twin-Ladder Bridge framework has three open interfaces, each RH-hard: closing any
+            one of them is not a partially-completed proof step but a wall of the same difficulty
+            class as RH itself (see <Link to="/what-we-know">what we know</Link>). This page provides
+            computational infrastructure to understand and probe each interface.
           </p>
         </div>
 
@@ -430,10 +432,15 @@ export default function GapClosingPage() {
             </div>
           </div>
 
-          {/* Composite Proof Progress */}
+          {/* Diagnostic coverage (historical model diagnostic — NOT proof progress) */}
           <div style={{ marginBottom: 16 }}>
             <div style={{ fontSize: 12, color: 'var(--ink-soft)', marginBottom: 8, fontWeight: 600 }}>
-              Composite Proof Progress
+              Diagnostic Coverage (historical model diagnostic — not proof progress)
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--faint)', marginBottom: 8, lineHeight: 1.6 }}>
+              These percentages record how much of each interface has computational diagnostics built,
+              from an earlier phase of the project. They do not measure progress toward a proof:
+              each interface is RH-hard, and no percentage of an RH-hard wall is "done".
             </div>
             {[
               { label: 'S4: Analytic Continuation', pct: 50, color: 'var(--green)', note: 'Zeta continuation is exact; network realization is not established' },

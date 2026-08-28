@@ -373,7 +373,7 @@ This means Connes' prolate wave operator IS a harmonic oscillator on the space o
     category: 'key-observation',
     status: 'superseded',
     auditNote:
-      'The de Bruijn-Newman heat parameter is not an S-matrix unitarity deficit. Improving an upper bound on Lambda does not mean proving the proposed circuit unitary to higher precision.',
+      'The de Bruijn-Newman heat parameter is not an S-matrix unitarity deficit. Improving an upper bound on Lambda does not mean proving the proposed circuit unitary to higher precision. Also: this entry\'s retained prose treats Lambda = 0 as a fact; what Rodgers-Tao proved is Lambda >= 0, and Lambda = 0 is conjectural (equivalent to RH). The proven state is 0 <= Lambda <= 0.2.',
     content: `Rodgers-Tao proved Λ ≥ 0 (2020). The peer-reviewed upper-bound benchmark is Λ ≤ 0.2 (Platt-Trudgian 2021). RH ⟺ Λ = 0.
 
 **Physical meaning in ZPO:** The de Bruijn-Newman constant measures how much "heat" (backward diffusion) you can apply to ξ(s) before zeros fall off the critical line. Λ = 0 means the system is at the KNIFE-EDGE — any perturbation away from the Euler product structure would dislodge zeros.
@@ -384,7 +384,7 @@ This means Connes' prolate wave operator IS a harmonic oscillator on the space o
 - Λ = 0: The natural (unperturbed) Euler product sits exactly at the transition
 
 **Why this matters for the proof:**
-The fact that Λ = 0 (not Λ < 0 or Λ > 0) means the prime oscillator cascade is in a kind of CRITICAL STATE — a phase transition point. This connects to:
+If Λ = 0 (conjectural — equivalent to RH; Rodgers-Tao proved only Λ ≥ 0), the prime oscillator cascade would sit in a kind of CRITICAL STATE — a phase transition point. This connects to:
 - Bost-Connes phase transition at σ = 1
 - Supercritical region behavior
 - The "equilibrium" phase we identified in the thermodynamic controls
@@ -502,10 +502,14 @@ export default function HistoricalReasoningPage() {
               <div style={{ fontSize: 13, color: INK, lineHeight: 1.7 }}>
                 <strong>All-shifts bridge positivity:</strong>{' '}
                 <InlineMath tex={"K_a\\succeq0\\ \\forall a>0"} /> is an RH-equivalent target,
-                not a completed reduction below RH. Separately, the standalone private review package presents
+                not a completed reduction below RH. Separately, the program presents
                 <InlineMath tex="\Lambda\le0.1787854" /> as a computer-assisted
-                candidate for an unconditional proof. The bound is not established, has not been
-                peer reviewed, and is not RH.
+                candidate (reviewed by Dan Romik, being prepared for public release, unrefereed).
+                A sharper candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates,
+                Lean-checked reduction, unrefereed) and a fail-closed{' '}
+                <Link to="/permutation-architecture"><InlineMath tex="\Lambda\le0.14" /> completion
+                contract</Link> (a contract, not a bound) mark the current frontier. None of these
+                bounds is established or peer reviewed, and none is RH.
               </div>
             </div>
             <div style={{ padding: 12, background: 'rgba(217,80,46,0.05)', borderRadius: 8, border: '1px solid rgba(217,80,46,0.15)' }}>

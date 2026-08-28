@@ -152,7 +152,7 @@ export default function TheoremBThresholdPage() {
       title="Theorem B: The Minimal-Gap Sharp Threshold Θ_b = (√73 − 5)/8"
       dek="The minimal-gap hypothesis pushes the static Θ-trap up to a closed-form, provably sharp ceiling Θ_b = (√73 − 5)/8 = 0.443000…, where the exact sign boundary lands on the closed form."
       byline={['sg1c Θ-trap theorems · mathexplorer', 'static route, sharp endpoint']}
-      ticker={<span>sharpens one internal step · does not move Λ ≤ 0.2 SOTA</span>}
+      ticker={<span>sharpens one internal step of the finite-N program · no Λ bound changes</span>}
       footer={<>
         Related: <Link to="/theta-static-obstruction">Theorem R1-T2 (static-route obstruction)</Link>
         {' · '}<Link to="/theta-seizing-margin">Lemma R1-T3 (seizing margin)</Link>
@@ -312,8 +312,8 @@ export default function TheoremBThresholdPage() {
           Context: the measured real-zero configurations sit at <InlineMath tex={"\\Theta(0) = 0.167 / 0.088 / 0.046"} />,
           far below even the unconditional <InlineMath tex={"1/4"} /> of Theorem&nbsp;A — so on the actual data the
           collision bound applies unconditionally; Theorem&nbsp;B and the excursion band are about the adversarial
-          worst case, not the tested rows. This does not move the rigorous SOTA (Platt–Trudgian{' '}
-          <InlineMath tex={"\\Lambda \\le 0.2"} />); it sharpens one internal step of the finite-N program.
+          worst case, not the tested rows. This does not change any Λ bound (the peer-reviewed benchmark stays
+          Platt–Trudgian <InlineMath tex={"\\Lambda \\le 0.2"} />); it sharpens one internal step of the finite-N program.
         </p>
       </div>
     </PostLayout>

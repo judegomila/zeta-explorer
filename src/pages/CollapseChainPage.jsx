@@ -377,9 +377,6 @@ export default function CollapseChainPage() {
           <p style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '4px 0' }}>
             <strong>{SECTION26_VERDICT.verdict}</strong>
           </p>
-          <p style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '4px 0' }}>
-            SOTA: {SECTION26_VERDICT.sota}
-          </p>
           <p style={{ fontSize: '12px', color: 'var(--brass-dk)', margin: '8px 0 0 0' }}>
             The &ldquo;5000x from saturation&rdquo; result was a homogeneity artifact — imp-1240 measured the wrong (scale-miscalibrated) operator.
             The surviving target (normalized relative operator R) is RH-equivalent, not a shortcut.
@@ -402,7 +399,9 @@ export default function CollapseChainPage() {
               The strand's true residual is the operator positivity <InlineMath math="K_a \succeq 0" />, itself RH-equivalent.
             </li>
             <li>
-              <strong>Empirical pilot at finite window.</strong> imp-1240's data (U ≤ 20, a ≥ 0.025) shows norms well below 1, not yet a proof.
+              <strong>Empirical pilot at finite window.</strong> imp-1240's data (U ≤ 20, a ≥ 0.025) measured the
+              scale-miscalibrated bare operator; its below-1 norms are a homogeneity artifact and carry no evidentiary
+              weight for Conjecture 27.2.
             </li>
           </ul>
         </div>

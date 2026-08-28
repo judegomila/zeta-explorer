@@ -125,10 +125,21 @@ export default function ResearchJournalPage() {
         <div style={{ marginBottom: 20 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Research Journal</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            Coarse-grained journal of work sessions on the Riemann Hypothesis Λ
-            bound attack — one entry per session. Built so a new session can
-            pick up context without re-deriving the load-bearing blocker from
-            IMPROVEMENTS.md and improvement-queue.js. See also{' '}
+            Coarse-grained journal of early work sessions on the Riemann
+            Hypothesis Λ bound attack — one entry per session, {SESSIONS.length}{' '}
+            entries total, last updated {reversed[0].date}. Journaling was
+            superseded by the ticket queue, so these entries are a dated
+            record, not the live context: the blockers they name (e.g. C_H
+            closure) have since been reclassified or closed as no-gos. For
+            current context use{' '}
+            <Link to="/state-of-program" style={{ color: 'var(--blue)' }}>
+              /state-of-program
+            </Link>
+            {' and '}
+            <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>
+              /permutation-architecture
+            </Link>
+            . See also{' '}
             <Link to="/improvements" style={{ color: 'var(--blue)' }}>
               per-commit improvements
             </Link>

@@ -17,9 +17,10 @@
   theorem (`exists_deriv_eq_zero`) and the polynomial-derivative bridge
   (`Polynomial.deriv`).  All results here are `sorry`-free and `#print axioms`-clean
   (only the standard mathlib axioms, plus the explicitly-declared entire-function
-  stand-in `H`) EXCEPT the single deep-analytic `heat_preserves_LP`, which is reduced
-  to the Hermite–Poulain / Pólya–Schur multiplier theorem that mathlib still lacks
-  (an explicit, cited `sorry`).
+  stand-in `H`) — INCLUDING `heat_preserves_LP`, which was subsequently discharged
+  (definitive audit 2026-08-28: `#print axioms 'MathlibBridge.heat_preserves_LP'`
+  = `[propext, Classical.choice, Quot.sound]`, no `sorryAx`; an earlier version of
+  this header described it as an explicit cited `sorry` — that is stale).
 
   ## What is genuinely NEW here (real, not affine, shadow)
 
@@ -93,8 +94,9 @@ theorem exists_derivative_root_of_two_roots {p : ℝ[X]} {a b : ℝ}
 `G_t(x) = exp(−x²/(4t)) / √(4πt)` is strictly positive for every `x` and every
 time `t > 0`.  This is the concrete real-analysis fact named in
 `DeBruijnNewman.Basic` as "provable TODAY in mathlib, no `sorry`"; it is the
-convolution kernel of the heat semigroup `H_t = Ξ ∗ G_t` that underlies
-`heat_preserves_LP`. -/
+convolution kernel of the (forward) heat semigroup; NOTE the de Bruijn flow
+itself is the anti-diffusive `e^{−tD²}` (ENTIRE_ROADMAP §3), not `Ξ ∗ G_t`.
+`heat_preserves_LP` below is fully proved (see the header note). -/
 theorem heatKernel_pos {t : ℝ} (ht : 0 < t) (x : ℝ) :
     0 < Real.exp (-(x ^ 2) / (4 * t)) / Real.sqrt (4 * Real.pi * t) := by
   have hπ : 0 < Real.pi := Real.pi_pos

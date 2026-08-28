@@ -230,6 +230,13 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'has multiplier 1, while the paper\'s own P_1=87/4. The printed ' +
       'coefficientwise lattice inclusion therefore fails even with strict ' +
       'all-orbit positivity.',
+    literatureBoundary:
+      'Zudilin 2004 proves a six-factor bound only for a different normalized ' +
+      'one-variable well-poised family; its matching five-successive-max statement ' +
+      'is conjectural. The Brown-Zudilin dual-integral identity proves no lattice ' +
+      'transfer to I\', and Krattenthaler-Rivoal leave the general asymmetric ' +
+      'denominator conjecture open. The missing result is a prime-power ' +
+      'slot-majorization lemma, not merely a routine LCM estimate.',
     boundaryCounterexample:
       'For a=(1,0,0,0,1,0,0,0), all 17 convergence forms are nonnegative, ' +
       'the top five h values are 2,1,1,1,1, and I=zeta(2)-1/2, I\'= -1/4. ' +
@@ -305,6 +312,8 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
     'F. Johansson, Rapid computation of special values of Dirichlet L-functions, arXiv:2110.10583.',
     'M. Morse and G. A. Hedlund, Symbolic Dynamics II: Sturmian Trajectories, Amer. J. Math. 62 (1940), 1-42.',
     'W. Zudilin, One of the numbers zeta(5), zeta(7), zeta(9), zeta(11) is irrational, arXiv:math/0206176.',
+    'W. Zudilin, Arithmetic of linear forms involving odd zeta values, J. Theor. Nombres Bordeaux 16 (2004), 251-291.',
+    'C. Krattenthaler and T. Rivoal, Hypergeometrie et fonction zeta de Riemann, Mem. Amer. Math. Soc. 186 (2007), no. 875.',
     'B. Adamczewski and Y. Bugeaud, On the complexity of algebraic numbers I, Ann. of Math. 165 (2007), 547-565.',
     'D. H. Bailey and R. E. Crandall, On the random character of fundamental constant expansions, Exp. Math. 10 (2001), 175-190.',
   ]),
@@ -341,6 +350,10 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT_ASSERTIONS = Object.freeze([
   {
     name: 'strict-interior normalization failure is explicit',
     check: () => /P_1=87\/4/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.strictInteriorNormalizationFailure),
+  },
+  {
+    name: 'missing arithmetic result is identified precisely',
+    check: () => /slot-majorization/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.literatureBoundary),
   },
   {
     name: 'five-ray audit distinguishes Q and moment degeneracy',

@@ -409,7 +409,26 @@ const SOTA_TIERS = [
       'Rodgers–Tao (2020): Λ ≥ 0 — unconditional.',
       'Platt–Trudgian (2021): Λ ≤ 0.2 — peer-reviewed upper-bound benchmark.',
       'Public 2026 package claim: Λ ≤ 0.1875 — listed and locally repaired, but unrefereed.',
-      'standalone repository: Λ ≤ 0.1787854 — computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH.',
+      'standalone repository: Λ ≤ 0.1787854 — computer-assisted candidate for an unconditional proof; reviewed by Dan Romik; unrefereed; bound not established; not RH.',
+      <React.Fragment key="c-01758354">
+        <Link to="/lambda-01758354-candidate" style={{ color: 'inherit' }}>Λ ≤ 0.1758354</Link>
+        {' '}— sharper computer-assisted candidate; four Arb interval gates plus a Lean-checked
+        reduction; unrefereed; bound not established; not RH.
+      </React.Fragment>,
+    ],
+  },
+  {
+    key: 'contract',
+    label: 'COMPLETION CONTRACT — NOT A BOUND',
+    color: ORANGE,
+    bg: ORANGE_A(0.07),
+    items: [
+      <React.Fragment key="contract-014">
+        <Link to="/permutation-architecture" style={{ color: 'inherit' }}>Λ ≤ 0.14 completion
+        contract</Link>{' '}— a fail-closed contract, NOT a bound: Λ ≤ 0.14 would follow if its
+        zero-free statements hold. ONE open family remains — |C_E,17| &lt; 0.2796881955526147 on
+        690988 ≤ N ≤ 54799999 — with the [B_v,Π_p] weld as the decisive object.
+      </React.Fragment>,
     ],
   },
   {
@@ -598,7 +617,8 @@ function CHWallFrontierPanel() {
     { label: 'C_THETA STATUS', value: v.cThetaStatus, color: AMBER },
     { label: 'DETERMINISTIC RESIDUAL', value: v.residual, color: GREEN },
     { label: 'FORECLOSED', value: v.foreclosed, color: RED },
-    { label: 'SOTA', value: v.sota, color: 'var(--faint)' },
+    // v.sota ("remains the rigorous SOTA" refrain) intentionally not rendered;
+    // PT Λ ≤ 0.2 is stated once, in the banner above.
   ];
   return (
     <div style={{
@@ -730,7 +750,8 @@ function CHLipThreeProofsPanel() {
         padding: '8px 12px', fontSize: 11, color: RED_LIGHT, lineHeight: 1.6,
         fontFamily: MONO,
       }}>
-        HONEST: {t.honest}
+        {/* Strip the appended "remains the rigorous SOTA" refrain; PT is stated once in the banner. */}
+        HONEST: {t.honest.replace(CH_WALL_FRONTIER.sota, '').trim()}
       </div>
     </div>
   );
@@ -934,7 +955,7 @@ function Section26GramGapNotice() {
         </div>
       </div>
       <p style={{ margin: 0, color: 'var(--faint)', fontSize: 11, fontFamily: MONO }}>
-        {M.honestCaveat.sota}. Source: imp-3110-section26-gram-vs-monomial-gap.js
+        Source: imp-3110-section26-gram-vs-monomial-gap.js
       </p>
     </div>
   );
@@ -976,30 +997,77 @@ export default function RigorDashboardPage() {
         {/* Three Lambda cross-validation estimators side by side (imp-2991) */}
         <EstimatorTriptych />
 
-        {/* Current candidate; the older chain panels below retain their dated snapshot. */}
+        {/* Candidate + contract frontier; the older chain panels below retain their dated snapshot. */}
         <div style={{
-          background: BLUE_A(0.06), border: `1px solid ${BLUE_A(0.4)}`,
-          borderRadius: 10, padding: '14px 18px', marginBottom: 24,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 12, marginBottom: 24,
         }}>
-          <div style={{ fontSize: 11, color: BLUE, fontFamily: MONO, marginBottom: 6 }}>
-            CURRENT candidate
+          <div style={{
+            background: BLUE_A(0.06), border: `1px solid ${BLUE_A(0.4)}`,
+            borderRadius: 10, padding: '14px 18px',
+          }}>
+            <div style={{ fontSize: 11, color: BLUE, fontFamily: MONO, marginBottom: 6 }}>
+              CANDIDATE — reviewed package (one of two candidates)
+            </div>
+            <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>
+              <Link to="/newman-lambda-01787854-candidate" style={{ color: 'inherit', textDecoration: 'none', borderBottom: `1px solid ${BLUE_A(0.4)}` }}>
+                Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
+              </Link>
+            </div>
+            <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
+              {NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence.rowCount.toLocaleString()}-row material replay
+              &nbsp;|&nbsp; candidate commit {NEWMAN_LAMBDA_01787854_CANDIDATE.identity.packageCommit.slice(0, 12)}
+            </div>
+            <div style={{ fontSize: 12, color: AMBER, fontFamily: MONO }}>
+              UNREFEREED — REVIEWED BY DAN ROMIK; BEING PREPARED FOR PUBLIC RELEASE · COMPUTER-ASSISTED CANDIDATE FOR AN UNCONDITIONAL PROOF · BOUND NOT ESTABLISHED · NOT RH
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--faint)', marginTop: 4 }}>
+              The package supplies claimed compact-slab, final-time-half-strip, finite/tail,
+              and exact-criterion interfaces for review. A seal and green replay do not by
+              themselves establish the bound. RH remains open and requires Λ ≤ 0.
+            </div>
           </div>
-          <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>
-            <Link to="/newman-lambda-01787854-candidate" style={{ color: 'inherit', textDecoration: 'none', borderBottom: `1px solid ${BLUE_A(0.4)}` }}>
-              Λ ≤ {NEWMAN_LAMBDA_01787854_CANDIDATE.exactTarget.decimal}
-            </Link>
+          <div style={{
+            background: BLUE_A(0.06), border: `1px solid ${BLUE_A(0.4)}`,
+            borderRadius: 10, padding: '14px 18px',
+          }}>
+            <div style={{ fontSize: 11, color: BLUE, fontFamily: MONO, marginBottom: 6 }}>
+              CANDIDATE — sharper package
+            </div>
+            <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>
+              <Link to="/lambda-01758354-candidate" style={{ color: 'inherit', textDecoration: 'none', borderBottom: `1px solid ${BLUE_A(0.4)}` }}>
+                Λ ≤ 0.1758354
+              </Link>
+            </div>
+            <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
+              Revised mollifier + extended finite lane; four independent gates machine-checked in
+              Arb interval arithmetic; reduction Lean-checked.
+            </div>
+            <div style={{ fontSize: 12, color: AMBER, fontFamily: MONO }}>
+              UNREFEREED COMPUTER-ASSISTED CANDIDATE · BOUND NOT ESTABLISHED · NOT RH
+            </div>
           </div>
-          <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
-            {NEWMAN_LAMBDA_01787854_CANDIDATE.finiteEvidence.rowCount.toLocaleString()}-row material replay
-            &nbsp;|&nbsp; candidate commit {NEWMAN_LAMBDA_01787854_CANDIDATE.identity.packageCommit.slice(0, 12)}
-          </div>
-          <div style={{ fontSize: 12, color: AMBER, fontFamily: MONO }}>
-            UNREVIEWED COMPUTER-ASSISTED CANDIDATE FOR AN UNCONDITIONAL PROOF · BOUND NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
-          </div>
-          <div style={{ fontSize: 12, color: 'var(--faint)', marginTop: 4 }}>
-            The package supplies claimed compact-slab, final-time-half-strip, finite/tail,
-            and exact-criterion interfaces for review. A seal and green replay do not by
-            themselves establish the bound. RH remains open and requires Λ ≤ 0.
+          <div style={{
+            background: ORANGE_A(0.06), border: `1px solid ${ORANGE_A(0.4)}`,
+            borderRadius: 10, padding: '14px 18px',
+          }}>
+            <div style={{ fontSize: 11, color: ORANGE, fontFamily: MONO, marginBottom: 6 }}>
+              Λ ≤ 0.14 COMPLETION CONTRACT — A CONTRACT, NOT A BOUND
+            </div>
+            <div style={{ fontSize: 22, fontWeight: 700, color: 'var(--ink)', marginBottom: 4 }}>
+              <Link to="/permutation-architecture" style={{ color: 'inherit', textDecoration: 'none', borderBottom: `1px solid ${ORANGE_A(0.4)}` }}>
+                Contract: Λ ≤ 0.14
+              </Link>
+            </div>
+            <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
+              Fail-closed: Λ ≤ 0.14 would follow if its zero-free statements hold. ONE open family
+              remains — |C_E,17| &lt; 0.2796881955526147 on 690988 ≤ N ≤ 54799999 — with the
+              [B_v,Π_p] weld as the decisive object.
+            </div>
+            <div style={{ fontSize: 12, color: AMBER, fontFamily: MONO }}>
+              NOT A BOUND · NOT PROMOTED · ONE OPEN FAMILY
+            </div>
           </div>
         </div>
 

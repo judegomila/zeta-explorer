@@ -845,8 +845,7 @@ function SigmaNShapeExtrapolationPanel() {
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
         <strong style={{ color: '#c23a1c' }}>Scope (imp-3406):</strong>{' '}
         ASSESSMENT/extrapolation only, reusing the identical imp-3220 sub-term formulas &mdash; no re-derivation.
-        No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
-        remains the rigorous SOTA.
+        No positivity, no bridge closure, no RH claim, NO QED.
       </div>
       <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
         <strong style={{ color: '#c23a1c' }}>Component-model caveat (imp-33701):</strong>{' '}
@@ -971,8 +970,7 @@ function NmaxEtruncSensitivityPanel() {
         <strong style={{ color: '#6d55b8' }}>Scope (imp-3443):</strong>{' '}
         Measurement/extrapolation only, reusing the identical imp-3406/imp-3220 sub-term formulas &mdash; no
         re-derivation. &sigma;<sub>max</sub> at the baseline &asymp;{grid.find((r) => Math.abs(r.E_trunc - base.E_trunc) < 1e-12)?.sigma_max ?? base.N_max}.
-        No positivity, no bridge closure, no RH claim, NO QED. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
-        remains the rigorous SOTA.
+        No positivity, no bridge closure, no RH claim, NO QED.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3443-nmax-etrunc-sensitivity.js &mdash; E_trunc&isin;[0.5,2.0]&times;3.06e-5 (9-point grid),
@@ -1403,8 +1401,7 @@ function AutocorrWeightSupportPanel() {
         <strong style={{ color: '#3f6b86' }}>Scope (imp-3469):</strong>{' '}
         Numerical characterization of the fixed A(&tau;) weight and its support only &mdash;
         establishes NO operator positivity. RH-EQUIVALENT, necessary-but-not-sufficient; operator
-        positivity (imp-3066) untouched, no RH verdict. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
-        remains the rigorous SOTA.
+        positivity (imp-3066) untouched, no RH verdict.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3469-degree2-bridge-mass-scaling.js (AUTOCORR_WEIGHT_PROFILE) &mdash; NPHI=10,
@@ -1536,8 +1533,7 @@ function MomentLadderResidualPanel() {
         Moment/Taylor characterization only &mdash; establishes NO operator positivity. Mass-feasibility
         is necessary-but-not-sufficient and the degree-2 face carries no feasibility comparison at all
         (imp-3469: D<sub>2</sub>=0). The operator-level K<sub>a</sub>&nbsp;&ge;&nbsp;0 sign-positivity
-        (imp-3066) is UNTOUCHED. No RH verdict. Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2
-        remains the rigorous SOTA.
+        (imp-3066) is UNTOUCHED. No RH verdict.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
         Source: imp-3481-autocorrelation-moment-ladder.js &mdash; NPHI=10, T_A=6, a&isin;{'{'}0.5,0.25,0.125{'}'}.
@@ -2391,7 +2387,7 @@ function Section26GapExplainerPanel() {
           ASSESSMENT ONLY — NO RH VERDICT
         </div>
         <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
-          {M.honestCaveat.noRHVerdict} {M.honestCaveat.sota}.
+          {M.honestCaveat.noRHVerdict}
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -2951,7 +2947,7 @@ function DeficitExcessFractionGridPanel() {
           DEGREE-0 SCALAR ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
         </div>
         <p style={{ color: '#877b67', fontSize: 12, lineHeight: 1.65, margin: 0 }}>
-          {M.honestCaveat.operatorStepUntouched} {M.honestCaveat.sota}.
+          {M.honestCaveat.operatorStepUntouched}
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -3100,7 +3096,7 @@ function PhiCollapseViz() {
           DEGREE-0 SCALAR ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
         </div>
         <p style={{ color: "#877b67", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
-          {M.honestCaveat.operatorStepUntouched} {M.honestCaveat.sota}.
+          {M.honestCaveat.operatorStepUntouched}
         </p>
       </div>
       <p style={{ marginTop: 10, color: "#877b67", fontSize: 11, fontFamily: mono }}>
@@ -4298,7 +4294,7 @@ function OnsetPadeAccuracyRadiusViz() {
       <p style={{ marginTop: 8, color: "#877b67", fontSize: 11, fontFamily: mono }}>
         Source: imp-3325-onset-pade-resummation.js &mdash; 1% radii T2&asymp;{radii1pct.t2.toFixed(5)},
         T3&asymp;{radii1pct.t3.toFixed(5)}, P11&asymp;{radii1pct.p11.toFixed(5)}. RH-equivalent, degree-0
-        scalar diagnostic; imp-3066 lone obstruction untouched; Platt-Trudgian &Lambda;&le;0.2 SOTA.
+        scalar diagnostic; imp-3066 lone obstruction untouched.
       </p>
     </div>
   );
@@ -4374,7 +4370,7 @@ function OnsetHigherOrderPadeRadiiLadderViz() {
         Source: imp-3383-onset-third-order-higher-pade.js &mdash; P21/T4 1% ratio&asymp;
         {M.verdict.pade21VsFourTermFactorAt1pct.toFixed(3)}x. RH-equivalent, degree-0 scalar diagnostic;
         [2/1] pole stays on the negative-&epsilon; axis (no onset-side singularity); imp-3066 lone
-        obstruction untouched; Platt-Trudgian &Lambda;&le;0.2 SOTA.
+        obstruction untouched.
       </p>
     </div>
   );
@@ -6917,7 +6913,6 @@ function PhiTermwiseNonnegativityViz() {
           U&thinsp;&isin;&thinsp;&#123;6,8,12,16,24&#125; &times; NPHI&thinsp;&isin;&thinsp;&#123;10,20,40,80&#125; finds
           {' '}{M.totalGenuineNegatives} genuine negatives. This upgrades the imp-3197 sign half from measured to
           structural; the operator-norm magnitude (imp-3197 magnitude half) remains untouched.
-          Platt&ndash;Trudgian &Lambda;&thinsp;&le;&thinsp;0.2 stays SOTA.
         </p>
       </div>
       <p style={{ marginTop: 10, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -8359,8 +8354,7 @@ export default function ClosureRoutesPage() {
         </table>
         <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
           <strong style={{ color: '#c23a1c' }}>Scope (imp-3126):</strong>{' '}
-          {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.operatorStepUntouched}{' '}
-          {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.sota}.
+          {REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.honestCaveat.operatorStepUntouched}
         </div>
         <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
           Source: imp-3126-regular-mass-vs-c-shock-coincidence.js &mdash; N&isin;&#123;10<sup>4</sup>,10<sup>5</sup>,10<sup>6</sup>&#125;, absDiffBlowup&asymp;{Math.round(REGULAR_MASS_VS_C_SHOCK_COINCIDENCE_IMP3126.absDiffBlowupOverLadder)}&times;.

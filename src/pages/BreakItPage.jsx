@@ -7,7 +7,7 @@ import { ZETA_ZEROS, zetaCriticalStrip, cAbs } from '../math/zeta.js';
 import { getPrimes } from '../math/primes.js';
 import { directLadder, dualLadder } from '../math/oscillators.js';
 
-// Try to Break the Proof — editorial (warm) re-theme.
+// Try to Break the Model — editorial (warm) re-theme.
 // Same interactive challenges/math as before (see src/math/rh-attack.js,
 // zeta.js, primes.js, oscillators.js); only the chrome is re-themed to the
 // warm editorial palette (src/styles/editorial.css). Every claim, number and
@@ -227,11 +227,12 @@ export default function BreakItPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Try to Break the Proof</h1>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Try to Break the Model</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            The best way to strengthen a proof is to attack it. Each challenge below presents a
-            Twin-Ladder Bridge claim with interactive controls. Your goal: find parameters that make it FAIL.
-            If you succeed, you've found a genuine flaw. If you can't — that's evidence it's correct.
+            Each challenge below presents a Twin-Ladder Bridge claim with interactive controls.
+            Your goal: find parameters that make it FAIL. If you succeed, you've found a genuine flaw.
+            If you can't, that establishes nothing beyond the finite range you checked — a finite
+            computation is not a theorem, and no amount of passing sliders turns these claims into one.
           </p>
         </div>
 
@@ -270,17 +271,24 @@ export default function BreakItPage() {
           </div>
         </Challenge>
 
-        <Challenge number={5} title="The Axiom" color={HUE_TERRA_DK}
-          claim="J-contractivity persists in the N→∞ limit">
+        <Challenge number={5} title="The Gap (RH-equivalent)" color={HUE_TERRA_DK}
+          claim="J-contractivity persists in the N→∞ limit — equivalent to RH, not a technical step">
           <div style={{ color: 'var(--ink-soft)', fontSize: 13 }}>
-            <p>This is the remaining gap. The argument: S_N → S_∞ in operator norm (O(1/log P) via Mertens),
-            and J-contractivity is closed in operator norm. Therefore S_∞ is J-contractive.</p>
+            <p>This is the remaining gap, and it is not a plausible axiom one lemma away from closing:
+            the limiting contractivity statement is <strong>equivalent to RH itself</strong> (in the
+            compiled operator form, <InlineMath tex="\|V\| \leq 1" /> — see{' '}
+            <Link to="/what-we-know" style={{ color: 'var(--brass-dk)' }}>What We Know §26</Link>).
+            Assuming it assumes the conclusion. The sketched argument — S_N → S_∞ in operator norm
+            (O(1/log P) via Mertens), J-contractivity closed in operator norm, therefore S_∞ is
+            J-contractive — fails because the norm convergence estimate is itself unproven at the
+            strength required; proving it is where the full difficulty of RH sits.</p>
             <p style={{ color: 'var(--brass-dk)', fontWeight: 600, marginTop: 8 }}>
-              To break this, you'd need to show: either (a) the operator norm convergence fails,
-              or (b) J-contractivity is NOT closed in the relevant topology. Both seem unlikely but
-              this is where a mathematician should focus their scrutiny.
+              To break the model here, exhibit the equivalence failure directly: either (a) show the
+              claimed operator-norm convergence rate is wrong, or (b) show the finite-N contractivity
+              data is compatible with a non-contractive limit. No finite computation on this page can
+              settle the statement either way.
             </p>
-            <BlockMath tex="\|S_N - S_\infty\|_{\text{op}} = O(1/\log P_N) \to 0 \implies S_\infty^* J S_\infty \leq J" />
+            <BlockMath tex="\|S_N - S_\infty\|_{\text{op}} \to 0 \ \text{(unproven at required strength)} \implies S_\infty^* J S_\infty \leq J \iff \text{RH}" />
           </div>
         </Challenge>
 

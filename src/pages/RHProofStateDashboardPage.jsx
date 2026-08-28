@@ -192,7 +192,7 @@ function Section({ title, children, borderColor = 'var(--hairline)' }) {
 }
 
 export default function RHProofStateDashboardPage() {
-  const dashboardDate = ['2026-07-28', SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
+  const dashboardDate = ['2026-08-28', SECTION26_VERDICT.date, MAXFANOUT_STATUS.date, STRATEGIC_REFRAME.date, SECTION27_REFUTATION.date]
     .filter(Boolean).sort().pop() || '2026-06-18';
   return (
     <div className="ed-root">
@@ -237,8 +237,28 @@ export default function RHProofStateDashboardPage() {
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
             <div>
               <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>candidate</div>
-              <div style={{ fontSize: 20, fontWeight: 700, color: BRASS, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>&#923; &le; 0.1787854</div>
-              <div style={{ fontSize: 11, color: INK_SOFT }}>Unreviewed computer-assisted candidate for an unconditional proof; bound not established; not peer reviewed; not RH</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: BRASS, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                <Link to="/newman-lambda-01787854-candidate" style={{ color: 'inherit', textDecoration: 'none' }}>&#923; &le; 0.1787854</Link>
+              </div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Unrefereed; reviewed by Dan Romik. Computer-assisted candidate for an unconditional proof; bound not established; not RH</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>SHARPER candidate</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: BRASS, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                <Link to="/lambda-01758354-candidate" style={{ color: 'inherit', textDecoration: 'none' }}>&#923; &le; 0.1758354</Link>
+              </div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Four Arb interval gates + Lean-checked reduction; unrefereed; bound not established; not RH</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+            <div>
+              <div style={{ fontSize: 11, color: FAINT, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 2 }}>COMPLETION CONTRACT &#8212; NOT A BOUND</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                <Link to="/permutation-architecture" style={{ color: 'inherit', textDecoration: 'none' }}>&#923; &le; 0.14</Link>
+              </div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Fail-closed contract, NOT a bound &#8212; one open family |C_E,17| &lt; 0.2796881955526147 on 690988 &le; N &le; 54799999; [B_v,&#928;_p] weld</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
@@ -455,8 +475,7 @@ export default function RHProofStateDashboardPage() {
               <em>vestigial / read as EXACTLY ZERO above T_PT</em> only after the non-finite argument-
               principle tail lemma (imp-35653 Part D, work-item W3) is discharged. Platt&ndash;Trudgian
               verified-to-T_PT N_off(T_PT)=0 is the necessary floor this stands on, <strong>not</strong>{' '}
-              a substitute for that semi-infinite-tail lemma. No bound is asserted here; PT Λ≤0.2 remains
-              the peer-reviewed benchmark.
+              a substitute for that semi-infinite-tail lemma. No bound is asserted here.
             </div>
 
             {/* imp-35690: imp-35653 S_barrier porting work-list W1..W4 status table */}
@@ -501,7 +520,7 @@ export default function RHProofStateDashboardPage() {
               note misattributed this base to repo <strong>imp-341</strong>, but canonical imp-341 is the
               Close G5_burgers Koksma&ndash;Hlawka result (S7 uniformity of the finite-N empirical Stieltjes
               transform) &mdash; a different thread with no bearing on off-line zero verification to T_PT.
-              No bound is asserted here; PT Λ≤0.2 remains the peer-reviewed benchmark.
+              No bound is asserted here.
             </div>
 
             {/* imp-35749: imp-35711 PROMINENT-level post-port parity-no-beat status banner */}
@@ -562,13 +581,10 @@ export default function RHProofStateDashboardPage() {
                   {(0.2 / (IMP2641_C_SELBERG_TRUDGIAN_DISCHARGE.recomputed.E_coll_rigorous + IMP2633_L_COND_CONSTANT_DISCHARGE.subterms.E_flow.value + 3.1e-5)).toFixed(0)}×
                 </strong>{' '}
                 below Platt–Trudgian 0.2 — not yet rigorous (C_H + E-T bridge constant pending).
-                Peer-reviewed benchmark: <strong style={{ color: GREEN }}>Λ ≤ 0.2</strong>;
-                public unrefereed package claim: <strong style={{ color: BLUE }}>Λ ≤ 0.1875</strong>.
                 This is the older Dyson lane; the separate candidate{' '}
                 <strong style={{ color: BRASS }}>Λ ≤ 0.1787854</strong> uses the fixed-height
-                barrier route and does not discharge C_H. It is a computer-assisted
-                candidate for an unconditional proof; the bound is not established, has not been
-                peer reviewed, and is not RH.
+                barrier route and does not discharge C_H. It is an unrefereed computer-assisted
+                candidate for an unconditional proof; the bound is not established and it is not RH.
               </div>
             </div>
           </div>
@@ -617,7 +633,7 @@ export default function RHProofStateDashboardPage() {
                 <strong style={{ color: AMBER }}>homogeneity artifact, NOT evidence for Conj 27.2</strong>:{' '}
                 {SECTION26_VERDICT.fiveThousandXArtifact}. The bare V is degree-2 homogeneous, so the
                 margin scales with the (arbitrary) Φ normalization; it does not indicate proximity to an
-                unconditional proof. {SECTION26_VERDICT.sota}.
+                unconditional proof.
               </div>
             </div>
           </div>
@@ -637,8 +653,7 @@ export default function RHProofStateDashboardPage() {
         <Section title="Corrections Log: claims since corrected" borderColor={RED}>
           <p style={{ color: INK_SOFT, fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
             Internal record of claims that overreached the evidence during development and have since
-            been corrected. Peer-reviewed benchmark: <strong style={{ color: GREEN }}>Λ ≤ 0.2 (Platt–Trudgian 2021)</strong>;
-            strongest located public preprint claim: <strong style={{ color: BLUE }}>Λ ≤ 0.1875</strong>.
+            been corrected.
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 24 }}>
             {CAUGHT_OVERCLAIMS.map((oc) => (
@@ -672,7 +687,7 @@ export default function RHProofStateDashboardPage() {
             <div style={{ padding: 12, borderRadius: 8, background: GREEN_A(0.08), border: `1px solid ${GREEN_A(0.28)}` }}>
               <div style={{ fontSize: 10, color: GREEN, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>PEER-REVIEWED BENCHMARK</div>
               <div style={{ fontSize: 18, fontWeight: 700, color: GREEN, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>Λ ≤ 0.2</div>
-              <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5 }}>Platt–Trudgian 2021; {MAXFANOUT_STATUS.rigorousSOTA}</div>
+              <div style={{ fontSize: 12, color: INK_SOFT, lineHeight: 1.5 }}>Platt–Trudgian 2021 — unconditional</div>
             </div>
             <div style={{ padding: 12, borderRadius: 8, background: BLUE_A(0.08), border: `1px solid ${BLUE_A(0.28)}` }}>
               <div style={{ fontSize: 10, color: BLUE, fontWeight: 700, fontFamily: 'var(--ed-mono, var(--font-mono))', marginBottom: 6 }}>PUBLIC, UNREFEREED PACKAGE</div>
@@ -720,7 +735,7 @@ export default function RHProofStateDashboardPage() {
             <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
               <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>HISTORIC PAPER ROADMAP</div>
               <Link to="/papers" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
-                Historic v52 Paper Details →
+                Historic twin-ladder paper details →
               </Link>
             </div>
             <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>

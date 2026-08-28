@@ -135,13 +135,19 @@ function CurrentStatus() {
   const candidateEntry = LAMBDA_BOUNDS.find(
     (entry) => entry.id === 'local-fixed-height-candidate-01787854',
   );
+  const sharperCandidateEntry = LAMBDA_BOUNDS.find(
+    (entry) => entry.id === 'local-sharper-candidate-01758354',
+  );
+  const contractEntry = LAMBDA_BOUNDS.find(
+    (entry) => entry.id === 'permutation-completion-contract-014',
+  );
 
   return (
     <>
-      <SectionHead number={1} title="Three evidence grades, kept separate" />
+      <SectionHead number={1} title="Evidence grades, kept separate" />
       <p className="lead">
         These rows are intentionally not collapsed into a single &ldquo;best known&rdquo; number. A public
-        package, a candidate, and a peer-reviewed theorem have different
+        package, two candidates, a completion contract, and a peer-reviewed theorem have different
         evidentiary status, so they are graded and displayed apart.
       </p>
       <Grid min={220}>
@@ -149,7 +155,7 @@ function CurrentStatus() {
           tone="established"
           label="peer reviewed"
           value={peerReviewed?.label || 'Λ ≤ 0.2'}
-          detail="Published, peer-reviewed benchmark. The standalone private-review 0.1787854 candidate is graded separately because its bound is not established and it has been reviewed by Dan Romik."
+          detail="Published, peer-reviewed upper bound (Platt–Trudgian 2021). Everything below is graded separately because its bound is not established."
         />
         <StatusCard
           tone="publicClaim"
@@ -162,8 +168,22 @@ function CurrentStatus() {
           tone="repository"
           label="computer-assisted candidate"
           value="Candidate: Λ ≤ 0.1787854"
-          detail="A candidate for an unconditional proof. The bound is not established, has been reviewed by Dan Romik, and is not RH."
+          detail="A candidate for an unconditional proof. The bound is not established; reviewed by Dan Romik, being prepared for public release, unrefereed; not RH."
           route={candidateEntry?.route}
+        />
+        <StatusCard
+          tone="repository"
+          label="computer-assisted candidate"
+          value="Candidate: Λ ≤ 0.1758354"
+          detail="A sharper candidate below 0.1787854: four independent gates machine-checked in Arb interval arithmetic, with the reduction Lean-checked. Unrefereed; the bound is not established; not RH."
+          route={sharperCandidateEntry?.route || '/lambda-01758354-candidate'}
+        />
+        <StatusCard
+          tone="open"
+          label="completion contract — not a bound"
+          value="Contract: Λ ≤ 0.14"
+          detail="A fail-closed contract, NOT a proved bound: Λ ≤ 0.14 would follow if its zero-free statements hold. It reduces to ONE open family — |C_E,17| < 0.2796881955526147 on 690988 ≤ N ≤ 54799999 — with the [B_v,Π_p] weld as the decisive object."
+          route={contractEntry?.route || '/permutation-architecture'}
         />
       </Grid>
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
@@ -379,10 +399,12 @@ function BottomLine() {
         <p style={{ fontSize: 15 }}>
           The defensible outputs are: a corrected twin-ladder structural model, clearer zero/pole and
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
-          an explicitly noted local repair, and an <InlineMath tex="0.1787854" /> unreviewed
+          an explicitly noted local repair, an <InlineMath tex="0.1787854" /> unrefereed
           computer-assisted candidate for an unconditional proof in the standalone repository (reviewed
-          by Dan Romik), alongside a sharper <Link to="/lambda-01758354-candidate"><InlineMath tex="0.1758354" /></Link>{' '}
-          candidate. Their bounds
+          by Dan Romik, being prepared for public release), a sharper{' '}
+          <Link to="/lambda-01758354-candidate"><InlineMath tex="0.1758354" /></Link>{' '}
+          candidate, and a <Link to="/permutation-architecture"><InlineMath tex="0.14" /> completion
+          contract</Link> — a contract, not a bound, with one open family. The candidates&rsquo; bounds
           are not established and neither is RH. The global Twin Ladder residual inequality remains exactly
           equivalent to RH, so no current result proves <InlineMath tex="\Lambda=0" />.
         </p>
@@ -399,7 +421,7 @@ export default function FullStoryPage() {
       title="The Twin-Ladder / Λ Program"
       dek="A corrected account of what is classical, what twin-ladder derives inside a research draft, what the certificate packages compute, and which logical welds remain open."
       byline={['twin-ladder · mathexplorer', 'no new bound · not RH']}
-      ticker={<span>.� candidates unverified · no QED</span>}
+      ticker={<span>Λ candidates unrefereed · no QED</span>}
       footer={<>
         Related: <Link to="/lambda-bounds">Bounds and evidence ledger</Link>
         {' · '}<Link to="/twin-ladder">Twin-ladder</Link>
@@ -409,17 +431,16 @@ export default function FullStoryPage() {
       </>}
     >
       <div className="ed-thm" style={{ borderLeftColor: 'var(--green)' }}>
-        <div className="tlab" style={{ color: 'var(--green)' }}>Ceiling · RIGOROUS-SOTA</div>
+        <div className="tlab" style={{ color: 'var(--green)' }}>Ceiling</div>
         <p style={{ fontSize: 15 }}>
           <strong style={{ color: 'var(--ink)' }}>
             Peer-reviewed benchmark: Platt-Trudgian Λ ≤ 0.2 — this program did NOT produce it.
           </strong>{' '}
-          A public unrefereed package claims Λ ≤ 0.1875 and is listed in the Optimization Problems
-          ledger; a local audit repaired an omitted finite sweep. The standalone private review
-          repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an
-          unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not
-          RH. Platt-Trudgian Λ ≤ 0.2 therefore remains the peer-reviewed benchmark, with Rodgers-Tao
-          Λ ≥ 0 on the lower side.{' '}
+          Rodgers-Tao Λ ≥ 0 is the lower side. A public unrefereed package claims Λ ≤ 0.1875 and is
+          listed in the Optimization Problems ledger; a local audit repaired an omitted finite sweep.
+          The standalone repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an
+          unconditional proof; the bound is not established, has been reviewed by Dan Romik, is being
+          prepared for public release, and is not RH.{' '}
           <Link to="/state-of-program" style={{ color: 'var(--green)', fontWeight: 600 }}>
             See the State of the Program
           </Link>{' '}

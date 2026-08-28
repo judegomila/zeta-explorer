@@ -9,9 +9,10 @@ import AnimationEmbed from '../components/AnimationEmbed.jsx';
  *
  * In-browser Dyson ODE collision-time verifier.
  * Runs the backward RK4 + Kahan-compensated integration entirely in the browser.
- * The visitor can independently reproduce the t_c(N) computation used in
- * the Polymath 15 Lambda bound and verify that backward heat flow causes
- * zero-pair collisions at a finite time.
+ * The visitor can explore the finite-N t_c(N) collision-time diagnostic
+ * from the older Dyson lane (related to, but not the proof of, the
+ * Polymath 15 / PT 2021 Lambda bound) and verify that backward heat flow
+ * causes zero-pair collisions at a finite time.
  *
  * WASM sub-gap: WAT source is at src/wasm/dyson-rk4/dyson_rk4.wat.
  * Run "wat2wasm src/wasm/dyson-rk4/dyson_rk4.wat -o public/dyson_rk4.wasm"
@@ -270,8 +271,9 @@ export default function DysonVerifierPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
         <h1 className="ed-h1" style={{ marginBottom: 6 }}>Dyson Collision Verifier</h1>
         <p style={S.subtitle}>
-          In-browser RK4 integration of the backward Dyson ODE — reproduces the t&#x2099;(N) computation
-          used in the Polymath 15 / PT 2021 Lambda bound. Runs entirely in your browser (pure JavaScript).
+          In-browser RK4 integration of the backward Dyson ODE — explores the finite-N Dyson collision
+          mechanism related to the Polymath 15 / PT 2021 Lambda bound (the collision-time diagnostic used
+          in the older Dyson lane, not the bound's proof). Runs entirely in your browser (pure JavaScript).
           &nbsp;<Link to="/rh-attack" style={{ color: '#c23a1c' }}>RH Attack page</Link> has context.
         </p>
 
@@ -279,7 +281,7 @@ export default function DysonVerifierPage() {
 
         {/* Theory card */}
         <div style={S.card}>
-          <div style={S.sectionTitle}>Theory: Why collisions bound Lambda</div>
+          <div style={S.sectionTitle}>Theory: How collisions relate to Lambda</div>
           <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, margin: 0 }}>
             The de Bruijn-Newman constant Lambda is defined as the infimum of all t for which
             H&#x209C;(z) = 0 implies Im(z) &gt;= 0. Under backward heat flow (t decreasing),
@@ -290,9 +292,14 @@ export default function DysonVerifierPage() {
 {`dγ_n/dt = -2 · Σ_{k≠n} 1/(γ_n - γ_k)   [backward: attraction]`}
           </pre>
           <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, margin: 0 }}>
-            Zeros attract until a pair <em>collides</em> at time t&#x2099;. Since Lambda &lt;= |t&#x2099;|,
-            a numerically observed collision at t&#x2099; &lt; 0 gives an upper bound on Lambda.
-            The Platt-Trudgian 2021 result Lambda &lt;= 0.2 is confirmed by this path.
+            Zeros attract until a pair <em>collides</em> at time t&#x2099;. A finite-N collision at
+            t&#x2099; &lt; 0 does <em>not</em> by itself give a rigorous upper bound on Lambda: the
+            bracket is Lambda &lt;= -t&#x2099; + E(N), where E(N) is a truncation/coupling error whose
+            constant (C_H) remains undischarged — see{' '}
+            <Link to="/rh-proof-state" style={{ color: '#c23a1c' }}>RH Proof State</Link>.
+            The Platt-Trudgian 2021 theorem Lambda &lt;= 0.2 is an independent barrier argument that
+            binds on the verified zero height, not on this simulation; this page illustrates the
+            collision mechanism but does not reproduce or confirm that bound.
           </p>
         </div>
 
@@ -403,11 +410,13 @@ export default function DysonVerifierPage() {
                   <span style={{ ...S.val, color: '#4c7a4a', fontSize: 15 }}>{result.collision.t_c}</span>
                 </div>
                 <div style={S.row}>
-                  <span style={S.label}>Lambda &lt;=</span>
+                  <span style={S.label}>|t&#x2099;| =</span>
                   <span style={{ ...S.val, color: '#4c7a4a', fontSize: 15 }}>
                     {Math.abs(parseFloat(result.collision.t_c)).toFixed(4)}
                   </span>
-                  <span style={{ color: '#877b67', fontSize: 12 }}>(= |t&#x2099;|)</span>
+                  <span style={{ color: '#877b67', fontSize: 12 }}>
+                    (bracket Lambda &lt;= |t&#x2099;| + E(N); not rigorous — C_H undischarged)
+                  </span>
                 </div>
                 <div style={S.row}>
                   <span style={S.label}>Pair index:</span>

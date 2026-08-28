@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
+import { ZETAEXPLORER_NO_GOS } from '../data/rh-no-go-theorems.js';
 
 // The real interactive explorers, lazy-loaded so the landing stays light.
 const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
@@ -16,6 +17,8 @@ const FINDINGS = [
     title: 'Flow-blindness: soft ⇏ RH', desc: 'Backward heat flow stays soft yet breaks RH; a proof needs arithmetic input.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08', isNew: true,
     title: 'Λ ≤ 0.1758354', desc: 'Four gates certified in Arb, Lean-checked. Below the 0.1787854 candidate.' },
+  { to: '/permutation-architecture', grade: 'CONTRACT', date: '2026-08', isNew: true,
+    title: 'Λ ≤ 0.14 completion contract', desc: 'Fail-closed contract reduced to one open family — the freeze calculus route. A contract, not a bound.' },
   { to: '/frozen-rung-pt-equivalence', grade: 'THEOREM', date: '2026-07', isNew: true,
     title: 'Freezing rungs = Platt–Trudgian', desc: 'Inertia locks the frozen-ladder route to verified height.' },
   { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026',
@@ -24,8 +27,8 @@ const FINDINGS = [
     title: 'RH-free F_mb enclosure', desc: 'imp-3725 — a rigorous enclosure assuming no RH.' },
   { to: '/route-map', grade: 'MAP', date: '2026',
     title: 'The wall map · 38 routes', desc: 'Every closure route across 5 clusters, and exactly where it splits.' },
-  { to: '/critical-line-proportion', grade: 'MAP', date: '2020',
-    title: 'Zeros on the line · ≥ 5/12', desc: 'The other axis: the proportion proven on the critical line (Hardy → Levinson ⅓ → 5/12 ≈ 41.7%).' },
+  { to: '/critical-line-proportion', grade: 'MAP', date: '2026-08', isNew: true,
+    title: 'Zeros on the line · ≥ 2/3', desc: 'The other axis: peer-reviewed record 5/12 (PRZZ 2020); external ≥ 2/3 result (Claude/Anthropic 2026, Lean-checked, reviewed by Conrey and Goldston, not peer-reviewed, not this project’s).' },
   { to: '/what-we-know', grade: 'NO-GO', date: '2026',
     title: 'Negative results', desc: 'Theorems ruling out route families — the breach point, located.' },
   { to: '/pt-floor-audit', grade: 'AUDIT', date: '2026',
@@ -68,7 +71,7 @@ export default function HomePageEditorial() {
               <div className="ed-mk" style={{ left: '88%', background: 'var(--brass-dk)' }} />
               <div className="ed-mktop" style={{ left: '86%', color: 'var(--brass)' }}>0.1758354 candidate</div>
               <div className="ed-mk" style={{ left: '100%', background: 'var(--terra)' }} />
-              <div className="ed-mkcap" style={{ left: '92%', color: 'var(--terra-dk)' }}>0.20 · Platt–Trudgian (SOTA)</div>
+              <div className="ed-mkcap" style={{ left: '92%', color: 'var(--terra-dk)' }}>0.20 · Platt–Trudgian</div>
             </div>
           </div>
         </div>
@@ -83,7 +86,7 @@ export default function HomePageEditorial() {
       <div className="ed-full"><div className="ed-kpis">
         <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
         <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>38</b><span>routes mapped</span></Link>
-        <Link className="ed-kpi ed-kpi-link" to="/what-we-know"><b style={{ color: 'var(--terra-dk)' }}>2</b><span>no-go theorems</span></Link>
+        <Link className="ed-kpi ed-kpi-link" to="/what-we-know"><b style={{ color: 'var(--terra-dk)' }}>{ZETAEXPLORER_NO_GOS.length}</b><span>no-go theorems</span></Link>
         <div className="ed-kpi"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></div>
       </div></div>
 
@@ -133,7 +136,7 @@ export default function HomePageEditorial() {
 
       {/* findings atlas */}
       <div className="ed-full"><section className="ed-sec">
-        <div className="ed-shead"><div><div className="ed-lbl">the atlas · • = new</div><h2>Findings</h2></div>
+        <div className="ed-shead"><div><div className="ed-lbl">the ledger · • = new</div><h2>Findings</h2></div>
           <p>Bounds, models, walls, and no-gos. Each opens its own page.</p></div>
         <div className="ed-map">
           {FINDINGS.map((f) => (
@@ -164,8 +167,9 @@ export default function HomePageEditorial() {
       {/* verdict */}
       <div className="ed-full"><section className="ed-sec">
         <div className="ed-lbl" style={{ marginBottom: 12 }}>status</div>
-        <div className="ed-verdict">Λ ≤ 0.2 (Platt–Trudgian) is the rigorous state of the art. The 0.1758354 and
-          0.1787854 candidates are computer-assisted and unrefereed. RH remains open: it requires Λ ≤ 0. The only
+        <div className="ed-verdict">Λ ≤ 0.2 (Platt–Trudgian) is the peer-reviewed benchmark. The 0.1758354 and
+          0.1787854 candidates are computer-assisted and unrefereed; the 0.14 value is a fail-closed completion
+          contract, not a bound. RH remains open: it requires Λ ≤ 0. The only
           lever that moves the floor is verified zero height — derived twice, from Sylvester inertia and de
           Bruijn–Newman flow rigidity.</div>
       </section></div>

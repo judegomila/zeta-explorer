@@ -81,7 +81,8 @@ export function EditorialHeader({ ticker }) {
 
 export function GradeChip({ grade, children }) {
   const cls = { CANDIDATE: 'g-cand', THEOREM: 'g-thm', 'NO-GO': 'g-nogo', MAP: 'g-map',
-    AUDIT: 'g-map', VERIFIED: 'g-ver', RESULT: 'g-thm', ENGINE: 'g-run', COLLAPSE: 'g-thm' };
+    AUDIT: 'g-map', VERIFIED: 'g-ver', RESULT: 'g-thm', ENGINE: 'g-run', COLLAPSE: 'g-thm',
+    CONTRACT: 'g-cand' };
   return <span className={`ed-grade ${cls[grade] || 'g-map'}`}>{children || grade}</span>;
 }
 

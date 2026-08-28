@@ -2716,6 +2716,53 @@ export default function OpenFrontierPage() {
         subtitle="One exact global RH-equivalent frontier, with separate subsidiary research lanes"
       />
 
+      <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid #b58a2e' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              letterSpacing: 0.45,
+              color: '#b58a2e',
+              border: '1px solid #b58a2e',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            CURRENT FRONTIER · CONTRACT, NOT A BOUND
+          </span>
+          <code style={{ fontSize: 11, color: '#877b67' }}>Λ ≤ 0.14 completion contract</code>
+        </div>
+        <p style={{ fontSize: 13, color: '#877b67', margin: 0, lineHeight: 1.65 }}>
+          The strict Λ ≤ 0.14 statement is a fail-closed completion contract, not a
+          proved bound: through the [B_v, Π_p] weld it is reduced to exactly one open
+          correlated-enclosure family,{' '}
+          <code style={{ fontSize: 12, color: '#b58a2e' }}>
+            |C_E,17| &lt; 0.2796881955526147 on 690988 ≤ N ≤ 54799999
+          </code>
+          . If that family fails to verify, the contract yields nothing. Full statement
+          and status at{' '}
+          <Link
+            to="/permutation-architecture"
+            style={{ fontSize: 13, color: '#b58a2e', textDecoration: 'none', borderBottom: '1px solid #b58a2e' }}
+          >
+            Permutation Architecture →
+          </Link>
+        </p>
+        <p style={{ fontSize: 13, color: '#877b67', margin: '10px 0 0', lineHeight: 1.65 }}>
+          The current reading of the T3 wall below: T3 is a zero-free-strip statement
+          in disguise (verified dictionary), and the flow-blindness no-go shows no soft
+          flow hypothesis can supply the missing arithmetic input — see{' '}
+          <Link
+            to="/flow-blindness-no-go"
+            style={{ fontSize: 13, color: '#b58a2e', textDecoration: 'none', borderBottom: '1px solid #b58a2e' }}
+          >
+            Flow-Blindness No-Go →
+          </Link>
+        </p>
+      </div>
+
       <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #877b67' }}>
         <p style={{ fontSize: 13, color: '#877b67', margin: 0, lineHeight: 1.65 }}>
           The canonical global frontier is the exact T3 residual below. It is the

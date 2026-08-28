@@ -66,23 +66,24 @@ export default function WhatWeKnowPage() {
         {' · '}<Link to="/vortex-field">Vortex field</Link>
         {' · '}<Link to="/obstruction-seam">Obstruction seam</Link>
         {' · '}<Link to="/flow-blindness-no-go">Flow-blindness no-go</Link>
-        <br /><br />← <Link to="/">the atlas</Link>
+        <br /><br />← <Link to="/">home</Link>
       </>}
     >
       <p className="lead">
         The discipline throughout is calibrated clarity — so the headline first:{' '}
         <strong>RH is not proved. The standalone repository presents
         Λ ≤ 0.1787854 as a computer-assisted candidate for an unconditional proof.
-        The bound is not established, has been reviewed by Dan Romik, and is not RH. Λ ≤ 0.2
-        (Platt–Trudgian) remains the peer-reviewed benchmark.</strong> Across{' '}
+        The bound is not established, has been reviewed by Dan Romik, and is not RH.</strong> Across{' '}
         <strong>{ROUTE_COUNT} mapped routes</strong>, every surviving route from a positive
         Newman bound to RH is still open, RH-equivalent, or dead.
       </p>
 
 
-      <h2>① Established results and the separately graded candidate</h2>
+      <h2>① Established results and the separately graded candidates</h2>
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
         <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has been reviewed by Dan Romik, and is not RH.</li>
+        <li><strong>Sharper Newman candidate:</strong> <strong>Λ ≤ 0.1758354</strong> — a computer-assisted candidate with four gates certified in Arb and a Lean-checked reduction. Unrefereed; not established. <Link to="/lambda-01758354-candidate">detail →</Link></li>
+        <li><strong>Λ ≤ 0.14 completion contract:</strong> a fail-closed contract, <em>not a bound</em> — the freeze-calculus / [B_v, Π_p]-weld route reduces the strict value to exactly one open family: the enclosure |C_E,17| {'<'} 0.2796881955526147 on 690988 ≤ N ≤ 54799999. Nothing is claimed unless that family closes. <Link to="/permutation-architecture">detail →</Link></li>
         <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
         <li><strong>Route B (Burgers / Koksma–Hlawka lim-sup):</strong> an unconditional, GUE-free, pair-correlation-free proof that lim supₙ |t_c(N)| = 0 for the N-particle Calogero–Moser/Dyson flow that models the zeros. This subsidiary theorem does not close the bridge to RH.</li>
         <li><strong>The Θ-trap theorems:</strong> Θ ≤ 1/4 as an unconditional flow invariant; the exact identity dg/ds = −(4/g)(1−Θ); Corollary A1 (t_c^part ≤ g_min²/6). Rigorous CM-flow algebra.</li>
@@ -179,8 +180,11 @@ export default function WhatWeKnowPage() {
           The standalone repository presents
           <strong> Λ ≤ 0.1787854</strong> as a computer-assisted candidate for an
           unconditional proof; the bound is not established, has been reviewed by Dan Romik, and is not RH.
-          The exact global Twin Ladder residual inequality remains equivalent to RH, Platt–Trudgian
-          <strong> Λ ≤ 0.2</strong> remains the peer-reviewed benchmark, and RH itself remains open.
+          A sharper candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four
+          Arb-certified gates + a Lean-checked reduction), is likewise unrefereed. The{' '}
+          <Link to="/permutation-architecture"><strong>Λ ≤ 0.14</strong> completion contract</Link> is a
+          fail-closed contract, not a bound — reduced to one open family. The exact global Twin Ladder
+          residual inequality remains equivalent to RH, and RH itself remains open.
         </p>
       </TheoremBox>
     </PostLayout>

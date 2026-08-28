@@ -84388,6 +84388,34 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: ['imp-95006'],
     model: 'opus-4-8',
   },
+  {
+    id: 'imp-95009',
+    title: 'Attack the graph-compression possible-gain family: a correlated direct/dual graph isometry W_U with anti-Hermitian cancellation, gated on characteristic invariance and a Schur complement gap',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'permutation-architecture',
+    description:
+      "The permutation atlas (Permuting the Zeta Twin Ladder Sections 6.2 + 9) classifies GRAPH COMPRESSIONS as the ONE permutation family with possible gain: for a unitary direct/dual bridge U, the graph isometry W_U v = 2^(-1/2)(v, Uv) gives W_U*(R_+ (+) R_-)W_U = (R_+ + U*R_-U)/2, where the anti-Hermitian parts CAN cancel - the operator analogue of retaining both ladder phases in the P97 center. Two indispensable obligations gate it: (i) every scalar zero must lift to a characteristic vector in the graph (or an exact determinant identity holds); (ii) the antisymmetric complement may not be discarded - the sufficient cellwise Schur condition is g_A > ||E_aa|| and ||E_ss|| + (||C||+||E_sa||)(||C||+||E_as||)/(g_A - ||E_aa||) < g_S (eq. 31). ASSESS: construct a candidate U for the twin-ladder direct/dual channels, measure the anti-Hermitian cancellation actually achieved, and check the two gates on a finite compression. Deliver either a quantified cancellation with the Schur closure verified at finite rank, or a named obstruction. No-gain rule caveat: the isometry alone proves nothing - value only via the invariant compression + complement closure. Changes no bound; NO QED.",
+    rationale: 'Permutation atlas Section 9: graph compressions are the only rearrangement family classified POSSIBLE GAIN (correlated average residual can genuinely drop); the two gating obligations are crisply stated - this ticket operationalizes them.',
+    estimatedComplexity: 'high',
+    dependsOn: [],
+    model: 'opus-4-8',
+  },
+  {
+    id: 'imp-95010',
+    title: 'Attack the moving-reference Rouche gluing permutation: replace the fixed rough center by a moving analytic reference Q with winding computed by |F-Q|<|Q| chart-gluing (eq. 44), where cancellation makes the constant-center budget too rigid',
+    category: 'proof',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'permutation-architecture',
+    description:
+      "Route I's fixed rough center is sufficient but not logically mandatory (Permuting the Zeta Twin Ladder Section 10.1): a moving-reference implementation may retain the dominant zero-alias pair, selected prime aliases, exact gamma factor, and low shells in ONE analytic reference Q; on a closed chart boundary dOmega, Rouche gives |F-Q| < |Q| => wind F = wind Q, so Q need not lie in a fixed half-plane - overlapping analytic phase charts glue by the same inequality on their overlaps. This permutation is attractive exactly where cancellation makes the constant-center budget too rigid - i.e. on the one open family 690988 <= N <= 54799999 (imp-95006). ASSESS: build a pilot moving-reference chart cover on a sub-range of the open family, with explicit Q per chart, the |F-Q|<|Q| margins, and the overlap-gluing bookkeeping; compare the achieved budget against the constant-center |C_E,17| target. Deliver either a pilot chart-cover with margins, or a quantified reason the moving reference does not relax the budget. Changes no bound; NO QED.",
+    rationale: 'Permutation atlas Section 10.1 (eq. 44): the second possible-gain permutation, aimed exactly at the open correlated lower-edge family where the fixed-center budget binds; complements imp-95006/95008.',
+    estimatedComplexity: 'high',
+    dependsOn: ['imp-95006'],
+    model: 'opus-4-8',
+  },
 ];
 
 // ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────

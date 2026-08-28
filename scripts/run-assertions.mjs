@@ -10089,6 +10089,18 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; certifies no W1 bound; changes no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-36132-w1-pairwise-slack-depth-clustered-densified-fit.js',
+  // imp-36212 (numerical, S-frontier): DENSIFY the imp-36132 CLUSTERED-order slack-vs-depth fit
+  // a SECOND time (37 -> 75 pairing trees, same depth axis 12..6095, a strict superset of the
+  // imp-36081 family that reconciles the shared shapes bit-for-bit), to test whether the
+  // depth-scaling exponent STABILIZES toward sqrt or keeps drifting. It KEEPS drifting: 37 -> 75
+  // lifts it ~+0.127 (0.532 -> 0.659), matching the 7 -> 37 shift ~+0.115, so it climbs
+  // 0.417 -> 0.532 -> 0.659 in near-equal steps. The nominal 95% interval tightens (~0.40 ->
+  // ~0.29 wide) but AWAY from sqrt -- at 75 shapes ~[0.51,0.81] now marginally EXCLUDES 0.5 as
+  // well as 1.0 -- reversing the imp-36132 sqrt-consistent reading. Only the sub-linear (< 1) /
+  // below-default-order (~0.748) bracket survives all three sample sizes; no stable single
+  // exponent is pinned. Nine self-executing assertions. Measurement only; certifies no W1 bound;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36212-w1-pairwise-slack-depth-clustered-75shape-fit.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never

@@ -9520,6 +9520,28 @@ const DATA_MODULES = [
   // strictness (imp-33848) untouched; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED;
   // Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-35662-eflow-fartail-remnant-limit-guard.js',
+  // imp-35831: CONTINUE the imp-35413 fd-vs-analytic E_flow far-tail remnant ladder past
+  // N = 1e28 (endpoint remnant 0.000880) along the identical closed-surrogate channel
+  // (T0 = 2 pi N / log N; pure Math, no effectiveHeightForN, no zeros bundle) as far as
+  // double precision reaches (to N ~ 1e280), to decide whether remnant*log N keeps
+  // decreasing (slow-decay-to-zero) or levels off to a nonzero deeper floor. FINDING
+  // (measurement only): remnant*log N decreases MONOTONICALLY across every reachable decade
+  // -- ~0.0567 at 1e28 down to ~0.0127 at 1e280, less than a quarter of the ~0.059 crossing
+  // value, a further factor ~4.5 over the extra ~252 decades -- with NO plateau and no sign
+  // of a nonzero floor, favouring slow-decay-to-zero and consistent with the independent
+  // imp-35552 remnant ~ 2 loglogN/(logN)^2 leading form (product ~ 2 loglogN/logN -> 0). The
+  // ladder stops near 1e280 at the double-precision ceiling (10^e overflows to Infinity at
+  // e ~ 309). Seven self-executing assertions (reproduces the imp-35413 endpoint remnant
+  // 0.000880; product strictly monotone decreasing = no floor; product at 1e280 well below
+  // the crossing value and < a quarter of the 1e28 value; cross-checks the imp-35535 endpoint
+  // remnant(1e200)=3.5385e-5; documents the 10^308-finite/10^309-Infinity ceiling; no-QED
+  // honesty gate; inherits sub-gap imp-35413a). Import-light (pure Math, no zeros bundle, per
+  // [[no_heavy_imports_in_pages]] / [[verify_heavy_assertion_modules]]). Measurement only on
+  // the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic; inherits, and does
+  // not discharge, tracked sub-gap imp-35413a (surrogate-vs-true fidelity, NOT height-map-robust
+  // per imp-35497); E_flow > 0 strictness (imp-33848) untouched; C_mb GUE-conditional per
+  // imp-486 UNTOUCHED; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35831-eflow-fartail-remnant-far-decade-drift.js',
   // imp-35672: ASSESSMENT/SCOPING of what the route-(ii) imp-35488 two-height data-anchored
   // g_true spot-check CAN and CANNOT certify for the OPEN imp-35337a surrogate -> observable
   // dictionary, now that imp-35652 killed the route-(i) option-(a) restricted-support surrogate
@@ -9766,6 +9788,23 @@ const DATA_MODULES = [
   // derives nothing; discharges nothing; changes no bound; C_C (imp-2642/imp-2643) and
   // imp-486 UNTOUCHED; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-35764-collision-scale-pt-anchor-prefactor-propagation.js',
+  // imp-35830: FILL the imp-35764 crossover -> PT-anchor INTERIOR with a finer height
+  // ladder. imp-35764 read the cross (N ~ 3.28e9) -> PT (N(T_PT=3e12) ~ 1.236e13) log-log
+  // slope of s_min against N as -1/3 for both coefficients using ONLY the two endpoints,
+  // leaving the ~3.6-decade interior unpopulated. This module log-spaces 6 interior
+  // heights between T_cross = effectiveHeightForN(N_cross) ~ 1.144e9 and T_PT = 3e12,
+  // maps each to its exact RvM zero count zeroCountAtHeight(T), and recomputes s_min(M;c)
+  // by the identical M = N bisection on M F(s_min)=1 for c = pi^2/3 and c = C_C. Every
+  // consecutive-rung slope is -0.33333333 (= -1/3, max dev ~2.2e-16) for BOTH coefficients
+  // and the O(1) shift is 2.04665342 = ((pi^2/3)/C_C)^{1/3} at every interior rung (N
+  // cancels), with the bisected s_min matching the closed form (3/(cM))^{1/3} to <=~1.4e-16
+  // throughout; lower/upper rungs tie back to imp-35724 crossover and imp-35764 PT anchor.
+  // So no interior height perturbs the scaling law: the imp-35764 two-endpoint reading was
+  // not hiding a mid-ladder drift. Import-light; seven self-executing assertions.
+  // Measurement only; densifies imp-35764/imp-35696; derives nothing; discharges nothing;
+  // changes no bound; C_C (imp-2642/imp-2643) and imp-486 UNTOUCHED; imp-35337a stays OPEN;
+  // NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-35830-collision-scale-crossover-to-pt-interior-ladder.js',
   // imp-35734: TABULATE the imp-35696 ABSOLUTE collision-scale prefactors (3/c)^{1/3}
   // for the two small-gap density coefficients c = pi^2/3 (standard cubic GUE
   // curvature) and c = C_C = (1/8)sqrt(3 pi), which imp-35696 gave only as the RATIO
@@ -10009,6 +10048,12 @@ const DATA_MODULES = [
   // pairwise is robust to both. Seven self-executing assertions. Measurement only; certifies
   // no W1 bound; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35893-w1-summation-pairwise-tree-shape.js',
+  // imp-35955 (numerical, S-frontier): Kahan-Babuska-Neumaier-compensated pairwise on the
+  // imp-35893 worst tree (caterpillarR) -- compensation gains ~98x (1.85e-18 -> 1.89e-20) and
+  // makes the returned double BIT-IDENTICAL across balanced/caterpillarL/caterpillarR, so the
+  // ~98x tree-shape spread collapses to 1: tree-shape sensitivity vanishes under compensation.
+  // Six self-executing assertions. Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35955-w1-kbn-compensated-worst-tree.js',
   // imp-35962 (content, honest-status note): standalone note restating the imp-35893
   // worst-shape verdict (caterpillarR, depth 3817, reaches only ~4.42e-4 of the
   // log2(N)*eps ceiling) -- precision stays NON-binding, W1 obstruction stays MECHANICAL.

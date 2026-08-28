@@ -85,8 +85,11 @@ Not here, and each a substantial standalone development (mathlib lacks them):
    real polynomials, or via Hadamard genus ≤ 1). The polynomial theorem is the finite section.
 2. **Lifting** `heat_preserves_LP` from polynomials to LP entire functions (preservation under
    locally-uniform limits — needs holomorphic Hurwitz / normal families).
-3. **The actual Riemann `Ξ`** and its heat flow `H_t = Ξ ∗ G_t`, connecting `heatOp` to the real
-   de Bruijn–Newman flow (the `axiom H` stand-in in the DBN order-lemmas is a placeholder for this).
+3. **The actual Riemann `Ξ`** and its heat flow `H_t = e^{−tD²}Ξ` — NOTE: not the forward
+   convolution `Ξ ∗ G_t`, which realises `e^{+tD²}` and destroys real-rootedness (wrong sign; see
+   ENTIRE_ROADMAP §3 and imp-34813). Use de Bruijn's order-≤2 power-series representation
+   `Σₖ ((−t)ᵏ/k!)·Ξ^{(2k)}(z)`, connecting `heatOp` to the real de Bruijn–Newman flow
+   (the `axiom H` stand-in in the DBN order-lemmas is a placeholder for this).
 4. **Rodgers–Tao `Λ ≥ 0`** (2020) — currently an explicit hypothesis (`hRT`), not internalized.
 
 The order-theoretic layer (`dbn_unique`, `monotone_of_dbn`, `RH_iff_lambda_nonpos`,

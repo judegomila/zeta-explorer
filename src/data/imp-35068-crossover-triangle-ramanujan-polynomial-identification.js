@@ -221,7 +221,7 @@ export const IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION = {
     'tree function T(z)=sum n^(n-1) z^n/n! = -W(-z) (Lambert W) -- the closed-form generating object ' +
     'the earlier ad hoc tabulation lacked a name for. Triangle cf. OEIS A054589; row sums OEIS A000169.',
   identificationPasses,
-  isRigorous: true, // exact integer arithmetic; the reversed-Ramanujan match is verified n=2..12
+  isRigorous: true, // exact integer arithmetic ONLY: the reversed-Ramanujan match is VERIFIED n=2..12, NOT proved for all n — the reversal identity P_n(u) = u^{n-1} R_n(1/u) and the row sum P_n(1) = n^{n-1} remain conjectures here (formalization target: ARISTOTLE_TARGETS.md wave-2 #10); the OEIS/tree-function attributions are cited, not re-proved
   rigorousScope:
     'IDENTIFICATION of the numerator-polynomial coefficient triangle of the INHERITED imp-3220/' +
     'imp-3406 / imp-33723 surrogate crossover map as the (reversed) Ramanujan polynomial triangle. ' +

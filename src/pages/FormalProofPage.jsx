@@ -362,9 +362,9 @@ export default function FormalProofPage() {
                   'No. Any finite check cannot prove RH.'
                 ],
                 [
-                  'de Bruijn-Newman constant Lambda = 0',
-                  'Proved (Rodgers-Tao 2020)',
-                  'Equivalent to RH being "sharp", but != proof of RH.'
+                  'de Bruijn-Newman constant Lambda >= 0',
+                  'Proved (Rodgers-Tao 2020); upper bound Lambda <= 0.2 (Platt-Trudgian 2021)',
+                  'No. Lambda = 0 is EQUIVALENT to RH and remains open; Lambda >= 0 means RH, if true, is "barely true".'
                 ],
                 [
                   'Entropy/capacity/MI peak at sigma = 1/2',
@@ -645,7 +645,7 @@ export default function FormalProofPage() {
               { name: 'Entropy Peak', section: 'S4', verdict: 'PASS', color: '#4c7a4a', icon: 'S',
                 detail: 'Entropy/capacity/MI peak at sigma=1/2' },
               { name: 'de Bruijn-Newman', section: 'S10', verdict: 'PROVEN', color: '#3f6b86', icon: 'L',
-                detail: 'Lambda=0 (Rodgers-Tao 2020)' },
+                detail: 'Lambda>=0 (Rodgers-Tao 2020); Lambda=0 is equivalent to RH and open' },
               { name: 'Gradient Descent', section: 'S4', verdict: 'PASS', color: '#4c7a4a', icon: 'G',
                 detail: 'Converges to sigma=1/2 for all tested zeros' },
             ].map((t, i) => (

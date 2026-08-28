@@ -17,16 +17,17 @@
   — the exact ℝ-analog of mathlib's `Polynomial.hermite_succ`.  Conclusion:
   `HasOnlyRealRoots ((Polynomial.hermite n).map (Int.castRingHom ℝ))`.
 
-  ## TARGET 2 (statement only, honest `sorry`) — Newton's inequalities.
+  ## TARGET 2 (fully proved, sorry-free) — Newton's inequalities.
 
   Real-rootedness implies log-concavity of the *normalized* coefficients (Newton's
-  inequalities).  mathlib v4.22.0 has no polynomial `logConcave`/Newton API, and a full
-  proof needs the repeated-differentiation reduction to the quadratic discriminant.  We
-  commit the correct statement `newton_inequality` with a single documented `sorry`, and
-  a note on exactly what is missing.  (The `sorry` is local; every Target-1 result below
-  is `#print axioms`-clean — no `sorryAx`.)
+  inequalities).  mathlib v4.22.0 has no polynomial `logConcave`/Newton API, so the
+  repeated-differentiation reduction to the quadratic discriminant is built here, in
+  `NewtonInequality.lean` (ported from the Aristotle-verified v4.28 development under
+  `formalization/lean-aristotle/newton_inequality/`).  `newton_inequality` below is
+  `#print axioms`-clean — no `sorryAx`.
 -/
 import MathlibBridge
+import NewtonInequality
 import Mathlib.RingTheory.Polynomial.Hermite.Basic
 
 open Polynomial
@@ -178,24 +179,24 @@ For a real-rooted `p = ∑ₖ aₖ Xᵏ` of degree `n`, the *normalized* coeffic
 `p̃ₖ := aₖ / C(n,k)` are log-concave: `p̃ₖ² ≥ p̃ₖ₋₁ · p̃ₖ₊₁` for `1 ≤ k ≤ n − 1`
 (equivalently the elementary-symmetric means of the roots satisfy Newton's inequalities).
 
-**Status: STATEMENT ONLY, with a single documented `sorry`.**  mathlib v4.22.0 has no
-`logConcave`/Newton API for polynomial coefficients (only symmetric-function *Newton
-identities* in `RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean`, which are the
-power-sum ↔ elementary-symmetric recurrences, NOT the inequalities).  A faithful proof
-needs the classical repeated-differentiation reduction: `hasOnlyRealRoots_derivative`
-(already available in `MathlibBridge`) lowers `k` down to the degree-2 case, whose
-Newton inequality is the nonnegativity of the discriminant of a real-rooted quadratic.
-That bookkeeping (tracking the `C(n,k)` normalization through each differentiation, plus
-the degree-2 discriminant base case) is not yet built.  The `sorry` below is local: it does
-NOT affect the axiom-cleanliness of any Target-1 result above. -/
+**Status: FULLY PROVED, sorry-free.**  mathlib v4.22.0 has no `logConcave`/Newton API for
+polynomial coefficients (only symmetric-function *Newton identities* in
+`RingTheory/MvPolynomial/Symmetric/NewtonIdentities.lean`, which are the power-sum ↔
+elementary-symmetric recurrences, NOT the inequalities).  The proof lives in
+`NewtonInequality.lean` (ported from the Aristotle-verified development under
+`formalization/lean-aristotle/newton_inequality/`): the classical repeated-differentiation
+reduction — `hasOnlyRealRoots_derivative` lowers `k` while
+`NewtonInequality.coeff_div_choose_derivative` transports the `C(n,k)` normalization, down
+to the index-`(0,1,2)` case `NewtonInequality.newton_low`, itself proved by induction on
+the degree peeling off one linear factor per step. -/
 theorem newton_inequality {p : ℝ[X]} (hp : HasOnlyRealRoots p) {k : ℕ}
     (hk0 : 1 ≤ k) (hk : k + 1 ≤ p.natDegree) :
     (p.coeff (k - 1) / (p.natDegree.choose (k - 1) : ℝ))
         * (p.coeff (k + 1) / (p.natDegree.choose (k + 1) : ℝ))
-      ≤ (p.coeff k / (p.natDegree.choose k : ℝ)) ^ 2 := by
-  sorry
+      ≤ (p.coeff k / (p.natDegree.choose k : ℝ)) ^ 2 :=
+  NewtonInequality.newton_inequality hp hk0 hk
 
-/-! ## Axiom audit (Target 1 — must be `sorryAx`-free) -/
+/-! ## Axiom audit (Targets 1 AND 2 — must be `sorryAx`-free) -/
 
 #print axioms hasOnlyRealRoots_X_pow
 #print axioms hasOnlyRealRoots_heatOp_X_pow
@@ -205,5 +206,6 @@ theorem newton_inequality {p : ℝ[X]} (hp : HasOnlyRealRoots p) {k : ℕ}
 #print axioms heatOp_half_X_pow_eq_hermiteReal
 #print axioms hermiteReal_hasOnlyRealRoots
 #print axioms hermite_map_hasOnlyRealRoots
+#print axioms newton_inequality
 
 end HeatCorollaries

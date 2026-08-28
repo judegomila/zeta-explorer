@@ -25,6 +25,9 @@ name = "EntireOrderEquiv"
 name = "HeatFlowCounterexample"
 
 [[lean_lib]]
+name = "NewtonInequality"
+
+[[lean_lib]]
 name = "HeatCorollaries"
 
 [[lean_lib]]

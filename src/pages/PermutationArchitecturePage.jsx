@@ -201,6 +201,38 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>conditional alias-coupling reduction (imp-95008)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            Two unconditional lemmas structure the weld. First, the exact alias decomposition: with{' '}
+            <InlineMath tex="\Pi_p = \tfrac1p\sum_{h=0}^{p-1} M_h" /> the arithmetic-progression comb, every linear
+            operator satisfies <InlineMath tex="[\mathcal{B},\Pi_p] = \tfrac1p\sum_{h\neq 0}[\mathcal{B},M_h]" /> —
+            the h = 0 component contributes zero commutator defect identically, so "the smooth interior pairs exactly"
+            is an operator identity, not an estimate. Second, a bounded-overlap collapse: alias images whose supports
+            (in any one orthonormal picture) have overlap multiplicity K obey{' '}
+            <InlineMath tex="\|\sum_h a_h\|^2 \le K \sum_h \|a_h\|^2" />, an exact Pythagorean equality at K = 1.
+            Applied to the doubly-indexed family <InlineMath tex="[\mathcal{B},M_h]f_g" /> this collapses the
+            five-shell correlated weld to <em>single-shell</em> packet masses times the one constant K, and with the
+            packet majorant above it gives{' '}
+            <InlineMath tex="\|[\mathcal{B},\Pi_p]f\|^2 \le C^2 K \big[\textstyle\sum_{h\neq0} w(h)^2\lambda(h)^{-2/3}\big]\,\|f\|^2" />{' '}
+            — the named sub-gap scalar is the exact quadratic controller of the weld. In the equidistributed regime of
+            the equal-weight prime comb the route improves on the ℓ¹ triangle sum by{' '}
+            <InlineMath tex="\sqrt{(p-1)/K}" /> (≈ 9.8 at p = 97, K = 1); with K ≥ 2 and mass concentrated on one
+            alias it can lose to ℓ¹.
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            <strong>Precision on the earlier ℓ² claim:</strong> the proved Fourier-disjointness covers the shell index
+            g only; the ℓ² collapse over the alias index h additionally requires alias-support disjointness, which
+            fails exactly where adjacent stationary points <InlineMath tex="u = v/(k - h/p)" /> coalesce — the Airy
+            fold. <strong>Open residuals:</strong> the fold-overlap multiplicity K, the named scalar itself (uniform
+            over the window and both seam sides), and the passage from this ℓ² weld bound to the pointwise scalar{' '}
+            <InlineMath tex="|C_{E,17}|" /> (shells are evaluated at a point, so a duality step with its own constant
+            is still required). Cross-checked on a finite Fresnel model in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-weld-alias-l2-collapse.js</code>.
+            This promotes no bound.
+          </p>
+        </div>
+
         {/* Five alternative gates */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Five alternative sufficient gates</h2>
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

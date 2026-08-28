@@ -8854,6 +8854,19 @@ const DATA_MODULES = [
   // Measurement only on the inherited imp-3220/imp-3406 surrogate; C_C ansatz and E_trunc = 3.06e-5
   // UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35616-crossover-surrogate-effective-mult-reconciliation.js',
+  // imp-35579: recomputes the imp-35451 interior sigma-peak CUBIC skew on the imp-35413 CLOSED surrogate
+  // height map T0 = 2 pi N / log N (a genuinely different map, not an imp-35557/imp-35615 multiplicative
+  // perturbation) and compares against the RvM-inverse base. VERDICT: SIGN ROBUST, MAGNITUDE NOT invariant.
+  // c3 stays NEGATIVE on both maps (-2.6237e-4 -> -2.8222e-4) and the rising arm stays wider on both
+  // (imbalance > 0, ratio > 1), with the cubic-predicts-imbalance cross-check A_skew_pred = -4 c3/(k^2 ln10)
+  // holding on each (surrogate rel ~7.3e-4). But the surrogate is a ~0.757 effective height multiplier at the
+  // peak (a ~-24 percent move, outside the imp-35615 +/-5 percent bracket per imp-35616), under which the peak
+  // SHARPENS (k +21 percent) faster than |c3| grows (+7.6 percent); since A_skew ~ -4 c3/k^2 the k^2 growth
+  // dominates and the arm-imbalance slope DROPS ~27 percent (11.02 -> 8.06). So the qualitative skew is a
+  // height-map invariant but the arm-asymmetry SLOPE is map-dependent. Eight self-executing assertions.
+  // Measurement only on the inherited imp-3220/imp-3406 surrogate; C_C ansatz and E_trunc = 3.06e-5 UNTOUCHED;
+  // surrogate-vs-true fidelity (imp-35337a) OPEN; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35579-cubic-skew-closed-surrogate.js',
   // imp-35317: derives Banach-fixed-point CLOSED FORMS for the imp-35210 L2 (E_flow share < 1% of the
   // above-floor residual E_coll + E_flow, ~3.246862e7) and L4 (share < 0.1%, ~1.754552e10) landmarks,
   // which imp-35154 M2/M3 located by downslope bisection only -- mirroring the imp-35153 (L1) and
@@ -10677,6 +10690,14 @@ const DATA_MODULES = [
   // N ~ 1e18 is double-precision cancellation in dG (spurious). Five self-executing assertions.
   // Measurement only; surrogate; imp-34714a stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-35766-krawczyk-cancellation-ratio-beyond-band.js',
+  // imp-35807 (accuracy, verification): cross-validate the imp-35766 closed-form model
+  // R - 2 = 2 eps/(1-a) against the exact -dFP/dG ratio across the FULL imp-34693 admissible
+  // seed band (band-bottom through band-top, 201 rungs), not only the band-top rung. Max model
+  // relative deviation over the band ~1.004e-5, occurring at the band-bottom (largest a); the
+  // ~9e-6 imp-35766 band-top figure is near the band MINIMUM. Error monotone in a; exact R stays
+  // ~2.0004 band-wide. Five self-executing assertions. Verification only; surrogate; imp-34714a
+  // stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-35807-krawczyk-closed-form-model-band-sweep.js',
   // imp-35810 (numerical, measurement): pin the exact height at which the imp-35766 (B3)
   // float-cancellation artifact onsets. Evaluate the same exact ratio two ways -- R_measured
   // via dG = S_inf(M_G-1) with M_G=2G/(1+G) formed explicitly (cancellation-carrying) vs the
@@ -12575,6 +12596,19 @@ const DATA_MODULES = [
   // decade separation is confirmed a real structural feature, NOT a tabulation-precision artifact.
   // Reconciliation only; recomputes no landmark; changes no bound; NO QED.
   '/src/data/imp-36258-sharecoll-solesurvivor-structural-vs-bisection-reconciliation.js',
+  // imp-36280 (numerical, opus-4-8, api-pool): NUMERICALLY cross-check the imp-36236 Branch-A smooth-trend
+  // curvature |u_0''_sm(T)| = (1/pi) T^-2 against a direct off-axis Cauchy second-derivative evaluation
+  // m''(z_0*) = 2 int rho_sm(t)/(z_0*-t)^3 dt at the finite-strip footer z_0* = T + i sqrt(2pi/N) for
+  // N = 1e6, 1e9, 1e12. Stabilized by the twice-IBP reduction to the mild 1/(z-t) kernel over
+  // rho_sm''(t) = -(1/2pi) t^-2 (the literal 1/(z-t)^3 kernel is 1/y^3-amplified garbage). FINDING: the
+  // live imaginary/Poisson-limit quadrature reproduces -pi rho_sm''(T) = (1/2) T^-2 to ~0.016 percent at
+  // all three heights, so the LOCAL off-axis curvature is |u_0''_local| = T^-2 = pi times the imp-36236
+  // bare-pointwise (1/pi) T^-2 -- SAME T^-2 scale, constant off only by the Poisson factor pi (the bare
+  // pointwise under-states by pi). The real/Hilbert part is a low-t cutoff artifact ~ -(1/(4pi^2)) T^-1.
+  // BOTH vanish with height => C_H = sqrt(2/|u_0''|) grows (~sqrt(2) T local, ~sqrt(2pi) T symbolic) =>
+  // Branch A INEFFECTIVE, confirming imp-36236. Cross-check only; Branch-B pole scale + S3/S4 fold
+  // inversion GREENFIELD, untouched; G6a_shock_lipschitz OPEN; C_H symbolic; changes no bound; NO QED.
+  '/src/data/imp-36280-branchA-smooth-curvature-quadrature-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

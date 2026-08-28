@@ -12658,6 +12658,20 @@ const DATA_MODULES = [
   // at 1.7977 > target (fails); l2+duality caps at sqrt(S_bar)=0.1952 (9.2x
   // separation). Changes no bound; NO QED.
   '/src/data/imp-95008-evaluation-christoffel-duality.js',
+  // imp-95008 continuation third (proof, fable-5, fable): shell decomposition of
+  // the carrier Christoffel diagonal named as an open residual by the sibling.
+  // UNCONDITIONAL: (Lemma H) K(x,x) = v(x)^dagger G^(-1) v(x) in the RAW
+  // (non-orthonormal) carrier - no equimodularity or orthonormalization needed;
+  // (Corollary H1) spectral enclosure ||v||^2/lambda_max <= K <= ||v||^2/lambda_min,
+  // so the seam-continuum sup reduces to one eigenvalue + raw amplitude sups;
+  // (Lemma I) EXACT additivity across orthogonal shells (the Lean-verified
+  // five-shell ip_Z_Z / ip_Z_Y4 case); (Theorem J, SHARP) with cut-block coupling
+  // eps = norm of D^(-1/2) E D^(-1/2) < 1, the multi-shell diagonal is sandwiched
+  // within (1+eps)^(-1) and (1-eps)^(-1) of the single-shell sum - the multi-shell
+  // pointwise duality constant reduces to single-shell data + one coupling number.
+  // Removes the sibling residual's structural obstruction; the raw carrier
+  // functions stay open under the identification residual. Changes no bound; NO QED.
+  '/src/data/imp-95008-shell-christoffel-decomposition.js',
   // imp-95011 (numerical, opus-4-8, api-pool): the Gate-2 oscillation probe
   // (imp-95007 first computation). Delivers a falsifiable kill-criteria decision
   // procedure probeVerdict(L, sampledSup) for the C_E,17 carrier trajectory and
@@ -12693,6 +12707,50 @@ const DATA_MODULES = [
   // Branch A INEFFECTIVE, confirming imp-36236. Cross-check only; Branch-B pole scale + S3/S4 fold
   // inversion GREENFIELD, untouched; G6a_shock_lipschitz OPEN; C_H symbolic; changes no bound; NO QED.
   '/src/data/imp-36280-branchA-smooth-curvature-quadrature-crosscheck.js',
+  // imp-95008 continuation fourth (proof, fable-5, fable): the cross-block
+  // isolation constant. The recorded blockwise l2 collapse pays a Cauchy-Schwarz
+  // factor B = ceil(log2(p D)) across the dyadic curvature blocks. UNCONDITIONAL
+  // (Proposition M): the mass-adaptive aggregation ||sum w_b||^2 <=
+  // (sum sqrt(K_b m_b))^2 always dominates the recorded B-bracket. CONDITIONAL on
+  // the same packet-width SUPPORT hypothesis as Proposition C (Theorem N): dyadic
+  // curvature blocks occupy dyadic annuli in u, so blocks with index gap >= j0 =
+  // min{j >= 2 : 2^(j-1)-1 > Q(1+2^(j beta))}, Q = (c D^(1-beta)/v) 2^(-(1-beta)),
+  // have DISJOINT packet supports (f(j) strictly increasing, ratio >= 2^(1-beta));
+  // mod-j0 color classes give ||sum w_b||^2 <= j0 sum K_b m_b. j0 is p-FREE: at
+  // the reference family (p=97, v=c=1, beta=1/3, D=1) j0 = 3 vs B = 7 (sharp:
+  // an overlap exists at gap 2), and j0 stays 3 at p=997 (B=10). Honest
+  // counter-case recorded: large-Q family gives j0 = 8 > B = 6, so the final
+  // factor is min(j0, B). Packet-width constants, ceiling D, and the
+  // l2-to-pointwise step remain open; changes no bound; NO QED.
+  '/src/data/imp-95008-block-isolation-constant.js',
+  // imp-95008 continuation five (fable-frontier): the almost-orthogonality
+  // Schur variant with explicit tail decay. Removes the compact-SUPPORT
+  // hypothesis of the sibling cross-block isolation theorem (its named
+  // residual (5)): polynomial-tail majorized packets obey
+  // ||sum_b w_b||^2 <= (2J-1) sum ||w_b||^2 + (4/(2 sigma - 1)) T(J) sum nTilde_b^2
+  // with the closed-form p-free tail T(J) <= G(J)^(-theta)/(1-2^(-theta(1-beta))),
+  // where G(J) is the same annulus gap ratio that defines j0 (G(j0) > 1 exactly
+  // by the Theorem N threshold). Honest costs recorded: near-band factor 2J-1
+  // vs j0 under exact supports, and an l1 block-mass far currency. Envelope
+  // constants for the PAPER packets, ceiling D, phase normalization, and the
+  // l2-to-pointwise step remain open; changes no bound; NO QED.
+  '/src/data/imp-95008-tail-schur-almost-orthogonality.js',
+  // imp-95008 continuation six (fable-frontier): COLOR-CLASS sharpening of the
+  // near-band constant. The fifth continuation named residual "sharpen 2J-1
+  // back to J under a tail hypothesis (needs Cotlar-Stein operator structure)"
+  // is DISCHARGED and its obstruction REFUTED: a mod-J color-class split gives
+  // ||sum_b w_b||^2 <= J [ sum ||w_b||^2 + (4/(2 sigma - 1)) T_J^arith sum
+  // nTilde_b^2 ] under MAJ(sigma, theta) alone, because within one class ALL
+  // distinct block gaps are multiples of J >= 2 - far pairs already paid by
+  // Lemmas T + G - with the improved closed-form tail T_J^arith <=
+  // G(J)^(-theta)/(1 - 2^(-theta(1-beta)J)). Support limit now recovers the
+  // Theorem N constant j0 EXACTLY (no factor-2 loss). Honest cost: the far
+  // term carries the multiplicative J, so the deliverable is min(S, S-prime)
+  // with an exact algebraic crossover, measured in both regimes (S wins
+  // mass-dominated, S-prime wins norm-dominated). Paper-packet envelope
+  // constants, ceiling D, phase normalization, and the l2-to-pointwise step
+  // remain open; changes no bound; NO QED.
+  '/src/data/imp-95008-colorclass-near-band-sharpening.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -9,6 +9,15 @@
 > workspace replay. Every global promotion flag remains false until the early
 > mantle is also certified.
 
+## Latest update — 28 August 2026
+
+[The early-P97 progress checkpoint](./EARLY_P97_PROGRESS_2026-08-28.md)
+records the exact event DAG, full coefficient-level vertical atlas,
+directional-center reduction, branch-free smooth-prefix gates, the
+bottom-to-vertical no-go, and the scalable endpoint-packet plan. It also
+records the current P97 quarter-tail target and the smaller P7 candidate.
+All mantle and global promotion flags remain false.
+
 This directory connects the exact `0.14` work to the existing MathExplorer
 frozen-rung, closure-route, and zero-flow material without changing the app.
 It is a research checkpoint: theorem notes, proof ledgers, and evidence

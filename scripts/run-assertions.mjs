@@ -10212,6 +10212,18 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; changes no bound; imp-486 untouched; imp-35337a
   // OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36139-etrunc-coll-crossover-sensitivity.js',
+  // imp-36255 (numerical, S-frontier): MEASURE the C_C-elasticity of the imp-35968 / imp-36139
+  // E_trunc = E_coll crossover height N_cross ~ 3.28e9 (imp-35337 sigma = 1/2 landmark), the
+  // opposite-signed lever the imp-33723 N_cross ~ (C_C/E_trunc)^2 logT0 fixed point implies but
+  // imp-36139 (which swept only E_trunc) never measured. Re-runs the IDENTICAL imp-35968 /
+  // imp-36139 bisector on a 9-point half-to-double grid of C_C = (1/8) sqrt(3 pi) (imp-2642): N_cross
+  // obeys a clean power law N_cross ~ C_C^{+2.095} (OLS R^2 ~ 0.9999993), CONFIRMING the closed-form
+  // +2 elasticity, fractionally steeper via logT0(N_cross) growth -- the EXACT MIRROR of the imp-36139
+  // E_trunc slope -2.095. Crossover swings ~18x (~1.26 decades) as N rises WITH C_C; sigma stays just
+  // below 1/2 at every rung; baseline reproduces N_cross ~ 3.280294e9 exactly. Eight self-executing
+  // assertions. Measurement only; C_C nominal unchanged (only swept); changes no bound; imp-486
+  // untouched; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-36255-cc-coll-crossover-sensitivity.js',
   // imp-36140 (numerical, S-frontier): cross-compares the imp-36082 Route-B per-N DEVIATION rate
   // r(N) = C_prime sqrt(log gamma_N) N^{-1/4} against the E(N)-bridge GUE-conditional COLLISION rate
   // E_coll = C_C sqrt(log gamma_N / N) = Theta(sqrt(log N) N^{-1/2}) at/beyond T_PT. Headline: the shared
@@ -10234,6 +10246,18 @@ const DATA_MODULES = [
   // assertions. Measurement only; certifies no cap; changes no bound; imp-486 untouched; NO QED;
   // Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36141-route-ii-vs-route-i-panel-count-ratio.js',
+  // imp-36254 (numerical, S-frontier): attempts the FULL Route-II-vs-Route-I panel-count ratio
+  // n_II/n_I = B_II/B_I including the main-term (axis 1) and disk-sup (axis 3) axes, not just the
+  // frequency floor imp-36141 tabulated. Result: the imp-35988/imp-36054 components pin ONLY axis 2
+  // (frequency floor w/logN ~ 1.0265). Algebraic reduction of the component form of B_I and B_II
+  // gives n_II/n_I = FLOOR . E with FLOOR = w/logN and E = delta_disk.(1+rho)/((mu/logN)+rho) >= 1,
+  // where mu/logN in (0,1] (main-term exact-termwise effective frequency), rho = C_t/|A_t+B_t| >= 0
+  // (error-to-main split), delta_disk >= 1 (2D-disk-sup/1D-segment) are all UN-PINNED. The floor is
+  // exactly the E = 1 limit, so the full ratio stays >= FLOOR structurally but is NOT reducible to a
+  // number without instantiating H_t on the disk (I2 greenfield) -- new named sub-gap imp-36254a.
+  // Eight self-executing assertions. Honest partial; measurement/derivation only; certifies no cap;
+  // changes no bound; imp-486 untouched; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-36254-full-panel-count-ratio-decomposition.js',
   // imp-36151 (numerical, S-frontier): compares the imp-36082 Route-B explicit per-N rate r_B(N) =
   // C_prime sqrt(log gamma_N) N^{-1/4} (leading exponent -1/4, witnessed by the wide-window log-log
   // slope converging to -1/4 from above) against the per-N candidate implied by Route-C, which

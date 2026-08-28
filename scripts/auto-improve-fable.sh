@@ -29,18 +29,21 @@ PID_FILE="$SCRIPT_DIR/.auto-improve-fable.pid"
 LOG_DIR="$SCRIPT_DIR/logs"
 INTERVAL=600   # 10 min — premium model, deliberate cadence (spend control).
 MAX_RUNS=20    # low cap — a frontier engine, not a polish loop.
-MODEL='claude-fable-5[1m]'  # entitled 1M-context variant; bare id 404s.
+MODEL='claude-fable-5'  # 2026-08-28 smoke-test: bare id is entitled NOW; '[1m]' rejected (flips — always smoke-test).
 
 # shellcheck disable=SC1091
 . "$SCRIPT_DIR/engine-prompt-shared.sh"
 
-_FABLE_STEPS='1. TARGET: the multi-body (asymmetric) closure of the sg1c R2-T isolation
-constant c in [0.72, 1). Read src/data/sg1c-theta-trap-theorems.js (Theorem C and
-the openSubGap sg1c-r2-isolation-persistence), plus the two frontier verdicts
-src/data/ch-wall-frontier-verdict-2026-06-26.js and
-src/data/econn-metric-rearchitecture-verdict-2026-06-30.js so you attack the CURRENT
-state, not a stale one. imp-3005 already closed the SINGLE-SHELL case in closed form
-(c* = sqrt(2+sqrt3)-1 ~ 0.9319). The open piece is the MULTI-BODY asymmetric shell.
+_FABLE_STEPS='1. TARGET: one of the four CRITICAL frontier tickets in
+src/data/improvement-queue.js — imp-95006 (the ONE open family of the strict
+Lambda<=0.14 completion contract: a uniform correlated enclosure |C_E,17| <
+0.27968819555261474 on 690988 <= N <= 54799999), imp-95008 (the [B_v,Pi_p]
+noncommuting weld / shifted Fresnel-Airy alias packets), imp-95009 (the
+graph-compression possible-gain family, eq. 30/31 gates), or imp-95010 (the
+moving-reference Rouche gluing, eq. 44). Read the ticket, the paper page
+src/pages/PermutationArchitecturePage.jsx, and the verified Lean statements in
+formalization/lean-aristotle/permutation-calculus/README.md so you attack the
+CURRENT state. Pick the ticket where you can make ONE genuine rigorous step.
 
 2. Make ONE genuine, rigorous step toward a CLOSED-FORM multi-body isolation constant
 (or a rigorous sub-lemma / a sharpened bracket). Prefer analysis that reduces the

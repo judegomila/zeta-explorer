@@ -12039,6 +12039,13 @@ const DATA_MODULES = [
   // bit-for-bit. Same imp-3406/imp-33582/imp-2642 sub-terms; each 10x tightening costs ~2.06 decades of
   // N (just above the naive 2.0 the N^{-1/2} law predicts). Measurement only; changes no bound; NO QED.
   '/src/data/imp-36138-sharecoll-subpercent-threshold-crossings-viz-data.js',
+  // imp-36260 (numerical, opus-4-8, api-pool): EXTENDS the imp-36138 shareColl ladder two decades
+  // further -- shareColl<1e-5 (N~6.889e19, shareTrunc~0.99999) and <1e-6 (N~7.612e21, shareTrunc~0.999999),
+  // reproducing the 1e-2..1e-4 anchors bit-for-bit. Same imp-3406/imp-33582/imp-2642 sub-terms. Settles
+  // imp-36138s open question: the per-decade spacing does NOT keep drifting above the naive 2.0 -- the
+  // excess SHRINKS monotonically (0.0699->0.0549->0.0482->0.0434), converging back toward 2.0 as the
+  // sqrt(log T0) numerator saturates. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-36260-sharecoll-1e5-1e6-crossing-spacing-viz-data.js',
   // imp-36142 (content, sonnet-4-6, sonnet): standalone honest-status note restating imp-36096 --
   // the joint (alpha,beta) W1-accumulator recovery basin is strongly NON-CONVEX / lobed (bulging to
   // u+v~2.48-2.52 outside the axis diamond, caving to ~0.59-0.60 in a narrow beta-axis lobe), so the
@@ -12523,6 +12530,17 @@ const DATA_MODULES = [
   // imp-95011-sub-arithmetic-carrier-scan) UNMEASURED here; the surrogate
   // numbers demonstrate the machinery, not the arithmetic. Changes no bound; NO QED.
   '/src/data/imp-95011-gate2-oscillation-probe.js',
+  // imp-36258 (accuracy, opus-4-8, api-pool): RECONCILE the two independent gap determinations for
+  // the imp-36097 shareColl < 1% crossing (N_cross) vs the imp-35971 E_trunc sole-survivor height
+  // (N*) -- (A) the imp-36155 STRUCTURAL ratio ~1.020980 from baked source literals and (B) the
+  // imp-36200 BISECTION-resolution ratio ~1.02098618 (bit-stable, structurally floored). Imports
+  // both frozen results verbatim: the two agree to ~6.2e-6 in ratio, a residual fully attributable
+  // to the imp-35971 toExponential(4) N* literal (~6.07e-6 relative), matched by the first-order
+  // d(ratio)/ratio ~ d(N*)/N* attribution to ~8e-8. Both put N_cross strictly below N*, and the
+  // imp-36200 bit-stability + positive structural floor rule out any merge. The ~2.10% / ~0.0090-
+  // decade separation is confirmed a real structural feature, NOT a tabulation-precision artifact.
+  // Reconciliation only; recomputes no landmark; changes no bound; NO QED.
+  '/src/data/imp-36258-sharecoll-solesurvivor-structural-vs-bisection-reconciliation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

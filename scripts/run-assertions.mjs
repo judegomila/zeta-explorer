@@ -12751,6 +12751,26 @@ const DATA_MODULES = [
   // constants, ceiling D, phase normalization, and the l2-to-pointwise step
   // remain open; changes no bound; NO QED.
   '/src/data/imp-95008-colorclass-near-band-sharpening.js',
+  // imp-95008 continuation seven (fable-frontier): the near-band constant
+  // TERMINATES at 2. Split-gap optimization of the sibling Theorem S-prime
+  // (never optimized over J by the chain) attains near constant 2 at J = 2 -
+  // the parity split, the unique modulus annihilating the floorless gap-1
+  // pairs - strictly below the Theorem N support-limit constant j0 = 3
+  // (consistent: MAJ theta -> infinity is strictly stronger than SUPPORT at
+  // sub-j0 gaps). NEW Theorem F matching floor: an explicit admissible
+  // two-packet witness at the minimal grid spacing 1/p (d = (p+-1)/(2p)
+  // straddling the block-0/1 boundary) with the W12 shift bound
+  // ||phi_tau - phi|| <= |tau| ||phi_prime|| forces ANY two-currency bound
+  // cNear A + cFar T* M (T* <= T(2)) to have cNear >= 2 - L(s) tau_p^2 -
+  // cFar T(2)(2s-1)(r1+r2)/(4 r1): floor 1.8577 at the reference, -> 2 in
+  // the joint limit (spacing -> 0 then theta -> infinity), so 2 is sharp
+  // and the sixth-continuation near-constant residual is resolved in both
+  // directions. Deliverable becomes min over J of { S(J), S-prime(J) }
+  // (measured minimizers S-prime(2) norm-dominated, S-prime(9)
+  // mass-dominated). Far-coefficient reduction at pinned near constant 2,
+  // paper-packet envelope constants, ceiling D, phase normalization, and
+  // the l2-to-pointwise step remain open; changes no bound; NO QED.
+  '/src/data/imp-95008-near-constant-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -64,6 +64,13 @@
  * @see imp-34957-crossover-deriv-p11-p12-extension (P_11/P_12 table + asserted boundary recurrences)
  * @see imp-34922-crossover-deriv-p9-p10-extension (P_9/P_10 + first statement of the boundary recurrences)
  * @see imp-34880-crossover-deriv-all-orders-sign-induction (all-orders coefficient-positivity induction)
+  *
+ * UPDATE 2026-08-28: the two items listed below as NOT PROVED (subleading
+ * a_{n-2}^{(n)} = (n-1)(n-1)! and row sum P_n(1) = n^{n-1}) are now
+ * KERNEL-VERIFIED unconditional theorems for all n — Lean 4, standard axioms,
+ * faithfulness-reviewed: formalization/lean-aristotle/ramanujan_reversal/
+ * (corollary_2_subleading, corollary_1_row_sum). The n<=12 numeric checks
+ * below remain as cross-validation of the verified statements.
  */
 
 // ---- Coefficient recurrence a_k^(n+1) = n a_{k-1} + (2n-1-k) a_k (ascending powers of u) ---------

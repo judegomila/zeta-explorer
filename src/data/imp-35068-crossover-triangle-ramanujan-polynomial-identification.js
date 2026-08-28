@@ -49,11 +49,17 @@
  *    55781, 659722, 8745185, 127941538 for n = 2..12 (the unsigned Ramanujan values |R_n(-1)|),
  *    pinning the alternating-sum sequence the ticket asked to characterize.
  *
- * PROOF SCOPE / HONESTY. IDENTIFICATION/CHARACTERIZATION ONLY of a combinatorial triangle attached
- * to the derivatives of the INHERITED imp-3220/imp-3406 / imp-33723 surrogate crossover map. The
- * Ramanujan-polynomial match is verified numerically (exact integer arithmetic, dual independent
- * recurrences) n = 2..12; the generating-function / rooted-tree statements are the standard
- * Ramanujan-polynomial theory this identification connects to, cited not re-proved. Establishes NO
+ * PROOF SCOPE / HONESTY. IDENTIFICATION/CHARACTERIZATION of a combinatorial triangle attached
+ * to the derivatives of the INHERITED imp-3220/imp-3406 / imp-33723 surrogate crossover map. This
+ * module verifies the match numerically (exact integer arithmetic, dual independent recurrences)
+ * n = 2..12. UPGRADE 2026-08-28: the identification and both formerly-open conjectures are now
+ * KERNEL-VERIFIED UNCONDITIONAL THEOREMS for all n (Lean 4, standard axioms, independently
+ * faithfulness-reviewed): theorem_1_reversal (P_n = reversed R_n), theorem_2_ramanujan_value
+ * (R_n(1) = n^(n-1), proved FROM SCRATCH via Abel's binomial theorem + the tree-function ODE in
+ * Q[[X]] — machinery mathlib lacks), corollary_1_row_sum, corollary_2_subleading
+ * (a_{n-2}^{(n)} = (n-1)(n-1)!). See formalization/lean-aristotle/ramanujan_reversal/.
+ * (Proof direction: corollary_1 is proved directly from the tree series; theorem_2 follows via
+ * the reversal.) Establishes NO
  * RH-level result, NO operator positivity, and changes NO bound. The C_mb GUE-conditional per
  * imp-486, the C_C 1/8 ansatz (imp-2642/imp-2643), and imp-3066 K_a >= 0 are UNTOUCHED. No RH
  * verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
@@ -221,7 +227,7 @@ export const IMP35068_CROSSOVER_TRIANGLE_RAMANUJAN_IDENTIFICATION = {
     'tree function T(z)=sum n^(n-1) z^n/n! = -W(-z) (Lambert W) -- the closed-form generating object ' +
     'the earlier ad hoc tabulation lacked a name for. Triangle cf. OEIS A054589; row sums OEIS A000169.',
   identificationPasses,
-  isRigorous: true, // exact integer arithmetic ONLY: the reversed-Ramanujan match is VERIFIED n=2..12, NOT proved for all n — the reversal identity P_n(u) = u^{n-1} R_n(1/u) and the row sum P_n(1) = n^{n-1} remain conjectures here (formalization target: ARISTOTLE_TARGETS.md wave-2 #10); the OEIS/tree-function attributions are cited, not re-proved
+  isRigorous: true, // exact integer arithmetic n=2..12 in THIS module; 2026-08-28 UPGRADE: the reversal identity P_n(u) = u^{n-1} R_n(1/u), the row sum P_n(1) = n^{n-1}, AND the subleading a_{n-2}^{(n)} = (n-1)(n-1)! are now KERNEL-VERIFIED UNCONDITIONAL THEOREMS for all n (Lean 4, standard axioms only, independently faithfulness-reviewed) — see formalization/lean-aristotle/ramanujan_reversal/ (theorem_1_reversal, theorem_2_ramanujan_value, corollary_1_row_sum, corollary_2_subleading; Abel's binomial theorem + the tree-function ODE proved from scratch en route)
   rigorousScope:
     'IDENTIFICATION of the numerator-polynomial coefficient triangle of the INHERITED imp-3220/' +
     'imp-3406 / imp-33723 surrogate crossover map as the (reversed) Ramanujan polynomial triangle. ' +

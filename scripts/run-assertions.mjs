@@ -10217,6 +10217,19 @@ const DATA_MODULES = [
   // precision. Five self-executing assertions. Measurement only; gap independent of constants;
   // changes no bound; per-N + imp-36082 anchor stay OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-36160-routeB-unconditional-vs-conditional-exponent-gap.js',
+  // imp-36216 (numerical, S-frontier): tabulates the imp-36137 Route-C ABSOLUTE per-N rate
+  // r_C(N) = pi^2/(2 kappa log(gamma_N/2 pi)) = Theta(1/log N) against the imp-36082 Route-B
+  // DEVIATION rate r_B(N) = C_prime sqrt(log gamma_N) N^{-1/4} = Theta(sqrt(log N) N^{-1/4}) across
+  // the imp-321 PT_SCALE_EXTRAPOLATION N-ladder [2458, 5000, 1e4..1e8], each form on its own source
+  // gamma_N machinery. Headline: r_C/r_B > 1 at every physical rung and diverges (~1.029 at N=2458,
+  // ~1.442 at 1e5, ~3.866 at 1e8; wide log-log slope ~+0.125) since 1/log N decays slower than
+  // N^{-1/4}, so Route-B is the numerically SMALLER value throughout. A single magnitude crossover
+  // N* ~ 1482 (r_C = r_B) sits just BELOW the ladder floor 2458. Reliability caveat: the smaller
+  // number is NOT the better bound -- Route-B bounds a DEVIATION (CONSUMABLE-MODULO-ANCHOR) while the
+  // whole Route-C column is CONDITIONAL on the OPEN G3a_max_gap premise, VACUOUS under the imp-36259
+  // GUE R_N ~ sqrt(log N) scale (fails for N >= 5). Six self-executing assertions. Comparison of two
+  // FORMS only; both premised on the OPEN per-N translation; closes nothing; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-36216-routeC-vs-routeB-perN-rate-tabulation.js',
   // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
   // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
   // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973

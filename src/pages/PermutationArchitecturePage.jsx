@@ -249,6 +249,26 @@ export default function PermutationArchitecturePage() {
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-alias-separation-curvature-floor.js</code>.
             This promotes no bound.
           </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '10px 0 0' }}>
+            <strong>Follow-up — the ℓ²-to-pointwise duality step has an exact constant (unconditional):</strong> for any
+            finite orthonormal system, <InlineMath tex="\sup\{|v(x)| : v \in H_W,\ \|v\| \le 1\} = \sqrt{K_W(x,x)}" />{' '}
+            with <InlineMath tex="K_W(x,x) = \sum_{i \in W} |\varphi_i(x)|^2" /> the diagonal reproducing kernel (an
+            inverse Christoffel function), attained at the normalized kernel — so no better generic duality step exists.
+            In the DFT picture <InlineMath tex="K_W(n,n) = |W|/L \le 1" /> at <em>every</em> point (the seam-side /
+            window quantifier is exact and free at this step), and the coordinate picture gives constant exactly 1 with
+            no hypothesis; by the trace identity the average of <InlineMath tex="K_W(x,x)" /> is{' '}
+            <InlineMath tex="|W|/L" /> in every orthonormal picture. Chained with the conditional closed form above, the
+            strict open-family target holds iff the residual constant product{' '}
+            <InlineMath tex="Q = \sqrt{K_W(x,x)}\, C \sqrt{K}\, \|f\|" /> stays below{' '}
+            <InlineMath tex="0.27968\ldots/\sqrt{\bar S} \approx 1.4327" /> — strictly above 1, so the pointwise step is
+            not the binding constraint. What remains of the former duality residual is finite: identifying{' '}
+            <InlineMath tex="C_{E,17}" /> as a weld evaluation in a specific orthonormal picture with explicit
+            normalization, and the Christoffel diagonal of the 18-mode carrier system at the seam points (18 numbers per
+            point). At unit constants the ℓ¹ pointwise route caps at 1.7977 (above the target); the ℓ²+duality route
+            caps at <InlineMath tex="\sqrt{\bar S} \approx 0.1952" />. Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-evaluation-christoffel-duality.js</code>.
+            This promotes no bound.
+          </p>
         </div>
 
         {/* Five alternative gates */}

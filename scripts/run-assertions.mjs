@@ -12643,6 +12643,21 @@ const DATA_MODULES = [
   // the separable case. Paper-phase normalization, packet-width constants,
   // ceiling D, and the l2-to-pointwise step remain open; changes no bound; NO QED.
   '/src/data/imp-95008-alias-separation-curvature-floor.js',
+  // imp-95008 continuation second (proof, fable-5, fable): the residual-(c)
+  // l2-to-pointwise duality step closed as an exact reproducing-kernel lemma.
+  // UNCONDITIONAL: sup{|v(x)| : v in H_W, ||v||<=1} = sqrt(K_W(x,x)) (inverse
+  // Christoffel function), ATTAINED at the normalized kernel; in the DFT
+  // picture K_W(n,n) = |W|/L <= 1 at EVERY point (seam/window quantifier free
+  // at this step), constant exactly 1 in the coordinate picture; trace
+  // identity: average K_W(x,x) = |W|/L in every orthonormal picture.
+  // CONDITIONAL budget assembly at p=97: closure iff the residual constant
+  // product Q = sqrt(K_W) C sqrt(K) ||f|| < target/sqrt(S_bar) = 1.4327 > 1,
+  // so the duality step is never the binding factor; residual (c) transforms
+  // into the identification of C_E,17 as a weld evaluation + the 18-mode
+  // carrier Christoffel diagonal at the seam points. l1 pointwise route caps
+  // at 1.7977 > target (fails); l2+duality caps at sqrt(S_bar)=0.1952 (9.2x
+  // separation). Changes no bound; NO QED.
+  '/src/data/imp-95008-evaluation-christoffel-duality.js',
   // imp-95011 (numerical, opus-4-8, api-pool): the Gate-2 oscillation probe
   // (imp-95007 first computation). Delivers a falsifiable kill-criteria decision
   // procedure probeVerdict(L, sampledSup) for the C_E,17 carrier trajectory and

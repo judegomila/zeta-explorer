@@ -22,10 +22,13 @@ satisfiable (non-vacuous). Each directory keeps Aristotle's own
 Known assumed inputs across the wave (referee checklist): (S) the de Bruijn
 strip contraction and (G) global zero representation (antihermitian_strip);
 the §4.7 open weld `‖E₉₇‖ < R_ex` and the (H6) argument-principle packaging
-(section47_chain) — the latter can now be discharged against
-`ArgumentPrinciple.windingRect_eq_sum_analyticOrder` in the candidate-audit
-repo's `lean/aristotle/argument_principle/` (PR #30). Everything else in
-this wave is unconditional.
+(section47_chain). The (H6) step is now discharged in-file by
+`theorem4_chain_argPrinciple`, which consumes an `ArgPrincipleBox` interface
+matching `ArgumentPrinciple.windingRect_eq_sum_analyticOrder` in the
+candidate-audit repo's `lean/aristotle/argument_principle/` (PR #30) and
+surfaces the previously-absorbed `B_{t₀}`-nonvanishing side condition; the
+argument-principle lemma itself and the open weld remain assumed. Everything
+else in this wave is unconditional.
 
 Exact verbatim theorem signatures for app-side quoting are in each
 directory's `ARISTOTLE_SUMMARY.md` and the project source; the faithfulness

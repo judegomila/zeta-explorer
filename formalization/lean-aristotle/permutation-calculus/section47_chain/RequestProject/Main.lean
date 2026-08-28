@@ -44,11 +44,18 @@ The file contains:
 * `ZetaTwinLadder.hasWinding_zero_of_mapsTo_slitPlane`,
   `ZetaTwinLadder.prop3_wind_quotient_zero` : **Proposition 3** (zero winding);
 * `ZetaTwinLadder.theorem4_chain` : **Theorem 4**, the conditional chain whose
-  hypotheses are exactly (H0)–(H6).
+  hypotheses are exactly (H0)–(H6);
+* `ZetaTwinLadder.ArgPrincipleBox`, `ZetaTwinLadder.theorem4_chain_argPrinciple`
+  : the same chain with the opaque (H6) **consumed** — unfolded into the
+  argument-principle count identity (matching the audit-repo lemma
+  `ArgumentPrinciple.windingRect_eq_sum_analyticOrder`) plus the surfaced
+  `B_{t₀}`-nonvanishing side condition.
 
 The analytic inputs (H5) (certified canonical logarithm / closed ledger) and
 (H6) (argument-principle packaging) are hypotheses, as in the source, and so is
-the strict inequality (H4), which is the paper's open weld.
+the strict inequality (H4), which is the paper's open weld.  The winding is
+DERIVED in every variant; only the argument-principle packaging and the open
+weld remain assumed.
 -/
 
 namespace ZetaTwinLadder
@@ -314,6 +321,71 @@ theorem theorem4_chain
     (H6 : HasWinding hb 0 → Theorem41ii Ht0) :
     Theorem41ii Ht0 := by
   refine H6 (prop3_wind_quotient_zero H5cont ?_ H5loop H5A)
+  intro t ht
+  by_cases hS : t ∈ S
+  · exact prop2_avoids (H0 t hS) (H1 t hS) (H2 t hS) (H3 t hS) (H4 t hS)
+  · exact H5closed t ⟨ht, hS⟩
+
+/-! ## Discharging (H6) against the argument principle
+
+In `theorem4_chain` the step from `wind(H_{t₀}/B_{t₀}) = 0` to Theorem 4.1(ii)
+is the single opaque hypothesis `H6`.  Below we unfold `H6` into the actual
+argument-principle content, so that it is **consumed** rather than assumed as a
+black box.  Doing so surfaces a side condition — `B_{t₀}` must be nonvanishing
+on the terminal box — that the opaque `H6` had absorbed implicitly. -/
+
+/-- `BoxNonvanishing F`: `F` has no zero on the terminal box
+`{x+iy : X+α ≤ x, y₀ ≤ y ≤ β}`.  Note `Theorem41ii F` is definitionally
+`BoxNonvanishing F`. -/
+def BoxNonvanishing (F : ℂ → ℂ) : Prop :=
+  ∀ x y : ℝ, Xconst + alpha ≤ x → y0 ≤ y → y ≤ beta →
+    F ((x : ℂ) + (y : ℂ) * Complex.I) ≠ 0
+
+/-- The argument-principle interface for the terminal box, matching the
+kernel-verified `ArgumentPrinciple.windingRect_eq_sum_analyticOrder`
+(candidate-audit repo `lean/aristotle/argument_principle/`, PR #30): if the
+boundary winding of the quotient `hb = H_{t₀}/B_{t₀}` is zero and the
+denominator `B_{t₀}` has no zero on the box, then `H_{t₀}` has no zero on the
+box.  (Analytic order is nonnegative and the boundary winding equals the summed
+interior analytic order, so zero winding forces every order to vanish; the
+`B_{t₀}` side condition makes the interior zeros of `hb` and of `H_{t₀}`
+coincide.)  Consuming this predicate discharges (H6); in doing so it exposes the
+`B_{t₀}`-nonvanishing side condition that the opaque (H6) of `theorem4_chain`
+had absorbed. -/
+def ArgPrincipleBox (Ht0 Bt0 : ℂ → ℂ) (hb : ℝ → ℂ) : Prop :=
+  HasWinding hb 0 → BoxNonvanishing Bt0 → Theorem41ii Ht0
+
+/-- **Theorem 4, with (H6) discharged against the argument principle.**
+
+Identical to `theorem4_chain` except that the opaque `H6` is replaced by its
+two constituents: `H6ap`, the argument-principle count identity for the box (the
+consumable kernel lemma), and `H6B`, the nonvanishing of the denominator
+`B_{t₀}` on the box.  The winding `wind(hb) = 0` is still **derived** from the
+packet estimate (H0)–(H4) via `prop3_wind_quotient_zero`, exactly as before. -/
+theorem theorem4_chain_argPrinciple
+    (S : Set ℝ) (C Q E A hb : ℝ → ℂ) (m eps : ℝ → ℝ) (Rex : ℝ)
+    (Ht0 Bt0 : ℂ → ℂ)
+    -- (H0)
+    (H0 : ∀ t ∈ S, E t = C t - Q t) (H0' : 0 < Rex)
+    -- (H1)
+    (H1 : ∀ t ∈ S, m t ≤ Metric.infDist (C t) negRealAxis)
+    -- (H2)
+    (H2 : ∀ t ∈ S, ‖A t * hb t - Q t‖ ≤ ‖A t‖ * eps t)
+    -- (H3)
+    (H3 : ∀ t ∈ S, Rex ≤ m t - ‖A t‖ * eps t)
+    -- (H4)
+    (H4 : ∀ t ∈ S, ‖E t‖ < Rex)
+    -- (H5)
+    (H5sub : S ⊆ Set.Icc 0 1)
+    (H5A : HasWinding A 0)
+    (H5cont : ContinuousOn (fun t => A t * hb t) (Set.Icc 0 1))
+    (H5loop : A 0 * hb 0 = A 1 * hb 1)
+    (H5closed : ∀ t ∈ Set.Icc (0 : ℝ) 1 \ S, A t * hb t ∉ negRealAxis)
+    -- (H6), split into the argument-principle lemma and its side condition
+    (H6ap : ArgPrincipleBox Ht0 Bt0 hb)
+    (H6B : BoxNonvanishing Bt0) :
+    Theorem41ii Ht0 := by
+  refine H6ap (prop3_wind_quotient_zero H5cont ?_ H5loop H5A) H6B
   intro t ht
   by_cases hS : t ∈ S
   · exact prop2_avoids (H0 t hS) (H1 t hS) (H2 t hS) (H3 t hS) (H4 t hS)

@@ -317,6 +317,15 @@ export default function InformationTheoryPage() {
             </div>
           </div>
           <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.8 }}>
+            Resource bounds only reopen the question for <em>exact canonical digits</em>. Rationals have a
+            constant-size linear-time long-division program, but certified approximations to a fixed zeta value
+            are computable in <InlineMath tex={"p^{3/2+o(1)}"} /> bit operations. The exact-digit carry boundary
+            is the Diophantine quantity <InlineMath tex={"\\lVert b^N\\zeta(5)\\rVert"} />; the Euler product gives
+            no known lower bound for it. At the arithmetic frontier, the reproduced Brown–Zudilin scalar family
+            is short by <InlineMath tex={"18.05278"} /> nats, or <InlineMath tex={"26.04465"} /> bits, per step
+            after denominator clearing.
+          </p>
+          <p style={{ marginTop: 12, color: 'var(--ink-soft)', fontSize: 12.5, lineHeight: 1.8 }}>
             The <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta page</Link> records the full
             audit, the exact positive-cone/Farey closure target, and Brown's 2026 multi-parameter
             Mellin/transfinite-diameter criterion as a research direction—not a completed proof.

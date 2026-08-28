@@ -12280,6 +12280,15 @@ const DATA_MODULES = [
   // tokens, 2 sub-gap labels, the imp-58685 typo exemplar) fail to resolve. Audit only;
   // no source file required correction; NO QED.
   '/src/data/imp-36264-imp36135-160-36246-251-cross-reference-integrity-audit.js',
+  // imp-36175 (numerical, opus-4-8, api-pool): DERIVES the imp-36017-measured / imp-36166-restated
+  // exact-2 surrogate-over-layer width ratio of the Krawczyk residual node from an op-DAG ULP count.
+  // Per node the surrogate emits 2 ULP (nextUp AND nextDown of the same nearest value) vs 1 ULP for a
+  // correctly-rounded directed op (adjacent representables). Away from the fixed point F=m-G~m so the
+  // subtraction node own-slack ulp(F)~ulp(m) dominates and carries a clean 2:1, so the ratio -> exactly 2;
+  // a-independence is the scale-invariance of ulp(.). The only node breaking a clean termwise 2x is the
+  // product node, ONLY at the F=0 centre N_cross (round-to-nearest product shave, bounded, ratio ~1.84).
+  // Derivation only; both widths remain MODELS; imp-34714a/imp-34687a open; NO QED.
+  '/src/data/imp-36175-krawczyk-residual-2x-ratio-opdag-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -10115,6 +10115,19 @@ const DATA_MODULES = [
   // the I2 CRUX. Six self-executing assertions. Measurement only; bounds no truncation error;
   // certifies no step bound; G-step-error stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-36233-order5-elementary-differential-delta-scaling.js',
+  // imp-36239 (numerical, S-frontier): MEASURE the crossover min-gap delta*(N) where the
+  // imp-36192 I5 per-step rounding floor ~ stages*N*eps overtakes the I2 per-step truncation
+  // term ~ dt^5*delta^-9 in the interval-RK4 backward-Dyson integrator. The two channels scale
+  // oppositely in the min gap delta: I2 (truncation, imp-36233 delta^-9, prefactor 1680) blows
+  // up toward the front, while I5 (rounding, imp-35761 op-count floor) is delta-independent, so
+  // delta* = (c2*dt^5/(stages*N*eps))^{1/9}. Result: at dt=1e-5 the crossover sits at delta* ~
+  // 0.025..0.063 across N in [1e2, 488602] -- an ORDER-ONE gap in the BULK, ~250x ABOVE the
+  // near-front boundary layer (delta ~ 1e-4); delta* ~ N^{-1/9} so a 4886x N change moves it only
+  // ~2.57x; and at the front delta=1e-4 truncation exceeds the rounding floor by ~3.2e21 (~21
+  // orders), QUANTIFYING the imp-36192 "I5 small vs I2 near the front" claim. Seven self-executing
+  // assertions. Measurement only; bounds neither channel absolutely; certifies no step bound;
+  // G-step-error stays OPEN; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-36239-i5-rounding-vs-i2-truncation-crossover.js',
   // imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
   // pairwise stresses -- imp-35852 varied the term ORDER at a fixed balanced tree, imp-35893
   // varied the pairing-tree SHAPE at a fixed order, but the two-at-once cross was never

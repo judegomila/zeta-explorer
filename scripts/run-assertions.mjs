@@ -10258,6 +10258,18 @@ const DATA_MODULES = [
   // Eight self-executing assertions. Honest partial; measurement/derivation only; certifies no cap;
   // changes no bound; imp-486 untouched; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-36254-full-panel-count-ratio-decomposition.js',
+  // imp-36274 (numerical, S-frontier): upgrades the imp-36141 frequency-FLOOR panel-count ratio into
+  // an explicit two-sided ENVELOPE by supplying the numeric disk-sup witness imp-36254 left open. In
+  // the error-dominated regime (rho -> infinity) the main-term axis mu/logN drops out (E -> delta_disk),
+  // and the recorded imp-36040 Gronwall worst-case brackets delta_disk in [1, e] (M(r*)/M(0) = e at the
+  // optimal Cauchy radius r* = 1/g, worst case g = w). Hence n_II/n_I in [w/logN, (e.w)/logN] =
+  // [1.0265, 2.79] (+2.65% .. +179% panels): lower end = imp-36141 floor, upper end = imp-36040 optimal
+  // ratio verbatim. Reconciles imp-36054 "few percent" (holds only for slow disk growth g < w/e ~ 0.368 w)
+  // with imp-36040 "Route II ~179% looser". Nine self-executing assertions. Upper end MODEL-CONDITIONAL
+  // (Gronwall worst case, not a measured g); main-term axis still un-pinned (imp-36254a OPEN), can exceed
+  // hi in main-dominated regimes. Measurement/derivation only; certifies no cap; changes no bound;
+  // imp-486 untouched; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-36274-panel-count-ratio-envelope.js',
   // imp-36151 (numerical, S-frontier): compares the imp-36082 Route-B explicit per-N rate r_B(N) =
   // C_prime sqrt(log gamma_N) N^{-1/4} (leading exponent -1/4, witnessed by the wide-window log-log
   // slope converging to -1/4 from above) against the per-N candidate implied by Route-C, which
@@ -10293,6 +10305,19 @@ const DATA_MODULES = [
   // GUE R_N ~ sqrt(log N) scale (fails for N >= 5). Six self-executing assertions. Comparison of two
   // FORMS only; both premised on the OPEN per-N translation; closes nothing; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-36216-routeC-vs-routeB-perN-rate-tabulation.js',
+  // imp-36276 (accuracy, S-frontier): reconciles the APPARENT tension between imp-36137 (derives an
+  // EXPLICIT Route-C per-N rate form r(N) = pi^2/(2 kappa log(gamma_N/2 pi)) = Theta(1/log N)) and
+  // imp-36151 (records routeC.rateForm = null, exponentPinned = false: NO pinned Route-C exponent until
+  // G3a_max_gap closes). VERDICT: NO CONTRADICTION -- the two records answer DIFFERENT axes. imp-36137
+  // supplies the CONDITIONAL FORM the density squeeze gives IF its premise holds (derived under the
+  // conservative Weyl min-gap surrogate B(0)=2 pi/L, contingent on the density-squeeze premise whose SOLE
+  // open residual is G3a_max_gap; status CONSUMABLE-MODULO-G3a), NOT an unconditionally pinned exponent --
+  // exactly the object imp-36151 means by rateForm null on the UNCONDITIONAL axis. imp-36151 is
+  // authoritative on the pinned-exponent question, imp-36137 on the conditional form; both keep the per-N
+  // translation and G3a_max_gap OPEN and neither overclaims (both carry honest caveats). Cross-imports both
+  // records so a future flip in either breaks the reconciliation. Five self-executing assertions.
+  // Reconciliation only; closes nothing; per-N translation and G3a_max_gap stay OPEN; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-36276-routeC-perN-rate-form-conditional-reconciliation.js',
   // imp-36023 (numerical, S-frontier): does Kahan-Babuska-Neumaier (KBN) compensated summation
   // on the imp-35973 COMBINED worst-case configuration (the imp-35852 clustered same-sign ORDER)
   // stay at the unit-roundoff floor across the imp-35812 N ladder, or DRIFT with N? imp-35973

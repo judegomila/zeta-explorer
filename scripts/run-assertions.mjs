@@ -10212,6 +10212,15 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; changes no bound; imp-486 untouched; imp-35337a
   // OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-36139-etrunc-coll-crossover-sensitivity.js',
+  // imp-36277 (numerical, S-frontier): DERIVE the imp-36139 crossover-height elasticity
+  // d log N_cross / d log E_trunc ~ -2.095 analytically from the imp-33723 fixed point. Implicit
+  // differentiation of log N_cross = 2 log C_C - 2 log E_trunc + log logT0(N_cross) gives S = -2/(1-g),
+  // g = d log logT0 / d log N; the magnitude excess |S|-2 = 2g/(1-g) is the pure log T0(N_cross) drift.
+  // Two independent g determinations (finite difference vs the RvM closed form (u-1)/(u L)) agree at
+  // g ~ 0.045423, reproducing the OLS -2.0953 and the +0.095 excess, and matching the half/double-floor
+  // local slopes -2.090 / -2.101. Six self-executing assertions. Derivation only; changes no bound;
+  // imp-486 untouched; imp-35337a OPEN; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-36277-crossover-elasticity-analytic-derivation.js',
   // imp-36255 (numerical, S-frontier): MEASURE the C_C-elasticity of the imp-35968 / imp-36139
   // E_trunc = E_coll crossover height N_cross ~ 3.28e9 (imp-35337 sigma = 1/2 landmark), the
   // opposite-signed lever the imp-33723 N_cross ~ (C_C/E_trunc)^2 logT0 fixed point implies but

@@ -47,6 +47,7 @@ const engines = [
   { name: 'Sonnet', channel: 'sonnet', model: 'sonnet-4-6', workers: running('auto-improve-sonnet.sh') ? 1 : 0, on: running('auto-improve-sonnet.sh') },
   { name: 'Subscription', channel: 'subscription', model: 'opus-4-7', workers: running('auto-improve.sh') ? 1 : 0, on: running('auto-improve.sh') },
   { name: 'Haiku', channel: 'subscription', model: 'haiku-4-5', workers: running('auto-improve-haiku.sh') ? 1 : 0, on: running('auto-improve-haiku.sh') },
+  { name: 'Fable frontier', channel: 'ANTHROPIC_API_KEY', model: 'fable-5', workers: running('auto-improve-fable.sh') ? 1 : 0, on: running('auto-improve-fable.sh') },
 ];
 const totalWorkers = engines.reduce((n, e) => n + e.workers, 0);
 

@@ -652,11 +652,25 @@ export default function OddZetaPage() {
                 <InlineMath tex={"\\zeta(5)"} /> application is currently complete.
               </p>
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
-                The reproduced scalar budget is concrete:{' '}
+                The head-on source audit found that the five-LCM denominator input is explicitly called
+                experimental, its exact normalization fails even at the strictly interior symmetric point,
+                and the displayed projected residue contour has a factor-two error plus missing
+                wall terms. The reproduced scalar budget is therefore conditional:{' '}
                 <InlineMath tex={"C_0=-31.55297"} /> and <InlineMath tex={"C_2=49.60575"} />, leaving{' '}
                 <InlineMath tex={"C_0+C_2=18.05278"} /> nats, or <InlineMath tex={"26.04465"} /> missing bits,
-                per step. The projected <InlineMath tex={"\\zeta(5)"} /> Hankel matrix is already indefinite at{' '}
-                <InlineMath tex={"2\\times2"} />, so Brown's automatic positive-moment nonvanishing cannot be used.
+                per step.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                Conditional on the printed recurrence identity, one theorem survives: the symmetric projected
+                recurrence has indicial exponent{' '}
+                <InlineMath tex={"-5/2"} />, so Kronecker's theorem proves its principal Hankel determinants
+                are nonzero infinitely often. The first five-ray box is residue-degenerate but not
+                moment-degenerate: <InlineMath tex={"Q(a(v))=0"} /> off the origin, while its first rational
+                tail has determinant <InlineMath tex={"95/2^{20}"} />. On the same cone the proposed multiplier
+                gives <InlineMath tex={"32I'=-5/3"} />, so its negative orbit coordinates and missing
+                normalization leave{' '}
+                <InlineMath tex={"e^{-13/4}"} /> only as a conditional target pending denominator, cycle, and
+                growing-determinant theorems.
               </p>
             </div>
           </div>

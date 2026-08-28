@@ -26,14 +26,14 @@ export const ANIMATIONS_INDEX = Object.freeze([
     watchOrder: 2,
     category: 'The Λ program',
     title: 'Λ ≤ 0.1758354 — the four-gate barrier certificate',
-    grade: 'computer-assisted candidate — unrefereed, not SOTA; Λ ≤ 0.2 remains the benchmark',
+    grade: 'computer-assisted candidate — awaiting journal review; measured against the peer-reviewed Λ ≤ 0.2',
     accent: '#f5c542',
     videoSrc: '/animations/four-gate-lambda.mp4',
     posterSrc: '/animations/four-gate-lambda-poster.jpg',
     external: false,
     durationLabel: '2 min 27 s · 1080p60 · Manim CE',
     description:
-      'The project’s current headline candidate, filmed from ' +
+      'The four-gate certificate, filmed from ' +
       '/lambda-01758354-candidate: a revised mollifier and an extended ' +
       'finite lane (5.3×10⁶ windows, vs 3,149,013 in the 0.1787854 package) ' +
       'certify four independent gates — finite lane, tail D < 1 ' +
@@ -64,7 +64,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'flow-blindness',
-    watchOrder: 8,
+    watchOrder: 11,
     category: 'Theorems & no-gos',
     title: 'Flow-Blindness — soft hypotheses cannot prove RH',
     grade: 'unconditional no-go theorem — rests only on Rodgers–Tao Λ ≥ 0',
@@ -134,10 +134,10 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'obstruction-seam',
-    watchOrder: 19,
+    watchOrder: 22,
     category: 'Theorems & no-gos',
     title: 'The Obstruction Seam',
-    grade: 'anatomy of the obstruction — not a proof of anything; PT Λ ≤ 0.2 stays SOTA · NO QED',
+    grade: 'anatomy of the obstruction — not a proof of anything; PT Λ ≤ 0.2 is the peer-reviewed benchmark · NO QED',
     accent: '#f5c542',
     videoSrc: '/animations/obstruction-seam.mp4',
     posterSrc: '/animations/obstruction-seam-poster.jpg',
@@ -166,7 +166,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'theta-trap',
-    watchOrder: 12,
+    watchOrder: 15,
     category: 'Theorems & no-gos',
     title: 'The Θ-Trap Theorems',
     grade: 'unconditional theorems on the particle-flow model — not about Λ or RH; optimistic extension refuted',
@@ -200,7 +200,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'collapse-chain',
-    watchOrder: 15,
+    watchOrder: 18,
     category: 'Theorems & no-gos',
     title: 'The Collapse Chain and the 5000× Mirage',
     grade: 'RH-equivalent reformulation — refuted as a reduction; the 5000× margin is an artifact',
@@ -218,7 +218,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
       'min-eig(I−VV*) goes +0.029 → −119 → −1.2×10⁶ at c = 30/100/1000 ' +
       'while K_a stays PSD at every c. The biconditional is refuted as a ' +
       'reduction (a cone cannot be a ball); the survivor ' +
-      '‖R‖ ≤ 1 ⟺ K_a ⪰ 0 is exactly RH-equivalent. Λ ≤ 0.2 stands.',
+      '‖R‖ ≤ 1 ⟺ K_a ⪰ 0 is exactly RH-equivalent. Λ ≤ 0.2 is the peer-reviewed benchmark.',
     scenes: [
       'Title', 'Eleven links, one central claim', 'The seductive number',
       'Turn the scale dial', 'The verdict: artifact, not evidence',
@@ -231,7 +231,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'ghost-freeze',
-    watchOrder: 9,
+    watchOrder: 12,
     category: 'Twin ladder & twistor geometry',
     title: 'The Ghost That Cannot Be Frozen',
     grade: 'kernel computation & inertia lemma are theorems; ghost absence ∀a>0 is Conjecture 17.3 — RH-equivalent',
@@ -266,7 +266,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     watchOrder: 3,
     category: 'The Λ program',
     title: 'Seventy-Six Years of Λ',
-    grade: 'evidence-graded history — solid rows are theorems; dashed rows are labeled claims and candidates',
+    grade: 'evidence-graded history — solid rows are peer-reviewed; dashed rows are computer-assisted results awaiting journal publication',
     accent: '#f5c542',
     videoSrc: '/animations/lambda-history.mp4',
     posterSrc: '/animations/lambda-history-poster.jpg',
@@ -292,7 +292,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'route-b-limsup',
-    watchOrder: 14,
+    watchOrder: 17,
     category: 'The Λ program',
     title: 'Route B: the Limsup Claim and Its Audit',
     grade: 'PARTIAL — rigorous modulo one named gap (finite-N collision-formula validity); not unconditional as first advertised',
@@ -322,7 +322,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'pt-floor',
-    watchOrder: 17,
+    watchOrder: 20,
     category: 'The Λ program',
     title: 'What Actually Binds Λ ≤ 0.2',
     grade: 'diagnostic audit — verdict CONFIRM: the verified height binds; produces no bound, NO QED',
@@ -352,7 +352,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'closure-routes',
-    watchOrder: 10,
+    watchOrder: 13,
     category: 'Twin ladder & twistor geometry',
     title: 'Four Roads to the Same Wall (§16)',
     grade: 'Theorem 16.1 equivalence established; every route RH-equivalent and open — no shortcut',
@@ -383,7 +383,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'three-attacks',
-    watchOrder: 11,
+    watchOrder: 14,
     category: 'Twin ladder & twistor geometry',
     title: 'Three Attacks on Ghost Absence (§18)',
     grade: 'corrected audit — I rejected as stated; II finite model; III RH-equivalent target; nothing proves RH',
@@ -415,7 +415,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'frozen-rung-pt',
-    watchOrder: 16,
+    watchOrder: 19,
     category: 'Twin ladder & twistor geometry',
     title: 'Frozen Rungs ⟺ Platt–Trudgian',
     grade: 'inertia half: proven theorem · full equivalence: one open lemma · a reformulation, not a new bound — NO QED',
@@ -446,7 +446,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'mollified-barrier',
-    watchOrder: 18,
+    watchOrder: 21,
     category: 'Theorems & no-gos',
     title: 'The Mollified Barrier and the Zero-Gain Theorem',
     grade: 'formalization infrastructure — matches PT, provably cannot beat it; no bound, NO QED',
@@ -476,7 +476,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'gue-3point',
-    watchOrder: 21,
+    watchOrder: 24,
     category: 'Evidence, engines & gallery',
     title: 'The 3-Point GUE Test on a Million Zeros',
     grade: 'empirical — Pearson 0.97780; not rigorous (Rudnick–Sarnak support (−⅔, ⅔) is the open gap)',
@@ -506,7 +506,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'berry-keating',
-    watchOrder: 23,
+    watchOrder: 26,
     category: 'Evidence, engines & gallery',
     title: 'H = xp: a Failure Exhibit',
     grade: 'documented negative result — a gap exhibit, not a Hilbert–Pólya realization',
@@ -536,7 +536,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'barnes-hut',
-    watchOrder: 24,
+    watchOrder: 27,
     category: 'Evidence, engines & gallery',
     title: 'The 854× Rigorous Engine',
     grade: 'measured, sound computation — 854× is vs a projected dense time; production wiring separate (imp-1136)',
@@ -566,7 +566,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'viz-gallery',
-    watchOrder: 26,
+    watchOrder: 29,
     category: 'Evidence, engines & gallery',
     title: 'Four Windows onto ζ',
     grade: 'illustrative — visual geometry of established mathematics; no analytic claim',
@@ -600,7 +600,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift2',
-    watchOrder: 28,
+    watchOrder: 31,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift, Part II — the consistency-preserving construction',
     grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',
@@ -646,7 +646,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift',
-    watchOrder: 27,
+    watchOrder: 30,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift',
     grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',
@@ -755,7 +755,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-foundations',
-    watchOrder: 29,
+    watchOrder: 32,
     category: 'Concepts',
     title: 'Concepts I — Foundations & Analysis',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -775,7 +775,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-zeta',
-    watchOrder: 30,
+    watchOrder: 33,
     category: 'Concepts',
     title: 'Concepts II — The Zeta Function',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -795,7 +795,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-primes-info',
-    watchOrder: 31,
+    watchOrder: 34,
     category: 'Concepts',
     title: 'Concepts III — Primes & Information',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -815,7 +815,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-physics',
-    watchOrder: 32,
+    watchOrder: 35,
     category: 'Concepts',
     title: 'Concepts IV — The Physics Dictionary',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -835,7 +835,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-rmt-quantum',
-    watchOrder: 33,
+    watchOrder: 36,
     category: 'Concepts',
     title: 'Concepts V — Random Matrices & Quantum',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -855,7 +855,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-thermo-geometry',
-    watchOrder: 34,
+    watchOrder: 37,
     category: 'Concepts',
     title: 'Concepts VI — Thermodynamics & Geometry',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -875,7 +875,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-1',
-    watchOrder: 35,
+    watchOrder: 38,
     category: 'Concepts',
     title: 'Concepts VII — Proof Machinery 1',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -895,7 +895,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-2',
-    watchOrder: 36,
+    watchOrder: 39,
     category: 'Concepts',
     title: 'Concepts VIII — Proof Machinery 2',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -915,7 +915,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-3',
-    watchOrder: 37,
+    watchOrder: 40,
     category: 'Concepts',
     title: 'Concepts IX — Proof Machinery 3',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -952,7 +952,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
       '(σ) = 1/(2σ) is prime-independent, hitting critical coupling Q = 1 for' +
       ' all stages simultaneously at σ = ½, where the χ two-port between the ' +
       'direct and dual ladders becomes lossless (Γ = 0, unitary S). Suggestiv' +
-      'e — the page itself says: not a proof of anything about RH.',
+      'e — and not a proof of anything about RH.',
     scenes: [
       'Title',
       'Each Euler factor is a transfer function',
@@ -997,7 +997,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'spectral-attack',
-    watchOrder: 13,
+    watchOrder: 16,
     category: 'Theorems & no-gos',
     title: 'Six Probes, One Well',
     grade: 'numerical convergence of independent measures — strong evidence, not proof',
@@ -1029,7 +1029,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'pair-correlation',
-    watchOrder: 20,
+    watchOrder: 23,
     category: 'Evidence, engines & gallery',
     title: 'Montgomery’s Pair Correlation',
     grade: 'proved for |α| < 1 (Montgomery 1973); conjectured beyond; the N = 1000 test ships as qualitative agreement',
@@ -1059,7 +1059,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'gram-hardy',
-    watchOrder: 22,
+    watchOrder: 25,
     category: 'Evidence, engines & gallery',
     title: 'Gram Points & the Hardy Z Machine',
     grade: 'Gram’s law is an empirical rule, not a theorem; Riemann–Siegel + Turing are the rigorous part',
@@ -1091,7 +1091,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'voronin',
-    watchOrder: 25,
+    watchOrder: 28,
     category: 'Evidence, engines & gallery',
     title: 'Zeta Imitates Everything',
     grade: 'established theorem (Voronin 1975) — qualitative and ineffective; the in-app witness is one finite glimpse',
@@ -1116,6 +1116,99 @@ export const ANIMATIONS_INDEX = Object.freeze([
     ],
     relatedRoutes: [
       { to: '/voronin-universality', label: 'Voronin universality' },
+    ],
+  }),
+  Object.freeze({
+    id: 'wave-echo',
+    watchOrder: 8,
+    category: 'Twin ladder & twistor geometry',
+    title: 'The Prime Echo Chamber — Wave Mechanics I',
+    grade: 'illustrative dynamics of the model — established mathematics visualized, not evidence about RH',
+    accent: '#3ddbd9',
+    videoSrc: '/animations/wave-echo.mp4',
+    posterSrc: '/animations/wave-echo-poster.jpg',
+    external: false,
+    durationLabel: '1 min 00 s · 1080p60 · Manim CE',
+    description:
+      'Strike the prime ladder once and the reverb that returns is arithmetic' +
+      ': each stage p echoes at delays k·log p, and the cascade’s echogram is' +
+      ' exactly the von Mangoldt function — computed exactly on screen, spike' +
+      's of weight Λ(n)/√n at log n for every prime power, silence at every c' +
+      'omposite. A Gaussian packet convolved with the train (real numerics) b' +
+      'lurs at large width and resolves the primes as it sharpens; by the exp' +
+      'licit formula the zeros are this reverberator’s resonant frequencies.',
+    scenes: [
+      'Title',
+      'One stage: the p = 2 delay line',
+      'The cascade echogram = Λ(n)',
+      'A packet hears the primes',
+      'Closing — resonances',
+    ],
+    relatedRoutes: [
+      { to: '/oscillators', label: 'Oscillators' },
+      { to: '/twin-ladder', label: 'Twin ladder' },
+    ],
+  }),
+  Object.freeze({
+    id: 'wave-bridge',
+    watchOrder: 9,
+    category: 'Twin ladder & twistor geometry',
+    title: 'Crossing the Bridge — Wave Mechanics II',
+    grade: 'scattering computed from the model’s Γ = (1−|χ|)/(1+|χ|); ghost absence ∀a>0 is Conjecture 17.3 — RH-equivalent',
+    accent: '#f5c542',
+    videoSrc: '/animations/wave-bridge.mp4',
+    posterSrc: '/animations/wave-bridge-poster.jpg',
+    external: false,
+    durationLabel: '58 s · 1080p60 · Manim CE',
+    description:
+      'A wave packet scatters off the χ two-port with σ on a dial: the reflec' +
+      'tion curve Γ(σ) is computed from |χ(σ+it)| ~ (t/2π)^{½−σ} at t = 25, v' +
+      'anishing exactly on the line. Two runs of the same packet — a clean lo' +
+      'ssless pass at σ = ½, a split into transmitted τ and reflected Γ ampli' +
+      'tudes at σ = 0.8 with energy R + T = 1 conserved. Then the ghost reson' +
+      'ance: an off-critical zero puts a pole of Θ_a in the bridge, carving a' +
+      ' Lorentzian dip at γ = 14.13 with linewidth 2(δ−a) and leaving the bri' +
+      'dge ringing after the packet passes — a failure of RH you could hear.',
+    scenes: [
+      'Title',
+      'The dial: Γ(σ) computed',
+      'Same packet, two dial settings',
+      'The ghost resonance and the ringing bridge',
+    ],
+    relatedRoutes: [
+      { to: '/oscillators', label: 'Oscillators' },
+      { to: '/blaschke-ghosts', label: 'Blaschke ghosts (§17)' },
+    ],
+  }),
+  Object.freeze({
+    id: 'wave-cavity',
+    watchOrder: 10,
+    category: 'Twin ladder & twistor geometry',
+    title: 'The Cavity of Zeros — Wave Mechanics III',
+    grade: 'illustrative dynamics of the model — not evidence about RH',
+    accent: '#f07ab8',
+    videoSrc: '/animations/wave-cavity.mp4',
+    posterSrc: '/animations/wave-cavity-poster.jpg',
+    external: false,
+    durationLabel: '57 s · 1080p60 · Manim CE',
+    description:
+      'The twin ladders as the two mirrors of an interferometer: phase-matche' +
+      'd at σ = ½, the cavity’s standing-wave comb sits at the zero ordinates' +
+      ' γ₁…γ₅; drag σ off the line and the finesse (computed from Γ(σ)) colla' +
+      'pses, washing the comb into a blur. The finale runs the exact polynomi' +
+      'al heat flow: the inner root pair collides at t = −g²/8 and fissions i' +
+      'nto a conjugate pair, and the wave visibly stops crossing zero — two a' +
+      'xis crossings gone, the birth of off-axis zeros seen without ever draw' +
+      'ing the complex plane.',
+    scenes: [
+      'Title',
+      'A phase-matched cavity, modes at the zeros',
+      'Detune: the comb washes out',
+      'Soliton fission — the wave stops crossing zero',
+    ],
+    relatedRoutes: [
+      { to: '/twin-ladder', label: 'Twin ladder' },
+      { to: '/debruijn-departure', label: 'De Bruijn departure' },
     ],
   }),
 ]);

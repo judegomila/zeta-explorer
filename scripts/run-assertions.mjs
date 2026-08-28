@@ -12168,6 +12168,15 @@ const DATA_MODULES = [
   // (closed-form inflection-vs-half derivation) -- for a reader landing on any single
   // stage cold. Note only; imports all four source records verbatim; NO QED.
   '/src/data/imp-36184-sigma-fartail-decay-ramp-storyline-cross-reference.js',
+  // imp-36176 (numerical, opus-4-8, api-pool): refines the imp-33582 decade-resolution
+  // sigma(N) post-peak local decay exponent (0.4310 over [1e11,1e12]) onto a sub-decade
+  // grid and locates the exact N where the local exponent first crosses 0.4. Pointwise
+  // p(N)=0.4 at N* ~ 9.44e10 (log10 ~ 10.975), sliding decade-window OLS at ~9.93e10 --
+  // both ~half a decade BELOW the imp-33582 sigma<0.1 landmark 3.21e11, correcting the
+  // ticket framing: the crossing is NOT past it (the decade 0.4310 is a window average
+  // the imp-33604 midpoint identity attaches to the decade centre 3.16e11). Monotone-
+  // but-decelerating toward the imp-3463 1/2. Measurement only; changes no bound; NO QED.
+  '/src/data/imp-36176-sigma-decay-exponent-0p4-crossing.js',
   // imp-36189 (meta, sonnet-4-6, sonnet): registration/reachability + import-light guard
   // audit (imp-36109/imp-35982/imp-35905 method) over the imp-36098..imp-36166 S-frontier
   // cohort -- found ONE orphan, imp-36125-w1-accumulator-recovery-margin-honest-status.js

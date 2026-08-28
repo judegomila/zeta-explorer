@@ -12117,6 +12117,16 @@ const DATA_MODULES = [
   // (worst at the rounded-0.783 elbow; <= 2.4e-5 elsewhere) and confirms strict monotone decay.
   // Measurement only; changes no bound; C_C GUE-conditional; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
   '/src/data/imp-36179-sharecoll-decay-crossvalidation.js',
+  // imp-36197 (numerical, opus-4-8, api-pool): FUNCTIONAL-FORM measurement on the imp-36111
+  // merged five-landmark shareColl decay sequence (0.783 -> 0.716 -> 0.407 -> 0.100 -> 0.0099).
+  // Since shareColl IS sigma(N), the logit ln(sigma/(1-sigma)) is measured against log10 N: a
+  // single OLS logistic  logit(sigma) = 10.4734 - 1.1020 log10 N  (sigma = 1/(1+10^{1.1020(log10 N
+  // - 9.5040)}), midpoint at the imp-35337 sigma=1/2 crossover N~3.19e9) reproduces ALL FIVE
+  // recorded shares to max |resid| ~ 0.0032 in sigma, inside the ~5e-3 source tolerance. A SINGLE
+  // closed-form fits; NO piecewise fit is required. The ~4% monotone slope steepening (-1.0695 ->
+  // -1.1111) is the imp-33582 running-exponent signature of one arm. Measurement only; changes no
+  // bound; C_C GUE-conditional; imp-35337a stays OPEN; NO QED; Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-36197-sharecoll-single-logistic-fit.js',
   // imp-36186 (ux, sonnet-4-6, sonnet): import-light viz-data module baking the imp-36112 merged
   // two-episode KBN-vs-classic-Kahan separation record (transient/tie-plateau/persistent) as
   // plain literals so an analysis tab can render it without the 16.7MB zeros bundle.

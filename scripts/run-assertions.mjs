@@ -12901,6 +12901,20 @@ const DATA_MODULES = [
   // factor 1.00933. Far bracket [0.0967451, 4] UNCHANGED (no chain
   // extension). Changes no bound; NO QED.
   '/src/data/imp-95008-corner-cancellation-envelope.js',
+  // imp-95008 continuation seventeen (fable-5): LEMMA T-STAR + LEMMA O +
+  // THEOREM Y-STAR - the exponent split in the fifth-continuation Lemma T
+  // proof is a free parameter; optimizing it in closed form (psi(T) =
+  // e log(1+T) (1+T)^(1/2-s) past the seam, sharp at the Delta = 0
+  // equal-width corner) and re-running the eleventh block-resolved parity
+  // roll-up drops the reference theta = 10 far ceiling 4 ->
+  // 2.9469476400572421 - the FIRST ceiling-side far-bracket move since the
+  // eleventh continuation. Headline gap 41.3458 -> 30.4610, fixed-97 gap
+  // 3318.215 -> 2444.652, floors untouched. Per-pair factor at the dominant
+  // V(0,2) corner: (e/2) log(1+2^(1/3)) (1+2^(1/3))^(-1/2) =
+  // 0.73714209152912802, theta-independent. Remaining achieved-side slack
+  // named: outer parity factor 2 + the Cauchy-Schwarz half-exponent.
+  // Changes no bound; NO QED.
+  '/src/data/imp-95008-exponent-split-far-ceiling.js',
 ];
 
 let ALL_MODULES = FAST_MODE

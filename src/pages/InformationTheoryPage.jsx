@@ -331,9 +331,13 @@ export default function InformationTheoryPage() {
             Mellin/transfinite-diameter criterion as a research direction—not a completed proof. The latest
             exact audit sharpens that verdict. The first five-ray rational tail has infinite Hankel rank, but
             a p-adic obstruction proves that no fixed factor repairs its proposed five-LCM lattice, and its wall
-            corrections form an unbounded residue-jet tower rather than a fixed real measure. A primitive 32-by-32 Schur block
-            fits the conditional finite capacity budget, but no asymptotic bound or projected complex cycle is
-            yet proved.
+            corrections form an unbounded residue-jet tower rather than a fixed real measure. More decisively,
+            the rank-one determinant coefficient is the rational tail determinant itself. On the old
+            origin-containing comparison region, full and punctured blocks have the same absolute-capacity
+            exponent, so clearing that coefficient consumes the entire capacity gain. The former primitive
+            strict-below-budget target is therefore impossible for this route. What remains is a genuinely
+            relative Schur-complement estimate or a higher-rank period module with new cycle and arithmetic
+            input—not an incompressibility claim.
           </p>
         </div>
 

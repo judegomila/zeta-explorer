@@ -669,7 +669,7 @@ export default function OddZetaPage() {
                 rectangular <InlineMath tex={"n=2"} /> moment tables, rather than recognizing them numerically.
                 On the <InlineMath tex={"e_1"} /> ray it also gives
               </p>
-              <BlockMath tex={"I'(ne_1)=-\frac{(H_n^{(2)})^2-H_n^{(4)}}{4n}\sim-\frac{\pi^4}{240n}."} />
+              <BlockMath tex={"I'(ne_1)=-\\frac{(H_n^{(2)})^2-H_n^{(4)}}{4n}\\sim-\\frac{\\pi^4}{240n}."} />
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
                 Its nonrational generating function proves, by Kronecker's theorem, infinitely many nonzero
                 principal Hankel determinants without relying on the printed scalar recurrence. Nonvanishing is
@@ -679,8 +679,8 @@ export default function OddZetaPage() {
                 The arithmetic and analytic shortcuts fail more sharply. The proposed five-LCM multiplier gives{' '}
                 <InlineMath tex={"d_4^5 I'(2,2,2,2,2)=-6897/5"} />, so even the candidate correction factor{' '}
                 <InlineMath tex={"12"} /> fails. More generally, exact partial fractions prove{' '}
-                <InlineMath tex={"v_p(I')=-1"} /> and <InlineMath tex={"pI'\equiv4\pmod p"} /> for prime{' '}
-                <InlineMath tex={"p=2n+1"} />, while <InlineMath tex={"p\nmid d_{2n}^5"} />. Thus no fixed factor
+                <InlineMath tex={"v_p(I')=-1"} /> and <InlineMath tex={"pI'\\equiv4\\pmod p"} /> for prime{' '}
+                <InlineMath tex={"p=2n+1"} />, while <InlineMath tex={"p\\nmid d_{2n}^5"} />. Thus no fixed factor
                 repairs this lattice on the cone. The wall corrections form an unbounded Leray-jet tower rather than a
                 fixed face measure, so ordinary Andréief and the old real path-polytope capacity do not apply.
                 The former <InlineMath tex={"e^{-13/4}"} /> benchmark is therefore withdrawn, not retained as a
@@ -703,7 +703,7 @@ export default function OddZetaPage() {
             </ol>
           </div>
           <p style={{ color: 'var(--faint)', fontSize: 11, lineHeight: 1.7, marginTop: 12 }}>
-            Research status, 28 August 2026. Neither frontier is presented as a proof of{' '}
+            Research status, 29 August 2026. Neither frontier is presented as a proof of{' '}
             <InlineMath tex={"\\zeta(5)"} /> irrationality.
           </p>
         </div>

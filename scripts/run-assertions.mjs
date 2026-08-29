@@ -12846,6 +12846,17 @@ const DATA_MODULES = [
   // headline bracket [0.025882, 4] unchanged to six figures; boundary-chain
   // lever QUANTIFIED/saturated. Changes no bound; NO QED.
   '/src/data/imp-95008-empty-block-extension-floor.js',
+  // imp-95008 continuation thirteen (fable-5): THEOREM R + LEMMA S multi-rate
+  // witnesses - per-packet profile rates with the exact cross-rate kernel
+  // K(a,b,tau) = 2(b e^(-a tau) - a e^(-b tau))/(b^2 - a^2); cross-coupling
+  // decays at the SLOWER partner rate, so rate-locking (one mu serving the
+  // diagonal cost, the bridge coupling, and per-packet Lemma V damping) was
+  // a first-order penalty: closed-form gradient at the ninth witness has
+  // components > 0.048 with sum 5.1e-8. Baked multi-rate witnesses close the
+  // HEADLINE spacing theta=10 far bracket [0.025882, 4] (gap 154.55) ->
+  // [0.0928718, 4] (gap 43.07), 3.588x; fixed-97 theta=10 gap 10.6x; both
+  // theta=2 gaps ~1.26x. Optimality NOT claimed. Changes no bound; NO QED.
+  '/src/data/imp-95008-multirate-witness-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

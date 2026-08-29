@@ -18,6 +18,20 @@ bottom-to-vertical no-go, and the scalable endpoint-packet plan. It also
 records the current P97 quarter-tail target and the smaller P7 candidate.
 All mantle and global promotion flags remain false.
 
+## Latest update — 29 August 2026
+
+[The long-window Fejér reduction](./SMOOTH_TAIL_FEJER_REDUCTION_2026-08-29.md)
+certifies the recombined smooth-tail coefficient energy and replaces the
+provisional short-window correlation target by the exact \(K=L\) gate
+
+\[
+\frac2L\Re\sum_{r=1}^{L-1}(L-r)C_r<\frac1{43}.
+\]
+
+This is more than eighteen times looser than the earlier \(1/800\) target.
+The signed correlation inequality itself, both vertical faces, and every
+global promotion flag remain open.
+
 This directory connects the exact `0.14` work to the existing MathExplorer
 frozen-rung, closure-route, and zero-flow material without changing the app.
 It is a research checkpoint: theorem notes, proof ledgers, and evidence

@@ -12818,6 +12818,22 @@ const DATA_MODULES = [
   // [0.0076125, 8] -> [0.025882, 8], gap 1050.9 -> 309.09. Changes no
   // bound; NO QED.
   '/src/data/imp-95008-consistent-corner-gap-floor.js',
+  // imp-95008 continuation eleven (fable-frontier): THEOREM Y - BLOCK-
+  // RESOLVED far weights. The achieved parity roll-up (Corollary P) consumed
+  // the sharp b-resolved pair floor V(b, j) = 2^{b(1-beta)} Gx(j) of Lemma X
+  // only through its b = 0 infimum, charging every block the worst-case toll
+  // 2 Tx_even in both ladder directions. Re-running the roll-up with the
+  // pair-sharp floors gives closed-form block weights omega_b: block 0 has
+  // no incoming pairs (omega_0 = Tx_even exactly), block 2 carries the one
+  // dominant V(0,2) toll (omega_2 = sup_b omega_b, also at the off-reference
+  // counter-case), deep blocks are asymptotically FREE (Lemma Z, geometric
+  // decay). Achieved far coefficient halves 8/(2 sigma - 1) ->
+  // 4/(2 sigma - 1) inside the same bracket class (Lemma M: omega_2 <=
+  // Tx(2)), so the far bracket gap EXACTLY halves: [0.025882, 8] ->
+  // [0.025882, 4], gap 309.09 -> 154.55 at theta = 10 (38.199 -> 19.0996 at
+  // fixed-97 theta = 2); Theorem F near-floor tightens 1.91607 -> 1.92825.
+  // Near constant 2 untouched. Changes no bound; NO QED.
+  '/src/data/imp-95008-block-resolved-far-weights.js',
 ];
 
 let ALL_MODULES = FAST_MODE

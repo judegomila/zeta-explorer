@@ -686,9 +686,9 @@ export default function OddZetaPage() {
               </p>
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
                 The remaining rank-one capacity target is now closed structurally. Writing{' '}
-                <InlineMath tex={"\det M_n=\det R_n(\zeta(5)-s_n)"} />, every multiplier that makes the{' '}
-                <InlineMath tex={"\zeta(5)"} /> coefficient a nonzero integer satisfies{' '}
-                <InlineMath tex={"|d_n\det R_n|\ge1"} />. On the old origin-containing comparison region, the
+                <InlineMath tex={"\\det M_n=\\det R_n(\\zeta(5)-s_n)"} />, every multiplier that makes the{' '}
+                <InlineMath tex={"\\zeta(5)"} /> coefficient a nonzero integer satisfies{' '}
+                <InlineMath tex={"|d_n\\det R_n|\\ge1"} />. On the old origin-containing comparison region, the
                 full and constant-deleted Vandermonde suprema differ by at most the factor{' '}
                 <InlineMath tex={"N_n"} />, so both determinants have the same leading capacity exponent.
                 Therefore the hoped-for strict normalization rate below <InlineMath tex={"3.09990"} /> is
@@ -699,14 +699,14 @@ export default function OddZetaPage() {
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
                 A larger exact four-ray certificate reaches tail size <InlineMath tex={"224"} /> at{' '}
                 <InlineMath tex={"n=5"} />. Its primitive rates rise{' '}
-                <InlineMath tex={"1.95857,\,2.37462,\,2.50584,\,2.56840"} /> while the Schur denominator keeps a
+                <InlineMath tex={"1.95857,\\,2.37462,\\,2.50584,\\,2.56840"} /> while the Schur denominator keeps a
                 positive exponential rate—useful diagnostics, but consistent with the no-go. Separately, an
                 explicit holonomic counterexample proves that one-ray Kronecker nonrationality and zero global
                 annihilator do not imply nonsingular multivariate boxes.
               </p>
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
                 Two Brown-style routes remain honest: a genuinely relative estimate for{' '}
-                <InlineMath tex={"|\zeta(5)-s_n|"} /> that beats the reduced denominator{' '}
+                <InlineMath tex={"|\\zeta(5)-s_n|"} /> that beats the reduced denominator{' '}
                 <InlineMath tex={"q_n"} />, or a higher-rank period module. An exact strict-positive
                 five-direction candidate has a nonsingular 6-by-6 <InlineMath tex={"Q"} />-matrix and nonzero
                 Mellin Jacobian, but its capacity is only numerical, its conditional denominator rate already

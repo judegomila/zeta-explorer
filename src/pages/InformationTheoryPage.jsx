@@ -330,9 +330,11 @@ export default function InformationTheoryPage() {
             The <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta page</Link> records the full
             audit, the exact positive-cone/Farey closure target, and Brown's 2026 multi-parameter
             Mellin/transfinite-diameter criterion as a research direction—not a completed proof. The latest
-            source audit also removes proof-ready status from the first five-ray diameter benchmark: its
-            nonconstant <InlineMath tex={"\\zeta(5)"} /> coefficients collapse, although its rational moment
-            tail does not, while the denominator and projected-cycle inputs remain unproved.
+            exact audit sharpens that verdict. The first five-ray rational tail has infinite Hankel rank, but
+            a p-adic obstruction proves that no fixed factor repairs its proposed five-LCM lattice, and its wall
+            corrections form an unbounded residue-jet tower rather than a fixed real measure. A primitive 32-by-32 Schur block
+            fits the conditional finite capacity budget, but no asymptotic bound or projected complex cycle is
+            yet proved.
           </p>
         </div>
 

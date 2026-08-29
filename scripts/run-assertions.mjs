@@ -12804,6 +12804,20 @@ const DATA_MODULES = [
   // with a closed-form spacing-limit functional as consistency anchor.
   // Changes no bound; NO QED.
   '/src/data/imp-95008-rate-relaxed-fixed-p-floor.js',
+  // imp-95008 continuation ten (fable-frontier): LEMMA X - the CONSISTENT-
+  // CORNER sharp gap-ratio floor. Lemma G (fifth continuation), the single
+  // geometry inequality feeding every tail currency of the weld chain, takes
+  // the far-block width supremum and center-separation infimum at
+  // INCOMPATIBLE corners of the same variable d2; joint minimization gives
+  // Delta/rMax > 2^beta G(j), uniform in j, b, and all parameters, and the
+  // sharpened floor is SHARP (grid pairs at p = 1 mod 4 approach it like
+  // ~2.7/p) - the gap-geometry lever is terminal. Consequences: achieved far
+  // budget (Corollary P) shrinks 3.39x at reference theta = 10 at the same
+  // constant 8/(2 sigma - 1); Theorem F near-floor tightens 1.85766 ->
+  // 1.91607; in the sharpened currency the far bracket closes
+  // [0.0076125, 8] -> [0.025882, 8], gap 1050.9 -> 309.09. Changes no
+  // bound; NO QED.
+  '/src/data/imp-95008-consistent-corner-gap-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

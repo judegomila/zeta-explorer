@@ -12771,6 +12771,22 @@ const DATA_MODULES = [
   // paper-packet envelope constants, ceiling D, phase normalization, and
   // the l2-to-pointwise step remain open; changes no bound; NO QED.
   '/src/data/imp-95008-near-constant-floor.js',
+  // imp-95008 continuation eight (fable-frontier): THEOREM K - the FAR
+  // coefficient has a floor at the pinned near constant 2. A 4-packet
+  // bridge witness (the Theorem F near-degenerate pair at the block-0/1
+  // boundary u ~ 2 plus its mirror at the block-1/2 boundary u ~ 4, joined
+  // across block gap 2, all packets on the exact exponential sub-envelope
+  // profile with correlation rho(tau) = e^(-lambda tau)(1 + lambda tau))
+  // forces any spacing-uniform two-currency bound cNear A + cFar T* M
+  // (cNear <= 2, T* <= T(2)) to have cFar >= E/(T(2) M) > 0: the corner
+  // (cNear, cFar) = (2, 0) is INFEASIBLE - the far currency is structurally
+  // necessary at the terminal near constant. Reference floors: 2.6094e-5
+  // at theta = 10 (achieved 8, gap 3.066e5), 0.024574 at theta = 2 (gap
+  // 325.5). Honesty: E(97, 10) < 0 - the witness is blind at the paper
+  // reference prime, fixed-p far floor OPEN; threshold at theta = 10 lies
+  // between p = 103001 and p = 104001. Refined residual: close the far
+  // bracket [F, 8/(2 sigma - 1)]. Changes no bound; NO QED.
+  '/src/data/imp-95008-far-coefficient-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

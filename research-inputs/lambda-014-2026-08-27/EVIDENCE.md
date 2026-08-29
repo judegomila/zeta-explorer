@@ -49,6 +49,26 @@ diagnostic/design evidence. They are not listed as proof roots, because a
 complete interval producer for the B-dual interior and both vertical faces
 does not yet exist.
 
+## 29 August long-window reduction roots
+
+The repository note
+[SMOOTH_TAIL_FEJER_REDUCTION_2026-08-29.md](./SMOOTH_TAIL_FEJER_REDUCTION_2026-08-29.md)
+records the exact \(K=L\) Fejér reduction. The corresponding local replay
+package remains outside the app repository. Its proof roots are:
+
+| Workspace object | SHA-256 |
+|---|---|
+| smooth-tail theorem note | `2c6dd0102210672ff319b37fc7cdeea9ebcad91d3593b9517736c4d49736ed47` |
+| directed coefficient-energy producer | `f00badb7a14c203383e7132c17402983c875bd2373f7f5b203dfc57e49c9d220` |
+| fail-closed verifier | `bd6fdce788a9ac48a42c8410f5b617111951c5354eb965bdb2ba399abb98a6b9` |
+| 160-bit transcript | `791b020bfc47daecd9538756400dd9c8e8cdb2593b4c44fd87b25937990da95f` |
+| 192-bit transcript | `9a5d417c92050e254fa27ef6ccc83a05a518216216c2a2c39e22ddda5be6ffe5` |
+| 256-bit transcript | `995aa519005dcfaf5046f80992f1ada5a98d20306d742363229f9d4ab80a4710` |
+
+The energy and algebraic reduction are proof evidence. The resonance scans
+remain diagnostic and are not proof roots. The inequality
+`SIGNED_AUTOCORRELATION_LT_1_OVER_43` remains false.
+
 ## Replay contract
 
 From an extracted full archive:

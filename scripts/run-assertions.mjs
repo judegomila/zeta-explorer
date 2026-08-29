@@ -12871,6 +12871,21 @@ const DATA_MODULES = [
   // 1/nu diagonal cost. Headline bracket updates microscopically to
   // [0.09287399, 4], gap 43.0691. Changes no bound; NO QED.
   '/src/data/imp-95008-multirate-antenna-ceiling.js',
+  // imp-95008 continuation fifteen (fable-5): THEOREM Z + THEOREM P - the
+  // OCCUPIED-block append lever (the one single-packet lever the fourteenth
+  // ceiling did not cover) FIRES, reversing the saturation suggestion.
+  // Theorem Z: exact rational floor for an occupied-block append with signed
+  // coupling and first-order mass drag E*nb*g/m; cubic cancels, closed-form
+  // epsStar; Theorem T recovered at nb = 0. Baked chains: HEADLINE theta=10
+  // floor 0.0928740 -> 0.0967451 (+4.17 percent, gap 43.0691 -> 41.3458),
+  // first append alone +2.69 percent; fixed-97 gap 3319.14 -> 3318.22.
+  // Theorem P: adaptive 2D monotone-envelope ladder certificates cap the
+  // single-append gain over EVERY dyadic-block grid placement and all rates
+  // and eps >= 0: frozen bases 0.00256355 (achieved 97.62 percent of it) and
+  // 2.8382e-7 (95.23 percent); terminal witnesses 0.0006 (headline) and
+  // 5.337e-9 (fixed-97, rigorously append-saturated). Frozen-base scope
+  // stated plainly. Changes no bound; NO QED.
+  '/src/data/imp-95008-occupied-block-append-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

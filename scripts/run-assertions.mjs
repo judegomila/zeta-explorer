@@ -12929,6 +12929,24 @@ const DATA_MODULES = [
   // asymptotic half-exponent survives (outer windows), measured corner
   // slack ~2.85x, sup near-tie at b = 0. Changes no bound; NO QED.
   '/src/data/imp-95008-width-pinned-three-window-ceiling.js',
+  // imp-95008 continuation nineteen (fable-5): LEMMA CC + LEMMA RM +
+  // LEMMA PF + THEOREM Y-EXACT - the eighteenth's named achieved-side
+  // residuals (b) (~2.85x measured corner slack) and (c) (asymptotic
+  // half-exponent) are closed simultaneously by replacing the window /
+  // Cauchy-Schwarz envelope apparatus with the EXACT elementary closed form
+  // of the envelope-pair correlation at integer s (partial fractions,
+  // rational plus log), substituted through the Lemma X floors and Lemma
+  // RHO caps via two new unconditional monotonicity lemmas (layer-cake
+  // separation monotonicity; width-ratio monotonicity for T >= Ystar(s) by
+  // a sign-pairing argument with exact antiderivative). Dominant corner
+  // envelope 1.1159760370515937e-4 -> 3.9197920255561178e-5 (factor
+  // 2.8470, exactly the eighteenth measured slack); far ceiling
+  // 0.7741509917026236 -> 0.2717408057586117; headline gap 8.0020 ->
+  // 2.8088, fixed-97 gap 642.200 -> 225.424, floors untouched. Surviving
+  // named slack: parity AM-GM factor 2 (now dominant) + substitution-point
+  // tightness; ~1e-8 float rounding of the closed form recorded honestly.
+  // Changes no bound; NO QED.
+  '/src/data/imp-95008-exact-pair-correlation-ceiling.js',
 ];
 
 let ALL_MODULES = FAST_MODE

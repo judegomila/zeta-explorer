@@ -220,7 +220,7 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
   },
 
   headOnMellinAudit: {
-    status: 'EXACT MOMENTS AND INFINITE NONVANISHING; OLD LATTICE/CYCLE SHORTCUT FAILS',
+    status: 'RANK-ONE ABSOLUTE-CAPACITY ROUTE CLOSED; RELATIVE/HIGHER-RANK ROUTES REMAIN',
     denominatorSource:
       'Brown-Zudilin v3 labels equation (42), the five-LCM inclusion, an ' +
       'experimental observation and skips the remaining coefficient computation. ' +
@@ -281,12 +281,36 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'nonzero principal Hankel determinants for both sequences. The natural ' +
       'shift module is rank three over Q(n), not the hoped-for rank-two ' +
       'contiguity system.',
+    kroneckerNonLift:
+      'There is a five-variable holonomic functional which restricts exactly to ' +
+      'this nonrational one-ray sequence and has zero global Hankel annihilator ' +
+      'ideal, yet every box {0,...,n-1}^5 for n>=2 has a zero row. Thus one-ray ' +
+      'Kronecker nonrationality, global faithfulness, and holonomicity do not imply ' +
+      'multivariate box nonvanishing; the actual functional needs a finite-' +
+      'observability theorem on the chosen lower sets.',
+    rankOneCapacityNoGo:
+      'Write det M_n=det R_n*(zeta(5)-s_n). Any multiplier d_n producing a ' +
+      'nonzero integral zeta coefficient obeys |d_n|*|det R_n|>=1. On a bounded ' +
+      'comparison region containing 0, the full and constant-deleted Vandermonde ' +
+      'suprema satisfy t_tail<=t_full<=N*t_tail, so their absolute-capacity ' +
+      'exponents agree. Hence a tail bound |det R_n|<=exp(-B*e_n+o(e_n)) forces ' +
+      'liminf log|d_n|/e_n>=B: the formerly required strict limsup below B is ' +
+      'impossible for the old rank-one common-capacity argument.',
     finiteRectangularBudget:
       'For the exact 32-by-32 rectangular n=2 block, exponent e=80. Row/column ' +
       'clearing has rate 3.47430 and direct determinant clearing 3.22433, both ' +
       'above the conditional geometric budget 3.09990. Primitive Schur content ' +
-      'has rate 2.77593, below it by 0.32397. This one finite cancellation is an ' +
-      'encouraging exact diagnostic, not an asymptotic theorem or a small linear form.',
+      'has rate 2.77593, below it by 0.32397. Reflection symmetry proves that its ' +
+      'large content is a common odd-sector determinant which cancels from both ' +
+      'coefficients. The remaining even-block rate is 3.00361. These are exact but ' +
+      'necessarily pre-asymptotic under the equal-capacity hypothesis.',
+    fourRayTriangleCertificate:
+      'For T_n={(v1,v2,v3,0,v5):v1+v3<n,v2+v5<n}, exact rational tail ' +
+      'determinants are nonzero through n=5 (sizes 8,35,99,224). Embedded hashes ' +
+      'and three modular residues certify primitive rates 1.95857, 2.37462, ' +
+      '2.50584, 2.56840 against the finite diagnostic B=2*log(2e)=3.38629. ' +
+      'The decomposition -log|det R|/e+log(q)/e shows a rising tail-decay term ' +
+      'and a still-positive Schur-denominator rate, exactly as the no-go predicts.',
     geometricDiagnostic:
       'The five-coordinate real image has the rigorous diagnostic bound ' +
       'Sup_rec <= 4^(-11/15)*exp(-8/15)=0.2122587567 and an inscribed-box lower ' +
@@ -303,30 +327,39 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'of the denominator-clearing matrices. A strict diameter-squared times ' +
       'denominator limit below 1 yields nonzero integer forms tending to zero.',
     candidateApplication:
-      'Lift the Brown-Zudilin M_0,8 family from a single parameter ray to growing ' +
-      'modules of projected zeta(5) forms. A repaired five-generator algebra ' +
-      'containing the symmetric ray has infinite Hankel rank, but no controlled ' +
-      'rectangular determinant, denominator lattice, or projected support bound.',
+      'Either estimate the rank-one Schur ratio directly, or lift the Brown-Zudilin ' +
+      'M_0,8 family to a higher-rank period module. An exact strict-positive ' +
+      'five-direction candidate has a nonzero Mellin log-Jacobian and a nonsingular ' +
+      '6-by-6 Q-coefficient matrix, but no proved projected cycle or competitive ' +
+      'denominator theorem.',
     mainObstacle:
-      'The surviving rank-one route requires a new fixed projected complex cycle, ' +
-      'an asymptotic bound for primitive Schur normalizations, and a common infinite ' +
-      'subsequence with the required invertibility/nonvanishing. Exact moments and ' +
-      'one-ray infinite Hankel nonvanishing are now available; the old five-LCM and ' +
-      'real-face repairs are not.',
+      'The old rank-one absolute-capacity route is structurally closed: its ' +
+      'normalization must pay at least the inverse rational-tail determinant, whose ' +
+      'common capacity exponent consumes the entire absolute bound. The live ' +
+      'alternatives need a relative Schur error beating reduced q_n, a true ' +
+      'full-versus-tail capacity separation, or a higher-rank module with new ' +
+      'arithmetic and cycle input.',
     rectangularThreshold:
       'For boxes {0,...,n-1}^5, N=n^5 and e=(5/2)n^5(n-1). If a new projected ' +
-      'cycle really obeys the old rectangular capacity bound, the sharp primitive ' +
-      'Schur target is limsup log(c_n)/e < 3.0998983963. The former exp(-13/4) ' +
-      'claim is no longer supported: its stated denominator lattice fails already ' +
-      'at n=2 and its real-cycle interpretation is false.',
+      'cycle is bounded by the old origin-containing rectangular region, the ' +
+      'companion tail has the same exponent B=3.0998983963 and every integral ' +
+      'normalization has liminf rate at least B. Thus the former strict-below-B ' +
+      'primitive target is impossible, not merely unproved.',
+    higherRankDiagnostic:
+      'Five exact all-28-positive directions give log-Jacobian determinant 896/81 ' +
+      'and a 6-by-6 Q-matrix determinant ' +
+      '-261259302637395617302464208660000. The direct capacity B about 20.43 is ' +
+      'only numerical, and the conditional five-LCM row-clearing rate about 28.09 ' +
+      'already loses. This module escapes rank one algebraically but is not yet a ' +
+      'Brown zeta(5) application.',
   },
 
   nextExperiment: Object.freeze([
-    'Construct a capped complex relative cycle for I\', or derive the confluent determinant bound for its full residue-jet tower.',
-    'Compute and bound the primitive rectangular Schur scales c_n; do not reuse the failed five-LCM lattice.',
-    'Prove a common infinite subsequence of invertible rational tails and nonzero full blocks.',
-    'Extend the exact HPL moment certificate to the n=3 rectangular block using recurrence or modular linear algebra.',
-    'Only then test the strict limit log(c_n)/e < 3.0998983963 required by the conditional capacity bound.',
+    'For the rank-one cone, bound the relative Schur error |zeta(5)-s_n| and the reduced denominator q_n directly.',
+    'For the strict-positive higher-rank module, certify the numerical generator maxima and derive a proved denominator lattice.',
+    'Construct the projected I\' cycle before applying real-cube capacity or positivity to either module.',
+    'Prove finite observability for the actual functional on a chosen lower-set sequence; generic one-ray faithfulness does not lift.',
+    'Use the exact four-ray n<=5 blocks as regression tests for a relative theorem, not for the closed common-capacity route.',
   ]),
 
   references: Object.freeze([
@@ -408,6 +441,30 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT_ASSERTIONS = Object.freeze([
   {
     name: 'resource-bounded claim is restricted to exact canonical digits',
     check: () => /exact canonical digits/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.resourceBoundedSalvage.representationWarning),
+  },
+  {
+    name: 'rank-one common-capacity target is explicitly closed',
+    check: () => /strict limsup below B is impossible/.test(
+      ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.rankOneCapacityNoGo
+    ),
+  },
+  {
+    name: 'one-ray Kronecker theorem is not promoted to box nonvanishing',
+    check: () => /do not imply multivariate box nonvanishing/.test(
+      ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.kroneckerNonLift
+    ),
+  },
+  {
+    name: 'four-ray finite computation is labeled diagnostic',
+    check: () => /finite diagnostic/.test(
+      ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.fourRayTriangleCertificate
+    ),
+  },
+  {
+    name: 'higher-rank capacity number remains numerical',
+    check: () => /only numerical/.test(
+      ODD_ZETA_INCOMPRESSIBILITY_AUDIT.externalFrontier2026.higherRankDiagnostic
+    ),
   },
 ]);
 

@@ -12834,6 +12834,18 @@ const DATA_MODULES = [
   // fixed-97 theta = 2); Theorem F near-floor tightens 1.91607 -> 1.92825.
   // Near constant 2 untouched. Changes no bound; NO QED.
   '/src/data/imp-95008-block-resolved-far-weights.js',
+  // imp-95008 continuation twelve (fable-5): THEOREM N empty-block extension -
+  // appending a packet to an UNOCCUPIED block improves the witness floor to
+  // FIRST order (all pair signs structurally +1; mass cost second order),
+  // closed-form optimal amplitude epsStar from an exact quadratic. The
+  // 4-packet bridge witness was NEVER optimal at any theta; no finite-support
+  // witness attains the spacing-class supremum. Baked penta witnesses
+  // (bridge + block-3 boundary antenna): fixed-97 theta=2 floor 0.209428 ->
+  // 0.212774 (gap 19.0996 -> 18.7993); new spacing theta=2 bracket
+  // [0.225008, 4] (gap 17.7772). HONEST: theta=10 gains < 1e-5 relative -
+  // headline bracket [0.025882, 4] unchanged to six figures; boundary-chain
+  // lever QUANTIFIED/saturated. Changes no bound; NO QED.
+  '/src/data/imp-95008-empty-block-extension-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -12886,6 +12886,21 @@ const DATA_MODULES = [
   // 5.337e-9 (fixed-97, rigorously append-saturated). Frozen-base scope
   // stated plainly. Changes no bound; NO QED.
   '/src/data/imp-95008-occupied-block-append-floor.js',
+  // imp-95008 continuation sixteen (fable-5): LEMMAS Q1/Q2/Q3 + THEOREM Q -
+  // the pair-cancellation corner envelope closes the fifteenth named residual
+  // (factor-15 certification slack of the terminal headline single-append
+  // ceiling). Q1: kernel distance monotonicity; Q2: exact integral
+  // representation gives the rate-difference bound (aPrime - a)(2/(a e))
+  // K(a/2, b, tau); Q3: shift lower bound e^(-min(a,b) delta). Theorem Q
+  // bounds own/cross straddle pairs JOINTLY at the common nearer distance,
+  // retaining the near-degenerate corner cancellation; the re-run Theorem P
+  // ladder certifies terminal single-append gain <= 4.13e-5 (0.0427 percent
+  // relative) in 189,614 cells vs 10,353,470 for the fifteenth 6e-4. With
+  // the exact achieved stacked-center append 4.0918e-5 (99.07 percent of
+  // the certificate) the lever is PRICED to a two-sided bracket, residual
+  // factor 1.00933. Far bracket [0.0967451, 4] UNCHANGED (no chain
+  // extension). Changes no bound; NO QED.
+  '/src/data/imp-95008-corner-cancellation-envelope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

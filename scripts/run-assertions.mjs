@@ -12857,6 +12857,20 @@ const DATA_MODULES = [
   // [0.0928718, 4] (gap 43.07), 3.588x; fixed-97 theta=10 gap 10.6x; both
   // theta=2 gaps ~1.26x. Optimality NOT claimed. Changes no bound; NO QED.
   '/src/data/imp-95008-multirate-witness-floor.js',
+  // imp-95008 continuation fourteen (fable-5): THEOREM T + LEMMA U + THEOREM W
+  // - the multi-rate ANTENNA lever at theta=10 is CEILINGED, settling the
+  // thirteenth refined residual with a reversal of its hopeful reading.
+  // Theorem T: empty-block antennas with their OWN rate nu improve any base
+  // to first order for EVERY nu (closed-form epsStar(nu), Theorem N at
+  // nu = mu). Lemma U: kernel strictly decreasing in each rate and in tau;
+  // coupling supremum = flat-antenna limit 2 sum alpha_i/mu_i,
+  // tau-INDEPENDENT (revival maximal). Theorem W: rigorous monotone-envelope
+  // ceiling - headline theta=10 antenna gain <= 2.4510e-5 relative (all
+  // rates, all amplitudes, dominant placement, frozen base); coupling
+  // revives 312x vs rate-locking yet is priced away by Lemma V legality +
+  // 1/nu diagonal cost. Headline bracket updates microscopically to
+  // [0.09287399, 4], gap 43.0691. Changes no bound; NO QED.
+  '/src/data/imp-95008-multirate-antenna-ceiling.js',
 ];
 
 let ALL_MODULES = FAST_MODE

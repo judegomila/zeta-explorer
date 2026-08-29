@@ -12787,6 +12787,23 @@ const DATA_MODULES = [
   // between p = 103001 and p = 104001. Refined residual: close the far
   // bracket [F, 8/(2 sigma - 1)]. Changes no bound; NO QED.
   '/src/data/imp-95008-far-coefficient-floor.js',
+  // imp-95008 continuation nine (fable-frontier): LEMMA V + THEOREM L - RATE
+  // RELAXATION dissolves the fixed-p far-floor blindness. The eighth
+  // continuation pinned the profile rate to the envelope-critical
+  // lambda = s/r_min; MAJ leaves the envelope amplitude free, so Lemma V
+  // (exact tangent constant h = e^(s - mu r)(mu r/s)^s, convexity calculus)
+  // legalizes every rate mu > 0 at damping price 1/h in the mass currency.
+  // Theorem L: the p = 97 excess quadratic form at mu = 1 is theta-FREE and
+  // positive (1.5309), so the fixed-p = 97 far floor is POSITIVE for EVERY
+  // theta > 0 - the corner (cNear, cFar) = (2, 0) is infeasible at the paper
+  // reference prime itself; the eighth-continuation "witness blind" residual
+  // is RESOLVED POSITIVELY (diagnosed as a rate-locking artifact). Baked
+  // optimized witnesses: fixed-97 theta = 10 floor 3.3469e-5 (1.283x the old
+  // spacing-uniform floor), theta = 2 floor 0.15740 (gap 325.5 -> 50.8);
+  // spacing-class floor 0.0076125 = 291.7x Theorem K (gap 3.07e5 -> 1050.9),
+  // with a closed-form spacing-limit functional as consistency anchor.
+  // Changes no bound; NO QED.
+  '/src/data/imp-95008-rate-relaxed-fixed-p-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

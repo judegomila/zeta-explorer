@@ -220,7 +220,7 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
   },
 
   headOnMellinAudit: {
-    status: 'ONE DETERMINANT THEOREM; DENOMINATOR AND CYCLE GAPS REMAIN',
+    status: 'EXACT MOMENTS AND INFINITE NONVANISHING; OLD LATTICE/CYCLE SHORTCUT FAILS',
     denominatorSource:
       'Brown-Zudilin v3 labels equation (42), the five-LCM inclusion, an ' +
       'experimental observation and skips the remaining coefficient computation. ' +
@@ -241,35 +241,57 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'For a=(1,0,0,0,1,0,0,0), all 17 convergence forms are nonnegative, ' +
       'the top five h values are 2,1,1,1,1, and I=zeta(2)-1/2, I\'= -1/4. ' +
       'Thus d_2 P=1/2 is not integral. The paper\'s P_2=1190161/384 also ' +
-      'contradicts its printed d_n^5 P_n integrality at n=2. A bounded ' +
-      'normalization is missing, and convergence alone does not provide the ' +
-      'all-orbit positivity used later. Exact recurrence data through n=19 are ' +
-      'consistent with universal correction factors 2 and 12, but do not prove ' +
-      'a corrected multi-parameter theorem.',
+      'contradicts its printed d_n^5 P_n integrality at n=2. Convergence alone ' +
+      'does not provide the all-orbit positivity used later.',
     fiveRayCollapse:
       'For a(v)=(v1,0,0,0,v2,v4+v5,v3+v4,v5), the exact binomial sum gives ' +
       'Q(a(v))=0 for every v!=0, and five orbit coordinates are -v1,...,-v5. ' +
       'This is Q-degeneracy, not moment degeneracy: the first 5-by-5 rational ' +
       'projected tail has determinant 95/2^20, so the block including the origin ' +
-      'has determinant 95*zeta(5)/2^20. The experimental denominator rule was ' +
-      'applied outside its plausible positivity chamber. At v=(1,1,1,1,1), its ' +
-      'multiplier is 32 but I\'=-5/96, so the rational coefficient clears only ' +
-      'to -5/3; a correction divisible by 3 is necessary on this cone.',
+      'has determinant 95*zeta(5)/2^20. Exact symbolic reduction also proves the ' +
+      '20-by-20 total-degree-two and 31-by-31 rectangular tails are invertible.',
+    exactMomentCertificate:
+      'A finite HPL/MZV evaluator now certifies every required moment exactly: ' +
+      '125 nonzero indices of total degree at most four and all 242 nonzero ' +
+      'indices in {0,1,2}^5 reduce to Q*zeta(2)+Q, with all higher periods ' +
+      'cancelling symbolically. This removes PSLQ from the finite determinant data.',
+    uniformDenominatorNoGo:
+      'On the diagonal v=(n,n,n,n,n), exact partial fractions prove ' +
+      'v_p(I\')=-1 and p I\' congruent 4 mod p whenever p=2n+1 is prime, ' +
+      'while the proposed five-LCM multiplier d_(2n)^5 contains no p. The proof ' +
+      'enumerates all harmonic crossings and separately controls the A_(n,0) ' +
+      'terms. Therefore no fixed integer C repairs that lattice on the old cone. ' +
+      'Already at n=2, d_4^5 I\'=-6897/5, so C=12 fails. This kills the old ' +
+      'five-ray use of equation (42), not a newly hypothesized theorem restricted ' +
+      'to the strict all-28-positive chamber.',
     cycleDefect:
-      'The printed I\'\' residue descent is off by a factor two at a=0, its ' +
-      'literal torus intersects a polar hypersurface at every radius, and it misses ' +
-      'wall-crossing terms on boundary parameters. No fixed analytic chain for I\' ' +
-      'has yet been supplied.',
-    scalarHankelTheorem:
-      'Conditional on the printed recurrence identity, the symmetric projected ' +
-      'sequence has indicial ' +
-      'exponent -5/2 at all three characteristic roots. Its generating function is ' +
-      'therefore nonrational, so Kronecker\'s theorem proves that the principal ' +
-      'Hankel determinants are nonzero infinitely often.',
+      'After the missing factor 1/2 is restored, switching to the reflected residue ' +
+      'chart repairs the e1 test. The self-dual point v=(1,1,1,1,1) is decisive: ' +
+      'both advertised residue sums vanish but I\'\'=1/60. Wall crossing has normal ' +
+      'orders v1+v4 and v2+v4, producing an unbounded Leray-jet tower. It is not a ' +
+      'fixed finite signed measure, so ordinary Andreief and the old real ' +
+      'path-polytope capacity bound do not apply. A new capped complex relative ' +
+      'cycle remains possible but has not been constructed.',
+    oneRayHankelTheorem:
+      'Unconditionally on the e1 ray, I(n e1)=2 H_n^(2) zeta(2)/n-' +
+      '((H_n^(2))^2-H_n^(4))/(2n), hence the projected moment is ' +
+      'mu_n=-((H_n^(2))^2-H_n^(4))/(4n). Since mu_n is asymptotic to ' +
+      '-pi^4/(240n), its generating function and the full series with constant ' +
+      'term zeta(5) are nonrational. Kronecker\'s theorem gives infinitely many ' +
+      'nonzero principal Hankel determinants for both sequences. The natural ' +
+      'shift module is rank three over Q(n), not the hoped-for rank-two ' +
+      'contiguity system.',
+    finiteRectangularBudget:
+      'For the exact 32-by-32 rectangular n=2 block, exponent e=80. Row/column ' +
+      'clearing has rate 3.47430 and direct determinant clearing 3.22433, both ' +
+      'above the conditional geometric budget 3.09990. Primitive Schur content ' +
+      'has rate 2.77593, below it by 0.32397. This one finite cancellation is an ' +
+      'encouraging exact diagnostic, not an asymptotic theorem or a small linear form.',
     geometricDiagnostic:
       'The five-coordinate real image has the rigorous diagnostic bound ' +
       'Sup_rec <= 4^(-11/15)*exp(-8/15)=0.2122587567 and an inscribed-box lower ' +
-      'bound 0.00803875. These do not supply a projected zeta(5) criterion.',
+      'bound 0.00803875. Because the actual projected functional is not represented ' +
+      'by a fixed real measure, these do not presently bound its determinants.',
   },
 
   externalFrontier2026: {
@@ -286,24 +308,25 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT = Object.freeze({
       'containing the symmetric ray has infinite Hankel rank, but no controlled ' +
       'rectangular determinant, denominator lattice, or projected support bound.',
     mainObstacle:
-      'Four proof obligations remain coupled: a correctly hypothesized denominator ' +
-      'theorem, a genuine fixed projected relative cycle including wall terms, ' +
-      'degree-controlled multi-parameter determinant nonvanishing, and a strict ' +
-      'transfinite-diameter/denominator inequality.',
+      'The surviving rank-one route requires a new fixed projected complex cycle, ' +
+      'an asymptotic bound for primitive Schur normalizations, and a common infinite ' +
+      'subsequence with the required invertibility/nonvanishing. Exact moments and ' +
+      'one-ray infinite Hankel nonvanishing are now available; the old five-LCM and ' +
+      'real-face repairs are not.',
     rectangularThreshold:
-      'No current numerical threshold is proof-ready. The exp(-13/4) figure ' +
-      'survives only as a conditional order-statistic target: its five-ray cone ' +
-      'has negative orbit coordinates, and no uniform corrected denominator ' +
-      'theorem, projected cycle, or growing-box determinant theorem is proved. ' +
-      'Actual row and column denominator matrices must be established first.',
+      'For boxes {0,...,n-1}^5, N=n^5 and e=(5/2)n^5(n-1). If a new projected ' +
+      'cycle really obeys the old rectangular capacity bound, the sharp primitive ' +
+      'Schur target is limsup log(c_n)/e < 3.0998983963. The former exp(-13/4) ' +
+      'claim is no longer supported: its stated denominator lattice fails already ' +
+      'at n=2 and its real-cycle interpretation is false.',
   },
 
   nextExperiment: Object.freeze([
-    'State and prove a strict-interior replacement for the experimental five-LCM inclusion.',
-    'Construct a fixed projected relative cycle with the factor-two and wall-crossing terms corrected.',
-    'Certify the printed scalar recurrence, then use its Hankel theorem to select degree-controlled modules.',
-    'Compute the actual row and column denominator determinants before setting a diameter target.',
-    'Only then prove a transfinite-diameter times denominator limit strictly below one.',
+    'Construct a capped complex relative cycle for I\', or derive the confluent determinant bound for its full residue-jet tower.',
+    'Compute and bound the primitive rectangular Schur scales c_n; do not reuse the failed five-LCM lattice.',
+    'Prove a common infinite subsequence of invertible rational tails and nonzero full blocks.',
+    'Extend the exact HPL moment certificate to the n=3 rectangular block using recurrence or modular linear algebra.',
+    'Only then test the strict limit log(c_n)/e < 3.0998983963 required by the conditional capacity bound.',
   ]),
 
   references: Object.freeze([
@@ -361,8 +384,22 @@ export const ODD_ZETA_INCOMPRESSIBILITY_AUDIT_ASSERTIONS = Object.freeze([
       /95\/2\^20/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.fiveRayCollapse),
   },
   {
-    name: 'scalar projected Hankel nonvanishing is retained',
-    check: () => /nonzero infinitely often/.test(ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.scalarHankelTheorem),
+    name: 'one-ray projected Hankel nonvanishing is proved',
+    check: () => /nonzero principal Hankel determinants/.test(
+      ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.oneRayHankelTheorem
+    ),
+  },
+  {
+    name: 'finite exact moments do not rely on PSLQ',
+    check: () => /removes PSLQ/.test(
+      ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.exactMomentCertificate
+    ),
+  },
+  {
+    name: 'five-ray bounded repairs are ruled out p-adically',
+    check: () => /no fixed integer C/.test(
+      ODD_ZETA_INCOMPRESSIBILITY_AUDIT.headOnMellinAudit.uniformDenominatorNoGo
+    ),
   },
   {
     name: 'reproduced scalar budget remains on the losing side',

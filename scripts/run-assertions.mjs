@@ -12915,6 +12915,20 @@ const DATA_MODULES = [
   // named: outer parity factor 2 + the Cauchy-Schwarz half-exponent.
   // Changes no bound; NO QED.
   '/src/data/imp-95008-exponent-split-far-ceiling.js',
+  // imp-95008 continuation eighteen (fable-5): LEMMA RHO + LEMMA 3W +
+  // THEOREM Y-RHO - the seventeenth's named corner residual (the
+  // Cauchy-Schwarz half-exponent) is attacked by a three-window pair bound
+  // (one-sided Cauchy-Schwarz outer windows at nearly full separation; a
+  // middle window RETAINING the product term x_1 x_2 the earlier proofs
+  // discarded) plus the previously unpriced grid width-ratio pinning
+  // rho < 2^(-(j-1) beta) (Lemma RHO, unconditional dyadic-annulus
+  // geometry). Dominant corner envelope 4.242760651223351e-4 ->
+  // 1.1159760370515937e-4 (factor 3.8018); far ceiling 2.9469476400572421
+  // -> 0.7741509917026236; headline gap 30.4610 -> 8.0020, fixed-97 gap
+  // 2444.652 -> 642.200, floors untouched. Honest limits recorded: the
+  // asymptotic half-exponent survives (outer windows), measured corner
+  // slack ~2.85x, sup near-tie at b = 0. Changes no bound; NO QED.
+  '/src/data/imp-95008-width-pinned-three-window-ceiling.js',
 ];
 
 let ALL_MODULES = FAST_MODE

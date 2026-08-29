@@ -656,23 +656,43 @@ export default function OddZetaPage() {
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
                 The head-on source audit found that the five-LCM denominator input is explicitly called
                 experimental, its exact normalization fails even at the strictly interior symmetric point,
-                and the displayed projected residue contour has a factor-two error plus missing
-                wall terms. The reproduced scalar budget is therefore conditional:{' '}
+                and the displayed projected residue contour has a factor-two error plus missing wall terms.
+                The reproduced scalar budget is therefore conditional:{' '}
                 <InlineMath tex={"C_0=-31.55297"} /> and <InlineMath tex={"C_2=49.60575"} />, leaving{' '}
                 <InlineMath tex={"C_0+C_2=18.05278"} /> nats, or <InlineMath tex={"26.04465"} /> missing bits,
                 per step.
               </p>
               <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
-                Conditional on the printed recurrence identity, one theorem survives: the symmetric projected
-                recurrence has indicial exponent{' '}
-                <InlineMath tex={"-5/2"} />, so Kronecker's theorem proves its principal Hankel determinants
-                are nonzero infinitely often. The first five-ray box is residue-degenerate but not
-                moment-degenerate: <InlineMath tex={"Q(a(v))=0"} /> off the origin, while its first rational
-                tail has determinant <InlineMath tex={"95/2^{20}"} />. On the same cone the proposed multiplier
-                gives <InlineMath tex={"32I'=-5/3"} />, so its negative orbit coordinates and missing
-                normalization leave{' '}
-                <InlineMath tex={"e^{-13/4}"} /> only as a conditional target pending denominator, cycle, and
-                growing-determinant theorems.
+                The first five-ray box is <InlineMath tex={"Q"} />-degenerate but not moment-degenerate:{' '}
+                <InlineMath tex={"Q(a(v))=0"} /> off the origin, while its first rational tail has determinant{' '}
+                <InlineMath tex={"95/2^{20}"} />. Exact HPL reduction now certifies the complete degree-two and
+                rectangular <InlineMath tex={"n=2"} /> moment tables, rather than recognizing them numerically.
+                On the <InlineMath tex={"e_1"} /> ray it also gives
+              </p>
+              <BlockMath tex={"I'(ne_1)=-\frac{(H_n^{(2)})^2-H_n^{(4)}}{4n}\sim-\frac{\pi^4}{240n}."} />
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                Its nonrational generating function proves, by Kronecker's theorem, infinitely many nonzero
+                principal Hankel determinants without relying on the printed scalar recurrence. Nonvanishing is
+                therefore real progress, but it is no longer the leading obstruction.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                The arithmetic and analytic shortcuts fail more sharply. The proposed five-LCM multiplier gives{' '}
+                <InlineMath tex={"d_4^5 I'(2,2,2,2,2)=-6897/5"} />, so even the candidate correction factor{' '}
+                <InlineMath tex={"12"} /> fails. More generally, exact partial fractions prove{' '}
+                <InlineMath tex={"v_p(I')=-1"} /> and <InlineMath tex={"pI'\equiv4\pmod p"} /> for prime{' '}
+                <InlineMath tex={"p=2n+1"} />, while <InlineMath tex={"p\nmid d_{2n}^5"} />. Thus no fixed factor
+                repairs this lattice on the cone. The wall corrections form an unbounded Leray-jet tower rather than a
+                fixed face measure, so ordinary Andréief and the old real path-polytope capacity do not apply.
+                The former <InlineMath tex={"e^{-13/4}"} /> benchmark is therefore withdrawn, not retained as a
+                proof-ready target.
+              </p>
+              <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.7, margin: '8px 0 0' }}>
+                One exact finite signal remains interesting. For the 32-by-32 rectangular block, primitive
+                Schur normalization has rate <InlineMath tex={"2.77593"} />, below the conditional geometric
+                budget <InlineMath tex={"3.09990"} />, whereas row/column clearing and direct determinant
+                clearing have rates <InlineMath tex={"3.47430"} /> and <InlineMath tex={"3.22433"} />. A single
+                block is not an asymptotic theorem, and the capacity comparison becomes usable only after a new
+                capped complex projected cycle is constructed.
               </p>
             </div>
           </div>

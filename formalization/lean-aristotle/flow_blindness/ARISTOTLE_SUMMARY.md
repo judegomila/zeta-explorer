@@ -1,0 +1,13 @@
+# Summary of changes for run 22bdb7d9-091b-4ba9-95c3-1a72b2aff55b
+Formalized `job29_flow_blindness.tex` in `RequestProject/Main.lean`. The file builds cleanly with no `sorry`/`admit`, and every theorem depends only on the standard axioms (`propext`, `Classical.choice`, `Quot.sound`).
+
+Scaffolding (reproduced from the quoted `MathlibBridge` declarations): `HasOnlyRealZeros`, `IsDBNConstant`, `RiemannHypothesis`, and `RH_iff_lambda_eq_zero`. One deliberate deviation, flagged in the file's header: the source carries the flow `H` as an `axiom`; for soundness I carry it as a section variable `H : ℝ → ℂ → ℂ` instead. This is strictly more general — every result is proved for all such `H` — and adds no assumptions to the environment.
+
+Targets delivered:
+- **F1** `noGo_backward`: given `IsDBNConstant H Lambda` and `hRT : 0 ≤ Lambda`, for every `eps > 0` the backward-time function `H (-eps)` fails "all zeros real".
+- **F2** in both packagings the source permits:
+  - `softClass_noGo`: for a time-indexed soft class `S : ℝ → Prop`, flow-invariance (`∀ t eps, 0 < eps → S t → S (t - eps)`), soundness (`∀ t, S t → HasOnlyRealZeros H t`) and `S 0` are jointly contradictory;
+  - `noGo_profile_class`: the profile-class version, which does **not** absorb the analytic flow identity — it carries an explicit transform `cosTransform : (ℝ → ℝ) → ℂ → ℂ` together with the named hypothesis `hFlow : ∀ eps > 0, cosTransform (gaussianDamp eps Phi) = H (-eps)`, and derives `False` from invariance under Gaussian damping, soundness, and membership of the genuine profile.
+- **F3** (unconditional real analysis, on `gaussianDamp eps Phi u = e^{-eps·u²}·Phi u`): `gaussianDamp_even` (a), `gaussianDamp_pos` (b), `gaussianDamp_logConcave` (c, with the auxiliary `concaveOn_neg_sq`; log-concavity formalized as concavity of `log ∘ Φ` on ℝ, using positivity of `Φ` to split the logarithm), and for (d) `gaussianDamp_abs_le`, the general transfer lemma `gaussianDamp_decay_transfer`, and the doubly-exponential instance `gaussianDamp_doubly_exponential_decay`.
+
+Rodgers–Tao is never attempted: all of its content flows through the single named hypothesis `hRT : 0 ≤ Lambda`, so the F1/F2 results are conditional on it. Consistent with the source's honest scope, nothing here asserts that RH is false or unprovable, and no claim about `Λ` is moved. The Properties table lists all definitions and theorems, with the ten theorems marked proved.

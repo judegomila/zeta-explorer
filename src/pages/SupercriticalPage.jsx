@@ -4,6 +4,7 @@ import SupercriticalViz from '../components/SupercriticalViz.jsx';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Supercritical Phase Explorer — Bost-Connes / primon-gas thermodynamic lens
 // on zeta beyond the critical strip. Editorial (warm) re-theme: identical
@@ -76,6 +77,7 @@ export default function SupercriticalPage() {
 
         <div style={{ marginTop: 24, marginBottom: 8 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Supercritical Phase Explorer</h1>
+          <AnimationEmbed id="supercritical" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Push the zeta function beyond the critical strip into the supercritical regime (<InlineMath tex={"\\sigma > 1"} />)
             and below zero (<InlineMath tex={"\\sigma < 0"} />). Using Tao's thermodynamic framework, <InlineMath tex={"\\sigma"} /> acts as inverse

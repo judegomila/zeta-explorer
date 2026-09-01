@@ -32,6 +32,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { CONNES_ADELIC_LAMBDA } from '../data/connes-adelic-lambda-2026-05.js';
 import RelatedLinks from '../components/RelatedLinks.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // ── Style helpers (editorial warm palette). ────────────────────────────
 
@@ -270,6 +271,7 @@ export default function ConnesAdelicPage() {
         <h1 className="ed-h1" style={{ marginBottom: 8 }}>
           Connes Adelic Spectral Interpretation
         </h1>
+          <AnimationEmbed id="connes-adelic" />
         <div style={{
           color: 'var(--ink-soft)',
           fontSize: 13,

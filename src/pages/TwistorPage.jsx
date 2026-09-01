@@ -36,6 +36,7 @@ export default function TwistorPage() {
         </div>
 
         <AnimationEmbed id="twistor-lift2" />
+          <AnimationEmbed id="wave-collar" />
         <AnimationEmbed id="twistor-lift" />
 
         <BlockMath tex={"Z^{\\alpha} = (\\omega^A, \\pi_{A'}) \\quad \\longleftrightarrow \\quad \\text{Direct ladder } \\zeta(s)"} />

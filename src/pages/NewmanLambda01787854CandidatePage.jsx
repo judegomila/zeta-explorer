@@ -107,6 +107,7 @@ export default function NewmanLambda01787854CandidatePage() {
       </p>
 
       <AnimationEmbed id="zetasota" />
+      <AnimationEmbed id="certificate-anatomy" />
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
         <div className="tlab">Unrefereed candidate · reviewed by Dan Romik · being prepared for public release</div>

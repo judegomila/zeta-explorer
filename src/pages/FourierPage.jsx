@@ -4,6 +4,7 @@ import FourierDomainViz from '../components/FourierDomainViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { ZETA_ZEROS } from '../math/zeta.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Returns the von Mangoldt function value for integer n >= 2.
 // Lambda(n) = log(p) if n = p^k for some prime p, else 0.
@@ -154,6 +155,7 @@ export default function FourierPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Fourier Domain Explorer</h1>
+          <AnimationEmbed id="fourier-duality" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             The explicit formula decomposes the prime counting function into oscillatory modes,
             one per zeta zero. This is a Fourier-type duality: primes live in "position space" while

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { CRITICAL_LINE_PROPORTION as RECORDS, RH_TARGET } from '../data/critical-line-proportion.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* The critical-line-proportion dimension: κ = proportion of nontrivial zeros PROVEN
    on Re s = 1/2. RH ⟺ κ = 100%. Sibling to the Λ-bound timeline. Entries through
@@ -25,6 +26,7 @@ export default function CriticalLineProportionPage() {
         <h1 className="ed-h1" style={{ fontSize: 'clamp(26px,3.6vw,38px)', marginTop: 6 }}>
           Zeros proven <em className="ed-terra">on the line</em>
         </h1>
+          <AnimationEmbed id="line-proportion" />
         <p style={{ color: 'var(--ink-soft)', fontSize: 17, maxWidth: '60ch', marginTop: 12 }}>
           A second classical dimension of progress on the Riemann Hypothesis, distinct from the de Bruijn–Newman Λ
           bound and from verified zero height: the proportion <b>κ</b> of nontrivial zeros <em>proven</em> to lie on

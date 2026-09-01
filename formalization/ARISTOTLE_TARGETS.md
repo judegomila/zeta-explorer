@@ -99,9 +99,15 @@ de Bruijn Thm 13 itself, Koksma–Hlawka (absent from mathlib, heavy).
   and imp-34813 fix the sign — corrected to the ENTIRE_ROADMAP convention.
 
 ## Wave 4 — SUBMITTED 2026-08-28 (six jobs; poller armed)
-- entirelp_sorry 8e391235 — BONUS: the verbatim exists_heatOp_approx_tendsto
-  target at EntireLP.lean:328-334 (the probe tree's LAST sorry), drafted with
-  the false-former-axiom counterexample F_n = (n!/(2n)!)z^{2n} quoted as a
+- entirelp_sorry 8e391235 — BONUS: ATTEMPTED / OUT_OF_BUDGET (the first quota
+  event in 31 jobs; per-job compute budget on a genuinely deep analytic target
+  — locally-uniform approximation with heat-flow control — not account
+  exhaustion; the five simultaneous siblings completed fine). NOT retried
+  pending the user's call: (a) retry as-is, (b) split into stages (polynomial
+  approximant for IsLaguerrePolya via Hadamard factorization first, then the
+  heat-flow transfer), or (c) park — the probe keeps its one sorry. Target was
+  the verbatim exists_heatOp_approx_tendsto at EntireLP.lean:328-334, drafted
+  with the false-former-axiom counterexample F_n = (n!/(2n)!)z^{2n} as a
   warning (generic approximants fail; order/type control mandatory).
 - mingap_sandwich 2dd89653 (#7) — imp-2563 wording wins on the h_β
   sup-over-all-pairs question; residual imp-2683-sub-punctured named, left open.
@@ -114,6 +120,7 @@ de Bruijn Thm 13 itself, Koksma–Hlawka (absent from mathlib, heavy).
   MathlibBridge:126-172; Rodgers–Tao stays a hypothesis per the triage.
 - shear_gram 4a97dec3 (#15) — finite-dimensional per the ledger; the op-norm
   spelling flagged as the load-bearing mathlib choice.
-No ledger-vs-source overrides needed in jobs 26-30. Running tally: 31 jobs,
-zero quota anomalies. If wave 4 clears, the full 15-target ledger + the last
-probe sorry are all covered.
+No ledger-vs-source overrides needed in jobs 26-30. STATUS 2026-09-01: jobs
+26-30 all COMPLETE and sorry-free (kernel + axiom + faithfulness gates
+running; delivery to follow). With them the FULL 15-target ledger is covered;
+only the bonus (the last probe sorry) is parked on the budget decision above.

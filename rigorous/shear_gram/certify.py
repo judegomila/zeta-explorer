@@ -167,10 +167,12 @@ def _parse_theta_crosscheck(raw: object) -> ThetaCrosscheckRequest:
     if raw["enabled"] is not True:
         raise ExactInputError("theta_crosscheck.enabled must be boolean")
     cutoff = parse_rational(raw["cutoff_u"], name="theta_crosscheck.cutoff_u")
-    if cutoff <= 0:
-        raise ExactInputError("theta_crosscheck.cutoff_u must be positive")
+    if cutoff <= 0 or cutoff > 32:
+        raise ExactInputError(
+            "theta_crosscheck.cutoff_u must be an exact value in (0,32]"
+        )
     terms = raw["theta_terms"]
-    if type(terms) is not int or terms <= 0 or terms > 1_000_000:
+    if type(terms) is not int or terms <= 0 or terms > 4096:
         raise ExactInputError("theta_crosscheck.theta_terms is outside safety bounds")
     return ThetaCrosscheckRequest(True, cutoff, terms)
 
@@ -429,6 +431,207 @@ def _classification_record(result: Classification) -> dict[str, Any]:
     return record
 
 
+def _theta_scaled_gram(
+    nodes: Sequence[acb], components: Sequence[Any]
+) -> acb_mat:
+    r"""Build the cancellation-preserving theta diagnostic ``K_a/a``.
+
+    With ``A=A_a`` and ``C=B_a/a``, the exact identity for ``a>0`` is
+
+    .. math::
+       K_a(w,z)/a =
+       \frac{\overline{C_a(w)}A_a(z)-\overline{A_a(w)}C_a(z)}
+       {\pi(\overline w-z)}.
+
+    This matrix is deliberately evidence-only in the v1 certificate.  It is
+    never substituted for the completed-Xi Gram matrix used by the top-level
+    three-way verdict.
+    """
+
+    node_list = list(nodes)
+    component_list = list(components)
+    if not node_list or len(node_list) != len(component_list):
+        raise MatrixValidationError(
+            "theta scaled Gram requires one component enclosure per node"
+        )
+    matrix = acb_mat(len(node_list), len(node_list))
+    for row in range(len(node_list)):
+        for column in range(row, len(node_list)):
+            w = node_list[row]
+            z = node_list[column]
+            A_w = component_list[row].A
+            C_w = component_list[row].B_over_a
+            A_z = component_list[column].A
+            C_z = component_list[column].B_over_a
+            values = (w, z, A_w, C_w, A_z, C_z)
+            if not all(isinstance(value, acb) and value.is_finite() for value in values):
+                raise NonFiniteError(
+                    f"theta.scaled_gram.input[{row},{column}]"
+                )
+            numerator = C_w.conjugate(exact=True) * A_z - A_w.conjugate(
+                exact=True
+            ) * C_z
+            denominator = acb.pi() * (w.conjugate(exact=True) - z)
+            if not numerator.is_finite() or not denominator.is_finite():
+                raise NonFiniteError(
+                    f"theta.scaled_gram.arithmetic[{row},{column}]"
+                )
+            if denominator.contains(0):
+                raise MatrixValidationError(
+                    f"theta scaled Gram denominator contains zero at {row},{column}"
+                )
+            value = numerator / denominator
+            if not value.is_finite():
+                raise NonFiniteError(
+                    f"theta.scaled_gram.result[{row},{column}]"
+                )
+            if row == column:
+                if not value.imag.contains(0):
+                    raise MatrixValidationError(
+                        "theta scaled Gram diagonal enclosure does not contain a "
+                        f"real value at {row}"
+                    )
+                value = acb(value.real, 0)
+            matrix[row, column] = value
+            if column != row:
+                matrix[column, row] = value.conjugate(exact=True)
+    return matrix
+
+
+def _theta_crosscheck_record(parsed: ParsedCase, precision_bits: int) -> dict[str, Any]:
+    """Run and serialize the optional verdict-neutral theta audit."""
+
+    request = parsed.theta_crosscheck
+    record: dict[str, Any] = {
+        "requested": request.enabled,
+        "performed": False,
+        "usedForVerdict": False,
+        "finiteGramOnly": True,
+        "rhClaim": False,
+        "rhSolved": False,
+        "claimComplete": False,
+    }
+    if not request.enabled:
+        record["reason"] = "theta-crosscheck-not-requested"
+        return record
+
+    assert request.cutoff_u is not None and request.theta_terms is not None
+    record.update(
+        {
+            "selectedPrecisionBits": precision_bits,
+            "parameters": {
+                "cutoffU": canonical_rational(request.cutoff_u),
+                "thetaTerms": request.theta_terms,
+            },
+        }
+    )
+
+    from .theta import theta_completed_xi_crosscheck
+
+    checks = []
+    components = []
+    with ctx.workprec(precision_bits):
+        _, acb_nodes = parsed.acb_values()
+        for index, node in enumerate(parsed.nodes):
+            try:
+                result = theta_completed_xi_crosscheck(
+                    node.real,
+                    node.imag,
+                    parsed.a,
+                    request.cutoff_u,
+                    request.theta_terms,
+                )
+                node_record = result.as_record(precision_bits)
+                node_record["nodeIndex"] = index
+                node_record["claimComplete"] = False
+                checks.append(node_record)
+                components.append(result.components)
+            except Exception as error:
+                checks.append(
+                    {
+                        "nodeIndex": index,
+                        "performed": False,
+                        "overlap": False,
+                        "EOverlap": False,
+                        "EsharpOverlap": False,
+                        "reason": f"theta-crosscheck-failed:{type(error).__name__}",
+                        "usedForVerdict": False,
+                        "finitePointwiseOnly": True,
+                        "rhClaim": False,
+                        "rhSolved": False,
+                        "claimComplete": False,
+                    }
+                )
+                components.append(None)
+
+        all_executed = all(check.get("performed") is True for check in checks)
+        all_overlaps = all(check.get("overlap") is True for check in checks)
+        # ``performed`` reports execution only.  Whether that completed check
+        # passed is kept separately in ``allOverlaps`` so a genuine, fully
+        # executed non-overlap can never be mislabeled as "not performed".
+        record["performed"] = all_executed
+        record["allNodeEvaluationsCompleted"] = all_executed
+        record["allOverlaps"] = all_overlaps
+        record["nodeChecks"] = checks
+        if not all_executed:
+            record["reason"] = "theta-crosscheck-incomplete"
+        elif all_overlaps:
+            record["reason"] = (
+                "all-theta-and-completed-xi-enclosures-overlap"
+            )
+        else:
+            record["reason"] = (
+                "theta-crosscheck-completed-with-nonoverlap"
+            )
+
+        diagnostic: dict[str, Any] = {
+            "label": "EVIDENCE-ONLY-THETA-SCALED-GRAM",
+            "formula": (
+                "K_a(w,z)/a=(conj(C_a(w))*A_a(z)-"
+                "conj(A_a(w))*C_a(z))/(pi*(conj(w)-z))"
+            ),
+            "domain": "a>0 and the listed strict-upper-half-plane nodes",
+            "performed": False,
+            "usedForVerdict": False,
+            "finiteGramOnly": True,
+            "rhClaim": False,
+            "rhSolved": False,
+            "claimComplete": False,
+        }
+        components_available = all(
+            component is not None for component in components
+        )
+        if all_executed and all_overlaps and components_available:
+            try:
+                scaled_gram = _theta_scaled_gram(acb_nodes, components)
+                classification = classify_hermitian_ball_matrix(
+                    scaled_gram, precision_bits
+                )
+                diagnostic["performed"] = True
+                diagnostic["classification"] = _classification_record(
+                    classification
+                )
+                diagnostic["gramEnclosure"] = _matrix_record(
+                    scaled_gram, precision_bits
+                )
+            except Exception as error:
+                diagnostic["reason"] = (
+                    f"theta-scaled-gram-failed:{type(error).__name__}"
+                )
+        elif all_executed and not all_overlaps:
+            diagnostic["reason"] = (
+                "theta-crosscheck-nonoverlap-blocks-scaled-diagnostic"
+            )
+        elif not components_available:
+            diagnostic["reason"] = "theta-components-unavailable"
+        elif not all_executed:
+            diagnostic["reason"] = (
+                "theta-crosscheck-incomplete-blocks-scaled-diagnostic"
+            )
+        record["scaledGramDiagnostic"] = diagnostic
+    return record
+
+
 def certify_spec(
     spec: Mapping[str, Any], config: CertifierConfig | None = None
 ) -> dict[str, Any]:
@@ -463,6 +666,9 @@ def certify_spec(
         if result.status != INCONCLUSIVE:
             break
 
+    assert selected_precision is not None
+    theta_crosscheck = _theta_crosscheck_record(parsed, selected_precision)
+
     payload = {
         "schemaVersion": CERTIFICATE_SCHEMA,
         "input": parsed.canonical(),
@@ -494,15 +700,7 @@ def certify_spec(
             "perturbation": "rho=max_i sum_j rad(G_ij)",
             "eigenAlgorithm": EIGEN_ALGORITHM,
         },
-        "thetaCrosscheck": {
-            "requested": parsed.theta_crosscheck.enabled,
-            "performed": False,
-            "usedForVerdict": False,
-            "reason": (
-                "The v1 certifier mandated here evaluates Xi by the completed-zeta "
-                "formula; theta data is retained only as forward-compatible metadata."
-            ),
-        },
+        "thetaCrosscheck": theta_crosscheck,
         "attempts": attempts,
     }
     # Local import avoids a module cycle: certificate verification calls back

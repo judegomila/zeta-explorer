@@ -172,6 +172,26 @@ def verify_hashes(certificate: Mapping[str, Any]) -> tuple[bool, str]:
         enclosure_hash = enclosure_payload.pop("sha256", None)
         if enclosure_hash != sha256_object(enclosure_payload):
             return False, "gram-enclosure-hash-mismatch"
+
+    theta_crosscheck = certificate.get("thetaCrosscheck")
+    if theta_crosscheck is not None:
+        if not isinstance(theta_crosscheck, Mapping):
+            return False, "theta-crosscheck-not-an-object"
+        scaled_diagnostic = theta_crosscheck.get("scaledGramDiagnostic")
+        if scaled_diagnostic is not None:
+            if not isinstance(scaled_diagnostic, Mapping):
+                return False, "theta-scaled-diagnostic-not-an-object"
+            scaled_enclosure = scaled_diagnostic.get("gramEnclosure")
+            if scaled_enclosure is not None:
+                if (
+                    not isinstance(scaled_enclosure, Mapping)
+                    or type(scaled_enclosure.get("sha256")) is not str
+                ):
+                    return False, "malformed-theta-scaled-gram-enclosure-hash"
+                scaled_payload = copy.deepcopy(dict(scaled_enclosure))
+                scaled_hash = scaled_payload.pop("sha256", None)
+                if scaled_hash != sha256_object(scaled_payload):
+                    return False, "theta-scaled-gram-enclosure-hash-mismatch"
     return True, "hashes-valid"
 
 
@@ -239,6 +259,315 @@ def verify_certificate(
     }
     if status not in allowed:
         return VerificationResult(False, "unknown-status", None, None, digest)
+
+    input_object = certificate.get("input")
+    input_theta = (
+        input_object.get("theta_crosscheck")
+        if isinstance(input_object, Mapping)
+        else None
+    )
+    input_theta_requested = (
+        isinstance(input_theta, Mapping) and input_theta.get("enabled") is True
+    )
+    theta_crosscheck = certificate.get("thetaCrosscheck")
+    if theta_crosscheck is None:
+        # Retain compatibility with a synthetic theta-disabled envelope while
+        # requiring real certifier output to contain requested theta evidence.
+        if input_theta_requested:
+            return VerificationResult(
+                False, "requested-theta-crosscheck-missing", status, None, digest
+            )
+    else:
+        if not isinstance(theta_crosscheck, Mapping):
+            return VerificationResult(
+                False, "theta-crosscheck-not-an-object", status, None, digest
+            )
+        required_theta_flags = {
+            "requested": input_theta_requested,
+            "usedForVerdict": False,
+            "finiteGramOnly": True,
+            "rhClaim": False,
+            "rhSolved": False,
+            "claimComplete": False,
+        }
+        for field, expected in required_theta_flags.items():
+            if theta_crosscheck.get(field) is not expected:
+                return VerificationResult(
+                    False,
+                    f"theta-crosscheck-{field}-must-be-{str(expected).lower()}",
+                    status,
+                    None,
+                    digest,
+                )
+        if type(theta_crosscheck.get("performed")) is not bool:
+            return VerificationResult(
+                False,
+                "theta-crosscheck-performed-must-be-boolean",
+                status,
+                None,
+                digest,
+            )
+        if (
+            type(theta_crosscheck.get("reason")) is not str
+            or not theta_crosscheck.get("reason")
+        ):
+            return VerificationResult(
+                False,
+                "theta-crosscheck-reason-must-be-nonempty",
+                status,
+                None,
+                digest,
+            )
+        if not input_theta_requested:
+            if theta_crosscheck.get("performed") is not False:
+                return VerificationResult(
+                    False,
+                    "unrequested-theta-crosscheck-cannot-be-performed",
+                    status,
+                    None,
+                    digest,
+                )
+        else:
+            expected_parameters = {
+                "cutoffU": input_theta.get("cutoff_u"),
+                "thetaTerms": input_theta.get("theta_terms"),
+            }
+            if theta_crosscheck.get("parameters") != expected_parameters:
+                return VerificationResult(
+                    False,
+                    "theta-crosscheck-parameter-mismatch",
+                    status,
+                    None,
+                    digest,
+                )
+            if theta_crosscheck.get("selectedPrecisionBits") != certificate.get(
+                "selectedPrecisionBits"
+            ):
+                return VerificationResult(
+                    False,
+                    "theta-crosscheck-selected-precision-mismatch",
+                    status,
+                    None,
+                    digest,
+                )
+            checks = theta_crosscheck.get("nodeChecks")
+            input_nodes = (
+                input_object.get("nodes")
+                if isinstance(input_object, Mapping)
+                else None
+            )
+            if (
+                not isinstance(checks, list)
+                or not isinstance(input_nodes, list)
+                or len(checks) != len(input_nodes)
+            ):
+                return VerificationResult(
+                    False,
+                    "theta-crosscheck-node-count-mismatch",
+                    status,
+                    None,
+                    digest,
+                )
+            for index, check in enumerate(checks):
+                if not isinstance(check, Mapping) or check.get("nodeIndex") != index:
+                    return VerificationResult(
+                        False,
+                        "malformed-theta-node-check",
+                        status,
+                        None,
+                        digest,
+                    )
+                node_required = {
+                    "performed": bool,
+                    "overlap": bool,
+                    "EOverlap": bool,
+                    "EsharpOverlap": bool,
+                }
+                if any(
+                    type(check.get(field)) is not expected_type
+                    for field, expected_type in node_required.items()
+                ):
+                    return VerificationResult(
+                        False,
+                        "theta-node-check-flags-must-be-boolean",
+                        status,
+                        None,
+                        digest,
+                    )
+                if (
+                    check.get("usedForVerdict") is not False
+                    or check.get("finitePointwiseOnly") is not True
+                    or check.get("rhClaim") is not False
+                    or check.get("rhSolved") is not False
+                    or check.get("claimComplete") is not False
+                ):
+                    return VerificationResult(
+                        False,
+                        "dishonest-theta-node-check",
+                        status,
+                        None,
+                        digest,
+                    )
+                if check.get("overlap") is not (
+                    check.get("EOverlap") and check.get("EsharpOverlap")
+                ):
+                    return VerificationResult(
+                        False,
+                        "theta-node-overlap-aggregate-mismatch",
+                        status,
+                        None,
+                        digest,
+                    )
+                if check.get("overlap") is True and check.get("performed") is not True:
+                    return VerificationResult(
+                        False,
+                        "theta-node-overlap-without-execution",
+                        status,
+                        None,
+                        digest,
+                    )
+                if check.get("performed") is True:
+                    theta_record = check.get("theta")
+                    completed_record = check.get("completedXi")
+                    if not isinstance(theta_record, Mapping) or not isinstance(
+                        completed_record, Mapping
+                    ):
+                        return VerificationResult(
+                            False,
+                            "performed-theta-node-check-missing-enclosures",
+                            status,
+                            None,
+                            digest,
+                        )
+                    expected_theta_metadata = {
+                        "precisionBits": certificate.get("selectedPrecisionBits"),
+                        "node": input_nodes[index],
+                        "a": input_object.get("a"),
+                        "cutoffU": input_theta.get("cutoff_u"),
+                        "thetaTerms": input_theta.get("theta_terms"),
+                        "finitePointwiseOnly": True,
+                        "rhClaim": False,
+                        "rhSolved": False,
+                        "claimComplete": False,
+                    }
+                    if any(
+                        theta_record.get(field) != expected
+                        for field, expected in expected_theta_metadata.items()
+                    ):
+                        return VerificationResult(
+                            False,
+                            "theta-node-enclosure-metadata-mismatch",
+                            status,
+                            None,
+                            digest,
+                        )
+                    if not all(
+                        isinstance(theta_record.get(field), Mapping)
+                        for field in ("finiteRectangle", "tails", "enclosures")
+                    ) or not all(
+                        isinstance(completed_record.get(field), Mapping)
+                        for field in ("E", "Esharp")
+                    ):
+                        return VerificationResult(
+                            False,
+                            "malformed-theta-node-enclosures",
+                            status,
+                            None,
+                            digest,
+                        )
+            all_executed = all(check.get("performed") is True for check in checks)
+            all_overlaps = all(check.get("overlap") is True for check in checks)
+            if (
+                theta_crosscheck.get("allNodeEvaluationsCompleted")
+                is not all_executed
+                or theta_crosscheck.get("allOverlaps") is not all_overlaps
+                or theta_crosscheck.get("performed") is not all_executed
+            ):
+                return VerificationResult(
+                    False,
+                    "theta-crosscheck-aggregate-mismatch",
+                    status,
+                    None,
+                    digest,
+                )
+
+            scaled = theta_crosscheck.get("scaledGramDiagnostic")
+            if not isinstance(scaled, Mapping):
+                return VerificationResult(
+                    False,
+                    "missing-theta-scaled-gram-diagnostic",
+                    status,
+                    None,
+                    digest,
+                )
+            scaled_required = {
+                "usedForVerdict": False,
+                "finiteGramOnly": True,
+                "rhClaim": False,
+                "rhSolved": False,
+                "claimComplete": False,
+            }
+            for field, expected in scaled_required.items():
+                if scaled.get(field) is not expected:
+                    return VerificationResult(
+                        False,
+                        f"theta-scaled-{field}-must-be-{str(expected).lower()}",
+                        status,
+                        None,
+                        digest,
+                    )
+            if type(scaled.get("performed")) is not bool:
+                return VerificationResult(
+                    False,
+                    "theta-scaled-performed-must-be-boolean",
+                    status,
+                    None,
+                    digest,
+                )
+            if scaled.get("performed") is True:
+                if not (
+                    theta_crosscheck.get("performed") is True
+                    and theta_crosscheck.get("allOverlaps") is True
+                ):
+                    return VerificationResult(
+                        False,
+                        "theta-scaled-diagnostic-requires-overlap",
+                        status,
+                        None,
+                        digest,
+                    )
+                scaled_classification = scaled.get("classification")
+                if (
+                    not isinstance(scaled_classification, Mapping)
+                    or scaled_classification.get("status") not in allowed
+                    or scaled_classification.get("finiteGramOnly") is not True
+                    or scaled_classification.get("rhClaim") is not False
+                    or not isinstance(scaled.get("gramEnclosure"), Mapping)
+                ):
+                    return VerificationResult(
+                        False,
+                        "malformed-theta-scaled-classification",
+                        status,
+                        None,
+                        digest,
+                    )
+            else:
+                if type(scaled.get("reason")) is not str or not scaled.get("reason"):
+                    return VerificationResult(
+                        False,
+                        "unperformed-theta-scaled-diagnostic-needs-reason",
+                        status,
+                        None,
+                        digest,
+                    )
+                if "classification" in scaled or "gramEnclosure" in scaled:
+                    return VerificationResult(
+                        False,
+                        "unperformed-theta-scaled-diagnostic-has-result",
+                        status,
+                        None,
+                        digest,
+                    )
     if status != INCONCLUSIVE:
         attempts = certificate.get("attempts")
         if not isinstance(attempts, list) or not attempts:

@@ -22,12 +22,26 @@ from .certificate import (
 )
 from .exact import ExactInputError, canonical_rational, parse_rational
 from .gram import build_gram, de_branges_kernel, de_branges_kernel_from_values
+from .theta import (
+    ThetaComponents,
+    ThetaCrosscheckResult,
+    ThetaEvaluationError,
+    ThetaInputError,
+    ThetaTailBound,
+    theta_completed_xi_crosscheck,
+    theta_components,
+)
 from .xi import E_a, E_sharp_a, Xi, xi_completed, zeta_deflated
 
 __all__ = [
     "CERTIFIED_NEGATIVE_WITNESS",
     "CERTIFIED_POSITIVE_FINITE_GRAM",
     "INCONCLUSIVE",
+    "ThetaComponents",
+    "ThetaCrosscheckResult",
+    "ThetaEvaluationError",
+    "ThetaInputError",
+    "ThetaTailBound",
     "CertifierConfig",
     "E_a",
     "E_sharp_a",
@@ -43,6 +57,8 @@ __all__ = [
     "de_branges_kernel_from_values",
     "parse_case",
     "parse_rational",
+    "theta_completed_xi_crosscheck",
+    "theta_components",
     "validate_case",
     "verify_certificate",
     "verify_hashes",

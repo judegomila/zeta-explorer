@@ -26,6 +26,108 @@ const FINITE_GRAM_STATUSES = new Set([
   'CERTIFIED-NEGATIVE-WITNESS',
   'INCONCLUSIVE',
 ]);
+const FINITE_GRAM_CERTIFICATE_SCHEMA = 'debranges-gram-certificate/v1';
+const FINITE_GRAM_CASE_SCHEMA = 'debranges-gram-case/v1';
+const SHA256_PATTERN = /^[0-9a-f]{64}$/;
+
+function isPlainRecord(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasExactKeys(record, keys) {
+  if (!isPlainRecord(record)) return false;
+  const actual = Object.keys(record).sort();
+  const expected = [...keys].sort();
+  return actual.length === expected.length && actual.every((key, index) => key === expected[index]);
+}
+
+function hasHonestFiniteScope(record, finiteKey) {
+  return isPlainRecord(record) &&
+    record[finiteKey] === true &&
+    record.rhClaim === false &&
+    record.rhSolved === false &&
+    record.claimComplete === false;
+}
+
+function thetaCrosscheckPassesLoadGuard(certificate) {
+  const theta = certificate?.thetaCrosscheck;
+  const request = certificate?.input?.theta_crosscheck;
+  if (!isPlainRecord(theta) || !isPlainRecord(request)) return false;
+  if (typeof request.enabled !== 'boolean' || theta.requested !== request.enabled) return false;
+  if (typeof theta.performed !== 'boolean' || theta.usedForVerdict !== false) return false;
+  if (!hasHonestFiniteScope(theta, 'finiteGramOnly') || typeof theta.reason !== 'string') return false;
+
+  const honestyKeys = [
+    'requested', 'performed', 'usedForVerdict', 'finiteGramOnly', 'rhClaim',
+    'rhSolved', 'claimComplete',
+  ];
+  if (!request.enabled) {
+    return hasExactKeys(theta, [...honestyKeys, 'reason']) &&
+      theta.performed === false &&
+      theta.reason === 'theta-crosscheck-not-requested';
+  }
+
+  if (!hasExactKeys(theta, [
+    ...honestyKeys, 'selectedPrecisionBits', 'parameters',
+    'allNodeEvaluationsCompleted', 'allOverlaps', 'nodeChecks', 'reason',
+    'scaledGramDiagnostic',
+  ])) return false;
+  if (theta.selectedPrecisionBits !== certificate.selectedPrecisionBits) return false;
+  if (!hasExactKeys(theta.parameters, ['cutoffU', 'thetaTerms'])) return false;
+  if (theta.parameters.cutoffU !== request.cutoff_u || theta.parameters.thetaTerms !== request.theta_terms) return false;
+  if (!Array.isArray(theta.nodeChecks) || theta.nodeChecks.length !== certificate.input.nodes.length) return false;
+
+  const nodesValid = theta.nodeChecks.every((nodeCheck, index) => {
+    if (!isPlainRecord(nodeCheck) || nodeCheck.nodeIndex !== index) return false;
+    if (typeof nodeCheck.performed !== 'boolean' || typeof nodeCheck.overlap !== 'boolean') return false;
+    if (typeof nodeCheck.EOverlap !== 'boolean' || typeof nodeCheck.EsharpOverlap !== 'boolean') return false;
+    if (nodeCheck.overlap !== (nodeCheck.EOverlap && nodeCheck.EsharpOverlap)) return false;
+    if (nodeCheck.usedForVerdict !== false || !hasHonestFiniteScope(nodeCheck, 'finitePointwiseOnly')) return false;
+    if (nodeCheck.performed) {
+      return isPlainRecord(nodeCheck.theta) &&
+        hasHonestFiniteScope(nodeCheck.theta, 'finitePointwiseOnly') &&
+        isPlainRecord(nodeCheck.completedXi) &&
+        isPlainRecord(nodeCheck.completedXi.E) &&
+        isPlainRecord(nodeCheck.completedXi.Esharp);
+    }
+    return nodeCheck.overlap === false && !Object.hasOwn(nodeCheck, 'theta') && !Object.hasOwn(nodeCheck, 'completedXi');
+  });
+  if (!nodesValid) return false;
+
+  const allCompleted = theta.nodeChecks.every((nodeCheck) => nodeCheck.performed);
+  const allOverlaps = theta.nodeChecks.every((nodeCheck) => nodeCheck.overlap);
+  if (theta.performed !== allCompleted || theta.allNodeEvaluationsCompleted !== allCompleted || theta.allOverlaps !== allOverlaps) return false;
+
+  const diagnostic = theta.scaledGramDiagnostic;
+  if (!isPlainRecord(diagnostic) || typeof diagnostic.performed !== 'boolean') return false;
+  if (diagnostic.usedForVerdict !== false || !hasHonestFiniteScope(diagnostic, 'finiteGramOnly')) return false;
+  if (diagnostic.label !== 'EVIDENCE-ONLY-THETA-SCALED-GRAM') return false;
+  if (diagnostic.performed) {
+    return allCompleted && allOverlaps &&
+      isPlainRecord(diagnostic.classification) &&
+      FINITE_GRAM_STATUSES.has(diagnostic.classification.status) &&
+      diagnostic.classification.finiteGramOnly === true &&
+      diagnostic.classification.rhClaim === false &&
+      isPlainRecord(diagnostic.gramEnclosure) &&
+      SHA256_PATTERN.test(diagnostic.gramEnclosure.sha256);
+  }
+  return typeof diagnostic.reason === 'string' && diagnostic.reason.length > 0;
+}
+
+function finiteGramCertificatePassesLoadGuard(certificate) {
+  if (!isPlainRecord(certificate) || certificate.schemaVersion !== FINITE_GRAM_CERTIFICATE_SCHEMA) return false;
+  if (!FINITE_GRAM_STATUSES.has(certificate.status) || !hasHonestFiniteScope(certificate, 'finiteGramOnly')) return false;
+  if (!isPlainRecord(certificate.input) || certificate.input.schemaVersion !== FINITE_GRAM_CASE_SCHEMA) return false;
+  if (typeof certificate.input.a !== 'string' || certificate.input.a.length === 0) return false;
+  if (!Array.isArray(certificate.input.nodes) || certificate.input.nodes.length === 0) return false;
+  if (!Number.isInteger(certificate.selectedPrecisionBits) || certificate.selectedPrecisionBits < 64) return false;
+  if (!Array.isArray(certificate.input.precision_bits) || !certificate.input.precision_bits.includes(certificate.selectedPrecisionBits)) return false;
+  if (!Array.isArray(certificate.attempts) || certificate.attempts.length === 0) return false;
+  const selectedAttempt = certificate.attempts.at(-1);
+  if (selectedAttempt?.status !== certificate.status || selectedAttempt?.precisionBits !== certificate.selectedPrecisionBits) return false;
+  if (!isPlainRecord(certificate.hashes) || !SHA256_PATTERN.test(certificate.hashes.canonicalCertificateSha256)) return false;
+  return thetaCrosscheckPassesLoadGuard(certificate);
+}
 
 // Editorial card: warm paper background + hairline border, colored left rule.
 function cardBaseLeft(accent) {
@@ -193,25 +295,14 @@ function FiniteGramCertificateCard() {
     })
       .then((response) => {
         if (!response.ok) throw new Error(`certificate request returned ${response.status}`);
+        const contentType = response.headers.get('content-type') ?? '';
+        if (!contentType.toLowerCase().includes('application/json')) {
+          throw new Error('certificate response was not JSON');
+        }
         return response.json();
       })
       .then((certificate) => {
-        const hasRequiredFields =
-          FINITE_GRAM_STATUSES.has(certificate?.status) &&
-          typeof certificate?.input?.a === 'string' &&
-          certificate.input.a.length > 0 &&
-          Array.isArray(certificate?.input?.nodes) &&
-          certificate.input.nodes.length > 0 &&
-          Number.isInteger(certificate?.selectedPrecisionBits) &&
-          certificate.selectedPrecisionBits > 0 &&
-          /^[0-9a-f]{64}$/.test(certificate?.hashes?.canonicalCertificateSha256);
-        const hasFiniteOnlyScope =
-          certificate?.finiteGramOnly === true &&
-          certificate?.rhClaim === false &&
-          certificate?.rhSolved === false &&
-          certificate?.claimComplete === false;
-
-        if (!hasRequiredFields || !hasFiniteOnlyScope) {
+        if (!finiteGramCertificatePassesLoadGuard(certificate)) {
           throw new Error('certificate schema or finite-only scope guard failed');
         }
         setCertificateState({ phase: 'ready', certificate });
@@ -256,6 +347,30 @@ function FiniteGramCertificateCard() {
       ? 'var(--green)'
       : 'var(--brass-dk)';
   const hash = certificate.hashes.canonicalCertificateSha256;
+  const theta = certificate.thetaCrosscheck;
+  const thetaStatus = !theta.requested
+    ? 'NOT REQUESTED'
+    : !theta.performed
+      ? 'INCOMPLETE'
+      : theta.allOverlaps
+        ? `ALL ${theta.nodeChecks.length} NODES OVERLAP`
+        : 'COMPLETED · NONOVERLAP';
+  const thetaColor = theta.performed && theta.allOverlaps
+    ? 'var(--green)'
+    : theta.performed
+      ? 'var(--terra-dk)'
+      : 'var(--brass-dk)';
+  const scaledDiagnostic = theta.requested ? theta.scaledGramDiagnostic : null;
+  const scaledStatus = scaledDiagnostic?.performed
+    ? scaledDiagnostic.classification.status
+    : 'NOT CLASSIFIED';
+  const scaledColor = scaledDiagnostic?.performed
+    ? scaledStatus.includes('NEGATIVE')
+      ? 'var(--terra-dk)'
+      : scaledStatus.includes('POSITIVE')
+        ? 'var(--green)'
+        : 'var(--brass-dk)'
+    : 'var(--brass-dk)';
 
   return (
     <Card accent={statusColor}>
@@ -282,6 +397,28 @@ function FiniteGramCertificateCard() {
         <div style={{ color: 'var(--faint)', fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>CANONICAL CERTIFICATE SHA-256</div>
         <div style={{ color: 'var(--ink-soft)', marginTop: 4, fontSize: 11, fontFamily: 'var(--ed-mono, var(--font-mono))', overflowWrap: 'anywhere' }}>{hash}</div>
       </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 10, marginTop: 10 }}>
+        <div style={{ padding: 10, background: 'var(--paper)', border: `1px solid ${thetaColor}`, borderRadius: 6 }}>
+          <div style={{ color: 'var(--faint)', fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>THETA ↔ COMPLETED-ξ CROSSCHECK</div>
+          <div style={{ color: thetaColor, marginTop: 4, fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>{thetaStatus}</div>
+          {theta.requested && (
+            <div style={{ color: 'var(--faint)', marginTop: 4, fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+              N={theta.parameters.thetaTerms} · U={theta.parameters.cutoffU} · {theta.selectedPrecisionBits} bits
+            </div>
+          )}
+        </div>
+        <div style={{ padding: 10, background: 'var(--paper)', border: `1px solid ${scaledColor}`, borderRadius: 6 }}>
+          <div style={{ color: 'var(--faint)', fontSize: 10, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>EVIDENCE-ONLY SCALED K_a/a GRAM</div>
+          <div style={{ color: scaledColor, marginTop: 4, fontSize: 13, fontFamily: 'var(--ed-mono, var(--font-mono))', overflowWrap: 'anywhere' }}>{scaledStatus}</div>
+          <div style={{ color: 'var(--faint)', marginTop: 4, fontSize: 10 }}>usedForVerdict=false</div>
+        </div>
+      </div>
+      <p style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6, margin: '10px 0 0' }}>
+        The theta backend reconstructs <InlineMath math="A_a" /> and <InlineMath math="C_a=B_a/a" /> directly,
+        then checks its <InlineMath math="E_a,E_a^{\#}" /> enclosures against an independent completed-ξ evaluation.
+        The scaled <InlineMath math="K_a/a" /> Gram is separate evidence only: it does not feed the headline verdict,
+        applies only to these finite nodes and this one <InlineMath math="a" />, and does not prove RH.
+      </p>
       <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.6, margin: '12px 0 0' }}>
         This result applies only to this prescribed finite Gram matrix, at this one bridge thickness and node set.
         It does not establish positivity for other nodes or shifts, does not close the continuum problem, and does

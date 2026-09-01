@@ -72,11 +72,57 @@ Python source manifest, proof payload, full certificate envelope, and each
 serialized Gram enclosure. Verification checks the hashes, honesty envelope,
 python-flint version, source hash, then recomputes the ball proof.
 
-## Deliberately deferred theta backend
+## Cancellation-preserving theta cross-check
 
-The v1 input retains a `theta_crosscheck` request but reports
-`performed: false` and never uses it in a verdict. The next backend stage should
-evaluate cancellation-preserving theta components `A` and `B` separately, then
-assemble `E=A-iB` and `E#=A+iB`. This avoids subtracting two order-one Xi balls
-when the shear signal is order `a`; it must include explicit truncation and tail
-bounds before it may participate in certification.
+The theta backend directly evaluates `A_a` and `C_a=B_a/a`, then assembles
+`E=A-i*a*C` and `E#=A+i*a*C`. It never recovers the order-`a` component by
+subtracting two order-one Xi values. The continuous quotient is evaluated as
+`2*u*sinc(2*i*a*u)`, so the exact `a=0` limit is available as well.
+
+With the app normalization
+
+\[
+\Phi(u)=\sum_{n\ge1}
+\left(2\pi^2n^4e^{9u}-3\pi n^2e^{5u}\right)
+e^{-\pi n^2e^{4u}},
+\]
+
+the backend computes
+
+\[
+A_a(z)=8\int_0^\infty\Phi(u)\cosh(2au)\cos(2zu)\,du,
+\]
+
+\[
+C_a(z)=16\int_0^\infty u\Phi(u)
+\operatorname{sinc}(2iau)\sin(2zu)\,du.
+\]
+
+For \(q=2(a+|\operatorname{Im}z|)\), its explicit A-tail building block is
+
+\[
+F_n(q,U)=4\pi^2n^4(\pi n^2)^{-(9+q)/4}
+\Gamma\!\left((9+q)/4,\pi n^2e^{4U}\right).
+\]
+
+The retained-term u-tail is \(\sum_{n\le N}F_n(q,U)\). All \(n>N\)
+terms on the full half-line are covered by a certified geometric majorant
+starting at \(F_{N+1}(q,0)\). The C-tail uses the conservative bound
+\(T_C(q)\le 2T_A(q+1)\).
+
+The finite theta rectangle has explicit outward tail bounds. Retained theta
+terms beyond the `u` cutoff are bounded by upper incomplete gamma functions;
+all omitted theta terms are bounded using a certified geometric majorant. The
+result is independently overlap-checked against the completed-zeta evaluator.
+When every overlap succeeds, the backend also classifies the separately
+enclosed, cancellation-preserving diagnostic
+
+\[
+\frac{K_a(w,z)}a=
+\frac{\overline{C_a(w)}A_a(z)-\overline{A_a(w)}C_a(z)}
+{\pi(\overline w-z)}.
+\]
+
+This cross-check and the scaled finite Gram remain evidence only: both carry
+`usedForVerdict: false`, do not alter the completed-Xi finite-Gram verdict, and
+do not imply a global RH statement.

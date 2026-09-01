@@ -393,6 +393,272 @@ function verifyAttempt(attempt, location, expectedDimension) {
   }
 }
 
+function verifyHonestyFlags(record, location, { pointwise = false } = {}) {
+  const finiteKey = pointwise ? 'finitePointwiseOnly' : 'finiteGramOnly';
+  requireCondition(record[finiteKey] === true, `${location}.${finiteKey}`, 'must be true');
+  requireCondition(record.rhClaim === false, `${location}.rhClaim`, 'must be false');
+  requireCondition(record.rhSolved === false, `${location}.rhSolved`, 'must be false');
+  requireCondition(record.claimComplete === false, `${location}.claimComplete`, 'must be false');
+}
+
+function verifyThetaTailRecord(record, location, { bOverA = false } = {}) {
+  requirePlainObject(record, location);
+  const baseKeys = [
+    'boundExponentQ', 'retainedTermsUTail', 'omittedThetaTermsAllU', 'total',
+  ];
+  const allowedKeys = bOverA ? [...baseKeys, 'epsilon'] : baseKeys;
+  requireExactKeys(record, allowedKeys, location);
+  baseKeys.forEach((key) => verifyArbRecord(record[key], `${location}.${key}`));
+  if (bOverA) {
+    exactRationalShape(record.epsilon, `${location}.epsilon`);
+    requireCondition(record.epsilon === '1', `${location}.epsilon`, 'must equal the backend majorant epsilon 1');
+  }
+}
+
+function verifyThetaComponents(record, location, expected) {
+  requirePlainObject(record, location);
+  requireExactKeys(
+    record,
+    [
+      'normalization', 'components', 'precisionBits', 'node', 'a', 'beta', 'q',
+      'cutoffU', 'thetaTerms', 'finiteRectangle', 'tails', 'enclosures',
+      'finitePointwiseOnly', 'rhClaim', 'rhSolved', 'claimComplete',
+    ],
+    location,
+  );
+  requireCondition(
+    record.normalization === 'Xi(z)=8*integral_0^infinity Phi(u)*cos(2*z*u)du',
+    `${location}.normalization`,
+    'must retain the app theta normalization',
+  );
+  requireCondition(
+    record.components === 'E_a(z)=A_a(z)-i*a*C_a(z); E_a#(z)=A_a(z)+i*a*C_a(z); C_a=B_a/a',
+    `${location}.components`,
+    'must identify the cancellation-preserving A and B/a components',
+  );
+  requireCondition(record.precisionBits === expected.precisionBits, `${location}.precisionBits`, 'must match the selected certificate precision');
+  requirePlainObject(record.node, `${location}.node`);
+  requireExactKeys(record.node, ['re', 'im'], `${location}.node`);
+  requireCondition(record.node.re === expected.node.re, `${location}.node.re`, 'must match the requested node exactly');
+  requireCondition(record.node.im === expected.node.im, `${location}.node.im`, 'must match the requested node exactly');
+  requireCondition(record.a === expected.a, `${location}.a`, 'must match the requested bridge thickness exactly');
+  requireCondition(record.beta === expected.node.im, `${location}.beta`, 'must equal the positive node imaginary part');
+  exactRationalShape(record.q, `${location}.q`);
+  requireCondition(record.cutoffU === expected.cutoffU, `${location}.cutoffU`, 'must match theta_crosscheck.cutoff_u exactly');
+  requireCondition(record.thetaTerms === expected.thetaTerms, `${location}.thetaTerms`, 'must match theta_crosscheck.theta_terms');
+
+  requirePlainObject(record.finiteRectangle, `${location}.finiteRectangle`);
+  requireExactKeys(record.finiteRectangle, ['A', 'BOverA'], `${location}.finiteRectangle`);
+  verifyAcbRecord(record.finiteRectangle.A, `${location}.finiteRectangle.A`);
+  verifyAcbRecord(record.finiteRectangle.BOverA, `${location}.finiteRectangle.BOverA`);
+
+  requirePlainObject(record.tails, `${location}.tails`);
+  requireExactKeys(record.tails, ['A', 'BOverA'], `${location}.tails`);
+  verifyThetaTailRecord(record.tails.A, `${location}.tails.A`);
+  verifyThetaTailRecord(record.tails.BOverA, `${location}.tails.BOverA`, { bOverA: true });
+
+  requirePlainObject(record.enclosures, `${location}.enclosures`);
+  requireExactKeys(record.enclosures, ['A', 'BOverA', 'E', 'Esharp'], `${location}.enclosures`);
+  Object.entries(record.enclosures).forEach(([key, value]) => {
+    verifyAcbRecord(value, `${location}.enclosures.${key}`);
+  });
+  verifyHonestyFlags(record, location, { pointwise: true });
+}
+
+function verifyThetaNodeCheck(record, location, expected) {
+  requirePlainObject(record, location);
+  const baseKeys = [
+    'nodeIndex', 'performed', 'overlap', 'EOverlap', 'EsharpOverlap', 'reason',
+    'usedForVerdict', 'finitePointwiseOnly', 'rhClaim', 'rhSolved', 'claimComplete',
+  ];
+  const evidenceKeys = ['theta', 'completedXi'];
+  requireCondition(
+    baseKeys.every((key) => Object.hasOwn(record, key))
+      && Object.keys(record).every((key) => baseKeys.includes(key) || evidenceKeys.includes(key)),
+    location,
+    `has missing or unknown node-check fields; allowed fields are ${[...baseKeys, ...evidenceKeys].join(', ')}`,
+  );
+  requireCondition(record.nodeIndex === expected.nodeIndex, `${location}.nodeIndex`, 'must equal its node-array index');
+  for (const key of ['performed', 'overlap', 'EOverlap', 'EsharpOverlap']) {
+    requireCondition(typeof record[key] === 'boolean', `${location}.${key}`, 'must be boolean');
+  }
+  requireCondition(typeof record.reason === 'string' && record.reason.length > 0, `${location}.reason`, 'must be a nonempty explanation');
+  requireCondition(record.usedForVerdict === false, `${location}.usedForVerdict`, 'must be false');
+  verifyHonestyFlags(record, location, { pointwise: true });
+  requireCondition(record.overlap === (record.EOverlap && record.EsharpOverlap), `${location}.overlap`, 'must equal EOverlap && EsharpOverlap');
+
+  if (record.performed) {
+    requireExactKeys(record, [...baseKeys, ...evidenceKeys], location);
+    requirePlainObject(record.completedXi, `${location}.completedXi`);
+    requireExactKeys(record.completedXi, ['E', 'Esharp'], `${location}.completedXi`);
+    verifyAcbRecord(record.completedXi.E, `${location}.completedXi.E`);
+    verifyAcbRecord(record.completedXi.Esharp, `${location}.completedXi.Esharp`);
+    verifyThetaComponents(record.theta, `${location}.theta`, expected);
+    requireCondition(
+      record.reason === (record.overlap
+        ? 'theta-and-completed-xi-enclosures-overlap'
+        : 'independent-enclosures-do-not-overlap'),
+      `${location}.reason`,
+      'must match the completed overlap result',
+    );
+  } else {
+    requireExactKeys(record, baseKeys, location);
+    requireCondition(record.overlap === false && record.EOverlap === false && record.EsharpOverlap === false, location, 'an incomplete node check cannot claim an overlap');
+    requireCondition(record.reason.startsWith('theta-crosscheck-failed:'), `${location}.reason`, 'must identify a failed theta evaluation');
+  }
+}
+
+function verifyThetaClassification(record, location, expectedDimension, expectedPrecisionBits) {
+  requirePlainObject(record, location);
+  const baseKeys = [
+    'precisionBits', 'status', 'reason', 'finiteGram',
+    'finiteGramOnly', 'rhClaim', 'eigenAlgorithm',
+  ];
+  const optionalKeys = ['rho', 'midpointEigenvalues', 'weylMargins', 'negativeWitness'];
+  requireCondition(
+    baseKeys.every((key) => Object.hasOwn(record, key))
+      && Object.keys(record).every((key) => baseKeys.includes(key) || optionalKeys.includes(key)),
+    location,
+    `has missing or unknown classification fields; allowed fields are ${[...baseKeys, ...optionalKeys].join(', ')}`,
+  );
+  requireCondition(record.precisionBits === expectedPrecisionBits, `${location}.precisionBits`, 'must match the selected certificate precision');
+  requireCondition(STATUSES.has(record.status), `${location}.status`, 'uses an unknown verdict');
+  requireCondition(typeof record.reason === 'string' && record.reason.length > 0, `${location}.reason`, 'must be a nonempty explanation');
+  requireCondition(record.finiteGram === true, `${location}.finiteGram`, 'must be true for a performed scaled Gram diagnostic');
+  requireCondition(record.finiteGramOnly === true, `${location}.finiteGramOnly`, 'must be true');
+  requireCondition(record.rhClaim === false, `${location}.rhClaim`, 'must be false');
+  requireCondition(record.eigenAlgorithm === 'acb_mat.eig:rump', `${location}.eigenAlgorithm`, 'must name the certified Rump eigensolver');
+  if (record.status !== 'INCONCLUSIVE') {
+    requireCondition(Object.hasOwn(record, 'rho'), `${location}.rho`, 'is required for a decisive classification');
+    requireCondition(Array.isArray(record.midpointEigenvalues), `${location}.midpointEigenvalues`, 'is required for a decisive classification');
+    requireCondition(Array.isArray(record.weylMargins), `${location}.weylMargins`, 'is required for a decisive classification');
+  }
+  if (Object.hasOwn(record, 'rho')) verifyArbRecord(record.rho, `${location}.rho`);
+  if (Object.hasOwn(record, 'midpointEigenvalues')) {
+    requireCondition(record.midpointEigenvalues.length === expectedDimension, `${location}.midpointEigenvalues`, 'must have one record per matrix dimension');
+    record.midpointEigenvalues.forEach((entry, index) => verifyAcbRecord(entry, `${location}.midpointEigenvalues[${index}]`));
+  }
+  if (Object.hasOwn(record, 'weylMargins')) {
+    requireCondition(record.weylMargins.length === expectedDimension, `${location}.weylMargins`, 'must have one record per matrix dimension');
+    record.weylMargins.forEach((entry, index) => verifyArbRecord(entry, `${location}.weylMargins[${index}]`));
+  }
+  if (record.status === 'CERTIFIED-NEGATIVE-WITNESS') {
+    requirePlainObject(record.negativeWitness, `${location}.negativeWitness`);
+    requireExactKeys(record.negativeWitness, ['midpointEigenvalueIndex', 'criterion'], `${location}.negativeWitness`);
+    requireCondition(
+      Number.isSafeInteger(record.negativeWitness.midpointEigenvalueIndex)
+        && record.negativeWitness.midpointEigenvalueIndex >= 0
+        && record.negativeWitness.midpointEigenvalueIndex < expectedDimension,
+      `${location}.negativeWitness.midpointEigenvalueIndex`,
+      'must select a matrix eigenvalue',
+    );
+    requireCondition(record.negativeWitness.criterion === 'lambda_upper(M)+rho_upper<0', `${location}.negativeWitness.criterion`, 'must use the certified negative criterion');
+  } else {
+    requireCondition(!Object.hasOwn(record, 'negativeWitness'), `${location}.negativeWitness`, 'is only allowed for a certified negative witness');
+  }
+}
+
+function verifyScaledGramDiagnostic(record, location, theta, certificate) {
+  requirePlainObject(record, location);
+  const baseKeys = [
+    'label', 'formula', 'domain', 'performed', 'usedForVerdict', 'finiteGramOnly',
+    'rhClaim', 'rhSolved', 'claimComplete',
+  ];
+  const performedKeys = [...baseKeys, 'classification', 'gramEnclosure'];
+  const incompleteKeys = [...baseKeys, 'reason'];
+  requireCondition(typeof record.performed === 'boolean', `${location}.performed`, 'must be boolean');
+  requireExactKeys(record, record.performed ? performedKeys : incompleteKeys, location);
+  requireCondition(record.label === 'EVIDENCE-ONLY-THETA-SCALED-GRAM', `${location}.label`, 'must label the diagnostic as evidence-only');
+  requireCondition(
+    record.formula === 'K_a(w,z)/a=(conj(C_a(w))*A_a(z)-conj(A_a(w))*C_a(z))/(pi*(conj(w)-z))',
+    `${location}.formula`,
+    'must retain the cancellation-preserving scaled-kernel formula',
+  );
+  requireCondition(record.domain === 'a>0 and the listed strict-upper-half-plane nodes', `${location}.domain`, 'must retain the finite diagnostic domain');
+  requireCondition(record.usedForVerdict === false, `${location}.usedForVerdict`, 'must be false');
+  verifyHonestyFlags(record, location);
+
+  if (record.performed) {
+    requireCondition(theta.performed === true && theta.allOverlaps === true, `${location}.performed`, 'requires all node evaluations and both independent enclosures to overlap');
+    verifyThetaClassification(record.classification, `${location}.classification`, certificate.input.nodes.length, certificate.selectedPrecisionBits);
+    verifyGramEnclosure(record.gramEnclosure, `${location}.gramEnclosure`, certificate.input.nodes.length);
+  } else {
+    requireCondition(typeof record.reason === 'string' && record.reason.length > 0, `${location}.reason`, 'must be a nonempty explanation');
+    if (!theta.performed) {
+      requireCondition(record.reason === 'theta-components-unavailable', `${location}.reason`, 'must identify incomplete theta components');
+    } else if (!theta.allOverlaps) {
+      requireCondition(record.reason === 'theta-crosscheck-nonoverlap-blocks-scaled-diagnostic', `${location}.reason`, 'must identify the independent-enclosure nonoverlap');
+    } else {
+      requireCondition(record.reason.startsWith('theta-scaled-gram-failed:'), `${location}.reason`, 'must identify a scaled-Gram backend failure');
+    }
+  }
+}
+
+function verifyThetaCrosscheck(theta, location, certificate) {
+  requirePlainObject(theta, location);
+  const requested = certificate.input.theta_crosscheck.enabled;
+  const honestyKeys = [
+    'requested', 'performed', 'usedForVerdict', 'finiteGramOnly', 'rhClaim',
+    'rhSolved', 'claimComplete',
+  ];
+  requireCondition(theta.requested === requested, `${location}.requested`, 'must match the input request');
+  requireCondition(typeof theta.performed === 'boolean', `${location}.performed`, 'must be boolean');
+  requireCondition(theta.usedForVerdict === false, `${location}.usedForVerdict`, 'must be false');
+  verifyHonestyFlags(theta, location);
+
+  if (!requested) {
+    requireExactKeys(theta, [...honestyKeys, 'reason'], location);
+    requireCondition(theta.performed === false, `${location}.performed`, 'cannot be true when no theta crosscheck was requested');
+    requireCondition(theta.reason === 'theta-crosscheck-not-requested', `${location}.reason`, 'must identify an unrequested crosscheck');
+    return;
+  }
+
+  requireExactKeys(
+    theta,
+    [
+      ...honestyKeys, 'selectedPrecisionBits', 'parameters',
+      'allNodeEvaluationsCompleted', 'allOverlaps', 'nodeChecks', 'reason',
+      'scaledGramDiagnostic',
+    ],
+    location,
+  );
+  requireCondition(theta.selectedPrecisionBits === certificate.selectedPrecisionBits, `${location}.selectedPrecisionBits`, 'must match the certificate selected precision');
+  requirePlainObject(theta.parameters, `${location}.parameters`);
+  requireExactKeys(theta.parameters, ['cutoffU', 'thetaTerms'], `${location}.parameters`);
+  requireCondition(theta.parameters.cutoffU === certificate.input.theta_crosscheck.cutoff_u, `${location}.parameters.cutoffU`, 'must match the input cutoff exactly');
+  requireCondition(theta.parameters.thetaTerms === certificate.input.theta_crosscheck.theta_terms, `${location}.parameters.thetaTerms`, 'must match the input theta-term count');
+  requireCondition(typeof theta.allNodeEvaluationsCompleted === 'boolean', `${location}.allNodeEvaluationsCompleted`, 'must be boolean');
+  requireCondition(typeof theta.allOverlaps === 'boolean', `${location}.allOverlaps`, 'must be boolean');
+  requireCondition(Array.isArray(theta.nodeChecks) && theta.nodeChecks.length === certificate.input.nodes.length, `${location}.nodeChecks`, 'must contain one check per input node');
+  theta.nodeChecks.forEach((nodeCheck, index) => verifyThetaNodeCheck(
+    nodeCheck,
+    `${location}.nodeChecks[${index}]`,
+    {
+      nodeIndex: index,
+      node: certificate.input.nodes[index],
+      a: certificate.input.a,
+      cutoffU: theta.parameters.cutoffU,
+      thetaTerms: theta.parameters.thetaTerms,
+      precisionBits: theta.selectedPrecisionBits,
+    },
+  ));
+  const allCompleted = theta.nodeChecks.every((nodeCheck) => nodeCheck.performed === true);
+  const allOverlaps = theta.nodeChecks.every((nodeCheck) => nodeCheck.overlap === true);
+  requireCondition(theta.performed === allCompleted, `${location}.performed`, 'must equal the aggregate node execution result');
+  requireCondition(theta.allNodeEvaluationsCompleted === allCompleted, `${location}.allNodeEvaluationsCompleted`, 'must equal the aggregate node execution result');
+  requireCondition(theta.allOverlaps === allOverlaps, `${location}.allOverlaps`, 'must equal the aggregate node overlap result');
+  requireCondition(
+    theta.reason === (!allCompleted
+      ? 'theta-crosscheck-incomplete'
+      : allOverlaps
+        ? 'all-theta-and-completed-xi-enclosures-overlap'
+        : 'theta-crosscheck-completed-with-nonoverlap'),
+    `${location}.reason`,
+    'must match the aggregate execution and overlap results',
+  );
+  verifyScaledGramDiagnostic(theta.scaledGramDiagnostic, `${location}.scaledGramDiagnostic`, theta, certificate);
+}
+
 function verifyCertificate(certificate, filename) {
   const root = filename;
   requirePlainObject(certificate, root);
@@ -426,13 +692,7 @@ function verifyCertificate(certificate, filename) {
     requireCondition(typeof value === 'string' && value.length > 0, `${root}.method.${key}`, 'must be a nonempty formula/method string');
   }
   requireCondition(certificate.method.eigenAlgorithm === 'acb_mat.eig:rump', `${root}.method.eigenAlgorithm`, 'must name the certified Rump eigensolver');
-  requirePlainObject(certificate.thetaCrosscheck, `${root}.thetaCrosscheck`);
-  requireExactKeys(certificate.thetaCrosscheck, ['requested', 'performed', 'usedForVerdict', 'reason'], `${root}.thetaCrosscheck`);
-  requireCondition(typeof certificate.thetaCrosscheck.requested === 'boolean', `${root}.thetaCrosscheck.requested`, 'must be boolean');
-  requireCondition(certificate.thetaCrosscheck.requested === certificate.input.theta_crosscheck.enabled, `${root}.thetaCrosscheck.requested`, 'must match the input request');
-  requireCondition(certificate.thetaCrosscheck.performed === false, `${root}.thetaCrosscheck.performed`, 'v1 must not claim an unimplemented theta crosscheck');
-  requireCondition(certificate.thetaCrosscheck.usedForVerdict === false, `${root}.thetaCrosscheck.usedForVerdict`, 'v1 must not use theta metadata for a verdict');
-  requireCondition(typeof certificate.thetaCrosscheck.reason === 'string' && certificate.thetaCrosscheck.reason.length > 0, `${root}.thetaCrosscheck.reason`, 'must be a nonempty explanation');
+  verifyThetaCrosscheck(certificate.thetaCrosscheck, `${root}.thetaCrosscheck`, certificate);
   requireCondition(Array.isArray(certificate.attempts) && certificate.attempts.length > 0, `${root}.attempts`, 'must be a nonempty array');
   certificate.attempts.forEach((attempt, index) => {
     verifyAttempt(attempt, `${root}.attempts[${index}]`, certificate.input.nodes.length);
@@ -560,6 +820,41 @@ function runSelfTests(certificate) {
     rejected = true;
   }
   requireCondition(rejected, 'self-test', 'a rehashed RH claim was not rejected');
+
+  const dishonestThetaPayload = structuredClone(certificate);
+  dishonestThetaPayload.thetaCrosscheck.usedForVerdict = true;
+  const rehashedDishonestTheta = attachHashes(dishonestThetaPayload);
+  rejected = false;
+  try {
+    verifyCertificate(rehashedDishonestTheta, 'self-test-dishonest-theta.json');
+  } catch {
+    rejected = true;
+  }
+  requireCondition(rejected, 'self-test', 'a rehashed verdict-bearing theta crosscheck was not rejected');
+
+  if (certificate.thetaCrosscheck.requested) {
+    const dishonestScaledPayload = structuredClone(certificate);
+    dishonestScaledPayload.thetaCrosscheck.scaledGramDiagnostic.usedForVerdict = true;
+    const rehashedDishonestScaled = attachHashes(dishonestScaledPayload);
+    rejected = false;
+    try {
+      verifyCertificate(rehashedDishonestScaled, 'self-test-dishonest-scaled-gram.json');
+    } catch {
+      rejected = true;
+    }
+    requireCondition(rejected, 'self-test', 'a rehashed verdict-bearing scaled theta Gram was not rejected');
+
+    const aggregateMismatchPayload = structuredClone(certificate);
+    aggregateMismatchPayload.thetaCrosscheck.allOverlaps = !aggregateMismatchPayload.thetaCrosscheck.allOverlaps;
+    const rehashedAggregateMismatch = attachHashes(aggregateMismatchPayload);
+    rejected = false;
+    try {
+      verifyCertificate(rehashedAggregateMismatch, 'self-test-theta-aggregate-mismatch.json');
+    } catch {
+      rejected = true;
+    }
+    requireCondition(rejected, 'self-test', 'a rehashed theta aggregate mismatch was not rejected');
+  }
 
   rejected = false;
   try {

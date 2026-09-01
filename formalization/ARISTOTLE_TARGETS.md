@@ -120,7 +120,12 @@ de Bruijn Thm 13 itself, Koksma–Hlawka (absent from mathlib, heavy).
   MathlibBridge:126-172; Rodgers–Tao stays a hypothesis per the triage.
 - shear_gram 4a97dec3 (#15) — finite-dimensional per the ledger; the op-norm
   spelling flagged as the load-bearing mathlib choice.
-No ledger-vs-source overrides needed in jobs 26-30. STATUS 2026-09-01: jobs
-26-30 all COMPLETE and sorry-free (kernel + axiom + faithfulness gates
-running; delivery to follow). With them the FULL 15-target ledger is covered;
-only the bonus (the last probe sorry) is parked on the budget decision above.
+No ledger-vs-source overrides needed in jobs 26-30. CLOSE-OUT 2026-09-01:
+wave 4 DELIVERED — 15/15 ledger targets delivered and kernel-verified, ALL
+FAITHFUL (jet_lemma proved BOTH not-banked pieces from scratch: s<0 strict
+positivity + root simplicity via IVT interlacing; flow_blindness formalizes
+the program's headline no-go with hRT as a variable, project axiom-free).
+Packaging notes: jobs 26/27 re-declare IsCMFlow locally (identical to
+theta_trap's — unify when landing); job29 generalizes the source axiom H to a
+variable. PROGRAM TALLY: 31 jobs, 30 delivered kernel-verified, 1
+budget-parked (the entirelp bonus — user's retry/split/park call pending).

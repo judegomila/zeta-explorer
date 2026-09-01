@@ -18,7 +18,7 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
     kind: 'theorem',
     by: 'zetaexplorer',
     statement:
-      'No soft / backward-heat-flow hypothesis can prove RH on its own: an SL2 flow-blindness argument exhibits flows that stay "soft" yet break RH, so a proof needs genuine arithmetic input. The operator-language form is the modulus-barrier + no-gain rule.',
+      'No soft / backward-heat-flow hypothesis can prove RH on its own: an SL2 flow-blindness argument exhibits flows that stay "soft" yet break RH, so a proof needs genuine arithmetic input. The operator-language form is the modulus-barrier + no-gain rule. MACHINE-VERIFIED (Lean 4, 2026-09): noGo_backward + softClass_noGo kernel-checked with Rodgers-Tao Λ ≥ 0 as an explicit hypothesis — formalization/lean-aristotle/flow_blindness/.',
     route: '/flow-blindness-no-go',
   },
   {

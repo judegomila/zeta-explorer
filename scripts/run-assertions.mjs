@@ -209,6 +209,17 @@ const DATA_MODULES = [
   // the ~1.7e-4 residual being the log T0 drift, with NO discretization component. Measurement/
   // tabulation only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT SOTA.
   '/src/data/imp-95056-crossover-halving-eflow-three-landmark-table.js',
+  // imp-95070: does an EXPLICIT analytic tail bound replace the floor-UNSAFE Tx underflow
+  // truncation (imp-95017 item (4))? The far-mass tail Tx(theta)=sum_{j>=2}(1+g(j))^-theta is
+  // summed in double precision only until the first term underflows the IEEE denormal floor
+  // (theta=2 at j=807, theta=10 at j=162), dropping later positive terms and nudging F=E/(Tx M)
+  // UP (floor-UNSAFE direction). YES: since g(j)>=(1/2)2^(2j/3) for all j>=2, every dropped term
+  // is majorized by A^-theta rho^j (rho=2^(-2theta/3)<1) and the whole dropped tail is bounded in
+  // closed form by TAIL(theta)=A^-theta rho^dropJ/(1-rho): log10 TAIL(2)~-323.09, TAIL(10)~-322.10.
+  // Tx_safe=Tx_computed+TAIL>=Tx_true makes F_safe a PROVABLE lower bound at ~1e-322 relative cost,
+  // ~314 orders below the ~1e-8 rounding already priced. Measurement only; changes no bound; append-
+  // lift sub-gap stays open; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95070-tail-bound-floor-safety.js',
   '/src/data/imp-35974-w1-tree-shape-N-ladder.js',
   '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',

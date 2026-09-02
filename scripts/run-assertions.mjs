@@ -12960,6 +12960,19 @@ const DATA_MODULES = [
   // tightness; ~1e-8 float rounding of the closed form recorded honestly.
   // Changes no bound; NO QED.
   '/src/data/imp-95008-exact-pair-correlation-ceiling.js',
+  // imp-95026 (opus-4-8): TRANSFER ASSESSMENT of the imp-95008 far-bracket
+  // ceiling ledger (4 -> 0.2717408057586117) from the MODEL family to the
+  // PAPER packets. Finding 0: the amplitude A_d CANCELS from the far
+  // coefficient (it enters the mass M, not cFar), so only (sigma, theta,
+  // beta, isolation Q) drive the ledger. Quadrature reproduces the model
+  // closed form to 2.8e-6 and maps the four levers (s = sigma+theta and Q
+  // dominant, beta weak). The ledger TRANSFERS (far coefficient stays below
+  // the pre-seventeenth 4 across the scanned neighborhood, worst 0.8925 at
+  // theta = 2), DEGRADES ~3x at low theta, and the EXACT-substitution proof
+  // BREAKS below s = sigma+theta = 2.9484 (Lemma RM corner guard fails).
+  // Sub-gap: the Section 4.5 paper constants are not pinned in this repo, so
+  // this is a transfer MAP not a single number. Measurement only; NO QED.
+  '/src/data/imp-95026-paper-packet-ceiling-transfer.js',
   // imp-95017 (opus-4-8): INDEPENDENT re-audit of the referee-unverified
   // floor side (floorMultiRate, hLegal, carried HEAD_FLOOR/F97_FLOOR). The
   // floor machinery K, E, M, h, Tx is re-derived through a code path sharing

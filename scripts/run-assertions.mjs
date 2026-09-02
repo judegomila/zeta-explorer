@@ -12720,6 +12720,20 @@ const DATA_MODULES = [
   // the kill line). Sub-gap imp-95020-sub-arithmetic-seam-Q. Changes no bound;
   // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95020-vn-trace-inequality-seam-q.js',
+  // imp-95030 (assessment, opus-4-8, api-pool): localized irreducibility of the outer
+  // parity AM-GM factor 2 (dominant achieved-side slack after the nineteenth
+  // continuation). HARD FLOOR within the current model: the factor 2 handles the
+  // ADJACENT (j = 1) cross-block correlation, whose Lemma X separation floor VANISHES
+  // (V(b,1) = 0 for every b), so adjacent pairs are uncapped in the MAJ envelope class;
+  // the two-coloring routes them into the cross term and AM-GM discards them at price 2.
+  // A non-AM-GM treatment localized to the b = 0 near-tie keeps that cross term exact,
+  // but the localized cross term IS the uncapped adjacent (0,1)/(1,2) correlation, so it
+  // needs a new adjacent cap rho_adj < 1/2 outside the far-envelope class. The b=0/b=2
+  // near-tie is intra-class (both even b) and the imp-95018 equality mode is admissible
+  // because V(b,1) = 0, so no reweighting beats 2. Sole lever: a proven adjacent cap
+  // rho_adj < 1/2 (sub-gap imp-95030-sub-adjacent-correlation-cap), exact payoff
+  // 1 + 2 rho_adj cos(pi/(K+1)) -> 1 + 2 rho_adj. Changes no bound; NO QED; PT SOTA.
+  '/src/data/imp-95030-parity-factor-localized-irreducibility.js',
   // imp-36258 (accuracy, opus-4-8, api-pool): RECONCILE the two independent gap determinations for
   // the imp-36097 shareColl < 1% crossing (N_cross) vs the imp-35971 E_trunc sole-survivor height
   // (N*) -- (A) the imp-36155 STRUCTURAL ratio ~1.020980 from baked source literals and (B) the

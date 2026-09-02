@@ -12960,6 +12960,19 @@ const DATA_MODULES = [
   // tightness; ~1e-8 float rounding of the closed form recorded honestly.
   // Changes no bound; NO QED.
   '/src/data/imp-95008-exact-pair-correlation-ceiling.js',
+  // imp-95017 (opus-4-8): INDEPENDENT re-audit of the referee-unverified
+  // floor side (floorMultiRate, hLegal, carried HEAD_FLOOR/F97_FLOOR). The
+  // floor machinery K, E, M, h, Tx is re-derived through a code path sharing
+  // no helper with the siblings; the BASE four-packet floors reproduce
+  // (headline theta=10 0.0928718 rel 1.2e-10, fixed-97 theta=10 0.00120383
+  // rel 1.3e-14) and the closed-form excess matches an independent full-line
+  // Gram quadrature to rel 5.2e-7 — floorMultiRate carries no coding bug.
+  // Tx underflow-truncation characterized: drops positive tail terms at the
+  // double denormal floor (theta=2 j=807, theta=10 j=162), floor-UNSAFE in
+  // direction but ~1e-324 magnitude, negligible. Residual sub-gap: the
+  // append-chain lift (base -> carried terminal literals) not re-derived.
+  // Re-audit only; changes no bound; NO QED.
+  '/src/data/imp-95017-witness-floor-reaudit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

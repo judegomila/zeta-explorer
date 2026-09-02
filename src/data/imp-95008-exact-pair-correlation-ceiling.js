@@ -467,6 +467,11 @@ const OM0_NEW = 3.9198069316120816e-5; // persisting near-tie at b = 0
 const CFAR_NEW = 0.2717408057586117;
 const LEDGER_VS_18 = 2.8488580857094559; // CFAR_18 / CFAR_NEW
 const LEDGER_VS_4 = 14.719909248937805; // 4 / CFAR_NEW
+// end-to-end ceiling ledger (imp-95033): three ceiling-side far-bracket moves
+const CFAR_17 = 2.9469476400572421; // seventeenth exponent-split far ceiling (4 -> this)
+const LEDGER_F17 = 1.3573366372815172; // 4 / CFAR_17 (seventeenth exponent-split move)
+const LEDGER_F18 = 3.8066832848407173; // CFAR_17 / CFAR_18 (eighteenth width-pinned move)
+const LEDGER_F19 = 2.8488580857094559; // CFAR_18 / CFAR_NEW (nineteenth exact-pair move; = LEDGER_VS_18)
 const HEAD_FLOOR = 0.096745062937484763; // fifteenth/sixteenth continuation literal
 const GAP_HEAD_OLD = 8.001968970787363;
 const GAP_HEAD_NEW = 2.8088338309749887;
@@ -501,6 +506,17 @@ export const IMP95008_EXACT_PAIR_CORRELATION_CEILING = {
     ceilings: { eighteenth: CFAR_18, new: CFAR_NEW },
     ledgerFactorVs18: LEDGER_VS_18,
     ledgerFactorVs4: LEDGER_VS_4,
+    ledgerComposition: {
+      stages: [
+        { move: "seventeenth (exponent-split)", from: 4, to: CFAR_17, factor: LEDGER_F17 },
+        { move: "eighteenth (width-pinned three-window)", from: CFAR_17, to: CFAR_18, factor: LEDGER_F18 },
+        { move: "nineteenth (exact-pair correlation)", from: CFAR_18, to: CFAR_NEW, factor: LEDGER_F19 },
+      ],
+      productOfFactors: LEDGER_F17 * LEDGER_F18 * LEDGER_F19,
+      ledgerVs4: LEDGER_VS_4,
+      note:
+        "imp-95033 end-to-end cross-check (never before tabulated in one place): the three ceiling-side factors 1.3573366372815172 x 3.8066832848407173 x 2.8488580857094559 compose to 14.719909248937807, matching 4 / 0.2717408057586117 = 14.719909248937805 to rel ~1.2e-16 (machine epsilon); staged division 4 / f1 -> f2 -> f3 reproduces each intermediate ceiling (2.9469476400572421, 0.7741509917026236, 0.2717408057586117) exactly. Measurement only, NO QED; floors untouched.",
+    },
     headlineBracket: { lo: HEAD_FLOOR, hi: CFAR_NEW, gapOld: GAP_HEAD_OLD, gapNew: GAP_HEAD_NEW },
     fixed97Bracket: { lo: F97_FLOOR, hi: CFAR_NEW, gapOld: GAP_97_OLD, gapNew: GAP_97_NEW },
     floatConditioning:
@@ -737,6 +753,26 @@ export const IMP95008_EPC_ASSERTIONS = [
       if (!inBand(rel0)) return false;
       // the b = 0 near-tie does NOT degrade conditioning: within 5 percent of the b = 2 sup
       return Math.abs(rel0 - rel2) <= 0.05 * rel2;
+    },
+  },
+  {
+    id: "imp95008-epc-ledger-composition-crosscheck",
+    description:
+      "imp-95033 end-to-end ledger cross-check (measurement only): the three ceiling-side far-bracket factors 4/2.9469476400572421 = 1.3573366372815172 (seventeenth), 2.9469476400572421/0.7741509917026236 = 3.8066832848407173 (eighteenth) and 0.7741509917026236/0.2717408057586117 = 2.8488580857094559 (nineteenth) compose to the full ledger 4/0.2717408057586117 = 14.719909248937805 to rel ~1e-15; staged division reproduces each intermediate ceiling to 1e-12",
+    holds: () => {
+      const rel = (x, lit) => Math.abs(x - lit) <= 1e-12 * Math.abs(lit);
+      // each staged factor reproduces from the two ceilings it divides
+      if (!rel(4 / CFAR_17, LEDGER_F17)) return false;
+      if (!rel(CFAR_17 / CFAR_18, LEDGER_F18)) return false;
+      if (!rel(CFAR_18 / CFAR_NEW, LEDGER_F19)) return false;
+      // staged division reconstructs each intermediate ceiling
+      if (!rel(4 / LEDGER_F17, CFAR_17)) return false;
+      if (!rel(CFAR_17 / LEDGER_F18, CFAR_18)) return false;
+      if (!rel(CFAR_18 / LEDGER_F19, CFAR_NEW)) return false;
+      // the product of the three factors equals the full ledger 4 -> CFAR_NEW
+      const prod = LEDGER_F17 * LEDGER_F18 * LEDGER_F19;
+      if (!(Math.abs(prod - LEDGER_VS_4) <= 1e-13 * Math.abs(LEDGER_VS_4))) return false;
+      return rel(prod, 4 / CFAR_NEW);
     },
   },
 ];

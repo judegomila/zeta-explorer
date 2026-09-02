@@ -193,6 +193,14 @@ const DATA_MODULES = [
   // which stays open because the band slides >10 decades per factor-2 in EPS_FP (imp-35263). Assessment only, import-
   // light (landmark literals, no zeros bundle); discharges nothing; imp-35243a stays OPEN; changes no bound; NO QED.
   '/src/data/imp-95034-r1-terminal-ceil-rate-model-assessment.js',
+  // imp-95055: ENDPOINT-artifact test of the imp-33701 sigma(N) exponent-ramp knee. imp-33701 found a
+  // single convex->concave inflection in [1e10,1e11], but its D2 array covered only k=7..10 so the sign
+  // change sat at the LAST entry -- the imp-33582 ladder truncation at 1e12, the imp-3406 endpoint-artifact
+  // signature. Extending the identical ladder six decades to 1e18 keeps EXACTLY ONE D2 sign change, in the
+  // SAME decade, with all six new post-knee second differences negative and decaying to 0 from below -- the
+  // knee is not a grid-endpoint artifact. Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // changes no bound; imp-3066 K_a>=0 untouched; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95055-sigma-ramp-knee-endpoint-extension.js',
   '/src/data/imp-35974-w1-tree-shape-N-ladder.js',
   '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',
@@ -13094,6 +13102,18 @@ const DATA_MODULES = [
   // append-chain lift (base -> carried terminal literals) not re-derived.
   // Re-audit only; changes no bound; NO QED.
   '/src/data/imp-95017-witness-floor-reaudit.js',
+  // imp-95067: INDEPENDENT re-audit of the append-chain LIFT (the residual
+  // sub-gap imp-95017-subgap-append-lift). Re-evaluates both baked
+  // occupied-block append chains step by step through a floor evaluator
+  // sharing no helper with the sibling append module (three-piece
+  // antiderivative kernel; independent Gram quadrature of the terminal
+  // excess): headline 0.092873990839396667 -> 0.096745062937484763
+  // (+4.1681 pct, 8 appends, terminal rel 3.5e-10), fixed-97
+  // 0.0012051330632176880 -> 0.0012054673720820889 (+0.0277 pct, 5 appends,
+  // terminal rel 2.9e-13), both trajectories strictly increasing, lifted
+  // 13-packet excess matches Gram quadrature rel 4.9e-7. Narrowed residual:
+  // the append CALCULUS (Theorem Z/P) not re-derived here. NO QED.
+  '/src/data/imp-95067-append-lift-reaudit.js',
   // imp-95008 continuation twenty (fable-5): THEOREM CA (corner attainment)
   // + LEMMA EQ - the nineteenth's residual (b1) per-pair substitution
   // tightness is CLOSED in closed form: the Lemma X separation floor

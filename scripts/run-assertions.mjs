@@ -12683,6 +12683,19 @@ const DATA_MODULES = [
   // imp-95011-sub-arithmetic-carrier-scan) UNMEASURED here; the surrogate
   // numbers demonstrate the machinery, not the arithmetic. Changes no bound; NO QED.
   '/src/data/imp-95011-gate2-oscillation-probe.js',
+  // imp-95013 (native-compute, opus-4-8, api-pool): Gate-2 evaluator Lane A --
+  // the native double-double E97/C_E,17 scanner with the mandatory anchor gate.
+  // HONEST STATUS: BLOCKED-ON-SPEC (the ticket-named failure mode). The native
+  // scanner must reproduce |E97|(690988) = 0.2141254901198318 before any output
+  // is trusted, but the arithmetic evaluator inputs (compute_exact_N N->x* map,
+  // the exponent sB(x), the carrier c_n(x), the window/seam family) and the
+  // reference file verify_uniform_error_01787854.c are ABSENT from the repo --
+  // only the imp-95012 structural frozen spec is present. This module pins the
+  // anchor gate and native build parameters, enumerates the five missing
+  // evaluator inputs, and names the sub-gap imp-95013-sub-native-evaluator-spec.
+  // Runs no scan, emits no E97 measurement, makes no surrogate substitution.
+  // Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95013-gate2-lane-a-blocked-on-spec.js',
   // imp-36258 (accuracy, opus-4-8, api-pool): RECONCILE the two independent gap determinations for
   // the imp-36097 shareColl < 1% crossing (N_cross) vs the imp-35971 E_trunc sole-survivor height
   // (N*) -- (A) the imp-36155 STRUCTURAL ratio ~1.020980 from baked source literals and (B) the

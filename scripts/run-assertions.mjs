@@ -201,6 +201,14 @@ const DATA_MODULES = [
   // knee is not a grid-endpoint artifact. Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED;
   // changes no bound; imp-3066 K_a>=0 untouched; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95055-sigma-ramp-knee-endpoint-extension.js',
+  // imp-95056: side-by-side tabulation of the three imp-33723/imp-33601 landmarks -- closed-form
+  // crossover (Banach fixed point N=(C_C/E_trunc)^2 log T0(N)), bisection crossover (E_coll=E_trunc),
+  // and the sigma=1/2 halving landmark. The two crossover locators coincide at N~3.280294e9 to
+  // ~1.7e-15; the halving point sits ~0.4% below at N~3.267235e9. That gap is quantified as the
+  // Gronwall E_flow term: it equals ~2*(E_flow/E_trunc) at N_half (E_coll~N^(-1/2); ratio ~1.044),
+  // the ~1.7e-4 residual being the log T0 drift, with NO discretization component. Measurement/
+  // tabulation only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT SOTA.
+  '/src/data/imp-95056-crossover-halving-eflow-three-landmark-table.js',
   '/src/data/imp-35974-w1-tree-shape-N-ladder.js',
   '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',
@@ -13090,6 +13098,20 @@ const DATA_MODULES = [
   // this is a low-s measurement MAP; cFarExact is a quadrature reference, not a
   // bound below s*. Measurement only; NO QED.
   '/src/data/imp-95068-eighteenth-window-envelope-break-regime.js',
+  // imp-95069 (opus-4-8): DERIVATION of the far-coefficient break-boundary
+  // s* = 2.948383274238082 sharpness (imp-95026 Finding 4 corner guard).
+  // The Lemma RM guard needs V(0,2) = 2^(1/3) > Ystar(s) = (2s-1)^(1/(s-1))-1.
+  // (A) s* is the root of Ystar(s) = 2^(1/3): Ystar(s*) matches 2^(1/3) to <1
+  // ULP and an independent bisection recovers s* to 16 digits. (B) Ystar is
+  // STRICTLY DECREASING on s >= 2 by an exact sign chase (Ystar+1 = exp(f),
+  // f = ln(2s-1)/(s-1); f prime has the sign of g(s) = 2(s-1)/(2s-1) - ln(2s-1),
+  // g prime = 2/(2s-1)^2 - 2/(2s-1) < 0 and g(2) = 2/3 - ln 3 < 0), so the guard
+  // is a single clean threshold; a 0.001-step grid on [2.1,30] confirms it.
+  // (C) The paper point s = 3 clears the guard by only 0.0238 with the closed
+  // form Ystar(3) = sqrt(5) - 1, while the model s = 11 clears it by 0.9040 -
+  // the low-decay transfer risk is confined to s = 3. Sub-gap: the Section 4.5
+  // decay s is not pinned in this repo. Derivation only; NO QED.
+  '/src/data/imp-95069-break-boundary-sharpness.js',
   // imp-95029 (opus-4-8): ASSESSMENT of the paper phase curvature normalization
   // (openResiduals[2] of the imp-95008 chain, the sibling Theorem D residual)
   // and its effect on the far-bracket ledger. FINDING 1: the normalization

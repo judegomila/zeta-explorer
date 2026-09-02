@@ -208,6 +208,31 @@ export const IMP_95012_ASSERTIONS = [
       Math.abs(ROW_01399_DECISION.tStar.value + (ROW_01399_DECISION.yStar.value ** 2) / 2 - 0.1399) < 1e-12,
     why: 'Theorem 4.5 reaches 0.1399 (t* + y*^2/2 = 1399/10000) from a larger slab plus a new final-time tail, not from the Gate-2 cocycle E97 or the open family 690988 <= N <= 54799999 -- an independent conditional target.',
   },
+  {
+    id: 'imp-95050-eq17-20-closed-form-reverify',
+    holds: () => {
+      // eq (17): rho_m = 877 / (2^(m+1) (m+1)!) at m=17, re-derived from the closed form
+      let fact = 1;
+      for (let k = 2; k <= CARRIER_M + 1; k++) fact *= k;
+      const rho17 = 877 / (Math.pow(2, CARRIER_M + 1) * fact);
+      const rho17ClosedFormOk =
+        Math.abs(rhoM(CARRIER_M) - rho17) < 1e-30 && Math.abs(rho17 - 5.225389294223831e-19) < 1e-30;
+      // eq (18): shell/evaluation charge, re-derived exactly from BigInt integers then scaled by 1e30
+      const sc = GATE2_TARGETS.shellChargeEq18;
+      const scValue = Number((590221n * 10n ** 30n) / 61030685553249484800n) / 1e30;
+      const shellOk = Math.abs(scValue - 9.67088923628475e-15) < 1e-24 && Math.abs(scValue - sc.value) < 1e-24;
+      // eq (17) is NOT eq (18): the carrier remainder rho_17 (5.2e-19) is 4 orders below the shell charge (9.7e-15)
+      const eq17NotEq18 = rho17 < sc.value / 1000;
+      // the shell charge (18), not rho_17, is the quantity that sits below R_NUM_BOUND = 9.671e-15 (imp-95007/95011)
+      const shellBelowRnum = sc.value < 9.671e-15;
+      // eqs (19)-(20): the downward-rounded target sits below the exact allowance Rex by about one r_num
+      const targetBelowRex =
+        GATE2_TARGETS.correlatedCenterTargetEq20 < GATE2_TARGETS.RexExact &&
+        GATE2_TARGETS.RexExact - GATE2_TARGETS.correlatedCenterTargetEq20 < 1.0e-14;
+      return rho17ClosedFormOk && shellOk && eq17NotEq18 && shellBelowRnum && targetBelowRex;
+    },
+    why: 'imp-95050: re-derives eqs (17)-(20) from their closed forms. eq (17) rho_17 = 877/(2^18 * 18!) = 5.225389294223831e-19 is the carrier remainder, DISTINCT from eq (18) -- the ticket premise that rho_17 evaluates to 9.6709e-15 conflates the two quantities. eq (18) shell/evaluation charge 590221/61030685553249484800 = 9.67088923628475e-15 (BigInt-exact) is the quantity that sits below R_NUM_BOUND = 9.671e-15. eq (20) target 0.27968819555261474 sits below eq (19) Rex 0.2796881955526244 by ~9.66e-15 (about one r_num), a downward-rounded sufficient center. Measure only; changes no bound; PT Lambda <= 0.2 SOTA.',
+  },
 ];
 
 export default IMP_95012_GATE2_FROZEN_SPEC;

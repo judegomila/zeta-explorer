@@ -356,6 +356,42 @@ function iExact(T, rho, s) {
   return Math.pow(rho, -0.5) * (outerFolded(rho, 1 + T, s) + middleFolded(rho, T, s) + farFolded(rho, T, s));
 }
 
+// UNFOLDED second form of the SAME closed form: compute each piece W(a, b) and
+// the middle integral with NO rho^s termwise folding (so tiny a = rho makes the
+// intermediate a^(1-k) terms huge), then multiply the aggregate by rho^s at the
+// end. Algebraically identical to iExact; the two evaluations differ only by
+// float cancellation, so their gap is a direct MEASUREMENT of the partial-
+// fraction conditioning quoted in scope (adversarial self-check 2).
+function iUnfolded(T, rho, s) {
+  const bb = 1 + T;
+  let wOut = 0;
+  for (let k = 2; k <= s; k++) {
+    const B = binom(2 * s - k - 1, s - k);
+    const ck = Math.pow(-1, s - k) * B * Math.pow(bb - rho, -(2 * s - k));
+    const dk = Math.pow(-1, s - k) * B * Math.pow(rho - bb, -(2 * s - k));
+    wOut += (ck * Math.pow(rho, 1 - k) + dk * Math.pow(bb, 1 - k)) / (k - 1);
+  }
+  wOut += Math.pow(-1, s - 1) * binom(2 * s - 2, s - 1) * Math.pow(bb - rho, -(2 * s - 1)) * Math.log(bb / rho);
+  const a = rho + T;
+  let wFar = 0;
+  for (let k = 2; k <= s; k++) {
+    const B = binom(2 * s - k - 1, s - k);
+    const ck = Math.pow(-1, s - k) * B * Math.pow(1 - a, -(2 * s - k));
+    const dk = Math.pow(-1, s - k) * B * Math.pow(a - 1, -(2 * s - k));
+    wFar += (ck * Math.pow(a, 1 - k) + dk) / (k - 1);
+  }
+  wFar += Math.pow(-1, s - 1) * binom(2 * s - 2, s - 1) * Math.pow(1 - a, -(2 * s - 1)) * Math.log(1 / a);
+  const c = 1 + T;
+  let mid = 0;
+  for (let k = 1; k <= s; k++) {
+    const pk = binom(2 * s - k - 1, s - k) * Math.pow(rho + c, -(2 * s - k));
+    const Ja = k === 1 ? Math.log((T + rho) / rho) : (Math.pow(rho, 1 - k) - Math.pow(T + rho, 1 - k)) / (k - 1);
+    const Jc = k === 1 ? Math.log(c) : (1 - Math.pow(c, 1 - k)) / (k - 1);
+    mid += pk * (Ja + Jc);
+  }
+  return Math.pow(rho, -0.5) * Math.pow(rho, s) * (wOut + wFar + mid);
+}
+
 // midpoint quadrature cross-check (positive integrand; refinement converges
 // to the closed form - used two-sided with stated tolerances)
 function iQuad(T, rho, s, N, pad) {
@@ -627,6 +663,23 @@ export const IMP95008_EPC_ASSERTIONS = [
         HEAD_FLOOR < CFAR_NEW &&
         F97_FLOOR < CFAR_NEW
       );
+    },
+  },
+  {
+    id: "imp95008-epc-folded-vs-unfolded",
+    description:
+      "float-conditioning MEASURED as a live computation (was prose-only self-check 2): two algebraically identical evaluations of the closed form - rho^s folded termwise (iExact) vs folded once at the end (iUnfolded) - agree to ~1e-8 relative at the ill-conditioned corner (V(0,2), rhoCap(2)) but NOT to 1e-12, reproducing the priced ~1e-8 partial-fraction cancellation; the SIGN is positive (unfolded > folded), i.e. the baked far-envelope literal UNDERSTATES the true value, so an upward round of the ceiling stays a valid upper bound; at the better-conditioned V(2,2) the two agree to 1e-12",
+    holds: () => {
+      const T = cornerV(0, 2);
+      const rho = rhoCap(2);
+      const f = iExact(T, rho, SS);
+      const u = iUnfolded(T, rho, SS);
+      const rel = Math.abs(f - u) / Math.abs(f);
+      if (!(rel <= 1e-7 && rel >= 1e-9)) return false; // ~1e-8 conditioning band
+      if (!(u > f)) return false; // baked (folded) literal understates -> round UP is safe
+      const f2 = iExact(cornerV(2, 2), rho, SS);
+      const u2 = iUnfolded(cornerV(2, 2), rho, SS);
+      return Math.abs(f2 - u2) <= 1e-11 * Math.abs(f2);
     },
   },
   {

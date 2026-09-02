@@ -87,7 +87,7 @@ export default function WhatWeKnowPage() {
         <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
         <li><strong>Route B (Burgers / Koksma–Hlawka lim-sup):</strong> an unconditional, GUE-free, pair-correlation-free proof that lim supₙ |t_c(N)| = 0 for the N-particle Calogero–Moser/Dyson flow that models the zeros. This subsidiary theorem does not close the bridge to RH.</li>
         <li><strong>The Θ-trap theorems:</strong> Θ ≤ 1/4 as an unconditional flow invariant; the exact identity dg/ds = −(4/g)(1−Θ); Corollary A1 (t_c^part ≤ g_min²/6). Rigorous CM-flow algebra.</li>
-        <li><strong>The R2-T isolation constant</strong> closed in closed form: c* = √(2+√3) − 1 ≈ 0.9319 (the single-shell case) — the one deterministic frontier residual, resolved.</li>
+        <li><strong>The R2-T isolation constants</strong> closed in closed form: c* = √(2+√3) − 1 ≈ 0.9319 (single-shell) and, since 2026-08-28, the global asymmetric constant c_glob = c_half = 0.8980208880762339 (unique root of the half-lattice rate bound) — the deterministic frontier residual, resolved. Improves no Λ bound.</li>
       </ul>
 
       <h2>② The two frontier walls — fully characterized</h2>

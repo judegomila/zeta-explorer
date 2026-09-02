@@ -5,6 +5,9 @@
  * tried (Opus 4.8, full-route-map workflow, 5 cluster-mappers + synthesis,
  * 2026-06-19). 36 routes classified by status and GENUINE remaining opportunity.
  * The honest, consolidated picture after the session's six caught overclaims.
+ * 2026-09-02 UPDATE: a sixth cluster (permutationFreeze) records the post-freeze
+ * permutation-architecture frontier (imp-95006..95011 campaign); the frozen
+ * 2026-06-19 core clusters are unchanged. Total now 44 routes.
  *
  * THE ONE-LINE TRUTH: there is NO hidden shortcut below RH anywhere in the map.
  * Every route that could deliver an actual Lambda number short of RH funnels
@@ -28,8 +31,8 @@
 import { LAMBDA_DEPENDENCY_MATRIX } from './lambda-roadmap.js';
 
 export const FULL_ROUTE_MAP = {
-  date: '2026-06-19',
-  totalRoutes: 38, // synthesis cited ~36; the enumerated table holds 38
+  date: 'frozen 2026-06-19 core + post-freeze frontier cluster added 2026-09-02',
+  totalRoutes: 44, // 38 frozen-core routes (synthesis cited ~36) + 6 post-freeze permutationFreeze routes
   clusters: {
     lambdaUpper: [
       { name: 'Route A finite-N*=1e4 beat', status: 'ESTIMATE', opp: 3, note: 'gated on C_H; PT-comparable IF C_H lands' },
@@ -78,6 +81,18 @@ export const FULL_ROUTE_MAP = {
       { name: 'Voronin universality', status: 'RH-EQUIVALENT', opp: 1, note: 'Bagchi strong-recurrence = RH; nonvanishing is where RH hides' },
       { name: 'Twin-ladder multiplicative deformation', status: 'DEAD-END-FORNOW', opp: 1, note: 'does not reach Lambda; only descendant (Volterra) killed' },
       { name: 'Prime-caustic / phase-crystal', status: 'DEAD-END-FORNOW', opp: 2, note: 'visualization/metaphor, sigma-independent' },
+    ],
+    // Post-freeze frontier (added 2026-09-02): the permutation-architecture campaign
+    // opened AFTER the 2026-06-19 freeze. Statuses grounded in the imp-95006..95011
+    // gate-ranking / weld-chain / Rouche-pilot closure notes. The Lambda<=0.14
+    // completion contract is a contract, not a bound.
+    permutationFreeze: [
+      { name: 'Gate-2 producer (18-moment carrier) / the one open family', status: 'OPEN-HARD', opp: 8, note: 'the Λ≤0.14 contract reduces to |C_E,17| < 0.2797 on 690988≤N≤54799999; Gate 2 ranked most promotable (imp-95007); REAL oscillation probe queued (evaluator = pointwise E97, anchor 0.2141254901198318)' },
+      { name: '[B_v,Π_p] weld alias bracket (imp-95008 chain)', status: 'CONDITIONAL', opp: 7, note: '20-continuation rigorous chain drove the far-bracket gap 41x -> 2.81x; refereed SOUND-WITH-CAVEATS (fix bundle queued); dominant remaining slack = parity AM-GM factor 2' },
+      { name: 'Conditional Λ≤0.1399 row (Thm 4.5 two-task split)', status: 'CONDITIONAL', opp: 5, note: 'explicit target: rectangular-slab inheritance + new final-time tail; PARKED pending the dependency-direction check (does it presuppose the open family?)' },
+      { name: 'Graph-compression correlated isometry (eq. 30/31)', status: 'OPEN-HARD', opp: 4, note: 'the ONE permutation family with possible gain; ceiling conditional on (G) representation (zero-free-strip-equivalent) — parked below unconditional lanes' },
+      { name: 'Moving-reference Rouché gluing (eq. 44)', status: 'DEAD-END-FORNOW', opp: 2, note: 'pilot chart cover valid (winding 0) but does NOT relax the open-family budget (imp-95010)' },
+      { name: 'Inertia × pair-correlation synergy (external 2/3 method)', status: 'UNDER-EXPLORED', opp: 6, note: 'Christoffel-diagonal/von Neumann trace Q measurement rides the Gate-2 evaluator; L2 detection-modulus formalization queued' },
     ],
   },
 };
@@ -133,10 +148,10 @@ export const FULL_ROUTE_MAP_NEXT_MOVE = {
 export const FULL_ROUTE_MAP_ASSERTIONS = [
   {
     id: 'route-map-36-routes-5-clusters',
-    description: 'The map enumerates 38 routes across 5 clusters',
+    description: 'The map enumerates 44 routes across 6 clusters (38 frozen-core + 6 post-freeze permutationFreeze)',
     holds: () => {
       const n = Object.values(FULL_ROUTE_MAP.clusters).reduce((s, c) => s + c.length, 0);
-      return n === FULL_ROUTE_MAP.totalRoutes && Object.keys(FULL_ROUTE_MAP.clusters).length === 5;
+      return n === FULL_ROUTE_MAP.totalRoutes && Object.keys(FULL_ROUTE_MAP.clusters).length === 6;
     },
   },
   {

@@ -1187,7 +1187,7 @@ function ShellOnsetLadderSection() {
 
       <div style={{ background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", borderRadius: 8, padding: "10px 14px" }}>
         <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-          Residual: global multi-body constant stays OPEN
+          Residual (historical — since closed 2026-08-28: c_glob = c_half = 0.8980208880762339)
         </div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
           {cc.agreement}
@@ -1715,26 +1715,30 @@ function AsymIsolationClosedFormPanel() {
           {d.honest}
         </div>
         <div style={{ color: "#877b67", fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
-          <strong style={{ color: "#b58a2e" }}>Open sub-gap:</strong> {d.openSubGap}
+          <strong style={{ color: "#b58a2e" }}>Sub-gap as recorded 2026-06-30:</strong> {d.openSubGap}{" "}
+          <span style={{ color: "#4c7a4a" }}>Since resolved: the 2026-08-28 closure identifies the global
+          infimum as c_glob = c_half = 0.8980208880762339, attained along the one-sided half-lattice
+          class, not the opposite-lattice class.</span>
         </div>
       </div>
 
-      {/* imp-3204: GLOBAL asymmetric isolation constant OPEN banner */}
-      <div style={{ background: "rgba(181,138,46,0.1)", border: "2px solid rgba(181,138,46,0.5)", borderRadius: 8, padding: "10px 14px", marginTop: 10 }}>
-        <div style={{ color: "#b58a2e", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
-          GLOBAL asymmetric isolation constant: OPEN
+      {/* imp-3204 banner, updated 2026-08-28: c_glob closed in closed form */}
+      <div style={{ background: "rgba(76,122,74,0.10)", border: "2px solid rgba(76,122,74,0.5)", borderRadius: 8, padding: "10px 14px", marginTop: 10 }}>
+        <div style={{ color: "#4c7a4a", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+          GLOBAL asymmetric isolation constant: CLOSED (2026-08-28) — c_glob = c_half = 0.8980208880762339
         </div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>
           <strong style={{ color: "#1c1814" }}>c_asym = {d.cAsym.toFixed(5)}</strong> closes only the{" "}
           <em>opposite-unit-lattice R&#8594;&#8734; class</em> (Config A: one tight neighbour at d_1 + opposite
-          uniform lattice). The GLOBAL infimum over all asymmetric configurations remains{" "}
-          <strong style={{ color: "#b58a2e" }}>OPEN</strong>, bracketed{" "}
+          uniform lattice). The GLOBAL infimum over all asymmetric configurations, historically bracketed{" "}
           <strong style={{ color: "#1c1814" }}>
             ~({ledger.openBracket[0].toFixed(4)},&#8202;{ledger.openBracket[1].toFixed(4)})
           </strong>{" "}
-          by the certified structured-search infimum (lower end, imp-3172 Config B) and c_asym (upper end).
-          Every located onset is only an upper bound on c_glob; no proven lower bound exists below the
-          Theorem-C basin {ledger.basinConstant}.
+          by the certified structured-search infimum (imp-3172 Config B) and c_asym, is now closed in
+          closed form: c_glob = c_half = 0.8980208880762339, the unique (0,1) root of
+          R(&rho;) = 4 + 4&rho; &minus; 4/&rho; &minus; 4/(&rho;+1) &minus; 2[&psi;(1+2/&rho;) &minus; &psi;(1+1/&rho;)]
+          (2026-08-28 closure, src/data/sg1c-cglo-closure-2026-08-28.js). Onsets in the ledger above remain
+          valid upper bounds consistent with the closed value; the Theorem-C basin constant stays {ledger.basinConstant}.
         </div>
       </div>
     </div>
@@ -1770,9 +1774,10 @@ function AsymIsolationOnsetLadderViz() {
         Asymmetric Isolation Onset Ladder vs Theorem-C Basin (imp-3205)
       </h3>
       <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
-        Every located onset (each an upper bound on the still-open global constant c_glob)
-        sits far above the Theorem-C basin cap &rho;&nbsp;=&nbsp;0.72. The tightest ceiling
-        is the certified structured infimum 0.9016 (imp-3172), giving a protective margin of{" "}
+        Every located onset (each an upper bound on the global constant c_glob, since closed at
+        c_glob&nbsp;=&nbsp;c_half&nbsp;=&nbsp;0.8980208880762339, 2026-08-28)
+        sits far above the Theorem-C basin cap &rho;&nbsp;=&nbsp;0.72. The tightest located ceiling
+        was the certified structured infimum 0.9016 (imp-3172), giving a protective margin of{" "}
         <strong style={{ color: "#4c7a4a" }}>{ledger.basinMargin.toFixed(4)}&nbsp;&gt;&nbsp;0.18</strong>.
         The basin-conditional C_Lip never depended on closing c_glob.
       </p>
@@ -1803,7 +1808,7 @@ function AsymIsolationOnsetLadderViz() {
         {/* c_asym label below */}
         <text x={xHi + 4} y={axisY + TICK + 12} fill="#d9502e" fontSize={8} textAnchor="start" fontWeight="700">c_asym=0.90279</text>
         <text x={xHi + 4} y={axisY + TICK + 22} fill="#d9502e" fontSize={7.5} textAnchor="start">transcendental</text>
-        <text x={(xLo + xHi) / 2} y={axisY + TICK + 32} fill="#d9502e" fontSize={7} textAnchor="middle">open bracket c_glob</text>
+        <text x={(xLo + xHi) / 2} y={axisY + TICK + 32} fill="#d9502e" fontSize={7} textAnchor="middle">2026-06 bracket (c_glob since closed at 0.89802)</text>
 
         {/* Protective margin indicator */}
         <line x1={xBasin} y1={axisY + 18} x2={xLo} y2={axisY + 18} stroke="#4c7a4a" strokeWidth={1.5} />
@@ -1845,7 +1850,7 @@ function AsymIsolationOnsetLadderViz() {
           </g>
         ))}
         <text x={padL + chartW / 2} y={svgH - 4} fill="#877b67" fontSize={8.5} textAnchor="middle">
-          &rho; (isolation-ratio onset — every tick is an upper bound on the open global constant c_glob)
+          &rho; (isolation-ratio onset — every tick is an upper bound on c_glob = 0.89802, closed 2026-08-28)
         </text>
       </svg>
 
@@ -1867,29 +1872,28 @@ function AsymIsolationOnsetLadderViz() {
   );
 }
 
-// imp-3248: status banner — c_glob is an INFIMUM, every onset is an upper bound, only basin 0.72 is load-bearing
+// imp-3248 banner, updated 2026-08-28: c_glob closed at c_half; basin 0.72 remains the load-bearing constant
 function CglobInfimumHonestBanner() {
   const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
   return (
-    <div style={{ background: "rgba(194,58,28,0.08)", border: "2px solid rgba(194,58,28,0.4)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
-      <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
-        OPEN: c_glob is an infimum — located onsets are upper bounds only
+    <div style={{ background: "rgba(76,122,74,0.08)", border: "2px solid rgba(76,122,74,0.4)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
+      <div style={{ color: "#4c7a4a", fontWeight: 700, fontSize: 12, marginBottom: 6 }}>
+        CLOSED (2026-08-28): c_glob = c_half = 0.8980208880762339 — earlier located onsets were upper bounds
       </div>
       <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.75 }}>
         The global asymmetric isolation constant{" "}
         <strong style={{ color: "#1c1814" }}>c_glob</strong> is defined as the{" "}
-        <strong style={{ color: "#c23a1c" }}>infimum</strong> of all asymmetric
-        configuration onset values. An infimum can only be{" "}
-        <em>approached from above</em>: every configuration we locate gives an onset
-        which is an <strong style={{ color: "#c23a1c" }}>upper bound</strong> on c_glob, never
-        a lower bound. Current bracket: ~({ledger.openBracket[0].toFixed(4)},&#8202;
-        {ledger.openBracket[1].toFixed(4)}). The lower end {ledger.openBracket[0].toFixed(4)} is
-        the tightest located onset (a ceiling), not a proven floor.{" "}
-        <strong style={{ color: "#b58a2e" }}>No proven lower bound below the
-        Theorem-C basin {ledger.basinConstant} exists.</strong>{" "}
-        The Theorem-C basin cap &rho;&#8201;=&#8201;{ledger.basinConstant} is the only
-        load-bearing constant for the &Lambda;&#8201;&le;&#8201;0.2 rigorous result;
-        closing c_glob is not required.
+        <strong style={{ color: "#1c1814" }}>infimum</strong> of all asymmetric
+        configuration onset values; every located configuration gave an onset
+        that upper-bounds it. The 2026-08-28 closure (src/data/sg1c-cglo-closure-2026-08-28.js)
+        proves the universal rate bound d&#8321;&sup2;&middot;(d&rho;/ds) &le; R(&rho;) with
+        R the imp-3270 half-lattice closed form, sharp along the one-sided half-lattice, so
+        c_glob equals the unique (0,1) root c_half = 0.8980208880762339 exactly. The final
+        pre-closure bracket was ~({ledger.openBracket[0].toFixed(4)},&#8202;
+        {ledger.openBracket[1].toFixed(4)}), consistent with the closed value.{" "}
+        The Theorem-C basin cap &rho;&#8201;=&#8201;{ledger.basinConstant} remains the only
+        load-bearing constant for the &Lambda;&#8201;&le;&#8201;0.2 rigorous result; the
+        closure improves no &Lambda; bound.
       </div>
     </div>
   );
@@ -2091,8 +2095,12 @@ function IndependentIntegratorCrossValidationPanel() {
         </table>
       </div>
       <div style={{ background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", borderRadius: 8, padding: "10px 14px", marginTop: 12 }}>
-        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status</div>
+        <div style={{ color: "#c23a1c", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>Status as recorded 2026-06-30</div>
         <div style={{ color: "#4a4238", fontSize: 12, lineHeight: 1.7 }}>{d.honest}</div>
+        <div style={{ color: "#4c7a4a", fontSize: 11, marginTop: 6, lineHeight: 1.6 }}>
+          Update 2026-08-28: the global constant referenced above has since been closed in closed form,
+          c_glob = c_half = 0.8980208880762339 (src/data/sg1c-cglo-closure-2026-08-28.js).
+        </div>
       </div>
     </div>
   );
@@ -2272,8 +2280,9 @@ function IsolationRatioLandmarksNumberLine() {
       <p style={{ color: "#4a4238", fontSize: 13, lineHeight: 1.7, marginBottom: 10 }}>
         Annotated number line of the four key &rho;&nbsp;=&nbsp;g/d&#x2081; thresholds.
         The <strong style={{ color: "#4c7a4a" }}>basin safe zone</strong> (green) covers &rho;&nbsp;&lt;&nbsp;0.72.
-        The <strong style={{ color: "#b58a2e" }}>open multi-body bracket</strong> [0.927, 0.943] marks
-        where random-scan onsets bound the still-open global constant c_glob from above.
+        The <strong style={{ color: "#b58a2e" }}>2026-06 multi-body bracket</strong> [0.927, 0.943] marks
+        where random-scan onsets bounded the global constant c_glob from above
+        (since closed: c_glob = c_half = 0.8980208880762339, 2026-08-28).
         The <strong style={{ color: "#8c6a1d" }}>algebraic single-shell onset</strong> c*&nbsp;&asymp;&nbsp;0.932
         sits inside the bracket. The Theorem-C basin cap (0.72) has a protective margin of&nbsp;&gt;0.18
         below the tightest located onset.
@@ -2333,7 +2342,7 @@ function IsolationRatioLandmarksNumberLine() {
           stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4 2" />
         <text x={(xS(BRACKET_LO) + xS(BRACKET_HI)) / 2} y={padT + 10} fill="#b58a2e" fontSize={8}
           textAnchor="middle" fontWeight="bold">
-          {"open multi-body bracket"}
+          {"2026-06 multi-body bracket"}
         </text>
         <text x={xS(BRACKET_LO) - 2} y={axisY + 27} fill="#b58a2e" fontSize={8} textAnchor="end">
           {"0.927"}

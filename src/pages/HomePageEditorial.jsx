@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/PostLayout.jsx';
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { ZETAEXPLORER_NO_GOS } from '../data/rh-no-go-theorems.js';
+import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 
 // The real interactive explorers, lazy-loaded so the landing stays light.
 const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
@@ -26,7 +27,7 @@ const FINDINGS = [
   { to: '/lambda-bounds', grade: 'VERIFIED', date: '2026',
     title: 'RH-free F_mb enclosure', desc: 'imp-3725 — a rigorous enclosure assuming no RH.' },
   { to: '/route-map', grade: 'MAP', date: '2026',
-    title: 'The wall map · 38 routes', desc: 'Every closure route across 5 clusters, and exactly where it splits.' },
+    title: `The wall map · ${FULL_ROUTE_MAP.totalRoutes} routes`, desc: 'Every closure route across 6 clusters, and exactly where it splits.' },
   { to: '/critical-line-proportion', grade: 'MAP', date: '2026-08', isNew: true,
     title: 'Zeros on the line · ≥ 2/3', desc: 'The other axis: peer-reviewed record 5/12 (PRZZ 2020); external ≥ 2/3 result (Claude/Anthropic 2026, Lean-checked, reviewed by Conrey and Goldston, not peer-reviewed, not this project’s).' },
   { to: '/what-we-know', grade: 'NO-GO', date: '2026',
@@ -85,7 +86,7 @@ export default function HomePageEditorial() {
       {/* KPIs */}
       <div className="ed-full"><div className="ed-kpis">
         <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
-        <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>38</b><span>routes mapped</span></Link>
+        <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>{FULL_ROUTE_MAP.totalRoutes}</b><span>routes mapped</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/no-gos"><b style={{ color: 'var(--terra-dk)' }}>{ZETAEXPLORER_NO_GOS.length}</b><span>no-go theorems</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/simulators"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></Link>
       </div></div>

@@ -22,6 +22,7 @@ const CLUSTER_TITLES = {
   machineryCrossvalLower: 'Machinery · Cross-Validation · Lower Bounds',
   literaturePCC: 'Literature Ports & the Montgomery-PCC Surface',
   originalIdeas: 'Original / Novel-Angle Ideas',
+  permutationFreeze: 'Post-Freeze Frontier (permutation architecture)',
 };
 
 // Warm editorial card base — replaces the legacy dark `.card` shell.
@@ -113,18 +114,19 @@ export default function RouteMapPage() {
   const clusters = FULL_ROUTE_MAP.clusters;
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>the wall map · 38 routes · 5 clusters</span>} />
+      <EditorialHeader ticker={<span>the wall map · {FULL_ROUTE_MAP.totalRoutes} routes · {Object.keys(clusters).length} clusters</span>} />
       <div className="ed-full" style={{ padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24, borderBottom: '1px solid var(--hairline)', paddingBottom: 18 }}>
           <h1 style={{ margin: '0 0 10px', color: 'var(--ink)', fontFamily: 'var(--ed-display, Georgia, serif)', fontSize: 34, fontWeight: 600 }}>RH / Λ Route Map</h1>
           <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 'none' }}>
-            The map of every route the project had tried as of {FULL_ROUTE_MAP.date} —{' '}
-            <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong> across 5 clusters, classified by
-            status and genuine remaining opportunity (full-route-map workflow, frozen {FULL_ROUTE_MAP.date}).
-            Routes opened since that snapshot live on their own pages; the newest is the{' '}
+            The map of every route the project has tried —{' '}
+            <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong> across {Object.keys(clusters).length} clusters
+            ({FULL_ROUTE_MAP.date}), classified by status and genuine remaining opportunity.
+            The five core clusters were frozen 2026-06-19 (full-route-map workflow); the sixth cluster
+            records the post-freeze frontier — the{' '}
             <Link to="/permutation-architecture" style={{ color: 'var(--brass-dk)' }}>permutation architecture</Link>{' '}
             with its fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound).
-            The one-line truth of the frozen map: <strong>there is no shortcut below RH anywhere in it</strong> —
+            The one-line truth of the frozen core: <strong>there is no shortcut below RH anywhere in it</strong> —
             the inherited Dyson/collision routes seeking to drive Λ to zero funnel into the{' '}
             <strong style={{ color: 'var(--brass)' }}>C_H Hölder-½ shock modulus</strong> (RH-hard at the
             modulus). The peer-reviewed benchmark is Platt–Trudgian Λ ≤ 0.2;

@@ -12,33 +12,33 @@ function requirementColor(status) {
 }
 
 function CertificateDiagram() {
-  const cardW = 210;
-  const gap = 14;
+  const cardW = 250;
+  const gap = 16;
   const svgW = REQUIREMENTS.length * cardW + (REQUIREMENTS.length - 1) * gap;
-  const svgH = 200;
+  const svgH = 210;
   return (
-    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%', margin: '0 auto' }}>
       {REQUIREMENTS.map((r, i) => {
         const x = i * (cardW + gap);
         const c = requirementColor(r.status);
         const binding = /BINDING/.test(r.status);
         return (
           <g key={r.id} transform={`translate(${x}, 0)`}>
-            <rect x={0} y={0} width={cardW} height={svgH} rx={6} fill={c.fill} stroke={c.stroke} strokeWidth={1.5} />
-            <text x={cardW / 2} y={24} textAnchor="middle" fill={c.text} fontSize={16} fontWeight={700} fontFamily="monospace">
+            <rect x={0} y={0} width={cardW} height={svgH} rx={8} fill={c.fill} stroke={c.stroke} strokeWidth={1.5} />
+            <text x={cardW / 2} y={26} textAnchor="middle" fill={c.text} fontSize={16} fontWeight={700} fontFamily="monospace">
               {r.id}
             </text>
-            <text x={cardW / 2} y={46} textAnchor="middle" fill="#94a3b8" fontSize={10} fontWeight={700}>
+            <text x={cardW / 2} y={46} textAnchor="middle" fill="#94a3b8" fontSize={11} fontWeight={700}>
               {r.name}
             </text>
-            <foreignObject x={8} y={56} width={cardW - 16} height={96}>
-              <div style={{ color: '#64748b', fontSize: '9.5px', lineHeight: 1.35 }}>{r.need}</div>
+            <foreignObject x={12} y={56} width={cardW - 24} height={100}>
+              <div style={{ color: '#64748b', fontSize: '10.5px', lineHeight: 1.4 }}>{r.need}</div>
             </foreignObject>
-            <rect x={8} y={svgH - 42} width={cardW - 16} height={30} rx={4} fill="rgba(15,23,42,0.5)" stroke={c.stroke} strokeWidth={1} />
-            <text x={cardW / 2} y={svgH - 27} textAnchor="middle" fill={c.text} fontSize={10} fontWeight={700}>
+            <rect x={12} y={svgH - 46} width={cardW - 24} height={32} rx={5} fill="rgba(148,163,184,0.04)" stroke={c.stroke} strokeWidth={1} />
+            <text x={cardW / 2} y={svgH - 29} textAnchor="middle" fill={c.text} fontSize={10.5} fontWeight={700}>
               {binding ? 'BINDING' : 'OPEN'}
             </text>
-            <text x={cardW / 2} y={svgH - 15} textAnchor="middle" fill="#64748b" fontSize={8}>
+            <text x={cardW / 2} y={svgH - 17} textAnchor="middle" fill="#64748b" fontSize={8.5}>
               {binding ? 'presently unreachable' : 'not binding'}
             </text>
           </g>
@@ -48,12 +48,40 @@ function CertificateDiagram() {
   );
 }
 
+function RequirementsTable() {
+  return (
+    <table style={{ borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+      <thead>
+        <tr>
+          <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>req</th>
+          <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>name</th>
+          <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>what a certificate needs</th>
+          <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {REQUIREMENTS.map((r) => {
+          const binding = /BINDING/.test(r.status);
+          return (
+            <tr key={r.id}>
+              <td style={{ fontWeight: 700, color: binding ? '#f87171' : '#facc15' }}>{r.id}</td>
+              <td>{r.name}</td>
+              <td style={{ fontFamily: 'inherit' }}>{r.need}</td>
+              <td style={{ color: binding ? '#f87171' : '#94a3b8' }}>{r.status}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}
+
 export default function Imp35314FidelityCertificateDiagramViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 960, margin: '0 auto' }}>
       <PageHeader title="Surrogate-Fidelity Certificate: R1-R4 Structural Diagram (imp-35314)" />
 
-      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem' }}>
         imp-35243 enumerated four requirements (R1&ndash;R4) a proof that the imp-34997/imp-35111
         iters-to-floor REENTRY band is real in the true collapse dynamic &mdash; not merely an artifact
         of the analytic surrogate &mdash; would need to discharge. imp-35277 recorded the checklist as a
@@ -61,9 +89,17 @@ export default function Imp35314FidelityCertificateDiagramViz() {
         the two BINDING requirements (both presently unreachable) and R2/R3 as OPEN but not binding.
       </p>
 
+      <h2>Requirement diagram</h2>
+      <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1rem' }}>
+        Red cards are the binding requirements; amber cards are open but not binding. Text is quoted
+        verbatim from the imp-35243 <code>fidelity_certificate_requirements</code> literals.
+      </p>
       <div style={{ overflowX: 'auto' }}>
         <CertificateDiagram />
       </div>
+
+      <h2>Requirement checklist</h2>
+      <RequirementsTable />
 
       <div
         style={{

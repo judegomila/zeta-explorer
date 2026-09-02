@@ -513,13 +513,14 @@ export const glossary = [
       '(2) Symmetric single-shell (K=1, one ring of K neighbours): ' +
       'c* = sqrt(2 + sqrt(3)) - 1 ~ 0.93185, CLOSED (imp-3005, analytic root of ' +
       'the shell-onset condition). ' +
-      '(3) Global multi-body constant: currently OPEN, bracketed by numerical scan ' +
-      'in (0.927, 0.943) (not yet closed in form). ' +
-      'The open rung (3) is the sole deterministic forward move toward the C_H wall; ' +
-      'closing it in closed form would make the isolation-bound argument unconditional. ' +
+      '(3) Global multi-body constant: CLOSED in closed form (2026-08-28) — ' +
+      'c_glob = c_half = 0.8980208880762339, the unique (0,1) root of the half-lattice ' +
+      'rate bound R(rho) (sg1c-cglo-closure-2026-08-28); the earlier numerical-scan ' +
+      'bracket (0.927, 0.943) and the later (0.86566, 0.89802] interval both contained it. ' +
       'All three rungs are DISTINCT: c = 1 applies only to the strict two-body limit; ' +
-      'c* = 0.93185 applies to the symmetric single-shell; the multi-body bracket ' +
-      'applies to general N-body configurations. No QED — rung (3) remains open.',
+      'c* = 0.93185 applies to the symmetric single-shell; c_glob = c_half ' +
+      'applies to general N-body configurations under the globally-minimal-pair ' +
+      'hypothesis. The closure improves no Lambda bound; no QED.',
     firstUsed: 'imp-3054 (isolation-constant ladder, 2026)',
     relatedTerms: ['isolation ratio rho', 'C_H wall', 'C_Lip', 'Theta-trap', 'C_shock'],
     link: '/spectral-attack',
@@ -803,7 +804,9 @@ export const glossary = [
       "~0.9032-0.9039. The Theorem-C basin constant 0.72 is safely below c_asym with margin " +
       "c_asym - 0.72 = 0.1828 (drho/ds(0.72) = -1.1177 < 0). " +
       "Honest scope: this is deterministic CM-flow algebra on the opposite-unit-lattice R->inf " +
-      "class only. The GLOBAL asymmetric isolation constant remains OPEN, bracketed ~(0.9016, 0.9028). " +
+      "class only. The GLOBAL asymmetric isolation constant, once bracketed ~(0.9016, 0.9028), was " +
+      "closed 2026-08-28 at c_glob = c_half = 0.8980208880762339 (sg1c-cglo-closure-2026-08-28); " +
+      "c_asym stays a valid class-specific onset above it. " +
       "Basin preserved; Platt-Trudgian Lambda <= 0.2 stays SOTA. Not RH-hard; no QED.",
     firstUsed: "imp-3170 (sg1c-asym isolation closed-form), 2026",
     relatedTerms: [
@@ -837,12 +840,13 @@ export const glossary = [
       "the root is unique (not merely bracketed). The O(1/L) finite-size corrections cancel " +
       "exactly between the gap side and the lone-neighbour side, proving the O(1/L^2) " +
       "convergence order that imp-3194 could only measure empirically. " +
-      "Located-onset chain (each an upper bound on the still-open global constant c_glob): " +
+      "Located-onset chain (each an upper bound on the global constant c_glob): " +
       "c_half = 0.89802 < structured tune 0.9015828 (imp-3021/3172) < c_asym = 0.9027902 " +
-      "(imp-3170) < c* = 0.9318517 (imp-3005). c_half is now the tightest located ceiling. " +
-      "Honest scope: c_half closes only this rho-spaced class, as its infimum approached at " +
-      "L -> infinity (never attained at finite L); it is NOT proven to be the global " +
-      "asymmetric infimum, which remains OPEN. The Theorem-C basin constant 0.72 stays safely " +
+      "(imp-3170) < c* = 0.9318517 (imp-3005). " +
+      "Update (2026-08-28): the sg1c-cglo-closure result proves c_half IS the global " +
+      "asymmetric infimum — c_glob = c_half = 0.8980208880762339 exactly, via the universal " +
+      "rate bound d_1^2 (drho/ds) <= R(rho), sharp along the one-sided half-lattice. " +
+      "The Theorem-C basin constant 0.72 stays safely " +
       "below with margin c_half - 0.72 = 0.178. Platt-Trudgian Lambda <= 0.2 remains the " +
       "rigorous SOTA; no QED.",
     firstUsed: "imp-3270 (sg1c-halflattice-lone-limit-closed-form), 2026",

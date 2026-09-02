@@ -14,7 +14,7 @@ Formalizes the components of `/frozen-rung-pt-equivalence` (public/frozen-rung-p
 - `Leakage.lean` — Blaschke-product / Schur-kernel quadratic-form bounds
   (`leakage_quadratic_form_bound`, `norm_blaschke_le_one`): the L2 mesh-detection term.
 
-6 files, 0 sorry, verified in mathlib v4.28.0. **Autoformalization caveat**: proofs are
+5 files, 0 sorry, verified in mathlib v4.28.0. **Autoformalization caveat**: proofs are
 kernel-verified; faithfulness of the statements/definitions to the intended proposition
 warrants referee review (spot-check of `winding_count_identity` confirmed it is the real,
 non-vacuous counting identity). Complements the human write-up

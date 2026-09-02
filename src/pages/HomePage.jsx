@@ -1154,7 +1154,7 @@ export default function HomePage() {
             body: 'The public Zenodo certificate package is listed in the Optimization Problems ledger. A local audit reconstructed its omitted 2,054,013-row finite tile. Reproducible and publicly listed does not mean peer reviewed or endorsed.' },
           { color: '#10b981', to: '/lambda-bounds', title: 'Verified: RH-free F_mb enclosure (imp-3725)',
             body: 'A rigorous two-sided true-flow collision-time enclosure 0 ≤ F_mb(N) ≤ (H²/8)(1/θ_N−1), uniform on N ∈ [10⁴,10⁶] — confirmed 4/4 by independent adversarial referees. Retires the old 2.15 heuristic (certified K_paper ≤ 2.42×10⁻⁶). Deterministic; not a Λ beat.' },
-          { color: '#38bdf8', to: '/route-map', title: 'The complete wall map (272 routes)',
+          { color: '#38bdf8', to: '/route-map', title: 'The complete wall map (44 routes)',
             body: 'Every route that could touch Λ reduces to one of three RH-hard walls — C_H / GUE–Montgomery pair correlation, the S1 mesoscopic-density strand, or the S(T) sup-norm exponent. The single breach point is a finite N-uniform C_Lip.' },
           { color: '#f59e0b', to: '/theorem-b-threshold', title: 'Closed-form constants',
             body: 'C_shock < 1/3; single-shell isolation c* = √(2+√3)−1 ≈ 0.9319; half-lattice onset c_half = 0.898020… (closed form); Theorem-B minimal-gap threshold Θ_b = (√73−5)/8 = 0.443.' },

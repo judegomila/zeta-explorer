@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { SG1C_ASYM_ONSET_BRACKET_LEDGER } from '../data/sg1c-asym-onset-bracket-ledger-2026-06-30.js';
 import { SG1C_CGLO_LOWER_BOUND } from '../data/sg1c-cglo-lower-bound-2026-07-02.js';
+import { SG1C_CGLO_CLOSURE } from '../data/sg1c-cglo-closure-2026-08-28.js';
 
 // sg1c Asymmetric Onset Bracket Ledger — imp-3198.
 // Editorial (warm) re-theme: full-width dashboard, identical structure/data.
@@ -102,13 +103,31 @@ export default function OnsetBracketLedgerPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>sg1c Asymmetric Onset Bracket Ledger</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 24 }}>
-          imp-3198 — auditable chain of worsening-onset values bounding the open global constant c_glob
+          imp-3198 — auditable chain of worsening-onset values that bounded the global constant c_glob,
+          closed 2026-08-28 at c_glob = c_half = 0.8980208880762339 (exact closed form)
         </p>
+
+        {/* 2026-08-28 closure */}
+        <div className="card" style={{ ...cardBaseLeft('var(--green)'), marginBottom: 24 }}>
+          <div style={{ color: 'var(--green)', fontWeight: 700, fontSize: 15, marginBottom: 10 }}>
+            CLOSED (2026-08-28): c_glob = c_half = {SG1C_CGLO_CLOSURE.cHalfReference.toFixed(16)}
+          </div>
+          <div style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: '1.6', marginBottom: 8 }}>
+            {SG1C_CGLO_CLOSURE.statement}. The universal rate bound d₁²·(dρ/ds) ≤ R(ρ) holds for every
+            admissible configuration and is sharp along the one-sided half-lattice, so the ledger&apos;s bracket
+            collapses to the point c_half. Every row below remains a valid upper bound consistent with the
+            closed value.
+          </div>
+          <div style={{ color: 'var(--faint)', fontSize: 12 }}>
+            Scope: {SG1C_CGLO_CLOSURE.scope} Source: src/data/sg1c-cglo-closure-2026-08-28.js
+            ({SG1C_CGLO_CLOSURE.ticket}).
+          </div>
+        </div>
 
         {/* Open bracket summary */}
         <div className="card" style={{ ...cardBaseLeft('var(--blue)'), marginBottom: 24 }}>
           <div style={{ color: 'var(--blue)', fontWeight: 700, fontSize: 15, marginBottom: 10 }}>
-            Open Bracket: c_glob ∈ ({lo.toFixed(10)}, {hi.toFixed(10)})
+            2026-06-30 Bracket (superseded by the 2026-08-28 closure): c_glob ∈ ({lo.toFixed(10)}, {hi.toFixed(10)})
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
             <div style={{ color: 'var(--ink-soft)', fontSize: 13 }}>
@@ -125,7 +144,8 @@ export default function OnsetBracketLedgerPage() {
             {lo.toFixed(7)} − 0.72 = {ledger.basinMargin.toFixed(7)} &gt; 0.18 — basin-conditional C_Lip holds independent of c_glob.{' '}.
           </div>
           <div style={{ marginTop: 8, color: 'var(--terra-dk)', fontSize: 12 }}>
-            {ledger.globalConstantStatus}
+            Status as recorded 2026-06-30: {ledger.globalConstantStatus} — superseded by the 2026-08-28
+            closed form above.
           </div>
         </div>
 
@@ -143,15 +163,16 @@ export default function OnsetBracketLedgerPage() {
             {' '}(the root of f(ρ) = 2/ρ + (1−ρ)/(1+ρ) − 2ρ − (1+ρ)/(2+ρ)).
           </div>
           <div style={{ color: 'var(--green)', fontSize: 13 }}>
-            The open interval collapses to c_glob ∈ ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)},{' '}
+            The interval narrowed to c_glob ∈ ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(7)},{' '}
             {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(7)}] — proven lower bound to tightest located
             ceiling c_half. Exceeds the Theorem-C basin reference 0.72 by{' '}
             {SG1C_CGLO_LOWER_BOUND.exceedsBasinBy.toFixed(4)}.
           </div>
           <div style={{ marginTop: 8, color: 'var(--faint)', fontSize: 12 }}>
-            HONEST: does NOT close c_glob — the gap ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(5)},{' '}
-            {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(5)}] stays OPEN. Basin-conditional C_Lip
-            unaffected. No QED for c_glob itself.
+            Status at the time (2026-07-02): the gap ({SG1C_CGLO_LOWER_BOUND.cLo.toFixed(5)},{' '}
+            {SG1C_CGLO_LOWER_BOUND.locatedCeiling.toFixed(5)}] stayed open. The 2026-08-28 closure
+            (top card) evaluated this run&apos;s majorant exactly and collapsed the gap to the point c_half.
+            Basin-conditional C_Lip unaffected.
           </div>
         </div>
 

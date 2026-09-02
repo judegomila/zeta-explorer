@@ -333,13 +333,15 @@ export default function ThetaBasinClosurePage() {
             is an unstable repeller: the flow cannot reach it from inside the basin.
           </p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
-            <strong style={{ color: 'var(--brass-dk)' }}>What remains open (R2 residual):</strong> closing
-            the multi-body self-improvement constant in rigorous form. The single-neighbour case
+            <strong style={{ color: 'var(--brass-dk)' }}>The R2 residual (closed 2026-08-28):</strong> the
+            multi-body self-improvement constant is now closed in rigorous form. The single-neighbour case
             gives the sharp threshold <InlineMath tex={"\\rho^* = 1"} /> exactly; the symmetric
             single-shell family (Lemma R2-T2) gives the algebraic{' '}
             <InlineMath tex={"c^* = \\sqrt{2{+}\\sqrt{3}}-1 \\approx 0.932"} />; the global
-            asymmetric constant is bracketed in <InlineMath tex={"(0.898, 0.943)"} /> but not
-            closed in form.
+            asymmetric constant, formerly bracketed in <InlineMath tex={"(0.898, 0.943)"} />, is closed
+            at <InlineMath tex={"c_{\\mathrm{glob}} = c_{\\mathrm{half}} = 0.8980208880762339"} />, the
+            unique root of the half-lattice rate bound (src/data/sg1c-cglo-closure-2026-08-28.js). R1
+            minimality-transfer and the off-basin regime stay open.
           </p>
         </div>
 

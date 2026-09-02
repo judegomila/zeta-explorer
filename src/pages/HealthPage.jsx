@@ -533,9 +533,11 @@ export default function HealthPage() {
           border: '1px solid #3f6b86',
         }}>
           The rows below are a snapshot of the legacy Lean files as of 2026-04-12. Newer Lean 4
-          formalization sets exist outside this snapshot: the 2026-08 Aristotle-verified frozen-rung
-          and permutation-calculus sets (repository <code>formalization/lean-aristotle/</code>),
-          including the verified rectangle argument-principle result discharging (H6) of the §4.7 chain.
+          formalization sets exist outside this snapshot: the 2026-08 Aristotle-verified sets at{' '}
+          <code>formalization/lean-aristotle/</code> — 20 kernel-verified projects (the five
+          permutation-calculus projects plus the waves-2–3 15-target ledger, closed 15/15) and the
+          frozen-rung file set — including the verified rectangle
+          argument-principle result discharging (H6) of the §4.7 chain.
         </div>
         {LEAN_STATUS.files.map(f => <LeanRow key={f.file} file={f} />)}
 

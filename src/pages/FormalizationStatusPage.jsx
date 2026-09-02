@@ -43,6 +43,14 @@ export default function FormalizationStatusPage() {
         </p>
         <p style={{ color: '#4a4238', fontSize: 14, lineHeight: 1.7, maxWidth: 800 }}>{meta.headline}</p>
 
+        <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.7, maxWidth: 800, padding: '8px 12px', borderRadius: 7, background: 'rgba(63,107,134,0.06)', border: '1px solid #3f6b86' }}>
+          This page covers the de Bruijn–Newman scaffold only. A separate set of 20 kernel-verified
+          Lean 4 projects (Harmonic Aristotle autoformalization, mathlib v4.28) lives at{' '}
+          <code>formalization/lean-aristotle/</code>: the five permutation-calculus projects plus the
+          waves-2–3 15-target ledger (closed 15/15), alongside the frozen-rung file set. Autoformalization
+          caveat applies throughout: proofs are kernel-verified; statement faithfulness warrants referee review.
+        </p>
+
         <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>✓ Proved (sorry-free, axiom-audited)</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           {proved.map((l) => (

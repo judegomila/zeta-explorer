@@ -5,7 +5,7 @@ import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 
 /* The Atlas — a high-level portal into the attack surface. Every line of attack
-   on RH / Λ, grouped by the five route-map clusters, each a card that drops you
+   on RH / Λ, grouped by the six route-map clusters, each a card that drops you
    into that part of the app. The dense route table lives on /route-map; this is
    the map above it. Rendered under .ed-root so the editorial theme applies. */
 
@@ -66,6 +66,15 @@ const AREAS = [
       { to: '/supercritical', label: 'Supercritical fluid' },
     ],
   },
+  {
+    key: 'permutationFreeze', wireframe: 'wave',
+    title: 'Post-Freeze Frontier (permutation architecture)',
+    blurb: 'The routes opened after the 2026-06-19 freeze by the permutation-architecture campaign: the fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound) reduced to one open coefficient family |C_E,17| < 0.2797, the imp-95008 weld alias bracket, and the gate-ranked producer/probe lanes around it.',
+    entryPoints: [
+      { to: '/permutation-architecture', label: 'The freeze calculus & the 0.14 contract' },
+      { to: '/lambda-bounds', label: 'The bounds ledger' },
+    ],
+  },
 ];
 
 // Warm status-chip colors, mirroring the route map / status legend.
@@ -77,13 +86,14 @@ const STATUS_COLOR = {
   'OPEN-HARD': '#3f6b86',
   'DEAD-END-FORNOW': '#877b67',
   'REFUTED': '#c23a1c',
+  'UNDER-EXPLORED': '#3f6b86',
 };
 
 function statusCounts(rows) {
   const counts = {};
   for (const r of rows) counts[r.status] = (counts[r.status] || 0) + 1;
   // Order by a fixed priority so the chips read consistently across cards.
-  const order = ['RIGOROUS-SOTA', 'RH-EQUIVALENT', 'OPEN-HARD', 'CONDITIONAL', 'ESTIMATE', 'DEAD-END-FORNOW', 'REFUTED'];
+  const order = ['RIGOROUS-SOTA', 'RH-EQUIVALENT', 'OPEN-HARD', 'CONDITIONAL', 'ESTIMATE', 'UNDER-EXPLORED', 'DEAD-END-FORNOW', 'REFUTED'];
   return order.filter((s) => counts[s]).map((s) => ({ status: s, n: counts[s] }));
 }
 
@@ -91,7 +101,7 @@ export default function AtlasPage() {
   const clusters = FULL_ROUTE_MAP.clusters;
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>the atlas · {FULL_ROUTE_MAP.totalRoutes} routes · 5 areas</span>} />
+      <EditorialHeader ticker={<span>the atlas · {FULL_ROUTE_MAP.totalRoutes} routes · {AREAS.length} areas</span>} />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div className="ed-lbl">the attack surface</div>
         <h1 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 38, lineHeight: 1.1, margin: '6px 0 10px', color: 'var(--ink)' }}>
@@ -99,7 +109,7 @@ export default function AtlasPage() {
         </h1>
         <p style={{ fontSize: 17, color: 'var(--ink-soft)', maxWidth: '52rem', lineHeight: 1.6 }}>
           Every line of attack on the Riemann Hypothesis and the de Bruijn–Newman constant Λ, grouped into
-          five areas. Each area is a door into that part of the app; the full route-by-route table — with
+          six areas. Each area is a door into that part of the app; the full route-by-route table — with
           status and the exact split point of each — lives on the{' '}
           <Link to="/route-map">wall map</Link>. For how the wider community is attacking RH and where this
           program engages each line, see the <Link to="/state-of-field">state of the field</Link>.
@@ -190,7 +200,7 @@ export default function AtlasPage() {
               The wall map →
             </div>
             <div style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
-              All {FULL_ROUTE_MAP.totalRoutes} routes across the five areas, each classified by status and
+              All {FULL_ROUTE_MAP.totalRoutes} routes across the six areas, each classified by status and
               where exactly it splits.
             </div>
           </Link>

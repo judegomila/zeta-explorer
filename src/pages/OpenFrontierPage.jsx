@@ -2625,25 +2625,26 @@ const DYSON_LANE_RESIDUALS = [
     id: 'R2',
     tag: 'sg1c-r2-isolation-persistence',
     color: '#6d55b8',
-    badge: 'OBSERVED RANGE · NO LOWER BOUND',
-    title: 'R2: sampled asymmetric isolation onsets (' +
-      C_OBSERVED_MIN.toFixed(7) + ', ' + C_ASYM.toFixed(7) + ')',
-    status: 'OPEN',
+    badge: 'CLOSED FORM (2026-08-28)',
+    title: 'R2: global asymmetric isolation constant c_glob = c_half = 0.8980208880762339',
+    status: 'CLOSED (closed form)',
     body: [
       'The global asymmetric multi-body isolation constant c_glob is defined as the infimum of ' +
       'all worsening-onset values rho(c) over all asymmetric multi-body environments. ' +
-      'Every numerically located onset is only an UPPER BOUND on c_glob; no rigorous lower bound ' +
-      'below the basin constant 0.72 has been proven.',
-      'Observed values include ' + C_OBSERVED_MIN.toFixed(7) +
+      'It is now CLOSED in closed form (2026-08-28): c_glob = c_half = 0.8980208880762339, the ' +
+      'unique (0,1) root of R(rho) = 4 + 4rho - 4/rho - 4/(rho+1) - 2[psi(1+2/rho) - psi(1+1/rho)] ' +
+      '— the universal rate bound d_1^2 (drho/ds) <= R(rho) holds for every admissible ' +
+      'configuration and is sharp along the one-sided half-lattice ' +
+      '(src/data/sg1c-cglo-closure-2026-08-28.js).',
+      'Historically observed onsets included ' + C_OBSERVED_MIN.toFixed(7) +
       ' (imp-3172 Config-B smooth onset, the lowest computationally located ' +
       'onset) and c_asym = ' + C_ASYM.toFixed(10) +
-      ' (the asymmetric R-to-infinity class, imp-3170). Both are witnesses ' +
-      'that upper-bound the infimum; they are not a rigorous lower/upper bracket. ' +
-      'The Theorem-C basin (C_Lip) only requires c <= 0.72, so closing c_glob is NOT needed ' +
-      'for the current load-bearing Lipschitz argument — the observed range matters for the program ' +
-      'isolation record, not for the core proof chain.',
-      'Turning the observations into a bracket requires either a proven lower ' +
-      'bound or a structured search that exhausts the class and certifies the infimum.',
+      ' (the asymmetric R-to-infinity class, imp-3170); both upper-bound the infimum and are ' +
+      'consistent with the closed value. ' +
+      'The Theorem-C basin (C_Lip) only requires c <= 0.72; the closure anchors that basin ' +
+      'hypothesis to a proven constant (margin 0.178) but improves no Lambda bound.',
+      'Residuals that stay open: R1 minimality-transfer (the pair losing global minimality voids ' +
+      'the spacing floor) and the off-basin regime rho in (c_half, 1).',
     ],
     links: [
       { to: '/onset-bracket-ledger', label: 'Onset Bracket Ledger' },

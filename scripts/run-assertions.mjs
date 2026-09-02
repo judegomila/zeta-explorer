@@ -13026,6 +13026,23 @@ const DATA_MODULES = [
   // Sub-gap: the Section 4.5 paper constants are not pinned in this repo, so
   // this is a transfer MAP not a single number. Measurement only; NO QED.
   '/src/data/imp-95026-paper-packet-ceiling-transfer.js',
+  // imp-95029 (opus-4-8): ASSESSMENT of the paper phase curvature normalization
+  // (openResiduals[2] of the imp-95008 chain, the sibling Theorem D residual)
+  // and its effect on the far-bracket ledger. FINDING 1: the normalization
+  // enters ONLY as the multiplicative factor mu^(-2/3) on the Theorem D
+  // named-scalar ceiling (a fifth, independent lever beside imp-95026
+  // sigma/theta/beta/Q). FINDING 2: mu = 1 is the model TAUTOLOGY - the
+  // quadratic Fresnel curvature at u* is exactly |k - h/p|. FINDING 3: under an
+  // additive base curvature b, S(b) = (1/p^2) sum dist(h/p - b, Z)^(-2/3)
+  // recovers the model at b = 0 (S(0) = 0.03811163970959591 = Theorem D value,
+  // rel 5.5e-16), is period-1 (not 1/p) and even, has POLES at b in (1/p)Z
+  // (RESONANCE), and off-resonance stays within order tens of percent (1.27x at
+  // b=0.3, 1.03x within a half-cell), diverging (6.83x) toward a pole. b = 0 is
+  // a local minimum, so the paper phase can only DEGRADE the ledger, bounded
+  // unless it resonates. Sub-gap: the paper base curvature b is not pinned in
+  // this repo; the resonance case is the isolated open risk. Measurement only;
+  // NO QED.
+  '/src/data/imp-95029-paper-phase-curvature-normalization.js',
   // imp-95017 (opus-4-8): INDEPENDENT re-audit of the referee-unverified
   // floor side (floorMultiRate, hLegal, carried HEAD_FLOOR/F97_FLOOR). The
   // floor machinery K, E, M, h, Tx is re-derived through a code path sharing

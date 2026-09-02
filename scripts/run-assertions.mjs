@@ -13120,6 +13120,18 @@ const DATA_MODULES = [
   // strictly between the branches => a PARTIAL fixed-97-lane-only lever,
   // quantified NOT applied. Routing/no-go step; changes no bound; NO QED.
   '/src/data/imp-95019-substitution-tightness-audit.js',
+  // imp-95008 continuation twenty-one (fable-5): LEMMA RM-D (domain-refined
+  // width-ratio monotonicity) + COROLLARY LT - the nineteenth Lemma RM is
+  // only ever invoked on (0, rhoCap(j)], so its guard weakens from
+  // T >= Ystar(s) to T >= Ystar(s) rhoCap(j); the guard ratio has the
+  // beta-cancelling closed form V(b,j)/rhoCap(j) = 2^(b(1-beta))
+  // (2^(j-1)-1)/Q, corner-minimized at exactly 1/Q. The EXACT-substitution
+  // proof extends from s > 2.9483832742380818 (imp-95026 Finding-4 break)
+  // down to s > 2.4095981617415205 (root of Ystar = 2^(2/3) = 1/Q); the
+  // likely-paper s = 3 margin grows 14.73x (0.0239 -> 0.3513). s** is a
+  // proof-coverage boundary, NOT sharpness (s = 2.5 probe monotone on all
+  // of (0,1]). No ledger/floor/ceiling literal changes. NO QED.
+  '/src/data/imp-95008-rm-domain-refined-low-s-extension.js',
 ];
 
 let ALL_MODULES = FAST_MODE

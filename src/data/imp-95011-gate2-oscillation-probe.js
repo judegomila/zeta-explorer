@@ -352,4 +352,117 @@ for (const a of IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS) {
   }
 }
 
+// ── imp-95051: tabulate the correlation-gain ratio |C| / (sum_g ||Z_g||_1)
+// across the ENTIRE smooth-regime surrogate sample set ──────────────────────
+// imp-95011 collected the correlation-gain ratio only at the three largest
+// samples (decoupledMassCheck item iii). This tabulates it over EVERY
+// (N, window, seam) cell of the smooth-phase grid, quantifying how much
+// cancellation the smooth-regime enclosure depends on. By the triangle
+// inequality |C| = |sum_g Z_g| <= sum_g |Z_g| = decoupled l1 mass, so the ratio
+// is bounded in [0, 1] exactly: a ratio near 1 means no cancellation (correlated
+// sum saturates the decoupled l1 mass); a small ratio means the enclosure lives
+// on heavy phase cancellation. Surrogate carrier only, NOT arithmetic C_E,17;
+// measurement only; changes no bound; PT Lambda <= 0.2 remains SOTA.
+function tabulateCorrelationGain(phaseModel, M) {
+  const samples = logSpacedSamples(M);
+  const ratios = [];
+  for (const width of WINDOW_WIDTHS) {
+    for (const seamSign of [+1, -1]) {
+      for (const N of samples) {
+        const absC = carrierAbs(N, phaseModel, width, seamSign);
+        const decoupledMass = SHELL_AMP.reduce(
+          (s, a) => s + a * windowEnvelope(N, width),
+          0
+        );
+        ratios.push(absC / decoupledMass);
+      }
+    }
+  }
+  ratios.sort((a, b) => a - b);
+  const n = ratios.length;
+  const mean = ratios.reduce((s, r) => s + r, 0) / n;
+  const quantile = (q) => ratios[Math.min(n - 1, Math.floor(q * (n - 1)))];
+  // histogram of the ratio over [0,1] in ten equal-width deciles.
+  const deciles = new Array(10).fill(0);
+  for (const r of ratios) {
+    deciles[Math.min(9, Math.floor(r * 10))] += 1;
+  }
+  return {
+    count: n,
+    min: ratios[0],
+    max: ratios[n - 1],
+    mean,
+    median: quantile(0.5),
+    p05: quantile(0.05),
+    p95: quantile(0.95),
+    deciles,
+  };
+}
+
+const SMOOTH_CORRELATION_GAIN = tabulateCorrelationGain(phaseSmooth, M_SAMPLES);
+
+export const IMP95051_CORRELATION_GAIN_TABLE = {
+  ticket: 'imp-95051',
+  parentTicket: 'imp-95011',
+  source:
+    'imp-95011 decoupledMassCheck (item iii); tabulates the correlation-gain ratio |C| / (sum_g ||Z_g||_1) across the full smooth-regime surrogate grid',
+  ratioDefinition:
+    'correlation gain = |C(N)| / (sum_g ||Z_g||_1); ||Z_g||_1 = SHELL_AMP[g] * windowEnvelope(N, width); by the triangle inequality the ratio lies in [0, 1] exactly',
+  gridShape: {
+    windows: WINDOW_WIDTHS.length,
+    seamSides: 2,
+    logSpacedN: M_SAMPLES,
+    cells: WINDOW_WIDTHS.length * 2 * M_SAMPLES,
+  },
+  smoothRegime: SMOOTH_CORRELATION_GAIN,
+  interpretation:
+    'the mean correlation gain measures the AVERAGE cancellation the smooth-regime enclosure depends on: mean < 1 confirms the correlated sum sits below the decoupled l1 mass across the sampled family, not only at the three largest samples; the decile histogram shows the full distribution of that cancellation.',
+  isRigorous: false,
+  rigorScope:
+    'the ratio bound in [0,1] is exact (triangle inequality); the tabulated distribution is a structural demonstration on the SURROGATE carrier, NOT an arithmetic measurement of C_E,17 (offline sub-gap imp-95011-sub-arithmetic-carrier-scan).',
+  promotesBound: false,
+  verdict:
+    'MEASUREMENT ONLY: tabulates the imp-95011 correlation-gain ratio across the entire smooth-regime surrogate sample set (min/max/mean/median/p05/p95 + decile histogram), quantifying the average cancellation the enclosure depends on. Surrogate carrier, NOT arithmetic C_E,17; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+};
+
+export const IMP95051_CORRELATION_GAIN_ASSERTIONS = [
+  {
+    id: 'imp95051-full-grid-tabulated',
+    description: 'the correlation gain is tabulated over every cell of the smooth-phase grid (windows x seams x log-spaced N)',
+    holds: () =>
+      SMOOTH_CORRELATION_GAIN.count === WINDOW_WIDTHS.length * 2 * M_SAMPLES &&
+      SMOOTH_CORRELATION_GAIN.deciles.reduce((s, b) => s + b, 0) === SMOOTH_CORRELATION_GAIN.count,
+  },
+  {
+    id: 'imp95051-ratio-bounded-in-unit-interval',
+    description: 'by the triangle inequality every correlation-gain ratio lies strictly above 0 and at most 1',
+    holds: () =>
+      SMOOTH_CORRELATION_GAIN.min > 0 &&
+      SMOOTH_CORRELATION_GAIN.max <= 1 &&
+      SMOOTH_CORRELATION_GAIN.p05 <= SMOOTH_CORRELATION_GAIN.median &&
+      SMOOTH_CORRELATION_GAIN.median <= SMOOTH_CORRELATION_GAIN.p95,
+  },
+  {
+    id: 'imp95051-mean-cancellation-present',
+    description: 'the mean correlation gain is strictly below 1, so the correlated sum sits below the decoupled l1 mass on average (cancellation the enclosure lives on)',
+    holds: () =>
+      SMOOTH_CORRELATION_GAIN.mean > 0 && SMOOTH_CORRELATION_GAIN.mean < 1,
+  },
+  {
+    id: 'imp95051-measurement-only-no-qed',
+    description: 'measurement-only honest partial: promotes no bound, surrogate not arithmetic, NO QED, PT stays SOTA',
+    holds: () =>
+      IMP95051_CORRELATION_GAIN_TABLE.promotesBound === false &&
+      IMP95051_CORRELATION_GAIN_TABLE.isRigorous === false &&
+      /NO QED/.test(IMP95051_CORRELATION_GAIN_TABLE.verdict) &&
+      /remains SOTA/.test(IMP95051_CORRELATION_GAIN_TABLE.verdict),
+  },
+];
+
+for (const a of IMP95051_CORRELATION_GAIN_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-95051-correlation-gain-table assertion failed: ${a.id}`);
+  }
+}
+
 export default IMP95011_GATE2_OSCILLATION_PROBE;

@@ -84726,7 +84726,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'harness',
     priority: 'high',
     status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w4-1788390420352',
+    inflightTaskId: 'api-pool-w4-1788390460683',
     proofSection: 'audit upgrade #4',
     description: 'Add an EXIT/ERR trap to scripts/auto-improve-fable.sh committing staged/unstaged work as \'engine-died checkpoint\', add fable to engine-watchdog.sh\'s ENGINES list (currently covers only the 4 other engines), and make MAX_RUNS=20 chain-resumable when the active ticket is mid-chain (the imp-95008 chain hit the cap mid-proof). Git history shows ~80 orphaned-run repair commits.',
     rationale: 'Eliminates a measured, recurring toll on the frontier lane where the highest-value work runs.',

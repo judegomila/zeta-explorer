@@ -86,8 +86,8 @@ export default function HomePageEditorial() {
       <div className="ed-full"><div className="ed-kpis">
         <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
         <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>38</b><span>routes mapped</span></Link>
-        <Link className="ed-kpi ed-kpi-link" to="/what-we-know"><b style={{ color: 'var(--terra-dk)' }}>{ZETAEXPLORER_NO_GOS.length}</b><span>no-go theorems</span></Link>
-        <div className="ed-kpi"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></div>
+        <Link className="ed-kpi ed-kpi-link" to="/no-gos"><b style={{ color: 'var(--terra-dk)' }}>{ZETAEXPLORER_NO_GOS.length}</b><span>no-go theorems</span></Link>
+        <Link className="ed-kpi ed-kpi-link" to="/simulators"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></Link>
       </div></div>
 
       {/* model */}

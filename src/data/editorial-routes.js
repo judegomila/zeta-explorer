@@ -5,6 +5,8 @@
 export const EDITORIAL_ROUTES = new Set([
   '/',
   '/atlas',
+  '/simulators',
+  '/no-gos',
   '/state-of-field',
   '/permutation-architecture',
   '/directory',

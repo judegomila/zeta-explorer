@@ -117,7 +117,7 @@ export default function RouteMapPage() {
       <div className="ed-full" style={{ padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24, borderBottom: '1px solid var(--hairline)', paddingBottom: 18 }}>
           <h1 style={{ margin: '0 0 10px', color: 'var(--ink)', fontFamily: 'var(--ed-display, Georgia, serif)', fontSize: 34, fontWeight: 600 }}>RH / Λ Route Map</h1>
-          <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: '72ch' }}>
+          <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 'none' }}>
             The map of every route the project had tried as of {FULL_ROUTE_MAP.date} —{' '}
             <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong> across 5 clusters, classified by
             status and genuine remaining opportunity (full-route-map workflow, frozen {FULL_ROUTE_MAP.date}).

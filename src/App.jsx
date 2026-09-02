@@ -13,6 +13,8 @@ import { EditorialHeader } from './components/editorial/PostLayout.jsx';
 const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
 const DirectoryPage = lazy(() => import('./pages/DirectoryPage.jsx'));
 const AtlasPage = lazy(() => import('./pages/AtlasPage.jsx'));
+const SimulatorsPage = lazy(() => import('./pages/SimulatorsPage.jsx'));
+const NoGosPage = lazy(() => import('./pages/NoGosPage.jsx'));
 const StateOfFieldPage = lazy(() => import('./pages/StateOfFieldPage.jsx'));
 const PermutationArchitecturePage = lazy(() => import('./pages/PermutationArchitecturePage.jsx'));
 const LambdaCandidate01758354Page = lazy(() => import('./pages/LambdaCandidate01758354Page.jsx'));
@@ -132,6 +134,7 @@ const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
 const VizEulerProductPage = lazy(() => import('./pages/VizEulerProductPage.jsx'));
 const VizCausticResonancePage = lazy(() => import('./pages/VizCausticResonancePage.jsx'));
 const VizPhaseCylinderPage = lazy(() => import('./pages/VizPhaseCylinderPage.jsx'));
+const VizTwistorDualIntertwinerPage = lazy(() => import('./pages/VizTwistorDualIntertwinerPage.jsx'));
 const VizUnwrappedRaysPage = lazy(() => import('./pages/VizUnwrappedRaysPage.jsx'));
 const VizZoomHierarchyPage = lazy(() => import('./pages/VizZoomHierarchyPage.jsx'));
 const AngularSpacingStatsPage = lazy(() => import('./pages/AngularSpacingStatsPage.jsx'));
@@ -1450,9 +1453,9 @@ function NavBar({ onShowShortcuts, onShowPalette }) {
         end
         className="nav-logo"
         style={{ textDecoration: 'none' }}
-        aria-label="Twin Ladder Explorer home"
+        aria-label="zetaexplorer home"
       >
-        Twin Ladder<span className="nav-logo-text"> Explorer</span>
+        zeta<span className="nav-logo-text">explorer</span>
       </NavLink>
       <button
         onClick={onShowPalette}
@@ -1550,6 +1553,8 @@ function AppShell() {
           <Route path="/classic" element={<HomePage />} />
           <Route path="/directory" element={<DirectoryPage />} />
           <Route path="/atlas" element={<AtlasPage />} />
+          <Route path="/simulators" element={<SimulatorsPage />} />
+          <Route path="/no-gos" element={<NoGosPage />} />
           <Route path="/state-of-field" element={<StateOfFieldPage />} />
           <Route path="/permutation-architecture" element={<PermutationArchitecturePage />} />
           <Route path="/lambda-01758354-candidate" element={<LambdaCandidate01758354Page />} />
@@ -1794,6 +1799,7 @@ function AppShell() {
           <Route path="/viz-prime-density-caustic" element={<VizPrimeDensityOnCausticPage />} />
           <Route path="/viz-caustic-resonance" element={<VizCausticResonancePage />} />
           <Route path="/viz-phase-cylinder" element={<VizPhaseCylinderPage />} />
+          <Route path="/viz-twistor-dual-intertwiner" element={<VizTwistorDualIntertwinerPage />} />
           <Route path="/viz-unwrapped-rays" element={<VizUnwrappedRaysPage />} />
           <Route path="/zoom-hierarchy" element={<VizZoomHierarchyPage />} />
           <Route path="/angular-spacing-stats" element={<AngularSpacingStatsPage />} />

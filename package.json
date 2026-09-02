@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite build && node server.js",
-    "build": "node scripts/audit-nav-links.mjs && node scripts/check-bundle-sizes.mjs && vite build",
+    "build": "node scripts/fleet-status-writer.mjs && node scripts/audit-nav-links.mjs && node scripts/check-bundle-sizes.mjs && vite build",
     "preview": "vite preview",
     "assert": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs && node scripts/reproduce-headline-numbers.mjs",
     "assert:pr": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast --since-ref=origin/main && node scripts/reproduce-headline-numbers.mjs && node scripts/smoke-tests.mjs",

@@ -71,8 +71,7 @@ export function EditorialHeader({ ticker }) {
             <button type="button" className="ed-search" onClick={openPalette} aria-label="Search pages">
               Search <kbd>⌘K</kbd>
             </button>
-            {ticker && <div className="ed-tick"><span className="ed-pulse" />{ticker}</div>}
-          </div>
+                      </div>
         </div>
       </div>
     </header>

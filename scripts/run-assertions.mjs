@@ -13072,6 +13072,24 @@ const DATA_MODULES = [
   // Sub-gap: the Section 4.5 paper constants are not pinned in this repo, so
   // this is a transfer MAP not a single number. Measurement only; NO QED.
   '/src/data/imp-95026-paper-packet-ceiling-transfer.js',
+  // imp-95068 (opus-4-8): ASSESSMENT of the EIGHTEENTH window / Cauchy-Schwarz
+  // envelope far-ceiling FALLBACK across s = sigma+theta in (1, 2.9484), where
+  // the nineteenth EXACT-substitution proof breaks (Lemma RM corner guard
+  // 2^(1/3) > Ystar(s) fails below s* = 2.948383274238082). The free-s
+  // eighteenth machinery reproduces the baked CFAR_18 = 0.7741509917026236 at
+  // s = 11 bit-for-bit. FINDING A: the fallback ceiling STAYS FINITE and below
+  // the pre-seventeenth 4 across the whole break regime (peak ~1.186 at
+  // s ~ 2.12, below 4 by >= 3.37x) - the improvement SURVIVES, only sharpness
+  // is lost. FINDING B: the fallback/exact sharpness LOSS is only ~1.256 at s*
+  // and ~1.25-1.28 through the regime (vs 2.849 at the model) - the window /
+  // Cauchy-Schwarz half-exponent slack is asymptotic, so the envelope is nearly
+  // sharp at low decay. FINDING C: of the total ~4.35x degradation vs the sharp
+  // model 0.2717, ~3.3x is PHYSICAL low-theta decay (imp-95026 Finding 3) and
+  // only ~1.26x is the exact-proof break - the break is the SMALLER cost.
+  // Sub-gap: the Section 4.5 paper constants are not pinned in this repo, so
+  // this is a low-s measurement MAP; cFarExact is a quadrature reference, not a
+  // bound below s*. Measurement only; NO QED.
+  '/src/data/imp-95068-eighteenth-window-envelope-break-regime.js',
   // imp-95029 (opus-4-8): ASSESSMENT of the paper phase curvature normalization
   // (openResiduals[2] of the imp-95008 chain, the sibling Theorem D residual)
   // and its effect on the far-bracket ledger. FINDING 1: the normalization

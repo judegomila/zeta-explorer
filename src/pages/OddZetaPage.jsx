@@ -4,6 +4,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import OddZetaViz from '../components/OddZetaViz.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { IRRATIONALITY_RESULTS, ZETA_EXACT, aperySequence } from '../math/odd-zeta.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Odd Zeta Values & Irrationality — Apéry, Ball–Rivoal, Zudilin, and the
 // Twin-Ladder Bridge reading of the explicit formula.
@@ -144,6 +145,7 @@ export default function OddZetaPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Odd Zeta Values &amp; Irrationality</h1>
+          <AnimationEmbed id="odd-zeta" />
         <p style={{ color: 'var(--ink-soft)', maxWidth: 720, marginBottom: 32, fontSize: 15, lineHeight: 1.55 }}>
           Exploring <InlineMath tex={"\\zeta(3)"} />, <InlineMath tex={"\\zeta(5)"} />, <InlineMath tex={"\\zeta(7)"} />, and
           higher odd zeta values through the Twin-Ladder Bridge twin-ladder model. While even zeta values{' '}

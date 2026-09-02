@@ -14,6 +14,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { RH_EQUIVALENTS } from '../data/rh-equivalents-reference.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import EquivalenceVsReductionCallout from '../components/EquivalenceVsReductionCallout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const mono = 'var(--ed-mono, var(--font-mono))';
 
@@ -52,6 +53,7 @@ export default function RHEquivalentsPage() {
 
         <div style={{ marginTop: 12, marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>RH Equivalents — Catalog</h1>
+          <AnimationEmbed id="rh-equivalents" />
           <p style={{ fontFamily: mono, color: 'var(--ink-soft)', fontSize: 14 }}>
             Statements provably equivalent to the Riemann Hypothesis (imp-1119 / imp-1191)
           </p>

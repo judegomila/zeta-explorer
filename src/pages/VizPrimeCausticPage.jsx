@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import { VIZ_PRIME_CAUSTIC } from '../data/viz-prime-caustic.js';
 import VizCeilingNote from '../components/VizCeilingNote.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const D = VIZ_PRIME_CAUSTIC;
 const TWO_PI = 2 * Math.PI;
@@ -270,6 +271,7 @@ export default function VizPrimeCausticPage() {
         <header style={{ borderBottom: '1px solid var(--hairline)', paddingBottom: 18, marginBottom: 24 }}>
           <div className="ed-lbl">/viz-prime-caustic &middot; visualizations</div>
           <h1 className="ed-h1" style={{ margin: '8px 0 4px 0' }}>Prime Caustic (imp-1225)</h1>
+          <AnimationEmbed id="prime-caustics" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 14, margin: '8px 0 0 0', lineHeight: 1.6 }}>
             For each (sigma, t) pixel in [{D.bbox.sigmaMin}, {D.bbox.sigmaMax}] x [{D.bbox.tMin}, {D.bbox.tMax}],
             count how many of the first N primes have phase t * log p mod 2*pi within

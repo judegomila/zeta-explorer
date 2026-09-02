@@ -21,6 +21,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { BlockMath, InlineMath } from '../components/KaTeXMath.jsx';
 import { SELBERG_TRACE_REFERENCE } from '../data/selberg-trace-formula-reference.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 const R = SELBERG_TRACE_REFERENCE;
 
@@ -33,6 +34,7 @@ export default function SelbergTracePage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 12 }}>
           <h1 className="ed-h1">{R.title}</h1>
+          <AnimationEmbed id="selberg-trace" />
           <p style={{ fontFamily: mono, color: 'var(--ink-soft)', marginTop: 6 }}>
             Spectral analog of the Riemann explicit formula (imp-1104 / imp-1118)
           </p>

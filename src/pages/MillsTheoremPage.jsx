@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import MillsExplorerViz from '../components/MillsExplorerViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // A_n = p_n^(1/3^n) and |A_n - A| for the live Mills primes p_1..p_6, computed
 // in float64 from the in-browser recurrence (BigInt + deterministic Miller-Rabin),
@@ -24,6 +25,7 @@ export default function MillsTheoremPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Mills&rsquo; Theorem Explorer</h1>
+          <AnimationEmbed id="mills" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 760 }}>
             In 1947 W. H. Mills proved there exists a real constant{' '}
             <InlineMath tex="A > 1" /> — now called <strong style={{ color: 'var(--ink)' }}>Mills' constant</strong> — such that{' '}

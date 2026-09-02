@@ -38,3 +38,4 @@ scripts/.deploy-hook-state
 scripts/.deploy-hook-gate-state
 scripts/.rh-lit-seen.json
 .superpowers/
+.aider*

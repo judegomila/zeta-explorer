@@ -26,6 +26,7 @@ import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { ESY_RIGIDITY_EMPIRICAL } from '../data/esy-rigidity-empirical-2026-05.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // -- SVG geometry ---------------------------------------------------------
 
@@ -262,6 +263,7 @@ export default function EsyRigidityEmpiricalPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>ESY Rigidity, Measured Empirically (imp-1108)</h1>
+          <AnimationEmbed id="esy-rigidity" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             We measure the Erdos-Schlein-Yau local-law fluctuation quantity{' '}
             <code>psi_N</code> on the first <code>N</code> unfolded Odlyzko

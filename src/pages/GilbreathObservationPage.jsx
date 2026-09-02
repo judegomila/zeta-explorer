@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import GilbreathTriangleViz from '../components/GilbreathTriangleViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Gilbreath's Observation Explorer — editorial (warm) re-theme, dashboard layout.
 // GilbreathTriangleViz is kept exactly as-is; only the surrounding chrome is retheme'd.
@@ -17,6 +18,7 @@ export default function GilbreathObservationPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Gilbreath's Observation Explorer</h1>
+          <AnimationEmbed id="gilbreath" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
             Write out the primes <InlineMath tex={"2, 3, 5, 7, 11, 13, \\ldots"} />, take the
             absolute differences of consecutive terms to form a new row, then repeat on that row,

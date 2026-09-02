@@ -25,6 +25,7 @@ import { Link } from 'react-router-dom';
 import { scaleLinear } from 'd3-scale';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { EDGE_RIGIDITY_EMPIRICAL } from '../data/edge-rigidity-empirical-2026-05.js';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // OLS log-log refit on a subset of rows (for the interactive slider).
 function olsLogLog(rows) {
@@ -371,6 +372,7 @@ export default function EdgeRigidityPage() {
       <div className="ed-full" style={{ maxWidth: '70rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Edge Rigidity Empirical Measurement</h1>
+          <AnimationEmbed id="esy-rigidity" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Re-measures the ESY-style local-law fluctuation quantity{' '}
             <code>psi_N</code> at the SPECTRAL EDGE (the small-ordinate region near{' '}

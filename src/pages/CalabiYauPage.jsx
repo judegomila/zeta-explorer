@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CalabiYauViz from '../components/CalabiYauViz.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 // Calabi-Yau Manifold Attack — dashboard. Editorial (warm) re-theme: full-width
 // dashboard, identical structure/content/claims to the legacy dark page.
@@ -20,6 +21,7 @@ export default function CalabiYauPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Calabi-Yau Manifold Attack</h1>
+          <AnimationEmbed id="calabi-yau" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
             Attacking the Riemann Hypothesis from the geometry of 6-dimensional Calabi-Yau manifolds.
             The Weil conjectures — proved by Deligne for varieties over finite fields — are the

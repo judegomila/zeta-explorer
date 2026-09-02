@@ -476,7 +476,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'gue-3point',
-    watchOrder: 30,
+    watchOrder: 32,
     category: 'Evidence, engines & gallery',
     title: 'The 3-Point GUE Test on a Million Zeros',
     grade: 'empirical — Pearson 0.97780; not rigorous (Rudnick–Sarnak support (−⅔, ⅔) is the open gap)',
@@ -506,7 +506,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'berry-keating',
-    watchOrder: 32,
+    watchOrder: 35,
     category: 'Evidence, engines & gallery',
     title: 'H = xp: a Failure Exhibit',
     grade: 'documented negative result — a gap exhibit, not a Hilbert–Pólya realization',
@@ -536,7 +536,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'barnes-hut',
-    watchOrder: 33,
+    watchOrder: 36,
     category: 'Evidence, engines & gallery',
     title: 'The 854× Rigorous Engine',
     grade: 'measured, sound computation — 854× is vs a projected dense time; production wiring separate (imp-1136)',
@@ -566,7 +566,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'viz-gallery',
-    watchOrder: 35,
+    watchOrder: 43,
     category: 'Evidence, engines & gallery',
     title: 'Four Windows onto ζ',
     grade: 'illustrative — visual geometry of established mathematics; no analytic claim',
@@ -600,7 +600,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift2',
-    watchOrder: 37,
+    watchOrder: 45,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift, Part II — the consistency-preserving construction',
     grade: 'research architecture (paper-faithful) — no RH claim, no new Λ bound',
@@ -646,7 +646,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'twistor-lift',
-    watchOrder: 36,
+    watchOrder: 44,
     category: 'Twin ladder & twistor geometry',
     title: 'The Twistor Lift',
     grade: 'geometric reformulation (toy encoding) — the framework alone cannot prove RH',
@@ -755,7 +755,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-foundations',
-    watchOrder: 38,
+    watchOrder: 46,
     category: 'Concepts',
     title: 'Concepts I — Foundations & Analysis',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -775,7 +775,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-zeta',
-    watchOrder: 39,
+    watchOrder: 47,
     category: 'Concepts',
     title: 'Concepts II — The Zeta Function',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -795,7 +795,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-primes-info',
-    watchOrder: 40,
+    watchOrder: 48,
     category: 'Concepts',
     title: 'Concepts III — Primes & Information',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -815,7 +815,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-physics',
-    watchOrder: 41,
+    watchOrder: 49,
     category: 'Concepts',
     title: 'Concepts IV — The Physics Dictionary',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -835,7 +835,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-rmt-quantum',
-    watchOrder: 42,
+    watchOrder: 50,
     category: 'Concepts',
     title: 'Concepts V — Random Matrices & Quantum',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -855,7 +855,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-thermo-geometry',
-    watchOrder: 43,
+    watchOrder: 51,
     category: 'Concepts',
     title: 'Concepts VI — Thermodynamics & Geometry',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -875,7 +875,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-1',
-    watchOrder: 44,
+    watchOrder: 52,
     category: 'Concepts',
     title: 'Concepts VII — Proof Machinery 1',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -895,7 +895,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-2',
-    watchOrder: 45,
+    watchOrder: 53,
     category: 'Concepts',
     title: 'Concepts VIII — Proof Machinery 2',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -915,7 +915,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'concepts-proof-3',
-    watchOrder: 46,
+    watchOrder: 54,
     category: 'Concepts',
     title: 'Concepts IX — Proof Machinery 3',
     grade: 'reference deck — definitions verbatim from the explorer glossary; established textbook material unless marked',
@@ -1029,7 +1029,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'pair-correlation',
-    watchOrder: 29,
+    watchOrder: 31,
     category: 'Evidence, engines & gallery',
     title: 'Montgomery’s Pair Correlation',
     grade: 'proved for |α| < 1 (Montgomery 1973); conjectured beyond; the N = 1000 test ships as qualitative agreement',
@@ -1059,7 +1059,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'gram-hardy',
-    watchOrder: 31,
+    watchOrder: 33,
     category: 'Evidence, engines & gallery',
     title: 'Gram Points & the Hardy Z Machine',
     grade: 'Gram’s law is an empirical rule, not a theorem; Riemann–Siegel + Turing are the rigorous part',
@@ -1091,7 +1091,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'voronin',
-    watchOrder: 34,
+    watchOrder: 37,
     category: 'Evidence, engines & gallery',
     title: 'Zeta Imitates Everything',
     grade: 'established theorem (Voronin 1975) — qualitative and ineffective; the in-app witness is one finite glimpse',
@@ -1213,7 +1213,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'line-proportion',
-    watchOrder: 27,
+    watchOrder: 28,
     category: 'Evidence, engines & gallery',
     title: 'The Critical-Line Proportion',
     grade: 'peer-reviewed theorems (1914–2020); the dated 2026 two-thirds claim shown as a separate, unrefereed tier',
@@ -1341,7 +1341,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
   }),
   Object.freeze({
     id: 'fourier-duality',
-    watchOrder: 28,
+    watchOrder: 29,
     category: 'Evidence, engines & gallery',
     title: 'Primes ⇄ Zeros',
     grade: 'the explicit formula and Mellin identities are established; the per-zero waves assume the zeros are on the line',
@@ -1400,6 +1400,245 @@ export const ANIMATIONS_INDEX = Object.freeze([
     relatedRoutes: [
       { to: '/twistor', label: 'Twistor framework' },
       { to: '/newman-lambda-01787854-candidate', label: 'The 0.1787854 package' },
+    ],
+  }),
+  Object.freeze({
+    id: 'selberg-trace',
+    watchOrder: 27,
+    category: 'Evidence, engines & gallery',
+    title: 'Where Hilbert–Pólya Is Real',
+    grade: 'established theorems — Selberg 1956; Hejhal, Sarnak, Iwaniec',
+    accent: '#7bd88f',
+    videoSrc: '/animations/selberg-trace.mp4',
+    posterSrc: '/animations/selberg-trace-poster.jpg',
+    external: false,
+    durationLabel: '45 s · 1080p60 · Manim CE',
+    description:
+      'The one setting where the spectral dream is a theorem: on the modular ' +
+      'surface, closed geodesics (lengths log N(P)) play the primes and the L' +
+      'aplace spectrum λₙ = ¼ + rₙ² plays the zeros, with the Selberg trace f' +
+      'ormula balancing the two sides exactly for every admissible test funct' +
+      'ion. The dictionary to ζ then closes on the one missing entry: there t' +
+      'he operator is the Laplacian — real, self-adjoint, constructed; here t' +
+      'he operator is still a question mark. Selberg realizes the Hilbert–Pól' +
+      'ya philosophy where Riemann conjectures it.',
+    scenes: [
+      'Title',
+      'Geodesics play the primes',
+      'The trace formula: a scale that balances',
+      'The dictionary and the missing entry',
+    ],
+    relatedRoutes: [
+      { to: '/selberg-trace', label: 'Selberg trace' },
+    ],
+  }),
+  Object.freeze({
+    id: 'gilbreath',
+    watchOrder: 38,
+    category: 'Evidence, engines & gallery',
+    title: 'The {0, 2} Lock',
+    grade: 'parity lemma and exact reduction proved on screen; the conjecture open — verified through ~3.4×10¹¹ primes',
+    accent: '#3ddbd9',
+    videoSrc: '/animations/gilbreath.mp4',
+    posterSrc: '/animations/gilbreath-poster.jpg',
+    external: false,
+    durationLabel: '48 s · 1080p60 · Manim CE',
+    description:
+      'Gilbreath’s triangle computed exactly from the primes up to 47: iterat' +
+      'ed absolute differences with every leading entry 1 (gold) and the inte' +
+      'rior snapping to {0, 2} (teal). The parity lemma falls in one binomial' +
+      ' line — mod 2 the triangle is Pascal’s, so the leading entry is odd fo' +
+      'rever — and the exact reduction shows the conjecture is precisely pers' +
+      'istence of the {0,2} state. Verified through π(10¹³) ≈ 3.4×10¹¹ leadin' +
+      'g terms (Odlyzko 1993); no proof in either direction since 1958.',
+    scenes: [
+      'Title',
+      'Build the triangle (exact)',
+      'The one-line parity lemma and the reduction',
+      'What could break the lock',
+    ],
+    relatedRoutes: [
+      { to: '/gilbreath', label: 'Gilbreath observation' },
+    ],
+  }),
+  Object.freeze({
+    id: 'calabi-yau',
+    watchOrder: 41,
+    category: 'Evidence, engines & gallery',
+    title: 'The Weight Gap',
+    grade: 'Weil/Deligne/modularity classical; payload is the honest negative — no known motive over ℚ carries ζ',
+    accent: '#b58cff',
+    videoSrc: '/animations/calabi-yau.mp4',
+    posterSrc: '/animations/calabi-yau-poster.jpg',
+    external: false,
+    durationLabel: '42 s · 1080p60 · Manim CE',
+    description:
+      'The Riemann Hypothesis that was proven: over finite fields, Deligne 19' +
+      '74 locks every Frobenius eigenvalue to its circle |α| = p^{k/2}. The f' +
+      'ilm tours the geometry that carries such L-functions (the quintic with' +
+      ' h^{1,1} = 1, h^{2,1} = 101, χ = −200, its Picard–Fuchs operator, and ' +
+      'the proved bound |a_p| ≤ 2p^{3/2}), then hits the wall: motivic weight' +
+      ' puts eigenvalues at p^{3/2}, ζ’s zeros would need p^{1/2}, and no kno' +
+      'wn variety or motive over ℚ has ζ as its L-function. The strongest RH ' +
+      'proof ever found lives in characteristic p.',
+    scenes: [
+      'Title',
+      'Deligne: eigenvalues locked to circles',
+      'The quintic and its operator',
+      'The gap no functor bridges',
+    ],
+    relatedRoutes: [
+      { to: '/calabi-yau', label: 'Calabi–Yau' },
+    ],
+  }),
+  Object.freeze({
+    id: 'mills',
+    watchOrder: 39,
+    category: 'Evidence, engines & gallery',
+    title: 'The Constant That Knows the Primes',
+    grade: 'Mills 1947 + Ingham 1937, theorems — with the fixed-point twist stated plainly',
+    accent: '#f5c542',
+    videoSrc: '/animations/mills.mp4',
+    posterSrc: '/animations/mills-poster.jpg',
+    external: false,
+    durationLabel: '45 s · 1080p60 · Manim CE',
+    description:
+      'Mills’ constant A ≈ 1.30637788…: the floor of A^{3ⁿ} is prime for ever' +
+      'y n, with the tower 2 → 11 → 1361 → 2,521,008,887 → … landing exactly ' +
+      'on primes and the approximants pₙ^{1/3ⁿ} collapsing eleven orders of m' +
+      'agnitude in three steps. The twist: A is defined FROM the primes it ge' +
+      'nerates — a fixed point, not an oracle; the theorem runs on Ingham’s p' +
+      'rime-gap bound, and pinning A’s digits unconditionally would take gaps' +
+      ' O(√x log x), an RH-strength statement.',
+    scenes: [
+      'Title',
+      'The tower: cube, floor, prime',
+      'Lock-on: doubly-exponential collapse',
+      'The twist and the RH-shaped tail',
+    ],
+    relatedRoutes: [
+      { to: '/mills-theorem', label: 'Mills’ theorem' },
+    ],
+  }),
+  Object.freeze({
+    id: 'odd-zeta',
+    watchOrder: 40,
+    category: 'Evidence, engines & gallery',
+    title: 'Apéry’s Escape',
+    grade: 'established theorems — Apéry 1979, Rhin–Viola 2001, Ball–Rivoal 2001, Zudilin 2001; the frontier stated as open',
+    accent: '#ff6b6b',
+    videoSrc: '/animations/odd-zeta.mp4',
+    posterSrc: '/animations/odd-zeta-poster.jpg',
+    external: false,
+    durationLabel: '42 s · 1080p60 · Manim CE',
+    description:
+      '1978: Roger Apéry, 61, announces ζ(3) ∉ ℚ to a disbelieving room — and' +
+      ' the proof holds. The film runs the racing recurrence live (six terms ' +
+      'of the 5/2 Σ (−1)^{n−1}/(n³ C(2n,n)) series already give ten digits, e' +
+      'rror crushed like (1+√2)^{−4n}), shows the escape certificate μ(ζ(3)) ' +
+      '≤ 5.513891, and ends on the strange frontier: infinitely many odd zeta' +
+      ' values are irrational (Ball–Rivoal), at least one of ζ(5), ζ(7), ζ(9)' +
+      ', ζ(11) is (Zudilin) — yet not one more specific value has escaped sin' +
+      'ce 1978.',
+    scenes: [
+      'Title',
+      'The racing recurrence (live)',
+      'The escape certificate',
+      'One escapee in 1978 — none named since',
+    ],
+    relatedRoutes: [
+      { to: '/odd-zeta', label: 'Odd zeta' },
+    ],
+  }),
+  Object.freeze({
+    id: 'rh-equivalents',
+    watchOrder: 30,
+    category: 'Evidence, engines & gallery',
+    title: 'Twelve Masks, One Line',
+    grade: 'every equivalence peer-reviewed and cited; an equivalence is a translation, not a step',
+    accent: '#f07ab8',
+    videoSrc: '/animations/rh-equivalents.mp4',
+    posterSrc: '/animations/rh-equivalents-poster.jpg',
+    external: false,
+    durationLabel: '40 s · 1080p60 · Manim CE',
+    description:
+      'One unproven sentence, twelve published costumes: Robin’s divisor thre' +
+      'shold σ(n) < e^γ n log log n past 5040, Lagarias’ harmonic-number form' +
+      ', Li positivity, Nyman–Beurling density, Mertens growth, Speiser’s der' +
+      'ivative zeros, Volchkov’s single definite integral, the de Bruijn–Newm' +
+      'an Λ = 0, and more — each exactly equivalent to RH, each carrying a jo' +
+      'urnal citation. The closing sting: twelve doors, all locked by the sam' +
+      'e key; the value of a mask is choosing the room you’d rather work in.',
+    scenes: [
+      'Title',
+      'The calculator mask (Robin, Lagarias)',
+      'The gallery',
+      'Twelve doors, one key',
+    ],
+    relatedRoutes: [
+      { to: '/rh-equivalents', label: 'RH equivalents' },
+    ],
+  }),
+  Object.freeze({
+    id: 'prime-caustics',
+    watchOrder: 42,
+    category: 'Evidence, engines & gallery',
+    title: 'Caustics of the Primes',
+    grade: 'exact elementary resonance law + exploratory renderings — no claim about Λ or RH',
+    accent: '#f07ab8',
+    videoSrc: '/animations/prime-caustics.mp4',
+    posterSrc: '/animations/prime-caustics-poster.jpg',
+    external: false,
+    durationLabel: '46 s · 1080p60 · Manim CE',
+    description:
+      'Fold the phases t·log p mod 2π and structure condenses: resonance rows' +
+      ' at exactly t = 2πk/log(p_j/p_i) — every bright band the signature of ' +
+      'a named pair of primes beating (computed on screen: (2,3) at 15.494, (' +
+      '3,5) at 12.301, (5,7) at 18.675). The diffraction test seals it: the c' +
+      'rystal built from the 46 real prime logs holds sharp Bragg structure, ' +
+      'and the same crystal built from shuffled logs dissolves toward the √N ' +
+      'noise floor. The structure was arithmetic, not artifact.',
+    scenes: [
+      'Title',
+      'Fold the fan (real phases)',
+      'Every band names its prime pair',
+      'The diffraction test: real vs shuffled',
+    ],
+    relatedRoutes: [
+      { to: '/viz-prime-caustic', label: 'Prime caustic' },
+      { to: '/viz-caustic-resonance', label: 'Caustic resonance' },
+      { to: '/viz-prime-phase-crystal', label: 'Phase crystal' },
+    ],
+  }),
+  Object.freeze({
+    id: 'esy-rigidity',
+    watchOrder: 34,
+    category: 'Evidence, engines & gallery',
+    title: 'The Slope That Refused',
+    grade: 'a numerical test against cited literature (Erdős–Schlein–Yau 2009), reporting a clean negative',
+    accent: '#ff6b6b',
+    videoSrc: '/animations/esy-rigidity.mp4',
+    posterSrc: '/animations/esy-rigidity-poster.jpg',
+    external: false,
+    durationLabel: '39 s · 1080p60 · Manim CE',
+    description:
+      'A rigidity hypothesis failing on camera: if the zeta zeros obeyed ESY ' +
+      'local-law rigidity, the statistic ψ_N(E;η) = |Im m_N(E+iη) + π| would ' +
+      'fall at slope −1 in the bulk and −2/3 at the edge (Tracy–Widom). Measu' +
+      'red on the first 10⁴ unfolded Odlyzko zeros, the recorded slopes are −' +
+      '0.10628… and −0.06714… — nearly flat across two decades of η, nowhere ' +
+      'near the targets. Verdict as recorded: ESY-INCOMPATIBLE, bulk and edge' +
+      '. Negative results kept on camera are what make the positive ones cred' +
+      'ible.',
+    scenes: [
+      'Title',
+      'The hope: Wigner-grade rigidity',
+      'The fan of lines: targets plunge, measurement refuses',
+      'Verdict: incompatible — tested, closed, written down',
+    ],
+    relatedRoutes: [
+      { to: '/esy-rigidity-empirical', label: 'ESY rigidity' },
+      { to: '/edge-rigidity', label: 'Edge rigidity' },
     ],
   }),
 ]);

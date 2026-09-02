@@ -196,6 +196,34 @@ const RAW_VERDICT = probeVerdict(RAW.maxL, MEASURED_PEAK);
 // the target kills the headroom leg independently of batching.
 const DRIFTED_VERDICT = probeVerdict(SMOOTH.maxL, TARGET - 1e-6);
 
+// ── imp-95015: the ONE real arithmetic sample fed through the gate ──────────────
+// The full real Gate-2 scan (~1e3 log-spaced N x 5 windows x 2 seam sides x
+// (N,N+1),(N,N+2), ~3e4 O(N) evals) is an OFFLINE/NATIVE job whose C_E,17
+// evaluator is not in this repo (sub-gap imp-95011-sub-arithmetic-carrier-scan),
+// so the REAL family sup and the REAL per-unit-N increment L stay unmeasured
+// here and CANNOT be honestly synthesized. What IS available is a single genuine
+// arithmetic value: the anchor cell |E97|(690988) = 0.2141254901198318 (the one
+// closed positive-width source; imp-95012 frozen spec GATE2_TARGETS.anchor.E97Peak,
+// from the committed paper), carried as a literal, not a surrogate. We feed it
+// verbatim through the gate to exercise the HEADROOM leg only: a single cell has
+// no adjacent N, so no increment L is measurable from it and the batching leg is
+// NOT decided by this datum. The anchor headroom leg SURVIVES (it clears the
+// strict target with the exact remainder and stays under the drift guard), which
+// is the first real arithmetic confirmation of a probeVerdict leg; the family sup
+// and L remain the offline sub-gap that alone stand between this and a full verdict.
+const ANCHOR_REAL_SUP = 0.2141254901198318; // imp-95012 anchor E97Peak (real arithmetic, not surrogate)
+const ANCHOR_HEADROOM = {
+  N: N_LO, // 690988, the one closed positive-width source cell
+  sampledSup: ANCHOR_REAL_SUP,
+  clearsTarget: ANCHOR_REAL_SUP + R_NUM_BOUND < TARGET,
+  withinDriftGuard: ANCHOR_REAL_SUP <= HEADROOM_DRIFT_GUARD,
+  headroomSurvives:
+    ANCHOR_REAL_SUP + R_NUM_BOUND < TARGET && ANCHOR_REAL_SUP <= HEADROOM_DRIFT_GUARD,
+  batchingLMeasured: false, // single anchor cell has no adjacent N; L is offline
+  note:
+    'REAL arithmetic anchor sample fed through the headroom leg of probeVerdict; the family sup and the per-unit-N increment L remain the imp-95011-sub-arithmetic-carrier-scan offline/native sub-gap.',
+};
+
 // ── verdict object ──────────────────────────────────────────────────────────
 export const IMP95011_GATE2_OSCILLATION_PROBE = {
   ticket: 'imp-95011',
@@ -232,6 +260,10 @@ export const IMP95011_GATE2_OSCILLATION_PROBE = {
   headroomDriftIllustration: {
     note: 'at a surviving (smooth) L, a sampled sup drifted to the target still kills the headroom leg',
     verdict: DRIFTED_VERDICT,
+  },
+  anchorRealHeadroom: {
+    note: 'imp-95015: the ONE real arithmetic sample (anchor cell |E97|(690988), imp-95012 frozen spec) fed verbatim through the headroom leg of the gate; batching L and the family sup remain the offline/native sub-gap',
+    ...ANCHOR_HEADROOM,
   },
   namedSubGap: 'imp-95011-sub-arithmetic-carrier-scan',
   subGapStatement:
@@ -290,6 +322,17 @@ export const IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS = [
     holds: () =>
       SMOOTH_TOP3_RATIOS.length === 3 &&
       SMOOTH_TOP3_RATIOS.every((r) => r > 0 && r < 1),
+  },
+  {
+    id: 'imp95011-anchor-real-headroom-survives',
+    description:
+      'imp-95015: the one real arithmetic sample (anchor cell) clears the strict target with the exact remainder and stays under the drift guard, so the headroom leg survives on real data; batching L stays unmeasured (single cell, no adjacent N)',
+    holds: () =>
+      ANCHOR_HEADROOM.headroomSurvives === true &&
+      ANCHOR_HEADROOM.clearsTarget === true &&
+      ANCHOR_HEADROOM.withinDriftGuard === true &&
+      ANCHOR_HEADROOM.batchingLMeasured === false &&
+      ANCHOR_REAL_SUP + R_NUM_BOUND < TARGET,
   },
   {
     id: 'imp95011-honesty-gate-no-qed',

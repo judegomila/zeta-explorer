@@ -12704,6 +12704,22 @@ const DATA_MODULES = [
   // Runs no scan, emits no E97 measurement, makes no surrogate substitution.
   // Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95013-gate2-lane-a-blocked-on-spec.js',
+  // imp-95020 (measurement, opus-4-8, api-pool): substitutes the von Neumann trace
+  // inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage of
+  // the weld chain (imp-95008 Lemma E). LEMMA H: over the weld ENSEMBLE with mode
+  // density rho (PSD, tr = 1) the pointwise mean-square is tr(rho Phi(x)) with
+  // Phi(x) rank one, so von Neumann gives <= lambda_max(rho) K_W(x,x) and the
+  // pointwise constant sharpens from sqrt(K_W) to sqrt(lambda_max(rho) K_W) - the
+  // move is monotone-safe (refined Q = sqrt(lambda_max(rho)) * Cauchy-Schwarz Q)
+  // and its whole payoff is the one number lambda_max(rho) at the seam. HONEST
+  // PARTIAL: the ARITHMETIC seam-point Q and the KILL rule (Q > 2.8653344) are
+  // BLOCKED on the Lane-A evaluator (imp-95013 BLOCKED-ON-SPEC); an 18-mode
+  // power-moment SURROGATE cross-checks the mechanism (trace 18, endpoint
+  // concentration ~3.3x, lambda_max ~0.49, von Neumann bound holds, refined <=
+  // Cauchy-Schwarz everywhere, pure state recovers Cauchy-Schwarz, worst Q below
+  // the kill line). Sub-gap imp-95020-sub-arithmetic-seam-Q. Changes no bound;
+  // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95020-vn-trace-inequality-seam-q.js',
   // imp-36258 (accuracy, opus-4-8, api-pool): RECONCILE the two independent gap determinations for
   // the imp-36097 shareColl < 1% crossing (N_cross) vs the imp-35971 E_trunc sole-survivor height
   // (N*) -- (A) the imp-36155 STRUCTURAL ratio ~1.020980 from baked source literals and (B) the

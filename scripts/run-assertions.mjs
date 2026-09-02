@@ -13091,6 +13091,20 @@ const DATA_MODULES = [
   // Sub-gap: the Section 4.5 paper constants are not pinned in this repo, so
   // this is a transfer MAP not a single number. Measurement only; NO QED.
   '/src/data/imp-95026-paper-packet-ceiling-transfer.js',
+  // imp-95076 (opus-4-8): INDEPENDENT TRACE of the imp-95026 Finding-0 claim
+  // that the packet amplitude A_d cancels from the far coefficient cFar and only
+  // rescales the mass M. On an independent code path (composite Simpson vs the
+  // imp-95026 midpoint rule, amplitude threaded as an explicit argument): (A)
+  // Simpson reproduces the model closed-form ceiling 0.2717408057586117 to
+  // 2.18e-4; (B) cFar is BIT-IDENTICAL across an amplitude scan {0.5,1,2,3,7} -
+  // the shape functionals (cornerV, rhoCap, s, phiTail) consume no amplitude;
+  // (C) the currency n_b = A sqrt(r_b) makes M = A^2 sum_b r_b, so M(A)/A^2 is
+  // constant (4.241406839130188) - M scales exactly as A^2 for any radii; (D)
+  // in the roll-up term 2 (sup OmegaE_b) M the whole A_d dependence is the common
+  // A^2 rescaling of the mass side, cFar untouched. Sub-gap: the Section 4.5
+  // radii r_d and amplitude A_d are not pinned here, so M is not a numeric paper
+  // mass - the trace establishes the cancellation STRUCTURE. Verify only; NO QED.
+  '/src/data/imp-95076-adin-cancellation-trace.js',
   // imp-95068 (opus-4-8): ASSESSMENT of the EIGHTEENTH window / Cauchy-Schwarz
   // envelope far-ceiling FALLBACK across s = sigma+theta in (1, 2.9484), where
   // the nineteenth EXACT-substitution proof breaks (Lemma RM corner guard
@@ -13123,6 +13137,34 @@ const DATA_MODULES = [
   // the low-decay transfer risk is confined to s = 3. Sub-gap: the Section 4.5
   // decay s is not pinned in this repo. Derivation only; NO QED.
   '/src/data/imp-95069-break-boundary-sharpness.js',
+  // imp-95075 (opus-4-8): ISOLATION-GROUP sensitivity of the far-bracket ceiling
+  // (imp-95026 Finding 1 isolationScan). The far coefficient depends on the
+  // isolation constant Q = (c D^(1-beta)/v) 2^(-(1-beta)) - the group through
+  // which (c, v, D) act - and cFar GROWS with Q. Central difference in c (a pure
+  // Q rescale) gives dcFar/dQ = 0.3816620268743663 at the model Q0 = 2^(-2/3),
+  // elasticity 0.8847868296486842 (strong, near-proportional lever, comparable
+  // to s = sigma + theta, far stronger than beta). cFar(Q) is CONCAVE, so the
+  // local linear model OVER-predicts above the model point (6.49% at Q(c=1.5)) -
+  // the derivative is a conservative upper estimate. The model c=v=D=1 lands at
+  // Q0; the Q-indexed scan spans [0.315,1.260] with cFar 0.137 -> 0.421, all far
+  // below the pre-seventeenth 4, and the conservative linear model needs Q ~ 10.4
+  // to reach 4. Sub-gap: the paper (c,v,D) hence the paper Q are not pinned in
+  // this repo, so this places the MODEL Q on the scan. Derivation only; NO QED.
+  '/src/data/imp-95075-isolation-Q-far-ceiling-sensitivity.js',
+  // imp-95073 (opus-4-8): CROSS-CHECK of the imp-95026 midpoint far-coefficient
+  // evaluator against an independent adaptive-Simpson reference (split at the
+  // corners u = 0, u = T, tol 1e-12) at the non-model integer-s thetaScan
+  // points, to bound the quadrature error uniformly. The reference reproduces
+  // the exact nineteenth-continuation closed form at the model point to 7.5e-9
+  // (vs midpoint 2.8e-6), validating it. The committed midpoint thetaScan then
+  // agrees with the reference to relErr 1.81e-6 (s=9), 2.82e-6 (s=11), 4.10e-6
+  // (s=13), 5.68e-6 (s=15), 1.23e-5 (s=21): uniformly bounded by ~1.3e-5 but
+  // GROWING monotonically with s (the model 2.8e-6 is a mid-range figure, not a
+  // uniform bound). ~1.3e-5 is far below every margin the imp-95026 findings
+  // turn on, so the transfer conclusions are unaffected. Sub-gap: the exact
+  // anchor exists only on the integer-s thetaScan; paper constants unpinned.
+  // Measurement only; NO QED.
+  '/src/data/imp-95073-far-coefficient-quadrature-cross-check.js',
   // imp-95029 (opus-4-8): ASSESSMENT of the paper phase curvature normalization
   // (openResiduals[2] of the imp-95008 chain, the sibling Theorem D residual)
   // and its effect on the far-bracket ledger. FINDING 1: the normalization

@@ -12702,6 +12702,21 @@ const DATA_MODULES = [
   // smooth is a NECESSARY non-generic condition (leaning raw / burden-on-smooth).
   // Assessment only; changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.
   '/src/data/imp-95052-carrier-phase-regime-assessment.js',
+  // imp-95049 (numerical, opus-4-8, api-pool): independent cross-check of the
+  // Gate-2 raw-tiling cell-count lower bound rawTilingCellLowerBound = 7.2e26
+  // baked in the imp-95012 spec. Re-derives it from the four stated ingredients
+  // -- anchor full cell width 5e-11 (2e10 cells/unit x), family span 54109011,
+  // ~5 window parameters, 2 seam sides. A quadratic (family-scale per-index
+  // window) reading DeltaN^2 * (1/W_cell) * W_win * S ~ 5.86e26 reproduces 7.2e26
+  // to within a factor 1.23 (windowCount 5-6 brackets it), CONFIRMING the order
+  // of magnitude; the family span (entering quadratically, ~2.93e15) is the
+  // DOMINANT factor, anchor inverse cell width (2e10) second, window*seam (10)
+  // minor. A 1D reading gives ~1.08e19 -- 7-8 orders lower but still >= 18 orders
+  // past feasibility, so raw tiling is non-viable under BOTH readings. The
+  // per-index x-extent choice separating the two exponents is the named sub-gap
+  // imp-95049-sub-per-N-x-extent. Measure only; changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95049-raw-tiling-cell-count-crosscheck.js',
   // imp-95013 (native-compute, opus-4-8, api-pool): Gate-2 evaluator Lane A --
   // the native double-double E97/C_E,17 scanner with the mandatory anchor gate.
   // HONEST STATUS: BLOCKED-ON-SPEC (the ticket-named failure mode). The native
@@ -12978,6 +12993,18 @@ const DATA_MODULES = [
   // factor 1.00933. Far bracket [0.0967451, 4] UNCHANGED (no chain
   // extension). Changes no bound; NO QED.
   '/src/data/imp-95008-corner-cancellation-envelope.js',
+  // imp-95054 (ASSESSMENT, opus-4-8): is the exact-mass-denominator parabola
+  // bound the TERMINAL single-append certificate lever for the corner
+  // envelope? Re-derives the exact gain algebra E_new/M_new - E0/M0; the
+  // Theorem P parabola bound relaxes M_new -> M0 (drops appended mass), and
+  // its block-2 corner max reproduces the sibling floor 4.1261e-5. Keeping
+  // M_new (the exact-mass refinement) reproduces the attained witness gain
+  // 4.0918e-5, so the refinement lever is worth ~3.4e-7 (~0.83 percent) and
+  // NO FURTHER - the true single-append sup is pinned in [4.0918e-5,
+  // 4.1261e-5] below an attained witness. VERDICT: TERMINAL for single
+  // appends; surviving levers are out of class (multi-append / grid
+  // geometry). Changes no bound; NO QED.
+  '/src/data/imp-95054-parabola-terminal-lever-assessment.js',
   // imp-95008 continuation seventeen (fable-5): LEMMA T-STAR + LEMMA O +
   // THEOREM Y-STAR - the exponent split in the fifth-continuation Lemma T
   // proof is a free parameter; optimizing it in closed form (psi(T) =

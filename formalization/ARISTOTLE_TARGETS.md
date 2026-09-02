@@ -129,3 +129,18 @@ Packaging notes: jobs 26/27 re-declare IsCMFlow locally (identical to
 theta_trap's — unify when landing); job29 generalizes the source axiom H to a
 variable. PROGRAM TALLY: 31 jobs, 30 delivered kernel-verified, 1
 budget-parked (the entirelp bonus — user's retry/split/park call pending).
+
+## Wave 5 — SUBMITTED 2026-09-02 (imp-95024)
+- weld_cc_rm 6a923863 — the weld chain's newest load-bearing lemmas under
+  their SOURCE names: Lemma PF (exact partial-fraction closed form; stretch),
+  Lemma CC (separation/layer-cake monotonicity; +s>1/2 Fubini hypothesis),
+  Lemma RM (width-ratio monotonicity; +domination hypothesis). Exact
+  constants; Y*(s)=(2s-1)^{1/(s-1)}-1; 0.3558821066938467 as cross-check only.
+  DRAFTING-PASS CATCH #13: the ticket had mis-named PF as CC.
+- l2_detection_modulus 0f641447 — the L2 detection-modulus conditional theorem
+  composing against Kernels.lean (modulus_witness,
+  one_le_negIndex_gram_of_modulus_gt_one); (ZR) a named hypothesis. Success
+  plugs into the frozen-rung⟺PT chain. DRAFTING-PASS CATCH #14: the queued
+  λ_min(G) < −η mesh-refinement route is the margin route the paper itself
+  REFUTES (faint ghosts / mesh-blind) — forbidden in the job.
+Poller armed; OUT_OF_BUDGET now a terminal state in the pipeline vocabulary.

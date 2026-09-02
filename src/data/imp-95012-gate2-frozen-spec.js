@@ -58,7 +58,7 @@ export const GATE2_ROW = {
   rowTarget: { num: 7, den: 50, value: 7 / 50 }, // t0 + y0^2/2 = 0.14
   alphaFormula: 't0 + sqrt(1 - y0^2)',
   betaFormula: 'sqrt(1 - 2 t0)',
-  heightHypothesis: '(1 + y0)/2 = 233/400 verified to X/2 by published zeta-zero verification',
+  heightHypothesis: '(1 + y0)/2 = 11809/20000 = 0.59045 (> 1/2) verified to X/2 by published zeta-zero verification (imp-95048: the 0.1399 row reuses the same verified HEIGHT X, not the literal 233/400; 233/400 = 0.5825 is the 0.1399 row y*=33/200 abscissa, distinct from this y0=0.1809 row)',
 };
 
 // ── eq. (10) two-ladder coefficient vector b_n = exp((log n)^2 / 4) ────────────
@@ -190,6 +190,16 @@ export const IMP_95012_ASSERTIONS = [
       GATE2_TARGETS.anchor.E97Peak < GATE2_TARGETS.correlatedCenterTargetEq20 &&
       GATE2_TARGETS.correlatedCenterTargetEq20 < GATE2_TARGETS.RexExact,
     why: 'The anchor peak 0.2141254901198318 sits below the downward-rounded target (20) 0.27968819555261474, which sits below the exact allowance Rex (19) 0.2796881955526244 -- the closed positive-width cell.',
+  },
+  {
+    id: 'imp-95048-shared-initial-condition-arithmetic',
+    holds: () =>
+      Math.abs((1 + ROW_01399_DECISION.yStar.value) / 2 - 233 / 400) < 1e-15 &&
+      Math.abs(233 / 400 - 0.5825) < 1e-15 &&
+      Math.abs((1 + GATE2_ROW.y0.value) / 2 - 11809 / 20000) < 1e-15 &&
+      (1 + ROW_01399_DECISION.yStar.value) / 2 > 0.5 &&
+      (1 + GATE2_ROW.y0.value) / 2 > 0.5,
+    why: 'imp-95048: y*=33/200 gives (1+y*)/2 = 233/400 = 0.5825 exactly (the 0.1399-row abscissa), while the 0.14 row y0=0.1809 gives (1+y0)/2 = 11809/20000 = 0.59045 -- distinct ratios, both > 1/2. The two rows share the verified HEIGHT X (6000000185827), not the literal 233/400; 233/400 (closer to the critical line 1/2) is the tighter case, so a verification to X/2 covering it a fortiori covers the 0.14 row.',
   },
   {
     id: 'imp-95012-01399-independent-of-open-family',

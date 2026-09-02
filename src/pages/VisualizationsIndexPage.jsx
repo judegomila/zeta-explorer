@@ -1206,7 +1206,6 @@ export default function VisualizationsIndexPage() {
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginTop: 10 }}>
           {V.intro}
         </p>
-        <AnimationEmbed id="viz-gallery" />
       </div>
 
       {/* Card grid: 2x3 wide, 1xN narrow. We use minmax(280px, 1fr) so
@@ -1223,6 +1222,9 @@ export default function VisualizationsIndexPage() {
           <VizCard key={e.route} entry={e} />
         ))}
       </div>
+
+      {/* Film tour of the gallery — kept below the catalog so navigation comes first */}
+      <AnimationEmbed id="viz-gallery" />
 
       {/* Scope */}
       <div

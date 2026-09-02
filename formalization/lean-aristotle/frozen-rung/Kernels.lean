@@ -117,4 +117,25 @@ theorem one_le_negIndex_gram_of_modulus_gt_one {ι : Type*} [Fintype ι] [Decida
     rw [hq]
     exact modulus_witness hz hΘ
 
+/-- **L2 detection-modulus theorem (conditional).** Local mirror of Aristotle wave-5 job32
+(`l2_detection_modulus`, imp-95024): the frozen-rung detector, phrased through the
+modulus-witness mechanism rather than the mesh-refinement `lambda_min(G) < -eta` route that the
+frozen-rung paper itself refutes (faint ghosts / mesh-blind).
+
+Named hypothesis `(ZR)` — the genuinely-open input, kept as a hypothesis exactly as the source
+marks it: some right-half-plane node `zs i` of the acceptance mesh carries residual modulus
+`> 1`. Under `(ZR)` the acceptance-gate Gram matrix `K_Θ` over that mesh has a negative
+eigenvalue (`negIndex ≥ 1`), so the Lemma 23.3 gate cannot pass — the detector fires.
+
+This is a conditional theorem, not a strengthening: `(ZR)` is not discharged, no bound is
+established, and no zero-modulus claim is made. It composes the unconditional `modulus_witness` /
+`one_le_negIndex_gram_of_modulus_gt_one` interface with the named detection hypothesis, so a
+success plugs straight into the frozen-rung to Platt-Trudgian chain once `(ZR)` is supplied. -/
+theorem l2_detection_modulus {ι : Type*} [Fintype ι] [DecidableEq ι]
+    {Θ : ℂ → ℂ} (zs : ι → ℂ)
+    (hZR : ∃ i, 0 < (zs i).re ∧ 1 < ‖Θ (zs i)‖) :
+    1 ≤ negIndex (gramMatrix (schurKernel Θ) zs) := by
+  obtain ⟨i, hz, hΘ⟩ := hZR
+  exact one_le_negIndex_gram_of_modulus_gt_one zs i hz hΘ
+
 end FrozenRung

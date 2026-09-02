@@ -1760,6 +1760,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive chart baking the imp-36082/imp-36151 r_B(N) rate machinery verbatim across a wider ladder (no new numerics, no heavy data-module import); presentation only; r_B(N) bounds a shock-time DEVIATION, not |t_c(N)| absolutely (imp-36082 CONSUMABLE-MODULO-ANCHOR); does not imply the imp-36045 Route-C > Route-B ranking reflects a faster exponent (imp-36151); C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-twistor-dual-intertwiner',
+      title: 'Twistor Space, its Dual, and the Intertwiner',
+      oneLine:
+        'Interactive 3D Robinson congruence (Hopf fibers on nested tori) beside its opposite-helicity dual, with incidence strands pairing s with 1-s and Riemann-Siegel Z(t) painted onto the fibers: zeta zeros appear as color-family flips and fiber neck-downs; a sigma slider breaks the left-right symmetry except through the intertwiner.',
+      mathBucket: 'flow-field',
+      dataModule: null,
+      paperSourcePath:
+        'src/pages/TwistorPage.jsx + src/math/twistor.js (twistor / dual-twistor correspondence; intertwiner I_K F+ = F- ∘ R is the paper’s O-status design requirement)',
+      ticket: 'imp-95012',
+      pedagogicalStep: 123,
+      honestCeiling:
+        'Faithful rendering of the Robinson congruence (true Hopf-fiber stereographic projection) with live Riemann-Siegel Z(t) / Borwein zeta values painted on; the twistor layer is the paper’s auxiliary O-status geometry and the intertwiner identity I_K F+ = F- ∘ R is a design requirement, not a known theorem; the picture proves nothing about zeta — no Lambda bound, no RH claim.',
+    }),
   ]),
 });
 

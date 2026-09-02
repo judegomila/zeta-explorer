@@ -60,6 +60,11 @@ export default function TwistorPage() {
           <Suspense fallback={<div style={{ height: 480, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--faint)' }}>Loading 3D...</div>}>
             <TwistorDiagram3D />
           </Suspense>
+          <p style={{ marginTop: 12, marginBottom: 0, fontSize: 13 }}>
+            <Link to="/viz-twistor-dual-intertwiner" style={{ color: 'var(--brass-dk)', fontWeight: 600 }}>
+              Full 3D twistor–dual–intertwiner explorer (Robinson congruence + zeta mapping) &rarr;
+            </Link>
+          </p>
         </div>
 
         <div style={{ marginTop: 32 }}>

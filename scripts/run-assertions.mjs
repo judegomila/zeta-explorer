@@ -12683,6 +12683,14 @@ const DATA_MODULES = [
   // imp-95011-sub-arithmetic-carrier-scan) UNMEASURED here; the surrogate
   // numbers demonstrate the machinery, not the arithmetic. Changes no bound; NO QED.
   '/src/data/imp-95011-gate2-oscillation-probe.js',
+  // imp-95052 (proof/assessment, opus-4-8, api-pool): arithmetic assessment of
+  // whether the 18-moment carrier C_E,17 lives in the smooth (sqrt N) or raw (N)
+  // phase regime near the correlated lower edge. Via Riemann-von Mangoldt the
+  // per-unit-N increment is L ~ a_g*2pi*log(p_g)/log(N); at the lower edge the
+  // raw comb exceeds the 1e-2 batching kill by ~3.6x for ANY genuine prime, so
+  // smooth is a NECESSARY non-generic condition (leaning raw / burden-on-smooth).
+  // Assessment only; changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.
+  '/src/data/imp-95052-carrier-phase-regime-assessment.js',
   // imp-95013 (native-compute, opus-4-8, api-pool): Gate-2 evaluator Lane A --
   // the native double-double E97/C_E,17 scanner with the mandatory anchor gate.
   // HONEST STATUS: BLOCKED-ON-SPEC (the ticket-named failure mode). The native
@@ -12899,6 +12907,21 @@ const DATA_MODULES = [
   // 5.337e-9 (fixed-97, rigorously append-saturated). Frozen-base scope
   // stated plainly. Changes no bound; NO QED.
   '/src/data/imp-95008-occupied-block-append-floor.js',
+  // imp-95008 continuation (MEASUREMENT, imp-95031, opus-4-8): is the witness
+  // FLOOR pinned? Measures the fifteenth continuation refined residual on both
+  // named axes. AXIS 1 (joint re-optimization): freeing the eight appended
+  // packets simultaneously (base five frozen) lifts the greedy-chain terminal
+  // headline floor 0.0967451 -> 0.0970109 (+0.2748 percent, gap 41.3458 ->
+  // 41.2325); the greedy chain captured 93.57 percent of the appended gain
+  // over the base - nearly, not exactly, pinned. AXIS 2 (grid geometry): over a
+  // 64x spacing range the penta geometry is scale-invariant (block structure
+  // identically [0,1,1,2,3], base floor and append lever geometry-independent
+  // to below 1e-4), so grid geometry is PINNED and NOT an open witness-side
+  // lever at scale. Witness-FLOOR-side only; does not touch the ceiling-side
+  // 2.8489 ledger factor. Surviving sub-gap: the gauge-degenerate full
+  // base-plus-appended re-optimization, unmeasured. Measurement only; changes
+  // no bound; NO QED.
+  '/src/data/imp-95008-witness-floor-pin.js',
   // imp-95008 continuation sixteen (fable-5): LEMMAS Q1/Q2/Q3 + THEOREM Q -
   // the pair-cancellation corner envelope closes the fifteenth named residual
   // (factor-15 certification slack of the terminal headline single-append
@@ -12986,6 +13009,32 @@ const DATA_MODULES = [
   // append-chain lift (base -> carried terminal literals) not re-derived.
   // Re-audit only; changes no bound; NO QED.
   '/src/data/imp-95017-witness-floor-reaudit.js',
+  // imp-95008 continuation twenty (fable-5): THEOREM CA (corner attainment)
+  // + LEMMA EQ - the nineteenth's residual (b1) per-pair substitution
+  // tightness is CLOSED in closed form: the Lemma X separation floor
+  // V(b, j) is the EXACT infimum of the pair separation over each cell
+  // (exponent identity), approached at the SAME parameter corner where the
+  // Lemma RHO width-ratio cap binds, so sup over admissible pairs of the
+  // exact pair correlation EQUALS envE(b, j) - zero per-pair slack in the
+  // continuous family; the 1.4044 non-parity headline residual is
+  // witness/aggregation-side ((b2) block-mass AM-GM, (b3) sup_b routing).
+  // Corollary R2 quantifies the fixed-97 grid slack by exhaustive
+  // enumeration: dominant-cell sup = 0.8258474234948617 x envE(0,2) at the
+  // grid corner (49/97, 24/97) - strictly between the imp-95019 branches,
+  // a fixed-97-lane-only lever, quantified NOT applied. Classification/
+  // routing step: all tracked brackets untouched. Changes no bound; NO QED.
+  '/src/data/imp-95008-substitution-corner-attainment.js',
+  // imp-95019 (opus-4-8): SUBSTITUTION-TIGHTNESS AUDIT (weld-chain-closure
+  // MOVE 3) - executes and RECORDS the imp-95019 decision rule on the
+  // imp-95008 continuation-twenty scan. Independently reproduces the
+  // actual-pair sup at the dominant cells (0,2) and (2,2) and cross-checks
+  // against the sibling literals (envE(0,2)=3.9197920255561178e-5, grid
+  // ratios 0.8258 / 0.4738), then routes the lane: continuous family
+  // ratio -> 1 >= 0.95 => WITNESS-side (1.4044 non-parity residual is
+  // aggregation/witness-side); fixed-97 lane dominant-cell ratio 0.8258
+  // strictly between the branches => a PARTIAL fixed-97-lane-only lever,
+  // quantified NOT applied. Routing/no-go step; changes no bound; NO QED.
+  '/src/data/imp-95019-substitution-tightness-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

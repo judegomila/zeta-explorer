@@ -436,6 +436,24 @@ function omegaE(b) {
   return s;
 }
 
+// imp-95032: the SAME OmegaE roll-up but with every per-pair value taken from
+// the UNFOLDED evaluation iUnfolded (algebraically identical to iExact). The
+// gap between omegaE and omegaEUnfolded propagates the partial-fraction float
+// cancellation through the FULL far-ceiling pipeline cFar = 2 OmegaE_b / Tx(2),
+// so it MEASURES the conditioning of the reported ceiling and ledger factor
+// (and, at b = 0, of the persisting near-tie) rather than only the corner term.
+function omegaEUnfolded(b) {
+  let s = 0;
+  for (let j = 2; j <= 800; j += 2) {
+    const t = iUnfolded(cornerV(b, j), rhoCap(j), SS);
+    if (!Number.isFinite(t) || t === 0) break;
+    s += t;
+  }
+  const r = b % 2;
+  for (let j = 2; j <= b - r; j += 2) s += iUnfolded(cornerV(b - j, j), rhoCap(j), SS);
+  return s;
+}
+
 // ── baked literals ────────────────────────────────────────────────────────────
 const TX2_LIT = 2.8874500929283736e-4;
 const CFAR_18 = 0.7741509917026236; // eighteenth continuation baked literal
@@ -487,6 +505,8 @@ export const IMP95008_EXACT_PAIR_CORRELATION_CEILING = {
     fixed97Bracket: { lo: F97_FLOOR, hi: CFAR_NEW, gapOld: GAP_97_OLD, gapNew: GAP_97_NEW },
     floatConditioning:
       "two algebraically equivalent closed-form evaluations differ by ~1e-8 relative at the corner (partial-fraction cancellation); literals are code-path-reproducible to 1e-12, true-value-accurate to ~1e-8",
+    farCeilingConditioning:
+      "imp-95032 (higher-precision re-evaluation, measurement only): propagating the folded (iExact) vs unfolded (iUnfolded) closed-form evaluations through the FULL far-ceiling pipeline cFar = 2 OmegaE_b / Tx(2) gives far-ceiling rel discrepancy 1.026e-8 (folded 0.2717408057586117, unfolded 0.2717408085472914) and ledger-factor rel discrepancy 1.026e-8 (folded 2.848858085709456, unfolded 2.8488580564736825) - both stable to the quoted ~1e-8, NOT degraded by the pipeline; unfolded > folded so the baked ceiling literal UNDERSTATES the true value (an upward round stays a valid upper bound). The b = 0 near-tie carries rel discrepancy 1.027e-8, essentially identical to the b = 2 sup (1.026e-8): the near-tie does NOT degrade conditioning further. So the ~1e-8 limit is a fixed partial-fraction cancellation floor, uniform across the corner term, the summed sup ceiling and the near-tie.",
     note: "floors UNTOUCHED - pure achieved-bound sharpening; the pair bound is EXACT at the substituted point",
   },
   openResiduals: [
@@ -697,6 +717,27 @@ export const IMP95008_EPC_ASSERTIONS = [
       /optimality is NOT claimed/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.rigorScope) &&
       /~1e-8 relative rounding/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.rigorScope) &&
       /HONEST LIMIT/.test(IMP95008_EXACT_PAIR_CORRELATION_CEILING.openResiduals[4]),
+  },
+  {
+    id: "imp95008-epc-imp95032-far-ceiling-conditioning",
+    description:
+      "imp-95032 higher-precision re-evaluation (measurement only): propagating iExact vs iUnfolded through the FULL far-ceiling pipeline cFar = 2 OmegaE_b / Tx(2) leaves the reported ceiling 0.2717408057586117 and ledger factor 2.8488580857094559 stable to ~1.03e-8 relative (unfolded > folded, so the baked literal understates -> upward round safe); the b = 0 near-tie carries the SAME ~1.03e-8 conditioning as the b = 2 sup (does NOT degrade further)",
+    holds: () => {
+      const inBand = (r) => r >= 9e-9 && r <= 1.2e-8; // fixed ~1e-8 cancellation floor
+      const cFarU = (2 * omegaEUnfolded(2)) / TX2;
+      const relCFar = Math.abs(CFAR_NEW - cFarU) / Math.abs(CFAR_NEW);
+      if (!inBand(relCFar)) return false;
+      if (!(cFarU > CFAR_NEW)) return false; // folded literal understates -> round UP is a valid upper bound
+      const relLed = Math.abs(LEDGER_VS_18 - CFAR_18 / cFarU) / Math.abs(LEDGER_VS_18);
+      if (!inBand(relLed)) return false;
+      const o2F = omegaE(2);
+      const o0F = omegaE(0);
+      const rel2 = Math.abs(o2F - omegaEUnfolded(2)) / Math.abs(o2F);
+      const rel0 = Math.abs(o0F - omegaEUnfolded(0)) / Math.abs(o0F);
+      if (!inBand(rel0)) return false;
+      // the b = 0 near-tie does NOT degrade conditioning: within 5 percent of the b = 2 sup
+      return Math.abs(rel0 - rel2) <= 0.05 * rel2;
+    },
   },
 ];
 

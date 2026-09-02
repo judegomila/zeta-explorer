@@ -182,6 +182,17 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  // imp-95034: DIRECT assessment of the R1 node (terminal ceil count vs the EPS_FP floor) the imp-35259 two-rate
+  // off-by-one WHETHER-question routes back onto. Q1 (does it certify which rate model is faithful at ~10^37?): NO --
+  // the terminal ceil count is rate-BLIND in-band (imp-35572: n_two = n_single at all 202 seeds, both 13 vs measured
+  // Picard 14) and the census is rate-robust (imp-35259), so it carries zero rate-discriminating information; the only
+  // rate-sensitivity is the far census exit edge above the band (10^37 single vs >10^60 two-rate). Q2 (does it close
+  // the off-by-one census R2 could not?): it DISSOLVES the rate contingency without closing the census as a continuum
+  // fact -- the census outcome is rate-invariant so R2 failure to select a rate model is moot, and the off-by-one
+  // question collapses onto the single OPEN R1 floor-independence obstruction (imp-35330 independent binding count 1),
+  // which stays open because the band slides >10 decades per factor-2 in EPS_FP (imp-35263). Assessment only, import-
+  // light (landmark literals, no zeros bundle); discharges nothing; imp-35243a stays OPEN; changes no bound; NO QED.
+  '/src/data/imp-95034-r1-terminal-ceil-rate-model-assessment.js',
   '/src/data/imp-35974-w1-tree-shape-N-ladder.js',
   '/src/data/newman-lambda-01787854-candidate.js',
   '/src/data/lambda-N1e6-final-assembly.js',

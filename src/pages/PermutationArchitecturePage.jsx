@@ -135,6 +135,19 @@ export default function PermutationArchitecturePage() {
           carrier remainder, and one positive-width source cell at <InlineMath tex="N=690988" />) is <strong>closed within
           declared scope</strong>. The contract reduces the strict sub-0.14 route to exactly one thing.
         </p>
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '12px 16px', margin: '10px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>provenance gap (recorded 2026-09-02)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.55, margin: 0 }}>
+            The source-cell anchor value <span className="ed-mono" style={{ fontSize: 12 }}>|E₉₇| = 0.2141254901198318</span> at{' '}
+            <InlineMath tex="x_* = X + \sqrt{1-y_0^2}" /> was produced by the paper's reference-[19] replay
+            (<span className="ed-mono" style={{ fontSize: 12 }}>strict_sub014_extension_v1</span>), which has not been
+            located in any project repository or workspace. An independent native evaluator built for this program
+            reproduces the 400-bit certified window-placement margins digit-for-digit but does not reproduce the anchor
+            value under either candidate parameter row — so the value is currently <strong>unreplayable</strong> pending
+            recovery of the producing archive (or its conventions), and the real Gate-2 probe stays gated on a genuine
+            anchor reproduction. Full diagnosis: <span className="ed-mono" style={{ fontSize: 12 }}>native/gate2-lane-a/README.md</span>.
+          </p>
+        </div>
         <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>the one open family — the breach point</div>
           <p style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>

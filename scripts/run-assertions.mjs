@@ -13609,6 +13609,25 @@ const DATA_MODULES = [
   // imp-95131-subgap-rate-to-phi-pricing; parent sub-gap stays OPEN. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95131-parity-pure-rate-threshold.js',
+  // imp-95132 (fable-5): THEOREM MA (cluster-absorption rate threshold) -
+  // resolves imp-95131-subgap-multiblock-aggregation. Any parity-pure MAJ
+  // witness with ANY number of packets per block and all rates >= 11/20 has
+  // E <= 0; contrapositive, E > 0 forces min rate < 11/20 - the imp-95131
+  // one-packet-per-block restriction removed. Proof chain, all
+  // unconditional: Lemma L2 (E = norm(sum F_b)^2 - 2 sum norm(F_b)^2
+  // exactly, sameBlock absorbed into cluster norms) + NEW Lemma HH
+  // (half-line inner product <= K/2, exact algebra) + Lemma CT (cluster
+  // tail (1/2) exp(-2 mu g) decay) + Lemma CA (multiplicity-free cluster
+  // cap sqrt(2) exp(-mu_star D/2) via midpoint split) + interval-gap ladder
+  // + T(11/20) = 0.97284 < 1 via the rational square test 2 sUp^2 =
+  // 0.94685 < 1 (no library exp or sqrt). Corollary TB: two-block witnesses
+  // have E <= 0 at ALL rates/multiplicities/parities (cluster Lemma TP).
+  // Sharp threshold sandwich [0.127, 0.54]. Named open legs:
+  // imp-95132-subgap-cluster-threshold-sharpening (close [2/5, 11/20]) and
+  // imp-95131-subgap-rate-to-phi-pricing (upgraded to the full class);
+  // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95132-cluster-absorption-threshold.js',
 ];
 
 let ALL_MODULES = FAST_MODE

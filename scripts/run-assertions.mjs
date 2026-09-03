@@ -13376,6 +13376,33 @@ const DATA_MODULES = [
   // 1.6e-9). Resolves imp-95090 openResiduals[0]. Cross-checks the imp-95008
   // envE(0,2) literal. Measurement; changes no bound; NO QED; PT stays SOTA.
   '/src/data/imp-95114-grid-attained-ceiling-lever.js',
+  // imp-95121 (fable-5): CLOSED-FORM linear attainment-shortfall rate constant.
+  // imp-95090 Finding (3) MEASURED that the corner-sequence shortfall at cell
+  // (0,2) decays linearly in eps (per-decade ~0.10); this DERIVES the law:
+  // shortfall(eps) = kappa(b,j) eps + O(eps^2) with kappa in elementary closed
+  // form (mixed-exponent (s+1,s) partial fractions extending the nineteenth
+  // Lemma PF give dI/dT and dI/drho; chain rule at the corner). kappa(0,2) =
+  // 7.1950399616423155 (89.85 pct separation channel, 10.15 pct width-ratio
+  // channel, both nonnegative by Lemma CC / Lemma RM); the per-decade ~0.10 is
+  // a corollary (exact 1/10 + O(eps)). Generic-cell check kappa(2,2) =
+  // 9.203827084271076 matches its eps-slope to 5.8e-7. Derivation step;
+  // changes no bound; NO QED.
+  '/src/data/imp-95121-corner-shortfall-rate-constant.js',
+  // imp-95117 (opus-4-8): CHARACTERIZE the O(1/p) aliasing NON-MONOTONICITY of
+  // the imp-95090 grid-corner attainment shortfall. imp-95090 Finding (4)
+  // reported the dominant-cell (0,2) shortfall shrinks as O(1/p) but is
+  // non-monotone at isolated p; this derives the mechanism. The corner is the
+  // DYADIC point (1/2, 1/4); a grid point d = (p-h)/p hits 2^-k exactly iff
+  // 2^k | p, so shortfall(p) ~ C(p mod 4)/p, four interleaved O(1/p) branches:
+  // C_0 = 14.04 (dip floor, 4|p hits both corners), C_1 = 18.22 (the imp-95090
+  // prime ladder 97/193/389/769, internally monotone), C_2 = 35.53, C_3 = 39.55
+  // (worst envelope). The aliasing dips are exactly p = 0 mod 4; explicit
+  // non-monotone triple 95->96->97 gives 0.3551->0.1360->0.1742. Number-theoretic
+  // condition = divisibility (best-rational-approx of a dyadic corner degenerates
+  // to a finite continued fraction). Cross-checks the imp-95008 envE(0,2) literal
+  // and the imp-95090 fixed-97 shortfall. Derivation/measurement; changes no
+  // bound; NO QED; PT stays SOTA.
+  '/src/data/imp-95117-aliasing-nonmonotonicity-mod4.js',
   // imp-95008 continuation twenty-one (fable-5): LEMMA RM-D (domain-refined
   // width-ratio monotonicity) + COROLLARY LT - the nineteenth Lemma RM is
   // only ever invoked on (0, rhoCap(j)], so its guard weakens from
@@ -13480,6 +13507,24 @@ const DATA_MODULES = [
   // stays the refined sub-gap imp-95113-subgap-tradeoff-proof-vs-scan.
   // Assess only; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95113-attainment-occupancy-tradeoff.js',
+  // imp-95118 (opus-4-8): DIRECTED evenMassShare sweep of the imp-95008 coupled
+  // attainment/occupancy/parity-balance channels, the directed-sweep companion
+  // to the imp-95113 random battery. Scale every odd-block packet amplitude by
+  // a scalar lambda (even blocks fixed), driving evenMassShare = sum_{b even}
+  // nb[b]^2 / M monotonically. FINDING 1: occupancy O is strictly increasing in
+  // evenMassShare (0.0633 odd-flooded -> 0.9742 all-even) while attainment stays
+  // flat (spread < 0.0044), so the far-priced product A x O is monotone -
+  // shedding odd mass MAXIMIZES occupancy. FINDING 2: on the odd-mass-shedding
+  // branch (lambda 1 -> 0, evenMassShare 0.6325 -> 1) parity-balance B is
+  // strictly DECREASING, from 0.9612 (E>0 at the tuned base) through zero to
+  // -737.5 at the all-even limit (E = -0.1552 < 0); phi = A x O x B attains its
+  // sweep MAXIMUM at exactly lambda = 1, the razor ridge. The imp-95008 coupling
+  // is thus MONOTONE: evenMassShare buys occupancy but sells parity balance, and
+  // phi is a single sharp peak. Directed measurement over one axis, NOT a
+  // theorem over all MAJ witnesses; the all-witness tradeoff bound stays the
+  // sub-gap imp-95113-subgap-tradeoff-proof-vs-scan. Changes no bound; NO QED;
+  // PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95118-even-mass-share-sweep.js',
   // imp-95120 (opus-4-8): UNIFORM midpoint-quadrature-error certificate over the
   // WHOLE continuous transfer scan theta in [2,20] (sigma = 1), upgrading the
   // imp-95073 integer-s bound and the imp-95097 single edge to a monotone-in-s
@@ -13497,6 +13542,20 @@ const DATA_MODULES = [
   // is empirical; exact anchor only on the integer slice / model point; paper
   // constants unpinned. Measure + scaling; no bound; NO QED; PT <= 0.2 SOTA.
   '/src/data/imp-95120-uniform-midpoint-quadrature-certificate.js',
+  // imp-95110 (opus-4-8): CERTIFY the inflection Q* ~ 0.386 / c* ~ 0.613 of
+  // d2 cFar/dQ2 by a secant rootfind on the imp-95093 sign-flip bracket
+  // [0.60, 0.65] (d2 the central second difference in Q of a c-stencil,
+  // Q = c 2^(-2/3), argmax b fixed at 2). The rootfind converges (|d2| < 1e-9,
+  // argmax b = 2) in <= 9 iterations in ALL SIX stencil x quadrature configs
+  // (dc in {0.05,0.10,0.15}, N in {2e5,8e5}), so the inflection is real, not a
+  // finite-difference artifact. Certified c* = 0.6131751 -> Q* = 0.3862761
+  // (headline dc=0.10, N=8e5), tightening the imp-95093 estimate. Residual is
+  // STENCIL-dominated (~6:1 over quadrature): six-config envelope
+  // c* in [0.611185, 0.615096], central c* = 0.613 +/- 0.002,
+  // Q* = 0.3863 +/- 0.0012. SUB-GAP: numerical certification only (no
+  // closed-form/interval root certificate; stencil-truncation-limited ~2e-3);
+  // paper Q not pinned in-repo. Measure only; no bound; NO QED; PT <= 0.2 SOTA.
+  '/src/data/imp-95110-cfar-inflection-rootfind.js',
 ];
 
 let ALL_MODULES = FAST_MODE

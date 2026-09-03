@@ -13775,6 +13775,25 @@ const DATA_MODULES = [
   // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95138-mass-split-depth-cap.js',
+  // imp-95139 (fable-5): THEOREM PD (probe-depth profile cap, certified rate
+  // threshold 4901/20000 = 0.24505) - NARROWS imp-95138-subgap-phantom-near-
+  // mass by delivering BOTH requested routes: Lemma DL (depth-Laplace tilt
+  // transform - the exact joint depth-distribution transform, dominating
+  // every Corollary DM constraint and every finite conjunction) and
+  // Corollary PF (the probe-depth tilt with rise mu (D + t): probe pairing
+  // Lemma PP pins the psi ramp top at the neighbor edge for every probe
+  // depth, Lemma RD dominates the ramp-interior weight, the sub-foot piece
+  // is priced by Lemma DL from the foot through the alpha-coupled profile).
+  // Certified sandwich [0.23, 0.246] -> [0.23, 0.24505]; the constant lies
+  // BELOW the imp-95137/95138 frame root ~0.245088, beyond that frame's
+  // certification reach (lemma-side gain). Odd parity via a separate
+  // parameter-free plain-cap sweep (0.7505). 49/200 = 0.245 measured
+  // certification-infeasible (honest floor). Surviving slack renamed
+  // ramp-interior-linearization (new leg imp-95139-subgap-ramp-interior-
+  // linearization). Leg NARROWED not closed; parent
+  // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95139-probe-depth-profile-functional.js',
 ];
 
 let ALL_MODULES = FAST_MODE

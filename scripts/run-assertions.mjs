@@ -13151,6 +13151,33 @@ const DATA_MODULES = [
   // to reach 4. Sub-gap: the paper (c,v,D) hence the paper Q are not pinned in
   // this repo, so this places the MODEL Q on the scan. Derivation only; NO QED.
   '/src/data/imp-95075-isolation-Q-far-ceiling-sensitivity.js',
+  // imp-95091 (opus-4-8): BETA-LEVER sensitivity of the far-bracket ceiling, the
+  // companion to imp-95075 (isolation Q). imp-95075 cited imp-95026 Finding 1
+  // that beta is a WEAK lever (~6% over 0.25..0.5) but never isolated it the way
+  // Q was. Central difference in beta gives dcFar/dbeta = -0.08145863168834006 at
+  // beta0 = 1/3 (elasticity -0.09992225277955546: a 1% beta mis-estimate moves
+  // cFar only ~0.10% and DOWNWARD - roughly nine times weaker than Q at ~0.88).
+  // cFar(beta) is strictly DECREASING and CONVEX over [0.25,0.5] (secant slopes
+  // rise -0.10821 -> -0.04477), so the local linear model UNDER-predicts above
+  // the model point (1.70% at beta=0.5). The beta scan spans cFar [0.2626,0.2801]
+  // - all near 0.27, three orders under the pre-seventeenth 4 - reproducing the
+  // imp-95026 betaScan bit-for-bit (range -6.24% over 0.25..0.5). Sub-gap: the
+  // paper beta is not pinned in this repo, so this places the MODEL beta on the
+  // scan, not a paper number. Derivation only; NO QED.
+  '/src/data/imp-95091-beta-lever-far-ceiling-sensitivity.js',
+  // imp-95092 (opus-4-8): FOUR-LEVER far-ceiling ELASTICITY TABLE. Places the
+  // four constants driving cFar - the decay exponent s = sigma + theta (via
+  // theta), sigma, beta, and the isolation constant Q - on ONE table with a
+  // common dimensionless elasticity E_x = (dcFar/dx)(x0/cFar0) at the model
+  // point (central difference +/- 2 percent). RANKING by |E_x|: theta 1.271 >
+  // sigma 0.944 > Q 0.885 > beta 0.099; cFar shrinks with (theta, sigma, beta)
+  // and grows with Q. Each row is cross-checked against the secant of the wider
+  // imp-95026 scan (sign + ~10 percent); the Q row reproduces imp-95075 exactly
+  // (dcFar/dQ = 0.3816620268743663, elasticity 0.8847868296486842). A_d does not
+  // enter (it cancels, imp-95026 Finding 0). Sub-gap: the paper Section 4.5
+  // constants are not pinned here, so the table is the LOCAL model-point
+  // elasticity ranking transfer risk per lever. Measurement only; NO QED.
+  '/src/data/imp-95092-four-lever-far-ceiling-elasticity-table.js',
   // imp-95073 (opus-4-8): CROSS-CHECK of the imp-95026 midpoint far-coefficient
   // evaluator against an independent adaptive-Simpson reference (split at the
   // corners u = 0, u = T, tol 1e-12) at the non-model integer-s thetaScan
@@ -13233,6 +13260,19 @@ const DATA_MODULES = [
   // strictly between the branches => a PARTIAL fixed-97-lane-only lever,
   // quantified NOT applied. Routing/no-go step; changes no bound; NO QED.
   '/src/data/imp-95019-substitution-tightness-audit.js',
+  // imp-95090 (opus-4-8): FINITE-RATE PER-PAIR ATTAINMENT SHORTFALL of the
+  // EXHIBITED far-bracket witness. imp-95008/imp-95019 established that the
+  // realized/envE ratio -> 1 only in the CONTINUOUS corner limit; the
+  // exhibited witness lives on the fixed p=97 alias grid, so at a finite rate
+  // it under-realizes envE. Measures shortfall = 1 - realized/envE for the
+  // pairs carrying the witness: dominant cell (0,2) shortfall 0.17415257650513827
+  // (realizes 0.8258 x envE, so the E-realization split shortfall factor is
+  // 0.8258 NOT ~1), deep cell (2,2) shortfall 0.5262. Shows the shortfall is a
+  // finite-rate effect: decays linearly in the corner offset eps (per-decade
+  // ~0.10) and ~O(1/p) under grid refinement, -> 0 in the continuous limit.
+  // Independently reproduces + cross-checks the imp-95008 fixed-97 literals.
+  // Measurement/no-go step; changes no bound; NO QED.
+  '/src/data/imp-95090-finite-rate-attainment-shortfall.js',
   // imp-95008 continuation twenty-one (fable-5): LEMMA RM-D (domain-refined
   // width-ratio monotonicity) + COROLLARY LT - the nineteenth Lemma RM is
   // only ever invoked on (0, rhoCap(j)], so its guard weakens from

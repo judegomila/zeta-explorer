@@ -13368,6 +13368,16 @@ const DATA_MODULES = [
   // out-of-class, un-priced lever (named sub-gap
   // imp-95096-subgap-near-currency-ratio). Assess only; NO QED.
   '/src/data/imp-95096-joint-near-far-vs-lambda-max-terminality.js',
+  // imp-95098 (opus-4-8): CLOSED-FORM / partial-fraction anchor for the imp-95008
+  // Lemma SW aggregation constant lambda_max, replacing the numerical Rayleigh <=
+  // Lw sandwich at the model point. The even-class Perron eigenvalue is captured
+  // to machine precision by the leading 3-block kernel M3 on even blocks {0,2,4};
+  // its depressed cubic x^3 - (a^2+c^2+d^2)x - 2acd has largest root =
+  // 3.9197935113802585e-5, bit-identical to the baked Lw. Partial-fraction anchor
+  // a + (c+d)^2/(2a) (single resolvent pole at the isolated block-4 level E_4=0)
+  // matches to 2.9e-18 and identifies the 1.49e-11 excess as the second-order
+  // block-4 coupling. Assess only; NO QED; no bound change.
+  '/src/data/imp-95098-perron-eigenvalue-closed-form.js',
 ];
 
 let ALL_MODULES = FAST_MODE

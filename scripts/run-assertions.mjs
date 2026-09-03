@@ -13120,6 +13120,21 @@ const DATA_MODULES = [
   // imp-95008 witness mass - no single paper ceiling term is claimed. Measurement
   // only; changes no bound; NO QED.
   '/src/data/imp-95100-witness-radii-mass-instantiation.js',
+  // imp-95116 (opus-4-8): ASSEMBLE the far-ceiling roll-up term with the TRUE
+  // legality-weighted imp-95008 witness mass M = sum_b (sum_i a_i sqrt(r_i)/h_i)^2,
+  // versus the imp-95100 uniform-currency proxy 6.036200329457272e-4. (A) the
+  // imp-95076 Simpson machinery re-derives sup_b OmegaE_b=3.9223358991795465e-5
+  // (b=2, amplitude-free); (B) on the imp-95008 pentaWitness (P_BIG=999983,
+  // JOINT_BIG base) the legality-weighted mass M_legal=7.159056371719082 comes in
+  // BELOW the uniform-currency proxy sum_i r_i=7.694649928783372 - the outer-packet
+  // height inflation (h down to 0.003845) is outweighed by the true amplitude decay
+  // (a down to 3.27e-5); (C) the assembled term ceilTerm_legal=5.616044762208765e-4,
+  // a ratio 0.9303940319544888 to the uniform proxy (~6.96 percent below), placing
+  // the two mass conventions on one number. Sub-gap: the base amplitudes are the
+  // imp-95008 JOINT_BIG optimizer output (optimality not claimed), not the paper
+  // A_d, and only the five-packet base is used. Measurement only; changes no bound;
+  // NO QED.
+  '/src/data/imp-95116-legality-weighted-witness-mass.js',
   // imp-95068 (opus-4-8): ASSESSMENT of the EIGHTEENTH window / Cauchy-Schwarz
   // envelope far-ceiling FALLBACK across s = sigma+theta in (1, 2.9484), where
   // the nineteenth EXACT-substitution proof breaks (Lemma RM corner guard
@@ -13250,6 +13265,22 @@ const DATA_MODULES = [
   // Sub-gap: the exact anchor is indirect (model point only); paper constants
   // unpinned. Measurement only; NO QED.
   '/src/data/imp-95097-low-theta-edge-three-rule-quadrature.js',
+  // imp-95115 (opus-4-8): INDEPENDENT EXACT CLOSED-FORM anchor for the far
+  // coefficient at the low-theta edge theta=2, s=3 (the WORST_SCANNED transfer
+  // row), second-sourcing the imp-95097 three-rule bound at s=3 (its
+  // openResiduals[0]: no exact anchor baked at s=3). At integer s=3 the
+  // pair-correlation integrand splits at the corners u=0, u=T into three regions,
+  // each a product of two linear factors^-3; partial fractions via the recursion
+  // dec(m,n) = (D/W) dec(m-1,n) - (B/W) dec(m,n-1) integrate each in closed form.
+  // FINDING 0: the closed-form far coefficient 0.8924624270658892 matches the
+  // corner-aware adaptive-Simpson reference to relative 5.4e-14, so it is a genuine
+  // SECOND independent exact anchor. FINDING 1: the committed midpoint
+  // bit-reproduces WORST_SCANNED and its true error against the exact closed form
+  // is 1.004e-7 -- confirming DIRECTLY the ~1.0e-7 imp-95097 had only indirectly.
+  // FINDING 2: 1.004e-7 far below the WORST_SCANNED margins, closing imp-95097
+  // openResiduals[0]. Sub-gap (carried): paper Section 4.5 constants unpinned.
+  // Measurement only; NO QED.
+  '/src/data/imp-95115-low-theta-edge-exact-anchor.js',
   // imp-95029 (opus-4-8): ASSESSMENT of the paper phase curvature normalization
   // (openResiduals[2] of the imp-95008 chain, the sibling Theorem D residual)
   // and its effect on the far-bracket ledger. FINDING 1: the normalization
@@ -13419,6 +13450,21 @@ const DATA_MODULES = [
   // for this witness. Closes imp-95096-subgap-near-currency-ratio. MEASUREMENT
   // only; NO QED; no bound change.
   '/src/data/imp-95111-near-currency-ratio-pricing.js',
+  // imp-95113 (opus-4-8): ASSESSMENT of the imp-95008 sub-gap
+  // imp-95008-subgap-attainment-occupancy-tradeoff by a joint numerical
+  // search over MAJ witness families (attainment A = X_env/capSum, occupancy
+  // O = capSum/(Lw M) measured together). Proven single-parity anchor: a
+  // one-parity witness has X_par = 0 so E = ||sum w_b||^2 - 2N <= 0 (two even
+  // blocks give E = -||w_0-w_2||^2 = -1.344), hence excess positivity
+  // requires cross-parity mass that dilutes occupancy - the coupling. A
+  // fixed-seed local-perturbation battery (15000 draws, 4835 with E>0) finds
+  // sup(A x O) = 0.4015 and sup(phi) = 0.3572, both well below 1, with the
+  // product-maximizing config parity balance collapsed (phi 0.1531); a
+  // 3000-draw random grid battery yields ZERO E>0 (fine-tuned ridge).
+  // Empirical gamma_scan ~ 0.402 < 1, no phi -> 1 family; the all-MAJ bound
+  // stays the refined sub-gap imp-95113-subgap-tradeoff-proof-vs-scan.
+  // Assess only; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95113-attainment-occupancy-tradeoff.js',
 ];
 
 let ALL_MODULES = FAST_MODE

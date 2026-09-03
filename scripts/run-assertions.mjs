@@ -13628,6 +13628,27 @@ const DATA_MODULES = [
   // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95132-cluster-absorption-threshold.js',
+  // imp-95133 (fable-5): THEOREM TC (tilted-cluster rate threshold) -
+  // narrows imp-95132-subgap-cluster-threshold-sharpening from [2/5, 11/20]
+  // to [2/5, 9/20]. Any parity-pure MAJ witness with ANY number of packets
+  // per block and all rates >= 9/20 has E <= 0; contrapositive, E > 0
+  // forces min rate < 9/20 - the Lemma CA midpoint split replaced by an
+  // exponential-tilt (Combes-Thomas) Cauchy-Schwarz. Proof chain, all
+  // unconditional: Lemma TT (tilt-cancellation identity + Cauchy-Schwarz)
+  // + NEW Lemma TK (exact identity exp(-eta tau) K_skew = K(a, b + 2 eta,
+  // tau) + 4 eta exp(-a tau)/(A^2 - 4 eta^2), comparison constant
+  // A^2/(A^2 - 4 eta^2), tight at tau = 0, three-exponential monotonicity
+  // proof) + Lemma TN (tilted cluster norm <= mu^2/(mu^2 - eta^2) times
+  // untilted, multiplicity-free) + interval-gap ladder + rational chain
+  // T <= (2025/1736) eU + (2025/869) eU^8 + 2 (2025/869) eU^32 = 0.98386
+  // < 1 with eU >= exp(-0.34). Certified sandwich [0.127, 0.45]; float
+  // root bracket T_CT(0.43) > 1 > T_CT(0.44) measured only. THEOREM MA
+  // (11/20) superseded on the full class; THEOREM RT (2/5, one-per-block)
+  // NOT superseded. Sharpening sub-gap NARROWED not closed; pricing leg
+  // further upgraded (forced mu_min < 9/20); parent
+  // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95133-tilted-cluster-threshold.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1,12 +1,26 @@
 /**
  * imp-95008 continuation (twenty-third) - LEMMA ES + LEMMA PB + THEOREM ER:
- * the E-REALIZATION split. Executes the sub-gap named by the twenty-second
- * continuation (imp-95008-subgap-witness-Erealization-split): the witness
- * internals E_cross and sum_b ||w_b||^2 are computed and BAKED for the
- * exhibited terminal headline witness (13 packets, fifteenth-continuation
- * chain), and the surviving residual 1.4032010197013394 is decomposed into
- * an EXACT product of three certified-below-one channels. Floors and
- * ceilings untouched; classification/measurement step.
+ * the E-REALIZATION split by PARITY CHANNEL. Executes the sub-gap named by
+ * the twenty-second continuation (imp-95008-subgap-witness-Erealization-
+ * split) and RESOLVES the successor sub-gap named by the concurrent
+ * imp-95089 measurement. imp-95089 (imp-95089-witness-erealization-split.js,
+ * landed while this module was in preparation) baked the coarse internals
+ * C_cross = 0.31083906605923023 and S = sum_b ||w_b||^2 =
+ * 0.31063674710576755 of the terminal headline witness, refuted the posited
+ * O(1)-attainment x O(1)-norm shape (both raw ratios are ~1094x the ceiling
+ * constant lambda_max M), and left OPEN the currency question
+ * imp-95089-subgap-currency-reconciliation: why is the witness raw cross
+ * correlation ~1095x the ceiling per-mass constant, and in what currency is
+ * an attainment fraction even well-defined? This module supplies exactly
+ * that currency map: the cross correlation splits by PARITY (Lemma ES) into
+ * a cross-parity part X_par (99.966 percent of C_cross - charged by the
+ * bracket class to the near currency cNear = 2, never to the far ceiling)
+ * and a same-parity part X_env = 0.00010524481829607855 (the ONLY piece the
+ * far constant lambda_max M prices), and in that common currency the
+ * residual 1.4032010197013394 becomes an EXACT product of three
+ * certified-below-one channels. The imp-95089 "1095x mismatch" dissolves:
+ * it was the cross-parity channel measured against the far-channel ruler.
+ * Floors and ceilings untouched; classification/measurement step.
  *
  * SETTING (identical to the sibling chain; Permuting the Zeta Twin Ladder
  * Section 4.5; page /permutation-architecture). Terminal headline witness =
@@ -100,7 +114,22 @@
  *     current same-parity coupling, no parity rebalancing recovers more
  *     than 4.0 percent of the residual.
  *
- * CONSEQUENCE (the twenty-second E-realization conjecture is REFINED, and
+ * CONSEQUENCE 1 (imp-95089-subgap-currency-reconciliation is RESOLVED).
+ * The currency map is Lemma ES itself: C_cross = X_par + X_env with
+ * X_par / C_cross = 0.99966. The bracket-class ceiling charges X_par to the
+ * parity AM-GM (cNear = 2, already discounted from the headline gap) and N
+ * to nothing; lambda_max M rules ONLY X_env. In the far currency the
+ * attainment-type fraction imp-95089 asked for is well-defined and
+ * measured: X_env / (Lw M) = 0.3707185016673179, and the imp-95089
+ * cancellation amplification C_cross / E = 1536.38 is CAPPED by Lemma PB
+ * (E <= 2 X_env forces C_cross / E >= C_cross / (2 X_env) ~ 1477: the
+ * near-total cancellation S / C_cross = 0.999349 is structural, not an
+ * optimizer accident - any witness whose coupling is parity-dominated must
+ * sit at the edge of excess positivity). This module's internals reproduce
+ * the imp-95089 literals to 1 ulp (X = X_par + X_env vs C_cross, N vs S;
+ * asserted at rel 1e-11).
+ *
+ * CONSEQUENCE 2 (the twenty-second E-realization conjecture is REFINED, and
  * the routing reconciliation). The conjectured form "(attainment
  * shortfall) x (norm-penalty sum ||w_b||^2 / (lambda_max M))" is superseded:
  * the norm subtraction N is NOT an independent multiplicative penalty - it
@@ -463,7 +492,7 @@ export const IMP95008_WITNESS_EREALIZATION_SPLIT = {
   ticket:
     "imp-95008 (continuation twenty-three: executes the sub-gap imp-95008-subgap-witness-Erealization-split - the terminal headline witness internals are baked and the surviving residual 1.4032010197013394 is decomposed into an exact product of three certified-below-one channels)",
   source:
-    "Permuting the Zeta Twin Ladder Section 4.5; /permutation-architecture; consumes the sub-gap named by imp-95008-perron-weighted-far-routing.js; witness = fifteenth-continuation JOINT_BIG + CHAIN_BIG terminal 13-packet chain.",
+    "Permuting the Zeta Twin Ladder Section 4.5; /permutation-architecture; consumes the sub-gap named by imp-95008-perron-weighted-far-routing.js AND resolves imp-95089-subgap-currency-reconciliation (imp-95089-witness-erealization-split.js, the concurrent coarse-internals measurement); witness = fifteenth-continuation JOINT_BIG + CHAIN_BIG terminal 13-packet chain.",
   lemmaES:
     "UNCONDITIONAL exact channel split: E = X_par + X_env - N with N = sum_b ||w_b||^2, X_par = 2<U,V> the cross-parity coupling (U/V the parity-class sums) and X_env the same-parity cross-block coupling (gap >= 2, exactly the channel priced by the ceiling aggregation constant Lw). Equivalently E = ||sum_b w_b||^2 - 2N. Pure bilinearity of the Theorem R Gram assembly.",
   lemmaPB:
@@ -506,6 +535,8 @@ export const IMP95008_WITNESS_EREALIZATION_SPLIT = {
   },
   consequence:
     "The twenty-second conjectured form '(attainment shortfall) x (norm-penalty sum ||w_b||^2/(lambda_max M))' is REFINED: N is not an independent penalty - Lemma PB absorbs it into the parity-balance factor E/(2 X_env) = 1 - ||U-V||^2/(2 X_env), measured near-exhausted at 0.9612. The residual 1.4032 lives in per-pair attainment (0.6014, multiplier 1.6627) and occupancy (0.6164, multiplier 1.6224). Routing reconciliation: no contradiction with the twenty-second 0.087 percent - that was ceiling-side per-class aggregation slack (this witness is 0.9742-efficient within the even class, near the Perron {0,2} split); the occupancy loss is witness-side odd-mass ballast, invisible to per-class aggregation, and structurally COUPLED to parity balance (the odd mass is what balances U against V).",
+  imp95089Resolution:
+    "imp-95089-subgap-currency-reconciliation RESOLVED: the currency map is Lemma ES. C_cross = X_par + X_env with X_par/C_cross = 0.99966; the bracket class charges X_par to cNear = 2 (already discounted) and N to nothing, so lambda_max M rules only X_env - the imp-95089 '~1095x mismatch' was the cross-parity channel measured against the far-channel ruler. In the far currency the attainment fraction is well-defined: X_env/(Lw M) = 0.3707185016673179, and the imp-95089 amplification C_cross/E = 1536.38 is capped by Lemma PB (E <= 2 X_env), so the near-total cancellation S/C_cross = 0.999349 is structural for any parity-dominated witness, not an optimizer accident. This module's independently assembled internals reproduce the imp-95089 literals to 1 ulp (X vs C_cross, N vs S; asserted rel 1e-11).",
   subGap:
     "imp-95008-subgap-attainment-occupancy-tradeoff - OPEN: prove or refute attainment x occupancy <= gamma < 1 over MAJ witnesses (a witness-side ceiling on phi = E/(2 Lw M)), or exhibit a witness family with phi -> 1; the observed coupling (odd-parity mass buys balance but destroys occupancy) is measured at one witness, not proved as a tradeoff theorem.",
   openResiduals: [
@@ -513,14 +544,14 @@ export const IMP95008_WITNESS_EREALIZATION_SPLIT = {
     "the curvature ceiling D retained by the window",
     "the paper phase curvature normalization (sibling Theorem D residual)",
     "residual (c) of the sibling chain: the passage from the l2 weld bound to the pointwise scalar |C_E,17|",
-    "EXECUTED: imp-95008-subgap-witness-Erealization-split (internals baked, split exact). REFINED witness-side residual: the attainment x occupancy tradeoff (named sub-gap); parity balance measured near-exhausted (0.9612). HONEST LIMIT: E is a 1536x cancellation, identity checks are held to rel 1e-11 (measured float depth), quadrature cross-check to rel 1e-6; the ~1e-8 nineteenth closed-form rounding is carried in the envelope caps",
+    "EXECUTED: imp-95008-subgap-witness-Erealization-split (internals split exact, by parity channel). RESOLVED: imp-95089-subgap-currency-reconciliation (the 1095x mismatch is the cross-parity channel against the far ruler; internals agree with imp-95089 to 1 ulp). REFINED witness-side residual: the attainment x occupancy tradeoff (named sub-gap); parity balance measured near-exhausted (0.9612). HONEST LIMIT: E is a 1536x cancellation, identity checks are held to rel 1e-11 (measured float depth), quadrature cross-check to rel 1e-6; the ~1e-8 nineteenth closed-form rounding is carried in the envelope caps",
   ],
   isRigorous: true,
   rigorScope:
     "Lemmas ES and PB are unconditional bilinear algebra on the exact Theorem R Gram assembly (proofs in the header; PB is Cauchy-Schwarz on the parity sums). Theorem ER's factorization is an arithmetic telescoping identity; the statements that each factor is <= 1 are conditional exactly as the carried chain: attainment <= 1 via the per-pair envelope caps (Lemmas CC/RM/PF, conditional on MAJ(sigma, theta)), occupancy <= 1 via Lemma SW and the certified lambda_max sandwich, parity balance <= 1 unconditionally via Lemma PB. All measured literals are exact evaluations at the fifteenth-continuation baked witness, reproduced from scratch by the assertions with an independent quadrature cross-check. The attainment-occupancy tradeoff is observed, NOT proved - it is the named sub-gap. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
-    "RIGOROUS step (twenty-third continuation): the E-realization sub-gap named by the twenty-second continuation is EXECUTED. NEW Lemma ES (exact channel split E = X_par + X_env - N, unconditional) and NEW Lemma PB (parity-balance cap E <= 2 X_env, the witness-side dual of the ceiling parity AM-GM) decompose the surviving residual EXACTLY: r = 1.4032010197013394 = 1/(2 x 0.6014409758412518 x 0.6163838457278105 x 0.9611824921094692) = 1/(2 x attainment x occupancy x parity-balance), with the terminal 13-packet headline witness internals baked for the first time (E = 0.00020231895346286606, a 1536x cancellation of X = 0.3108390660592303 against N = 0.31063674710576755). The parity-balance channel is near-exhausted (0.9612; defect ||U-V||^2 = 8.17e-6) and the per-witness bound r >= Lw M/(2 X_env) = 1.3487322530470818 shows parity rebalancing alone recovers at most 4.0 percent. The residual is pinned to two COUPLED channels: per-pair envelope attainment 0.6014 and occupancy 0.6164 (97.5 percent of the occupancy loss = the 36.75 percent odd-parity mass ballast that buys parity balance). No contradiction with the twenty-second routing verdict (its 0.087 percent was ceiling-side per-class slack; within the even class this witness is 0.9742-efficient). New sub-gap named: imp-95008-subgap-attainment-occupancy-tradeoff. Floors and ceilings untouched; changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step (twenty-third continuation): the E-realization split is completed BY PARITY CHANNEL, executing the twenty-second sub-gap and resolving the concurrent imp-95089 currency question. NEW Lemma ES (exact channel split E = X_par + X_env - N, unconditional) and NEW Lemma PB (parity-balance cap E <= 2 X_env, the witness-side dual of the ceiling parity AM-GM) decompose the surviving residual EXACTLY: r = 1.4032010197013394 = 1/(2 x 0.6014409758412518 x 0.6163838457278105 x 0.9611824921094692) = 1/(2 x attainment x occupancy x parity-balance), with the terminal 13-packet witness internals independently assembled (E = 0.00020231895346286606, a 1536x cancellation of X = 0.3108390660592303 against N = 0.31063674710576755; reproduces the imp-95089 coarse literals C_cross and S to 1 ulp). imp-95089-subgap-currency-reconciliation RESOLVED: 99.966 percent of C_cross is cross-parity coupling charged to cNear = 2, so the '~1095x mismatch' was a channel mislabeling - lambda_max M prices only X_env = 0.00010524481829607855, and there X_env/(Lw M) = 0.3707 is a genuine fraction. The parity-balance channel is near-exhausted (0.9612; defect ||U-V||^2 = 8.17e-6) and the per-witness bound r >= Lw M/(2 X_env) = 1.3487322530470818 shows parity rebalancing alone recovers at most 4.0 percent. The residual is pinned to two COUPLED channels: per-pair envelope attainment 0.6014 and occupancy 0.6164 (97.5 percent of the occupancy loss = the 36.75 percent odd-parity mass ballast that buys parity balance). No contradiction with the twenty-second routing verdict (its 0.087 percent was ceiling-side per-class slack; within the even class this witness is 0.9742-efficient). New sub-gap named: imp-95008-subgap-attainment-occupancy-tradeoff. Floors and ceilings untouched; changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
 };
 
 // ── assertions (self-executing; throw on violation) ─────────────────────────
@@ -563,6 +594,19 @@ export const IMP95008_ERS_ASSERTIONS = [
         rel(2 * (CS.pairIP.get("0:2") || 0), XENV02_LIT) &&
         rel(2 * (CS.pairIP.get("1:3") || 0), XENV13_LIT) &&
         rel(2 * ((CS.pairIP.get("0:2") || 0) + (CS.pairIP.get("1:3") || 0)), CS.xEnv)
+      );
+    },
+  },
+  {
+    id: "imp95008-ers-imp95089-cross-module-consistency",
+    description:
+      "the independently assembled internals reproduce the imp-95089 coarse literals (baked there from a separate code path): X = X_par + X_env vs C_cross = 0.31083906605923023 and N vs S = 0.31063674710576755 (both 1 ulp apart, asserted rel 1e-11), and E vs 0.0002023189534626768 (rel 1e-10; E is the 1536x-cancelled difference)",
+    holds: () => {
+      const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
+      return (
+        rel(CS.xPar + CS.xEnv, 0.31083906605923023, 1e-11) &&
+        rel(CS.N, 0.31063674710576755, 1e-11) &&
+        rel(CS.E, 0.0002023189534626768, 1e-10)
       );
     },
   },
@@ -727,7 +771,10 @@ export const IMP95008_ERS_ASSERTIONS = [
       /conditional on MAJ/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.rigorScope) &&
       /1536x/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.openResiduals[4]) &&
       /HONEST LIMIT/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.openResiduals[4]) &&
-      /EXECUTED/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.openResiduals[4]),
+      /EXECUTED/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.openResiduals[4]) &&
+      /RESOLVED: imp-95089-subgap-currency-reconciliation/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.openResiduals[4]) &&
+      typeof IMP95008_WITNESS_EREALIZATION_SPLIT.imp95089Resolution === "string" &&
+      /1 ulp/.test(IMP95008_WITNESS_EREALIZATION_SPLIT.imp95089Resolution),
   },
 ];
 

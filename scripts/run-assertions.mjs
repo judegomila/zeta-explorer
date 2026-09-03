@@ -13105,6 +13105,21 @@ const DATA_MODULES = [
   // radii r_d and amplitude A_d are not pinned here, so M is not a numeric paper
   // mass - the trace establishes the cancellation STRUCTURE. Verify only; NO QED.
   '/src/data/imp-95076-adin-cancellation-trace.js',
+  // imp-95100 (opus-4-8): INSTANTIATE the imp-95076 mass M(A)=A^2 M(1) on the
+  // imp-95008 witness radii and MEASURE the assembled roll-up ceiling term
+  // 2 (sup_b OmegaE_b) M at a representative amplitude. (A) the imp-95076 Simpson
+  // machinery re-derives sup_b OmegaE_b=3.9223358991795465e-5 (b=2),
+  // Tx(2)=2.8874500929283736e-4, cFar=0.2716816410981926 (amplitude-free);
+  // (B) the imp-95008 pentaWitness (P_BIG=999983) radii sum to 7.694649928783372
+  // (blocks [0,1,1,2,3]); (C) with M(A)=A^2 sum_i r_i the ceiling term
+  // ceilTerm/A^2=6.036200329457272e-4 EXACTLY across A in {0.5,1,2,3,7} - the
+  // ledger split is a concrete number (cFar bit-invariant, mass A^2-scaled on real
+  // witness radii), cross-checking the imp-95076 Finding-D representative figure
+  // 0.0003327244461629 by the exact radius-sum ratio. Sub-gap: the paper (r_d,A_d)
+  // are not pinned and the uniform-currency mass is not the legality-weighted
+  // imp-95008 witness mass - no single paper ceiling term is claimed. Measurement
+  // only; changes no bound; NO QED.
+  '/src/data/imp-95100-witness-radii-mass-instantiation.js',
   // imp-95068 (opus-4-8): ASSESSMENT of the EIGHTEENTH window / Cauchy-Schwarz
   // envelope far-ceiling FALLBACK across s = sigma+theta in (1, 2.9484), where
   // the nineteenth EXACT-substitution proof breaks (Lemma RM corner guard
@@ -13178,6 +13193,20 @@ const DATA_MODULES = [
   // constants are not pinned here, so the table is the LOCAL model-point
   // elasticity ranking transfer risk per lever. Measurement only; NO QED.
   '/src/data/imp-95092-four-lever-far-ceiling-elasticity-table.js',
+  // imp-95093 (opus-4-8): SIGN of d2 cFar/dQ2 - certify (or refute) the imp-95075
+  // numerically-observed concavity of the far coefficient cFar(Q). Q enters only
+  // through gSharp proportional to 1/Q, the argmax b is FIXED at 2 (Omega
+  // smooth), and both Omega = sup_b OmegaE_b and D = Tx(2) are convex increasing,
+  // so cFar concavity is a QUOTIENT-RULE residue of a ~150:1 near-cancellation -
+  // which CHANGES SIGN. d2 cFar/dQ2 is CONCAVE (-0.4420) at the model Q0 =
+  // 2^(-2/3) but CONVEX (+0.1316) at the low-Q end (c=0.5), with an inflection at
+  // Q* ~ 0.386 (c* ~ 0.613); the flip is stable under stencil/quadrature
+  // refinement. So imp-95075 concavity is CONFIRMED as a RANGE statement for
+  // Q >= Q* (includes the model point and the transfer-risk direction Q > Q0) but
+  // is NOT global. Sub-gap: no closed-form/interval sign certificate (sign is a
+  // small residue of a large cancellation, not one-signed); paper Q not pinned.
+  // Assessment only; NO QED.
+  '/src/data/imp-95093-cfar-Q-second-derivative-concavity.js',
   // imp-95073 (opus-4-8): CROSS-CHECK of the imp-95026 midpoint far-coefficient
   // evaluator against an independent adaptive-Simpson reference (split at the
   // corners u = 0, u = T, tol 1e-12) at the non-model integer-s thetaScan
@@ -13313,14 +13342,16 @@ const DATA_MODULES = [
   // recovers at most 0.087 percent; the surviving residual 1.4032 is
   // pinned to the E-realization step (named sub-gap). NO QED.
   '/src/data/imp-95008-perron-weighted-far-routing.js',
-  // imp-95008 continuation twenty-three (E-realization split): executes the
-  // sub-gap imp-95008-subgap-witness-Erealization-split. NEW Lemma ES
+  // imp-95008 continuation twenty-three (E-realization split by parity
+  // channel): executes imp-95008-subgap-witness-Erealization-split and
+  // RESOLVES imp-95089-subgap-currency-reconciliation. NEW Lemma ES
   // (E = X_par + X_env - N, unconditional channel split) and Lemma PB
   // (parity-balance cap E <= 2 X_env, witness-side dual of the parity AM-GM)
-  // bake the terminal 13-packet headline witness internals for the first time
-  // and decompose the surviving residual EXACTLY:
+  // decompose the surviving residual EXACTLY:
   // 1.4032010197013394 = 1/(2 x attainment 0.6014 x occupancy 0.6164 x
-  // parity-balance 0.9612). Parity balance is near-exhausted; per-witness
+  // parity-balance 0.9612); the imp-95089 "1095x mismatch" dissolves (99.966
+  // percent of C_cross is cross-parity, charged to cNear = 2, and lambda_max
+  // M prices only X_env). Parity balance is near-exhausted; per-witness
   // bound r >= Lw M/(2 X_env) = 1.3487. New sub-gap:
   // imp-95008-subgap-attainment-occupancy-tradeoff. Floors/ceilings
   // untouched. NO QED.

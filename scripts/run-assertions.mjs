@@ -13722,6 +13722,33 @@ const DATA_MODULES = [
   // not closed; parent imp-95130-subgap-phi-conditional-odd-mass stays
   // OPEN. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95136-spectral-cap-aggregation-threshold.js',
+  // imp-95137 (fable-5): THEOREM VC (two-sided tilt vector cap, certified
+  // rate threshold 1/4) - NARROWS imp-95136-subgap-cap-simultaneity by
+  // PROVING the requested joint two-sided vector cap and consuming it:
+  // certified sandwich [0.23, 0.276] -> [0.23, 0.25]. NEW Lemma TS (tilt
+  // simultaneity, SHARP at an edge packet): for one cluster the left and
+  // right gap-tilt excesses share a budget,
+  // (M_L - 1)/(mu D_L) + (M_R - 1)/(mu D_R) <= 1 + exp(-2 mu W), proved
+  // termwise from the exact imp-95134 Lemma GT excess identity + the
+  // exact kernel factorization + p-convexity (edge configurations
+  // extremal) + the concave endpoint inequality tanh(mu W) <= mu W. Pair
+  // extraction gives the vector cap rho <= chat(mu D) sqrt(1 + mu D q)
+  // with q_L + q_R <= 1 + exp(-2 mu W) - the entrywise cap corner
+  // (both neighbors at the sharp cap at once) is excluded. Consumed in
+  // the imp-95136 Lemma QF spectral frame via a two-parameter
+  // (alpha, gamma) head family covering all occupied subsets and both
+  // parities (odd entry domination re-proved for parametrized entries);
+  // certificate: 200x200 entrywise-max cell grid, Collatz-Wielandt
+  // bounds through U50 = 0.6065306597136333 >= exp(-1/2): grid max
+  // 0.9961553068006018 + remainder 198 U50^64 ~ 2.5e-12 < 1 (margin
+  // 3.8e-3). Supersedes THEOREM SA (69/250) at the constant level. Float
+  // landmarks measured only: vector-cap root 0.24512 (bracket
+  // 1.00022 > 1 > 0.99833 at 0.245/0.246), witness saturation 0.2321 -
+  // surviving slack renamed probe-depth simultaneity (new leg
+  // imp-95137-subgap-probe-depth-simultaneity). Leg NARROWED not closed;
+  // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95137-two-sided-tilt-vector-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -13794,6 +13794,34 @@ const DATA_MODULES = [
   // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95139-probe-depth-profile-functional.js',
+  // imp-95140 (fable-5): THEOREM HS (hybrid split-bond cap, certified rate
+  // threshold 12251/50000 = 0.24502) - NARROWS imp-95139-subgap-ramp-
+  // interior-linearization by replacing the L2 TRIANGLE split of Corollary
+  // PF with the EXACT BILINEAR split of the bond at the probe foot: NEW
+  // Corollary PH prices the sub-foot piece through Lemma PP + Cauchy-
+  // Schwarz + Lemma DL (identical alpha-coupled staircase) and the in-ramp
+  // piece through min(sharp imp-95134 cluster cap at facing gap 8, 3-piece
+  // Lemma MS row) - the in-ramp penalty no longer inherits the neighbor-
+  // side enhancement sqrt(1 + Z qc), and the form is SHARP at the
+  // all-in-ramp corner (x1b = 1 gives exactly g(8 mu) = 0.4169 where
+  // Corollary PF gives 0.4501). Certified sandwich [0.23, 0.24505] ->
+  // [0.23, 0.24502]. Adaptive certificate: 10406330 cells, zero
+  // unresolved, depth 55, head max 0.99999999989 + remainder 9.3e-12
+  // < 1 - 1e-10. HONEST ATTRIBUTION: the constant lies ABOVE the old
+  // frame root ~0.24496 - the old-frame certificate at it exhausts with
+  // 4.79M cells unresolved at the depth-60 cap, so the lemma gain is
+  // certification MARGIN (1.06e-4 -> 1.64e-4), stated plainly. 49/200
+  // still infeasible even with the hybrid (13.09M unresolved at 80M).
+  // Refuted in-run: MS-row-only pricing (ridge parks z2b = 0.75 where the
+  // row exceeds the sharp cap - zero gain), qR1/qL2 DL tilt-ratio
+  // staircases (adversary relocates z2b -> 1, gain 2.4e-8), and the
+  // exact-cross-expansion route (Gram identity regenerates the linear
+  // coefficient; g(mu sigma) too flat at unit separation). Surviving
+  // slack renamed displacement-credit (new leg imp-95140-subgap-
+  // displacement-credit). Leg NARROWED not closed; parent
+  // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95140-hybrid-split-probe-threshold.js',
 ];
 
 let ALL_MODULES = FAST_MODE

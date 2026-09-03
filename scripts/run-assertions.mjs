@@ -13556,6 +13556,24 @@ const DATA_MODULES = [
   // closed-form/interval root certificate; stencil-truncation-limited ~2e-3);
   // paper Q not pinned in-repo. Measure only; no bound; NO QED; PT <= 0.2 SOTA.
   '/src/data/imp-95110-cfar-inflection-rootfind.js',
+  // imp-95129 (fable-5): THEOREM OD (odd-mass dilution law) - one RIGOROUS leg
+  // of imp-95113-subgap-tradeoff-proof-vs-scan. For every MAJ witness of the
+  // sibling-chain class, phi = E/(2 LwEven M) <= 1 - (1 - q) omega with
+  // omega = M_odd/M and q = LwOddCert/LwEven = 0.037554; same cap for
+  // occupancy. Proof is a two-line chain: exact parity split of capSum +
+  // per-class Lemma SW (unconditional) + Lemma PB (unconditional) + carried
+  // per-pair MAJ caps - conditional exactly as THEOREM ER, no new layers. New
+  // unconditional Lemma TM (elementary split majorant on the pair integral)
+  // makes the odd-class Schur constant cover ALL odd blocks: scanned sup row
+  // 1.47203498255732e-6 at b = 3 (reproduces the twenty-second literal),
+  // beyond-scan rows bounded by 5.13e-15. Terminal witness obeys the law
+  // (cap 0.6463 vs occupancy 0.6164 / phi 0.3563; dilution term explains
+  // 92.2 pct of the occupancy loss); zero violations across all 4835 E > 0
+  // battery draws (min slack 0.238). Remaining leg named: a uniform
+  // omega_min > 0 over E > 0 witnesses (imp-95129-subgap-min-odd-mass,
+  // needs the imp-95111 currency bridge). Changes no bound; NO QED;
+  // PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95129-odd-mass-dilution-law.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -13245,6 +13245,20 @@ const DATA_MODULES = [
   // proof-coverage boundary, NOT sharpness (s = 2.5 probe monotone on all
   // of (0,1]). No ledger/floor/ceiling literal changes. NO QED.
   '/src/data/imp-95008-rm-domain-refined-low-s-extension.js',
+  // imp-95008 continuation twenty-two (fable-5): LEMMA SW (weighted Schur
+  // aggregation, unconditional; x = 1 recovers Theorem Y-EXACT) + THEOREM
+  // Y-PERRON - the unweighted sup-row-sum pullout sup_b OmegaE_b is
+  // replaced by the near-Perron weighted constant Lw = 3.9197935113802585e-5
+  // with a machine-precision Rayleigh sandwich (width 2.3e-16), making the
+  // aggregation step lambda_max-SHARP. The joint ceiling-side lever (b2)
+  // block-mass AM-GM + (b3) sup_b routing is executed and consumed,
+  // measured 1.0008665157515448 (0.0866 percent). Far ceiling
+  // 0.2717408057586117 -> 0.27150554192989773, headline gap 2.8088 ->
+  // 2.8064, fixed-97 gap 225.42 -> 225.23, floors untouched. Routing
+  // consequence for imp-95074: block-mass re-weighting in ANY family
+  // recovers at most 0.087 percent; the surviving residual 1.4032 is
+  // pinned to the E-realization step (named sub-gap). NO QED.
+  '/src/data/imp-95008-perron-weighted-far-routing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

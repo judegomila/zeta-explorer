@@ -13207,6 +13207,21 @@ const DATA_MODULES = [
   // small residue of a large cancellation, not one-signed); paper Q not pinned.
   // Assessment only; NO QED.
   '/src/data/imp-95093-cfar-Q-second-derivative-concavity.js',
+  // imp-95109 (opus-4-8): can an INTERVAL-ARITHMETIC evaluation certify the sign
+  // of d2 cFar/dQ2 on Q >= Q* despite the imp-95093 ~150:1 near-cancellation, or
+  // is it a hard obstruction? Two carriers measured. ROUTE A = the ticket
+  // quotient-rule split cFar'' = 2[Omega''/D - ...] from separately finite-
+  // differenced derivatives is SIGN-DESTROYING (-1.1451 at model vs certified
+  // -0.4420; WRONG SIGN -20.694 at low-Q vs +0.1316) - the wrong carrier. ROUTE B
+  // = the direct-ratio second difference reproduces the certified d2 exactly; its
+  // second-difference numerator blow-up is ~619:1 (model) / 1054:1 (low-Q) /
+  // 3444:1 (c=0.65) - AFFORDABLE at the model point (~4 digits) but DIVERGING as
+  // Q -> Q* (num -> 0). VERDICT: an interval negative-sign certificate is FEASIBLE
+  // IN PRINCIPLE on Q >= Q0 via Route B but NOT delivered - blocked by (I) the
+  // un-verified midpoint carrier (needs a verified interval quadrature of iQuad +
+  // Tx(2) tail bound + sup-over-b margin) and (II) precision divergence at Q*.
+  // The ~150:1 cancellation is not the blocker. Assessment only; NO QED; PT SOTA.
+  '/src/data/imp-95109-cfar-Q2-interval-sign-certificate.js',
   // imp-95073 (opus-4-8): CROSS-CHECK of the imp-95026 midpoint far-coefficient
   // evaluator against an independent adaptive-Simpson reference (split at the
   // corners u = 0, u = T, tol 1e-12) at the non-model integer-s thetaScan
@@ -13378,6 +13393,18 @@ const DATA_MODULES = [
   // matches to 2.9e-18 and identifies the 1.49e-11 excess as the second-order
   // block-4 coupling. Assess only; NO QED; no bound change.
   '/src/data/imp-95098-perron-eigenvalue-closed-form.js',
+  // imp-95111 (opus-4-8): PRICE the imp-95096 near-currency ratio (sum_b d_b)/M
+  // of the exhibited fifteenth-continuation terminal headline 13-packet witness
+  // (reconstructed as in imp-95089) and evaluate the joint near/far Pareto trade
+  // beta(alpha)=lambda_max(2-alpha) at cNear=2 alpha on the gap. MEASURED
+  // sum_b d_b = 0.31063674710576755, M = 7.242579512920189, ratio r_d = 0.04289;
+  // the joint bound B(alpha)=alpha sum_b d_b + lambda_max(2-alpha) M has slope
+  // sum_b d_b - lambda_max M = 0.31035 > 0, so B is monotone INCREASING and
+  // minimized at alpha=1: the out-of-class alpha>1 trade is dominated by the near
+  // cost by 1094.2x (= r_d/lambda_max = the imp-95089 norm-penalty), UNPROFITABLE
+  // for this witness. Closes imp-95096-subgap-near-currency-ratio. MEASUREMENT
+  // only; NO QED; no bound change.
+  '/src/data/imp-95111-near-currency-ratio-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

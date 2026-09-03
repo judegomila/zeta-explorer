@@ -13649,6 +13649,32 @@ const DATA_MODULES = [
   // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95133-tilted-cluster-threshold.js',
+  // imp-95134 (fable-5): THEOREM CC (sharp cluster correlation cap + rate
+  // threshold 2/5) - CLOSES imp-95132-subgap-cluster-threshold-sharpening:
+  // the full parity-pure cluster threshold equals the one-per-block
+  // THEOREM RT constant 2/5, so the interval [2/5, 9/20] collapses and
+  // multiplicity is free. Engine: a GAP-CAPPED tilt phi = mu clamp(x - U,
+  // 0, D) whose weight is bounded, so the tilt slope may equal mu itself -
+  // removing the imp-95133 D-independent prefactor obstruction at its
+  // root. Proof chain, all unconditional: Lemma GC (phi + psi = mu D
+  // identically + Cauchy-Schwarz with bounded weights) + NEW Lemma HM
+  // (half-mass: pair mass right of the rightmost center <= 1/2 total,
+  // exact sign identity, equality at tau = 0) + NEW Lemma GT (tilted norm
+  // <= (1 + mu D) times untilted via the EXACT excess identity
+  // h(U)(2 mu/(y s))(1 - exp(-y D)), equality at an edge packet) +
+  // interval-gap ladder + rational chain (9/5) U8 + (21/5) U8^4 +
+  // (69/5) U8^16 + 2 U8^32 = 0.98003 < 1 with U8 >= exp(-4/5). The
+  // resulting cluster cap (1 + mu D) exp(-mu D) is SHARP (attained by two
+  // rate-mu edge packets) - the exact Lemma RC cluster analog. Certified
+  // sandwich [0.127, 0.4]; float root bracket S(0.388) > 1 > S(0.389)
+  // measured only. THEOREM TC (9/20) and MA (11/20) superseded on the
+  // full class; RT subsumed at the same constant. NEW leg
+  // imp-95134-subgap-aggregation-threshold-sharpness (close [0.127, 0.4]:
+  // slack is aggregation- or witness-side, not pair-side); pricing leg
+  // further upgraded (forced mu_min < 2/5 over the full class); parent
+  // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95134-sharp-cluster-cap-threshold.js',
 ];
 
 let ALL_MODULES = FAST_MODE

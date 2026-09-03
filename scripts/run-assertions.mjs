@@ -13822,6 +13822,28 @@ const DATA_MODULES = [
   // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95140-hybrid-split-probe-threshold.js',
+  // imp-95141 (fable-5): THEOREM WS (witness-saturation certificate,
+  // certified class lower end 11603/50000 = 0.23206) + COROLLARY FR
+  // (certified family-root bracket [11603/50000, 2901/12500), width 2e-5,
+  // superseding the imp-95135 COROLLARY RM bracket (0.23, 0.235) at both
+  // ends). WITNESS-side step: the grid-extremal parity-pure witness
+  // (p = 999983, k = 499992/249995/62498, blocks 0/2/4 all even) with
+  // re-optimized integer amplitudes (6756, 6854, 2716) has certified
+  // E > 0 at common rate 11603/50000 (N = 19 series lower bounds + 1e-12
+  // slack vs the exact integer diagonal 99997508, margin 1666.9);
+  // exhaustion side via carried Lemma RC (mixed-rate cap) + entrywise
+  // domination + Collatz-Wielandt at a baked positive vector (bound
+  // 0.99997757 < 1 at 2901/12500). Certified sandwich [0.23, 0.24502] ->
+  // [0.23206, 0.24502] (width 0.01502 -> 0.01296); upper end THEOREM HS
+  // carried unchanged. HONEST ATTRIBUTION: the float landmark 0.2320685
+  // was measured in imp-95135 - the gain is certification-side, no new
+  // witness family, no ceiling progress. The surviving certified interval
+  // is now (up to the 3.5e-6 grid-quantization sliver and measured-only
+  // family-exhaustion evidence) entirely ceiling-side: the imp-95140-
+  // subgap-displacement-credit leg, OPEN and untouched. Parent
+  // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95141-witness-saturation-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

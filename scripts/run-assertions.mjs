@@ -13480,6 +13480,23 @@ const DATA_MODULES = [
   // stays the refined sub-gap imp-95113-subgap-tradeoff-proof-vs-scan.
   // Assess only; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95113-attainment-occupancy-tradeoff.js',
+  // imp-95120 (opus-4-8): UNIFORM midpoint-quadrature-error certificate over the
+  // WHOLE continuous transfer scan theta in [2,20] (sigma = 1), upgrading the
+  // imp-95073 integer-s bound and the imp-95097 single edge to a monotone-in-s
+  // corner-curvature envelope. Scaling: the composite-midpoint error scales as
+  // h^2 . s-curvature (integral |A''| = s/rho, integral |B''| = s) plus a
+  // corner-straddling kink term ~ h^2 . (jump in f prime); h is nearly constant
+  // across rows (1.21e-3..1.45e-3), so the error is monotone in s and its
+  // continuous maximum is at theta = 20. Validation at eleven continuous theta
+  // (endpoints + integer anchors + six NON-INTEGER interior) vs the corner-aware
+  // adaptive-Simpson reference gives relErr rising monotonically from 1.0e-7
+  // (s = 3) to 1.23e-5 (s = 21), so EVERY row carries relErr <= 1.2326e-5;
+  // relErr ~ 9.06e-9 s^2.39 (R^2 = 0.9956). The bound is ~1.9e3x below the
+  // corner-guard break separation ~0.0238, so no quadrature error on the scan
+  // flips the below-4 or s > s* verdicts. Envelope gives the scaling, constant
+  // is empirical; exact anchor only on the integer slice / model point; paper
+  // constants unpinned. Measure + scaling; no bound; NO QED; PT <= 0.2 SOTA.
+  '/src/data/imp-95120-uniform-midpoint-quadrature-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

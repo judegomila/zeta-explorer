@@ -90,6 +90,30 @@ $PROMPT_COMMON_RULES_SUFFIX"
 
 mkdir -p "$LOG_DIR"
 
+# imp-95023: crash-checkpoint. A frontier turn dies mid-chain (SIGTERM from the
+# watchdog, an OOM, a rate-limit kill) leaving staged/unstaged work that the
+# claude turn never got to commit -- git history shows ~80 orphaned-run repair
+# commits. This trap preserves that work as a labeled checkpoint so a successor
+# run resumes from it instead of a partial tree being silently clobbered. It is
+# armed ONLY around the live claude invocation (set in run_once, cleared right
+# after) so normal status/oneshot exits never fire it, and it commits ONLY when
+# the tree is actually dirty. Shared-worktree caveat (see the concurrent-engine
+# memory): git add -A can sweep a sibling engine mid-write into the checkpoint --
+# accepted here because this only runs on abnormal death, the same window in
+# which orphaned work is otherwise lost; the label makes such commits auditable.
+_fable_checkpoint() {
+  local st=$?
+  cd "$PROJECT_DIR" 2>/dev/null || return "$st"
+  if ! git diff --quiet 2>/dev/null \
+     || ! git diff --cached --quiet 2>/dev/null \
+     || [ -n "$(git ls-files --others --exclude-standard 2>/dev/null)" ]; then
+    git add -A 2>/dev/null || true
+    git commit -m "engine-died checkpoint (fable, imp-95023): preserve mid-run work (exit $st)" \
+      >> "$LOG_DIR/checkpoint.log" 2>&1 || true
+  fi
+  return "$st"
+}
+
 run_once() {
   local tag="$1"          # human tag for logs
   local timestamp; timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
@@ -104,12 +128,15 @@ run_once() {
     return 79
   fi
 
+  # Arm the crash-checkpoint only for the duration of the live turn.
+  trap '_fable_checkpoint' EXIT INT TERM
   ( cd "$PROJECT_DIR"
     unset CLAUDECODE
     if [ -f "$SCRIPT_DIR/.env" ]; then set -a; . "$SCRIPT_DIR/.env"; set +a; fi
     claude --print --strict-mcp-config --dangerously-skip-permissions --model "$MODEL" "$IMPROVE_PROMPT" \
       >> "$log_file" 2>&1
   ) || true
+  trap - EXIT INT TERM
 
   echo "=== Fable-5 ${tag} complete ===" | tee -a "$log_file"
   local post_run_sha; post_run_sha=$(git -C "$PROJECT_DIR" rev-parse HEAD 2>/dev/null || echo "")

@@ -61,12 +61,38 @@
  * within 15 percent of the target; a 25,200-point dense hunt over
  * x in [X-54, X+450] tops out at 0.1860276 and never crosses the target.
  *
- * THE PRECISE UNLOCK (sharpens imp-95013/imp-95072): commit either
- * (a) the exact rational/dyadic anchor-cell center x* (>= 13 decimals), or
- * (b) the replay evaluator that produced 0.2141254901198318 (its x*,
- * gamma convention, phase spelling). Then GATE2_ANCHOR_XSTAR_OFFSET
- * unlocks the already-built scan; the ~30-40 min probe feeds
- * probeVerdict(L, sampledSup) verbatim.
+ * REV 2 (same day, coordinator unlock attempt): x* RESOLVED, gate still
+ * fails, diagnosis sharpened one layer. The anchor cell center is the
+ * window-freeze criterion start x* := X + sqrt(1 - y0^2)
+ * (~/dbn-lambda-audit-review/WINDOW_FREEZE_THEOREM.md). VALIDATED: the
+ * native evaluator reproduces that theorem's 400-bit certified window
+ * margins digit-for-digit under the audit-row parameterization
+ * (t = 129/800, y0^2 = 87677/2500000): x* - x_690988 = 5377393.98785643
+ * (certified > 5377393.9878), x_690989 - x* = 11989041.1746638
+ * (certified > 11989041.1746) -- site grid, landmark map, dd machinery,
+ * and x* are beyond doubt. |E97| AT the exact x* still misses the target
+ * by 49-96 percent under every convention combination and under BOTH row
+ * parameterizations (best: samePhase bb=1 at the Gate-2 row,
+ * 0.1081646523386882). Row check (coordinator step 3): the anchor cell
+ * GEOMETRY is audit-row (margins match t = 129/800 exactly), but the
+ * VALUE reproduces under neither row. The residual gap is therefore
+ * isolated to the E97 evaluation convention (ladder normalization / gamma
+ * weighting / exponent spelling) of the paper's reference [19] replay
+ * (strict_sub014_extension_v1/, companion source archive), which is NOT
+ * on this machine: Spotlight + targeted greps of ~/dbn-lambda-audit-review,
+ * ~/dbn-lambda-sweep-clean, ~/dbn-lambda-01758354-candidate,
+ * ~/Downloads/twin_ladder_rh_repo and the candidate zips find the anchor
+ * literal only in the paper PDF and this repo's own modules (the audit
+ * workspaces contain NO E97 code; their '0.2141' grep hits are
+ * digit-substring coincidences inside prism logs).
+ *
+ * THE PRECISE UNLOCK (sharpened; x* is no longer the blocker): commit the
+ * [19] strict_sub014_extension_v1 replay or, at minimum, its E97
+ * evaluator conventions (ladder normalization, directed-gamma weighting,
+ * exact sA/sB spellings, and the (t, y) row the anchor was computed
+ * under). The scan binary now tests the resolved x* by default and
+ * unlocks the ~30-40 min probe on a genuine pass; probeVerdict(L,
+ * sampledSup) is then fed verbatim.
  */
 
 // ── the frozen gate (carried literals; no recomputation drift) ───────────────
@@ -95,6 +121,28 @@ export const HUNT_MAX = Object.freeze({
   targetCrossed: false,
 });
 
+// ── rev 2: the resolved anchor-cell center and its geometric validation ──────
+export const XSTAR_RESOLUTION = Object.freeze({
+  definition: 'x* := X + sqrt(1 - y0^2), X = 6000000185827 (window-freeze criterion start, ~/dbn-lambda-audit-review/WINDOW_FREEZE_THEOREM.md)',
+  auditRow: { t: '129/800', y0sq: '87677/2500000', xStarOffset: 0.9823080983072470 },
+  gate2Row: { t: '24727519/200000000', y0: '1809/10000', xStarOffset: 0.9835014946607860 },
+  // native dd evaluation reproduces the theorem's 400-bit certified margins:
+  marginLeft: 5377393.98785643, // x* - x_690988, certified > 5377393.9878
+  marginRight: 11989041.1746638, // x_690989 - x*, certified > 11989041.1746
+  marginRowNote: 'the certified margins match the t = 129/800 site grid exactly (at the Gate-2 t0 the left margin would be 5377393.95950911), so the anchor cell GEOMETRY is audit-row',
+});
+
+// |E97| AT the exact x* (16 digits, native run 2026-09-02 rev 2); the gate
+// target is missed by 49-96 percent under every combination.
+export const EXACT_XSTAR_WITNESSES = Object.freeze([
+  { row: 'gate2', convention: 'gamma_at real', absE97: 0.0321779141165190 },
+  { row: 'gate2', convention: 'directed lambda (polymath, at x)', absE97: 0.0705459658528420 },
+  { row: 'gate2', convention: 'samePhase (closest of all)', absE97: 0.1081646523386882 },
+  { row: 'audit', convention: 'gamma_at real', absE97: 0.0285675189118675 },
+  { row: 'audit', convention: 'directed lambda (polymath, at x)', absE97: 0.0758802543680923 },
+  { row: 'audit', convention: 'chi(+,-pi/4) (closest audit-row)', absE97: 0.0783242949997991 },
+]);
+
 // ── internal validations of the built evaluator ──────────────────────────────
 export const EVALUATOR_VALIDATIONS = Object.freeze({
   telescopeIdentityMaxErr: 5e-14, // |sum_j D_j - E97| across all evaluations (eq (13) exact)
@@ -113,15 +161,22 @@ export const IMP95013B_GATE2_LANE_A_REAL_PROBE = Object.freeze({
     'research-inputs/gomila-zeta-twin-ladder-permutation-architecture-revised.pdf Section 4.6; ' +
     'public audit repo judegomila/dbn-lambda-01787854-candidate-audit (checked for x*, absent)',
   status: 'BLOCKED-ON-CONVENTION',
-  blockedOn: 'the anchor cell center x* (|x - x*| <= 1/40000000000 at N=690988) is transcribed nowhere in the delivered/committed sources',
+  blockedOn:
+    'rev 2: x* RESOLVED (= X + sqrt(1 - y0^2), geometry validated against the 400-bit certified margins); ' +
+    'the residual blocker is the E97 evaluation convention of the paper reference-[19] replay ' +
+    '(strict_sub014_extension_v1, absent from this machine): |E97| at the exact x* misses the target by ' +
+    '49-96 percent under every tested convention and both row parameterizations',
   evaluatorBuilt: true,
   evaluatorPath: 'native/gate2-lane-a/main.c (+ Makefile, README.md)',
   anchorGate: {
     target: ANCHOR_GATE_TARGET,
     toleranceRel: ANCHOR_MATCH_TOLERANCE_REL,
     reproduced: false,
-    closestValue: 0.15759524, // X+t0+sqrt(1-y0^2), directed lambda, 26 percent off
-    scanRefusedByBinary: true, // scan mode exits 3 until the gate passes
+    closestValue: 0.15759524, // pre-rev-2 candidate scan: X+t0+sqrt(1-y0^2), directed lambda
+    closestAtExactXstar: 0.10816465, // rev 2: samePhase bb=1, Gate-2 row, still 49 percent off
+    xStarResolution: XSTAR_RESOLUTION,
+    exactXstarWitnesses: EXACT_XSTAR_WITNESSES,
+    scanRefusedByBinary: true, // scan mode exits 3 until the gate passes (now testing the resolved x*)
   },
   conventionDecisions: {
     caution1_tSpelling: '4pi(N^2 - t0/16) == 4piN^2 - pi*t0/4 identically; used the first with t0 as exact dd rational',
@@ -134,25 +189,28 @@ export const IMP95013B_GATE2_LANE_A_REAL_PROBE = Object.freeze({
   emittedProbeMeasurement: false,
   surrogateSubstitution: false,
   probeVerdictFed: false, // no measured L / sampledSup exist; nothing fabricated
-  namedSubGap: 'imp-95013b-sub-anchor-xstar',
+  namedSubGap: 'imp-95013b-sub-replay-convention',
   subGapStatement:
-    'commit the exact anchor-cell center x* (>= 13 decimals) or the replay evaluator that produced ' +
-    '0.2141254901198318 (its x*, gamma convention, phase spelling); then GATE2_ANCHOR_XSTAR_OFFSET unlocks ' +
-    'the already-built native scan (~30-40 min on 14 threads) and probeVerdict(L, sampledSup) is fed verbatim',
+    'rev 2 (x* resolved, no longer the blocker): commit the paper reference-[19] replay ' +
+    '(strict_sub014_extension_v1 from the companion source archive) or its E97 evaluator conventions ' +
+    '(ladder normalization, directed-gamma weighting, exact sA/sB spellings, and the (t, y) row the anchor ' +
+    'was computed under); the scan binary already tests the resolved x* = X + sqrt(1 - y0^2) by default and ' +
+    'unlocks the ~30-40 min probe on a genuine anchor pass, feeding probeVerdict(L, sampledSup) verbatim',
   isRigorous: false,
   promotesBound: false,
   verdict:
-    'BLOCKED-ON-CONVENTION (the ticket-sanctioned failure mode, reached after building the full native ' +
-    'evaluator): the Lane-A E97/C_E,17 scanner now EXISTS (dd phase pipeline validated vs mpmath to ~6e-16, ' +
-    'eq-(13) telescope exact to ~1e-14, SPF sieve to 5.48e7, pthreads probe scanner with hard anchor gate), ' +
-    'but the mandatory anchor |E97|(690988) = 0.2141254901198318 cannot be reproduced because the anchor ' +
-    'cell center x* exists only in the paper\'s private replay - a missing input, not an implementation bug. ' +
-    'The systematic convention search (b_n laws, carrier brackets, real/directed gamma, phase spellings, ' +
-    'both t-rows, 9+ x* candidates, |E97| and the eq-(13) pilot) never comes within 15 percent; a dense ' +
-    '25,200-point hunt over [X-54, X+450] tops at 0.1860276 without crossing the target. NO scan was run; ' +
-    'NO surrogate was substituted; probeVerdict was NOT fed. The REAL oscillation probe (L, sampledSup) ' +
-    'remains unmeasured, one committed rational (x*) away from decidable. Changes no bound; closes no gap; ' +
-    'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'BLOCKED-ON-CONVENTION (rev 2, sharpened): the Lane-A E97/C_E,17 scanner EXISTS (dd phase pipeline ' +
+    'validated vs mpmath to ~6e-16, eq-(13) telescope exact to ~1e-14, SPF sieve to 5.48e7, pthreads probe ' +
+    'scanner with hard anchor gate), and the anchor cell center is now RESOLVED as the window-freeze ' +
+    'criterion start x* = X + sqrt(1 - y0^2), with the evaluator reproducing the 400-bit certified window ' +
+    'margins (5377393.98785643 / 11989041.1746638) digit-for-digit. The mandatory anchor ' +
+    '|E97|(690988) = 0.2141254901198318 still does NOT reproduce AT the exact x* under any tested ' +
+    'convention combination or either row parameterization (best 0.1081646523386882, 49 percent off), so ' +
+    'the residual gap is isolated to the E97 evaluation convention of the paper reference-[19] replay ' +
+    '(strict_sub014_extension_v1), which is absent from this machine - a missing input, not an ' +
+    'implementation bug. NO scan was run; NO surrogate was substituted; probeVerdict was NOT fed. The REAL ' +
+    'oscillation probe (L, sampledSup) remains unmeasured, one committed replay-convention away from ' +
+    'decidable. Changes no bound; closes no gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
 });
 
 // ── assertions (self-executing; import-light; throw on violation) ─────────────
@@ -216,13 +274,47 @@ export const IMP95013B_ASSERTIONS = [
   },
   {
     id: 'imp95013b-honesty-gate-no-qed',
-    description: 'promotes no bound, names the sharpened sub-gap (the single missing x*), NO QED, PT stays SOTA',
+    description: 'promotes no bound, names the sharpened sub-gap (the [19] replay convention), NO QED, PT stays SOTA',
     holds: () =>
       IMP95013B_GATE2_LANE_A_REAL_PROBE.promotesBound === false &&
       IMP95013B_GATE2_LANE_A_REAL_PROBE.isRigorous === false &&
-      IMP95013B_GATE2_LANE_A_REAL_PROBE.namedSubGap === 'imp-95013b-sub-anchor-xstar' &&
+      IMP95013B_GATE2_LANE_A_REAL_PROBE.namedSubGap === 'imp-95013b-sub-replay-convention' &&
       /NO QED/.test(IMP95013B_GATE2_LANE_A_REAL_PROBE.verdict) &&
       /remains SOTA/.test(IMP95013B_GATE2_LANE_A_REAL_PROBE.verdict),
+  },
+  {
+    id: 'imp95013b-rev2-xstar-margin-recomputation',
+    description:
+      'rev 2: the resolved x* geometry is recomputable in-module: X + sqrt(1 - 87677/2500000) - 4*pi*(690988^2 - (129/800)/16) reproduces the stored certified left margin to double precision (~1e-2 at 6e12 magnitude), and the two margins sum to the exact window width 4*pi*(2*690988+1)',
+    holds: () => {
+      const X = 6000000185827;
+      const xStar = X + Math.sqrt(1 - 87677 / 2500000);
+      const t = 129 / 800;
+      const xN = 4 * Math.PI * (690988 * 690988 - t / 16);
+      const left = xStar - xN;
+      const width = 4 * Math.PI * (2 * 690988 + 1);
+      return (
+        // xStar/xN are ~6e12, double ulp ~1e-3: honest tolerance 1e-2
+        Math.abs(left - XSTAR_RESOLUTION.marginLeft) < 1e-2 &&
+        Math.abs(XSTAR_RESOLUTION.marginLeft + XSTAR_RESOLUTION.marginRight - width) < 1e-2 &&
+        // the offset itself is O(1): compare the sqrt directly at ~1e-15
+        Math.abs(Math.sqrt(1 - 87677 / 2500000) - XSTAR_RESOLUTION.auditRow.xStarOffset) < 1e-15 &&
+        Math.abs(Math.sqrt(1 - 3272481 / 100000000) - XSTAR_RESOLUTION.gate2Row.xStarOffset) < 1e-15
+      );
+    },
+  },
+  {
+    id: 'imp95013b-rev2-exact-xstar-still-misses',
+    description:
+      'rev 2: every |E97| witness AT the exact resolved x*, under both rows and all conventions, misses the anchor target by >= 45 percent relative (the gate failure is convention-level, not geometric)',
+    holds: () =>
+      EXACT_XSTAR_WITNESSES.every(
+        (w) => Math.abs(w.absE97 - ANCHOR_GATE_TARGET) / ANCHOR_GATE_TARGET > 0.45
+      ) &&
+      Math.abs(
+        Math.max(...EXACT_XSTAR_WITNESSES.map((w) => w.absE97)) -
+          IMP95013B_GATE2_LANE_A_REAL_PROBE.anchorGate.closestAtExactXstar
+      ) < 1e-6,
   },
 ];
 

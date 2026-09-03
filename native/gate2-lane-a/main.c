@@ -72,13 +72,23 @@
  *   ./gate2 sweep N NPTS [bb]     (window sweep diagnostic)
  *   ./gate2 scan NSAMP NTHREADS OUT.json [dense_lo dense_hi]
  *
- * STATUS 2026-09-02: BLOCKED-ON-CONVENTION. The mandatory anchor gate
- * |E97|(690988) = 0.2141254901198318 does NOT reproduce under any tested
- * convention/x* combination because the anchor cell's center x* is not
- * transcribed in the paper or any delivered input (see README.md and
- * src/data/imp-95013b-gate2-lane-a-real-probe.js for the full diagnosis).
- * The scan mode hard-refuses to run until the gate passes; set
- * GATE2_ANCHOR_XSTAR_OFFSET = (x* - 6000000185827) once x* is committed.
+ * STATUS 2026-09-02 (rev 2): BLOCKED-ON-CONVENTION, sharpened. The anchor
+ * cell center is RESOLVED: x* = X + sqrt(1 - y0^2)
+ * (~/dbn-lambda-audit-review/WINDOW_FREEZE_THEOREM.md "criterion start";
+ * this binary reproduces its 400-bit certified window margins
+ * x*-x_690988 = 5377393.98785643, x_690989-x* = 11989041.1746638 exactly
+ * under the audit-row parameterization t=129/800, y0^2=87677/2500000).
+ * The mandatory anchor gate |E97|(690988) = 0.2141254901198318 still does
+ * NOT reproduce AT the exact x* under any tested convention combination
+ * and under either row parameterization (best 0.10816, 49 percent off),
+ * so the residual gap is isolated to the E97 evaluation convention of the
+ * paper's [19] replay (strict_sub014_extension_v1 companion archive, not
+ * present on this machine; Spotlight + targeted greps of
+ * ~/dbn-lambda-audit-review, ~/dbn-lambda-sweep-clean, ~/Downloads find
+ * the anchor literal only in the paper PDF and this repo). See README.md
+ * and src/data/imp-95013b-gate2-lane-a-real-probe.js. The scan mode
+ * hard-refuses until the gate passes; GATE2_ANCHOR_XSTAR_OFFSET overrides
+ * the default x* if a corrected center is ever committed.
  *
  * Measurement only. Changes no bound. NO QED.
  */
@@ -228,10 +238,11 @@ static dd T0, YROW, FOURPI, INV4PI, T0_16, T0_4;
 static double T0d, Yd;
 
 static double g_tnum = 24727519.0, g_tden = 200000000.0;
+static double g_y2num = 3272481.0, g_y2den = 100000000.0;  /* y^2 = 0.1809^2 */
 
 static void init_row(void) {
     T0 = dd_div(dd_make(g_tnum, 0.0), dd_make(g_tden, 0.0));
-    YROW = dd_div(dd_make(1809.0, 0.0), dd_make(10000.0, 0.0));
+    YROW = dd_sqrt(dd_div(dd_make(g_y2num, 0.0), dd_make(g_y2den, 0.0)));
     FOURPI = dd_mul_d(DD_PI, 4.0);
     INV4PI = dd_div(dd_make(1.0, 0.0), FOURPI);
     T0_16 = dd_mul_d(T0, 1.0 / 16.0);   /* exact: 1/16 is a power of two */
@@ -781,19 +792,31 @@ static void scan(int nsamp, int nthreads, const char *outpath,
 
     /* MANDATORY ANCHOR GATE: the scan refuses to run unless the anchor
        cell value 0.2141254901198318 is reproduced to <= 1e-9 relative.
-       As of 2026-09-02 the anchor cell's x* is NOT pinned by any delivered
-       input (BLOCKED-ON-CONVENTION); once x* is committed, replace the
-       candidate below and re-run. NO surrogate substitution. */
+       The anchor cell center is x* = X + sqrt(1 - y0^2) (RESOLVED
+       2026-09-02 from ~/dbn-lambda-audit-review/WINDOW_FREEZE_THEOREM.md;
+       this binary reproduces the certified window margins 5377393.9878 /
+       11989041.1746 exactly under the audit-row parameterization).  The
+       gate still FAILS because the E97 evaluation convention of the
+       paper's [19] replay (strict_sub014_extension_v1, not on this
+       machine) is not reproduced by any tested convention combination
+       (BLOCKED-ON-CONVENTION).  NO surrogate substitution. */
     {
         chart_t ch = build_chart(690988UL);
+        dd x;
         const char *xoff = getenv("GATE2_ANCHOR_XSTAR_OFFSET"); /* x* - X */
-        double off = xoff ? atof(xoff) : 1.0;
-        dd x = dd_add_d(dd_make(6000000185827.0, 0.0), off);
+        if (xoff) x = dd_add_d(dd_make(6000000185827.0, 0.0), atof(xoff));
+        else {
+            dd one = dd_make(1.0, 0.0);
+            dd sq = dd_sqrt(dd_sub(one, dd_mul(YROW, YROW)));
+            x = dd_add(dd_make(6000000185827.0, 0.0), sq);   /* X + sqrt(1-y^2) */
+        }
         conv_t cv = locked_conv();
         evalres_t r = eval_E97(&ch, x, cv);
         double rel = fabs(r.absE97 - ANCHOR_TARGET) / ANCHOR_TARGET;
-        fprintf(stderr, "anchor gate |E97|(690988) at x*=X+%g: %.16f "
-                "(target %.16f, rel %.3e)\n", off, r.absE97, ANCHOR_TARGET, rel);
+        fprintf(stderr, "anchor gate |E97|(690988) at x*=X+%.17f: %.16f "
+                "(target %.16f, rel %.3e)\n",
+                dd_to_d(dd_add_d(x, -6000000185827.0)), r.absE97,
+                ANCHOR_TARGET, rel);
         if (rel > 1e-9) {
             fprintf(stderr, "ANCHOR GATE FAILED: BLOCKED-ON-CONVENTION. "
                     "Refusing to scan with an unanchored evaluator.\n");
@@ -918,6 +941,8 @@ static void scan(int nsamp, int nthreads, const char *outpath,
 int main(int argc, char **argv) {
     const char *tenv = getenv("GATE2_T_NUM"), *tden = getenv("GATE2_T_DEN");
     if (tenv && tden) { g_tnum = atof(tenv); g_tden = atof(tden); }
+    const char *ynum = getenv("GATE2_Y2_NUM"), *yden = getenv("GATE2_Y2_DEN");
+    if (ynum && yden) { g_y2num = atof(ynum); g_y2den = atof(yden); }
     init_row();
     if (argc >= 2 && strcmp(argv[1], "selftest") == 0) { selftest(); return 0; }
     if (argc >= 2 && strcmp(argv[1], "anchor") == 0) { anchor_search(); return 0; }

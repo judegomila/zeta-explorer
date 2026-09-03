@@ -13574,6 +13574,23 @@ const DATA_MODULES = [
   // needs the imp-95111 currency bridge). Changes no bound; NO QED;
   // PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95129-odd-mass-dilution-law.js',
+  // imp-95130 (fable-5): THEOREM PX (parity-pure excess witness) - NEGATIVE
+  // resolution of the omega_min branch of imp-95129-subgap-min-odd-mass. An
+  // explicit in-class family (p = 999983, grid points 700000/175000/43750 in
+  // blocks 0/2/4 ALL EVEN, unit amplitudes, one common rate eps) has
+  // omega = 0 identically and E(eps) >= (1/eps)(3 - 378 u1^2 eps^2) > 0 for
+  // all eps < 1/(u1 sqrt(126)) = 0.0624 (unconditional: exact equal-rate
+  // kernel + elementary minorant exp(-x)(1+x) >= 1 - x^2/2). So no uniform
+  // omega_min > 0 over E > 0 MAJ witnesses exists, and "exclude E > 0 in the
+  // parity-pure regime with >= 3 even blocks" is FALSE as stated. Sharpness:
+  // Lemma TP (Gram Cauchy-Schwarz + AM-GM) excludes E > 0 on ANY two packets,
+  // so three blocks is minimal. THEOREM OD untouched; the family is
+  // floor-irrelevant (sup phi 3.37e-29 over its whole E > 0 window - the
+  // legality weight prices the small rate at M ~ eps^(-2s) vs E ~ 1/eps).
+  // Surviving leg named: imp-95130-subgap-phi-conditional-odd-mass
+  // (omega >= omega_min(phi_0) over witnesses with phi >= phi_0). Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95130-parity-pure-excess-refutation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

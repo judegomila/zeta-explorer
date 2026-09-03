@@ -13675,6 +13675,28 @@ const DATA_MODULES = [
   // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95134-sharp-cluster-cap-threshold.js',
+  // imp-95135 (fable-5): THEOREM WE (grid-extremal edge witness) +
+  // COROLLARY RM (family threshold pinned) - NARROWS
+  // imp-95134-subgap-aggregation-threshold-sharpness on the WITNESS side:
+  // certified sharp-threshold sandwich [0.127, 0.4] -> [0.23, 0.4]. The
+  // witness places three packets at the grid-extremal points hugging the
+  // facing edges of blocks 0/2/4 (p = 999983, k = 499992/249995/62498;
+  // adjacent indices leave the blocks), amplitudes (675, 685, 276),
+  // common rate 23/100: mu E >= 4093.236 > 0 certified by N = 19
+  // truncated alternating-series lower bounds (minus an explicit 1e-12
+  // float slack - both truncations are ulp-tight at small z) against the
+  // exact integer diagonal 1001026. COROLLARY RM: for the fixed three
+  // positions with free rates >= r and nonnegative amplitudes, E > 0 iff
+  // F3(r) > 1 (Lemma RC + Perron-Frobenius entrywise monotonicity kill
+  // rate mixing; zero-trace positive-determinant eigen-signature gives
+  // the dichotomy); certified family bracket (23/100, 47/200), float
+  // root 0.23206852813 (measured). Extra blocks measure +2.0e-9 only, so
+  // the surviving slack toward the 0.4 majorant constant (float root
+  // 0.389) is predominantly aggregation-side. In-class caps verified
+  // (max pair ratio 1.53e-13); moves no floor (phi = 1.41e-23); leg
+  // NARROWED not closed; parent imp-95130-subgap-phi-conditional-odd-mass
+  // stays OPEN. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95135-edge-witness-threshold.js',
 ];
 
 let ALL_MODULES = FAST_MODE

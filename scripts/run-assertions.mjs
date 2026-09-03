@@ -13697,6 +13697,31 @@ const DATA_MODULES = [
   // NARROWED not closed; parent imp-95130-subgap-phi-conditional-odd-mass
   // stays OPEN. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95135-edge-witness-threshold.js',
+  // imp-95136 (fable-5): THEOREM SA (spectral cap aggregation, certified
+  // rate threshold 69/250) - NARROWS
+  // imp-95134-subgap-aggregation-threshold-sharpness on the AGGREGATION
+  // side: certified sandwich [0.23, 0.4] -> [0.23, 0.276], and the
+  // AM-GM/row-sum aggregation lever is CLOSED, replaced by its exact
+  // spectral completion. Lemma QF: E = v^T R v - |v|^2 over the Lemma L2
+  // cluster geometry, exact at the Perron vector, so E > 0 over a fixed
+  // geometry iff lamMax(R) > 1 - no aggregation slack survives. Cap
+  // domination: sharp cluster cap (imp-95134) + Perron entrywise
+  // monotonicity (imp-95135) + principal-submatrix interlacing + Lemma OG
+  // (odd gaps exactly twice even gaps, so even parity binds) reduce every
+  // witness to the full even-lattice cap matrix C(mu). Lemma HT head/tail
+  // split (remainder rows <= 444 U552^64 ~ 2e-13) + SYLVESTER certificate:
+  // the four leading principal minors of (1 - 1e-6) I - Chat are positive
+  // (smallest 2.3e-3) with Chat entries (1 + mu D) U552^{D/2},
+  // U552 = 0.5757970638914645 >= exp(-0.552) (N = 20 truncation + 1e-12
+  // slack), so lamMax(C(69/250)) < 1 and all rates >= 69/250 force
+  // E <= 0. Supersedes THEOREM CC (2/5) at the constant level. Float
+  // landmarks measured only: cap-matrix spectral root 0.2753980 (block-
+  // saturated), witness saturation 0.2321 - the surviving slack is
+  // entirely CAP-SIMULTANEITY (new leg imp-95136-subgap-cap-simultaneity:
+  // a middle cluster cannot hug both facing edges at once). Leg NARROWED
+  // not closed; parent imp-95130-subgap-phi-conditional-odd-mass stays
+  // OPEN. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95136-spectral-cap-aggregation-threshold.js',
 ];
 
 let ALL_MODULES = FAST_MODE

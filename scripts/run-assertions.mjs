@@ -13450,6 +13450,21 @@ const DATA_MODULES = [
   // for this witness. Closes imp-95096-subgap-near-currency-ratio. MEASUREMENT
   // only; NO QED; no bound change.
   '/src/data/imp-95111-near-currency-ratio-pricing.js',
+  // imp-95112 (opus-4-8): EXTEND the imp-95096 Lemma JNF joint near/far Pareto
+  // line beta(alpha) from the dominant two-block {0,2} model to the FULL
+  // even-class SDP. Reconstructs the section kernel (lambda_max = BOND +
+  // coupling 1.4858e-11, stable across NB in {4,6,8,12}), and a projected-
+  // gradient solve reproduces the alpha=1 endpoint beta_full(1)=lambda_max M
+  // (rel <1e-8). The objective <11^T - alpha I, G> is affine-decreasing in
+  // alpha for fixed G, so beta(alpha) is CONVEX; combined with the feasible
+  // {0,2} restriction (lower) and the convex chord through the exact endpoints
+  // (upper) it is rigorously sandwiched K(0,2)(2-alpha) <= beta_full(alpha) <=
+  // lambda_max(2-alpha). FINDING: the full section departs from the imp-95096
+  // two-block line by at most coupling(2-alpha) <= 1.4858e-11 (exactly the
+  // coupling at alpha=1, zero at alpha=2), strict monotonicity confirmed. The
+  // exact interior value in the width-1.5e-11 band is the named witness-mass
+  // residual imp-95096-subgap-near-currency-ratio. Measure only; NO QED.
+  '/src/data/imp-95112-full-section-joint-near-far-sdp.js',
   // imp-95113 (opus-4-8): ASSESSMENT of the imp-95008 sub-gap
   // imp-95008-subgap-attainment-occupancy-tradeoff by a joint numerical
   // search over MAJ witness families (attainment A = X_env/capSum, occupancy

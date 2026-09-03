@@ -13591,6 +13591,24 @@ const DATA_MODULES = [
   // (omega >= omega_min(phi_0) over witnesses with phi >= phi_0). Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95130-parity-pure-excess-refutation.js',
+  // imp-95131 (fable-5): THEOREM RT (parity-pure rate threshold) - the first
+  // UNIFORM class statement toward imp-95130-subgap-phi-conditional-odd-mass.
+  // Any one-packet-per-block parity-pure MAJ witness with all rates >= 2/5
+  // has E <= 0; contrapositive, E > 0 forces min rate < 2/5 - promoting the
+  // imp-95130 rate mechanism from one-family measurement to a class bound.
+  // Proof chain, all unconditional: NEW Lemma RC (mixed-rate correlation cap
+  // sqrt(ab) K(a,b,tau) <= exp(-a tau)(1 + a tau) for a <= b, concavity
+  // single-crossing calculus proof) + weighted AM-GM row reduction
+  // (E <= sum w_i (Rbar_i - 1)) + Lemma GS (k-th nearest cross-pair distance
+  // >= 2^{2k-1}, tight at (0,1)/(2,1)) + S(2/5) = 0.98003 < 1 certified by a
+  // rational alternating-series chain (total <= 0.98020). Sharp threshold
+  // sandwiched in [0.127, 0.389] (PX family E > 0 at 0.127; majorant root
+  // bracket). Corollary XP: near pairs (mu tau <= 2) force legality argument
+  // x <= 8 < s = 11, h <= 0.6047, killing the high-block penalty-free
+  // evasion. Named open legs: imp-95131-subgap-multiblock-aggregation and
+  // imp-95131-subgap-rate-to-phi-pricing; parent sub-gap stays OPEN. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95131-parity-pure-rate-threshold.js',
 ];
 
 let ALL_MODULES = FAST_MODE

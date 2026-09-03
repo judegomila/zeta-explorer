@@ -13192,6 +13192,20 @@ const DATA_MODULES = [
   // anchor exists only on the integer-s thetaScan; paper constants unpinned.
   // Measurement only; NO QED.
   '/src/data/imp-95073-far-coefficient-quadrature-cross-check.js',
+  // imp-95097 (opus-4-8): THREE-RULE quadrature agreement at the LOW-THETA EDGE
+  // theta=2, s=3 (the WORST_SCANNED transfer row 0.8924623374689161), where
+  // imp-95073 has no baked closed form and the transfer margin is thinnest.
+  // Midpoint (committed) vs composite Simpson vs corner-aware adaptive Simpson
+  // on the SAME window. FINDING 1: the midpoint bit-reproduces WORST_SCANNED and
+  // agrees with the adaptive reference to 1.0e-7 -- ~28x TIGHTER than the
+  // model-point 2.8e-6, because s=3 has the broadest peaks (imp-95073
+  // error-grows-with-s extrapolated below its integer-s slice). FINDING 2: the
+  // full three-rule spread is 1.07e-5. Both are far below the WORST_SCANNED
+  // margins (the >3 gap below 4 and the corner-guard break separation ~0.0238),
+  // so the below-4 and s>s* verdicts are robust to quadrature error at the edge.
+  // Sub-gap: the exact anchor is indirect (model point only); paper constants
+  // unpinned. Measurement only; NO QED.
+  '/src/data/imp-95097-low-theta-edge-three-rule-quadrature.js',
   // imp-95029 (opus-4-8): ASSESSMENT of the paper phase curvature normalization
   // (openResiduals[2] of the imp-95008 chain, the sibling Theorem D residual)
   // and its effect on the far-bracket ledger. FINDING 1: the normalization
@@ -13299,6 +13313,30 @@ const DATA_MODULES = [
   // recovers at most 0.087 percent; the surviving residual 1.4032 is
   // pinned to the E-realization step (named sub-gap). NO QED.
   '/src/data/imp-95008-perron-weighted-far-routing.js',
+  // imp-95008 continuation twenty-three (E-realization split): executes the
+  // sub-gap imp-95008-subgap-witness-Erealization-split. NEW Lemma ES
+  // (E = X_par + X_env - N, unconditional channel split) and Lemma PB
+  // (parity-balance cap E <= 2 X_env, witness-side dual of the parity AM-GM)
+  // bake the terminal 13-packet headline witness internals for the first time
+  // and decompose the surviving residual EXACTLY:
+  // 1.4032010197013394 = 1/(2 x attainment 0.6014 x occupancy 0.6164 x
+  // parity-balance 0.9612). Parity balance is near-exhausted; per-witness
+  // bound r >= Lw M/(2 X_env) = 1.3487. New sub-gap:
+  // imp-95008-subgap-attainment-occupancy-tradeoff. Floors/ceilings
+  // untouched. NO QED.
+  '/src/data/imp-95008-witness-erealization-split.js',
+  // imp-95096 (opus-4-8): ASSESSMENT of whether the imp-95008 Lemma SW
+  // lambda_max sandwich (Rayleigh <= Lw, width 2.3e-16) is the TERMINAL
+  // aggregation certificate or a joint near/far scheme can certify below
+  // lambda_max. Lemma JNF prices the diagonal jointly and gives the exact
+  // two-block Pareto line beta(alpha) = K(0,2)(2-alpha), whose alpha=1
+  // endpoint reproduces lambda_max; beta strictly decreasing + alpha pinned
+  // at 1 by the Gram-sharp parity factor 2 (imp-95018) => any sub-lambda_max
+  // far constant needs cNear = 2 alpha > 2, OUTSIDE the bracket class. So the
+  // sandwich is terminal WITHIN {cNear<=2}; joint near/far is a real but
+  // out-of-class, un-priced lever (named sub-gap
+  // imp-95096-subgap-near-currency-ratio). Assess only; NO QED.
+  '/src/data/imp-95096-joint-near-far-vs-lambda-max-terminality.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -13749,6 +13749,32 @@ const DATA_MODULES = [
   // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95137-two-sided-tilt-vector-cap.js',
+  // imp-95138 (fable-5): THEOREM DS (mass-split depth cap, certified rate
+  // threshold 123/500) - NARROWS imp-95137-subgap-probe-depth-simultaneity
+  // with the first DEPTH-RESOLVED joint constraints: certified sandwich
+  // [0.23, 0.25] -> [0.23, 0.246]. NEW Lemma DG (termwise depth-resolved
+  // gap-tilt excess X_ij <= mu D exp(-2 mu min(d_i, d_j)) K_ij, equality
+  // at zero depth and rate floor; Lemma GT is the min = 0 case), NEW
+  // Corollary DM (deep-mass tilt cap q <= 1 - (1 - e^{-2 mu sigma})
+  // |B_deep|^2/|B|^2), NEW Lemma MS (mass-split correlation bound: the
+  // sharp imp-95134 cap applied per piece pair at the ENLARGED gaps, with
+  // |B_l|^2 + |B_r|^2 <= |B|^2). Consumed in the Lemma QF frame via a
+  // 4-parameter (alpha, x1, gamma, z2) family with Corollary DM
+  // feasibility; NEW adaptive cell-refinement certificate (per-term
+  // corners, SHIFTED Collatz-Wielandt fixing the power-iteration stall on
+  // zero-diagonal symmetric heads): 686 cells, zero unresolved, head max
+  // 0.9999895190313572 + remainder 8.24e-12 < 1 - 1e-10 through
+  // U246 = 0.7819222249264774 >= exp(-0.246). Supersedes THEOREM VC (1/4)
+  // at the constant level. HONEST ATTRIBUTION: frame root moved only
+  // ~3e-5 (0.24512 -> 0.24509, bracket 1.00015 > 1 > 0.99825 at
+  // 0.245/0.246); the gain is mostly the certificate saturating the frame
+  // root. Surviving slack renamed phantom-near-mass (new leg
+  // imp-95138-subgap-phantom-near-mass; the piece-tilt-seeding rung was
+  // derived and MEASURED to move the root only ~2e-4 - refuted as the
+  // closing lever). Leg NARROWED not closed; parent
+  // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95138-mass-split-depth-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

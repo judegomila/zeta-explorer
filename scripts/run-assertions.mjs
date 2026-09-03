@@ -13331,6 +13331,20 @@ const DATA_MODULES = [
   // Independently reproduces + cross-checks the imp-95008 fixed-97 literals.
   // Measurement/no-go step; changes no bound; NO QED.
   '/src/data/imp-95090-finite-rate-attainment-shortfall.js',
+  // imp-95114 (opus-4-8): FULL APPLIED fixed-97 grid-corner ceiling lever. Where
+  // imp-95090 measured the finite-rate shortfall only at the dominant cell (0,2)
+  // (0.1742) and deep cell (2,2) (0.5262), this assembles the grid-attained
+  // infima V_97(b,j) over ALL 15 non-empty p=97 cells plus empty-block
+  // bookkeeping. C_grid = 3.34266703344263e-5 vs the current envE ceiling
+  // C_env = 4.074591641273443e-5 gives an aggregate applied lever
+  // 1 - C_grid/C_env = 0.17963140168865188 (17.96 pct), which EXCEEDS the
+  // dominant-cell 0.17415257650513827 by 0.005478825183513614 (0.55 pct point):
+  // the dominant cell holds 96.20 pct of the envE mass so the aggregate is pinned
+  // near its shortfall, and the deeper/edge cells (shortfalls 0.11..0.9992) pull
+  // it marginally higher; empty-block bookkeeping is negligible (mass fraction
+  // 1.6e-9). Resolves imp-95090 openResiduals[0]. Cross-checks the imp-95008
+  // envE(0,2) literal. Measurement; changes no bound; NO QED; PT stays SOTA.
+  '/src/data/imp-95114-grid-attained-ceiling-lever.js',
   // imp-95008 continuation twenty-one (fable-5): LEMMA RM-D (domain-refined
   // width-ratio monotonicity) + COROLLARY LT - the nineteenth Lemma RM is
   // only ever invoked on (0, rhoCap(j)], so its guard weakens from

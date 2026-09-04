@@ -13938,6 +13938,36 @@ const DATA_MODULES = [
   // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95145-pair-occupancy-displacement-cap.js',
+  // imp-95146 (fable-5): THEOREM TP (triple-block nested-fold cap, certified
+  // common-rate threshold 47/200 = 0.235): every parity-pure MAJ witness at
+  // ONE COMMON rate >= 0.235 with at most THREE packets in ONE block and at
+  // most one in every other block (any finite same-parity block set, free
+  // positions, nonneg amplitudes) has E <= 0 - the k = 3 rung of
+  // imp-95144-subgap-k-packet-ladder. NEW LEMMA EPN (nested effective-packet
+  // folding: the tripled block folds exactly by two Lemma EP applications,
+  // so the carried 2-packet arc machinery applies at both levels with two
+  // arc axes) + NEW LEMMA OF (folded outer floor, cell-exact - without it
+  // the covers hit the depth cap on two recorded ridges) + NEW LEMMA KC
+  // (cone-restricted Rayleigh sup by feasible-support enumeration - the
+  // k-dimensional cone tool the sub-gap named; equal caps give
+  // sqrt(k/(1+(k-1)G)); cures the recorded k-uniform tail divergence at
+  // fixed k) + rate-resolved 8-D CW covers L0/L1/L2 over tripled positions
+  // x single head positions x EPN arcs x rate in [47/200, 9/10]
+  // (3671/2476992/25586 cells, ZERO unresolved) + LEMMA RM-TP (penalty-free
+  // closure at 9/10, bound 0.8038) + LEMMA OD2 + Lemma TR tails at weight
+  // 18. Combined with THEOREM DW: one-heavy-block subclass threshold
+  // certified inside [2320723/10000000, 47/200). Jointly with THEOREM PO:
+  // any E > 0 witness at a common rate >= 0.235 needs >= 4 packets in one
+  // block OR >= 3 in one and >= 2 in another. ADVERSARIAL RECORD: the
+  // decoupled per-bond KC route REFUTED (1.2245 > 1 at the HS constant
+  // 0.24502 with fine-limit floors - row consistency is the binding
+  // structure); two amplitude parametrizations (box, polar) stall and are
+  // recorded; the 0.234 budget wall matches the PO wall. Class sandwich
+  // [0.2320723, 0.24502] carried UNCHANGED. NEW sub-gap
+  // imp-95146-subgap-mixed-heavy-pair; doubled-cert-gap and free-rate
+  // sub-gaps untouched; parent imp-95130-subgap-phi-conditional-odd-mass
+  // stays OPEN. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95146-triple-block-nested-fold-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

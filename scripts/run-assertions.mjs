@@ -13914,6 +13914,30 @@ const DATA_MODULES = [
   // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95144-doubled-block-displacement-pricing.js',
+  // imp-95145 (fable-5): THEOREM PO (pair-occupancy displacement cap,
+  // certified common-rate threshold 47/200 = 0.235): every parity-pure
+  // MAJ witness at ONE COMMON rate >= 0.235 with at most TWO packets in
+  // EVERY block (ANY number of doubled blocks; any finite same-parity
+  // block set, free positions, nonneg amplitudes) has E <= 0. Carried
+  // LEMMA EP folding per block + NEW LEMMA AY2 (nested subcone cap for
+  // the doubled-doubled bond) + NEW LEMMA MC (arc-restricted merge cap
+  // sqrt((1+s)/(1+sG)) - collapses the coincidence ridge that stalls the
+  // plain nested-AY cover) + rate-resolved 10-D CW cover over six head
+  // positions x three arcs x rate in [47/200, 9/10] (2743216 cells, ZERO
+  // unresolved) + LEMMA RM-PO (penalty-free all-doubled closure at 9/10,
+  // bound 0.9281) + LEMMA OD2 + Lemma TR tails at weight 12. Combined
+  // with THEOREM DW: pair-occupancy subclass threshold certified inside
+  // [2320723/10000000, 47/200). Any E > 0 witness at a common rate
+  // >= 0.235 needs >= 3 packets in one block; the >= 2-doubled-blocks
+  // channel of imp-95144-subgap-k-packet-ladder is CLOSED above 47/200
+  // (certification gap [2901/12500, 47/200) recorded - the 234/1000
+  // cover exhausts its budget; k-uniform inflation REFUTED by tail
+  // divergence). Constant WEAKER than DP - stated plainly. Class
+  // sandwich [0.2320723, 0.24502] carried UNCHANGED. NEW sub-gap
+  // imp-95145-subgap-doubled-cert-gap; free-rate sub-gap untouched;
+  // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95145-pair-occupancy-displacement-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

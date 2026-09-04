@@ -13891,6 +13891,29 @@ const DATA_MODULES = [
   // Parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95143-displacement-witness-certificate.js',
+  // imp-95144 (fable-5): THEOREM DP (doubled-block displacement pricing,
+  // certified common-rate threshold 2901/12500 = 0.23208): every
+  // parity-pure MAJ witness at ONE COMMON rate >= 0.23208 with at most
+  // TWO packets in ONE block and at most one in every other (any finite
+  // same-parity block set, free positions, nonneg amplitudes) has
+  // E <= 0. NEW LEMMA EP (exact effective-packet reduction of the
+  // doubled block) + NEW LEMMA AY (subcone-copositivity arc cap) +
+  // rate-resolved adaptive CW covers over positions x amplitude arc x
+  // rate in [2901/12500, 3/5] (264083/200310/141393 cells, ZERO
+  // unresolved) + LEMMA RM (penalty-free closure at 3/5) + LEMMA OD2
+  // (odd = even at 2mu). Combined with THEOREM DW: the common-rate
+  // one-doubled-block subclass threshold is certified inside
+  // [2320723/10000000, 2901/12500), width 7.7e-6 - the FIRST two-sided
+  // certified pricing of the displacement credit. The class sandwich
+  // [0.2320723, 0.24502] is carried UNCHANGED (THEOREM HS remains the
+  // only full-class ceiling); imp-95140-subgap-displacement-credit stays
+  // OPEN, NARROWED to {free rates} u {k >= 3 in a block} u {>= 2 doubled
+  // blocks} below 0.23208. NEW sub-gaps
+  // imp-95144-subgap-free-rate-displacement and
+  // imp-95144-subgap-k-packet-ladder. Parent
+  // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95144-doubled-block-displacement-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

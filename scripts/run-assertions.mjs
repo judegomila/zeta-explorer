@@ -13844,6 +13844,53 @@ const DATA_MODULES = [
   // imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95141-witness-saturation-certificate.js',
+  // imp-95142 (fable-5): THEOREM FP (free-position block-ladder cap,
+  // certified one-packet-per-block threshold 2901/12500 = 0.23208): every
+  // parity-pure MAJ witness with at most one packet per block - ANY finite
+  // set of same-parity blocks, FREE positions, free rates >= 0.23208,
+  // nonnegative amplitudes - has E <= 0. Proof: carried Lemma RC
+  // (imp-95131) + per-entry position sups + a deterministic 14-cell
+  // one-dimensional Collatz-Wielandt cover of the single torn position
+  // variable u_1 in [4, 8] (worst certified bound 0.9999937103, margin
+  // 6.29e-6, all slacks inside; N = 60 series caps with explicit float
+  // budgets, Lemma EC g(z) <= exp(-z/2) beyond z = 15, analytic tail
+  // Lemma TR + 1e-19 tail-column slack vs EHALF^118 = 2.4e-26); odd
+  // parity by exactly-doubled-gap entrywise domination (Lemma OD).
+  // Subclass threshold certified in [11603/50000, 2901/12500), width
+  // 2e-5 (lower end THEOREM WS lives in this subclass). Supersedes
+  // THEOREM RT (2/5) at the constant level and COROLLARY FR (fixed
+  // positions) at the scope level. STRUCTURAL CONSEQUENCE: the surviving
+  // class ceiling interval [0.23208, 0.24502] is certified
+  // MULTI-PACKET-ONLY - the imp-95140-subgap-displacement-credit leg is
+  // localized to an intra-block aggregation price (was measured-only).
+  // Class sandwich [0.23206, 0.24502] carried unchanged; leg and parent
+  // imp-95130-subgap-phi-conditional-odd-mass stay OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95142-free-position-ladder-threshold.js',
+  // imp-95143 (fable-5): THEOREM DW (displacement-credit witness
+  // certificate, certified class lower end 2320723/10000000 = 0.2320723):
+  // the FIRST MULTI-PACKET witness of the parity-pure chain - 4 packets at
+  // exact dyadic positions (2 - 2^-30, 4, 8 - 2^-30, 16), blocks
+  // (0, 2, 2, 4) with TWO packets in block 2 (one at each facing edge),
+  // integer amplitudes (67604, 68478, 142, 27213), common rate 0.2320723 -
+  // certified E > 0 (mu E >= 1622.26 by sign-correct alternating-series
+  // bounds: five added cross terms lower-bounded N = 19, the single
+  // SUBTRACTED intra-block term upper-bounded N = 20, exact integer
+  // diagonal 10000104833; two independent float routes agree 2.1e-9).
+  // Class sandwich [0.23206, 0.24502] -> [0.2320723, 0.24502]; the
+  // certified floor sits 2.64e-7 ABOVE the measured one-per-block
+  // position-polytope limit 0.2320720364 - the displacement credit is
+  // WITNESS-REALIZED and the multi-packet-never-helps closing route for
+  // imp-95140-subgap-displacement-credit is refuted (leg OPEN, reoriented).
+  // Supersedes THEOREM WS as the class lower end (WS remains the subclass
+  // bracket lower end). Corrects imp-95141 measured color (multi-packet
+  // variants move +3.5e-7, not < 2.1e-9 - that measurement was local to
+  // the WS geometry); certified imp-95141 content untouched. NEW residual
+  // imp-95143-subgap-certified-separation (FP cap-matrix root 0.2320730
+  // sits above the floor - per-entry sups cannot certify the separation).
+  // Parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95143-displacement-witness-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

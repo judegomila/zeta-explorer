@@ -13968,6 +13968,36 @@ const DATA_MODULES = [
   // sub-gaps untouched; parent imp-95130-subgap-phi-conditional-odd-mass
   // stays OPEN. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95146-triple-block-nested-fold-cap.js',
+  // imp-95147 (fable-5): THEOREM QP (quadruple-block nested-fold cap,
+  // certified common-rate threshold 121/500 = 0.242): every parity-pure MAJ
+  // witness at ONE COMMON rate >= 0.242 with at most FOUR packets in ONE
+  // block and at most one in every other block (any finite same-parity block
+  // set, free positions, nonneg amplitudes) has E <= 0 - the k = 4 rung of
+  // imp-95144-subgap-k-packet-ladder, opened STRICTLY below the full-class
+  // HS ceiling 0.24502. LEMMA EPN-3 (triple-nested folding identity, arcs
+  // yO/yM/yI) + carried Lemma OF floors at two levels + carried LEMMA KC at
+  // k = 4 (15 feasible supports) + NEW LEMMA PD (packet-deletion
+  // perturbation bond_k <= bond_{k-1}(renormalized) + w_i r_i/sqrt(1-w_i^2);
+  // closes the degenerate-slice pole ridges) + per-entry corner sups
+  // eliminating the L1 single axes (worst corners consistent for T = 1) +
+  // graded arc split rule + rate-resolved CW covers L0/L1/L2 over
+  // [121/500, 9/10] (9072 / 8482314 / 190776 cells, ZERO unresolved; the L1
+  // cover is ~2 min of the sweep - recorded) + LEMMA RM-QP (0.9281 at 9/10)
+  // + LEMMA OD2 + Lemma TR tails at weight 24. Jointly with THEOREMS PO/TP:
+  // any E > 0 witness at a common rate >= 0.242 needs >= 5 packets in one
+  // block OR >= 3 in one and >= 2 in another. ADVERSARIAL RECORD: the
+  // 47/200 rung REFUTED at feasible budget (L1: 96 unresolved at 6e7 cells;
+  // 69-117 at 1.5e7 at 0.24; certifies at 0.2425/7.2e6); measured frame sup
+  // 0.99435 at 47/200 (wall is budget, NOT the frame - zero-width probes
+  // point-exact); xM reparametrization, split retuning and PD-alone each
+  // refuted as global cures and recorded. Constant WEAKER than TP/PO 0.235
+  // (first rung that moved the constant). Class sandwich
+  // [0.2320723, 0.24502] carried UNCHANGED. NEW sub-gap
+  // imp-95147-subgap-qp-cert-gap; k-ladder narrowed to k >= 5;
+  // mixed-heavy-pair, doubled-cert-gap and free-rate sub-gaps untouched;
+  // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95147-quadruple-block-nested-fold-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

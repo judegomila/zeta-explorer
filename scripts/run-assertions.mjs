@@ -14044,6 +14044,34 @@ const DATA_MODULES = [
   // untouched; class sandwich [0.2320723, 0.24502] carried UNCHANGED.
   // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95149-topheavy-vchart-rate-step.js',
+  // imp-95150 (fable-5): THEOREM VU (position-collapse of the quadruple-
+  // block rung): a parity-pure MAJ witness at one COMMON rate with at most
+  // FOUR packets in ONE block and at most one in every other block has
+  // E <= 0 whenever the quadrupled block is the HIGHEST head position at
+  // mu >= 47/200 = 0.235 (the k <= 3 ladder floor - top-heavy strip
+  // CLOSED, supersedes VT/VP position-2) or the MIDDLE head position at
+  // mu >= 239/1000 = 0.239 (supersedes the QP middle constant 121/500;
+  // the intermediate floor 6/25 = 0.24 also certified). The {exactly 4}
+  // channel survives ONLY as middle in [47/200, 239/1000). NEW
+  // LEMMA PD2 (satellite-floored deletion denominators, sound, never
+  // weaker, battery-attacked 20000 draws) - honest A/B: PD2 measured NIL
+  // at both stall walls (the ridges are not deletion-partner-bound); the
+  // constants were bought by BUDGET. CERTIFICATE CLASS: the two theorem
+  // covers are OFFLINE-lane (deterministic bit-reproducible runner at
+  // scripts/imp-95150-pd2-vchart-offline-cover.mjs; 39005082 cells at
+  // 47/200 top / 37078921 at 239/1000 middle, ZERO unresolved each,
+  // ~590 s + ~540 s - NOT recomputed here); the sweep recomputes the
+  // 59/250 anchor
+  // on the identical code path (6559333 cells, ZERO unresolved, ~96 s,
+  // strictly fewer than the imp-95149 PD2-free 6567724) plus batteries.
+  // ADVERSARIAL RECORD: tail-solve test vector REFUTED (stall cells have
+  // converged Perron value genuinely > 1 - closes the imp-95148 polish-
+  // artifact suspicion); joint-monotone Perron corner cap rejected
+  // pre-implementation; middle wall at 47/200 re-measured at 1.2e8 cells
+  // (59 unresolved, depth 76) - the named ~1e8 v-chart route is spent.
+  // Class sandwich [0.2320723, 0.24502] carried UNCHANGED. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95150-qp-position-unification.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14024,6 +14024,26 @@ const DATA_MODULES = [
   // imp-95148-subgap-qp-middle-heavy. Class sandwich [0.2320723, 0.24502]
   // carried UNCHANGED. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95148-vchart-qp-position-split.js',
+  // imp-95149 (fable-5): THEOREM VT (top-heavy quadruple-block rate step):
+  // a parity-pure MAJ witness at one COMMON rate mu >= 59/250 = 0.236 with
+  // at most FOUR packets in ONE block (the HIGHEST of the three head
+  // positions) and at most one packet in every other block has E <= 0 -
+  // lowers the imp-95148 top-heavy constant 477/2000 = 0.2385 to
+  // 59/250 = 0.236. NO new lemma: the identical imp-95148 L2 hybrid 9-D
+  // v-chart cover run at the lower rate floor (6567724 cells, ZERO
+  // unresolved, depth 70, ~100 s). NARROWS the top-heavy channel of
+  // imp-95147-subgap-qp-cert-gap to [47/200, 59/250) (width 1e-3); jointly
+  // with PO/TP/VP/QP the middle-heavy pin threshold for exactly-4-packet
+  // witnesses drops 0.2385 -> 0.236. ADVERSARIAL RECORD: 471/2000 = 0.2355
+  // stalls (29 unresolved at 1.3e7 cells) - genuine budget wall, not a
+  // believed witness region; middle-heavy L1 wall re-measured (21-51
+  // unresolved at 6e6-8e6 across 0.2405-0.242); LOOKAHEAD SPLITTING
+  // REFUTED (no gain at equal cell budget, ~6.4x eval cost); weight-global
+  // general-Gram cone cap rejected pre-implementation (>= max r_i, cannot
+  // bind where the wall is). Middle-heavy strip [47/200, 121/500)
+  // untouched; class sandwich [0.2320723, 0.24502] carried UNCHANGED.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95149-topheavy-vchart-rate-step.js',
 ];
 
 let ALL_MODULES = FAST_MODE

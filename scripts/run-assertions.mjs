@@ -14072,6 +14072,32 @@ const DATA_MODULES = [
   // Class sandwich [0.2320723, 0.24502] carried UNCHANGED. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95150-qp-position-unification.js',
+  // imp-95151 (fable-5): THEOREM VW (middle-heavy quadruple-block rate
+  // step, certified 59/250 = 0.236): a parity-pure MAJ witness at one
+  // COMMON rate >= 0.236 with at most FOUR packets in ONE block (middle
+  // head position) and at most one elsewhere has E <= 0 - supersedes the
+  // VU middle constant 239/1000; the {exactly 4} channel survives only as
+  // middle in [47/200, 59/250), width 1e-3. Constants bought by BUDGET
+  // on the UNCHANGED imp-95150 runner (234535631 cells at 0.236, ZERO
+  // unresolved, depth 76, ~3372 s, offline lane; intermediates 0.2365 /
+  // 0.237 / 0.238 / 0.2385 also certified). NEW LEMMA JR (joint heavy-row
+  // cap: pointwise
+  // Collatz-Wielandt with a fixed positive vector, heavy row capped as ONE
+  // composite bond functional through the kernel-agnostic fold machinery)
+  // - measured WALL DIAGNOSIS: per-entry caps are SHARP at the stall
+  // cells (ratios 1.0000/1.0000/1.0027) yet entrywise CW > 1 while true
+  // pointwise Perron <= 0.99436 - the wall is JOINT-ATTAINMENT slack; JR
+  // removes most of the excess (1.00302 -> 1.00051) but does NOT flip the
+  // sign (residual conflict is cross-row) and is NET-NEGATIVE as a cover
+  // accelerant (114 vs 62 unresolved at 6e6, ~15x cost) - retained sound,
+  // OFF in production. u-frame >= 1e8 route SPENT (132 unresolved at 1e8,
+  // strip-restricted, QC+PD2); second stall ridge exposed. In-sweep: T=2
+  // anchor at 121/500 with EXACT cell count 552139 (bit-identity with the
+  // imp-95150 runner), JR wall-cell demos, VC battery at 0.236 with JR
+  // row-domination checks, witness battery at the new floor (~20 s).
+  // Class sandwich [0.2320723, 0.24502] carried UNCHANGED. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95151-middle-floor-rate-step.js',
 ];
 
 let ALL_MODULES = FAST_MODE

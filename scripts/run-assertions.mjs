@@ -13998,6 +13998,32 @@ const DATA_MODULES = [
   // parent imp-95130-subgap-phi-conditional-odd-mass stays OPEN. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95147-quadruple-block-nested-fold-cap.js',
+  // imp-95148 (fable-5): THEOREM VP (scale-invariant v-chart position-split
+  // refinement of the quadruple-block rung): a parity-pure MAJ witness at one
+  // COMMON rate with at most FOUR packets in ONE block and at most one in
+  // every other block has E <= 0 whenever (i) the quadrupled block is the
+  // LOWEST occupied head block or a TAIL block and mu >= 47/200 = 0.235 (the
+  // common k <= 3 ladder constant), or (ii) it is the HIGHEST head position
+  // and mu >= 477/2000 = 0.2385; the MIDDLE position carries the imp-95147
+  // constant 121/500 (cited, certified there). NARROWS
+  // imp-95147-subgap-qp-cert-gap to (position 1 in [47/200, 121/500)) union
+  // (position 2 in [47/200, 477/2000)). NEW LEMMA VC (scale-invariant
+  // mu-free v-chart: chart identity v = mu u, feasibility-band pruning,
+  // order-cone clamp, band-coupled pairwise separation floors) - the exact
+  // form of the recorded "joint (mu, arc) cap lemma" route; NEW LEMMA PS
+  // (shifted (M+I) polish, soundness-neutral - plain power iteration
+  // oscillates on the bipartite dominant block, measured CW 9784 vs true
+  // 0.647); NEW LEMMA QC (quotient corner cap keeping satellite denominator
+  // mass). Covers: L0 9-D 1456942 cells / L2 9-D hybrid 1107184 cells, ZERO
+  // unresolved (~40 s combined). ADVERSARIAL RECORD: the 47/200 middle-heavy
+  // wall is CHART-ROBUST (survives exact mu elimination at 3.2e7 cells - the
+  // imp-95147 mu-dominant slack attribution is INCOMPLETE); the v-chart
+  // pinned-corner information loss (sep floor degrades to vlo/2) refutes the
+  // 7-D L1 chart below 0.242; zero-width probes point-exact (0.9745024 vs
+  // 0.9745023, margins 1.4e-2..3.6e-2). NEW sub-gap
+  // imp-95148-subgap-qp-middle-heavy. Class sandwich [0.2320723, 0.24502]
+  // carried UNCHANGED. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95148-vchart-qp-position-split.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14098,6 +14098,21 @@ const DATA_MODULES = [
   // Class sandwich [0.2320723, 0.24502] carried UNCHANGED. Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95151-middle-floor-rate-step.js',
+  // imp-95152 (fable-5): HONEST PARTIAL adversarial record - LEMMA TF
+  // (piecewise test-vector-FIELD fan certificate) is SOUND and flips both
+  // recorded 47/200 stall cells locally (cell A yM S=2, cell B yM S=4)
+  // but is measured NET-NEGATIVE / NIL as a cover accelerant at the wall
+  // (489 / 59 unresolved vs 62 baseline at 6e6); the 0.2355 middle-rung
+  // budget attempt on the UNCHANGED imp-95150 runner STALLS at 4.5e8
+  // cells / 73 unresolved - the measured x1.46-per-5e-4 cell ladder
+  // BREAKS below 0.236 (>= x1.92 with remainder). No constant moves; the
+  // strip [47/200, 59/250) stays open. In-sweep: T=2 anchor at 121/500
+  // EXACT count 552139 (bit-identity with the imp-95150 runner, TF
+  // inert), TF stall-cell demos, TF-on/off deterministic cover pair at
+  // 61/250 (128092 vs 209090 cells, both zero unresolved), VC battery at
+  // 0.2355, witness battery attacking the whole strip at 47/200 (~21 s).
+  // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95152-tf-field-final-strip.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -84651,7 +84651,7 @@ export const IMPROVEMENT_QUEUE = [
     id: 'imp-95018',
     title: 'SDP Gram experiment: is the parity AM-GM factor 2 Gram-sharp?',
     category: 'theory-compute',
-    priority: 'medium',
+    priority: 'critical',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',

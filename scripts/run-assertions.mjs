@@ -14176,6 +14176,26 @@ const DATA_MODULES = [
   // sharpened. In-sweep ~1 s, import-light. Changes no bound; NO QED;
   // PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95155-jet-phantom-certified-cell.js',
+  // imp-95156 (fable-5): RIGOROUS step - POSITIONAL INTERVAL EXTENSION of
+  // the imp-95155 jet-phantom certifier: the certificate now holds over a
+  // CELL of frames (intervals in u0, hL, hR, u2 and mu). LEMMA PS (closed
+  // form: sigma_max of the Gram off-block = exp(-W)(W + sqrt(1+W^2)) =
+  // exp(asinh(W) - W) <= 1, so G4(W) is PSD for EVERY W - the vertex
+  // reduction never rests on numerics), LEMMA IC (interval support cuts:
+  // a-box vertex reduction + sign-majorized Gram interval from closed-form
+  // monotone/unimodal enclosures of g, x exp(-x), (1-x) exp(-x)), LEMMA PM
+  // (entrywise positional matrix majorant), LEMMA NC (nested-cell
+  // monotonicity). MEASURED: zero-width cells reproduce the imp-95155
+  // certified values to 5e-6; positional loss LINEAR ~0.233 lambda per
+  // unit half-width, ~91 percent in the cuts; FIRST certified positional
+  // slab mu in [0.2445, 0.245] x half-width-0.02 positions around the
+  // anchor certifies at 0.9955 (all frames, rates, k, profiles at once);
+  // max certifying half-width 0.0438 at the anchor margin ~1e-2. Closes
+  // item (2) of the imp-95154-subgap-jet-phantom-cover engineering list;
+  // items (1) graft + (3) budget remain - sub-gap stays OPEN. NO cover
+  // run, NO new constant. In-sweep ~1 s, import-light. Changes no bound;
+  // NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95156-jet-phantom-positional-interval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

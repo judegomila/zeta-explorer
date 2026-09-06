@@ -14214,6 +14214,24 @@ const DATA_MODULES = [
   // NO cover run, NO new constant. In-sweep ~1 s, import-light. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95157-jet-phantom-exact-wprofile.js',
+  // imp-95158 (fable-5): RIGOROUS step - FIRST POSITIONAL JET-PHANTOM
+  // COVER (middle-heavy chart). LEMMA HI (hull inclusion: every
+  // nonnegative profile on a sub-hull is a witness-class profile on the
+  // outer hull - one outer-hull certificate covers every hull in a cell,
+  // width-0 diagonal hulls included, no sliver) + LEMMA OP (parity
+  // doubling: the odd frame at rate mu equals the even frame at 2 mu
+  // entrywise, so covering the even chart to 0.49004 imports odd parity).
+  // MEASURED: the in-class chart u0 [1,2] x hull in [4,8] x u2 [16,32] x
+  // mu [floor, 0.49004] closes with ZERO unresolved at floors 0.244 /
+  // 0.241 / 0.2401 / 0.240015 with 14 / 32 / 59 / 90 cells - budget
+  // LOGARITHMIC in the distance to the intrinsic crossing 0.2400105; the
+  // floor 0.240015 sits 4.5e-6 above the wall. Conditional consequence:
+  // the k >= 5 single-heavy MIDDLE channel has E <= 0 for every common
+  // rate >= 0.240015, both parities (carried frame reduction). Remaining:
+  // head/highest charts (same-side jets), mixed-heavy-pair. In-sweep
+  // ~1.5 s, import-light. Changes no bound; NO QED; PT Lambda <= 0.2
+  // stays SOTA.
+  '/src/data/imp-95158-jet-phantom-midheavy-cover.js',
 ];
 
 let ALL_MODULES = FAST_MODE

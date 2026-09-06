@@ -14196,6 +14196,24 @@ const DATA_MODULES = [
   // run, NO new constant. In-sweep ~1 s, import-light. Changes no bound;
   // NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95156-jet-phantom-positional-interval.js',
+  // imp-95157 (fable-5): RIGOROUS step - EXACT W-PROFILE tightening of the
+  // imp-95156 positional certifier + honest repricing of the remaining
+  // lever. LEMMA EW (every W-dependent Gram entry is exp(-W) times an
+  // affine function, so at a fixed a-box vertex the form collapses to
+  // |a|^2 + 2 exp(-W)(alpha + beta W) with ONE stationary point - the
+  // W-sup is EXACT and provably dominates the sign-majorized cut), LEMMA
+  // AS (nested (dl, dr) argument-subdivision covering, sound + monotone).
+  // MEASURED: positional price cut ~5.3 percent uniformly; certifying
+  // half-width 0.04383 -> 0.04628; slab 0.995504 -> 0.995242. FINDING ID:
+  // ~70 percent of the positional price is INTRINSIC (attained corner sup
+  // growth) - ceiling bracket [0.0619, 0.0624] on ANY sound cell
+  // certificate at the anchor (sampled corner sup crosses 1), EW+AS8
+  // already at 74 percent of it: the imp-95156 "tighten the dl-W
+  // coupling" hint is REPRICED, the graft should budget subdivision at
+  // the intrinsic corner-growth scale. Sub-gap stays OPEN (items 1 + 3).
+  // NO cover run, NO new constant. In-sweep ~1 s, import-light. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95157-jet-phantom-exact-wprofile.js',
 ];
 
 let ALL_MODULES = FAST_MODE

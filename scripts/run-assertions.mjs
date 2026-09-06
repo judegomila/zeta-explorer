@@ -14113,6 +14113,30 @@ const DATA_MODULES = [
   // 0.2355, witness battery attacking the whole strip at 47/200 (~21 s).
   // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95152-tf-field-final-strip.js',
+  // imp-95153 (fable-5): RIGOROUS step - THEOREM VX (middle-heavy
+  // quadruple-block ladder-floor step, certified 47/200 = 0.235): the
+  // imp-95152-launched offline cover (UNCHANGED imp-95150 runner,
+  // disposition owed to this run) closed the final strip with ZERO
+  // unresolved (871931041 cells, depth 81, strict worst < 1) - the
+  // {exactly 4 packets in one block} channel of
+  // imp-95147-subgap-qp-cert-gap is CLOSED in every position at the
+  // k <= 3 ladder floor; the joint >= 5-or-(3,2) threshold moves
+  // 0.236 -> 0.235. PLUS LEMMA GA (Gram-cone attainability): at both
+  // recorded 47/200 stall cells the all-caps bond matrix is STRICTLY
+  // INTERIOR to the PSD correlation cone (Cholesky-certified lambdaMin
+  // >= 0.096, head 3x3 minor >= 0.172) - the SDP/Gram certificate class
+  // (imp-95018, bumped critical against this stall) carries ZERO gain at
+  // the ridge; the slack is METRIC, not spectral. PLUS LEMMA JB
+  // (supporting-line joint-bond vertex certificate, sound) with a
+  // measured budget: true joint (b01+b12) sup sits ~3.1 percent below
+  // the certify threshold but the implementable envelope overshoots by
+  // ~1.6x that headroom - refuted as implemented. In-sweep: cap matrices
+  // rebuilt bit-identically at both baked stall cells (CW uppers 1.00377
+  // / 1.00834 with Rayleigh LOWER bounds), PSD interiority, VX literal
+  // consistency, the budget sandwich, 20000-draw seeded batteries with
+  // zero violations (~1 s). Changes no bound; NO QED; PT Lambda <= 0.2
+  // stays SOTA.
+  '/src/data/imp-95153-gram-cone-stall-verdict.js',
 ];
 
 let ALL_MODULES = FAST_MODE

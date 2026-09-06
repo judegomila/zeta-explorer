@@ -14157,6 +14157,25 @@ const DATA_MODULES = [
   // imp-95154-subgap-jet-phantom-cover. In-sweep ~2 s, import-light.
   // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95154-kuniform-hull-jet-reduction.js',
+  // imp-95155 (fable-5): RIGOROUS step - CERTIFIED per-cell bound for the
+  // imp-95154 joint jet phantom. LEMMA SC (RKHS support cuts over the jet
+  // sign cone: v.b <= sqrt((ell+Sm)T G4 (ell+Sm)) for ANY m >= 0, exact
+  // at the optimum by Slater; axis cuts reproduce THEOREM KN to 1e-12),
+  // LEMMA PV (lambda_max convex + entrywise monotone => outer-polygon
+  // vertices certify), LEMMA CH (positive-pivot Cholesky of tI-M
+  // certifies lambda_max < t; replaces the CW upper, which is measurably
+  // loose at off-Perron vertices). MEASURED at the anchored ridge frame:
+  // certified minus sampled <= 1.6e-4 (near-lossless; the imp-95153
+  // envelope-overshoot failure mode does not recur); certified two-hull
+  // corner crossing bracketed at 0.2400105, 4.99e-3 below the class
+  // ceiling 0.24502; at 0.245 the corner certifies at 0.989803 (all k)
+  // vs KN box corner refuted at 1.063195. Close-position frames fail at
+  // k = 1 already => the cover must graft into the imp-95150 offline
+  // subdivision stack. Pointwise frames only - NO cover run, NO new
+  // constant; sub-gap imp-95154-subgap-jet-phantom-cover stays OPEN,
+  // sharpened. In-sweep ~1 s, import-light. Changes no bound; NO QED;
+  // PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95155-jet-phantom-certified-cell.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14137,6 +14137,26 @@ const DATA_MODULES = [
   // zero violations (~1 s). Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95153-gram-cone-stall-verdict.js',
+  // imp-95154 (fable-5): RIGOROUS step - k-uniform hull boundary-jet
+  // reduction for the Matern-3/2 carrier: LEMMA JF (exact factorization
+  // g(d+t) = g(d)g(t) - (d e^-d)(t e^-t)), LEMMA KU (exact 2-jet
+  // projection cap beta(d) = e^-d sqrt(1+2d+2d^2) over REAL profiles),
+  // THEOREM KN (NONNEGATIVE profiles: bond <= g(d) for EVERY packet
+  // count k - the single packet at the nearest hull endpoint dominates),
+  // COROLLARY KN2 (heavy-heavy <= g(gap)), LEMMA DJ (double-jet closed
+  // form). The k >= 5 and mixed-heavy-pair channels of
+  // imp-95144-subgap-k-packet-ladder reduce at cap level to a
+  // k-INDEPENDENT jet-phantom frame - the named (k-1)-sphere /
+  // k-dimensional copositivity obstruction is removed. MEASURED pricing:
+  // per-row phantom refuted (corner lambda 1.087/1.075/1.063 at
+  // 0.235/0.24/0.245); joint jet phantom sampled crossing ~0.2399 below
+  // the class ceiling 0.24502 (headroom for a FIRST k >= 5 floor);
+  // unsigned ellipse fails at 0.245 (signs carry the margin); frame
+  // anchored to the imp-95151 0.99436 wall value and the class floor
+  // 0.2320723 (two recorded landmarks). New sub-gap
+  // imp-95154-subgap-jet-phantom-cover. In-sweep ~2 s, import-light.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95154-kuniform-hull-jet-reduction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

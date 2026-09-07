@@ -14388,6 +14388,31 @@ const DATA_MODULES = [
   // ladder floor all carried UNCHANGED. In-sweep ~0.05 s, import-light.
   // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95167-single-packet-strip-closure.js',
+  // imp-95168 (fable-5): RIGOROUS step - SATELLITE BULGE ARCHITECTURE
+  // FLOOR + SINGLE-DOUBLED-BLOCK STRIP COVER. FINDING SB: an explicit
+  // multi-packet witness (binding corner + minority mass 0.0020642 at the
+  // block-1 right end) has exact hollow block-bond lambda_max =
+  // 1.0000001759857156 > 1 at the strip left endpoint 0.2320723,
+  // Rayleigh-certified - hull spreading INCREASES lambda at the corner,
+  // refuting the imp-95167 successorFrontier mechanism. THEOREM SR
+  // (Perron-interval continuum refutation): lambda_max > 1 at EVERY rate
+  // in [0.2320723, 0.232072389], so NO 5-block hollow-lambda certificate
+  // (the imp-95154..95167 architecture, cut families included) can close
+  // the strip bottom; the satellite family crossing 0.23207238984 sits
+  // 3.5e-7 ABOVE the single-packet intrinsic crossing, INSIDE the strip.
+  // LEMMA TS (exact two-point interval supremum, linear critical
+  // equation) + THEOREM SD (three-channel branch-and-bound at floor
+  // 0.2320727: 99990/52/48 leaves, zero unresolved, worst
+  // 0.9999997999946019 < 1 - 2e-7): every witness with arbitrary
+  // nonnegative profiles in blocks 0/4 (THEOREM SA collapse) and at most
+  // one doubled block among 1..3 has E <= 0 on [0.2320727, 0.23209).
+  // COROLLARY SF: the strip splits refuted 9e-8 / bracket 3.1e-7 /
+  // covered 1.73e-5. lambda > 1 does NOT construct an E > 0 witness;
+  // sandwich, window, strip endpoints, ladder floor all carried
+  // UNCHANGED. In-sweep ~5 s (bulge-channel cover; heaviest module of
+  // the chain, recorded). Changes no bound; NO QED; PT Lambda <= 0.2
+  // stays SOTA.
+  '/src/data/imp-95168-satellite-bulge-architecture-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

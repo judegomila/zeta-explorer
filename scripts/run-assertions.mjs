@@ -14349,6 +14349,24 @@ const DATA_MODULES = [
   // repricing stays OPEN, class constants unchanged. In-sweep ~1 s,
   // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95165-middle-chart-pd-cover.js',
+  // imp-95166 (fable-5): RIGOROUS step - INHERITOR FACTOR-1 REPRICING.
+  // LEMMA RP (the imp-95159/95160/95161 collapse inequalities are exact
+  // aggregate-bond kernel algebra -- THEOREM KN per-packet expansion --
+  // and transport into the imp-95163 factor-1 block-bond architecture:
+  // every middle-chart inheritor (mixed (0,1), surviving frame,
+  // triple-heavy) is dominated entrywise by the imp-95165 positional
+  // majorant with u2-row tails pinned at the chart-max distances 32/224,
+  // THEOREM RW occupancy-blind) + LEMMA CX2 (pinned majorant and cuts are
+  // u2hi-independent: the cover is 1-D in mu) + THEOREM RC (7-cell cover
+  // of [0.23209, 0.240015] x full positional box, zero unresolved, worst
+  // 0.9999811900747058). Item (iii) CLOSED and with it the whole
+  // imp-95163-subgap-pd-positional-cover; the parity-pure common-rate
+  // class unconditional window extends 0.240015 -> 0.23209 and the open
+  // strip contracts to [0.2320723, 0.23209), width 1.77e-5 (~449x).
+  // Full-class sandwich and k <= 4 ladder floor 47/200 carried. In-sweep
+  // ~0.6 s, import-light. Changes no bound; NO QED; PT Lambda <= 0.2
+  // stays SOTA.
+  '/src/data/imp-95166-inheritor-factor1-repricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

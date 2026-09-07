@@ -14252,6 +14252,23 @@ const DATA_MODULES = [
   // In-sweep < 0.5 s, import-light. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95159-jet-phantom-sameside-collapse.js',
+  // imp-95160 (fable-5): RIGOROUS step - MIXED-HEAVY-PAIR SAME-SIDE
+  // REDUCTION. THEOREM SA: the same-side collapse extends through
+  // aggregate-aggregate bonds (<A,B> = sum_j b_j <A, phi(v_j)> <=
+  // <phi(rA), B> ||A|| by THEOREM KN per packet of B), so the left hull
+  // of a mixed pair carries ZERO jet freedom whenever all its external
+  // objects sit on one side; Perron monotonicity transfers lambda_max.
+  // TAXONOMY: 4 of 5 occupancy cases of the two-hull channel reduce
+  // EXACTLY onto the covered charts ((0,1)->middle floor 0.240015,
+  // (0,2) and (1,2)-empty-0 -> highest floor 0.23208, triple-heavy ->
+  // the surviving frame); ONE frame survives: u0 in [1,2] x hullA in
+  // [4,8] x hullB in [16,32], both hulls two-sided. LEMMA SR (sector
+  // S1 <= (W/(1+W)) S0, attained) recorded for the successor. MEASURED:
+  // surviving k=1 wall reproduces the imp-95159 head wall 0.23207204;
+  // per-row split-box REFUTED at the ceiling (Rayleigh 1.0631 > 1 at
+  // 0.24502); sampled two-hull sup < 1 down to 0.2321. In-sweep < 1 s,
+  // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95160-mixed-pair-sameside-reduction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

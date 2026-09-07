@@ -14367,6 +14367,27 @@ const DATA_MODULES = [
   // ~0.6 s, import-light. Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95166-inheritor-factor1-repricing.js',
+  // imp-95167 (fable-5): RIGOROUS step - SINGLE-PACKET STRIP CLOSURE.
+  // LEMMA PM (fixed single-packet geometry: exact block bonds are
+  // g(mu d_ij), strictly decreasing in mu, so the Perron root is strictly
+  // decreasing and one-rate certification extends to all mu above) +
+  // LEMMA UB (positional cell majorant at minimal gaps, EXACT at the
+  // binding corner - zero structural relaxation where the margin
+  // vanishes) + THEOREM SP (626-cell deterministic branch-and-bound over
+  // the full 5-D single-packet box at the class floor 0.2320723, zero
+  // unresolved, worst leaf 0.99999971496354922 < 1 - 2e-7) +
+  // COROLLARY SE (carried aggregation algebra + interlacing + TX +
+  // OP/RW + GA/RW): every parity-pure common-rate MAJ witness with at
+  // most one packet in each of blocks 0..4 has E <= 0 at every common
+  // rate mu >= 0.2320723; the open strip [0.2320723, 0.23209) survives
+  // ONLY for even-parity witnesses occupying block 0 with >= 2 packets in
+  // some block 0..4 (the LEMMA PD multi-packet hull objects). Binding
+  // corner (2,4,16,64,256) crossing 0.2320720385 reproduces the recorded
+  // intrinsic literal 0.2320720394 to 9.4e-10; Rayleigh refutation at
+  // 0.2320715 floors the lambda route. Strip endpoints, window, sandwich,
+  // ladder floor all carried UNCHANGED. In-sweep ~0.05 s, import-light.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95167-single-packet-strip-closure.js',
 ];
 
 let ALL_MODULES = FAST_MODE

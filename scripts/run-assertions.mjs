@@ -14285,6 +14285,22 @@ const DATA_MODULES = [
   // sole remaining sub-gap item). In-sweep ~0.5 s, import-light. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95161-surviving-frame-middle-cover-closure.js',
+  // imp-95162 (fable-5): RIGOROUS step - FRAME-REDUCTION DISCHARGE. Item
+  // (iii) of the jet-phantom sub-gap (the 5-row head/tail majorant
+  // conditionality carried since imp-95155) is discharged: THEOREM RW
+  // (KN2 row-sum cap S(mu), k-uniform high-rate closure at mu >= 0.45),
+  // LEMMA GA (4-adic scaling gauge closes lowest-block >= 1 witnesses),
+  // THEOREM TX (blocks >= 5 with any occupancy absorbed at sqrt(10)
+  // g(512 mu) <= 9.6e-21, below half an ulp at 1, by every certified
+  // float cell bound), THEOREM TO (tail rows 3/4 occupancy-blind, KN
+  // factor-1 vs frame factor-2), THEOREM FD (27-pattern decomposition
+  // onto the recorded charts). The k-uniform window closure [0.240015,
+  // 0.24502] becomes UNCONDITIONAL for the parity-pure common-rate MAJ
+  // witness class, both parities, any block set, any occupancies; the
+  // sub-gap is CLOSED; successor frontier = the strip [0.2320723,
+  // 0.240015) of the middle-position channel. In-sweep ~0.2 s,
+  // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95162-frame-reduction-discharge.js',
 ];
 
 let ALL_MODULES = FAST_MODE

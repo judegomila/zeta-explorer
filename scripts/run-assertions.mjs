@@ -14269,6 +14269,22 @@ const DATA_MODULES = [
   // 0.24502); sampled two-hull sup < 1 down to 0.2321. In-sweep < 1 s,
   // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95160-mixed-pair-sameside-reduction.js',
+  // imp-95161 (fable-5): RIGOROUS step - SURVIVING-FRAME CLOSURE. THEOREM
+  // SB: chart-max tail caps (2 g(32 mu) / 2 g(224 mu), THEOREM KN) make
+  // hull B left-side-only, then the reflected THEOREM SA collapses it onto
+  // its lB unit packet, jointly for the same witness; Perron transfers
+  // lambda_max. LEMMA IM: the collapsed matrix IS the imp-95158
+  // middle-chart frameMatrix at u2 = lB entry for entry (the chart already
+  // carries u2-independent chart-max tail literals, float deviation 0), so
+  // the EXISTING certified cover (floor 0.240015, 90 cells, zero
+  // unresolved, re-run bit-identical in-sweep) closes the last open
+  // mixed-heavy-pair frame family with ZERO new certificates; item (ii) of
+  // the jet-phantom sub-gap CLOSED. Conditional consequence: the full
+  // k >= 5 ladder has E <= 0 on [0.240015, 0.24502], both parities,
+  // conditional on the carried imp-95154 frame reduction (item iii, the
+  // sole remaining sub-gap item). In-sweep ~0.5 s, import-light. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95161-surviving-frame-middle-cover-closure.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14335,6 +14335,20 @@ const DATA_MODULES = [
   // of the sub-gap remain OPEN. In-sweep ~0.5 s, import-light. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95164-pe-positional-interval-cut.js',
+  // imp-95165 (fable-5): RIGOROUS step - FULL MIDDLE-CHART PD POSITIONAL
+  // COVER. LEMMA CX (the LEMMA PI certificate reads the positional cell
+  // only through (u0hi, llo, rhi, u2lo, u2hi); the full chart box corner
+  // (2, 4, 8, 16) IS the anchor, so with corner-adapted projection
+  // coefficients the chart-wide cut family is bit-identical to the
+  // zero-width anchor family and the 5-D positional cover collapses to a
+  // 2-D (mu x u2) cover) + THEOREM MC (9-cell adaptive cover of
+  // [0.232086, 0.240015] x u2 [16, 32], zero unresolved, worst
+  // 0.99998710570025984, every vertex Cholesky-certified). Item (ii) of
+  // imp-95163-subgap-pd-positional-cover CLOSED at a chart-wide floor
+  // EQUAL to the pointwise record 0.232086; item (iii) inheritor
+  // repricing stays OPEN, class constants unchanged. In-sweep ~1 s,
+  // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95165-middle-chart-pd-cover.js',
 ];
 
 let ALL_MODULES = FAST_MODE

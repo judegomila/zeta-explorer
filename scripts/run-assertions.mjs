@@ -14413,6 +14413,28 @@ const DATA_MODULES = [
   // the chain, recorded). Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95168-satellite-bulge-architecture-floor.js',
+  // imp-95169 (fable-5): RIGOROUS step - COPOSITIVE WELD DISSOLUTION.
+  // LEMMA WD: for any packet positions, the sup over ALL nonnegative
+  // block mass profiles of the exact hollow block-bond lambda_max is < 1
+  // exactly when H = 2 blockdiag(G_b) - G_full is strictly copositive -
+  // the mass ratios are eliminated EXACTLY (identity battery ~1e-15,
+  // quantitative transfer lambda <= 1 - simplexMin verified), so the
+  // imp-95168 cross-entry ratio decoupling wall dissolves (12-D -> 9-D).
+  // THEOREM WP: the convex relaxation (operator inequality G <= 2D) is
+  // FALSE at the binding two-point corner at EVERY rate in the strip
+  // (one-interval certificate, margin 3.09e-4, jet-signature vector):
+  // the dissolved certificate must be genuinely copositive. FINDING CG:
+  // the copositive sign flip at the corner reproduces the recorded
+  // satellite-family crossing 0.23207238984 to 11 digits by an
+  // independent algorithm (KKT support enumeration); measured copositive
+  // floor +2.2777e-7 at the SD floor 0.2320727. FINDING CT: the
+  // certified 9-D interval cover is unterminated at 2.86M cells offline
+  // - the wall relocates to near-merge positional inconsistency (exact
+  // pocket min +2.58e-2 vs covering cell bound -1.10e-3, demonstrated
+  // in-module). Closes no sub-band; sandwich, window, strip endpoints,
+  // ladder floor all carried UNCHANGED. In-sweep ~1.2 s, import-light.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95169-copositive-weld-dissolution.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14232,6 +14232,26 @@ const DATA_MODULES = [
   // ~1.5 s, import-light. Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95158-jet-phantom-midheavy-cover.js',
+  // imp-95159 (fable-5): RIGOROUS step - SAME-SIDE JET COLLAPSE + head/
+  // highest chart covers. LEMMA QD (the same-endpoint 2x2 blocks of the
+  // closed-form jet Gram G4(W) are exactly the identity, so the
+  // same-endpoint jet pair lives in the unit quarter-disk for every W
+  // and k) + LEMMA SS (all external points on one side => every nonneg
+  // direction has support value sum v_j g(d_j), attained at the jet
+  // (1, 0) of the single packet at the near endpoint: the phantom is the
+  // KN box WITH the corner attained - zero same-side jet freedom, the
+  // "same-side two-point jet certifier" the sub-gap named is
+  // unnecessary). MEASURED: jet-free covers close with ZERO unresolved
+  // down to floor 0.23208 (head 60 cells, highest 65), 7.7e-6 above the
+  // class-sandwich floor 0.2320723, which the two chart walls
+  // (0.23207204 / 0.23207592) bracket. With imp-95158: the k >= 5
+  // single-heavy channel closes at ALL THREE positions for mu >=
+  // 0.240015, both parities (conditional on the carried frame
+  // reduction); the middle position is the sole binding one. Remaining:
+  // mixed-heavy-pair (LEMMA DJ) + frame-reduction conditionality.
+  // In-sweep < 0.5 s, import-light. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95159-jet-phantom-sameside-collapse.js',
 ];
 
 let ALL_MODULES = FAST_MODE

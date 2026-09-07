@@ -14319,6 +14319,22 @@ const DATA_MODULES = [
   // sub-gap imp-95163-subgap-pd-positional-cover named. In-sweep ~0.4 s,
   // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95163-endpoint-pair-support-certificate.js',
+  // imp-95164 (fable-5): RIGOROUS step - POSITIONAL INTERVAL EXTENSION of
+  // the endpoint-pair support-function certificate; item (i) of
+  // imp-95163-subgap-pd-positional-cover CLOSED. LEMMA PI (three
+  // closed-form monotonicities in (mu, u0, l, r, u2) turn one verified
+  // grid+Lipschitz ratio into a cut valid for every geometry in a cell,
+  // every k, every nonnegative hull profile; zero width reproduces the
+  // PC ladder ~1.67e-4 TIGHTER), LEMMA PN (positional frame majorant,
+  // Perron entrywise monotonicity), THEOREM PW (first positional
+  // certificates below the old jet wall 0.2400105: 10-tile rate band
+  // [0.235, 0.240] x half-width 0.02, landmark cells down to rate
+  // 0.232149 -- 7.7e-5 above the intrinsic anchor crossing). Adversarial
+  // record: the imp-95156 LEMMA NC nesting does NOT transport (norm term
+  // moves both ways); width bracket is measured only. Items (ii)/(iii)
+  // of the sub-gap remain OPEN. In-sweep ~0.5 s, import-light. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95164-pe-positional-interval-cut.js',
 ];
 
 let ALL_MODULES = FAST_MODE

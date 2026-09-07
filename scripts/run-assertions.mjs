@@ -14301,6 +14301,24 @@ const DATA_MODULES = [
   // 0.240015) of the middle-position channel. In-sweep ~0.2 s,
   // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95162-frame-reduction-discharge.js',
+  // imp-95163 (fable-5): RIGOROUS step - ENDPOINT-PAIR SUPPORT-FUNCTION
+  // CERTIFICATE, the different architecture the imp-95162 successor
+  // frontier named for the open strip [0.2320723, 0.240015). LEMMA PD
+  // (pointwise dual majorant: nonnegative amplitudes + reproducing
+  // property + Cauchy-Schwarz turn a verified 1-D kernel-function
+  // domination into a k-uniform aggregate bond cut), LEMMA PE
+  // (closed-form two-endpoint projection, EXACTLY attained by its own
+  // endpoint-pair profile: each verified cut is the exact support
+  // function of the attainable bond region), THEOREM PC (anchor-corner
+  // rate ladder certifying across the whole strip, down to 0.232086 --
+  // 7.9e-3 below the jet-phantom wall 0.2400105, 1.4e-5 above the
+  // intrinsic k=1 crossing 0.2320720394 which reproduces the imp-95159
+  // head-wall literal). Also FINDING RA: exact-witness ascent collapses
+  // to k=1, so the sampled jet crossing 0.2399 is relaxation slack, not
+  // a witness. Pointwise at the anchor; no floor moves; successor
+  // sub-gap imp-95163-subgap-pd-positional-cover named. In-sweep ~0.4 s,
+  // import-light. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95163-endpoint-pair-support-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

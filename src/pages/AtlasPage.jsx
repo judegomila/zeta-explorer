@@ -115,95 +115,82 @@ export default function AtlasPage() {
           program engages each line, see the <Link to="/state-of-field">state of the field</Link>.
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginTop: 26 }} className="ed-atlas-grid">
-          {AREAS.map((area) => {
-            const rows = clusters[area.key] || [];
-            return (
-              <section
-                key={area.key}
-                style={{
-                  border: '1px solid var(--hairline)',
-                  borderRadius: 10,
-                  background: 'var(--paper2)',
-                  padding: '18px 20px 16px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                <div style={{ marginBottom: 12, borderRadius: 8, overflow: 'hidden', border: '1px solid var(--hairline)', background: 'var(--paper)' }}>
-                  <WireframeAnim kind={area.wireframe} />
-                </div>
-                <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', gap: 10 }}>
-                  <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 20, margin: 0, color: 'var(--ink)' }}>
-                    {area.title}
-                  </h2>
-                  <span className="ed-mono" style={{ fontSize: 12, color: 'var(--faint)', whiteSpace: 'nowrap' }}>
-                    {rows.length} routes
-                  </span>
-                </div>
-
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 10 }}>
+        {AREAS.map((area, ai) => {
+          const rows = [...(clusters[area.key] || [])];
+          const order = ['RIGOROUS-SOTA', 'RH-EQUIVALENT', 'OPEN-HARD', 'CONDITIONAL', 'ESTIMATE', 'UNDER-EXPLORED', 'DEAD-END-FORNOW', 'REFUTED'];
+          rows.sort((a, b) => (order.indexOf(a.status) - order.indexOf(b.status)) || ((b.opp || 0) - (a.opp || 0)));
+          return (
+            <section
+              key={area.key}
+              style={{
+                borderTop: ai === 0 ? 'none' : '1px solid var(--hairline)',
+                margin: ai === 0 ? '30px 0 0' : '26px 0 0',
+                paddingTop: ai === 0 ? 0 : 26,
+              }}
+            >
+              {/* header row */}
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, flexWrap: 'wrap' }}>
+                <span className="ed-mono" style={{ fontSize: 13, color: 'var(--faint)' }}>{String(ai + 1).padStart(2, '0')}</span>
+                <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: 0, color: 'var(--ink)' }}>
+                  {area.title}
+                </h2>
+                <span className="ed-mono" style={{ fontSize: 12, color: 'var(--faint)' }}>{rows.length} routes</span>
+                <span style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {statusCounts(rows).map(({ status, n }) => (
-                    <span
-                      key={status}
-                      className="ed-mono"
-                      style={{
-                        fontSize: 10.5,
-                        fontWeight: 600,
-                        letterSpacing: 0.3,
-                        color: STATUS_COLOR[status] || 'var(--ink-soft)',
-                        border: `1px solid ${STATUS_COLOR[status] || 'var(--hairline)'}`,
-                        borderRadius: 4,
-                        padding: '1px 6px',
-                      }}
-                    >
+                    <span key={status} className="ed-mono" style={{ fontSize: 10, fontWeight: 600, letterSpacing: 0.3, color: STATUS_COLOR[status] || 'var(--ink-soft)', border: `1px solid ${STATUS_COLOR[status] || 'var(--hairline)'}`, borderRadius: 4, padding: '1px 6px' }}>
                       {n}× {status}
                     </span>
                   ))}
-                </div>
+                </span>
+              </div>
 
-                <p style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.55, margin: '12px 0 14px' }}>
-                  {area.blurb}
-                </p>
-
-                <div style={{ marginTop: 'auto' }}>
-                  <div className="ed-lbl" style={{ marginBottom: 6 }}>enter</div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 14px' }}>
+              <div className="ed-atlas-breakout" style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: 22, marginTop: 14 }}>
+                {/* left: wireframe + blurb + doors */}
+                <div>
+                  <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid var(--hairline)', background: 'var(--paper)' }}>
+                    <WireframeAnim kind={area.wireframe} />
+                  </div>
+                  <p style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5, margin: '10px 0 10px' }}>
+                    {area.blurb}
+                  </p>
+                  <div className="ed-lbl" style={{ marginBottom: 5 }}>enter</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
                     {area.entryPoints.map((ep) => (
-                      <Link key={ep.to} to={ep.to} style={{ fontSize: 13.5, fontWeight: 600 }}>
+                      <Link key={ep.to} to={ep.to} style={{ fontSize: 13, fontWeight: 600 }}>
                         {ep.label} →
                       </Link>
                     ))}
                   </div>
                 </div>
-              </section>
-            );
-          })}
 
-          {/* The wall map card — the dense route-by-route table under this atlas. */}
-          <Link
-            to="/route-map"
-            style={{
-              border: '1px dashed var(--hairline)',
-              borderRadius: 10,
-              background: 'transparent',
-              padding: '18px 20px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'flex-start',
-              gap: 6,
-            }}
-          >
-            <div className="ed-lbl">all of it</div>
-            <div style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 20, color: 'var(--ink)' }}>
-              The wall map →
-            </div>
-            <div style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
-              All {FULL_ROUTE_MAP.totalRoutes} routes across the six areas, each classified by status and
-              where exactly it splits.
-            </div>
+                {/* right: the full route breakout */}
+                <div style={{ display: 'grid', gap: 0, alignContent: 'start' }}>
+                  {rows.map((r) => (
+                    <div key={r.name} style={{ display: 'grid', gridTemplateColumns: '150px 1fr', gap: 12, padding: '8px 0', borderBottom: '1px solid var(--hair2)', alignItems: 'baseline' }}>
+                      <span className="ed-mono" style={{ fontSize: 10, fontWeight: 700, letterSpacing: 0.3, color: STATUS_COLOR[r.status] || 'var(--ink-soft)', whiteSpace: 'nowrap' }}>
+                        ● {r.status}
+                      </span>
+                      <div style={{ fontSize: 13.5, lineHeight: 1.5 }}>
+                        <strong style={{ color: 'var(--ink)' }}>{r.name}</strong>
+                        {r.note && <span style={{ color: 'var(--ink-soft)' }}> — {r.note}</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          );
+        })}
+
+        {/* the dense table below all sections */}
+        <div style={{ marginTop: 30, paddingTop: 18, borderTop: '1px solid var(--hairline)', fontSize: 14 }}>
+          <Link to="/route-map" style={{ fontWeight: 600 }}>
+            The wall map → all {FULL_ROUTE_MAP.totalRoutes} routes as the dense table (split points, sub-gaps, provenance)
           </Link>
+          <span style={{ color: 'var(--faint)' }}> · </span>
+          <Link to="/no-gos">No-go index →</Link>
+          <span style={{ color: 'var(--faint)' }}> · </span>
+          <Link to="/state-of-field">State of the field →</Link>
         </div>
       </div>
     </div>

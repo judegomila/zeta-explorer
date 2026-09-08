@@ -7,6 +7,7 @@ import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 
 // The real interactive explorers, lazy-loaded so the landing stays light.
 const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
+const ZetaStripLive = lazy(() => import('../components/ZetaStripLive.jsx'));
 const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
 
 /* Battle-station front page — full-width cockpit, editorial (warm) theme,
@@ -115,6 +116,17 @@ export default function HomePageEditorial() {
             <p>Shrink the shift a→0 and the strip closes to the line. E_a = A_a − iB_a = Ξ(z+ia), verified.</p>
             <Link to="/shift-bridge-positivity">/shift-bridge-positivity →</Link></div>
         </div>
+      </section></div>
+
+      {/* zeta itself, live — the lead demo: the actual object of study */}
+      <div className="ed-full"><section className="ed-sec">
+        <div className="ed-shead"><div><div className="ed-lbl">interactive</div><h2>ζ itself, live</h2></div>
+          <p>The zeta function over the critical strip — hue is phase, the rainbow vortices are the first
+          nontrivial zeros, and the twin-ladder interferometer breathes across the σ ↔ 1−σ mirror. For the
+          full 3D geometry, open the <Link to="/viz-twistor-dual-intertwiner">twistor–dual–intertwiner explorer</Link>.</p></div>
+        <Suspense fallback={<div className="ed-mono" style={{ color: 'var(--faint)', padding: '40px 0' }}>Computing ζ…</div>}>
+          <ZetaStripLive height={430} />
+        </Suspense>
       </section></div>
 
       {/* interactive twin-ladder explorer */}

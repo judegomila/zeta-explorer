@@ -14435,6 +14435,26 @@ const DATA_MODULES = [
   // ladder floor all carried UNCHANGED. In-sweep ~1.2 s, import-light.
   // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95169-copositive-weld-dissolution.js',
+  // imp-95170 (fable-5): RIGOROUS step - MERGE-CONSISTENT COPOSITIVE
+  // COVER: the FULL two-point class is CLOSED on the covered band
+  // [0.2320727, 0.23209). LEMMA MC: (u, s) parametrization of each
+  // doubled middle block couples the within-block Gram entry g(mu s) and
+  // the far-packet cross damping g(mu (d + s)) in one consistent cell
+  // enclosure - the imp-95169 near-merge positional inconsistency wall
+  // dissolves. LEMMA FB: certified convex-face simplex lower bound
+  // (NNLS-refined Frank-Wolfe gap on Cholesky-passing faces, rigorous
+  // skip otherwise; reproduces the recorded corner literal to 1e-12;
+  // ill-conditioning can only loosen, never overcertify). THEOREM MC
+  // (re-run in-sweep every build): the 7-D branch-and-bound over rate x
+  // (u, s) boxes - arbitrary block-0/4 occupancy via THEOREM SA +
+  // endpoint monotonicity, at most two packets per middle block, any
+  // doubling pattern - TERMINATES: ~55,398 cells, zero unresolved, worst
+  // certified min 2.118e-8 >= 2e-8, ~1.2 s (imp-95169 recorded 2.86M
+  // cells unterminated). Burden on the band contracts to >= 3 packets in
+  // some middle block. Closes no sub-band of the open strip; sandwich,
+  // window, strip endpoints, floors all carried UNCHANGED. In-sweep
+  // ~2.5 s, import-light. Changes no bound; NO QED; PT stays SOTA.
+  '/src/data/imp-95170-merge-consistent-copositive-cover.js',
 ];
 
 let ALL_MODULES = FAST_MODE

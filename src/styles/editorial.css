@@ -70,6 +70,12 @@
 .ed-search kbd{ font-family:var(--ed-mono); font-size:10px; background:var(--paper3); border:1px solid var(--hairline); border-radius:4px; padding:1px 5px; color:var(--faint); }
 .ed-ddpanel a{ font-family:var(--ed-body); font-size:14px; color:var(--ink); padding:6px 10px; border-radius:6px; line-height:1.35; }
 .ed-ddpanel a:hover{ background:var(--paper2); text-decoration:none; color:var(--terra-dk); }
+/* mid-width compression: keep the one-line bar from colliding before the burger */
+@media (max-width: 1360px){
+  .ed-headnav{ gap:11px; }
+  .ed-ddbtn, .ed-headnav{ font-size:11px; }
+  .ed-headbar{ gap:12px; }
+}
 .ed-tick{ font-family:var(--ed-mono); font-size:12px; color:var(--ink-soft); display:flex; gap:8px; align-items:center; }
 .ed-pulse{ width:7px; height:7px; border-radius:50%; background:var(--green); animation:ed-p 2s infinite; }
 @keyframes ed-p{ 0%{box-shadow:0 0 0 0 rgba(76,122,74,.5)} 70%{box-shadow:0 0 0 6px rgba(76,122,74,0)} }

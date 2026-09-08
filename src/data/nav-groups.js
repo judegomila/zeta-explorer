@@ -35,7 +35,7 @@ export const NAV_GROUPS = [
     ],
   },
   {
-    label: 'Gomila Twin-Ladder Program (§15–27)',
+    label: 'Twin-Ladder Program (§15–27)',
     items: [
       { to: '/permutation-architecture', label: 'Permutation Architecture & Freeze Calculus' },
       { to: '/shift-bridge-positivity', label: 'Shift-Bridge (§15)' },

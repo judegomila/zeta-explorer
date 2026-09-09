@@ -14639,6 +14639,31 @@ const DATA_MODULES = [
   // (envelope port + inter-shell lacunarity + paper constants). Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95214-arithmetic-separation-pricing.js',
+  // imp-95215 (fable-5): RIGOROUS step - the Szasz completeness boundary:
+  // the inter-shell lacunarity obligation (iii) of the open sub-gap
+  // imp-95212-subgap-fresnel-airy-envelope-port (recorded by imp-95214 as
+  // "NOT supplied by the grid") is upgraded to a PROVED NECESSITY.
+  // THEOREM SZ: for any rate family with divergent Szasz sum
+  // sum mu/(1+mu^2), the TRUE cross-seam ratio Lam_M(d) climbs to 1 at
+  // every collar depth (L2 Muntz-Szasz completeness transported unitarily
+  // to the half-line exponential span), and admissible common-center
+  // packet configurations reach wrong-side fraction 1/2 - eta: the H-LOC
+  // gate fails in the limit - the LEMMA NG 1/2 ceiling reached by a
+  // second, independent mechanism (divergence with distinct separated
+  // rates, not coalescence). COROLLARY AP: infinite arithmetic
+  // progressions are divergent - the "drop (iii), price the whole
+  // additive family" continuation is DEAD at the level of truth.
+  // COROLLARY PB: the full prime-reciprocal alias family is divergent
+  // (Euler) - the envelope port owes a Szasz-summability certificate.
+  // LEMMA CV: chain hypotheses give S <= 2K/m (convergent side; no
+  // contradiction); HONEST NON-KILL: ascending touching shells survive.
+  // LEMMA BX/PROP T: exact-AP Gamma-form row products, strictly
+  // increasing thresholds, explicit factorial cap, configuration-specific
+  // single-shell thresholds 35 percent below the AG cap. Instantiated
+  // climb at x = 3 > xStar: lacunary capped 0.2234 vs additive family
+  // 0.0025 -> 0.744 (M = 8) -> 0.9999976 (M = 24). Sub-gap carried OPEN.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95215-szasz-boundary-lacunarity-necessity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

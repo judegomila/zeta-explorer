@@ -1,0 +1,22 @@
+# Per-shard L12 minima — frozen audit sweep (all 15 certificate shards, 3,149,013 rows)
+# Extracted 2026-09-09 from judegomila/dbn-lambda-01787854-candidate-audit certificates/ (sealed, SHA256SUMS-attested), origin/main a74738de
+# Row format in shards: 'N <n> L12 <value> GT089 <flag>'; TBOX 161250000/10^9..161250001/10^9, WEIGHT TRIANGLE.
+# Minima are per-shard argmin over stored L12 values; every shard minimum sits at its left edge (monotone-increasing floors within shards).
+# GLOBAL: min L12 = 0.000000791366 at N=690988 (= the published T_min).
+# Cross-check: the four per-family minima below match logs/finite_and_binding.log exactly (0.000000791366@690988, 0.000315112459@729000, 0.000305788807@819000, 0.000309285478@1028000).
+
+p23_1028000_1030000.log.gz       rows_min_L12=0.000309285478 at N=1028000
+p23_1030001_1050000.log.gz       rows_min_L12=0.000889356157 at N=1030001
+p23_1050001_1100000.log.gz       rows_min_L12=0.006602095978 at N=1050001
+p23_1100001_1300000.log.gz       rows_min_L12=0.020238110009 at N=1100001
+p23_1300001_1700000.log.gz       rows_min_L12=0.067117380094 at N=1300001
+p23_1700001_2200000.log.gz       rows_min_L12=0.135884893359 at N=1700001
+p23_2200001_2800000.log.gz       rows_min_L12=0.194954190481 at N=2200001
+p23_2800001_3300000.log.gz       rows_min_L12=0.244508896569 at N=2800001
+p23_3300001_3840000.log.gz       rows_min_L12=0.275369757891 at N=3300001
+p235_819000_1027999.log.gz       rows_min_L12=0.000305788807 at N=819000
+p2357_729000_818999.log.gz       rows_min_L12=0.000315112459 at N=729000
+p235711_690988_690995.log.gz     rows_min_L12=0.000000791366 at N=690988
+p235711_690996_691500.log.gz     rows_min_L12=0.000004185565 at N=690996
+p235711_691501_697000.log.gz     rows_min_L12=0.000214840069 at N=691501
+p235711_697001_728999.log.gz     rows_min_L12=0.002498055377 at N=697001

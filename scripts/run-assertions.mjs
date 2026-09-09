@@ -14578,6 +14578,26 @@ const DATA_MODULES = [
   // THEOREM SL plus the named H-DYA. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95211-dyadic-rate-localization.js',
+  // imp-95212 (fable-5): RIGOROUS step - multiplicity-priced shift damping:
+  // the explicitly recorded alternative branch of
+  // imp-95211-subgap-paper-packet-dyadic-constants (price finite per-shell
+  // rate multiplicity via the same beta products) is developed in closed
+  // form. H-DYA-M relaxes H-DYA to at most K distinct rates per shell at
+  // in-shell pairwise ratio >= rho > 1 (K = 1 recovers H-DYA exactly).
+  // THEOREM DR-M: the n-shell-uniform cross-seam bound survives as
+  // sqrt(LamBarM) = A_in K C_inf^K sum P_{b-1}^K e^(-2^(b-1) x) with the
+  // single new factor A_in = ((rho+1)/(rho-1))^(K-1). THEOREM HL-M: H-LOC
+  // follows for m d > xStarM(K, rho) (6.8802/6.3754/9.9765 at
+  // (2,1.5)/(2,2)/(3,2)), instantiating gammaSL = 0.5996/0.5019/0.5000 at
+  // (2, 1.5), m d = 8/10/12. COROLLARY CP: xStarM <= xStar + ln K +
+  // (2K-2) ln C_inf + (K-1) ln((rho+1)/(rho-1)) - the coalescence price is
+  // logarithmic in 1/(rho-1), exact at K = 1, divergent as rho -> 1 (the
+  // LEMMA NG boundary quantified). Paper-packet constants STILL NOT
+  // extracted; Fresnel-Airy envelope port open - successor sub-gap
+  // imp-95212-subgap-fresnel-airy-envelope-port. Conditional exactly as
+  // THEOREM SL plus the named H-DYA-M. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95212-multiplicity-priced-shift-damping.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -262,7 +262,7 @@ export default function PaperPage() {
             <StatusRow
               label="candidate"
               value="Λ ≤ 0.1787854"
-              status={`${candidate.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail reports ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} gates per precision. Computer-assisted candidate for an unconditional proof; reviewed by Dan Romik, being prepared for public release; unrefereed; bound not established; not RH.`}
+              status={`${candidate.finiteEvidence.rowCount.toLocaleString()} freshly replayed finite rows; corrected tail reports ${candidate.tailEvidence.checksPassed}/${candidate.tailEvidence.checksTotal} gates per precision. Computer-assisted candidate for an unconditional proof; reviewed by Dan Romik, publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); unrefereed; bound not established; not RH.`}
               color="var(--blue)"
             />
             <StatusRow

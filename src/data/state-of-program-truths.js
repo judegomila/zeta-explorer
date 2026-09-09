@@ -54,7 +54,7 @@ export const STATE_OF_PROGRAM_TRUTHS = [
       'Standalone tag review-01787854-v3 at commit 2e9976c4becbf97e31c56fe75fce07cdff5dd4ea packages claimed certificates for a compact slab, a final-time zero-free half-strip, ' +
       'a fresh replay of all 3,149,013 finite rows, corrected 10.50 finite and tail error bounds, and an exact Polymath ' +
       'criterion weld. These ingredients form a computer-assisted candidate for an unconditional proof. It has been ' +
-      'reviewed by Dan Romik and is being prepared for public release. The bound is not established and has not been peer ' +
+      'reviewed by Dan Romik and is publicly posted (judegomila.com/posts/riemann-lambda-0.1787854). The bound is not established and has not been peer ' +
       'reviewed — an individual review is not refereeing. It is not a proof of RH, which requires Λ ≤ 0.',
   },
   {

@@ -34,11 +34,11 @@ const VARIANTS = {
   },
   'PROOF-CANDIDATE': {
     color: '#3f6b86',
-    title: 'Candidate: Λ ≤ 0.1787854 — reviewed by Dan Romik, being prepared for public release',
+    title: 'Candidate: Λ ≤ 0.1787854 — reviewed by Dan Romik, publicly posted (judegomila.com/posts/riemann-lambda-0.1787854)',
     body:
       'The package presents a computer-assisted candidate for an unconditional proof using a compact slab, a ' +
       'final-time zero-free half-strip, a fresh 3,149,013-row material replay, corrected 10.50 error bounds, and ' +
-      'an exact Polymath criterion weld. It has been reviewed by Dan Romik and is being prepared for public release; ' +
+      'an exact Polymath criterion weld. It has been reviewed by Dan Romik and is publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); ' +
       'it is not yet a peer-reviewed publication and is not itself RH — RH still requires Λ ≤ 0.',
   },
   ESTIMATE: {

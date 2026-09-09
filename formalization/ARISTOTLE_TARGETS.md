@@ -144,3 +144,19 @@ budget-parked (the entirelp bonus — user's retry/split/park call pending).
   λ_min(G) < −η mesh-refinement route is the margin route the paper itself
   REFUTES (faint ghosts / mesh-blind) — forbidden in the job.
 Poller armed; OUT_OF_BUDGET now a terminal state in the pipeline vocabulary.
+
+## Archive recovery (2026-09-09)
+References [17]-[19] of the permutation paper pin strict_sub014_extension_v1/
+to "the companion source archive" of the paper itself, with SHA-256 digests
+for two supplement files. Exhaustive machine hunt (Spotlight name+content on
+the digests, all Downloads archives, GitHub releases across the research
+repos): the companion archive was NEVER DOWNLOADED to this machine — the
+Aug-25 download session took only the PDF (the same-minute
+lambda-015-clean-proof-package is the separate 0.15 campaign). Recovery
+requires the originating ChatGPT session to re-export the companion archive
+(or strict_sub014_extension_v1's conventions). MEANWHILE the paper's own
+§12.1 G1-G5 stop/go program provides an ARCHIVE-FREE path: G1 (source-closed
+25-term evaluator verified against the telescope — our Lane-A scanner already
+satisfies this to ~1e-14) + G3 (prove the complete N=690988 window FIRST and
+test the stronger pilot Σ|D_j| < R_ex; pilot failure = stop signal, not
+disproof). The G3 lane is launched 2026-09-09.

@@ -61,7 +61,7 @@ function gapSeverityChip(severity) {
 //      peer-reviewed-benchmark card itself; the repeated "remains …benchmark /
 //      SOTA" tag-lines on the other cards are suppressed.
 //   2. The 0.1787854 candidate carries its current review status: reviewed by
-//      Dan Romik, being prepared for public release, unrefereed.
+//      Dan Romik, publicly posted (judegomila.com/posts/riemann-lambda-0.1787854), unrefereed.
 
 const PT_REFRAIN_AFTER_SEMICOLON = /;\s*(?:Platt[–-]Trudgian\s+)?Λ ≤ 0\.2 remains[^.]*\./g;
 const PT_REFRAIN_SENTENCE = /\s*(?:Platt[–-]Trudgian\s+)?Λ ≤ 0\.2 remains[^.]*\./g;
@@ -77,7 +77,7 @@ function displayNote(b) {
     note = note.replace(
       'the claim is private, unpublished, unpeer-reviewed, not accepted, and does not prove RH.',
       'the claim is a computer-assisted candidate that has been reviewed by Dan Romik and is ' +
-      'being prepared for public release; it is unrefereed, not accepted, and does not prove RH.',
+      'publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); it is unrefereed, not accepted, and does not prove RH.',
     );
   }
   return note.trim();
@@ -139,7 +139,7 @@ function displayCurrentStatus(status) {
     )
     .replace(
       'The candidate is unpublished, unpeer-reviewed, unaccepted, and it does not prove RH.',
-      'The candidate is being prepared for public release; it is unrefereed, unaccepted, and it does not prove RH.',
+      'The candidate is publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); it is unrefereed, unaccepted, and it does not prove RH.',
     );
 }
 

@@ -52,12 +52,32 @@ mkdir -p "$SCRIPT_DIR/logs" "$STATE_DIR"
 # the metered auto-improve-api-pool.sh (ANTHROPIC_API_KEY, pay-per-token). It keeps
 # only the subscription-side sonnet engine + the ticket scout alive. The API pool is
 # started manually as SPILLOVER when subscription/channel-quota is near its cap.
+# 2026-09-09 (user directive "do this"): the api-pool is supervised again — the
+# recurring silent pool death was costing ~a day of throughput per week. The
+# fable engine is ALSO revived but spend-capped: at most FABLE_DAILY_RESTARTS
+# restarts per calendar day (premium model; cap keeps worst-case spend bounded).
 ENGINES=(
+  "auto-improve-api-pool.sh"
   "auto-improve-sonnet.sh"
   "frontier-scout.sh"
   "deploy-hook-publisher.sh"
   "rh-lit-monitor-daemon.sh"
 )
+FABLE_DAILY_RESTARTS=${FABLE_DAILY_RESTARTS:-3}
+FABLE_STAMP="$SCRIPT_DIR/.fable-restart-stamp"
+supervise_fable() {
+  if ./scripts/auto-improve-fable.sh status 2>/dev/null | head -1 | grep -q "NOT running"; then
+    local today; today=$(date +%Y-%m-%d)
+    local stamp count
+    stamp=$(cat "$FABLE_STAMP" 2>/dev/null || echo "")
+    if [ "${stamp%% *}" = "$today" ]; then count=${stamp##* }; else count=0; fi
+    if [ "$count" -lt "$FABLE_DAILY_RESTARTS" ]; then
+      echo "[watchdog] fable dead; restart $((count+1))/$FABLE_DAILY_RESTARTS today"
+      (cd "$SCRIPT_DIR/.." && nohup ./scripts/auto-improve-fable.sh start >> "$SCRIPT_DIR/logs/launchd-engine-watchdog.log" 2>&1 &)
+      echo "$today $((count+1))" > "$FABLE_STAMP"
+    fi
+  fi
+}
 
 # ── helpers ─────────────────────────────────────────────────────────────────
 
@@ -189,6 +209,7 @@ case "${1:-status}" in
           restart_engine "$script"
         fi
       done
+      supervise_fable
       sleep_sec=$(jittered_sleep_seconds "$INTERVAL_BASE")
       sleep "$sleep_sec"
     done

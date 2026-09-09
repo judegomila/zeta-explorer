@@ -5,7 +5,7 @@ import { NEWMAN_LAMBDA_01787854_CANDIDATE as CANDIDATE } from '../data/newman-la
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /* Editorial (post reading-view) presentation of the Λ ≤ 0.1787854 unrefereed
-   proof candidate (reviewed by Dan Romik, being prepared for public release).
+   proof candidate (reviewed by Dan Romik, publicly posted (judegomila.com/posts/riemann-lambda-0.1787854)).
    All numbers, bounds, and caveats are sourced verbatim from
    src/data/newman-lambda-01787854-candidate.js and the prior page; this file
    only restyles them. It makes no mathematical claim of its own — the bound
@@ -75,7 +75,7 @@ export default function NewmanLambda01787854CandidatePage() {
       dek={
         'A sealed computer-assisted package proposing an unconditional proof. Its intended ' +
         'argument assumes no unproved conjecture. The package has been reviewed by Dan Romik ' +
-        'and is being prepared for public release; it has not been peer-reviewed, so the ' +
+        'and is publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); it has not been peer-reviewed, so the ' +
         'proposed bound is not an established theorem.'
       }
       byline={['de Bruijn–Newman · mathexplorer', 'computer-assisted · unrefereed']}
@@ -110,7 +110,7 @@ export default function NewmanLambda01787854CandidatePage() {
       <AnimationEmbed id="certificate-anatomy" />
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra-dk)' }}>
-        <div className="tlab">Unrefereed candidate · reviewed by Dan Romik · being prepared for public release</div>
+        <div className="tlab">Unrefereed candidate · reviewed by Dan Romik · publicly posted (judegomila.com/posts/riemann-lambda-0.1787854)</div>
         <BlockMath tex="\boxed{\Lambda\le\frac{893927}{5000000}=0.1787854}" />
         <BlockMath tex={exactTarget.identityTex} />
         <p style={{ fontSize: 14, color: 'var(--ink-soft)' }}>

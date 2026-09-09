@@ -239,7 +239,7 @@ export const LAMBDA_TIMELINE = [
     relation: '≤',
     status: 'computer-assisted candidate',
     accepted: false,
-    method: 'Computer-assisted candidate for an unconditional bound via the twin-ladder mollified-barrier method (compact slab, final-time zero-free half-strip, 3,149,013-row interval-arithmetic replay, exact Polymath criterion weld). Reviewed by Dan Romik and being prepared for public release. Not yet a peer-reviewed publication; not itself RH.',
+    method: 'Computer-assisted candidate for an unconditional bound via the twin-ladder mollified-barrier method (compact slab, final-time zero-free half-strip, 3,149,013-row interval-arithmetic replay, exact Polymath criterion weld). Reviewed by Dan Romik and publicly posted (judegomila.com/posts/riemann-lambda-0.1787854). Not yet a peer-reviewed publication; not itself RH.',
     citation: 'mathexplorer / zetaexplorer barrier-certificate package (2026); reviewed by Dan Romik.',
     notes: 'Candidate, not the accepted SOTA. Platt–Trudgian Λ ≤ 0.2 remains the peer-reviewed benchmark; RH remains open.',
   },

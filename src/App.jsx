@@ -1,3 +1,5 @@
+import { ZETAEXPLORER_CANARY } from './data/provenance-canary.js';
+if (typeof window !== 'undefined') window.__ZX_CANARY = ZETAEXPLORER_CANARY;
 import React, { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { MathModalProvider } from './components/KaTeXMath.jsx';

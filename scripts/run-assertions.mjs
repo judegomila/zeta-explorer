@@ -14598,6 +14598,26 @@ const DATA_MODULES = [
   // THEOREM SL plus the named H-DYA-M. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95212-multiplicity-priced-shift-damping.js',
+  // imp-95213 (fable-5): RIGOROUS step - geometric-chain refined
+  // multiplicity pricing: the imp-95212 open question (is the linear-in-K
+  // collar premium sharp?) settled in the NEGATIVE under the unchanged
+  // hypothesis H-DYA-M. Hypothesis (ii) forces the ordered in-shell rates
+  // into a geometric chain (ratio >= rho^distance), so every Cauchy factor
+  // refines from c(rho) / c(2^j) to c(rho^l) / c(2^j rho^i) and every
+  // refined product CONVERGES as K -> infinity. THEOREM DR-R: termwise
+  // below THEOREM DR-M, exact THEOREM DR reduction at K = 1; refined
+  // thresholds 6.880 -> 5.514 at (2, 1.5), 9.976 -> 5.610 at (3, 2).
+  // THEOREM KU: xStarRef(K, rho) <= xStarInf(rho) for ALL K
+  // (10.8900044077 at rho = 1.5, 6.5977221309 at rho = 2). COROLLARY
+  // CP-NS: the linear-in-K price of COROLLARY CP was a capping artifact;
+  // the only genuine divergence is coalescence rho -> 1 (LEMMA NG intact).
+  // Identity A*(2) = C_inf. ROUTING: the premium sits entirely on
+  // separation rho - the arithmetic (1/p) paper alias grid binds at the
+  // NG boundary, not at multiplicity; sub-gap
+  // imp-95212-subgap-fresnel-airy-envelope-port carried OPEN with that
+  // narrowed extraction requirement. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95213-geometric-chain-multiplicity-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

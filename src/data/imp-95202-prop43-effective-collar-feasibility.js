@@ -95,6 +95,18 @@
  *    barrier recertification — the cheapest named sharpening in the program.
  *    If not, the paper's other route (recertify lower barrier + final edge
  *    at y = 0.1808) is the only path, at full recertification cost.
+ *
+ * UPDATE (imp-95207, 2026-09-09): the true per-shard L12 minima arrived
+ * (research-inputs/gate2-evaluator-inputs/L12_SHARD_MINIMA.txt, global min
+ * 7.91366e-7 at N=690988) and imp-95207-split-collar-analysis.js resolves the
+ * semantics + runs the split-collar analysis with shadow re-sweeps. Outcome:
+ * the conditional floor m >= 8.935e-4 above is NOT met by the sealed sweep
+ * (its floors are per-window triangle bounds closing against Emax=2.335e-7,
+ * not against the 0.00125 allowance, and they are anchored at y=0.187272,
+ * not 0.1809); the collar split as posed fails (displaced triangle rows go
+ * NEGATIVE, ~ -0.0236, out to N ~ 1.1e6), but a direct sharp-weight displaced
+ * re-sweep measures positive (~ +0.063) - see imp-95207 for the full verdict.
+ * This note appends; the assessment text above is left as recorded.
  */
 
 import { GATE2_ROW } from './imp-95012-gate2-frozen-spec.js';

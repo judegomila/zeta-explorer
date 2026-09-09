@@ -55,6 +55,15 @@
  * GRADES. Everything below is contract/conditional-design; the only
  * measurements are exact rational/float arithmetic derived from frozen
  * literals (asserted). No task output is claimed. NO QED.
+  *
+ * T-P1 OUTCOME (2026-09-09, imp-95206, Arb 320/512-bit fail-closed): K1 CLEAR
+ * (the endpoint-cap contraction closes at t* - the architecture is analytically
+ * alive; D monotone 11.89@690989 -> 0.149@1e10) but K2 FIRES decisively:
+ * N1* = 220,495,706 - 4.01x the ~5.5e7 economic kill line, T2b = 219,804,718
+ * rows = 69.8x the v3 replay. The VERBATIM 0.1399 lane is economically dead;
+ * T2a/T2b PARK. Unpriced residual outs: mollifier re-optimization at t*
+ * (Mmax*AB = 0.4976 and TR = 0.3310 dominate D at N1*), a genuinely new tail
+ * estimate, or a later-t* row.
  */
 
 import { ROW_01399_DECISION, GATE2_ROW } from './imp-95012-gate2-frozen-spec.js';

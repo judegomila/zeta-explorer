@@ -14455,24 +14455,26 @@ const DATA_MODULES = [
   // window, strip endpoints, floors all carried UNCHANGED. In-sweep
   // ~2.5 s, import-light. Changes no bound; NO QED; PT stays SOTA.
   '/src/data/imp-95170-merge-consistent-copositive-cover.js',
-  // imp-95171 (fable-5): RIGOROUS step - TRIPLE MERGE-CONSISTENT
-  // COPOSITIVE COVER: the THREE-POINT class (at most three packets in
-  // each of blocks 1..3, arbitrary blocks 0/4) is CLOSED on the covered
-  // band [0.2320727, 0.23209). LEMMA MC3: (u, s, t) triple extension of
-  // the imp-95170 merge-consistent enclosure - all nine within/cross
-  // entry types bounded consistently in the same separation ranges;
-  // coincident merges are exact lower-occupancy boundary cases. LEMMA FB
-  // carried at 11 packets with a cheap-first uniform-point face bound
-  // (evaluation-order change only). THEOREM MC3: the 10-D branch-and-
-  // bound terminates on the six recorded mu-layers with zero unresolved
-  // cells, worst certified leaf >= 2e-8 - certified by a RECORDED
-  // OFFLINE run (minutes-scale, ~40x the imp-95170 cover; too heavy for
-  // the sweep); in-sweep the batteries re-run and each per-layer BINDING
-  // cell re-certifies through the identical code path. Burden on the
-  // band contracts to >= 4 packets in some middle block. Closes no
-  // sub-band of the open strip; sandwich, window, floors all carried
-  // UNCHANGED. In-sweep ~0.3 s, import-light. Changes no bound; NO QED;
-  // PT stays SOTA.
+  // imp-95171 (fable-5): HONEST PARTIAL (rigorous lemmas + top-sub-band
+  // closure) - TRIPLE MERGE-CONSISTENT COPOSITIVE COVER. LEMMA MC3:
+  // (u, s, t) triple extension of the imp-95170 merge-consistent
+  // enclosure - all nine within/cross entry types bounded consistently
+  // in the same separation ranges; coincident merges are exact
+  // lower-occupancy boundary cases. LEMMA FB carried at 11 packets with
+  // a cheap-first uniform-point face bound (evaluation-order change
+  // only). THEOREM MC3-TOP: the recorded 45-minute offline budget
+  // attempt TERMINATED the top mu-layer only (3536849 cells, zero
+  // unresolved, worst certified leaf 2.1224846580374962e-8 >= 2e-8), so
+  // the three-point class is closed on the TOP SUB-BAND
+  // [0.23208119492058613, 0.23209) alone and the >= 4-packet burden
+  // contraction holds THERE ONLY; layer 2 hit budget mid-run (4001028
+  // cells) and layers 3..6 were not reached - the rest of the covered
+  // band keeps the imp-95170 two-point closure and >= 3-packet burden.
+  // No binding-cell recert anchor yet (budget attempt did not capture
+  // argmin leaves); long-budget offline relaunch owns the disposition.
+  // Closes no sub-band of the open strip; sandwich, window, floors all
+  // carried UNCHANGED. In-sweep ~0.3 s, import-light. Changes no bound;
+  // NO QED; PT stays SOTA.
   '/src/data/imp-95171-triple-merge-consistent-cover.js',
   // imp-95172 (fable-5): RIGOROUS step - LEMMA NT (norm-transfer closed
   // form c(s) = exp(1/2)(1 - 1/(2s))^s / sqrt(s - 1/2) = sup of

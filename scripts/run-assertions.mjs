@@ -14510,6 +14510,23 @@ const DATA_MODULES = [
   // measurement, NOT a certificate (interval lane needed). Changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95205-g3-first-window-pilot.js',
+  // imp-95208 (fable-5): RIGOROUS step - LEMMA GS (unconditional Gram-split
+  // diagonal bound N_o <= c(s)^2 M_odd: within-block triangle + LEMMA NT,
+  // fully ell-2 in the block index) + exact identity B^2 = N_o + X_o + the
+  // ALREADY-CARRIED odd-class cap on X_o give THEOREM BU: B <= cU sqrt(om),
+  // cU = sqrt(c^2 + q LwEven) = 0.30501330232499435 - the sqrt(mB) of the
+  // imp-95172 fact F5 is removed with NO new conditional input. Chain
+  // upgrades verbatim: THEOREM GB-U caps phi <= gammaU = 0.9996167883494768
+  // for EVERY witness (no occupancy hypothesis; old gamma(mB) -> 1) and
+  // COROLLARY OM-U gives the mB-FREE odd-mass floor (phi -> 1 limit
+  // 4.213e-4). CLOSES imp-95172-subgap-mB-uniform-ballast on horn 1; the
+  // diluted-ballast escape family (mB -> inf, phi -> 1) is REFUTED within
+  // the conditional class (consistency identity omegaMinU(1 - xStarU) =
+  // xStarU/(1 - q), rel 7e-16). Constant gap untouched (gammaU 0.9996 vs
+  // measured sup phi 0.3572, parity-pure 1/2) - new sub-gap
+  // imp-95208-subgap-overlap-currency-constant. Conditional exactly as
+  // THEOREM OD. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95208-mb-uniform-ballast-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

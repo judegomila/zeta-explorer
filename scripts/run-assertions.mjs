@@ -14527,6 +14527,22 @@ const DATA_MODULES = [
   // imp-95208-subgap-overlap-currency-constant. Conditional exactly as
   // THEOREM OD. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95208-mb-uniform-ballast-cap.js',
+  // imp-95209 (fable-5): RIGOROUS step - THEOREM OV (overlap-currency
+  // tradeoff cap): the norm-currency step B >= A - sqrt(D) (imp-95172 fact
+  // F6) is replaced by the exact identity E = Xe + Xo - Ne - No + 2<U,V>
+  // plus Cauchy-Schwarz, relaxation solved exactly: phi <= 1 - (1-q)omega
+  // - (1/2)[(sqrt(1-omega) - kappa sqrt(omega))_+]^2, kappa =
+  // cU/sqrt(LwEven) = 48.7177 - strict pointwise sharpening of THEOREM OD
+  // below omegaC = 4.2116e-4 with parity-pure endpoint Phi(0) = 1/2.
+  // COROLLARY GC: global cap gammaOV = 0.9995949885454457 < gammaU =
+  // 0.9996167883494768 (closed form at unique omega* = 4.2047e-4), which
+  // supersedes GB-U. Residual bump proved IRREDUCIBLE in the label-block
+  // class (CS attained by co-located packets) - new sub-gap
+  // imp-95209-subgap-seam-localized-overlap needs block-to-support
+  // geometry. First leg of imp-95208-subgap-overlap-currency-constant.
+  // Conditional exactly as THEOREM OD, no new conditional input. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95209-overlap-currency-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

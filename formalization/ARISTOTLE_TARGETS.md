@@ -184,5 +184,10 @@ disproof). The G3 lane is launched 2026-09-09.
   line; Arb 320/512-bit, exact integer boundary). SPLIT-COLLAR: 0.139981915
   KILLED twice over (sealed minima live on the 0.1787854 face; at the 0.14
   row's own t* the lemma fails O(1)); SALVAGE found — a days-scale
-  delivered-face y-thaw 0.1787854 -> 0.17759432 (shadow-positive across the
-  stretch, ~12 CPU-hr sharp-weight re-sweep), pending coordination.
+  delivered-face y-thaw to 0.17759432 (shadow-positive across the stretch,
+  ~12 CPU-hr sharp-weight re-sweep). FRAMING (audit-session): under the freeze
+  this is a NEW candidate package at 0.17759432 citing the sealed 0.1787854 as
+  its base (the 0.1782354 lower-time-extension precedent), landing in a new
+  lane — never on the sealed repo. ORDERING: the sharp-weight native-binding
+  NOTE (the theorem-level piece) is drafted FIRST; the sweep is only its
+  certificate. User's call to fire.

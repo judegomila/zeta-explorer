@@ -14543,6 +14543,24 @@ const DATA_MODULES = [
   // Conditional exactly as THEOREM OD, no new conditional input. Changes
   // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95209-overlap-currency-cap.js',
+  // imp-95210 (fable-5): RIGOROUS step - THEOREM SL (seam mass-localization
+  // overlap cap): the imp-95209-subgap-seam-localized-overlap geometry
+  // import is pinned to the minimal per-parity hypothesis H-LOC (each
+  // parity keeps all but a fixed mass fraction on its own side of the
+  // seam), under which |<U,V>| <= g A B with g = thetaE sqrt(1-thetaO^2)
+  // + thetaO sqrt(1-thetaE^2) < 1, and the imp-95209 optimization re-runs
+  // in closed form: gammaSL(g) = 1/2 + g^2/2 + O(1/kappa) (0.5181 at the
+  // mu d = 2 profile vs gammaOV = 0.99959; gammaSL(1) = gammaOV exactly).
+  // LEMMA NG settles the insufficiency side: a center-collar hypothesis
+  // alone provably cannot supply H-LOC (rate-dressed packets in the class
+  // closure have cross-seam mass Qbar(2k+1, 2 mu d)/2 -> 1/2 exactly;
+  // finite 7-node in-class witness 0.4999999989 vs plain-packet 0.2744),
+  // so the dyadic import must cap rate DRESSING, not center positions.
+  // H-LOC is NOT verified for the paper packets - successor sub-gap
+  // imp-95210-subgap-hloc-from-dyadic-support. Conditional exactly as
+  // THEOREM OV plus the named H-LOC. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95210-seam-mass-localization-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

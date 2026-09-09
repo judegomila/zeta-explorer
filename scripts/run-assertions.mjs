@@ -14561,6 +14561,23 @@ const DATA_MODULES = [
   // THEOREM OV plus the named H-LOC. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95210-seam-mass-localization-cap.js',
+  // imp-95211 (fable-5): RIGOROUS step - dyadic-rate localization: the
+  // rate-dressing cap demanded by imp-95210-subgap-hloc-from-dyadic-support
+  // is DERIVED from the dictionary structure at the model level. LEMMA R1:
+  // a single-rate shell collapses to a rank-one exponential trace beyond
+  // its collar (in-block NG dressing structurally impossible). LEMMA BI:
+  // half-line exponential biorthogonal norms have the exact Cauchy closed
+  // form sqrt(2 mu_r) prod (mu_r+mu_k)/|mu_r-mu_k|. THEOREM DR: for
+  // lacunary ladders (ratio >= 2) these products are n-uniformly bounded
+  // via C_inf = prod (2^k+1)/(2^k-1) = 8.2560, giving the n-shell-uniform
+  // cross-seam bound LamBar(m d). THEOREM HL: H-DYA (fixed rate per shell
+  // + collar) implies H-LOC whenever m d > xStar = 2.6510, instantiating
+  // gammaSL = 0.8468/0.5496/0.5064 at m d = 3/4/5 (vs gammaOV 0.99959).
+  // Paper-packet constants NOT extracted - successor sub-gap
+  // imp-95211-subgap-paper-packet-dyadic-constants. Conditional exactly as
+  // THEOREM SL plus the named H-DYA. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95211-dyadic-rate-localization.js',
 ];
 
 let ALL_MODULES = FAST_MODE

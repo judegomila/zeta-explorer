@@ -14618,6 +14618,27 @@ const DATA_MODULES = [
   // narrowed extraction requirement. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95213-geometric-chain-multiplicity-pricing.js',
+  // imp-95214 (fable-5): RIGOROUS step - arithmetic-separation pricing:
+  // the imp-95213 routing consequence named two admissible continuations
+  // for the open sub-gap imp-95212-subgap-fresnel-airy-envelope-port;
+  // this delivers the second (a biorthogonal bound priced by ARITHMETIC
+  // separation). LEMMA AG: on an additively separated shell (hypothesis
+  // H-DYA-A(ii-A), what a (1/p) alias grid actually supplies), the
+  // in-shell Cauchy row product is <= (4/eps)^(K-1)/(i!(K-1-i)!) -- a
+  // middle-factorial gain over the flat-rho cap at the induced ratio
+  // rho = 1 + eps/2 (gain 5.10/736.8/2.08e9/5.62e26 at K = 5/9/17/33).
+  // THEOREM DR-A: the DR-M route verbatim with A_in -> A_ar. LEMMA OC:
+  // occupancy and separation linked, (K-1) eps <= 1. THEOREM LIN: at
+  // full occupancy the per-rate amplification is bounded by the ABSOLUTE
+  // constant 8e/(1-eps), threshold LINEAR in occupancy (slope 7.9945) --
+  // the NG rho -> 1 divergence never engages along the arithmetic
+  // family. LEMMA PR: prime-block rate sets satisfy (ii-A) natively with
+  // eps = 2/p_max. HONEST NEGATIVE recorded: DR-R at the induced ratio
+  // stays numerically sharper where both apply (132.01 vs 167.43 at
+  // K = 33); the certified threshold is the min. Sub-gap carried OPEN
+  // (envelope port + inter-shell lacunarity + paper constants). Changes
+  // no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95214-arithmetic-separation-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

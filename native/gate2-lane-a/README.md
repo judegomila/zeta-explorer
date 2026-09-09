@@ -119,6 +119,29 @@ the gate passes at the default x*, and run
 `./gate2 scan 1000 14 results.json`; feed the resulting L and sampledSup
 to `probeVerdict` in `src/data/imp-95011-gate2-oscillation-probe.js`.
 
+## Archive-free G3 lane (imp-95205): the anchor literal is NOT needed
+
+The paper's own stop/go program (section 12.1, G3) attacks the complete
+N = 690988 window FIRST with the source-closed evaluator and uses the
+stronger pilot `sum_j |D_j| < Rex` as the go/no-go — no anchor replay
+required. Modes:
+
+```
+./gate2 pilotg3 300001 10 out.json   # dense window pilot, both seam charts
+./gate2 point W SIDE                 # full-precision single point (mp audit)
+```
+
+Result (2026-09-09, 300001-pt grid x 2 seam charts + top-32 zoom refinement,
+612,290 dd evaluations, 714 s wall on 10 threads): sampled sup of the pilot
+`sum_j |D_j|` = 0.2437541384450471 (w = 0.5245, chart 690988) and sampled
+sup |E97| = 0.1934424506064475 (w = 0.0533, chart 690989), both < Rex =
+0.2796881955526244. Telescope identity held to 8.02e-14 across every
+evaluation; mpmath replay at 166/199/265 bits agrees with the dd lane to
+<= 1.3e-16 on |E97| and <= 1.7e-14 on the pilot at three representative
+points. SAMPLED sup only (the fastest ladder phase turns ~62x per grid
+step): a measurement, not a certificate. Frozen record:
+`src/data/imp-95205-g3-first-window-pilot.js`.
+
 ## Build and run
 
 ```
@@ -128,6 +151,7 @@ make            # clang -O3 -march=native, pthreads
 ./gate2 anchor2  # directed complex-gamma variants + eq-(13) pilot
 ./gate2 hunt -1 30 0.02 1   # peak/crossing hunt near X
 ./gate2 scan 1000 14 results.json   # REFUSES until the anchor gate passes
+./gate2 pilotg3 300001 10 out.json  # archive-free G3 first-window pilot
 ```
 
 Memory: the full-family tables (dd ln n to 5.48e7 + SPF sieve) need

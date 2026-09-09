@@ -1,0 +1,19 @@
+== point w=0/1 side=0 (chart 690988) ==
+   C(dd lane): |E97|=9.16579142228319058e-03 pilot=1.42332892659016691e-01 telErr=3.899e-15
+   mp dps=50 (~166 bits) ddmatch : |E97|=0.0091657914222830663776 pilot=0.14233289265901437005 telErr=8.18e-49 | dd-diff |E97|:1.24e-16 pilot:2.32e-15 maxD:4.93e-15 [30s]
+   mp dps=50 (~166 bits) exact   : |E97|=0.0091657914222830701871 pilot=0.14233289265901436497 telErr=2.94e-49 | dd-diff |E97|:1.2e-16 pilot:2.33e-15 maxD:4.93e-15 [33s]
+   mp dps=60 (~199 bits) ddmatch : |E97|=0.0091657914222830663776 pilot=0.14233289265901437005 telErr=1.16e-59 | dd-diff |E97|:1.24e-16 pilot:2.32e-15 maxD:4.93e-15 [35s]
+   mp dps=60 (~199 bits) exact   : |E97|=0.0091657914222830701871 pilot=0.14233289265901436497 telErr=2.14e-59 | dd-diff |E97|:1.2e-16 pilot:2.33e-15 maxD:4.93e-15 [45s]
+   mp dps=80 (~265 bits) ddmatch : |E97|=0.0091657914222830663776 pilot=0.14233289265901437005 telErr=8.01e-79 | dd-diff |E97|:1.24e-16 pilot:2.32e-15 maxD:4.93e-15 [47s]
+   mp dps=80 (~265 bits) exact   : |E97|=0.0091657914222830701871 pilot=0.14233289265901436497 telErr=4.01e-79 | dd-diff |E97|:1.2e-16 pilot:2.33e-15 maxD:4.93e-15 [37s]
+
+== point w=1/2 side=0 (chart 690988) ==
+   C(dd lane): |E97|=4.62556696710627047e-02 pilot=1.38575914857897442e-01 telErr=3.048e-15
+   mp dps=50 (~166 bits) ddmatch : |E97|=0.046255669671062600758 pilot=0.13857591485790187277 telErr=4.74e-49 | dd-diff |E97|:1.04e-16 pilot:4.43e-15 maxD:6.16e-15 [42s]
+   mp dps=50 (~166 bits) exact   : |E97|=0.046255669671062604527 pilot=0.13857591485790190729 telErr=1.7e-49 | dd-diff |E97|:1.0e-16 pilot:4.47e-15 maxD:6.17e-15 [44s]
+
+== point w=1/1 side=1 (chart 690989) ==
+   C(dd lane): |E97|=7.32158861470641742e-02 pilot=1.10697564393809122e-01 telErr=1.245e-14
+   mp dps=50 (~166 bits) ddmatch : |E97|=0.073215886147064239521 pilot=0.11069756439382586106 telErr=3.6e-49 | dd-diff |E97|:6.53e-17 pilot:1.67e-14 maxD:1.23e-14 [38s]
+   mp dps=50 (~166 bits) exact   : |E97|=0.073215886147064234024 pilot=0.11069756439382584325 telErr=3.03e-49 | dd-diff |E97|:5.98e-17 pilot:1.67e-14 maxD:1.23e-14 [30s]
+

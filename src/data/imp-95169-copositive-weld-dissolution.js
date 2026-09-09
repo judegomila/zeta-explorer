@@ -51,7 +51,7 @@
  * quotient z^T (G - D) z / z^T D z exceed 1 + 3.086e-4 uniformly (one
  * closed interval certifies, by entrywise mu-monotonicity of g: signed
  * numerator terms priced at their worst interval end). The measured price
- * of dropping the cone is >= 3.09e-4 -- four orders above the entire
+ * of dropping the cone is >= 3.086e-4 -- four orders above the entire
  * lambda variation of the strip -- and near-coincident pairs push the
  * unconstrained spectrum to 1.0566 (the jet direction). So the dissolved
  * weld certificate MUST be genuinely copositive (e.g. exact simplex
@@ -520,7 +520,7 @@ const PAIRXS = [2, 4, 8, 16, 32, 64, 128, 256];
 export const IMP95169_COPOSITIVE_WELD_DISSOLUTION = {
   id: "imp-95169",
   title:
-    "Copositive weld dissolution: LEMMA WD (for any packet positions, the sup over ALL nonnegative block mass profiles of the exact hollow block-bond lambda_max is < 1 exactly when the packet-level matrix H = 2 blockdiag(G_b) - G_full is strictly copositive; the mass ratios are eliminated EXACTLY and the recorded imp-95168 cross-entry ratio decoupling wall dissolves, 12-D -> 9-D) + THEOREM WP (the convex relaxation -- the operator inequality G <= 2D -- is FALSE at the binding two-point corner at EVERY rate in the strip, one-interval certificate, margin 3.09e-4: the dissolved certificate must be genuinely copositive) + FINDING CG (the copositive sign flip at the binding corner reproduces the recorded satellite-family crossing 0.23207238984 to 11 digits by an independent algorithm; measured copositive floor 2.2777e-7 > 0 on the covered band) + FINDING CT (the certified interval cover relocates the wall to near-merge positional inconsistency: exact pocket min +2.58e-2 vs covering cell bound -1.10e-3, cover unterminated at 2.86M cells)",
+    "Copositive weld dissolution: LEMMA WD (for any packet positions, the sup over ALL nonnegative block mass profiles of the exact hollow block-bond lambda_max is < 1 exactly when the packet-level matrix H = 2 blockdiag(G_b) - G_full is strictly copositive; the mass ratios are eliminated EXACTLY and the recorded imp-95168 cross-entry ratio decoupling wall dissolves, 12-D -> 9-D) + THEOREM WP (the convex relaxation -- the operator inequality G <= 2D -- is FALSE at the binding two-point corner at EVERY rate in the strip, one-interval certificate, margin 3.086e-4: the dissolved certificate must be genuinely copositive) + FINDING CG (the copositive sign flip at the binding corner reproduces the recorded satellite-family crossing 0.23207238984 to 11 digits by an independent algorithm; measured copositive floor 2.2777e-7 > 0 on the covered band) + FINDING CT (the certified interval cover relocates the wall to near-merge positional inconsistency: exact pocket min +2.58e-2 vs covering cell bound -1.10e-3, cover unterminated at 2.86M cells)",
   rigorous: {
     lemmaWD:
       "identity: y^T M y - y^T y = z^T (G - 2D) z with z_b = y_b w_b / |w_b|_Gb, exact for any occupancy (battery ~1e-15); Perron gives y >= 0 at the maximizer, so quantifying over ALL nonnegative profiles: sup lambda_max(M) < 1 <=> 2D - G strictly copositive; quantitative transfer: simplex min m >= 0 implies lambda_max <= 1 - m for every profile at those positions; within-block sign-flip (jet) directions are outside the cone, so coincident packets cause no degeneracy",

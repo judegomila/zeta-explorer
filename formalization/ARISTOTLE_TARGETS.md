@@ -160,3 +160,29 @@ requires the originating ChatGPT session to re-export the companion archive
 satisfies this to ~1e-14) + G3 (prove the complete N=690988 window FIRST and
 test the stronger pilot Σ|D_j| < R_ex; pilot failure = stop signal, not
 disproof). The G3 lane is launched 2026-09-09.
+
+## 2026-09-09 — the day's verdicts
+- REFEREE PASS (continuations 20–52, three lenses): ALL SOUND-WITH-CAVEATS,
+  zero refutations across the ~50-theorem stretch. Load-bearing caveats:
+  THEOREM VX's final-strip closure rests on one baked 872M-cell offline run
+  with worst margin 1.66e-12 ~ the float-guard scale (directed-rounding re-run
+  of the worst cells queued); the chain-wide float-branch-and-bound convention
+  is disclosed but its nudge-domination assumption is unproved; lemma-name
+  collisions (SA/GA/PD/MC each name 2-3 objects) are a bookkeeping hazard;
+  imp-95164's width-monotonicity is measured-only; the class sandwich
+  [0.2320723, 0.24502] is a MODEL-FAMILY constant (no arithmetic transfer
+  claimed). imp-95169's WP margin over-rounding fixed (3.09e-4 -> 3.086e-4);
+  the throwing fable WIP imp-95171 quarantined to .wip.
+- G3 FIRST-WINDOW PILOT (archive-free): VERDICT (a) — the STRONGER pilot
+  passes on the complete N=690988 window: sup Σ|D_j| = 0.2437541384450471
+  < R_ex (margin 12.8%); sup |E97| = 0.1934424506064475 (margin 30.8%);
+  telescope verified to 8e-14 over 612,290 dd evaluations + mpmath audit to
+  1e-79 at 166/199/265 bits. Sampled sup, not continuum (zoom raised it 2.2%
+  — certification needs the G4/G5 interval lane). Under OUR G1 convention;
+  the paper's anchor literal remains unreplayable (provenance gap unchanged).
+- T-P1: the 0.1399 tail lane K2-KILLED (N1* = 220,495,706, 4.01x the economic
+  line; Arb 320/512-bit, exact integer boundary). SPLIT-COLLAR: 0.139981915
+  KILLED twice over (sealed minima live on the 0.1787854 face; at the 0.14
+  row's own t* the lemma fails O(1)); SALVAGE found — a days-scale
+  delivered-face y-thaw 0.1787854 -> 0.17759432 (shadow-positive across the
+  stretch, ~12 CPU-hr sharp-weight re-sweep), pending coordination.

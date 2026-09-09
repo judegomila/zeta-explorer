@@ -937,6 +937,404 @@ static void scan(int nsamp, int nthreads, const char *outpath,
     free(samples);
 }
 
+/* ─────────────── G3 first-window pilot (imp-95205) ──────────────────
+ *
+ * Archive-free Gate lane (paper section 12.1, G3): "Prove the complete
+ * N = 690988 window first. Failure of the stronger sum_j |D_j| pilot is
+ * a stop signal for independent defect radii, not a disproof of the
+ * recombined cocycle gate."  This mode needs NO anchor literal: it uses
+ * the locked convention (bnHasT0=1, bnOnBoth=1, frozenChart=1, real
+ * gamma) whose telescope identity sum_j D_j = E97 is exact algebra, and
+ * measures sup over the window of the pilot sum_j |D_j| and of |E97|
+ * against Rex = 0.2796881955526244146123 (paper eq (19)).
+ *
+ * Grid: x = 4*pi*(N^2 - t0/16 + w*(2N+1)), w in [0,1] inclusive
+ * (w=1 is the seam x_{N+1}); both one-sided seam charts (side 0 = chart
+ * 690988, side 1 = chart 690989). The fastest ladder phase (x/2) ln N
+ * turns ~1.48e6 times across the window, so any affordable grid is an
+ * equidistributed SAMPLE of the phase torus, not a continuum cover:
+ * the output is a sampled sup (measurement), not a certificate.
+ * Top-K grid maxima are refined by a 3-level zoom to sub-oscillation
+ * resolution (~0.09 in x) so the reported maxima are true local peaks.
+ */
+static const double REX_EXACT = 0.2796881955526244146123; /* eq (19) */
+
+typedef struct {
+    chart_t ch;
+    double *P;          /* P[n] = aB_n + gamma*aA_n  (cos amplitude) */
+    double *Q;          /* Q[n] = gamma*aA_n - aB_n  (sin amplitude) */
+    double ampP[25];    /* b_p p^{-sigma_B} for the A97/telescope factors */
+} fastchart_t;
+
+static void fastchart_build(fastchart_t *fc, unsigned long N) {
+    fc->ch = build_chart(N);
+    const double c2 = T0d * 0.25;
+    const double sB = fc->ch.sigmaB, sA = fc->ch.sigmaA, g = fc->ch.gamma;
+    fc->P = (double *)malloc((N + 1) * sizeof(double));
+    fc->Q = (double *)malloc((N + 1) * sizeof(double));
+    if (!fc->P || !fc->Q) { fprintf(stderr, "alloc failure\n"); exit(2); }
+    fc->P[0] = fc->Q[0] = 0.0;
+    for (unsigned long n = 1; n <= N; n++) {
+        double Lh = g_lnn[n].hi;
+        double aB = exp((c2 * Lh - sB) * Lh);
+        double gA = g * exp((c2 * Lh - sA) * Lh);
+        fc->P[n] = aB + gA;
+        fc->Q[n] = gA - aB;
+    }
+    for (int i = 0; i < 25; i++) {
+        double Lh = g_lnn[PRIMES97[i]].hi;
+        fc->ampP[i] = exp((c2 * Lh - sB) * Lh);
+    }
+}
+
+typedef struct {
+    double absE97, pilot, telErr;
+    double E97re, E97im;
+} pres_t;
+
+/* identical math to eval_E97 under locked_conv(), with the x-independent
+   amplitudes precomputed (validated against eval_E97 at startup) */
+static pres_t eval_fast(const fastchart_t *fc, dd x, double *Dout /* 50 or NULL */) {
+    dd Y = dd_mul(x, INV4PI);
+    const double Yh = Y.hi, Yl = Y.lo;
+    const unsigned long N = fc->ch.N;
+    const double *P = fc->P, *Q = fc->Q;
+    double Fre = 0, Fim = 0, Cre = 0, Cim = 0;
+    double Fre_c = 0, Fim_c = 0, Cre_c = 0, Cim_c = 0;
+    double ScR[26], ScI[26];
+    memset(ScR, 0, sizeof(ScR)); memset(ScI, 0, sizeof(ScI));
+    for (unsigned long n = 1; n <= N; n++) {
+        double fr = phase_frac(Yh, Yl, g_lnn[n].hi, g_lnn[n].lo);
+        double th = 6.283185307179586232 * fr;
+        double sn, cs;
+        __sincos(th, &sn, &cs);
+        double cre = P[n] * cs, cim = Q[n] * sn;
+        double t1 = cre - Fre_c, t2 = Fre + t1; Fre_c = (t2 - Fre) - t1; Fre = t2;
+        t1 = cim - Fim_c; t2 = Fim + t1; Fim_c = (t2 - Fim) - t1; Fim = t2;
+        int cls = g_cls[n];
+        ScR[cls] += cre; ScI[cls] += cim;
+        if (cls == 0) {
+            t1 = cre - Cre_c; t2 = Cre + t1; Cre_c = (t2 - Cre) - t1; Cre = t2;
+            t1 = cim - Cim_c; t2 = Cim + t1; Cim_c = (t2 - Cim) - t1; Cim = t2;
+        }
+    }
+    double Are = 1.0, Aim = 0.0;
+    for (int i = 0; i < 25; i++) {
+        double fr = phase_frac(Yh, Yl, g_lnn[PRIMES97[i]].hi, g_lnn[PRIMES97[i]].lo);
+        double th = 6.283185307179586232 * fr;
+        double sn, cs;
+        __sincos(th, &sn, &cs);
+        double amp = fc->ampP[i];
+        double qre = 1.0 - amp * cs, qim = amp * sn;
+        double nre = Are * qre - Aim * qim, nim = Are * qim + Aim * qre;
+        Are = nre; Aim = nim;
+    }
+    pres_t r;
+    r.E97re = Cre - (Are * Fre - Aim * Fim);
+    r.E97im = Cim - (Are * Fim + Aim * Fre);
+    r.absE97 = hypot(r.E97re, r.E97im);
+    /* 25-defect telescope (eq (13)), descending primes 97..2 */
+    {
+        double Gre = ScR[0], Gim = ScI[0];
+        double apre = 1.0, apim = 0.0;
+        double pil = 0.0, telre = 0.0, telim = 0.0;
+        for (int j = 1; j <= 25; j++) {
+            int pi = 25 - j;
+            double fr = phase_frac(Yh, Yl, g_lnn[PRIMES97[pi]].hi, g_lnn[PRIMES97[pi]].lo);
+            double th = 6.283185307179586232 * fr;
+            double sn, cs;
+            __sincos(th, &sn, &cs);
+            double amp = fc->ampP[pi];
+            double qre = amp * cs, qim = -amp * sn;
+            Gre += ScR[j]; Gim += ScI[j];
+            double tre = qre * Gre - qim * Gim - ScR[j];
+            double tim = qre * Gim + qim * Gre - ScI[j];
+            double dre = apre * tre - apim * tim;
+            double dim = apre * tim + apim * tre;
+            pil += hypot(dre, dim);
+            telre += dre; telim += dim;
+            if (Dout) { Dout[2 * (j - 1)] = dre; Dout[2 * (j - 1) + 1] = dim; }
+            double nre = apre * (1.0 - qre) + apim * qim;
+            double nim = apim * (1.0 - qre) - apre * qim;
+            apre = nre; apim = nim;
+        }
+        r.pilot = pil;
+        r.telErr = hypot(telre - r.E97re, telim - r.E97im);
+    }
+    return r;
+}
+
+/* x = 4*pi*(N^2 - t0/16 + u), u in [0, 2N+1] window offset in q units */
+static dd pilot_x_from_u(unsigned long N, double u) {
+    double n2 = (double)N * (double)N;
+    dd q = dd_add(dd_make(n2, 0.0), dd_neg(T0_16));
+    q = dd_add_d(q, u);
+    return dd_mul(FOURPI, q);
+}
+
+#define G3_N 690988UL
+
+typedef struct {
+    fastchart_t *fcs;           /* [2]: side 0 = chart N, side 1 = chart N+1 */
+    long npts;
+    double twoN1;
+    pres_t *res;                /* npts * 2 */
+    long next;
+    pthread_mutex_t mu;
+} pilotctx_t;
+
+static void *pilot_worker(void *arg) {
+    pilotctx_t *ctx = (pilotctx_t *)arg;
+    for (;;) {
+        long i;
+        pthread_mutex_lock(&ctx->mu);
+        i = ctx->next++;
+        pthread_mutex_unlock(&ctx->mu);
+        if (i >= ctx->npts) break;
+        double u = ((double)i / (double)(ctx->npts - 1)) * ctx->twoN1;
+        dd x = pilot_x_from_u(G3_N, u);
+        for (int side = 0; side < 2; side++)
+            ctx->res[i * 2 + side] = eval_fast(&ctx->fcs[side], x, NULL);
+    }
+    return NULL;
+}
+
+/* one refinement zoom: maximize metric (0=pilot, 1=absE97) for a fixed side
+   around center u0 with halfwidth h0, 3 levels x 128 points; returns the
+   refined local max and updates the global sups through *gp */
+typedef struct {
+    double supPilot, supPilotU; int supPilotSide;
+    double supE97, supE97U; int supE97Side;
+    double maxTel, maxTelU; int maxTelSide;
+    pthread_mutex_t mu;
+} gsup_t;
+
+static void gsup_update(gsup_t *g, const pres_t *r, double u, int side) {
+    pthread_mutex_lock(&g->mu);
+    if (r->pilot > g->supPilot) { g->supPilot = r->pilot; g->supPilotU = u; g->supPilotSide = side; }
+    if (r->absE97 > g->supE97) { g->supE97 = r->absE97; g->supE97U = u; g->supE97Side = side; }
+    if (r->telErr > g->maxTel) { g->maxTel = r->telErr; g->maxTelU = u; g->maxTelSide = side; }
+    pthread_mutex_unlock(&g->mu);
+}
+
+typedef struct {
+    const fastchart_t *fc; int side; int metric;
+    double u0, h0, twoN1;
+    gsup_t *g;
+    double bestVal, bestU;      /* out */
+} zoomjob_t;
+
+typedef struct { zoomjob_t *jobs; int njobs; long next; pthread_mutex_t mu; } zoomctx_t;
+
+static void zoom_run(zoomjob_t *z) {
+    double c = z->u0, h = z->h0;
+    double bv = -1.0, bu = c;
+    for (int lev = 0; lev < 3; lev++) {
+        const int PTS = 128;
+        for (int k = 0; k < PTS; k++) {
+            double u = c + ((2.0 * k) / (PTS - 1) - 1.0) * h;
+            if (u < 0.0) u = 0.0;
+            if (u > z->twoN1) u = z->twoN1;
+            dd x = pilot_x_from_u(G3_N, u);
+            pres_t r = eval_fast(z->fc, x, NULL);
+            gsup_update(z->g, &r, u, z->side);
+            double v = z->metric == 0 ? r.pilot : r.absE97;
+            if (v > bv) { bv = v; bu = u; }
+        }
+        c = bu;
+        h = 4.0 * h / 127.0;    /* keep +-2 substeps of the previous level */
+    }
+    z->bestVal = bv; z->bestU = bu;
+}
+
+static void *zoom_worker(void *arg) {
+    zoomctx_t *zc = (zoomctx_t *)arg;
+    for (;;) {
+        long i;
+        pthread_mutex_lock(&zc->mu);
+        i = zc->next++;
+        pthread_mutex_unlock(&zc->mu);
+        if (i >= zc->njobs) break;
+        zoom_run(&zc->jobs[i]);
+    }
+    return NULL;
+}
+
+typedef struct { double v; long idx; int side; } topent_t;
+static int top_cmp_desc(const void *a, const void *b) {
+    double d = ((const topent_t *)b)->v - ((const topent_t *)a)->v;
+    return d > 0 ? 1 : d < 0 ? -1 : 0;
+}
+
+static void pilot_g3(long npts, int nthreads, const char *outpath) {
+    const unsigned long N = G3_N;
+    struct timespec w0, w1;
+    clock_gettime(CLOCK_MONOTONIC, &w0);
+    fprintf(stderr, "pilotg3: building tables to %lu ...\n", N + 3);
+    build_tables(N + 3);
+    fastchart_t fcs[2];
+    fastchart_build(&fcs[0], N);
+    fastchart_build(&fcs[1], N + 1);
+    double twoN1 = (double)(2 * N + 1);
+
+    /* startup cross-validation: eval_fast must reproduce eval_E97 under
+       locked_conv() (same telescope, same |E97|) at scattered points */
+    {
+        conv_t cv = locked_conv();
+        double ws[4] = { 0.0, 0.37, 0.734, 1.0 };
+        for (int k = 0; k < 4; k++)
+            for (int side = 0; side < 2; side++) {
+                dd x = pilot_x_from_u(N, ws[k] * twoN1);
+                chart_t ch = build_chart(N + (unsigned long)side);
+                evalres_t a = eval_E97(&ch, x, cv);
+                pres_t b = eval_fast(&fcs[side], x, NULL);
+                double dE = fabs(a.absE97 - b.absE97), dP = fabs(a.pilot - b.pilot);
+                if (dE > 1e-11 || dP > 1e-11) {
+                    fprintf(stderr, "FAST-PATH MISMATCH w=%.3f side=%d dE=%.3e dP=%.3e\n",
+                            ws[k], side, dE, dP);
+                    exit(4);
+                }
+            }
+        fprintf(stderr, "fast path validated against eval_E97 (8 points, <=1e-11)\n");
+    }
+
+    pilotctx_t ctx;
+    ctx.fcs = fcs; ctx.npts = npts; ctx.twoN1 = twoN1;
+    ctx.res = (pres_t *)calloc((size_t)npts * 2, sizeof(pres_t));
+    if (!ctx.res) { fprintf(stderr, "alloc failure\n"); exit(2); }
+    ctx.next = 0;
+    pthread_mutex_init(&ctx.mu, NULL);
+    pthread_t th[64];
+    if (nthreads > 64) nthreads = 64;
+    struct timespec s0, s1;
+    clock_gettime(CLOCK_MONOTONIC, &s0);
+    for (int i = 0; i < nthreads; i++) pthread_create(&th[i], NULL, pilot_worker, &ctx);
+    for (int i = 0; i < nthreads; i++) pthread_join(th[i], NULL);
+    clock_gettime(CLOCK_MONOTONIC, &s1);
+    double gridWall = (s1.tv_sec - s0.tv_sec) + 1e-9 * (s1.tv_nsec - s0.tv_nsec);
+    fprintf(stderr, "L0 grid done: %ld pts x 2 sides in %.1f s\n", npts, gridWall);
+
+    /* grid-level reduction + top-K extraction */
+    gsup_t g;
+    memset(&g, 0, sizeof(g));
+    pthread_mutex_init(&g.mu, NULL);
+    long nrec = npts * 2;
+    topent_t *byP = (topent_t *)malloc(sizeof(topent_t) * (size_t)nrec);
+    topent_t *byE = (topent_t *)malloc(sizeof(topent_t) * (size_t)nrec);
+    double gridSupPilot = 0, gridSupPilotU = 0; int gridSupPilotSide = 0;
+    double gridSupE97 = 0, gridSupE97U = 0; int gridSupE97Side = 0;
+    for (long i = 0; i < npts; i++) {
+        double u = ((double)i / (double)(npts - 1)) * twoN1;
+        for (int side = 0; side < 2; side++) {
+            pres_t *r = &ctx.res[i * 2 + side];
+            gsup_update(&g, r, u, side);
+            if (r->pilot > gridSupPilot) { gridSupPilot = r->pilot; gridSupPilotU = u; gridSupPilotSide = side; }
+            if (r->absE97 > gridSupE97) { gridSupE97 = r->absE97; gridSupE97U = u; gridSupE97Side = side; }
+            byP[i * 2 + side].v = r->pilot; byP[i * 2 + side].idx = i; byP[i * 2 + side].side = side;
+            byE[i * 2 + side].v = r->absE97; byE[i * 2 + side].idx = i; byE[i * 2 + side].side = side;
+        }
+    }
+    qsort(byP, (size_t)nrec, sizeof(topent_t), top_cmp_desc);
+    qsort(byE, (size_t)nrec, sizeof(topent_t), top_cmp_desc);
+
+    /* zoom refinement: top-16 by pilot + top-16 by |E97| */
+    const int TOPK = 16;
+    zoomjob_t jobs[2 * TOPK];
+    double gridStepU = twoN1 / (double)(npts - 1);
+    for (int k = 0; k < TOPK; k++) {
+        jobs[k].fc = &fcs[byP[k].side]; jobs[k].side = byP[k].side; jobs[k].metric = 0;
+        jobs[k].u0 = ((double)byP[k].idx / (double)(npts - 1)) * twoN1;
+        jobs[k].h0 = gridStepU; jobs[k].twoN1 = twoN1; jobs[k].g = &g;
+        jobs[TOPK + k].fc = &fcs[byE[k].side]; jobs[TOPK + k].side = byE[k].side; jobs[TOPK + k].metric = 1;
+        jobs[TOPK + k].u0 = ((double)byE[k].idx / (double)(npts - 1)) * twoN1;
+        jobs[TOPK + k].h0 = gridStepU; jobs[TOPK + k].twoN1 = twoN1; jobs[TOPK + k].g = &g;
+    }
+    zoomctx_t zc = { jobs, 2 * TOPK, 0, PTHREAD_MUTEX_INITIALIZER };
+    clock_gettime(CLOCK_MONOTONIC, &s0);
+    for (int i = 0; i < nthreads; i++) pthread_create(&th[i], NULL, zoom_worker, &zc);
+    for (int i = 0; i < nthreads; i++) pthread_join(th[i], NULL);
+    clock_gettime(CLOCK_MONOTONIC, &s1);
+    double zoomWall = (s1.tv_sec - s0.tv_sec) + 1e-9 * (s1.tv_nsec - s0.tv_nsec);
+    clock_gettime(CLOCK_MONOTONIC, &w1);
+    double wall = (w1.tv_sec - w0.tv_sec) + 1e-9 * (w1.tv_nsec - w0.tv_nsec);
+
+    double lnN = dd_to_d(g_lnn[N]);
+    double gridStepX = 4.0 * dd_to_d(DD_PI) * gridStepU;
+    double turnsPerStep = gridStepX * lnN / (4.0 * dd_to_d(DD_PI));
+
+    FILE *f = fopen(outpath, "w");
+    if (!f) { fprintf(stderr, "cannot open %s\n", outpath); exit(2); }
+    fprintf(f, "{\n");
+    fprintf(f, "  \"ticket\": \"imp-95205\",\n");
+    fprintf(f, "  \"mode\": \"pilotg3\",\n");
+    fprintf(f, "  \"N\": %lu,\n", N);
+    fprintf(f, "  \"RexExact\": %.16f,\n", REX_EXACT);
+    fprintf(f, "  \"convention\": {\"bnHasT0\": true, \"bnOnBoth\": true, \"frozenChart\": true, \"gamma\": \"real gamma_at\",\n");
+    fprintf(f, "    \"xEval\": \"x = 4*pi*(N^2 - t0/16 + w*(2N+1)), w in [0,1], N = 690988\",\n");
+    fprintf(f, "    \"seamSides\": \"side 0 = chart 690988 (own), side 1 = chart 690989 (cross)\"},\n");
+    fprintf(f, "  \"grid\": {\"npts\": %ld, \"sides\": 2, \"evaluations\": %ld,\n", npts, nrec);
+    fprintf(f, "    \"gridStepX\": %.6f, \"fastestPhaseTurnsPerStep\": %.3f,\n", gridStepX, turnsPerStep);
+    fprintf(f, "    \"zoomEvaluations\": %d, \"zoomFinalResX\": %.6f},\n",
+            2 * TOPK * 3 * 128, gridStepX * (4.0 / 127.0) * (4.0 / 127.0));
+    fprintf(f, "  \"wallSeconds\": %.1f, \"gridWallSeconds\": %.1f, \"zoomWallSeconds\": %.1f, \"threads\": %d,\n",
+            wall, gridWall, zoomWall, nthreads);
+    fprintf(f, "  \"telescope\": {\"maxErr\": %.6e, \"atW\": %.9f, \"atSide\": %d},\n",
+            g.maxTel, g.maxTelU / twoN1, g.maxTelSide);
+    fprintf(f, "  \"gridSupPilot\": {\"value\": %.16f, \"w\": %.12f, \"side\": %d},\n",
+            gridSupPilot, gridSupPilotU / twoN1, gridSupPilotSide);
+    fprintf(f, "  \"gridSupE97\": {\"value\": %.16f, \"w\": %.12f, \"side\": %d},\n",
+            gridSupE97, gridSupE97U / twoN1, gridSupE97Side);
+    fprintf(f, "  \"supPilot\": {\"value\": %.16f, \"w\": %.12f, \"side\": %d, \"xMinusXN\": %.6f},\n",
+            g.supPilot, g.supPilotU / twoN1, g.supPilotSide, 4.0 * dd_to_d(DD_PI) * g.supPilotU);
+    fprintf(f, "  \"supE97\": {\"value\": %.16f, \"w\": %.12f, \"side\": %d, \"xMinusXN\": %.6f},\n",
+            g.supE97, g.supE97U / twoN1, g.supE97Side, 4.0 * dd_to_d(DD_PI) * g.supE97U);
+    fprintf(f, "  \"pilotVerdict\": \"%s\",\n",
+            g.supPilot < REX_EXACT ? "PASS: sampled sup pilot < Rex" : "STOP-SIGNAL: sampled sup pilot >= Rex");
+    fprintf(f, "  \"e97Verdict\": \"%s\",\n",
+            g.supE97 < REX_EXACT ? "CLEARS: sampled sup |E97| < Rex" : "RED-FLAG: sampled sup |E97| >= Rex");
+    fprintf(f, "  \"topByPilot\": [\n");
+    for (int k = 0; k < 10; k++)
+        fprintf(f, "    {\"w\": %.12f, \"side\": %d, \"pilot\": %.16f, \"absE97\": %.16f}%s\n",
+                (double)byP[k].idx / (double)(npts - 1), byP[k].side, byP[k].v,
+                ctx.res[byP[k].idx * 2 + byP[k].side].absE97, k < 9 ? "," : "");
+    fprintf(f, "  ],\n");
+    fprintf(f, "  \"topByE97\": [\n");
+    for (int k = 0; k < 10; k++)
+        fprintf(f, "    {\"w\": %.12f, \"side\": %d, \"absE97\": %.16f, \"pilot\": %.16f}%s\n",
+                (double)byE[k].idx / (double)(npts - 1), byE[k].side, byE[k].v,
+                ctx.res[byE[k].idx * 2 + byE[k].side].pilot, k < 9 ? "," : "");
+    fprintf(f, "  ]\n}\n");
+    fclose(f);
+    printf("PILOTG3 supPilot=%.16f supE97=%.16f Rex=%.16f maxTel=%.3e wall=%.1fs out=%s\n",
+           g.supPilot, g.supE97, REX_EXACT, g.maxTel, wall, outpath);
+    free(byP); free(byE); free(ctx.res);
+    free(fcs[0].P); free(fcs[0].Q); free(fcs[1].P); free(fcs[1].Q);
+}
+
+/* single-point full-precision printout for the external mpmath audit */
+static void pilot_point(double w, int side) {
+    const unsigned long N = G3_N;
+    build_tables(N + 3);
+    fastchart_t fc;
+    fastchart_build(&fc, N + (unsigned long)side);
+    double twoN1 = (double)(2 * N + 1);
+    dd x = pilot_x_from_u(N, w * twoN1);
+    double D[50];
+    pres_t r = eval_fast(&fc, x, D);
+    printf("{\n  \"N\": %lu, \"w\": %.17e, \"side\": %d,\n", N, w, side);
+    printf("  \"chart\": {\"M\": %lu, \"sigmaB\": %.17e, \"sigmaA\": %.17e, \"gamma\": %.17e},\n",
+           fc.ch.N, fc.ch.sigmaB, fc.ch.sigmaA, fc.ch.gamma);
+    printf("  \"x\": {\"hi\": %.17e, \"lo\": %.17e},\n", x.hi, x.lo);
+    printf("  \"E97\": {\"re\": %.17e, \"im\": %.17e, \"abs\": %.17e},\n",
+           r.E97re, r.E97im, r.absE97);
+    printf("  \"pilot\": %.17e,\n  \"telescopeErr\": %.6e,\n", r.pilot, r.telErr);
+    printf("  \"D\": [\n");
+    for (int j = 0; j < 25; j++)
+        printf("    [%.17e, %.17e]%s\n", D[2 * j], D[2 * j + 1], j < 24 ? "," : "");
+    printf("  ]\n}\n");
+    free(fc.P); free(fc.Q);
+}
+
 /* ───────────────────────── main ───────────────────────────────────── */
 int main(int argc, char **argv) {
     const char *tenv = getenv("GATE2_T_NUM"), *tden = getenv("GATE2_T_DEN");
@@ -955,6 +1353,16 @@ int main(int argc, char **argv) {
     if (argc >= 4 && strcmp(argv[1], "sweep") == 0) {
         sweep_window(strtoul(argv[2], NULL, 10), atoi(argv[3]),
                      argc >= 5 ? atoi(argv[4]) : 1);
+        return 0;
+    }
+    if (argc >= 4 && strcmp(argv[1], "pilotg3") == 0) {
+        long npts = atol(argv[2]);
+        int nth = atoi(argv[3]);
+        pilot_g3(npts, nth, argc >= 5 ? argv[4] : "pilotg3.json");
+        return 0;
+    }
+    if (argc >= 4 && strcmp(argv[1], "point") == 0) {
+        pilot_point(atof(argv[2]), atoi(argv[3]));
         return 0;
     }
     if (argc >= 5 && strcmp(argv[1], "scan") == 0) {

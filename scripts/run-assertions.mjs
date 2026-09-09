@@ -14455,6 +14455,59 @@ const DATA_MODULES = [
   // window, strip endpoints, floors all carried UNCHANGED. In-sweep
   // ~2.5 s, import-light. Changes no bound; NO QED; PT stays SOTA.
   '/src/data/imp-95170-merge-consistent-copositive-cover.js',
+  // imp-95171 (fable-5): RIGOROUS step - TRIPLE MERGE-CONSISTENT
+  // COPOSITIVE COVER: the THREE-POINT class (at most three packets in
+  // each of blocks 1..3, arbitrary blocks 0/4) is CLOSED on the covered
+  // band [0.2320727, 0.23209). LEMMA MC3: (u, s, t) triple extension of
+  // the imp-95170 merge-consistent enclosure - all nine within/cross
+  // entry types bounded consistently in the same separation ranges;
+  // coincident merges are exact lower-occupancy boundary cases. LEMMA FB
+  // carried at 11 packets with a cheap-first uniform-point face bound
+  // (evaluation-order change only). THEOREM MC3: the 10-D branch-and-
+  // bound terminates on the six recorded mu-layers with zero unresolved
+  // cells, worst certified leaf >= 2e-8 - certified by a RECORDED
+  // OFFLINE run (minutes-scale, ~40x the imp-95170 cover; too heavy for
+  // the sweep); in-sweep the batteries re-run and each per-layer BINDING
+  // cell re-certifies through the identical code path. Burden on the
+  // band contracts to >= 4 packets in some middle block. Closes no
+  // sub-band of the open strip; sandwich, window, floors all carried
+  // UNCHANGED. In-sweep ~0.3 s, import-light. Changes no bound; NO QED;
+  // PT stays SOTA.
+  '/src/data/imp-95171-triple-merge-consistent-cover.js',
+  // imp-95172 (fable-5): RIGOROUS step - LEMMA NT (norm-transfer closed
+  // form c(s) = exp(1/2)(1 - 1/(2s))^s / sqrt(s - 1/2) = sup of
+  // h(x, s)/sqrt(x), attained at x = s - 1/2; c(11) = 0.30501088924617725
+  // - the K-mass vs legality-mass currency bridge imp-95129 named as the
+  // missing tool) + THEOREM BW (ballast-witness necessity: c sqrt(mB om)
+  // >= sqrt(LwEven)[sqrt(phi - q om) - sqrt(2(1 - phi))], six-fact chain)
+  // + COROLLARY OM delivering imp-95130-subgap-phi-conditional-odd-mass
+  // in quantitative form (omega >= omegaMin(phi0, mB) > 0 for phi0 >
+  // 0.670946474458521, with a 1/mB ballast factor) + THEOREM GB, the
+  // FIRST uniform witness-side tradeoff ceiling: phi <= gamma(mB) < 1
+  // for every bounded-ballast witness (gamma(1) = 0.9996167824561802;
+  // gamma(10) = 0.9999601706097895 uniform over the whole carried
+  // p = 999983 grid class). phi -> 1 now requires unboundedly many
+  // occupied odd blocks with vanishing ell-2 but fixed ell-1 (~0.0205)
+  // ballast. COROLLARY PP: parity-pure caps phi <= 1/2 (even), q/2
+  // (odd). Constants unoptimized (gamma far above measured sup phi
+  // 0.3572 - stated plainly); conditional exactly as THEOREM OD. NEW
+  // sub-gap imp-95172-subgap-mB-uniform-ballast. Changes no bound;
+  // NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95172-ballast-necessity-tradeoff.js',
+  // imp-95205 (fable-5): ARCHIVE-FREE G3 first-window pilot (paper section
+  // 12.1): the complete N = 690988 window measured with the source-closed
+  // Lane-A evaluator - NO anchor-literal gate (the 0.2141254901198318
+  // producing archive was never downloaded; the paper's own program does
+  // not need it). 300001-pt grid x both seam charts + sub-oscillation zoom
+  // (612,290 dd evals, 714 s): sampled sup pilot sum_j|D_j| =
+  // 0.2437541384450471 < Rex = 0.2796881955526244 (12.8% margin, verdict
+  // (a) on sampled points) and sampled sup |E97| = 0.1934424506064475
+  // (30.8% margin). G1 re-verified: eq-(13) telescope to 8.02e-14 in dd,
+  // 8e-49/1e-59/8e-79 in mpmath at 166/199/265 bits; dd-vs-mp <= 1.3e-16
+  // on |E97|. SAMPLED sup only (fastest phase turns ~62x per step) - a
+  // measurement, NOT a certificate (interval lane needed). Changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95205-g3-first-window-pilot.js',
 ];
 
 let ALL_MODULES = FAST_MODE

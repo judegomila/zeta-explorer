@@ -191,3 +191,21 @@ disproof). The G3 lane is launched 2026-09-09.
   lane — never on the sealed repo. ORDERING: the sharp-weight native-binding
   NOTE (the theorem-level piece) is drafted FIRST; the sweep is only its
   certificate. User's call to fire.
+
+## Wave 5 delivery (2026-09-09)
+- l2_detection_modulus (job32, 0f641447) DELIVERED: build green, zero
+  nonstandard axioms, faithfulness MINOR (faithful in substance; five
+  disclosed non-material deviations: mesh ρ₀/2 conservative, strip widened to
+  |Re|≤2, extra hT: 1≤T, restatement-vs-import packaging). The composition
+  endpoint is REAL: the re-supplied Inertia/Kernels interfaces diffed
+  statement-identical to the banked frozen-rung originals, and
+  one_le_negIndex_gram_of_detection concludes by DIRECT INVOCATION of the
+  banked theorem. Target 1 UNCONDITIONAL (detection_radius_robust, paper's
+  exact radius, puncture dropped — stronger than briefed); Target 2
+  CONDITIONAL on the named ZeroRepulsion structure only (grep-verified; λ_min
+  route absent + disclaimed). THE FROZEN-RUNG⟺PT PROMOTION NOW RESTS ON
+  EXACTLY ONE NAMED HYPOTHESIS: (ZR). Landing note: swap the re-supplied
+  interfaces for imports of the originals (diff says drop-in).
+- weld_cc_rm (job31, 6a923863) OUT_OF_BUDGET — second budget event; parked
+  like entirelp pending the user. Natural split: three single-lemma jobs
+  (PF / CC / RM).

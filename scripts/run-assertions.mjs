@@ -14664,6 +14664,25 @@ const DATA_MODULES = [
   // 0.0025 -> 0.744 (M = 8) -> 0.9999976 (M = 24). Sub-gap carried OPEN.
   // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95215-szasz-boundary-lacunarity-necessity.js',
+  // imp-95216 (fable-5): RIGOROUS step - THEOREM GC (global geometric-chain
+  // pricing): the LEMMA CV admissible remaining freedom of obligation (iii)
+  // -- ascending TOUCHING families, closed by no DR theorem -- is PRICED
+  // under a global consecutive-ratio floor rho > 1 with NO shell structure:
+  // sqrt(LamGeoBar(x; rho)) = C_geo(rho) sum Q_{r-1} e^(-rho^(r-1) x), the
+  // imp-95211 THEOREM DR proof verbatim with 2 -> rho at its only two uses
+  // of the rate hypothesis (exact reduction at rho = 2 to LamBar/xStar).
+  // THEOREM HL-G: H-LOC for m d > xStarGeo(rho); ladder 25.24/12.54/8.36/
+  // 5.07/2.65/1.47/1.09 at rho = 1.1..4 (rho > 2 strictly sharpens the
+  // dyadic threshold). PROP FENCE: exact rho < 2 chains admit no lacunary
+  // partition (outside every DR hypothesis) yet carry the m-free Szasz
+  // certificate S <= 2 rho/(rho - 1) - the THEOREM SZ necessity is met.
+  // PROP NG-DIV: xStarGeo(rho) >= ln C_geo + ln sqrt(2) >=
+  // floor(ln2/ln rho) ln 3 + ln sqrt(2) diverges as rho -> 1+ (the LEMMA NG
+  // coalescence boundary from the positive side). Obligation (iii) now has
+  // two discharge certificates (lacunary shells OR ratio floor); residual:
+  // un-floored bounded-occupancy touching families. Sub-gap carried OPEN.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95216-global-chain-touching-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

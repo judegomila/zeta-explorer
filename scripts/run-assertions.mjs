@@ -14683,6 +14683,29 @@ const DATA_MODULES = [
   // un-floored bounded-occupancy touching families. Sub-gap carried OPEN.
   // Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95216-global-chain-touching-pricing.js',
+  // imp-95217 (fable-5): RIGOROUS step - THEOREM SI (shift-interpolation
+  // count pricing): the imp-95216 residual of obligation (iii) -- touching
+  // families WITHOUT a ratio floor, the LEMMA NG coalescence corner -- is
+  // PRICED with NO separation hypothesis of any kind, only a bound K on the
+  // number of distinct rates (H-CNT). Mechanism: replace the Cauchy
+  // biorthogonal route (which pays c(q) -> inf as ratios -> 1) by the
+  // shift-interpolation identity f(s+d) = sum_j c_j f(s + j d/n), c_j the
+  // Newton coefficients interpolating q^n at the nodes e^(-(d/n) mu_r);
+  // shifts are L2 contractions, so sqrt(LamTouch(x; K)) =
+  // min_n sum_{k<K} binom(n,k) e^(-x(n-k)/n)(1+e^(-x/n))^k -- position-
+  // uniform THROUGH coalescence (confluent s^j e^(-mu s) dressing priced at
+  // the same threshold). Exact at K = 1 (e^(-2x), attained; xStarTouch(1) =
+  // ln2/2). THEOREM HL-C: H-LOC for m d > xStarTouch(K); ladder 0.3466/
+  // 2.7285/5.4543/8.3208/11.2147/14.1745/17.1715/20.1763 at K = 1..8,
+  // 47.73/97.39 at K = 17/33. PROP FLOOR: confluent witness gives the truth
+  // floor Q(2K-1, 2x) in closed form. PROP NEC + PROP LIN: count-dependence
+  // NECESSARY (THEOREM SZ sections) and the price is linear two-sidedly:
+  // (2K-1)/4 <= xTrue(K) <= xStarTouch(K) <= 4 ln3 K + ln2. Obligation (iii)
+  // now has THREE discharge certificates (lacunary shells / ratio floor /
+  // finite count); residual: UNBOUNDED-count bounded-occupancy touching
+  // families. Sub-gap carried OPEN. Changes no bound; NO QED; PT Lambda <=
+  // 0.2 stays SOTA.
+  '/src/data/imp-95217-shift-interpolation-count-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

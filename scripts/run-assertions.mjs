@@ -14841,6 +14841,24 @@ const DATA_MODULES = [
   // both sides). Sub-gap carried OPEN. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95224-signed-depth-currency-nogo.js',
+  // imp-95225 (fable-5): RIGOROUS step - LEMMA SEG-N + LEMMA MULT +
+  // THEOREM SGN-C (signed count-priced shift certificate): the FIRST
+  // POSITIVE signed multi-rate seam certificate, in the count currency
+  // imp-95224 DC-NOGO proved mandatory: R <= e^(-2x) [sum_(k<N) C(K,k)
+  // (1+e^(x/K))^k]^2 for every integer K >= max(1, N-1), N = DISTINCT
+  // rates, x = m d, arbitrary real amplitudes, uniform over coalescence.
+  // Proof: segment reduction to an exponential sum + a Plancherel
+  // shift-multiplier cap evaluated on the Newton interpolant of w^K
+  // (divided differences = complete homogeneous symmetric polynomials,
+  // counted by C(K,k)). Recovers sharp SGN-EQ exactly at N = 1; N = 2
+  // fenced within factor < 8 against the imp-95224 coalescence-law floor
+  // (matching quadratic order); vacuity frontier N ~ 1.4427x honestly
+  // below the SGN-SAT saturation frontier N ~ 11.6893x (corridor open).
+  // HONEST: weight-priced and modulus/phase signed legs remain open; the
+  // width-law paper packets (N ~ pD, x = Theta(1)) are NOT certified.
+  // Sub-gap carried OPEN. Changes no bound; NO QED; PT Lambda <= 0.2
+  // stays SOTA.
+  '/src/data/imp-95225-signed-count-priced-shift-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14792,6 +14792,20 @@ const DATA_MODULES = [
   // Sub-gap carried OPEN. Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95221-positive-amplitude-seam-certificate.js',
+  // imp-95222 (fable-5): RIGOROUS step - LEMMA PW-E + THEOREM FA-2
+  // (diagonal-exact seam sharpening): the sharpening imp-95221 attempted
+  // and recorded open is CLOSED via the exact full-line-Gram deficit
+  // identity G - 2e^(-a tau)/(a+b) = 2a(e^(-b tau)-e^(-a tau))/(a^2-b^2)
+  // >= 0, giving H_mn <= (1/2) e^(-(mu_m+mu_n) min(u_m,u_n)) G_mn with
+  // equality iff co-centered (subsumes both prior caps). Positive-cone
+  // certificate halves to R <= (1/2)e^(-y_min) <= (1/2)e^(-x_min), exact
+  // on singletons. COROLLARY QG-2: the minority gate Q < 0.9088 DISSOLVES
+  // (R <= (1/2)e^(-2^(-2/3)/Q) < 1/2 at EVERY Q, uniform in (p,D); model
+  // D=2 non-coverage gone, bound 0.2663). HONEST: positivity still
+  // load-bearing, phases/envelope/chain-gate map/paper constants OPEN,
+  // margin O(1/Q). Sub-gap carried OPEN. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95222-diagonal-exact-seam-sharpening.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14806,6 +14806,23 @@ const DATA_MODULES = [
   // margin O(1/Q). Sub-gap carried OPEN. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95222-diagonal-exact-seam-sharpening.js',
+  // imp-95223 (fable-5): RIGOROUS step - THEOREM SGN-EQ + SGN-PAIR + MZ
+  // (signed-amplitude rank-one resolution): first attack on the
+  // load-bearing positivity obligation (2) of the sub-gap. Equal-rate
+  // (rank-one) sector solved SHARPLY for SIGNED amplitudes: R <=
+  // e^(-y_min) (segment argument -- below every center the family is ONE
+  // exponential), exactly double the FA-2 positive-cone bound; exact pair
+  // sup (1/2)e^(-2 x_min) f(w), f in (1,2), mixed-sign optimizer, so the
+  // FA-2 constant NEEDS positivity (violation factor up to 2 at every
+  // depth) and signed wrong-side majority has the sharp threshold
+  // x_min = ln(2)/2. THEOREM MZ (explicit product construction with
+  // closed-form fences): the segment route has NO count-uniform multi-rate
+  // constant at fixed x_min -- the phase obligation is located as
+  // multi-rate interference. HONEST: obligation (2) NOT discharged
+  // (width-law rates distinct = the MZ-blocked sector), multi-rate signed
+  // bound open both sides. Sub-gap carried OPEN. Changes no bound; NO QED;
+  // PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95223-signed-amplitude-rankone-resolution.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1,0 +1,42 @@
+running tier_cert validatedd (one setup, 30 points, prec 128, degree 80)...
+  [PASS] w=0.524470030380 side=0  pilot dev 2.90e-14  |E97| dev 7.22e-16
+  [PASS] w=0.053273326334 side=1  pilot dev 4.69e-15  |E97| dev 2.78e-17
+  [PASS] w=1.000000000000 side=1  pilot dev 1.67e-14  |E97| dev 5.55e-17
+  [PASS] w=0.009407359677 side=0  pilot dev 5.61e-15  |E97| dev 1.53e-16
+  [PASS] w=0.230429172221 side=0  pilot dev 1.59e-14  |E97| dev 2.36e-16
+  [PASS] w=0.748891889481 side=1  pilot dev 1.11e-15  |E97| dev 4.16e-17
+  [PASS] w=0.970055684497 side=1  pilot dev 1.25e-14  |E97| dev 2.64e-16
+  [PASS] w=0.690760627301 side=1  pilot dev 1.94e-14  |E97| dev 1.39e-16
+  [PASS] w=0.056588178375 side=1  pilot dev 5.43e-15  |E97| dev 1.63e-16
+  [PASS] w=0.412332860312 side=0  pilot dev 1.02e-14  |E97| dev 1.28e-16
+  [PASS] w=0.486826193722 side=0  pilot dev 1.44e-14  |E97| dev 2.57e-16
+  [PASS] w=0.634005391471 side=1  pilot dev 7.02e-15  |E97| dev 2.78e-17
+  [PASS] w=0.417605989560 side=0  pilot dev 3.45e-14  |E97| dev 2.43e-16
+  [PASS] w=0.565790778444 side=0  pilot dev 8.33e-17  |E97| dev 6.05e-16
+  [PASS] w=0.756665290508 side=0  pilot dev 6.86e-15  |E97| dev 9.71e-17
+  [PASS] w=0.344176205654 side=1  pilot dev 1.44e-15  |E97| dev 3.12e-17
+  [PASS] w=0.791247804188 side=1  pilot dev 3.03e-15  |E97| dev 1.25e-16
+  [PASS] w=0.627605471057 side=1  pilot dev 1.75e-15  |E97| dev 3.33e-16
+  [PASS] w=0.883496973226 side=1  pilot dev 7.69e-15  |E97| dev 4.16e-17
+  [PASS] w=0.168454547103 side=0  pilot dev 4.16e-16  |E97| dev 4.30e-16
+  [PASS] w=0.207632516965 side=0  pilot dev 1.12e-14  |E97| dev 2.29e-16
+  [PASS] w=0.444021846561 side=0  pilot dev 4.05e-15  |E97| dev 8.72e-16
+  [PASS] w=0.096226843166 side=0  pilot dev 3.41e-14  |E97| dev 1.11e-16
+  [PASS] w=0.321547673240 side=1  pilot dev 2.66e-14  |E97| dev 3.19e-16
+  [PASS] w=0.756599373089 side=0  pilot dev 4.41e-15  |E97| dev 1.25e-16
+  [PASS] w=0.071819646189 side=0  pilot dev 1.34e-14  |E97| dev 3.33e-16
+  [PASS] w=0.585858204904 side=0  pilot dev 7.63e-15  |E97| dev 2.95e-17
+  [PASS] w=0.698897308674 side=1  pilot dev 2.72e-15  |E97| dev 6.94e-17
+  [PASS] w=0.423346638516 side=0  pilot dev 5.83e-16  |E97| dev 9.37e-17
+  [PASS] w=0.059536627679 side=0  pilot dev 1.14e-15  |E97| dev 1.46e-16
+{
+  "points": 30,
+  "failures": 0,
+  "maxDev": {
+    "absE97": 8.723490679818369e-16,
+    "pilot": 3.447242491461111e-14,
+    "D": 2.310651670001107e-14
+  },
+  "maxTaylorRad": 1.445e-14,
+  "ddTol": 1e-12
+}

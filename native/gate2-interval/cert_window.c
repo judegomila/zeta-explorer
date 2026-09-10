@@ -369,23 +369,18 @@ static void etmp_clear(etmp_t *m) {
 }
 
 /*
- * Full locked-convention evaluation at the point ball x (WPHI):
- * class sums, A97 product, E97 = C - A97*F, eq-(13) telescope (descending
- * primes 97..2), pilot = sum_j |D_j|. Mirrors gate2-lane-a eval_fast.
+ * Assembly stage of the locked-convention evaluation: given the class sums
+ * already in m->ScR/ScI[0..25] (computed either directly at the point ball
+ * x, or via a rigorous Taylor panel model — tier_cert.c), compute the prime
+ * phasors at x, the A97 product, E97 = C - A97*F, the eq-(13) telescope
+ * (descending primes 97..2) and pilot = sum_j |D_j|, with the per-eval
+ * telescope gate. Split out of eval_point so the tiered certifier reuses
+ * the exact assembly semantics (the telescope identity is algebraic in the
+ * class sums, so the gate remains a valid consistency check of this stage
+ * for ANY rigorous class-sum enclosures).
  */
-static void eval_point(const cchart_t *ch, const arb_t x, eres_t *r, etmp_t *m) {
-    const unsigned long M = ch->M;
-    for (int i = 0; i < 26; i++) { arb_zero(m->ScR + i); arb_zero(m->ScI + i); }
-    for (unsigned long n = 1; n <= M; n++) {
-        /* theta_n = x * ln(n) / 2, product at WPHI (x ~ 2^43 needs the
-           extra 64 phase bits), sin/cos back at PREC */
-        arb_mul(m->t, x, g_lnn + n, WPHI);
-        arb_mul_2exp_si(m->t, m->t, -1);
-        arb_sin_cos(m->sn, m->cs, m->t, PREC);
-        int cls = g_cls[n];
-        arb_addmul(m->ScR + cls, ch->P + n, m->cs, PREC);
-        arb_addmul(m->ScI + cls, ch->Q + n, m->sn, PREC);
-    }
+static void eval_from_class_sums(const cchart_t *ch, const arb_t x, eres_t *r,
+                                 etmp_t *m) {
     /* F = sum of all classes, C = class 0 */
     arb_t Fre, Fim, Are, Aim;
     arb_init(Fre); arb_init(Fim); arb_init(Are); arb_init(Aim);
@@ -468,6 +463,27 @@ static void eval_point(const cchart_t *ch, const arb_t x, eres_t *r, etmp_t *m) 
         exit(4);
     }
     arb_clear(Fre); arb_clear(Fim); arb_clear(Are); arb_clear(Aim);
+}
+
+/*
+ * Full locked-convention evaluation at the point ball x (WPHI): direct
+ * O(N) class sums, then the shared assembly stage. Mirrors gate2-lane-a
+ * eval_fast. (Semantics reference for the tiered evaluator.)
+ */
+static void eval_point(const cchart_t *ch, const arb_t x, eres_t *r, etmp_t *m) {
+    const unsigned long M = ch->M;
+    for (int i = 0; i < 26; i++) { arb_zero(m->ScR + i); arb_zero(m->ScI + i); }
+    for (unsigned long n = 1; n <= M; n++) {
+        /* theta_n = x * ln(n) / 2, product at WPHI (x ~ 2^43 needs the
+           extra 64 phase bits), sin/cos back at PREC */
+        arb_mul(m->t, x, g_lnn + n, WPHI);
+        arb_mul_2exp_si(m->t, m->t, -1);
+        arb_sin_cos(m->sn, m->cs, m->t, PREC);
+        int cls = g_cls[n];
+        arb_addmul(m->ScR + cls, ch->P + n, m->cs, PREC);
+        arb_addmul(m->ScI + cls, ch->Q + n, m->sn, PREC);
+    }
+    eval_from_class_sums(ch, x, r, m);
 }
 
 /* ────────────────────────── shared reporting ──────────────────────── */

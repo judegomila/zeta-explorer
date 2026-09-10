@@ -24,7 +24,19 @@ envprobe: envprobe.c ../gate2-lane-a/main.c
 envscan: envprobe
 	nice -n 16 ./envprobe scan 16 1536 0.004 8 95210 envprobe-scan-95210.json
 
-clean:
-	rm -f cert_window envprobe
+# imp-95213 tier-P/B/S certifier (Taylor panels + alias ledger; includes cert_window.c)
+tier_cert: tier_cert.c cert_window.c
+	$(CC) $(CFLAGS) -o tier_cert tier_cert.c $(LDFLAGS)
 
-.PHONY: selfcheck validate dryrun envscan clean
+tier-selfcheck: tier_cert
+	nice -n 16 ./tier_cert selfcheck 128 80
+
+tier-validate: tier_cert
+	$(MAKE) -C ../gate2-lane-a gate2
+	nice -n 16 ./tier_cert validate 30 95213 128 80
+	nice -n 16 python3 tier_validate_dd.py
+
+clean:
+	rm -f cert_window envprobe tier_cert
+
+.PHONY: selfcheck validate dryrun envscan tier-selfcheck tier-validate clean

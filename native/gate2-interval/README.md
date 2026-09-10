@@ -119,14 +119,48 @@ O(N) evaluation. Frozen record:
 `src/data/imp-95210-window1-pilot-certificate.js`. The tier-P/B/S
 batching below remains the only live path.
 
+## Tier-P/B/S certifier (imp-95213, 2026-09-10): BUILT + SLICE-VALIDATED
+
+`tier_cert.c` (includes this file; `eval_from_class_sums` is the shared
+assembly stage, so the tiered evaluator reproduces the exact locked
+semantics + per-eval telescope gate). Architecture:
+
+- **Tier B**: rigorous degree-D Taylor panel models of all 52 class-sum
+  series (one O(N) Arb pass per panel; exact Lagrange remainder from the
+  per-class masses Σ|amp|ν^{D+1}, computed once per chart in Arb; at
+  D = 80 the panel half-width is hX = 3.1392 x-units at total remainder
+  ≤ 1e-14). Cells inside a panel cost ~4.3e3 ball-ops (arb_dot Horner +
+  25 prime sin_cos + assembly) instead of ~7e5 arb_sin_cos. Cell
+  criterion uses the ADOPTED alias-decomposed ledger, re-derived in Arb:
+  Lip(pilot) ≤ 44.476493/x (side 0; matches the envprobe doubles to
+  1e-8) vs the direct 84.769; Lip(E97) ≤ 91.492 unchanged.
+- **Tier P**: direct O(N) `eval_point` fallback at max depth / min
+  width, with the |E97|-direct target retry (G3 semantics). Never fired
+  on the validated slice.
+- **Tier S**: both seam charts over the closed range (structural), plus
+  the derotated overhang ledger carried as an Arb diagnostic:
+  lip2Derot ≤ 39.8115 (only 1.12x below the joint ledger) while the
+  split-target static overhang penalty 2·Σ supA·amp·mTail = 2·0.6765
+  exceeds Rex — so the per-cell o_j split is priced OFF the critical
+  path (frozen verdict, matches Finding 1 of imp-95210).
+
+Validation: 30 seeded points (seed 95213, witnesses + seam included,
+deliberately off-center panels): direct-Arb-ball containment 30/30, dd
+cross-validation via `tier_validate_dd.py` (gate2 `point`), max Taylor
+radius ~1.3e-14 = the remainder budget, telescope gate ≤ 3.3e-14 at
+every evaluation. Degree sensitivity (micro-slice, full-window
+CPU-days at measured rate): D=40 → 574, D=80 → 403, D=112 → 389.
+
+Slice + price: see `tier-slice-main-95213.json` and the frozen record
+`src/data/imp-95213-tier-certifier-build.js`.
+
 ## Next phase (not this program run)
 
-1. Tier P/B/S batching per the W1-CERT design (panel chirp recurrence
-   u_p = 5, B = 256 frequency bins with the Lemma-A remainder, subpanel
-   degree-40 Taylor/Chebyshev collapse with Lemma B), replacing this
-   program's O(N) per-cell evaluator; this centered-form program stays
-   as the semantics reference the tiered evaluator must reproduce, and
-   as the per-cell validator on spot cells.
+1. Frequency-bin second level (panel chirp recurrence u_p = 5, B = 256
+   bins with the Lemma-A remainder, subpanel collapse with Lemma B) to
+   amortize the per-panel O(N) pass — the remaining ~10-100x between the
+   measured single-level Taylor rate and the design's 1.1e13 ball-op
+   budget; the full run is a separate decision.
 2. Replay at 160/192 bits + independent 256-bit audits (G5) with
    checkpointing; ball radii ARE the paper's r_s (max radius goes in
    the ledger).
@@ -146,6 +180,13 @@ batching below remains the only live path.
     ./cert_window certify [--budget-cells B] [--max-depth D] [--threads T]
                           [--prec P] [--out FILE] [--side 0|1|both]
                           [--u-lo A] [--u-hi B]
+
+    make tier_cert          # imp-95213 tiered certifier
+    make tier-selfcheck     # ledger cross-check + panel containment
+    make tier-validate      # 30-point internal + dd cross-validation
+    ./tier_cert slice --u-lo A --u-hi B [--side 0|1|both]
+                [--metric pilot|e97|both] [--threads T] [--prec P]
+                [--degree D] [--budget-cells B] [--out FILE]
 
 CPU etiquette: run under `nice` with <= 6 threads while the machine is
 shared (see the Makefile targets).

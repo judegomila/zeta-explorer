@@ -1,0 +1,49 @@
+{
+  "mode": "tier-slice", "prec": 128, "degree": 80, "threads": 8,
+  "threshold": 0.27968819555261474, "rexExact": 0.2796881955526244146123,
+  "metric": "e97", "uRange": [73572.5, 73672.5],
+  "setupSeconds": 4.8,
+  "ledger": {
+    "side0": {"chartM": 690988, "lipAlias": 44.476492698, "lip2Derot": 39.811544553, "staticOverhang": 0.676493918,
+      "lipPilotOld": 84.769080, "lipE97": 91.492276, "panelHalfWidthX": 3.139212110, "panelWidthU": 0.499621125, "degree": 80},
+    "side1": {"chartM": 690989, "lipAlias": 44.476477312, "lip2Derot": 39.811524713, "staticOverhang": 0.676494499,
+      "lipPilotOld": 84.769033, "lipE97": 91.492222, "panelHalfWidthX": 3.139211792, "panelWidthU": 0.499621074, "degree": 80}
+  },
+  "sides": [
+    {"side": 0, "chartM": 690988, "panels": 201, "cellsTaylor": 412277, "cellsTierP": 0,
+     "tierB0": 228621, "tierBsub": 122230, "tierP": 0, "tierSseamCells": 0,
+     "failPilot": 0, "failE97": 0, "pilotGapCells": 0, "unprocessedPanels": 0,
+     "certifiedSupUbPilot": 0, "certifiedSupUbE97": 0.27968814373093193,
+     "maxBallRad": 1.973e-14, "maxTelescopeRad": 3.744e-14,
+     "C1_pilot_certified": false, "C2_e97_certified": true,
+     "panelCpuSeconds": 1153.6, "cellCpuSeconds": 30.6, "wallSeconds": 235.7,
+     "uncertifiedCells": []},
+    {"side": 1, "chartM": 690989, "panels": 201, "cellsTaylor": 412281, "cellsTierP": 0,
+     "tierB0": 228619, "tierBsub": 122234, "tierP": 0, "tierSseamCells": 0,
+     "failPilot": 0, "failE97": 0, "pilotGapCells": 0, "unprocessedPanels": 0,
+     "certifiedSupUbPilot": 0, "certifiedSupUbE97": 0.27968737188676729,
+     "maxBallRad": 1.973e-14, "maxTelescopeRad": 3.744e-14,
+     "C1_pilot_certified": false, "C2_e97_certified": true,
+     "panelCpuSeconds": 1130.1, "cellCpuSeconds": 30.1, "wallSeconds": 173.9,
+     "uncertifiedCells": []}
+  ],
+  "measured": {
+    "sliceXUnits": 2.513274e+03, "cpuSeconds": 2344.4, "cpuSecondsPerXUnit": 0.9328,
+    "panelSecondsPerXUnit": 0.9087, "cellSecondsPerXUnit": 0.0241,
+    "cellsPerXUnit": 328.08, "ballOpsEstimate": 7.3172e+10, "ballOpsPerXUnit": 2.9114e+07,
+    "secondsPerBallOp": 3.204e-08
+  },
+  "fullWindowExtrapolation": {
+    "fullXUnitsBothSides": 3.473287e+07,
+    "cpuDaysAtSliceRate": 375.0,
+    "panelOnlyFloorCpuDays": 365.3,
+    "ballOpsFullWindowAtSliceRate": 1.0112e+15,
+    "directBaselineCpuDays": 1.64e5, "designTierBudgetBallOps": 1.1e13,
+    "speedupVsDirect": 437.3
+  },
+  "fullWindowBothSides": false,
+  "promotionFlag": false,
+  "certifiedSubRange": true,
+  "wallSeconds": 414.4,
+  "honesty": "tiered certifier slice: certified continuum sup bounds hold only on the covered uRange and sides; sub-range runs can never set the promotion flag; a pilot cell failure is a stop signal for independent defect radii, not disproof of the recombined gate; promotes no Lambda bound; NO QED; PT Lambda<=0.2 benchmark"
+}

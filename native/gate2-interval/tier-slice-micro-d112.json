@@ -1,0 +1,41 @@
+{
+  "mode": "tier-slice", "prec": 128, "degree": 112, "threads": 8,
+  "threshold": 0.27968819555261474, "rexExact": 0.2796881955526244146123,
+  "metric": "both", "uRange": [73620.5, 73624.5],
+  "setupSeconds": 3.1,
+  "ledger": {
+    "side0": {"chartM": 690988, "lipAlias": 44.476492698, "lip2Derot": 39.811544553, "staticOverhang": 0.676493918,
+      "lipPilotOld": 84.769080, "lipE97": 91.492276, "panelHalfWidthX": 4.847917888, "panelWidthU": 0.771570096, "degree": 112},
+    "side1": {"chartM": 690989, "lipAlias": 44.476477312, "lip2Derot": 39.811524713, "staticOverhang": 0.676494499,
+      "lipPilotOld": 84.769033, "lipE97": 91.492222, "panelHalfWidthX": 4.847917388, "panelWidthU": 0.771570016, "degree": 112}
+  },
+  "sides": [
+    {"side": 0, "chartM": 690988, "panels": 6, "cellsTaylor": 17079, "cellsTierP": 0,
+     "tierB0": 8051, "tierBsub": 5884, "tierP": 0, "tierSseamCells": 0,
+     "failPilot": 0, "failE97": 0, "pilotGapCells": 0, "unprocessedPanels": 0,
+     "certifiedSupUbPilot": 0.27968796280698172, "certifiedSupUbE97": 0.27968501870166024,
+     "maxBallRad": 1.492e-14, "maxTelescopeRad": 2.848e-14,
+     "C1_pilot_certified": true, "C2_e97_certified": true,
+     "panelCpuSeconds": 47.2, "cellCpuSeconds": 1.4, "wallSeconds": 8.6,
+     "uncertifiedCells": []}
+  ],
+  "measured": {
+    "sliceXUnits": 5.026548e+01, "cpuSeconds": 48.7, "cpuSecondsPerXUnit": 0.9686,
+    "panelSecondsPerXUnit": 0.9399, "cellSecondsPerXUnit": 0.0287,
+    "cellsPerXUnit": 339.78, "ballOpsEstimate": 1.5439e+09, "ballOpsPerXUnit": 3.0715e+07,
+    "secondsPerBallOp": 3.153e-08
+  },
+  "fullWindowExtrapolation": {
+    "fullXUnitsBothSides": 3.473287e+07,
+    "cpuDaysAtSliceRate": 389.4,
+    "panelOnlyFloorCpuDays": 377.8,
+    "ballOpsFullWindowAtSliceRate": 1.0668e+15,
+    "directBaselineCpuDays": 1.64e5, "designTierBudgetBallOps": 1.1e13,
+    "speedupVsDirect": 421.2
+  },
+  "fullWindowBothSides": false,
+  "promotionFlag": false,
+  "certifiedSubRange": true,
+  "wallSeconds": 11.7,
+  "honesty": "tiered certifier slice: certified continuum sup bounds hold only on the covered uRange and sides; sub-range runs can never set the promotion flag; a pilot cell failure is a stop signal for independent defect radii, not disproof of the recombined gate; promotes no Lambda bound; NO QED; PT Lambda<=0.2 benchmark"
+}

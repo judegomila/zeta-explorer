@@ -14894,6 +14894,30 @@ const DATA_MODULES = [
   // the only live path. Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95210-window1-pilot-certificate.js',
+  // imp-95213 (fable-5): tier-P/B/S window-1 certifier BUILT + PRICED +
+  // SLICE-VALIDATED (native/gate2-interval/tier_cert.c) - the one live
+  // certification path after the imp-95210 envelope refutation. Tier B =
+  // rigorous degree-80 Taylor panel models of all 52 class series (one
+  // O(N) Arb pass per 6.28-x-unit panel, exact Lagrange remainder <=
+  // ~1e-14, cells ~4.3e3 ball-ops via arb_dot) + the ADOPTED Arb
+  // re-derivation of the alias-decomposed ledger Lip(pilot) <=
+  // 44.476493/x (matches envprobe doubles to 1e-8); Tier P = direct O(N)
+  // fallback with |E97|-direct retry (never fired); Tier S = both seam
+  // charts + derotated-overhang ledger 39.81 priced OFF critical path
+  // (2*staticOverhang = 1.35 > Rex). Validation: 30/30 direct-Arb ball
+  // containment + 30/30 dd cross-validation (max dev 3.4e-14), telescope
+  // gate <= 4e-14 at every eval. SLICE CERTIFIED (first continuum
+  // statement of the program): u in [73222.5, 74022.5] (800 q-units on
+  // the hardest stretch, containing the |E97| sup witness w = 0.053273,
+  // chart 690989), BOTH charts, BOTH metrics: sup pilot AND sup |E97| <
+  // 0.27968819555261474 < Rex, 6.7e6 certified cells, 0 failures, 0
+  // Tier-P escalations. Measured price 0.9408 CPU-s/x-unit => full
+  // window 378 CPU-days = 434x below the 1.64e5 direct baseline (beats
+  // the required ~100x); ball-ops 1.0e15 = ~92x the two-level design's
+  // 1.1e13 budget (frequency-bin second level = the residual lever,
+  // NOT built). Sub-range only (0.058% of window 1); promotion flag
+  // false; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95213-tier-certifier-build.js',
 ];
 
 let ALL_MODULES = FAST_MODE

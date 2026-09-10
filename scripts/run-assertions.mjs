@@ -14769,6 +14769,29 @@ const DATA_MODULES = [
   // an extracted Q = O(1/(pD)). Changes no bound; NO QED; PT Lambda <=
   // 0.2 stays SOTA.
   '/src/data/imp-95220-alias-width-law-weight-nogo.js',
+  // imp-95221 (fable-5): RIGOROUS step - THEOREM FA (positive-amplitude
+  // seam certificate): the imp-95220 reroute leg (beta) -- price the paper
+  // eq (14) fixed-amplitude (1/p per alias) family natively with per-packet
+  // depths kept -- is DELIVERED at model level. LEMMA PW: for packets with
+  // centers u_m >= u_n > 0, the wrong-side pair Gram obeys H_mn <=
+  // e^(-x_shallower) G_mn (exact H vs a one-region lower bound on the
+  // full-line Gram; deep-exponent variant refuted by an explicit row).
+  // THEOREM FA: mediant over nonnegative pair weights gives, for ANY
+  // amplitudes c_n >= 0, wrong-side fraction R <= min(1/2, e^(-x_min)),
+  // x_min = min per-packet depth-rate product -- no collar, separation,
+  // count, occupancy or weight hypothesis; positivity alone. COROLLARY QG:
+  // on the width-law grid R <= e^(-2^(-2/3)/Q) uniform in (p, D); margin
+  // positive iff Q < qStarFA = 2^(-2/3)/ln2 = 0.9088 -- an O(1) test
+  // replacing the dead O((pD)^(-1/3)) ladder; model normalization fires
+  // all D = 1 windows p-uniformly at e^(-1) (at (997,1) every imp-95220
+  // no-go is engaged yet the certificate holds at 0.3676, measured truth
+  // 0.0299). PROP FEN-C: cone fence e^(-2 x_min)/2 <= cone sup <=
+  // e^(-x_min). HONEST: positivity load-bearing (Fresnel-Airy phase/sign
+  // certificate is a NEW obligation), bound one-sided (5-12x coverage
+  // gap), D >= 2 non-coverage at model norm, seam-to-chain-gate map open.
+  // Sub-gap carried OPEN. Changes no bound; NO QED; PT Lambda <= 0.2
+  // stays SOTA.
+  '/src/data/imp-95221-positive-amplitude-seam-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

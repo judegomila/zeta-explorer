@@ -4,7 +4,8 @@
 a NEW candidate package citing the sealed 0.1787854 candidate as base. Sealed
 material (`~/dbn-lambda-audit-review/`, gate2-evaluator copies) is read-only input.
 
-**Grade:** prose-proof, pending referee. This note proves ONE lemma — the
+**Grade:** prose-proof; adversarial referee pass 2026-09-10 (see REFEREE
+RECORD below). This note proves ONE lemma — the
 per-window binding of the sharp-weight floor at the displaced height — and
 audits every step of the sealed binding chain for hidden uses of the
 y ≥ 0.187272 monotonicity cover. It does NOT prove the all-y transfer, the
@@ -20,6 +21,29 @@ SHA256 `580d0b51165da58d4ca22e16d80a8c3db603dd0d9246f26dd027b5f820bf0808`), comp
 evolutions of the Riemann ξ function"), Theorem `eff` (= Theorem 1.3 form used
 by `NATIVE_BINDING.md`), displays `gamma-bound`, `res-bound`, `kappa-bound`,
 and the barrier-section Lemma "Improved triangle inequality".
+
+---
+
+## REFEREE RECORD (adversarial pass, 2026-09-10)
+
+Full adversarial pass over the note + the sealed chain + Polymath Lemma 8.5 +
+the producer source + the Lean statements + 400k randomized trials.
+
+- **S0 SOUND and load-bearing.** The endpoint-motion proof survives
+  step-by-step attack: the u* > u₋ V-shaped regime is handled correctly;
+  200k randomized trials found zero violations; no hidden side conditions.
+- **S0 is the exact necessary repair.** Polymath's boundary-phase reduction
+  provably does NOT port to the modulus form (dist-to-ray vs dist-to-{0}:
+  0 can sit inside a disk whose boundary has large modulus), so the
+  disk-interior extension cannot be borrowed from the paper.
+- **Rows 1–6 region-membership ACCURATE** (§5 ledger).
+- **S2 step 3 correctly breaks the circularity** a naive port would have:
+  Ē ≠ 0 is derived via S1 at w = 0 BEFORE the main inequality is applied.
+- Findings applied in place: O5's displaced-site shift corrected to
+  1.212 × 10⁻³ (§6; §8 gives the certified bracket); §4 now states plainly
+  that the amortized-Taylor scheme's validity is inherited from the sealed
+  audit; **O1 restructured — route (a) (triangle Dini extension + splice)
+  STRUCK**, see §6.
 
 ---
 
@@ -266,8 +290,10 @@ for each real t in the box, so lsaw_N ≤ L♯_N and the logged
 T♯_N ≤ lsaw_N ≤ L♯_N. Combined with S2: **T♯_N > 0 ⟹ |f_t| ≥ T♯_N on W_N.**
 This proves the Main Lemma. The patch-amortized Taylor scheme (moment family
 MW_k, Horner + Lagrange remainder with every stored coefficient ≥ 0, and the
-corr bracket) is consumed unchanged; its validity is per-row Arb arithmetic,
-not a y-range statement. The patch half-width hw is a performance parameter
+corr bracket) is consumed unchanged; its validity is inherited from the
+sealed audit — that audit's verification of the scheme is what certifies it
+here, and this note adds no independent check — and it is per-row Arb
+arithmetic, not a y-range statement. The patch half-width hw is a performance parameter
 only: the remainder (|d|L)^{K+1}e^{|d|L}/(K+1)!·MW_0 is computed and added in
 interval arithmetic per row, so certification does not depend on the choice
 of hw.
@@ -293,12 +319,24 @@ Rows 1–6 constitute the binding lemma; rows 7–12 are package-level.
 
 ## 6. Named obligations (listed, NOT claimed)
 
-- **O1 (all-y transfer).** The sealed Dini/y-monotonicity certificate covers
-  y ∈ [0.187271994702891, 0.823103881657717]. The thaw needs the transfer from
-  the new bottom edge: either extend the certified monotonicity down to
-  0.1808 (new Dini run on [0.1808, 0.187272] plus splice) or re-derive the
-  quantifier reduction for the sharp mass at 0.1808. The sharp-weight sweep at
-  the single height y = 0.1808 does NOT certify this.
+- **O1 (sharp-mass y-monotonicity; RESTATED 2026-09-10 per referee).** The
+  sealed Dini/y-monotonicity certificate covers
+  y ∈ [0.187271994702891, 0.823103881657717]; the thaw needs the transfer
+  from the new bottom edge 0.1808. Route (a) of the original ledger — extend
+  the certified monotonicity down to 0.1808 by a new triangle Dini run on
+  [0.1808, 0.187272] plus splice — is **STRUCK** (referee reason recorded):
+  the Dini theorems themselves are y-floor-free, but the transfer runs
+  upward from a bottom-edge anchor of the TRIANGLE functional, and this
+  package's own sweep shows the triangle floor at 0.1808 has COLLAPSED —
+  the anchor does not exist. O1 is now: prove SHARP-MASS Y-MONOTONICITY —
+  y-monotonicity of the max-of-kinked-branches summand with y-dependent
+  c(γ), in the same style as §3's divisor-pattern cells (B and γA live on
+  the same cells, so the structure plausibly carries) — a NEW theorem + new
+  producer + new certificates; cost re-scoped upward accordingly. Secondary
+  note (referee): the sealed Dini certificate's worst gate has 1.4 × 10⁻⁶
+  headroom at an interior rectangle (y ≈ 0.20) — not obviously
+  wall-blocking for new rectangles, but no passage guarantee. The
+  sharp-weight sweep at the single height y = 0.1808 does NOT certify O1.
 - **O2 (barrier/winding).** The winding/slab certificate must be re-run or
   re-derived with the rectangle bottom edge at 0.1808 (sealed bottom edge:
   the old y-anchor). Follow-up compute + note.
@@ -313,7 +351,9 @@ Rows 1–6 constitute the binding lemma; rows 7–12 are package-level.
   y = 0.1808; the sealed tail legs are anchored at the old y-floor.
 - **O5 (site coverage).** Re-certify x_*(0.1808) = X + √(1 − 0.1808²) ∈
   W_690988: the start point moves RIGHT by √(1−0.1808²) − √(1−0.187272²)
-  ≈ 1.208 × 10⁻³ while the sealed interior margins are > 5.377 × 10⁶ (left)
+  ≈ 1.212 × 10⁻³ (certified bracket in §8; this ledger originally quoted
+  the double-precision estimate ≈ 1.208 × 10⁻³, corrected in the 2026-09-10
+  referee pass) while the sealed interior margins are > 5.377 × 10⁶ (left)
   and > 1.198 × 10⁷ (right); a one-line exact-bracket recheck.
 - **O6 (criterion assembly).** Instantiate the criterion theorem at
   y₀ = 0.1808, t₀ = 129/800 (y_max = √(1−2t₀) unchanged; RH-height/PT input
@@ -341,3 +381,103 @@ are NOT claimed; until they close, 0.17759432 is a candidate-package value,
 not a bound. Λ ≤ 0.2 (Platt–Trudgian anchored) remains the operative SOTA.
 
 **Stage gate: SATISFIED — stage-2 sweep authorized.**
+
+---
+
+## 8. O5/O3 results (appended 2026-09-10; imp-95212)
+
+Two ledger rows of §6 close. Scripts in this directory; frozen record in
+`src/data/imp-95212-ythaw-o5-o3.js`. Changes no bound; O1, O2, O4, O6 stay
+open; NO QED.
+
+### O5 (site coverage) — CLOSES
+
+`verify_o5_site_coverage.py` re-proves both strict inequalities of the
+sealed `WINDOW_FREEZE_THEOREM.md` site section at the displaced height,
+with exact rational y² = 12769/390625 (y = 113/625 = 0.1808 exactly, so
+1 − y² = 377856/390625 exactly), in two independent lanes (exact-rational
+Machin/isqrt lane; mpmath.iv 400-bit lane) plus an Arb/FLINT 400-bit
+confirmation (`verify_o5_site_arb.c`). Three-way agreement:
+
+    x_{690988} < x_*(0.1808) < x_{690989},
+    x_*(0.1808) − x_{690988} > 5 377 393.989068215737,
+    x_{690989} − x_*(0.1808) > 11 989 041.173452031023.
+
+The certified rightward start shift is bracketed in
+[1.21178 × 10⁻³, 1.21179 × 10⁻³] (the §6 ledger originally quoted
+≈ 1.208 × 10⁻³, a double-precision estimate corrected here and now fixed in
+§6 to 1.212 × 10⁻³ per the 2026-09-10 referee pass; the 4 × 10⁻⁶ correction
+is irrelevant against 5.4 × 10⁶-scale margins). Grade: certified under OUR
+toolchain (Python `fractions` + mpmath 1.4.1 + local FLINT/Arb), not the
+sealed toolchain. 12/12 checks pass in the exact lane, 4/4 in Arb.
+
+### O3 (E_max budget over y ∈ [0.1808, y_max]) — CLOSES (budget re-certified)
+
+`verify_o3_error_budget.py` is a port of the sealed Proposition 4.10
+program (`prop410_proof.py`, itself line-for-line from the candidate's
+`verify_finite_and_binding.py`) with exactly one mathematical change: the
+point height y₀ = √(350708/10⁷) is replaced by the FULL INTERVAL HULL
+y ∈ [113/625, √(271/400)], at 320 bits (sealed run: 220). By inclusion
+isotonicity every certified upper endpoint is then uniform over the whole
+thawed y-interval simultaneously — no monotonicity-in-y lemma is consumed
+or needed, and interior-y behavior is covered automatically. All 12 sealed
+domain/sign gates re-pass on the hull (the binding cases sit at the
+y-floor: `G0_positive_part`, `U3a_tail_decrease`, `U3c_second_endpoint`).
+Certified upper endpoints, uniform over (t-box) × (y-hull) at the worst
+window N₀ = 690988:
+
+    e_A + e_B ≤ 2.089583900245 × 10⁻¹²,
+    e_C0      ≤ 2.43876578778031045 × 10⁻⁷,
+    E_max′ := e_A + e_B + e_C0 ≤ 2.43878668361931290 × 10⁻⁷.
+
+Growth vs the sealed budget: E_max′/E_max ≤ 1.044471048052. This is the
+structural single-factor growth of e_C0's only y-dependence,
+exp(Δy/4 · log0) = 1.0444713 (Δy = 0.187271994702891 − 0.1808,
+log0 = ln(N₀² − t/16); 7-digit match). NOTE the imp-95202 figure
+exp(2.5 × 10⁻⁵·L) ≈ 1.000673 quoted in the O3 planning context belongs to
+the OTHER budget (the 0.00125-allowance slab of
+`verify_uniform_error_01787854.c`, a 10⁻⁴ y-step from 0.1809); the E_max
+budget thawed 6.472 × 10⁻³ below its sealed anchor grows by 4.447%,
+certified here, and the earlier double-precision figure was never about
+this quantity.
+
+Margins: against the stage-2 sharp floor at y = 0.1808 (global min
+0.062718178029 at N = 690996, §7/imp-95208),
+
+    floor − E_max′ ≥ 0.062717934151     (ratio ≈ 2.57 × 10⁵),
+
+and for context even the sealed TRIANGLE floor at the sealed anchor would
+still clear it: 7.91366 × 10⁻⁷ − E_max′ ≥ 5.47488 × 10⁻⁷ > 0. Wherever the
+sealed E_max is consumed at the displaced package, E_max′ replaces it.
+
+x-side scope: the sealed Prop 4.10 statement covers all N ≥ N₀ from the
+enclosure at N₀ because the majorants decrease in x. Those directions are
+y-uniform: σ₁(N) = (1+y)/2 + (t/2)ln N − δ₁(N) increases in N for every
+y ≥ 0 (so head terms shrink); x₀ appears only in denominators; log0
+increases in N and multiplies −(1+y)/4 < 0 and −t/16 < 0 in e_C0; and the
+cap-term decreasing direction at N₀ is literally the `U3c` endpoint gate,
+which is monotone tightening in N (the −(t/2)ln N term dominates) and is
+re-certified above on the full y-hull. That structure is consumed from the
+sealed package, not re-proved.
+
+Grade: certified-interval computation under OUR toolchain (mpmath.iv
+directed rounding, 320 bits ≥ the 256 required), mirroring the sealed
+chain line-for-line except for the y-hull substitution; not the sealed
+toolchain, and no Arb duplicate was run for O3 (the sealed 96-check Arb
+error certificate remains anchored at the sealed y-floor).
+
+### Updated ledger
+
+§5 rows 9 (O3) and 11 (O5) close as above. Open: O1 (sharp-mass
+y-monotonicity on [0.1808, 0.187272]; restated 2026-09-10 — triangle-Dini
+route struck, see §6 and the REFEREE RECORD), O2 (barrier/winding slab at
+the 0.1808 bottom edge),
+O4 (analytic tail at y = 0.1808), O6 (criterion assembly). Until they
+close, 0.17759432 remains a candidate-package value, not a bound.
+Λ ≤ 0.2 (Platt–Trudgian anchored) remains the operative SOTA.
+
+Script SHA256:
+
+    484c5bf52b75dee8a9ce4d8d3c90ae28f366af63cd549f359d80c76053d9c2db  verify_o5_site_coverage.py
+    2593c38127302a3b144a77370903413b2e02a051297bc4c2660384e78d94a448  verify_o5_site_arb.c
+    0e0976879ccb05fe3550fa116441f8bcd5dbeb8ef9a44f430f19a91206bea639  verify_o3_error_budget.py

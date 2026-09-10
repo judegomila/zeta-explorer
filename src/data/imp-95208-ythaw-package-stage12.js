@@ -53,6 +53,28 @@
  * x_*(0.1808) in window 690988 (start moves right ~1.21e-3 vs sealed
  * interior margins > 5.38e6); O6 criterion assembly at y0 = 0.1808.
  * Until O1-O6 close, 0.17759432 is a package value, not a bound.
+ *
+ * REFEREE RECORD (appended 2026-09-10; history above kept verbatim): full
+ * adversarial pass (note + sealed chain + Polymath Lemma 8.5 + producer
+ * source + Lean statements + 400k randomized trials). S0 SOUND and
+ * load-bearing: the endpoint-motion proof survives step-by-step attack (the
+ * u* > u_minus V-shaped regime handled correctly; 200k randomized trials
+ * zero violations; no hidden side conditions); critically, Polymath's
+ * boundary-phase reduction provably does NOT port to the modulus form
+ * (dist-to-ray vs dist-to-{0}: 0 can sit inside a disk whose boundary has
+ * large modulus), so S0 is the exact necessary repair. Rows 1-6
+ * region-membership ACCURATE; S2 step 3 correctly breaks the circularity a
+ * naive port would have (E-bar != 0 derived via S1 at w = 0 BEFORE the main
+ * inequality). Nits fixed in the note: O5 displaced-site shift is 1.212e-3
+ * (not 1.208e-3); the section-4 amortized-Taylor sentence now states its
+ * validity is inherited from the sealed audit. MATERIAL: O1 RESTATED —
+ * route (a) (triangle Dini extension run + splice) STRUCK: the Dini
+ * theorems are y-floor-free, but the transfer runs upward from a
+ * bottom-edge anchor of the TRIANGLE functional, and this package's own
+ * sweep shows the triangle floor at 0.1808 has COLLAPSED — the anchor does
+ * not exist. O1 is now: prove SHARP-MASS Y-MONOTONICITY (new theorem + new
+ * producer + new certificates; cost re-scoped upward). See
+ * REFEREE_RECORD_2026_09_10 below and the note's REFEREE RECORD section.
  */
 
 // ── candidate arithmetic ────────────────────────────────────────────────────
@@ -66,6 +88,35 @@ export const YTHAW_ROW = {
   sealedYAnchor: 0.187271994702891, // sqrt(350708/1e7), sealed Dini anchor
   sealedDiniCover: [0.187271994702891, 0.823103881657717],
   yMax: 0.823103881657717, // sqrt(1 - 2 t0), unchanged by the thaw
+};
+
+// ── referee record (appended 2026-09-10; adversarial pass) ──────────────────
+export const REFEREE_RECORD_2026_09_10 = {
+  date: '2026-09-10',
+  scope:
+    'note + sealed chain + Polymath Lemma 8.5 + producer source + Lean statements + 400k randomized trials',
+  s0: 'SOUND and load-bearing — endpoint-motion proof survives step-by-step attack: u* > u_minus V-shaped regime handled correctly; 200k randomized trials zero violations; no hidden side conditions',
+  s0ExactRepair:
+    "Polymath's boundary-phase reduction provably does NOT port to the modulus form (dist-to-ray vs dist-to-{0}: 0 can sit inside a disk whose boundary has large modulus), so S0 is the exact necessary repair",
+  rows1to6: 'region-membership ACCURATE',
+  s2Step3:
+    'correctly breaks the circularity a naive port would have: E-bar != 0 derived via S1 at w = 0 BEFORE the main inequality',
+  nitsFixed: {
+    o5ShiftCorrected: 1.212e-3, // was quoted 1.208e-3 (double-precision estimate)
+    section4:
+      'amortized-Taylor sentence now states plainly that its validity is inherited from the sealed audit',
+  },
+  o1Restated: {
+    struckRoute:
+      'route (a): triangle Dini extension run on [0.1808, 0.187272] + splice',
+    reason:
+      "the Dini theorems are y-floor-free, but the transfer runs upward from a bottom-edge anchor of the TRIANGLE functional, and this package's own sweep shows the triangle floor at 0.1808 has COLLAPSED — the anchor does not exist",
+    newO1:
+      "prove SHARP-MASS Y-MONOTONICITY: y-monotonicity of the max-of-kinked-branches summand with y-dependent c(gamma), same style as the note section-3 divisor-pattern cells (B and gamma*A live on the same cells, so the structure plausibly carries) — a NEW theorem + new producer + new certificates",
+    cost: 're-scoped UPWARD (new theorem + producer + certificates, not a run + splice)',
+    diniHeadroomNote:
+      "sealed Dini certificate's worst gate has 1.4e-6 headroom at an interior rectangle (y ~ 0.20) — not obviously wall-blocking for new rectangles, but no passage guarantee",
+  },
 };
 
 // ── stage 1: the theorem gate ───────────────────────────────────────────────
@@ -89,6 +140,14 @@ export const STAGE1 = {
     'O4 analytic tail N > 3840000 at y = 0.1808',
     'O5 site coverage x_*(0.1808) in window 690988',
     'O6 criterion assembly at y0 = 0.1808',
+  ],
+  // ── appended 2026-09-10 (adversarial referee pass; obligationsOpen above
+  // kept verbatim as history — O1 there is the ORIGINAL statement) ──
+  refereeRecord: REFEREE_RECORD_2026_09_10,
+  gradeUpdate2026_09_10:
+    'prose-proof, REFEREED (adversarial pass 2026-09-10): S0/S1/S2 sound; rows 1-6 accurate; O1 restated (see refereeRecord.o1Restated)',
+  obligationsRestated: [
+    "O1 (RESTATED, supersedes the O1 wording above): prove SHARP-MASS Y-MONOTONICITY of the max-of-kinked-branches summand with y-dependent c(gamma) on [0.1808, 0.187272] — NEW theorem + new producer + new certificates, cost re-scoped upward; route (a) triangle-Dini extension + splice STRUCK (triangle anchor at 0.1808 collapsed per this package's own sweep)",
   ],
 };
 
@@ -286,6 +345,20 @@ export const IMP_95208_YTHAW_ASSERTIONS = [
       STAGE2.wallSeconds < 3600 &&
       STAGE2.threads <= 12,
     why: 'The run landed far inside the greenlit ~12 CPU-hr envelope: 7,265 CPU-s (~2.02 CPU-hr), 666 s wall on a 12-slot nice-15 pool — the hw = 1e-3 rebuild cadence (remainder cost ~1e-21) removed ~100x of the patch-rebuild estimate.',
+  },
+  // appended 2026-09-10 (adversarial referee pass)
+  {
+    id: 'imp-95208-ythaw-referee-record-appended',
+    holds: () =>
+      STAGE1.refereeRecord === REFEREE_RECORD_2026_09_10 &&
+      REFEREE_RECORD_2026_09_10.date === '2026-09-10' &&
+      Math.abs(REFEREE_RECORD_2026_09_10.nitsFixed.o5ShiftCorrected - 1.212e-3) < 1e-9 &&
+      REFEREE_RECORD_2026_09_10.o1Restated.struckRoute.includes('triangle Dini') &&
+      STAGE1.obligationsOpen.length === 6 && // history kept verbatim, not rewritten
+      STAGE1.obligationsOpen[0].startsWith('O1 all-y transfer (Dini)') &&
+      STAGE1.obligationsRestated.length === 1 &&
+      STAGE1.obligationsRestated[0].includes('SHARP-MASS Y-MONOTONICITY'),
+    why: 'The 2026-09-10 adversarial referee record is appended (not rewritten over history): S0 sound and load-bearing, boundary-phase reduction non-portable to modulus form, O5 shift nit fixed to 1.212e-3, and O1 restated as sharp-mass y-monotonicity with the triangle-Dini route struck while the original O1 wording is preserved in obligationsOpen.',
   },
 ];
 

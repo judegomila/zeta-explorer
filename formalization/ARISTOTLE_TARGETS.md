@@ -209,3 +209,8 @@ disproof). The G3 lane is launched 2026-09-09.
 - weld_cc_rm (job31, 6a923863) OUT_OF_BUDGET — second budget event; parked
   like entirelp pending the user. Natural split: three single-lemma jobs
   (PF / CC / RM).
+
+## Wave 6 (2026-09-10, sequential through the single-slot throttle)
+job34 heat transfer (entirelp stage 1) → job38 sharp_mass_monotonicity (the
+y-thaw O1 theorem: gates G1–G4, per-cell hull form over 3^|P| divisor-pattern
+cells; success reduces O1 to a producer run) → weld PF / CC / RM singles.

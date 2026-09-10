@@ -481,3 +481,23 @@ Script SHA256:
     484c5bf52b75dee8a9ce4d8d3c90ae28f366af63cd549f359d80c76053d9c2db  verify_o5_site_coverage.py
     2593c38127302a3b144a77370903413b2e02a051297bc4c2660384e78d94a448  verify_o5_site_arb.c
     0e0976879ccb05fe3550fa116441f8bcd5dbeb8ef9a44f430f19a91206bea639  verify_o3_error_budget.py
+
+## O1 forward reference (2026-09-10): the sharp-mass monotonicity job (job38, drafted)
+
+The restated O1 theorem is drafted and queued at Aristotle
+(job38_sharp_mass_monotonicity; submitter order job34 → job38 → weld PF/CC/RM).
+Main theorem shape: under named gates (G1) 0 < γ_N < 1, (G2) g_N < 0, (G3) the
+σ-slope ≥ 1/2 through the kink, (G4) per-n nonpositivity of BOTH branch
+brackets Φ⁻ = γ|g_N A + A′| − (L/2)|B−γA| and
+Φ⁺ = ċ_N|B+γA| + cγ|g_N A + A′| − (L/2)c|B+γA|, the sharp mass F♯ − γ_N is
+nonincreasing in y — so Num♯ = 1 − F♯ transfers upward from a positive sharp
+anchor at the bottom edge (exactly the O1 shape). Theorem 2 gives the
+certifiable per-cell hull form over the 3^|P| divisor-pattern cells (sealed §3
+carries verbatim). Design notes: the adverse ċ_N|B+γA| term in Φ⁺ is the
+genuinely new obstruction (y-dependent c(γ) has no triangle counterpart) and
+sits inside gate (G4) for per-cell certification by the new producer; no sharp
+U(g)-reduction is claimed (unverified — flagged deviation from the referee
+sketch), the N-quantifier absorbed into an explicit hull condition; all
+constants abstract; mode-n summand only (frozen sawtooth out of scope). If
+Aristotle proves L1–L4 + Theorems 1–2, O1 reduces to running the new producer
+over the certified gates.

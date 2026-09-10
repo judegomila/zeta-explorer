@@ -14727,6 +14727,25 @@ const DATA_MODULES = [
   // 30+ orders below the bound). Changes no bound; NO QED; PT Lambda <=
   // 0.2 stays SOTA.
   '/src/data/imp-95218-occupancy-cluster-composition-pricing.js',
+  // imp-95219 (fable-5): RIGOROUS step - THEOREM SZ-P (Szasz-weight
+  // universal pricing): the imp-95218 residual of obligation (iii) --
+  // unbounded-occupancy Szasz-convergent families, the corner recorded
+  // open on both sides -- is PRICED under the single scalar hypothesis
+  // H-SZW (octave-Szasz weight sum M_j 2^-j <= W; no occupancy, count or
+  // ratio input). Mechanism: LEMMA EXP (a lambda-tilt on the n = 2K member
+  // of the imp-95217 SI family gives sqrtLamTouch(x;K) <= e^(-(x-aStar K)/2)
+  // for x >= aStar K = 2 ln(2+2 sqrt2) K -- exponential decay past a fixed
+  // linear collar, also sharpening the proved count-threshold slope from
+  // 4 ln3 to 3.1490) + a half-proportional half-geometric depth allocation
+  // composed across octaves by the imp-95218 THEOREM TVC. Ladder xStarSz =
+  // 9.62/14.27/25.19/50.38 at W = 1/2/4/8 (boundary-pinned 2 aStar W for
+  // W >= 3); gammaSL collapse rows; necessity floor (2W-1)/4; all four
+  // prior certificates embed (weights 2, 2rho/(rho-1), K, 2M), certificate
+  // D strictly dominated; menu shrinks to {A, B, C, E}. Bounded weight
+  // sufficient NOT necessary (depth-discounted refinement open). Sub-gap
+  // carried OPEN on extraction legs only. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95219-szasz-weight-universal-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

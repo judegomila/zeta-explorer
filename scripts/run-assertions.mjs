@@ -14823,6 +14823,24 @@ const DATA_MODULES = [
   // bound open both sides. Sub-gap carried OPEN. Changes no bound; NO QED;
   // PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95223-signed-amplitude-rankone-resolution.js',
+  // imp-95224 (fable-5): RIGOROUS step (honest NEGATIVE, exact positive
+  // core) - THEOREM SGN-X + PROP SGN-V + THEOREM SGN-SAT + COROLLARY
+  // DC-NOGO (signed depth-currency no-go): the imp-95223 both-sides-open
+  // question is CLOSED on the counterexample side -- R <= e^(-y_min) is
+  // FALSE for signed multi-rate families, by the EXACT RATIONAL witness
+  // f = 3e^(-|s-ln2|) - 4e^(-2|s-ln2|) (W = 3/8, T = 1, bound = 1/4,
+  // factor 3/2, verified in BigInt fractions). Closed-form violation
+  // family c = (a+b, -2b): silver-ratio deep threshold b/a < 3+2sqrt(2),
+  // onset depth u*, coalescence law V -> (1+y_min^2)/2 (quadratic-in-depth
+  // breakdown at N = 2). THEOREM SGN-SAT: co-centered signed families
+  // saturate the trivial symmetry ceiling 1/2 at every FIXED depth
+  // (phi_K = e^(-t)(1-e^(-t/K))^K, elementary fences), so DC-NOGO: any
+  // signed bound R <= F(y_min) forces F >= 1/2 everywhere -- depth-only
+  // signed certificates DO NOT EXIST; obligation (2) re-scoped to
+  // count/weight or modulus/phase currency (W-priced signed bound OPEN
+  // both sides). Sub-gap carried OPEN. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95224-signed-depth-currency-nogo.js',
 ];
 
 let ALL_MODULES = FAST_MODE

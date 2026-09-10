@@ -89,6 +89,36 @@ Lip(E97) <= 91.492276 (design crude: 93.12 — ours slightly tighter).
   cells ≈ 1.1e13 ball-ops — inside the design's 1–4e13 budget and below
   the 8e13 planner stop-gate, so the tiered build (next phase) proceeds.
 
+## Envelope pivot (imp-95210, 2026-09-10): REFUTED
+
+The proposed pivot from phase-resolving to ENVELOPE-SCALE subdivision
+(certify the pilot via slowly-varying |D_j| moduli) was measured with
+`envprobe.c` (dd, 49,152 evals on fine 0.004-q-unit scans, both charts;
+cross-validated vs eval_fast to 2.9e-14, telescope 3.0e-15, 0
+containment violations on the exact alias decomposition
+q_p G_j − H_j = o_j + mm_j + rr_j) and fails on two independent counts:
+
+1. **Slack obstruction**: the finest modulus-triangle envelope
+   Σ_j |A_<j|(|o_j|+|mm_j|+|rr_j|) has sampled sup **0.34417 > Rex**
+   (73/24,576 exceedance witnesses per chart); the pilot (0.24376)
+   passes only through the joint mm+rr phase cancellation. Every split
+   that separates the broadband pieces exceeds Rex (coarser triangles
+   are worse: U2 0.583, static masses 8.04); the one sub-Rex split
+   (|o_j| + |mm_j + rr_j| joint, ~0.266) varies at phase scale.
+2. **Scale obstruction**: the pilot modulus moves 1% of Rex within
+   9.5e-4 q-units — 78x FINER than one fastest-phase turn; |D_25|
+   (p=2) moves 75% of Rex per turn (broadband mm/rr pieces). Only the
+   narrowband alias/overhang piece is envelope-scale (|o_j| ≤ 3e-3,
+   d/du ≤ 0.003) and it is the small one.
+
+Byproduct kept: the alias-decomposed ledger gives a RIGOROUS
+Lip(pilot) ≤ 44.476/x vs the current 84.769 (1.906x fewer cells; adopt
+in the tiered build). Even the non-certifiable true-derivative scale
+(0.2345/x measured) would give 3.1e7 cells = 453 CPU-days at direct
+O(N) evaluation. Frozen record:
+`src/data/imp-95210-window1-pilot-certificate.js`. The tier-P/B/S
+batching below remains the only live path.
+
 ## Next phase (not this program run)
 
 1. Tier P/B/S batching per the W1-CERT design (panel chirp recurrence

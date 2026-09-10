@@ -14873,6 +14873,27 @@ const DATA_MODULES = [
   // Sub-gap carried OPEN. Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95225-signed-count-priced-shift-certificate.js',
+  // imp-95210 (fable-5): W1-CERT envelope pivot REFUTED - honest
+  // infeasibility record. The hoped move from phase-resolving to
+  // envelope-scale subdivision for the window-1 pilot certificate fails
+  // on two measured obstructions (envprobe.c, 49,152 dd evals, telescope
+  // 3e-15, 0 containment violations): (1) SLACK - the finest modulus
+  // -triangle envelope sum_j |A_<j|(|o_j|+|mm_j|+|rr_j|) has sampled sup
+  // 0.34417 > Rex = 0.27969 (73/24576 witnesses per chart) while the
+  // pilot passes only through joint mm+rr phase cancellation, so NO
+  // envelope-decomposed certified target exists; (2) SCALE - the pilot
+  // modulus moves 1% of Rex within 9.5e-4 q-units, 78x FINER than one
+  // fastest-phase turn (|D_25| moves 75% of Rex per turn); only the
+  // narrowband alias/overhang piece (|o_j| <= 3e-3, d/du <= 0.003) is
+  // envelope-scale and it is the small one. Byproduct: rigorous
+  // alias-decomposed Lipschitz ledger 44.476/x vs 84.769 (1.906x fewer
+  // cells, adoptable by the tiered certifier). Feasibility: 5.8e9-1.1e10
+  // cells rigorous (8.6e4-1.6e5 CPU-days); even the non-certifiable
+  // true-derivative dream = 3.1e7 cells = 453 CPU-days. No certification
+  // run launched (provably could not pass). Tier-P/B/S batching remains
+  // the only live path. Changes no bound; NO QED; PT Lambda <= 0.2
+  // stays SOTA.
+  '/src/data/imp-95210-window1-pilot-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

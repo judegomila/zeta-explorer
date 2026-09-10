@@ -14706,6 +14706,27 @@ const DATA_MODULES = [
   // families. Sub-gap carried OPEN. Changes no bound; NO QED; PT Lambda <=
   // 0.2 stays SOTA.
   '/src/data/imp-95217-shift-interpolation-count-pricing.js',
+  // imp-95218 (fable-5): RIGOROUS step - THEOREM OC (occupancy-cluster
+  // composition pricing): the imp-95217 residual of obligation (iii) --
+  // UNBOUNDED-count touching families with bounded octave occupancy, the
+  // only corner priced by NO prior theorem (DR/DR-M/DR-R/DR-A/GC/SI) -- is
+  // PRICED count-free and separation-free under the bare hypothesis H-OCC
+  // (at most M rates per dyadic octave). Mechanism: LEMMA CD exchanges
+  // occupancy for per-cluster bounded count (K0 = 4M - 1) plus an
+  // inter-cluster ratio floor (rho0 = 2^(1/(2M))) -- assuming neither --
+  // and THEOREM TVC composes the imp-95217 shift-interpolation measures
+  // across clusters by convolution: rho = delta_D - prod(delta_dc - nu_c)
+  // interpolates e^(-D mu) on the whole family with TV <= prod(1+t_c) - 1;
+  // shifts are L2 contractions, so sqrt(LamOcc(x; M)) <= prod(1 +
+  // sqrtLamTouch(x(1-theta)(rho0 theta)^(c-1); K0)) - 1, uniform over
+  // unbounded total count. Ladder xStarOcc = 29.89/138.50/321.98 at
+  // M = 1/2/3; gammaSL collapse rows; necessity floor (2M-1)/4 in class;
+  // certificate D subsumes the coverage of A/B/C at worse constants.
+  // Residual (strictly smaller): unbounded-occupancy Szasz-convergent
+  // families. Sub-gap carried OPEN. Coverage not sharpness (floor rows
+  // 30+ orders below the bound). Changes no bound; NO QED; PT Lambda <=
+  // 0.2 stays SOTA.
+  '/src/data/imp-95218-occupancy-cluster-composition-pricing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

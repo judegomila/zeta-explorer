@@ -14746,6 +14746,29 @@ const DATA_MODULES = [
   // carried OPEN on extraction legs only. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95219-szasz-weight-universal-pricing.js',
+  // imp-95220 (fable-5): RIGOROUS step (honest NEGATIVE with an exact
+  // positive core) - THEOREM AW: the alias-denominator to dictionary-rate
+  // map (first imp-95219 extraction leg of the open sub-gap
+  // imp-95212-subgap-fresnel-airy-envelope-port) is ANSWERED: the eq 14/15
+  // alias grid is the punctured (1/p)-lattice, the width-law port
+  // mu = d^(1/3)/c is forced by the one recoverable paper constant
+  // beta = 1/3, and the per-parity octave-Szasz weight is the exact census
+  // W(p,D) = sum 2^(-floor(log2 n/3)), two-sidedly (5/32)(pD)^(2/3) <= W
+  // <= (28/3)(pD)^(2/3): the one scalar certificate E needs DIVERGES.
+  // Consequences (all explicit in the per-window isolation group Q):
+  // THEOREM NOGO-CC (common-collar truth kill for Q(pD)^(1/3) > 1.8763 --
+  // no common-collar certificate, sharp or not, delivers H-LOC; model
+  // normalization kills pD > 26.42), PROP NOGO-E (Q < 0.6608/(pD)
+  // necessary), PROP NOGO-D (octave depth-discounting dead past
+  // pD = 102.93 at model norm), THEOREM NOGO-P (any cellwise
+  // class-uniform sum/product-composed certificate dies past
+  // pdCritP(Q) = 58.84 at model norm). MEASURED CONTRAST: actual
+  // per-packet-depth family truth 0.1813 at (5,2) vs common-collar class
+  // truth 0.9397 -- the kill is architectural, not familial. Sub-gap
+  // REROUTED to amplitude-weighted pricing (eq 14 pins 1/p per alias) or
+  // an extracted Q = O(1/(pD)). Changes no bound; NO QED; PT Lambda <=
+  // 0.2 stays SOTA.
+  '/src/data/imp-95220-alias-width-law-weight-nogo.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -14598,6 +14598,20 @@ const DATA_MODULES = [
   // THEOREM SL plus the named H-DYA-M. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95212-multiplicity-priced-shift-damping.js',
+  // imp-95208-ythaw (fable-5): y-thaw 0.17759432 candidate package stages
+  // 1+2 (frozen record). Stage 1: sharp-weight native-binding note at
+  // (t = 129/800 box, y = 0.1808) CLOSES — the Improved-Triangle mechanism
+  // (arXiv:1904.12438v2) extended to the full gamma-disk via the new
+  // radial-monotonicity sub-lemma S0; row-level chain is pointwise in y
+  // (region membership only), so the sealed 0.187272 Dini cover is NOT
+  // consumed at row level. Stage 2 (fired on the close): full-lane sharp
+  // re-sweep N = 690988..3840000 (3,149,013 rows) at prec 256, y = 0.1808,
+  // strict fail-closed clean; global sharp floor 0.062718178029 at
+  // N = 690996 (~7.9e4x the sealed triangle artifact 7.91366e-7).
+  // Obligations O1-O6 (Dini gap, winding slab, E_max region, tail, site
+  // coverage, criterion assembly) OPEN and not claimed. Changes no bound;
+  // NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95208-ythaw-package-stage12.js',
   // imp-95213 (fable-5): RIGOROUS step - geometric-chain refined
   // multiplicity pricing: the imp-95212 open question (is the linear-in-K
   // collar premium sharp?) settled in the NEGATIVE under the unchanged

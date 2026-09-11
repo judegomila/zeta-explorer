@@ -15289,6 +15289,13 @@ const DATA_MODULES = [
   // assertions. Documentation only; changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95145-w1cert-envelope-pivot-honest-status-note.js',
+  // imp-95245: standalone honest-status banner for the imp-95213 tier
+  // certifier, stating it is slice-certified only (800/1,381,977 q-units =
+  // 0.058% of window 1), promotes no bound, and the full-window run is a
+  // deferred separate decision NOT launched. Four self-executing
+  // assertions. Documentation only; changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95245-tier-certifier-honest-status-banner.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -752,4 +752,51 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a row-scan already computed and committed by prior engine runs (imp-95077).',
     ],
   },
+  {
+    id: 'session-2026-09-11-muniform-block-riesz-closure',
+    date: '2026-09-11',
+    title: 'm-uniform block Riesz-basis lower bound for the seam Gram closes imp-95250 HONEST LIMITS (d) (imp-95252)',
+    engineStateStart:
+      'imp-95250 SPLIT-LOO gave an m-DEPENDENT leave-one-out constant [sum_k (1 - sigma_k^2)^(-1)]^(-1) for the disjoint octave-block Riesz-basis lower bound on the seam Gram, and its HONEST LIMITS (d) recorded as OPEN whether the octave blocks E(V_k) form a Riesz sequence with an m-INDEPENDENT lower constant at all.',
+    engineStateEnd:
+      'imp-95252 answers that question POSITIVELY on the dyadic twin-lattice skeleton via LEMMA TOEP (the normalized lattice Gram is block-Toeplitz, so c* Gtilde c is a quadratic form in the Fourier symbol F(theta), giving lambda_min(Gtilde_m) >= inf_theta lambda_min(F(theta)) for every m, with a matching Fejer-average Szegoe ceiling showing no m-uniform constant can exceed the symbol infimum) plus LEMMA POISSON (closed-form symbol via Poisson summation of the sech kernel). THEOREM RZ-LAT and THEOREM RZ-TWIN give closed-form m-uniform constants A_lat and A_twin, and COROLLARY RZ-BLOCK converts this to the block-norm bound ||F||^2 >= A_blk sum_k ||F_k||^2 with A_blk = A_twin/(1 + sech(b/2)). COROLLARY SPLIT-RZ then replaces the SPLIT-LOO linear-in-m collar with a single m-independent certificate, dropping the every-octave onset from 27.035582 (imp-95250 EV-OCT-UNIF) to 15.981584 at r = 1.3. The r-uniformity of the underlying symbol-PENCIL infimum is named as the surviving open residual: a coefficient-norm collapse witness (c = (1, -1), lambda_min -> 0 as r -> 1) proves m-uniformity and coalescence-uniformity cannot coexist in that currency, so whether the block-norm pencil infimum stays bounded away from zero uniformly in r is the exact open quadratic recorded in the module.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95252 proves an m-uniform Riesz-basis lower bound and onset improvement for a model-family seam-chain certificate on the dyadic twin lattice; it instantiates no paper number and changes no bound.',
+      note: 'Structural closure of an open sub-question, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'm-uniform block Riesz closure',
+        ids: ['imp-95252', 'imp-95299'],
+        summary:
+          'imp-95252 proved LEMMA TOEP/POISSON + THEOREM RZ-LAT/RZ-TWIN + COROLLARY RZ-BLOCK/SPLIT-RZ, closing imp-95250 HONEST LIMITS (d) on the lattice skeleton and dropping the every-octave onset 27.035582 -> 15.981584; imp-95299 records that closure and its r-uniformity residual in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95252-muniform-block-riesz-seam-pencil.js',
+        ticket: 'imp-95252',
+        note: 'block-Toeplitz Grenander-Szegoe argument, Poisson-summed sech symbol, closed-form RZ-LAT/RZ-TWIN/RZ-BLOCK constants, and the SPLIT-RZ dyadic-skeleton certificate, with a coefficient-norm collapse witness pinning the r-uniformity residual',
+      },
+    ],
+    keyFinding:
+      'The disjoint octave blocks DO form an m-uniform Riesz sequence on the dyadic twin lattice, in closed form (A_lat, A_twin, A_blk), with a Szegoe ceiling proving the bound is the sharp currency and a onset improvement of ~11 depth units for the unbounded-octave certificate; but the same collapse witness that proves m-uniformity shows this coefficient-norm route cannot also be coalescence-uniform (r -> 1), so the r-uniform block symbol-PENCIL infimum is a distinct, still-open residual.',
+    mainLineBlocker: {
+      label: 'imp-95252-r-uniform-symbol-pencil-open',
+      description:
+        'Whether the smaller root of the symbol pencil quadratic (1 - s(b)^2) lam^2 - 2 lam (f_a - s(b) Re f_b) + (f_a^2 - |f_b|^2) = 0 stays bounded below UNIFORMLY IN r (an m-AND-r-uniform block Riesz bound) is not decided by imp-95252; the module names the exact quadratic as the open handle.',
+        ticket: 'imp-95252',
+      },
+    openQuestions: [
+      'Does the block symbol-pencil infimum stay bounded away from zero uniformly in the twin-lattice ratio r, giving an m-AND-r-uniform block Riesz bound? (imp-95252-r-uniform-symbol-pencil-open -- open)',
+      'Off-lattice rates and the weight/modulus seam-chain legs remain separate, previously-named residuals (imp-95232, obligation (2)) unaffected by this closure.',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a proof already derived and committed by prior engine runs (imp-95252).',
+    ],
+  },
 ];

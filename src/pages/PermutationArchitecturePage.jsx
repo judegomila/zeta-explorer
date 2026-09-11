@@ -540,6 +540,47 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>continuation chain map: thirteenth–nineteenth (imp-95008)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            Each row executes one named lever left open by the previous row, alternating floor-side (widening the
+            witness lower bound) and ceiling-side (tightening the achieved upper bound) moves:
+          </p>
+          <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12.5 }}>
+              <thead>
+                <tr style={{ background: 'var(--paper2)', textAlign: 'left', color: 'var(--faint)' }}>
+                  <th style={{ padding: '8px 10px' }}>#</th><th style={{ padding: '8px 10px' }}>Module</th><th style={{ padding: '8px 10px' }}>Lever</th><th style={{ padding: '8px 10px' }}>Side</th><th style={{ padding: '8px 10px' }}>Surviving residual</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['13th', 'multirate-witness-floor', 'per-packet rates (Theorem R/Lemma S)', 'floor', 'multi-rate Theorem N antennas untested'],
+                  ['14th', 'multirate-antenna-ceiling', 'multi-rate antenna calculus (Theorem T/U/W)', 'ceiling', 'occupied-block packets not covered'],
+                  ['15th', 'occupied-block-append-floor', 'occupied-block single append (Theorem Z/P)', 'floor + ceiling', 'factor-15 ladder certification slack'],
+                  ['16th', 'corner-cancellation-envelope', 'cancellation-aware corner envelope (Lemmas Q1-Q3/Theorem Q)', 'ceiling', 'exact parabola bound is the remaining append-lever certificate'],
+                  ['17th', 'exponent-split-far-ceiling', 'parametric exponent split (Lemma T-STAR/Theorem Y-STAR)', 'ceiling', 'outer parity factor 2; Lemma T constant tightness'],
+                  ['18th', 'width-pinned-three-window-ceiling', 'grid-pinned width ratio + three-window interpolation (Lemma RHO/3W)', 'ceiling', 'parity factor 2; ~2.85x corner slack; asymptotic half-exponent'],
+                  ['19th', 'exact-pair-correlation-ceiling', 'exact closed-form pair correlation (Lemma CC/RM/PF)', 'ceiling', 'parity factor 2 (now dominant); substitution-point tightness'],
+                ].map(([n, mod, lever, side, residual]) => (
+                  <tr key={n} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
+                    <td style={{ padding: '6px 10px', color: 'var(--ink)' }}>{n}</td>
+                    <td style={{ padding: '6px 10px', fontFamily: 'var(--ed-mono)', fontSize: 10.5 }}>{mod}</td>
+                    <td style={{ padding: '6px 10px' }}>{lever}</td>
+                    <td style={{ padding: '6px 10px' }}>{side}</td>
+                    <td style={{ padding: '6px 10px' }}>{residual}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
+            Module file names are prefixed <code className="ed-mono" style={{ fontSize: 11 }}>src/data/imp-95008-</code>
+            and suffixed <code className="ed-mono" style={{ fontSize: 11 }}>.js</code>. No row promotes a bound;
+            Platt–Trudgian Λ ≤ 0.2 remains SOTA throughout.
+          </p>
+        </div>
+
         <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>twentieth–twenty-second continuations (imp-95008): per-pair closure, proof-domain widen, aggregation lever</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>

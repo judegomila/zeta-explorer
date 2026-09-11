@@ -847,4 +847,52 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a build/validation/price status already derived and committed by prior engine runs (imp-95214).',
     ],
   },
+  {
+    id: 'session-2026-09-11-ythaw-o5-o3-closures',
+    date: '2026-09-11',
+    title: 'y-thaw obligation ledger: O5 (site coverage) and O3 (E_max budget) close at the 0.1808 floor (imp-95212)',
+    engineStateStart:
+      'The y-thaw 0.17759432 package (SHARP_WEIGHT_NATIVE_BINDING.md, imp-95140 obligation ledger) listed six obligations O1-O6 needed to re-certify the sealed Prop-4.10 chain at the thawed floor y = 0.1808; O5 (site coverage of x_*(0.1808) in the certified window W_690988) and O3 (the E_max error budget re-certified over the full y-hull) were among the cheapest rows but still open.',
+    engineStateEnd:
+      'imp-95212 closes both. O5 (site coverage) is CERTIFIED under three independent lanes -- an exact-rational lane (Fraction + Machin pi + isqrt brackets, reproduced in-build with 60-digit BigInt fixed-point arithmetic), an mpmath.iv 400-bit interval lane, and an Arb/FLINT 400-bit ball-arithmetic lane -- all agreeing to the recorded 12-dp precision that x_*(0.1808) sits strictly interior to W_690988, with left/right margins > 5.377e6 and > 1.198e7 respectively (a rightward shift from the sealed anchor of exactly 1.211784562e-3, correcting the ledger'
+        + "'s double-precision estimate of ~1.208e-3, immaterial at this margin scale). O3 (E_max budget) is CERTIFIED-INTERVAL (mpmath.iv, 320 bits, directed rounding) by re-running the sealed Prop-4.10 chain with y replaced by the full interval hull [0.1808, sqrt(271/400)]: inclusion isotonicity gives uniformity in y with no monotonicity-in-y appeal, all 12 sealed gates re-pass on the hull, and the thawed budget E_max' = 2.43878668361931290e-7 (a certified 4.4471% growth over the sealed 2.33494905212337849e-7, matching the single-factor model exp(dy/4 log0) to 1e-6) sits 257,170x below the stage-2 sharp floor 0.062718178029 at y = 0.1808.",
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95212 closes two of the six y-thaw obligation-ledger rows under the repository toolchain; it instantiates no paper constant and changes no bound.',
+      note: 'Structural closure of two open sub-questions, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'y-thaw obligation ledger O5/O3 closure',
+        ids: ['imp-95212', 'imp-95148'],
+        summary:
+          'imp-95212 certified O5 (site coverage, three-lane cross-validated) and O3 (E_max budget, interval-hull re-certification) of the y-thaw obligation ledger; imp-95148 records that closure in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95212-ythaw-o5-o3.js',
+        ticket: 'imp-95212',
+        note: 'O5 site-coverage three-lane cross-validation table and O3 E_max interval-hull budget, with the certified margins, growth model, and honest-scope assertions',
+      },
+    ],
+    keyFinding:
+      'Two of the six y-thaw obligation-ledger rows are now closed at the certified-toolchain level: O5 shows x_*(0.1808) strictly interior to its window by three independently-derived lanes (margins > 5.4e6 / > 1.2e7), and O3 shows the E_max error budget grows a certified 4.45% at the thawed floor while still clearing the sharp stage-2 floor by a factor of 257,170x. O1 (sharp-mass y-monotonicity), O2 (barrier/winding slab), O4 (analytic tail beyond N = 3,840,000), and O6 (criterion assembly) remain open, and the package value 0.17759432 is still not a bound.',
+    mainLineBlocker: {
+      label: 'imp-95212-remaining-obligations-open',
+      description:
+        'O1, O2, O4, and O6 of the y-thaw obligation ledger remain open; closing O5 and O3 removes two of six rows but the 0.17759432 package cannot be promoted to a bound until the remaining four close and are assembled.',
+      ticket: 'imp-95212',
+    },
+    openQuestions: [
+      'Does the sharp mass stay monotone in y across [0.1808, 0.187272] under the 2026-09-10 referee-restated form of O1? (open)',
+      'Does the barrier/winding slab at the bottom edge y = 0.1808 (O2) and the analytic tail beyond N = 3,840,000 at y = 0.1808 (O4) close under the same interval-hull discipline used for O3? (open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording certifications already derived and committed by prior engine runs (imp-95212).',
+    ],
+  },
 ];

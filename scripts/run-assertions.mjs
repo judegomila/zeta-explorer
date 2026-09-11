@@ -15236,6 +15236,24 @@ const DATA_MODULES = [
   // lattices. Import-light, eight self-executing assertions. Changes no
   // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95249-inoctave-pair-split-certificate.js',
+  // imp-95250 (fable-5, frontier): LEMMA LOO + THEOREM SPLIT-LOO +
+  // COROLLARY EV-OCT + COROLLARY EV-OCT-UNIF -- leave-one-out multi-block
+  // split of the signed seam pencil: sqrt(Lambda(V, d)) <= sum_k
+  // sqrt(Lambda_k / (1 - sigma_k^2)) with sigma_k the joint angle of block k
+  // against the span of ALL other blocks, priced ADDITIVELY once per block
+  // (supersedes the two imp-95249-refuted multi-block routes: pairwise-angle
+  // Gershgorin and compounding recursive SPLIT-2 peel). With imp-95249
+  // ANG-DET fencing each angle and imp-95227/95231 coalLaw per block, gives
+  // the FIRST coalescence-uniform certificate for a twin pair in EVERY
+  // octave (imp-95232 FINDING 3 every-octave configuration): m = 6 fires for
+  // x > 11.31664319 uniformly in r where BL is vacuous/diverging, and the
+  // m-AND-r-uniform form (lattice Blaschke tail lemma + depth envelope)
+  // fires for x > 27.035582 at UNBOUNDED octave count. Named residuals: the
+  // abstract m-uniform block Riesz-basis bound stays OPEN (LOO gives only
+  // linear-in-m), >= 3 rates per octave needs an N-fold coalescence law,
+  // off-lattice unchanged. Import-light, eight self-executing assertions.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95250-leaveoneout-multiblock-split-certificate.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

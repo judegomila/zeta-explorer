@@ -706,4 +706,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording an independent verification trace already computed and committed by prior engine runs (imp-95076).',
     ],
   },
+  {
+    id: 'session-2026-09-11-far-ledger-degrade-table',
+    date: '2026-09-11',
+    title: 'Research-journal entry for the imp-95077 far-ledger degrade table (imp-95106)',
+    engineStateStart:
+      'imp-95026 Finding 3 stated only the two ENDPOINTS of the far-bracket ledger degradation at low theta (theta = 10 -> cFar 0.2717400426244421; theta = 2 -> cFar 0.8924623374689161, WORST_SCANNED), leaving the interior of the theta = 2..10 range untabulated.',
+    engineStateEnd:
+      'imp-95077 fills in that interior, tabulating cFar and the ledger factor 4/cFar for every integer theta in {2, ..., 10} at sigma = 1 with the identical imp-95026 quadrature machinery (midpoint rule, N = 200000, pad = 120). cFar decreases monotonically 0.8925 -> 0.2717 across theta = 2 -> 10 while the ledger factor 4/cFar rises monotonically 4.482 -> 14.720, a 3.284x span; the two endpoints reproduce the imp-95026 baked anchors bit-for-bit, which is the built-in cross-check. Roughly half of the total ledger loss is spent over theta in [2, 6], concentrating the "~3x margin shrink" of Finding 3 in the low-theta band, and every scanned row still clears the pre-seventeenth 4 (worst row theta = 2 beats it by 4.48x).',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95077 tabulates an already-committed sensitivity claim (imp-95026 Finding 3) row by row; it instantiates no paper constant and changes no bound.',
+      note: 'Measurement-log entry, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Far-ledger degrade row-scan',
+        ids: ['imp-95077', 'imp-95106'],
+        summary:
+          'imp-95077 tabulated the far-ledger degrade factor cFar and 4/cFar across theta in {2..10} at sigma = 1; imp-95106 records that table in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95077-far-ledger-degrade-table.js',
+        ticket: 'imp-95077',
+        note: 'nine-row table (theta 2..10) of cFar and ledger factor 4/cFar at sigma = 1, endpoints cross-checked against the imp-95026 baked anchors',
+      },
+    ],
+    keyFinding:
+      'The far-bracket ledger degradation named qualitatively in imp-95026 Finding 3 is now quantified row by row: cFar falls monotonically 0.8925 -> 0.2717 and the ledger factor 4/cFar rises monotonically 4.482 -> 14.720 across theta = 2..10, with roughly half of the loss concentrated in theta in [2, 6] and every row still clearing the pre-seventeenth 4.',
+    mainLineBlocker: {
+      label: 'imp-95026-subgap-paper-theta-unpinned',
+      description:
+        'The actual Section 4.5 paper packet decay theta is not pinned in this repository; this table is a sensitivity row-scan over the plausible low-theta neighborhood at sigma = 1, not an instantiated paper number.',
+      ticket: 'imp-95077',
+    },
+    openQuestions: [
+      'What is the actual Section 4.5 paper packet decay theta, and where does it land relative to this row-scan and the exact-proof break boundary s* = 2.948383274238082? (imp-95026-subgap-paper-theta-unpinned -- open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a row-scan already computed and committed by prior engine runs (imp-95077).',
+    ],
+  },
 ];

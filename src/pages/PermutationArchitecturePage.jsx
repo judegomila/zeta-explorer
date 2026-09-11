@@ -471,6 +471,26 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — E-realization split refines the residual into two coupled channels (imp-95008, twenty-third continuation)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            The twenty-third continuation (Lemmas ES + PB, Theorem ER) executes the E-realization sub-gap and
+            factors the surviving residual 1.4032010197013394 exactly by parity channel:
+            r = 1 / (2 × attainment × occupancy × parity-balance), with per-pair envelope attainment
+            0.6014409758412518, occupancy 0.6163838457278105, and parity balance measured near-exhausted at
+            0.9611824921094692. Each factor is certified below 1 conditional on MAJ(σ, θ) (envelope caps,
+            the Lemma SW quadratic-form bound, and Cauchy–Schwarz respectively), so no factor hides
+            compensation. The residual now lives in exactly two COUPLED channels — per-pair envelope
+            attainment and occupancy — with the aggregation and parity-balance levers closed or
+            near-exhausted. The surviving open question is named
+            imp-95008-subgap-attainment-occupancy-tradeoff: prove or refute a bound
+            attainment × occupancy ≤ γ &lt; 1 over MAJ witnesses, or exhibit a witness family driving the
+            product to 1. Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-witness-erealization-split.js</code>.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — paper-packet transfer of the far-ceiling ledger (imp-95026)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             imp-95026 derives how the far coefficient depends on the packet constants (σ, θ, β, and the

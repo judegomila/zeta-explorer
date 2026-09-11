@@ -618,6 +618,26 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — the joint near/far lever is out-of-class and un-priced (imp-95096)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            imp-95096 asks whether pricing the diagonal norms jointly with the far mass can certify a far
+            coefficient below λ<sub>max</sub>. It can: the exact two-block Pareto line
+            β(α) = K(0, 2)(2 − α) drops strictly below λ<sub>max</sub> for every α &gt; 1. But the near
+            coefficient is c<sub>Near</sub> = 2α, and the Theorem K bracket class requires c<sub>Near</sub> ≤ 2,
+            i.e. α ≤ 1 — the Gram-sharp parity factor 2 (imp-95018) pins α at exactly 1, the endpoint where
+            β(1) = λ<sub>max</sub> exactly. So the sandwich <strong>is</strong> the terminal aggregation
+            certificate for the bracket class; any sub-λ<sub>max</sub> trade lives strictly outside it. The
+            trade is also un-priced: it swaps a known far reduction for a near-currency inflation
+            Σd<sub>b</sub> that the carried literals do not bake, so its net effect on the headline gap
+            cannot be computed here (named sub-gap imp-95096-subgap-near-currency-ratio). This is
+            <strong> not a bound improvement</strong> — it changes no ledger number and promotes no bound.
+            Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95096-joint-near-far-vs-lambda-max-terminality.js</code>.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
         {/* Five alternative gates */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Five alternative sufficient gates</h2>
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

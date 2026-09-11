@@ -14942,6 +14942,15 @@ const DATA_MODULES = [
   // honest residual; the panel-pass lever is spent). Sub-range only;
   // promotion flag false; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95214-tier2-chirp-level.js',
+  // imp-95059 (ux, S-frontier): HONEST-STATUS BANNER stating the imp-95011
+  // Gate-2 oscillation probe and imp-95014 Lane-B two-forms audit both run on
+  // a hand-picked five-shell SURROGATE model, not an arithmetic evaluation of
+  // the real moment carrier C_E,17. Names the two real sub-gaps
+  // (imp-95011-sub-arithmetic-carrier-scan, imp-95014-sub-arb-prec128-lane)
+  // and forbids comparing the surrogate numbers to the Gate-2 strict target.
+  // Five self-executing assertions. Documentation only; changes no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95059-gate2-surrogate-carrier-honest-status-banner.js',
 ];
 
 let ALL_MODULES = FAST_MODE

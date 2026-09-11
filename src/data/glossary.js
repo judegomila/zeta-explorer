@@ -21417,6 +21417,53 @@ export const glossary = [
       'imp-95233 Phase-Alignment Currency theta(f) is a sibling leg of the same signed-seam chain',
     ],
   },
+  {
+    term: 'THEOREM ANG-PENCIL (subspace angle as a Blaschke-weighted seam pencil)',
+    category: 'theorem',
+    definition:
+      'For a two-block split V = V1 union V2 of a signed seam rate set, let ' +
+      'B2(s) = prod_(j in V2) (s - nu_j)/(s + nu_j) be the V2 Blaschke product and ' +
+      'Dp = diag(B2(nu_i))_(i in V1). Writing G1, G2, G12 for the V1, V2 and cross Cauchy ' +
+      'Grams (G_ij = 1/(nu_i + nu_j)), THEOREM ANG-PENCIL is the entrywise identity ' +
+      'G12 G2^(-1) G12^T = G1 - Dp G1 Dp, hence ' +
+      'cos^2(angle) = lambda_max(G12 G2^(-1) G12^T, G1) = 1 - lambda_min(Dp G1 Dp, G1), ' +
+      'where angle is the first principal angle between the exponential spans E_V1 and E_V2. ' +
+      'This says the cross-block angle is the SAME pencil object that defines Lambda itself, ' +
+      'with the depth inner function e^(-ds) (weights e^(-d nu_i)) swapped for the inner ' +
+      'function B2 (weights B2(nu_i)): the seam constant and the split price are one pencil ' +
+      'family, indexed by which inner function supplies the weights. Proof (imp-95249): in the ' +
+      'Hardy reproducing-kernel pairing of imp-95226 NP-CERT, the function ' +
+      'kB_nu(s) = [1 - B2(nu) B2(s)]/(s + nu) lies in E_V2 and reproduces K_nu there, so the ' +
+      'V2-projection of the Cauchy kernel K_nu is exactly kB_nu; the Gram of these projections ' +
+      'is G12 G2^(-1) G12^T by the normal equations, and evaluating kB_(nu_j) at nu_i gives the ' +
+      'stated entries. Verified entrywise to rel 1e-9 on four configurations.\n\n' +
+      'THEOREM ANG-PENCIL is one ingredient of the imp-95249 two-subspace split ' +
+      'THEOREM SPLIT-2 (Lambda(V, d) <= [Lambda(V1, d) + Lambda(V2, d)]/(1 - sigma), ' +
+      'sigma = cos angle, depth-independent) together with LEMMA ANG-DET, the closed-form ' +
+      'fence sigma <= sqrt(1 - prod_(i in V1, j in V2) beta_ij^2) with ' +
+      'beta_ij = (nu_i - nu_j)/(nu_i + nu_j), which is COALESCENCE-UNIFORM in V1 (it never ' +
+      'touches intra-V1 separations). Instantiated as COROLLARY IN-OCT, this delivers the ' +
+      'FIRST coalescence-uniform certificate for a rate set containing an in-octave twin pair: ' +
+      'on the dyadic skeleton V2 = {2,4,8,16,32} with twin V1 = {1, r}, r -> 1+, the coalescent ' +
+      'fence is 0.9998618017682614 and the closed-form certificate fires (< 1) for ' +
+      'x > xStarSplit = 7.101831, staying finite where the raw Blaschke-Lagrange bound BL(V)^2 ' +
+      'diverges (imp-95232 FINDING 3).\n\n' +
+      'HONEST LIMITS: single tight pair only; a pairwise-angle Gershgorin route to a MULTI-block ' +
+      '(every-octave twin) version is REFUTED (the adjacent-octave correlation 0.9428 alone ' +
+      'exceeds the Gershgorin row-sum budget); the surviving obstruction is a genuine block ' +
+      'Riesz-basis (Carleson-type) lower bound for exponential cluster systems on geometric ' +
+      'lattices, the named residual carried forward. The split collar (1-fence)^(-1) = 7236 on ' +
+      'this skeleton delays firing to x > 7.10 versus xStarBL = 4.24 for the twin-free bound. ' +
+      'Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95249 (in-octave pair split certificate, twenty-fourth leg of the seam chain), 2026',
+    relatedTerms: [
+      'imp-95232 FINDING 3 is the raw Blaschke-Lagrange in-octave-twin breakage this pencil fences (imp-95232)',
+      'imp-95226 NP-CERT supplies the Hardy reproducing-kernel pairing the proof is built on (imp-95226)',
+      'imp-95227 COAL-DOM supplies the coalLaw(x) ingredient used in COROLLARY IN-OCT (imp-95227)',
+      'imp-95250 SPLIT-LOO is the every-octave leave-one-out generalization that follows this pair leg (imp-95250)',
+      'imp-95233 Phase-Alignment Currency theta(f) is a sibling leg of the same signed-seam chain',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -13,6 +13,7 @@ import {
   IMP95051_CORRELATION_GAIN_TABLE,
 } from '../data/imp-95011-gate2-oscillation-probe.js';
 import { SLAB_HYPOTHESIS } from '../data/imp-95046-slab-44-conditional-target.js';
+import { ANCHOR_GATE, MISSING_EVALUATOR_INPUTS } from '../data/imp-95013-gate2-lane-a-blocked-on-spec.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -524,6 +525,14 @@ export default function PermutationArchitecturePage() {
               </tbody>
             </table>
           </div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '10px 0 0' }}>
+            <strong>BLOCKED-ON-SPEC (imp-95013).</strong> A standalone native Lane-A scanner for the anchor cell above
+            is gated on reproducing{' '}
+            <InlineMath tex={`|E_{97}|(${ANCHOR_GATE.N}) = ${ANCHOR_GATE.requiredE97Peak}`} /> to double-double
+            precision before any scan output is trusted, and cannot be built in-repo today: {MISSING_EVALUATOR_INPUTS.length} arithmetic
+            evaluator inputs are absent — {MISSING_EVALUATOR_INPUTS.map((m) => m.key).join(', ')}. Only the structural
+            imp-95012 spec is present; no surrogate substitution is made.
+          </p>
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>

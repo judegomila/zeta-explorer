@@ -389,6 +389,22 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — paper-packet transfer of the far-ceiling ledger (imp-95026)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            imp-95026 derives how the far coefficient depends on the packet constants (σ, θ, β, and the
+            isolation constant Q) and scans a neighborhood of the model point — it does <strong>not</strong> instantiate
+            the actual Section 4.5 packet definition, which is not pinned in this repository. What the scan shows: the
+            amplitude A<sub>d</sub> cancels out of the ledger entirely; the ledger stays below the pre-seventeenth 4
+            everywhere scanned (worst point 0.8924623374689161 at θ = 2); it degrades roughly 3× at low θ (θ ≈ 2 →
+            ceiling ≈ 0.89 instead of 0.2717408057586117); and the nineteenth-continuation exact-substitution proof
+            itself breaks below the sharp threshold σ + θ = 2.948383274238082, falling back to the eighteenth-window
+            envelope. This is a <strong>sensitivity map</strong> over plausible paper constants, not a single
+            instantiated paper-packet number — the remaining step is reading (σ, θ, β, c, v, D) off the paper text.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
         {/* Five alternative gates */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Five alternative sufficient gates</h2>
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

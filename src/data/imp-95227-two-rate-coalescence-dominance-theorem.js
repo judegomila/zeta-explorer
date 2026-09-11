@@ -190,14 +190,17 @@ export const IMP95227_COAL_DOM_ASSERTIONS = [
     id: "imp95227-dominance-strict-on-grid",
     description:
       "THEOREM COAL-DOM: Lambda_2(1, 1+s, x) < C(x) on the full (x, s) grid, " +
-      "with a strictly positive margin once s is bounded away from 0",
+      "with a strictly positive margin once s is bounded away from 0 (the " +
+      "true gap at s = 1 scales like ~(2/3) x^3 as x -> 0, so the margin " +
+      "fence must be x-cubed-scaled, not flat)",
     holds: () => {
       for (const x of X_GRID) {
         for (const s of S_GRID) {
           const lam = lam2closed(1, 1 + s, x);
           const cap = capC(x);
           if (!(lam <= cap * (1 + 1e-12))) return false;
-          if (s >= 1 && !(lam < cap * (1 - 1e-6))) return false;
+          const margin = Math.min(0.5, 0.05 * x * x * x);
+          if (s >= 1 && !(lam < cap * (1 - margin))) return false;
         }
       }
       return true;
@@ -244,11 +247,12 @@ export const IMP95227_COAL_DOM_ASSERTIONS = [
     description:
       "Step 3 chain: phi [R(1+2/s) - 1] <= 2 x R on the grid; the Pade bound " +
       "1 - e^(-u) <= 2u/(2+u) holds and is strict for u > 0; the terminal " +
-      "rationalization (x + sqrt(1+x^2))(sqrt(1+x^2) - x) = 1 holds to 1e-14",
+      "rationalization (x + sqrt(1+x^2))(sqrt(1+x^2) - x) = 1 holds to 1e-12 " +
+      "(float tolerance only: sqrt(1+x^2) - x cancels ~x^2 digits at large x)",
     holds: () => {
       for (const x of X_GRID) {
         const R = x + Math.sqrt(1 + x * x);
-        if (Math.abs(R * (Math.sqrt(1 + x * x) - x) - 1) > 1e-14) return false;
+        if (Math.abs(R * (Math.sqrt(1 + x * x) - x) - 1) > 1e-12) return false;
         for (const s of S_GRID) {
           const phi = -Math.expm1(-s * x);
           if (phi * (R * (1 + 2 / s) - 1) > 2 * x * R * (1 + 1e-13)) return false;

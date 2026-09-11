@@ -14618,6 +14618,23 @@ const DATA_MODULES = [
   // coverage, criterion assembly) OPEN and not claimed. Changes no bound;
   // NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95208-ythaw-package-stage12.js',
+  // imp-95129 (opus-4-8): ASSESSMENT / tractability triage of y-thaw
+  // obligation O2 (barrier/winding slab at the thawed bottom edge y = 0.1808).
+  // The sealed v3 compact-slab barrier (piece 1) is an 883-prism Arb
+  // certificate on [X, X+1] x [0.1809, 1] x [0, 129/800], min strict margin
+  // 0.5198, winding allowance 0.00125. O2 lowers the bottom edge from 0.1809
+  // to 0.1808 -- a pure-y dy = 1e-4 extension. Triage: cheapest of the four
+  // open obligations. (a) pure-y move, chart-motion charge exactly zero
+  // (window landmark N = 690988 at all four corners, y-independent);
+  // (b) error chain 3.5652e-4 -> 3.5676e-4 (growth exp((dy/4) log0) =
+  // 1.000673) stays ~3.50x below the 0.00125 allowance; (c) the 0.5198 slab
+  // margin cannot be exhausted by a 1e-4 extension; (d) the barrier evaluates
+  // raw H_t = A + B - C, weight-independent, so the O1 triangle-collapse at
+  // 0.1808 does NOT touch O2. CARRIED OPEN: sub-gap imp-95129-subgap-slab-
+  // arb-rerun (one cheap Arb re-run of the slab producer over [0.1808, 1] with
+  // M0 != 0 and the t=0 endpoint on the sliver). No certificate, no margins,
+  // changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95129-ythaw-o2-assessment.js',
   // imp-95130 (opus-4-8): route assessment for the RESTATED O1 obligation of
   // the imp-95208 y-thaw package -- SHARP-MASS Y-MONOTONICITY of the
   // max-of-kinked-branches summand with y-dependent c(g) on [0.1808, 0.187272].

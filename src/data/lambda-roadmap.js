@@ -1094,6 +1094,73 @@ export const LAMBDA_CHAIN_STEPS = [
         'then the C_mb GUE conditional (imp-486) caps the reachable claim at RH-' +
         'modulo-GUE. Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark; NO QED.',
       by: 'imp-35074',
+      // imp-95235 (scoping/assessment ONLY; changes NO bound, closes NOTHING,
+      // establishes no operator positivity, respects the imp-2519 no-overclaim
+      // guard, NO QED): across the three OPEN input links enumerated in
+      // obligations above, which one is the BINDING obstruction -- the link that
+      // blocks unconditional RH regardless of per-N route AND is itself certified
+      // as hard as RH? Per-link partial-discharge audit + verdict below.
+      bindingObstructionAssessment: {
+        question:
+          'Of the three OPEN input links, which is the binding obstruction to an ' +
+          'unconditional Step-5 RH statement (route-independent AND certified hard)?',
+        links: [
+          {
+            key: 'G5-perN-translation',
+            partialDischarge:
+              'PARTIAL. The lim-sup |t_c(N)| <= 0 itself is UNCONDITIONAL via Route ' +
+              'B (imp-341 Burgers, PRIMARY, GUE-free); the missing piece is only the ' +
+              'per-N RATE r(N) that the Step-4 bridge constants consume. Three ' +
+              'un-refuted candidate translations remain -- (A) imp-336 monotonicity, ' +
+              '(B) imp-348 O(1/N) local-law rigidity, (C) imp-337/342/343 density ' +
+              'squeeze -- none closed, none refuted.',
+            binding: false,
+            reason:
+              'Multiple live candidate routes, none certified a wall. A missing rate, ' +
+              'not a proven-hard obstruction. Not the binding link.',
+          },
+          {
+            key: 'G5-step4-bridge',
+            partialDischarge:
+              'PARTIAL LEDGER ONLY. imp-366 ported the Polymath15 Lemma 5.2 LEDGER, ' +
+              'but the sole open sub-gap G6a_shock_lipschitz -- the Hoelder-1/2 ' +
+              'modulus of tau_c at the Burgers shock feeding C_H in E_coll -- is ' +
+              'certified RH-HARD (imp-2640 gap-Lipschitz Gronwall discharge NEGATIVE; ' +
+              'ch-wall-frontier-verdict-2026-06-26 RH-HARD-CONFIRMED). No repo module ' +
+              'supplies an unconditional bound on the shock modulus; the asymptotic ' +
+              'modulo persists (imp-35056).',
+            binding: true,
+            reason:
+              'ROUTE-INDEPENDENT: every per-N translation still needs Step-4 E(N) -> ' +
+              '0, so this link is on the critical path of ALL routes. It is also the ' +
+              'ONLY link certified as hard as RH itself. Hence the binding ' +
+              'obstruction for an unconditional Lambda <= 0.',
+          },
+          {
+            key: 'G5-cmb-gue',
+            partialDischarge:
+              'WINDOW-LOCAL SURROGATE ONLY (imp-36079): imp-3725 certifies K_paper ' +
+              '<= 2.4238e-6 GUE-free on the CLOSED window [1e4, 1e6], but supplies NO ' +
+              'N-uniform control past N_hi; irreducible per imp-486 (no unconditional ' +
+              'C_mb bound; GGM+Huxley fail identically).',
+            binding: false,
+            reason:
+              'Conditions ONLY the Route-A many-body per-N translation; Routes B/C ' +
+              'are GUE-free and bypass C_mb entirely. It caps Route A at ' +
+              'RH-modulo-GUE-universality but does NOT block the GUE-free path, so it ' +
+              'is not the binding obstruction to unconditional RH (only to Route A).',
+          },
+        ],
+        verdict:
+          'BINDING OBSTRUCTION = G5-step4-bridge (G6a_shock_lipschitz). It is the ' +
+          'only link that is BOTH route-independent (on the critical path of every ' +
+          'per-N translation) AND certified RH-HARD. G5-perN retains live ' +
+          'un-refuted routes (a missing rate, not a wall) and G5-cmb binds only ' +
+          'Route A (Routes B/C bypass it). Scoping only: Step 5 stays unverified, ' +
+          'RH does not follow, NO Lambda bound changes. Platt-Trudgian Lambda <= ' +
+          '0.2 remains the peer-reviewed benchmark; NO QED.',
+        by: 'imp-95235',
+      },
     },
     // imp-35099 (scoping/assessment ONLY; changes no bound, closes nothing,
     // respects the imp-2519 no-overclaim guard, NO QED): COMPLEMENT to the

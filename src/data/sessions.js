@@ -522,4 +522,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a transfer assessment already computed and committed by prior engine runs (imp-95026).',
     ],
   },
+  {
+    id: 'session-2026-09-11-headline-gap-attribution',
+    date: '2026-09-11',
+    title: 'Attribution of the 2.81x far-bracket headline gap (imp-95045)',
+    engineStateStart:
+      'The nineteenth continuation makes the per-pair envelope bound MAJ-class sharp, yet the headline gap between the witness floor (0.096745062937484763) and the achieved ceiling (0.2717408057586117) is still 2.8088338309749887. The open question posed a binary: does the residual live in (i) MAJ-class looseness against the true packet decay, or (ii) witness-floor looseness?',
+    engineStateEnd:
+      'imp-95045 finds the binary is INCOMPLETE. FINDING 1: the tail-truncation currency Tx(2) cancels identically between ceiling and floor and contributes exactly 1.000x -- ruled out as a gap source. FINDING 2: the DOMINANT contributor, ~67% of the log-gap, is the achieved-side parity AM-GM factor 2 (||x+y||^2 <= 2(||x||^2+||y||^2) applied across even/odd block color classes) -- a THIRD category outside the ticket binary, present only on the ceiling side and declared uniformly unrecoverable by the eleventh continuation. FINDING 3: the residual sub-sqrt(2) factor 1.4044169154874944x is, within the MODEL family (where MAJ equals the true decay by construction), witness-floor-side -- the exhibited witness realizes only 71.2% of the parity-halved ceiling, with MAJ-internal substitution slack bounded at <= 0.4 percent. The paper-packet split of (i) vs (ii) is deferred to the open packet-envelope constants.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95045 is an attribution audit of the headline far-bracket gap; it derives or changes no floor, ceiling, or bound literal.',
+      note: 'Attribution assessment, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Headline far-bracket gap attribution',
+        ids: ['imp-95045', 'imp-95085'],
+        summary:
+          'imp-95045 attributed the 2.81x headline gap across the tail-truncation (cancels), the parity AM-GM factor 2 (dominant, ceiling-side, unrecoverable), and the residual 1.4044x (model-family witness-floor-side); imp-95085 records that attribution in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95045-headline-gap-attribution.js',
+        ticket: 'imp-95045',
+        note: 'multiplicative decomposition gap = (parity AM-GM 2.0) x (residual 1.4044169154874944), with the Tx(2) cancellation identity and the model-family witness-realization ratio 0.712039273361276',
+      },
+    ],
+    keyFinding:
+      'Neither half of the original binary carries the majority of the gap: the dominant ~67% (log-scale) is a ceiling-side parity AM-GM factor already fixed as unrecoverable, and the remaining sub-sqrt(2) residual is, at least within the model family, witness-floor-side rather than MAJ-envelope-side. No single-lever factor-2 improvement is available.',
+    mainLineBlocker: {
+      label: 'imp-95045-subgap-paper-packet-split',
+      description:
+        'Separating option (i) MAJ-envelope-vs-true-decay from option (ii) witness looseness for the actual PAPER packets, as opposed to the model family, requires the paper packet-envelope constants (c, beta, sigma, theta, A_d), which remain open (sibling openResiduals[0]). The model-family verdict is a lower bound on the witness-side share, not a paper-packet verdict.',
+      ticket: 'imp-95045',
+    },
+    openQuestions: [
+      'With the paper packet-envelope constants pinned, does part of the residual 1.4044x migrate from witness-floor-side (ii) back to MAJ-envelope-side (i)? (imp-95045-subgap-paper-packet-split -- open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording an attribution audit already computed and committed by prior engine runs (imp-95045).',
+    ],
+  },
 ];

@@ -614,4 +614,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a quadrature cross-check already computed and committed by prior engine runs (imp-95073).',
     ],
   },
+  {
+    id: 'session-2026-09-11-isolation-Q-far-ceiling-sensitivity',
+    date: '2026-09-11',
+    title: 'Isolation-constant Q sensitivity of the far-bracket ceiling (imp-95075)',
+    engineStateStart:
+      'imp-95026 Finding 1 identifies the isolation constant Q = (c D^(1-beta)/v) 2^(-(1-beta)) as the single group through which the three physical constants (c, v, D) enter the far coefficient cFar, and shows cFar grows with Q, but only via a tabulated isolationScan indexed by c -- the local sensitivity dcFar/dQ at the model point, and where the paper Q would sit relative to that derivative, were not derived.',
+    engineStateEnd:
+      'imp-95075 derives the central-difference sensitivity dcFar/dQ = 0.3816620268743663 at the model point Q0 = 2^(-2/3) = 0.6299605249474366 (cFar0 = 0.2717400426244421), giving a dimensionless elasticity of 0.8847868296486842 -- a strong, near-proportional lever comparable to s = sigma + theta and far stronger than beta (~6 percent over 0.25..0.5, imp-95026 Finding 1). It further finds cFar(Q) is CONCAVE (secant slope falls monotonically from ~0.44 near c=0.5 to ~0.17 near c=2), so the local linear model over-predicts the ceiling above the model point (6.49 percent over at Q(c=1.5): 0.39195604802558137 predicted vs 0.36807989528190543 actual), making the derivative a conservative upper estimate in the direction that matters for transfer risk. The Q-indexed isolationScan spans Q in [0.315, 1.260] with cFar rising monotonically 0.137 -> 0.421, all far below the pre-seventeenth 4; even the conservative linear model needs Q ~ 10.4 (c ~ 16.5) to reach cFar = 4.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95075 derives a local sensitivity and re-indexes an already-committed sensitivity map (imp-95026); it instantiates no paper number and changes no bound.',
+      note: 'Measurement/derivation assessment, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Isolation-Q far-ceiling sensitivity',
+        ids: ['imp-95075', 'imp-95104'],
+        summary:
+          'imp-95075 derived the isolation-group sensitivity dcFar/dQ=0.3816620268743663 (elasticity 0.8847868296486842) and located the model Q on the concave cFar(Q) curve; imp-95104 records that derivation in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95075-isolation-Q-far-ceiling-sensitivity.js',
+        ticket: 'imp-95075',
+        note: 'central-difference dcFar/dQ and elasticity at the model point, concavity over-prediction check at Q(c=1.5), and the isolationScan re-indexed by Q',
+      },
+    ],
+    keyFinding:
+      'The isolation group Q is a strong (~0.88-elastic) lever on the far-bracket ceiling, comparable to s = sigma + theta, but cFar(Q) is concave, so the sensitivity is conservative (over-predicting) in the direction that matters -- and even a large isolation mis-estimate keeps the ledger comfortably below 4.',
+    mainLineBlocker: {
+      label: 'imp-95075-subgap-paper-Q-unpinned',
+      description:
+        'The actual Section 4.5 physical constants (c, v, D), hence the paper Q, are not pinned in this repository; this module places the MODEL Q on the scan and gives the local sensitivity and elasticity, but reading the paper cFar off this curve needs the paper (c, v, D, beta) values.',
+      ticket: 'imp-95075',
+    },
+    openQuestions: [
+      'What are the actual Section 4.5 values of (c, v, D), and where does the resulting paper Q land on the concave cFar(Q) curve relative to the below-4 margin? (imp-95075-subgap-paper-Q-unpinned -- open; shares the sibling imp-95026-subgap-packet-constants-unpinned gap)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a sensitivity derivation already computed and committed by prior engine runs (imp-95075).',
+    ],
+  },
 ];

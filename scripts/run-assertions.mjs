@@ -15391,6 +15391,23 @@ const DATA_MODULES = [
   // assertions. Documentation only; changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95245-tier-certifier-honest-status-banner.js',
+  // imp-95254 (fable-5, frontier): LEMMA ENT + LEMMA ODROP + THEOREM
+  // PHASE-AM + COROLLARY NO-UNIF + PROP LIN-NOGO + PROP CEIL-X -- the
+  // sharper phase-priced signed seam bound asked by imp-95233 HONEST
+  // LIMITS (b). Entrywise seam-mass domination L_mn <= (1/2) e^(-y_min)
+  // M_mn (exact three-strip inequality) plus the orthant cross-term drop
+  // give R(f) <= (e^(-y_min)/4)(1 + 1/theta), STRICTLY dominating
+  // PHASE-CERT by the exact factor (1 + theta)/2 (loss halved as
+  // theta -> 0), tight at theta = 1, vacuity frontier lowered from
+  // e^(-y_min) to e^(-y_min)/(2 - e^(-y_min)). The ticket headline is
+  // answered NO in the uniform sense (SGN-SAT pins every F(theta, y) to
+  // limsup >= 1/2 as theta -> 0); the natural linear sharp form is REFUTED
+  // by an exact co-centered witness (rates (3, 1/4), R = 0.47798 > 0.44763);
+  // and R = 0.69617 > 1/2 at an exact NON-co-centered witness shows the
+  // DC-NOGO 1/2 ceiling is co-centered-only. Sharp frontier sup R at fixed
+  // (theta, y_min) stays OPEN. Nine self-executing assertions. Import-light.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95254-orthant-split-phase-certificate.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -15274,6 +15274,30 @@ const DATA_MODULES = [
   // instantiation is a follow-up. Import-light, nine self-executing
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95251-nfold-coalescence-law.js',
+  // imp-95252 (fable-5, frontier): LEMMA TOEP + LEMMA POISSON + THEOREM
+  // RZ-LAT + THEOREM RZ-TWIN + COROLLARY RZ-BLOCK + COROLLARY SPLIT-RZ --
+  // the m-uniform block Riesz-basis lower bound imp-95250 HONEST LIMITS (d)
+  // recorded as OPEN, answered POSITIVELY on the lattice skeleton. The
+  // normalized seam Gram is (block) Toeplitz in the octave index (entry =
+  // sech of half the log-ratio), so the Grenander-Szegoe quadratic-form
+  // identity bounds lambda_min by the symbol infimum UNIFORMLY IN m; the
+  // symbol is a Poisson periodization of the sech kernel (self-dual Fourier
+  // pair), strictly positive, with closed-form lower constants
+  //   A_lat = (4pi/lnrho) sech(pi^2/lnrho)   (one rate per octave, sharp)
+  //   A_twin = 4 sin^2(pi tau) P(pi)P(2pi)/(P(pi)+2P(2pi)), tau = lnr/lnrho
+  // (twin pairs, near-sharp: measured symbol ratio 1.0000013 at rho = 2,
+  // uniformly in r). Fejer averaging pins the CEILING: no m-uniform constant
+  // can exceed the symbol infimum. COROLLARY SPLIT-RZ replaces the LOO
+  // collar for unbounded m: Lambda <= [sum_k coalLaw(2^k x)]/A_blk fires at
+  // x > 15.981584 (r = 1.3) vs 27.035582 for EV-OCT-UNIF. NOT
+  // coalescence-uniform, NECESSARILY (single-block (1,-1) witness); the
+  // r-uniform block symbol-pencil infimum is the named open residual.
+  // Adversarial record includes the float trap (naive f_a - |f_b| at
+  // rho = 2 cancels 9.06-scale sums to 1e-11; the exact positive-pair
+  // identity is the stable form asserted here). Import-light, twelve
+  // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95252-muniform-block-riesz-seam-pencil.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

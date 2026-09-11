@@ -181,6 +181,33 @@ export default function PermutationArchitecturePage() {
             today, not arithmetic measurements of <InlineMath tex="C_{E,17}" />; neither has run. This records status
             only — no bound is promoted, no gap is closed.
           </p>
+          <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', marginTop: 10 }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+              <thead>
+                <tr style={{ background: 'var(--paper2)', textAlign: 'left', color: 'var(--faint)' }}>
+                  <th style={{ padding: '8px 12px' }}>Named heavy-compute ticket</th>
+                  <th style={{ padding: '8px 12px' }}>Evaluator requirement</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  [
+                    'imp-95011-sub-arithmetic-carrier-scan',
+                    'Arithmetic C_E,17 over ~1e3 log-spaced N in [690988, 54799999], (N,N+1) and (N,N+2) pairs, both seam sides, ~5 window parameters (~2e4 O(N) evaluations); reports the real per-unit-N increment L and the real sampled sup.',
+                  ],
+                  [
+                    'imp-95014-sub-arb-prec128-lane',
+                    'Arb acb interval arithmetic at prec 128 (192-bit spot audits), Gram-form Lane B skeleton, per tmp/verify_ydini_genmoll.c, on a 1-2 percent subsample of the imp-95011 Lane-A evaluations plus the anchor cell; gate is crossCheck < 1e-9.',
+                  ],
+                ].map(([ticket, req]) => (
+                  <tr key={ticket} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
+                    <td style={{ padding: '7px 12px', fontFamily: 'var(--ed-mono)', fontSize: 11.5, whiteSpace: 'nowrap' }}>{ticket}</td>
+                    <td style={{ padding: '7px 12px' }}>{req}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

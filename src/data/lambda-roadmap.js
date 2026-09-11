@@ -2138,7 +2138,27 @@ export const LAMBDA_ROADMAP = {
     'landmarks. The tight co-location is consistent with -- but this measurement ' +
     'does NOT prove -- the shared E_coll=E_trunc crossover geometry underlying ' +
     'each. Measurement only on the inherited imp-3220/imp-3406 surrogate; ' +
-    'changes no bound; C_mb remains GUE-conditional (imp-486); NO QED.',
+    'changes no bound; C_mb remains GUE-conditional (imp-486); NO QED. ' +
+    'MEASURED (imp-95237): quantifying the imp-486 GUE-conditional dependence at ' +
+    'candidate verified heights and the unconditional-replacement threshold the ' +
+    'analytic chain would need (tmp/imp-95237-compute.mjs on the inherited ' +
+    'imp-3220/imp-3406 surrogate). (a) The conditional share sigma(N)=E_coll/E(N) at ' +
+    'verified heights is already TINY -- sigma=0.0188 at N(3e12)~1.236e13 and ' +
+    'sigma=0.0133 at N(6e12)~2.539e13 -- because at N~1e13 the GUE-conditional E_coll ' +
+    'term (~5.85e-7 / ~4.13e-7) is dwarfed by the N-independent unconditional ' +
+    'E_trunc=3.06e-5 floor, so the E(N) bridge is ~98-99% UNCONDITIONAL at verified ' +
+    'heights, deep on the post-9.22e5-peak downslope (consistent with the imp-33582 ' +
+    'sigma<0.1 landmark at N~3.21e11, far below N~1e13). (b) The rescue inequality the ' +
+    'chain actually needs is C_mb*log(N)/sqrt(N) < rho_min~0.12751 (imp-469); an ' +
+    'unconditional replacement bound B(N)>=C_mb keeps the chain intact iff ' +
+    'B(N) < rho_min*sqrt(N)/log(N), a budget that GROWS like sqrt(N)/log(N) -- ' +
+    '~1.487e4 at N(3e12) and ~2.082e4 at N(6e12). So the current C_mb<=1 input sits ' +
+    '~1.5e4-2.1e4x below the budget at verified heights: the binding obstruction is ' +
+    'NOT the budget size (generous, and growing without limit) but that imp-486 leaves ' +
+    'C_mb without ANY unconditional o(sqrt(N)/log(N)) bound -- even a replacement as ' +
+    'loose as ~1.5e4 at N~1e13 is unavailable off-GUE. Measurement only on the ' +
+    'inherited surrogate; changes no bound; C_mb remains GUE-conditional (imp-486); ' +
+    'NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

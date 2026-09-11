@@ -1016,6 +1016,9 @@ const Imp95125AttainmentShortfallDecayViz = lazy(() =>
 const Imp95144TierCertifierBallOpBudgetGapViz = lazy(() =>
   import('./pages/Imp95144TierCertifierBallOpBudgetGapViz.jsx')
 );
+const Imp95242TierCertifierBaselineVsDesignGapViz = lazy(() =>
+  import('./pages/Imp95242TierCertifierBaselineVsDesignGapViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2793,6 +2796,10 @@ function AppShell() {
           <Route
             path="/viz-imp95144-tier-certifier-ballop-budget-gap"
             element={<Imp95144TierCertifierBallOpBudgetGapViz />}
+          />
+          <Route
+            path="/viz-imp95242-tier-certifier-baseline-vs-design-gap"
+            element={<Imp95242TierCertifierBaselineVsDesignGapViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

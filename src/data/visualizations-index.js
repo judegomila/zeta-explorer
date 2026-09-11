@@ -1886,6 +1886,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-scale bar chart baking the imp-95213 / imp-95214 TIER_PRICE and TIER2_PRICE literals verbatim (no new computation); the full-window run was NOT launched at either level, both prices are sub-range extrapolations; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95242-tier-certifier-baseline-vs-design-gap',
+      title: 'Tier-Certifier: Below Baseline, Above Design Budget',
+      oneLine:
+        'Two small log-scale bar panels contrasting the imp-95213 single-level Taylor realization against its direct-baseline CPU-days (433.6x below the 1.64e5 CPU-day dry run) and against the two-level design ball-op budget (91.7x above the 1.1e13 target), making the 434x-below / 92x-above framing legible.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95213-tier-certifier-build.js',
+      paperSourcePath:
+        'src/data/imp-95213-tier-certifier-build.js (TIER_PRICE.baselines / TIER_PRICE.fullWindow; imp-95242 viz page)',
+      ticket: 'imp-95242',
+      pedagogicalStep: 132,
+      honestCeiling:
+        'Descriptive log-scale bar panels baking the imp-95213 TIER_PRICE literals verbatim (no new computation); the full-window run was NOT launched; the second (design-budget-matching) level is the identified residual lever, not built here; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -430,4 +430,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording the frozen spec and disposition already computed and committed by prior engine runs (imp-95012 and the ROW_01399_DECISION work).',
     ],
   },
+  {
+    id: 'session-2026-09-11-witness-floor-independent-reaudit',
+    date: '2026-09-11',
+    title: 'Independent re-audit of the witness-FLOOR currency (imp-95017)',
+    engineStateStart:
+      'The proof-logic referee that passed the far bracket re-audited the CEILING side (the nineteenth-continuation exact pair correlation) but explicitly did not re-audit the FLOOR side: the multi-rate floor evaluator floorMultiRate, the sharp-MAJ legality amplitude hLegal, and the carried floor literals HEAD_FLOOR = 0.096745062937484763 and F97_FLOOR = 0.0012054673720820889 that feed every tracked gap were unverified by an independent path.',
+    engineStateEnd:
+      'imp-95017 re-derives the floor machinery (cross-rate kernel K, exact excess E, far mass M, sharp-MAJ legality h, tail Tx) through a code path that shares no helper with the sibling modules -- a different three-piece antiderivative decomposition plus independent Simpson quadrature for K, and an independent full-line Gram quadrature for E. The BASE four-packet floors (theta = 10 headline 0.092871808411129783, fixed-97 0.0012038255978826329) reproduce to rel < 1e-6 (measured 1.2e-10 and 1.3e-14), and the closed-form excess matches the Gram quadrature to rel 5.2e-7, so floorMultiRate carries no coding bug in E, M, K, or h.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95017 re-audits the referee-unverified floor side of the twin-ladder permutation architecture far bracket; it changes no bound and does not touch the program Λ bound or any verified-height input.',
+      note: 'Independent re-audit only, isRigorous true (for the machinery re-derivation), NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Witness-FLOOR independent re-audit',
+        ids: ['imp-95017', 'imp-95079'],
+        summary:
+          'imp-95017 independently re-derived the floor machinery and BASE four-packet floors of the multi-rate witness currency; imp-95079 records that re-audit in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95017-witness-floor-reaudit.js',
+        ticket: 'imp-95017',
+        note: 'independent re-derivation of K, E, M, h, Tx and cross-check of the BASE four-packet floors against the carried literals',
+      },
+    ],
+    keyFinding:
+      'The BASE multi-rate floors are independently confirmed free of a coding bug in floorMultiRate. A separate honest-partial note: the tail sum Tx truncates at the first term underflowing to the IEEE double denormal floor (theta = 2 at j = 807, theta = 10 at j = 162), which drops positive tail mass and makes the reported floor F = E/(Tx M) strictly larger than the true floor -- floor-UNSAFE in direction, but with a first-dropped-term magnitude of ~1e-324, negligible against the ~1e-8 float rounding already priced.',
+    mainLineBlocker: {
+      label: 'imp-95017-subgap-append-lift',
+      description:
+        'This module re-audits the floor MACHINERY and the BASE floors only. The append-chain LIFT from the base floors (0.092871808411129783, 0.0012038255978826329) to the carried terminal literals HEAD_FLOOR and F97_FLOOR is performed by the occupied-block appends (fifteenth continuation) and the cancellation-aware corner envelope (sixteenth continuation); that lift is not independently re-derived here and remains the residual sub-gap.',
+      ticket: 'imp-95017',
+    },
+    openQuestions: [
+      'Does an independent path also reproduce the append-chain lift from the base floors to the carried terminal literals HEAD_FLOOR and F97_FLOOR? (imp-95017-subgap-append-lift -- open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a re-audit already computed and committed by prior engine runs (imp-95017).',
+    ],
+  },
 ];

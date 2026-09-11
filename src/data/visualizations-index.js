@@ -1789,6 +1789,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive curve chart recomputing the imp-95250 certCoalM(6, x) closed form independently from its documented coalLaw/betaLat pieces (no new derivation, no heavy import); the certificate is a model-family bound sitting orders above the exact pencil (imp-95250 HONEST LIMITS); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95266-theta-vs-k-phase-collapse',
+      title: 'Phase Collapse vs Modulus Blow-Up, K = 1..8',
+      oneLine:
+        'Two log10 panels against packet count K on the imp-95224 SGN-SAT witness family: the imp-95233 phase-alignment ratio theta_K collapsing below the PHASE-CERT vacuity threshold e^(-y_min), and the amplitude modulus (L1 = 2^K, L2 mass = C(2K,K)) diverging.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95266-theta-vs-k-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95233-modulus-phase-currency-feasibility.js (theta(phi_K), L1/L2 modulus identities, PHASE-CERT); src/data/imp-95224-signed-depth-currency-nogo.js (THEOREM SGN-SAT witness family; imp-95266 viz page)',
+      ticket: 'imp-95266',
+      pedagogicalStep: 126,
+      honestCeiling:
+        'Descriptive two-panel chart recomputing theta_K (exact BigInt rational integration) and the L1/L2 modulus (exact binomial identities) independently from the imp-95233 documented closed forms (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-twistor-dual-intertwiner',
       title: 'Twistor Space, its Dual, and the Intertwiner',
       oneLine:

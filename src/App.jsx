@@ -995,6 +995,9 @@ const Imp36288RouteBSlopeConvergenceViz = lazy(() =>
 const Imp95240O5SiteCoverageMarginsViz = lazy(() =>
   import('./pages/Imp95240O5SiteCoverageMarginsViz.jsx')
 );
+const Imp95266ThetaVsKPhaseCollapseViz = lazy(() =>
+  import('./pages/Imp95266ThetaVsKPhaseCollapseViz.jsx')
+);
 const Imp95265EvOctFiringCurveViz = lazy(() =>
   import('./pages/Imp95265EvOctFiringCurveViz.jsx')
 );
@@ -2751,6 +2754,10 @@ function AppShell() {
           <Route
             path="/viz-imp95265-evoct-firing-curve"
             element={<Imp95265EvOctFiringCurveViz />}
+          />
+          <Route
+            path="/viz-imp95266-theta-vs-k-phase-collapse"
+            element={<Imp95266ThetaVsKPhaseCollapseViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

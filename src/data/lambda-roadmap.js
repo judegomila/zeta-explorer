@@ -737,6 +737,90 @@ export const LAMBDA_CHAIN_STEPS = [
               'SOTA; NO QED.',
             by: 'imp-35147',
           },
+          // imp-95234 (scoping / factor-localization ONLY; discharges nothing,
+          // no operator positivity, respects the imp-2519 no-overclaim guard,
+          // NO QED): the prior G6a assessments graded the modulus as an object
+          // (imp-35101 TYPE, imp-36214 SIGN, imp-35147 STRENGTH). This field
+          // instead factorizes the CONSTANT C_H = C_shock * C_Lip / 4 that the
+          // modulus supplies, grades each factor against the repo ledger, and
+          // pins WHERE the obstruction and the ansatz live.
+          cHEstimateFactorization: {
+            question:
+              'The C_H estimate feeding E_coll is written C_H = C_shock * C_Lip ' +
+              '/ 4. Which of its factors are discharged O(1) constants in the ' +
+              'repo, which single factor carries the whole obstruction, and is ' +
+              'the numeric value currently used a rigorous bound or an ansatz?',
+            neededForm:
+              'C_H is the coefficient of the Hoelder-1/2 shock modulus ' +
+              '|tau_c(x) - tau_c(x_prime)| <= C_H |x - x_prime|^{1/2}, needed as ' +
+              'a finite N-uniform constant so that E_coll = C_C * sqrt(log T0 / ' +
+              'N) with C_C = C_H * sqrt(C_KH) is a genuine upper bound rather ' +
+              'than a fitted coefficient.',
+            factors: [
+              {
+                factor: 'C_shock (the cusp-law prefactor g_min ~ C_shock * W_1^{1/2})',
+                status: 'DISCHARGED (bounded)',
+                value: 'C_shock < 1/3',
+                source: 'ch-wall-frontier-verdict-2026-06-26',
+                note:
+                  'A rigorous O(1) constant; contributes no divergence to C_H.',
+              },
+              {
+                factor: 'C_KH (the Selberg / quadrature factor in C_C = C_H * sqrt(C_KH))',
+                status: 'DISCHARGED (rigorous)',
+                value: 'C_KH = 3 pi (with C_Selberg rigorous)',
+                source: 'imp-2641 (via imp-2643 / imp-2633 ledger)',
+                note:
+                  'The other multiplicative constant in the E_coll coefficient ' +
+                  'is a discharged number; it does not gate the estimate.',
+              },
+              {
+                factor: 'C_Lip (the gap-Lipschitz backward-flow Gronwall Jacobian)',
+                status: 'NOT N-UNIFORM -- PROVABLY DIVERGENT (RH-HARD-CONFIRMED)',
+                value: 'C_Lip -> infinity as N -> infinity (no finite N-uniform value exists)',
+                source:
+                  'ch-wall-frontier-verdict-2026-06-26 + imp-3010 ' +
+                  'ch-lip-three-proofs-table-2026-06-30 (three independent ' +
+                  'closures); imp-2640 Gronwall discharge NEGATIVE',
+                note:
+                  'The entire obstruction localizes here. Three independent ' +
+                  'proofs give divergence: (i) the cusp law forces a genuine ' +
+                  'LOWER bound C_Lip >= C_shock / (2 sqrt(W_1)) -> infinity as ' +
+                  'the nearest pair collides; (ii) the W_1-metric Gronwall ' +
+                  'Jacobian C_Lip(W_1, N) = N * g0 / (4 (1 - Theta)) carries an ' +
+                  'explicit N factor; (iii) the imp-2662 C_Theta-endpoint route ' +
+                  'bounds C_Lip only IF C_Theta is N-uniform, which is itself ' +
+                  'open. C_Lip is the sole non-O(1) factor.',
+              },
+            ],
+            ansatzStatus:
+              'The numeric value actually carried in the assembled E(N) is ' +
+              'C_H = 1/8 (effective coefficient ~0.127), and it is an ANSATZ, ' +
+              'NOT a rigorous upper bound (imp-2642 / imp-2643 / imp-2633). ' +
+              'The 1/8 is the EXACT quadratic-tangency single-particle constant ' +
+              'from the C_KH quadrature (R = 0 two-particle dynamics), NOT the ' +
+              'Hoelder modulus C_shock * C_Lip / 4; silently equating the two ' +
+              'asserts C_shock * C_Lip = 1/2, and since C_shock < 1/3 that ' +
+              'demands C_Lip > 3/2 as a FINITE N-uniform number -- exactly the ' +
+              'quantity the C_Lip row above proves does not exist. So the ' +
+              'estimate is rigorous-modulo-C_Lip only.',
+            verdict:
+              'Every factor of C_H = C_shock * C_Lip / 4 is a discharged O(1) ' +
+              'constant EXCEPT C_Lip, and C_Lip provably diverges. The missing ' +
+              'ingredient is precisely a finite N-uniform C_Lip; this is the ' +
+              'SAME wall the imp-35147 weakerGapAssessment lands on (its C1 / ' +
+              'route R2, the RH-hard nearest-pair minimal-gap lower bound), now ' +
+              'localized to the single divergent factor. The C_H = 1/8 value in ' +
+              'the ledger is an ansatz, not a bound.',
+            conclusion:
+              'The C_H estimate needs a finite N-uniform C_Lip; that factor ' +
+              'alone is undischarged and is PROVABLY divergent (not merely ' +
+              'unproven), so no repo module bounds it and the assembled E(N) ' +
+              'inherits the ansatz. G6a_shock_lipschitz remains OPEN; changes ' +
+              'no bound; C_mb stays GUE-conditional (imp-486); Platt-Trudgian ' +
+              'Lambda <= 0.2 stays SOTA; NO QED.',
+            by: 'imp-95234',
+          },
           closed: false,
         },
         {

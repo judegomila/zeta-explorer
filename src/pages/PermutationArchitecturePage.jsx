@@ -480,6 +480,35 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>ceiling-vs-floor gap meter (imp-95008, floors untouched)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            Each bar shows the current ceiling/floor gap as a fraction of the seventeenth-continuation starting
+            gap (8.001968970787363× / 642.1998717107592×). Only the ceiling side has moved; the witness floors
+            are unchanged throughout.
+          </p>
+          {[
+            ['headline θ = 10', '8.001968970787363', '2.8064020394026787', 35.0714],
+            ['fixed-97', '642.1998717107592', '225.22844518052122', 35.0714],
+          ].map(([label, start, current, pct]) => (
+            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8, margin: '5px 0' }}>
+              <span className="ed-mono" style={{ fontSize: 11, width: 92, color: 'var(--ink-soft)' }}>{label}</span>
+              <div style={{ flex: 1, background: 'var(--paper2)', borderRadius: 3, height: 10, overflow: 'hidden' }}>
+                <div style={{ width: `${pct}%`, height: '100%', background: 'var(--brass)' }} />
+              </div>
+              <span className="ed-mono" style={{ fontSize: 10.5, width: 210, textAlign: 'right', color: 'var(--ink-soft)' }}>
+                {start}× → {current}×
+              </span>
+            </div>
+          ))}
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
+            Both gaps have shrunk by the identical factor 2.851327× since the seventeenth-continuation baseline,
+            because the same three composed ceiling-side moves (seventeenth through twenty-second continuations)
+            apply to both the headline and fixed-97 tracking. No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains
+            SOTA.
+          </p>
+        </div>
+
+        <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, padding: '14px 18px', margin: '12px 0' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>per-pair envelope bound ψ(T): three treatments (imp-95038, θ = 10)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
             The same three ceiling-side moves plotted as curves (log-log, fixed width ratio ρ = ρ<sub>cap</sub>(2) =

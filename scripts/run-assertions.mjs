@@ -13367,6 +13367,13 @@ const DATA_MODULES = [
   // strictly between the branches => a PARTIAL fixed-97-lane-only lever,
   // quantified NOT applied. Routing/no-go step; changes no bound; NO QED.
   '/src/data/imp-95019-substitution-tightness-audit.js',
+  // imp-95089 (opus-4-8): reconstructs the exhibited fifteenth-continuation
+  // terminal headline 13-packet witness and measures its E-realization
+  // internals separately (C_cross = 0.31083906605923023, S =
+  // 0.31063674710576755), decomposing the imp-95008 residual 1.4032010197013394
+  // into an attainment-shortfall x norm-penalty product ahead of the later
+  // imp-95008-witness-erealization-split.js resolution. Measurement; NO QED.
+  '/src/data/imp-95089-witness-erealization-split.js',
   // imp-95090 (opus-4-8): FINITE-RATE PER-PAIR ATTAINMENT SHORTFALL of the
   // EXHIBITED far-bracket witness. imp-95008/imp-95019 established that the
   // realized/envE ratio -> 1 only in the CONTINUOUS corner limit; the
@@ -15004,6 +15011,21 @@ const DATA_MODULES = [
   // self-executing assertions (exact rationals + quadrature cross-checks).
   // Import-light; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95233-modulus-phase-currency-feasibility.js',
+  // imp-95139 (opus-4-8, S-frontier): SCOPE ASSESSMENT (no bound) separating
+  // the two named legs of obligation (2)'s "modulus/phase" currency. (A) The
+  // PHASE leg is FEASIBLE, consumed from imp-95233 PHASE-CERT (R <=
+  // e^(-y_min)/(2 theta), theta the scale-invariant phase-alignment ratio).
+  // (B) A RAW-MODULUS leg -- a certificate priced by an amplitude MAGNITUDE
+  // alone (||c||_1 or ||c||_2) -- is STRUCTURALLY EXCLUDED: R(f) = W/T is
+  // homogeneous of degree 0 (c -> lambda c scales W, T both by lambda^2, R
+  // fixed), theta likewise, so any forced RHS must be scale-invariant, but a
+  // raw magnitude is degree-1 and ranges over (0, inf) at fixed R -- no bound
+  // R <= F(||c||) can hold. So the modulus/phase leg is ONE scale-invariant
+  // theta currency, not two; a magnitude lever is a mirage. Four self-
+  // executing assertions (scale-invariance of R and theta by quadrature;
+  // degree-1 scaling of ||c||_1, ||c||_2; identical R at 100x magnitude).
+  // Import-light; scope only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95139-modulus-currency-scope.js',
   // imp-95133 (opus-4-8): SCOPING ASSESSMENT of a signed WEIGHT-priced seam
   // certificate (weight W = sum_j M_j 2^(-j) in place of distinct count N),
   // the surviving currency leg of obligation (2) after SGN-C/SGN-NP closed
@@ -15173,6 +15195,22 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95232-bl-lat-off-lattice-degradation.js',
+  // imp-95231 closure (fable-5, frontier): THEOREM RATE-MONO -- the exact
+  // signed two-rate constant Lambda_2(x, r) is STRICTLY DECREASING in the
+  // rate ratio r on (1, infinity) for every x = nu_1 d > 0, closing the
+  // interior-bump sub-gap (x < 1, h_r > 0) left OPEN by the imp-95231
+  // partial. Proof: normalized positive-root form Lambda_2 = e^(-2x) rho^2
+  // with rho^2 - F rho - E = 0 linearizes LEMMA RI to the exact identity
+  // (drho/dt) sqrt(F^2+4E) = F_t rho - E; LEMMA K (sigma F_t <= E, from
+  // e^t - 1 - t >= t^2/2 and x sigma - (sigma - 1) = sigma(sqrt(1+x^2)-1)
+  // >= 0, asymptotically sharp at the imp-95231 tight corner) plus the
+  // COAL-DOM dominance rho < sigma (imp-95227, proven WITHOUT monotonicity
+  // -- no circularity) force F_t rho - E < 0 in the bump; the F_t <= 0
+  // regime is immediate. COROLLARY PIN: Lambda_2 descends strictly from
+  // coalLaw(x) (r -> 1+) to the N = 1 SGN-EQ constant e^(-2x)
+  // (r -> infinity). N >= 3 confluent-span envelope stays OPEN; changes no
+  // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95231-rate-monotonicity-closure.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family
@@ -15199,6 +15237,24 @@ const DATA_MODULES = [
   // Five self-executing assertions. Documentation only; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95059-gate2-surrogate-carrier-honest-status-banner.js',
+  // imp-95138 (numerical, S-frontier): MEASUREMENT confirming the imp-95226
+  // THEOREM SGN-2X stable-evaluation claim -- the expm1 h-form of the exact
+  // two-rate signed shift constant Lambda_2 is cancellation-free at coalescence
+  // (nu2 -> nu1) while the naive subtraction h-form and the direct 2x2 pencil
+  // determinant lose digits. With x = nu1 d fixed and s = d(nu2-nu1) -> 0 the
+  // only cancellation site is phi(s) = (1 - e^(-s))/s; an INDEPENDENT
+  // cancellation-free Taylor reference sum (-1)^n s^n/(n+1)! validates the
+  // expm1 form. FINDINGS over s in {1e-1 ... 1e-12}, x in {0.5,1,2,4}: the
+  // expm1 form holds machine precision (max rel err 3.1e-16) across the whole
+  // sweep; the naive subtraction form loses ~half its digits by s=1e-12
+  // (rel 2.3e-5 .. 3.8e-4, matching the imp-95224 record); the direct pencil
+  // determinant degrades ~ separation^(-2) (per-decade ratio 135, Cauchy Gram
+  // condition), > 1e-4 by s=1e-6 and O(1)/non-finite by s=1e-8. The expm1
+  // form also tracks the imp-95226 COAL-2 confluent law as s -> 0 (rel gap
+  // ~1e-10 at s=1e-9). Import-light (no imports), six self-executing
+  // assertions. Measurement only; reproduces imp-95226; changes no bound;
+  // NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95138-coalescence-hform-stability.js',
 ];
 
 let ALL_MODULES = FAST_MODE

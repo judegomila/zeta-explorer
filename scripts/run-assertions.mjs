@@ -15255,6 +15255,15 @@ const DATA_MODULES = [
   // assertions. Measurement only; reproduces imp-95226; changes no bound;
   // NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95138-coalescence-hform-stability.js',
+  // imp-95145 (content, S-frontier): HONEST-STATUS NOTE stating the
+  // imp-95210 W1-CERT envelope pivot is REFUTED (every envelope that
+  // separates the broadband pieces exceeds Rex at sampled points; the one
+  // sub-Rex target varies at phase scale, not envelope scale) and that the
+  // only live path to a window-1 certificate is the imp-95213 tier-P/B/S
+  // batching, already built + validated + priced. Four self-executing
+  // assertions. Documentation only; changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95145-w1cert-envelope-pivot-honest-status-note.js',
 ];
 
 let ALL_MODULES = FAST_MODE

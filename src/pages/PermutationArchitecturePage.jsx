@@ -15,6 +15,7 @@ import {
 import { SLAB_HYPOTHESIS } from '../data/imp-95046-slab-44-conditional-target.js';
 import { ANCHOR_GATE, MISSING_EVALUATOR_INPUTS } from '../data/imp-95013-gate2-lane-a-blocked-on-spec.js';
 import { IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX } from '../data/imp-95096-joint-near-far-vs-lambda-max-terminality.js';
+import { IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE } from '../data/imp-95092-four-lever-far-ceiling-elasticity-table.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -292,6 +293,71 @@ function FarCeilingLeverScanChart() {
         );
       })}
     </div>
+  );
+}
+
+// imp-95126: signed tornado chart for the imp-95092 four-lever far-ceiling
+// elasticity table, ranked by |E_x|: theta > sigma > Q > beta. Bars extend
+// left (negative, cFar shrinks) or right (positive, cFar grows) of a center
+// zero line. Presentation only; no bound claim.
+const IMP95092_SHORT_LABEL = {
+  'theta (drives s = sigma + theta)': 'θ',
+  sigma: 'σ',
+  'isolation Q = (c D^(1-beta)/v) 2^(-(1-beta))': 'Q',
+  beta: 'β',
+};
+
+function FourLeverElasticityTornadoChart() {
+  const rows = [...IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE.table].sort(
+    (a, b) => Math.abs(b.elasticity) - Math.abs(a.elasticity)
+  );
+  const W = 420;
+  const rowH = 34;
+  const padL = 40;
+  const padR = 56;
+  const padT = 10;
+  const padB = 10;
+  const H = padT + padB + rows.length * rowH;
+  const cW = W - padL - padR;
+  const cx = padL + cW / 2;
+  const maxAbs = Math.max(...rows.map((r) => Math.abs(r.elasticity))) * 1.15;
+  const xScale = (cW / 2) / maxAbs;
+
+  return (
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      width="100%"
+      style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
+      role="img"
+      aria-label="Signed tornado chart of the four-lever far-ceiling elasticities ranked by magnitude: theta -1.271, sigma -0.944, isolation Q +0.885, beta -0.099"
+    >
+      <line x1={cx} y1={padT} x2={cx} y2={H - padB} stroke="var(--hairline)" strokeWidth={1} />
+      {rows.map((r, i) => {
+        const y = padT + i * rowH;
+        const barW = Math.abs(r.elasticity) * xScale;
+        const neg = r.elasticity < 0;
+        const x = neg ? cx - barW : cx;
+        const color = neg ? '#c23a1c' : '#3f6b86';
+        return (
+          <g key={r.lever}>
+            <text x={cx} y={y + 12} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="11" fill="var(--ink)">
+              {IMP95092_SHORT_LABEL[r.lever] || r.lever}
+            </text>
+            <rect x={x} y={y + 16} width={barW} height={rowH - 22} fill={color} opacity={0.75} rx={2} />
+            <text
+              x={neg ? x - 6 : x + barW + 6}
+              y={y + rowH / 2 + 7}
+              textAnchor={neg ? 'end' : 'start'}
+              fontFamily="var(--ed-mono)"
+              fontSize="10.5"
+              fill={color}
+            >
+              {r.elasticity.toFixed(3)}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
   );
 }
 
@@ -1083,6 +1149,18 @@ export default function PermutationArchitecturePage() {
             substitution proof needs σ + θ above this line.
           </p>
           <FarCeilingLeverScanChart />
+        </div>
+
+        <div style={{ margin: '20px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>signed tornado chart — four-lever elasticity ranking (imp-95126, from imp-95092)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The same four levers on one dimensionless elasticity <InlineMath tex="E_x = (\partial c_{\text{Far}}/\partial x)(x_0/c_{\text{Far},0})" />,
+            ranked by |E<sub>x</sub>|: θ (−1.271) &gt; σ (−0.944) &gt; Q (+0.885) &gt; β (−0.099). Bars run left of the
+            zero line where c<sub>Far</sub> <strong>shrinks</strong> with the lever (θ, σ, β) and right where it{' '}
+            <strong>grows</strong> (the isolation constant Q). θ is the strongest transfer-risk lever, amplified by
+            the large model θ = 10; σ and Q are comparable; β is an order of magnitude weaker.
+          </p>
+          <FourLeverElasticityTornadoChart />
         </div>
 
         <div style={{ margin: '20px 0' }}>

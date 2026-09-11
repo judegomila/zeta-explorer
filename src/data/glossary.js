@@ -21375,6 +21375,48 @@ export const glossary = [
       'y_min: the depth-only currency theta is a genuinely different lever on',
     ],
   },
+  {
+    term: 'Leave-One-Out Skew-Projection Bound (LEMMA LOO / THEOREM SPLIT-LOO)',
+    category: 'concept',
+    definition:
+      'For a block decomposition V = V_1 u ... u V_m of distinct exponential rates (E_V = ' +
+      'algebraic direct sum of the per-block spans E_(V_k), since exponentials with distinct ' +
+      'rates are linearly independent), let sigma_k be the cosine of the first principal angle ' +
+      'between E_(V_k) and E_(V minus V_k) -- the span of ALL other blocks jointly. LEMMA LOO: ' +
+      'every F in E_V decomposes uniquely as F = F_1 + ... + F_m, F_k in E_(V_k), with ' +
+      '||F_k|| <= ||F|| / sqrt(1 - sigma_k^2) (proof: F_k, G = F - F_k obey |<F_k,G>| <= ' +
+      'sigma_k ||F_k|| ||G||, minimize ||F||^2 over ||G||). sigma_k is depth-independent -- one ' +
+      'angle per block serves every truncation depth d.\n\n' +
+      'THEOREM SPLIT-LOO chains this with the L2(d, inf) triangle inequality and the per-block ' +
+      'seam ratio Lambda_k = Lambda(V_k, d) to give the additive multi-block certificate ' +
+      'sqrt(Lambda(V, d)) <= sum_k sqrt(Lambda_k / (1 - sigma_k^2)): the price is paid once per ' +
+      'block at the sqrt level, never compounding. This supersedes the two multi-block routes ' +
+      'imp-95249 refuted: pairwise-angle Gershgorin (needs row sums of pairwise angles below 1, ' +
+      'fails on the twin-ladder skeleton) and recursive SPLIT-2 peeling (multiplies one ' +
+      '(1-sigma)^(-1) collar per peel, ~7e3 each). SPLIT-LOO only needs sigma_k < 1 per block, ' +
+      'at any block count.\n\n' +
+      'At m = 2, LOO / SPLIT-2 = [1 + 2 sqrt(L1 L2)/(L1+L2)] / (1 + sigma): NEITHER dominates -- ' +
+      'SPLIT-2 wins at L1 = L2, SPLIT-LOO wins in the strongly asymmetric regime (measured 1.4423 ' +
+      'vs 2.8625 on a two-block lattice at depth 6). Instantiated on a twin pair in EVERY octave ' +
+      'of a dyadic skeleton (COROLLARY EV-OCT, finite m; COROLLARY EV-OCT-UNIF, unbounded m), it ' +
+      'delivers the first coalescence-uniform certificate for that family, firing where the raw ' +
+      'Blaschke-Lagrange bound is vacuous (diverges like (r-1)^(-2) per octave as the pair ' +
+      'coalesces).\n\n' +
+      'HONEST SCOPE: the collar is large (every-octave onset x > 11.32 at m = 6, m-and-r-uniform ' +
+      'onset x > 27.04, vs the twin-free onset 4.24 and ~1.6e4x above the exact pencil at ' +
+      'm=6,r=1.05,x=12) -- LEMMA LOO discards all cross-block cancellation. Blocks of >= 3 rates ' +
+      'per octave have no N-fold coalescence law yet (imp-95227 COAL-DOM is pair-only): named ' +
+      'residual. Off-lattice rates unchanged. The abstract m-uniform block Riesz-basis lower ' +
+      'bound stays OPEN -- LOO alone only yields a linear-in-m Riesz constant. Model family only; ' +
+      'changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95250 (leave-one-out multi-block split, twenty-fifth leg of the seam chain), 2026',
+    relatedTerms: [
+      'imp-95249 ANG-PENCIL/SPLIT-2 is the in-octave pair leg this every-octave leg follows (imp-95249)',
+      'imp-95227 COAL-DOM supplies the pair-only coalLaw ingredient this leaves as its N-fold residual (imp-95227)',
+      'imp-95231 THEOREM RATE-MONO supplies the r-uniform monotonicity of coalLaw used in COROLLARY EV-OCT (imp-95231)',
+      'imp-95233 Phase-Alignment Currency theta(f) is a sibling leg of the same signed-seam chain',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

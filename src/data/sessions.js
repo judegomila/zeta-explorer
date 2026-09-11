@@ -338,4 +338,50 @@ export const SESSIONS = [
       'Both modules cross-reference and reuse each other’s lemmas (LEMMA ANG-DET proven in imp-95249 is reused unchanged in imp-95250), which is the intended pattern for this chain: later legs extend rather than re-derive earlier ones.',
     ],
   },
+  {
+    id: 'session-2026-09-11-two-rate-band-edges-direct-rootfind',
+    date: '2026-09-11',
+    title: 'Direct root-find of the two-rate reentry-band edges (imp-35259)',
+    engineStateStart:
+      'imp-35243 R2 (single-rate vs two-rate surrogate fidelity) open. imp-35331 had reconstructed the two-rate ceil argument x_two but located the relocated off-by-one frac-window band only via a linear-drift extrapolation (reentry ~10^48.85, width ~17.4 decades), and imp-35332 showed the underlying drift decays like 1/(K log T0 - N_cross) rather than staying constant.',
+    engineStateEnd:
+      'imp-35259 bisects the two-rate phase directly (for x_two = 11 + W reentry and x_two = 12 exit, p in {1,2,3}) instead of extrapolating. The single-rate control root-finder reproduces the imp-35111 band edges exactly, confirming the locator is faithful. R2 / imp-35243a stay OPEN; this is measurement/assessment only.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-35259 measures reentry-band edges on the inherited imp-3220/imp-3406 double surrogate; it does not touch the program Λ bound or any verified-height input.',
+      note: 'Assessment only, isRigorous false, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Reentry-band direct root-find',
+        ids: ['imp-35259'],
+        summary:
+          'Directly bisecting the two-rate ceil-argument phase locates band edges far above the imp-35331 linear-drift extrapolation: p=1 reentry 10^60.66 (exit 10^178.35, width 117.69 decades) vs the single-rate band 10^27.08 / 10^37.17 / 10.08 decades -- a ~33-decade upward shift and ~12x widening. The imp-35331 extrapolation undershoots the direct p=1 reentry by ~11.8 decades and the width by a factor ~6.8, because it linearized a drift that in fact decays (imp-35332).',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-35259-two-rate-band-edges-direct-rootfind.js',
+        ticket: 'imp-35259',
+        note: 'direct bisection of the two-rate reentry-band edges, corrects the imp-35331 linear-drift extrapolation',
+      },
+    ],
+    keyFinding:
+      'The two-rate frac-window band persists (it does not vanish) but is relocated far above and wider than both the single-rate band and the prior linear-drift estimate of its position. Single-rate fidelity is decisively not automatic for the band position or width.',
+    mainLineBlocker: {
+      label: 'R2 single-rate/two-rate surrogate fidelity',
+      description:
+        'This module discharges nothing: it does not certify which rate model is faithful to the true dynamic at ~10^37, so the off-by-one whether-question routes back onto R1 (terminal ceil / EPS_FP floor) per the imp-35330 DAG.',
+      ticket: 'imp-35243',
+    },
+    openQuestions: [
+      'Which rate model (single- or two-rate) is faithful to the true dynamic near the reentry band, and does R1 resolve the off-by-one independent of that choice? (imp-35243a — open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a result already computed and committed by prior engine runs (imp-35259).',
+    ],
+  },
 ];

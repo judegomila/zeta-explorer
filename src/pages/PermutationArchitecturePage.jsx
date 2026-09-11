@@ -581,6 +581,46 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>Theorem P ladder-cell efficiency: fifteenth vs sixteenth continuation (imp-95008)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            Cell count needed to certify a given append-gain bound, naive (fifteenth continuation, Theorem Z/P)
+            versus pair-cancellation-aware (sixteenth continuation, Lemmas Q1-Q3/Theorem Q):
+          </p>
+          <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12.5 }}>
+              <thead>
+                <tr style={{ background: 'var(--paper2)', textAlign: 'left', color: 'var(--faint)' }}>
+                  <th style={{ padding: '8px 10px' }}>Continuation</th><th style={{ padding: '8px 10px' }}>Envelope</th><th style={{ padding: '8px 10px' }}>Certified bound</th><th style={{ padding: '8px 10px' }}>Cells needed</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['15th', 'naive (independent cells)', '6e-4', '10,353,470'],
+                  ['16th', 'paired (cancellation-aware)', '6e-4', '40,628'],
+                  ['16th', 'paired (cancellation-aware), terminal', '4.13e-5', '189,614'],
+                ].map(([n, envelope, bound, cells]) => (
+                  <tr key={`${n}-${bound}`} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
+                    <td style={{ padding: '6px 10px', color: 'var(--ink)' }}>{n}</td>
+                    <td style={{ padding: '6px 10px' }}>{envelope}</td>
+                    <td style={{ padding: '6px 10px', fontFamily: 'var(--ed-mono)' }}>{bound}</td>
+                    <td style={{ padding: '6px 10px', fontFamily: 'var(--ed-mono)', textAlign: 'right' }}>{cells}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
+            At the same 6e-4 tolerance, pairing cancels enough to certify with 255x fewer cells (40,628 vs
+            10,353,470). Pushed to its terminal bound 4.13e-5 — 14.53x tighter than 6e-4 — the paired envelope
+            still only needs 189,614 cells: 55x fewer than the naive envelope needed for the looser 6e-4 bound.
+            Sourced from{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-occupied-block-append-floor.js</code>{' '}
+            and <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-corner-cancellation-envelope.js</code>.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
         <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>twentieth–twenty-second continuations (imp-95008): per-pair closure, proof-domain widen, aggregation lever</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>

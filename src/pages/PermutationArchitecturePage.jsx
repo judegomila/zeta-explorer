@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
+import { IMP95077_FAR_LEDGER_DEGRADE_TABLE } from '../data/imp-95077-far-ledger-degrade-table.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -431,6 +432,45 @@ export default function PermutationArchitecturePage() {
             envelope. This is a <strong>sensitivity map</strong> over plausible paper constants, not a single
             instantiated paper-packet number — the remaining step is reading (σ, θ, β, c, v, D) off the paper text.
             No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
+        <div style={{ margin: '20px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>far-ledger degrade scan (imp-95077, σ = 1, θ = 2..10)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            A row-by-row sensitivity scan of the far coefficient <InlineMath tex="c_{\text{Far}}" /> and the ledger
+            factor <InlineMath tex="4/c_{\text{Far}}" /> over every integer θ in the imp-95026 low-θ neighborhood,
+            distinct from the reference θ = 10 ledger above.
+          </p>
+          <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+              <thead>
+                <tr style={{ background: 'var(--paper2)', textAlign: 'left', color: 'var(--faint)' }}>
+                  <th style={{ padding: '8px 12px' }}>θ</th>
+                  <th style={{ padding: '8px 12px' }}>s = σ+θ</th>
+                  <th style={{ padding: '8px 12px' }}>c<sub>Far</sub></th>
+                  <th style={{ padding: '8px 12px' }}>4/c<sub>Far</sub></th>
+                </tr>
+              </thead>
+              <tbody>
+                {IMP95077_FAR_LEDGER_DEGRADE_TABLE.table.map((row) => (
+                  <tr key={row.theta} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
+                    <td style={{ padding: '7px 12px', color: 'var(--ink)' }}>{row.theta}</td>
+                    <td style={{ padding: '7px 12px', fontFamily: 'var(--ed-mono)', fontSize: 11.5 }}>{row.s}</td>
+                    <td style={{ padding: '7px 12px', fontFamily: 'var(--ed-mono)', fontSize: 11.5 }}>{row.cFar.toFixed(4)}</td>
+                    <td style={{ padding: '7px 12px', fontFamily: 'var(--ed-mono)', fontSize: 11.5 }}>{row.ledgerFactor.toFixed(3)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
+            c<sub>Far</sub> falls monotonically (0.8925 → 0.2717) and the ledger factor rises monotonically
+            (4.482 → 14.720) across this range — a 3.284× span, quantifying the imp-95026 Finding 3 "~3× margin
+            shrink at low θ". Every row still clears the pre-seventeenth 4 (worst row θ = 2 beats it by 4.48×).
+            Sensitivity scan over an unpinned θ, not an instantiated paper number; promotes no bound; NO QED.
+            Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95077-far-ledger-degrade-table.js</code>.
           </p>
         </div>
 

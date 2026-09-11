@@ -12656,6 +12656,12 @@ const DATA_MODULES = [
   // model of the derivative node too; the imp-36219 (H1) slack is unaffected. Measurement only; both widths
   // remain MODELS; imp-34714a/imp-34687a open; changes no bound; NO QED.
   '/src/data/imp-36235-krawczyk-derivative-node-surrogate-conservativeness.js',
+  // imp-95042 VERIFIED: every imp-95008 sibling module below is self-contained
+  // (zero or single light imp-95008-internal imports, no heavy zeros-bundle
+  // reference), so touching any one of them and running
+  // `node scripts/run-assertions.mjs --since-changed` isolates just that file
+  // (measured: 2 modules, 0.1s, no load errors) instead of falling through to
+  // the full heavy sweep.
   // imp-95008 (proof, fable-5, fable): the noncommuting weld [B_v, Pi_p]. Two
   // unconditional lemmas + a conditional corollary: (1) exact alias decomposition
   // [B, Pi_p] = (1/p) sum_{h=1..p-1} [B, M_h] (h=0 contributes zero defect for ANY B);

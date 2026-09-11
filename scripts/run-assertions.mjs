@@ -15022,6 +15022,18 @@ const DATA_MODULES = [
   // the only live path. Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95210-window1-pilot-certificate.js',
+  // imp-95230 (opus-4-8, S-frontier): ASSESSMENT (NEGATIVE) of whether the
+  // narrowband alias/overhang piece o_j -- the ONLY imp-95210 piece not
+  // refuted -- admits an envelope/slack shortcut. It is envelope-scale
+  // (~996x slower than the broadband rr slope, envelope-treatable in ~1.4e6
+  // cells) but envelope-INERT: it carries only sum|A||o| ~ 0.0111 = 3.98% of
+  // Rex (below the 0.0359 Rex-minus-pilot margin), so exploiting it neither
+  // brings a broadband-dominated target below Rex nor decouples mm+rr (which
+  // set the cell count at phase scale). Broadband-obstructed BY PROXY through
+  // its co-summands; cell/CPU reduction from exploiting o is exactly zero.
+  // Four self-executing assertions recomputed from imp-95210 frozen
+  // constants. Assessment only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95230-narrowband-alias-envelope-assessment.js',
   // imp-95213 (fable-5): tier-P/B/S window-1 certifier BUILT + PRICED +
   // SLICE-VALIDATED (native/gate2-interval/tier_cert.c) - the one live
   // certification path after the imp-95210 envelope refutation. Tier B =
@@ -15085,6 +15097,25 @@ const DATA_MODULES = [
   // assertions. Assessment only; changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95228-second-level-lever-assessment.js',
+  // imp-95229 (numerical, S-frontier): DECOMPOSITION of the tier-2 residual
+  // FLOOR that survives removing the spent, amortized panel super-pass, into
+  // its cell-setup vs reconstruction halves on the imp-95214 hardest-stretch
+  // slice (imp-95228 named this as imp-95229 scope). The floor is NEARLY
+  // BALANCED by the DIRECT build timers: cell-setup 54.65% (0.0194 CPU-s/
+  // x-unit, 5.788e-5 s/cell) barely leads reconstruction 45.35% (0.0161, a
+  // fixed 0.1011 s/panel = 4.803e-5 s/cell-equiv), a 1.205x ratio -- not a
+  // decisive domination. Full window 14.27 CPU-days (cell 7.80 + recon 6.47)
+  // of the 21.1-day total. Lever assessment: the reconstruction half is
+  // structurally IRREDUCIBLE (degree-80 per-panel shift+convolution, below the
+  // Arb poly_mullow FFT crossover, no residual carrier to batch a third
+  // level); the ONLY remaining non-spent lever is on the CELL half -- a
+  // sharper cell criterion lowering the 335.2 cells/x-unit density (the
+  // imp-95136 4.9x cell under-pricing), a ledger rearchitecture separate from
+  // the spent panel batching. Direct CPU-second split; only the ball-op
+  // restatement apportioned (named sub-gap). Import-light (imp-95214
+  // constants), five self-executing assertions. Measurement only; changes no
+  // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95229-tier2-cell-recon-floor-decomposition.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

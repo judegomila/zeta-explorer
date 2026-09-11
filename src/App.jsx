@@ -995,6 +995,9 @@ const Imp36288RouteBSlopeConvergenceViz = lazy(() =>
 const Imp95240O5SiteCoverageMarginsViz = lazy(() =>
   import('./pages/Imp95240O5SiteCoverageMarginsViz.jsx')
 );
+const Imp95141YthawObligationMeterViz = lazy(() =>
+  import('./pages/Imp95141YthawObligationMeterViz.jsx')
+);
 const Imp95266ThetaVsKPhaseCollapseViz = lazy(() =>
   import('./pages/Imp95266ThetaVsKPhaseCollapseViz.jsx')
 );
@@ -2756,6 +2759,10 @@ function AppShell() {
           <Route
             path="/viz-imp95240-o5-site-coverage-margins"
             element={<Imp95240O5SiteCoverageMarginsViz />}
+          />
+          <Route
+            path="/viz-imp95141-ythaw-obligation-meter"
+            element={<Imp95141YthawObligationMeterViz />}
           />
           <Route
             path="/viz-imp95265-evoct-firing-curve"

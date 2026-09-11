@@ -1844,6 +1844,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive two-panel chart baking the imp-95090 continuousLimitLadder / gridRefinementLadder literals verbatim (no new computation, no heavy import); the shortfall names a conservative, unapplied fixed-97 grid-corner ceiling lever, not an applied bound change; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95141-ythaw-obligation-meter',
+      title: 'y-thaw Obligation Progress Meter, O1-O6 at Floor y = 0.1808',
+      oneLine:
+        'Compact status grid and progress bar over the imp-95140 y-thaw-01775943 six-obligation ledger: O3 (E_max budget) and O5 (site coverage) CLOSED, O1 (sharp-mass y-monotonicity), O2 (barrier/winding slab), O4 (analytic tail), and O6 (criterion assembly) OPEN, with 0.17759432 labeled a package value, not a bound.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95140-ythaw-obligation-ledger.js',
+      paperSourcePath:
+        'src/data/imp-95140-ythaw-obligation-ledger.js (YTHAW_OBLIGATION_LEDGER / YTHAW_OBLIGATION_SUMMARY; imp-95141 viz page)',
+      ticket: 'imp-95141',
+      pedagogicalStep: 129,
+      honestCeiling:
+        'Descriptive status-grid chart baking the imp-95140 YTHAW_OBLIGATION_LEDGER / YTHAW_OBLIGATION_SUMMARY literals verbatim (no new computation); closes no obligation of the six-obligation y-thaw package; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

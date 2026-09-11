@@ -7,6 +7,10 @@ import {
   IMP95038_CORNER_VALUES,
   IMP95038_V02,
 } from '../data/imp-95038-envelope-treatment-comparison.js';
+import {
+  IMP95011_GATE2_OSCILLATION_PROBE,
+  IMP95051_CORRELATION_GAIN_TABLE,
+} from '../data/imp-95011-gate2-oscillation-probe.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -148,6 +152,68 @@ function EnvelopeComparisonChart() {
         </g>
       ))}
     </svg>
+  );
+}
+
+// imp-95063: Gate-2 oscillation-probe (imp-95011) regime map — the surrogate
+// per-unit-N increment L under the smooth (sqrt N phase) vs raw (N phase)
+// hypotheses, on a log scale against the batching-kill threshold, plus the
+// decoupled-mass correlation-gain range (imp-95051). Content/viz follow-up only.
+function OscillationRegimeMapChart() {
+  const W = 640;
+  const H = 150;
+  const padL = 54;
+  const padR = 16;
+  const padT = 10;
+  const padB = 28;
+  const cW = W - padL - padR;
+  const cH = H - padT - padB;
+
+  const BATCHING_L_KILL = 1e-2;
+  const { smooth, raw } = IMP95011_GATE2_OSCILLATION_PROBE.regimeMap;
+  const rows = [
+    { label: 'smooth (phase ~ √N)', L: smooth.surrogateMaxL, color: '#4c7a4a', survives: smooth.batchingSurvives },
+    { label: 'raw (phase ~ N)', L: raw.surrogateMaxL, color: '#c23a1c', survives: raw.batchingSurvives },
+  ];
+  const logMin = Math.log10(1e-5);
+  const logMax = Math.log10(1.5);
+  const xS = (v) => padL + cW * ((Math.log10(v) - logMin) / (logMax - logMin));
+  const rowH = cH / rows.length;
+
+  const gain = IMP95051_CORRELATION_GAIN_TABLE.smoothRegime;
+
+  return (
+    <>
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        width="100%"
+        style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
+        role="img"
+        aria-label="Gate-2 oscillation-probe regime map: surrogate per-unit-N increment L for the smooth and raw phase hypotheses on a log scale, against the batching-kill threshold 1e-2"
+      >
+        <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="var(--hairline)" strokeWidth={1} />
+        <line x1={xS(BATCHING_L_KILL)} y1={padT} x2={xS(BATCHING_L_KILL)} y2={padT + cH} stroke="var(--faint)" strokeWidth={1} strokeDasharray="3,3" />
+        <text x={xS(BATCHING_L_KILL)} y={padT - 2} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">L_kill = 1e-2</text>
+        {rows.map((r, i) => {
+          const y = padT + i * rowH;
+          const barW = Math.max(2, xS(r.L) - padL);
+          return (
+            <g key={r.label}>
+              <rect x={padL} y={y + rowH * 0.22} width={barW} height={rowH * 0.56} fill={r.color} opacity={0.75} />
+              <text x={4} y={y + rowH * 0.55} fontFamily="var(--ed-mono)" fontSize="10.5" fill="var(--ink-soft)">{r.label}</text>
+              <text x={xS(r.L) + 5} y={y + rowH * 0.55} fontFamily="var(--ed-mono)" fontSize="10" fill={r.color}>
+                L={r.L.toExponential(2)} ({r.survives ? 'survives' : 'kills batching'})
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <p style={{ fontSize: 12.5, color: 'var(--faint)', lineHeight: 1.55, margin: '4px 0 0', textAlign: 'center' }}>
+        decoupled-mass correlation gain (imp-95051, smooth regime, {gain.count} cells): mean{' '}
+        {gain.mean.toFixed(3)}, range [{gain.min.toFixed(3)}, {gain.max.toFixed(3)}] — strictly below 1 throughout, the
+        cancellation the enclosure depends on.
+      </p>
+    </>
   );
 }
 
@@ -312,6 +378,18 @@ export default function PermutationArchitecturePage() {
               </tbody>
             </table>
           </div>
+        </div>
+
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>Gate-2 oscillation-probe regime map (imp-95011)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The 18-moment carrier's batching premise hinges on which phase regime it lives in: a stationary-phase
+            (smooth, phase <InlineMath tex="\sim\sqrt{N}" />) carrier keeps the per-unit-N increment decades below the
+            kill threshold, while an unsmoothed prime-alias comb (raw, phase <InlineMath tex="\sim N" />) blows through
+            it. The surrogate scan below shows the two hypotheses straddle the threshold — the decision is genuinely
+            open, not pre-settled.
+          </p>
+          <OscillationRegimeMapChart />
         </div>
 
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

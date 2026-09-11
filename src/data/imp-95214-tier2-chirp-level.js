@@ -225,6 +225,33 @@ export const TIER2_VERDICT_MATCH = Object.freeze({
   verdictsMatch: true,
 });
 
+// ── side-by-side verdict-match table (imp-95243) ─────────────────────────────
+// Flattens TIER2_VERDICT_MATCH into per-(side, metric) rows so the level-1 vs
+// level-2 100-u hardest-stretch re-certification is legible without cross-
+// referencing two parallel perSide arrays by hand. Pure re-derivation of the
+// frozen literals above; no new computation.
+export const TIER2_VERDICT_MATCH_TABLE = Object.freeze(
+  TIER2_VERDICT_MATCH.tier2.perSide.flatMap((t2side, i) => {
+    const t1side = TIER2_VERDICT_MATCH.level1.perSide[i];
+    return ['pilot', 'e97'].map((metric) => {
+      const level1Sup = metric === 'pilot' ? t1side.certifiedSupUbPilot : t1side.certifiedSupUbE97;
+      const level2Sup = metric === 'pilot' ? t2side.certifiedSupUbPilot : t2side.certifiedSupUbE97;
+      return Object.freeze({
+        side: t2side.side,
+        metric,
+        level1SupUb: level1Sup,
+        level2SupUb: level2Sup,
+        deviation: Math.abs(level2Sup - level1Sup),
+        level1Cells: t1side.cellsTaylor,
+        level2Cells: t2side.cellsTaylor,
+        cellsMatch: t1side.cellsTaylor === t2side.cellsTaylor,
+        eq20Threshold: EQ20_THRESHOLD,
+        rexExact: REX_EXACT,
+      });
+    });
+  })
+);
+
 // ── measured price + full-window extrapolation ───────────────────────────────
 export const TIER2_PRICE = Object.freeze({
   measured: Object.freeze({
@@ -461,6 +488,21 @@ export const IMP95214_TIER2_ASSERTIONS = [
       /NO QED/.test(IMP95214_TIER2_CHIRP.verdict) &&
       /remains SOTA/.test(IMP95214_TIER2_CHIRP.verdict) &&
       (TIER2_VERDICT_MATCH.uHi - TIER2_VERDICT_MATCH.uLo) / WINDOW_WIDTH_U < 1e-3,
+  },
+  {
+    id: 'imp95214-verdict-match-table-consistent',
+    description:
+      'the imp-95243 flattened verdict-match table has one row per (side, metric) reproducing TIER2_VERDICT_MATCH exactly: 4 rows, every deviation <= the recorded maxSupDeviation, every side reports identical level-1/level-2 cell counts, and every row is strictly below eq-20 which is strictly below Rex',
+    holds: () =>
+      TIER2_VERDICT_MATCH_TABLE.length === 4 &&
+      TIER2_VERDICT_MATCH_TABLE.every(
+        (r) =>
+          r.deviation <= TIER2_VERDICT_MATCH.maxSupDeviation * 1.0001 &&
+          r.cellsMatch === true &&
+          r.level1SupUb < r.eq20Threshold &&
+          r.level2SupUb < r.eq20Threshold &&
+          r.eq20Threshold < r.rexExact
+      ),
   },
 ];
 

@@ -294,6 +294,59 @@ function FarCeilingLeverScanChart() {
   );
 }
 
+// imp-95087: three-regime band chart for the imp-95026 paper-packet transfer
+// assessment over s = sigma + theta -- BREAKS (exact-proof, sharp boundary
+// s* = 2.948383274238082), DEGRADES (low-s corner, ledger margin thin) and
+// TRANSFERS (ledger stays below the pre-seventeenth 4, margin widens with s).
+// Only the BREAKS boundary is sharp; the degrade-to-full-margin transition is
+// continuous, so it is rendered as a gradient rather than a second hard line.
+// Presentation only; no bound claim.
+function TransferRegimeBandChart() {
+  const { breakBoundaryS } = IMP95026_PAPER_PACKET_CEILING_TRANSFER.reference;
+  const sStar = breakBoundaryS;
+  const rows = IMP95077_FAR_LEDGER_DEGRADE_TABLE.table;
+  const sMin = 0;
+  const sMax = rows[rows.length - 1].s + 1; // one past the model point s = 11
+  const pct = (s) => (100 * (s - sMin)) / (sMax - sMin);
+
+  return (
+    <div>
+      <div style={{ position: 'relative', height: 40, borderRadius: 6, overflow: 'hidden', border: '1px solid var(--hairline)' }}>
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${pct(sStar)}%`, background: 'var(--terra-dk)' }} />
+        <div
+          style={{
+            position: 'absolute',
+            left: `${pct(sStar)}%`,
+            top: 0,
+            bottom: 0,
+            right: 0,
+            background: 'linear-gradient(90deg, #c98a2c 0%, #3f6b86 100%)',
+          }}
+        />
+        {rows.map((r) => (
+          <div
+            key={r.theta}
+            title={`theta=${r.theta}, s=${r.s}: cFar=${r.cFar.toFixed(4)}, ledger=${r.ledgerFactor.toFixed(2)}x`}
+            style={{ position: 'absolute', left: `${pct(r.s)}%`, top: 4, bottom: 4, width: 1, background: 'rgba(255,255,255,0.6)' }}
+          />
+        ))}
+      </div>
+      <div style={{ position: 'relative', height: 16, fontFamily: 'var(--ed-mono)', fontSize: 10, color: 'var(--faint)' }}>
+        <span style={{ position: 'absolute', left: 0 }}>{sMin}</span>
+        <span style={{ position: 'absolute', left: `${pct(sStar)}%`, transform: 'translateX(-50%)' }}>s*={sStar.toFixed(3)}</span>
+        <span style={{ position: 'absolute', left: `${pct(3)}%`, transform: 'translateX(-50%)' }}>s=3</span>
+        <span style={{ position: 'absolute', left: `${pct(11)}%`, transform: 'translateX(-50%)' }}>s=11</span>
+        <span style={{ position: 'absolute', right: 0 }}>{sMax}</span>
+      </div>
+      <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap', fontSize: 12, color: 'var(--ink-soft)', margin: '10px 0 0' }}>
+        <span><span style={{ display: 'inline-block', width: 10, height: 10, background: 'var(--terra-dk)', marginRight: 6, borderRadius: 2 }} />BREAKS (s &lt; s*): exact-substitution proof invalid, falls back to eighteenth-window envelope</span>
+        <span><span style={{ display: 'inline-block', width: 10, height: 10, background: '#c98a2c', marginRight: 6, borderRadius: 2 }} />DEGRADES (s near s*): ledger factor ~4.48x at s=3</span>
+        <span><span style={{ display: 'inline-block', width: 10, height: 10, background: '#3f6b86', marginRight: 6, borderRadius: 2 }} />TRANSFERS (s large): ledger factor up to ~14.72x at s=11</span>
+      </div>
+    </div>
+  );
+}
+
 // imp-95083: schematic (u, v) geometry for the imp-95046 rectangular-slab (4.4)
 // hypothesis feeding Theorem 4.5's 0.1399 row — the compact box, the Lemma 4.4
 // interpolating wedge it is stated to supply, and the short final join that
@@ -989,6 +1042,20 @@ export default function PermutationArchitecturePage() {
             Cross-checked in{' '}
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95077-far-ledger-degrade-table.js</code>.
           </p>
+        </div>
+
+        <div style={{ margin: '20px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>transfer-regime bands over s = σ+θ (imp-95087, from imp-95026/95077)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The imp-95026 transfer assessment resolves into three regimes over the decay exponent s = σ+θ: below the
+            sharp threshold s* = 2.948383274238082 the nineteenth-continuation exact-substitution proof BREAKS
+            (falls back to the eighteenth-window envelope); above s* the ledger TRANSFERS — it stays below the
+            pre-seventeenth 4 everywhere scanned — but DEGRADES near the boundary, recovering its full margin only
+            as s grows. Only the BREAKS boundary is sharp; the degrade-to-full-margin transition is continuous, so
+            it is shown as a gradient rather than a second hard line. Tick marks mark every scanned integer θ from
+            imp-95077 (hover for cFar and ledger factor).
+          </p>
+          <TransferRegimeBandChart />
         </div>
 
         <div style={{ margin: '20px 0' }}>

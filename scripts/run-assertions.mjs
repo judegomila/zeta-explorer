@@ -15349,6 +15349,18 @@ const DATA_MODULES = [
   // NOT decided (stays OPEN). Import-light, seven self-executing
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95286-confluent-laguerre-floor.js',
+  // imp-95287 (fable-5, frontier): THEOREM MONO-N + COROLLARY DOM-N +
+  // COROLLARY WINDOW-EXACT -- the imp-95227 N >= 3 confluent DOMINANCE
+  // conjecture is DECIDED (affirmative): the exact signed N-rate shift
+  // constant is strictly decreasing in EVERY rate (envelope identity +
+  // variation-diminishing Laplace-kernel zero count + Descartes equality
+  // forcing), so the sup at fixed x = nu_min d is the fully confluent
+  // span, and the window sup over [nu, R nu] equals Lambda_conf(N, nu d)
+  // R-INDEPENDENTLY. Certificate cap at the imp-95251 onsets tightens
+  // 3.46/6.15/10.90 -> 2.33/3.27/4.58 (rho at R = 1). Import-light, six
+  // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95287-nrate-monotonicity-dominance.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

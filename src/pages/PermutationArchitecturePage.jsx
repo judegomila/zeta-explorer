@@ -1033,7 +1033,9 @@ export default function PermutationArchitecturePage() {
             <InlineMath tex="y_* = 33/200,\ t_* = 10103/80000" />, a rectangular-slab inheritance lemma plus a
             directed proof of <InlineMath tex="H_{t_*}(x+iy) \ne 0" /> on the enlarged region would give{' '}
             <InlineMath tex="\Lambda \le 0.1399" />. Neither hypothesis is certified by the present project —
-            an exact research target, not a reported improvement. Certified exclusions also close several
+            an exact research target, not a reported improvement. An external larger-slab preprint [20] is
+            tracked only as an audit-comparison target for this row — the paper explicitly states it is not
+            an antecedent of Theorem 4.5 or of any claimed project status. Certified exclusions also close several
             tempting shortcuts: independent macro budgets discard essential cancellation; generic low-rank
             rough transforms cannot close the residual; raw tiling needs &gt; 7.2×10²⁶ cells. The missing
             producer must exploit the specific paired heat–log family and batch the integer windows analytically.

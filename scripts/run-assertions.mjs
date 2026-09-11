@@ -15254,6 +15254,26 @@ const DATA_MODULES = [
   // off-lattice unchanged. Import-light, eight self-executing assertions.
   // Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95250-leaveoneout-multiblock-split-certificate.js',
+  // imp-95251 (fable-5, frontier): LEMMA BN + LEMMA DD + LEMMA LAG +
+  // THEOREM COAL-N -- the N-fold coalescence law supplying the imp-95250
+  // named residual (COAL-DOM was pair-only): for any at-most-N rates inside
+  // [nu, R nu], depth d, x = nu d,
+  //   sqrt(Lambda) <= e^(-x)[L_(N-1)(-2Rx) + 2 sum_(k<=N-2) L_k(-2Rx)]
+  // (Laguerre polynomials at negative argument), uniform in the intra-block
+  // configuration with NO separation denominators (coalescence-uniform),
+  // monotone in N and R. Route: Newton interpolation in the Blaschke basis
+  // (LEMMA BN, coefficients stay finite at coalescence -- the anti-trap the
+  // Lagrange PROP BL lacks) + NP-CERT (imp-95226); the coefficient partial
+  // sums equal divided differences of e^(-ds) prod(s+nu_j) (contour pivot,
+  // LEMMA DD) which the mean value theorem + Leibniz cap by Laguerre values
+  // (LEMMA LAG). N = 2, R -> 1 specialization e^(-x)(3+2x) is asymptotically
+  // tight vs sharp COAL-DOM (ratio 1.0373 at x = 40); measured confluent
+  // slack 2.004x (N=3, x=6) improving with depth; onsets x* = 4.930455
+  // (N=3, R=1.3) .. 10.940699 (N=5, R=1.3). MAJORANT only: the N >= 3
+  // confluent dominance conjecture stays OPEN; >= 3-per-octave every-octave
+  // instantiation is a follow-up. Import-light, nine self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95251-nfold-coalescence-law.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

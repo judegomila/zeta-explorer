@@ -14984,6 +14984,26 @@ const DATA_MODULES = [
   // N >= 3 fully-confluent-span envelope CONJECTURE. Sub-gap carried
   // OPEN; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95227-two-rate-coalescence-dominance-theorem.js',
+  // imp-95233 (opus-4-8, S-frontier): FEASIBILITY ASSESSMENT (POSITIVE) --
+  // does a modulus/phase-priced signed seam certificate escape the
+  // depth-only no-go (imp-95224 DC-NOGO) where count did (imp-95225)? YES.
+  // Phase-alignment currency theta(f) = int f^2 / int g^2 in (0,1], g =
+  // sum|c_n| f_n the positive-modulus envelope (theta = 1 on the positive
+  // cone, theta -> 0 under deep cancellation). LEMMA MAJ (triangle
+  // inequality, f_n >= 0 so |f| <= g pointwise) + imp-95222 FA-2 give
+  // COROLLARY PHASE-CERT: an EXPLICIT phase-priced signed certificate
+  // R <= e^(-y_min)/(2 theta), tight at theta = 1 and below the DC-NOGO
+  // ceiling 1/2 whenever theta > e^(-y_min) -- so depth-only currency is
+  // escaped by phase currency. The escape is exact: the SGN-SAT saturating
+  // family phi_K has theta = 1/17, 1/769, 1/40193 -> 0 (exact BigInt
+  // integration) and modulus 2^K, C(2K,K) -> inf, and bounded-theta
+  // families cannot saturate. HONEST-PARTIAL: PHASE-CERT is CRUDE (loses
+  // 1/theta, VACUOUS for theta < e^(-y_min) where seam families sit -- the
+  // c=(3,-4) witness has theta=1/33, bound 33/8), so obligation (2) is
+  // ADVANCED not discharged; residual = a SHARP phase-priced bound. Seven
+  // self-executing assertions (exact rationals + quadrature cross-checks).
+  // Import-light; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95233-modulus-phase-currency-feasibility.js',
   // imp-95133 (opus-4-8): SCOPING ASSESSMENT of a signed WEIGHT-priced seam
   // certificate (weight W = sum_j M_j 2^(-j) in place of distinct count N),
   // the surviving currency leg of obligation (2) after SGN-C/SGN-NP closed
@@ -15116,6 +15136,23 @@ const DATA_MODULES = [
   // constants), five self-executing assertions. Measurement only; changes no
   // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95229-tier2-cell-recon-floor-decomposition.js',
+  // imp-95238 (numerical, S-frontier): DECISION ASSESSMENT of the full-window
+  // W1-CERT run (378 CPU-days as built by imp-95213, deferred as a separate
+  // decision NOT taken). (A) A full run certifies window 1 continuum on both
+  // seam charts (the first full-window continuum statement) but window 1 is
+  // one window -- 54,109,011 windows beyond it stay untouched, it sets no G5
+  // promotion flag and moves no bound. (B) The imp-95228 second-level lever is
+  // now BUILT (imp-95214 tier-2 chirp): it yields the IDENTICAL certificate at
+  // 21.1 CPU-days vs the level-1 378.2 (17.9x, ~3.0 wall-days at 7 threads),
+  // so the level-1 run is strictly DOMINATED -- launching it would waste ~357
+  // CPU-days. (C) Price scales linearly in G5 verified-precision replays, and
+  // the replay factor multiplies BOTH routes equally, so the tier-2 dominance
+  // is precision-invariant. RECOMMENDATION: do NOT launch the level-1 run; if
+  // a window-1 certificate is pursued, run it via tier-2 times the G5 factor;
+  // still a milestone, not a bound-mover. Import-light (imp-95213/95214/95228
+  // constants), four self-executing assertions. Assessment only; launches
+  // nothing; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95238-fullwindow-run-decision.js',
   // imp-95232 (numerical, S-frontier): MEASUREMENT of how the imp-95226
   // COROLLARY BL-LAT signed cross-octave certificate degrades OFF the
   // geometric lattice and under IN-OCTAVE multiplicity -- the two named

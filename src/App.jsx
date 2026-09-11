@@ -1004,6 +1004,9 @@ const Imp95265EvOctFiringCurveViz = lazy(() =>
 const Imp95267OffLatticeRobustnessViz = lazy(() =>
   import('./pages/Imp95267OffLatticeRobustnessViz.jsx')
 );
+const Imp95125AttainmentShortfallDecayViz = lazy(() =>
+  import('./pages/Imp95125AttainmentShortfallDecayViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2765,6 +2768,10 @@ function AppShell() {
           <Route
             path="/viz-imp95267-offlattice-robustness"
             element={<Imp95267OffLatticeRobustnessViz />}
+          />
+          <Route
+            path="/viz-imp95125-attainment-shortfall-decay"
+            element={<Imp95125AttainmentShortfallDecayViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

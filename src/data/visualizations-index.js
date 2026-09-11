@@ -1830,6 +1830,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Faithful rendering of the Robinson congruence (true Hopf-fiber stereographic projection) with live Riemann-Siegel Z(t) / Borwein zeta values painted on; the twistor layer is the paper’s auxiliary O-status geometry and the intertwiner identity I_K F+ = F- ∘ R is a design requirement, not a known theorem; the picture proves nothing about zeta — no Lambda bound, no RH claim.',
     }),
+    Object.freeze({
+      route: '/viz-imp95125-attainment-shortfall-decay',
+      title: 'Finite-Rate Attainment Shortfall Decay at the Dominant Cell',
+      oneLine:
+        'Two log-log panels on the imp-95090 dominant-cell (0,2) shortfall: decay vs the continuous corner offset eps (linear, per-decade ~0.10) and vs the alias-grid rate p (roughly O(1/p), 0.1742 at p=97 down to 0.0240 at p=769).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95090-finite-rate-attainment-shortfall.js',
+      paperSourcePath:
+        'src/data/imp-95090-finite-rate-attainment-shortfall.js (continuousLimitLadder / gridRefinementLadder; imp-95125 viz page)',
+      ticket: 'imp-95125',
+      pedagogicalStep: 128,
+      honestCeiling:
+        'Descriptive two-panel chart baking the imp-95090 continuousLimitLadder / gridRefinementLadder literals verbatim (no new computation, no heavy import); the shortfall names a conservative, unapplied fixed-97 grid-corner ceiling lever, not an applied bound change; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

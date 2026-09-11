@@ -284,6 +284,46 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>far-bracket ceiling ledger (imp-95008, reference θ = 10)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            Three ceiling-side moves reduce the far coefficient <InlineMath tex="c_{\text{Far}}" /> from the
+            starting value 4, floors left untouched at every step:
+          </p>
+          <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+              <thead>
+                <tr style={{ background: 'var(--paper2)', textAlign: 'left', color: 'var(--faint)' }}>
+                  <th style={{ padding: '8px 12px' }}>Move</th><th style={{ padding: '8px 12px' }}>From</th><th style={{ padding: '8px 12px' }}>To</th><th style={{ padding: '8px 12px' }}>Factor</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['seventeenth (exponent-split)', '4', '2.9469476400572421', '1.3573366372815172'],
+                  ['eighteenth (width-pinned three-window)', '2.9469476400572421', '0.7741509917026236', '3.8066832848407173'],
+                  ['nineteenth (exact-pair correlation)', '0.7741509917026236', '0.2717408057586117', '2.8488580857094559'],
+                ].map(([move, from, to, factor]) => (
+                  <tr key={move} style={{ borderTop: '1px solid var(--hairline)', color: 'var(--ink-soft)' }}>
+                    <td style={{ padding: '7px 12px', color: 'var(--ink)' }}>{move}</td>
+                    <td style={{ padding: '7px 12px', fontFamily: 'var(--ed-mono)', fontSize: 11.5 }}>{from}</td>
+                    <td style={{ padding: '7px 12px', fontFamily: 'var(--ed-mono)', fontSize: 11.5 }}>{to}</td>
+                    <td style={{ padding: '7px 12px', fontFamily: 'var(--ed-mono)', fontSize: 11.5 }}>{factor}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
+            The three factors compose to <InlineMath tex="4/0.2717408057586117 = 14.719909248937805" />. The
+            headline θ = 10 gap moves 8.001968970787363 → 2.8088338309749887 and the fixed-97 gap moves
+            642.1998717107592 → 225.42360917596611. Floors are unchanged by these moves; ceiling optimality is
+            not claimed — the outer parity factor 2 and the tightness of the substitution point remain as named
+            open slack. Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-exact-pair-correlation-ceiling.js</code>.
+            This promotes no bound.
+          </p>
+        </div>
+
         {/* Five alternative gates */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Five alternative sufficient gates</h2>
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

@@ -21340,6 +21340,41 @@ export const glossary = [
       'G5-cmb-gue: the Step-5 obligation this three-layer scoping breaks down',
     ],
   },
+  {
+    term: 'Phase-Alignment Currency theta(f)',
+    category: 'concept',
+    definition:
+      'For a signed seam packet f = sum c_n f_n built from nonnegative rate-and-center packets ' +
+      'f_n(s) = e^(-mu_n |s - u_n|) with REAL amplitudes c_n, let g = sum |c_n| f_n be the ' +
+      'positive-modulus envelope (same rates and centers, amplitudes replaced by their moduli). ' +
+      'The phase-alignment ratio is theta(f) = integral_R f^2 / integral_R g^2, in (0, 1]. It is ' +
+      'SCALE-INVARIANT (c -> lambda c leaves it fixed), equals 1 exactly on the positive cone ' +
+      '(all c_n of one sign), and theta -> 0 measures deep sign cancellation. It prices how far a ' +
+      'signed family sits from its positive envelope -- the per-window modulus/phase currency the ' +
+      'depth-only currency y_min (min over pairs of (mu_m + mu_n) min(u_m, u_n)) cannot see.\n\n' +
+      'imp-95233 uses theta to derive the explicit COROLLARY PHASE-CERT signed certificate ' +
+      'R(f) <= e^(-y_min)/(2 theta) via LEMMA MAJ (the pointwise majorant f^2 <= g^2 from the ' +
+      'triangle inequality on nonnegative packets) plus the imp-95222 positive-cone bound ' +
+      'R(g) <= (1/2) e^(-y_min). This escapes the imp-95224 depth-currency no-go (COROLLARY ' +
+      'DC-NOGO: no bound R <= F(y_min) with F < 1/2 exists using depth alone) because the ' +
+      'canonical depth-saturating witness phi_K spends its saturation entirely on phase and ' +
+      'modulus: EXACT theta(phi_K) = 1/17, 1/769, 1/40193 (K = 1, 2, 3) -> 0 while its L1/L2 ' +
+      'amplitude norms diverge (2^K, C(2K,K)); fixing theta above a floor theta_0 > 0 forces the ' +
+      'PHASE-CERT bound below 1/2 at large depth, so no bounded-theta family can saturate.\n\n' +
+      'HONEST SCOPE: the bound is CRUDE (a full 1/theta loss) and VACUOUS in the deep-cancellation ' +
+      'regime theta < e^(-y_min) where signed seam families actually sit (the imp-95224 exact ' +
+      'witness c=(3,-4) has theta = 1/33, giving a useless bound of 33/8); obligation (2) is ' +
+      'ADVANCED, not discharged, and a SHARP phase-priced bound removing the 1/theta loss stays ' +
+      'OPEN. Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95233 (modulus/phase currency feasibility, twenty-third leg of the seam chain), 2026',
+    relatedTerms: [
+      'imp-95224 COROLLARY DC-NOGO is the depth-currency no-go this phase currency escapes (imp-95224)',
+      'imp-95225 SGN-C is the sibling count-currency escape of the same no-go (imp-95225)',
+      'imp-95222 THEOREM FA-2 supplies the positive-cone bound PHASE-CERT reduces to at theta = 1 (imp-95222)',
+      'imp-95133 is the independent (failed) weight-priced currency candidate (imp-95133)',
+      'y_min: the depth-only currency theta is a genuinely different lever on',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -85,6 +85,25 @@ export default function Imp95240O5SiteCoverageMarginsViz() {
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="O5 Site-Coverage Margins: x_*(0.1808) in W_690988 (imp-95240)" />
 
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Honest status:</strong> 0.17759432 is a package
+        value, not a proven bound. It is conditional on obligations O1, O2, O4, O6 of the
+        six-obligation y-thaw package, all of which remain OPEN (only O3 and O5 are certified).
+        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow from
+        anything on this page.
+      </div>
+
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95212 certifies (exact-rational + 400-bit interval + Arb/FLINT confirmation,
         three-way agreement) that the site x_*(0.1808) at height X = {X.toLocaleString('en-US')}

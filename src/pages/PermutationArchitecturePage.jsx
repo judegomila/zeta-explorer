@@ -40,6 +40,35 @@ const GATES = [
   ['Cubic canonical sum', '|E_can| < 0.1835011530528975', 'a uniform 4th-order log-phase Taylor charge'],
 ];
 
+// Even-class block kernel K(b,bp) = envE(min(b,bp), |b-bp|), K(b,b)=0, on the
+// leading blocks {0,2,4} that capture the imp-95008 Perron eigenvalue to
+// machine precision (imp-95098-perron-eigenvalue-closed-form.js).
+const KERNEL_ENTRIES = {
+  '0,2': 3.9197920255561178e-5, '2,0': 3.9197920255561178e-5,
+  '0,4': 1.4905600807225833e-10, '4,0': 1.4905600807225833e-10,
+  '2,4': 3.398047003867178e-8, '4,2': 3.398047003867178e-8,
+  '0,0': 0, '2,2': 0, '4,4': 0,
+};
+
+// Near-Perron eigenvector weight share (|v_b|^2) at lambda_max=3.9197935113802585e-5.
+const WEIGHT_PROFILE = [
+  [0, 0.499999623],
+  [2, 0.499999998],
+  [4, 3.79056665e-7],
+];
+
+const KERNEL_LOG_LO = Math.log10(1.4905600807225833e-10);
+const KERNEL_LOG_HI = Math.log10(3.9197920255561178e-5);
+
+function kernelCellColor(val) {
+  if (!val) return 'var(--paper2)';
+  const t = Math.min(1, Math.max(0, (Math.log10(val) - KERNEL_LOG_LO) / (KERNEL_LOG_HI - KERNEL_LOG_LO)));
+  const lo = [246, 241, 231]; // --paper2
+  const hi = [194, 58, 28]; // --terra-dk
+  const rgb = lo.map((c0, i) => Math.round(c0 + (hi[i] - c0) * t));
+  return { bg: `rgb(${rgb.join(',')})`, t };
+}
+
 function StatusChip({ s }) {
   const m = STATUS_META[s] || STATUS_META.O;
   return (
@@ -402,6 +431,79 @@ export default function PermutationArchitecturePage() {
             envelope. This is a <strong>sensitivity map</strong> over plausible paper constants, not a single
             instantiated paper-packet number — the remaining step is reading (σ, θ, β, c, v, D) off the paper text.
             No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
+        <div style={{ margin: '20px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>even/odd block kernel heatmap (imp-95101, reference θ = 10)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The imp-95008 Lemma SW aggregation constant λ<sub>max</sub> is the Perron eigenvalue of the symmetric
+            even-class block kernel <InlineMath tex="K(b,b') = \mathrm{env}_E(\min(b,b'),\,|b-b'|)" />, <InlineMath tex="K(b,b)=0" />.
+            To machine precision it is captured by the leading 3×3 submatrix on blocks {'{0, 2, 4}'} (imp-95098):
+          </p>
+          <div style={{ display: 'flex', gap: 28, alignItems: 'flex-start', flexWrap: 'wrap' }}>
+            <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, padding: 14, overflowX: 'auto' }}>
+              <table style={{ borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr>
+                    <th style={{ width: 44 }} />
+                    {[0, 2, 4].map((bp) => (
+                      <th key={bp} className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', padding: '4px 10px', fontWeight: 400 }}>b'={bp}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[0, 2, 4].map((b) => (
+                    <tr key={b}>
+                      <th className="ed-mono" style={{ fontSize: 11, color: 'var(--faint)', padding: '4px 10px', textAlign: 'right', fontWeight: 400 }}>b={b}</th>
+                      {[0, 2, 4].map((bp) => {
+                        const val = KERNEL_ENTRIES[`${b},${bp}`];
+                        const isDominant = (b === 0 && bp === 2) || (b === 2 && bp === 0);
+                        const c = kernelCellColor(val);
+                        return (
+                          <td key={bp} style={{ padding: 0 }}>
+                            <div
+                              className="ed-mono"
+                              title={val ? `K(${b},${bp}) = ${val}` : `K(${b},${bp}) = 0 (diagonal)`}
+                              style={{
+                                width: 88, height: 52, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                fontSize: 10.5, color: val ? (c.t > 0.45 ? '#fdfaf3' : 'var(--ink)') : 'var(--faint)',
+                                background: val ? c.bg : 'var(--paper2)',
+                                border: isDominant ? '2px solid var(--terra-dk)' : '1px solid var(--hairline)',
+                                boxSizing: 'border-box',
+                              }}
+                            >
+                              {val ? val.toExponential(2) : '0'}
+                            </div>
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div style={{ minWidth: 230 }}>
+              <div className="ed-lbl" style={{ marginBottom: 6, fontSize: 11 }}>near-Perron weight profile</div>
+              {WEIGHT_PROFILE.map(([b, share]) => (
+                <div key={b} style={{ display: 'flex', alignItems: 'center', gap: 8, margin: '5px 0' }}>
+                  <span className="ed-mono" style={{ fontSize: 11, width: 42, color: 'var(--ink-soft)' }}>b={b}</span>
+                  <div style={{ flex: 1, background: 'var(--paper2)', borderRadius: 3, height: 10, overflow: 'hidden' }}>
+                    <div style={{ width: `${Math.max(share * 100, 0.6)}%`, height: '100%', background: 'var(--terra-dk)' }} />
+                  </div>
+                  <span className="ed-mono" style={{ fontSize: 10.5, width: 78, textAlign: 'right', color: 'var(--ink-soft)' }}>{(share * 100).toPrecision(3)}%</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
+            The eigenvector at λ<sub>max</sub> = 3.9197935113802585e-5 splits weight essentially evenly between
+            blocks 0 and 2 (49.9999623% / 49.9999998%), with block 4 carrying only 3.79×10⁻⁵ percent — the
+            Perron vector is, to nine significant figures, the symmetric mode of the dominant (0, 2) bond
+            <InlineMath tex="\,a=\mathrm{env}_E(0,2)=3.9197920255561178\times10^{-5}" /> alone; the (0,4) and (2,4)
+            bonds contribute only a second-order block-4 resolvent shift. Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95098-perron-eigenvalue-closed-form.js</code>.
+            This visualizes an existing constant; no bound is changed.
           </p>
         </div>
 

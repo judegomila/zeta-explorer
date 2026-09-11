@@ -14984,6 +14984,23 @@ const DATA_MODULES = [
   // N >= 3 fully-confluent-span envelope CONJECTURE. Sub-gap carried
   // OPEN; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95227-two-rate-coalescence-dominance-theorem.js',
+  // imp-95133 (opus-4-8): SCOPING ASSESSMENT of a signed WEIGHT-priced seam
+  // certificate (weight W = sum_j M_j 2^(-j) in place of distinct count N),
+  // the surviving currency leg of obligation (2) after SGN-C/SGN-NP closed
+  // the count route. Object Lambda = lambda_max(D G D, G). Two candidate
+  // signed cross-octave compositions scoped, both fail: WP-A (naive per
+  // -octave-in-isolation multiplicative, the direct TVC port) UNDERSHOOTS
+  // the true union constant already at one rate per octave (long-range
+  // Cauchy coupling; not an upper bound); WP-B (coupling-aware H-inf
+  // product with pin-to-1 off-octave normalization) is a VALID bound but
+  // VACUOUS (loose ~1.85e8, per-octave factors blow up to O(100)). Surviving
+  // OPEN lever: a tapered inner-function split with per-factor sup-norm
+  // discounted by the octave weight 2^(-j) - no such weight-priced bound
+  // known. Motivation measured: the count leg over-prices octave-spread
+  // families by ~666000x. DERIVES NO BOUND; sub-gap STILL OPEN; count leg
+  // unchanged and terminal; NO QED; PT Lambda <= 0.2 stays SOTA. 4 self
+  // -executing import-light assertions.
+  '/src/data/imp-95133-signed-weight-composition-scoping.js',
   // imp-95210 (fable-5): W1-CERT envelope pivot REFUTED - honest
   // infeasibility record. The hoped move from phase-resolving to
   // envelope-scale subdivision for the window-1 pilot certificate fails
@@ -15068,6 +15085,23 @@ const DATA_MODULES = [
   // assertions. Assessment only; changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95228-second-level-lever-assessment.js',
+  // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
+  // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
+  // tightened. R(phi_K, x) for the SGN-SAT achievability family
+  // phi_K(t)=e^(-t)(1-e^(-t/K))^K is evaluated from the cancellation-free form
+  // by Simpson quadrature (the alternating-coefficient sum loses all digits by
+  // K~9, the recorded double-precision trap). Since sup R = 1/2 is the hard
+  // co-centered symmetry ceiling, the N at which R first comes within a
+  // tolerance of 1/2 upper-bounds the saturation onset. FINDING: the measured
+  // onset N*(1e-3) = 6,8,10,13,15,17 at x=1..6 sits far below the crude
+  // sufficient frontier 11.6893 x (Nstar/x decreasing toward ~2.8), so the
+  // RIGHT (saturation) frontier is loose and moves down by ~3-4x; the LEFT
+  // (certificate vacuity, 1.4427 x) frontier is comparatively tight (at x=3 the
+  // first corridor row N=5 has R=0.2548). The open band collapses from factor
+  // 8.1 to roughly factor 2. Reproduces the imp-95224 checkpoint
+  // 1/2 - 7.5585e-9 exactly. Import-light, six self-executing assertions.
+  // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95135-corridor-sup-r-measurement.js',
   // imp-95059 (ux, S-frontier): HONEST-STATUS BANNER stating the imp-95011
   // Gate-2 oscillation probe and imp-95014 Lane-B two-forms audit both run on
   // a hand-picked five-shell SURROGATE model, not an arithmetic evaluation of

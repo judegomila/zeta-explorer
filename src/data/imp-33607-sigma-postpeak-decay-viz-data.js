@@ -45,3 +45,16 @@ export const IMP33607_THRESHOLDS = Object.freeze([
 
 // imp-3444 E_coll = E_trunc crossover -- lands within ~0.4% of the sigma=0.5 threshold.
 export const IMP33607_CROSSOVER = Object.freeze({ N: 3.280294352e9, sigma: 0.5 });
+
+// imp-95081: per-decade OLS local decay exponent p_local, baked from the imp-33582
+// perDecadeLadder field (k = 6..11). Ramps toward the imp-3463 far-tail asymptote 1/2.
+export const IMP33607_EXPONENT_LADDER = Object.freeze([
+  { decade: '1e6->1e7', p_local: 0.0105 },
+  { decade: '1e7->1e8', p_local: 0.0447 },
+  { decade: '1e8->1e9', p_local: 0.1176 },
+  { decade: '1e9->1e10', p_local: 0.236 },
+  { decade: '1e10->1e11', p_local: 0.3561 },
+  { decade: '1e11->1e12', p_local: 0.431 },
+]);
+
+export const IMP33607_EXPONENT_ASYMPTOTE = 0.5; // imp-3463 far-tail 1/2

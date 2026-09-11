@@ -6,9 +6,82 @@ import {
   IMP33607_PEAK,
   IMP33607_THRESHOLDS,
   IMP33607_CROSSOVER,
+  IMP33607_EXPONENT_LADDER,
+  IMP33607_EXPONENT_ASYMPTOTE,
 } from '../data/imp-33607-sigma-postpeak-decay-viz-data.js';
 
-const COLORS = { curve: '#10b981', peak: '#6ee7b7', threshold: '#a855f7', crossover: '#f472b6' };
+const COLORS = { curve: '#10b981', peak: '#6ee7b7', threshold: '#a855f7', crossover: '#f472b6', exponent: '#38bdf8' };
+
+function ExponentLadderChart() {
+  const svgW = 640;
+  const padL = 44;
+  const padR = 24;
+  const padT = 24;
+  const padB = 44;
+  const cW = svgW - padL - padR;
+  const cH = 180;
+  const svgH = padT + cH + padB;
+
+  const n = IMP33607_EXPONENT_LADDER.length;
+  const barGap = 10;
+  const barW = (cW - barGap * (n - 1)) / n;
+  const yMax = IMP33607_EXPONENT_ASYMPTOTE + 0.05;
+  const yS = (p) => padT + cH * (1 - p / yMax);
+
+  return (
+    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+      <rect x={padL} y={padT} width={cW} height={cH} fill="#0a0f1a" rx={2} />
+
+      <line
+        x1={padL}
+        y1={yS(IMP33607_EXPONENT_ASYMPTOTE)}
+        x2={padL + cW}
+        y2={yS(IMP33607_EXPONENT_ASYMPTOTE)}
+        stroke={COLORS.crossover}
+        strokeWidth={1}
+        strokeDasharray="4,2"
+      />
+      <text x={padL + cW - 2} y={yS(IMP33607_EXPONENT_ASYMPTOTE) - 5} textAnchor="end" fill="#f9a8d4" fontSize={8.5}>
+        imp-3463 far-tail asymptote 1/2
+      </text>
+
+      {IMP33607_EXPONENT_LADDER.map((r, i) => {
+        const x = padL + i * (barW + barGap);
+        const y = yS(r.p_local);
+        return (
+          <g key={r.decade}>
+            <rect x={x} y={y} width={barW} height={padT + cH - y} fill={COLORS.exponent} opacity={0.85} />
+            <text x={x + barW / 2} y={y - 6} textAnchor="middle" fill="#7dd3fc" fontSize={9}>
+              {r.p_local}
+            </text>
+            <text
+              x={x + barW / 2}
+              y={padT + cH + 14}
+              textAnchor="middle"
+              fill="#64748b"
+              fontSize={8}
+            >
+              {r.decade}
+            </text>
+          </g>
+        );
+      })}
+
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="#334155" strokeWidth={1} />
+
+      <text
+        x={12}
+        y={padT + cH / 2}
+        textAnchor="middle"
+        fill="#64748b"
+        fontSize={10}
+        transform={'rotate(-90,12,' + (padT + cH / 2) + ')'}
+      >
+        p_local
+      </text>
+    </svg>
+  );
+}
 
 function SigmaPostpeakChart() {
   const svgW = 640;
@@ -172,6 +245,11 @@ export default function Imp33607SigmaPostpeakDecayViz() {
         sigma(N) past the interior peak, with the three threshold crossings and the imp-3444 crossover marked
       </p>
       <SigmaPostpeakChart />
+
+      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+        per-decade local decay exponent p_local, ramping toward the far-tail 1/2 asymptote (imp-95081)
+      </p>
+      <ExponentLadderChart />
 
       <div
         style={{

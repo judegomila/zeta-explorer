@@ -324,6 +324,20 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — far-bracket ceiling (imp-95008)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            Within the MAJ(σ, θ) envelope class, the per-pair correlation bound at the substituted point is now
+            exact (zero inequality slack survives Lemmas CC/RM/PF) — but that is sharpness of one envelope
+            treatment, not a claim that the MAJ class itself is optimal. The headline θ = 10 far-bracket gap
+            still stands at 2.8088338309749887× (floor 0.096745062937484763 vs ceiling 0.2717408057586117),
+            and the packet-envelope constants (c, β, σ, θ, A_d) have not been transferred from this model family
+            to the PAPER's packets. Also open: the curvature ceiling D retained by the window, the paper phase
+            curvature normalization, and residual (c) — the ℓ²-weld-bound to pointwise |C<sub>E,17</sub>| passage.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
         {/* Five alternative gates */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>Five alternative sufficient gates</h2>
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>

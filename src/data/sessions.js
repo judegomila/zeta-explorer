@@ -476,4 +476,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a re-audit already computed and committed by prior engine runs (imp-95017).',
     ],
   },
+  {
+    id: 'session-2026-09-11-paper-packet-far-ceiling-transfer',
+    date: '2026-09-11',
+    title: 'Paper-packet transfer assessment of the far-bracket ceiling ledger (imp-95026)',
+    engineStateStart:
+      'The nineteenth-continuation far-bracket ceiling reduces the model-family ledger from the pre-seventeenth 4 down to the closed-form literal 0.2717408057586117, but that reduction is stated only at the model-normalized packet constants (sigma=1, beta=1/3, c=v=D=1, theta=10); whether the far coefficient stays below 4 at the actual Section 4.5 paper packet constants was untested.',
+    engineStateEnd:
+      'imp-95026 parameterizes the far coefficient cFar = 2(sup_b OmegaE_b)/Tx(2) over (sigma, theta, beta, isolation Q) and scans a neighborhood around the model point. FINDING 0: the packet amplitude A_d cancels out of cFar entirely (it enters only the mass M on the other side of the roll-up inequality), so of the five named paper constants only four (sigma, theta, beta, Q) drive the ledger. FINDING 1: quadrature reproduces the model closed-form ceiling to rel 2.8e-6 and maps the levers -- s = sigma+theta and Q are dominant, beta is weak (~6 percent over 0.25..0.5). FINDING 2: the ledger TRANSFERS, staying strictly below 4 across the whole scanned neighborhood (worst 0.8924623374689161 at theta=2). FINDING 3: it DEGRADES about 3x in the low-theta regime. FINDING 4: the EXACT-substitution proof underlying the ceiling BREAKS below s = sigma+theta = 2.948383274238082, where the Lemma RM corner guard fails and the argument falls back to the (weaker) eighteenth window envelope.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95026 is a sensitivity map of the far-bracket ceiling ledger over the four undetermined paper-packet constants; it instantiates no paper number and changes no bound.',
+      note: 'Measurement/derivation assessment, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Paper-packet far-ceiling transfer',
+        ids: ['imp-95026', 'imp-95080'],
+        summary:
+          'imp-95026 mapped the far-bracket ceiling transfer behavior over the four live paper-packet levers; imp-95080 records that assessment in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95026-paper-packet-ceiling-transfer.js',
+        ticket: 'imp-95026',
+        note: 'far coefficient cFar parameterized over (sigma, theta, beta, isolation Q), scanned around the model point, with the Lemma RM exact-proof break boundary located at s*',
+      },
+    ],
+    keyFinding:
+      'The far-bracket ceiling reduction is not fragile to the packet amplitude (A_d cancels structurally) and, over the scanned neighborhood, not fragile to the other four constants either (the ledger stays below 4 throughout, degrading to a worst case of ~0.89 at low theta). The one real risk this isolates is proof-domain, not numeric: the exact-substitution argument breaks below s = 2.948383274238082, below which the ceiling would need the weaker window-envelope fallback.',
+    mainLineBlocker: {
+      label: 'imp-95026-subgap-packet-constants-unpinned',
+      description:
+        'This is a sensitivity MAP, not an instantiated paper-packet number: the actual Section 4.5 constants (sigma, theta, beta, isolation Q) are not pinned in this repo, so which regime (transfers cleanly, degrades, or falls into the proof-break band) the real paper point occupies is still open.',
+      ticket: 'imp-95026',
+    },
+    openQuestions: [
+      'What are the actual Section 4.5 paper-packet values of (sigma, theta, beta, Q), and do they fall above or below the s* = 2.948383274238082 exact-proof break boundary? (imp-95026-subgap-packet-constants-unpinned -- open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a transfer assessment already computed and committed by prior engine runs (imp-95026).',
+    ],
+  },
 ];

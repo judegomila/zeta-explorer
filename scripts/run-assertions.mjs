@@ -15331,6 +15331,24 @@ const DATA_MODULES = [
   // eig resolution). Import-light. Changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95285-n-per-octave-split-instantiation.js',
+  // imp-95286 (fable-5, frontier): LEMMA LT + THEOREM CONF-LB + COROLLARY
+  // CONF-EXACT / WINDOW-PINCH -- the FLOOR side of the imp-95251 COAL-N
+  // ledger, in closed form: Lambda_conf(N, x) >= T(N, x) =
+  // e^(-2x) sum_(k<N) (L_k(2x) - L_(k-1)(2x))^2, the EXACT Rayleigh value
+  // of the top Laguerre mode L_(N-1)(2 nu t) e^(-nu t) (Parseval + the
+  // Laguerre translation identity int L_j(u) L_m(u+y) e^(-u) du =
+  // DL_(m-j)(y), proved by generating function + Laplace transform).
+  // Combined with COAL-N: sqrt(T) <= sqrt(Lambda_conf) <= coalN(N,1,x)
+  // with ratio -> 1, so the confluent asymptotics
+  // e^(-x)(2x)^(N-1)/(N-1)! are now RIGOROUSLY two-sided -- imp-95251
+  // claim (b), previously measured-only, is PROVEN. Window sup bracketed
+  // within rho(N,R,x) -> R^(N-1); COAL-N over-pricing capped at 3.46 /
+  // 6.15 / 10.90 at its own N=3/4/5 R=1.3 onsets; floor measured 1-2
+  // percent from the exact confluent pencil at x=12 (ceiling side owns
+  // the bracket). The imp-95227 N >= 3 dominance conjecture is bracketed,
+  // NOT decided (stays OPEN). Import-light, seven self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95286-confluent-laguerre-floor.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

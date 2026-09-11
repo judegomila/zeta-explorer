@@ -15116,6 +15116,26 @@ const DATA_MODULES = [
   // constants), five self-executing assertions. Measurement only; changes no
   // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95229-tier2-cell-recon-floor-decomposition.js',
+  // imp-95232 (numerical, S-frontier): MEASUREMENT of how the imp-95226
+  // COROLLARY BL-LAT signed cross-octave certificate degrades OFF the
+  // geometric lattice and under IN-OCTAVE multiplicity -- the two named
+  // residuals. FINDING 1: the near-sharp 1.028 dyadic result is BL^2/Lambda
+  // (the RAW Blaschke-Lagrange value), not the count-uniform LAT collar
+  // c(2)^4 e^(-2x)(1+tau)^2, which sits ~70x above Lambda at finite N
+  // (c(2)^2 is the infinite two-sided Blaschke product; over-price stable
+  // 78.7/72.2/70.0/68.9 at x=4/5/6/8). FINDING 2 (off-lattice): perturbing
+  // each dyadic site by 1+eps*U[-1,1], the raw BL stays near-sharp and
+  // always fires (<1) through eps=0.3 -- mean/worst BL^2/Lambda
+  // 1.028/1.033, 1.036/1.142, 1.066/1.582, 1.151/9.385 at eps 0.01/0.1/
+  // 0.2/0.3 (worst grows because BL is separation-priced); +-10% jitter
+  // preserves near-sharpness (worst 1.14). FINDING 3 (in-octave): two rates
+  // per octave drive BL vacuous below in-octave ratio ~1.4 (BL^2/Lambda
+  // 124.5/12.14 vacuous at 1.1/1.3, 4.68/3.72 firing at 1.5/1.9),
+  // confirming imp-95226 honest scope that in-octave multiplicity routes to
+  // the coalescence-uniform SGN-C. Import-light (no imports), four
+  // self-executing assertions. Measurement only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95232-bl-lat-off-lattice-degradation.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

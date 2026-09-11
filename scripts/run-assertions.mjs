@@ -14873,6 +14873,29 @@ const DATA_MODULES = [
   // Sub-gap carried OPEN. Changes no bound; NO QED; PT Lambda <= 0.2
   // stays SOTA.
   '/src/data/imp-95225-signed-count-priced-shift-certificate.js',
+  // imp-95226 (fable-5): RIGOROUS step - LEMMA PICK-ID + THEOREM NP-CERT +
+  // THEOREM SGN-NP + THEOREM SGN-2X + COROLLARY COAL-2 + PROP BL +
+  // COROLLARY BL-LAT: the half-plane Nevanlinna-Pick matrix for data
+  // w_i = e^(-d nu_i) IS the seam pencil rho^2 G - D G D entrywise, so the
+  // signed shift constant Lambda equals the squared minimal H-inf(C+)
+  // interpolant norm EXACTLY (easy direction elementary via Cauchy
+  // kernels; exactness by classical Pick sufficiency) - the terminal
+  // certificate of the imp-95225 LEMMA MULT interpolant route. Exact
+  // N = 2 closed form Lambda_2 = w1 w2 + h^2/2 + (h/2) sqrt(h^2+4 w1 w2),
+  // h = (w1-w2)(nu1+nu2)/(nu2-nu1) (stable via expm1), dissolving the
+  // imp-95225 factor-<8 N = 2 fence; exact coalescence law
+  // e^(-2x)(1+2x^2+2x sqrt(1+x^2)); witness row (1,2,ln2) evaluates to
+  // (13+3 sqrt(17))/32 = 0.7928, non-vacuous where SGN-C is vacuous.
+  // Blaschke-Lagrange certificate sqrt(Lambda) <= sum_i w_i prod
+  // (nu_i+nu_j)/|nu_i-nu_j|: count-uniform on geometric lattices,
+  // c(2)^4 collar, xStarBL(2) = 4.236, near-sharp (ratio 1.028) at the
+  // dyadic N = 10, x = 6 row where SGN-C is vacuous by five orders - the
+  // first signed certificate firing at unbounded count. HONEST: lattice
+  // skeleton only (in-octave multiplicity + off-lattice = named
+  // residuals); weight and modulus/phase legs open; paper packets NOT
+  // certified. Sub-gap carried OPEN. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95226-np-exact-signed-shift-constant.js',
   // imp-95210 (fable-5): W1-CERT envelope pivot REFUTED - honest
   // infeasibility record. The hoped move from phase-resolving to
   // envelope-scale subdivision for the window-1 pilot certificate fails

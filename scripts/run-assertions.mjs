@@ -12763,6 +12763,14 @@ const DATA_MODULES = [
   // Runs no scan, emits no E97 measurement, makes no surrogate substitution.
   // Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95013-gate2-lane-a-blocked-on-spec.js',
+  // imp-95064: the imp-95012 Gate-2 frozen-spec module exports IMP_95012_ASSERTIONS
+  // but was never added to this DATA_MODULES list, so its assertions silently never
+  // ran under either the full sweep or --since-changed. Import-light (no imports); wired in.
+  '/src/data/imp-95012-gate2-frozen-spec.js',
+  // imp-95064: the imp-95014 Gate-2 Lane-B two-forms audit module exports a
+  // self-executing IMP95014_GATE2_LANE_B_AUDIT_ASSERTIONS array but was never added
+  // to this DATA_MODULES list. Import-light (no imports); wired in.
+  '/src/data/imp-95014-gate2-lane-b-audit.js',
   // imp-95020 (measurement, opus-4-8, api-pool): substitutes the von Neumann trace
   // inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage of
   // the weld chain (imp-95008 Lemma E). LEMMA H: over the weld ENSEMBLE with mode
@@ -15303,6 +15311,26 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95252-muniform-block-riesz-seam-pencil.js',
+  // imp-95285 (fable-5, frontier): LEMMA LAG-ENV + LEMMA TAIL-N + THEOREM
+  // EV-OCT-N + COROLLARY EV-OCT-N-UNIF -- the ">= 3 rates per octave"
+  // every-octave instantiation named as the surviving residual by imp-95250
+  // HONEST LIMITS (b) and routed as the follow-up by imp-95251. Assembles the
+  // proven SPLIT-LOO (arbitrary blocks) + COAL-N (per-block N-fold law) +
+  // ANG-DET (arbitrary block fences) with two new elementary lemmas:
+  // LAG-ENV L_k(-z) <= e^(2 sqrt(kz)) gives coalN(N,R,y) <= e^(-y/2) beyond
+  // an explicit Y0(N,R); TAIL-N gives the N-generalized lattice fence
+  // PhiUnifN = [prod b_n^(2N^2)]^2 with a rigorous Weierstrass tail (the
+  // N = 2 case reproduces the imp-95250 PhiUnif literal exactly). First
+  // closed-form coalescence-uniform certificate for up-to-N-per-octave
+  // configurations at finite AND unbounded octave count: onsets m = 6
+  // R = 1.3: x = 33.504 (N = 3), 58.113 (N = 4); m-uniform: 61.310 / 107.261.
+  // Count-priced NOT count-uniform (DC-NOGO respected); N = 2 rows recorded
+  // as strictly WEAKER than EV-OCT/EV-OCT-UNIF (honesty anchors). Eleven
+  // self-executing assertions incl. an eigensolve-free end-to-end Rayleigh
+  // check (the adjacent-octave 1 - sigma^2 ~ 1e-13..1e-22 is below float64
+  // eig resolution). Import-light. Changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95285-n-per-octave-split-instantiation.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

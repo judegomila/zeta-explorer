@@ -457,6 +457,20 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — surviving residual after (b2)+(b3) closure (imp-95008)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            Of the three non-parity slacks named after the nineteenth continuation, (b1) CLOSED at the twentieth move
+            (Theorem CA + Lemma EQ, zero slack) and (b2)+(b3) CLOSED together at the twenty-second move (Lemma SW +
+            Theorem Y-PERRON, weighted-Schur aggregation certified to machine precision). No named non-parity slack
+            remains open on the aggregation side. The one surviving residual on the witness side is the
+            E-realization step, sized at 1.4032010197013394× (named sub-gap
+            imp-95008-subgap-witness-Erealization-split) — this is not shrunk by any of the twentieth–twenty-second
+            moves and is the binding obstruction to closing the far-bracket gap further within this envelope family.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — paper-packet transfer of the far-ceiling ledger (imp-95026)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             imp-95026 derives how the far coefficient depends on the packet constants (σ, θ, β, and the

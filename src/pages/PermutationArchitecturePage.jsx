@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
 import { IMP95077_FAR_LEDGER_DEGRADE_TABLE } from '../data/imp-95077-far-ledger-degrade-table.js';
+import { IMP95026_PAPER_PACKET_CEILING_TRANSFER } from '../data/imp-95026-paper-packet-ceiling-transfer.js';
 import {
   IMP95038_ENVELOPE_CURVE,
   IMP95038_CORNER_VALUES,
@@ -214,6 +215,80 @@ function OscillationRegimeMapChart() {
         cancellation the enclosure depends on.
       </p>
     </>
+  );
+}
+
+// imp-95078: four-lever sensitivity map for the imp-95026 far-ceiling
+// transfer assessment (theta/sigma/beta/isolation-Q scans), each a small
+// line panel against the model point and the pre-seventeenth 4 reference;
+// the theta panel additionally marks the s* = 2.9484 exact-proof break
+// line (converted to theta* = s* - sigma = 1.9484 at the model sigma = 1).
+// Content/viz follow-up only; promotes no bound.
+function FarCeilingLeverScanChart() {
+  const { thetaScan, sigmaScan, betaScan, isolationScan, breakBoundaryS } = IMP95026_PAPER_PACKET_CEILING_TRANSFER.reference;
+  const S_STAR = breakBoundaryS;
+  const MODEL_SIGMA = 1;
+
+  const panels = [
+    { key: 'theta', label: 'θ (σ=1 fixed)', scan: thetaScan, modelX: 10, breakX: S_STAR - MODEL_SIGMA },
+    { key: 'sigma', label: 'σ (θ=10 fixed)', scan: sigmaScan, modelX: 1, breakX: null },
+    { key: 'beta', label: 'β (σ=1,θ=10 fixed)', scan: betaScan, modelX: 0.333, breakX: null },
+    { key: 'isolation', label: 'c (isolation Q lever)', scan: isolationScan, modelX: 1, breakX: null },
+  ];
+
+  const W = 300;
+  const H = 170;
+  const padL = 40;
+  const padR = 10;
+  const padT = 10;
+  const padB = 26;
+  const cW = W - padL - padR;
+  const cH = H - padT - padB;
+
+  return (
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 18 }}>
+      {panels.map((p) => {
+        const xs = Object.keys(p.scan).map(Number);
+        const ys = Object.values(p.scan);
+        const xMin = Math.min(...xs, p.breakX ?? Infinity);
+        const xMax = Math.max(...xs);
+        const yMin = 0;
+        const yMax = Math.max(...ys) * 1.05;
+        const xS = (x) => padL + cW * ((x - xMin) / (xMax - xMin));
+        const yS = (y) => padT + cH * (1 - (y - yMin) / (yMax - yMin));
+        const points = xs.map((x, i) => `${xS(x)},${yS(ys[i])}`).join(' ');
+        return (
+          <div key={p.key}>
+            <svg
+              viewBox={`0 0 ${W} ${H}`}
+              width="100%"
+              style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
+              role="img"
+              aria-label={`far coefficient vs ${p.label}, model point and pre-seventeenth 4 reference marked`}
+            >
+              <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="var(--hairline)" strokeWidth={1} />
+              {p.breakX !== null && p.breakX >= xMin && p.breakX <= xMax && (
+                <>
+                  <line x1={xS(p.breakX)} y1={padT} x2={xS(p.breakX)} y2={padT + cH} stroke="var(--terra-dk)" strokeWidth={1} strokeDasharray="3,3" />
+                  <text x={xS(p.breakX)} y={padT - 2} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--terra-dk)">s*</text>
+                </>
+              )}
+              <polyline points={points} fill="none" stroke="#3f6b86" strokeWidth={1.75} />
+              {xs.map((x, i) => (
+                <circle key={x} cx={xS(x)} cy={yS(ys[i])} r={p.modelX === x ? 3 : 1.6} fill={p.modelX === x ? '#c23a1c' : '#3f6b86'} />
+              ))}
+              <text x={padL} y={padT + cH + 16} fontFamily="var(--ed-mono)" fontSize="9" fill="var(--faint)">{xMin.toFixed(2)}</text>
+              <text x={padL + cW} y={padT + cH + 16} textAnchor="end" fontFamily="var(--ed-mono)" fontSize="9" fill="var(--faint)">{xMax.toFixed(2)}</text>
+              <text x={2} y={padT + 8} fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--faint)">{yMax.toFixed(2)}</text>
+              <text x={2} y={padT + cH} fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--faint)">0</text>
+            </svg>
+            <p style={{ fontSize: 11.5, color: 'var(--faint)', textAlign: 'center', margin: '2px 0 0' }}>
+              c<sub>Far</sub> vs {p.label} <span style={{ color: '#c23a1c' }}>● model point</span>
+            </p>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -784,6 +859,17 @@ export default function PermutationArchitecturePage() {
             instantiated paper-packet number — the remaining step is reading (σ, θ, β, c, v, D) off the paper text.
             No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
           </p>
+        </div>
+
+        <div style={{ margin: '20px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>four-lever sensitivity map (imp-95078, from imp-95026)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The imp-95026 theta/sigma/beta/isolation-Q scans of the far coefficient c<sub>Far</sub>, plotted against
+            each lever with the model point marked (red dot). The θ panel additionally marks the sharp exact-proof
+            break line s* = 2.948383274238082 (as θ* = s* − σ = 1.948 at the model σ = 1) — the nineteenth-continuation
+            substitution proof needs σ + θ above this line.
+          </p>
+          <FarCeilingLeverScanChart />
         </div>
 
         <div style={{ margin: '20px 0' }}>

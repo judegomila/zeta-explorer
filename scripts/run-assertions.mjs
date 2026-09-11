@@ -14980,6 +14980,10 @@ const DATA_MODULES = [
   // 95225/95226 above are all already registered here and import-light
   // (chain bottoms out at imp-95172/imp-95008, no zeros bundle); each
   // loads standalone under plain node in <300ms. Clean pass, no gaps.
+  // imp-95239 (sonnet-4-6): re-verified the same imp-95208/95210/95212/
+  // 95213/95214/95226 cohort (frontier scout re-issued this check as a
+  // separate ticket); all six still registered, still import-light,
+  // loads standalone in 68-322ms. Clean pass confirmed a second time.
   // imp-95227 (fable-5): RIGOROUS step - THEOREM COAL-DOM: the imp-95226
   // COROLLARY COAL-2 grid observation is now a theorem. The exact signed
   // two-rate shift constant is STRICTLY dominated by its coalescent limit

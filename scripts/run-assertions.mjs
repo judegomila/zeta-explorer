@@ -14918,6 +14918,30 @@ const DATA_MODULES = [
   // NOT built). Sub-range only (0.058% of window 1); promotion flag
   // false; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95213-tier-certifier-build.js',
+  // imp-95214 (W1-CERT lane): frequency-bin/chirp SECOND LEVEL for the
+  // tier certifier — the residual lever imp-95213 named. Each class-sum
+  // series = sum over 64 frequency bins of carrier e^{i nu*_b x} x
+  // derotated envelope (bandwidth delta_b <= 0.0499; scan2 measured the
+  // ~85x smoothness separation and the envelope rate at 0.997 of the
+  // rigorous delta*mass bound). ONE O(N) Arb super-pass builds degree-33
+  // envelope models valid over 97.3 x-units = 31 level-1 panels (exact
+  // per-(class,bin) Lagrange masses, budget 5e-15); per panel the
+  // degree-80 level-1 model is reconstructed by exact ball Taylor shift +
+  // (-i)^j rotation + real carrier convolution + i^k rotation, with
+  // certified remainders ~1.4e-12/class, and consumed by the UNCHANGED
+  // tpanel_eval (same cell criterion, ledgers, telescope gate, Tier-P
+  // fallback). Validation: 50-panel reconstruction comparison (coeff dev
+  // ~9e-19) + 30/30 direct-ball containment + 30/30 dd cross + the 100-u
+  // hardest-stretch re-certification MATCHING level 1's certified verdict
+  // (all four sups agree to <= 3.71e-12, identical cell counts).
+  // Measured price (400-u certified slice) 0.0525 CPU-s/x-unit =>
+  // full window 21.1 CPU-days vs level-1's 378 = 17.9x speedup (the
+  // 10-100x lever lands at ~18x; 1.5 wall-days at 14 threads);
+  // ball-ops 1.55e14 = 6.5x below level 1 but still 14x above the
+  // 1.1e13 design budget (cells + reconstruction now dominate — the
+  // honest residual; the panel-pass lever is spent). Sub-range only;
+  // promotion flag false; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95214-tier2-chirp-level.js',
 ];
 
 let ALL_MODULES = FAST_MODE

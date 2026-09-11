@@ -36,7 +36,19 @@ tier-validate: tier_cert
 	nice -n 16 ./tier_cert validate 30 95213 128 80
 	nice -n 16 python3 tier_validate_dd.py
 
+# imp-95214 frequency-bin/chirp second level (includes tier_cert.c)
+tier_cert2: tier_cert2.c tier_cert.c cert_window.c
+	$(CC) $(CFLAGS) -o tier_cert2 tier_cert2.c $(LDFLAGS)
+
+tier2-selfcheck: tier_cert2
+	nice -n 16 ./tier_cert2 selfcheck2 128 80 64 33
+
+tier2-validate: tier_cert2
+	$(MAKE) -C ../gate2-lane-a gate2
+	nice -n 16 ./tier_cert2 validate2 30 95214 128 80 64 33
+	nice -n 16 python3 tier2_validate_dd.py
+
 clean:
-	rm -f cert_window envprobe tier_cert
+	rm -f cert_window envprobe tier_cert tier_cert2
 
 .PHONY: selfcheck validate dryrun envscan tier-selfcheck tier-validate clean

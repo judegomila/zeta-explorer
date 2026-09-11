@@ -947,6 +947,7 @@ static void mode_slice(double uLo, double uHi, int sideSel, int metricSel,
 }
 
 /* ─────────────────────── main ─────────────────────────────────────── */
+#ifndef TIER_CERT_NO_MAIN
 int main(int argc, char **argv) {
     flint_set_num_threads(1);
     if (argc < 2) {
@@ -1025,3 +1026,4 @@ int main(int argc, char **argv) {
     fprintf(stderr, "unknown mode %s\n", argv[1]);
     return 2;
 }
+#endif /* TIER_CERT_NO_MAIN */

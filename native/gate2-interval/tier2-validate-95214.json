@@ -1,0 +1,2 @@
+{ "mode": "tier2-validate", "points": 30, "seed": 95214, "containmentFailures": 0,
+  "maxMidDevPilot": 0.000e+00, "maxMidDevE97": 0.000e+00, "maxTaylorRad": 3.997e-12, "maxTelescopeRad": 9.467e-12 }

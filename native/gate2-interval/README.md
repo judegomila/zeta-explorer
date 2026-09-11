@@ -154,14 +154,57 @@ CPU-days at measured rate): D=40 → 574, D=80 → 403, D=112 → 389.
 Slice + price: see `tier-slice-main-95213.json` and the frozen record
 `src/data/imp-95213-tier-certifier-build.js`.
 
+## Frequency-bin/chirp second level (imp-95214): BUILT + VALIDATED
+
+`tier_cert2.c` (includes tier_cert.c; mode `tiercert2`). The G4
+"batch by certified chirp recurrences" step: each class-sum series is
+sum_b e^{i nu*_b x} E_{c,b}(x) over B = 64 frequency bins, where the
+DEROTATED envelopes E_{c,b} have bandwidth delta_b <= 0.0499 (the
+measured scan2 rates confirm: raw level-1 Taylor coefficients move at
+phase scale ~1.1 relative per x-unit, envelopes at 0.013 with
+rate/bound ratio 0.997). One O(N) Arb super-pass builds degree-33
+Taylor models of all 920 nonempty (class,bin) envelopes with the exact
+Lagrange remainder sum|amp| delta^{E+1} Hx^{E+1}/(E+1)!; the rigorous
+mass solve gives super half-width Hx = 97.32 x-units = **31 level-1
+panels per O(N) pass**. Per panel, the level-1 degree-80 model is
+reconstructed EXACTLY (up to certified remainders ~1.4e-12/class:
+envelope Lagrange 4.6e-15 + degree-80 k-tail of carrier x shifted
+envelope) by `_arb_poly_taylor_shift` + the (-i)^j rotation + a real
+`_arb_poly_mullow` against the carrier table nu*^m/m! + the i^k carrier
+rotation — and consumed by the UNCHANGED `tpanel_eval`: same cell
+criterion, same alias/E97 ledgers, same per-eval telescope gate, same
+Tier-P direct fallback, same fail-closed records.
+
+Validation: selfcheck2 (reconstructed vs direct panels: max coefficient
+mid deviation ~1e-19; per-class-series model agreement within summed
+radii; containment of direct O(N) balls) + panels2 (50 random panels,
+random super placement) + validate2 (30 seeded points) + dd
+cross-validation (`tier2_validate_dd.py`, same 30 points as level 1).
+Validation results: panels2 50/50 (max coefficient midpoint deviation
+1.7e-18), validate2 30/30, dd 30/30 (deviations identical to the level-1
+suite), and the 100-u hardest-stretch re-certification MATCHES level 1
+verdict-for-verdict (identical cell counts; all four certified sups
+agree to <= 3.71e-12 = the remainder-ball thickness). Measured price
+(400-u certified slice, 26 supers/side): **0.0525 CPU-s/x-unit**
+(0.0170 super + 0.0161 recon + 0.0194 cells) => full window
+**21.1 CPU-days vs level 1's 378 = 17.9x** (1.5 wall-days at 14
+threads); ball-ops 1.55e14 = 6.5x below level 1, still 14x above the
+1.1e13 design estimate (cells + reconstruction now dominate). Frozen
+record: `src/data/imp-95214-tier2-chirp-level.js`;
+slices: `tier2-slice-*.json`, `tier1-slice-verdict-95214.json`.
+
+    make tier_cert2
+    make tier2-selfcheck
+    make tier2-validate
+    ./tier_cert2 scan2|ledger2|selfcheck2 [prec] [degree] [bins] [edeg]
+    ./tier_cert2 panels2 N SEED / validate2 N SEED / validatedd2 FILE ...
+    ./tier_cert2 tiercert2 --u-lo A --u-hi B [--side 0|1|both]
+                [--metric pilot|e97|both] [--threads T] [--prec P]
+                [--degree D] [--bins B] [--edeg E] [--out FILE]
+
 ## Next phase (not this program run)
 
-1. Frequency-bin second level (panel chirp recurrence u_p = 5, B = 256
-   bins with the Lemma-A remainder, subpanel collapse with Lemma B) to
-   amortize the per-panel O(N) pass — the remaining ~10-100x between the
-   measured single-level Taylor rate and the design's 1.1e13 ball-op
-   budget; the full run is a separate decision.
-2. Replay at 160/192 bits + independent 256-bit audits (G5) with
+1. Replay at 160/192 bits + independent 256-bit audits (G5) with
    checkpointing; ball radii ARE the paper's r_s (max radius goes in
    the ledger).
 3. Keep the `conv_t`-style convention switch when porting: gamma is

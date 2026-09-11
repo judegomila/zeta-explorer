@@ -660,4 +660,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a sensitivity derivation already computed and committed by prior engine runs (imp-95075).',
     ],
   },
+  {
+    id: 'session-2026-09-11-adin-cancellation-independent-trace',
+    date: '2026-09-11',
+    title: 'Independent trace of the imp-95026 amplitude-cancellation claim (imp-95076)',
+    engineStateStart:
+      'imp-95026 Finding 0 asserts the packet amplitude A_d cancels from the far coefficient cFar = 2 (sup_b OmegaE_b) / Tx(2) and instead enters only the mass M on the other side of the roll-up inequality, but the imp-95026 code path checks this by calling farCoefficient with no amplitude argument at all -- a tautology by construction, not an independent trace.',
+    engineStateEnd:
+      'imp-95076 re-derives the same claim on a fully independent code path: composite Simpson quadrature (instead of the imp-95026 midpoint rule) with amplitude threaded as an explicit argument. FINDING A: the Simpson evaluator reproduces the model closed-form ceiling at the model point to relative 2.18e-4 (0.2716816410981926 vs 0.2717408057586117), confirming cFar is not an artifact of the midpoint code path. FINDING B: scanning amplitude A in {0.5, 1, 2, 3, 7} returns a bit-identical cFar = 0.2716816410981926 at every value -- none of the SHAPE functionals (cornerV, rhoCap, the decay exponent s = sigma+theta, phiTail) consume A. FINDING C: the mass M(A) = A^2 sum_b r_b rescales exactly as A^2 for any positive radii (M(A)/A^2 = 4.241406839130188 constant to machine precision on representative radii). FINDING D: the assembled ceiling term 2(sup_b OmegaE_b) M divided by A^2 is likewise constant (0.0003327244461629), so of the five named paper constants only four (sigma, theta, beta, isolation Q) drive the far-bracket ledger; A_d rescales the mass side only.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95076 independently corroborates an already-committed structural claim (imp-95026 Finding 0) on a separate quadrature path; it instantiates no paper number and changes no bound.',
+      note: 'Measurement/verification assessment, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Independent A_d-cancellation trace',
+        ids: ['imp-95076', 'imp-95105'],
+        summary:
+          'imp-95076 independently traced the amplitude cancellation on a composite-Simpson path (cFar bit-invariant across A, mass exactly A^2-scaled); imp-95105 records that trace in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95076-adin-cancellation-trace.js',
+        ticket: 'imp-95076',
+        note: 'independent composite-Simpson quadrature with amplitude threaded as an explicit argument, amplitude scan over cFar, and mass/ceiling-term rescaling checks',
+      },
+    ],
+    keyFinding:
+      'The A_d cancellation is not a tautology of the imp-95026 code path: a fully independent quadrature rule with amplitude as an explicit argument reproduces both the closed-form ceiling and the cancellation, and additionally confirms the mass rescales exactly as A_d^2 for arbitrary positive radii, isolating the far-bracket ledger to four (not five) live paper-packet constants.',
+    mainLineBlocker: {
+      label: 'imp-95026-subgap-packet-constants-unpinned',
+      description:
+        'This trace establishes STRUCTURE only (cFar amplitude-invariant, M proportional to A_d^2 for any positive radii), not a numeric paper mass: the actual Section 4.5 packet radii r_d and amplitude A_d are still not pinned in this repository.',
+      ticket: 'imp-95076',
+    },
+    openQuestions: [
+      'What are the actual Section 4.5 paper-packet radii r_d and amplitude A_d, so the mass M can be instantiated to a single concrete number rather than a proportionality? (imp-95026-subgap-packet-constants-unpinned -- open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording an independent verification trace already computed and committed by prior engine runs (imp-95076).',
+    ],
+  },
 ];

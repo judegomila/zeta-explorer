@@ -15447,6 +15447,20 @@ const DATA_MODULES = [
   // new finding. AUDIT-ONLY; changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95306-seam-chain-surfacing-audit-95251-95286.js',
+  // imp-95288 (fable-5, frontier): THEOREM RZ-PEN + COROLLARY PEN-UNIF +
+  // PROPOSITION PEN-NEC + COROLLARY SPLIT-PEN -- the imp-95252 named
+  // residual (r-uniform block symbol-PENCIL infimum) is DECIDED both
+  // ways: closed-form m-and-r-uniform floor A_pen = [sin^2(pi tau)/
+  // tanh^2(b/2)] W(rho) on the coalescence half r in (1, sqrt(rho)]
+  // (the block normalization tanh^2(b/2) cancels the sin^2(pi tau)
+  // collapse exactly), and NO full r-uniformity through r -> rho
+  // (cross-block coalescence witness, collapse exponent exactly 2).
+  // SPLIT-PEN makes the every-octave certificate onset r-uniform:
+  // 27.035582 -> 15.689897; fixed-r onsets 15.981584 -> 15.466164
+  // (r = 1.3), 17.517735 -> 15.215651 (r = 1.05). Import-light, eight
+  // self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95288-runiform-block-pencil-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

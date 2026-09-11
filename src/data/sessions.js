@@ -384,4 +384,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a result already computed and committed by prior engine runs (imp-35259).',
     ],
   },
+  {
+    id: 'session-2026-09-11-gate2-frozen-spec-and-01399-unpark-independent',
+    date: '2026-09-11',
+    title: 'Gate-2 frozen spec (imp-95012) and the 0.1399-row UNPARK-INDEPENDENT disposition',
+    engineStateStart:
+      'The imp-95012 transcription of the Gate-2 frozen spec (eqs. 8-20 of the twin-ladder permutation architecture PDF) and the 0.1399-row (Lemma 4.4 / Theorem 4.5, ROW_01399_DECISION) were both already shipped as data modules, but no research-journal entry recorded the frozen row or the UNPARK-INDEPENDENT disposition reasoning.',
+    engineStateEnd:
+      'Frozen row (eq. 8): t0 = 24727519/200000000 = 0.123637595, y0 = 1809/10000 = 0.1809, verified-height anchor X = 6000000185827, target t0 + y0^2/2 = 7/50 = 0.14. The anchor cell at N=690988 is proven (|E97(x)| < 0.2141254901198318 < Rex = 0.2796881955526244146..., reserve 0.0655627054327926), but uniform coverage of the open family 690988 <= N <= 54799999 is not: a raw-tiling atlas at anchor width would need > 7.20e26 cells, so that route stays open. The 0.1399 row (y* = 33/200 = 0.165, t* = 10103/80000, target 1399/10000 = 0.1399) was assessed as ROW_01399_DECISION = UNPARK-INDEPENDENT: it is reached via two new, uncertified hypotheses (a rectangular slab H_tau(u+iv) != 0 on [X, X+1] x [y*, 1] x [0, t*], and a directed final-time tail H_{t*}(x+iv) != 0 for x >= X+1) instead of the Gate-2 residual cocycle, so it does not presuppose the open-family question and should be tracked on its own lane rather than blocked on or resolved by it.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'Both the Gate-2 frozen-spec transcription and the 0.1399-row disposition are bookkeeping/assessment on the twin-ladder permutation architecture; neither touches the program Λ bound or any verified-height input.',
+      note: 'Documentation only, isRigorous false, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Gate-2 frozen-spec and 0.1399-row record-keeping',
+        ids: ['imp-95012', 'imp-95062'],
+        summary:
+          'imp-95012 transcribed the frozen Gate-2 spec (frozen row, two-ladder coefficient, E97 residual cocycle, carrier-remainder target, and the single proven anchor cell) from the source PDF; imp-95062 records that spec and the separately-reached 0.1399-row UNPARK-INDEPENDENT disposition in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95012-gate2-frozen-spec.js',
+        ticket: 'imp-95012',
+        note: 'transcription of the Gate-2 frozen spec (eqs. 8-20), anchor cell, and open-family raw-tiling cell count',
+      },
+    ],
+    keyFinding:
+      'The 0.1399 row and the Gate-2 0.14 row share the same verified height X and a similar-style initial condition ((1+y*)/2 = 0.5825, tighter than the 0.14 row’s 0.59045), but the 0.1399 row substitutes a compact slab plus one final-time tail for the Gate-2 residual cocycle -- so its UNPARK-INDEPENDENT status is a genuine decoupling, not a coincidence of shared inputs.',
+    mainLineBlocker: {
+      label: 'Gate-2 open-family coverage',
+      description:
+        'The Gate-2 anchor cell at N=690988 is proven, but uniform coverage of 690988 <= N <= 54799999 across every window parameter and both seam sides is not: raw tiling at anchor width would need more than 7.20e26 cells, so this remains the open family the frozen spec is measured against.',
+      ticket: 'imp-95012',
+    },
+    openQuestions: [
+      'Does a non-raw-tiling covering strategy bring the Gate-2 open family (690988 <= N <= 54799999) within reach, or does it stay parked pending a structurally different certificate?',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording the frozen spec and disposition already computed and committed by prior engine runs (imp-95012 and the ROW_01399_DECISION work).',
+    ],
+  },
 ];

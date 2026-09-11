@@ -1068,7 +1068,9 @@ export default function PermutationArchitecturePage() {
             itself breaks below the sharp threshold σ + θ = 2.948383274238082, falling back to the eighteenth-window
             envelope. This is a <strong>sensitivity map</strong> over plausible paper constants, not a single
             instantiated paper-packet number — the remaining step is reading (σ, θ, β, c, v, D) off the paper text.
-            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA. This same "paper Section 4.5 packet constants
+            unpinned" sub-gap is inherited and restated verbatim by imp-95075, imp-95092, imp-95093, imp-95097, and
+            imp-95100 below — it is one shared residual, counted once here, not once per restating module.
           </p>
         </div>
 

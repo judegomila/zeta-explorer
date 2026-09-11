@@ -192,6 +192,18 @@ export const IMP95026_PAPER_PACKET_CEILING_TRANSFER = {
     "the actual Section 4.5 paper packet constants (sigma, theta, beta, Q) are not pinned in this repository - this is a transfer/sensitivity MAP over a plausible neighborhood, not a single instantiated paper number; the remaining step is to read (sigma, theta, beta, c, v, D) off the paper packet definition and evaluate the map there",
     "if the paper decay is s = sigma + theta < 2.9484 the nineteenth EXACT-substitution proof must be re-run against the eighteenth window envelope (the ceiling is still finite there, but the sharp-within-MAJ claim would not transfer)",
   ],
+  // imp-95124: openResiduals[0] above (paper Section 4.5 packet constants not
+  // pinned in-repo) is ONE shared sub-gap, restated verbatim (not re-derived)
+  // by every module below that inherits this transfer assessment; it must be
+  // counted ONCE across the chain on the frontier ledger, not once per
+  // restating module.
+  sharedResidualRestatedBy: [
+    "imp-95075-isolation-Q-far-ceiling-sensitivity.js",
+    "imp-95092-four-lever-far-ceiling-elasticity-table.js",
+    "imp-95093-cfar-Q-second-derivative-concavity.js",
+    "imp-95097-low-theta-edge-three-rule-quadrature.js",
+    "imp-95100-witness-radii-mass-instantiation.js",
+  ],
   isRigorous: true,
   rigorScope:
     "Finding 0 (A_d cancels) is an exact structural observation on the roll-up inequality. Findings 1-4 are MEASUREMENTS: the quadrature reproduces the nineteenth closed form to 2.8e-6 at the model point and the four-lever scan and the break boundary s* are computed directly. No paper constant is instantiated (the paper text is not carried here), so no transferred ceiling is CLAIMED - only the transfer behavior (robust below 4, ~3x degrade at low theta, exact-proof break below s = 2.9484) is asserted. NO QED.",

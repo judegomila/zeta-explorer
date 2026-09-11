@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
 import { IMP95077_FAR_LEDGER_DEGRADE_TABLE } from '../data/imp-95077-far-ledger-degrade-table.js';
+import {
+  IMP95038_ENVELOPE_CURVE,
+  IMP95038_CORNER_VALUES,
+  IMP95038_V02,
+} from '../data/imp-95038-envelope-treatment-comparison.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -74,6 +79,75 @@ function StatusChip({ s }) {
   const m = STATUS_META[s] || STATUS_META.O;
   return (
     <span className="ed-mono" style={{ fontSize: 10, fontWeight: 700, color: m.color, border: `1px solid ${m.color}`, borderRadius: 4, padding: '1px 6px', whiteSpace: 'nowrap' }}>{s}</span>
+  );
+}
+
+// Per-pair envelope comparison chart (imp-95038): the three successive
+// far-bracket treatments plotted vs separation T, log-log, starting at the
+// dominant corner V(0,2). Content/viz follow-up only.
+function EnvelopeComparisonChart() {
+  const W = 640;
+  const H = 300;
+  const padL = 54;
+  const padR = 16;
+  const padT = 14;
+  const padB = 34;
+  const cW = W - padL - padR;
+  const cH = H - padT - padB;
+
+  const logT = (t) => Math.log10(t);
+  const tMin = logT(IMP95038_V02);
+  const tMax = logT(IMP95038_ENVELOPE_CURVE[IMP95038_ENVELOPE_CURVE.length - 1].T);
+  const yMax = logT(IMP95038_CORNER_VALUES.twoWindow);
+  const yMin = logT(IMP95038_ENVELOPE_CURVE[IMP95038_ENVELOPE_CURVE.length - 1].exact);
+
+  const xS = (t) => padL + cW * ((logT(t) - tMin) / (tMax - tMin));
+  const yS = (v) => padT + cH * (1 - (logT(v) - yMin) / (yMax - yMin));
+
+  const series = [
+    { key: 'twoWindow', color: '#b58a2e', label: 'two-window (seventeenth)' },
+    { key: 'threeWindow', color: '#3f6b86', label: 'three-window (eighteenth)' },
+    { key: 'exact', color: '#c23a1c', label: 'exact closed form (nineteenth)' },
+  ];
+
+  return (
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      width="100%"
+      style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
+      role="img"
+      aria-label="Per-pair envelope bound psi(T): two-window, three-window, and exact closed form, plotted vs separation T on a log-log scale, dominant corner V(0,2) marked at the left edge"
+    >
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="var(--hairline)" strokeWidth={1} />
+      {series.map((s) => {
+        const points = IMP95038_ENVELOPE_CURVE.map((p) => `${xS(p.T)},${yS(p[s.key])}`).join(' ');
+        return <polyline key={s.key} points={points} fill="none" stroke={s.color} strokeWidth={1.75} />;
+      })}
+      {/* dominant-corner marker */}
+      <line x1={xS(IMP95038_V02)} y1={padT} x2={xS(IMP95038_V02)} y2={padT + cH} stroke="var(--faint)" strokeWidth={1} strokeDasharray="3,3" />
+      <text x={xS(IMP95038_V02)} y={padT - 3} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">V(0,2)</text>
+      <text x={padL} y={padT + cH + 22} fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">
+        T = {IMP95038_V02.toFixed(3)}
+      </text>
+      <text x={padL + cW} y={padT + cH + 22} textAnchor="end" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">
+        T = {IMP95038_ENVELOPE_CURVE[IMP95038_ENVELOPE_CURVE.length - 1].T.toFixed(1)}
+      </text>
+      <text x={padL + cW / 2} y={padT + cH + 22} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">
+        separation T (log scale)
+      </text>
+      <text x={6} y={padT + 8} fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">
+        {IMP95038_CORNER_VALUES.twoWindow.toExponential(1)}
+      </text>
+      <text x={6} y={padT + cH} fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">
+        {IMP95038_ENVELOPE_CURVE[IMP95038_ENVELOPE_CURVE.length - 1].exact.toExponential(1)}
+      </text>
+      {series.map((s, i) => (
+        <g key={s.key} transform={`translate(${padL + 8}, ${padT + 12 + i * 13})`}>
+          <line x1={0} y1={0} x2={16} y2={0} stroke={s.color} strokeWidth={2} />
+          <text x={20} y={3} fontFamily="var(--ed-mono)" fontSize="10" fill="var(--ink-soft)">{s.label}</text>
+        </g>
+      ))}
+    </svg>
   );
 }
 
@@ -402,6 +476,24 @@ export default function PermutationArchitecturePage() {
             open slack. Cross-checked in{' '}
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-exact-pair-correlation-ceiling.js</code>.
             This promotes no bound.
+          </p>
+        </div>
+
+        <div style={{ border: '1px solid var(--hairline)', borderRadius: 8, padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>per-pair envelope bound ψ(T): three treatments (imp-95038, θ = 10)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The same three ceiling-side moves plotted as curves (log-log, fixed width ratio ρ = ρ<sub>cap</sub>(2) =
+            2<sup>-1/3</sup>) rather than as a single point at the dominant corner. All three envelopes decay in
+            separation T; the exact closed form (red) sits strictly below the three-window envelope (blue), which
+            sits strictly below the two-window envelope (gold), at every plotted T ≥ V(0,2).
+          </p>
+          <EnvelopeComparisonChart />
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '8px 0 0' }}>
+            The gap between the curves widens with T: the two older treatments carry the window/Cauchy-Schwarz
+            T<sup>1/2-s</sup> asymptotics, while the exact form carries the true T<sup>-s</sup> decay, so the
+            ceiling tightening compounds away from the corner. Floors are unchanged by this comparison; the plot
+            does not assert optimality of the exact envelope. Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95038-envelope-treatment-comparison.js</code>.
           </p>
         </div>
 

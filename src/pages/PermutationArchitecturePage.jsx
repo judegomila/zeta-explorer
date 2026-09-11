@@ -419,6 +419,43 @@ export default function PermutationArchitecturePage() {
           </p>
         </div>
 
+        <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>twentieth–twenty-second continuations (imp-95008): per-pair closure, proof-domain widen, aggregation lever</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            The nineteenth continuation left the non-parity residual bundled into three named slacks: (b1) per-pair
+            corner-substitution tightness, (b2) intra-class block-mass AM-GM routing, and (b3) sup<sub>b</sub>{' '}
+            routing of Ω. Three follow-on moves resolve them:
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            <strong>Twentieth (Theorem CA + Lemma EQ):</strong> proves the Lemma X separation floor V(b, j) is the
+            exact infimum of the pair separation over each cell, attained in closure at the same corner where the
+            Lemma RHO width-ratio cap binds — so (b1) CLOSES with zero slack: no per-pair ceiling improvement exists
+            in the continuous family. Corollary R2 quantifies (without applying) a fixed-97 grid-only slack: the
+            dominant cell's exhaustive-enumeration sup is 0.8258474234948617× the substituted envelope. Cross-checked
+            in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-substitution-corner-attainment.js</code>.
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
+            <strong>Twenty-first (Lemma RM-D):</strong> relaxes the nineteenth width-ratio monotonicity guard to the
+            range Theorem Y-EXACT actually needs, dropping the exact-proof break boundary from{' '}
+            s* = 2.9483832742380818 to s** = 2.4095981617415205 — a proof-domain widening, not a numeric ledger
+            change; the likely-paper point s = 3 gains a 14.73× larger margin (0.0239 → 0.3513). Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-rm-domain-refined-low-s-extension.js</code>.
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            <strong>Twenty-second (Lemma SW + Theorem Y-PERRON):</strong> replaces the unweighted sup-row-sum
+            aggregation pullout with a weighted-Schur aggregation certified by a machine-precision Rayleigh
+            (λ<sub>max</sub>) sandwich of width 2.3e-16, executing and consuming (b2)+(b3) — measured gain
+            1.0008665157515448× (0.0866%). This is the first move in the chain that moves the tracked far ceiling:
+            0.2717408057586117 → 0.27150554192989773, headline θ = 10 gap 2.8088338309749887× → 2.8064020394026787×,
+            fixed-97 gap 225.42360917596611× → 225.22844518052122×; floors untouched. The surviving residual
+            1.4032010197013394 is pinned to the witness-side E-realization step (named sub-gap
+            imp-95008-subgap-witness-Erealization-split). Cross-checked in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95008-perron-weighted-far-routing.js</code>.
+            No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
+          </p>
+        </div>
+
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
           <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — paper-packet transfer of the far-ceiling ledger (imp-95026)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>

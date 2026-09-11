@@ -13317,6 +13317,18 @@ const DATA_MODULES = [
   // append-chain lift (base -> carried terminal literals) not re-derived.
   // Re-audit only; changes no bound; NO QED.
   '/src/data/imp-95017-witness-floor-reaudit.js',
+  // imp-95045: decomposes the headline/fixed-97 ceiling/floor gaps into a
+  // parity AM-GM factor 2 times a witness-realization residual; import-light
+  // (landmark literals only), self-executing assertions, discovered
+  // unregistered under the imp-95022 --since-changed fast path (imp-95088
+  // verification) and added here.
+  '/src/data/imp-95045-headline-gap-attribution.js',
+  // imp-95046: names the surviving y-thaw slab-44 conditional target and its
+  // certification requirements against the imp-95012 frozen spec; import-
+  // light, self-executing assertions, discovered unregistered under the
+  // imp-95022 --since-changed fast path (imp-95088 verification) and added
+  // here.
+  '/src/data/imp-95046-slab-44-conditional-target.js',
   // imp-95067: INDEPENDENT re-audit of the append-chain LIFT (the residual
   // sub-gap imp-95017-subgap-append-lift). Re-evaluates both baked
   // occupied-block append chains step by step through a floor evaluator
@@ -15041,6 +15053,21 @@ const DATA_MODULES = [
   // honest residual; the panel-pass lever is spent). Sub-range only;
   // promotion flag false; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95214-tier2-chirp-level.js',
+  // imp-95228 (numerical, S-frontier): ASSESSMENT of the frequency-bin
+  // second-level lever the imp-95213 residualLever field named "NOT built"
+  // and the scout asked whether it reaches the 1.1e13 design budget. Answer
+  // read off the imp-95214 measured ledger (a later ticket that BUILT +
+  // validated + priced exactly that lever): (1) the per-panel O(N) pass IS
+  // amortized 31x (pass rate 0.9159 -> 0.017 CPU-s/x-unit, from 97.4% of
+  // level-1 cost down to 32% of tier-2 cost); (2) it does NOT reach the
+  // design budget — full-window 1.55e14 ball-ops sit 14x above 1.1e13, an
+  // ~18x overall speedup inside the identified 10-100x band but far short of
+  // the ~92x needed; (3) the panel lever is SPENT — the residual is cell
+  // (37%) + reconstruction (31%) dominated (imp-95229 scope). Import-light
+  // (imports only the import-light imp-95214 constants), four self-executing
+  // assertions. Assessment only; changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95228-second-level-lever-assessment.js',
   // imp-95059 (ux, S-frontier): HONEST-STATUS BANNER stating the imp-95011
   // Gate-2 oscillation probe and imp-95014 Lane-B two-forms audit both run on
   // a hand-picked five-shell SURROGATE model, not an arithmetic evaluation of

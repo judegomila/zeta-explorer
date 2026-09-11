@@ -15211,6 +15211,23 @@ const DATA_MODULES = [
   // (r -> infinity). N >= 3 confluent-span envelope stays OPEN; changes no
   // bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95231-rate-monotonicity-closure.js',
+  // imp-95249 (fable-5, frontier): THEOREM SPLIT-2 + THEOREM ANG-PENCIL +
+  // LEMMA ANG-DET + COROLLARY IN-OCT -- rigorous two-subspace split of the
+  // signed seam pencil Lambda(V1 u V2, d) <= (Lambda1 + Lambda2)/(1 - sigma)
+  // priced by the subspace angle sigma, which is proven to BE the same pencil
+  // with the inner function e^(-ds) replaced by the V2 Blaschke product
+  // (kernel identity G12 G2^(-1) G12^T = G1 - Dp G1 Dp, Dp = diag(B2(nu_i))),
+  // with the closed-form fence sigma <= sqrt(1 - prod beta_ij^2) via the
+  // determinant of the truncated-Toeplitz compression (equality at rank one =
+  // Muentz-Blaschke). Instantiation: FIRST coalescence-uniform certificate
+  // for an in-octave twin pair {1, r} on the dyadic skeleton {2..32} -- fires
+  // for x > 7.101831 uniformly in r where raw PROP BL diverges (imp-95232
+  // FINDING 3 breakage fenced on the single-tight-pair configuration).
+  // Surviving obstruction named: multi-block split needs a block Riesz-basis
+  // (Carleson-type) bound; pairwise-angle Gershgorin REFUTED on geometric
+  // lattices. Import-light, eight self-executing assertions. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95249-inoctave-pair-split-certificate.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

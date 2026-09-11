@@ -1001,6 +1001,9 @@ const Imp95266ThetaVsKPhaseCollapseViz = lazy(() =>
 const Imp95265EvOctFiringCurveViz = lazy(() =>
   import('./pages/Imp95265EvOctFiringCurveViz.jsx')
 );
+const Imp95267OffLatticeRobustnessViz = lazy(() =>
+  import('./pages/Imp95267OffLatticeRobustnessViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2758,6 +2761,10 @@ function AppShell() {
           <Route
             path="/viz-imp95266-theta-vs-k-phase-collapse"
             element={<Imp95266ThetaVsKPhaseCollapseViz />}
+          />
+          <Route
+            path="/viz-imp95267-offlattice-robustness"
+            element={<Imp95267OffLatticeRobustnessViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

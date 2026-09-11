@@ -1803,6 +1803,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive two-panel chart recomputing theta_K (exact BigInt rational integration) and the L1/L2 modulus (exact binomial identities) independently from the imp-95233 documented closed forms (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95267-offlattice-robustness',
+      title: 'Off-Lattice Robustness of the Raw Blaschke-Lagrange Bound',
+      oneLine:
+        'Log-scale mean/worst BL^2/Lambda ratio curves against dyadic-site jitter eps (imp-95232 FINDING 2), showing the raw Blaschke-Lagrange bound degrades gracefully (worst 1.58x at eps=0.2, 9.4x at eps=0.3) while a fixed eps=0.2 witness stays near on-lattice (1.008x).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95267-offlattice-robustness-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95232-bl-lat-off-lattice-degradation.js (FINDING 2 offLatticeTable / offLatticeWitness; imp-95267 viz page)',
+      ticket: 'imp-95267',
+      pedagogicalStep: 127,
+      honestCeiling:
+        'Descriptive curve chart baking the imp-95232 FINDING 2 offLatticeTable / offLatticeWitness literals verbatim (no new computation, no heavy import); the off-lattice degradation measured here is a RAW-BL property, distinct from the count-uniform BL-LAT collar (imp-95232 FINDING 1, ~70x looser); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-twistor-dual-intertwiner',
       title: 'Twistor Space, its Dual, and the Intertwiner',
       oneLine:

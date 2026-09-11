@@ -14618,6 +14618,44 @@ const DATA_MODULES = [
   // coverage, criterion assembly) OPEN and not claimed. Changes no bound;
   // NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95208-ythaw-package-stage12.js',
+  // imp-95130 (opus-4-8): route assessment for the RESTATED O1 obligation of
+  // the imp-95208 y-thaw package -- SHARP-MASS Y-MONOTONICITY of the
+  // max-of-kinked-branches summand with y-dependent c(g) on [0.1808, 0.187272].
+  // Scopes five routes: (a) triangle-Dini STRUCK, (b) direct termwise BLOCKED
+  // (double-cancellation kink), (c) S0 radial-monotonicity lift = PRIMARY
+  // (reuses the proven S0 sub-lemma; only new object = sign of dg_N/dy plus at
+  // most one sharp single-slice sweep at the worse endpoint), (d) profile-sector
+  // cells + excision budget = robust FALLBACK, (e) two-endpoint Lipschitz
+  // sandwich = coarse alt. Import-light. Sub-gap
+  // imp-95130-subgap-gN-monotone-sign carried OPEN; changes no bound; NO QED;
+  // PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95130-o1-sharpmass-ymono-route-assessment.js',
+  // imp-95132 (opus-4-8): assessment of obligation O6 (criterion assembly) of
+  // the y-thaw 0.17759432 package at y0 = 0.1808. Dependency map, NOT a
+  // closure: O6 (ledger row 12) instantiates the criterion template at
+  // (t0 = 129/800, y0 = 113/625), height input X = 6000000185827 unchanged,
+  // and glues the binding lemma + sweep + O1..O5 into Lambda <= 0.17759432.
+  // The one O6-specific check is the row-12 y-quarantine (y0 enters only via
+  // the RHS value t0 + y0^2/2; no new y-floor). With O3, O5 CLOSED (imp-95212)
+  // and the binding lemma + sweep in hand, the assembly fires IFF O1, O2, O4
+  // also close -- O6 stands on those three, does not close standalone. Named
+  // sub-gap imp-95132-subgap-o6-template-lean-check. Changes no bound;
+  // 0.17759432 stays a package value; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95132-o6-criterion-assembly.js',
+  // imp-95131 (opus-4-8): MEASURE the y-thaw package O4 obligation (analytic
+  // tail N > 3840000 at y = 0.1808). Not a closure - a measurement: the
+  // stage-2 sweep certifies the sharp floor only on the finite lane up to the
+  // right edge 3840000; O4 needs an N-uniform analytic lower bound past it.
+  // Measured from the imp-95208 STAGE2 terminal p23 family: the tail-entry
+  // floor at the boundary is 0.325311061495, strictly increasing and concave
+  // (increments 0.018883 -> 0.006787 per 1.6e5 step); the required tail
+  // estimate T_N >= E_max_prime = 2.43878668361931290e-7 (imp-95212 O3 budget)
+  // is cleared by 1.33e6x, and the tail-entry floor is 5.19x the binding
+  // interior minimum 0.062718178029 (N = 690996), so the tail is NOT the
+  // binding region. HONEST GAP: the analytic majorants g-bar(N), s-bar(N) at
+  // y = 0.1808 are NOT derived (sealed tail legs anchored at y >= 0.187272);
+  // O4 stays OPEN. Changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95131-ythaw-o4-tail-requirement.js',
   // imp-95213 (fable-5): RIGOROUS step - geometric-chain refined
   // multiplicity pricing: the imp-95212 open question (is the linear-in-K
   // collar premium sharp?) settled in the NEGATIVE under the unchanged
@@ -14902,6 +14940,21 @@ const DATA_MODULES = [
   // certified. Sub-gap carried OPEN. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95226-np-exact-signed-shift-constant.js',
+  // imp-95227 (fable-5): RIGOROUS step - THEOREM COAL-DOM: the imp-95226
+  // COROLLARY COAL-2 grid observation is now a theorem. The exact signed
+  // two-rate shift constant is STRICTLY dominated by its coalescent limit
+  // at fixed x = nu_1 d: Lambda_2 < e^(-2x)(1+2x^2+2x sqrt(1+x^2)) for
+  // ALL distinct rates and depths, sharp at coalescence - the first
+  // PROVEN depth-only signed N = 2 certificate, non-vacuous at every
+  // positive depth. Proof: positive-root form of SGN-2X, the pivot
+  // h(s) rho_0 + P(s) < h_0 rho_0 + P_0 via the Pade bound
+  // 1-e^(-u) <= 2u/(2+u), terminal reduction to sqrt(1+x^2) >= 1.
+  // Joint (h,P)-monotonicity refuted (h not monotone for x < 1/2); the
+  // rho_0-weighted functional is the fix. N = 2 specific: no conflict
+  // with imp-95224 DC-NOGO (count-uniform only). Named open successor:
+  // N >= 3 fully-confluent-span envelope CONJECTURE. Sub-gap carried
+  // OPEN; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95227-two-rate-coalescence-dominance-theorem.js',
   // imp-95210 (fable-5): W1-CERT envelope pivot REFUTED - honest
   // infeasibility record. The hoped move from phase-resolving to
   // envelope-scale subdivision for the window-1 pilot certificate fails

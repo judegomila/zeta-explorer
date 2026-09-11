@@ -15461,6 +15461,21 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95288-runiform-block-pencil-floor.js',
+  // imp-95328 (fable-5, frontier): THEOREM RZ-PEN2 + LEMMA S-MONO +
+  // COROLLARY PEN-UNIF2 + COROLLARY SPLIT-PEN2 -- executes the imp-95288
+  // named residual (two-chart sharpening of the r-uniform block
+  // symbol-pencil floor): keep the trace weights pointwise in theta,
+  // track P_0 decreasing and the side mass S increasing (LEMMA S-MONO
+  // replaces the Jensen step), close the two-chart corner reduction over
+  // an explicit 256-point split scan (each scanned floor exact; the
+  // optimal split point is transcendental, recorded honestly). Floor
+  // gain 13.326x at rho = 2 (residual looseness 25.3-91.7x -> 4.6-6.7x);
+  // every-octave onsets: m-and-r-uniform 15.689897 -> 14.302669, r = 1.3
+  // 15.466164 -> 14.077435, r = 1.05 15.215651 -> 13.825182. New named
+  // residual: the beta trace currency (1 - cos <= x^2/2 step).
+  // Import-light, eight self-executing assertions. Changes no bound;
+  // NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95328-two-chart-pencil-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

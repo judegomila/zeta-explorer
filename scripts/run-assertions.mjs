@@ -13065,6 +13065,11 @@ const DATA_MODULES = [
   // 2444.652 -> 642.200, floors untouched. Honest limits recorded: the
   // asymptotic half-exponent survives (outer windows), measured corner
   // slack ~2.85x, sup near-tie at b = 0. Changes no bound; NO QED.
+  // imp-95043 coverage audit: confirmed this eighteenth module remains wired
+  // into this sweep (not droppable by any prune) -- the nineteenth module's
+  // imp95008-epc-bracket-update assertion re-derives the headline floor
+  // literal from HEAD_FLOOR here and checks it stays strictly below the
+  // updated ceiling, so this entry must stay live for that check to hold.
   '/src/data/imp-95008-width-pinned-three-window-ceiling.js',
   // imp-95008 continuation nineteen (fable-5): LEMMA CC + LEMMA RM +
   // LEMMA PF + THEOREM Y-EXACT - the eighteenth's named achieved-side

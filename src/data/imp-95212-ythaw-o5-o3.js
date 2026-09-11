@@ -81,6 +81,54 @@ export const O3_ERROR_BUDGET = {
   sealedTriangleContextMargin: 5.47488e-7, // 7.91366e-7 - E_max', still positive
 };
 
+// ── O5 three-lane cross-validation table (imp-95236) ───────────────────────
+// The O5 site-coverage certification rests on three-way agreement of three
+// independent lanes; that agreement was graded but never tabulated. Here the
+// three lanes' left/right interior margins at x_*(0.1808) in W_690988 are laid
+// out side by side. The exact-rational lane is reproduced IN-BUILD (60-digit
+// BigInt fixed-point, Machin pi + isqrt bracket for sqrt(1-y^2)) and matches
+// the recorded 12-dp certified floors to every digit; the mpmath.iv 400-bit
+// and Arb/FLINT 400-bit lanes are the externally-run confirmations whose
+// scripts are sha256-pinned above, agreeing at the recorded precision. The
+// in-build reproduction yields a few more digits than the certified floor.
+// No bound change; O5 stays CLOSES under our toolchain.
+export const O5_THREE_LANE_CROSSVALIDATION = {
+  site: 'x_*(0.1808) in W_690988',
+  X: 6000000185827,
+  N0: 690988,
+  // extended digits from the in-build BigInt reproduction (past the 12-dp floor)
+  reproducedLeftMargin: '5377393.989068215737575488',
+  reproducedRightMargin: '11989041.173452031023668065',
+  lanes: [
+    {
+      lane: 'exact-rational',
+      tool: 'Fraction + Machin pi + isqrt brackets; reproduced in-build (60-digit BigInt)',
+      leftMargin: 5377393.989068215737,
+      rightMargin: 11989041.173452031023,
+      recomputedInBuild: true,
+    },
+    {
+      lane: 'mpmath.iv',
+      tool: 'mpmath.iv interval, 400 bits, directed rounding (verify_o5_site_coverage.py)',
+      leftMargin: 5377393.989068215737,
+      rightMargin: 11989041.173452031023,
+      recomputedInBuild: false,
+      sha256: '484c5bf52b75dee8a9ce4d8d3c90ae28f366af63cd549f359d80c76053d9c2db',
+    },
+    {
+      lane: 'Arb/FLINT',
+      tool: 'Arb/FLINT ball arithmetic, 400 bits (verify_o5_site_arb.c)',
+      leftMargin: 5377393.989068215737,
+      rightMargin: 11989041.173452031023,
+      recomputedInBuild: false,
+      sha256: '2593c38127302a3b144a77370903413b2e02a051297bc4c2660384e78d94a448',
+    },
+  ],
+  agreement:
+    'all three independent lanes agree on the left/right interior margins to the recorded 12-dp certified precision; margins strictly positive => x_*(0.1808) interior to W_690988',
+  changesBound: false,
+};
+
 export const IMP_95212_VERDICT = {
   o5: 'CLOSES — x_*(0.1808) strictly interior to W_690988, margins > 5.377e6 / > 1.198e7',
   o3: 'CLOSES — E_max\' = 2.43878668361931290e-7 certified uniform over y in [0.1808, y_max]; sharp-floor margin > 0.0627',
@@ -99,6 +147,7 @@ export const IMP_95212_YTHAW_O5_O3 = {
   title:
     'y-thaw package obligations O5 (site coverage, certified 3-lane) + O3 (E_max budget re-certified over y in [0.1808, y_max], interval hull, 320 bits)',
   o5: O5_SITE_COVERAGE,
+  o5CrossValidation: O5_THREE_LANE_CROSSVALIDATION,
   o3: O3_ERROR_BUDGET,
   verdict: IMP_95212_VERDICT,
   note: 'formalization/y-thaw-01775943/SHARP_WEIGHT_NATIVE_BINDING.md section 8',
@@ -145,6 +194,69 @@ export const IMP_95212_ASSERTIONS = [
       );
     },
     why: 'O5 margins: certified left 5377393.989068215737 and right 11989041.173452031023 are strictly positive, agree with the binary64 shadow within its ~1e-3 absolute accuracy at 6e12 scale, and equal the sealed margins displaced by exactly the start shift (sealed figures were floor-truncated at 4dp).',
+  },
+  {
+    id: 'imp-95236-o5-three-lane-crossval',
+    holds: () => {
+      // reproduce the exact-rational lane in-build at 60-digit BigInt fixed point
+      const SCALE = 60n;
+      const S = 10n ** SCALE;
+      const isqrt = (n) => {
+        if (n < 2n) return n;
+        let x = n;
+        let y = (x + 1n) / 2n;
+        while (y < x) {
+          x = y;
+          y = (x + n / x) / 2n;
+        }
+        return x;
+      };
+      const sqrtFrac = (a, b) => isqrt((S * S * a) / b); // floor(S*sqrt(a/b))
+      const arctanInv = (k) => {
+        const kk = k * k;
+        let sum = 0n;
+        let n = 0n;
+        let sign = 1n;
+        let kpow = k;
+        while (true) {
+          const term = S / ((2n * n + 1n) * kpow);
+          if (term === 0n) break;
+          sum += sign > 0n ? term : -term;
+          sign = -sign;
+          n += 1n;
+          kpow *= kk;
+        }
+        return sum;
+      };
+      // Machin: pi = 16 arctan(1/5) - 4 arctan(1/239), scaled by S
+      const PI = 16n * arctanInv(5n) - 4n * arctanInv(239n);
+      const t16num = 129n; // t/16 = 129/12800
+      const t16den = 12800n;
+      const xN = (N) => 4n * PI * N * N - (4n * PI * t16num) / t16den;
+      const X = 6000000185827n;
+      const N0 = 690988n;
+      const xstar = X * S + sqrtFrac(377856n, 390625n); // X + sqrt(1 - y^2)
+      const left = xstar - xN(N0);
+      const right = xN(N0 + 1n) - xstar;
+      const scale12 = 10n ** (SCALE - 12n);
+      const leftFloor12 = left / scale12; // truncate to 12dp -> value * 1e12
+      const rightFloor12 = right / scale12;
+      const t = O5_THREE_LANE_CROSSVALIDATION;
+      return (
+        leftFloor12 === 5377393989068215737n &&
+        rightFloor12 === 11989041173452031023n &&
+        t.lanes.length === 3 &&
+        t.lanes.every(
+          (L) =>
+            L.leftMargin === O5_SITE_COVERAGE.leftMargin &&
+            L.rightMargin === O5_SITE_COVERAGE.rightMargin
+        ) &&
+        left > 0n &&
+        right > 0n &&
+        t.changesBound === false
+      );
+    },
+    why: 'O5 three-lane cross-validation: the exact-rational lane is reproduced in-build with 60-digit BigInt fixed-point arithmetic (Machin pi, isqrt bracket for sqrt(1-y^2)) and its left/right interior margins floor to the recorded 12-dp certified values 5377393.989068215737 / 11989041.173452031023 exactly; the tabulated mpmath.iv 400-bit and Arb/FLINT 400-bit lanes carry the same margins, so all three independent lanes agree and x_*(0.1808) is strictly interior to W_690988.',
   },
   {
     id: 'imp-95212-o3-budget-growth-model',

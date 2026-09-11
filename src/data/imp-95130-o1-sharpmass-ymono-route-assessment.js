@@ -191,7 +191,99 @@ export const IMP_95130_O1_SHARPMASS_YMONO_ROUTE_ASSESSMENT = Object.freeze({
     'O1-O6 remain OPEN; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.',
 });
 
+// ── imp-95227: does O1 close by O3-style inclusion-isotonicity, or does it ───
+// genuinely require a monotonicity-in-y argument? (the ticket dichotomy) ──────
+//
+// O3 (E_max budget) closed WITHOUT any monotonicity appeal: its sealed
+// Prop-4.10 chain was re-run once with y replaced by the full interval hull
+// [0.1808, y_max], and inclusion isotonicity of interval arithmetic made the
+// single hull evaluation dominate every y automatically (imp-95212 O3 grade).
+// That works because O3 is an UPPER bound on a smooth, sign-definite ERROR
+// budget: hull over-estimation is exactly what you want (the worst case), and
+// the composition has no cancellation, so the certified quotient just grows a
+// structural 4.4471% over the gap (growthFactorUpper 1.044471048052).
+//
+// O1 is the OPPOSITE shape: a LOWER bound on the sharp floor
+//   T_N(y) = (1 - g_N(y)) - sum_n s_n(y),
+//   s_n(y) = max(|B_n - g A_n|, c(g)|B_n + g A_n|) n^{-sigma},  g = g_N(y).
+// A single wide-y hull re-run (the cheap O3 move) does NOT transfer to O1.
+// Inclusion isotonicity stays valid, but evaluating a max-of-two-branches sum
+// whose FIRST branch is the difference B_n - g A_n (catastrophic cancellation)
+// over a WIDE y-interval suffers the dependency/wrapping blowup: the same
+// double-cancellation obstruction that BLOCKS route (b) termwise and that only
+// cells dissolved in the sibling Lambda <= 0.1758354 transfer. The naive hull
+// lower bound on T_N goes negative and vaporizes the 0.0627 bottom-slice
+// margin. So the O3 single-hull re-run is INSUFFICIENT for O1.
+//
+// The dichotomy therefore resolves: O1 needs EITHER
+//  (1) a genuine monotonicity-in-y argument (route (c) S0-lift) reducing the
+//      transfer to the worse single y-endpoint -- CHEAP, only new object is the
+//      sign of dg_{N}/dy plus at most one sharp top-slice sweep; OR
+//  (2) inclusion isotonicity WITH y-subdivision -- a 2D N x y branch-and-bound
+//      sweep whose y-cell count is set by how fast the dependency error shrinks
+//      as each y-cell narrows -- rigorous and monotonicity-free, but it
+//      multiplies the ~3.15M-row N-lane by the cell count (route (d) cells cast
+//      in y), FAR costlier than O3.
+// Cheap path = (1); rigorous-but-expensive fallback = (2). This changes no
+// bound and closes nothing; it only fixes which mechanism O1 requires. The
+// sub-gap stays imp-95130-subgap-gN-monotone-sign (route (c)); no new sub-gap.
+export const O1_ISOTONICITY_VS_MONOTONICITY = Object.freeze({
+  ticket: 'imp-95227',
+  question:
+    'can O1 (all-y transfer of the sharp floor) close by the O3-style single ' +
+    'inclusion-isotonicity hull re-run, or is a genuine monotonicity-in-y ' +
+    'argument required?',
+  o3Mechanism: Object.freeze({
+    kind: 'inclusion-isotonicity, single hull re-run, no monotonicity appeal',
+    boundSense: 'UPPER bound on a smooth sign-definite error budget',
+    whyItWorks:
+      'hull over-estimation is the desired worst case; no cancellation, so one ' +
+      'interval re-run over [0.1808, y_max] dominates every y (imp-95212 O3)',
+    gapGrowthFactor: 1.044471048052, // imp-95212 O3 growthFactorUpper
+  }),
+  o1Mechanism: Object.freeze({
+    boundSense: 'LOWER bound on the sharp floor T_N(y) = (1 - g_N) - sum s_n(y)',
+    singleHullTransfers: false,
+    obstruction:
+      'the first branch B_n - g A_n is a difference (catastrophic cancellation); ' +
+      'a wide-y interval hull of the max-of-branches sum suffers the ' +
+      'dependency/wrapping blowup -- same double-cancellation that blocks route ' +
+      '(b) and only cells dissolved in the sibling Lambda <= 0.1758354 transfer',
+    consequence:
+      'naive hull lower bound on T_N goes negative, vaporizing the 0.0627 ' +
+      'bottom-slice margin',
+  }),
+  resolution: Object.freeze({
+    o3IsotonicityInsufficientForO1: true,
+    cheapPath: 'route (c) S0-lift (genuine monotonicity-in-y; worse endpoint)',
+    rigorousFallback:
+      'route (d)-in-y: inclusion isotonicity WITH y-subdivision (2D N x y ' +
+      'branch-and-bound), monotonicity-free but multiplies the ~3.15M-row ' +
+      'N-lane by the y-cell count',
+    subGap: 'imp-95130-subgap-gN-monotone-sign (unchanged; no new sub-gap)',
+  }),
+  changesBound: false,
+  qed: false,
+});
+
 export const IMP_95130_O1_SHARPMASS_YMONO_ROUTE_ASSESSMENT_ASSERTIONS = [
+  {
+    id: 'imp-95227: O3 inclusion-isotonicity does NOT transfer to O1; monotonicity (or subdivided isotonicity) required',
+    holds: () => {
+      const D = O1_ISOTONICITY_VS_MONOTONICITY;
+      return (
+        D.ticket === 'imp-95227' &&
+        D.o1Mechanism.singleHullTransfers === false &&
+        D.resolution.o3IsotonicityInsufficientForO1 === true &&
+        /S0-lift/.test(D.resolution.cheapPath) &&
+        D.resolution.subGap === 'imp-95130-subgap-gN-monotone-sign' &&
+        D.changesBound === false &&
+        D.qed === false &&
+        Math.abs(D.o3Mechanism.gapGrowthFactor - 1.044471048052) < 1e-12
+      );
+    },
+    why: 'O3 closed as an UPPER bound on a smooth error budget by one interval hull re-run (no monotonicity appeal, structural 4.4471% growth); O1 is a LOWER bound on a cancellation-heavy max-of-branches floor whose wide-y hull suffers the double-cancellation blowup, so the cheap O3 single-hull move is insufficient -- O1 genuinely needs route (c) monotonicity-in-y (cheap) or subdivided isotonicity (route (d)-in-y, expensive), sub-gap unchanged.',
+  },
   {
     id: 'imp-95130: gap endpoints exact and length ~6.472e-3',
     holds: () =>

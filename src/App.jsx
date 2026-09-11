@@ -995,6 +995,9 @@ const Imp36288RouteBSlopeConvergenceViz = lazy(() =>
 const Imp95240O5SiteCoverageMarginsViz = lazy(() =>
   import('./pages/Imp95240O5SiteCoverageMarginsViz.jsx')
 );
+const Imp95265EvOctFiringCurveViz = lazy(() =>
+  import('./pages/Imp95265EvOctFiringCurveViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2744,6 +2747,10 @@ function AppShell() {
           <Route
             path="/viz-imp95240-o5-site-coverage-margins"
             element={<Imp95240O5SiteCoverageMarginsViz />}
+          />
+          <Route
+            path="/viz-imp95265-evoct-firing-curve"
+            element={<Imp95265EvOctFiringCurveViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

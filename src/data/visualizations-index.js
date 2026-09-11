@@ -1775,6 +1775,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive bracket chart baking the imp-95212 O5_SITE_COVERAGE leftMargin/rightMargin literals verbatim (no new computation, proportional not true-scale layout); closes obligation O5 of the six-obligation y-thaw package only; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95265-evoct-firing-curve',
+      title: 'EV-OCT Certificate Firing Curve, m = 6 Dyadic Skeleton',
+      oneLine:
+        'Log-scale curve of the imp-95250 COROLLARY EV-OCT closed-form certCoalM(6, x) certificate across depth x, showing the every-octave-twin firing threshold crossing at xStarEvOct = 11.31664319.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95265-evoct-firing-curve-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95250-leaveoneout-multiblock-split-certificate.js (COROLLARY EV-OCT closed-form certificate; imp-95265 viz page)',
+      ticket: 'imp-95265',
+      pedagogicalStep: 125,
+      honestCeiling:
+        'Descriptive curve chart recomputing the imp-95250 certCoalM(6, x) closed form independently from its documented coalLaw/betaLat pieces (no new derivation, no heavy import); the certificate is a model-family bound sitting orders above the exact pencil (imp-95250 HONEST LIMITS); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-twistor-dual-intertwiner',
       title: 'Twistor Space, its Dual, and the Intertwiner',
       oneLine:

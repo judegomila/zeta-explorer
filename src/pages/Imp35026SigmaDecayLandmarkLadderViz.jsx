@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import { IMP35026_SIGMA_DECAY_LANDMARK_LADDER_VIZ_DATA } from '../data/imp-35026-sigma-decay-landmark-ladder-viz-data.js';
 
@@ -201,6 +202,14 @@ export default function Imp35026SigmaDecayLandmarkLadderViz() {
         computation). Measurement on the inherited imp-3220/imp-3406 surrogate, NOT a rigorous asymptotic;
         C_mb GUE-conditional per imp-486 untouched; establishes no operator positivity; imp-3066
         K_a&nbsp;&ge;&nbsp;0 untouched; changes no bound; no RH verdict, NO QED.
+      </div>
+
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+        <strong>Related:</strong>{' '}
+        <Link to="/viz-imp33549-sigma-fartail-vs-interior-max" style={{ color: '#7c3aed' }}>
+          Sigma(N) Far-Tail Law vs Interior-Max Reconciliation (imp-33549): the pre-peak rise and
+          the U-shape interior maximum (N~9.22e5) that precedes the post-peak landmarks above
+        </Link>
       </div>
     </div>
   );

@@ -207,6 +207,11 @@ export default function Imp33549SigmaFarTailVsInteriorMaxViz() {
         <Link to="/viz-imp33628-etrunc-ecoll-crossover" style={{ color: '#7c3aed' }}>
           E_trunc / E_coll Post-Peak Crossover Ladder (imp-33602 / imp-33628)
         </Link>
+        {' | '}
+        <Link to="/viz-imp35026-sigma-decay-landmark-ladder" style={{ color: '#7c3aed' }}>
+          Sigma(N) Decay Landmark Ladder (imp-35026): the post-peak 0.9 / 0.5 / 0.1 threshold
+          crossings and the S-shaped decay-exponent ramp continuing past this page&apos;s peak
+        </Link>
       </div>
     </div>
   );

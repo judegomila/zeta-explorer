@@ -1761,6 +1761,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive chart baking the imp-36082/imp-36151 r_B(N) rate machinery verbatim across a wider ladder (no new numerics, no heavy data-module import); presentation only; r_B(N) bounds a shock-time DEVIATION, not |t_c(N)| absolutely (imp-36082 CONSUMABLE-MODULO-ANCHOR); does not imply the imp-36045 Route-C > Route-B ranking reflects a faster exponent (imp-36151); C_mb GUE-conditional (imp-486) is UNTOUCHED; changes no bound, establishes no operator positivity, no RH verdict; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95240-o5-site-coverage-margins',
+      title: 'O5 Site-Coverage Margins: x_*(0.1808) in W_690988',
+      oneLine:
+        'Proportional bracket chart of the imp-95212 O5 site-coverage certification, placing x_*(0.1808) between zeros x_690988 and x_690989 with its certified leftMargin (~5.377e6) and rightMargin (~1.199e7), both strictly positive.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95212-ythaw-o5-o3.js',
+      paperSourcePath:
+        'src/data/imp-95212-ythaw-o5-o3.js (O5_SITE_COVERAGE three-lane certified margins; imp-95240 viz page)',
+      ticket: 'imp-95240',
+      pedagogicalStep: 124,
+      honestCeiling:
+        'Descriptive bracket chart baking the imp-95212 O5_SITE_COVERAGE leftMargin/rightMargin literals verbatim (no new computation, proportional not true-scale layout); closes obligation O5 of the six-obligation y-thaw package only; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-twistor-dual-intertwiner',
       title: 'Twistor Space, its Dual, and the Intertwiner',
       oneLine:

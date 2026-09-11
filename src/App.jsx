@@ -992,6 +992,9 @@ const Imp36287KbnFloorHeadroomDivergenceViz = lazy(() =>
 const Imp36288RouteBSlopeConvergenceViz = lazy(() =>
   import('./pages/Imp36288RouteBSlopeConvergenceViz.jsx')
 );
+const Imp95240O5SiteCoverageMarginsViz = lazy(() =>
+  import('./pages/Imp95240O5SiteCoverageMarginsViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2737,6 +2740,10 @@ function AppShell() {
           <Route
             path="/viz-imp36288-routeb-slope-convergence"
             element={<Imp36288RouteBSlopeConvergenceViz />}
+          />
+          <Route
+            path="/viz-imp95240-o5-site-coverage-margins"
+            element={<Imp95240O5SiteCoverageMarginsViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

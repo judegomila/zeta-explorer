@@ -1,0 +1,134 @@
+import React from 'react';
+import PageHeader from '../components/PageHeader.jsx';
+import { O5_SITE_COVERAGE } from '../data/imp-95212-ythaw-o5-o3.js';
+
+// Baked literals imported verbatim from the imp-95212 data module; no new
+// computation is performed here (viz/UX only).
+const { X, N0, leftMargin, rightMargin } = O5_SITE_COVERAGE;
+const windowWidth = leftMargin + rightMargin;
+const siteFrac = leftMargin / windowWidth;
+
+function MarginBracketChart() {
+  const svgW = 700;
+  const padL = 40;
+  const padR = 40;
+  const padT = 56;
+  const padB = 44;
+  const plotW = svgW - padL - padR;
+  const barY = 90;
+  const barH = 20;
+  const svgH = padT + barH + padB + 20;
+
+  const xOf = (frac) => padL + frac * plotW;
+  const siteX = xOf(siteFrac);
+
+  return (
+    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+      <text x={padL} y={padT - 30} fill="#94a3b8" fontSize={11} fontWeight={700}>
+        Window W_{N0}: x_*(0.1808) strict-interior margins (proportional to margin size)
+      </text>
+
+      <rect
+        x={padL}
+        y={barY}
+        width={plotW}
+        height={barH}
+        fill="rgba(148,163,184,0.08)"
+        stroke="#334155"
+        strokeWidth={1}
+      />
+
+      {/* left margin segment */}
+      <rect x={padL} y={barY} width={siteX - padL} height={barH} fill="rgba(56,189,248,0.35)" />
+      {/* right margin segment */}
+      <rect x={siteX} y={barY} width={padL + plotW - siteX} height={barH} fill="rgba(167,139,250,0.35)" />
+
+      {/* left bracket endpoint: x_N0 */}
+      <line x1={padL} y1={barY - 8} x2={padL} y2={barY + barH + 8} stroke="#38bdf8" strokeWidth={2} />
+      <text x={padL} y={barY - 14} textAnchor="start" fill="#38bdf8" fontSize={10}>
+        x_{N0}
+      </text>
+
+      {/* right bracket endpoint: x_(N0+1) */}
+      <line
+        x1={padL + plotW}
+        y1={barY - 8}
+        x2={padL + plotW}
+        y2={barY + barH + 8}
+        stroke="#a78bfa"
+        strokeWidth={2}
+      />
+      <text x={padL + plotW} y={barY - 14} textAnchor="end" fill="#a78bfa" fontSize={10}>
+        x_{N0 + 1}
+      </text>
+
+      {/* the site x_*(0.1808) */}
+      <line x1={siteX} y1={barY - 16} x2={siteX} y2={barY + barH + 16} stroke="#f87171" strokeWidth={2} />
+      <circle cx={siteX} cy={barY + barH / 2} r={4} fill="#f87171" />
+      <text x={siteX} y={barY + barH + 30} textAnchor="middle" fill="#f87171" fontSize={10}>
+        x_*(0.1808)
+      </text>
+
+      {/* margin labels */}
+      <text x={(padL + siteX) / 2} y={barY + barH + 30} textAnchor="middle" fill="#38bdf8" fontSize={9}>
+        leftMargin {leftMargin.toFixed(2)}
+      </text>
+      <text x={(siteX + padL + plotW) / 2} y={barY + barH + 30} textAnchor="middle" fill="#a78bfa" fontSize={9}>
+        rightMargin {rightMargin.toFixed(2)}
+      </text>
+    </svg>
+  );
+}
+
+export default function Imp95240O5SiteCoverageMarginsViz() {
+  return (
+    <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
+      <PageHeader title="O5 Site-Coverage Margins: x_*(0.1808) in W_690988 (imp-95240)" />
+
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+        imp-95212 certifies (exact-rational + 400-bit interval + Arb/FLINT confirmation,
+        three-way agreement) that the site x_*(0.1808) at height X = {X.toLocaleString('en-US')}
+        {' '}sits strictly interior to window W_{N0}, bracketed by zeros x_{N0} and x_{N0 + 1}.
+        The bracket below is drawn proportionally to the two certified margins (not to the true
+        window scale, which spans ~{windowWidth.toExponential(2)} at height ~6e12).
+      </p>
+
+      <MarginBracketChart />
+
+      <div
+        style={{
+          marginTop: '1.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> leftMargin =
+        x_*(0.1808) &minus; x_{N0} = {leftMargin.toFixed(12)} and rightMargin = x_{N0 + 1} &minus;
+        x_*(0.1808) = {rightMargin.toFixed(12)} (floor-truncated 12dp certified lower bounds).
+        Both are strictly positive, so x_*(0.1808) is strictly interior to W_{N0} under all three
+        independently-computed lanes (exact-rational, mpmath.iv 400-bit, Arb/FLINT 400-bit).
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page reusing the imp-95212
+        O5_SITE_COVERAGE baked literals verbatim (no new computation). This closes obligation O5 of
+        the six-obligation y-thaw package; O1, O2, O4, O6 remain OPEN and 0.17759432 stays a package
+        value, not a proven bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. No QED.
+      </div>
+    </div>
+  );
+}

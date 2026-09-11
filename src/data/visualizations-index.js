@@ -1872,6 +1872,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive two-frontier chart baking the imp-95225 constants.vacuitySlope / constants.satSlope literals verbatim (no new computation, no bound claim); the corridor between the two frontiers is recorded as OPEN on both sides, not resolved; the width-law paper packets are not certified by SGN-C; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95144-tier-certifier-ballop-budget-gap',
+      title: 'Tier-Certifier Ball-Op Budget Gap: Measured 1.0e15 vs 1.1e13 Design',
+      oneLine:
+        'Log-scale bar chart of the W1-CERT full-window ball-op count across the two built certifier levels: level-1 single-level Taylor (imp-95213, 1.0086e15), level-2 frequency-bin chirp (imp-95214, 1.5456e14, a 6.53x cut), and the 1.1e13 two-level design budget, showing the residual 14.05x gap is now cell/reconstruction-dominated.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95214-tier2-chirp-level.js',
+      paperSourcePath:
+        'src/data/imp-95214-tier2-chirp-level.js (TIER2_PRICE.baselines / TIER2_PRICE.fullWindow; imp-95144 viz page)',
+      ticket: 'imp-95144',
+      pedagogicalStep: 131,
+      honestCeiling:
+        'Descriptive log-scale bar chart baking the imp-95213 / imp-95214 TIER_PRICE and TIER2_PRICE literals verbatim (no new computation); the full-window run was NOT launched at either level, both prices are sub-range extrapolations; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

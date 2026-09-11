@@ -532,6 +532,15 @@ export const IMP95008_EXACT_PAIR_CORRELATION_CEILING = {
     "residual (c) of the sibling chain: the passage from the l2 weld bound to the pointwise scalar |C_E,17|",
     "REFINED achieved-side ledger: (a) outer parity AM-GM factor 2 (uniformly unrecoverable per the eleventh) - now the DOMINANT surviving slack; (b) tightness of the substitution point only (Lemma X floor strict, Lemma RHO cap attained to 0.4 percent) - the eighteenth residuals (b) corner slack and (c) asymptotic half-exponent are CLOSED, the envelope now carries the true T^(-s) asymptotics by construction; HONEST LIMIT: the closed-form float evaluation carries ~1e-8 relative rounding (measured, stated in scope); the b = 0 near-tie persists; witness side unchanged (multi-packet re-optimization, different grid geometries)",
   ],
+  // imp-95044: openResiduals[0..2] are ONE shared set, restated verbatim (not re-derived) by
+  // every imp-95008-*.js sibling module; each is independently ASSESSED exactly once by a
+  // dedicated downstream module, so a residual tally over the sibling chain must count each
+  // index once, not once per restating module.
+  residualAssessments: {
+    0: "imp-95026-paper-packet-ceiling-transfer.js (packet-envelope constants transfer/degrade/break measurement)",
+    1: "imp-95028-curvature-ceiling-D-assessment.js (curvature ceiling D: relocated vs removed by the nineteenth)",
+    2: "imp-95029-paper-phase-curvature-normalization.js (phase-curvature normalization mu ledger effect)",
+  },
   isRigorous: true,
   rigorScope:
     "Lemma CC is the layer-cake representation plus the elementary interval-overlap formula; Lemma RM is differentiation under the integral (locally dominated for rho > 0) plus a sign-pairing argument with an exact antiderivative; Lemma PF is repeated-linear-factor partial fractions with termwise integration (the k = 1 logarithms pair because d_1 = -c_1, 2s - 1 odd); Theorem Y-EXACT is the eleventh/seventeenth/eighteenth roll-up with the exact value substituted through the Lemma X floors and Lemma RHO caps via Lemmas CC and RM. The new ceiling is an ACHIEVED upper bound in the Theorem K bracket class {cNear <= 2, Tstar <= Tx(2)}; optimality is NOT claimed (the parity factor 2 and the substitution-point tightness remain as named slack). The closed form is exact as a formula; its float evaluation carries ~1e-8 relative rounding, measured by comparing two algebraically equivalent evaluations and negligible against the priced factors. Witness floors are carried literals of the fifteenth/sixteenth continuations (the headline floor is re-derived in the sibling eighteenth module, which remains in the assertion sweep). The numerics cross-check the statements; they are not the claim.",

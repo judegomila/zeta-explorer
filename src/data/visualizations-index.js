@@ -1858,6 +1858,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive status-grid chart baking the imp-95140 YTHAW_OBLIGATION_LEDGER / YTHAW_OBLIGATION_SUMMARY literals verbatim (no new computation); closes no obligation of the six-obligation y-thaw package; O1/O2/O4/O6 remain OPEN and 0.17759432 stays a package value, not a proven bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95143-vacuity-saturation-corridor',
+      title: 'SGN-C Vacuity vs. SGN-SAT Saturation Corridor',
+      oneLine:
+        'Plots the imp-95225 SGN-C count-vacuity frontier N = 1 + 1.4427x against the imp-95224 SGN-SAT saturation frontier N ~ 11.6893x over x = m*d, shading the factor-8.1 open corridor between them where sup R is unknown on both sides, and marking the N = 1 SGN-EQ sharp anchor point.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95225-signed-count-priced-shift-certificate.js',
+      paperSourcePath:
+        'src/data/imp-95225-signed-count-priced-shift-certificate.js (constants.vacuitySlope / constants.satSlope; imp-95143 viz page)',
+      ticket: 'imp-95143',
+      pedagogicalStep: 130,
+      honestCeiling:
+        'Descriptive two-frontier chart baking the imp-95225 constants.vacuitySlope / constants.satSlope literals verbatim (no new computation, no bound claim); the corridor between the two frontiers is recorded as OPEN on both sides, not resolved; the width-law paper packets are not certified by SGN-C; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

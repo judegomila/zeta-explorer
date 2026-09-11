@@ -14976,6 +14976,10 @@ const DATA_MODULES = [
   // certified. Sub-gap carried OPEN. Changes no bound; NO QED; PT
   // Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95226-np-exact-signed-shift-constant.js',
+  // imp-95146 (sonnet-4-6): verified imp-95208/95210/95212/95213/95214/
+  // 95225/95226 above are all already registered here and import-light
+  // (chain bottoms out at imp-95172/imp-95008, no zeros bundle); each
+  // loads standalone under plain node in <300ms. Clean pass, no gaps.
   // imp-95227 (fable-5): RIGOROUS step - THEOREM COAL-DOM: the imp-95226
   // COROLLARY COAL-2 grid observation is now a theorem. The exact signed
   // two-rate shift constant is STRICTLY dominated by its coalescent limit

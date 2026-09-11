@@ -159,6 +159,30 @@ export default function PermutationArchitecturePage() {
             Until it is closed, <strong>Λ ≤ 0.14 is a contract, not a promoted bound.</strong>
           </p>
         </div>
+        <div style={{ borderLeft: '3px solid var(--ink-soft)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>Gate-2 completion-contract status (imp-95012 frozen spec)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 6px' }}>
+            <strong>Closed.</strong> One anchor cell: <InlineMath tex="N = 690988" />,{' '}
+            <InlineMath tex="|x - x_*| \le 1/40000000000" />, measured{' '}
+            <InlineMath tex="|E_{97}| = 0.2141254901198318 < 0.27968819555261474" /> — a documented reserve of{' '}
+            <InlineMath tex="0.0655627054327926" /> against the exact allowance <InlineMath tex="R_{ex}" />.
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 6px' }}>
+            <strong>Open.</strong> The same global inequality <InlineMath tex="|C_{E,17}| < 0.27968819555261474" />{' '}
+            uniformly over the family <InlineMath tex="690988 \le N \le 54799999" />, every window parameter, and both
+            seam sides — the one open family this page's route atlas is aimed at closing.
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            <strong>Offline.</strong> Two named sub-gaps stand between the anchor cell and a family-wide arithmetic
+            verdict: <span className="ed-mono" style={{ fontSize: 12 }}>imp-95011-sub-arithmetic-carrier-scan</span>{' '}
+            (the true sampled sup and per-unit-N increment L over the family, ~1e3 log-spaced N, both seam sides) and{' '}
+            <span className="ed-mono" style={{ fontSize: 12 }}>imp-95014-sub-arb-prec128-lane</span> (an arbitrary-precision
+            float-vs-Arb cross-check of the Lane B evaluator). Both are structural demonstrations on a surrogate carrier
+            today, not arithmetic measurements of <InlineMath tex="C_{E,17}" />; neither has run. This records status
+            only — no bound is promoted, no gap is closed.
+          </p>
+        </div>
+
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
           The decisive analytic object is <strong>one noncommuting weld</strong>: the Fresnel/B-transform and a prime
           projection do not commute, <InlineMath tex="[\mathcal{B}_v,\Pi_p]\neq 0" />. The nonzero aliases are shifted

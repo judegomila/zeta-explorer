@@ -799,4 +799,52 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a proof already derived and committed by prior engine runs (imp-95252).',
     ],
   },
+  {
+    id: 'session-2026-09-11-tier2-chirp-level-status',
+    date: '2026-09-11',
+    title: 'imp-95214 tier-2 chirp level for the W1-CERT tier certifier: BUILT and VALIDATED, full-window run NOT launched',
+    engineStateStart:
+      'imp-95213 built the level-1 W1-CERT tier-P/B/S certifier and identified its per-panel O(N) Arb Taylor-model pass (97.4% of cost) as carrying a 10-100x speedup lever, without saying how to realize it.',
+    engineStateEnd:
+      'imp-95214 realizes that lever as a second (chirp) level: each class-sum series S_c(x) = sum amp_n e^{i nu_n x} is split into 64 exact-double frequency bins, each a carrier e^{i nu*_b x} times a derotated envelope of measured bandwidth <= 0.0499 (scan-confirmed at 0.997 of the rigorous rate bound). ONE O(N) Arb super-pass builds degree-33 envelope Taylor models with exact per-(class,bin) Lagrange remainders (budget 5e-15), certifying a 97.32 x-unit super-span (31 level-1 panels per pass, vs 1). Each level-1 degree-80 panel model is then reconstructed by exact ball Taylor shift + rotation + real carrier convolution, with two certified remainders per class (envelope Lagrange 4.585e-15; carrier k-tail 2.722e-12), feeding the UNCHANGED tpanel_eval (same cell criterion, alias/E97 ledgers, telescope gate, Tier-P fallback), so containment is preserved by construction. Validation is all green: selfcheck2 (max coefficient deviation 1.084e-19), panels2 (50 random panels, 0 failures), validate2 (30 seeded points, 30/30 containment), dd cross-validation (deviations identical to the level-1 suite), and a 100-u hardest-stretch VERDICT MATCH against level 1 with identical per-side cell counts and all four certified sups agreeing to <= 3.71e-12. Measured price on the same 400-u protocol as imp-95213: 0.0525 CPU-s/x-unit versus level 1'
+        + "'s 0.9408, i.e. a measured 17.9x full-window speedup (21.1 CPU-days vs 378.2) -- the identified 10-100x lever lands at ~18x, inside the band but nowhere near its top. Ball-ops (1.55e14) fall 6.5x below level 1 but remain honestly 14x ABOVE the 1.1e13 two-level design estimate: with the panel-pass lever now amortized 31x and no longer dominant (32% of cost), cells (37%) and reconstruction (31%) are the new floor, a gap the module records as out of reach of further panel-pass batching. Neither the full-window run nor any bound promotion has been launched; imp-95214 is a build-and-price record, not a certification.",
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95214 builds, validates, and prices a faster second-level W1-CERT certifier and re-certifies a 100-u sub-range matching level 1 verdict-for-verdict; it does not run the full certification window and promotes no bound.',
+      note: 'Build/validation/price record only, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'tier-2 chirp level build and validation',
+        ids: ['imp-95214', 'imp-95147'],
+        summary:
+          'imp-95214 built and validated the frequency-bin/chirp second level of the W1-CERT tier certifier and priced the full-window run at 21.1 CPU-days (17.9x speedup vs level 1) without launching it; imp-95147 records that BUILT+VALIDATED / NOT-LAUNCHED status in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95214-tier2-chirp-level.js',
+        ticket: 'imp-95214',
+        note: 'derivation, validation results (selfcheck2/panels2/validate2/dd/verdict-match), and measured price for the tier-2 chirp-level certifier; fullWindowRunLaunched and promotesBound both recorded false',
+      },
+    ],
+    keyFinding:
+      'The tier-2 chirp level is a coded, tested, and priced accelerator (17.9x measured full-window speedup, matching level 1 verdict-for-verdict on a 100-u re-certification), but running it over the entire W1-CERT window is a separate, not-yet-made decision: the 21.1 CPU-day full-window figure is an extrapolation from a 400-u measured slice, and the residual gap to the original 1.1e13 two-level design budget is now cell- and reconstruction-dominated rather than panel-pass-dominated, so further panel-pass batching cannot close it.',
+    mainLineBlocker: {
+      label: 'imp-95214-full-window-run-not-launched',
+      description:
+        'No full-window tier-2 run has been executed and no Lambda bound is promoted from this ticket; launching the full run (estimated 1.5 wall-days at 14 threads) and deciding whether to spend the remaining cell/reconstruction budget are separate, unmade decisions.',
+      ticket: 'imp-95214',
+    },
+    openQuestions: [
+      'Should the full-window tier-2 run be launched, and if so does its measured price match the 21.1 CPU-day extrapolation from the 400-u slice? (imp-95214-full-window-run-not-launched -- open)',
+      'Is there a further lever on the now-dominant cell/reconstruction cost, or is the two-level design budget of 1.1e13 ball-ops honestly out of reach? (named in imp-95214 as out of reach of further panel-pass batching)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a build/validation/price status already derived and committed by prior engine runs (imp-95214).',
+    ],
+  },
 ];

@@ -14,6 +14,7 @@ import {
 } from '../data/imp-95011-gate2-oscillation-probe.js';
 import { SLAB_HYPOTHESIS } from '../data/imp-95046-slab-44-conditional-target.js';
 import { ANCHOR_GATE, MISSING_EVALUATOR_INPUTS } from '../data/imp-95013-gate2-lane-a-blocked-on-spec.js';
+import { IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX } from '../data/imp-95096-joint-near-far-vs-lambda-max-terminality.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -344,6 +345,83 @@ function TransferRegimeBandChart() {
         <span><span style={{ display: 'inline-block', width: 10, height: 10, background: '#3f6b86', marginRight: 6, borderRadius: 2 }} />TRANSFERS (s large): ledger factor up to ~14.72x at s=11</span>
       </div>
     </div>
+  );
+}
+
+// imp-95122: the imp-95096 joint near/far Pareto line beta(alpha) =
+// K(0,2)(2 - alpha), with the alpha = 1 bracket-class endpoint (cNear = 2,
+// beta = lambda_max) marked and the alpha > 1 out-of-class region (cNear > 2)
+// shaded. Assessment visualization only; no bound change.
+function JointNearFarParetoChart() {
+  const { paretoLine, lambdaMax } = IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX.reference;
+  const W = 340;
+  const H = 210;
+  const padL = 46;
+  const padR = 14;
+  const padT = 30;
+  const padB = 32;
+  const cW = W - padL - padR;
+  const cH = H - padT - padB;
+
+  const aMin = 1;
+  const aMax = 2;
+  const yMax = lambdaMax * 1.05;
+  const xS = (a) => padL + cW * ((a - aMin) / (aMax - aMin));
+  const yS = (b) => padT + cH * (1 - b / yMax);
+  const points = paretoLine.map((p) => `${xS(p.alpha)},${yS(p.beta)}`).join(' ');
+
+  return (
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      width="100%"
+      style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
+      role="img"
+      aria-label="Joint near/far Pareto line beta(alpha) = K(0,2)(2-alpha): the alpha=1 in-class endpoint at beta=lambda_max, and the shaded alpha>1 out-of-class region where cNear>2"
+    >
+      <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="var(--hairline)" strokeWidth={1} />
+      {/* out-of-class region, alpha > 1 (cNear > 2) */}
+      <rect x={xS(aMin)} y={padT} width={cW} height={cH} fill="#c23a1c" opacity={0.08} />
+      <text x={xS(1.5)} y={padT + 14} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9" fill="var(--terra-dk)">
+        out-of-class (c&#8345;&#8360;&#8340;&#8342; &gt; 2)
+      </text>
+      {/* bracket-class boundary at alpha = 1 */}
+      <line x1={xS(1)} y1={padT} x2={xS(1)} y2={padT + cH} stroke="var(--terra-dk)" strokeWidth={1.5} strokeDasharray="3,3" />
+      <polyline points={points} fill="none" stroke="#3f6b86" strokeWidth={1.75} />
+      {paretoLine.map((p) => (
+        <circle
+          key={p.alpha}
+          cx={xS(p.alpha)}
+          cy={yS(p.beta)}
+          r={p.alpha === 1 ? 3.5 : 1.8}
+          fill={p.alpha === 1 ? '#c23a1c' : '#3f6b86'}
+        />
+      ))}
+      <text x={xS(1)} y={padT - 6} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9" fill="#c23a1c">
+        alpha=1, beta=lambda_max
+      </text>
+      {/* axis labels */}
+      {paretoLine.map((p) => (
+        <text key={`a-${p.alpha}`} x={xS(p.alpha)} y={padT + cH + 14} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--faint)">
+          {p.alpha.toFixed(2)}
+        </text>
+      ))}
+      <text x={padL + cW / 2} y={H - 4} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9" fill="var(--faint)">
+        alpha (cNear = 2 alpha)
+      </text>
+      <text x={4} y={padT + 4} fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--faint)">{yMax.toExponential(2)}</text>
+      <text x={4} y={padT + cH} fontFamily="var(--ed-mono)" fontSize="8.5" fill="var(--faint)">0</text>
+      <text
+        x={-(padT + cH / 2)}
+        y={12}
+        transform="rotate(-90)"
+        textAnchor="middle"
+        fontFamily="var(--ed-mono)"
+        fontSize="9"
+        fill="var(--faint)"
+      >
+        beta(alpha)
+      </text>
+    </svg>
   );
 }
 
@@ -1149,6 +1227,13 @@ export default function PermutationArchitecturePage() {
             <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95096-joint-near-far-vs-lambda-max-terminality.js</code>.
             No bound is promoted; Platt–Trudgian Λ ≤ 0.2 remains SOTA.
           </p>
+          <div style={{ marginTop: 10 }}>
+            <JointNearFarParetoChart />
+            <p style={{ fontSize: 11.5, color: 'var(--faint)', textAlign: 'center', margin: '4px 0 0' }}>
+              β(α) = K(0,2)(2 − α), two-block model{' '}
+              <span style={{ color: '#c23a1c' }}>● in-class endpoint (α=1)</span>
+            </p>
+          </div>
         </div>
 
         {/* Five alternative gates */}

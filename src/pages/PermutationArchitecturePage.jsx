@@ -12,6 +12,7 @@ import {
   IMP95011_GATE2_OSCILLATION_PROBE,
   IMP95051_CORRELATION_GAIN_TABLE,
 } from '../data/imp-95011-gate2-oscillation-probe.js';
+import { SLAB_HYPOTHESIS } from '../data/imp-95046-slab-44-conditional-target.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -289,6 +290,76 @@ function FarCeilingLeverScanChart() {
         );
       })}
     </div>
+  );
+}
+
+// imp-95083: schematic (u, v) geometry for the imp-95046 rectangular-slab (4.4)
+// hypothesis feeding Theorem 4.5's 0.1399 row — the compact box, the Lemma 4.4
+// interpolating wedge it is stated to supply, and the short final join that
+// seals the seam to the tail lane (imp-95047). Illustrative only: this diagram
+// asserts no new bound and certifies none of the four SLAB_CERTIFICATION_REQUIREMENTS.
+function SlabGeometryChart() {
+  const W = 460;
+  const H = 190;
+  const padL = 34;
+  const padR = 14;
+  const padT = 14;
+  const padB = 26;
+  const cW = W - padL - padR;
+  const cH = H - padT - padB;
+
+  const { yStar } = SLAB_HYPOTHESIS;
+  const uMin = 0;
+  const uMax = 2.6; // X -> 0, X+1 -> 1, tail lane runs out to ~2.6
+  const xU = (u) => padL + cW * ((u - uMin) / (uMax - uMin));
+  const yV = (v) => padT + cH * (1 - v); // v in [0, 1]
+
+  const boxX0 = xU(0);
+  const boxX1 = xU(1);
+  const boxYTop = yV(1);
+  const boxYBot = yV(yStar);
+
+  return (
+    <>
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        width="100%"
+        style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
+        role="img"
+        aria-label="Schematic (u, v) geometry of the imp-95046 rectangular-slab hypothesis: the compact box [X, X+1] x [y*, 1], the Lemma 4.4 interpolating wedge, and the short final join to the tail lane at u = X+1"
+      >
+        {/* tail lane, u >= X+1 */}
+        <rect x={boxX1} y={boxYTop} width={xU(uMax) - boxX1} height={boxYBot - boxYTop} fill="var(--paper2)" stroke="none" />
+        {/* the box [X, X+1] x [y*, 1] */}
+        <rect x={boxX0} y={boxYTop} width={boxX1 - boxX0} height={boxYBot - boxYTop} fill="#3f6b86" opacity={0.16} stroke="#3f6b86" strokeWidth={1.5} />
+        {/* Lemma 4.4 wedge: interpolates from the box interior out to u = X+1, narrowing toward v = y* */}
+        <polygon
+          points={`${xU(0.55)},${boxYTop} ${boxX1},${boxYTop} ${boxX1},${boxYBot} ${xU(0.55)},${boxYBot}`}
+          fill="#b58a2e"
+          opacity={0.22}
+        />
+        <line x1={xU(0.55)} y1={boxYTop} x2={boxX1} y2={boxYTop} stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4,3" />
+        <line x1={xU(0.55)} y1={boxYBot} x2={boxX1} y2={boxYBot} stroke="#b58a2e" strokeWidth={1.5} strokeDasharray="4,3" />
+        {/* short final join: narrow seam strip right at u = X+1 */}
+        <rect x={boxX1 - 3} y={boxYTop} width={xU(1.18) - boxX1 + 3} height={boxYBot - boxYTop} fill="#c23a1c" opacity={0.3} />
+        {/* y* boundary line, carried across the whole diagram */}
+        <line x1={padL} y1={boxYBot} x2={xU(uMax)} y2={boxYBot} stroke="var(--faint)" strokeWidth={1} strokeDasharray="2,3" />
+        <text x={padL - 4} y={boxYBot + 3} textAnchor="end" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">y*</text>
+        <text x={padL - 4} y={boxYTop + 3} textAnchor="end" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--faint)">v=1</text>
+        {/* u-axis landmarks */}
+        <text x={boxX0} y={boxYBot + 16} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--ink-soft)">X</text>
+        <text x={boxX1} y={boxYBot + 16} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="var(--ink-soft)">X+1</text>
+        {/* labels */}
+        <text x={xU(0.28)} y={boxYTop - 5} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="10" fill="#3f6b86">box: H_τ ≠ 0, τ∈[0,t*]</text>
+        <text x={xU(0.7)} y={boxYBot + 16} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="#8a6a1c">Lemma 4.4 wedge → τ=t*</text>
+        <text x={xU(1.18)} y={boxYTop - 5} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="9.5" fill="#c23a1c">short join</text>
+        <text x={xU(1.9)} y={(boxYTop + boxYBot) / 2 + 3} textAnchor="middle" fontFamily="var(--ed-mono)" fontSize="10" fill="var(--faint)">tail lane (imp-95047)</text>
+      </svg>
+      <p style={{ fontSize: 11.5, color: 'var(--faint)', textAlign: 'center', margin: '2px 0 0' }}>
+        schematic (u, v) slice — box, wedge, and short join are illustrative only; none of the four
+        SLAB_CERTIFICATION_REQUIREMENTS is discharged by this diagram or the frozen spec.
+      </p>
+    </>
   );
 }
 
@@ -1129,6 +1200,7 @@ export default function PermutationArchitecturePage() {
             Route 1 above: it trades that single cocycle weld for the slab-plus-tail pair instead, so it is
             tracked, certified, and could resolve on its own timeline, independent of Gate-2.
           </p>
+          <SlabGeometryChart />
         </div>
 
         {/* Formalization status */}

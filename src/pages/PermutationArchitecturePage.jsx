@@ -481,6 +481,9 @@ export default function PermutationArchitecturePage() {
             tempting shortcuts: independent macro budgets discard essential cancellation; generic low-rank
             rough transforms cannot close the residual; raw tiling needs &gt; 7.2×10²⁶ cells. The missing
             producer must exploit the specific paired heat–log family and batch the integer windows analytically.
+            This row does <strong>not</strong> presuppose the Gate-2 open family <InlineMath tex="690988 \le N \le 54799999" /> from
+            Route 1 above: it trades that single cocycle weld for the slab-plus-tail pair instead, so it is
+            tracked, certified, and could resolve on its own timeline, independent of Gate-2.
           </p>
         </div>
 

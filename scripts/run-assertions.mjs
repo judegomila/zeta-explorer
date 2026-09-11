@@ -15438,6 +15438,15 @@ const DATA_MODULES = [
   // (theta, y_min) stays OPEN. Nine self-executing assertions. Import-light.
   // Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95254-orthant-split-phase-certificate.js',
+  // imp-95306 (sonnet-4-6, meta): SURFACING AUDIT of the five newest
+  // seam-chain finding modules (imp-95251/95252/95254/95285/95286).
+  // Confirms zero import statements (no transitive zeros-bundle pull) and
+  // registration in this DATA_MODULES list for all five; records the
+  // completeness-coverage gap (no viz page/glossary headword/index entry
+  // yet for any of them) as already targeted by open queue tickets, not a
+  // new finding. AUDIT-ONLY; changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95306-seam-chain-surfacing-audit-95251-95286.js',
 ];
 
 let ALL_MODULES = FAST_MODE

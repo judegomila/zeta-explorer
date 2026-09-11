@@ -568,4 +568,50 @@ export const SESSIONS = [
       'This session entry is documentation only, recording an attribution audit already computed and committed by prior engine runs (imp-95045).',
     ],
   },
+  {
+    id: 'session-2026-09-11-far-coefficient-quadrature-cross-check',
+    date: '2026-09-11',
+    title: 'Cross-check of the far-coefficient midpoint quadrature against an independent reference (imp-95073)',
+    engineStateStart:
+      'imp-95026 verifies its midpoint-quadrature evaluator for the far coefficient cFar only at the single model point (sigma=1, beta=1/3, c=v=D=1, theta=10), reproducing the closed-form ceiling 0.2717408057586117 to relative 2.8e-6; the quadrature error at the other scanned thetaScan points had no independent control.',
+    engineStateEnd:
+      'imp-95073 cross-checks the committed midpoint evaluator against an independent adaptive-Simpson reference split at the integrand corners u=0 and u=T (tol 1e-12). FINDING 0: at the model point the reference reproduces the exact closed form to relative 7.5e-9, three orders tighter than the midpoint 2.8e-6, validating it as an independent yardstick. FINDING 1: across the integer-s thetaScan the midpoint error is uniformly bounded by ~1.3e-5 (1.81e-6 at s=9, 2.82e-6 at s=11, 4.10e-6 at s=13, 5.68e-6 at s=15, 1.23e-5 at s=21) but GROWS monotonically with s, so the model-point 2.8e-6 is a mid-range figure, not a uniform bound. FINDING 2: the worst error ~1.3e-5 is far below every margin the imp-95026 transfer verdict turns on, so the qualitative conclusions (transfers / degrades ~3x / breaks below s*=2.9484) are unaffected.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95073 bounds the quadrature error of an already-committed sensitivity map (imp-95026); it derives or changes no floor, ceiling, or bound literal.',
+      note: 'Measurement/error-control assessment, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Far-coefficient quadrature cross-check',
+        ids: ['imp-95073', 'imp-95103'],
+        summary:
+          'imp-95073 bounded the imp-95026 midpoint far-coefficient quadrature error uniformly (~1.3e-5, growing with s) against an independent adaptive-Simpson reference; imp-95103 records that cross-check in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95073-far-coefficient-quadrature-cross-check.js',
+        ticket: 'imp-95073',
+        note: 'independent adaptive-Simpson reference (corner-split, tol 1e-12) cross-checked against the committed midpoint thetaScan values, plus a bit-reproduction faithfulness check of the copied midpoint machinery',
+      },
+    ],
+    keyFinding:
+      'The imp-95026 midpoint quadrature is not exact even at reported precision -- its error grows with the decay exponent s -- but the growth stays four to five orders of magnitude below the smallest margin any imp-95026 finding depends on, so none of those findings are put at risk by discretization error.',
+    mainLineBlocker: {
+      label: 'imp-95073-subgap-non-integer-s-anchor',
+      description:
+        'The exact-closed-form anchor exists only on the integer-s thetaScan (sigma=1); the sigmaScan and isolationScan pass through non-integer s and different Q where no closed-form literal is baked, so there the error is controlled only by Simpson-vs-midpoint agreement (a converged independent rule), not a second exact anchor.',
+      ticket: 'imp-95073',
+    },
+    openQuestions: [
+      'Does a uniform quadrature-error certificate extend from the anchored integer-s thetaScan to the whole continuous transfer scan theta in [2,20]? (imp-95073-subgap-non-integer-s-anchor -- open; imp-95120 addresses this)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a quadrature cross-check already computed and committed by prior engine runs (imp-95073).',
+    ],
+  },
 ];

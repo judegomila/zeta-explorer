@@ -274,4 +274,68 @@ export const SESSIONS = [
       'The queue-index.json cache continues to be essential for multi-channel routing; engines read only the 4 KB index rather than the 280 K-token improvements.js.',
     ],
   },
+  {
+    id: 'session-2026-09-11-seam-chain-24-25',
+    date: '2026-09-11',
+    title: 'Seam-chain legs 24-25: two-subspace split (SPLIT-2/ANG-PENCIL) + leave-one-out multi-block split (SPLIT-LOO/EV-OCT)',
+    engineStateStart:
+      'Signed-seam obligation chain at leg 23 (imp-95233 phase-priced small-theta bound). imp-95226 had named two residuals of the BL-LAT lattice-skeleton certificate as open: the in-octave multiplicity hybrid (a twin pair inside one octave breaks the raw Blaschke-Lagrange bound, per imp-95232 FINDING 3) and off-lattice rates.',
+    engineStateEnd:
+      'Seam chain advanced to leg 25. imp-95249 delivered THEOREM SPLIT-2 + THEOREM ANG-PENCIL + LEMMA ANG-DET + COROLLARY IN-OCT, the first coalescence-uniform certificate for a single tight in-octave pair. imp-95250 delivered LEMMA LOO + THEOREM SPLIT-LOO + COROLLARY EV-OCT + COROLLARY EV-OCT-UNIF, extending that to a twin pair in every octave at unbounded octave count (m-uniform). Neither changes the Λ headline; both are NO QED and explicitly scoped as model-family certificates, not paper-transferred bounds.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'Both legs work inside the model-family signed-seam obligation ledger (Cauchy-kernel pencil Lambda(V,d) = lambda_max(D G D, G)); they do not touch the program Λ bound or any verified-height input.',
+      note:
+        'Explicitly recorded HONEST LIMITS in both modules: imp-95249 is single-tight-pair only (unbounded in-octave multiplicity stays open, the fence tends to 1); imp-95250 needs an abstract m-uniform block Riesz-basis bound for >=3 rates per octave (still open, tracked as imp-95252).',
+    },
+    seededTickets: [
+      {
+        phase: 'Seam chain leg 24 (SPLIT-2/ANG-PENCIL)',
+        ids: ['imp-95249'],
+        summary:
+          'THEOREM SPLIT-2: Lambda(V,d) <= [Lambda(V1,d)+Lambda(V2,d)]/(1-sigma) for a two-block partition; THEOREM ANG-PENCIL identifies the subspace angle sigma as a Blaschke-weighted seam pencil (G12 G2^-1 G12^T = G1 - Dp G1 Dp, verified entrywise to rel 1e-9); LEMMA ANG-DET fences sigma via a Blaschke-product determinant, coalescence-uniform (does not depend on the intra-pair separation r-1); COROLLARY IN-OCT fires for x > 7.101831 on the dyadic skeleton, staying finite where the raw Blaschke-Lagrange bound diverges as r -> 1. Refuted along the way: multi-block pairwise-angle Gershgorin (adjacent-octave correlation 0.9428 alone breaks it) and recursive SPLIT-2 peeling (compounds a ~7e3 collar per peel).',
+        status: 'completed by engine',
+      },
+      {
+        phase: 'Seam chain leg 25 (SPLIT-LOO/EV-OCT)',
+        ids: ['imp-95250'],
+        summary:
+          'LEMMA LOO: a leave-one-out skew-projection bound ||F_k|| <= ||F||/sqrt(1-sigma_k^2) per block; THEOREM SPLIT-LOO: sqrt(Lambda(V,d)) <= sum_k sqrt(Lambda_k/(1-sigma_k^2)), paid additively per block instead of compounding; COROLLARY EV-OCT fires for x > 11.31664 with a twin pair in every octave of a 6-octave dyadic skeleton (m-uniform); COROLLARY EV-OCT-UNIF extends to unbounded octave count via a rigorous geometric tail bound (PhiUnif >= 9.98e-21). At m=2 neither SPLIT-2 nor SPLIT-LOO dominates the other (ratio depends on block-Lambda symmetry and sigma).',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95249-inoctave-pair-split-certificate.js',
+        ticket: 'imp-95249',
+        note: 'SPLIT-2 / ANG-PENCIL / ANG-DET / IN-OCT, first coalescence-uniform in-octave-pair certificate',
+      },
+      {
+        path: 'src/data/imp-95250-leaveoneout-multiblock-split-certificate.js',
+        ticket: 'imp-95250',
+        note: 'LOO / SPLIT-LOO / EV-OCT / EV-OCT-UNIF, first m-uniform every-octave twin certificate',
+      },
+    ],
+    keyFinding:
+      'The two-block SPLIT-2 angle price and the additive multi-block SPLIT-LOO price are the same underlying seam-pencil object (LEMMA ANG-DET, reused unchanged in leg 25), applied once per block instead of compounding recursively. Together they fence both named residuals of the imp-95226 in-octave-multiplicity gap on lattices, at the cost of an explicit collar (~236x above the exact pencil for the single pair; ~1.6e4x for the every-octave case at m=6, per the imp-95283 honest-status note) and a firing-onset delay (7.10 / 11.32 vs the twin-free BL onset of 4.24).',
+    mainLineBlocker: {
+      label: 'block Riesz-basis / obligation (2) signed weight',
+      description:
+        'The surviving obstruction for >=3 rates per octave is a genuine m-uniform block Riesz-basis (Carleson-type) lower bound for cluster decompositions of exponential systems on geometric lattices -- the pairwise-angle route to it is refuted in imp-95249. Separately, signed-seam obligation (2) still needs a WEIGHT-channel port (count is closed via SGN-NP/SGN-C) or a modulus/phase route.',
+      ticket: 'imp-95252',
+    },
+    openQuestions: [
+      'Does an m-uniform block Riesz-basis bound exist for clusters with >=3 rates per octave, replacing the linear-in-m LOO collar with something sharper? (imp-95252 — high)',
+      'How does the SPLIT-LOO / EV-OCT certificate degrade off the dyadic lattice (non-power-of-2 octave ratios)? (imp-95253 — medium)',
+      'Where exactly does SPLIT-2 stop dominating SPLIT-LOO (and vice versa) across asymmetry and depth, beyond the single measured crossover point? (imp-95256 — medium)',
+      'Can the LEMMA TAIL crude PhiUnif lower bound (9.98e-21 at N=30) be tightened against the exact infinite cross-Blaschke product? (imp-95259 — low)',
+    ],
+    metaObservations: [
+      'This is a documentation-only session entry (no proof or numerical work performed here) — it records two legs (imp-95249, imp-95250) already committed to the seam-chain by prior engine runs, per imp-95260.',
+      'The seam chain now stands at 25 legs; every leg to date changes NO Λ bound and carries explicit HONEST LIMITS / NO QED language — the chain is scoped as a model-family (Cauchy-kernel pencil) research program, not a paper-transferred result.',
+      'Both modules cross-reference and reuse each other’s lemmas (LEMMA ANG-DET proven in imp-95249 is reused unchanged in imp-95250), which is the intended pattern for this chain: later legs extend rather than re-derive earlier ones.',
+    ],
+  },
 ];

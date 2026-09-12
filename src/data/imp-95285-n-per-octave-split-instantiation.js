@@ -120,6 +120,14 @@
  *     unchanged; signed WEIGHT port unchanged; the N >= 3 confluent
  *     DOMINANCE conjecture of imp-95227 remains OPEN. NOTHING here
  *     touches any Lambda bound of the program.
+ * (f) HONEST STATUS: all four onsets sit far above the twin-free BL
+ *     collar xStarBL(2) = 4.23623878476 (imp-95226 / imp-95249) --
+ *     33.50 / 58.11 (m = 6, N = 3 / 4) are ~7.91x / ~13.72x that floor,
+ *     and 61.31 / 107.26 (m-uniform, N = 3 / 4) are ~14.47x / ~25.32x,
+ *     the same qualitative gap already recorded at N = 2 (imp-95250:
+ *     onsets 11.32 / 27.04 vs twin-free 4.24). The certificate exists
+ *     and is coalescence-uniform, but its firing threshold, not the
+ *     twin-free floor, governs where it becomes useful.
  *
  * ADVERSARIAL RECORD. (1) End-to-end chain exact Lambda <=
  * exact-ingredient SPLIT-LOO <= EV-OCT-N closed occupied-set form:
@@ -216,6 +224,13 @@ export const IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION = {
       "the certificate is eps-independent while BL^2 diverges like " +
       "eps^(-4): the regime the instantiation exists for",
   },
+  honestStatusNote:
+    "all four onsets sit far above the twin-free BL collar xStarBL(2) " +
+    "= 4.23623878476 (imp-95226 / imp-95249): 33.504309 / 58.112542 " +
+    "(m = 6, N = 3 / 4) is ~7.91x / ~13.72x that floor, and 61.309901 " +
+    "/ 107.261457 (m-uniform, N = 3 / 4) is ~14.47x / ~25.32x -- the " +
+    "same qualitative gap already recorded at N = 2 (imp-95250: onsets " +
+    "11.32 / 27.04 vs twin-free 4.24)",
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port STILL OPEN. The " +
     "imp-95250 HONEST LIMITS (b) residual (>= 3 rates per octave) and the " +
@@ -768,6 +783,27 @@ export const IMP95285_ASSERTIONS = [
       if (Math.abs(bl2(mk(1e-6), 34) - W.bl2AtEps1em6) > 1e-3 * W.bl2AtEps1em6)
         return false;
       return bl2(mk(1e-8), 34) > 1e9 && cert < 1;
+    },
+  },
+  {
+    id: "imp95285-twin-free-collar-honesty",
+    description:
+      "honestStatusNote records the four onsets as multiples of the " +
+      "twin-free BL collar xStarBL(2) = 4.23623878476 (imp-95226): the " +
+      "ratios recompute to within 1e-3 of the literals quoted in the note " +
+      "(~7.91x / ~13.72x for m = 6, ~14.47x / ~25.32x m-uniform)",
+    holds: () => {
+      const xStarBL = 4.23623878476;
+      const ratios = [
+        [K.xStarM6N3 / xStarBL, 7.909],
+        [K.xStarM6N4 / xStarBL, 13.718],
+        [K.xStarUnifN3 / xStarBL, 14.4727],
+        [K.xStarUnifN4 / xStarBL, 25.32],
+      ];
+      for (const [actual, quoted] of ratios)
+        if (Math.abs(actual - quoted) > 1e-3 * quoted) return false;
+      const note = IMP95285_N_PER_OCTAVE_SPLIT_INSTANTIATION.honestStatusNote;
+      return /twin-free BL collar/.test(note) && /4\.23623878476/.test(note);
     },
   },
   {

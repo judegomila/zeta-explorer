@@ -137,7 +137,14 @@
  * true tail"; at the a = 6 binding chart the measured uniform-cap
  * overshoot is 7.03x (the 30x figure is theta-dependent) -- the
  * executed gain 1.20x is what that slack was actually worth inside
- * the trace, not 30x.
+ * the trace, not 30x. (8) Cross-platform check (imp-95354): the
+ * module-load self-executing assertions (below) were re-run by
+ * importing this file directly in a real Chromium browser (Playwright,
+ * not the node run-assertions Vite ssrLoadModule path) -- the import
+ * completed with zero page errors, i.e. all eight assertions passed
+ * identically to the node run; the 1e-14/1e-12 comparison tolerances
+ * used throughout do not mask a node-vs-browser V8 transcendental-math
+ * divergence for this module.
  *
  * HONEST LIMITS. (a) Floor only; the gains live at rho > ~ 6.5
  * (activation crossover of the exact-root branch, carried), the
@@ -254,6 +261,14 @@ export const IMP95332_CHART_TAIL_PENCIL_FLOOR = {
     "UNCHANGED across the entire chain. No leg in this chain has " +
     "moved a certificate onset or the program Lambda bound; " +
     "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+  crossPlatformCheck:
+    "imp-95354: the eight self-executing assertions were re-run by " +
+    "importing this module directly in a real Chromium browser " +
+    "(Playwright) rather than the node run-assertions Vite " +
+    "ssrLoadModule path; the import completed with zero page errors " +
+    "(all assertions passed), matching the node run-assertions " +
+    "result -- no node-vs-browser V8 divergence at the 1e-14/1e-12 " +
+    "comparison tolerances used here",
 };
 
 // ---------------------------------------------------------------------------

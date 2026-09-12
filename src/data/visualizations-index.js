@@ -1928,6 +1928,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive coverage-bar chart baking the imp-95213 CERTIFIED_SLICE / WINDOW_WIDTH_U literals and the imp-95238 windowsBeyondWindow1Untouched literal verbatim (no new computation); the certified slice sets no G5 window-promotion flag; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95279-phasecert-vs-nogo-ceiling',
+      title: 'PHASE-CERT Bound vs DC-NOGO Ceiling and Vacuity Threshold',
+      oneLine:
+        'Log-log curve of the imp-95233 COROLLARY PHASE-CERT bound R <= e^(-y_min)/(2 theta) against phase-alignment ratio theta, marking the imp-95224 DC-NOGO 1/2 ceiling and the theta_0 = e^(-y_min) vacuity threshold where the curve crosses it, with the two imp-95233 exact witness points (signed and positive-cone) plotted on the curve.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95279-phasecert-vs-nogo-ceiling-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95233-modulus-phase-currency-feasibility.js (COROLLARY PHASE-CERT closed form, exact witness/poscone literals); src/data/imp-95224-signed-depth-currency-nogo.js (COROLLARY DC-NOGO symmetry ceiling; imp-95279 viz page)',
+      ticket: 'imp-95279',
+      pedagogicalStep: 135,
+      honestCeiling:
+        'Descriptive log-log curve recomputing bound(theta) = e^(-y_min)/(2 theta) independently from the imp-95233 documented closed form and exact witness literals (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

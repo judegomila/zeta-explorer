@@ -1025,6 +1025,9 @@ const Imp95242TierCertifierBaselineVsDesignGapViz = lazy(() =>
 const Imp95278Window1CoverageBarViz = lazy(() =>
   import('./pages/Imp95278Window1CoverageBarViz.jsx')
 );
+const Imp95279PhaseCertVsNogoCeilingViz = lazy(() =>
+  import('./pages/Imp95279PhaseCertVsNogoCeilingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2814,6 +2817,10 @@ function AppShell() {
           <Route
             path="/viz-imp95278-window1-coverage-bar"
             element={<Imp95278Window1CoverageBarViz />}
+          />
+          <Route
+            path="/viz-imp95279-phasecert-vs-nogo-ceiling"
+            element={<Imp95279PhaseCertVsNogoCeilingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

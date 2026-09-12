@@ -895,4 +895,51 @@ export const SESSIONS = [
       'This session entry is documentation only, recording certifications already derived and committed by prior engine runs (imp-95212).',
     ],
   },
+  {
+    id: 'session-2026-09-11-coalescence-ratio-monotonicity-partial-closure',
+    date: '2026-09-11',
+    title: 'LEMMA RI + THEOREM COAL-DESC give a partial analytic proof of the imp-95226 coalescence-dominance N = 2 observation (imp-95231)',
+    engineStateStart:
+      'imp-95226 COROLLARY COAL-2 recorded, as a GRID OBSERVATION only, that the confluent-span value coalLaw(x) = e^(-2x)(1 + 2x^2 + 2x sqrt(1+x^2)) dominates the exact signed two-rate constant Lambda_2(x, r) for every scanned r >= 1 -- i.e. that r = 1 (coalescence) maximises Lambda_2 over the rate ratio r -- with the analytic ratio-monotonicity proof left OPEN.',
+    engineStateEnd:
+      'imp-95231 reduces the claim to a scalar sign via LEMMA RI: differentiating the defining quadratic L^2 - S L + P^2 = 0 in r shows sign(dLambda_2/dr) = sign(h h_r Lambda_2 - x P (Lambda_2 - P)), which is trivially nonpositive wherever h_r <= 0 (in particular for all x >= 1, on all r >= 1). THEOREM COAL-DESC then proves the coalescence boundary r -> 1+ rigorously in closed form: dLambda_2/dr = -x e^(-2x) phi(x) / sqrt(1+x^2) with phi(x) = 2x(x^2-x+1) + sqrt(1+x^2)(2x^2-2x+1) - 1 >= 2x^3 >= 0 (proven termwise), so coalLaw(x) is a strict local-max boundary value for every x > 0 -- exactly the numerically tightest point of the reduced inequality (ratio LHS/RHS -> 1 as r -> 1, x -> 0). This closes the r = 1 boundary and, via the h_r <= 0 argument, the whole tail r >= r_star(x) and all x >= 1. The named residual is the interior bump 0 < x < 1, 1 < r < r_star(x) where h_r > 0: RI holds there on every scanned grid (min slack 2.6e-14, max ratio 0.99995, no counterexample) but is not yet reduced to a closed-form sign.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95231 gives a partial analytic proof of a model-family N = 2 coalescence-dominance observation reused by the seam-chain corollaries; it instantiates no paper number and changes no bound.',
+      note: 'Partial closure with a clearly named open residual, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'Coalescence ratio-monotonicity partial closure',
+        ids: ['imp-95231', 'imp-95281'],
+        summary:
+          'imp-95231 proved LEMMA RI (reduced ratio-monotonicity sign) and THEOREM COAL-DESC (coalescence-boundary descent, phi(x) >= 2x^3), closing the r = 1 boundary, the h-decreasing tail, and all x >= 1; imp-95281 records that partial closure and its interior residual in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95231-coalescence-ratio-monotonicity.js',
+        ticket: 'imp-95231',
+        note: 'LEMMA RI reduction, THEOREM COAL-DESC closed-form boundary derivative and phi >= 2x^3 bound, with grid assertions covering the trivial h_r <= 0 regime and the coalescence-supremum check',
+      },
+    ],
+    keyFinding:
+      'The coalescence-dominance claim Lambda_2(x, r) <= coalLaw(x) is now analytically proven at its numerically tightest point (the r = 1 boundary, x -> 0) and on the entire h-decreasing tail and all x >= 1, via an exact reduction to the sign of a scalar bracket. The interior bump x < 1, 1 < r < r_star(x) where h_r > 0 remains the only regime without a closed-form sign proof, though it carries no counterexample on any scanned grid and does not conflict with the imp-95224 DC-NOGO count-uniform no-go (COAL-2 is an N = 2 statement).',
+    mainLineBlocker: {
+      label: 'imp-95231-interior-bump-open',
+      description:
+        'The interior regime 0 < x < 1, 1 < r < r_star(x) (where h_r > 0, so LEMMA RI is not trivial) is not reduced to a closed-form sign proof; imp-95231 names this as the exact remaining sub-gap of the ratio-monotonicity proof.',
+      ticket: 'imp-95231',
+    },
+    openQuestions: [
+      'Does the reduced inequality h h_r Lambda_2 <= x P (Lambda_2 - P) admit a closed-form proof on the interior bump 0 < x < 1, 1 < r < r_star(x)? (imp-95231-interior-bump-open -- open)',
+      'The N >= 3 extension of coalescence-dominance is a separate, previously-named residual (imp-95227/imp-95251 COAL-N majorant) unaffected by this closure.',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a proof already derived and committed by prior engine runs (imp-95231).',
+    ],
+  },
 ];

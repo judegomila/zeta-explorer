@@ -15588,6 +15588,15 @@ const DATA_MODULES = [
   // the historical status and the later decision. Documentation only, no
   // bound change, NO QED.
   '/src/data/imp-95301-dominance-conjecture-decided-supersession-note.js',
+  // imp-95352: surfacing audit of the RZ-PEN pencil-floor chain finding
+  // modules imp-95328/95329/95330/95331/95332. FINDING: all five are
+  // import-light (zero import statements) and all five were already
+  // registered in this DATA_MODULES list; none has a dedicated viz page,
+  // glossary headword, or visualizations-index row yet (a
+  // completeness-coverage gap, not a caveat or heavy-import gap, already
+  // targeted by several open queue tickets). AUDIT-ONLY, no page
+  // fabricated. No bound change; NO QED.
+  '/src/data/imp-95352-rzpen-cohort-surfacing-audit-95328-95332.js',
 ];
 
 let ALL_MODULES = FAST_MODE

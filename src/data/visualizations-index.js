@@ -1914,6 +1914,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-scale bar panels baking the imp-95213 TIER_PRICE literals verbatim (no new computation); the full-window run was NOT launched; the second (design-budget-matching) level is the identified residual lever, not built here; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95278-window1-coverage-bar',
+      title: 'Window-1 Coverage: 800 of 1,381,977 q-units Certified',
+      oneLine:
+        'Two coverage bars: the imp-95213 certified slice (800 of 1,381,977 q-units, 0.058% of window 1, both seam charts) nested inside the far larger scope gap (window 1 is 1 of 54,109,012 Gate-2 windows, 54,109,011 left untouched).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95213-tier-certifier-build.js',
+      paperSourcePath:
+        'src/data/imp-95213-tier-certifier-build.js (CERTIFIED_SLICE / WINDOW_WIDTH_U) + src/data/imp-95238-fullwindow-run-decision.js (windowsBeyondWindow1Untouched); imp-95278 viz page',
+      ticket: 'imp-95278',
+      pedagogicalStep: 134,
+      honestCeiling:
+        'Descriptive coverage-bar chart baking the imp-95213 CERTIFIED_SLICE / WINDOW_WIDTH_U literals and the imp-95238 windowsBeyondWindow1Untouched literal verbatim (no new computation); the certified slice sets no G5 window-promotion flag; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

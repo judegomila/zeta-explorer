@@ -1817,6 +1817,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive curve chart baking the imp-95232 FINDING 2 offLatticeTable / offLatticeWitness literals verbatim (no new computation, no heavy import); the off-lattice degradation measured here is a RAW-BL property, distinct from the count-uniform BL-LAT collar (imp-95232 FINDING 1, ~70x looser); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95268-collar-overprice',
+      title: 'BL-LAT Collar Over-Pricing at Finite N',
+      oneLine:
+        'Log-scale bar chart of the imp-95232 FINDING 1 collar-overpricing factor (collar / Lambda, ~69-79x across depth x=4..8) on the dyadic lattice, against the near-sharp raw Blaschke-Lagrange ratio (~1.03x) shown as a dashed reference line.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95268-collar-overprice-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95232-bl-lat-off-lattice-degradation.js (FINDING 1 onLatticeBaseline / collarOverpriceVsX; imp-95268 viz page)',
+      ticket: 'imp-95268',
+      pedagogicalStep: 133,
+      honestCeiling:
+        'Descriptive log-scale bar chart baking the imp-95232 FINDING 1 onLatticeBaseline / collarOverpriceVsX literals verbatim (no new computation, no heavy import); the count-uniform BL-LAT collar over-pricing measured here is a finite-N artifact of the collar being an infinite two-sided Blaschke product, distinct from the near-sharp raw BL bound (imp-95232 FINDING 2); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-twistor-dual-intertwiner',
       title: 'Twistor Space, its Dual, and the Intertwiner',
       oneLine:

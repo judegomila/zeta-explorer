@@ -2012,6 +2012,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive curves recomputing sqrt(T(3,x)) and coalN(3,R,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket across the R axis numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95319-splitrz-vs-splitloo-collar',
+      title: 'SPLIT-RZ Flat Constant vs the SPLIT-LOO Linear-in-m Collar',
+      oneLine:
+        'Log10-scale curve of the imp-95250 LEMMA LOO naive per-block reciprocal-sum constant A_LOO(m) (via the imp-95249 LEMMA ANG-DET fence) against the imp-95252 flat, m-independent block-Riesz constant A_blk at window ratio r = 1.3, showing the crossover at m = 5 and the asymptotically linear-in-m collar (A_LOO(m)*m converging to a positive limit) that motivated the m-uniform SPLIT-RZ result.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95319-splitrz-vs-splitloo-collar-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95250-leaveoneout-multiblock-split-certificate.js (LEMMA LOO, HONEST LIMITS (d)); src/data/imp-95252-muniform-block-riesz-seam-pencil.js (COROLLARY RZ-BLOCK flat constant A_blk; imp-95319 viz page)',
+      ticket: 'imp-95319',
+      pedagogicalStep: 141,
+      honestCeiling:
+        'Descriptive curve evaluating A_LOO(m) directly from the imp-95249 LEMMA ANG-DET fence definition (no new derivation, no heavy import) against the already-baked imp-95252 A_blk constant; the observed 1/m asymptotic decay is a numeric illustration, proves nothing beyond what imp-95250 / imp-95252 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

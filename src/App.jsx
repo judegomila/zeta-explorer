@@ -1043,6 +1043,9 @@ const Imp95305SplitRzVsEvOctUnifOnsetViz = lazy(() =>
 const Imp95317ConfluentBracketAcrossRViz = lazy(() =>
   import('./pages/Imp95317ConfluentBracketAcrossRViz.jsx')
 );
+const Imp95319SplitRzVsSplitLooCollarViz = lazy(() =>
+  import('./pages/Imp95319SplitRzVsSplitLooCollarViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2856,6 +2859,10 @@ function AppShell() {
           <Route
             path="/viz-imp95317-confluent-bracket-across-r"
             element={<Imp95317ConfluentBracketAcrossRViz />}
+          />
+          <Route
+            path="/viz-imp95319-splitrz-vs-splitloo-collar"
+            element={<Imp95319SplitRzVsSplitLooCollarViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

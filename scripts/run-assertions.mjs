@@ -15476,6 +15476,22 @@ const DATA_MODULES = [
   // Import-light, eight self-executing assertions. Changes no bound;
   // NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95328-two-chart-pencil-floor.js',
+  // imp-95329 (fable-5, frontier): LEMMA BCAP + LEMMA ACAP + THEOREM
+  // RZ-PEN3 + COROLLARY PEN-UNIF3 + COROLLARY SPLIT-PEN3 -- executes the
+  // imp-95328 named residual (beta trace currency): the crude
+  // 1 - cos(w tau) <= w^2 tau^2 / 2 step is replaced by the closed-form
+  // uniform-in-b cap (1 - cos(w b/a))/(1 - sech(b/2)) <= 2 + 4 w^2/a^2
+  // (two monotone branches crossing at cosh(b/2) = 1 + a^2/(2 w^2)), and
+  // alpha <= 2 f_a is sharpened to 2 f_a/(1 + sech(a/2)). Floor gain
+  // 6.073x at rho = e^6 (looseness 37.8-65.2x -> 6.2-10.7x), 1.119x at
+  // rho = 2; every-octave onsets: m-and-r-uniform 14.302669 ->
+  // 14.242145, r = 1.3 14.077435 -> 14.016839, r = 1.05 13.825182 ->
+  // 13.764502. New named residual: the numerator currency
+  // (pair-identity truncation + det/tr step; the trace side is
+  // exhausted, BCAP measured 0.9998-sharp). Import-light, nine
+  // self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95329-beta-trace-capped-pencil-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

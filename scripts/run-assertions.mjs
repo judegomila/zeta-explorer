@@ -15512,6 +15512,16 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95330-chart-refined-pencil-floor.js',
+  // imp-95284: surfacing audit of the imp-95249/95250/95231/95232/95233 seam-
+  // chain finding modules -- all six are import-light (zero import
+  // statements, no heavy-bundle reach). 4 are SURFACED via a registered
+  // App.jsx route whose page carries an inline honest-status banner
+  // (imp-95231-coalescence-ratio-monotonicity, imp-95232, imp-95233,
+  // imp-95250); 2 are ORPHAN with no driving page or visualizations-index
+  // row (imp-95231-rate-monotonicity-closure THEOREM RATE-MONO, and
+  // imp-95249 THEOREM SPLIT-2/ANG-PENCIL/ANG-DET). AUDIT-ONLY, no page
+  // fabricated; closing the two gaps is separate follow-on scope.
+  '/src/data/imp-95284-seam-chain-surfacing-audit-95249-95250-95231-95232-95233.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -15512,6 +15512,24 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95330-chart-refined-pencil-floor.js',
+  // imp-95331 (fable-5, frontier): LEMMA ROOT-MONO + LEMMA W-SPLIT +
+  // THEOREM RZ-PEN5 + COROLLARY PEN-UNIF5 -- executes the reachable
+  // half of the imp-95330 large-rho numerator-currency residual and
+  // REFUTES its standalone det/tr attribution: the exact-root step
+  // alone gains <= 1.006x (discriminant coupling with the capped trace
+  // and truncated numerator); the actual corner slack was the RZ-PEN4
+  // side-weight assignment charging w_{-1} at t3(2 pi + t1) instead of
+  // t3(2 pi - t0). The split-weight two-sided exact-root chart floor
+  // gains 1.6695x at rho = 10 / 1.5389x at rho = e^6 (looseness 9.32
+  // -> 6.09), unconditional dominance A_pen5 >= A_pen4 (chartwise max),
+  // binding chart at rho = e^6 moves off the far corner (k = 255 ->
+  // 114), activation crossover rho ~ 6.5, every-octave onsets
+  // UNCHANGED (rho = 2 is below the crossover). Surviving residual:
+  // pair-identity truncation beyond {0, +-1} (now interior-binding),
+  // c3n tail, b-uniform t3 weight. Import-light, ten self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
+  // SOTA.
+  '/src/data/imp-95331-split-weight-exact-root-pencil-floor.js',
   // imp-95284: surfacing audit of the imp-95249/95250/95231/95232/95233 seam-
   // chain finding modules -- all six are import-light (zero import
   // statements, no heavy-bundle reach). 4 are SURFACED via a registered

@@ -1942,6 +1942,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-log curve recomputing bound(theta) = e^(-y_min)/(2 theta) independently from the imp-95233 documented closed form and exact witness literals (no new derivation, no heavy import); illustrates the escape mechanism numerically, proves nothing beyond what imp-95233 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95282-coallaw-vs-lambda2',
+      title: 'Confluent-Span Domination: coalLaw(x) vs Lambda_2(x, r)',
+      oneLine:
+        'Curve of the imp-95231 / imp-95227 confluent-span value coalLaw(x) = e^(-2x)(1+2x^2+2x sqrt(1+x^2)) against the exact signed N = 2 constant Lambda_2(x, r) at rate ratios r = 1.01, 1.1, 1.5, 2.0, showing coalLaw(x) dominates every curve and the gap widens as r leaves coalescence (r = 1).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95282-coallaw-vs-lambda2-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95231-coalescence-ratio-monotonicity.js (lam2, coalLaw, THEOREM COAL-DESC); src/data/imp-95227-two-rate-coalescence-dominance-theorem.js (capC dominance theorem; imp-95282 viz page)',
+      ticket: 'imp-95282',
+      pedagogicalStep: 136,
+      honestCeiling:
+        'Descriptive curve recomputing coalLaw(x) and Lambda_2(x, r) independently from the imp-95231 / imp-95227 documented closed forms (no new derivation, no heavy import); illustrates the r -> 1 dominance numerically, proves nothing beyond what imp-95231 / imp-95227 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

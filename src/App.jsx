@@ -1028,6 +1028,9 @@ const Imp95278Window1CoverageBarViz = lazy(() =>
 const Imp95279PhaseCertVsNogoCeilingViz = lazy(() =>
   import('./pages/Imp95279PhaseCertVsNogoCeilingViz.jsx')
 );
+const Imp95282CoalLawVsLambda2Viz = lazy(() =>
+  import('./pages/Imp95282CoalLawVsLambda2Viz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2821,6 +2824,10 @@ function AppShell() {
           <Route
             path="/viz-imp95279-phasecert-vs-nogo-ceiling"
             element={<Imp95279PhaseCertVsNogoCeilingViz />}
+          />
+          <Route
+            path="/viz-imp95282-coallaw-vs-lambda2"
+            element={<Imp95282CoalLawVsLambda2Viz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

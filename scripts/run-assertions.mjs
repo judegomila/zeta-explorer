@@ -15652,6 +15652,14 @@ const DATA_MODULES = [
   // entry -- the gap is expected, no backfill needed. AUDIT-ONLY, no
   // bound change; NO QED.
   '/src/data/imp-95363-maxmoduleid-maxticketid-gap-reconciliation.js',
+  // imp-95367: re-audits the imp-95329/95330/95331/95332 RZ-PEN3..6 modules
+  // for import-lightness and page reachability, narrowing the imp-95352
+  // cohort audit to this four-module subset. FINDING: the imp-95352 "all
+  // orphan" finding is now STALE here -- imp-95349/95350/95351/95366 each
+  // shipped a routed viz page citing these four modules directly, and all
+  // four remain import-light. AUDIT-ONLY, no page fabricated. No bound
+  // change; NO QED.
+  '/src/data/imp-95367-rzpen3-6-surfacing-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

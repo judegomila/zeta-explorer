@@ -15579,6 +15579,25 @@ const DATA_MODULES = [
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
   // SOTA.
   '/src/data/imp-95333-pair-extended-pencil-floor.js',
+  // imp-95334 (fable-5, frontier): LEMMA T-EXACT + THEOREM RZ-PEN8 --
+  // decides the b-uniform t3 trace-weight leg (the LAST named RZ-PEN
+  // residual) both ways. OBSTRUCTION: restricted to the PEN-UNIF7
+  // branch-L range tau <= 3/8, the BCAP sup ratio/cap is 0.9985 at
+  // a = ln 2 (no b-uniform headroom at onset scale; ~10 percent
+  // uniform-side headroom survives only at a = 6). EXECUTION: the
+  // pointwise floor does not need b-uniformity -- the true per-term
+  // trace weight is the identity 2 (1 - s cos(w tau))/A, capped
+  // chartwise by the exact interval cosine minimum; the capped trace
+  // is now within 0.5 percent of the true B at the binding chart
+  // (was 2.154x). Floor gains over RZ-PEN7 at rho = e^6: 3.651x at
+  // r = 2 (looseness 3.957 -> 1.084), 3.185x at r = e^3, 2.242x at
+  // r = e^5.9; 1.285x at rho = 10; rho = 2 BITWISE unchanged (V4
+  // binds), so every-octave onsets carry UNCHANGED. With looseness
+  // 1.01 - 1.08 at every sampled cell the pointwise pencil-floor
+  // program RZ-PEN..RZ-PEN8 is EFFECTIVELY TERMINAL. Import-light,
+  // ten self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95334-b-exact-trace-pencil-floor.js',
   // imp-95284: surfacing audit of the imp-95249/95250/95231/95232/95233 seam-
   // chain finding modules -- all six are import-light (zero import
   // statements, no heavy-bundle reach). 4 are SURFACED via a registered

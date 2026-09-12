@@ -1049,6 +1049,9 @@ const Imp95319SplitRzVsSplitLooCollarViz = lazy(() =>
 const Imp95349RzPenGainLadderViz = lazy(() =>
   import('./pages/Imp95349RzPenGainLadderViz.jsx')
 );
+const Imp95350ChartTailCapVsUniformC3nViz = lazy(() =>
+  import('./pages/Imp95350ChartTailCapVsUniformC3nViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2870,6 +2873,10 @@ function AppShell() {
           <Route
             path="/viz-imp95349-rzpen-gain-ladder"
             element={<Imp95349RzPenGainLadderViz />}
+          />
+          <Route
+            path="/viz-imp95350-chart-tail-cap-vs-uniform-c3n"
+            element={<Imp95350ChartTailCapVsUniformC3nViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

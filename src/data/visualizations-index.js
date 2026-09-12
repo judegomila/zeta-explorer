@@ -2040,6 +2040,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted value is copied verbatim from the imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those four modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95350-chart-tail-cap-vs-uniform-c3n',
+      title: 'Per-Chart Tail Cap vs Theta-Uniform c3n at rho = e^6',
+      oneLine:
+        'Line chart of the imp-95332 LEMMA TAIL-CHART per-chart tail cap c3nChart(t0, t1) recomputed across all K = 256 charts of [0, pi] at rho = e^6, against the flat imp-95329 theta-uniform c3n constant it replaces, plus the per-chart gain factor (uniform / per-chart, ranging about 8.09x at chart k = 0 down to about 4.09x at chart k = 255).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95350-chart-tail-cap-vs-uniform-c3n-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95332-chart-tail-pencil-floor.js (LEMMA TAIL-CHART closed form, function c3nChart, record fields c3nA6 / c3nChartA6K114 / bindingChartRhoE6; imp-95350 viz page)',
+      ticket: 'imp-95350',
+      pedagogicalStep: 142,
+      honestCeiling:
+        'Presentation only: the per-chart series is recomputed here with the same closed-form arithmetic imp-95332 already proved (LEMMA TAIL-CHART), cross-checked at the binding chart (k = 114) and the flat uniform constant against the imp-95332 baked record to rel 1e-12; proves nothing beyond what imp-95332 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

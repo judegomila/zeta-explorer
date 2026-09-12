@@ -1970,6 +1970,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive curves recomputing sqrt(T(N,x)) and coalN(N,1.3,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95304-phaseam-vs-phasecert-ceilx',
+      title: 'PHASE-AM Bound vs PHASE-CERT Bound and the CEIL-X Exceedance Point',
+      oneLine:
+        'Log-log curves of the imp-95254 THEOREM PHASE-AM bound R <= (e^(-y_min)/4)(1+1/theta) against the imp-95233 COROLLARY PHASE-CERT bound R <= e^(-y_min)/(2 theta) at y_min = 1/4, marking the DC-NOGO 1/2 ceiling, both vacuity thresholds, and the imp-95254 PROP CEIL-X witness where the actual R = 0.6962 exceeds 1/2 while both certificates still majorize it.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95304-phaseam-vs-phasecert-ceilx-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95254-orthant-split-phase-certificate.js (THEOREM PHASE-AM closed form, PROP CEIL-X exact witness); src/data/imp-95233-modulus-phase-currency-feasibility.js (COROLLARY PHASE-CERT closed form); src/data/imp-95224-signed-depth-currency-nogo.js (COROLLARY DC-NOGO ceiling; imp-95304 viz page)',
+      ticket: 'imp-95304',
+      pedagogicalStep: 138,
+      honestCeiling:
+        'Descriptive log-log curves recomputing both bounds independently from the imp-95254 / imp-95233 documented closed forms and exact witness literals (no new derivation, no heavy import); illustrates the strict PHASE-AM dominance and the CEIL-X exceedance numerically, proves nothing beyond what imp-95254 / imp-95233 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

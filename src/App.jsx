@@ -1031,6 +1031,9 @@ const Imp95279PhaseCertVsNogoCeilingViz = lazy(() =>
 const Imp95282CoalLawVsLambda2Viz = lazy(() =>
   import('./pages/Imp95282CoalLawVsLambda2Viz.jsx')
 );
+const Imp95304PhaseAmVsPhaseCertCeilXViz = lazy(() =>
+  import('./pages/Imp95304PhaseAmVsPhaseCertCeilXViz.jsx')
+);
 const Imp95303ConfLbVsCoalNWindowPinchViz = lazy(() =>
   import('./pages/Imp95303ConfLbVsCoalNWindowPinchViz.jsx')
 );
@@ -2835,6 +2838,10 @@ function AppShell() {
           <Route
             path="/viz-imp95303-conflb-vs-coaln-window-pinch"
             element={<Imp95303ConfLbVsCoalNWindowPinchViz />}
+          />
+          <Route
+            path="/viz-imp95304-phaseam-vs-phasecert-ceilx"
+            element={<Imp95304PhaseAmVsPhaseCertCeilXViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

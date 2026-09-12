@@ -15645,6 +15645,13 @@ const DATA_MODULES = [
   // targeted by several open queue tickets). AUDIT-ONLY, no page
   // fabricated. No bound change; NO QED.
   '/src/data/imp-95352-rzpen-cohort-surfacing-audit-95328-95332.js',
+  // imp-95363: reconciles the queue-index maxModuleId(95332) vs
+  // maxTicketId(95327) gap for the RZ-PEN chain ids imp-95328..95332.
+  // FINDING: all five are row-free finding modules by design (no matching
+  // improvement-queue.js row) and each has exactly one improvements.js log
+  // entry -- the gap is expected, no backfill needed. AUDIT-ONLY, no
+  // bound change; NO QED.
+  '/src/data/imp-95363-maxmoduleid-maxticketid-gap-reconciliation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

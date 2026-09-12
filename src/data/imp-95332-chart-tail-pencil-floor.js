@@ -244,6 +244,16 @@ export const IMP95332_CHART_TAIL_PENCIL_FLOOR = {
     "unchanged; the pair-truncation and b-uniform-t3 legs remain " +
     "OPEN. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 " +
     "remains SOTA.",
+  chainHonestStatus:
+    "whole-chain summary (imp-95288 through imp-95332, six legs " +
+    "RZ-PEN / RZ-PEN2 .. RZ-PEN6): every leg is a FLOOR-only " +
+    "sharpening of the block symbol-pencil lower bound at rho > " +
+    "~ 6.5 (the exact-root-branch activation crossover); the " +
+    "rho = 2 certificate floor and all three every-octave firing " +
+    "onsets (13.297836 / 13.071303 / 12.817538) are bitwise " +
+    "UNCHANGED across the entire chain. No leg in this chain has " +
+    "moved a certificate onset or the program Lambda bound; " +
+    "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
 };
 
 // ---------------------------------------------------------------------------

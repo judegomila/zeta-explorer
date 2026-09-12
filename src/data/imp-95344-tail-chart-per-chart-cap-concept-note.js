@@ -123,6 +123,16 @@ const TAIL_CHART_HEADWORD = Object.freeze({
     'generality); it moves no certificate onset (all three every-' +
     'octave onsets and the rho = 2 anchor are bitwise unchanged) and ' +
     'establishes no new program bound.',
+  endpointBoundsAndClosure:
+    'The two-sided per-term endpoint brackets that license charging ' +
+    'each tail term at chart endpoints: for theta in [t0, t1] and ' +
+    'm >= 2, |w_m| = theta + 2 pi m lies in [2 pi m + t0, 2 pi m + t1] ' +
+    'and |w_{-m}| = 2 pi m - theta lies in [2 pi m - t1, 2 pi m - t0] ' +
+    '(positive since 2 pi m - pi > 0). The m >= N + 1 remainder series ' +
+    'closes because 4 e2 < 1 with e2 = exp(-2 pi^2 / a), which holds ' +
+    'throughout the working range a in (0, 6] since 6 < 2 pi^2 / ln 4 ' +
+    '(approx 14.24) -- the same geometric-step condition the imp-95329 ' +
+    'theta-uniform c3n already relies on, re-anchored at (2N + 1) pi.',
 });
 
 export const IMP95344_TAIL_CHART_PER_CHART_CAP_CONCEPT_NOTE = Object.freeze({
@@ -286,6 +296,41 @@ export const IMP95344_TAIL_CHART_PER_CHART_CAP_CONCEPT_NOTE_ASSERTIONS = [
         if (chartCap(a, mid, t1) > coarse * (1 + 1e-12)) return false;
         if (coarse > uniformC3n * (1 + 1e-9)) return false;
       }
+      return true;
+    },
+  },
+  {
+    id: 'imp95344-two-sided-endpoint-bounds-and-series-closure',
+    why:
+      'The note claims a specific two-sided endpoint bracket for ' +
+      '|w_{+-m}| on a chart [t0, t1] and that the tail remainder series ' +
+      'closes because 4 e2 < 1 throughout a in (0, 6]; verify both ' +
+      'directly and independently (no import of imp-95332).',
+    holds: () => {
+      const PI = Math.PI;
+      // Two-sided endpoint brackets, several charts and m.
+      for (const a of [0.5, Math.LN2, 3, 6]) {
+        for (const [t0, t1] of [[0, PI], [0.3, 0.9], [PI - 0.2, PI]]) {
+          for (let m = 2; m <= 6; m++) {
+            for (let i = 0; i <= 4; i++) {
+              const theta = t0 + ((t1 - t0) * i) / 4;
+              const wPlus = theta + 2 * PI * m;
+              const wMinus = 2 * PI * m - theta;
+              if (wPlus < 2 * PI * m + t0 - 1e-9 || wPlus > 2 * PI * m + t1 + 1e-9)
+                return false;
+              if (wMinus < 2 * PI * m - t1 - 1e-9 || wMinus > 2 * PI * m - t0 + 1e-9)
+                return false;
+              if (wMinus <= 0) return false;
+            }
+          }
+        }
+      }
+      // Series-closure condition 4 e2 < 1 throughout the working range.
+      for (const a of [0.01, 0.5, 1, 3, 6]) {
+        const e2 = Math.exp((-2 * PI * PI) / a);
+        if (!(4 * e2 < 1)) return false;
+      }
+      if (!(6 < (2 * PI * PI) / Math.log(4))) return false;
       return true;
     },
   },

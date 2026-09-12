@@ -2069,6 +2069,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: both curves are recomputed here with the same closed-form arithmetic imp-95332 / imp-95331 already proved (COROLLARY PEN-UNIF6 / PEN-UNIF5), cross-checked at both grid endpoints (rho = 2, rho = e^6) against the imp-95332 baked record to rel 1e-12/1e-9; proves nothing beyond what those modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio',
+      title: 'LEMMA BCAP Two-Branch Cap vs the Exact Ratio',
+      oneLine:
+        'Line chart of the imp-95329 LEMMA BCAP two monotone branches min(4 w^2 c/a^2, 2 + 2/(c-1)) against the exact ratio (1 - cos(w b/a)) / (1 - sech(b/2)) they bound, across c = cosh(b/2) at a = 6 for w = pi and w = 2 pi, marking the crossover c* where both branches meet the flat cap 2 + 4 w^2/a^2.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95371-bcap-two-branch-cap-vs-exact-ratio-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95329-beta-trace-capped-pencil-floor.js (LEMMA BCAP, record field lemmaBcap; imp-95371 viz page)',
+      ticket: 'imp-95371',
+      pedagogicalStep: 142,
+      honestCeiling:
+        'Presentation only: all four curves are recomputed here with the same closed-form arithmetic imp-95329 already proved (LEMMA BCAP), cross-checked at the crossover point c* (both branches equal the flat cap there, rel 1e-9); the plotted a = 6 slice is not the near-sharp regime the imp-95329 record measures elsewhere (small a, small b); proves nothing beyond what imp-95329 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95366-rzpen-onset-drop-ladder',
       title: 'RZ-PEN Every-Octave Onset-Drop Ladder Across the Chain Legs',
       oneLine:

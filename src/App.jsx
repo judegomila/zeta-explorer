@@ -1058,6 +1058,9 @@ const Imp95351Unif6VsUnif5AcrossRhoViz = lazy(() =>
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
+const Imp95371BcapTwoBranchCapVsExactRatioViz = lazy(() =>
+  import('./pages/Imp95371BcapTwoBranchCapVsExactRatioViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2891,6 +2894,10 @@ function AppShell() {
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"
             element={<Imp95366RzPenOnsetDropLadderViz />}
+          />
+          <Route
+            path="/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio"
+            element={<Imp95371BcapTwoBranchCapVsExactRatioViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

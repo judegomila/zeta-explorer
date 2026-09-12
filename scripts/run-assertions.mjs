@@ -15548,6 +15548,28 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95332-chart-tail-pencil-floor.js',
+  // imp-95333 (fable-5, frontier): LEMMA PAIR-2 + THEOREM RZ-PEN7 +
+  // COROLLARY PEN-UNIF7 -- executes the PAIR-TRUNCATION leg of the
+  // imp-95331/95332 surviving residual: the kept-pair numerator floor
+  // {0, +-1} is extended to ALL distance-1 and distance-2 pairs among
+  // shells {-2..2}, with the consecutive outer pairs at the carried
+  // weight sin^2(pi tau) and the (-1,+1)/(0,+-2) pairs at the exact
+  // double-angle weight sin^2(2 pi tau) = 4 sin^2(pi tau) cos^2(pi
+  // tau), carried by a second monotone parameter nu = 4 cos^2(pi tau).
+  // Floor gain over RZ-PEN6 at rho = e^6: 1.2788x at r = 2 (looseness
+  // 5.060 -> 3.957), 1.3040x at r = e^5.9; at tau = 1/2 the distance-2
+  // weight vanishes identically (1.0066x). rho <= 4 bitwise unchanged,
+  // every-octave onsets carry UNCHANGED. A_unif7(e^6) = 6.2429e-2 =
+  // 1.0507 x A_unif6 (two-branch tau split at 3/8, closed-form branch
+  // constants 2 - sqrt(2) and (2 + sqrt(2))/4). PAIR CURRENCY
+  // NEAR-EXHAUSTED: the full pair identity exceeds the kept-pair floor
+  // by at most 1.028x at the binding chart while the capped trace
+  // overshoots the true B by 2.449x -- the surviving large-rho
+  // looseness (2.3 - 4.0x) now lives dominantly in the b-uniform t3
+  // weight, the last named leg. Import-light, ten self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
+  // SOTA.
+  '/src/data/imp-95333-pair-extended-pencil-floor.js',
   // imp-95284: surfacing audit of the imp-95249/95250/95231/95232/95233 seam-
   // chain finding modules -- all six are import-light (zero import
   // statements, no heavy-bundle reach). 4 are SURFACED via a registered

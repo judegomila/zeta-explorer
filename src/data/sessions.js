@@ -942,4 +942,51 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a proof already derived and committed by prior engine runs (imp-95231).',
     ],
   },
+  {
+    id: 'session-2026-09-11-y-exact-corner-slack-closure',
+    date: '2026-09-11',
+    title: 'LEMMA CC + LEMMA RM + LEMMA PF and THEOREM Y-EXACT close the imp-95008 eighteenth-continuation residuals (b) and (c) (imp-95324)',
+    engineStateStart:
+      'The imp-95008 eighteenth continuation (window/Cauchy-Schwarz far-bracket ceiling) named three achieved-side slacks still open on the far pair-correlation bound: (a) the outer parity AM-GM factor 2, (b) a MEASURED ~2.85x corner slack from window-boundary losses inside Lemma 3W, and (c) an asymptotic half-exponent mismatch -- the envelope decayed like T^(1/2 - s) instead of the true T^(-s).',
+    engineStateEnd:
+      'The nineteenth continuation (imp-95008-exact-pair-correlation-ceiling.js) closes (b) and (c) together by discarding the window/Cauchy-Schwarz apparatus entirely. LEMMA CC (layer-cake separation monotonicity, unconditional, all T >= 0) shows the envelope-pair integral I(T, rho) is nonincreasing in T with no window or exponent loss. LEMMA RM (width-ratio monotonicity, unconditional, one-page calculus) shows I(T, rho) is nondecreasing in rho on (0, 1] once T >= Ystar(s) := (2s - 1)^(1/(s-1)) - 1; at s = 11, Ystar = 0.3558821066938467, below V(0,2) = 2^(1/3), so it covers every substituted pair in the roll-up. LEMMA PF gives an exact elementary closed form (partial fractions: rational terms plus one logarithm) for the envelope-pair integral at integer s, replacing the prior window-based approximation. THEOREM Y-EXACT (conditional only on MAJ(sigma, theta)) then substitutes the Lemma X separation floor and Lemma RHO width-ratio cap directly into this exact value via LEMMA CC then LEMMA RM, so the per-pair bound is sharp at the substituted point with zero remaining inequality slack. At theta = 10 (floors untouched): dominant-corner per-pair envelope 1.1159760370515937e-4 -> 3.9197920255561178e-5 (factor 2.8470286938074612, exactly the eighteenth measured corner slack); far ceiling 0.7741509917026236 -> 0.2717408057586117; headline gap 8.001968970787363 -> 2.8088338309749887; fixed-97 gap 642.1998717107592 -> 225.42360917596611.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95008 (nineteenth continuation) closes two named achieved-side residuals on a model-family far-bracket ceiling; it instantiates no paper constant and changes no bound.',
+      note: 'Achieved-side ceiling sharpening within the model family, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'imp-95008 nineteenth continuation (Y-EXACT corner-slack closure)',
+        ids: ['imp-95008-exact-pair-correlation-ceiling', 'imp-95324'],
+        summary:
+          'imp-95008 continuation nineteen proved LEMMA CC, LEMMA RM, and LEMMA PF, letting THEOREM Y-EXACT close the eighteenth residuals (b) corner slack and (c) asymptotic half-exponent with an exact closed form; imp-95324 records that closure in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95008-exact-pair-correlation-ceiling.js',
+        ticket: 'imp-95008-exact-pair-correlation-ceiling',
+        note: 'LEMMA CC layer-cake separation monotonicity, LEMMA RM width-ratio monotonicity, LEMMA PF exact partial-fraction closed form, and THEOREM Y-EXACT parity roll-up, with adversarial self-check (quadrature convergence, float-conditioning) and assertions covering the closed reference literals',
+      },
+    ],
+    keyFinding:
+      'The far pair-correlation ceiling now uses an exact closed-form envelope-pair value rather than a window/Cauchy-Schwarz approximation, closing the eighteenth-continuation corner slack (b) and asymptotic half-exponent (c) simultaneously -- zero inequality slack survives at the substituted point (V(b,j), rhoCap(j)). The outer parity AM-GM factor 2 is now the dominant surviving named slack, alongside the tightness of the substitution point itself (Lemma X floor strict, Lemma RHO cap attained to 0.4 percent) and a measured ~1e-8 relative float-conditioning limit in the closed-form evaluation; the b = 0 near-tie persists.',
+    mainLineBlocker: {
+      label: 'imp-95008-parity-factor-dominant-slack',
+      description:
+        'With residuals (b) and (c) closed, the outer parity AM-GM factor 2 is the dominant surviving achieved-side slack on this far-bracket ceiling; the sibling-chain residuals (packet-envelope constants, curvature ceiling D, paper-phase curvature normalization, and the l2-to-pointwise passage to |C_E,17|) remain open and unaffected by this step.',
+      ticket: 'imp-95008-exact-pair-correlation-ceiling',
+    },
+    openQuestions: [
+      'Can the outer parity AM-GM factor 2 be recovered, or is it uniformly unrecoverable as the eleventh continuation concluded? (open)',
+      'Does the sibling-chain l2-to-pointwise passage residual (a differently-named "(c)" from an unrelated ledger) close under the same exact-closed-form discipline? (open)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording a proof already derived and committed by prior engine runs (imp-95008-exact-pair-correlation-ceiling).',
+    ],
+  },
 ];

@@ -1956,6 +1956,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive curve recomputing coalLaw(x) and Lambda_2(x, r) independently from the imp-95231 / imp-95227 documented closed forms (no new derivation, no heavy import); illustrates the r -> 1 dominance numerically, proves nothing beyond what imp-95231 / imp-95227 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95303-conflb-vs-coaln-window-pinch',
+      title: 'Confluent Floor sqrt(T(N,x)) vs COAL-N Ceiling coalN(N,1.3,x) at N = 3, 4, 5',
+      oneLine:
+        'Log10-scale curves of the imp-95286 THEOREM CONF-LB confluent floor sqrt(T(N,x)) against the imp-95251 THEOREM COAL-N ceiling coalN(N,1.3,x) for N = 3, 4, 5, marking the coalN = 1 firing onsets where the imp-95286 overpricing cap rho -> R^(N-1) is read off as the vertical gap.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95303-conf-lb-vs-coaln-window-pinch-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95286-confluent-laguerre-floor.js (THEOREM CONF-LB floor, COROLLARY WINDOW-PINCH bracket); src/data/imp-95251-nfold-coalescence-law.js (THEOREM COAL-N ceiling; imp-95303 viz page)',
+      ticket: 'imp-95303',
+      pedagogicalStep: 137,
+      honestCeiling:
+        'Descriptive curves recomputing sqrt(T(N,x)) and coalN(N,1.3,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -21464,6 +21464,31 @@ export const glossary = [
       'imp-95233 Phase-Alignment Currency theta(f) is a sibling leg of the same signed-seam chain',
     ],
   },
+  {
+    term: 'Symbol-pencil floor lam_min(F, G0)',
+    category: 'framework',
+    definition:
+      'The m-uniform lower bound for the seam Gram of an octave-twin rate lattice, obtained by ' +
+      'passing from the finite pencil (Gtilde_2m, blockdiag) to its Fourier symbol pencil (F, G0): ' +
+      'F(theta) is the 2x2 Hermitian block-Toeplitz symbol built from the log-ratio Gram entries ' +
+      'sech(u/2) via Poisson summation (F = [[f_a, f_b], [conj(f_b), f_a]], f_a - |f_b| = ' +
+      'lambda_min(F) on the scalar-lattice case), and G0 is the block-diagonal reference against ' +
+      'which the generalized eigenvalue lambda_min(F, G0) = inf det M / tr M is taken. By the ' +
+      'Grenander-Szego quadratic-form bound (LEMMA TOEP), lambda_min(Gtilde_m) >= inf over theta ' +
+      'of lambda_min(F, G0) for every finite m, and the Fejer-average ceiling construction shows ' +
+      'no m-uniform constant can exceed this symbol infimum -- it is the sharp currency the RZ-PEN ' +
+      'chain (THEOREM RZ-LAT, RZ-TWIN, RZ-PEN..RZ-PEN8) progressively tightens toward, via chart ' +
+      'splitting, pointwise trace weights, exact-root pencil solves, and pair-identity truncation.',
+    firstUsed: 'imp-95252 (LEMMA TOEP / THEOREM RZ-LAT / RZ-TWIN, twenty-ninth leg of the seam chain), 2026',
+    relatedTerms: [
+      'imp-95252 introduces the symbol pencil (F, G0) and the Grenander-Szego sandwich (imp-95252)',
+      'imp-95328 THEOREM RZ-PEN2 sharpens the floor via pointwise two-chart trace weights (imp-95328)',
+      'imp-95329 THEOREM RZ-PEN3 caps the beta-trace weight uniformly in b (imp-95329)',
+      'imp-95330 THEOREM RZ-PEN4 refines the floor with a K-chart cover (imp-95330)',
+      'imp-95331 THEOREM RZ-PEN5 resolves the exact-root det/tr pencil step (imp-95331)',
+      'imp-95332 THEOREM RZ-PEN6 caps the per-chart tail leg (imp-95332)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

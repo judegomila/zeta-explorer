@@ -989,4 +989,72 @@ export const SESSIONS = [
       'This session entry is documentation only, recording a proof already derived and committed by prior engine runs (imp-95008-exact-pair-correlation-ceiling).',
     ],
   },
+  {
+    id: 'session-2026-09-11-rz-pen-trace-chart-tail-exhaustion',
+    date: '2026-09-11',
+    title:
+      'THEOREM RZ-PEN2 through RZ-PEN6 exhaust the trace, chart, and tail currencies of the imp-95288 symbol-pencil floor (imp-95348)',
+    engineStateStart:
+      'The imp-95288 adversarial record measured the symbol-pencil floor A_pen 25.3 - 91.7x below the exact generalized-eigenvalue infimum lam_min(F, G0) at rho = 2, attributing the looseness to a crude pi^2 / 9 pi^2 / 9 pi^2 trace cap that over-prices every finite symbol term near theta = 0, where the true minimizer sits.',
+    engineStateEnd:
+      'Five successive legs close that gap currency by currency, each proven to dominate the previous floor unconditionally. RZ-PEN2 (imp-95328, LEMMA S-MONO) keeps the trace weights w_0^2 = theta^2 pointwise instead of capped, splitting the theta-range into a near chart and a far chart via an explicit split point t; gain 13.326x at rho = 2, looseness 25.3 - 91.7x -> 4.6 - 6.7x. RZ-PEN3 (imp-95329, LEMMA BCAP + LEMMA ACAP) replaces the quadratic 1 - cos(w tau) <= w^2 tau^2 / 2 step and the alpha <= 2 f_a step with two closed-form caps whose branches cross exactly at c* = 1 + a^2 / (2 w^2); gain 6.073x at rho = e^6, looseness 37.8 - 65.2x -> 6.2 - 10.7x. RZ-PEN4 (imp-95330, LEMMA G-MONO) replaces the two-chart split by a uniform K = 256-chart cover of [0, pi] via a ratio-monotone substitution; gain 5.7648x at rho = 2 (floor now 1.029 - 1.037x of the exact infimum there, near-exhausted) but only 1.1458x at rho = e^6 (still 5.4 - 9.8x loose). RZ-PEN5 (imp-95331, LEMMA ROOT-MONO + LEMMA W-SPLIT) splits the two side weights w_{-1} and w_{+1} into separately-capped chart terms and replaces det/tr by the exact smaller quadratic root; gain 1.5389x at rho = e^6 (looseness 9.32x -> 6.09x at r = 2), while adversarially REFUTING the imp-95330 attribution that the exact-root step alone could gain up to 1.66x -- standalone it gains at most 1.006x, because the root and trace legs are coupled through the discriminant B^2 - A C. RZ-PEN6 (imp-95332, LEMMA TAIL-CHART) replaces the theta-uniform |n| >= 2 tail majorant c3n with a per-chart cap c3nChart, charging the tail terms at their exact chart endpoints; gain 1.2025x at rho = e^6, r = 2 (looseness 6.085 -> 5.060), with the per-chart cap measured within 0.3 percent of the true t3-weighted tail (max truth/cap 0.9978) -- the tail currency is EXHAUSTED. Every-octave onsets (dyadic skeleton, r in (1, 1.3], every m) drop 15.689897 -> 14.302669 (RZ-PEN2) -> 14.242145 (RZ-PEN3) -> 13.297836 (RZ-PEN4), then hold UNCHANGED at 13.297836 through RZ-PEN5 and RZ-PEN6 since the certificate anchor rho = 2 sits below the rho ~ 6.5 activation crossover where those two legs bind.',
+    lambdaHeadline: {
+      start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
+      provenance:
+        'imp-95328 through imp-95332 sharpen a model-family symbol-pencil floor inside the RZ-PEN seam chain; they instantiate no paper constant and change no bound.',
+      note: 'Achieved-side floor sharpening within the model family, NO QED.',
+    },
+    seededTickets: [
+      {
+        phase: 'RZ-PEN2..RZ-PEN6 trace/chart/tail currency exhaustion',
+        ids: ['imp-95328', 'imp-95329', 'imp-95330', 'imp-95331', 'imp-95332', 'imp-95348'],
+        summary:
+          'imp-95328..imp-95332 proved THEOREM RZ-PEN2 through RZ-PEN6, closing the trace-weight, chart-cover, and tail-majorant currencies of the imp-95288 symbol-pencil floor at rho = 2 and reducing (but not closing) the surviving large-rho looseness to the pair-truncation and b-uniform t3-weight legs; imp-95348 records that chain in the research journal.',
+        status: 'completed by engine',
+      },
+    ],
+    shippedFiles: [
+      {
+        path: 'src/data/imp-95328-two-chart-pencil-floor.js',
+        ticket: 'imp-95328',
+        note: 'LEMMA S-MONO + THEOREM RZ-PEN2: pointwise trace weights, near/far two-chart split',
+      },
+      {
+        path: 'src/data/imp-95329-beta-trace-capped-pencil-floor.js',
+        ticket: 'imp-95329',
+        note: 'LEMMA BCAP + LEMMA ACAP + THEOREM RZ-PEN3: closed-form beta-trace and alpha-diagonal caps',
+      },
+      {
+        path: 'src/data/imp-95330-chart-refined-pencil-floor.js',
+        ticket: 'imp-95330',
+        note: 'LEMMA G-MONO + THEOREM RZ-PEN4: K = 256 uniform-chart cover replacing the two-chart split',
+      },
+      {
+        path: 'src/data/imp-95331-split-weight-exact-root-pencil-floor.js',
+        ticket: 'imp-95331',
+        note: 'LEMMA ROOT-MONO + LEMMA W-SPLIT + THEOREM RZ-PEN5: split side-weight charts and exact quadratic root, with the standalone det/tr adversarial refutation',
+      },
+      {
+        path: 'src/data/imp-95332-chart-tail-pencil-floor.js',
+        ticket: 'imp-95332',
+        note: 'LEMMA TAIL-CHART + THEOREM RZ-PEN6: per-chart tail cap exhausting the |n| >= 2 tail currency',
+      },
+    ],
+    keyFinding:
+      'Chaining THEOREM RZ-PEN2 through RZ-PEN6 exhausts three of the four named currencies of the imp-95288 symbol-pencil floor: the trace-weight currency (RZ-PEN2/RZ-PEN3), the chart-cover currency (RZ-PEN4), and the tail-majorant currency (RZ-PEN6, measured within 0.3 percent of the true tail). At the every-octave certificate anchor rho = 2 the floor is now bitwise unchanged from RZ-PEN4 onward and within 1.03 - 1.04x of the exact symbol-pencil infimum. At large rho (rho = e^6) a 3.0 - 5.1x looseness survives, and imp-95332 attributes it entirely to the two remaining named legs: the {0, +-1} pair-identity truncation of the numerator C, and the b-uniform t3 per-term trace weight (neither closed by this chain).',
+    mainLineBlocker: {
+      label: 'rz-pen-large-rho-pair-and-t3-residual',
+      description:
+        'With the trace, chart, and tail currencies exhausted, the surviving large-rho (rho = e^6) looseness of the RZ-PEN symbol-pencil floor lives entirely in the {0, +-1} pair-identity truncation of the numerator and the b-uniform gap of the t3 per-term trace weight; the every-octave onsets are unaffected since the certificate anchor rho = 2 sits below the rho ~ 6.5 crossover where these legs would bind.',
+      ticket: 'imp-95332',
+    },
+    openQuestions: [
+      'Does extending the pair-identity truncation beyond {0, +-1} (e.g. the (-1, +1) and (0, +-2) pairs with exact sin^2(2 pi tau) weights) further tighten the large-rho floor? (named residual of imp-95332)',
+      'Does a b-uniform bound on the t3 trace weight at interior frequencies close the second surviving leg, or is it obstructed at onset scale? (named residual of imp-95332)',
+    ],
+    metaObservations: [
+      'This session entry is documentation only, recording proofs already derived and committed by prior engine runs (imp-95328 through imp-95332).',
+    ],
+  },
 ];

@@ -1984,6 +1984,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive log-log curves recomputing both bounds independently from the imp-95254 / imp-95233 documented closed forms and exact witness literals (no new derivation, no heavy import); illustrates the strict PHASE-AM dominance and the CEIL-X exceedance numerically, proves nothing beyond what imp-95254 / imp-95233 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95305-splitrz-vs-evoctunif-onset',
+      title: 'SPLIT-RZ vs EV-OCT-UNIF Every-Octave Certificate Onset Drop (27.04 -> 15.98)',
+      oneLine:
+        'Log10-scale curves of the imp-95252 COROLLARY SPLIT-RZ every-octave-twin certificate against the imp-95250 COROLLARY EV-OCT-UNIF certificate, both at unbounded octave count, marking the firing-onset drop from xStarUnif = 27.035582 to xStarRz = 15.981584 at window ratio r = 1.3.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95305-splitrz-vs-evoctunif-onset-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95252-muniform-block-riesz-seam-pencil.js (COROLLARY SPLIT-RZ closed form, A_blk); src/data/imp-95250-leaveoneout-multiblock-split-certificate.js (COROLLARY EV-OCT-UNIF closed form, PhiUnif; imp-95305 viz page)',
+      ticket: 'imp-95305',
+      pedagogicalStep: 139,
+      honestCeiling:
+        'Descriptive curves recomputing certSplitRz and certUnif independently from the imp-95252 / imp-95250 documented closed forms (no new derivation, no heavy import); illustrates the m-uniform onset drop numerically, proves nothing beyond what imp-95252 / imp-95250 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

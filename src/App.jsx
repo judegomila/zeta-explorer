@@ -1037,6 +1037,9 @@ const Imp95304PhaseAmVsPhaseCertCeilXViz = lazy(() =>
 const Imp95303ConfLbVsCoalNWindowPinchViz = lazy(() =>
   import('./pages/Imp95303ConfLbVsCoalNWindowPinchViz.jsx')
 );
+const Imp95305SplitRzVsEvOctUnifOnsetViz = lazy(() =>
+  import('./pages/Imp95305SplitRzVsEvOctUnifOnsetViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2842,6 +2845,10 @@ function AppShell() {
           <Route
             path="/viz-imp95304-phaseam-vs-phasecert-ceilx"
             element={<Imp95304PhaseAmVsPhaseCertCeilXViz />}
+          />
+          <Route
+            path="/viz-imp95305-splitrz-vs-evoctunif-onset"
+            element={<Imp95305SplitRzVsEvOctUnifOnsetViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

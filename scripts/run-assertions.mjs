@@ -15598,6 +15598,26 @@ const DATA_MODULES = [
   // ten self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95334-b-exact-trace-pencil-floor.js',
+  // imp-95272 (fable-5, frontier): LEMMA BASE-SIDE + THEOREM BL-JIT --
+  // base-anchored, jitter-robust replacement of the imp-95226 BL-LAT
+  // count-uniform lattice collar. The lowest rate has every other rate
+  // ABOVE it, so it carries the ONE-SIDED Blaschke product s, not the
+  // two-sided s^2 BL-LAT charged it: the count-uniform collar becomes
+  // e^(-x) s (1 + s tau), dissolving the imp-95232 FINDING 1 looseness
+  // (collar/Lambda 69.954 -> 1.06346 at the dyadic baseline, a 65.78x
+  // sharpening) and dropping the firing onset 4.23624 -> 2.59369.
+  // Jitter extension: rates in distinct delta-windows of a rho-lattice
+  // (delta^2 < rho) obey the same collar with s(rho, delta) =
+  // prod (rho^m + delta^2)/(rho^m - delta^2) -- the FIRST count-uniform
+  // OFF-LATTICE signed certificate (10 percent jitter onset 3.514 beats
+  // the old exact-lattice 4.236). Honest scope: the imp-95232 eps = 0.2
+  // witness sits just below its jittered onset (collar 1.291, does not
+  // fire -- the count-free raw BL does); in-octave multiplicity stays a
+  // wall (hypothesis load-bearing, asserted); the RZ-PEN FLOOR
+  // off-lattice leg (imp-95335/95374) remains OPEN. Import-light, ten
+  // self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95272-base-anchored-jitter-collar.js',
   // imp-95284: surfacing audit of the imp-95249/95250/95231/95232/95233 seam-
   // chain finding modules -- all six are import-light (zero import
   // statements, no heavy-bundle reach). 4 are SURFACED via a registered

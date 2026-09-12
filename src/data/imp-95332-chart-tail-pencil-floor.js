@@ -269,6 +269,17 @@ export const IMP95332_CHART_TAIL_PENCIL_FLOOR = {
     "(all assertions passed), matching the node run-assertions " +
     "result -- no node-vs-browser V8 divergence at the 1e-14/1e-12 " +
     "comparison tolerances used here",
+  moduleLogConsistencyAudit:
+    "imp-95370: checked every module-only seam id in the imp-95328 " +
+    ".. imp-95332 range (the five RZ-PEN2..RZ-PEN6 committed src/data " +
+    "modules, where maxModuleId 95332 exceeds maxTicketId 95327) " +
+    "against src/data/improvements.js by filename -- each of the five " +
+    "has at least one matching log entry citing its own module file " +
+    "(imp-95328 id 31593, imp-95329 id 31596, imp-95330 id 31604, " +
+    "imp-95331 id 31609, imp-95332 id 31614, plus follow-up entries " +
+    "31620/31623 also citing imp-95332). No orphaned module-only seam " +
+    "id found in this range; queue-index staleness note is expected, " +
+    "not a real gap.",
 };
 
 // ---------------------------------------------------------------------------

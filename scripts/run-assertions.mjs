@@ -15447,6 +15447,15 @@ const DATA_MODULES = [
   // new finding. AUDIT-ONLY; changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95306-seam-chain-surfacing-audit-95251-95286.js',
+  // imp-95323 (sonnet-4-6, meta): FOLLOW-UP surfacing audit of the same
+  // five-module cohort imp-95306 covered. Confirms the surfacing gap has
+  // narrowed from 5-of-5 to 1-of-5: imp-95251/95252/95254/95286 now each
+  // have a dedicated viz page and a visualizations-index.js entry;
+  // imp-95285 remains genuinely orphaned (no page, no glossary headword,
+  // no index entry) and is not targeted by any other open or completed
+  // ticket. All five stay import-light and run-assertions-registered.
+  // AUDIT-ONLY; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95323-seam-chain-cohort-95251-95286-followup-audit.js',
   // imp-95288 (fable-5, frontier): THEOREM RZ-PEN + COROLLARY PEN-UNIF +
   // PROPOSITION PEN-NEC + COROLLARY SPLIT-PEN -- the imp-95252 named
   // residual (r-uniform block symbol-PENCIL infimum) is DECIDED both

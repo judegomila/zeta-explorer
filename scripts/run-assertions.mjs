@@ -15530,6 +15530,24 @@ const DATA_MODULES = [
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
   // SOTA.
   '/src/data/imp-95331-split-weight-exact-root-pencil-floor.js',
+  // imp-95332 (fable-5, frontier): LEMMA TAIL-CHART + THEOREM RZ-PEN6 +
+  // COROLLARY PEN-UNIF6 -- executes the c3n-TAIL leg of the imp-95331
+  // surviving residual: the theta-uniform tail majorant c3n (imp-95329,
+  // anchored at |w| >= 3 pi with the 25 x 4^(n-2) polynomial step) is
+  // replaced by a per-chart cap charging the m = 2..12 trace-tail terms
+  // at their exact chart endpoints (the LEMMA W-SPLIT monotone pair)
+  // plus the imp-95329 geometric remainder re-anchored at 25 pi. Floor
+  // gain over RZ-PEN5 at rho = e^6: 1.2025x at r = 2 (looseness 6.085
+  // -> 5.060), 1.2035x at r = e^3, 1.1908x at r = e^5.9; 1.0015x at
+  // rho = 10; rho <= 4 bitwise unchanged, so every-octave onsets carry
+  // UNCHANGED. A_unif6(e^6) = 5.9416e-2 = 1.1951 x A_unif5. TAIL
+  // CURRENCY EXHAUSTED: the cap sits within 0.3 percent of the true
+  // t3-weighted tail (max truth/cap 0.9978); the surviving large-rho
+  // looseness (3.0 - 5.1x) lives entirely in the {0, +-1} pair
+  // truncation and the b-uniform t3 weight. Import-light, nine
+  // self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95332-chart-tail-pencil-floor.js',
   // imp-95284: surfacing audit of the imp-95249/95250/95231/95232/95233 seam-
   // chain finding modules -- all six are import-light (zero import
   // statements, no heavy-bundle reach). 4 are SURFACED via a registered

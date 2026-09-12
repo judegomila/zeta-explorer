@@ -1008,7 +1008,7 @@ export const SESSIONS = [
     seededTickets: [
       {
         phase: 'RZ-PEN2..RZ-PEN6 trace/chart/tail currency exhaustion',
-        ids: ['imp-95328', 'imp-95329', 'imp-95330', 'imp-95331', 'imp-95332', 'imp-95348'],
+        ids: ['imp-95328', 'imp-95329', 'imp-95330', 'imp-95331', 'imp-95332', 'imp-95348', 'imp-95369'],
         summary:
           'imp-95328..imp-95332 proved THEOREM RZ-PEN2 through RZ-PEN6, closing the trace-weight, chart-cover, and tail-majorant currencies of the imp-95288 symbol-pencil floor at rho = 2 and reducing (but not closing) the surviving large-rho looseness to the pair-truncation and b-uniform t3-weight legs; imp-95348 records that chain in the research journal.',
         status: 'completed by engine',
@@ -1055,6 +1055,7 @@ export const SESSIONS = [
     ],
     metaObservations: [
       'This session entry is documentation only, recording proofs already derived and committed by prior engine runs (imp-95328 through imp-95332).',
+      'imp-95369 requested a separate research-journal entry for the imp-95329..95332 (RZ-PEN3..6) trace/chart/tail currency-exhaustion arc; that request is satisfied by this entry, which already narrates all five legs (imp-95328..95332) including the onset drop and the two named surviving residuals -- imp-95369 was seeded before this entry existed and is stale rather than actionable as a distinct write.',
     ],
   },
 ];

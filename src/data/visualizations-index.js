@@ -2068,6 +2068,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: both curves are recomputed here with the same closed-form arithmetic imp-95332 / imp-95331 already proved (COROLLARY PEN-UNIF6 / PEN-UNIF5), cross-checked at both grid endpoints (rho = 2, rho = e^6) against the imp-95332 baked record to rel 1e-12/1e-9; proves nothing beyond what those modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95366-rzpen-onset-drop-ladder',
+      title: 'RZ-PEN Every-Octave Onset-Drop Ladder Across the Chain Legs',
+      oneLine:
+        'Line chart of the every-octave firing onset x* (m-and-r-uniform, r=1.3, r=1.05 tracks) across the imp-95328/95329/95330/95331/95332 RZ-PEN2..RZ-PEN6 chain legs, plus a bar chart of the per-leg onset drop showing the K=256 chart-cover leg (imp-95330) supplies the bulk of the total drop (~0.94 of ~1.00) while the beta-trace-cap leg contributes only ~0.06 and the last two legs contribute exactly zero at rho = 2.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95366-rzpen-onset-drop-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95328-two-chart-pencil-floor.js (THEOREM RZ-PEN2 baseline onsets); src/data/imp-95329-beta-trace-capped-pencil-floor.js (THEOREM RZ-PEN3 onsets); src/data/imp-95330-chart-refined-pencil-floor.js (THEOREM RZ-PEN4 onsets); src/data/imp-95331-split-weight-exact-root-pencil-floor.js (THEOREM RZ-PEN5 onsetsUnchanged); src/data/imp-95332-chart-tail-pencil-floor.js (THEOREM RZ-PEN6 onsetsUnchanged; imp-95366 viz page)',
+      ticket: 'imp-95366',
+      pedagogicalStep: 143,
+      honestCeiling:
+        'Presentation only: every plotted onset is copied verbatim from the imp-95328 / imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the per-leg drops are a plain subtraction of already-baked onsets; proves nothing beyond what those five modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

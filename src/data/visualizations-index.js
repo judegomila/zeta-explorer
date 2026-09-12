@@ -1998,6 +1998,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive curves recomputing certSplitRz and certUnif independently from the imp-95252 / imp-95250 documented closed forms (no new derivation, no heavy import); illustrates the m-uniform onset drop numerically, proves nothing beyond what imp-95252 / imp-95250 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95317-confluent-bracket-across-r',
+      title: 'Confluent Bracket Across Window Ratio R at Fixed N = 3',
+      oneLine:
+        'Log10-scale curves of the imp-95286 THEOREM CONF-LB confluent floor sqrt(T(3,x)) against the imp-95251 THEOREM COAL-N ceiling coalN(3,R,x) at fixed N = 3 for window ratios R = 1, 1.3, 2, 3, showing the firing onset shift and the widening WINDOW-PINCH gap as R grows -- the window-ratio axis that imp-95303 (fixed R, varying N) did not cover.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95317-confluent-bracket-across-r-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95286-confluent-laguerre-floor.js (THEOREM CONF-LB floor, COROLLARY WINDOW-PINCH bracket rho(N,R,x) -> R^(N-1)); src/data/imp-95251-nfold-coalescence-law.js (THEOREM COAL-N ceiling; imp-95317 viz page)',
+      ticket: 'imp-95317',
+      pedagogicalStep: 140,
+      honestCeiling:
+        'Descriptive curves recomputing sqrt(T(3,x)) and coalN(3,R,x) independently from the imp-95286 / imp-95251 documented closed forms (no new derivation, no heavy import); illustrates the WINDOW-PINCH bracket across the R axis numerically, proves nothing beyond what imp-95286 / imp-95251 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

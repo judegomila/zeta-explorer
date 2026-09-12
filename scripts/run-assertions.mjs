@@ -15522,6 +15522,14 @@ const DATA_MODULES = [
   // imp-95249 THEOREM SPLIT-2/ANG-PENCIL/ANG-DET). AUDIT-ONLY, no page
   // fabricated; closing the two gaps is separate follow-on scope.
   '/src/data/imp-95284-seam-chain-surfacing-audit-95249-95250-95231-95232-95233.js',
+  // imp-95301: corrects the honest-status note the ticket asked for -- by
+  // the time it was picked up, the imp-95286 "bracketed, NOT decided"
+  // verdict on the imp-95227 N >= 3 dominance conjecture had already been
+  // superseded by imp-95287 (THEOREM MONO-N / COROLLARY DOM-N /
+  // WINDOW-EXACT), which decides the conjecture affirmative. Records both
+  // the historical status and the later decision. Documentation only, no
+  // bound change, NO QED.
+  '/src/data/imp-95301-dominance-conjecture-decided-supersession-note.js',
 ];
 
 let ALL_MODULES = FAST_MODE

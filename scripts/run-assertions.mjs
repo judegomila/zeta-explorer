@@ -15492,6 +15492,26 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95329-beta-trace-capped-pencil-floor.js',
+  // imp-95330 (fable-5, frontier): LEMMA G-MONO + THEOREM RZ-PEN4 +
+  // COROLLARY PEN-UNIF4 + COROLLARY SPLIT-PEN4 -- executes the CHART-
+  // REDUCTION leg of the imp-95329 numerator-currency residual: the
+  // two-chart corner reduction is replaced by a uniform K = 256 chart
+  // cover of [0, pi], each chart a closed-form floor via the ratio-
+  // monotone substitution g(x,y) = 4xy/(ux + vy + c) (increasing in x,
+  // y; decreasing in u, v, c), with unconditional dominance A_pen4 >=
+  // A_pen3 (every scan split point is a chart boundary of the
+  // refinement) and W4 a MINIMUM of chart floors (no scan-selection
+  // caveat). Floor gain 5.765x at rho = 2 / 3.817x at rho = 4 / 1.146x
+  // at rho = e^6; residual looseness at rho = 2 now 1.03x (near-
+  // exhausted; binding chart k = 5 is interior, unreachable by any
+  // two-chart corner assignment); every-octave onsets: m-and-r-uniform
+  // 14.242145 -> 13.297836, r = 1.3 14.016839 -> 13.071303, r = 1.05
+  // 13.764502 -> 12.817538. Surviving named residual: the large-rho
+  // numerator currency (det/tr -> exact quadratic root, and the
+  // {0, +-1} pair-identity truncation). Import-light, nine
+  // self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95330-chart-refined-pencil-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

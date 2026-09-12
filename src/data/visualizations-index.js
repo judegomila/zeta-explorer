@@ -2054,6 +2054,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the per-chart series is recomputed here with the same closed-form arithmetic imp-95332 already proved (LEMMA TAIL-CHART), cross-checked at the binding chart (k = 114) and the flat uniform constant against the imp-95332 baked record to rel 1e-12; proves nothing beyond what imp-95332 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95351-unif6-vs-unif5-across-rho',
+      title: 'A_unif6 vs A_unif5 r-and-m-Uniform Floors Across rho',
+      oneLine:
+        'Line chart of the imp-95332 COROLLARY PEN-UNIF6 r-and-m-uniform block symbol-pencil floor A_unif6(rho) against the imp-95331 COROLLARY PEN-UNIF5 floor A_unif5(rho) it supersedes, recomputed across rho = e^a for a in [ln 2, 6]: bitwise identical below the exact-root activation crossover (rho <= ~4) and diverging above it to a 1.1951x gain at rho = e^6.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95351-unif6-vs-unif5-across-rho-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95332-chart-tail-pencil-floor.js (COROLLARY PEN-UNIF6, functions w5Scan / w6Scan, record fields aUnif6RhoE6 / aUnif5RhoE6Ref / aUnif6Rho2; imp-95351 viz page)',
+      ticket: 'imp-95351',
+      pedagogicalStep: 142,
+      honestCeiling:
+        'Presentation only: both curves are recomputed here with the same closed-form arithmetic imp-95332 / imp-95331 already proved (COROLLARY PEN-UNIF6 / PEN-UNIF5), cross-checked at both grid endpoints (rho = 2, rho = e^6) against the imp-95332 baked record to rel 1e-12/1e-9; proves nothing beyond what those modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

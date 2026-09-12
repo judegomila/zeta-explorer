@@ -2026,6 +2026,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive curve evaluating A_LOO(m) directly from the imp-95249 LEMMA ANG-DET fence definition (no new derivation, no heavy import) against the already-baked imp-95252 A_blk constant; the observed 1/m asymptotic decay is a numeric illustration, proves nothing beyond what imp-95250 / imp-95252 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95349-rzpen-gain-ladder',
+      title: 'RZ-PEN Symbol-Pencil Floor Gain Ladder at rho = e^6',
+      oneLine:
+        'Bar chart of the per-leg floor gain factor A_pen_k/A_pen_{k-1} at rho = e^6 across the imp-95329/95330/95331/95332 RZ-PEN3..RZ-PEN6 chain legs, plus a line chart of the cumulative floor gain relative to RZ-PEN2 (12.877x by RZ-PEN6) and the residual looseness against the exact symbol-pencil infimum, dropping 9.318x -> 6.085x -> 5.060x over the last three legs.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95349-rz-pen-gain-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95329-beta-trace-capped-pencil-floor.js (THEOREM RZ-PEN3 gainRhoE6); src/data/imp-95330-chart-refined-pencil-floor.js (THEOREM RZ-PEN4 gainRhoE6); src/data/imp-95331-split-weight-exact-root-pencil-floor.js (THEOREM RZ-PEN5 gainRhoE6R2, loosenessRhoE6R2); src/data/imp-95332-chart-tail-pencil-floor.js (THEOREM RZ-PEN6 gainRhoE6R2, loosenessRhoE6R2; imp-95349 viz page)',
+      ticket: 'imp-95349',
+      pedagogicalStep: 142,
+      honestCeiling:
+        'Presentation only: every plotted value is copied verbatim from the imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those four modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

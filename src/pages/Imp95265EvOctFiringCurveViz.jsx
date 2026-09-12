@@ -140,10 +140,13 @@ export default function Imp95265EvOctFiringCurveViz() {
       >
         <strong style={{ color: '#f87171' }}>Honest status:</strong> the certificate is a
         model-family bound, not a paper-transferred one, and sits orders above the exact
-        pencil (imp-95250 HONEST LIMITS). It fences a twin pair in every octave of a dyadic
-        skeleton at unbounded octave count; it establishes no operator positivity and changes
-        no Lambda bound. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH
-        does not follow from anything on this page. NO QED.
+        pencil &mdash; &asymp;1.6e4&times; at m = 6, r = 1.05, x = 12 (imp-95250 HONEST LIMITS
+        (a)). Its onsets (xStarEvOct = 11.32 coalescent, 27.04 m-and-r-uniform) sit above both
+        the single-pair SPLIT-2 onset (7.10) and the twin-free Blaschke&ndash;Lagrange onset
+        (4.24). It fences a twin pair in every octave of a dyadic skeleton at unbounded octave
+        count; it establishes no operator positivity and changes no Lambda bound.
+        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. RH does not follow
+        from anything on this page. NO QED.
       </div>
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

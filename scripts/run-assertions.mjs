@@ -17137,6 +17137,26 @@ const DATA_MODULES = [
   // (sibling record import only), twelve self-executing assertions. Changes
   // no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95501-sorted-meantime-transfer-credit.js',
+  // imp-95502 (fable-5, frontier): LEMMA TM-ONB + TM-DIAG + TM-OFF + THEOREM
+  // MU-ELEM + COROLLARY CRED-FLOOR/CRED-CAP + LEMMA TM-LAG -- executes the
+  // imp-95501 named residual (ii-next2): the ELEMENTARY closed-form upper
+  // bound on mu_max(P) at general K. The mean-time compression T = Q M_t Q on
+  // E_P is written in the Takenaka-Malmquist orthonormal basis (Laplace/Hardy
+  // picture) where EVERY entry is closed-form with rate differences only in
+  // NUMERATORS (diag alpha_k = 1/(2 p_k) + 2 sum_{j<k} 1/(p_j+p_k), trace
+  // re-derives LEMMA MOM; off-diag by left-half-plane residues); Gershgorin
+  // gives mu_max <= GERS(P), separation-free and coalescence-continuous, so
+  // cSort >= tau - GERS (elementary credit floor) and onset(TILT-SORT) <=
+  // GERS (elementary onset cap); ALB Rayleigh lower bound caps the credit
+  // from above. Coalescence anchor exact: mu_max = x_max(L_K)/(2 nu), largest
+  // Laguerre zero (Jacobi truncation), onset LINEAR in K vs tau = K^2/(2 nu).
+  // Measured: GERS 12.42/6.60/6.90/13 vs circular 30.28/14.97/15.46/31.78 on
+  // CLUSTER8/twins8/twins16/coalesced-8; float TM reproduces the imp-95501
+  // BigInt exact-inertia CLUSTER8 mu_max where Cholesky fails. CONJECTURE
+  // CONF-DOM (confluent domination) recorded OPEN, used nowhere. Import-free,
+  // eleven self-executing assertions. Changes no bound; NO QED; Platt-Trudgian
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95502-tm-jacobi-elementary-mumax-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

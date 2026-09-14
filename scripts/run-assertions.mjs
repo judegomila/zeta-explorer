@@ -15302,6 +15302,17 @@ const DATA_MODULES = [
   // residual). Import-light, five self-executing assertions. Measurement only;
   // changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-95428-rstar-quintic-bracket.js',
+  // imp-95447 (proof, S-frontier): x -> 1 EDGE closed-form leading asymptotic
+  // for the imp-95271 wedge boundary r_star(x), the analytic complement of the
+  // imp-95377 small-x Lambert-W form past its x <= 2/e^2 ceiling. Inverting the
+  // reduced R(y) = 1/x about y = 0 with delta = (1-x)/x gives THEOREM RSTAR-EDGE
+  // r_star(x) = 1 + (1/x)[3d - (9/4)d^2 + (81/40)d^3 - (621/320)d^4 + ...]; the
+  // leading term is EXACTLY the imp-95377 cubic upper bound and the alternating
+  // higher terms make it two-sided. Accurate sub-percent for x >= 0.8 (rel err
+  // 2.2e-4 at x=0.9, 2.0e-8 at x=0.99); a mid-band x in ~[0.3,0.6] is reached by
+  // neither leading form (named sub-gap). Import-light, six self-executing
+  // assertions. Derivation only; changes no bound; NO QED; Lambda <= 0.2 SOTA.
+  '/src/data/imp-95447-rstar-edge-asymptotic.js',
   // imp-95381 (numerical, S-frontier): contour of the imp-95271 RI
   // tightness-ratio slack across the full bump wedge, refining finding (3).
   // The per-x max of ratio = h h_r Lambda_2 / (x P (Lambda_2 - P)) is ALWAYS
@@ -15957,6 +15968,39 @@ const DATA_MODULES = [
   // Import-light, seven self-executing assertions. Measurement only;
   // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95429-rzpen-offlattice-total-onset.js',
+  // imp-95430 (opus-4-8, api-pool): TIGHTER estimate of the imp-95374
+  // Finding 3 breach threshold -- the log-rate jitter at which the proven
+  // imp-95330 m-uniform floor A_unif4 stops lower-bounding the worst-of-400
+  // off-lattice seam pencil floor -- as a function of m and rho, plus the
+  // near-collision collapse mechanism. A consistently delta-scaled worst-of-
+  // 400 pattern family (imp-95374 seed) makes the crossing monotone and
+  // bisectable, sharpening the imp-95374 [+-6.25%, +-12.5%] bracket to
+  // delta* = 5.199% at m = 8 / rho = 2 (below the +-6.25% still-covered
+  // figure, a per-delta reseeding artifact). FINDINGS: delta* shrinks with
+  // the octave count m (19.97% -> 3.10% over m = 4..12) and grows with the
+  // lattice ratio rho (5.20% -> 28.86% over rho = 2..8); the collapse is a
+  // COLLECTIVE degradation, not a single pinned pair; an ISOLATED cross-block
+  // near-collision floor closes QUADRATICALLY (floor ~ 5.63e-9 g^2, critical
+  // gap g* ~ 0.231), qualifying the imp-95374 linear-collapse phrasing.
+  // Import-light, eight self-executing assertions. Measurement/derivation
+  // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95430-breach-threshold-bound.js',
+  // imp-95445 (opus-4-8, api-pool, frontier): MEASUREMENT of the TRUE combined
+  // off-lattice every-octave onset -- composes the imp-95374 RZ-PEN symbol-
+  // pencil FLOOR degradation with the ACTUAL imp-95253 SPLIT-LOO numerator/
+  // Blaschke drift (the Phi_k leave-one-out fence), NOT the imp-95429 coalLaw-
+  // at-perturbed-rate proxy. Evaluates the imp-95253 closed Blaschke certificate
+  // on the SAME m = 8 mulberry32 draw imp-95429 used, so the true combined onset
+  // (min firing depth of the two architectures) is quantified. FINDING: the
+  // SPLIT-LOO Blaschke leg fires strictly SHALLOWER at every jitter magnitude
+  // (12.37..15.98 depth), so it BINDS the combined onset throughout +-1.56%..
+  // +-25%; the imp-95429 RZ-PEN total OVER-estimates the true combined firing
+  // depth by 0.25..7.48 depth units (~2%..32%), the Blaschke fence degrading
+  // gently (no near-collision cliff) where the RZ-PEN floor collapses. Import-
+  // light (SPLIT-LOO certificate is pure arithmetic, RZ-PEN column baked from
+  // imp-95429), six self-executing assertions. Measurement only; changes no
+  // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95445-total-offlattice-onset-blaschke-composition.js',
   // imp-95336 (opus-4-8, api-pool, frontier): ASSESSMENT of the sub-gap
   // imp-95212-subgap-fresnel-airy-envelope-port -- whether the Fresnel-Airy
   // transition-packet envelope of the paper Section 4.5 packets can be

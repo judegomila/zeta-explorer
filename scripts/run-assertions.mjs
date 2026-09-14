@@ -15228,6 +15228,17 @@ const DATA_MODULES = [
   // a native run; import-light (imp-95214/95238 constants), six self-executing
   // assertions. Changes no bound; launches nothing; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95257-precision-replay-multiplier.js',
+  // imp-95271 (numerical, S-frontier): dense (x, r) map of the imp-95231
+  // LEMMA RI reduced-inequality margin M = x P (Lambda_2 - P) - h h_r Lambda_2.
+  // FINDINGS: M >= 0 on all 171600 cells (0 counterexamples, RI holds); the
+  // non-trivial h_r > 0 bump is the wedge { x < 1, 1 < r < r_star(x) } with
+  // r_star decreasing from +inf (x->0) to 1 (x->1); the RI tightness ratio
+  // LHS/RHS peaks at 0.99998744 at the (x->0, r->1) boundary corner (where
+  // COAL-DESC proves the boundary derivative vanishes) and stays <= 0.9166 in
+  // the deep interior. Reproduces imp-95226 COAL-2 (ratio 0.99995) and
+  // sharpens it. Import-light, five self-executing assertions. Measurement
+  // only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-95271-ri-margin-map.js',
   // imp-95232 (numerical, S-frontier): MEASUREMENT of how the imp-95226
   // COROLLARY BL-LAT signed cross-octave certificate degrades OFF the
   // geometric lattice and under IN-OCTAVE multiplicity -- the two named

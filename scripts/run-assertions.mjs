@@ -15995,6 +15995,23 @@ const DATA_MODULES = [
   // Import-light, eight self-executing assertions. Measurement/derivation
   // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95430-breach-threshold-bound.js',
+  // imp-95444 (opus-4-8, api-pool, frontier): LOCALIZE the imp-95374 Finding 3
+  // breach threshold delta* -- the off-lattice log-rate jitter at which the
+  // proven imp-95330 A_unif4(2) stops lower-bounding the worst-of-N seam
+  // pencil floor -- and measure its dependence on the trial count N and whether
+  // it converges. Reuses the imp-95430 consistently-scaled pattern pool
+  // (seed 0xc0ffee) and the identity delta*(N) = min over the first N pool
+  // patterns of each patterns per-pattern breach magnitude, so the whole N
+  // ladder is one running minimum. FINDINGS: delta*(N) is non-increasing, drops
+  // steeply from 18.32% at N = 1 to 5.199% by N = 200 (driver pattern 129, the
+  // imp-95430 fixed-budget value), then FLATTENS -- only one further record-
+  // breaker (pattern 6228) over N = 201..12800 shaves it to 5.095% (2.0%
+  // relative for a 64x N increase). SLOW heavy-tailed convergence to a positive
+  // infimum near ~5.09%; the imp-95430 delta* is confirmed as the stable
+  // plateau, not a T = 400 artifact. Import-light, six self-executing
+  // assertions (~200 pencil-floor bisections). Measurement only; changes no
+  // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95444-breach-threshold-nconvergence.js',
   // imp-95445 (opus-4-8, api-pool, frontier): MEASUREMENT of the TRUE combined
   // off-lattice every-octave onset -- composes the imp-95374 RZ-PEN symbol-
   // pencil FLOOR degradation with the ACTUAL imp-95253 SPLIT-LOO numerator/
@@ -16690,21 +16707,6 @@ const DATA_MODULES = [
   // Import-light, six self-executing assertions. Audit only; changes no bound;
   // NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95451-splitloo-sigma-direction-pipeline-audit.js',
-  // imp-95460 (opus-4-8, api-pool, S-frontier): MEASUREMENT -- supplies the
-  // numeric ground truth at the 3 near-coalescent large-m corners imp-95425
-  // (SECONDARY CHECK S1) had to EXCLUDE and imp-95451 audit item U2 named as the
-  // surviving sub-gap. imp-95425 direct route -- pencil (G12 G2^-1 G12^T, G1) --
-  // squares the condition number of the near-degenerate rest Gram at m=6 with
-  // r=1.01/1.02, overflowing to cos^2 > 1. This module re-measures with the
-  // Bjorck-Golub whitened-cross-matrix solve cos^2 = sigma_max(L1^-1 G12 L2^-T)^2
-  // (halves the conditioning exponent, clamped in (0,1)): all 3 corners recover a
-  // valid cos^2 < 1 and CONFIRM the SPLIT-LOO safe direction Phi_k <= (1 -
-  // sigma_k^2) (worst ratio 2.41e-2, ~41x on the safe side). Cross-validates the
-  // direct route on all 87 well-conditioned blocks (max diff 2.61e-5). RESIDUAL:
-  // rest-Gram cond2 up to 8.08e11 leaves the recovered 1 - cos^2 only ~2-3 correct
-  // digits (the SIGN is robust); tighter r would need genuine extended precision.
-  // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
-  '/src/data/imp-95460-splitloo-sigma-corner-extended-precision-solve.js',
   // imp-95479 (opus-4-8, api-pool): MEASUREMENT -- closes the imp-95451 audit
   // item (U2) / imp-95425 measurement sub-gap. Recomputes the 3 near-coalescent
   // large-m corners ((m=6,r=1.02,k=2), (m=6,r=1.01,k=0), (m=6,r=1.01,k=3)) where

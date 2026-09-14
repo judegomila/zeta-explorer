@@ -16886,6 +16886,21 @@ const DATA_MODULES = [
   // Cross-validation/measurement only; import-light, six self-executing
   // assertions; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95480-sep-opt-aopt-lambda-min-delta-ln13-extended-precision.js',
+  // imp-95482 (opus-4-8, api-pool): DERIVATION/MEASUREMENT -- a uniformly-valid
+  // closed form for the imp-95271 bump-wedge boundary r_star(x) across (0,1),
+  // bridging the imp-95447 x->1 edge series and the imp-95377 small-x Lambert-W
+  // form through the mid-band x in ~[0.3,0.6] imp-95447 named as an open SUB-GAP.
+  // Device: Lagrange-revert the reduced equation R(y)=2(e^y-1-y)/y^2=1/x about
+  // y=0 (y=3d-(9/4)d^2+(81/40)d^3-..., d=(1-x)/x) then diagonal [3/3] Pade
+  // re-sum it into an explicit rational closed form r_P(x); it reproduces the
+  // mid-band to worst rel err 2.97e-4 and stays within ~1.3% down to x=0.1 --
+  // CLOSING the SUB-GAP with a single formula. r_P cannot cover the logarithmic
+  // small-x branch (y~ln(1/x)+2 ln y), so pairing it with the Lambert form at a
+  // x~0.095 seam (both forms cross at rel err ~1.5%) gives a full-range uniform
+  // composite with worst rel err 1.42e-2 on (0,1). The seam-free single-formula
+  // uniform closed form stays open. Import-light, six self-executing assertions;
+  // changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95482-rstar-uniform-closedform.js',
 ];
 
 let ALL_MODULES = FAST_MODE

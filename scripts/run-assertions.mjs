@@ -15541,6 +15541,25 @@ const DATA_MODULES = [
   // r=sqrt2. Import-light, nine self-executing assertions. Measurement only;
   // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95295-runiformity-atwin-szego-ceiling-measurement.js',
+  // imp-95309 (opus-4-8, S-frontier): MEASUREMENT -- substituting the imp-95252
+  // SPLIT-RZ block Riesz constant into the imp-95285 EV-OCT-N (N >= 3 per
+  // octave) every-octave assembly, in place of the SPLIT-LOO linear-in-m
+  // collar. Findings (N = 3, R = 1.3, the one float-resolvable N >= 3 cell):
+  // A_sym^(3) bracketed [9.27e-18 symbol grid, 4.19e-15 m = 6 Gram rigorous
+  // upper bound], onset bracket [24.865, 28.156] -- multiplier 0.41-0.46 vs
+  // the SPLIT-LOO m-uniform onset 61.309901 (roughly HALVES it) and 0.74-0.84
+  // vs the finite m = 6 onset 33.504309 (the m-uniform SPLIT-RZ onset sits
+  // below even finite m = 6), log-robust to a factor-100 A_blk sweep. The
+  // Poisson rank-1 PSD symbol construction recovers A_twin at N = 2 to rel
+  // 6.5e-5 (method validation). r-uniformity is LOST in the constant
+  // (A_sym -> 0 as R -> 1: 9.27e-18 -> 2.15e-19 at R = 1.3 -> 1.1) but the
+  // onset degrades only logarithmically (28.16 -> 29.83), the N = 2 pattern.
+  // FLOAT WALL: N = 4 (all R) and N = 3 at R <= 1.05 have A_sym at/below the
+  // float64 floor (sign-indefinite noise); no cancellation-free N >= 3 pair
+  // identity exists (imp-95252 proved one only for N = 2). Import-light, seven
+  // self-executing assertions. Measurement only; A_sym^(N >= 3) measured not
+  // proven; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95309-splitrz-evoctn-onset-substitution-measurement.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family

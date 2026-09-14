@@ -15459,6 +15459,22 @@ const DATA_MODULES = [
   // threshold that makes the m-uniform tail summable. Import-light. Changes
   // no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95311-lagenv-vacuity-onset-assessment.js',
+  // imp-95316 (opus-4-8, api-pool): ASSESSMENT -- is the imp-95252 COROLLARY
+  // RZ-BLOCK Riesz constant A_blk = 1.345e-11 the binding factor limiting the
+  // SPLIT-RZ every-octave onset (15.9816 at r = 1.3), or a loose artifact of
+  // the crude symbol infimum? Measures the onset as a function of a scaled
+  // A_blk: because the coalescence-law numerator N(x) decays exponentially,
+  // the onset is only LOGARITHMICALLY slaved to A_blk. Measured local
+  // elasticity d(ln xStar)/d(ln A_blk) = -0.0334 (dxStar/d ln A_blk = -0.533
+  // depth units per e-fold), matching the closed-form 1/(-2 + 2/xStar) to
+  // four figures. Using the exact symbol infimum (A_twin already within rel
+  // 1.3e-6 of it, RZ-TWIN Szegoe ceiling) gains ~7e-7 depth units; the only
+  // removable non-symbol slack is the block-norm conversion factor
+  // 1 + sech(b/2) = 1.99146, worth 0.368 depth units (15.981584 -> 15.613923).
+  // CONCLUSION: A_blk is NOT the binding factor as removable slack; the
+  // binding factor is the exponential depth-decay of N(x). Import-light.
+  // Assessment only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95316-splitrz-onset-ablk-elasticity.js',
   // imp-95286 (fable-5, frontier): LEMMA LT + THEOREM CONF-LB + COROLLARY
   // CONF-EXACT / WINDOW-PINCH -- the FLOOR side of the imp-95251 COAL-N
   // ledger, in closed form: Lambda_conf(N, x) >= T(N, x) =

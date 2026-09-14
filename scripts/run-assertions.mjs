@@ -16367,6 +16367,21 @@ const DATA_MODULES = [
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
   // SOTA.
   '/src/data/imp-95420-exit-density-positivity-selfcontained.js',
+  // imp-95384 (opus-4-8, api-pool, S-frontier): numerical CROSS-VALIDATION of
+  // the imp-95276 gFromLam -> gammaSL seam-to-chain-gate monotonicity (M1)+(M2)
+  // across the deep-cancellation regime R << 1. Fine log-spaced grid (to
+  // R = 1e-8) confirms (M1) g_R = 2 R sqrt(1-R^2) strictly increasing and (M2)
+  // gammaSL increasing with floor exactly 1/2; the composition is orientation-
+  // preserving (non-decreasing) throughout and STRICTLY increasing above a
+  // resolving onset R_res ~ 2.828e-5, below which the gate float-saturates at
+  // the floor 1/2 (a floating-point flatness, not a monotonicity violation).
+  // Every representative signed-family R (overlap anchors md 6/8/10, PHASE-CERT
+  // depth e^(-y)/2, SGN-C count e^(-2x)) stays inside the M1 branch (max R ~
+  // 0.2457 << 1/sqrt2); the SPLIT-LOO aggregate crosses 1/sqrt2 by m = 4,
+  // confirming the imp-95276 multi-block caveat (per-block application is the
+  // on-branch route). Import-light, nine self-executing assertions. MEASUREMENT
+  // ONLY; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95384-gfromlam-gammasl-deep-cancellation-crossval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

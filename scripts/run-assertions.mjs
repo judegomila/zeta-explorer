@@ -15733,6 +15733,30 @@ const DATA_MODULES = [
   // eight self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95256-split2-splitloo-crossover.js',
+  // imp-95274 (opus-4-8, api-pool): MEASUREMENT -- widens the imp-95249
+  // THEOREM ANG-PENCIL entrywise identity + LEMMA ANG-DET fence check from 4
+  // configurations to a 54-partition disjoint multi-block family plus a depth
+  // grid. Confirms: identity holds entrywise to 2.64e-13 family-wide; fence
+  // dominates the exact angle everywhere (equal at |V1|=1, Muentz-Blaschke);
+  // fence is tight (<=1.012x exact, peaking at |V1|=3); coalescence-uniform
+  // (fence -> 0.9998618017682614 as r->1, matching the imp-95249 literal, gap
+  // bounded < 3e-4); three angle routes agree to 1e-7; and the derived SPLIT-2
+  // ordering holds across depths {0.5,2,5,8}. Import-light, nine self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95274-angpencil-crossvalidation.js',
+  // imp-95273 (opus-4-8, api-pool): MEASUREMENT -- tabulates the imp-95233
+  // phase-alignment currency theta(f) = int f^2 / int g^2 of 10 representative
+  // signed seam families against the PHASE-CERT vacuity threshold
+  // theta_0 = e^(-y_min) (the bound = e^(-y_min)/(2 theta) crosses 1/2 exactly
+  // at theta = e^(-y_min), so ratio r = theta/e^(-y_min) is the distance to the
+  // boundary). The deep-cancellation families the seam actually produces sit
+  // BELOW the boundary (r < 1, PHASE-CERT vacuous: SGN-SAT, algebraic witness,
+  // near-cancel, non-co-centered triple), while mild-sign / well-separated
+  // families sit ABOVE it (r > 1, bound < 1/2, active). Quantifies the
+  // honest-partial gap imp-95233 flagged as a span; PHASE-CERT R <= bound holds
+  // for every family. Import-light, nine self-executing assertions. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95273-theta-vacuity-distribution.js',
 ];
 
 let ALL_MODULES = FAST_MODE

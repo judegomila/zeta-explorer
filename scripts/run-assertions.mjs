@@ -15985,6 +15985,20 @@ const DATA_MODULES = [
   // Import-light, four self-executing assertions. Cross-validation only;
   // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95342-tail-chart-cap-crossval.js',
+  // imp-95356: second, METHOD-INDEPENDENT cross-validation of the imp-95332
+  // LEMMA TAIL-CHART per-chart tail cap c3nChart(t0, t1). Uses a REFINED
+  // per-chart theta maximization (coarse scan + four local refinement
+  // rounds, not a fixed grid) and an EXTENDED small-rho sweep over the
+  // K = 256 chart cover and rho in {1.05, 1.2, 1.5, 2, 10, e^6}. RESULT:
+  // zero cap violations on the wider, stricter test (cap valid down to
+  // rho = 1.05), refined global max truth/cap ~ 0.997995 (sharpening the
+  // imp-95332 0.9978 literal), the rho = 2 cell reproduces the imp-95342
+  // figure exactly (0.9978842, chart k = 73), and the global near-attainment
+  // worst binds at rho = 1.2 (chart k = 25) -- BELOW the imp-95342 rho = 2
+  // grid floor, so its "binds at a = ln 2" was a grid artifact. Five
+  // self-executing assertions. Cross-validation only; changes no bound;
+  // NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95356-tail-chart-cap-refined-crossval.js',
   // imp-95357 (opus-4-8, api-pool, frontier): independent numerical cross-
   // validation of the imp-95329 LEMMA BCAP uniform-in-b beta cap
   // (1-cos(wb/a))/(1-sech(b/2)) <= 2+4w^2/a^2 and its two-branch crossing

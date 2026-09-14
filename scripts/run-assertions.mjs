@@ -16690,6 +16690,34 @@ const DATA_MODULES = [
   // Import-light, six self-executing assertions. Audit only; changes no bound;
   // NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95451-splitloo-sigma-direction-pipeline-audit.js',
+  // imp-95460 (opus-4-8, api-pool, S-frontier): MEASUREMENT -- supplies the
+  // numeric ground truth at the 3 near-coalescent large-m corners imp-95425
+  // (SECONDARY CHECK S1) had to EXCLUDE and imp-95451 audit item U2 named as the
+  // surviving sub-gap. imp-95425 direct route -- pencil (G12 G2^-1 G12^T, G1) --
+  // squares the condition number of the near-degenerate rest Gram at m=6 with
+  // r=1.01/1.02, overflowing to cos^2 > 1. This module re-measures with the
+  // Bjorck-Golub whitened-cross-matrix solve cos^2 = sigma_max(L1^-1 G12 L2^-T)^2
+  // (halves the conditioning exponent, clamped in (0,1)): all 3 corners recover a
+  // valid cos^2 < 1 and CONFIRM the SPLIT-LOO safe direction Phi_k <= (1 -
+  // sigma_k^2) (worst ratio 2.41e-2, ~41x on the safe side). Cross-validates the
+  // direct route on all 87 well-conditioned blocks (max diff 2.61e-5). RESIDUAL:
+  // rest-Gram cond2 up to 8.08e11 leaves the recovered 1 - cos^2 only ~2-3 correct
+  // digits (the SIGN is robust); tighter r would need genuine extended precision.
+  // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95460-splitloo-sigma-corner-extended-precision-solve.js',
+  // imp-95479 (opus-4-8, api-pool): MEASUREMENT -- closes the imp-95451 audit
+  // item (U2) / imp-95425 measurement sub-gap. Recomputes the 3 near-coalescent
+  // large-m corners ((m=6,r=1.02,k=2), (m=6,r=1.01,k=0), (m=6,r=1.01,k=3)) where
+  // the imp-95425 DIRECT double-inversion route returns cos^2 > 1 (artifact), by
+  // TWO independent high-precision routes: (1) stable whitening / SVD
+  // (Bjorck-Golub) U1^T U2 = L1^-1 G12 L2^-T, and (2) extended precision
+  // (double-double, ~106-bit) of the same chain with a closed-form 2x2 largest
+  // eigenvalue (twin block, n1 = 2). Both routes agree to <= 1e-10, both return a
+  // valid cos^2 < 1, and the imp-95249 ANG-DET fence direction Phi_k <= 1 -
+  // sigma_k^2 is CONFIRMED at all 3 corners (tightest ~41x clearance). Six
+  // self-executing assertions. MEASUREMENT only; direction already PROVEN in
+  // imp-95249; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95479-u2-corner-highprec-angle-crosscheck.js',
   // imp-95420 (fable-5, frontier): LEMMA P-SYM + LEMMA P-JAC + LEMMA
   // P-MONO + THEOREM P-POS -- self-contained elementary positivity of
   // the imp-95419 LEMMA MIX theta density p(t) on all of (0, inf),
@@ -16809,6 +16837,25 @@ const DATA_MODULES = [
   // Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes
   // no bound; imp-3066 K_a>=0 untouched; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95431-sigma-exponent-ladder-logistic-fit.js',
+  // imp-95465 (opus-4-8, api-pool, S-frontier): ASSESSMENT -- does the imp-33582
+  // post-peak monotone decay of the conditional share sigma(N) = E_coll/E(N)
+  // open ANY escape from the imp-35164 non-vanishing obstruction (E(N) floors at
+  // the N-independent E_trunc)? Verdict: NO ESCAPE. The decay is LOGICALLY
+  // EQUIVALENT to the obstruction, not a route around it: since E_flow, E_coll
+  // -> 0 while E_trunc > 0 is fixed, the exact identity 1 - sigma =
+  // (E_trunc + E_flow)/E forces E -> E_trunc as sigma -> 0, so sigma -> 0 is the
+  // SAME statement as imp-35164 written as a share (sampled E(N) descends to
+  // E_trunc from above in lockstep with sigma -> 0; identity residual ~1e-16).
+  // The three imaginable escapes fail: a vanishing share removes leverage from
+  // the collapse channel not power from the floor; diminishing returns pin
+  // E >= E_trunc; and additive-independent E_coll cannot attack E_trunc (the only
+  // rate-amplification route imp-2621 is REFUTED). An escape must come from an
+  // N-independent E_trunc certificate (imp-34791) or the RH-equivalent C_H bridge
+  // (imp-35147) -- outside the height/collapse channel sigma measures. Import-
+  // light, five self-executing assertions. Assessment only; changes no bound;
+  // imp-2621 stays refuted, imp-35164 stands, R_A ladder stays INERT (imp-95448);
+  // NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95465-sigma-decay-no-escape-from-en-nonvanishing.js',
 ];
 
 let ALL_MODULES = FAST_MODE

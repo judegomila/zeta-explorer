@@ -16156,6 +16156,18 @@ const DATA_MODULES = [
   // four self-executing assertions. Measurement only; changes no bound; no
   // certificate onset moves; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95340-runif6-exact-infimum-gap.js',
+  // imp-95341: MEASUREMENT of the migration of the imp-95332 binding chart
+  // (k = 114 of K = 256 at rho = e^6) across rho and r. Recomputes only the
+  // imp-95330/95331/95332 chart floors and reports the argmin index
+  // k*(a, mu). RESULT: k* is r-invariant at fixed rho (spread 0 charts for
+  // a >= 3) and migrates with rho from a V4-carried left-edge chart (k = 5
+  // at rho = 2) through a Psi6-branch interior peak (k = 144 at rho ~ 28)
+  // back to k = 114 at rho = e^6 (theta* ~ 0.447 pi); branch crossover
+  // V4 -> Psi6 at rho ~ 9.83. Localizes the interior far-rho window where the
+  // open {0, +-1} pair-truncation leg should be concentrated. Import-light,
+  // five self-executing assertions. Measurement only; changes no bound; no
+  // certificate onset moves; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95341-binding-chart-migration.js',
   // imp-95342: independent numerical cross-validation of the imp-95332
   // LEMMA TAIL-CHART per-chart tail cap c3nChart(t0, t1). Recomputes the
   // cap from the verbatim OBJECT normalization and compares against DIRECT

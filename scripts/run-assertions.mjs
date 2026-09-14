@@ -16271,6 +16271,21 @@ const DATA_MODULES = [
   // for 100% of every ensemble. Import-light, nine self-executing assertions.
   // Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95404-signed-seam-vacuity-fraction.js',
+  // imp-95405 (opus-4-8, api-pool): MEASUREMENT -- brackets the imp-95255 LEG 2
+  // phase currency theta = int f^2 / int g^2 over the still-unmapped SIGN
+  // freedom at a FIXED ported geometry G(p,D). With all moduli pinned at 1/p
+  // the envelope g and y_min are fixed, so the vacuity boundary
+  // theta_0 = e^(-y_min) is fixed and the only free data is the sign vector;
+  // theta(sigma) = (sigma^T M sigma)/(1^T M 1) is bracketed by full 2^n
+  // enumeration over the fixed Gram matrix. Finding: at EVERY ported grid
+  // (G(2,4), G(2,6), G(2,8), G(3,4)) the sign vector alone spans theta from 1
+  // (all-aligned, active) down to a worst-case theta_min 4x-20x into the
+  // vacuous corner (r_min 0.05-0.27), so every geometry STRADDLES the boundary
+  // -- the PHASE-CERT active/vacuous split at a single fixed geometry is
+  // decided by the dropped sign data, not geometry. Vacuous fraction of the
+  // 2^n patterns is large (0.75-0.98). Import-light, seven self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95405-theta-sign-freedom-at-fixed-geometry.js',
   // imp-95217 (fable-5): MEASUREMENT -- the arithmetic INERTIA x PAIR-
   // CORRELATION Q measurement (inertia-pcc-synergy MOVE 3 continuation;
   // closes imp-95020-sub-arithmetic-seam-Q at measurement level). 21 seam

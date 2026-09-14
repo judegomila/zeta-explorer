@@ -16351,6 +16351,40 @@ const DATA_MODULES = [
   // assertions. Measurement only; changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95422-hp-form-enclosure-verification.js',
+  // imp-95441 (opus-4-8, api-pool): ASSESSMENT -- does the SPECIFIC CLV
+  // extremal-minorant instance SEP-OPT consumes (a type-delta minorant
+  // ATTAINING A_lat), now the SOLE cited non-elementary input after
+  // imp-95420, admit a lighter classical substitute or elementary in-repo
+  // derivation? Builds on imp-95421 by testing the two natural substitutes
+  // it left open. Candidate 1 (Poisson/partial-fraction termwise): sech's
+  // signed partial-fraction expansion (coeffs c_n = (-1)^n (2n+1)/pi
+  // ALTERNATE, half of any block negative) makes termwise extremal
+  // minorants combine with the wrong inequality direction -- no minorant;
+  // the nonnegative representation subordination needs is exactly the
+  // Gaussian mixture whose positivity is imp-95420, and the single-Poisson
+  // atom is itself non-elementary. Candidate 2 (suboptimal explicit):
+  // int < A_lat, a valid but WEAKER floor = a different bound. Residual
+  // sharply the single-Gaussian atom (L-gau); NO formal irreducibility
+  // theorem claimed (stays a named residual). Import-light, four
+  // self-executing assertions. Assessment only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95441-clv-lighter-substitute-irreducibility.js',
+  // imp-95443 (opus-4-8, api-pool): ESTABLISHMENT-ROUTE LEDGER -- the
+  // complement to the imp-95424 obligation ledger for the imp-95376 LEG B
+  // envelope domination LamBar_paper(d) <= Lambda(E_V,d). imp-95424 named WHAT
+  // must be proved (the Loewner sandwich DELTA_B=B_p-B_m>=0, DELTA_A=A_m-A_p>=0,
+  // off-diagonal OPEN); this classifies HOW the OPEN off-diagonal content could
+  // be discharged: (R1) diagonal dominance of the difference = CHECKABLE-PARTIAL
+  // (a correct sufficient PSD test needing only the known diagonal margin + a
+  // summable off-diagonal overlap-decay bound), (R2) Schur complement =
+  // STRUCTURAL, (R3) congruence = OPEN, (R4) trace = SCREEN-ONLY (necessary).
+  // Partial available: diagonal Loewner YES (N=1 exact), route R1
+  // YES-CONDITIONALLY, full off-diagonal NO. Net scope: LEG B reduces to ONE
+  // input -- a summable off-diagonal decay bound with row-sum below the diagonal
+  // margin (a decay-vs-margin scalar race). Exact 2x2 witnesses fix each route
+  // status. Import-light, six self-executing assertions. Assessment only;
+  // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95443-legb-domination-establishment-routes.js',
   // imp-95424 (opus-4-8, api-pool): OBLIGATION LEDGER -- enumerates and
   // assesses the analytic obligations of the imp-95376 LEG B envelope-
   // domination inequality LamBar_paper(d) <= Lambda(E_V,d) for the imp-95212

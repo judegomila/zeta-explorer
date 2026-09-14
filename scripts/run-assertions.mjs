@@ -15385,6 +15385,18 @@ const DATA_MODULES = [
   // sub-noise). Import-light, four self-executing assertions. Validation
   // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95308-poisson-symbol-sandwich-finite-lattice.js',
+  // imp-95312 (opus-4-8, api-pool): grid CROSS-VALIDATION of the imp-95254
+  // LEMMA ENT entrywise seam-mass domination L_mn <= (1/2) e^(-y_min) M_mn
+  // (the pillar of THEOREM PHASE-AM, previously only random-swept). Tabulates
+  // the entrywise ratio r = L_mn/((1/2) e^(-y_pair) M_mn) over 400 cells
+  // (rates {0.25,0.5,1,2,4} x centers {0.25,0.5,1,2}): worst ratio = 1 (to
+  // float, co-centered/diagonal only), worst off-center ratio 0.9610 < 1,
+  // zero violations, min ratio 0.0013, mean slack 0.3404; equality exact on
+  // the diagonal and to float on every co-centered cell, and r -> 1 as the
+  // center gap D -> 0 (0.2254 -> 0.9980 at D = 1 -> 0.001). Confirms the ratio
+  // never exceeds 1. Import-light, five self-executing assertions. Validation
+  // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95312-lemma-ent-grid-crossvalidation.js',
   // imp-95285 (fable-5, frontier): LEMMA LAG-ENV + LEMMA TAIL-N + THEOREM
   // EV-OCT-N + COROLLARY EV-OCT-N-UNIF -- the ">= 3 rates per octave"
   // every-octave instantiation named as the surviving residual by imp-95250
@@ -15405,6 +15417,20 @@ const DATA_MODULES = [
   // eig resolution). Import-light. Changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95285-n-per-octave-split-instantiation.js',
+  // imp-95311 (opus-4-8, api-pool): MEASUREMENT + ASSESSMENT of the imp-95285
+  // LEMMA LAG-ENV vacuity threshold Y0(N, R) and its effect on the EV-OCT-N
+  // firing onset. Q1: tabulates Y0(N, R) for N = 2..5, R in {1.05, 1.3}
+  // (N = 3 / 4 R = 1.3 reproduce the imp-95285 literals 89.522 / 132.469).
+  // Q2: substituting the LAG-ENV envelope for coalN in every octave term of
+  // the finite m = 6 EV-OCT-N certificate LOOSENS the onset by ~68% to ~100%
+  // (never tightens it) -- the raw coalN gives the tightest onset. Q3: there
+  // is NO crossover depth where LAG-ENV beats the raw bracket, because
+  // LAG-ENV is a proven majorant (lagEnv >= coalN, equality only at the
+  // vacuous origin y = 0 where both equal 2N - 1; min ratio on (0,200] is
+  // 2.30..3.40). LAG-ENV is not an onset lever; its value is the closed-form
+  // threshold that makes the m-uniform tail summable. Import-light. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95311-lagenv-vacuity-onset-assessment.js',
   // imp-95286 (fable-5, frontier): LEMMA LT + THEOREM CONF-LB + COROLLARY
   // CONF-EXACT / WINDOW-PINCH -- the FLOOR side of the imp-95251 COAL-N
   // ledger, in closed form: Lambda_conf(N, x) >= T(N, x) =

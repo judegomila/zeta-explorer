@@ -16028,6 +16028,23 @@ const DATA_MODULES = [
   // executing assertions. Cross-validation only; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95357-bcap-crossval.js',
+  // imp-95359 (opus-4-8, api-pool, frontier): independent numerical cross-
+  // validation of the imp-95331 (THEOREM RZ-PEN5) adversarial REFUTATION of
+  // the imp-95330 det-over-trace attribution. Builds the exact smaller root
+  // of A lam^2 - 2 B lam + C and the ratio R = 2 / (1 + sqrt(1 - A C / B^2))
+  // at theta = pi for three configs -- (i) capped trace plus truncated
+  // numerator, (ii) exact trace plus truncated numerator, (iii) exact both --
+  // over rho in {10, e^6}, r in {2, e^3, e^5.9}. Config (iii) recovers
+  // R = 1.6683x at rho = e^6, r = 2 (true B = 0.1109 vs capped B = 0.4749,
+  // matching the imp-95331 hand-decomposition), but config (i) at the
+  // reachable capped-and-truncated state gives only 1.0100x; the unsplit
+  // exact-root chart floor gains at most 1.00574x over RZ-PEN4 (below 1.006x)
+  // and the split-root marginal at most 1.02434x (below 1.025x). The
+  // intermediate config (ii) at 1.3071x confirms the discriminant coupling
+  // B^2 - A C. The 1.006x / 1.025x / 1.66x attribution split is reproduced
+  // independently. Import-light, six self-executing assertions. Cross-
+  // validation only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95359-dettr-attribution-crossval.js',
   // imp-95272 (fable-5, frontier): LEMMA BASE-SIDE + THEOREM BL-JIT --
   // base-anchored, jitter-robust replacement of the imp-95226 BL-LAT
   // count-uniform lattice collar. The lowest rate has every other rate

@@ -214,3 +214,19 @@ disproof). The G3 lane is launched 2026-09-09.
 job34 heat transfer (entirelp stage 1) → job38 sharp_mass_monotonicity (the
 y-thaw O1 theorem: gates G1–G4, per-cell hull form over 3^|P| divisor-pattern
 cells; success reduces O1 to a producer run) → weld PF / CC / RM singles.
+
+## 2026-09-14 — ROUTE VII COST CURVE (imp-95218): the program's floor, derived
+N1*(t,y) is EXPONENTIAL in 1/t — derived from the tail architecture, not fit
+(ln N1* = (2·1.221852 − y)/t + 1.1676, constant to 1.6% across the two Arb
+points despite 57x in N1*; unconditional SC3 floor ln N1* > 2/t). Halving U
+squares the row count; technology moves prefactors (<= 1.59e6x), never the
+exponent; verified height shares the same logarithm (3.3e5x more height buys
+U 0.150 -> 0.135 only). CITABLE NO-GO: the diagonal t↓0 family — the only
+path from the quantitative machinery to Λ ≤ 0 — is COMPUTE-BLOCKED below
+U ≈ 0.14–0.15. Reachable floor of the whole program under current
+mechanisms: U ≈ 0.150 (t ≈ 0.137, y = 0.165), stretch 0.145 with unpriced
+K3 slab risk. Below that requires a NEW TAIL MECHANISM breaking the
+σ−1/2 = (t/2)ln N heat-lift coupling — i.e. arithmetic input, consistent
+with flow-blindness and the T3⟺strip dictionary. Falsifiable side-prediction:
+the 0.14-row tail repriced through THIS architecture gives N1* ≈ 2.85e8
+(the paper's own contract shell, closed in its separate scope, is unaffected).

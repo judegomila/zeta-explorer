@@ -16001,6 +16001,21 @@ const DATA_MODULES = [
   // imp-95429), six self-executing assertions. Measurement only; changes no
   // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95445-total-offlattice-onset-blaschke-composition.js',
+  // imp-95442 (opus-4-8, api-pool, frontier): MEASUREMENT deciding the
+  // alternating-optimality question imp-95423 left OPEN for N >= 64. The
+  // imp-95375 sign functional theta(sigma) = sigma^T G sigma / (1^T G 1) over
+  // {+-1}^N: any evaluated sigma is an EXACT theta, hence a rigorous upper
+  // bound on theta_floor, so a single sigma with theta < theta(alt) rigorously
+  // DISPROVES alternating-optimality without any certified solver. Baked
+  // deterministic hex-bitmask witnesses beat the alternating witness
+  // sigma_n = (-1)^n at EVERY ported grid N in {16, 64, 192, 640} (relative
+  // gaps 2.32%, 1.71%, 1.38%, 0.96%; the N = 16 witness reproduces the
+  // imp-95423 certified exact floor). Winners are alternating in the bulk and
+  // block-broken in the tail. The exact floor for N >= 64 stays UNCOMPUTED
+  // (2^N infeasible), exactly as imp-95423 left it. Import-light, seven
+  // self-executing assertions. Measurement only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95442-theta-alternating-not-argmin.js',
   // imp-95336 (opus-4-8, api-pool, frontier): ASSESSMENT of the sub-gap
   // imp-95212-subgap-fresnel-airy-envelope-port -- whether the Fresnel-Airy
   // transition-packet envelope of the paper Section 4.5 packets can be

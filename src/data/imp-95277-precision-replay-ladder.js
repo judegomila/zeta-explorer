@@ -210,6 +210,30 @@ export const IMP95277_ASSERTIONS = [
       ),
   },
   {
+    id: 'imp95277-baseline-agrees-across-imp95214-imp95257-imp95277',
+    description:
+      'imp-95386 cross-validation: the ladder baseline agrees three ways -- baselineLimbs = mantissaLimbs(128) = 2 = imp-95257 baselineLimbs; baselineCpuDays = TIER2_PRICE.fullWindow.cpuDays (21.1) = imp-95257 tier2FullWindowCpuDays128; and the 2-limb baseline rung is unit-factor (factorUpper = factorLower = 1) with cpuDaysUpper = cpuDaysLower = the frozen 21.1 and unit-factor wall-days (3.01 / 1.51). The 3-limb lower bracket also matches imp-95257 tier2FullWindowCpuDays160or192Lower.',
+    holds: () => {
+      const base = TIER2_PRICE.fullWindow.cpuDays;
+      const baseRung = PRECISION_REPLAY_LADDER.rungs.find((x) => x.limbs === 2);
+      const threeLimb = PRECISION_REPLAY_LADDER.rungs.find((x) => x.limbs === 3);
+      return (
+        PRECISION_REPLAY_LADDER.baselineLimbs === mantissaLimbs(128) &&
+        PRECISION_REPLAY_LADDER.baselineLimbs === 2 &&
+        PRECISION_REPLAY_LADDER.baselineLimbs === PRECISION_REPLAY_MULTIPLIER.baselineLimbs &&
+        Math.abs(PRECISION_REPLAY_LADDER.baselineCpuDays - base) < 1e-9 &&
+        Math.abs(PRECISION_REPLAY_LADDER.baselineCpuDays - PRECISION_REPLAY_MULTIPLIER.tier2FullWindowCpuDays128) < 1e-9 &&
+        Math.abs(baseRung.factorUpper - 1) < 1e-12 &&
+        Math.abs(baseRung.factorLower - 1) < 1e-12 &&
+        Math.abs(baseRung.cpuDaysUpper - base) < 1e-9 &&
+        Math.abs(baseRung.cpuDaysLower - base) < 1e-9 &&
+        Math.abs(baseRung.wallDaysAt7ThreadsUpper - TIER2_PRICE.fullWindow.wallDaysAt7Threads) < 1e-9 &&
+        Math.abs(baseRung.wallDaysAt14ThreadsUpper - TIER2_PRICE.fullWindow.wallDaysAt14Threads) < 1e-9 &&
+        Math.abs(threeLimb.cpuDaysLower - PRECISION_REPLAY_MULTIPLIER.tier2FullWindowCpuDays160or192Lower) < 1e-6
+      );
+    },
+  },
+  {
     id: 'imp95277-dominance-preserved-and-honesty-gate',
     description:
       'fail-closed honesty: the ladder rescales both routes by the same factor so dominance is preserved at every rung (imp-95257 dominancePreserved true), this is a limb-model derivation not a wall-clock run, it moves no bound, and the verdict states NO QED and PT-SOTA',

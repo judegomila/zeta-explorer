@@ -15985,6 +15985,18 @@ const DATA_MODULES = [
   // Import-light, four self-executing assertions. Cross-validation only;
   // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95342-tail-chart-cap-crossval.js',
+  // imp-95357 (opus-4-8, api-pool, frontier): independent numerical cross-
+  // validation of the imp-95329 LEMMA BCAP uniform-in-b beta cap
+  // (1-cos(wb/a))/(1-sech(b/2)) <= 2+4w^2/a^2 and its two-branch crossing
+  // identity. Direct evaluation over a in (0,6], b in (0,a), w in [0,3pi]
+  // gives zero cap violations and max ratio/cap = 0.9999 (near-attained);
+  // the crossing identity branch(i)=branch(ii)=2+4w^2/a^2 at c*=1+a^2/(2w^2)
+  // holds to 4.1e-11 relative; and cap/minBranch = 1.0000 exactly at the
+  // crossing (the cap is the b-sup of the min-branch envelope, so the
+  // b-uniform beta-trace currency is exhausted). Import-light, five self-
+  // executing assertions. Cross-validation only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95357-bcap-crossval.js',
   // imp-95272 (fable-5, frontier): LEMMA BASE-SIDE + THEOREM BL-JIT --
   // base-anchored, jitter-robust replacement of the imp-95226 BL-LAT
   // count-uniform lattice collar. The lowest rate has every other rate

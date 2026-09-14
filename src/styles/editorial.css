@@ -15,7 +15,7 @@
   --ed-display:"Fraunces",Georgia,serif;
   --ed-body:"Newsreader",Georgia,serif;
   --ed-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,monospace;
-  --ed-col:44rem; --ed-full:1500px;
+  --ed-col:62rem; --ed-wide:84rem; --ed-full:1500px;
 
   background:var(--paper); color:var(--ink);
   font-family:var(--ed-body); font-size:17px; line-height:1.6;
@@ -38,8 +38,11 @@
 .ed-root a{ color:var(--terra-dk); text-decoration:none; }
 .ed-root a:hover{ text-decoration:underline; }
 .ed-root .ed-mono{ font-family:var(--ed-mono); }
-.ed-root .ed-full{ max-width:var(--ed-full); margin:0 auto; padding:0 34px; }
-.ed-root .ed-col{ max-width:var(--ed-col); margin:0 auto; padding:0 24px; }
+.ed-root .ed-full{ max-width:var(--ed-full); margin:0 auto; padding:0 clamp(16px, 3.2vw, 34px); }
+.ed-root .ed-wide{ max-width:var(--ed-wide); margin:0 auto; padding:0 clamp(16px, 3.2vw, 34px); }
+.ed-root .ed-col{ max-width:var(--ed-col); margin:0 auto; padding:0 clamp(16px, 3vw, 26px); }
+/* wide breakout inside a reading column (tables, figures, code) */
+.ed-root .ed-col .ed-breakout{ width:min(var(--ed-wide), calc(100vw - 32px)); margin-left:50%; transform:translateX(-50%); }
 .ed-root .ed-lbl{ font-family:var(--ed-mono); font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--faint); }
 
 /* ---- in-page editorial header (rendered by EditorialShell) ---- */
@@ -379,3 +382,22 @@
 @media (max-width: 900px){
   .ed-root .ed-atlas-breakout{ grid-template-columns: 1fr !important; }
 }
+
+/* ---- RESPONSIVE GUIDES (unified, 2026-09-14) ----------------------------
+   Tiers: reading column 62rem (~75ch at 17px), dashboards .ed-wide 84rem,
+   battle-station .ed-full 1500px. All paddings fluid via clamp. Below 720px:
+   single-column grids, scrollable tables, tempered type. */
+@media (max-width: 720px){
+  .ed-root{ font-size:16px; }
+  .ed-root h1{ font-size:clamp(26px, 7.5vw, 34px) !important; }
+  .ed-root .ed-full [style*="grid-template-columns"],
+  .ed-root .ed-wide [style*="grid-template-columns"]{ grid-template-columns:1fr !important; }
+  .ed-kpis{ grid-template-columns:repeat(2,1fr) !important; }
+  .ed-root table{ display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .ed-herogrid{ grid-template-columns:1fr !important; }
+}
+@media (min-width: 721px) and (max-width: 1080px){
+  .ed-root .ed-full [style*="repeat(3, 1fr)"]{ grid-template-columns:repeat(2,1fr) !important; }
+}
+/* tables inside the reading column always scroll rather than overflow */
+.ed-root .ed-col table{ display:block; overflow-x:auto; }

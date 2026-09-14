@@ -168,7 +168,7 @@ function CurrentStatus() {
           tone="repository"
           label="computer-assisted candidate"
           value="Candidate: Λ ≤ 0.1787854"
-          detail="A candidate for an unconditional proof. The bound is not established; reviewed by Dan Romik, being prepared for public release, unrefereed; not RH."
+          detail="A candidate for an unconditional proof. The bound is not established; reviewed by Dan Romik, publicly posted, unrefereed; not RH."
           route={candidateEntry?.route}
         />
         <StatusCard
@@ -182,7 +182,7 @@ function CurrentStatus() {
           tone="open"
           label="completion contract — not a bound"
           value="Contract: Λ ≤ 0.14"
-          detail="A fail-closed contract, NOT a proved bound: Λ ≤ 0.14 would follow if its zero-free statements hold. It reduces to ONE open family — |C_E,17| < 0.2796881955526147 on 690988 ≤ N ≤ 54799999 — with the [B_v,Π_p] weld as the decisive object."
+          detail="A conditional contract, NOT a proved bound: Λ ≤ 0.14 would follow if its zero-free statements hold. It reduces to ONE open family — |C_E,17| < 0.2796881955526147 on 690988 ≤ N ≤ 54799999 — with the [B_v,Π_p] weld as the decisive object."
           route={contractEntry?.route || '/permutation-architecture'}
         />
       </Grid>
@@ -401,7 +401,7 @@ function BottomLine() {
           positivity bookkeeping, a reproducible public <InlineMath tex="0.1875" /> package with
           an explicitly noted local repair, an <InlineMath tex="0.1787854" /> unrefereed
           computer-assisted candidate for an unconditional proof in the standalone repository (reviewed
-          by Dan Romik, being prepared for public release), a sharper{' '}
+          by Dan Romik, publicly posted), a sharper{' '}
           <Link to="/lambda-01758354-candidate"><InlineMath tex="0.1758354" /></Link>{' '}
           candidate, and a <Link to="/permutation-architecture"><InlineMath tex="0.14" /> completion
           contract</Link> — a contract, not a bound, with one open family. The candidates&rsquo; bounds

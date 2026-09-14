@@ -15659,6 +15659,27 @@ const DATA_MODULES = [
   // ten self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95334-b-exact-trace-pencil-floor.js',
+  // imp-95335 (fable-5, frontier): LEMMA ING-K + THEOREM RZ-SEP +
+  // COROLLARY BLK-SEP + COROLLARY SPLIT-SEP -- the OFF-LATTICE m-uniform
+  // Riesz floor for the seam Gram, executing the "RZ-PEN floor off-lattice
+  // leg" that imp-95272 recorded as the surviving open half of the
+  // off-lattice obligation. Replaces Grenander-Szegoe (Toeplitz-pinned,
+  // imp-95252) by a self-contained Ingham-type inequality whose only
+  // hypothesis is pairwise log-rate separation delta: lambda_min(Gtilde_m)
+  // >= A_sep(delta) = sup_(T > pi/delta) sech(pi T)(2 pi/delta)
+  // cot(pi^2/(2 T delta)), uniform in count m, non-perturbative (no lattice
+  // reference at all). Sharpness bracketed two-sided by the lattice member
+  // and the Szegoe ceiling: 52.47x loose at delta = ln 2. Instantiation:
+  // COROLLARY SPLIT-SEP, the FIRST m-uniform off-lattice every-octave
+  // certificate -- fires for x > 23.157604 for ANY ln(1.3)-separated pair
+  // blocks with at-least-dyadic base growth (vs lattice-pinned SPLIT-RZ
+  // 15.981584, and BEATING the lattice-only SPLIT-LOO uniform onset
+  // 27.035582 while dropping the lattice hypothesis). NOT r-uniform
+  // (structural coefficient-norm collapse at coalescence); the chart-refined
+  // RZ-PEN2..8 program stays lattice-pinned and is NOT ported. Import-light,
+  // ten self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95335-ingham-offlattice-riesz-floor.js',
   // imp-95272 (fable-5, frontier): LEMMA BASE-SIDE + THEOREM BL-JIT --
   // base-anchored, jitter-robust replacement of the imp-95226 BL-LAT
   // count-uniform lattice collar. The lowest rate has every other rate
@@ -15757,6 +15778,19 @@ const DATA_MODULES = [
   // for every family. Import-light, nine self-executing assertions. Changes no
   // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95273-theta-vacuity-distribution.js',
+  // imp-95217 (fable-5): MEASUREMENT -- the arithmetic INERTIA x PAIR-
+  // CORRELATION Q measurement (inertia-pcc-synergy MOVE 3 continuation;
+  // closes imp-95020-sub-arithmetic-seam-Q at measurement level). 21 seam
+  // points across the family 690988..54799999 via the parametrized gate2
+  // point mode; 18-moment compression of the defect form on the 25 prime
+  // nodes; Sylvester signatures (n- in [5,11], n0=0 everywhere), Christoffel
+  // diagonal (K -> 1 at p=2,3,5; trace 18), lambda_max(rho) =
+  // 0.6231344958476320 (the imp-95020 named unmeasured number), Q < 1.4326672
+  // everywhere but STRUCTURALLY (projection identity K <= 1) -- same PCC
+  // wall, load stays on the identification residual. mpmath 50-dps reference
+  // vs float64 Chebyshev recompute (basis-independence). Import-light, eleven
+  // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95217-inertia-pcc-q-measurement.js',
 ];
 
 let ALL_MODULES = FAST_MODE

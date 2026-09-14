@@ -16043,6 +16043,23 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95442-theta-alternating-not-argmin.js',
+  // imp-95484 (opus-4-8, api-pool, frontier): MEASUREMENT / ASSESSMENT of the
+  // imp-95442 residual -- can an SDP relaxation with a certified eigenvalue
+  // enclosure LOWER-bound theta_floor = min over {+-1}^N of sigma^T G sigma /
+  // (1^T G 1) tightly enough to BRACKET the alternating suboptimality at
+  // N in {64, 192, 640}? SDP dual: theta_floor >= (sum_i y_i)/(1^T G 1) for any
+  // diagonal y with G - diag(y) PSD; the single-eigenvalue choice y_i =
+  // lambda_min(G) gives theta_floor >= N*lambda_min/(1^T G 1). Result: NO --
+  // even with the measured lambda_min this uniform-diagonal spectral bound is
+  // ~98% below the witness upper bound (relaxation gap intrinsic to the
+  // hypercube QP; loose even against the imp-95423 CERTIFIED N=16 exact floor),
+  // and the CHEAP certified enclosures (Weyl residual, Gershgorin) go
+  // non-positive (vacuous) on the near-singular Gram. A genuine bracket needs
+  // the OPTIMIZED-diagonal SDP dual + a verified-Cholesky PSD certificate, out
+  // of reach here; theta_floor for N >= 64 stays UNCOMPUTED. Import-light,
+  // eight self-executing assertions. Measurement only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95484-sdp-eigen-lower-bound.js',
   // imp-95336 (opus-4-8, api-pool, frontier): ASSESSMENT of the sub-gap
   // imp-95212-subgap-fresnel-airy-envelope-port -- whether the Fresnel-Airy
   // transition-packet envelope of the paper Section 4.5 packets can be

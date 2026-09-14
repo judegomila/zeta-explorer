@@ -15957,6 +15957,23 @@ const DATA_MODULES = [
   // assertions. Measurement only; changes no bound; NO QED; PT Lambda <=
   // 0.2 remains SOTA.
   '/src/data/imp-95353-pair-extension-residual-decomposition.js',
+  // imp-95358 (opus-4-8, api-pool, frontier): MEASUREMENT -- K-chart
+  // convergence of the imp-95330 THEOREM RZ-PEN4 floor W4(a, K) and the
+  // SPLIT-PEN4 onsets from K = 256 toward the K = 4096 reference, at
+  // rho in {2, 4, e^6}. FINDING 1: the imp-95330 "K = 256 within 0.73% of
+  // K = 4096" claim is CONFIRMED (0.7271% at rho = 2) and is the WORST rho
+  // -- convergence is faster at larger rho (0.366% at rho = 4, 0.182% at
+  // rho = e^6). FINDING 2: second-order approach -- the marginal floor gain
+  // per chart doubling shrinks ~3.7-4.0x per step (O(K^-2)). FINDING 3: the
+  // SPLIT-PEN4 uniform onset K = 256 (13.297836) overstates the
+  // chart-continuum onset (13.293920) by only ~0.0039. FINDING 4: at
+  // rho = e^6 the binding chart is the far corner k = K - 1, so an ADAPTIVE
+  // cover (64 coarse + 64 fine on the last cell, cost 127) matches uniform
+  // K = 4096 exactly -- a ~32x cost reduction; but only at large rho (at
+  // rho = 2 the binding chart is interior, k = 5). Import-light, six
+  // self-executing assertions. Measurement only; changes no bound; no onset
+  // moves; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95358-chart-count-convergence.js',
   // imp-95340 (opus-4-8, api-pool, frontier): MEASUREMENT -- the gap between
   // the imp-95332 COROLLARY PEN-UNIF6 r-uniform floor A_unif6(rho) and the
   // EXACT r-uniform symbol-pencil infimum G_unif(rho) = inf over r in

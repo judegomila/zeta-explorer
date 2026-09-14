@@ -15434,6 +15434,19 @@ const DATA_MODULES = [
   // five self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95292-conf-lb-floor-gap-map.js',
+  // imp-95294 (opus-4-8, S-frontier): MEASUREMENT -- the imp-95251 COAL-N
+  // over-pricing rho(N,R,x) = coalN/sqrt(T) mapped across the window R in
+  // [1,1.3] at the N=3/4/5 firing onsets vs the imp-95286 WINDOW-PINCH caps
+  // 3.460619 / 6.151212 / 10.898085. Findings: the firing onset is EXACTLY
+  // where coalN(N,1.3,x0)=1; inside the firing region x >= x0 rho is
+  // increasing in R and decreasing in depth, so the over-pricing peak is the
+  // corner (R=1.3, x=onset) and reproduces the baked caps; the shallow-x
+  // growth (approx 8.3/15.0/23.0, above the caps) is outside the firing
+  // region (coalN > 1) and MOOT, so the per-depth caps hold where the
+  // certificate fires; deep-x rho -> R^(N-1). Import-light, eight
+  // self-executing assertions. Measurement only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95294-coaln-overpricing-window-pinch-measurement.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family
@@ -15817,6 +15830,19 @@ const DATA_MODULES = [
   // theta-level set. Import-light, seven self-executing assertions. Changes
   // no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95289-sharp-frontier-bracket.js',
+  // imp-95218-route7 (analysis, S-frontier / Route VII): the diagonal t->0
+  // complete-row COST CURVE. Derives from verify_tail_arb.c's contraction
+  // structure that the minimal tail cutoff is exponential in 1/t
+  // (ln N1* = (2c0 - y)/t + L0, calibrated on the two Arb-measured points;
+  // SC3 gate forces ln N1* > (1+sqrt(1-2t))/t unconditionally), prices
+  // complete rows at rows_min(U) ~ 2.14 e^{2.4437/U}, answers the
+  // sub-exponential-subsequence question NO (new tail mechanism required
+  // for Lambda <= 0 via Route VII), and locates the verified-height wall
+  // (t_min = (2c0-y)/(ln(sqrt(TPT/2pi)+R) - L0); reachable floor
+  // U ~ 0.145-0.150). Import-light (imp-95206/95201 literals), fifteen
+  // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95218-route7-cost-curve.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -15032,6 +15032,23 @@ const DATA_MODULES = [
   // self-executing assertions (exact rationals + quadrature cross-checks).
   // Import-light; changes no bound; NO QED; PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95233-modulus-phase-currency-feasibility.js',
+  // imp-95255 (opus-4-8, S-frontier): MAPPING ASSESSMENT (split verdict) of
+  // whether the imp-95233 model-family currencies y_min and theta map to the
+  // paper per-window seam quantities. y_min MAPS -- it is a per-window
+  // GEOMETRY quantity that rides the SAME imp-95220 width-law port + isolation
+  // group Q that already carries x_min (FA-2 bracket x_min <= y_min <= 2 x_min
+  // exact; measured y_min/x_min = 1.5228, 1.3516, 1.2331, 1.1649 at pD = 8,
+  // 24, 80, 224, decreasing toward 1), so imp-95233 HONEST LIMITS (c) is over-
+  // conservative on it. theta is OBSTRUCTED -- a scale-invariant per-window
+  // SIGN functional that is trivially 1 on the fixed-amplitude family the
+  // paper specifies (all aliases 1/p) and has no image under the geometry+
+  // modulus transcription, which carries no per-window sign pattern; a phase-
+  // priced per-window bound needs new transcribed sign data (obligation (3)),
+  // not a better certificate. Six self-executing assertions (exact x(D/2)=1/Q,
+  // FA-2 bracket + measured ratios, theta=1 on the positive cone, theta<1 on
+  // a signed same-geometry pattern). Import-light; changes no bound; NO QED;
+  // PT Lambda <= 0.2 stays SOTA.
+  '/src/data/imp-95255-currency-per-window-map-assessment.js',
   // imp-95139 (opus-4-8, S-frontier): SCOPE ASSESSMENT (no bound) separating
   // the two named legs of obligation (2)'s "modulus/phase" currency. (A) The
   // PHASE leg is FEASIBLE, consumed from imp-95233 PHASE-CERT (R <=
@@ -15693,6 +15710,18 @@ const DATA_MODULES = [
   // four remain import-light. AUDIT-ONLY, no page fabricated. No bound
   // change; NO QED.
   '/src/data/imp-95367-rzpen3-6-surfacing-audit.js',
+  // imp-95256 (opus-4-8, api-pool): MEASUREMENT -- maps the imp-95250
+  // THEOREM SPLIT-LOO "neither of the two multi-block splits dominates"
+  // claim (asserted from one config) onto a two-parameter (scale-separation
+  // x depth) surface with the exact crossover locus g = sigma, g =
+  // 2 sqrt(L1 L2)/(L1+L2). Both regions are realizable: the entire
+  // nearby-scale twin lattice is SPLIT-LOO (incl. the anchor), while small
+  // depth + wide scale separation ({1,1.05} u {50,52}, x = 0.02) gives a
+  // concrete SPLIT-2 win (g = 0.99230 > sigma = 0.52442). sigma is
+  // depth-independent, so the winner flips with depth alone. Import-light,
+  // eight self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95256-split2-splitloo-crossover.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -15940,6 +15940,23 @@ const DATA_MODULES = [
   // assertions. Measurement only; changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95374-rzpen-offlattice-degradation.js',
+  // imp-95429 (opus-4-8, api-pool): MEASUREMENT of the TOTAL imp-95374
+  // off-lattice every-octave onset shift -- combining the RZ-PEN4 symbol-
+  // pencil FLOOR degradation (imp-95374, which held the dyadic numerator
+  // fixed) with the separately-priced coalLaw-NUMERATOR off-lattice drift
+  // (the imp-95253 leg, deferred by the imp-95374 PROTOCOL). Same m = 8
+  // draw and PRNG seed as imp-95374, so the FLOOR-ONLY series reproduces its
+  // onsets to 12 digits; the NUM-ONLY and TOTAL worst-of-400 series let
+  // coalLaw jitter at the perturbed octave base rate nu_k too. FINDING: the
+  // numerator drift adds a comparable second onset premium (+19%..+76% over
+  // the floor-only shift across +-1.56%..+-12.5%, up to ~+1.6 depth units);
+  // the combined shift is SUB-additive at small jitter (worst-floor and
+  // worst-numerator fall in different draws, ratio ~0.76) tending to
+  // additive (~0.99) as a single near-collision draw dominates; the
+  // numerator premium grows smoothly with no near-collision cliff.
+  // Import-light, seven self-executing assertions. Measurement only;
+  // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95429-rzpen-offlattice-total-onset.js',
   // imp-95336 (opus-4-8, api-pool, frontier): ASSESSMENT of the sub-gap
   // imp-95212-subgap-fresnel-airy-envelope-port -- whether the Fresnel-Airy
   // transition-packet envelope of the paper Section 4.5 packets can be
@@ -16544,6 +16561,23 @@ const DATA_MODULES = [
   // self-executing assertions. MEASUREMENT ONLY; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95399-inoctave-multiplicity-degradation.js',
+  // imp-95426 (opus-4-8, api-pool, S-frontier): DERIVATION + MEASUREMENT of the
+  // DIRECT seam-pencil two-block bound -- the imp-95378 named fix (use the
+  // imp-95249 seam pencil directly rather than the (1-sigma) relaxation),
+  // reduced to a 2x2 generalized eigenproblem (c c^T, M), c=(sqrt(L1),sqrt(L2)),
+  // M=[[1,-sigma],[-sigma,1]], giving DIRECT=(L1+L2+2 sigma sqrt(L1 L2))/
+  // (1-sigma^2). FINDINGS: DIRECT is UNIFORMLY <= min(SPLIT-2, SPLIT-LOO)
+  // (direct/min in [0.8945,1.0]) and up to ~12% tighter for asymmetric blocks
+  // (MIN/DIRECT=1.1179 at {1,2}u{100,200}), fusing the arithmetic and sqrt
+  // numerator pricings via the AM-GM slack sigma(sqrt(L1)-sqrt(L2))^2. But it
+  // does NOT close the imp-95378 collar wedge: it retains the 1/(1-sigma^2)
+  // collar (direct/exact spans [1.19, 3.22e6], same as min) and collapses
+  // EXACTLY to SPLIT-2 in the symmetric-twin (L1=L2) every-octave limit. The
+  // wedge is intrinsic to the angle relaxation of the denominator, closable
+  // only by the full joint pencil (not 2x2-reducible). Import-light, eight
+  // self-executing assertions. MEASUREMENT ONLY; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95426-direct-seam-pencil-twoblock-bound.js',
 ];
 
 let ALL_MODULES = FAST_MODE

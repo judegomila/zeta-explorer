@@ -16325,6 +16325,24 @@ const DATA_MODULES = [
   // sign-agnostic-admissible. Import-light, six self-executing assertions.
   // Assessment only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95376-fa-port-admissibility-assessment.js',
+  // imp-95420 (fable-5, frontier): LEMMA P-SYM + LEMMA P-JAC + LEMMA
+  // P-MONO + THEOREM P-POS -- self-contained elementary positivity of
+  // the imp-95419 LEMMA MIX theta density p(t) on all of (0, inf),
+  // with explicit two-sided enclosures: pi e^(-pi^2 t/4)
+  // (1 - 3e^(-2 pi^2 t)) < p < pi e^(-pi^2 t/4) for t >= 1/pi^2 and
+  // the dual-form analogue for t <= 1 (regimes overlap; both boundary
+  // cases reduce to ln 3 < 2). The modular dual identity is DERIVED by
+  // Poisson summation on x e^(-pi^2 t x^2) e^(i pi x) (previously only
+  // numerically cross-checked). DISSOLVES the imp-95419 exit-time
+  // positivity citation (Karatzas-Shreve / Biane-Pitman-Yor); the
+  // SEP-OPT chain citation ledger drops to CLV + Poisson summation.
+  // Float trap asserted real: direct theta form unusable in doubles
+  // below t ~ 0.02 (1e90 rel error at t = 1e-3), dual form mandatory.
+  // Mixture mass and the sech Laplace identity verified with deficits
+  // inside the analytic head bound. Import-light, eight self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
+  // SOTA.
+  '/src/data/imp-95420-exit-density-positivity-selfcontained.js',
 ];
 
 let ALL_MODULES = FAST_MODE

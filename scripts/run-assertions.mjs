@@ -17077,6 +17077,25 @@ const DATA_MODULES = [
   // assertions. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
   // SOTA.
   '/src/data/imp-95498-deflated-multiblock-composition.js',
+  // imp-95499 (fable-5, frontier): THEOREM TILT-DET + COROLLARY PERP-MAJ --
+  // executes the imp-95498 surviving residual (= imp-95446 (b)): the
+  // closed-form coalescence-uniform majorant of the deflated LambdaPerp.
+  // Exponential tilt (1_(t>=d) <= e^(2s(t-d))) plus the exact Cauchy-
+  // determinant cancellation gives Lambda(P, d) <= e^(-2sd) prod_(i,j)
+  // (p_i+p_j)/(p_i+p_j-2s) for every tilt 0 < s < min P: no separation
+  // denominators (valid at exact rate collision by L2 limit), log-sum
+  // converges on geometric lattices (m-uniform), arbitrary rate sets
+  // (off-lattice). Since W_k is a subspace of E_(V_k u U_k), the same bound
+  // majorizes every LambdaPerp_k; with SPLIT-DEFL-N this closes the
+  // every-octave chain in fully closed form. Measured: onsets 5.4033/
+  // 14.9752/15.4776 at m = 2/8/16 (r = 1.1), coalesced-twin m = 8 onset
+  // 15.7015, off-lattice jitter-0.3 onset 14.4191; below SPLIT-LOO/EV-OCT
+  // 27.04, above RZ-PEN ~13.0-13.3 (RZ-PEN NOT superseded on the lattice);
+  // K = 1 looseness exactly 2ex. Re-scoped residual: a deflation-aware
+  // majorant strictly below Lambda(V_k u U_k). Import-light, seven
+  // self-executing assertions. Changes no bound; NO QED; Platt-Trudgian
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95499-tilt-determinant-perp-majorant.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -295,6 +295,35 @@ function pencilSymbolMin(theta, a, b) {
   return C / (Bp + Math.sqrt(Math.max(Bp * Bp - A * C, 0)));
 }
 
+// imp-95343 cross-validation: DIRECT 2x2 generalized-eigenvalue solve of the
+// pencil (F(theta), G0) with F = [[f_a, f_b], [conj(f_b), f_a]],
+// G0 = [[1, s], [s, 1]]. Uses the LEMMA PM plus-minus diagonalization of G0
+// and the exact 2x2 Hermitian eigenvalue formula, so the numerator is built
+// straight from f_a and f_b (Re and Im) and NEVER touches the imp-95288
+// ordered-pair identity that pencilSymbolMin above uses for C. Independent
+// code path: agreement validates both the pair identity and the smaller-root
+// pricing simultaneously.
+function pencilDirectMin(theta, a, b, NN = 14) {
+  const tau = b / a;
+  const s = sechHalf(b);
+  let fa = 0;
+  let br = 0;
+  let bi = 0;
+  for (let n = -NN; n <= NN; n++) {
+    const w = theta + 2 * PI * n;
+    const p = kernelP(w, a);
+    fa += p;
+    br += p * Math.cos(w * tau);
+    bi += p * Math.sin(w * tau);
+  }
+  const alpha = (fa + br) / (1 + s);
+  const beta = (fa - br) / (1 - s);
+  const gamma = Math.abs(bi) / Math.sqrt(1 - s * s);
+  const mid = (alpha + beta) / 2;
+  const rad = Math.sqrt(((alpha - beta) / 2) ** 2 + gamma * gamma);
+  return mid - rad;
+}
+
 function gridInf(a, b, Ngrid = 4001) {
   let inf = Infinity;
   for (let i = 0; i <= Ngrid; i++) {
@@ -824,6 +853,46 @@ export const IMP95331_ASSERTIONS = [
       /floor only/i.test(REC.honestScope) &&
       /model family only/.test(REC.honestScope) &&
       /NOT a standalone/.test(REC.refutationRecord),
+  },
+  {
+    id: "imp95343-direct-2x2-gev-crossvalidation",
+    description:
+      "imp-95343: the closed-form smaller root pencilSymbolMin (numerator C " +
+      "via the imp-95288 ordered-pair identity) LOWER-BOUNDS the true " +
+      "lam_min of the directly assembled 2x2 pencil (F, G0), solved by an " +
+      "independent path (LEMMA PM diagonalization of G0 + exact 2x2 " +
+      "Hermitian eigenvalue built from f_a and f_b directly, no pair " +
+      "identity): over a 401-point theta grid at 9 (rho, r) cells spanning " +
+      "both coalescence ends, pencilSymbolMin <= lam_min_direct + 1e-7 " +
+      "everywhere (the residual is sign-noise ~1e-8 at the r -> 1 corner " +
+      "where both values are ~1e-9), and the two agree to < 5e-7 relative " +
+      "wherever lam_min_direct > 1e-6 (machine precision at the floor scale)",
+    holds: () => {
+      for (const [rho, r] of [
+        [2, 1.001],
+        [2, 1.3],
+        [2, 1.99],
+        [2.5, 2.49771],
+        [4, 1.3],
+        [10, 2],
+        [10, 9.9],
+        [Math.exp(6), 2],
+        [Math.exp(6), Math.exp(5.9)],
+      ]) {
+        const a = Math.log(rho);
+        const b = Math.log(r);
+        for (let i = 0; i <= 400; i++) {
+          const th = -PI + (2 * PI * i) / 400;
+          const cf = pencilSymbolMin(th, a, b);
+          const dir = pencilDirectMin(th, a, b);
+          // lower-bound direction (exact equality up to grid + truncation)
+          if (cf > dir + 1e-7) return false;
+          // relative agreement where the eigenvalue is not near-zero
+          if (dir > 1e-6 && Math.abs(cf / dir - 1) > 5e-7) return false;
+        }
+      }
+      return true;
+    },
   },
 ];
 

@@ -16651,6 +16651,23 @@ const DATA_MODULES = [
   // proven imp-95249 ANG-DET fence. Measurement only; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95425-splitloo-sigma-upperbound-direction-check.js',
+  // imp-95451 (opus-4-8, api-pool): AUDIT -- the complementary link-by-link
+  // pipeline audit of the imp-95376 SECONDARY CHECK S1 (imp-95425 measured only
+  // the ANG-DET fence step numerically). Walks the transcription pipeline
+  // imp-95220 (rate map) -> imp-95249 ANG-DET (fence) -> imp-95250 SPLIT-LOO
+  // (collar) and records the direction verdict at each link: LINK 1 (LEMMA LOO
+  // collar) is the EXACT operator norm of the skew block projection, verified
+  // here for the first time both as a genuine upper bound on ||F_k||/||F|| over
+  // adversarial F and as SHARP (largest generalized eigenvalue of (J G J, G)
+  // equals 1/sqrt(1 - sigma_k^2), rel 1.07e-7); LINK 2 (ANG-DET fence Phi_k <=
+  // 1 - sigma_k^2) SAFE, consistent with imp-95425; LINK 3 (imp-95220 rate map)
+  // SAFE within-family since ANG-DET holds for ANY distinct positive rates given
+  // rate-set identity. Records the TWO unverified places: U1 cross-family rate
+  // identity (= the still-open imp-95376 LEG B envelope domination, out of S1
+  // scope) and U2 the 3 ill-conditioned numeric corners (imp-95425 sub-gap).
+  // Import-light, six self-executing assertions. Audit only; changes no bound;
+  // NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95451-splitloo-sigma-direction-pipeline-audit.js',
   // imp-95420 (fable-5, frontier): LEMMA P-SYM + LEMMA P-JAC + LEMMA
   // P-MONO + THEOREM P-POS -- self-contained elementary positivity of
   // the imp-95419 LEMMA MIX theta density p(t) on all of (0, inf),
@@ -16719,6 +16736,22 @@ const DATA_MODULES = [
   // self-executing assertions. MEASUREMENT ONLY; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95426-direct-seam-pencil-twoblock-bound.js',
+  // imp-95259 (opus-4-8, api-pool, S-frontier): TIGHTNESS MEASUREMENT of the
+  // imp-95250 LEMMA TAIL crude PhiUnif lower bound versus the exact infinite
+  // cross-Blaschke product PhiUnif = [prod_(n>=1) b_n^8]^2, b_n =
+  // (2^n-1.3)/(2^n+1.3). Evaluates the exact product by log-summation and
+  // compares against the imp-95250 crude literal (finite n=1..30 product times
+  // the 1 - 20.8 x 2^(-30) Weierstrass tail factor). FINDING: the crude bound
+  // is already sharp -- crude 9.977927681808903e-21 vs exact
+  // 9.977927681808923e-21 agree to ~1.8e-15 relative (within one ulp), because
+  // at N = 30 the tail deficit 20.8 x 2^(-30) ~ 1.94e-8 is small enough that
+  // the second-order corrections dropped by the 8(1-b_n) linearization and the
+  // Weierstrass prod-vs-sum relaxation are O(1e-16), below double precision. A
+  // tighter closed-form PhiUnif does NOT raise the uniform fence and does NOT
+  // lower the unbounded-count firing threshold XSTAR_UNIF = 27.035582.
+  // Import-light, seven self-executing assertions. MEASUREMENT ONLY; changes
+  // no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95259-phiunif-crude-tail-tightness.js',
 ];
 
 let ALL_MODULES = FAST_MODE

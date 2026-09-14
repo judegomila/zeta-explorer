@@ -98,10 +98,24 @@ export const IMP95231_COALESCENCE_RATIO_MONOTONICITY = {
     "ratio 0.99995, no counterexample) but the analytic proof there is OPEN. " +
     "Does NOT conflict with imp-95224 DC-NOGO (count-uniform only); COAL-2 is " +
     "N = 2.",
+  residualNowClosed:
+    "UPDATE (imp-95270 assessment): the interior h_r > 0 bump named above was " +
+    "subsequently CLOSED by THEOREM RATE-MONO in " +
+    "imp-95231-rate-monotonicity-closure.js. That closure linearizes LEMMA RI " +
+    "via the exact derivative identity sign(dLambda_2/dr) = sign(F_t rho - E) " +
+    "(rho = the positive root of rho^2 - F rho - E = 0, F = (1-E)(2x+t)/t, " +
+    "E = e^(-t), t = (r-1)x) and proves LEMMA K sigma(x) F_t <= E for all " +
+    "x, t > 0 (sigma = x + sqrt(1+x^2)); on the bump where F_t > 0 the COAL-DOM " +
+    "input rho < sigma (imp-95227, proven independently by root comparison, so " +
+    "no circularity) gives F_t rho < F_t sigma <= E, hence dLambda_2/dr < 0. So " +
+    "RI now holds on the whole interior too; the OPEN status recorded above is " +
+    "historical (as of this module writing).",
   verdict:
     "RIGOROUS at scope: LEMMA RI exact and THEOREM COAL-DESC proven " +
-    "elementarily (phi >= 2x^3); the interior h_r > 0 bump is the named OPEN " +
-    "sub-gap. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.",
+    "elementarily (phi >= 2x^3); the interior h_r > 0 bump was the named OPEN " +
+    "sub-gap AT THIS MODULE writing and is now CLOSED by THEOREM RATE-MONO " +
+    "(see residualNowClosed). Changes no bound; NO QED; Platt-Trudgian " +
+    "Lambda <= 0.2 SOTA.",
 };
 
 // ---------------------------------------------------------------------------

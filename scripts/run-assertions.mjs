@@ -15885,6 +15885,21 @@ const DATA_MODULES = [
   // imp-95334 A_pen8. Import-light, seven self-executing assertions.
   // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95337-pencil-leg-attribution.js',
+  // imp-95355 (opus-4-8, api-pool, frontier): t3 HEAD-WEIGHT GAP MEASUREMENT
+  // -- per head term n in {0, +-1} and per chart, the ratio of the
+  // b-uniform trace charge t3(|w_n|) (imp-95329 c_alpha + min(kappa w^2,
+  // 2 + 4 w^2 / a^2)) to the b-exact worst-in-cell weight t8 (imp-95334
+  // 2(1 - s minCos)/A), at rho = e^6 and r in {2, e^3, e^5.9}. At the
+  // RZ-PEN6 binding chart (k = 114) the b-uniform charge over-prices the
+  // true head trace by 1.42-5.30x per term (kernel-weighted aggregate
+  // 2.35-2.51x across the three cells) and up to ~6.1x at the worst chart;
+  // the cap tw >= t8 binds at every head term. Term-level view of the
+  // imp-95337 floor-level t3 leg (75-100 percent dominant): the ~2.4x head
+  // trace inflation is what the RZ-PEN8 b-exact trace T8 removes. Head
+  // terms n in {0, +-1} only (tail exhausted by imp-95332). Import-light,
+  // five self-executing assertions. Measurement only; changes no bound;
+  // NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95355-t3-head-weight-gap.js',
   // imp-95338 (opus-4-8, api-pool, frontier): CHART-ADEQUACY MEASUREMENT --
   // whether the imp-95332 K = 256 chart cover (k4096OverK256RhoE6 =
   // 1.0085, "CHART currency EXHAUSTED") stays adequate once the {0, +-1}
@@ -15922,6 +15937,26 @@ const DATA_MODULES = [
   // six self-executing assertions. Measurement only; changes no bound;
   // NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95339-crossover-r-independence.js',
+  // imp-95353 (opus-4-8, api-pool, frontier): MEASUREMENT -- resolves the
+  // imp-95332 verdict item naming the "{0, +-1} pair-identity truncation"
+  // as the dominant large-rho looseness, by measuring how much extending
+  // the kept-pair set to (0, +-2) and (+-1, +-2) tightens the floor at
+  // r in {2, e^3, e^5.9}. RECONCILIATION: imp-95333 (RZ-PEN7) already
+  // carries the distance-1 outer pairs {-2,-1},{+1,+2} (same-sign
+  // (+-1,+-2)) and distance-2 pairs {0,-2},{0,+2} (i.e. (0,+-2)), gains
+  // 1.2788/1.0066/1.3040; the ONLY (0,+-2)/(+-1,+-2) pairs left are the two
+  // distance-3 CROSS pairs (-1,+2),(+1,-2). Carrying those (endpoint floor,
+  // weight sin^2(3 pi tau)) gives A_pen8 >= A_pen7 with gains 1.01427 /
+  // 1.00286 / 1.01904 at rho = e^6 -- at most 1.9 percent, one order below
+  // the distance-1/2 gain. True-theta headroom decomposition at the binding
+  // chart k = 114 shows the residual is SPREAD across the cross pairs and
+  // the shell +-3 kernels (beyond shell 3 <= 0.09 percent), no single
+  // dominant term. Confirms and quantifies the imp-95333 pair-truncation
+  // near-exhaustion; dominant residual is the b-uniform t3 trace weight
+  // (executed pointwise by imp-95334). Import-light, six self-executing
+  // assertions. Measurement only; changes no bound; NO QED; PT Lambda <=
+  // 0.2 remains SOTA.
+  '/src/data/imp-95353-pair-extension-residual-decomposition.js',
   // imp-95340 (opus-4-8, api-pool, frontier): MEASUREMENT -- the gap between
   // the imp-95332 COROLLARY PEN-UNIF6 r-uniform floor A_unif6(rho) and the
   // EXACT r-uniform symbol-pencil infimum G_unif(rho) = inf over r in

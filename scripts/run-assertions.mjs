@@ -15264,6 +15264,16 @@ const DATA_MODULES = [
   // self-executing assertions. Derivation only; changes no bound; NO QED;
   // Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-95377-rstar-boundary-closed-form.js',
+  // imp-95381 (numerical, S-frontier): contour of the imp-95271 RI
+  // tightness-ratio slack across the full bump wedge, refining finding (3).
+  // The per-x max of ratio = h h_r Lambda_2 / (x P (Lambda_2 - P)) is ALWAYS
+  // attained on the r -> 1 coalescence edge; the >= 8% margin (ratio <= 0.92)
+  // is uniform in r only for x >= x_c ~ 0.343 (not over the whole wedge), and
+  // near-saturation (ratio -> 1) is the WHOLE shallow x -> 0 edge uniformly in
+  // r, not a single corner. slack(x) rises monotonically with depth x.
+  // Import-light, six self-executing assertions. Measurement only; changes no
+  // bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-95381-ri-slack-contour.js',
   // imp-95232 (numerical, S-frontier): MEASUREMENT of how the imp-95226
   // COROLLARY BL-LAT signed cross-octave certificate degrades OFF the
   // geometric lattice and under IN-OCTAVE multiplicity -- the two named
@@ -16174,6 +16184,20 @@ const DATA_MODULES = [
   // between the two collared forms. Import-light, eight self-executing
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95378-min-split-certificate.js',
+  // imp-95382 (opus-4-8, api-pool): MEASUREMENT -- tabulates the imp-95256
+  // depth-driven SPLIT-2 -> SPLIT-LOO flip as an exact crossover-depth map
+  // x*(r,s) over the twin-lattice family V1={1,r}, V2={s,sr}, where x* is the
+  // unique depth with g(x) = sigma. A block-scaling identity
+  // Lambda({s,sr},x) = Lambda({1,r},s x) (verified to 1e-13) makes the depth
+  // dependence explicit: g(x) = 2 sqrt(L1 L2)/(L1+L2) decreases monotonically
+  // from g(0)=1 through the depth-independent sigma < 1, so x* is unique.
+  // Across r in {1.05,1.1,1.2,1.3}, s in {1.5,2,3,5,10}, x* sits in a narrow
+  // band ~0.16..0.28 (SPLIT-LOO wins by depth ~0.3 family-wide), is
+  // non-monotone in s (peak near s=3), and decreasing in r; the imp-95256
+  // anchor r=1.1,s=2 gives x*=0.2556 (consistent with its g(6)=0.00764).
+  // Import-light, seven self-executing assertions. Changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95382-twin-lattice-crossover-depth.js',
   // imp-95274 (opus-4-8, api-pool): MEASUREMENT -- widens the imp-95249
   // THEOREM ANG-PENCIL entrywise identity + LEMMA ANG-DET fence check from 4
   // configurations to a 54-partition disjoint multi-block family plus a depth

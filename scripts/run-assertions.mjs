@@ -15065,6 +15065,24 @@ const DATA_MODULES = [
   // executing assertions. Import-light; changes no bound; NO QED; PT Lambda <=
   // 0.2 stays SOTA.
   '/src/data/imp-95375-theta-range-geometry-image.js',
+  // imp-95397 (opus-4-8, S-frontier): ASSESSMENT resolving the imp-95375
+  // residual -- are the paper alias signs DETERMINED by the eq (14)/(15)
+  // additive-character structure, or genuinely FREE at transcription? NEITHER
+  // pure horn: eq (14) 1_{p not | n} = 1 - 1/p - (1/p) sum_h e(hn/p) pins each
+  // alias coefficient EXACTLY at a_h(n) = -(1/p) e(hn/p) (modulus 1/p, phase
+  // the additive character e(hn/p), a p-th root of unity), so the signs are
+  // NOT free (Ramanujan-sum identity sum_h e(hn/p) = -1 for p not | n); but the
+  // determination gives theta no point value -- the coefficients are COMPLEX
+  // (real only at p=2, where e(hn/2)=(-1)^n; complex for p>=3), so the correct
+  // object is the complex energy ratio theta_C = (sum cos(2 pi (h_m-h_l) n/p)
+  // G_ml)/(sum G_ml) in [0,1], and theta_C is n-DEPENDENT (0.062951 vs 0.062506
+  // at p=5,k=5; 0.028019 vs 0.027812 at p=7,k=6). So the imp-95375 residual
+  // RELOCATES from recover-a-free-sign-vector to evaluate-the-explicit-formula
+  // Ramanujan/Kloosterman n-sum A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p), the
+  // class of input Section 4.5 leaves structural. Seven self-executing
+  // assertions. Import-light; changes no bound; NO QED; PT Lambda <= 0.2 stays
+  // SOTA.
+  '/src/data/imp-95397-alias-sign-determinacy-assessment.js',
   // imp-95139 (opus-4-8, S-frontier): SCOPE ASSESSMENT (no bound) separating
   // the two named legs of obligation (2)'s "modulus/phase" currency. (A) The
   // PHASE leg is FEASIBLE, consumed from imp-95233 PHASE-CERT (R <=
@@ -16198,6 +16216,23 @@ const DATA_MODULES = [
   // Import-light, seven self-executing assertions. Changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95382-twin-lattice-crossover-depth.js',
+  // imp-95398 (opus-4-8, api-pool): MEASUREMENT -- the ABSOLUTE tightness of
+  // the imp-95249 SPLIT-2 and imp-95250 SPLIT-LOO bounds, EACH SEPARATELY,
+  // against the EXACT merged joint pencil Lambda(V1 u V2, x) across the
+  // imp-95256 crossover surface (imp-95256 mapped which is smaller; imp-95378
+  // measured the min; neither gave each split's own slack). Solves the merged
+  // 4-rate generalized eigenproblem directly. Findings: on the nearby twin
+  // lattice BOTH slacks blow up together (T2 10.8..3.38e6, Too 5.47..3.22e6),
+  // driven by the SHARED angular collar 1/(1-sigma) (product T2*(1-sigma) stays
+  // <=0.352 while 1/(1-sigma) runs to 2.66e7); in the wide-separation corner
+  // both are modest (T2 1.68..4.12, Too 1.19..5.41; best Too=1.194 at
+  // {1,2}u{100,200} x=0.2). Too/T2 = (1+g)/(1+sigma) exactly (rel 3.3e-10),
+  // in (0,2), so the losing split is <=2x looser to exact than the winner and
+  // the winner is always the split closer to exact. Named residual (as
+  // imp-95378): collar-limited nearby-cluster looseness of BOTH splits.
+  // Import-light, nine self-executing assertions. Changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95398-split-tightness-vs-exact-pencil.js',
   // imp-95274 (opus-4-8, api-pool): MEASUREMENT -- widens the imp-95249
   // THEOREM ANG-PENCIL entrywise identity + LEMMA ANG-DET fence check from 4
   // configurations to a 54-partition disjoint multi-block family plus a depth

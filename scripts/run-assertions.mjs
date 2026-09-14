@@ -15851,6 +15851,22 @@ const DATA_MODULES = [
   // ten self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95335-ingham-offlattice-riesz-floor.js',
+  // imp-95374 (opus-4-8, api-pool): MEASUREMENT of how the imp-95330 RZ-PEN4
+  // symbol-pencil floor and its every-octave onset degrade when the octave
+  // twin rate sets are perturbed OFF the dyadic 2^k skeleton (the imp-95232
+  // off-lattice residual named in the imp-95330/95331 verdicts, distinct
+  // from the SPLIT-LOO measurement imp-95253). The Toeplitz symbol floor
+  // has no off-lattice value, so the measured quantity is lam_min of the
+  // finite pencil (Gtilde, blockdiag G0) it lower-bounds. Log-rate jitter
+  // delta in {2^-6..2^-2}, 400 trials, worst-of-400 AND mean. FINDING:
+  // graceful to ~+-6% (worst onset shift < 1 depth unit, proven m-uniform
+  // floor A_unif4 still covering), then the near-collision separation-
+  // pricing tail dominates (+-12.5% breaches the proven floor, +-25% blows
+  // the onset out ~9 depth units); mean placement far more robust (onset
+  // shift < 0.5 through +-12.5%). Import-light, seven self-executing
+  // assertions. Measurement only; changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95374-rzpen-offlattice-degradation.js',
   // imp-95336 (opus-4-8, api-pool, frontier): ASSESSMENT of the sub-gap
   // imp-95212-subgap-fresnel-airy-envelope-port -- whether the Fresnel-Airy
   // transition-packet envelope of the paper Section 4.5 packets can be
@@ -16231,6 +16247,25 @@ const DATA_MODULES = [
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
   // SOTA.
   '/src/data/imp-95419-separated-class-optimal-riesz-floor.js',
+  // imp-95372 (opus-4-8, api-pool, frontier): ASSESSMENT of the imp-2563
+  // residual R_A (the proxy-vs-true identification gap) in the |t_c(N)| -> 0
+  // leg of the imp-1261 conditional asymptotic redirect. R_A(N) :=
+  // |t_c(N) - 1/(2 M_infty(N))| is the identification residual between the
+  // physical first-collision time t_c(N) (smallest positive root of the
+  // discriminant, imp-2563 S4) and the Stieltjes proxy 1/(2 M_infty(N))
+  // (imp-1149 STEP 5) -- booked as a THREE-part VERIFICATION residual
+  // (Odlyzko data audit + PATH_C ladder replacement + imp-1149 Theorem-3
+  // re-grade), not a missing theorem. The unconditional limsup |t_c^proxy| = 0
+  // (atomic self-term M_infty >= sqrt(N/2pi)) transfers to |t_c(N)| iff
+  // limsup R_A = 0, which imp-1149 Theorem 3 (R_A <= C_HO/(L N^{3/2}))
+  // delivers unconditionally-in-principle once re-graded -- so R_A is closable
+  // and is NOT the binding wall. The fatal, non-closable obstructions are
+  // imp-2621 (refuted amplified rate; only the inert bare limit survives) and
+  // imp-35164 (E(N) does not vanish); closing R_A produces NO Lambda bound.
+  // Import-light, six self-executing assertions (proxy/rate vanishing
+  // cross-checks). Assessment only; no bound, leg remains OPEN; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95372-ra-proxy-true-gap-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

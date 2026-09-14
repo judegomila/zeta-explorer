@@ -16257,6 +16257,20 @@ const DATA_MODULES = [
   // for every family. Import-light, nine self-executing assertions. Changes no
   // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95273-theta-vacuity-distribution.js',
+  // imp-95404 (opus-4-8, api-pool): MEASUREMENT -- measures the FRACTION of a
+  // deterministically-randomized signed-seam ensemble (packet rates/centers/
+  // signs/magnitudes drawn over stated ranges) that lands in the imp-95233
+  // PHASE-CERT vacuous corner r = theta/e^(-y_min) < 1, as a function of the
+  // sampling ranges, quantifying the imp-95273 "confined to the deep-
+  // cancellation corner" claim with a number rather than curated families.
+  // Exact closed-form packet quadrature reproduces the imp-95273 exact literals
+  // (theta 1/17, 1/33; R 3/8; bound 33/8). Findings: only ~4% of a broad
+  // neutral prior is vacuous, rising to ~30% when centers are forced co-
+  // centered and dropping below 0.4% under wide separation; at fixed geometry
+  // biasing signs positive roughly halves vacuity. PHASE-CERT R <= bound holds
+  // for 100% of every ensemble. Import-light, nine self-executing assertions.
+  // Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95404-signed-seam-vacuity-fraction.js',
   // imp-95217 (fable-5): MEASUREMENT -- the arithmetic INERTIA x PAIR-
   // CORRELATION Q measurement (inertia-pcc-synergy MOVE 3 continuation;
   // closes imp-95020-sub-arithmetic-seam-Q at measurement level). 21 seam
@@ -16417,6 +16431,24 @@ const DATA_MODULES = [
   // on-branch route). Import-light, nine self-executing assertions. MEASUREMENT
   // ONLY; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95384-gfromlam-gammasl-deep-cancellation-crossval.js',
+  // imp-95399 (opus-4-8, api-pool, S-frontier): MEASUREMENT of how the
+  // imp-95250 SPLIT-LOO / EV-OCT every-octave certificate degrades under
+  // IN-OCTAVE MULTIPLICITY -- the separate wall imp-95253 isolated out (it
+  // measured OFF-lattice fragility holding the twin ratio fixed). Holds the
+  // octave skeleton on-lattice and packs N equispaced rates into each window
+  // [2^k, R 2^k], using the imp-95251 COAL-N confluent law per block and the
+  // imp-95249 ANG-DET actual-rate fence; pure arithmetic (no eigensolver),
+  // fully reproducible. FINDINGS: the m=6 firing onset more than DOUBLES from
+  // the twin pair to the triple (11.57 -> 26.02) and grows super-linearly
+  // (44.98 / 68.33 at N=4/5, increments +14.4/+19.0/+23.4) -- a HARD wall vs
+  // the mild off-lattice one; the wall is set by the in-octave count N not the
+  // octave count m (m=12 onsets within ~2.5%); dominant driver is the ANG-DET
+  // fence collapse (~10^9-10^16 per added rate) not the COAL-N count-pricing
+  // (~35x per rate); N=2 onset brackets between the imp-95253 sharp-pair
+  // (11.35) and imp-95285 phiHat (14.92) routes. Import-light, seven
+  // self-executing assertions. MEASUREMENT ONLY; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95399-inoctave-multiplicity-degradation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

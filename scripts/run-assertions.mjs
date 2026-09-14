@@ -16483,6 +16483,23 @@ const DATA_MODULES = [
   // executing assertions. Measurement only; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95449-ppos-enclosure-tightness.js',
+  // imp-95486 (opus-4-8, api-pool): CROSS-VALIDATION -- the imp-95449
+  // cancellation-free normalized-ratio device R(t) = p(t)/up(t) checked
+  // against the imp-95422 BigInt-HP forms of the same series in the deep-t
+  // float-trap band (the imp-95449 honest-scope gap: imp-95422 was the
+  // BigInt-HP cross-check not yet tabulated against the device). Two
+  // independent engines: (A) imp-95449 IEEE-754 doubles device, (B)
+  // imp-95422 BigInt fixed-point HP forms R_HP = p_HP/up_HP at P = 140.
+  // Findings: DUAL band t in {1e-3..5e-2} device vs HP dual-form ratio
+  // agree to BIT precision (both R = 1) exactly where the raw doubles
+  // direct form is garbage; the HP direct-theta ratio recovers the TRUE
+  // exponentially small p/up_th (down to 9.92e-20 at t = 5e-3) where the
+  // doubles direct floors at ~1e-16 and goes negative (pure cancellation,
+  // not a sign change); THETA band t in {1/pi^2..0.6} device vs HP agree
+  // to <= 1.11e-16, boundary R(1/pi^2) = 0.606344920236374 reproducing the
+  // imp-95449 margin. Import-light, four self-executing assertions.
+  // Cross-validation only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95486-ratio-device-hp-crossval.js',
   // imp-95441 (opus-4-8, api-pool): ASSESSMENT -- does the SPECIFIC CLV
   // extremal-minorant instance SEP-OPT consumes (a type-delta minorant
   // ATTAINING A_lat), now the SOLE cited non-elementary input after

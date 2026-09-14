@@ -15422,6 +15422,18 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95287-nrate-monotonicity-dominance.js',
+  // imp-95292 (opus-4-8, S-frontier): MEASUREMENT -- the imp-95286 CONF-LB
+  // floor gap to the exact confluent pencil tabulated across N = 2..6 and
+  // window x in {4,8,12,16,24}. floorGap = lambda_max/T, ceilGap =
+  // coalN(N,1,x)^2/lambda_max (lambda_max = the imp-95287-exact window sup).
+  // The CEILING owns the bracket at all 25 cells (ceilGap/floorGap 1.81x ->
+  // ~3879x), generalizing the imp-95286 x=12 verdict to N up to 6; the floor
+  // is tightest at large x / small N (within 1-2 percent at x >= 12 for
+  // N <= 4) and degrades with N at shallow x (1.0152 -> 1.9027 for N = 2..5
+  // at x = 4, stable non-monotone dip 1.6360 at N = 6). Measurement only,
+  // five self-executing assertions. Changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95292-conf-lb-floor-gap-map.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family
@@ -15791,6 +15803,20 @@ const DATA_MODULES = [
   // vs float64 Chebyshev recompute (basis-independence). Import-light, eleven
   // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95217-inertia-pcc-q-measurement.js',
+  // imp-95289 (opus-4-8, api-pool): THEOREM FRONT-END + PROP FRONT-CAP + a
+  // two-sided bracket on the exact sharp signed-seam frontier F(theta,
+  // y_min) = sup R that imp-95254 left OPEN between THEOREM PHASE-AM and PROP
+  // CEIL-X. FRONT-END pins the endpoint exactly: F(1, y_min) = (1/2)
+  // e^(-y_min) (theta = 1 forces the positive cone, PHASE-AM tight, single
+  // packet attains it). FRONT-CAP gives the upper bracket min(1, (e^(-y_min)
+  // /4)(1 + 1/theta)) with the trivial ceiling operative below theta_cap =
+  // 1/(4 e^(y_min) - 1) (= 0.241774 at y_min = 1/4). Explicit y_min = 1/4
+  // witnesses give the lower bracket: CEIL-X pins F(0.112, 1/4) >= 0.696
+  // (gap >= 0.30 there), the co-centered branch stays below 1/2. Interior
+  // frontier stays OPEN, identified as the imp-95226 pencil optimum on a
+  // theta-level set. Import-light, seven self-executing assertions. Changes
+  // no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95289-sharp-frontier-bracket.js',
 ];
 
 let ALL_MODULES = FAST_MODE

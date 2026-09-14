@@ -17157,6 +17157,21 @@ const DATA_MODULES = [
   // eleven self-executing assertions. Changes no bound; NO QED; Platt-Trudgian
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95502-tm-jacobi-elementary-mumax-cap.js',
+  // imp-95503 (fable-5, frontier): THEOREM PHASE-SPLIT + COROLLARY HARM-CAP +
+  // COROLLARY FAM-RATE + COROLLARY DOM-FENCE -- attacks the imp-95502
+  // surviving residual (ii-next3), CONJECTURE CONF-DOM, and PROVES it at
+  // leading order. The Blaschke reflection Ftil = Theta Fsharp is an
+  // isometric involution of E_P, and the two mean times sum EXACTLY to the
+  // Blaschke phase-speed average (1/(2 pi)) int W |F|^2 with W(w) =
+  // sum 2 p_k/(w^2 + p_k^2) (hand-exact anchor 5/6 at K = 2). Discarding the
+  // reflected term and sup W = W(0) gives mu_max + mu_min <= sum_k 2/p_k <=
+  // 2K/nu: the FIRST K-linear configuration-uniform cap, bracketing the
+  // family sup S(K, nu) in [x_max(L_K), 4K]/(2 nu) with fence ratio
+  // 4K/x_max(L_K) -> 1 (1.40 at K = 8, 1.11 at K = 48). CONF-DOM stays OPEN,
+  // re-scoped to the subleading gap (ii-next4, Laguerre-ONB Vandermonde
+  // route recorded). Import-free, eight self-executing assertions. Changes
+  // no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95503-blaschke-phase-split-harmonic-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

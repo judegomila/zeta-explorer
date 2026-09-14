@@ -15049,6 +15049,22 @@ const DATA_MODULES = [
   // a signed same-geometry pattern). Import-light; changes no bound; NO QED;
   // PT Lambda <= 0.2 stays SOTA.
   '/src/data/imp-95255-currency-per-window-map-assessment.js',
+  // imp-95375 (opus-4-8, S-frontier): PARTIAL refinement of the imp-95255 LEG 2
+  // theta wall. The geometry+modulus transcription DOES image theta -- not its
+  // point value, but its exact RANGE: theta(sigma) = sigma^T G sigma / (1^T G 1)
+  // for the transcribed packet Gram G (all entries > 0, PSD), a function of the
+  // (rate, center) data alone. The range [theta_floor, 1] (theta_floor >= 0) is
+  // therefore geometrically determined, and it is WIDE: the alternating witness
+  // sigma_n = (-1)^n drives theta to 0.111518, 0.008176, 0.000901, 0.000154,
+  // 0.000024 at pD = 8, 24, 80, 224, 704 (toward 0, greedy finds no lower),
+  // because the ported centers u(d)=v/d overlap heavily (B/A grows 1.79 ->
+  // 542.73). So theta < 1 is DEEPLY reachable on the transcribed geometry -- the
+  // OBSTRUCT branch is foreclosed; the imp-95255 wall is purely a missing-sign-
+  // SPECIFICATION wall (obligation (3) / imp-95397). Exact-Gram (no quadrature;
+  // 0.008176 matches imp-95255 thetaPort(3,8,[1,-1]) to 1e-6). Six self-
+  // executing assertions. Import-light; changes no bound; NO QED; PT Lambda <=
+  // 0.2 stays SOTA.
+  '/src/data/imp-95375-theta-range-geometry-image.js',
   // imp-95139 (opus-4-8, S-frontier): SCOPE ASSESSMENT (no bound) separating
   // the two named legs of obligation (2)'s "modulus/phase" currency. (A) The
   // PHASE leg is FEASIBLE, consumed from imp-95233 PHASE-CERT (R <=
@@ -15239,6 +15255,15 @@ const DATA_MODULES = [
   // sharpens it. Import-light, five self-executing assertions. Measurement
   // only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-95271-ri-margin-map.js',
+  // imp-95377 (proof, S-frontier): closed-form transcendental characterization
+  // and rigorous two-sided bounds for the imp-95271 bump-wedge boundary
+  // r_star(x) = root of h_r(x, r) = 0. THEOREM RSTAR-EQ: h_r = 0 <=>
+  // e^((r-1)x) = 1 + (x/2)(r^2 - 1), reproducing the grid table to full double
+  // precision; bracket 1 + ln(1/x)/x <= r_star(x) <= 1 + (-2+sqrt(12/x-8))/x,
+  // plus a Lambert-W leading form for x <= 2/e^2. Import-light, six
+  // self-executing assertions. Derivation only; changes no bound; NO QED;
+  // Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-95377-rstar-boundary-closed-form.js',
   // imp-95232 (numerical, S-frontier): MEASUREMENT of how the imp-95226
   // COROLLARY BL-LAT signed cross-octave certificate degrades OFF the
   // geometric lattice and under IN-OCTAVE multiplicity -- the two named
@@ -16135,6 +16160,20 @@ const DATA_MODULES = [
   // eight self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95256-split2-splitloo-crossover.js',
+  // imp-95378 (opus-4-8, api-pool): DERIVATION + MEASUREMENT -- states the
+  // pointwise minimum certificate Lambda(V1 u V2, x) <= min(SPLIT-2,
+  // SPLIT-LOO) (admissible as the min of two proven upper bounds) and assesses
+  // whether it closes the imp-95256 <=2x non-dominance gap. Two distinct gaps:
+  // (1) the INTER-certificate wedge is absorbed uniformly (worse/min <= 1.9996
+  // <= 2 everywhere; residual exactly zero, the min is pointwise optimal of the
+  // two); (2) the certificate-to-EXACT-pencil gap is NOT closed and cannot be,
+  // since both splits carry the same angular collar -- min/exact ranges 1.19x
+  // (wide sep) to > 3.2e6x (nearby twin lattice), tracking C/(1-sigma) as
+  // sigma -> 1. Named residual: collar-limited nearby-cluster looseness of both
+  // splits; closing it needs a sharper non-diagonal joint collar, not a choice
+  // between the two collared forms. Import-light, eight self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95378-min-split-certificate.js',
   // imp-95274 (opus-4-8, api-pool): MEASUREMENT -- widens the imp-95249
   // THEOREM ANG-PENCIL entrywise identity + LEMMA ANG-DET fence check from 4
   // configurations to a 54-partition disjoint multi-block family plus a depth
@@ -16266,6 +16305,26 @@ const DATA_MODULES = [
   // cross-checks). Assessment only; no bound, leg remains OPEN; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95372-ra-proxy-true-gap-assessment.js',
+  // imp-95376 (opus-4-8, api-pool, frontier): ASSESSMENT (SPLIT VERDICT) --
+  // does the imp-95212 Fresnel-Airy envelope port ALONE (with already-mapped
+  // Q) discharge gate-side admissibility of a signed R for the paper packet
+  // actual seam functional (imp-95276 reduction)? LEG A: for COUNT/DEPTH
+  // currency (SGN-EQ/SGN-C/COAL-N/SPLIT-LOO) the port + Q SUFFICE -- R depends
+  // only on transcribed geometry (x_min/y_min, count N, block angles sigma_k)
+  // and, since Lambda is the sup over ALL signed coefficient vectors, R
+  // already dominates the window unknown sign AND modulus pattern, so no theta
+  // transcription (imp-95255 LEG 2 wall) is needed for admissibility -- that
+  // wall bites only the OPTIONAL phase-discount sharpening. LEG B: the ONE
+  // surviving ingredient is INSIDE the port -- it must deliver an
+  // ENVELOPE-DOMINATION inequality LamBar_paper(d) <= Lambda(E_V, d), not a
+  // mere rate/center identification; that domination is the substance of the
+  // still-open imp-95212 port. Numeric witness: an exact 2x2 signed pencil
+  // (SGN-2X vs direct generalized eig) shows Lambda_2 dominates rho(a) for
+  // every positive-cone / sign-alternating / mixed-modulus test vector, and
+  // that sign moves rho(a) (alternating beats the positive cone) -- so R is
+  // sign-agnostic-admissible. Import-light, six self-executing assertions.
+  // Assessment only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95376-fa-port-admissibility-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

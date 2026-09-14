@@ -15196,6 +15196,21 @@ const DATA_MODULES = [
   // constants), four self-executing assertions. Assessment only; launches
   // nothing; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95238-fullwindow-run-decision.js',
+  // imp-95257 (numerical, S-frontier): DERIVATION of the concrete G5
+  // precision-replay multiplier (160/192-bit vs 128-bit) for the imp-95238
+  // finding (C) tier-2 full-window price, whose factor was asserted linear and
+  // never measured. Limb-quantized Arb midpoint-multiply model: mantissa limbs
+  // = ceil(prec/64), so 128 bits = 2 limbs, 160 AND 192 bits = 3 limbs; the
+  // dominant cell + reconstruction terms (68% of the 0.0525 CPU-s/x total) are
+  // arb_poly_mullow / ball-Taylor-shift multiply-bound, schoolbook cost ~
+  // limbs^2 => factor 9/4 = 2.25x for BOTH 160 and 192 (bracket [1.5, 2.25]).
+  // Corrects the note two ways: a per-bit-linear reading (1.25x/1.50x)
+  // UNDERSTATES it, and 160/192 cost the SAME (one factor for the band). The
+  // shared factor preserves the 17.9x tier-2 dominance; budget = 21.1 x 2.25 ~
+  // 47.5 CPU-days at 160 or 192 bits. Derivation from the FLINT limb model, not
+  // a native run; import-light (imp-95214/95238 constants), six self-executing
+  // assertions. Changes no bound; launches nothing; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95257-precision-replay-multiplier.js',
   // imp-95232 (numerical, S-frontier): MEASUREMENT of how the imp-95226
   // COROLLARY BL-LAT signed cross-octave certificate degrades OFF the
   // geometric lattice and under IN-OCTAVE multiplicity -- the two named
@@ -15267,6 +15282,24 @@ const DATA_MODULES = [
   // off-lattice unchanged. Import-light, eight self-executing assertions.
   // Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95250-leaveoneout-multiblock-split-certificate.js',
+  // imp-95253 (opus-4-8, frontier): MEASUREMENT of how the imp-95250
+  // SPLIT-LOO / COROLLARY EV-OCT every-octave twin-pair certificate degrades
+  // OFF the geometric dyadic skeleton (the imp-95250 honestScope "off-lattice
+  // rates unchanged" residual). Mirrors the imp-95232 FINDING 2 protocol:
+  // perturb each octave site s_k = 2^k(1 + eps U_k) by a deterministic LCG,
+  // 400 trials per eps, keeping the in-octave twin ratio r fixed. The closed
+  // certificate sum_k sqrt(coalLaw(s_k x)/Phi_k) is pure arithmetic (no
+  // eigensolver) hence fully reproducible. FINDINGS: near-lossless to +-5%
+  // site jitter at x=12 (400/400 fire, worst 0.71), first breaks at +-10%
+  // (372/400); x=14 fires on every trial through +-20% (worst 0.63); worst-of
+  // -400 firing onset rises gracefully 11.35 -> 13.61 over +-20% jitter. The
+  // certificate is MORE separation-fragile than the raw BL of imp-95232
+  // (breaks at +-10% vs never through +-30%) because the leave-one-out fence
+  // multiplies four cross Blaschke factors per octave; it collapses only when
+  // a perturbation nearly collides two octave sites (eps ~ 0.3). Import-light,
+  // six self-executing assertions. MEASUREMENT ONLY; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95253-splitloo-off-lattice-degradation.js',
   // imp-95251 (fable-5, frontier): LEMMA BN + LEMMA DD + LEMMA LAG +
   // THEOREM COAL-N -- the N-fold coalescence law supplying the imp-95250
   // named residual (COAL-DOM was pair-only): for any at-most-N rates inside

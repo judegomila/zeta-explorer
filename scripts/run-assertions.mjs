@@ -15397,6 +15397,20 @@ const DATA_MODULES = [
   // never exceeds 1. Import-light, five self-executing assertions. Validation
   // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95312-lemma-ent-grid-crossvalidation.js',
+  // imp-95314 (opus-4-8, api-pool): MEASUREMENT of the imp-95254 THEOREM
+  // PHASE-AM certified theta-window widening. PHASE-AM lowers the vacuity
+  // frontier from thetaCERT = e^(-y_min) to thetaAM = e^(-y_min)/(2 - e^(-y_min)).
+  // Q1: the multiplicative widening thetaCERT/thetaAM = 2 - e^(-y_min) is
+  // monotone in y_min, running 1 (shallow, negligible) -> 2 (deep, a full
+  // doubling); exactly 7/4 at y_min = 2 ln 2 (1/4 -> 1/7, the imp-95254
+  // frontier literals). Q2: the ABSOLUTE newly-certified theta-band
+  // thetaCERT - thetaAM = t(1-t)/(2-t) vanishes at both ends and is maximized
+  // at y_min* = -ln(2 - sqrt(2)) = 0.53480 with exact value 3 - 2 sqrt(2) =
+  // 0.17157 -- the practical widening peaks at MODERATE depth, not where the
+  // fractional factor peaks. Q3: negligible shallow, capped deep. Import-light,
+  // five self-executing assertions. Measurement only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95314-phase-am-window-widening.js',
   // imp-95285 (fable-5, frontier): LEMMA LAG-ENV + LEMMA TAIL-N + THEOREM
   // EV-OCT-N + COROLLARY EV-OCT-N-UNIF -- the ">= 3 rates per octave"
   // every-octave instantiation named as the surviving residual by imp-95250
@@ -15417,6 +15431,20 @@ const DATA_MODULES = [
   // eig resolution). Import-light. Changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95285-n-per-octave-split-instantiation.js',
+  // imp-95310 (opus-4-8, api-pool): MEASURES the tightness of the imp-95285
+  // LEMMA TAIL-N cross-Blaschke tail product phiHat_k = prod b_(|k-l|)^(2 N^2)
+  // against the EXACT leave-one-out angle 1 - sigma_k^2 for N >= 3 every-octave
+  // lattices. Over-pricing totalRatio = (1-sigma^2)/phiHat factors cleanly as
+  // padRatio (worst-b_n + count-to-N^2 padding, closed form) times angDetSlack
+  // (the imp-95249 ANG-DET ingredient). Loosest for central blocks (~1e6 at
+  // N=3 R=1.3, vs ~1e2 edge), large N (~1e13 central at N=4), large R, and
+  // above all under-filled octaves (padRatio up to 7.2e17 for a single-rate
+  // block). Costs ~15-34% of the SPLIT-LOO onset at N=3 on the resolvable
+  // spread lattices -- the deliberate price of coalescence-uniformity. On true
+  // adjacent octaves 1 - sigma^2 ~ 1e-13..1e-22 is below float64 eig resolution
+  // (named honest gap). Nine self-executing assertions. Import-light.
+  // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95310-tailn-loo-tightness.js',
   // imp-95311 (opus-4-8, api-pool): MEASUREMENT + ASSESSMENT of the imp-95285
   // LEMMA LAG-ENV vacuity threshold Y0(N, R) and its effect on the EV-OCT-N
   // firing onset. Q1: tabulates Y0(N, R) for N = 2..5, R in {1.05, 1.3}

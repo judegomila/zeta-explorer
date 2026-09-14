@@ -15892,6 +15892,22 @@ const DATA_MODULES = [
   // Import-light, six self-executing assertions. Changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95293-ceilx-exceedance-region-map.js',
+  // imp-95297: cross-validation of the imp-95285 EV-OCT-N firing onsets
+  // (33.504309 / 58.112542 m = 6, 61.309901 / 107.261457 m-uniform, N = 3/4)
+  // against DIRECT evaluation of the exact every-octave CONFLUENT pencil.
+  // The confluent (coalescent) limit is evaluated on the monomial-times-
+  // exponential basis { t^a e^(-2^k t) } (exact integer moments, no
+  // near-coalescent Cauchy conditioning); Lambda = top generalized
+  // eigenvalue of (tailGram, fullGram) at the onset depth. Findings: the
+  // collar fires at each tabulated x (re-bisected < 1e-4, collar value 1
+  // to < 1e-3), while the exact confluent Lambda is 3.2e-18 to 8.0e-75 --
+  // collar-to-exact sqrt-slack 5.6e8 to 1.1e37, so the firing threshold is
+  // set by the COAL-N + leave-one-out majorant slack, not by the exact
+  // configuration approaching Lambda = 1 (imp-95285 HONEST LIMITS (d)/(f)
+  // confirmed). N = 4 depths are float-PD-capped LOWER bounds (monotone in
+  // octave count). Import-light, six self-executing assertions.
+  // Verification only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95297-evoctn-confluent-pencil-crossval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

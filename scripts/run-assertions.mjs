@@ -16918,6 +16918,20 @@ const DATA_MODULES = [
   // Import-light, seven self-executing assertions. MEASUREMENT ONLY; changes
   // no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95259-phiunif-crude-tail-tightness.js',
+  // imp-95468: independent BigInt / exact-rational cross-check of the imp-95259
+  // exact infinite cross-Blaschke product PhiUnif = prod b_n^16,
+  // b_n = (10*2^n - 13)/(10*2^n + 13). The partial product to n=200 is formed as
+  // an EXACT BigInt rational and long-divided to 30 digits (no floating log, no
+  // floating summation; tail deficit ~4e-58, leading digits stable at N=160/260).
+  // RESULT: PhiUnif_true = 9.97792768180888053e-21; the imp-95259 double log-sum
+  // literal overshoots by ~4.22e-15 and the imp-95250 crude literal by ~2.27e-15,
+  // BOTH larger than the ~1.8e-15 crude-vs-exact gap imp-95259 reported -- so that
+  // gap was limited by double precision, not a genuine separation. Both baked
+  // literals remain correct to ~15 sig figs; the exact value shifts the firing
+  // onset by ~eps/2 ~ 2e-15, leaving XSTAR_UNIF = 27.035582 unchanged. Import-
+  // light, eight self-executing assertions. MEASUREMENT ONLY; changes no bound;
+  // NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95468-phiunif-bigint-crosscheck.js',
   // imp-95460 (fable-5, frontier): THEOREM G-INV + G-SANDWICH + G-STRICT +
   // COROLLARY G-RACE -- rigorous strengthening of the imp-95424 LEG B route.
   // The LEG B Rayleigh sups are invariant under per-packet diagonal congruence

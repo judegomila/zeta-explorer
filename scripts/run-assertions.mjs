@@ -16233,6 +16233,20 @@ const DATA_MODULES = [
   // Import-light, nine self-executing assertions. Changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95398-split-tightness-vs-exact-pencil.js',
+  // imp-95426 (fable-5, frontier): LEMMA DEFL-ORTH + THEOREM SPLIT-DEFL +
+  // LEMMA DEFL-CAP + THEOREM SPLIT-Q -- exact orthogonal deflation of the
+  // two-block seam pencil via the V2 Blaschke product (E_(V1 u V2) = E_V2
+  // (+perp) B2 E_V1, from the imp-95249 ANG-PENCIL projection formula).
+  // Collar-free sandwich max(L2, LambdaPerp) <= Lambda <= L2 + LambdaPerp
+  // (LambdaPerp = closed-form deflated pencil, <= 1 unconditionally) plus
+  // the sharp quadratic collar SPLIT-Q = (L1+L2+2 sigma sqrt(L1 L2))/
+  // (1-sigma^2) that pointwise dominates BOTH SPLIT-2 and SPLIT-LOO. The
+  // imp-95378 nearby-cluster collar wedge is closed at the TWO-BLOCK level
+  // (measured MIN/exact 5.57e10 vs SPLIT-DEFL/exact 1.0003 at gap 1e-3);
+  // multi-block composition = named residual. Import-light, seven
+  // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95426-deflated-collarfree-two-block-split.js',
   // imp-95274 (opus-4-8, api-pool): MEASUREMENT -- widens the imp-95249
   // THEOREM ANG-PENCIL entrywise identity + LEMMA ANG-DET fence check from 4
   // configurations to a 54-partition disjoint multi-block family plus a depth
@@ -16286,6 +16300,35 @@ const DATA_MODULES = [
   // 2^n patterns is large (0.75-0.98). Import-light, seven self-executing
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95405-theta-sign-freedom-at-fixed-geometry.js',
+  // imp-95422 (opus-4-8, api-pool): VERIFICATION -- independent HIGH-
+  // PRECISION (BigInt fixed-point) check of the imp-95420 THEOREM P-POS
+  // theta-density two-sided enclosures and the theta/modular-dual FORM
+  // EQUALITY (LEMMA P-JAC) across ALL t regimes, escaping the doubles
+  // "float trap" imp-95420 was limited by. exp(-y) = 10^(2P)/expPos(y) via
+  // the all-positive exponential series so the only cancellation is the
+  // outer alternating sum. Findings: the two forms agree to ~1e-202 on
+  // the resolvable band and to 4.9e-160 at t = 1e-3 (where the doubles
+  // direct form fails by > 1e10), the strict enclosures hold wherever the
+  // correction term is resolvable with p > 0 everywhere, and all five
+  // imp-95420 baked constants reproduce. Import-light, six self-executing
+  // assertions. Measurement only; changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95422-hp-form-enclosure-verification.js',
+  // imp-95424 (opus-4-8, api-pool): OBLIGATION LEDGER -- enumerates and
+  // assesses the analytic obligations of the imp-95376 LEG B envelope-
+  // domination inequality LamBar_paper(d) <= Lambda(E_V,d) for the imp-95212
+  // Fresnel-Airy port. Reduces LEG B to a two-sided PSD (Loewner) Gram
+  // sandwich (O1) B_p >= B_m and (O2) A_p <= A_m over the shared signed
+  // coefficient space, plus coordinate alignment (O0) and direction (O3).
+  // Classifies: model side + geometry map + DIAGONAL of O1/O2/O3 AVAILABLE;
+  // the OFF-DIAGONAL / full Loewner content of O1/O2 OPEN (the substance of
+  // the imp-95212 port). Numeric witness (exact 2x2): entrywise-magnitude
+  // domination does NOT imply the signed-Rayleigh ordering (a flipped off-
+  // diagonal gives sup 2.069x the model), so O2 needs Loewner not envelope
+  // control; a true c A_m Loewner shrink scales the sup by c. Import-light,
+  // six self-executing assertions. Assessment only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95424-legb-envelope-domination-obligations.js',
   // imp-95217 (fable-5): MEASUREMENT -- the arithmetic INERTIA x PAIR-
   // CORRELATION Q measurement (inertia-pcc-synergy MOVE 3 continuation;
   // closes imp-95020-sub-arithmetic-seam-Q at measurement level). 21 seam
@@ -16413,6 +16456,23 @@ const DATA_MODULES = [
   // sign-agnostic-admissible. Import-light, six self-executing assertions.
   // Assessment only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95376-fa-port-admissibility-assessment.js',
+  // imp-95425 (opus-4-8, api-pool): MEASUREMENT -- tabulates the imp-95376
+  // SECONDARY CHECK S1 that imp-95376 named but never measured: for THEOREM
+  // SPLIT-LOO (imp-95250) each block angle sigma_k must be transcribed as an
+  // UPPER bound so the collar 1/(1 - sigma_k^2) is OVER-estimated (never
+  // under-). The closed-form certificate substitutes the proven imp-95249
+  // ANG-DET fence Phi_k = prod beta_ij^2 for (1 - sigma_k^2); S1 is safe iff
+  // Phi_k <= (1 - sigma_k^2) true. Across the twin-lattice grid m in {2,3,4,6},
+  // r in {1.3..1.01} the direction HOLDS on all 87 well-conditioned blocks:
+  // worst ratio Phi_k/(1 - s2true) = 0.3754 (< 1, collar over-estimated by at
+  // most ~2.66x), worst transcribed-minus-true angle gap +7.75e-8 (>= 0). The
+  // fence is deliberately loose (coalescence-uniform, not sharp); only the sign
+  // matters and it is uniformly correct. SUB-GAP: the direct cos2Direct route
+  // is ill-conditioned at 3 near-coalescent large-m corners (returns cos^2 > 1,
+  // a numerical artifact) and is excluded; the direction there rests on the
+  // proven imp-95249 ANG-DET fence. Measurement only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95425-splitloo-sigma-upperbound-direction-check.js',
   // imp-95420 (fable-5, frontier): LEMMA P-SYM + LEMMA P-JAC + LEMMA
   // P-MONO + THEOREM P-POS -- self-contained elementary positivity of
   // the imp-95419 LEMMA MIX theta density p(t) on all of (0, inf),

@@ -1311,9 +1311,12 @@ static void pilot_g3(long npts, int nthreads, const char *outpath) {
     free(fcs[0].P); free(fcs[0].Q); free(fcs[1].P); free(fcs[1].Q);
 }
 
-/* single-point full-precision printout for the external mpmath audit */
-static void pilot_point(double w, int side) {
-    const unsigned long N = G3_N;
+/* single-point full-precision printout for the external mpmath audit.
+   imp-95217: parametrized by N (default G3_N) so the inertia x PCC moment
+   measurement can sample seam points across the whole open family
+   690988 <= N <= 54799999; each evaluation is cross-validated against the
+   independent eval_E97 path under locked_conv() (same check pilotg3 runs). */
+static void pilot_point(double w, int side, unsigned long N) {
     build_tables(N + 3);
     fastchart_t fc;
     fastchart_build(&fc, N + (unsigned long)side);
@@ -1321,6 +1324,14 @@ static void pilot_point(double w, int side) {
     dd x = pilot_x_from_u(N, w * twoN1);
     double D[50];
     pres_t r = eval_fast(&fc, x, D);
+    double crossE = 0.0, crossP = 0.0;
+    {
+        conv_t cv = locked_conv();
+        chart_t ch = build_chart(N + (unsigned long)side);
+        evalres_t a = eval_E97(&ch, x, cv);
+        crossE = fabs(a.absE97 - r.absE97);
+        crossP = fabs(a.pilot - r.pilot);
+    }
     printf("{\n  \"N\": %lu, \"w\": %.17e, \"side\": %d,\n", N, w, side);
     printf("  \"chart\": {\"M\": %lu, \"sigmaB\": %.17e, \"sigmaA\": %.17e, \"gamma\": %.17e},\n",
            fc.ch.N, fc.ch.sigmaB, fc.ch.sigmaA, fc.ch.gamma);
@@ -1328,6 +1339,8 @@ static void pilot_point(double w, int side) {
     printf("  \"E97\": {\"re\": %.17e, \"im\": %.17e, \"abs\": %.17e},\n",
            r.E97re, r.E97im, r.absE97);
     printf("  \"pilot\": %.17e,\n  \"telescopeErr\": %.6e,\n", r.pilot, r.telErr);
+    printf("  \"crossCheckVsEvalE97\": {\"dAbsE97\": %.6e, \"dPilot\": %.6e},\n",
+           crossE, crossP);
     printf("  \"D\": [\n");
     for (int j = 0; j < 25; j++)
         printf("    [%.17e, %.17e]%s\n", D[2 * j], D[2 * j + 1], j < 24 ? "," : "");
@@ -1362,7 +1375,8 @@ int main(int argc, char **argv) {
         return 0;
     }
     if (argc >= 4 && strcmp(argv[1], "point") == 0) {
-        pilot_point(atof(argv[2]), atoi(argv[3]));
+        pilot_point(atof(argv[2]), atoi(argv[3]),
+                    argc >= 5 ? strtoul(argv[4], NULL, 10) : G3_N);
         return 0;
     }
     if (argc >= 5 && strcmp(argv[1], "scan") == 0) {

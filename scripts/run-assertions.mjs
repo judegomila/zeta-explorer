@@ -15372,6 +15372,19 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95252-muniform-block-riesz-seam-pencil.js',
+  // imp-95308 (opus-4-8, api-pool): CROSS-VALIDATION of the imp-95252 LEMMA
+  // POISSON symbol lower endpoint lambda_min(F) = f_a - |f_b| and the LEMMA
+  // UP Schur row-sum upper endpoint B_up against DIRECT finite-lattice
+  // block-Toeplitz Gram eigenvalues, for growing octave count m and lattice
+  // ratio rho. Confirms the Riesz sandwich inf_theta lambda_min(F) <=
+  // lambda_min(G_tilde) <= lambda_max(G_tilde) <= B_up strictly in every
+  // tested (rho, r, m), and MEASURES the approach: the lower-end residual
+  // gap decays like m^(-2) (Szegoe-Widom extreme-eigenvalue rate; m-doubling
+  // gap ratio -> 4.00, log-log exponent p ~ 2.05), confirming the imp-95252
+  // Fejer ceiling both ways. rho in {4, 8}, r in {1.3, 2} (rho = 2 constants
+  // sub-noise). Import-light, four self-executing assertions. Validation
+  // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95308-poisson-symbol-sandwich-finite-lattice.js',
   // imp-95285 (fable-5, frontier): LEMMA LAG-ENV + LEMMA TAIL-N + THEOREM
   // EV-OCT-N + COROLLARY EV-OCT-N-UNIF -- the ">= 3 rates per octave"
   // every-octave instantiation named as the surviving residual by imp-95250

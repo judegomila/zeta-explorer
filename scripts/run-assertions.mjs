@@ -17116,6 +17116,27 @@ const DATA_MODULES = [
   // are the named successor. Import-light, ten self-executing assertions.
   // Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95500-tilt-eigenfloor-depth-credit.js',
+  // imp-95501 (fable-5, frontier): LEMMA SORT-J + THEOREM TILT-SORT + THEOREM
+  // SORT-OPT + LEMMA PERT-S0 + LEMMA ONSET + COROLLARY MU2 -- executes the
+  // imp-95500 re-scoped residual (ii-next), BOTH halves. Sorted Jensen
+  // transfer: lambda_j(G2(s), G) >= e^(2 s mu_j) with mu_j the eigenvalues of
+  // the mean-time pencil (G o G, G), whose trace is exactly tau(P) (LEMMA MOM
+  // consumed) -- the sub-leading floor grades, the LEMMA MOM branch residual
+  // dissolves (trace exact at the mean-time level, no two-root
+  // disambiguation), and TILT-DET gains the tilt-independent depth credit
+  // cSort = tau - mu_max, PROVEN MAXIMAL for this cash-out (SORT-OPT, Rellich
+  // first-order). LEMMA ONSET: the credited family fires iff d > tau - c, so
+  // onsets are exact closed forms (SORT onset = mu_max = the maximal mean time
+  // of the span); explains all six imp-95500 baked onset literals. K=2 radical
+  // closed form (COROLLARY MU2, coalescent mu_max = (2+sqrt2)/(2p)). Measured:
+  // credits 2.3x-1.8e5x over TILT-EIG; twin onsets 14.98 -> 5.06 (m=8), 15.48
+  // -> 5.09 (m=16, thin-lattice verdict reversed); CLUSTER8/coalesced K=8
+  // credits 94x via exact-rational (BigInt) inertia bisection where float
+  // Cholesky fails. Corrects the imp-95500 uniformFloorGap literal (top vs
+  // bottom K-1 eigenvalue product; theorem there unaffected). Import-light
+  // (sibling record import only), twelve self-executing assertions. Changes
+  // no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95501-sorted-meantime-transfer-credit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1,6 +1,6 @@
 /**
  * imp-95222: LEMMA PW-E + THEOREM FA-2 (diagonal-exact seam sharpening and
- * Q-gate dissolution) -- the sharpening the imp-95221 adversarial record
+ * Q-gate dissolution) -- the sharpening the imp-95221 skeptical record
  * ATTEMPTED and recorded OPEN ("a sharpening to e^(-x_min)/2 ... NOT
  * delivered: the two-region lower bound on G loses exactly the factor in
  * the deep-slow vs shallow-fast regime") is DELIVERED, and exceeded, by an
@@ -86,7 +86,7 @@
  * singleton floor stays OPEN (fence not collapsed). (e) Model-family
  * constants throughout; nothing here touches any Lambda bound.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The deficit identity was attacked on
+ * SKEPTICAL SELF-CHECK RECORD. (1) The deficit identity was stress-tested on
  * a 50000-draw seeded battery against the independent closed-form kernel:
  * worst relative error 1.9e-13, deficit/G always > 0 (min observed 7.2e-4
  * on the draw ranges). (2) The sharpened cap H <= (1/2) e^(-(a+b) u_min) G
@@ -101,10 +101,10 @@
  * deep-exponent variant (H > 7 e^(-x_deep) G) while sitting at 0.95 of
  * the new cap -- the new cap is not a repackaged deep-exponent claim.
  * (4) Subsumption checked on the battery: the new cap is <= min(G/2,
- * e^(-x_smaller_center) G) on every draw. (5) y_min was attacked as
+ * e^(-x_smaller_center) G) on every draw. (5) y_min was stress-tested as
  * possibly escaping [x_min, 2 x_min]: the sandwich held on every alias row
  * (proved above, measured 1.0007 = y_min vs x_min 0.6758 at (5, 2), all
- * rows strict). (6) The dissolution was attacked at large Q: margins at
+ * rows strict). (6) The dissolution was stress-tested at large Q: margins at
  * Q = 10, 100, 1000 are 3.05e-2, 3.15e-3, 3.15e-4 -- positive but O(1/Q),
  * recorded honestly: minority is uniform, margin SIZE still needs the
  * per-window Q. (7) Baked row literals reproduce the imported imp-95221
@@ -245,7 +245,7 @@ export const IMP95222_SHARPENING_ASSERTIONS = [
   {
     id: "imp95222-pwe-sharpened-cap-battery",
     description:
-      "sharpened pair cap H <= (1/2) e^(-(a+b) min(ua, ub)) G on 50000 seeded draws (same ranges as the imp-95221 battery), evaluated in LOG space so the ~580 doubly-underflowing deep draws (exponents past 700, where direct division yields the silent 0/0 NaN found adversarially) are genuinely checked: zero violations; worst ratio reproduces the baked 0.9997274025347458 (rel 1e-9) -- near-attained, unlike the 0.4957 slack of the old cap; subsumption of both imp-95221 caps checked as the exact exponent inequality (a+b) u_min >= x_smaller_center on every draw",
+      "sharpened pair cap H <= (1/2) e^(-(a+b) min(ua, ub)) G on 50000 seeded draws (same ranges as the imp-95221 battery), evaluated in LOG space so the ~580 doubly-underflowing deep draws (exponents past 700, where direct division yields the silent 0/0 NaN found independently) are genuinely checked: zero violations; worst ratio reproduces the baked 0.9997274025347458 (rel 1e-9) -- near-attained, unlike the 0.4957 slack of the old cap; subsumption of both imp-95221 caps checked as the exact exponent inequality (a+b) u_min >= x_smaller_center on every draw",
     holds: () => {
       const rand = seededRand(95222);
       let worstLog = -Infinity;

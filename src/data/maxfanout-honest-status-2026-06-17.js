@@ -2,7 +2,7 @@
  * @module maxfanout-honest-status-2026-06-17
  *
  * Consolidated honest status from the 2026-06-17 max-fan-out (Opus 4.8):
- * two adversarial workflows (en-constants-maxfanout, direct-rh-volterra) plus
+ * two skeptical workflows (en-constants-maxfanout, direct-rh-volterra) plus
  * the api-pool. Records FOUR findings, two of them new overclaim catches, all
  * independently re-verified. Bottom line up front:
  *
@@ -13,7 +13,7 @@
  * ── FINDING 1: the finite-N*=1e4 beat is NOT a rigorous Lambda < 0.2 ─────────
  * After the linchpin resolution (bridge consumes t_c^part; Lambda <= E(N)), the
  * whole question reduced to whether E(N) = E_trunc + E_flow + E_coll has all
- * RIGOROUS constants. The 5-constant adversarial sweep found:
+ * RIGOROUS constants. The 5-constant skeptical sweep found:
  *   - C_Selberg = 3.0: RIGOROUS (proven, loose) upper bound -- Trudgian 2014
  *     (0.112 log g + 0.278 log log g + 2.510 + 1.0) <= 3.0 log g at every height.
  *     Conservative OVER-estimate (honest-tight ~0.561 would LOWER E_coll ~2.3x).

@@ -249,7 +249,7 @@ export const IMP36023_KBN_COMBINED_WORST_LADDER = {
       'under compensated summation the combined worst-case order error is many orders below the barrier margin ' +
       'at every rung -- precision is NOT the binding constraint anywhere on the ladder even under the combined stress',
     staysGreenfield:
-      'this module measures compensated summation errors under the combined adversarial order at four N only; it ' +
+      'this module measures compensated summation errors under the combined worst-case order at four N only; it ' +
       'evaluates no sum of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD ' +
       '(imp-35681 Part A) and MECHANICAL (imp-35725)',
   },

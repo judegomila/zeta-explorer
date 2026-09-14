@@ -70,7 +70,7 @@
  * certified at zero measured cost, because the chart corner IS the
  * anchor (LEMMA CX) and only the u2 tail entries feel the width.
  *
- * ADVERSARIAL RECORD (what does NOT survive / what binds). (1) The floor
+ * SKEPTICAL RECORD (what does NOT survive / what binds). (1) The floor
  * cannot pass the pointwise anchor stall 0.232084 -- the anchor is the
  * corner point OF the chart, so no cover of this chart with this
  * certificate class can go below it (imp-95163 FINDING: the 65-cut family

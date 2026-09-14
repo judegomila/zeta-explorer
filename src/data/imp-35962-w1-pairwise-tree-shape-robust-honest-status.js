@@ -7,7 +7,7 @@
  *   family at T_PT = 3e12. Read-only note: imports the imp-35893 module verbatim
  *   (no re-derivation, no new numerics), restates the worst-shape result plainly for
  *   a reader who lands on this ticket without having read imp-35893 in full: because
- *   precision stays NON-binding even under an adversarially-unbalanced pairing tree,
+ *   precision stays NON-binding even under an independently-unbalanced pairing tree,
  *   the W1 obstruction remains the MECHANICAL engineering of the certified length-N
  *   interval sum (imp-35725), not the choice of summation scheme.
  *
@@ -44,8 +44,8 @@ export const IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS = Object.freez
   conclusion:
     'The worst pairing-tree shape measured (caterpillarR, depth 3817 -- a ~300x depth increase over the ' +
     'balanced tree) reaches only ~4.42e-4 of the log2(N)*eps pairwise ceiling, still >2000x BELOW it, so ' +
-    'adversarial tree SHAPE does NOT push pairwise summation toward its ceiling, exactly as adversarial ' +
-    'term ORDER (imp-35852) did not. Precision stays NON-binding under BOTH adversarial levers. The W1 ' +
+    'worst-case tree SHAPE does NOT push pairwise summation toward its ceiling, exactly as skeptical ' +
+    'term ORDER (imp-35852) did not. Precision stays NON-binding under BOTH worst-case levers. The W1 ' +
     'obstruction therefore remains the MECHANICAL engineering of the certified length-N interval sum ' +
     '(imp-35725), not the choice or robustness of the summation scheme.',
 
@@ -79,7 +79,7 @@ export const IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS_ASSERTIONS = [
   },
   {
     id: 'imp35962-conclusion-does-not-push-toward-ceiling',
-    why: 'The conclusion must state adversarial tree shape does NOT push pairwise toward its ceiling.',
+    why: 'The conclusion must state worst-case tree shape does NOT push pairwise toward its ceiling.',
     holds: () =>
       /does NOT push pairwise summation toward its ceiling/.test(
         IMP35962_W1_PAIRWISE_TREE_SHAPE_ROBUST_HONEST_STATUS.conclusion

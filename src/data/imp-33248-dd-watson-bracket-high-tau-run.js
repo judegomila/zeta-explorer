@@ -58,7 +58,7 @@
  *       tau &lt;= 5 and only a tail-cleanup at tau=6; the reformulation does the recovery.
  *
  *   (4) rhoRatio STAYS WELL UNDER THE imp-3730 K0=3.46 GATE across tau in {4,5,6} (|B| in
- *       [3.4114, 3.4120]), consistent with the closed model and NOT breaching the majorant.
+ *       [3.4114, 3.4120]), consistent with the closed model and NOT crossing the majorant.
  *
  *   All measurement only. Certifies NO bound and NO RH. NPHI=10 truncation upstream; imp-3066 K_a &gt;= 0
  *   sign-positivity UNTOUCHED; no QED; Platt-Trudgian Lambda &lt;= 0.2 stays SOTA.
@@ -345,7 +345,7 @@ export const IMP33248_DD_WATSON_BRACKET_HIGH_TAU_RUN = Object.freeze({
       'NON-lever below tau=6 and only a tail-cleanup at tau=6.',
     underTheGate:
       'rhoRatio stays well under the imp-3730 K0=3.46 gate across tau in {4,5,6} (|.| in [3.4114,3.4120]), ' +
-      'consistent with the closed model and NOT breaching the majorant.',
+      'consistent with the closed model and NOT crossing the majorant.',
   }),
 
   honestCaveat: Object.freeze({
@@ -406,7 +406,7 @@ export const IMP33248_DD_WATSON_BRACKET_HIGH_TAU_RUN_ASSERTIONS = [
   {
     id: 'imp33248-reform-stays-under-the-gate',
     why: 'The recovered rhoRatio must stay under the imp-3730 K0=3.46 gate at every tau in {4,5,6}, ' +
-         'consistent with the closed model and not breaching the majorant.',
+         'consistent with the closed model and not crossing the majorant.',
     holds: () => allReformUnderGate,
   },
   {

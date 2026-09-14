@@ -528,7 +528,7 @@ export default function OddZetaPage() {
           </div>
         </div>
 
-        {/* ─── Algorithmic Information Theory Attack ─── */}
+        {/* ─── Algorithmic Information Theory Approach ─── */}
         <div className="card" style={{ marginTop: 32, borderLeft: '3px solid var(--blue)' }}>
           <h2 style={{ fontSize: 18, fontWeight: 700, marginBottom: 16, color: 'var(--blue)' }}>
             Chaitin's Constant &amp; Algorithmic Information Theory
@@ -727,7 +727,7 @@ export default function OddZetaPage() {
             (spectral decomposition of primes and the explicit formula),{' '}
             <Link to="/info-theory" style={{ color: 'var(--green)' }}>Information Theory</Link>{' '}
             (Kolmogorov complexity and algorithmic randomness of zeta values),{' '}
-            <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)' }}>Spectral Attack</Link>{' '}
+            <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)' }}>Spectral Approach</Link>{' '}
             (unified potential and Fourier-information synthesis).
           </p>
           <p style={{ marginTop: 12 }}>

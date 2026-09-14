@@ -274,7 +274,7 @@ export default function OnsetBracketLedgerPage() {
           </div>
           <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
             <Link to="/spectral-attack" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
-              → Spectral Attack
+              → Spectral Approach
             </Link>
             <Link to="/theta-static-obstruction" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
               → Theta Static Obstruction

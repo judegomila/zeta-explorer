@@ -611,7 +611,7 @@ export default function HomePage() {
         </p>
         <p className="hero-description">
           Explore circuit theory, spectral geometry, and scattering matrices through interactive
-          visualizations, computational proof attempts, and adversarial testing. A personal
+          visualizations, computational proof attempts, and skeptical testing. A personal
           investigation by Jude Gomila into prime oscillator networks, Calabi–Yau geometry,
           information theory, and random matrices.
         </p>
@@ -894,7 +894,7 @@ export default function HomePage() {
       </div>
 
       {/* ══════════════ ANALYSIS TOOLS ══════════════ */}
-      <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 40, marginBottom: 16 }}>Analysis & Attacks</h2>
+      <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 40, marginBottom: 16 }}>Analysis & Approaches</h2>
       <div className="card-grid">
         <Link to="/fourier" style={{ textDecoration: 'none' }}>
           <div className="card">
@@ -926,16 +926,16 @@ export default function HomePage() {
         </Link>
         <Link to="/spectral-attack" style={{ textDecoration: 'none' }}>
           <div className="card">
-            <h3 style={{ color: '#06b6d4' }}>Spectral Attack</h3>
-            <p>Six independent attack vectors — KL divergence, Fisher info,
+            <h3 style={{ color: '#06b6d4' }}>Spectral Approach</h3>
+            <p>Six independent approach vectors — KL divergence, Fisher info,
                unified confinement potential.</p>
           </div>
         </Link>
         <Link to="/rh-attack" style={{ textDecoration: 'none' }}>
           <div className="card">
-            <h3 style={{ color: '#10b981' }}>RH Attack</h3>
-            <p>Direct assault on the hypothesis through multiple proof strategies
-               and adversarial testing.</p>
+            <h3 style={{ color: '#10b981' }}>RH Approach</h3>
+            <p>Direct push on the hypothesis through multiple proof strategies
+               and skeptical testing.</p>
           </div>
         </Link>
         <Link to="/gap-closing" style={{ textDecoration: 'none' }}>
@@ -968,7 +968,7 @@ export default function HomePage() {
         </Link>
         <Link to="/calabi-yau" style={{ textDecoration: 'none' }}>
           <div className="card">
-            <h3 style={{ color: '#8b5cf6' }}>Calabi-Yau Attack</h3>
+            <h3 style={{ color: '#8b5cf6' }}>Calabi-Yau Approach</h3>
             <p>6-dimensional manifold geometry, Weil conjectures as finite-field RH,
                Hodge structure, and spectral universality.</p>
           </div>
@@ -996,7 +996,7 @@ export default function HomePage() {
         </Link>
         <Link to="/three-attacks" style={{ textDecoration: 'none' }}>
           <div className="card">
-            <h3 style={{ color: '#ef4444' }}>Three Attacks</h3>
+            <h3 style={{ color: '#ef4444' }}>Three Approaches</h3>
             <p>Kernel-passivity, prime-delay domination, and Weil-Pontryagin frameworks —
                three independent routes to confinement on the critical line.</p>
           </div>
@@ -1072,7 +1072,7 @@ export default function HomePage() {
               { num: 7, route: '/statistics', label: 'Zero Statistics', desc: 'Compare zero spacing to GUE random matrix predictions, Li criterion, and de Bruijn-Newman heat flow.' },
               { num: 8, route: '/simulator', label: 'Simulator', desc: 'Run interactive experiments — gradient descent, convergence analysis, bridge unitarity, multi-zero tests.' },
               { num: 9, route: '/supercritical', label: 'Supercritical', desc: 'Thermodynamics of zeta as a partition function, heat flow, and the extended landscape.' },
-              { num: 10, route: '/spectral-attack', label: 'Spectral Attack', desc: 'Six independent proof strategies evaluated — KL Lyapunov, Fisher info, unified confinement potential.' },
+              { num: 10, route: '/spectral-attack', label: 'Spectral Approach', desc: 'Six independent proof strategies evaluated — KL Lyapunov, Fisher info, unified confinement potential.' },
               { num: 11, route: '/gap-closing', label: 'Gap Closing', desc: 'The three critical gaps: regularization (S4), Hilbert-Polya operator (S5), and Darlington synthesis (S7).' },
               { num: 12, route: '/formal-proof', label: 'Formal Proof', desc: 'The complete proof attempt — 10 sections, each with status tracking and computational verification.' },
             ].map(({ num, route, label, desc }) => (
@@ -1111,7 +1111,7 @@ export default function HomePage() {
           <div className="card"><h3 style={{ color: '#10b981' }}>Formal Proof</h3><p>Complete proof attempt with 10 sections, gap tracking, and status assessment.</p></div>
         </Link>
         <Link to="/proof-checker" style={{ textDecoration: 'none' }}>
-          <div className="card"><h3 style={{ color: '#ef4444' }}>Proof Checker</h3><p>Adversarial testing — Davenport-Heilbronn counterexample, logic gap detection.</p></div>
+          <div className="card"><h3 style={{ color: '#ef4444' }}>Proof Checker</h3><p>Skeptical testing — Davenport-Heilbronn counterexample, logic gap detection.</p></div>
         </Link>
         <Link to="/rigor" style={{ textDecoration: 'none' }}>
           <div className="card"><h3 style={{ color: '#f97316' }}>Rigor</h3><p>11 documented criticisms with severity ratings and stress tests.</p></div>
@@ -1126,10 +1126,10 @@ export default function HomePage() {
           <div className="card"><h3 style={{ color: '#8b5cf6' }}>Paper</h3><p>The formal write-up of the Twin-Ladder Bridge framework as a research paper.</p></div>
         </Link>
         <Link to="/research-journal" style={{ textDecoration: 'none' }}>
-          <div className="card"><h3 style={{ color: '#a855f7' }}>Research Journal</h3><p>Coarse-grained session narratives of the RH Λ attack — built for cheap session handoff.</p></div>
+          <div className="card"><h3 style={{ color: '#a855f7' }}>Research Journal</h3><p>Coarse-grained session narratives of the RH Λ approach — built for cheap session handoff.</p></div>
         </Link>
         <Link to="/meta-acceleration" style={{ textDecoration: 'none' }}>
-          <div className="card"><h3 style={{ color: '#facc15' }}>Meta Acceleration</h3><p>Engine status dashboard + Λ attack progress snapshot — phases, open gaps, three-route closure.</p></div>
+          <div className="card"><h3 style={{ color: '#facc15' }}>Meta Acceleration</h3><p>Engine status dashboard + Λ approach progress snapshot — phases, open gaps, three-route closure.</p></div>
         </Link>
         <Link to="/lambda-bounds" style={{ textDecoration: 'none' }}>
           <div className="card"><h3 style={{ color: '#ef4444' }}>Λ Bounds & RH Roadmap</h3><p>The peer-reviewed 0.2 benchmark, public 0.1875 preprint claim, 0.1787854 computer-assisted candidate, verification efforts, and open RH frontier.</p></div>
@@ -1139,7 +1139,7 @@ export default function HomePage() {
       {/* ══════════════ PROJECT RESULTS ══════════════ */}
       <h2 style={{ fontSize: 22, fontWeight: 700, marginTop: 44, marginBottom: 6 }}>Project Results</h2>
       <p style={{ color: '#94a3b8', fontSize: 13, marginBottom: 16, maxWidth: 780, lineHeight: 1.7 }}>
-        The state of the attack — including the negative results, which are the program's sharpest output.
+        The state of the approach — including the negative results, which are the program's sharpest output.
         The peer-reviewed benchmark remains <strong style={{ color: '#e2e8f0' }}>Platt–Trudgian Λ ≤ 0.2</strong>;
         the public 0.1875 package is reproducible after a local repair but remains unrefereed. The
         older finite-N sub-0.2 figure is an <em>estimate</em> gated on the RH-hard C_H constant. The standalone
@@ -1153,7 +1153,7 @@ export default function HomePage() {
           { color: '#38bdf8', to: '/lambda-bounds', title: 'Public preprint claim: Λ ≤ 0.1875',
             body: 'The public Zenodo certificate package is listed in the Optimization Problems ledger. A local audit reconstructed its omitted 2,054,013-row finite tile. Reproducible and publicly listed does not mean peer reviewed or endorsed.' },
           { color: '#10b981', to: '/lambda-bounds', title: 'Verified: RH-free F_mb enclosure (imp-3725)',
-            body: 'A rigorous two-sided true-flow collision-time enclosure 0 ≤ F_mb(N) ≤ (H²/8)(1/θ_N−1), uniform on N ∈ [10⁴,10⁶] — confirmed 4/4 by independent adversarial referees. Retires the old 2.15 heuristic (certified K_paper ≤ 2.42×10⁻⁶). Deterministic; not a Λ beat.' },
+            body: 'A rigorous two-sided true-flow collision-time enclosure 0 ≤ F_mb(N) ≤ (H²/8)(1/θ_N−1), uniform on N ∈ [10⁴,10⁶] — confirmed 4/4 by independent independent referees. Retires the old 2.15 heuristic (certified K_paper ≤ 2.42×10⁻⁶). Deterministic; not a Λ beat.' },
           { color: '#38bdf8', to: '/route-map', title: 'The complete wall map (44 routes)',
             body: 'Every route that could touch Λ reduces to one of three RH-hard walls — C_H / GUE–Montgomery pair correlation, the S1 mesoscopic-density strand, or the S(T) sup-norm exponent. The single remaining gap is a finite N-uniform C_Lip.' },
           { color: '#f59e0b', to: '/theorem-b-threshold', title: 'Closed-form constants',

@@ -464,7 +464,7 @@ const THETA_STAR = 0.25; // the E1 certification threshold (symmetric-triplet va
 // For N = 100, 300 the small-gap pair and its environment functional are read
 // directly from the repaired ZETA_ZEROS, so Theta(0) and the certified sandwich
 // are reproducible (not baked). High-N rows defer to the extended table; the
-// measured Theta-trap (sg1-theta-contraction: 9/9 runs, real zeros + adversarial,
+// measured Theta-trap (sg1-theta-contraction: 9/9 runs, real zeros + skeptical,
 // all Theta < 1/4) is the documented prior for them -- stated, not asserted.
 const THETA_CERTIFICATION = EPP_LADDER_INPUTS.map(({ N, gmin, witnessFromZetaZeros }) => {
   if (!witnessFromZetaZeros) {

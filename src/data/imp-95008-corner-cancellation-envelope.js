@@ -121,8 +121,8 @@
  * 41.345779087298143) is UNCHANGED - this step prices the next lever, it
  * does not pull it.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemmas Q2 and Q3 are validated on
- * 20,000-point adversarial parameter grids (zero violations, asserted on a
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemmas Q2 and Q3 are validated on
+ * 20,000-point skeptical parameter grids (zero violations, asserted on a
  * deterministic seeded subgrid below); (2) the Theorem Q envelope is checked
  * to DOMINATE the exact signed coupling cTilde at seeded random cells and
  * interior sample points across twelve blocks (zero violations); (3) the

@@ -50,7 +50,7 @@
  * (theta) in addition to depth (y_min); it beats the symmetry ceiling
  * 1/2 exactly when theta > e^(-y_min), and it recovers FA-2 exactly at
  * theta = 1. Because it CAN drop below 1/2 for signed families (whenever
- * theta stays above e^(-y_min)), it is NOT killed by DC-NOGO: the depth-only
+ * theta stays above e^(-y_min)), it is NOT eliminated by DC-NOGO: the depth-only
  * obstruction is escaped by phase currency, precisely as count currency
  * escaped it (imp-95225).
  *
@@ -94,7 +94,7 @@
  * bounded below forces R below 1/2 at large depth), so no such family
  * exists -- this direction IS closed.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA MAJ pointwise g >= |f| checked
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA MAJ pointwise g >= |f| checked
  * on a grid for a mixed-sign triple. (2) COROLLARY PHASE-CERT verified in
  * EXACT rationals on two configs: the signed witness c = (3, -4) at
  * center ln 2 (R = 3/8, theta = 1/33, e^(-y_min) = 1/4, bound = 33/8,

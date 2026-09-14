@@ -351,7 +351,7 @@ const DERANDOMIZATION_OBSTRUCTIONS = Object.freeze({
 // imp-1344 sits alongside the other NEW-INPUT classifications (imp-1307
 // Connes-Bost, imp-1308 Berry-Keating, imp-1309 Tao-entropy) that probe
 // whether a candidate mechanism provides a genuinely new input for the
-// RH attack. Like those, this is a NEGATIVE classification:
+// RH approach. Like those, this is a NEGATIVE classification:
 //
 //   - imp-1309 (entropy family): orthogonal in its primary domain but the
 //     orthogonality does not transfer to the single-zeta 2-point PCC

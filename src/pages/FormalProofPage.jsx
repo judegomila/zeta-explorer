@@ -711,9 +711,9 @@ export default function FormalProofPage() {
         <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.04)' }}>
           <h3 style={{ color: '#877b67', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            <Link to="/rh-attack" style={{ color: '#3f6b86', fontSize: 13 }}>RH Attack</Link>
+            <Link to="/rh-attack" style={{ color: '#3f6b86', fontSize: 13 }}>RH Approach</Link>
             <span style={{ color: '#d5c9b2' }}>|</span>
-            <Link to="/spectral-attack" style={{ color: '#3f6b86', fontSize: 13 }}>Spectral Attack</Link>
+            <Link to="/spectral-attack" style={{ color: '#3f6b86', fontSize: 13 }}>Spectral Approach</Link>
             <span style={{ color: '#d5c9b2' }}>|</span>
             <Link to="/gap-closing" style={{ color: '#3f6b86', fontSize: 13 }}>Gap Closing</Link>
             <span style={{ color: '#d5c9b2' }}>|</span>

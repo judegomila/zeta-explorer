@@ -1,6 +1,6 @@
 /**
  * @module asymptotic-attack-status-2026-05
- * @fileoverview Honest record of asymptotic Lambda attack status as of 2026-05.
+ * @fileoverview Honest record of asymptotic Lambda approach status as of 2026-05.
  *   Documents why the ESY rigidity port is NOT engine-closable and establishes
  *   the finite-N ceiling at N* = 10^6, preventing wasted Opus quota on
  *   guaranteed-partial closures of the asymptotic unconditional route.
@@ -217,7 +217,7 @@ const PAPER_APPENDIX_GUIDANCE = {
 
 export const ASYMPTOTIC_ATTACK_STATUS_2026_05 = {
   id: 'imp-1089',
-  title: 'Honest asymptotic attack status: document why ESY port is not engine-closable',
+  title: 'Honest asymptotic approach status: document why ESY port is not engine-closable',
   generatedAt: '2026-05-20T00:00:00Z',
   lastVerifiedAt: '2026-06-10T00:00:00Z',
   lastVerifiedNote:
@@ -292,7 +292,7 @@ export const ASYMPTOTIC_ATTACK_STATUS_ASSERTIONS = [
       ASYMPTOTIC_ATTACK_STATUS_2026_05.esyAttack.openSubGapsCount >= 3,
     why:
       'The ESY rigidity port (esy-rigidity-port.js) must remain status="partial" ' +
-      'and the asymptotic attack record must flag it as not engine-closable with ' +
+      'and the asymptotic approach record must flag it as not engine-closable with ' +
       'at least 3 open sub-gaps. If a future session attempts a full unconditional ' +
       'closure of the ESY port, this tripwire prevents silent overclaim: the ' +
       'ESY_RIGIDITY_PORT.status must first be updated from "partial" to "complete" ' +

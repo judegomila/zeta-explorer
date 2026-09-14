@@ -3,10 +3,10 @@
  * @fileoverview imp-2849 (proof): EXPOSE exactly what the unproven field bound
  * beta must satisfy for the two-sided MIN-GAP SANDWICH (Theorem B,
  * imp-2563-min-gap-sandwich-theorem.js / route-map opportunity #4) to be worth
- * having. Sibling imp-2683-sandwich-beta-field-bound.js attacked beta on the
+ * having. Sibling imp-2683-sandwich-beta-field-bound.js approached beta on the
  * EXISTENCE / size side (positivity, the telescope ceiling beta_0 g^2 < 2 at
  * s = 0, the RvM density estimate, the named punctured-min-gap residual). THIS
- * module attacks the QUESTION OF SUFFICIENCY: for which beta is the conditional
+ * module approaches the QUESTION OF SUFFICIENCY: for which beta is the conditional
  * sandwich actually a sharper upper bound than the unconditional A1 trap that
  * the program already owns? It (a) restates beta precisely, (b) writes the
  * bracket [T_-, T_+] as an explicit FUNCTION of beta at the verified-zero gap

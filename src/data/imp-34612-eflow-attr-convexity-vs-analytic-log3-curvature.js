@@ -23,7 +23,7 @@
  *   With eflow_attr = (E_flow / E_N) * |d ln E_flow / d log10 N| and the surrogate
  *   E_flow ~ log^3(N)/N, write u = ln N at the decade top N = 10^(k+1) (the node the imp-34169
  *   machinery reads eflow_attr at). Then ln E_flow = 3 ln u - u + const (the log base of the
- *   log^3 factor only shifts a constant, killed by any derivative), so
+ *   log^3 factor only shifts a constant, eliminated by any derivative), so
  *       |g| = |d ln E_flow / d ln N| = |3/u - 1| = 1 - 3/u   (u ~ 51 >> 3, so g > 0),
  *   and, since imp-34570 F3 established E_N is E_trunc-dominated at N ~ 10^22 (d ln E_N/dk ~ 0,
  *   hence d2 ln E_N/dk2 ~ 0 -- flat and inert), the log curvature of eflow_attr collapses to

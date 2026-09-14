@@ -300,7 +300,7 @@ export const IMP36019_ORDER_SHAPE_CROSS_N_LADDER = {
       'the combined cross error stays below the log2(N)*eps ceiling and Kahan stays at the roundoff floor at ' +
       'EVERY rung -- precision is NOT the binding constraint anywhere on the ladder even under the combined stress',
     staysGreenfield:
-      'this module measures pairwise errors under the combined adversarial stress at four N only; it evaluates ' +
+      'this module measures pairwise errors under the combined skeptical stress at four N only; it evaluates ' +
       'no sum of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD ' +
       '(imp-35681 Part A) and MECHANICAL (imp-35725)',
   },

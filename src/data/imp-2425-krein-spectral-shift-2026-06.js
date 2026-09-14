@@ -2,7 +2,7 @@
  * @module data/imp-2425-krein-spectral-shift-2026-06
  * @fileoverview imp-2425 (Wave-2 fan-out, follow-on to imp-2364) -- a SECOND,
  * independent numerical handle on the Pontryagin negative index ind_-(K_a) of
- * Attack III (Theorem 18.3 + Conjecture 18.4). Where imp-2364 read ind_-(K_a)
+ * Approach III (Theorem 18.3 + Conjecture 18.4). Where imp-2364 read ind_-(K_a)
  * off a rectangular argument-principle winding number, this module reads it off
  * the Krein spectral shift function (SSF): the boundary increment of the phase
  * of the relative perturbation determinant D_a(t) = X_1(a+it)/X_0(a+it). The two
@@ -16,7 +16,7 @@
 //
 // CONTEXT
 // -------
-// Attack III reduces RH to Conjecture 18.4: ind_-(K_a) = #P_a = 0 for every
+// Approach III reduces RH to Conjecture 18.4: ind_-(K_a) = #P_a = 0 for every
 // a > 0 and every spectral window, where
 //     P_a = { lambda - a : X(lambda) = 0, Re lambda > a }
 // and ind_-(K_a) is the Pontryagin negative index of the shifted twin-ladder
@@ -232,7 +232,7 @@ export const ATTACK_III_KREIN_SSF_NUMERICS = Object.freeze({
     'N_Krein = -(1/2pi) Delta arg D_a counts the negative index. Reference X_0 ' +
     'is the RH-true (on-axis) zero configuration; X_1 is the actual one.',
   description:
-    'A second, independent numerical route to the Attack III negative index ' +
+    'A second, independent numerical route to the Approach III negative index ' +
     'ind_-(K_a). imp-2364 read the index as a rectangular winding number; this ' +
     'module reads the SAME integer as the boundary value of the Krein spectral ' +
     'shift function and compares the two cell-by-cell. Under RH (X_1 = X_0) the ' +
@@ -273,7 +273,7 @@ export const ATTACK_III_KREIN_SSF_NUMERICS = Object.freeze({
   }),
   verdict: 'krein-ssf-boundary-value-reproduces-ind-minus-zero-rh-true-no-proof',
   honestScope:
-    'NUMERICAL fan-out of Attack III, a SECOND HANDLE on ind_-(K_a). The Krein ' +
+    'NUMERICAL fan-out of Approach III, a SECOND HANDLE on ind_-(K_a). The Krein ' +
     'spectral-shift boundary value agrees with the imp-2364 winding index on ' +
     'every tested cell (on-line grid all 0, off-line control 1, conjugate-pair ' +
     '2). Because the SSF is computed RELATIVE to the RH-true reference, the ' +

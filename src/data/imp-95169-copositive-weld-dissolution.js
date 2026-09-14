@@ -94,10 +94,10 @@
  * doubled block coupled to the simplex minimization, or a center-form
  * with block-consistent position variables).
  *
- * ADVERSARIAL RECORD. (1) LEMMA WD is exact algebra; batteries verify the
+ * SKEPTICAL RECORD. (1) LEMMA WD is exact algebra; batteries verify the
  * identity to ~1e-15 (arbitrary y, arbitrary profiles, occupancies up to
  * 3 per block) and the quantitative transfer on random witnesses. (2)
- * THEOREM WP kills only the pure-PSD route on the exact H; PSD applied to
+ * THEOREM WP eliminates only the pure-PSD route on the exact H; PSD applied to
  * an entrywise LOWER matrix is itself a copositivity certificate (a P+N
  * split) and REMAINS OPEN, as do higher copositive hierarchies. (3) The
  * simplex minimizer is a KKT support enumeration: supports whose reduced

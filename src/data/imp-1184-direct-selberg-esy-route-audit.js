@@ -60,7 +60,7 @@
 // Poisson kernel falls outside). This means ALL THREE LIVE ROUTES (direct,
 // Sobolev, higher-cumulant) hit the SAME TWO UNCONDITIONAL GAPS: Montgomery
 // PCC at the 2-point level, and Rudnick-Sarnak at the 3-point level. The
-// live attack surface for the ESY observable NARROWS to those two named
+// live approach map for the ESY observable NARROWS to those two named
 // gaps. See SHARED_OBSTRUCTION_MAP below for the explicit cross-reference.
 //
 // CONSEQUENCE FOR THE LAMBDA-ATTACK CHAIN
@@ -72,7 +72,7 @@
 // The unconditional baseline (3/2)(log gamma_N)^2 / N is therefore the
 // best achievable WITHOUT new analytic-number-theory input at the level of
 // PCC or beyond. This is a sharp negative result for the direct route, but
-// it tightens the project's planning: do NOT spend more bandwidth attacking
+// it tightens the project's planning: do NOT spend more bandwidth approaching
 // the ESY observable directly until or unless new PCC progress appears.
 //
 // SYNTAX SAFETY
@@ -510,14 +510,14 @@ const NAMED_OBSTRUCTIONS = Object.freeze([
 //
 // This is the LOAD-BEARING DIAGNOSTIC of imp-1184: do the three live ESY-
 // closure routes (direct, Sobolev, higher-cumulant) hit the SAME unconditional
-// gaps, or DIFFERENT gaps? If same, the live attack surface narrows. If
-// different, multi-pronged attack is justified.
+// gaps, or DIFFERENT gaps? If same, the live approach map narrows. If
+// different, multi-pronged approach is justified.
 
 const SHARED_OBSTRUCTION_MAP = Object.freeze({
   description:
     'Map of which unconditional inputs are required by each of the three live ' +
     'ESY-closure routes (direct, Sobolev, higher-cumulant). Shared gaps narrow ' +
-    'the live attack surface to a small set of named conjectures.',
+    'the live approach map to a small set of named conjectures.',
   rows: Object.freeze([
     Object.freeze({
       gap_id: 'gap-PCC-2pt',
@@ -660,18 +660,18 @@ const VERDICT_DETAIL = Object.freeze({
   overlap_with_other_routes:
     'gap-PCC-2pt (Montgomery 1973) is required by ALL THREE live routes ' +
     '(direct, Sobolev, higher-cumulant). gap-RS-3pt is required by direct + ' +
-    'higher-cumulant. The live attack surface for the ESY observable thus ' +
+    'higher-cumulant. The live approach map for the ESY observable thus ' +
     'narrows to two named open conjectures: closing EITHER would unblock ' +
     'at least one route.',
   isClosureOfESY: false,
   isImprovementOverImp407Baseline: false,
   recommendedNextActions: Object.freeze([
-    'Do NOT spend more bandwidth attacking the ESY observable directly ' +
+    'Do NOT spend more bandwidth approaching the ESY observable directly ' +
     'until or unless new PCC or Rudnick-Sarnak progress appears.',
     'Track Montgomery PCC literature; any improvement on Goldston-Gonek 1998 ' +
     'log-log refinement may transfer to a constant tightening of the direct ' +
     'route baseline (no rate improvement, but possibly factor of 2 on constant).',
-    'Consider attacking the Lambda upper bound via a DIFFERENT observable ' +
+    'Consider approaching the Lambda upper bound via a DIFFERENT observable ' +
     '(not the imp-407 psi_N) that avoids the gap-PCC-2pt bottleneck.',
     'imp-1183 empirical 3-point correlation may give numerical evidence for ' +
     'rho_3 universality which, while not unconditional, can inform paper ' +
@@ -729,7 +729,7 @@ export const IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT = Object.freeze({
     'The shared-obstruction map shows gap-PCC-2pt (Montgomery 1973) is ' +
     'required by ALL THREE live routes. Closing it unconditionally would ' +
     'simultaneously unblock direct, Sobolev, and higher-cumulant routes. ' +
-    'This is a sharp narrowing of the live attack surface.',
+    'This is a sharp narrowing of the live approach map.',
     'Obstruction O-DSE-A is IDENTICAL to imp-1161 O-CL-A. Obstruction ' +
     'O-DSE-B is IDENTICAL to imp-1180 O-HOC-A. Cross-reference is explicit ' +
     'and pinned by tripwires so future routes inherit the unified vocabulary.',
@@ -740,9 +740,9 @@ export const IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT = Object.freeze({
     'fully formalized proof. The PASS / PASS-LOOSE / FAIL labels reflect ' +
     'the unconditional availability of each step’s required input, NOT ' +
     'the completeness of a formal derivation.',
-    'Recommendation: do NOT spend more bandwidth attacking the ESY ' +
+    'Recommendation: do NOT spend more bandwidth approaching the ESY ' +
     'observable directly via the live routes until or unless new PCC or ' +
-    'Rudnick-Sarnak progress appears. Consider attacking Lambda via a ' +
+    'Rudnick-Sarnak progress appears. Consider approaching Lambda via a ' +
     'different observable that avoids gap-PCC-2pt entirely.',
   ]),
 
@@ -817,7 +817,7 @@ export const IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT_ASSERTIONS = [
       'The six named obstructions O-DSE-A..F must all be present, each carrying a severity ' +
       'label AND a cross_reference field. The cross-reference is load-bearing: it tells the ' +
       'reader that O-DSE-A is the SAME gap as imp-1161 O-CL-A and that O-DSE-B is the SAME ' +
-      'gap as imp-1180 O-HOC-A, narrowing the live attack surface. Dropping any of these ' +
+      'gap as imp-1180 O-HOC-A, narrowing the live approach map. Dropping any of these ' +
       'fields would hide the route-overlap diagnostic.',
     holds: () => {
       const obs = IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT.namedObstructions;
@@ -837,7 +837,7 @@ export const IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT_ASSERTIONS = [
       'O-DSE-A (sine-kernel pointwise 2-point identity unavailable) is THE SAME obstruction ' +
       'as imp-1161 O-CL-A. The cross_reference string must explicitly say so so future ' +
       'readers see the route-overlap diagnostic. This is the load-bearing claim that ' +
-      'narrows the live attack surface to gap-PCC-2pt.',
+      'narrows the live approach map to gap-PCC-2pt.',
     holds: () => {
       const o = IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT.namedObstructions.find(
         (x) => x.id === 'O-DSE-A'
@@ -866,7 +866,7 @@ export const IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT_ASSERTIONS = [
       'routes (direct, Sobolev, higher-cumulant). This is THE central diagnostic of the file: ' +
       'closing Montgomery PCC unconditionally would simultaneously unblock all three routes. ' +
       'Flipping any of those required flags to false would silently misrepresent the route ' +
-      'overlap and overstate the route diversity available to a future attack.',
+      'overlap and overstate the route diversity available to a future approach.',
     holds: () => {
       const map = IMP_1184_DIRECT_SELBERG_ESY_ROUTE_AUDIT.sharedObstructionMap;
       const pcc = map.rows.find((r) => r.gap_id === 'gap-PCC-2pt');

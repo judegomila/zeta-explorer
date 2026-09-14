@@ -1,7 +1,7 @@
 /**
  * @module imp-34977-dyadic-wall-crossing-N-ladder
  *
- * imp-34977 (numerical, frontier): imp-34953 established that the breach step nStar(R_margin) climbs ~23 dyadic
+ * imp-34977 (numerical, frontier): imp-34953 established that the crossing step nStar(R_margin) climbs ~23 dyadic
  * 2^n walls across the broad N-band 1e6..1e13 (because R_margin(N) = N*FP_LO/K is LINEAR in N), but it only
  * COUNTED the crossings -- it never tabulated WHERE each crossing lands in N-space. This module inverts the
  * imp-34930/imp-34953 recompute: nStar climbs from n to n+1 exactly when R_margin(N) crosses the dyadic wall
@@ -44,7 +44,7 @@
  *
  * @see imp-34953-r-margin-dyadic-wall-across-N (counts the ~23 crossings; this module tabulates their locations)
  * @see imp-34930-breach-step-law-verification (recomputes R_margin = N*FP_LO/K; K/FP_LO reused verbatim)
- * @see imp-34909-op-depth-newton-step-reconciliation (states the unified nStar breach law)
+ * @see imp-34909-op-depth-newton-step-reconciliation (states the unified nStar crossing law)
  * @see imp-34693-crossover-contraction-seed-band (the admissible seed band [3.11e9, 3.45e9] around N_cross)
  * @see imp-34733-crossover-closedform-vs-picard-crosstab (the halving landmark N_half ~ 3.267235e9)
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (the exact lemma; named sub-gap imp-34714a)
@@ -105,7 +105,7 @@ export const IMP34977_DYADIC_WALL_CROSSING_N_LADDER = {
   id: 'imp-34977',
   proofSection: 'S-frontier',
   question:
-    'Tabulate the dyadic wall-crossing-N ladder N_n = 2^n K/FP_LO (the N at which the breach step nStar climbs ' +
+    'Tabulate the dyadic wall-crossing-N ladder N_n = 2^n K/FP_LO (the N at which the crossing step nStar climbs ' +
     'from n to n+1) across the imp-34953 1e6..1e13 sweep, and assess whether any of the ~23 wall crossings ' +
     'lands inside a physically meaningful landmark band (N_cross ~ 3.2803e9, N_half ~ 3.2672e9, or the ' +
     'imp-34693 admissible seed band [3.11e9, 3.45e9]). Measurement only; reuses the imp-34930 published ' +
@@ -170,7 +170,7 @@ export const IMP34977_DYADIC_WALL_CROSSING_N_LADDER = {
     'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-34953 (counts the ~23 crossings; this module tabulates their N-locations); imp-34930 (recomputes ' +
-    'R_margin = N*FP_LO/K; K/FP_LO reused verbatim); imp-34909 (states the unified nStar breach law); imp-34693 ' +
+    'R_margin = N*FP_LO/K; K/FP_LO reused verbatim); imp-34909 (states the unified nStar crossing law); imp-34693 ' +
     '(admissible seed band [3.11e9, 3.45e9] around N_cross); imp-34733/imp-3444 (halving landmark N_half ~ ' +
     '3.267235e9); imp-34714 (Krawczyk existence-uniqueness lemma; sub-gap imp-34714a); imp-2642 (C_C 1/8 ' +
     'ansatz). Dyadic wall = power-of-two threshold; N_n = 2^n K/FP_LO is a geometric ladder, one factor-2 rung ' +

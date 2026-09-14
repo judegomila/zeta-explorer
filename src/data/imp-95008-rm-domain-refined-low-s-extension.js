@@ -79,7 +79,7 @@
  *     property (zero per-pair inequality slack at the substituted point)
  *     now covers the band.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The refined proof was re-audited
+ * SKEPTICAL SELF-CHECK RECORD. (1) The refined proof was re-audited
  * step by step against the nineteenth Lemma RM statement: the hypothesis
  * T >= Ystar enters ONLY through the lower bound on Y; the G-increase on
  * [0, T], the phiK sign change at y0, and the PhiInt criterion are

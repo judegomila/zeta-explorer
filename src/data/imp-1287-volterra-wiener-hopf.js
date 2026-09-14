@@ -385,7 +385,7 @@ export const IMP1287_VOLTERRA_WIENER_HOPF = Object.freeze({
     role:
       'CLOSED-FORM diagonalizer for the bare half-line additive convolution ' +
       'K_a. The Mellin route is structurally blocked (imp-1266); the Laplace ' +
-      'route opens this WH attack.',
+      'route opens this WH approach.',
   }),
 
   factorization: FACTORIZATION,

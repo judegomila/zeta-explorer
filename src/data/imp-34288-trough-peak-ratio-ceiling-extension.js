@@ -59,7 +59,7 @@
  * then turns back down. The turnaround is NOT the ratio decelerating on its own but a REGIME CHANGE -- the
  * argmax peak migrates off the receding right endpoint to the near-left rung k = 6.5 once the window
  * exceeds w ~ 9.25 -- so the imp-34214 non-convergence reading is refined: the ratio neither converges to
- * a fixed interior limit nor breaches 1; it rises to ~0.907 under the endpoint-locked regime and recedes
+ * a fixed interior limit nor crosses 1; it rises to ~0.907 under the endpoint-locked regime and recedes
  * once the peak relocates. The imp-34214 "non-physical r_inf >> 1" limits were exactly the saturating fit
  * extrapolating the pre-cap climb; the actual data caps well below 1.
  *
@@ -308,7 +308,7 @@ export const IMP34288_TROUGH_PEAK_RATIO_CEILING_EXTENSION = {
     'on its own but a REGIME CHANGE: the argmax peak migrates off the receding right endpoint to the ' +
     'near-left rung k = 6.5 once the window exceeds w ~ 9.25, after which the left-endpoint peak grows ' +
     'and the ratio recedes to ~0.618 by kEnd = 20. So the imp-34214 non-convergence reading is refined: ' +
-    'the ratio neither converges to a fixed interior limit nor breaches 1; it rises to ~0.907 under the ' +
+    'the ratio neither converges to a fixed interior limit nor crosses 1; it rises to ~0.907 under the ' +
     'endpoint-locked regime and recedes once the peak relocates, and the imp-34214 "non-physical ' +
     'r_inf >> 1" limits were the saturating fit extrapolating the pre-cap climb while the actual data ' +
     'caps well below 1. Distinct from any form selection; the imp-33843 log-linear verdict is untouched ' +

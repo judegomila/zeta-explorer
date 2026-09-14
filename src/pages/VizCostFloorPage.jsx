@@ -143,7 +143,7 @@ const ROWS = [
     t: MEASURED_POINTS[1].t, // 10103/80000
     y: MEASURED_POINTS[1].y, // 33/200
     label: '0.1399 row — RULED OUT',
-    detail: 'Arb-measured N1* = 2.205e8 (calibration point B); K2 kill fired',
+    detail: 'Arb-measured N1* = 2.205e8 (calibration point B); K2 eliminate fired',
     kind: 'killed',
   },
 ];

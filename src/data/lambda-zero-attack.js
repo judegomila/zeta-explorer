@@ -12,14 +12,14 @@
  */
 
 /**
- * Λ ≤ 0 attack note (imp-319)
+ * Λ ≤ 0 approach note (imp-319)
  *
  * Path C currently delivers Λ ≤ 0.0066 + 0.01 ≈ 0.017 at N = 2458
  * (bridge-lambda-rh.js, lambda-error-budget.js). Rodgers-Tao 2020 forces
  * Λ ≥ 0 unconditionally, so the truth lies in the interval [0, 0.017].
  * Hitting Λ ≤ 0 — equivalently Λ = 0 — IS the Riemann Hypothesis at the
  * heights our Dyson backward-collision argument actually controls. So
- * "close the gap from 0.017 to 0" is the direct attack, not a detour.
+ * "close the gap from 0.017 to 0" is the direct approach, not a detour.
  *
  * This file does NOT attempt the proof. It enumerates the inequalities
  * inside the Path C chain that are currently numerical (a fitted slope,
@@ -344,7 +344,7 @@ export const LAMBDA_ZERO_CLOSURE = {
     'unconditionally (via Koksma-Hlawka, discharging G5_burgers) and ' +
     'imp-344 assembled the three parallel routes (A) monotonicity, (B) ' +
     'Burgers-uniformity, (C) density squeeze, the load-bearing gap of the ' +
-    'Λ attack MOVED. B2 is no longer sufficient on its own: the jump from ' +
+    'Λ approach MOVED. B2 is no longer sufficient on its own: the jump from ' +
     '"lim t_c(N) = 0 in the N-particle Dyson flow" to "Λ ≤ 0 with Λ the ' +
     'de Bruijn-Newman constant defined via H_t" needs the Polymath15 ' +
     'approximation with an explicit error term E(N) → 0. That is ' +
@@ -392,7 +392,7 @@ export const LAMBDA_ZERO_ATTACK_ASSERTIONS = [
     why:
       'The Path C central value is currently positive (0.0066). If a future ' +
       'edit drops it to zero or negative, the entire load-bearing claim of ' +
-      'this attack note (B2 is the closure step) becomes vacuous and the ' +
+      'this approach note (B2 is the closure step) becomes vacuous and the ' +
       'whole file should be re-derived rather than silently updated.',
   },
   {

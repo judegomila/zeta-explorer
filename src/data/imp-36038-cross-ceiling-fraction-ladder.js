@@ -288,7 +288,7 @@ export const IMP36038_CROSS_CEILING_FRACTION_LADDER = {
       'the combined cross error stays below the log2(N)*eps ceiling at EVERY rung of the dense ladder -- precision ' +
       'is NOT the binding constraint anywhere even under the combined worst-case shape x order stress',
     staysGreenfield:
-      'this module measures pairwise errors under the combined adversarial stress at seven N only; it evaluates ' +
+      'this module measures pairwise errors under the combined skeptical stress at seven N only; it evaluates ' +
       'no sum of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD ' +
       '(imp-35681 Part A) and MECHANICAL (imp-35725)',
   },

@@ -3,13 +3,13 @@
  * @fileoverview Paper data layer for the ZPO Explorer / RH-attack project.
  *
  * This module manages the collection of mathematical papers that underpin
- * the Riemann Hypothesis attack via Zero-Point Oscillator (ZPO) methods.
+ * the Riemann Hypothesis approach via Zero-Point Oscillator (ZPO) methods.
  * It merges a set of committed built-in papers with any user-added papers
  * persisted in localStorage, deduplicating by paper id.
  *
  * **Proof chain role:** Supporting documentation layer — papers referenced
  * here provide theoretical grounding for the ZPO spectral framework, the
- * de Branges approach, and the analytic bounds used in the RH attack.
+ * de Branges approach, and the analytic bounds used in the RH approach.
  *
  * **Schema:** Each paper object has the shape:
  *   `{ id, title, authors, date, abstract, rawLatex, nodes, source, createdAt }`

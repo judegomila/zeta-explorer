@@ -58,7 +58,7 @@
  *
  * NET. The narrowband alias/overhang piece is the correct answer to
  * "which piece is envelope-scale" and the WRONG answer to "which piece to
- * exploit": it is envelope-scale but envelope-inert. It is broadband-
+ * use": it is envelope-scale but envelope-inert. It is broadband-
  * obstructed by proxy (its co-summands), confirming imp-95210 that no
  * envelope/slack shortcut survives — the ONLY live path stays the tier-P/B/S
  * phase-resolving batching (which can still adopt the 44.476 alias ledger for
@@ -117,7 +117,7 @@ export const ALIAS_ENVELOPE_ASSESSMENT = Object.freeze({
     'NEGATIVE: the narrowband alias/overhang piece o_j is the one envelope-scale ' +
     'piece (slow: ~996x below the broadband rr slope; envelope-treatable in ~1.4e6 cells) ' +
     'but it is the SMALL piece (sum|A||o| ~ 0.0111 = 3.98% of Rex, below the 0.0359 ' +
-    'Rex-minus-pilot margin), so exploiting it (1) cannot bring any broadband-dominated ' +
+    'Rex-minus-pilot margin), so using it (1) cannot bring any broadband-dominated ' +
     'target below Rex and (2) cannot decouple mm+rr, which set the cell count and vary at ' +
     'phase scale regardless of how o_j is handled. Envelope-scale but envelope-inert: ' +
     'broadband-obstructed BY PROXY through its co-summands. No envelope or slack shortcut ' +
@@ -151,7 +151,7 @@ export const IMP95230_ASSERTIONS = [
   {
     id: 'imp95230-exploiting-o-gives-zero-cell-reduction',
     description:
-      'the cell count is set by the fastest summand mm+rr (phase scale), not o; isolating o via the modulus triangle leaves the residual at phase scale, so cell/CPU reduction from exploiting o is exactly zero while the phase-resolving total stays at 1.115e10',
+      'the cell count is set by the fastest summand mm+rr (phase scale), not o; isolating o via the modulus triangle leaves the residual at phase scale, so cell/CPU reduction from using o is exactly zero while the phase-resolving total stays at 1.115e10',
     holds: () =>
       ALIAS_ENVELOPE_ASSESSMENT.cellReductionFromExploitingO === 0 &&
       ALIAS_ENVELOPE_ASSESSMENT.cpuDayReductionFromExploitingO === 0 &&

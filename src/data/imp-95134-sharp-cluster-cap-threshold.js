@@ -112,22 +112,22 @@
  * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
  * SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) The exact gap-capped tilted pair
+ * SKEPTICAL SELF-CHECK RECORD: (1) The exact gap-capped tilted pair
  * integral was checked against Simpson quadrature of the piecewise-tilted
  * product (rel <= 1e-4 at module resolution; 6.7e-7 offline at 400000
  * panels). (2) The tilt-cancellation identity phi + psi = mu D was checked
  * pointwise on a grid spanning all three pieces (exact). (3) Lemma HM was
- * attacked on a rate/separation grid including extreme rate ratios: zero
+ * approached on a rate/separation grid including extreme rate ratios: zero
  * violations, and the closed-form sign identity for K - 2R reproduces the
- * difference to rel 1e-12. (4) Lemma GT was attacked with 4000 seeded
+ * difference to rel 1e-12. (4) Lemma GT was stress-tested with 4000 seeded
  * edge-biased clusters (rates 1x..80x the floor, zero amplitudes
  * included): zero violations, worst ratio 0.9776839001577393, and the
  * edge-packet equality case gives ratio 1 to 1e-12 - the bound is tight.
- * (5) The sharp cap was attacked with 20000 seeded free-rate same-parity
+ * (5) The sharp cap was stress-tested with 20000 seeded free-rate same-parity
  * cluster pairs (edge-piled every third draw): zero violations, worst
  * ratio 0.9912983587463579, and the two-edge-packet attainment
  * configuration gives ratio 1 to 1e-12 - the cap is SHARP, confirming no
- * pair-level cap can be smaller. (6) The theorem battery attacks THEOREM
+ * pair-level cap can be smaller. (6) The theorem battery probes THEOREM
  * CC directly: 6000 seeded parity-pure multi-packet witnesses (2-5 blocks,
  * up to 5 packets per block, mixed rates >= 2/5, amplitudes including
  * zeros, both parities): max E = -0.029603445449030492 strictly negative,
@@ -241,7 +241,7 @@ function mkClusterIn(lo, hi, mMax, rateLo, rateHi, edge, edgeAt) {
   return { us, as, mus };
 }
 
-// battery A: Lemma GT tilted-norm attack (seed 13579, edge-biased clusters)
+// battery A: Lemma GT tilted-norm approach (seed 13579, edge-biased clusters)
 function runTiltedNormBattery() {
   seedState = 13579;
   let worst = 0;
@@ -274,7 +274,7 @@ function runTiltedNormBattery() {
   return { worst, viol };
 }
 
-// battery B: sharp cluster-cap attack (seed 24601, free rates, edge-piled)
+// battery B: sharp cluster-cap approach (seed 24601, free rates, edge-piled)
 function runCapBattery() {
   seedState = 24601;
   let worst = 0;
@@ -305,7 +305,7 @@ function runCapBattery() {
   return { worst, viol };
 }
 
-// battery C: THEOREM CC direct attack (seed 11111, rates >= 2/5)
+// battery C: THEOREM CC direct approach (seed 11111, rates >= 2/5)
 function runTheoremBattery() {
   seedState = 11111;
   let maxE = -Infinity;
@@ -485,7 +485,7 @@ export const IMP95134_SHARP_CLUSTER_CAP_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95134-cc-tilted-norm-battery",
     description:
-      "Lemma GT attack: 4000 seeded edge-biased clusters (rates 1x..80x the floor, zero amplitudes included, tilt slope = the floor mu) - zero violations of norm(F exp(phi))^2 <= (1 + mu D) norm(F)^2, worst ratio 0.9776839001577393, and the edge-packet equality case gives ratio 1",
+      "Lemma GT approach: 4000 seeded edge-biased clusters (rates 1x..80x the floor, zero amplitudes included, tilt slope = the floor mu) - zero violations of norm(F exp(phi))^2 <= (1 + mu D) norm(F)^2, worst ratio 0.9776839001577393, and the edge-packet equality case gives ratio 1",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       const mu = 0.4;
@@ -504,7 +504,7 @@ export const IMP95134_SHARP_CLUSTER_CAP_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95134-cc-sharp-cap-battery",
     description:
-      "sharp cluster-cap attack: 20000 seeded free-rate same-parity cluster pairs (edge-piled every third draw) - zero violations of rho <= (1 + mu D) exp(-mu D), worst ratio 0.9912983587463579, and the two-edge-packet configuration ATTAINS the cap (ratio 1): the cap is sharp",
+      "sharp cluster-cap stress-test: 20000 seeded free-rate same-parity cluster pairs (edge-piled every third draw) - zero violations of rho <= (1 + mu D) exp(-mu D), worst ratio 0.9912983587463579, and the two-edge-packet configuration ATTAINS the cap (ratio 1): the cap is sharp",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       const mu = 0.4;

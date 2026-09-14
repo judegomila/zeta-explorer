@@ -1,5 +1,5 @@
 // @module bui-soundararajan-rigorous-port-2026-05
-// imp-1123: Bui-Soundararajan PRIMARY rigorous-port attack on the asymptotic SOTA.
+// imp-1123: Bui-Soundararajan PRIMARY rigorous-port approach on the asymptotic SOTA.
 //
 // Goal of the port
 // ----------------
@@ -419,7 +419,7 @@ const CITES_INGHAM_1940 = DERIVATION_STEPS.some(
 export const BUI_SOUND_RIGOROUS_PORT = {
   id: 'imp-1123',
   title:
-    'Bui-Soundararajan PRIMARY rigorous-port attack on the asymptotic SOTA -- ' +
+    'Bui-Soundararajan PRIMARY rigorous-port approach on the asymptotic SOTA -- ' +
     'replace Ingham 1940 with BS 2008 exponent in the imp-447 E_trunc chain ' +
     'at sigma_opt = 0.75',
   status: 'partial-with-obstructions',

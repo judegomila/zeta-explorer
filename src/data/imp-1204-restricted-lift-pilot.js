@@ -56,7 +56,7 @@
 //              well inside the bounded-real disk.
 //
 //   a = 0.010: CENTRAL-BAND CONDITIONING BARRIER.  At omega = 0.1 the
-//              lift marginally breaches 1 (|Theta^{lift}| ~ 1.0031).
+//              lift marginally crossings 1 (|Theta^{lift}| ~ 1.0031).
 //              Gram matrix G_{a,5} condition number ~ 82 400.  No choice of c
 //              can simultaneously satisfy bounded-real at omega = 0.1 and
 //              at omega = 0.5 because the Gram matrix is nearly singular in

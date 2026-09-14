@@ -2,7 +2,7 @@
  * @module imp-2622-height-mismatch-refutation
  *
  * REFUTATION of the imp-2622 "Lambda in [0.099, 0.137] < 0.2 at gamma=1e13"
- * headline. A 4-route adversarial workflow (etrunc-kappa-pinning, 2026-06-14,
+ * headline. A 4-route skeptical workflow (etrunc-kappa-pinning, 2026-06-14,
  * Opus 4.8) found UNANIMOUSLY, with verbatim literature checks, that the bound
  * is a HEIGHT-MISMATCH ARTIFACT, not a theorem. Independently re-verified here.
  *

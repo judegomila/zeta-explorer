@@ -47,7 +47,7 @@
  *
  * Gap being closed
  * ----------------
- * The adversarial skeptic review (imp-417, paper-skeptic-review.js) flagged
+ * The skeptical skeptic review (imp-417, paper-skeptic-review.js) flagged
  * skp-002 as a NAMED gap: the constant C_1 in the KH Stieltjes bound
  *
  *   ||m_N - m_inf||_{L^inf, Im z >= y}  <=  C_1 * log(gamma_N) / (N * y)
@@ -258,7 +258,7 @@ export const KOKSMA_HLAWKA_C1_ASSERTIONS = [
     holds: () => KOKSMA_HLAWKA_C1_PINNED.verdict.closure === "CLOSED",
     why:
       "The verdict field must read CLOSED. Changing this field without a new " +
-      "documented sub-gap would silently reopen the adversarial skp-002 finding.",
+      "documented sub-gap would silently reopen the skeptical skp-002 finding.",
   },
 ];
 

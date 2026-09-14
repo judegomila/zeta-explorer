@@ -43,7 +43,7 @@
  *   term is always >= 0, ODROP's bound never exceeds W(g), and is
  *   STRICTLY smaller whenever any positive and negative amplitude overlap
  *   in the Gram sense (c_plus^T L c_minus > 0). This is precisely the gap
- *   THEOREM PHASE-AM exploits to strictly dominate PHASE-CERT by the exact
+ *   THEOREM PHASE-AM uses to strictly dominate PHASE-CERT by the exact
  *   factor (1 + theta)/2 <= 1.
  *
  *   WHAT IT DOES NOT DO

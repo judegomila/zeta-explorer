@@ -3,8 +3,8 @@
  *
  * imp-34884 (numerical, frontier): imp-34865 MEASURED the forward-propagation-vs-contraction width ratio for
  * the RvM-inverse [T0] at N_cross at Newton-STEP granularity (~4 steps) and reported that forward interval
- * propagation DOUBLES the enclosure width per step and breaches the imp-34799 (H2) margin at step ~5, while the
- * interval-Newton contraction clears it by ~12.5 orders. It never LOCALISED the breach to a depth in the
+ * propagation DOUBLES the enclosure width per step and crosses the imp-34799 (H2) margin at step ~5, while the
+ * interval-Newton contraction clears it by ~12.5 orders. It never LOCALISED the crossing to a depth in the
  * elementary-op DAG. This module instruments the SAME directed-rounding surrogate (one relative EPS outward per
  * elementary op) down the depth-30 dividing chain at ELEMENTARY-OP granularity, records the cumulative forward
  * enclosure width at each op-depth, and reports the FIRST depth d* at which the forward iterate half-width
@@ -22,7 +22,7 @@
  * subtraction (depth 8), doubles again at depth 16, 24, 32. The 4-step chain is ~32 elementary ops -- the
  * imp-34840 "sequential depth ~30" op-DAG.
  *
- * THE LOCALISED BREACH DEPTH (this REFINES the imp-34865 step-level breach to an op-DAG depth)
+ * THE LOCALISED CROSSING DEPTH (this REFINES the imp-34865 step-level crossing to an op-DAG depth)
  * ------------------------------------------------------------------------------------------
  * Threshold: the (H2) bracket half-width in T-space, HALF_WIDTH_T = delta*T0 ~ 2.29e5 (the seed's own
  * half-width). A "breach" is the iterate half-width exceeding this by more than a rounding-noise tolerance
@@ -30,25 +30,25 @@
  * cleanly separates rounding noise from the structural factor-2 jump).
  *   - The seed half-width equals HALF_WIDTH_T (ratio 1.0000000000008 -- outward-rounding tail only).
  *   - d* = 8: the FIRST [T]-dT subtraction takes the iterate half-width to 2*delta*T0 ~ 4.58e5 (ratio 2.0000),
- *     the first STRUCTURAL breach of the T-space bracket half-width. So forward propagation exceeds the bracket
+ *     the first STRUCTURAL crossing of the T-space bracket half-width. So forward propagation exceeds the bracket
  *     it started from after ONLY ONE Newton step -- 8 elementary ops, i.e. d* sits ~22 ops BELOW the ~30-deep
- *     Newton chain (breach at ~27 percent of the chain depth). Subsequent subtractions (depth 16, 24, 32) carry
+ *     Newton chain (crossing at ~27 percent of the chain depth). Subsequent subtractions (depth 16, 24, 32) carry
  *     the ratio to 4.0, 8.0, 16.0 (each subtraction doubles it).
  *   - CONTRACTION contrast: the interval-Newton operator N([T]) = m - [f](m)/[f_prime]([T]) intersect [T] sets
  *     its width from the FINAL step, NOT from cumulative depth, so its half-width floor ~1.43e-6 T-units is
- *     ~6.25e-12 of HALF_WIDTH_T and NEVER breaches at ANY depth -- the breach depth is depth-independent
+ *     ~6.25e-12 of HALF_WIDTH_T and never crosses at ANY depth -- the crossing depth is depth-independent
  *     (d* = never). The op-DAG depth is a liability only for forward propagation.
  *
  * The factor-2-per-subtraction growth is a STRUCTURAL property of interval subtraction at a Newton fixed point
  * (the correction interval width matches the iterate width), NOT an artifact of the outward-rounding surrogate;
  * only the exact rounding tail (~1e-12 relative at the seed) is surrogate-model dependent. So the localised
- * breach depth d* = 8 (first subtraction) is robust; a finer op decomposition would shift the absolute index
- * but keeps the breach at the first [T]-dT subtraction, deep below the depth-30 chain.
+ * crossing depth d* = 8 (first subtraction) is robust; a finer op decomposition would shift the absolute index
+ * but keeps the crossing at the first [T]-dT subtraction, deep below the depth-30 chain.
  *
  * WHAT STAYS OPEN
  * --------------
  * MEASUREMENT / feasibility only on the inherited imp-3220/imp-3406 surrogate crossover map. This LOCALISES the
- * imp-34865 forward-propagation breach to op-DAG depth d* = 8 (first Newton subtraction, ~22 below the depth-30
+ * imp-34865 forward-propagation crossing to op-DAG depth d* = 8 (first Newton subtraction, ~22 below the depth-30
  * chain) but does NOT instantiate the imp-34687a directed-rounding transcendental layer (stock JS Math.log /
  * division have no directed-rounding mode; the outward-rounding here is a first-order surrogate) and does NOT
  * discharge the conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643)
@@ -118,7 +118,7 @@ const OPS_PER_STEP = 8; // elementary ops per Newton step in the unrolled recurr
 const CHAIN_DEPTH = 30; // imp-34840 "sequential depth ~30" op-DAG (the depth-30 dividing chain)
 const NEWTON_STEPS = 4; // op-DAG Newton-step count imp-34840 read live from the source (~4 at N_cross)
 // Rounding-noise tolerance: the outward-rounding surrogate inflates the seed by only ~1e-12 relative, well
-// below the structural factor-2 jump, so this cleanly separates rounding noise from the real breach.
+// below the structural factor-2 jump, so this cleanly separates rounding noise from the real crossing.
 const NOISE_TOL = 1e-6;
 
 // --- FORWARD route at ELEMENTARY-OP granularity: stamp each op with a global depth index -------------------
@@ -170,7 +170,7 @@ function contractionWidth() {
 
 const FORWARD_TRACE = forwardOpTrace(NEWTON_STEPS); // ~32 ops (the depth-30 op-DAG)
 
-// The localised breach depth d*: FIRST op-depth at which the forward iterate half-width exceeds the (H2)
+// The localised crossing depth d*: FIRST op-depth at which the forward iterate half-width exceeds the (H2)
 // bracket half-width delta*T0 (beyond rounding noise). Only the [T]-iterate updates matter (widths hold
 // between subtractions), so d* is the depth of the first [T]-dT subtraction.
 let BREACH_DEPTH = -1;
@@ -192,14 +192,14 @@ const ITERATE_RATIOS = FORWARD_TRACE.filter((r) => r.isIterate).map((r) => ({
 const SEED_RATIO = FORWARD_TRACE[0].halfWidthT / HALF_WIDTH_T; // ~1 + rounding tail
 const CONTRACTION_WIDTH_T = contractionWidth(); // ~2.86e-6 (few ULP of T0)
 const CONTRACTION_HALF_WIDTH_T = CONTRACTION_WIDTH_T / 2; // ~1.43e-6
-const CONTRACTION_RATIO_TO_BRACKET = CONTRACTION_HALF_WIDTH_T / HALF_WIDTH_T; // ~6.25e-12, NEVER breaches
+const CONTRACTION_RATIO_TO_BRACKET = CONTRACTION_HALF_WIDTH_T / HALF_WIDTH_T; // ~6.25e-12, never crosses
 
 export const IMP34884_FORWARD_OP_DEPTH_BREACH = {
   id: 'imp-34884',
   proofSection: 'S-frontier',
   question:
     'imp-34865 measured the forward-propagation-vs-contraction [T0] width ratio at N_cross at Newton-STEP ' +
-    'granularity (breach at step ~5) but never localised the breach to a depth in the elementary-op DAG. ' +
+    'granularity (crossing at step ~5) but never localised the crossing to a depth in the elementary-op DAG. ' +
     'Instrument the same directed-rounding surrogate step-by-step down the depth-30 dividing chain at ' +
     'ELEMENTARY-OP granularity, measure the cumulative forward enclosure width at each op-depth, and report ' +
     'the FIRST depth d* at which the forward iterate half-width exceeds the (H2) bracket half-width delta*T0 ' +
@@ -215,14 +215,14 @@ export const IMP34884_FORWARD_OP_DEPTH_BREACH = {
       'function of depth: it holds at the seed delta*T0 through depths 1..7 then DOUBLES at the first ' +
       'subtraction (depth 8), doubling again at 16, 24, 32 (the ~32-op depth-30 chain).',
     threshold:
-      'Breach threshold = the (H2) bracket half-width in T-space, HALF_WIDTH_T = delta*T0 ~ 2.29e5 (the seed ' +
-      'half-width itself). A breach is the iterate half-width exceeding this by more than a 1e-6 relative ' +
+      'Crossing threshold = the (H2) bracket half-width in T-space, HALF_WIDTH_T = delta*T0 ~ 2.29e5 (the seed ' +
+      'half-width itself). A crossing is the iterate half-width exceeding this by more than a 1e-6 relative ' +
       'rounding-noise tolerance -- the outward-rounding surrogate inflates the seed by only ~1e-12 relative, ' +
-      'far below the structural factor-2 jump, so noise and the real breach are cleanly separated.',
+      'far below the structural factor-2 jump, so noise and the real crossing are cleanly separated.',
     contrast:
       'The interval-Newton CONTRACTION operator N([T]) = m - [f](m)/[f_prime]([T]) intersect [T] (imp-34687 f ' +
       'monotone+convex) sets its width from the FINAL step, NOT from cumulative depth, so its half-width floor ' +
-      '~1.43e-6 T-units is ~6.25e-12 of HALF_WIDTH_T and NEVER breaches at ANY depth. Op-DAG depth is a ' +
+      '~1.43e-6 T-units is ~6.25e-12 of HALF_WIDTH_T and never crosses at ANY depth. Op-DAG depth is a ' +
       'liability only for forward propagation.',
   },
   constants: {
@@ -246,42 +246,42 @@ export const IMP34884_FORWARD_OP_DEPTH_BREACH = {
     iterate_ratios_by_depth: ITERATE_RATIOS, // [{0:1},{8:2},{16:4},{24:8},{32:16}]
     contraction_half_width_T: +CONTRACTION_HALF_WIDTH_T.toExponential(4), // ~1.4305e-6
     contraction_ratio_to_bracket_half_width: +CONTRACTION_RATIO_TO_BRACKET.toExponential(4), // ~6.25e-12
-    contraction_breach_depth: -1, // never breaches at any depth (width set by final step)
+    contraction_breach_depth: -1, // never crosses at any depth (width set by final step)
   },
   finding:
     'Instrumenting the forward interval-Newton recurrence at ELEMENTARY-OP granularity (8 ops per Newton step, ' +
     '~32 ops over the depth-30 op-DAG) with the imp-34865 directed-rounding surrogate LOCALISES the ' +
-    'forward-propagation breach. The forward iterate half-width holds at the seed value delta*T0 ~ 2.29e5 ' +
+    'forward-propagation crossing. The forward iterate half-width holds at the seed value delta*T0 ~ 2.29e5 ' +
     '(the (H2) bracket half-width in T-space) through the first 7 elementary ops -- the correction dT is ' +
     'built but the iterate is not yet updated -- then the FIRST [T]-dT subtraction at op-depth d* = 8 DOUBLES ' +
-    'the half-width to ~4.58e5 (ratio 2.0000), the first structural breach of the bracket half-width. So ' +
+    'the half-width to ~4.58e5 (ratio 2.0000), the first structural crossing of the bracket half-width. So ' +
     'forward propagation exceeds the bracket it started from after ONE Newton step, and d* = 8 sits ~22 ops ' +
-    'BELOW the ~30-deep Newton chain (breach at ~27 percent of chain depth); subsequent subtractions carry the ' +
+    'BELOW the ~30-deep Newton chain (crossing at ~27 percent of chain depth); subsequent subtractions carry the ' +
     'ratio to 4.0, 8.0, 16.0 at depths 16, 24, 32. The CONTRACTION route sets its width from the FINAL step, ' +
     'NOT cumulative depth, so its half-width floor ~1.43e-6 (~6.25e-12 of the bracket half-width) NEVER ' +
-    'breaches at any depth -- confirming the imp-34840 structural requirement that the inner interval-Newton ' +
+    'crossings at any depth -- confirming the imp-34840 structural requirement that the inner interval-Newton ' +
     'contraction, not forward propagation, is the depth-safe route. Measurement only; does NOT instantiate the ' +
     'imp-34687a directed-rounding layer; imp-34714a REMAINS OPEN.',
   subGap:
     'imp-34714a REMAINS OPEN. This LOCALISES (via the imp-34865 first-order outward-rounding surrogate, NOT the ' +
-    'imp-34687a certified transcendental layer) the forward-propagation breach of the (H2) bracket half-width ' +
+    'imp-34687a certified transcendental layer) the forward-propagation crossing of the (H2) bracket half-width ' +
     'to op-DAG depth d* = 8 (the first Newton subtraction, ~22 below the depth-30 chain), while the ' +
-    'contraction route never breaches at any depth. It does NOT instantiate the directed-rounding layer and ' +
+    'contraction route never crosses at any depth. It does NOT instantiate the directed-rounding layer and ' +
     'does NOT prove the endpoints ARE valid enclosures. Feasibility EVIDENCE, not a certificate. Adds no RH ' +
     'bound.',
   isRigorous: false,
   verdict:
-    'FORWARD-PROPAGATION OP-DEPTH BREACH LOCALISATION (frontier, NOT an RH bound). imp-34865 measured the ' +
-    'forward-vs-contraction [T0] width ratio at Newton-STEP granularity (breach at step ~5) but never located ' +
+    'FORWARD-PROPAGATION OP-DEPTH CROSSING LOCALISATION (frontier, NOT an RH bound). imp-34865 measured the ' +
+    'forward-vs-contraction [T0] width ratio at Newton-STEP granularity (crossing at step ~5) but never located ' +
     'the op-DAG depth. Instrumenting the same directed-rounding surrogate at ELEMENTARY-OP granularity down ' +
     'the depth-30 dividing chain (8 ops per Newton step): the forward iterate half-width holds at the seed ' +
     'delta*T0 ~ 2.29e5 (the (H2) bracket half-width in T-space) through depths 1..7, then the FIRST [T]-dT ' +
-    'subtraction at op-depth d* = 8 DOUBLES it to ~4.58e5 (ratio 2.0000) -- the first structural breach of the ' +
+    'subtraction at op-depth d* = 8 DOUBLES it to ~4.58e5 (ratio 2.0000) -- the first structural crossing of the ' +
     'bracket half-width, after only ONE Newton step, sitting ~22 ops BELOW the ~30-deep Newton chain. ' +
     'Subsequent subtractions carry the ratio to 4.0/8.0/16.0 at depths 16/24/32. The interval-Newton ' +
     'CONTRACTION (imp-34687 f monotone+convex) sets its width from the FINAL step, not cumulative depth, so ' +
-    'its half-width floor ~1.43e-6 (~6.25e-12 of the bracket half-width) NEVER breaches at any depth. So the ' +
-    'breach is a shallow, structural, forward-only event (interval subtraction at a Newton fixed point ' +
+    'its half-width floor ~1.43e-6 (~6.25e-12 of the bracket half-width) never crosses at any depth. So the ' +
+    'crossing is a shallow, structural, forward-only event (interval subtraction at a Newton fixed point ' +
     'doubling the width), not a slow op-DAG accumulation, and the contraction route is depth-safe. The ' +
     'factor-2-per-subtraction growth is structural, not a surrogate-rounding artifact; only the ~1e-12 seed ' +
     'rounding tail is surrogate-model dependent. FEASIBILITY / MEASUREMENT ONLY on the inherited ' +
@@ -302,9 +302,9 @@ export const IMP34884_FORWARD_OP_DEPTH_BREACH = {
 
 export const IMP34884_FORWARD_OP_DEPTH_BREACH_ASSERTIONS = [
   {
-    // The breach is localised to the FIRST Newton subtraction, deep below the depth-30 chain.
+    // The crossing is localised to the FIRST Newton subtraction, deep below the depth-30 chain.
     id: 'imp34884-breach-depth-below-chain',
-    description: 'forward breach depth d* = first Newton subtraction (~8), sitting well below the depth-30 chain',
+    description: 'forward crossing depth d* = first Newton subtraction (~8), sitting well below the depth-30 chain',
     holds: () =>
       BREACH_DEPTH > 0 &&
       BREACH_DEPTH < CHAIN_DEPTH &&
@@ -329,9 +329,9 @@ export const IMP34884_FORWARD_OP_DEPTH_BREACH_ASSERTIONS = [
     },
   },
   {
-    // The contraction route sets its width from the final step and NEVER breaches at any depth.
+    // The contraction route sets its width from the final step and never crosses at any depth.
     id: 'imp34884-contraction-never-breaches',
-    description: 'contraction half-width floor is ~6e-12 of the bracket half-width and never breaches at any depth',
+    description: 'contraction half-width floor is ~6e-12 of the bracket half-width and never crosses at any depth',
     holds: () =>
       CONTRACTION_HALF_WIDTH_T > 0 &&
       CONTRACTION_RATIO_TO_BRACKET < 1e-10 &&
@@ -340,7 +340,7 @@ export const IMP34884_FORWARD_OP_DEPTH_BREACH_ASSERTIONS = [
   {
     // Honesty gate: measurement/surrogate, not rigorous, sub-gap open, no QED, PT SOTA.
     id: 'imp34884-honesty-gate-no-qed',
-    description: 'op-depth breach measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
+    description: 'op-depth crossing measurement: isRigorous false, imp-34714a open, no QED, PT stays SOTA',
     holds: () =>
       IMP34884_FORWARD_OP_DEPTH_BREACH.isRigorous === false &&
       /imp-34714a/.test(IMP34884_FORWARD_OP_DEPTH_BREACH.subGap) &&

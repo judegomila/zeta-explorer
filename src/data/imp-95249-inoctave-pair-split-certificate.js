@@ -97,7 +97,7 @@
  * configuration: the first certificate in the chain that stays finite
  * where BL blows up, at unchanged V2 count-pricing.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The kernel identity
+ * SKEPTICAL SELF-CHECK RECORD. (1) The kernel identity
  * G12 G2^(-1) G12^T = G1 - Dp G1 Dp verified ENTRYWISE (rel 1e-9) on
  * four configurations including pair-vs-lattice -- this is the sharpest
  * possible numerical test of ANG-PENCIL since it checks the full matrix,

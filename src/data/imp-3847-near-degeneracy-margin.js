@@ -197,7 +197,7 @@ export const IMP_3847_NEAR_DEGENERACY_MARGIN_ASSERTIONS = [
       'Wall 2 (theta_N >= thetaBar = 0.99, the imp-3725 bootstrap hypothesis) ' +
       'is the binding wall: it is far tighter than the vacuousness wall yet ' +
       'still retains a > 3x Psi-growth margin at every plateau. If any plateau ' +
-      'breaches Psi_N <= 0.08 the imp-3725 upper-bound certificate for that ' +
+      'crossings Psi_N <= 0.08 the imp-3725 upper-bound certificate for that ' +
       'plateau is void.',
   },
   {

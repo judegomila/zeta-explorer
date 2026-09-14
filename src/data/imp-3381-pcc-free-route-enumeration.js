@@ -101,7 +101,7 @@ export const IMP3381_PCC_FREE_ROUTE_ENUMERATION = {
       isLiveTarget: false,
       namedArtifact: 'section26-verdict-volterra-not-a-reduction-2026-06-18.js + full-route-map-2026-06-19.js (directRH cluster)',
       note:
-        'RH-equivalent, KILLED as a reduction: the 5000x saturation margin was a scale/homogeneity artifact. PCC-free but not a shortcut.',
+        'RH-equivalent, ELIMINATED as a reduction: the 5000x saturation margin was a scale/homogeneity artifact. PCC-free but not a shortcut.',
     },
     {
       route: 'Normalized-R / mu^pass endpoint-bridge passive core (Conj-26.3)',

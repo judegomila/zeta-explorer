@@ -50,7 +50,7 @@
 // THE MARGIN, MADE EXPLICIT (signed tightness headroom)
 // -----------------------------------------------------
 // imp-2436 reduced functoriality of the Volterra contraction under f -> sym^m f
-// to the conductor-normalised shift a_m = a_0/log Q_m killing the translation
+// to the conductor-normalised shift a_m = a_0/log Q_m eliminating the translation
 // amplification Q_m^{a/2}, leaving the residual requirement that the second-
 // moment normalisation log c_m not outrun the conductor budget log Q_m. imp-2437
 // pinned c_m = prod_{j=1}^m L(1,sym^{2j} f) and the threshold log c_m = O(log Q_m).

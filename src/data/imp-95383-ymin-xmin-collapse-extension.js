@@ -25,7 +25,7 @@
  * when the other leg is the smallest denominator d_min = 1/p (mu is increasing
  * in d). So the y_min-minimizing pair is (d_min, d_max) exactly, and
  *   y_min = (mu(d_min) + mu(d_max)) u(d_max),   x_min = mu(d_max) u(d_max).
- * This closed form is verified against the brute-force O(N^2) double loop on
+ * This closed form is verified against the exhaustive O(N^2) double loop on
  * the four original grids (agreement to < 1e-12; see assertions).
  *
  * THE DECAY LAW (main measurement result). Dividing the two closed forms the
@@ -53,7 +53,7 @@
  * moves a Lambda bound; it extends and closes the imp-95255 LEG 1 collapse
  * measurement into a closed-form decay law on the width-law port geometry.
  * (b) The closed form y_min/x_min - 1 = (pD-1)^(-1/3) is EXACT on this grid
- * (all arithmetic, no quadrature) and is verified against brute force on the
+ * (all arithmetic, no quadrature) and is verified against exhaustive search on the
  * original grids; it is a statement about the TRANSCRIBED port geometry, not a
  * theorem about the paper seam. (c) The d^(-2/3) hypothesis is REFUTED for
  * this grid; the true exponent is -1/3. (d) LEG 2 (theta OBSTRUCTED) is
@@ -87,7 +87,7 @@ function yMinExact(ds) {
 function xMinExact(ds) {
   return xPort(ds[ds.length - 1]);
 }
-// brute-force cross-check (O(N^2)); used only on small grids in assertions
+// exhaustive cross-check (O(N^2)); used only on small grids in assertions
 function yMinBrute(ds) {
   let m = Infinity;
   for (const a of ds)
@@ -144,7 +144,7 @@ export const IMP95383_YMIN_XMIN_COLLAPSE_EXTENSION = {
   verdict:
     "MEASUREMENT (exact-algebra): the imp-95255 LEG 1 y_min/x_min collapse is extended past pD = 224 to pD = 23552 and closed into the EXACT law y_min/x_min - 1 = (pD-1)^(-1/3). The decay is a d^(-1/3) slow-rate correction -- the scout d^(-2/3) hypothesis is REFUTED. y_min still rides the x_min map. Nothing derives or moves a bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
   rigorScope:
-    "The closed form y_min = (mu(d_min)+mu(d_max)) u(d_max) is verified against the brute-force O(N^2) pair scan on the four original grids (agreement < 1e-12); the resulting law y_min/x_min - 1 = (pD-1)^(-1/3) is EXACT arithmetic (no quadrature) and reproduces the four baked imp-95255 ratios to < 3e-16. It is a statement about the TRANSCRIBED port geometry, not a theorem about the paper seam.",
+    "The closed form y_min = (mu(d_min)+mu(d_max)) u(d_max) is verified against the exhaustive O(N^2) pair scan on the four original grids (agreement < 1e-12); the resulting law y_min/x_min - 1 = (pD-1)^(-1/3) is EXACT arithmetic (no quadrature) and reproduces the four baked imp-95255 ratios to < 3e-16. It is a statement about the TRANSCRIBED port geometry, not a theorem about the paper seam.",
 };
 
 // -- assertions (self-executing; import-light; THROW on violation) -----------
@@ -152,7 +152,7 @@ export const IMP95383_COLLAPSE_EXTENSION_ASSERTIONS = [
   {
     id: "imp95383-exact-minimizer-matches-brute-force",
     description:
-      "the O(1) (d_min, d_max) closed form for y_min matches the brute-force O(N^2) pair scan on the four original imp-95255 grids (< 1e-12)",
+      "the O(1) (d_min, d_max) closed form for y_min matches the exhaustive O(N^2) pair scan on the four original imp-95255 grids (< 1e-12)",
     holds: () => {
       for (const [p, D] of [
         [2, 4],

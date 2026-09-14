@@ -41,7 +41,7 @@
  *   ---------------------------------------------
  *   The HS bound (imp-1267 / imp-1260) proves ||V_{a,Phi}|| <= 1 for a <= ~37.66.
  *   This covers all physically relevant Lambda <= 37.66 (Polymath15 gives Lambda <= 0.2).
- *   The large-a failure of Conj 27.2 at a >= 50 does NOT threaten the RH attack.
+ *   The large-a failure of Conj 27.2 at a >= 50 does NOT threaten the RH approach.
  *   See imp-1316 for the full scoping analysis.
  *
  *   RAW DATA SOURCE
@@ -195,7 +195,7 @@ export const IMP2324_VOLTERRA_RICHARDSON = Object.freeze({
       'However, the HS bound (imp-1267) proves ||V|| <= 1 for a <= ~37.66, which covers ' +
       'all physically relevant Lambda values (Polymath15 gives Lambda <= 0.2). ' +
       'The "for ALL a > 0" formulation of Conj 27.2 is indeed incorrect for large a, ' +
-      'but the RH / Lambda attack is unaffected.',
+      'but the RH / Lambda approach is unaffected.',
   }),
 
   honestScope: Object.freeze({

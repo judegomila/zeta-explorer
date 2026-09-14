@@ -408,7 +408,7 @@ export default function PaperAuditDashboardPage() {
                 fontWeight: 700,
               }}
             >
-              GENUINELY OPEN &amp; ATTACKABLE (
+              GENUINELY OPEN &amp; TRACTABLE (
               {D.openGapRecharacterization.genuinelyOpenAndAttackableCount}):
             </span>{' '}
             {D.openGapRecharacterization.genuinelyOpenAndAttackable.join('; ')}.
@@ -597,7 +597,7 @@ export default function PaperAuditDashboardPage() {
               Blaschke Ghosts (§17)
             </Link>
             <Link to="/three-attacks" style={{ color: 'var(--brass-dk)' }}>
-              Three Attacks (§18)
+              Three Approaches (§18)
             </Link>
             <Link to="/kyp-bounded-real" style={{ color: 'var(--brass-dk)' }}>
               KYP / Bounded-Real

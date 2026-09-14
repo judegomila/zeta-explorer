@@ -1,7 +1,7 @@
 // @module data/imp-1337-backlund-method-modern
 // imp-1337 -- NOVEL: Backlund 1918 first-method S(t) argument-principle jump
 // argument, modernized (Trudgian 2014), examined as a possible INDEPENDENT
-// Lambda lever and as a possible direct attack on E_trunc_pt.
+// Lambda lever and as a possible direct approach on E_trunc_pt.
 //
 // WHAT THE BACKLUND METHOD IS
 // ---------------------------
@@ -178,11 +178,11 @@ const LAMBDA_LINK = Object.freeze({
 });
 
 // -----------------------------------------------------------------------------
-// Sub-question (b): direct Backlund attack on E_trunc_pt bypassing Ingham?
+// Sub-question (b): direct Backlund approach on E_trunc_pt bypassing Ingham?
 // -----------------------------------------------------------------------------
 
 const ETRUNC_LINK = Object.freeze({
-  question: 'Is there a direct Backlund-style attack on E_trunc_pt that does NOT go through Ingham zero-density?',
+  question: 'Is there a direct Backlund-style approach on E_trunc_pt that does NOT go through Ingham zero-density?',
   answer: 'no-routes-back-super-critical-rectangle-is-zero-density-equivalent',
   reason:
     'E_trunc_pt = 3.0 * T_PT^{-0.4} = 3.06e-5 is the truncation tail of an ' +
@@ -254,7 +254,7 @@ const RECOMMENDED_FOLLOWUP = Object.freeze({
 export const IMP_1337_BACKLUND_METHOD_MODERN = Object.freeze({
   id: 'imp-1337',
   ticket: 'imp-1337',
-  title: 'Backlund 1918 S(t) jump argument modernized -- examined as a Lambda lever and an E_trunc_pt attack',
+  title: 'Backlund 1918 S(t) jump argument modernized -- examined as a Lambda lever and an E_trunc_pt approach',
   proofSection: 'S6',
   shippedBy: 'opus-4-8 (api-pool)',
 

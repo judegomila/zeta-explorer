@@ -1,5 +1,5 @@
 // @module data/imp-1289-section17-4-krein-langer-attack
-// imp-1289 -- §17.4 Krein-Langer negative-index identity: direct attack as a
+// imp-1289 -- §17.4 Krein-Langer negative-index identity: direct approach as a
 //             4th closure route for ‖V_{a,Φ}‖ ≤ 1.
 //
 // MOTIVATION
@@ -321,7 +321,7 @@ const INDEPENDENT_ROUTE_CHECK = Object.freeze({
       mechanism:
         'Krein WH factorization of the §27 Laplace symbol L[k_a](z) = a/(z²-a²); ' +
         'bound via the symbol H^∞ norm on the imaginary axis.',
-      coverage: 'a ≥ 1 (conjectural) — closed-form attack via the imp-1266 symbol',
+      coverage: 'a ≥ 1 (conjectural) — closed-form approach via the imp-1266 symbol',
       independenceFromKL:
         'INDEPENDENT. WH operates on the Laplace symbol, NOT on the Schur ' +
         'kernel K_{R_a}. The Pontryagin index is irrelevant; only the symbol ' +
@@ -329,7 +329,7 @@ const INDEPENDENT_ROUTE_CHECK = Object.freeze({
     }),
     Object.freeze({
       route: 'imp-1266 Mellin',
-      mechanism: 'Multiplicative-convolution attack via Mellin transform of k_a',
+      mechanism: 'Multiplicative-convolution approach via Mellin transform of k_a',
       coverage: 'NONE — eliminated at step 0 (V is not multiplicative convolution)',
       independenceFromKL:
         'N/A — route is eliminated. Mellin and Krein-Langer are unrelated.',
@@ -434,7 +434,7 @@ const HONEST_SCOPE = Object.freeze([
   'The §17.4 identity remains LOAD-BEARING inside the imp-1258 collapse: it ' +
     'is the exact bridge between geometric (B_a^+ ≡ 1), operator (K_a ⪰ 0), ' +
     'and Pontryagin (ind_- = 0) formulations. This ticket clarifies it is an ' +
-    'EQUIVALENCE THEOREM, not an independent attack route.',
+    'EQUIVALENCE THEOREM, not an independent approach route.',
   'PCC obstruction (imp-1184): even a 4th independent route would still face ' +
     'the Montgomery pair-correlation barrier for an unconditional Φ-built proof. ' +
     'This caveat is structural, not specific to Krein-Langer.',

@@ -18,7 +18,7 @@
  *       y* <= v <= sqrt(1 - 2 t*)      (tail lane, imp-95047).
  * This module designs the certification campaign: the transfer ledger from the
  * existing 0.1787854/0.1758354 machinery, the genuinely new work, per-task
- * compute-scale estimates, kill criteria, and a ranked first computation.
+ * compute-scale estimates, failure criteria, and a ranked first computation.
  *
  * THE REFERENCE CLOSURE (how the 0.1787854 v3 package closed ITS final-time
  * half-strip -- the template the 0.1399 tail must re-parametrize). The v3
@@ -50,7 +50,7 @@
  * must be re-derived, not transferred. That is why the ranked FIRST computation
  * is the cheap tail-repricing probe: it prices the dominant cost (the finite
  * transition lane row count N1*(t*, y*) - 690988) and tests the two hardest
- * kill criteria before any heavy spend.
+ * failure criteria before any heavy spend.
  *
  * GRADES. Everything below is contract/conditional-design; the only
  * measurements are exact rational/float arithmetic derived from frozen
@@ -59,7 +59,7 @@
  * T-P1 OUTCOME (2026-09-09, imp-95206, Arb 320/512-bit fail-closed): K1 CLEAR
  * (the endpoint-cap contraction closes at t* - the architecture is analytically
  * alive; D monotone 11.89@690989 -> 0.149@1e10) but K2 FIRES decisively:
- * N1* = 220,495,706 - 4.01x the ~5.5e7 economic kill line, T2b = 219,804,718
+ * N1* = 220,495,706 - 4.01x the ~5.5e7 economic cutoff line, T2b = 219,804,718
  * rows = 69.8x the v3 replay. The VERBATIM 0.1399 lane is economically dead;
  * T2a/T2b PARK. Unpriced residual outs: mollifier re-optimization at t*
  * (Mmax*AB = 0.4976 and TR = 0.3310 dominate D at N1*), a genuinely new tail
@@ -194,7 +194,7 @@ export const GENUINELY_NEW = Object.freeze([
   }),
 ]);
 
-// ── the campaign: tasks, compute scale, kill wiring ──────────────────────────
+// ── the campaign: tasks, compute scale, failure-criteria wiring ──────────────────────────
 // computeScale entries are ESTIMATES keyed to observed v3/four-gate package
 // scales (883 prisms; 3,149,013 rows ~ one GH-Actions full-replay campaign;
 // 36-gate Arb runs are minutes). Grades: every task is conditional-design.
@@ -239,7 +239,7 @@ export const CAMPAIGN_TASKS = Object.freeze([
     what: 'the finite piece between the seam x = X+1 and the all-N regime, produced by the lemma_sweep landmark-row machinery at fixed final time with gamma_at/bound_constants re-derived at t*; full sealed replay',
     transfers: ['lemma_sweep_p235711.c producer', 'verify_window_freeze.py seam conventions', 'GH-Actions sealed-replay packaging'],
     genuinelyNew: ['rows at fixed t* over a band wider at both ends than any certified lane', 'row count unknown until T-P1 prices N1*'],
-    computeScale: 'linear in N1*: at N1* = 3840000 it is exactly 3,149,012 rows (v3 full-replay class, ~1e3 core-hours); at the four-gate N* = 6e6 it is ~5.3e6 rows; K2 kills above the Gate-2-scale line',
+    computeScale: 'linear in N1*: at N1* = 3840000 it is exactly 3,149,012 rows (v3 full-replay class, ~1e3 core-hours); at the four-gate N* = 6e6 it is ~5.3e6 rows; K2 eliminates above the Gate-2-scale line',
     tests: ['K2'],
     grade: 'conditional-design',
   }),
@@ -267,31 +267,31 @@ export const CAMPAIGN_TASKS = Object.freeze([
   }),
 ]);
 
-// ── kill criteria (fail-closed; each names the lane it kills) ────────────────
+// ── failure criteria (fail-closed; each names the lane it eliminates) ────────────────
 export const KILL_CRITERIA = Object.freeze([
   Object.freeze({
     id: 'K1',
-    statement: 'ARCHITECTURE KILL: the endpoint-cap contraction at t* stays >= 1 for every feasible N1 (no N1* exists). The v3 slack was only 1.735e-4 at t = 0.16125, and t* is 0.0349625 earlier, so this is a live risk, not a formality. Kills the tail lane in this architecture; the 0.1399 row parks pending a genuinely new tail estimate.',
+    statement: 'ARCHITECTURE FAILURE: the endpoint-cap contraction at t* stays >= 1 for every feasible N1 (no N1* exists). The v3 slack was only 1.735e-4 at t = 0.16125, and t* is 0.0349625 earlier, so this is a live risk, not a formality. Eliminates the tail lane in this architecture; the 0.1399 row parks pending a genuinely new tail estimate.',
     kills: 'T2a/T2b',
   }),
   Object.freeze({
     id: 'K2',
-    statement: 'ECONOMIC KILL: N1*(t*, y*) > ~5.5e7, i.e. the finite transition lane exceeds the Gate-2-family scale (54799999 - 690988 + 1 ~ 5.41e7 rows, >17x the v3 replay). The whole point of Theorem 4.5 is trading the cocycle weld for two delimited tasks; if the tail transition regrows to open-family size the trade loses its advantage.',
+    statement: 'ECONOMIC FAILURE: N1*(t*, y*) > ~5.5e7, i.e. the finite transition lane exceeds the Gate-2-family scale (54799999 - 690988 + 1 ~ 5.41e7 rows, >17x the v3 replay). The whole point of Theorem 4.5 is trading the cocycle weld for two delimited tasks; if the tail transition regrows to open-family size the trade loses its advantage.',
     kills: 'T2b',
   }),
   Object.freeze({
     id: 'K3',
-    statement: 'MARGIN KILL: the slab bottom-edge probe at v = 0.165 shows the strict margin collapsing (adaptive subdivision trending past ~1e6 prisms with no margin floor). The box lower edge is then not certifiable at feasible depth; fallback is raising y* (which raises the target above 0.1399) or retreating to the 0.14 row.',
+    statement: 'MARGIN FAILURE: the slab bottom-edge probe at v = 0.165 shows the strict margin collapsing (adaptive subdivision trending past ~1e6 prisms with no margin floor). The box lower edge is then not certifiable at feasible depth; fallback is raising y* (which raises the target above 0.1399) or retreating to the 0.14 row.',
     kills: 'T1',
   }),
   Object.freeze({
     id: 'K4',
-    statement: 'SEAM KILL: the quantitative Lemma 4.4 join width (~0.0137 in x, plus the Prop 4.3 collar budget M_t|dt| + M_y|dy| < m) cannot be met by the T1/T2b endpoint enclosures. A gap or overlap at u = X+1 voids the assembly even with both lanes individually green.',
+    statement: 'SEAM FAILURE: the quantitative Lemma 4.4 join width (~0.0137 in x, plus the Prop 4.3 collar budget M_t|dt| + M_y|dy| < m) cannot be met by the T1/T2b endpoint enclosures. A gap or overlap at u = X+1 voids the assembly even with both lanes individually green.',
     kills: 'T3/T4',
   }),
   Object.freeze({
     id: 'K5',
-    statement: 'HONESTY KILL (standing): any dependence on the external [20] 492-rectangle march without a full independent rebuild leaves the result an audit target, not a project certificate; and even with all tasks green the outcome is a sealed UNREVIEWED CONDITIONAL-frontier candidate -- it does not move the rigorous Lambda <= 0.2, which binds on verified height (PT-floor audit).',
+    statement: 'HONESTY ELIMINATE (standing): any dependence on the external [20] 492-rectangle march without a full independent rebuild leaves the result an audit target, not a project certificate; and even with all tasks green the outcome is a sealed UNREVIEWED CONDITIONAL-frontier candidate -- it does not move the rigorous Lambda <= 0.2, which binds on verified height (PT-floor audit).',
     kills: 'promotion of any claim',
   }),
 ]);
@@ -301,7 +301,7 @@ export const FIRST_COMPUTATION_RANKING = Object.freeze([
   Object.freeze({
     rank: 1,
     task: 'T-P1',
-    why: 'cheapest (< 1 core-day of Arb time) and most informative: one re-parametrized verify_tail_arb.c binary search simultaneously (i) tests the architecture kill K1 at the earlier t*, (ii) prices the dominant campaign cost -- T2b rows = N1* - 690988, exactly 3,149,012 at unchanged N1 = 3840000 -- against the economic kill K2, and (iii) commits no heavy spend before the two hardest kills are checked',
+    why: 'cheapest (< 1 core-day of Arb time) and most informative: one re-parametrized verify_tail_arb.c binary search simultaneously (i) tests the architecture eliminate K1 at the earlier t*, (ii) prices the dominant campaign cost -- T2b rows = N1* - 690988, exactly 3,149,012 at unchanged N1 = 3840000 -- against the economic eliminate K2, and (iii) commits no heavy spend before the two hardest eliminates are checked',
     spec: 'inputs: t in [10103/80000, 10103/80000] (point interval), y*^2 = 1089/40000, band top sqrt(59794/80000); re-derive the t-dependent lambda/kernel constants; binary-search minimal N1* in [690989, 5.5e7] with all 36 gates strict-PASS at >= 320 bits',
   }),
   Object.freeze({
@@ -344,7 +344,7 @@ export const IMP95201_CAMPAIGN = Object.freeze({
     'collar + Lean interfaces) carry over from the 0.1787854/0.1758354 packages; five ' +
     'items are genuinely new (earlier-t* tail, band bottom 0.165, band top 0.8645, ' +
     'quantitative Lemma 4.4, independent slab provenance). Ranked first computation: the ' +
-    'tail repricing probe T-P1, which tests kill criteria K1/K2 for under a core-day ' +
+    'tail repricing probe T-P1, which tests failure criteria K1/K2 for under a core-day ' +
     'before any heavy spend. No certificate is run here; derives no bound; closes no ' +
     'gap; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
 });
@@ -397,7 +397,7 @@ export const IMP95201_CAMPAIGN_ASSERTIONS = [
   },
   {
     id: 'imp95201-k1-is-live-slack-was-tiny',
-    description: 'the v3 tail contraction slack 1.735e-4 is small, so K1 (contraction >= 1 at the earlier t*) is a live kill, not a formality',
+    description: 'the v3 tail contraction slack 1.735e-4 is small, so K1 (contraction >= 1 at the earlier t*) is a live eliminate, not a formality',
     holds: () => {
       const tail = REFERENCE_CLOSURE_01787854.pieces[2].literals;
       return (
@@ -418,12 +418,12 @@ export const IMP95201_CAMPAIGN_ASSERTIONS = [
   },
   {
     id: 'imp95201-k2-killline-pricing',
-    description: 'the K2 economic kill line (Gate-2-family scale) is > 17x the v3 replay row count',
+    description: 'the K2 economic cutoff line (Gate-2-family scale) is > 17x the v3 replay row count',
     holds: () => (54799999 - 690988 + 1) / 3149013 > 17,
   },
   {
     id: 'imp95201-campaign-hygiene',
-    description: 'every task is conditional-design with kill wiring; rank-1 first computation is the tail repricing probe T-P1; verdict carries NO QED and PT-SOTA; no rigorous-bound claim',
+    description: 'every task is conditional-design with failure-criteria wiring; rank-1 first computation is the tail repricing probe T-P1; verdict carries NO QED and PT-SOTA; no rigorous-bound claim',
     holds: () =>
       CAMPAIGN_TASKS.length === 6 &&
       CAMPAIGN_TASKS.every((t) => t.grade === 'conditional-design' && t.tests.length > 0) &&

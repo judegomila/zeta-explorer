@@ -150,7 +150,7 @@ export const SG1C_ASYM_ONSET_BRACKET_LEDGER = {
     {
       value: 0.943,
       configClass: 'near-uniform multi-body lattice (up to 7 particles, both sides)',
-      derivation: '3e6-config adversarial multi-body random scan infimum; the loosest (highest) recorded ceiling',
+      derivation: '3e6-config skeptical multi-body random scan infimum; the loosest (highest) recorded ceiling',
       status: 'random-scan',
       boundsGlobal: 'above (loosest ceiling; only near a uniform lattice)',
       ticket: 'imp-2596',

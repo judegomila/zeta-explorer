@@ -258,7 +258,7 @@ function AcceleratingSection() {
     {
       title: 'Cron-based Continuous Improvement',
       color: '#4c7a4a',
-      content: 'Use the /loop command to schedule recurring improvement sweeps. Chunk work into phases: (1) generate improvement ideas and rank by priority, (2) implement the top-priority item, (3) verify with build + adversarial D-H checks, (4) commit and update the queue. Each cycle takes 5-10 minutes.',
+      content: 'Use the /loop command to schedule recurring improvement sweeps. Chunk work into phases: (1) generate improvement ideas and rank by priority, (2) implement the top-priority item, (3) verify with build + skeptical D-H checks, (4) commit and update the queue. Each cycle takes 5-10 minutes.',
       code: '// Phase 1: Identify highest-priority queued item\n// Phase 2: Implement the change\n// Phase 3: npm run build && verify\n// Phase 4: git commit && mark completed',
     },
     {
@@ -282,7 +282,7 @@ function AcceleratingSection() {
     {
       title: 'Automated Testing Pipeline',
       color: '#4c7a4a',
-      content: 'After each improvement, automatically run: (1) npm run build to verify no breakage, (2) adversarial D-H function checks against new numerical results, (3) cross-validation against known zero heights, (4) GUE pair correlation consistency check. Any failure triggers immediate investigation.',
+      content: 'After each improvement, automatically run: (1) npm run build to verify no breakage, (2) skeptical D-H function checks against new numerical results, (3) cross-validation against known zero heights, (4) GUE pair correlation consistency check. Any failure triggers immediate investigation.',
       code: '// After every change:\n// 1. npm run build\n// 2. Verify D-H(s) consistency\n// 3. Check against Odlyzko zero tables\n// 4. GUE pair correlation test\n// 5. Li coefficient positivity check',
     },
     {

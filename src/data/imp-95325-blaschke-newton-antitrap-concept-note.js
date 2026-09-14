@@ -42,7 +42,7 @@
  *   s - nu_k that are cancelled AT THE SAME POINT by a numerator built to
  *   vanish there (c_k = F_k(nu_k) is subtracted off before dividing), so
  *   the coefficients c_k stay finite as rates coalesce -- confirmed
- *   adversarially on near-coalescent triples (separations 1e-2 to 1e-4)
+ *   independently on near-coalescent triples (separations 1e-2 to 1e-4)
  *   where the BN sum stays finite while the direct pencil eigensolve
  *   loses digits. This is what makes LEMMA BN reusable as coalescence-
  *   uniform machinery: the certificate needs no rate-separation

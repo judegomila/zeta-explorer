@@ -284,7 +284,7 @@ export default function InformationTheoryPage() {
           <h3 style={{ color: 'var(--brass-dk)' }}>Chaitin's Constant and Zeta: Incompressibility as Irrationality</h3>
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
             There is a deep link between algorithmic information theory and the irrationality of zeta values,
-            connecting to the <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta irrationality attack</Link>.
+            connecting to the <Link to="/odd-zeta" style={{ color: 'var(--blue)' }}>Odd Zeta irrationality approach</Link>.
             It is conjectured (unproven) that the Kolmogorov complexity of odd zeta values grows
             faster than any logarithmic bound:
           </p>
@@ -446,7 +446,7 @@ export default function InformationTheoryPage() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
             <Link to="/odd-zeta" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>Odd Zeta Irrationality</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/spectral-attack" style={{ color: 'var(--blue)', fontSize: 13, textDecoration: 'none' }}>Spectral Attack</Link>
+            <Link to="/spectral-attack" style={{ color: 'var(--blue)', fontSize: 13, textDecoration: 'none' }}>Spectral Approach</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/concepts" style={{ color: 'var(--brass)', fontSize: 13, textDecoration: 'none' }}>Concepts</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>

@@ -94,7 +94,7 @@ const MAX_J    = _maxIdx % GRID_N;
 const DC_VALUE = REF_GRID[0];
 
 // Cross-sweep: evaluate the (0, 0) pixel at the first 5 Riemann zeros.
-// (0,0) is independent of t_0 (j = k = 0 kills t_0 inside the cosine), so
+// (0,0) is independent of t_0 (j = k = 0 eliminates t_0 inside the cosine), so
 // the entry should be N_PRIMES at every t_0.  This is a sanity tripwire.
 const DC_AT_FIRST_5_ZEROS = ZETA_ZEROS.slice(0, 5).map(t0 => ({
   t0,
@@ -236,7 +236,7 @@ export const VIZ_PRIME_PHASE_CRYSTAL_ASSERTIONS = [
     id: 'viz-phase-crystal-dc-invariant-across-zeros',
     holds: () => DC_AT_FIRST_5_ZEROS.every(r => Math.abs(r.dc - N_PRIMES) < 1e-10),
     why:
-      'F(0, 0) does not depend on t_0 (j = k = 0 kills t_0 inside the ' +
+      'F(0, 0) does not depend on t_0 (j = k = 0 eliminates t_0 inside the ' +
       'cosine).  All five sampled Riemann zeros must give DC = N_PRIMES ' +
       'exactly.  Tests the slider-invariant identity.',
   },

@@ -101,14 +101,14 @@
  * changes no bound; does NOT promote Lambda <= 0.14; NO QED;
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma TM was checked numerically
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma TM was checked numerically
  * against the exact Lemma PF closed form on the full grid b <= 15,
  * j in [2, 40] (worst envE/majorant ratio 0.033 at (0, 2) - the majorant
  * never binds within 30x); majGeom dominates majU on the same grid.
  * (2) The scanned odd-class sup row reproduces the independent
- * twenty-second literal to the last printed digit. (3) The law was attacked
+ * twenty-second literal to the last printed digit. (3) The law was stress-tested
  * with the full imp-95113 perturbation battery: zero violations in 4835
- * E > 0 draws, worst margin 0.238. (4) The derivation was attacked for a
+ * E > 0 draws, worst margin 0.238. (4) The derivation was stress-tested for a
  * parity-split hole: capSum by definition (same-parity pairs, (b + bp)
  * mod 2 = 0) contains even-even and odd-odd pairs ONLY, so the two-class
  * split is exact, not an inequality. (5) SCOPE HONESTY: the bound is
@@ -521,7 +521,7 @@ export const IMP95129_DILUTION_LAW_ASSERTIONS = [
   {
     id: "imp95129-od-battery-zero-violations",
     description:
-      "adversarial battery: all 4835 E > 0 draws of the imp-95113 local-perturbation battery (LCG seed 24681357) satisfy phi <= 1 - (1 - q) omega with zero violations; minimum slack 0.23807188071804075 and maximum phi/bound 0.5791377536179345",
+      "skeptical battery: all 4835 E > 0 draws of the imp-95113 local-perturbation battery (LCG seed 24681357) satisfy phi <= 1 - (1 - q) omega with zero violations; minimum slack 0.23807188071804075 and maximum phi/bound 0.5791377536179345",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (

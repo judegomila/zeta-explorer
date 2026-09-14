@@ -232,9 +232,9 @@ export default function StatisticsPage() {
           <h3 style={{ color: 'var(--faint)' }}>Related Pages</h3>
           <p style={{ marginTop: 8, color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.8 }}>
             See also:{' '}
-            <Link to="/rh-attack" style={{ color: 'var(--terra-dk)' }}>RH Attack</Link>{' '}
+            <Link to="/rh-attack" style={{ color: 'var(--terra-dk)' }}>RH Approach</Link>{' '}
             (overall proof strategy),{' '}
-            <Link to="/spectral-attack" style={{ color: 'var(--blue)' }}>Spectral Attack</Link>{' '}
+            <Link to="/spectral-attack" style={{ color: 'var(--blue)' }}>Spectral Approach</Link>{' '}
             (GUE connection to confinement potential),{' '}
             <Link to="/hamiltonian" style={{ color: 'var(--blue)' }}>Hamiltonian</Link>{' '}
             (constructing the operator whose eigenvalues are zeros),{' '}

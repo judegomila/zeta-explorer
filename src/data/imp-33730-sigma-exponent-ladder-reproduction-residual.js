@@ -38,7 +38,7 @@
  *        now QUANTIFIED per decade, not just as a boolean.
  *   (F2) THE MAX RESIDUAL IS 4.84e-5, AT THE [1e11,1e12] DECADE (k = 11). It sits at ~0.97 of the
  *        5e-5 tolerance -- the tightest decade, yet still inside it. The far-tail decade rounds
- *        least favorably (0.4310484 -> 0.4310) but does NOT breach the 4th decimal.
+ *        least favorably (0.4310484 -> 0.4310) but does NOT cross the 4th decimal.
  *   (F3) NO DECADE DRIFTS. All six residuals are pure 4-decimal rounding artifacts (each < the
  *        half-ULP), so there is no divergent sub-term: the sigma model, the E_trunc/E_flow/E_coll
  *        split, and the 4-pts/decade OLS window are byte-identical between imp-33582 and imp-33701.
@@ -163,7 +163,7 @@ export const IMP33730_SIGMA_EXPONENT_LADDER_REPRODUCTION_RESIDUAL = {
     F2_max_residual_4p84e5_at_1e11:
       'The max residual is 4.84e-5 at the [1e11,1e12] decade (k = 11), sitting at ~0.97 of the ' +
       '5e-5 tolerance -- the tightest decade, yet still inside it. The far-tail decade rounds least ' +
-      'favorably (0.4310484 -> 0.4310) but does NOT breach the 4th decimal.',
+      'favorably (0.4310484 -> 0.4310) but does NOT cross the 4th decimal.',
     F3_no_decade_drifts:
       'All six residuals are pure 4-decimal rounding artifacts (each below the half-ULP), so there ' +
       'is no divergent sub-term: the sigma model, the E_trunc/E_flow/E_coll split, and the ' +

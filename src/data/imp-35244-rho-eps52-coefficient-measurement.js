@@ -202,7 +202,7 @@ export const IMP35244_RHO_EPS52_COEFFICIENT_MEASUREMENT = {
   eps72MatchesClosedForm: EPS72_MATCHES_CLOSED_FORM, // r1/eps^{7/2} -> -8 sqrt(2)/(3 pi)
   tailEps72Read: +TAIL_ROW.r1OverEps72.toFixed(6), // ~-1.2005
 
-  // Why the eps^{5/2} term cancels: odd-p branch pairing flips the sign, killing the t^{-6} tail.
+  // Why the eps^{5/2} term cancels: odd-p branch pairing flips the sign, eliminating the t^{-6} tail.
   cancellationMechanism:
     'For the odd power p=3 the branch pair B_3(+)+B_3(-) rescales to (i - t^2)^{-3} + (i + t^2)^{-3} = ' +
     '-6 i t^{-8} + O(t^{-12}): the leading t^{-6} terms cancel between the conjugate branches, so the |F_3| ' +

@@ -155,7 +155,7 @@ export const IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION = {
   isRigorous: false, // numerical extraction of the surrogate-map representation ingredients; no QED
   rigorousScope:
     'MEASUREMENT ONLY on the INHERITED imp-3220 / imp-3406 / imp-33723 SURROGATE crossover map g. The ' +
-    'extracted ingredients (g_prime completely monotone, drift b = 0, killing a = K log T0(0+) >= 0) are ' +
+    'extracted ingredients (g_prime completely monotone, drift b = 0, eliminating a = K log T0(0+) >= 0) are ' +
     'structural properties of the SURROGATE map g, NOT of the RH operator. Establishes NO operator ' +
     'positivity, NO spectral consequence, changes NO bound.',
   changesBound: false,
@@ -165,7 +165,7 @@ export const IMP35114_BERNSTEIN_INGREDIENTS_EXTRACTION = {
     '(g_prime > 0, g_pp < 0, g_ppp > 0: nonnegative, decreasing, convex) across N in {1e7 .. 1e18}, ' +
     'matching the imp-35012 Bernstein classification. The extracted Levy-Khintchine ingredients are: ' +
     'DRIFT b = 0 -- lim_{N->inf} g_prime(N) and the far-tail linear slope g(N)/N both collapse to 0 ' +
-    '(K log T0 is sub-linear, so all growth lives in the Levy integral term) -- and KILLING a = ' +
+    '(K log T0 is sub-linear, so all growth lives in the Levy integral term) -- and ELIMINATING a = ' +
     'K log T0(0+) finite and >= 0 (~4.46e8 at the height floor, ~2.89e8 in the T0 -> 2pi limit), as the ' +
     'a, b >= 0 representation requires. The drift and the far-tail linear slope AGREE (the ticket ' +
     'cross-check). MEASUREMENT ONLY on the surrogate map: the C_mb GUE-conditional per imp-486, the ' +

@@ -1,7 +1,7 @@
 /**
  * @module sessions
  * @fileoverview Coarse-grained journal of working sessions on the RH Λ-
- * bound attack. Mirrors SESSIONS.md at the repo root (write-through to
+ * bound approach. Mirrors SESSIONS.md at the repo root (write-through to
  * the .md file; this is the read interface consumed by the Sessions page).
  * Exports {@link SESSIONS} (frozen entry list with date, focus, outcomes).
  * Background reference; NOT part of the formal proof chain. Module-doc
@@ -9,10 +9,10 @@
  * @see SESSIONS.md
  */
 
-// Research Sessions — ZPO Explorer / RH Attack Journal
+// Research Sessions — ZPO Explorer / RH Approach Journal
 //
 // Coarse-grained journal of work sessions on the Riemann Hypothesis Λ bound
-// attack. One entry per working session. Mirrors SESSIONS.md at the repo root.
+// approach. One entry per working session. Mirrors SESSIONS.md at the repo root.
 // SESSIONS.md is the write-through; this file is the read interface consumed
 // by src/pages/ResearchJournalPage.jsx.
 //
@@ -48,14 +48,14 @@ export const SESSIONS = [
         phase: 'Phase 6',
         ids: ['imp-318', 'imp-319', 'imp-320', 'imp-321', 'imp-322'],
         summary:
-          'verified-computing Dyson integration, Λ≤0 attack note enumerating 4 blockers B1–B4, cross-validation table, push to PT-scale 10^10, analytic monotonicity proof of B(t)',
+          'verified-computing Dyson integration, Λ≤0 approach note enumerating 4 blockers B1–B4, cross-validation table, push to PT-scale 10^10, analytic monotonicity proof of B(t)',
         status: 'all completed by engine',
       },
       {
         phase: 'Phase 7',
         ids: ['imp-323', 'imp-324', 'imp-325', 'imp-326', 'imp-327'],
         summary:
-          'attack each of B1–B4 plus exact Λ≤0 ⟺ RH height mapping',
+          'approach each of B1–B4 plus exact Λ≤0 ⟺ RH height mapping',
         status: 'all completed by engine',
       },
       {
@@ -105,7 +105,7 @@ export const SESSIONS = [
     openQuestions: [
       'Does the 1/N ansatz |t_c| = a + b/N have a quadratic correction + c/N² that would change â when fit with three parameters? (no ticket yet)',
       'Can the B2(a) angles be pooled (OLS baseline + projected 8-point + WLS + log-spaced ladder) into a single Bayesian posterior on a that is tighter than any individual fit? (no ticket yet)',
-      'Does the Tao-Rodgers unconditional Λ ≥ 0 interact with our upper bounds in a way that gives a direct analytic attack independent of B1–B4? (no ticket yet)',
+      'Does the Tao-Rodgers unconditional Λ ≥ 0 interact with our upper bounds in a way that gives a direct analytic approach independent of B1–B4? (no ticket yet)',
       'If imp-328 succeeds, what exact RH statement does the resulting Λ ≤ 0 establish — at what effective height T* from lambda-rh-height-mapping.js? (imp-327 answers for N=2458; not yet re-run for the PT-scale data from imp-321)',
     ],
     metaObservations: [
@@ -970,7 +970,7 @@ export const SESSIONS = [
       {
         path: 'src/data/imp-95008-exact-pair-correlation-ceiling.js',
         ticket: 'imp-95008-exact-pair-correlation-ceiling',
-        note: 'LEMMA CC layer-cake separation monotonicity, LEMMA RM width-ratio monotonicity, LEMMA PF exact partial-fraction closed form, and THEOREM Y-EXACT parity roll-up, with adversarial self-check (quadrature convergence, float-conditioning) and assertions covering the closed reference literals',
+        note: 'LEMMA CC layer-cake separation monotonicity, LEMMA RM width-ratio monotonicity, LEMMA PF exact partial-fraction closed form, and THEOREM Y-EXACT parity roll-up, with skeptical self-check (quadrature convergence, float-conditioning) and assertions covering the closed reference literals',
       },
     ],
     keyFinding:
@@ -995,9 +995,9 @@ export const SESSIONS = [
     title:
       'THEOREM RZ-PEN2 through RZ-PEN6 exhaust the trace, chart, and tail currencies of the imp-95288 symbol-pencil floor (imp-95348)',
     engineStateStart:
-      'The imp-95288 adversarial record measured the symbol-pencil floor A_pen 25.3 - 91.7x below the exact generalized-eigenvalue infimum lam_min(F, G0) at rho = 2, attributing the looseness to a crude pi^2 / 9 pi^2 / 9 pi^2 trace cap that over-prices every finite symbol term near theta = 0, where the true minimizer sits.',
+      'The imp-95288 skeptical record measured the symbol-pencil floor A_pen 25.3 - 91.7x below the exact generalized-eigenvalue infimum lam_min(F, G0) at rho = 2, attributing the looseness to a crude pi^2 / 9 pi^2 / 9 pi^2 trace cap that over-prices every finite symbol term near theta = 0, where the true minimizer sits.',
     engineStateEnd:
-      'Five successive legs close that gap currency by currency, each proven to dominate the previous floor unconditionally. RZ-PEN2 (imp-95328, LEMMA S-MONO) keeps the trace weights w_0^2 = theta^2 pointwise instead of capped, splitting the theta-range into a near chart and a far chart via an explicit split point t; gain 13.326x at rho = 2, looseness 25.3 - 91.7x -> 4.6 - 6.7x. RZ-PEN3 (imp-95329, LEMMA BCAP + LEMMA ACAP) replaces the quadratic 1 - cos(w tau) <= w^2 tau^2 / 2 step and the alpha <= 2 f_a step with two closed-form caps whose branches cross exactly at c* = 1 + a^2 / (2 w^2); gain 6.073x at rho = e^6, looseness 37.8 - 65.2x -> 6.2 - 10.7x. RZ-PEN4 (imp-95330, LEMMA G-MONO) replaces the two-chart split by a uniform K = 256-chart cover of [0, pi] via a ratio-monotone substitution; gain 5.7648x at rho = 2 (floor now 1.029 - 1.037x of the exact infimum there, near-exhausted) but only 1.1458x at rho = e^6 (still 5.4 - 9.8x loose). RZ-PEN5 (imp-95331, LEMMA ROOT-MONO + LEMMA W-SPLIT) splits the two side weights w_{-1} and w_{+1} into separately-capped chart terms and replaces det/tr by the exact smaller quadratic root; gain 1.5389x at rho = e^6 (looseness 9.32x -> 6.09x at r = 2), while adversarially REFUTING the imp-95330 attribution that the exact-root step alone could gain up to 1.66x -- standalone it gains at most 1.006x, because the root and trace legs are coupled through the discriminant B^2 - A C. RZ-PEN6 (imp-95332, LEMMA TAIL-CHART) replaces the theta-uniform |n| >= 2 tail majorant c3n with a per-chart cap c3nChart, charging the tail terms at their exact chart endpoints; gain 1.2025x at rho = e^6, r = 2 (looseness 6.085 -> 5.060), with the per-chart cap measured within 0.3 percent of the true t3-weighted tail (max truth/cap 0.9978) -- the tail currency is EXHAUSTED. Every-octave onsets (dyadic skeleton, r in (1, 1.3], every m) drop 15.689897 -> 14.302669 (RZ-PEN2) -> 14.242145 (RZ-PEN3) -> 13.297836 (RZ-PEN4), then hold UNCHANGED at 13.297836 through RZ-PEN5 and RZ-PEN6 since the certificate anchor rho = 2 sits below the rho ~ 6.5 activation crossover where those two legs bind.',
+      'Five successive legs close that gap currency by currency, each proven to dominate the previous floor unconditionally. RZ-PEN2 (imp-95328, LEMMA S-MONO) keeps the trace weights w_0^2 = theta^2 pointwise instead of capped, splitting the theta-range into a near chart and a far chart via an explicit split point t; gain 13.326x at rho = 2, looseness 25.3 - 91.7x -> 4.6 - 6.7x. RZ-PEN3 (imp-95329, LEMMA BCAP + LEMMA ACAP) replaces the quadratic 1 - cos(w tau) <= w^2 tau^2 / 2 step and the alpha <= 2 f_a step with two closed-form caps whose branches cross exactly at c* = 1 + a^2 / (2 w^2); gain 6.073x at rho = e^6, looseness 37.8 - 65.2x -> 6.2 - 10.7x. RZ-PEN4 (imp-95330, LEMMA G-MONO) replaces the two-chart split by a uniform K = 256-chart cover of [0, pi] via a ratio-monotone substitution; gain 5.7648x at rho = 2 (floor now 1.029 - 1.037x of the exact infimum there, near-exhausted) but only 1.1458x at rho = e^6 (still 5.4 - 9.8x loose). RZ-PEN5 (imp-95331, LEMMA ROOT-MONO + LEMMA W-SPLIT) splits the two side weights w_{-1} and w_{+1} into separately-capped chart terms and replaces det/tr by the exact smaller quadratic root; gain 1.5389x at rho = e^6 (looseness 9.32x -> 6.09x at r = 2), while independently REFUTING the imp-95330 attribution that the exact-root step alone could gain up to 1.66x -- standalone it gains at most 1.006x, because the root and trace legs are coupled through the discriminant B^2 - A C. RZ-PEN6 (imp-95332, LEMMA TAIL-CHART) replaces the theta-uniform |n| >= 2 tail majorant c3n with a per-chart cap c3nChart, charging the tail terms at their exact chart endpoints; gain 1.2025x at rho = e^6, r = 2 (looseness 6.085 -> 5.060), with the per-chart cap measured within 0.3 percent of the true t3-weighted tail (max truth/cap 0.9978) -- the tail currency is EXHAUSTED. Every-octave onsets (dyadic skeleton, r in (1, 1.3], every m) drop 15.689897 -> 14.302669 (RZ-PEN2) -> 14.242145 (RZ-PEN3) -> 13.297836 (RZ-PEN4), then hold UNCHANGED at 13.297836 through RZ-PEN5 and RZ-PEN6 since the certificate anchor rho = 2 sits below the rho ~ 6.5 activation crossover where those two legs bind.',
     lambdaHeadline: {
       start: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
       end: 'Platt-Trudgian Λ ≤ 0.2 (SOTA, unchanged)',
@@ -1033,7 +1033,7 @@ export const SESSIONS = [
       {
         path: 'src/data/imp-95331-split-weight-exact-root-pencil-floor.js',
         ticket: 'imp-95331',
-        note: 'LEMMA ROOT-MONO + LEMMA W-SPLIT + THEOREM RZ-PEN5: split side-weight charts and exact quadratic root, with the standalone det/tr adversarial refutation',
+        note: 'LEMMA ROOT-MONO + LEMMA W-SPLIT + THEOREM RZ-PEN5: split side-weight charts and exact quadratic root, with the standalone det/tr skeptical refutation',
       },
       {
         path: 'src/data/imp-95332-chart-tail-pencil-floor.js',

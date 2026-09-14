@@ -67,7 +67,7 @@
  * imp-95397, unchanged and OPEN. Changes no bound; NO QED; Platt-Trudgian
  * Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) N = 4 exact floor 0.1115184 reproduces
+ * SKEPTICAL SELF-CHECK RECORD. (1) N = 4 exact floor 0.1115184 reproduces
  * the imp-95375 alternating literal (they coincide -- alt is optimal there).
  * (2) N = 16 exact floor 0.007990482 is STRICTLY below imp-95375 alt 0.008176
  * and equals the enumerated minimum over all 32768 sign classes. (3) The

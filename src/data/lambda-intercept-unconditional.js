@@ -1,6 +1,6 @@
 /**
  * @module lambda-intercept-unconditional
- * @fileoverview Master-assembly status record for the Λ-intercept attack
+ * @fileoverview Master-assembly status record for the Λ-intercept approach
  * (capstone of Phases 7–11). It does NOT re-prove anything: it imports the
  * existing route records, states the combined unconditional claim, enumerates
  * the three finite-height routes (A monotonicity / B Burgers uniformity /
@@ -33,7 +33,7 @@
  *
  * Context
  * -------
- * This is the capstone of Phases 7–11 of the Λ attack. It assembles the
+ * This is the capstone of Phases 7–11 of the Λ approach. It assembles the
  * three parallel routes toward "a := lim sup_N |t_c(N)| ≤ 0" that
  * Phases 7–11 enumerated, reports the current strongest unconditional
  * claim, names exactly what is still missing to translate that claim

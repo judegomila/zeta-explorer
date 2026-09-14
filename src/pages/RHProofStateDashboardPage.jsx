@@ -222,7 +222,7 @@ export default function RHProofStateDashboardPage() {
             <Link to="/frontier-dag" style={{ color: 'var(--terra-dk)' }}>/frontier-dag</Link> (live frontier).
           </div>
           <p style={{ color: INK_SOFT, fontSize: 15, lineHeight: 1.6, maxWidth: 760, marginTop: 10 }}>
-            Status of all attack vectors and proof strategies as recorded in this snapshot:
+            Status of all approach vectors and proof strategies as recorded in this snapshot:
             a single-page summary of the Riemann Hypothesis proof landscape through {dashboardDate},
             tracking the subsidiary Newman theorem separately from the still-open RH frontier.
           </p>
@@ -310,7 +310,7 @@ export default function RHProofStateDashboardPage() {
           <div className="card" style={{ borderLeft: `4px solid ${GREEN}` }}>
             <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>PROOF PATHS</div>
             <div style={{ fontSize: 24, fontWeight: 700, color: GREEN, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>5</div>
-            <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>Active attack vectors</div>
+            <div style={{ fontSize: 12, color: INK_SOFT, marginTop: 4 }}>Active approach vectors</div>
           </div>
           <div className="card" style={{ borderLeft: `4px solid ${BLUE}` }}>
             <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>CRITICAL DEPENDENCY</div>
@@ -325,7 +325,7 @@ export default function RHProofStateDashboardPage() {
         </div>
 
         {/* Proof Paths Section */}
-        <Section title="Five Attack Paths" borderColor={TERRA}>
+        <Section title="Five Approach Paths" borderColor={TERRA}>
           <p style={{ color: INK_SOFT, fontSize: 13, marginBottom: 16, lineHeight: 1.6 }}>
             Five fundamentally different strategies for proving RH, each with distinct proof gaps,
             progress, and dependencies. Click each to expand details and see related pages.
@@ -350,7 +350,7 @@ export default function RHProofStateDashboardPage() {
             description="Classical network synthesis constrains transmission zeros. For the exact cascade S₂₁(s)=ζ(2s)/ζ(s), non-trivial zeta zeros are generic poles, so losslessness and convergence would still not supply RH without a new pole-confinement bridge."
             progress={15}
             blockedBy={['S4', 'S7']}
-            links={[{ label: 'Attack Strategies', to: '/rh-attack' }]}
+            links={[{ label: 'Approach Strategies', to: '/rh-attack' }]}
           />
 
           <PathCard
@@ -403,7 +403,7 @@ export default function RHProofStateDashboardPage() {
               { name: 'Mellin Diagonalization Route', status: 'blocked', id: 'imp-1266' },
               { name: 'Koksma-Hlawka 2nd Moment', status: 'blocked', id: 'imp-1315' },
               { name: 'GUE-free Deep Regime', status: 'blocked', id: 'imp-1185' },
-              { name: 'Bui-Soundararajan Density Attack', status: 'blocked', id: 'imp-1261' },
+              { name: 'Bui-Soundararajan Density Approach', status: 'blocked', id: 'imp-1261' },
             ].map((route) => (
               <div key={route.id} style={{
                 padding: 12, borderRadius: 8, background: 'var(--paper2)',
@@ -740,9 +740,9 @@ export default function RHProofStateDashboardPage() {
               </Link>
             </div>
             <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
-              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>ATTACK STRATEGIES</div>
+              <div style={{ fontSize: 12, color: FAINT, marginBottom: 4 }}>APPROACH STRATEGIES</div>
               <Link to="/rh-attack" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>
-                RH Attack Strategies →
+                RH Approach Strategies →
               </Link>
             </div>
             <div style={{ padding: 12, background: 'var(--paper2)', borderRadius: 8 }}>
@@ -786,7 +786,7 @@ export default function RHProofStateDashboardPage() {
           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center' }}>
             <Link to="/proof-overview" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>Proof Overview</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/rh-attack" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>RH Attack Strategies</Link>
+            <Link to="/rh-attack" style={{ color: BLUE, fontSize: 12, textDecoration: 'none' }}>RH Approach Strategies</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/hidden-square-program" style={{ color: AMBER, fontSize: 12, textDecoration: 'none' }}>Hidden Square Program</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>

@@ -259,7 +259,7 @@ export const IMP36076_KAHAN_KBN_SEPARATION_ONSET = {
       'both classic Kahan and KBN stay at most ~2% of unit roundoff u at every rung of the densified ladder ' +
       '-- the compensated floor never threatens the barrier margin; precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures classic-Kahan vs KBN errors under the combined adversarial order at eleven N only; ' +
+      'this module measures classic-Kahan vs KBN errors under the combined worst-case order at eleven N only; ' +
       'it evaluates no sum of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays ' +
       'GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725)',
   },

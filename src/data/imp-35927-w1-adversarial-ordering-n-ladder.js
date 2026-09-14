@@ -2,7 +2,7 @@
  * @module imp-35927-w1-adversarial-ordering-n-ladder
  *
  * imp-35927 (numerical, S-frontier): MEASURE whether the imp-35852 clustered-sign-run
- * adversarial naive-summation amplification (~160x worst-of-four at the single length
+ * skeptical naive-summation amplification (~160x worst-of-four at the single length
  * N = floor(sqrt(T_PT / 4 pi)) ~ 488602) GROWS with N toward the coherent O(N u) ceiling
  * or SATURATES, by re-running the four hostile permutations up an N ladder.
  *
@@ -66,7 +66,7 @@
  *      N = 1e7; Kahan clustered ~3.5e-19 falls to ~2.5e-20), staying far below their
  *      log2(N) eps and 2u ceilings at every rung.
  * All schemes at all rungs and orderings remain ~10+ orders below the O(1) barrier margin
- * |A_t + B_t| - |C_t| (imp-35760). CONCLUSION: the clustered adversarial amplification
+ * |A_t + B_t| - |C_t| (imp-35760). CONCLUSION: the clustered skeptical amplification
  * SATURATES sub-linearly and the safety margin below the coherent ceiling WIDENS with N,
  * so growing N does NOT erode the precision headroom -- precision stays NON-binding at
  * every length; the obstruction remains the ENGINEERING of the certified length-N interval
@@ -293,7 +293,7 @@ export const IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER = {
   id: 'imp-35927',
   proofSection: 'S-frontier',
   question:
-    'Does the imp-35852 clustered-sign-run adversarial naive-summation amplification (~160x, worst of four ' +
+    'Does the imp-35852 clustered-sign-run skeptical naive-summation amplification (~160x, worst of four ' +
     'orderings at N ~ 488602) GROW with N toward the coherent O(N u) ceiling or SATURATE, and does the ' +
     '~4.35-order orders-below-ceiling safety margin erode as N grows? Measurement only; certifies no W1 ' +
     'bound; changes no bound; NO QED.',
@@ -352,7 +352,7 @@ export const IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER = {
   },
   conclusion: {
     amplificationSaturates:
-      'the clustered adversarial amplification SATURATES sub-linearly with N; it does not grow toward the ' +
+      'the clustered skeptical amplification SATURATES sub-linearly with N; it does not grow toward the ' +
       'coherent O(N u) ceiling',
     marginRobust:
       'the orders-below-ceiling safety margin does NOT erode with N -- it WIDENS at ~+0.4 orders/decade because ' +
@@ -361,7 +361,7 @@ export const IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER = {
       'achievable double precision leaves growing strict headroom under worst-case ordering as N increases; ' +
       'precision is NOT the binding constraint at any measured length',
     staysGreenfield:
-      'this module measures scheme errors under adversarial orderings across N only; it evaluates no sum of H_t ' +
+      'this module measures scheme errors under worst-case orderings across N only; it evaluates no sum of H_t ' +
       'and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) ' +
       'and MECHANICAL (imp-35725)',
   },
@@ -371,7 +371,7 @@ export const IMP35927_W1_ADVERSARIAL_ORDERING_N_LADDER = {
     'orderings (signedAsc, magAsc, magDesc, clustered) plus the oscillatory baseline against the SAME exact ' +
     'BigInt 2^{-96} reference on an N ladder (1e4, 1e5, 4.886e5, 1e6, 1e7), the clustered naive normalized ' +
     'error grows FAR sub-linearly (~N^0.6, log-log LSQ) -- only ~38x over the 1000x ladder and nearly flat ' +
-    'across the top decade -- so the adversarial amplification SATURATES rather than tracking the coherent ' +
+    'across the top decade -- so the skeptical amplification SATURATES rather than tracking the coherent ' +
     'O(N u) ceiling. Because the ceiling N eps grows exactly linearly, the orders-below-ceiling safety margin ' +
     'does NOT erode: it INCREASES from ~3.66 (N = 1e4) to ~5.08 (N = 1e7), ~+0.4 orders/decade, and every rung ' +
     'stays > 1e3x below the coherent ceiling. Clustered is the worst hostile ordering ONLY at the anchor ' +

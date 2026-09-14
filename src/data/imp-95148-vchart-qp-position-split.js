@@ -20,7 +20,7 @@
  * one block must place them in the MIDDLE relative head position.
  *
  * NEW MACHINERY (the recorded imp-95147 route "a joint (mu, arc) cap
- * lemma that kills the dominant mu-axis corner slack", executed in
+ * lemma that eliminates the dominant mu-axis corner slack", executed in
  * EXACT form):
  * LEMMA VC (scale-invariant v-chart). At a common rate every frame
  *   correlation is rho = g(mu |u_i - u_j|) = g(|v_i - v_j|) in v = mu u
@@ -72,8 +72,8 @@
  *   Cell counts baked below and recomputed by the assertions on every
  *   sweep. Both covers close in about a minute combined.
  *
- * ADVERSARIAL SELF-CHECK RECORD (the honest part - what did NOT land):
- * (1) The 47/200 rung for the MIDDLE-heavy ladder (L1) was attacked in
+ * SKEPTICAL SELF-CHECK RECORD (the honest part - what did NOT land):
+ * (1) The 47/200 rung for the MIDDLE-heavy ladder (L1) was stress-tested in
  *     FOUR chart variants (10-D u-frame recorded by imp-95147; 9-D full
  *     v-chart; 7-D v-chart with both singles corner-supped; 8-D hybrid
  *     with explicit mu) at budgets to 6e7 cells (u) / 3.2e7 (v): ALL
@@ -225,7 +225,7 @@ function polish(M, v0, iters) {
   for (let it = 0; it < iters; it++) {
     const w = [0, 0, 0, 0, 0];
     for (let i = 0; i < 5; i++) {
-      let s = v[i]; // +I shift: kills bipartite oscillation, same Perron vector
+      let s = v[i]; // +I shift: eliminates bipartite oscillation, same Perron vector
       for (let j = 0; j < 5; j++) s += M[i][j] * v[j];
       w[i] = s;
     }
@@ -261,7 +261,7 @@ function makeCellV(T, dropA, dropB, hasMu) {
     const muAxHi = hasMu ? b.hi[p + 3] : MU_CL;
     // order-cone clamp (v1 <= v2 <= v3 <= v4 for every true config):
     // prefix-max the lower corners, suffix-min the upper corners - exact
-    // for box intersect cone, kills boundary-straddling pseudo-corners
+    // for box intersect cone, eliminates boundary-straddling pseudo-corners
     v2a = Math.max(v2a, v1a);
     v3a = Math.max(v3a, v2a);
     v4a = Math.max(v4a, v3a);
@@ -725,7 +725,7 @@ function rnd() {
   return seedState / 0x7fffffff;
 }
 
-// battery VC (seed 959595): LEMMAS VC(a)-(d) + QC attacked directly - seeded
+// battery VC (seed 959595): LEMMAS VC(a)-(d) + QC approached directly - seeded
 // true in-class configurations vs their enclosing finite v-cells in BOTH
 // production modes (L0 9-D, L2 hybrid with mu axis): (i) the feasibility
 // predicate never prunes a cell containing a true point, (ii) every entry
@@ -817,7 +817,7 @@ function runVcBattery() {
 
 // battery PS (seed fixed cell): LEMMA PS is load-bearing and sound - on the
 // recorded pole-ridge stall cell the shifted polish certifies while plain
-// power iteration from an adversarial start leaves the CW ratio slack
+// power iteration from an skeptical start leaves the CW ratio slack
 function runPsBattery() {
   RATE_FLOOR = MU_V0;
   const lo = [
@@ -864,7 +864,7 @@ function kernelK(a, b, tau) {
   return (2 * (b * Math.exp(-a * tau) - a * Math.exp(-b * tau))) / (b * b - a * a);
 }
 
-// battery W (seed 878787): THEOREM VP attacked directly with POSITION-
+// battery W (seed 878787): THEOREM VP approached directly with POSITION-
 // RESOLVED rate floors - heavy at relative position 0 or >= 3 gets rates
 // >= 47/200, position 2 gets >= 477/2000, position 1 gets >= 121/500
 function runWitnessBattery() {
@@ -931,7 +931,7 @@ export const IMP95148_VCHART_QP_POSITION_SPLIT = {
   structuralConsequence:
     "Jointly with THEOREMS PO and TP (both at 47/200): any FULL-class parity-pure witness with E > 0 at a common rate >= 47/200 that does not place >= 5 packets in one block or >= 3 and >= 2 in two blocks must use EXACTLY FOUR packets in one block, and that block must be the MIDDLE head position for rates >= 477/2000 = 0.2385 (below 0.2385, the top-heavy channel also survives; below 121/500 both are open channels of the narrowed certification gap). The k = 4 rung is now pinned to ONE relative geometry in [477/2000, 121/500).",
   honestAttribution:
-    "Subclass-refinement + certification-technology step - no NEW class-level constant. The float frame sup at 47/200 is ~0.994354 for ALL three ladders (measured by coordinate ascent; the sup is the near-single-packet displacement corner), so the middle-heavy strip stays frame-possible and budget-blocked exactly as imp-95147 recorded. NEW adversarial findings recorded: (a) the 47/200 wall is CHART-ROBUST - after EXACT elimination of the mu axis (LEMMA VC) the moderate-satellite / split-pair ridges still stall the L1 covers at 3.2e7 cells (and L2 at 1.6e7 at that constant), so the imp-95147 mu-dominant slack attribution is INCOMPLETE; the refinement cost is shared across joint position/arc corners. (b) The v-chart pays a priced information loss at pinned corners (separation floor degrades to vlo/2 given only v-interval plus band; the u-frame q-box is strictly more informative there) - the 7-D both-singles-dropped L1 chart is REFUTED below 0.242 for this reason. (c) Plain unshifted polish oscillates on the bipartite dominant block (measured CW 9784 vs true 0.647) - LEMMA PS is load-bearing; part of every recorded budget wall in this family is plausibly this artifact. (d) An escalating polish changed nothing at 3x runtime; REFUTED as a cure. The class sandwich [0.2320723, 0.24502] does NOT move; THEOREM HS remains the only full-class ceiling.",
+    "Subclass-refinement + certification-technology step - no NEW class-level constant. The float frame sup at 47/200 is ~0.994354 for ALL three ladders (measured by coordinate ascent; the sup is the near-single-packet displacement corner), so the middle-heavy strip stays frame-possible and budget-blocked exactly as imp-95147 recorded. NEW skeptical findings recorded: (a) the 47/200 wall is CHART-ROBUST - after EXACT elimination of the mu axis (LEMMA VC) the moderate-satellite / split-pair ridges still stall the L1 covers at 3.2e7 cells (and L2 at 1.6e7 at that constant), so the imp-95147 mu-dominant slack attribution is INCOMPLETE; the refinement cost is shared across joint position/arc corners. (b) The v-chart pays a priced information loss at pinned corners (separation floor degrades to vlo/2 given only v-interval plus band; the u-frame q-box is strictly more informative there) - the 7-D both-singles-dropped L1 chart is REFUTED below 0.242 for this reason. (c) Plain unshifted polish oscillates on the bipartite dominant block (measured CW 9784 vs true 0.647) - LEMMA PS is load-bearing; part of every recorded budget wall in this family is plausibly this artifact. (d) An escalating polish changed nothing at 3x runtime; REFUTED as a cure. The class sandwich [0.2320723, 0.24502] does NOT move; THEOREM HS remains the only full-class ceiling.",
   subGaps: [
     "imp-95147-subgap-qp-cert-gap - NARROWED by this module: the {exactly 4 packets in one block} common-rate channel now survives ONLY as (position 1 in [47/200, 121/500)) union (position 2 in [47/200, 477/2000)); position 0 and tail-heavy are CLOSED down to the common ladder constant 47/200.",
     "imp-95148-subgap-qp-middle-heavy - NEW: the middle-heavy strip [47/200, 121/500). The wall is now measured to be chart-robust joint corner slack at the moderate-satellite ridges (point-exact caps, margins 1.4e-2 to 3.6e-2, zero-width probes baked); routes: an offline ~1e8-cell u-frame or hybrid cover, or a joint position-arc cap lemma at the satellite ridge (the mu axis is NOT the lever - refuted here).",
@@ -971,14 +971,14 @@ export const IMP95148_VCHART_QP_POSITION_SPLIT_ASSERTIONS = [
   {
     id: "imp95148-vc-battery",
     description:
-      "LEMMAS VC(a)-(d) + QC attacked directly in BOTH production modes: 4000 seeded true in-class configurations vs enclosing finite v-cells - the feasibility predicate never prunes a cell containing a true point AND every entry cap dominates the sampled true bond (zero violations)",
+      "LEMMAS VC(a)-(d) + QC approached directly in BOTH production modes: 4000 seeded true in-class configurations vs enclosing finite v-cells - the feasibility predicate never prunes a cell containing a true point AND every entry cap dominates the sampled true bond (zero violations)",
     holds: () =>
       BAT_VC.viol === 0 && BAT_VC.feasViol === 0 && BAT_VC.worst <= 1 + 1e-9 && BAT_VC.worst > 0.9 && BAT_VC.count > 3800,
   },
   {
     id: "imp95148-ps-battery",
     description:
-      "LEMMA PS is load-bearing and sound: on the recorded pole-ridge stall cell the shifted polish certifies (CW < 0.7) while plain power iteration from the adversarial start leaves the CW ratio above 1 (bipartite oscillation)",
+      "LEMMA PS is load-bearing and sound: on the recorded pole-ridge stall cell the shifted polish certifies (CW < 0.7) while plain power iteration from the skeptical start leaves the CW ratio above 1 (bipartite oscillation)",
     holds: () => BAT_PS.shifted < 0.7 && BAT_PS.plain > 1,
   },
   {
@@ -990,7 +990,7 @@ export const IMP95148_VCHART_QP_POSITION_SPLIT_ASSERTIONS = [
   {
     id: "imp95148-witness-battery",
     description:
-      "THEOREM VP attacked directly with position-resolved rate floors: 5000 seeded in-class witnesses (heavy block at every relative position, BOTH parities, floors 47/200 / 477/2000 / 121/500 by position, pinned at the floor every third draw) - zero E > 0 draws",
+      "THEOREM VP approached directly with position-resolved rate floors: 5000 seeded in-class witnesses (heavy block at every relative position, BOTH parities, floors 47/200 / 477/2000 / 121/500 by position, pinned at the floor every third draw) - zero E > 0 draws",
     holds: () => BAT_W.viol === 0 && BAT_W.maxE < 0 && BAT_W.count > 4500 && BAT_W.posCounts[1] > 200 && BAT_W.posCounts[2] > 200,
   },
   {

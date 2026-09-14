@@ -453,7 +453,7 @@ export const LAMBDA_CHAIN_STEPS = [
     verification: 'numerical',
     notes:
       'Per imp-2564 direction audit: this step is THE critical lever. The canonical bracket ' +
-      '|Λ − (−t_c(N))| ≤ E(N) makes E(N) → 0 the headline attack; t_c >= 0 is automatic, so ' +
+      '|Λ − (−t_c(N))| ≤ E(N) makes E(N) → 0 the headline approach; t_c >= 0 is automatic, so ' +
       'closing Step 4 with an unconditional E(N) bound gives Λ ≤ E(N) → 0. Combined with ' +
       'Rodgers-Tao Λ ≥ 0 gives Λ = 0 unconditionally. Per-N collision bounds (SG1/Theta/routes ' +
       'A/B/C) feed the E(N) constants, not the headline inequality. ' +
@@ -987,7 +987,7 @@ export const LAMBDA_CHAIN_STEPS = [
     tickets: ['imp-327', 'imp-356', 'imp-375'],
     verification: 'unverified',
     notes:
-      'This is the capstone of the whole attack. Everything upstream must ' +
+      'This is the capstone of the whole approach. Everything upstream must ' +
       'be rigorous; this step is just the final combination.',
     // imp-35074 (scoping/assessment ONLY; changes no bound, establishes no
     // operator positivity, closes nothing, respects the imp-2519 no-overclaim
@@ -2186,7 +2186,7 @@ export const LAMBDA_ROADMAP_MILESTONES = [
       'top-level app sections wired into the explorer. The paper introduces ' +
       'paragraphs 15 (shift-bridge reflection positivity), 16 (four equivalent ' +
       'closure routes), 17 (inverse Blaschke ghosts + Pontryagin decomposition), ' +
-      '18 (three direct attacks on B_a^+ = 1), 20 (rigorous-numerics stages ' +
+      '18 (three direct approaches on B_a^+ = 1), 20 (rigorous-numerics stages ' +
       'I/II/III), 23 (freezing + bridge renormalization), 24 (what remains), ' +
       'plus appendices B-T (KYP, bounded-real, delay-Gram positivity, ' +
       'reciprocal program, hidden-square machinery).',

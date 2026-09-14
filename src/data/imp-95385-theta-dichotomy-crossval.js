@@ -3,7 +3,7 @@
  * the fixed-amplitude (all +1/p) ported family vs theta < 1 for a signed
  * amplitude assignment on the SAME geometry -- by two INDEPENDENT quadratures.
  *
- * imp-95255 LEG 2 rests on an adversarial self-check that used a single Simpson
+ * imp-95255 LEG 2 rests on an skeptical self-check that used a single Simpson
  * rule (domain [-40, 40], 80000 panels) to report theta = 1 to 1e-9 on the
  * fixed-amplitude family and theta < 1 for the alternating [1, -1] pattern at
  * one grid (3, 8). This module cross-validates BOTH legs of that dichotomy with
@@ -167,7 +167,7 @@ export const IMP95385_THETA_DICHOTOMY_CROSSVAL = {
   ticket:
     "imp-95385 (CROSS-VALIDATION): independently confirm the imp-95255 theta dichotomy -- theta = 1 on the fixed-amplitude (all +1/p) ported family vs theta < 1 for signed amplitudes on the SAME geometry -- with two code-disjoint quadratures (a closed form and a higher-precision Simpson on a different domain/panels) across five grids and three sign patterns. Cross-validation only; changes no bound; NO QED.",
   methods:
-    "METHOD A closed form: int e^(-a|s-p|) e^(-b|s-q|) ds = (e^(-a d)+e^(-b d))/(a+b) + (e^(-a d)-e^(-b d))/(b-a) with d = |p-q| (confluent a=b limit handled), so theta = (sum c_j c_k I_jk)/(sum |c_j||c_k| I_jk) is exact-arithmetic, quadrature-free. METHOD B: composite Simpson on [-60,60] with 200000 panels, disjoint from the imp-95255 self-check ([-40,40], 80000). The closed form matches brute-force Simpson to ~1e-13; A and B agree to <1e-7 on every signed case.",
+    "METHOD A closed form: int e^(-a|s-p|) e^(-b|s-q|) ds = (e^(-a d)+e^(-b d))/(a+b) + (e^(-a d)-e^(-b d))/(b-a) with d = |p-q| (confluent a=b limit handled), so theta = (sum c_j c_k I_jk)/(sum |c_j||c_k| I_jk) is exact-arithmetic, quadrature-free. METHOD B: composite Simpson on [-60,60] with 200000 panels, disjoint from the imp-95255 self-check ([-40,40], 80000). The closed form matches exhaustive Simpson to ~1e-13; A and B agree to <1e-7 on every signed case.",
   fixedAmplitude:
     "theta = 1 EXACTLY (|theta - 1| = 0 to machine precision) on all five grids by the closed form, because a positive cone gives c_j c_k = |c_j||c_k| for every (j,k) so int f^2 and int g^2 are termwise identical (f = g). This sharpens the imp-95255 1e-9 self-check to a machine-exact structural identity -- no cancellation, no quadrature floor.",
   signedPatterns:
@@ -182,7 +182,7 @@ export const IMP95385_THETA_DICHOTOMY_CROSSVAL = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. This module supplies no seam signs; it only confirms theta responds to signs. Obligation (3) (envelope-shape / gammaSL map, incl per-window SIGN data) UNCHANGED and OPEN.",
   rigorScope:
-    "METHOD A closed form is exact arithmetic (pair overlap derived elementarily; validated against brute-force Simpson to ~1e-13). METHOD B is an independent composite Simpson on a domain/panel count disjoint from imp-95255. Fixed-amplitude theta = 1 is a machine-exact structural identity; signed theta < 1 holds for illustrative test sign patterns (NOT the real seam pattern). theta is degree-0 in amplitudes (imp-95139) but geometry-dependent, so numeric theta values are (c,v)=(1.7,2.3)-specific while the =1-vs-<1 dichotomy is not. Cross-validation only; NO QED.",
+    "METHOD A closed form is exact arithmetic (pair overlap derived elementarily; validated against exhaustive Simpson to ~1e-13). METHOD B is an independent composite Simpson on a domain/panel count disjoint from imp-95255. Fixed-amplitude theta = 1 is a machine-exact structural identity; signed theta < 1 holds for illustrative test sign patterns (NOT the real seam pattern). theta is degree-0 in amplitudes (imp-95139) but geometry-dependent, so numeric theta values are (c,v)=(1.7,2.3)-specific while the =1-vs-<1 dichotomy is not. Cross-validation only; NO QED.",
 };
 
 // -- assertions (self-executing; import-light; THROW on violation) -----------
@@ -190,7 +190,7 @@ export const IMP95385_CROSSVAL_ASSERTIONS = [
   {
     id: "imp95385-pair-integral-matches-brute-force",
     description:
-      "METHOD A closed form for the two-sided exponential pair overlap matches a brute-force Simpson to ~1e-9, including the equal-rate diagonal (1/mu) and unequal-rate off-diagonal cases",
+      "METHOD A closed form for the two-sided exponential pair overlap matches an exhaustive Simpson to ~1e-9, including the equal-rate diagonal (1/mu) and unequal-rate off-diagonal cases",
     holds: () => {
       const brute = (a, pa, b, pb) =>
         simpson(-80, 80, 400000, (s) => Math.exp(-a * Math.abs(s - pa)) * Math.exp(-b * Math.abs(s - pb)));

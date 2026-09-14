@@ -12,7 +12,7 @@
  *
  * derived from the Dyson / Calogero-Moser evolution equation itself —
  * as the SOLE remaining path to a theorem-grade Λ ≤ 0 at the heights the
- * repo controls. This file is the landing site for that attack.
+ * repo controls. This file is the landing site for that approach.
  *
  * Honest scope (interim deliverable)
  * ----------------------------------
@@ -26,7 +26,7 @@
  * imp-329 / imp-331 / imp-332 is:
  *
  *   1. A precise statement of the problem and what inputs are in hand.
- *   2. Three attack candidates (the ones the ticket enumerated), each
+ *   2. Three approach candidates (the ones the ticket enumerated), each
  *      with the key identity or obstruction so a follow-up ticket can
  *      pick up the thread without re-deriving the starting point.
  *   3. ONE concrete CONDITIONAL upper bound — a ≤ |t_c(N_max)| under
@@ -56,7 +56,7 @@
  *   at 0.0086 is upper and the OLS central is 0.0029; agreement means
  *   conditional UB ≥ statistical central, not equality.
  *
- * The three attack candidates from the ticket
+ * The three approach candidates from the ticket
  * -------------------------------------------
  *
  * (i) imp-322 monotonicity + imp-325 repulsion squeeze
@@ -286,7 +286,7 @@ export const LAMBDA_INTERCEPT_ANALYTIC_ASSERTIONS = [
       DYSON_MONOTONICITY_THEOREM.id === 'imp-322' &&
       DYSON_COLLISION_LOWER_BOUND_THEOREM.id === 'imp-325',
     why:
-      'The attack candidates cite imp-322 (boundary identity) and imp-325 (collision ' +
+      'The approach candidates cite imp-322 (boundary identity) and imp-325 (collision ' +
       'time lower bound) by id. If those ids change without updating this file, the ' +
       'citation chain breaks silently; this assertion is the tripwire.',
   },

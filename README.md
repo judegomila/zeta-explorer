@@ -1,10 +1,10 @@
 # zetaexplorer — the Twin-Ladder Λ Program
 
-*An open research program attacking the Riemann Hypothesis on every axis — reducing the upper bound on the de Bruijn–Newman constant Λ, working the direct-RH routes and reformulations, proving no-go theorems that map where a proof cannot come from, machine-verifying the results, and tracking every other axis of the problem (the critical-line proportion, the spectral/geometric programs, the state of the wider field) — run by a human-directed autonomous AI fleet.*
+*An open research program approaching the Riemann Hypothesis on every axis — reducing the upper bound on the de Bruijn–Newman constant Λ, working the direct-RH routes and reformulations, proving no-go theorems that map where a proof cannot come from, machine-verifying the results, and tracking every other axis of the problem (the critical-line proportion, the spectral/geometric programs, the state of the wider field) — run by a human-directed autonomous AI fleet.*
 
 [![status](https://img.shields.io/badge/status-active-brightgreen)]() [![commits](https://img.shields.io/badge/commits-7%2C900%2B-blue)]() [![routes](https://img.shields.io/badge/app-570%20routes-blue)]() [![tickets](https://img.shields.io/badge/queue-5%2C737%20tickets-blue)]() [![lean](https://img.shields.io/badge/Lean%204-20%20kernel--verified%20projects-6d55b8)]() [![License](https://img.shields.io/badge/license-MIT-green)]()
 
-The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman constant Λ (RH ⇔ Λ ≤ 0; with Rodgers–Tao Λ ≥ 0, RH ⇔ Λ = 0), so the Λ upper bound is the program's main quantitative frontier — but the attack is wider: 44 mapped routes across six areas (direct-RH reformulations, spectral and geometric programs, literature ports), a two-tier no-go landscape establishing which methods provably cannot work (knowing where the walls are is progress toward RH, not away from it), a Lean formalization pipeline, and the interactive web explorer documenting every calculation, route, and candidate as it evolves — with candidate, establishment, and peer-review status explicit everywhere.
+The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman constant Λ (RH ⇔ Λ ≤ 0; with Rodgers–Tao Λ ≥ 0, RH ⇔ Λ = 0), so the Λ upper bound is the program's main quantitative frontier — but the approach is wider: 44 mapped routes across six areas (direct-RH reformulations, spectral and geometric programs, literature ports), a two-tier no-go landscape establishing which methods provably cannot work (knowing where the walls are is progress toward RH, not away from it), a Lean formalization pipeline, and the interactive web explorer documenting every calculation, route, and candidate as it evolves — with candidate, establishment, and peer-review status explicit everywhere.
 
 > **Current honest status (2026-09-08):** This project does not prove RH, and no bound below the peer-reviewed benchmark is established. **Platt–Trudgian `Λ ≤ 0.2` remains the peer-reviewed benchmark.** The program's own frontier, graded:
 > - `Λ ≤ 0.1787854` — computer-assisted candidate for an unconditional proof (compact slab + final-time half-strip + 3,149,013-row interval replay + exact Polymath weld). Reviewed by Dan Romik; publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); **unrefereed; not established; not RH.** Package: [`dbn-lambda-01787854-candidate-audit`](https://github.com/judegomila/dbn-lambda-01787854-candidate-audit), tag `review-01787854-v3`.
@@ -23,7 +23,7 @@ The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman co
 | Flow-blindness no-go: no soft/heat-flow hypothesis proves RH — arithmetic input required | Theorem (rests on Rodgers–Tao), **machine-verified** |
 | Frozen-rung ⟺ Platt–Trudgian: freezing the ladder rungs *is* the PT mechanism, capped at verified zero height | Theorem, Lean-verified components |
 | The permutation atlas: every rearrangement family classified; isometries provably no-gain; the one possible-gain family merged (verified) with the weld ladder | Theorem + classification |
-| The no-shortcut meta-finding: all 44 mapped routes are non-rigorous (C_H wall) or RH-equivalent | Adversarially audited map |
+| The no-shortcut meta-finding: all 44 mapped routes are non-rigorous (C_H wall) or RH-equivalent | Independently audited map |
 | Θ-trap flow invariants, heat-discriminant t_c, Route-B lim-sup (PCC/GUE-free), isolation-onset closed forms incl. `c* = √(2+√3)−1`, `c_glob = c_half` | Theorems, most Lean-verified |
 | Ramanujan-reversal identity + row sum `R_n(1) = n^{n−1}` proved from scratch (Abel's binomial theorem + tree-function ODE built en route — theory mathlib lacks) | **Kernel-verified**, upgraded two open conjectures to theorems |
 | The `[B_v,Π_p]` weld bracket driven 41× → the class sandwich `[0.2320723, 0.24502]`, now one copositivity certificate from its floor | Rigorous chain (refereed through continuation 19; newest stretch pending referee) |
@@ -39,7 +39,7 @@ A 24/7 multi-engine loop works a live improvement queue (5,737 tickets to date):
 
 - **API pool** (parallel workers) + **Fable-5 frontier engine** (deep single-target runs; produced the 40+-theorem weld ladder) + **frontier scout** (ticket generation from sub-gaps)
 - **Aristotle formalization pipeline** — 31+ jobs across 5 waves; drafting passes re-read the source before every submission; deliveries are files-only with provenance
-- Adversarial referee panels on every engine-produced "rigorous" chain; partial-result and BLOCKED verdicts are first-class outcomes, reported as such
+- Independent referee panels on every engine-produced "rigorous" chain; partial-result and BLOCKED verdicts are first-class outcomes, reported as such
 - Crash-checkpointing, orphan-commit salvage, worktree-isolated fanout, interval-arithmetic (Arb/FLINT, Rust `inari`) compute lanes
 
 ## The web explorer
@@ -54,11 +54,11 @@ npm run build      # → dist/ (regenerates the live fleet-status snapshot)
 
 | Route | What it is |
 |---|---|
-| `/atlas` | The attack surface, fully broken out — all 44 routes inline across six areas |
+| `/atlas` | The approach map, fully broken out — all 44 routes inline across six areas |
 | `/route-map` | The dense wall map: status + exact split point of every route |
 | `/what-we-know` | The consolidated state + the two-tier **no-go landscape** (ours + the field's) |
 | `/permutation-architecture` | The typed freeze calculus, the Λ ≤ 0.14 contract, the permutation + route atlases, the Lean verification record |
-| `/state-of-field` | How the wider community attacks RH (2023–2026), cited, with engagement points |
+| `/state-of-field` | How the wider community approaches RH (2023–2026), cited, with engagement points |
 | `/lambda-bounds`, `/lambda-timeline` | The evidence-graded Λ ledger and its history |
 | `/critical-line-proportion` | The κ record (peer-reviewed 5/12; the external Claude/Anthropic ≥ 2/3 result, qualified) |
 | `/viz-twistor-dual-intertwiner` | Flagship 3D: the Robinson congruence, its dual, the intertwiner, ζ on the fibers, fiber freezing |

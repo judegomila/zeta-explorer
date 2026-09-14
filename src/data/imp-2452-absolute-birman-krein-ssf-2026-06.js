@@ -19,13 +19,13 @@
  * @see imp-2425 (relative Krein SSF route to ind_-(K_a))
  * @see imp-2438 (explicit de Branges / Jacobi reconstruction of the twin-ladder m)
  * @see imp-2454 (off-line zero injected into the imp-2438 N_0 Pick chain)
- * @see data/three-attacks-section.js (Attack III, Theorem 18.3 + Conjecture 18.4)
+ * @see data/three-attacks-section.js (Approach III, Theorem 18.3 + Conjecture 18.4)
  */
 // imp-2452 -- absolute Birman-Krein SSF of the genuine twin-ladder operator.
 //
 // CONTEXT
 // -------
-// Attack III reduces RH to Conjecture 18.4: ind_-(K_a) = #P_a = 0 for every
+// Approach III reduces RH to Conjecture 18.4: ind_-(K_a) = #P_a = 0 for every
 // a > 0 and every window, where ind_-(K_a) is the Pontryagin negative index of
 // the shifted twin-ladder Weil form and P_a counts the zeros to the right of the
 // boundary line. imp-2425 produced a SECOND numerical handle on this integer via
@@ -343,7 +343,7 @@ export const ATTACK_III_ABSOLUTE_BIRMAN_KREIN_SSF = Object.freeze({
       ? 'absolute-ssf-reproduces-ind-minus-zero-without-reference-subtraction-no-proof'
       : 'absolute-ssf-unverified',
   honestScope:
-    'NUMERICAL Wave-4 fan-out of Attack III, upgrading the imp-2425 RELATIVE Krein ' +
+    'NUMERICAL Wave-4 fan-out of Approach III, upgrading the imp-2425 RELATIVE Krein ' +
     'cross-check to an ABSOLUTE, operator-intrinsic reading. The negative index of ' +
     'the genuine self-adjoint twin-ladder operator J (imp-2438 reconstruction) is ' +
     'read DIRECTLY -- as the upper-half-plane winding of its own spectral ' +

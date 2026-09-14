@@ -72,7 +72,7 @@
  *   -------------------------
  *   DIAGNOSTIC / accuracy at the genuine Phi cell (a = 0.5, U = 6, s = 3). The degree-0
  *   mass-feasibility comparison B &gt; D_0 is the RH-EQUIVALENT scale-class restatement:
- *   it kills the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT, and the
+ *   it eliminates the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT, and the
  *   degree-0 budget proxy is itself circular (its budget IS ||V||, the RH-equivalent
  *   quantity). The surviving operator-level K_a &gt;= 0 sign-positivity (the off-diagonal
  *   endpoint-Hankel step, imp-3066) is UNTOUCHED. No RH verdict. No false QED.
@@ -305,7 +305,7 @@ export const IMP3255_BRIDGE_RATIO_CLOSED_FORM = Object.freeze({
     isStructuralDiagnostic: true,
     addressesRatioStructureOnlyNotOperatorPositivity:
       'This module derives the closed-form structure and (a,U,NPHI)-dependence of the degree-0 mass- ' +
-      'feasibility margin B/D only. Mass-feasibility (B > D_0) kills the impossibility option but is ' +
+      'feasibility margin B/D only. Mass-feasibility (B > D_0) eliminates the impossibility option but is ' +
       'NECESSARY-BUT-NOT-SUFFICIENT; the degree-0 budget proxy is additionally circular (its budget IS ||V||, ' +
       'the RH-equivalent quantity).',
     necessaryNotSufficient:

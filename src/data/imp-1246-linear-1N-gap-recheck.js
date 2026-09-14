@@ -503,7 +503,7 @@ export const IMP_1246_LINEAR_1N_GAP_RECHECK = Object.freeze({
     'the imp-1147 closure.',
     'At FINITE N below the crossover, the OLS-fitted a_hi may give a ' +
     'tighter upper bound on the asymptote than the explicit imp-341 / ' +
-    'imp-1149 chain because the OLS exploits the measured plateau ' +
+    'imp-1149 chain because the OLS uses the measured plateau ' +
     'brackets while the chain bound is dominated by the slow 1/sqrt(N) ' +
     'M_inf decay. The unconditional closure applies asymptotically; the ' +
     'OLS framework continues to provide useful finite-N witnesses ' +

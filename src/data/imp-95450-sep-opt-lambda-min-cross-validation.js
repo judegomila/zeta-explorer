@@ -8,7 +8,7 @@
  *
  * WHY THIS TICKET. imp-95419 proved SEP-OPT rigorously (conditional on
  * two cited classical inputs) and shipped a Jacobi-eigensweep
- * adversarial battery capped at m <= 24, checking only
+ * skeptical battery capped at m <= 24, checking only
  * lambda_min(Gtilde) >= A_opt. What it did NOT do is (i) verify the
  * extremality direction directly -- that the lattice sits at the BOTTOM
  * of the class, i.e. below every irregular config at matched large m --

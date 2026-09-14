@@ -122,7 +122,7 @@
  *  re-sweep of 690988..1300001 across the four families is ~12 CPU-hr at
  *  prec 128 (~1-2 CPU-days at sealed-grade 256; shardable).
  *
- *  THE KILL SHOT — the row's own final time: the lever's endpoint
+ *  THE ELIMINATE SHOT — the row's own final time: the lever's endpoint
  *  0.139981915 = t* + 0.1808^2/2 requires the finite tail at final time
  *  t* = t0 = 0.123637595 (heat flow is forward: a zero-free face at
  *  t = 129/800 yields only Lambda <= 0.16125 + y^2/2 >= 0.16125, never
@@ -140,7 +140,7 @@
  * ────────────────────────────────────────────────────────────────────────
  * 4. VERDICT — SPLIT NOT VIABLE; 0.139981915 NOT plausibly days-scale.
  *
- *  The thin stretch kills the split twice over: (i) on the only face the
+ *  The thin stretch eliminates the split twice over: (i) on the only face the
  *  delivered minima certify (t = 129/800), the displaced-y triangle margin
  *  does not shrink — it reverses sign, and the failure stretch is ~4-6e5
  *  rows, not 6e3; (ii) on the face the endpoint actually requires

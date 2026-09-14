@@ -65,7 +65,7 @@
  * constraint-aware full re-optimization is UNMEASURED. That is the surviving
  * sub-gap of imp-95031.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the reconstructed greedy terminal floor
+ * SKEPTICAL SELF-CHECK RECORD: (1) the reconstructed greedy terminal floor
  * matches the fifteenth continuation literal 0.096745062937484763 to rel 1e-9;
  * (2) the baked jointly re-optimized witness evaluates exactly to
  * 0.097010871755310580 with strictly positive excess and strictly beats the

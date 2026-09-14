@@ -205,7 +205,7 @@
  * converting the E_coll(N) term from a formal placeholder into a
  * rate-limited bound with two named sub-sub-gaps instead of one big
  * unnamed lemma. G6 itself remains open. The load-bearing blocker of
- * the Lambda attack is still G6_polymath15_bridge per
+ * the Lambda approach is still G6_polymath15_bridge per
  * lambda-zero-attack.js; after imp-354 the specific open step inside
  * it is G6a-sub-hyperbolic (Riemann-Hilbert transcription of Whitham)
  * rather than the whole unnamed Hölder lemma.
@@ -467,7 +467,7 @@ export const LAMBDA_BURGERS_SHOCK_LIPSCHITZ = {
     upstreamStatusUnchanged:
       'imp-345 G6_polymath15_bridge remains PARTIAL. imp-354 tightens the ' +
       "partial by reducing the named sub-gap, but does NOT close G6 itself. " +
-      'The load-bearing blocker of the Lambda attack per ' +
+      'The load-bearing blocker of the Lambda approach per ' +
       'lambda-zero-attack.js remains G6_polymath15_bridge. No coordinated ' +
       'tripwire flip in this commit.',
   },

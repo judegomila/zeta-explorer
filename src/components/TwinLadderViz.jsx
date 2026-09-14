@@ -1042,7 +1042,7 @@ function CollapseTab() {
     <div>
       <div className="tab-explainer accent-red">
         As <InlineMath tex={"\\beta \\to \\infty"} />, the thermodynamic weight{' '}
-        <InlineMath tex={"e^{-\\beta m\\log p}"} /> kills every rung except <InlineMath tex="m = 0" />.
+        <InlineMath tex={"e^{-\\beta m\\log p}"} /> eliminates every rung except <InlineMath tex="m = 0" />.
         This is <strong>ground-state collapse</strong>: the entire ladder collapses to its trivial
         (identity) contribution. Play the animation to watch higher rungs fade away.
       </div>

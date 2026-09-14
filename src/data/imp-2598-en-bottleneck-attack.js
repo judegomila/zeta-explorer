@@ -1,5 +1,5 @@
 // @module imp-2598-en-bottleneck-attack
-// imp-2598 (critical, proof, S7): E(N) decomposition attack — make the bridge
+// imp-2598 (critical, proof, S7): E(N) decomposition approach — make the bridge
 // error explicit, find the BOTTLENECK component, and name the single lever that
 // drives it to zero. THE headline lever.
 //
@@ -57,7 +57,7 @@
 // (N = 2458..1e8: it carries ~95-99% of E_total at every row) AND asymptotically
 // (its share -> 1 as N -> infinity). E_trunc is the bottleneck, full stop.
 //
-// THE HEADLINE ATTACK INSIGHT
+// THE HEADLINE APPROACH INSIGHT
 // ---------------------------
 // The imp-345 openWork list targets E_flow (remove the Gronwall exponential)
 // and E_coll/E_shock (upgrade imp-341 to O(1/N) via imp-348). BOTH are
@@ -70,7 +70,7 @@
 //
 // HONEST SCOPE
 // ------------
-// This is a SCOPING + ATTACK module. It does NOT prove a new bound, does NOT
+// This is a SCOPING + APPROACH module. It does NOT prove a new bound, does NOT
 // pin any symbolic constant, does NOT close E(N) -> 0, and yields NO
 // finite-height RH corollary. It tabulates the existing assembled terms, ranks
 // them, and names the single load-bearing lever. No QED is claimed.
@@ -172,14 +172,14 @@ const ROWS = PT_SCALE_EXTRAPOLATION.ladder.map((ladderRow) => {
 const ASYMPTOTIC_PROBE_N = 1e30;
 const ASYMPTOTIC_PROBE = breakdownAtN(ASYMPTOTIC_PROBE_N, 0, 'probe-no-tc');
 
-// ── Bottleneck verdict / attack record ───────────────────────────────────────
+// ── Bottleneck verdict / approach record ───────────────────────────────────────
 
 const DOMINANT_EVERY_LADDER_ROW = ROWS.every((r) => r.dominantTerm === 'E_trunc');
 
 export const IMP2598_EN_BOTTLENECK_ATTACK = {
   id: 'imp-2598',
   title:
-    'E(N) decomposition attack: bottleneck is E_trunc; the only rate lever is ' +
+    'E(N) decomposition approach: bottleneck is E_trunc; the only rate lever is ' +
     'the imp-317 thin-strip density exponent',
   proofSection: 'S7',
   consumes: [
@@ -258,7 +258,7 @@ export const IMP2598_EN_BOTTLENECK_ATTACK = {
       '(e.g. a Halasz-Montgomery large-values refinement, or porting the imp-348 ' +
       'local-law microscopic rate to the thin strip). That is the ONLY lever ' +
       'that accelerates E(N) -> 0. The imp-345 openWork (remove the E_flow ' +
-      'Gronwall exponential; upgrade E_shock to O(1/N) via imp-348) attacks ' +
+      'Gronwall exponential; upgrade E_shock to O(1/N) via imp-348) approaches ' +
       'SUBDOMINANT terms and cannot move the rate by even one epsilon.',
     mistargetingFlag:
       'imp-345 openWork items 2 and 3 target E_flow and E_coll/E_shock, both ' +
@@ -311,7 +311,7 @@ export const IMP2598_EN_BOTTLENECK_ATTACK_ASSERTIONS = [
     holds: () => DOMINANT_EVERY_LADDER_ROW,
     why:
       'The whole deliverable is the claim that E_trunc is the bottleneck. If ' +
-      'any ladder row has a different dominant term, the attack target named ' +
+      'any ladder row has a different dominant term, the approach target named ' +
       'in the record is wrong and must be re-derived.',
   },
   {

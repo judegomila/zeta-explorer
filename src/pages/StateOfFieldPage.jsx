@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
-/* State of the Field — a cited map of how RH is actually being attacked in the
+/* State of the Field — a cited map of how RH is actually being approached in the
    wider mathematical community (2023–2026), and where this program engages each
    line. Sourced from a literature review; distinguishes proven results from
    conjectures/claims. Functional language, no overclaim. Rendered under
@@ -146,7 +146,7 @@ export default function StateOfFieldPage() {
           State of the Field
         </h1>
         <p style={{ fontSize: 17, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
-          How the Riemann Hypothesis is actually being attacked in the wider mathematical community
+          How the Riemann Hypothesis is actually being approached in the wider mathematical community
           (2023–2026), and where this program engages each line. The Riemann Hypothesis is{' '}
           <strong>unproven</strong>: there is no peer-reviewed proof and no credible claim of one. The
           real progress of the 2020s is <em>adjacent</em> — sharper control over where zeros could stray,

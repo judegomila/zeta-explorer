@@ -97,7 +97,7 @@ export const THETA_TRAP_SIGN_AUDIT = {
     E_N_AtN1e4: E_N_AT_1E4,
   },
   workedInequality: {
-    // The single worked line that kills the recruitment of A1 for the headline.
+    // The single worked line that eliminates the recruitment of A1 for the headline.
     substituteUpperBoundIntoHeadline:
       '-t_c >= -U  =>  -t_c + E(N) >= -U + E(N)   (a LOWER bound on the headline RHS: NO upper-face gain)',
     substituteUpperBoundIntoLowerFace: `Lambda >= -U - E(N) = -(${U_TC_PART.toExponential(3)}) - ${E_N_AT_1E4} = ${(

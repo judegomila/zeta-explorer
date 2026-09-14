@@ -410,10 +410,10 @@ export default function KypBoundedRealPage() {
               Blaschke Ghosts
             </Link>
             <Link to="/three-attacks" style={{ color: 'var(--terra-dk)' }}>
-              Three Attacks
+              Three Approaches
             </Link>
             <Link to="/rh-attack" style={{ color: 'var(--brass-dk)' }}>
-              RH Attack
+              RH Approach
             </Link>
             <Link to="/proof-overview" style={{ color: 'var(--green)' }}>
               Proof Overview

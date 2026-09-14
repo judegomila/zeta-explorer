@@ -117,7 +117,7 @@
  * positive-pivot gate and are skipped rigorously); whether the splits
  * terminate is answered only by the recorded run, not by this finding.
  *
- * ADVERSARIAL RECORD. (1) Battery (A3): random feasible cells x random
+ * SKEPTICAL RECORD. (1) Battery (A3): random feasible cells x random
  * feasible configurations x random simplex masses -- no sampled feasible
  * value ever dips below the MC3 cell bound; zero-width cells reproduce the
  * exact H to the nudge. (2) Battery (B3): the WD transfer re-verified on
@@ -803,7 +803,7 @@ const RUN = {
 
 // ---------------------------------------------------------------------------
 // the full 10-D cover, exported for OFFLINE re-verification only -- never
-// executed at import (minutes-scale; see ADVERSARIAL RECORD item 3)
+// executed at import (minutes-scale; see SKEPTICAL RECORD item 3)
 // ---------------------------------------------------------------------------
 export function IMP95171_RUN_FULL_COVER(budgetMs = 3600000) {
   const DIM_IDX = [[0, 1]];
@@ -920,7 +920,7 @@ export const IMP95171_TRIPLE_MERGE_CONSISTENT_COVER = {
   consequence:
     "on the TOP SUB-BAND [0.23208119492058613, 0.23209) the imp-95170 covered-band burden 'at least THREE packets in some block of 1..3' contracts to 'at least FOUR packets in some block of 1..3' (subsuming the two-point THEOREM MC and the single-doubled THEOREM SD there); on the REST of the covered band [0.2320727, 0.23208119492058613) the imp-95170 two-point closure and its >= 3-packet burden stand UNCHANGED -- the full-band contraction is NOT claimed",
   successorFrontier:
-    "(0) FIRST: finish the 10-D cover on layers 2..6 -- the deterministic runner is relaunched offline with a long budget (disposition owed to a successor run; if it terminates, bake the full RUN literals with per-layer binding cells and upgrade THEOREM MC3-TOP to the full-band THEOREM MC3); (i) the >= 4-packet burden inherits the copositive formulation verbatim; the (u, s, t, t2) quadruple extension is 13-D and the cover cost grows multiplicatively -- a per-block occupancy-reduction lemma (extremal support size for the copositive min) would close ALL occupancies at once and is the natural next attack; (ii) extending the class floor below 0.2320727 into the certified crossing bracket (0.232072389, 0.2320727) faces margins vanishing linearly at the copositive crossing; (iii) the refuted sub-strip [0.2320723, 0.232072389] still needs a different E-reduction, as recorded",
+    "(0) FIRST: finish the 10-D cover on layers 2..6 -- the deterministic runner is relaunched offline with a long budget (disposition owed to a successor run; if it terminates, bake the full RUN literals with per-layer binding cells and upgrade THEOREM MC3-TOP to the full-band THEOREM MC3); (i) the >= 4-packet burden inherits the copositive formulation verbatim; the (u, s, t, t2) quadruple extension is 13-D and the cover cost grows multiplicatively -- a per-block occupancy-reduction lemma (extremal support size for the copositive min) would close ALL occupancies at once and is the natural next approach; (ii) extending the class floor below 0.2320727 into the certified crossing bracket (0.232072389, 0.2320727) faces margins vanishing linearly at the copositive crossing; (iii) the refuted sub-strip [0.2320723, 0.232072389] still needs a different E-reduction, as recorded",
   carried: {
     classSandwich: [0.2320723, 0.24502],
     unconditionalWindow: [0.23209, 0.24502],

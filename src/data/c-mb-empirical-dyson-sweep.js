@@ -173,7 +173,7 @@ const CROSS_CHECK_ALL_CONTAINED =
 // The original blocker for this sub-gap ("No DP87 implementation in the
 // repository") is now STALE: imp-2339 added a true effective-8th-order
 // integrator dysonOdeCrossVerifyDP8 (DP45 + 3-level Romberg extrapolation
-// killing the O(dt^5..dt^7) terms, dp8StepKahan) to
+// eliminating the O(dt^5..dt^7) terms, dp8StepKahan) to
 // src/math/dyson-ode-integrator.js. Since K_empirical(N) is derived entirely
 // from the backward-Dyson collision time tau_c_measured (the RK4 value from
 // imp-859), we close the sub-gap by re-measuring tau_c with the 8th-order
@@ -1334,7 +1334,7 @@ export const C_MB_EMPIRICAL_DYSON_SWEEP = {
       resolution:
         'The old blocker ("no DP87 integrator in the repository") was made stale ' +
         'by imp-2339, which added a true effective-8th-order integrator ' +
-        '(dysonOdeCrossVerifyDP8: DP45 + 3-level Romberg extrapolation killing the ' +
+        '(dysonOdeCrossVerifyDP8: DP45 + 3-level Romberg extrapolation eliminating the ' +
         'O(dt^5..dt^7) terms). imp-2510 runs it on the shared subset {50, 100} at ' +
         'the imp-859 config and recomputes K_empirical from the 8th-order tau_c. ' +
         'OUTCOME: order-robust at N=100 (RK4 == DP8 within tolerance; N=200 ' +

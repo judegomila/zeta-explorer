@@ -391,7 +391,7 @@ const IMP_1321_VS_1322_COMPARISON = Object.freeze({
   // Cross-reference for the engine: do not prefer imp-1322 over imp-1321 on payoff alone.
   // The CONJUNCTION of the two routes gives a CHECK on the uniformity-lemma correctness.
   engineRoutingRecommendation:
-    'PARALLEL ATTACK -- not sequential preference. Both routes are paper-grade with ' +
+    'PARALLEL APPROACH -- not sequential preference. Both routes are paper-grade with ' +
     'shared analytic technique (BFI 1986 mean-value with explicit constants). Closing ' +
     'either route INDEPENDENTLY gives a Lambda tightening; closing both gives a CHECK ' +
     'on the explicit-constants work.',

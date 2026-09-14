@@ -513,7 +513,7 @@ export default function DashboardPage() {
         <div className="card" style={{ marginTop: 24, borderLeft: '3px solid #3f6b86' }}>
           <h3 style={{ color: '#3f6b86', fontSize: 14, marginBottom: 8 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-            <Link to="/rh-attack" style={{ color: '#b58a2e', fontSize: 12 }}>RH Attack</Link>
+            <Link to="/rh-attack" style={{ color: '#b58a2e', fontSize: 12 }}>RH Approach</Link>
             <Link to="/proof-checker" style={{ color: '#b58a2e', fontSize: 12 }}>Proof Checker</Link>
             <Link to="/proof-overview" style={{ color: '#b58a2e', fontSize: 12 }}>Proof Overview</Link>
             <Link to="/proof-planner" style={{ color: '#b58a2e', fontSize: 12 }}>Proof Planner</Link>

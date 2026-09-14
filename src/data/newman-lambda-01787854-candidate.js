@@ -276,7 +276,7 @@ export const NEWMAN_LAMBDA_01787854_CANDIDATE = {
     'Mathematical validity of the native binding, Dini transfer, 10.50 error weld, window freeze, all-N tail, closed barrier, and t=0 continuity.',
     'Proof-to-code fidelity and the absence of a conceptual error shared by all replay paths.',
     'Independent recomputation using different source, partitions, intermediate data, or algorithms.',
-    'Mutation-test kill rates, parameter-perturbation calibration, and independent referee sign-off.',
+    'Mutation-test eliminate rates, parameter-perturbation calibration, and independent referee sign-off.',
   ],
   replay: {
     release: [

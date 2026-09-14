@@ -145,7 +145,7 @@ function measureSkew(mult) {
   const aSkewMeasured = (wRise - wFall) / tol;
 
   // Direct cubic coefficient c3 = sigma-triple-prime(u0)/6 via the 5-point third-difference stencil,
-  // Richardson-extrapolated from the h = 1e-2 / 2e-2 pair (kills the leading O(h^2) bias).
+  // Richardson-extrapolated from the h = 1e-2 / 2e-2 pair (eliminates the leading O(h^2) bias).
   const d3FD = (h) =>
     (sigU(U0 + 2 * h) - 2 * sigU(U0 + h) + 2 * sigU(U0 - h) - sigU(U0 - 2 * h)) / (2 * h * h * h);
   const sigmaTriplePrime = (4 * d3FD(1e-2) - d3FD(2e-2)) / 3;

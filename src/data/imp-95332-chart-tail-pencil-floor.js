@@ -112,7 +112,7 @@
  * rho = e^6: K = 4096 exceeds K = 256 by 0.85 percent -- chart
  * currency stays exhausted for the new floor.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Tail-cap truth: dense in-chart
+ * SKEPTICAL SELF-CHECK RECORD. (1) Tail-cap truth: dense in-chart
  * sampling (51 theta per chart, |n| up to 80) at the binding, first
  * and last charts and coarser sweeps at a in {ln 2, ln 4, ln 10, 5,
  * 6}: the true t3-weighted tail never exceeds c3nChart, and the cap is

@@ -14,7 +14,7 @@
  * ------------------------------------------------------------------------------------
  *   E_flow = C_F (L/T0) G,  C_F = (L0 + 1)/(2pi),  L = log T0,  L0 = log(T0/2pi),  G = Gronwall.
  *   The Riemann-von Mangoldt height law effectiveHeightForN inverts N = (T0/2pi)(L0 - 1), i.e.
- *   T0 = 2pi N/(L0 - 1). Substituting kills T0 in favour of N:
+ *   T0 = 2pi N/(L0 - 1). Substituting eliminates T0 in favour of N:
  *       E_flow = G L (L0 + 1)(L0 - 1) / (4 pi^2 N) = G L (L0^2 - 1) / (4 pi^2 N)  ~  (log N)^3 / N.
  *   So in the component model the E_flow term decays as (log N)^3 / N -- a THREE-log-power-over-N
  *   law -- whereas E_coll ~ sqrt(log N / N) decays far SLOWER and E_trunc is N-flat. This is the

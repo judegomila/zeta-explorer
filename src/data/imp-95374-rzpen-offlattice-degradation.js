@@ -65,10 +65,10 @@
  * onset blow-up at large jitter is driven by rare near-collision draws,
  * not by generic off-lattice placement.
  *
- * FINDING 3 (breach threshold of the proven m-uniform floor). The proven
+ * FINDING 3 (crossing threshold of the proven m-uniform floor). The proven
  * A_unif4(2) = 1.9975337e-9 continues to LOWER-BOUND even the worst-of-400
  * off-lattice pencil floor up to +-6.25% jitter (min floor 2.344e-9 >
- * A_unif4); it is first breached at +-12.5% (min floor 3.056e-10 <
+ * A_unif4); it is first crossed at +-12.5% (min floor 3.056e-10 <
  * A_unif4). The lattice-skeleton floor's built-in m-uniform margin
  * (~4.8x at m = 8) therefore absorbs roughly +-6% worst-case log-jitter
  * before the off-lattice worst case can dip below the certified value.
@@ -137,7 +137,7 @@ export const IMP95374_RZPEN_OFFLATTICE_DEGRADATION = {
   finding3BreachThreshold:
     "the proven A_unif4(2) = 1.9975337e-9 lower-bounds even the worst-of-400 " +
     "off-lattice pencil floor up to +-6.25% jitter (min 2.344e-9), first " +
-    "breached at +-12.5% (min 3.056e-10); the m-uniform margin absorbs " +
+    "crossed at +-12.5% (min 3.056e-10); the m-uniform margin absorbs " +
     "~+-6% worst-case log-jitter",
   honestScope:
     "model seam pencil measurement only; supplies NO off-lattice floor " +
@@ -151,7 +151,7 @@ export const IMP95374_RZPEN_OFFLATTICE_DEGRADATION = {
     "MEASUREMENT: the RZ-PEN symbol-pencil floor degrades GRACEFULLY off " +
     "the dyadic skeleton up to ~+-6% log-jitter (worst-of-400 onset shift " +
     "< 1 depth unit, proven m-uniform floor still covering), then the " +
-    "near-collision separation-pricing tail dominates (+-12.5% breaches the " +
+    "near-collision separation-pricing tail dominates (+-12.5% crosses the " +
     "proven floor, +-25% blows the onset out by ~9 depth units); typical " +
     "(mean) placement is far more robust (onset shift < 0.5 through +-12.5%). " +
     "Quantifies the imp-95330/imp-95331 off-lattice residual as a bounded, " +
@@ -391,7 +391,7 @@ export const IMP95374_ASSERTIONS = [
     description:
       "FINDING 3: the proven A_unif4(2) lower-bounds the worst-of-400 " +
       "off-lattice floor up to +-6.25% (min at 2^-4 > A_unif4) and is first " +
-      "breached at +-12.5% (min at 2^-3 < A_unif4); the 2^-3 onset shift " +
+      "crossed at +-12.5% (min at 2^-3 < A_unif4); the 2^-3 onset shift " +
       "exceeds 1.5 depth units",
     holds: () => {
       const A = REC.latticeBaseline.aUnif4Rho2;

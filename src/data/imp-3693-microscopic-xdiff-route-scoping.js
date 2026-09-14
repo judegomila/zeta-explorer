@@ -43,7 +43,7 @@
  *      lattice, not a single sup or min. R3 CLEARS obstruction S1.
  *
  * VERDICT: YES, the repo owns a microscopic object of the RIGHT TYPE for C_Lip -- the per-gap field
- * g_k(t) (R3), NOT the strip-sup V0 (R1). The route is therefore SCOPED: to attack C_Lip one should
+ * g_k(t) (R3), NOT the strip-sup V0 (R1). The route is therefore SCOPED: to approach C_Lip one should
  * read the per-characteristic collision-time field tau_c(k) off the g_k ODE, not the mesoscopic V0.
  *
  * WHY THIS DOES NOT CLOSE G6a (obstruction S2 survives on R3)
@@ -137,7 +137,7 @@ export const IMP3693_MICROSCOPIC_XDIFF_ROUTE_SCOPING = {
     'per-gap field g_k is x-RESOLVED -- each g_k is the (x_{k+1} - x_k) difference of a specific ' +
     'adjacent pair indexed by lattice position, and the per-k collision time tau_c(k) is a candidate ' +
     'per-characteristic collision-time field tau_c(x) of exactly the TYPE C_Lip needs, so R3 CLEARS ' +
-    'obstruction S1. This SCOPES the route: to attack C_Lip one should read the per-characteristic ' +
+    'obstruction S1. This SCOPES the route: to approach C_Lip one should read the per-characteristic ' +
     'collision-time field off the g_k ODE, not the mesoscopic V0. It does NOT close G6a: clearing S1 ' +
     '(type) is necessary, not sufficient -- imp-3671 obstruction S2 (the nearest-pair collision sits ' +
     'exactly at the Gronwall-vacuous scale g_k -> 0, y -> 0; imp-2520 negative-finding 1) applies to ' +

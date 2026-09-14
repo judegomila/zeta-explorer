@@ -1,18 +1,18 @@
 # Independent audit — Λ ≤ 0.1787854 candidate (2026-07-28)
 
-Adversarial AI review of the sealed computer-assisted proof candidate
+Skeptical AI review of the sealed computer-assisted proof candidate
 `dbn-lambda-01787854-candidate-audit` (commit `2e9976c`), which claims an **unconditional**
 de Bruijn–Newman upper bound `Λ ≤ 0.1787854` via **Polymath15 Theorem 1.2** (the barrier
 criterion) instantiated at the verified-height edge (`X/2 < T_PT = 3 000 175 332 800`).
 
 > **Status: unreviewed computer-assisted proof candidate.** Not an established theorem, not
 > peer reviewed, not a proof of RH. Platt–Trudgian `Λ ≤ 0.2` remains the accepted, peer-reviewed
-> SOTA. This audit is an AI adversarial review + AI-driven recompute — **not** human expert peer
+> SOTA. This audit is an AI skeptical review + AI-driven recompute — **not** human expert peer
 > review.
 
 ## Verdict — no fatal or bound-invalidating defect found
 
-A four-referee adversarial pass (one per hypothesis + cross-cutting), each grounding findings
+A four-referee skeptical pass (one per hypothesis + cross-cutting), each grounding findings
 in file:line and defaulting skeptical, found no defect that breaks the bound:
 
 | Leg | Verdict | Confidence |

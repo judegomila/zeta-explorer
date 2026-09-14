@@ -31,7 +31,7 @@
  * the |F_2| numerator does NOT lose its leading term -- it keeps a real 2 t^{-4}, which integrates to the
  * (2/3) eps^{3/2} HEAD that builds the leading K_{3/2}. The numerator eps^{7/2} source is therefore the
  * SUBLEADING -6 t^{-8} term of a surviving series, NOT a cancellation-lifted leading. Each single branch
- * (t^2 -+ i)^{-2} carries a t^{-4} term; the SUM keeps it (real parts add), whereas the odd-p SUM killed it.
+ * (t^2 -+ i)^{-2} carries a t^{-4} term; the SUM keeps it (real parts add), whereas the odd-p SUM eliminated it.
  *
  * THE LARGE-t EXPANSION (real, leading term survives)
  * ---------------------------------------------------

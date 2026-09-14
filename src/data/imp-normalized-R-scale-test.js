@@ -1,7 +1,7 @@
 /**
  * @module imp-normalized-R-scale-test
  * @fileoverview imp-2842 -- Stress-test the degree-0 normalized-R reshaping with
- *   the EXACT scale-invariance discriminator that killed bare V.
+ *   the EXACT scale-invariance discriminator that eliminated bare V.
  *
  *   THE SURVIVING TARGET (from the verdict / imp-2686)
  *   --------------------------------------------------
@@ -55,7 +55,7 @@
  *       rung (K_a = c^2 (Gpass - Gshear) scales in magnitude but never changes
  *       sign), so the degree-0 reshaping gives a c-stable pass/fail verdict.
  *     - BARE V BREAKS: sign(eig(I - c^2 Gshear)) flips from +0.667 (c=1, pass)
- *       to -2.0 (c=3) and stays negative -- the same ladder that kills bare V.
+ *       to -2.0 (c=3) and stays negative -- the same ladder that eliminates bare V.
  *     - RAW-DIAGONAL Gpass ALREADY FAILS (expected): R is a correlation matrix
  *       (unit diagonal, trace = n), so lambda_max(R) = 1.6165 > 1, hence
  *       K_a = diag(Gshear) - Gshear is INDEFINITE -- the raw diagonal does NOT
@@ -306,8 +306,8 @@ export const IMP_NORMALIZED_R_SCALE_TEST = Object.freeze({
     lambdaMinKaBase: _lminKbase,
     interpretation:
       'The degree-0 reshaping returns a c-STABLE verdict (scale-invariant, tracks K_a) ' +
-      'where bare V flips along the ladder -- the discriminator that killed bare V no ' +
-      'longer kills the construction. But with the RAW diagonal as Gpass the verdict is ' +
+      'where bare V flips along the ladder -- the discriminator that eliminated bare V no ' +
+      'longer eliminates the construction. But with the RAW diagonal as Gpass the verdict is ' +
       'a (stable) FAIL: lambda_max(R) > 1, so K_a is indefinite. The raw diagonal does ' +
       'not dominate; a genuine endpoint-bridge Gpass (imp-2686) is required.',
   }),

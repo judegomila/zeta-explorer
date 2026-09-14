@@ -359,7 +359,7 @@ export default function ThetaBasinClosurePage() {
             </Link>
             <span style={{ color: 'var(--faint)' }}>(Lemma R1-T3 closed-form seizing margin)</span>
             <Link to="/spectral-attack" style={{ color: 'var(--blue)', textDecoration: 'none' }}>
-              → Spectral Attack
+              → Spectral Approach
             </Link>
             <span style={{ color: 'var(--faint)' }}>(full Theta-trap ladder)</span>
           </div>

@@ -102,7 +102,7 @@
  * (d) The result sharpens imp-95233 HONEST LIMITS (c) into a split verdict
  * but changes NO Lambda bound and adds no certificate.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) x(D/2) = 1/Q verified exact against the
+ * SKEPTICAL SELF-CHECK RECORD. (1) x(D/2) = 1/Q verified exact against the
  * imp-95220 port constants. (2) FA-2 bracket x_min <= y_min <= 2 x_min
  * checked on four ported grids; the tighter measured ratios y_min/x_min =
  * 1.5228, 1.3516, 1.2331, 1.1649 recomputed and confirmed strictly

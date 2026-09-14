@@ -26,7 +26,7 @@
  *       Being an ODD (fifth) derivative the antisymmetric stencil cancels at h^5, so the round-off floor
  *       ~ 1e-16 / (2 h^5) blows up EARLIER than the imp-35575 fourth difference: the stencil sign-flips to
  *       +1.11e-1 garbage by h = 1e-3. The RESOLVABLE window is h in {1e-1 .. 2e-2}, where the raw stencil is
- *       stable to ~9.4e-4 relative. Richardson-extrapolated from the clean h = 2e-1 / 1e-1 pair (kills the
+ *       stable to ~9.4e-4 relative. Richardson-extrapolated from the clean h = 2e-1 / 1e-1 pair (eliminates the
  *       O(h^2) stencil bias), sigma-5prime(u0) -> -3.088468e-4, so c5 -> -2.573724e-6 (the 1e-1 / 5e-2 pair
  *       gives -2.573715e-6, agreeing to ~3.4e-6 relative).
  *   (2) The materiality of the ODD quintic for the arm imbalance. Solving the local root balance
@@ -120,7 +120,7 @@ const D5_VALUES = D5_STEPS.map(d5FD);
 // RESOLVABLE window h in {1e-1 .. 2e-2} (indices 2..6): below it the h^5 round-off blows the stencil up.
 const D5_WINDOW = D5_VALUES.slice(2, 7);
 
-// Richardson extrapolation (kills the leading O(h^2) stencil bias) from the CLEAN h = 2e-1 / 1e-1 pair.
+// Richardson extrapolation (eliminates the leading O(h^2) stencil bias) from the CLEAN h = 2e-1 / 1e-1 pair.
 const SIGMA_5PRIME = (4 * d5FD(1e-1) - d5FD(2e-1)) / 3; // ~ -3.088468e-4
 const C5 = SIGMA_5PRIME / 120; // ~ -2.573724e-6
 // imp-35575-style finer 1e-1 / 5e-2 Richardson pair, for cross-pair consistency (agrees to ~3.4e-6 relative).

@@ -227,7 +227,7 @@ export const IMP3349_BRIDGE_RATIO_NUMERICAL_CERTIFICATION = Object.freeze({
       'dependence of the degree-0 mass-feasibility ratio B/D by direct integration. It does not ' +
       'establish operator positivity.',
     necessaryNotSufficient:
-      'Mass-feasibility B > D_0 kills the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT; the ' +
+      'Mass-feasibility B > D_0 eliminates the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT; the ' +
       'degree-0 budget proxy is circular (its budget IS ||V||). The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,

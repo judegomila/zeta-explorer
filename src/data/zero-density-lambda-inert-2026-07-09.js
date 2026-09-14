@@ -1,7 +1,7 @@
 /**
  * @module zero-density-lambda-inert-2026-07-09
  * @fileoverview
- * Scoping result (7-lens survey + adversarial verify, web-grounded): can
+ * Scoping result (7-lens survey + skeptical verify, web-grounded): can
  * zero-density / large-values estimates tighten the RIGOROUS de Bruijn–Newman
  * Λ ≤ 0.2 bound? Verdict: NO — density is Λ-INERT. It is genuine, live, top-tier
  * RH-ADJACENT progress, but it cannot move the rigorous Λ number.
@@ -44,7 +44,7 @@ export const DENSITY_LEVERS = [
     title: 'Extend the rigorous RH-to-X verification (certified Turing + interval ζ)',
     feedsLambda: 'DIRECTLY',
     promise: 4,
-    pitch: 'The single genuine Λ lever — attacks the confirmed sole binding constraint (verified height X) RH-freely. Not a density estimate, not the refuted barrier-tightening class.',
+    pitch: 'The single genuine Λ lever — approaches the confirmed sole binding constraint (verified height X) RH-freely. Not a density estimate, not the refuted barrier-tightening class.',
     caveat: 'Inverse-log ceiling: ~0.01 in Λ per decade of X; Λ≤0.10 needs X~10²⁴–10²⁵ (infeasible). Cannot reach RH by computation. It is a decade-of-HPC-per-0.01 grind.',
   },
   {

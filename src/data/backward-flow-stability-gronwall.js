@@ -83,7 +83,7 @@
  * (evaluate at z = sqrt(a) + iy), so the naive per-N transcription
  * "t_c <= 1 / (2 sup Im M)" would force a/2 <= y/2 -- false whenever
  * y < a. A single-particle 1/y spike does NOT signal an imminent
- * collision; only genuine multi-particle density does. This kills the
+ * collision; only genuine multi-particle density does. This eliminates the
  * literal finite-N form of the shock formula at microscopic strips and
  * is why the consequence below is stated at mesoscopic height and
  * conditionally on SG1.

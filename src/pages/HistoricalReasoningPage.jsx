@@ -152,7 +152,7 @@ C-F says: if the associated Toeplitz matrix is PSD, the spectral triple is self-
 4. C-F positivity: Toeplitz matrix of Euler product coefficients is PSD
 5. Connes self-adjointness: scaling + rank-one perturbation is self-adjoint
 
-If ANY of these can be proven, all follow. The Twin-Ladder Bridge framework suggests attacking via (3), as scattering theory provides computational and intuitive tools.`,
+If ANY of these can be proven, all follow. The Twin-Ladder Bridge framework suggests approaching via (3), as scattering theory provides computational and intuitive tools.`,
     implications: [
       'All five equivalent conditions reduce to a single positivity statement',
       'The "easiest" formulation may be Darlington (3) because it allows iterative verification prime by prime',
@@ -214,7 +214,7 @@ for some constant c > 0. This gives geometric convergence: the deficit after N p
 Guth-Maynard bound large values of D on the critical line by:
 1. Decomposing D into "short" and "long" components
 2. Using Hölder's inequality with an optimal exponent
-3. Exploiting multiplicative structure to bound bilinear sums
+3. Using multiplicative structure to bound bilinear sums
 
 In Twin-Ladder Bridge terms:
 1. Short component = low-prime oscillators (dominant)
@@ -303,12 +303,12 @@ In Twin-Ladder Bridge terms:
     id: 'R009',
     date: '2026-03-06',
     epoch: 1,
-    title: 'Information-Theoretic Attack: Channel Capacity at Critical Line',
+    title: 'Information-Theoretic Approach: Channel Capacity at Critical Line',
     category: 'proof-strategy',
     status: 'speculative',
     auditNote:
       'No communication channel, rate, or finite total capacity has been constructed. The raw prime product and capacity sum used below do not converge on the critical line.',
-    content: `The six measures in the spectral attack all minimize at σ = ½. But can we turn this observation into a proof?
+    content: `The six measures in the spectral approach all minimize at σ = ½. But can we turn this observation into a proof?
 
 **Proposed argument (speculative):**
 
@@ -409,7 +409,7 @@ If Λ = 0 (conjectural — equivalent to RH; Rodgers-Tao proved only Λ ≥ 0), 
     status: 'superseded',
     auditNote:
       'Abandoned strategy (never published). Convergence is not the only missing step, boundary unitarity alone does not confine transmission zeros, and the exact cascade places the relevant zeta zeros in the denominator as poles.',
-    content: `After analyzing all five attack paths, the Darlington route (Gap S7) appears more tractable than the Hilbert-Pólya route (Gap S5). Here's why:
+    content: `After analyzing all five approach paths, the Darlington route (Gap S7) appears more tractable than the Hilbert-Pólya route (Gap S5). Here's why:
 
 **Hilbert-Pólya (S5) requires:**
 1. Define a Hilbert space
@@ -493,7 +493,7 @@ export default function HistoricalReasoningPage() {
 
         {/* Current State Summary */}
         <div className="card" style={{ borderLeft: `3px solid ${RED}`, marginBottom: 24 }}>
-          <h3 style={{ color: RED, fontSize: 16, marginTop: 0 }}>Current State of the Attack</h3>
+          <h3 style={{ color: RED, fontSize: 16, marginTop: 0 }}>Current State of the Approach</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 16 }}>
             <div style={{ padding: 12, background: 'rgba(194,58,28,0.05)', borderRadius: 8, border: '1px solid rgba(194,58,28,0.15)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: RED, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
@@ -839,8 +839,8 @@ export default function HistoricalReasoningPage() {
             {[
               { to: '/gap-closing', label: 'Gap Closing', color: ORANGE },
               { to: '/formal-proof', label: 'Formal Proof', color: RED },
-              { to: '/rh-attack', label: 'RH Attack', color: BLUE },
-              { to: '/spectral-attack', label: 'Spectral Attack', color: PURPLE },
+              { to: '/rh-attack', label: 'RH Approach', color: BLUE },
+              { to: '/spectral-attack', label: 'Spectral Approach', color: PURPLE },
               { to: '/connes-adelic', label: 'Connes Adelic Trace', color: PURPLE },
               { to: '/berry-keating-xp', label: 'Berry-Keating H = xp', color: ORANGE },
               { to: '/rigor', label: 'Rigor', color: GREEN },

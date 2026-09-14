@@ -1,7 +1,7 @@
 // @module imp-1203-conjecture-18-2-pilot
 // imp-1203: HONEST PARTIAL numerical pilot of Conjecture 18.2 (prime-delay
 // domination closure, finite-w form) from
-// research-inputs/twin_ladder_consolidated_v52.pdf, para 18.2 (Attack II).
+// research-inputs/twin_ladder_consolidated_v52.pdf, para 18.2 (Approach II).
 //
 // ===========================================================================
 // SECTION (a) -- THE CONJECTURE (paraphrased from paper para 18.2).
@@ -14,7 +14,7 @@
 //
 //       Re ( xi'/xi (s) )  >  0.
 //
-// Para 18.2 is the finite-w "Attack II" companion of the infinitesimal
+// Para 18.2 is the finite-w "Approach II" companion of the infinitesimal
 // Conjecture 15.4 audited in imp-1202. Where 15.4 reads the inequality on the
 // line s = sigma + i t with sigma > 1/2 fixed, 18.2 reads it in the shifted
 // right-half-plane variable w (s = 1/2 + w, Re(w) > 0) used throughout the
@@ -341,7 +341,7 @@ export const IMP_1203_CONJECTURE_18_2_PILOT = Object.freeze({
 
   conjectureStatement: Object.freeze({
     label: 'Conjecture 18.2 (Prime-delay domination closure)',
-    paperSection: 'para 18.2 (Attack II) of twin_ladder_consolidated_v52.pdf',
+    paperSection: 'para 18.2 (Approach II) of twin_ladder_consolidated_v52.pdf',
     statement:
       'For every w with Re(w) > 0 and s = 1/2 + w, Re (xi/xi(s)) > 0.',
     dominationForm:
@@ -404,7 +404,7 @@ export const IMP_1203_CONJECTURE_18_2_PILOT = Object.freeze({
   ]),
 
   references: Object.freeze({
-    paper: 'research-inputs/twin_ladder_consolidated_v52.pdf, para 18.2 (Attack II)',
+    paper: 'research-inputs/twin_ladder_consolidated_v52.pdf, para 18.2 (Approach II)',
     imp1202: 'src/data/imp-1202-conjecture-15-4-numerical-audit.js (infinitesimal form)',
     imp1232: 'src/data/imp-1232-conjectures-17-3-18-4-audit.js (para 17-18 ghost-absence audit)',
     sieve: 'src/math/weil-explicit-formula-opt.js (von Mangoldt sieve + complex digamma, proven)',

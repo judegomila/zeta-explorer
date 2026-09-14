@@ -1,10 +1,10 @@
 /**
  * @module imp-34901-forward-breach-closed-form
  *
- * imp-34901 (proof, frontier): imp-34889 MEASURED that the forward route breaches the (H2) margin at step 5
- * band-wide and reduced the breach to a ratio condition with the fixed bracket half-width delta cancelling. It
- * never wrote the closed-form breach step or its band-invariance as a lemma. This module DERIVES the exact
- * closed form n_star = ceil(log2(N FP_LO(N) / K)) analytically from the imp-34889 surrogate breach condition,
+ * imp-34901 (proof, frontier): imp-34889 MEASURED that the forward route crosses the (H2) margin at step 5
+ * band-wide and reduced the crossing to a ratio condition with the fixed bracket half-width delta cancelling. It
+ * never wrote the closed-form crossing step or its band-invariance as a lemma. This module DERIVES the exact
+ * closed form n_star = ceil(log2(N FP_LO(N) / K)) analytically from the imp-34889 surrogate crossing condition,
  * shows the seed image half-width K delta / FP_LO(N) is T0(N)-INDEPENDENT (the RvM-inverse height cancels),
  * and proves the integer ceil is band-INVARIANT (= 5) across the whole imp-34693 admissible seed band: the
  * right-hand side ~19.9 sits strictly inside the power-of-two window (16, 32] whose logarithm the ceil reads,
@@ -12,11 +12,11 @@
  *
  * A CORRECTION TO THE imp-34889 PROSE (kept honest)
  * -------------------------------------------------
- * The imp-34889 model text wrote the reduced breach condition as "2^n > (K/FP_LO)/N". That literal ratio is
+ * The imp-34889 model text wrote the reduced crossing condition as "2^n > (K/FP_LO)/N". That literal ratio is
  * the RECIPROCAL of the true right-hand side: (K/FP_LO)/N ~ 0.05, whereas the ~20 that imp-34889 elsewhere
  * cites is N/(K/FP_LO) = N FP_LO / K ~ 19.9. Re-deriving from the imp-34889 code (below) fixes the direction:
- * the breach condition is 2^n > N FP_LO(N) / K, so n_star = ceil(log2(N FP_LO(N) / K)). Every downstream
- * imp-34889 number (RHS ~20, breach step 5, +-5% band move) is unchanged -- only the written ratio is flipped
+ * the crossing condition is 2^n > N FP_LO(N) / K, so n_star = ceil(log2(N FP_LO(N) / K)). Every downstream
+ * imp-34889 number (RHS ~20, crossing step 5, +-5% band move) is unchanged -- only the written ratio is flipped
  * right-way-up here.
  *
  * THE DERIVATION (from the imp-34889 toImageHalfWidth + margin, VERBATIM)
@@ -27,7 +27,7 @@
  * in which T0(N) CANCELS -- the seed image half-width is T0(N)-independent (only the weak FP_LO(N) drift
  * survives). The forward route doubles the enclosure width per Newton step (interval subtraction adds widths;
  * near the fixed point w(dT) ~ w([T])), so after n steps the image half-width is (K delta / FP_LO) 2^n. The
- * (H2) margin at the band point is delta * N. The band point breaches at the first step whose image half-width
+ * (H2) margin at the band point is delta * N. The band point crosses at the first step whose image half-width
  * exceeds the margin:
  *   (K delta / FP_LO) 2^n > delta N   <=>   (K / FP_LO) 2^n > N   <=>   2^n > N FP_LO / K,
  * the fixed bracket half-width delta CANCELLING entirely. The first integer n satisfying 2^n > R (R not a
@@ -37,7 +37,7 @@
  * WHY THE CEIL IS BAND-INVARIANT (= 5), AND HOW MUCH THE BAND WOULD HAVE TO WIDEN TO MOVE IT
  * -----------------------------------------------------------------------------------------
  * n_star = 5 exactly when the right-hand side R(N) = N FP_LO(N) / K lies in the half-open dyadic window
- * (2^4, 2^5] = (16, 32] (then 2^5 = 32 > R >= 16 = 2^4, so the first breach is at step 5). At the band centre
+ * (2^4, 2^5] = (16, 32] (then 2^5 = 32 > R >= 16 = 2^4, so the first crossing is at step 5). At the band centre
  * R(N_cross) ~ 19.91 (log2 ~ 4.315), strictly interior to (16, 32] with margin ~19.6% down to 16 (n_star -> 4)
  * and ~60.7% up to 32 (n_star -> 6). Across the widest imp-34693 k=10 rung (rho/N_cross ~ 5.2%) R spans only
  * [18.82, 21.00] -- a rel spread ~10.9%, a worst one-sided move ~5.5% -- because R inherits N's ~+-5.2% swing
@@ -51,13 +51,13 @@
  * --------------
  * DERIVATION ON THE imp-34889 SURROGATE ONLY (inherited imp-3220/imp-3406 crossover map; first-order
  * outward-rounding surrogate, NOT the imp-34687a certified transcendental layer). It formalises the closed-form
- * breach step and its band-invariance as a lemma but does NOT instantiate the imp-34687a directed-rounding
+ * crossing step and its band-invariance as a lemma but does NOT instantiate the imp-34687a directed-rounding
  * layer and does NOT discharge the conditional. imp-34714a REMAINS OPEN. C_C = (1/8) sqrt(3 pi) ansatz
  * (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a >= 0 untouched;
  * changes no bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2
  * remains SOTA.
  *
- * @see imp-34889-forward-breach-band-uniformity (the band-wide breach MEASUREMENT this formalises)
+ * @see imp-34889-forward-breach-band-uniformity (the band-wide crossing MEASUREMENT this formalises)
  * @see imp-34865-forward-vs-contraction-width-inflation (the single-point N_cross surrogate + image map reused)
  * @see imp-34693-crossover-contraction-seed-band (the admissible seed band rho(1,k) = (1-L)/[(1-L_c) L^k])
  * @see imp-34799-krawczyk-directed-rounding-width-bound (the (H2)-margin ceiling)
@@ -92,11 +92,11 @@ const L_AT_CROSS = gPrime(N_CROSS); // ~0.045423 (imp-34693 L_c)
 // imp-34693 admissible seed-band half-width (VERBATIM): rho(tol,k) = tol (1-L)/[(1-L_c) L^k].
 const rho = (tol, k) => (tol * (1 - L_CONTRACTION)) / ((1 - L_AT_CROSS) * Math.pow(L_CONTRACTION, k));
 
-// imp-34889 Krawczyk quotient denominator floor at N (FP_LO) and the derived closed-form breach step.
+// imp-34889 Krawczyk quotient denominator floor at N (FP_LO) and the derived closed-form crossing step.
 const FP_LO = (N) => 1 - Math.abs(gPrime(N * (1 - DELTA)));
 const seedImageHalfWidth = (N) => (K_AMPL * DELTA) / FP_LO(N); // = K delta / FP_LO, T0(N)-independent
 const breachRHS = (N) => (N * FP_LO(N)) / K_AMPL; // the true 2^n > N FP_LO / K right-hand side
-const nStar = (N) => Math.ceil(Math.log2(breachRHS(N))); // closed-form breach step n_star(N)
+const nStar = (N) => Math.ceil(Math.log2(breachRHS(N))); // closed-form crossing step n_star(N)
 
 // Dyadic window whose logarithm the ceil reads: n_star = 5 iff R in (2^4, 2^5] = (16, 32].
 const LOWER_POW2 = 16; // 2^4 (crossing below => n_star -> 4)
@@ -146,17 +146,17 @@ for (let k = 10; k <= 24; k++) {
 const N_STAR_BAND_MIN = Math.min(...bandTable.flatMap((r) => [r.n_star_lo, r.n_star_hi]), nStar(N_CROSS));
 const N_STAR_BAND_MAX = Math.max(...bandTable.flatMap((r) => [r.n_star_lo, r.n_star_hi]), nStar(N_CROSS));
 
-// Cross-check the derived closed-form step against the published imp-34889 measured breach step (5).
+// Cross-check the derived closed-form step against the published imp-34889 measured crossing step (5).
 const BREACH_STEP_PUBLISHED = IMP34889_FORWARD_BREACH_BAND_UNIFORMITY.measured.breach_step_band_min; // 5
 
 export const IMP34901_FORWARD_BREACH_CLOSED_FORM = {
   id: 'imp-34901',
   proofSection: 'S-frontier',
   question:
-    'imp-34889 MEASURED the forward-route (H2)-margin breach at step 5 band-wide and reduced it to a ratio ' +
-    'condition with the fixed bracket half-width delta cancelling, but never wrote the closed-form breach step ' +
+    'imp-34889 MEASURED the forward-route (H2)-margin crossing at step 5 band-wide and reduced it to a ratio ' +
+    'condition with the fixed bracket half-width delta cancelling, but never wrote the closed-form crossing step ' +
     'or its band-invariance as a lemma. Derive the exact closed form n_star = ceil(log2(N FP_LO(N)/K)) from ' +
-    'the imp-34889 surrogate breach condition, show the seed image half-width K delta / FP_LO(N) is ' +
+    'the imp-34889 surrogate crossing condition, show the seed image half-width K delta / FP_LO(N) is ' +
     'T0(N)-independent, and prove the integer ceil is band-invariant (= 5) across the whole imp-34693 ' +
     'admissible seed band -- quantifying how much wider the band must get before the ceil could cross an ' +
     'integer power-of-two boundary. Derivation on the imp-34889 surrogate only; does NOT instantiate the ' +
@@ -169,14 +169,14 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM = {
       'weak FP_LO(N) drift survives).',
     breachCondition:
       'Forward doubling gives image half-width (K delta / FP_LO) 2^n after n steps; the (H2) margin is ' +
-      'delta * N. Breach ((K delta/FP_LO) 2^n > delta N) reduces to (K/FP_LO) 2^n > N, i.e. 2^n > N FP_LO/K -- ' +
+      'delta * N. Crossing ((K delta/FP_LO) 2^n > delta N) reduces to (K/FP_LO) 2^n > N, i.e. 2^n > N FP_LO/K -- ' +
       'the fixed bracket half-width delta cancels entirely. The first integer n with 2^n > R (R not a power of ' +
       'two) is ceil(log2 R), so n_star(N) = ceil(log2(N FP_LO(N)/K)).',
     correction:
       'The imp-34889 model prose wrote the reduced condition as "2^n > (K/FP_LO)/N", the RECIPROCAL of the ' +
       'true right-hand side ((K/FP_LO)/N ~ 0.05 vs N FP_LO/K ~ 19.9). Re-deriving from the imp-34889 code ' +
-      'fixes the direction: the breach condition is 2^n > N FP_LO(N)/K. All downstream imp-34889 numbers ' +
-      '(RHS ~20, breach step 5, +-5% band move) are unchanged -- only the written ratio is flipped right-way-up.',
+      'fixes the direction: the crossing condition is 2^n > N FP_LO(N)/K. All downstream imp-34889 numbers ' +
+      '(RHS ~20, crossing step 5, +-5% band move) are unchanged -- only the written ratio is flipped right-way-up.',
     bandInvariance:
       'n_star = 5 iff R = N FP_LO/K lies in the dyadic window (2^4, 2^5] = (16, 32]. At the band centre ' +
       'R ~ 19.91 (log2 ~ 4.315), interior with ~19.6% headroom to 16 (n_star -> 4) and ~60.7% to 32 ' +
@@ -201,7 +201,7 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM = {
     n_star_center: nStar(N_CROSS), // 5
     seed_image_half_width_center: +seedImageHalfWidth(N_CROSS).toExponential(4), // ~3.295e4 (K delta / FP_LO)
   },
-  bandTable, // closed-form n_star and breach RHS at each imp-34693 rung edge
+  bandTable, // closed-form n_star and crossing RHS at each imp-34693 rung edge
   measured: {
     n_star_band_min: N_STAR_BAND_MIN, // 5
     n_star_band_max: N_STAR_BAND_MAX, // 5
@@ -218,10 +218,10 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM = {
     breach_step_published_imp34889: BREACH_STEP_PUBLISHED, // 5
   },
   finding:
-    'Formalising the imp-34889 surrogate breach as a lemma: the seed image half-width K delta / FP_LO(N) is ' +
-    'T0(N)-INDEPENDENT (the RvM-inverse height cancels in toImageHalfWidth), so the breach condition ' +
+    'Formalising the imp-34889 surrogate crossing as a lemma: the seed image half-width K delta / FP_LO(N) is ' +
+    'T0(N)-INDEPENDENT (the RvM-inverse height cancels in toImageHalfWidth), so the crossing condition ' +
     '(K delta/FP_LO) 2^n > delta N reduces to 2^n > N FP_LO(N)/K (the fixed bracket half-width delta cancels) ' +
-    'and the CLOSED-FORM breach step is n_star(N) = ceil(log2(N FP_LO(N)/K)). This corrects the imp-34889 ' +
+    'and the CLOSED-FORM crossing step is n_star(N) = ceil(log2(N FP_LO(N)/K)). This corrects the imp-34889 ' +
     'prose, which wrote the reduced ratio upside-down as (K/FP_LO)/N ~ 0.05; the true right-hand side is ' +
     'N FP_LO/K ~ 19.91, matching the ~20 imp-34889 elsewhere cites. n_star = 5 exactly when that right-hand ' +
     'side lies in the dyadic window (16, 32]; at the band centre it is ~19.91 (log2 ~ 4.315), with ~19.6% ' +
@@ -229,27 +229,27 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM = {
     'right-hand side moves only ~+-5.5% (rel spread ~10.9%) -- ~3.6x under the nearest-boundary headroom -- so ' +
     'the integer ceil is PINNED at 5 band-wide; the lower band edge does not reach 16 until k = 11 ' +
     '(rho/N_cross ~ 35%), a full 1/L ~ 6.7x wider rung than any Picard iteration needs. The closed form ' +
-    'agrees with the imp-34889 MEASURED breach step (both 5) at every sampled point. DERIVATION on the ' +
+    'agrees with the imp-34889 MEASURED crossing step (both 5) at every sampled point. DERIVATION on the ' +
     'imp-34889 surrogate only; establishes no operator positivity; imp-34714a REMAINS OPEN.',
   subGap:
     'imp-34714a REMAINS OPEN. The closed form n_star = ceil(log2(N FP_LO(N)/K)) and its band-invariance are ' +
     'derived on the imp-34889 first-order outward-rounding SURROGATE (inherited imp-3220/imp-3406 crossover ' +
     'map), NOT on the imp-34687a certified transcendental layer; the derivation does NOT instantiate that ' +
     'layer and does NOT prove the forward endpoints are valid enclosures. A formalisation of the surrogate ' +
-    'breach step, not a machine certificate. Adds no RH bound.',
+    'crossing step, not a machine certificate. Adds no RH bound.',
   isRigorous: false,
   verdict:
-    'FORWARD-BREACH CLOSED FORM (frontier, NOT an RH bound). imp-34889 measured the forward (H2)-margin breach ' +
+    'FORWARD-BREACH CLOSED FORM (frontier, NOT an RH bound). imp-34889 measured the forward (H2)-margin crossing ' +
     'at step 5 band-wide and reduced it to a ratio with the fixed bracket half-width delta cancelling; this ' +
     'module DERIVES the exact closed form. The seed image half-width K delta / FP_LO(N) is T0(N)-independent ' +
-    '(the RvM-inverse height cancels), so the breach condition reduces to 2^n > N FP_LO(N)/K and ' +
+    '(the RvM-inverse height cancels), so the crossing condition reduces to 2^n > N FP_LO(N)/K and ' +
     'n_star(N) = ceil(log2(N FP_LO(N)/K)). This corrects the imp-34889 prose, which wrote the ratio ' +
     'upside-down as (K/FP_LO)/N ~ 0.05; the true right-hand side is N FP_LO/K ~ 19.91 (the ~20 imp-34889 ' +
     'cites). n_star = 5 iff that right-hand side lies in the dyadic window (16, 32]; at centre ~19.91 with ' +
     '~19.6% headroom down to 16 and ~60.7% up to 32, and the widest imp-34693 k=10 rung moves it only ~+-5.5% ' +
     '-- ~3.6x under the nearest-boundary headroom -- so the integer ceil is band-INVARIANT at 5. The lower ' +
     'band edge does not reach 16 (n_star -> 4) until k = 11 (rho/N_cross ~ 35%), a full 1/L ~ 6.7x wider rung ' +
-    'than any Picard iteration needs. The closed form agrees with the imp-34889 measured breach step (both 5) ' +
+    'than any Picard iteration needs. The closed form agrees with the imp-34889 measured crossing step (both 5) ' +
     'at every sampled band point. DERIVATION on the imp-34889 surrogate only; does NOT instantiate the ' +
     'imp-34687a directed-rounding layer; SUB-GAP imp-34714a REMAINS OPEN. The C_C 1/8 ansatz ' +
     '(imp-2642/imp-2643) and C_mb GUE-conditional per imp-486 are UNTOUCHED; imp-3066 K_a >= 0 untouched; ' +
@@ -268,13 +268,13 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM_ASSERTIONS = [
   {
     // The derived closed form n_star = ceil(log2(N FP_LO/K)) equals 5 at every sampled imp-34693 band point.
     id: 'imp34901-closed-form-n-star-5-band-wide',
-    description: 'closed-form breach step n_star = ceil(log2(N FP_LO/K)) equals 5 at every sampled band point',
+    description: 'closed-form crossing step n_star = ceil(log2(N FP_LO/K)) equals 5 at every sampled band point',
     holds: () => N_STAR_BAND_MIN === 5 && N_STAR_BAND_MAX === 5 && nStar(N_CROSS) === 5,
   },
   {
-    // The breach right-hand side R = N FP_LO / K sits strictly inside the dyadic window (16, 32] that pins n_star.
+    // The crossing right-hand side R = N FP_LO / K sits strictly inside the dyadic window (16, 32] that pins n_star.
     id: 'imp34901-breach-rhs-in-dyadic-window',
-    description: 'breach RHS N FP_LO/K ~ 19.9 lies strictly inside (16, 32], the window whose log the ceil reads',
+    description: 'crossing RHS N FP_LO/K ~ 19.9 lies strictly inside (16, 32], the window whose log the ceil reads',
     holds: () => R_CENTER > LOWER_POW2 && R_CENTER <= UPPER_POW2 && Math.abs(R_CENTER - 19.91) < 0.1,
   },
   {
@@ -290,9 +290,9 @@ export const IMP34901_FORWARD_BREACH_CLOSED_FORM_ASSERTIONS = [
     holds: () => SEED_IMG_REL_SPREAD_K10 < 1e-2 && CRITICAL_K === 11,
   },
   {
-    // The derived closed form agrees with the imp-34889 MEASURED breach step (both 5).
+    // The derived closed form agrees with the imp-34889 MEASURED crossing step (both 5).
     id: 'imp34901-closed-form-matches-imp34889-measured',
-    description: 'the derived closed-form breach step equals the imp-34889 measured breach step (both 5)',
+    description: 'the derived closed-form crossing step equals the imp-34889 measured crossing step (both 5)',
     holds: () => nStar(N_CROSS) === BREACH_STEP_PUBLISHED && BREACH_STEP_PUBLISHED === 5,
   },
   {

@@ -10,10 +10,10 @@
  * certificates A, B, C at worse constants) + PROP FEN (fencing: the
  * necessity floor (2M - 1)/4 and the honest coverage-not-sharpness gap).
  *
- * Tenth leg of the seam chain, attacking the open sub-gap
+ * Tenth leg of the seam chain, approaching the open sub-gap
  * imp-95212-subgap-fresnel-airy-envelope-port at the residual left by
  * imp-95217: "UNBOUNDED-count touching families with bounded octave
- * occupancy (Szasz-convergent, so THEOREM SZ does not kill them; count
+ * occupancy (Szasz-convergent, so THEOREM SZ does not eliminate them; count
  * unbounded, so THEOREM SI does not price them; no ratio floor, so
  * THEOREM GC does not price them) -- the ONLY remaining unpriced corner."
  * THIS MODULE prices exactly that corner. The count bound of H-CNT is
@@ -135,7 +135,7 @@
  * The remaining unpriced freedom is now strictly smaller: families with
  * UNBOUNDED octave occupancy but convergent Szasz sum (e.g. occupancy
  * growing linearly in the octave index) -- open on both sides, since SZ
- * needs divergence to kill and every positive theorem here needs a
+ * needs divergence to eliminate and every positive theorem here needs a
  * uniform occupancy bound.
  *
  * HONEST LIMITS. (a) Coverage, not sharpness: the collar is deep
@@ -149,7 +149,7 @@
  * (d) Model-family constants (sigma = 1, theta = 10); gammaSL remains a
  * cap, not a measurement; measured class sup phi = 0.3572 untouched.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA CD audit: the octave-count
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA CD audit: the octave-count
  * bound uses floor(u + L) - floor(u) <= L + 1, so an interval of
  * multiplicative length 2^L meets at most L + 2 octaves; the n <= 4M - 1
  * bound then follows by rearrangement; verified on 3000 seeded random
@@ -670,7 +670,7 @@ export const IMP95218_OCC_ASSERTIONS = [
   {
     id: "imp95218-occ-truth-battery",
     description:
-      "adversarial truth batteries on exact Cauchy Gram pairs (power iteration): 150 near-threshold M = 1 multi-octave draws (up to 10 sparse clusters) and 250 M = 2 draws with touching pairs (gaps down to 2e-2) never violate the OC bound; worst observed true/bound recorded in the header as the coverage gap",
+      "skeptical truth batteries on exact Cauchy Gram pairs (power iteration): 150 near-threshold M = 1 multi-octave draws (up to 10 sparse clusters) and 250 M = 2 draws with touching pairs (gaps down to 2e-2) never violate the OC bound; worst observed true/bound recorded in the header as the coverage gap",
     holds: () => {
       let seed = 20250910;
       const rand = () => {

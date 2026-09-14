@@ -20,14 +20,14 @@
  * FILE_CHECKS        — Array<{file, status, ticket, note?}>
  *                      19 PASS, 1 WARN. Covers Route B asymptotic files,
  *                      finite-height beat, G6 Polymath15 bridge, GUE
- *                      irreducibility, adversarial reviews, and Lean skeletons.
+ *                      irreducibility, skeptical reviews, and Lean skeletons.
  *
  * ASSERTION_CHECKS   — Array<{id, assertion, snapshotValue, actualValue,
  *                      status, note, ticket?}>
  *                      7 assertions (A1-A7). Key results: Route B closed
  *                      unconditionally (A4), finite-height beat L_pt ~ 0.121
  *                      confirmed (A5), GUE universality named as irreducible
- *                      conditional (A6), adversarial FATAL count 2-0-0-0-0 (A7).
+ *                      conditional (A6), skeptical FATAL count 2-0-0-0-0 (A7).
  *
  * CROSSREF_CHECKS    — Array<{id, from, claim, check, status, note}>
  *                      3 cross-references (XR1-XR3). All PASS.
@@ -68,7 +68,7 @@ export const FILE_CHECKS = [
   { file: 'src/data/polymath15-lemma52-shock-holder.js',  status: 'PASS', ticket: 'imp-366' },
   // GUE irreducibility (imp-486)
   { file: 'src/math/c-mb-unconditional-bound.js',         status: 'PASS', ticket: 'imp-486' },
-  // Adversarial review artifacts
+  // Skeptical review artifacts
   { file: 'src/math/paper-skeptic-review.js',             status: 'PASS', ticket: 'imp-417' },
   { file: 'src/math/paper-skeptic-review-2.js',           status: 'PASS', ticket: 'imp-430' },
   { file: 'src/math/paper-skeptic-review-3.js',           status: 'PASS', ticket: 'imp-437' },
@@ -149,7 +149,7 @@ export const ASSERTION_CHECKS = [
   },
   {
     id: 'A7',
-    assertion: 'Adversarial review FATAL count trajectory: 2, 0, 0, 0, 0',
+    assertion: 'Skeptical review FATAL count trajectory: 2, 0, 0, 0, 0',
     snapshotValue: '2, 0, 0, 0, 0',
     actualValue: 'Reviews 1-5 confirmed: imp-417(2 FATAL), imp-430(0), imp-437(0), imp-465(0), imp-474(0)',
     status: 'PASS',

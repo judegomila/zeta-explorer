@@ -120,7 +120,7 @@
  *     fixed x (Laguerre growth), so it is count-PRICED, not
  *     count-uniform; the 1/2 depth-only ceiling is untouched.
  *
- * ADVERSARIAL RECORD. Interpolation identity of LEMMA BN verified on 200
+ * SKEPTICAL RECORD. Interpolation identity of LEMMA BN verified on 200
  * random configurations (worst rel 1.3e-11). Chain sqrt(Lambda_pencil)
  * <= BN sum <= coalN verified with ZERO violations on 400 random
  * configurations, N = 2..5, windows R = 1.3 and 2, x up to ~ 20. Pivot

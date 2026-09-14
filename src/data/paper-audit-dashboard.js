@@ -337,12 +337,12 @@ const CONJECTURE_ENTRIES = [
       'baselines. The imp-440 / imp-963 finite-height beat (Lambda <= 0.02 ' +
       'at N* = 1e4) already partially realizes this in the de Bruijn-Newman ' +
       'setting.',
-    // imp-3932 (2026-07-03): first direct attack on 22.1 truth status (the
+    // imp-3932 (2026-07-03): first direct approach on 22.1 truth status (the
     // auditStatus above is a NOVELTY verdict and is unchanged by this).
     truthAttackTicket: 'imp-3932',
     truthAttackDate: '2026-07-03',
     truthAttackNote:
-      'RIGOROUS coefficient-dimension obstruction (adversarially refereed): ' +
+      'RIGOROUS coefficient-dimension obstruction (independently refereed): ' +
       'the Fourier transform of any eq (20)-(21) proxy -- or finite Gaussian ' +
       'mixture -- with D stored coefficients has at most D-1 sign changes on ' +
       '(0,inf) (Fourier closure + Polya-Szego exponential-polynomial zero ' +
@@ -873,7 +873,7 @@ export const PAPER_AUDIT_DASHBOARD_ASSERTIONS = [
   {
     id: 'paper-audit-22-1-truth-attack-recorded',
     why:
-      'imp-3932 delivered the first direct truth-status attack on 22.1 (the ' +
+      'imp-3932 delivered the first direct truth-status approach on 22.1 (the ' +
       'rigorous frozen-ladder coefficient-dimension obstruction falsifying ' +
       'the strong global reading at the Platt-Trudgian benchmark, with the ' +
       'partial-overall boundary named). The 22.1 dashboard entry must carry ' +

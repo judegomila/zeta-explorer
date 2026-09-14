@@ -152,7 +152,7 @@ const REFUTATION_NUMERICS_AUDIT = Object.freeze({
 const CHARFUNCTION_RECONCILIATION = Object.freeze({
   id: 'charfunction-reconciliation-symmetric-once-identified',
   question:
-    'Granting the scale obstruction kills the Phi-UNIFORM biconditional, does a ' +
+    'Granting the scale obstruction eliminates the Phi-UNIFORM biconditional, does a ' +
     'SCALE-NORMALIZED equivalence survive for the single Riemann Phi, and is it ' +
     'symmetric (both directions together) or asymmetric (imp-1265)?',
   explicitAlgebra: Object.freeze([

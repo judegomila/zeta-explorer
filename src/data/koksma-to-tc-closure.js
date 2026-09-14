@@ -13,7 +13,7 @@
  *
  * **Proof-chain role (Theorem 10.1 non-circular closure)**
  * Theorem 10.1 of proof-paper.js claimed that the KH bound implies t_c(N)->0
- * "in particular," but the adversarial skeptic review (imp-417) flagged this
+ * "in particular," but the skeptical skeptic review (imp-417) flagged this
  * phrase as unjustified (skp-001 FATAL). The fix is a direct argument: the
  * Burgers formula expresses tau_c as 1/(2 sup F_N), the KH bound controls
  * |F_N - F_inf|, and the Poisson kernel shows F_inf(x, y_sharp) = O(sqrt(N))
@@ -31,7 +31,7 @@
  * 4. `imp424-ratio-strictly-decreasing` — ratio decreasing across the
  *    baseline, confirming the O(log N / sqrt(N)) theoretical rate.
  * 5. `imp424-skp001-verdict-closed` — verdict field must read "CLOSED",
- *    guarding against a future edit silently reopening the adversarial finding.
+ *    guarding against a future edit silently reopening the skeptical finding.
  *
  * **Ticket history**
  * - imp-424: created this file; derived the non-circular proof and wired the
@@ -45,7 +45,7 @@
  *
  * Gap being closed
  * ----------------
- * The adversarial skeptic review (imp-417, paper-skeptic-review.js) flagged
+ * The skeptical skeptic review (imp-417, paper-skeptic-review.js) flagged
  * skp-001 as FATAL: Theorem 10.1 in proof-paper.js states:
  *
  *   ||m_N - m_inf||_{L^inf} <= C_1 log(gamma_N) / (N y)
@@ -335,7 +335,7 @@ export const KOKSMA_TO_TC_CLOSURE = {
       + "1/(2 sup F_N) from imp-338; (2) KH modulus psi_N -> 0 from "
       + "imp-341; (3) Poisson kernel F_inf ~ pi rho / y -> inf. "
       + "No appeal to Theorem 10.2 (Holder-1/2 / imp-354) is needed. "
-      + "The circularity identified in the adversarial review is eliminated.",
+      + "The circularity identified in the skeptical review is eliminated.",
     paperFix:
       "Theorem 10.1 should add after 'In particular': 'By the Burgers "
       + "backward-collision formula tau_c = 1/(2 sup F_N) (imp-338) and "
@@ -398,7 +398,7 @@ export const KOKSMA_TO_TC_CLOSURE_ASSERTIONS = [
     why:
       "The verdict field must read CLOSED (not partial or open) because the "
       + "non-circular proof is complete for the lim sup = 0 statement. If a "
-      + "future edit changes this without closing a new sub-gap, the adversarial "
+      + "future edit changes this without closing a new sub-gap, the skeptical "
       + "review finding skp-001 would reopen silently.",
   },
 ];

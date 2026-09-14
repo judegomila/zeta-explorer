@@ -157,7 +157,7 @@ const D3_VALUES = D3_STEPS.map(d3FD);
 // Stability spread of the stencil over the resolvable window h in {2e-2 .. 1e-3} (indices 2..6).
 const D3_WINDOW = D3_VALUES.slice(2);
 const D3_REL_SPREAD = (Math.max(...D3_WINDOW) - Math.min(...D3_WINDOW)) / Math.abs(D3_VALUES[D3_VALUES.length - 1]);
-// Richardson extrapolation (kills the leading O(h^2) stencil bias) from the h = 2e-2 / 1e-2 pair.
+// Richardson extrapolation (eliminates the leading O(h^2) stencil bias) from the h = 2e-2 / 1e-2 pair.
 const SIGMA_TRIPLE_PRIME = (4 * d3FD(1e-2) - d3FD(2e-2)) / 3; // ~ -1.574206e-3
 const C3 = SIGMA_TRIPLE_PRIME / 6; // ~ -2.623677e-4 (NEGATIVE -> rising arm wider)
 

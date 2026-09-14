@@ -133,13 +133,13 @@
  * 0.5005151171197879 / 0.5000094370907929 at m d = 24 / 26 / 28
  * (vs gammaOV = 0.99959).
  *
- * ADVERSARIAL SELF-CHECK RECORD (including the honest negative). (1)
- * K = 1 reduction attacked: LamBarA at K = 1 reproduces the imp-95211
+ * SKEPTICAL SELF-CHECK RECORD (including the honest negative). (1)
+ * K = 1 reduction stress-tested: LamBarA at K = 1 reproduces the imp-95211
  * payoff rows and xStar exactly (rel 1e-12), for arbitrary eps. (2)
- * LEMMA AG attacked per row: exact Cauchy products on uniform
+ * LEMMA AG approached per row: exact Cauchy products on uniform
  * arithmetic grids at (K, eps) up to (17, 1/16) and on the actual
  * (128, 256) prime block never exceed the row bound. (3) THEOREM DR-A
- * attacked by a 3000-draw Rayleigh battery over random H-DYA-A
+ * approached by a 3000-draw Rayleigh battery over random H-DYA-A
  * configurations (1..3 shells, up to 7 rates per shell at additive
  * spacings >= eps with random slack, lacunary jumps, random depths,
  * signed coefficients) against the finite-n bound; a 20000-draw offline
@@ -494,7 +494,7 @@ export const IMP95214_ARITHMETIC_SEPARATION_PRICING = {
   lemmaPR:
     "Prime-block instantiation: rates 1/p for the primes in a dyadic block (P, 2P), P >= 3, satisfy (ii-A) with eps = 2/p_max (distinct odd primes at index distance t differ by >= 2t; p q < p_max^2) and width < 2. Instantiated on the 23 primes in (128, 256): the alias-grid-shaped rate set satisfies H-DYA-A(ii-A) natively -- the in-shell structure demanded by the extraction leg is supplied by the grid itself.",
   honestNegative:
-    "Recorded adversarial negative: since (ii-A) implies H-DYA-M at rho = 1 + eps/2, THEOREM DR-R also applies, and on the full-occupancy family it is numerically SHARPER than DR-A (thresholds 17.26/33.46/66.20/132.01 vs 22.21/42.91/84.40/167.43 at K = 5/9/17/33; both linear in K). The certified family threshold is the min of the two. What DR-A adds is the closed-form finite constant, the closed-form CP-A cap, and the PROVED linear-in-occupancy law; DR-R linearity on this family is observed, not proved here.",
+    "Recorded skeptical negative: since (ii-A) implies H-DYA-M at rho = 1 + eps/2, THEOREM DR-R also applies, and on the full-occupancy family it is numerically SHARPER than DR-A (thresholds 17.26/33.46/66.20/132.01 vs 22.21/42.91/84.40/167.43 at K = 5/9/17/33; both linear in K). The certified family threshold is the min of the two. What DR-A adds is the closed-form finite constant, the closed-form CP-A cap, and the PROVED linear-in-occupancy law; DR-R linearity on this family is observed, not proved here.",
   constants: {
     linSlope: LIN_SLOPE,
     aArTable: A_AR_TABLE,
@@ -541,7 +541,7 @@ export const IMP95214_ASP_ASSERTIONS = [
   {
     id: "imp95214-asp-lemma-ag-exact-rows",
     description:
-      "LEMMA AG attacked per row: on uniform arithmetic grids nu_i = 1 + i eps at (K, eps) up to (17, 1/16), every exact in-shell Cauchy row product is <= (4/eps)^(K-1)/(i!(K-1-i)!), and on the actual (128, 256) prime block the measured separation constant is >= 2/p_max = eps, hypothesis (ii-A) and the width clause hold, and the exact worst row (baked, rel 1e-12) is below the baked A_ar cap",
+      "LEMMA AG approached per row: on uniform arithmetic grids nu_i = 1 + i eps at (K, eps) up to (17, 1/16), every exact in-shell Cauchy row product is <= (4/eps)^(K-1)/(i!(K-1-i)!), and on the actual (128, 256) prime block the measured separation constant is >= 2/p_max = eps, hypothesis (ii-A) and the width clause hold, and the exact worst row (baked, rel 1e-12) is below the baked A_ar cap",
     holds: () => {
       const rel = (x, lit) => Math.abs(x - lit) <= 1e-12 * Math.abs(lit);
       for (const [K, eps] of [

@@ -83,7 +83,7 @@
  * ----------------------------------------------------------------
  * Independent of the five-step Path C tail programme above, Phases 10-11
  * opened a second route that targets the B2(b) analytic angle of the
- * Λ attack rather than the B2(a) statistical fit:
+ * Λ approach rather than the B2(a) statistical fit:
  *
  *   Step B1. imp-341 (Koksma-Hlawka Burgers uniformity).
  *            The deterministic bound

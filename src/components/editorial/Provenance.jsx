@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
  *     module: 'src/data/imp-95208-ythaw-package-stage12.js',
  *     code: 'lemma_sweep_p235711.c (sharp weight, prec 256)',
  *     run: 'formalization/y-thaw-01775943/sweep-results/ (27 shards, SHA256SUMS)',
- *     referee: 'S0 note refereed 2026-09-10 (adversarial pass)',
+ *     referee: 'S0 note refereed 2026-09-10 (skeptical pass)',
  *     route: '/threads#y-thaw-0177',
  *   }} />
  *

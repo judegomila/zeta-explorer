@@ -7,7 +7,7 @@
  * supersedes the c-pinning framing in section27-identity-refutation's
  * THE_REAL_GAP and is the honest culmination of the session's Volterra arc.
  *
- * VERDICT: KILLED AS A REDUCTION (with a residual OPEN sub-problem that is
+ * VERDICT: ELIMINATED AS A REDUCTION (with a residual OPEN sub-problem that is
  * RH-EQUIVALENT, not a shortcut).
  *
  * 1. The bare-Volterra biconditional (imp-1240/imp-1258 LINK B,
@@ -51,7 +51,7 @@
  * BOTTOM LINE. The Volterra/27.2 route is PCC-FREE but does NOT collapse RH to a
  * single operator-norm bound. It is a faithful REFORMULATION of RH, as hard as
  * RH, not a reduction to something cheaper. This matches the session pattern:
- * every promising route, under adversarial scrutiny, is either NOT rigorous
+ * every promising route, under skeptical scrutiny, is either NOT rigorous
  * (finite-N beat, C_H undischargeable) or RH-EQUIVALENT (Volterra) -- the
  * project has reformulations of RH, not a hidden shortcut. PLATT-TRUDGIAN
  * Lambda <= 0.2 REMAINS THE RIGOROUS SOTA. No false QED.
@@ -66,7 +66,7 @@ import { SECTION26_MUPASS_OPERATOR_VERDICT } from './section26-mupass-operator-v
 
 export const SECTION26_VERDICT = {
   date: '2026-06-18',
-  verdict: 'KILLED AS A REDUCTION; residual OPEN sub-problem is RH-EQUIVALENT, not a shortcut',
+  verdict: 'ELIMINATED AS A REDUCTION; residual OPEN sub-problem is RH-EQUIVALENT, not a shortcut',
   bareBiconditional: 'provably impossible to revive by any scalar normalization (decoupling reproduced at the genuine Riemann Phi)',
   fiveThousandXArtifact: 'imp-1240 "5000x below 1" measures the bare scale-miscalibrated operator (||V||~c^2); NOT evidence for Conj 27.2',
   survivingTarget: 'prove ||R||<=1 <=> K_a>=0 for R=Gpass^{-1/2} Gshear Gpass^{-1/2} (degree-0); but this is a faithful restatement of K_a>=0, RH-equivalent',
@@ -86,8 +86,8 @@ export const THE_REAL_GAP_REVISED = {
 export const SECTION26_VERDICT_ASSERTIONS = [
   {
     id: 'sec26-killed-as-reduction',
-    description: 'Verdict recorded: collapse KILLED as a reduction; bare biconditional impossible by scalar normalization',
-    holds: () => /KILLED AS A REDUCTION/.test(SECTION26_VERDICT.verdict) && /provably impossible/.test(SECTION26_VERDICT.bareBiconditional),
+    description: 'Verdict recorded: collapse ELIMINATED as a reduction; bare biconditional impossible by scalar normalization',
+    holds: () => /ELIMINATED AS A REDUCTION/.test(SECTION26_VERDICT.verdict) && /provably impossible/.test(SECTION26_VERDICT.bareBiconditional),
   },
   {
     id: 'sec26-5000x-is-artifact',
@@ -107,7 +107,7 @@ export const SECTION26_VERDICT_ASSERTIONS = [
       const bridgeStaysDowngraded = /CONDITIONAL/.test(mv) && /refuted/i.test(mv);
       const oneLine = IMP_1258_VOLTERRA_CDB_BRIDGE.oneLine.toLowerCase();
       const noCheapClaim = oneLine.includes('not established') && !/\bshortcut\b/.test(oneLine);
-      const sec26RhEquiv = /RH-EQUIVALENT|RH-equivalent|restatement/.test(THE_REAL_GAP_REVISED.honestCaveat) && /KILLED AS A REDUCTION/.test(SECTION26_VERDICT.verdict);
+      const sec26RhEquiv = /RH-EQUIVALENT|RH-equivalent|restatement/.test(THE_REAL_GAP_REVISED.honestCaveat) && /ELIMINATED AS A REDUCTION/.test(SECTION26_VERDICT.verdict);
       const artifactFlagged = /artifact|scale-miscalibrated/.test(SECTION26_VERDICT.fiveThousandXArtifact) && /NOT evidence/.test(SECTION26_VERDICT.fiveThousandXArtifact);
       return bridgeStaysDowngraded && noCheapClaim && sec26RhEquiv && artifactFlagged;
     },

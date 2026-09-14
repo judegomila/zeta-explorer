@@ -37,7 +37,7 @@ function NavIcon({ name }) {
 // Map group labels (post-shortLabel) to icons.
 const GROUP_ICON = {
   Research: 'research', Model: 'model', Analysis: 'analysis',
-  'Twin-Ladder Program': 'ladder', Visualizations: 'viz', Attack: 'attack',
+  'Twin-Ladder Program': 'ladder', Visualizations: 'viz', Approaches: 'attack',
   'Proof Tools': 'proof', Progress: 'progress', Reference: 'reference',
 };
 
@@ -71,7 +71,7 @@ function openPalette() {
 /* ---------------------------------------------------------------------------
    Editorial design-system primitives. Everything renders inside .ed-root so the
    scoped editorial.css theme applies and nothing leaks to the legacy dark app.
-   Shared by the battle-station home and every post-style explanation page.
+   Shared by the dashboard home and every post-style explanation page.
    ------------------------------------------------------------------------- */
 
 // Cream in-page header for editorial routes (the legacy NavBar hides itself on

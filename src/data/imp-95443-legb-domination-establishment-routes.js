@@ -64,7 +64,7 @@
  *   (R4) TRACE / FROBENIUS (NECESSARY-ONLY) SCREEN. tr(DELTA) >= 0 and, more
  *        finely, the Frobenius / eigenvalue-moment inequalities are NECESSARY
  *        for PSD and cheap to check. STATUS: SCREEN-ONLY -- can REFUTE a
- *        proposed domination fast (a negative trace kills it) but never
+ *        proposed domination fast (a negative trace eliminates it) but never
  *        ESTABLISH it. Recorded as the falsification lane, not an establishment
  *        route.
  *
@@ -201,7 +201,7 @@ export const IMP95443_LEGB_ESTABLISHMENT_ROUTES = {
       converts: 'PSD of DELTA -> necessary moment inequalities (tr >= 0, eigenvalue-moment)',
       status: 'SCREEN-ONLY (necessary, not sufficient)',
       assessment:
-        'can REFUTE a proposed domination fast (negative trace kills it) but never ESTABLISH it; the '
+        'can REFUTE a proposed domination fast (negative trace eliminates it) but never ESTABLISH it; the '
         + 'falsification lane, not an establishment route.',
     },
   ],

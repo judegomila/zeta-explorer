@@ -173,14 +173,14 @@
  * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
  * SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Lemma DL attacked on ~20000 seeded
+ * SKEPTICAL SELF-CHECK RECORD. (1) Lemma DL approached on ~20000 seeded
  * clusters against the EXACT piecewise depth-Laplace transform of each
  * cluster: worst ratio 0.99862 < 1, zero violations; DL dominates
  * Corollary DM at a random split on every draw. (2) Corollary PF
- * attacked end-to-end: ~1500 full-head witnesses in BOTH parities at
+ * approached end-to-end: ~1500 full-head witnesses in BOTH parities at
  * their ACTUAL alpha, gamma, and all four piece fractions: zero
  * violations of either probe form or any entry form, zero joint-charge
- * feasibility violations. (3) THEOREM PD attacked directly: 6000 seeded
+ * feasibility violations. (3) THEOREM PD approached directly: 6000 seeded
  * parity-pure witnesses at rates >= 4901/20000: max E strictly negative,
  * zero E > 0. (4) Sharpness anchor: at the pinned extremal point
  * (alpha = 1, x1 = x1b = 0) the probe form evaluates STRICTLY between
@@ -661,7 +661,7 @@ function transformDL(c, edge, side, mu) {
   return T;
 }
 
-// battery L (seed 777333): Lemma DL attack against the exact transform
+// battery L (seed 777333): Lemma DL approach against the exact transform
 function runDLBattery() {
   seedState = 777333;
   let worst = -Infinity;
@@ -690,7 +690,7 @@ function runDLBattery() {
   return { worst, viol, violDM, count };
 }
 
-// battery P (seed 424247): Corollary PF + full-entry reduction attack,
+// battery P (seed 424247): Corollary PF + full-entry reduction approach,
 // BOTH parities, at the witnesses' ACTUAL parameters
 function runProbeBattery() {
   seedState = 424247;
@@ -750,7 +750,7 @@ function runProbeBattery() {
   return { violPF, violFeas, violEntry, worstP2, worstP1, maxAlpha, count };
 }
 
-// battery W (seed 555781): THEOREM PD direct attack at rates >= 4901/20000
+// battery W (seed 555781): THEOREM PD direct approach at rates >= 4901/20000
 function runTheoremBatteryPD() {
   seedState = 555781;
   let maxE = -Infinity;
@@ -947,7 +947,7 @@ export const IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL_ASSERTIONS = [
   {
     id: "imp95139-pd-dl-battery",
     description:
-      "Lemma DL attacked on ~20000 seeded clusters against the EXACT piecewise depth-Laplace transform of each profile: worst ratio 0.9986173678828615 < 1, zero violations; and the transform dominates the single-split Corollary DM charge at a random sigma on every draw (DL implies DM)",
+      "Lemma DL approached on ~20000 seeded clusters against the EXACT piecewise depth-Laplace transform of each profile: worst ratio 0.9986173678828615 < 1, zero violations; and the transform dominates the single-split Corollary DM charge at a random sigma on every draw (DL implies DM)",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -962,7 +962,7 @@ export const IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL_ASSERTIONS = [
   {
     id: "imp95139-pd-probe-battery",
     description:
-      "Corollary PF and every entry form attacked end-to-end on ~1500 full-head witnesses in BOTH parities at their ACTUAL alpha, gamma and piece fractions: zero probe-form violations (worst rho12/P2 ratio 0.710171602733405), zero joint-charge feasibility violations, zero entry violations; max attained alpha 0.9455258101383905 confirms the parametrization is exercised",
+      "Corollary PF and every entry form approached end-to-end on ~1500 full-head witnesses in BOTH parities at their ACTUAL alpha, gamma and piece fractions: zero probe-form violations (worst rho12/P2 ratio 0.710171602733405), zero joint-charge feasibility violations, zero entry violations; max attained alpha 0.9455258101383905 confirms the parametrization is exercised",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -978,7 +978,7 @@ export const IMP95139_PROBE_DEPTH_PROFILE_FUNCTIONAL_ASSERTIONS = [
   {
     id: "imp95139-pd-theorem-battery",
     description:
-      "THEOREM PD attacked directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 4901/20000 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.018444807791379463 strictly negative, zero E > 0 draws",
+      "THEOREM PD approached directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 4901/20000 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.018444807791379463 strictly negative, zero E > 0 draws",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_W.viol === 0 && BAT_W.maxE < 0 && rel(BAT_W.maxE, BAT_W_MAX_E_LIT, 1e-6);

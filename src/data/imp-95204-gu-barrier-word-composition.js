@@ -115,7 +115,7 @@
  * And LEMMA WD quantifies over ALL nonnegative mass profiles at once — i.e.
  * over the entire cone-admissible compression family, not one compression.
  * VERDICT: THE TWO LANES HAVE MERGED. The atlas's one possible-gain family
- * is not an unexploited lever sitting outside the weld ladder: its packet-
+ * is not an untapped lever sitting outside the weld ladder: its packet-
  * level instantiation, closed over the whole admissible family, is already
  * the ladder's working certificate. Composing "another" G_U into eq-43 on
  * top of the WD form composes the family with itself; the no-gain rule plus

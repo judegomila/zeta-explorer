@@ -1,7 +1,7 @@
 /**
  * @module data/imp-2465-conjugate-pair-multiplicity-stress-2026-06
  * @fileoverview imp-2465 (Wave-4 follow-on to imp-2364 / imp-2425) -- a
- * conjugate-pair MULTIPLICITY stress test of the Attack III winding / SSF
+ * conjugate-pair MULTIPLICITY stress test of the Approach III winding / SSF
  * detector for the Pontryagin negative index ind_-(K_a) of Theorem 18.3 +
  * Conjecture 18.4. imp-2364 validated the rectangular winding number on a SINGLE
  * injected off-line zero; imp-2425 added a single conjugate pair (read index 2).
@@ -21,7 +21,7 @@
 //
 // CONTEXT
 // -------
-// Attack III reduces RH to Conjecture 18.4: ind_-(K_a) = #P_a = 0 for every
+// Approach III reduces RH to Conjecture 18.4: ind_-(K_a) = #P_a = 0 for every
 // a > 0 and every spectral window, where
 //     P_a = { lambda - a : X(lambda) = 0, Re lambda > a }
 // and ind_-(K_a) is the Pontryagin negative index of the shifted twin-ladder
@@ -86,7 +86,7 @@
 //    ON a cluster real part the margin is 0 and the winding counts the on-edge
 //    zero as enclosed -- windingIndex = 4 while the strict #P_a = 2 -- so the
 //    margin flag correctly marks it UNSAFE rather than letting the silent wrong
-//    integer pass. This LOCATES the degeneracy Attack III must avoid quoting the
+//    integer pass. This LOCATES the degeneracy Approach III must avoid quoting the
 //    witness across.
 //
 // VERDICT: the winding / SSF detector returns the exact pole count #P_a under
@@ -273,7 +273,7 @@ export const ATTACK_III_CONJUGATE_PAIR_MULTIPLICITY_STRESS = Object.freeze({
     'the exact combinatorial pole count, with contourMargin and fracDefect ' +
     'safety diagnostics flagging the near-contour degeneracy.',
   description:
-    'A conjugate-pair multiplicity stress test of the Attack III winding / SSF ' +
+    'A conjugate-pair multiplicity stress test of the Approach III winding / SSF ' +
     'negative-index detector. imp-2364 validated the winding number on ONE ' +
     'off-line zero and imp-2425 on ONE conjugate pair; this module pushes THREE ' +
     'pairs off line at Re = 0.15, 0.30, 0.50 and verifies the integer index ' +
@@ -315,7 +315,7 @@ export const ATTACK_III_CONJUGATE_PAIR_MULTIPLICITY_STRESS = Object.freeze({
     'winding-index-equals-exact-pole-count-under-multiple-offline-zeros-' +
     'near-contour-degeneracy-self-flagged-no-proof',
   honestScope:
-    'NUMERICAL Wave-4 stress test of Attack III. The rectangular winding index ' +
+    'NUMERICAL Wave-4 stress test of Approach III. The rectangular winding index ' +
     'returns the EXACT pole count #P_a for three simultaneous off-line ' +
     'conjugate pairs at distinct real parts (multiplicity up to 6), extending ' +
     'imp-2425 (one pair, index 2). The ONLY failure is the measure-zero set ' +

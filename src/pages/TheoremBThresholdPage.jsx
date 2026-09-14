@@ -157,7 +157,7 @@ export default function TheoremBThresholdPage() {
         Related: <Link to="/theta-static-obstruction">Theorem R1-T2 (static-route obstruction)</Link>
         {' · '}<Link to="/theta-seizing-margin">Lemma R1-T3 (seizing margin)</Link>
         {' · '}<Link to="/theta-basin-closure">Lemma R1-T4 (dynamical basin closure)</Link>
-        {' · '}<Link to="/spectral-attack">Spectral Attack overview</Link>
+        {' · '}<Link to="/spectral-attack">Spectral Approach overview</Link>
         <br /><br />← <Link to="/">the atlas</Link>
       </>}
     >
@@ -311,7 +311,7 @@ export default function TheoremBThresholdPage() {
         <p style={{ color: 'var(--faint)', fontSize: 13, lineHeight: 1.8, marginTop: 8 }}>
           Context: the measured real-zero configurations sit at <InlineMath tex={"\\Theta(0) = 0.167 / 0.088 / 0.046"} />,
           far below even the unconditional <InlineMath tex={"1/4"} /> of Theorem&nbsp;A — so on the actual data the
-          collision bound applies unconditionally; Theorem&nbsp;B and the excursion band are about the adversarial
+          collision bound applies unconditionally; Theorem&nbsp;B and the excursion band are about the skeptical
           worst case, not the tested rows. This does not change any Λ bound (the peer-reviewed benchmark stays
           Platt–Trudgian <InlineMath tex={"\\Lambda \\le 0.2"} />); it sharpens one internal step of the finite-N program.
         </p>

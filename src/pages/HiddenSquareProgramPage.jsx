@@ -257,7 +257,7 @@ export default function HiddenSquareProgramPage() {
           <div style={{ marginTop: 8, display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <Link to="/closure-routes" style={{ color: 'var(--blue)', fontSize: 13 }}>/closure-routes (§16 four routes)</Link>
             <Link to="/blaschke-ghosts" style={{ color: 'var(--blue)', fontSize: 13 }}>/blaschke-ghosts (§17 no-ghost)</Link>
-            <Link to="/three-attacks" style={{ color: 'var(--blue)', fontSize: 13 }}>/three-attacks (§18 attacks)</Link>
+            <Link to="/three-attacks" style={{ color: 'var(--blue)', fontSize: 13 }}>/three-attacks (§18 approaches)</Link>
             <Link to="/freezing-bridge" style={{ color: 'var(--blue)', fontSize: 13 }}>/freezing-bridge (§23 freezing)</Link>
             <Link to="/kyp-bounded-real" style={{ color: 'var(--blue)', fontSize: 13 }}>/kyp-bounded-real (Apps M-O KYP)</Link>
             <Link to="/collapse-chain" style={{ color: 'var(--blue)', fontSize: 13 }}>/collapse-chain (‖V‖ ≤ 1 collapse)</Link>

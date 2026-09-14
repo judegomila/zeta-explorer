@@ -47,7 +47,7 @@
  * forward de Bruijn / heat flow (t increasing) contracts the zeros toward the real
  * axis and damps the high-frequency error content, so the inequality gets EASIER
  * as t grows and is HARDEST at t = 0 (the Riemann xi endpoint). The Polymath15
- * barrier exploits a strictly POSITIVE t to earn this damping margin.
+ * barrier uses a strictly POSITIVE t to earn this damping margin.
  *   CAVEAT (must be reconciled before porting): the repo operative parameter is
  *   the Gaussian-convolution proxy, which the winding-thread result identifies as
  *   EXACT de Bruijn flow at NEGATIVE time (t = -4 tau_repo). Negative de Bruijn
@@ -132,7 +132,7 @@ export const IMP35674_W3_TAIL_LEMMA_POLYMATH15_SCOPE = {
     monotone:
       'The margin |A_t + B_t| - |C_t| is monotone in t: forward de Bruijn / heat flow (t increasing) ' +
       'contracts zeros toward the real axis and damps high-frequency error content, so the inequality ' +
-      'gets EASIER as t grows and is HARDEST at t = 0 (the Riemann xi endpoint). Polymath15 exploits a ' +
+      'gets EASIER as t grows and is HARDEST at t = 0 (the Riemann xi endpoint). Polymath15 uses a ' +
       'strictly POSITIVE t to earn this damping margin.',
     repoHeatSignCaveat:
       'The repo operative parameter is the Gaussian-convolution proxy, which the winding-thread result ' +

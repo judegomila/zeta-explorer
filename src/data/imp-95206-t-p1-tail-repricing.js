@@ -5,13 +5,13 @@
  * module freezes the result of re-parametrizing the 0.1787854 v3 all-N tail
  * verifier (verify_tail_arb.c, sealed audit copy a74738de) to the 0.1399 row
  * coordinates and binary-searching the minimal cutoff N1*. It prices the
- * campaign's dominant cost and tests kill criteria K1/K2. It derives no
+ * campaign's dominant cost and tests failure criteria K1/K2. It derives no
  * bound, certifies no lane, and closes no gap. NO QED. Platt-Trudgian
  * Lambda <= 0.2 remains SOTA (PT-floor audit: verified height binds).
  *
  * VERDICT IN ONE LINE: K1 does NOT fire (a minimal cutoff exists:
  * N1* = 220,495,706, boundary exact at 320 and 512 bits) but K2 FIRES
- * DECISIVELY: N1* is 4.01x the ~5.5e7 economic kill line, and the T2b
+ * DECISIVELY: N1* is 4.01x the ~5.5e7 economic cutoff line, and the T2b
  * finite transition lane would need N1* - 690988 = 219,804,718 rows --
  * 69.8x the v3 full-replay campaign and 4.06x the whole Gate-2 family
  * scale. In the verbatim endpoint-cap / exact-convolution architecture with
@@ -72,7 +72,7 @@ export const REFERENCE_REPRODUCTION = Object.freeze({
 export const PROBE_POINTS = Object.freeze([
   Object.freeze({ N1: 690989, dUpper: 11.8928662535195710, note: 'bracket bottom (seam anchor + 1); SC3 and three GN gates also fail' }),
   Object.freeze({ N1: 3840000, dUpper: 7.1902575639485530, note: 'v3 anchor: reference D was 0.9997209 at t=129/800 -- earlier t* explodes it 7.19x' }),
-  Object.freeze({ N1: 55000000, dUpper: 2.1537003789018250, note: 'K2 economic kill line: contraction still 115% above closing' }),
+  Object.freeze({ N1: 55000000, dUpper: 2.1537003789018250, note: 'K2 economic eliminate line: contraction still 115% above closing' }),
   Object.freeze({ N1: 100000000, dUpper: 1.5581402346327461, note: 'above the spec bracket' }),
   Object.freeze({ N1: 220495705, dUpper: 1.0000000014873569, note: 'N1* - 1: fails D < 1 (boundary, both precisions)' }),
   Object.freeze({ N1: 220495706, dUpper: 0.9999999989161343, note: 'N1*: all decisive gates strict-PASS (both precisions)' }),
@@ -110,7 +110,7 @@ export const N1_STAR_RESULT = Object.freeze({
   totalArbCost: 'about 40 evaluations x 0.36 s = under 15 s of Arb time (vs the < 1 core-day budget)',
 });
 
-// ── kill verdicts ────────────────────────────────────────────────────────────
+// ── eliminate verdicts ────────────────────────────────────────────────────────────
 export const KILL_VERDICTS = Object.freeze({
   K1: Object.freeze({
     fires: false,
@@ -120,7 +120,7 @@ export const KILL_VERDICTS = Object.freeze({
   K2: Object.freeze({
     fires: true,
     finding:
-      'N1* = 220,495,706 > 5.5e7: 4.01x the economic kill line. T2b rows = N1* - 690988 = 219,804,718: 69.8x the v3 full-replay campaign (3,149,013 rows, ~1e3 core-hours) and 4.06x the entire Gate-2 family scale (54,109,012 rows) that K2 names as the kill threshold. The trade Theorem 4.5 was designed to win (cocycle weld -> two delimited tasks) is lost: the tail transition lane alone regrows past open-family size, implying ~7e4 core-hours of sealed-replay row production before the slab lane spends anything',
+      'N1* = 220,495,706 > 5.5e7: 4.01x the economic cutoff line. T2b rows = N1* - 690988 = 219,804,718: 69.8x the v3 full-replay campaign (3,149,013 rows, ~1e3 core-hours) and 4.06x the entire Gate-2 family scale (54,109,012 rows) that K2 names as the cutoff threshold. The trade Theorem 4.5 was designed to win (cocycle weld -> two delimited tasks) is lost: the tail transition lane alone regrows past open-family size, implying ~7e4 core-hours of sealed-replay row production before the slab lane spends anything',
   }),
   campaignPredictionConfirmed:
     'imp-95201 flagged that the v3 slack 1.735e-4 would weaken at the earlier t*; measured: at the unchanged v3 anchor N1 = 3,840,000 the contraction explodes from 0.9997209 to 7.1903 (the slack does not merely weaken -- D grows 7.19x past closing)',
@@ -156,7 +156,7 @@ export const IMP95206_TAIL_REPRICING = Object.freeze({
     'PRICING PROBE ONLY: the ranked first computation of the 0.1399 campaign. ' +
     'K1 clear (the re-parametrized all-N tail closes: minimal cutoff N1* = 220,495,706, ' +
     'exact boundary at 320 and 512 bits, 36/36 pinned gates at N1*), but K2 FIRES: ' +
-    'N1* is 4.01x the economic kill line and the finite transition lane would need ' +
+    'N1* is 4.01x the economic cutoff line and the finite transition lane would need ' +
     '219,804,718 rows, 69.8x the v3 replay and 4.06x the Gate-2 family scale. The ' +
     '0.1399 tail lane parks in the verbatim endpoint-cap architecture; residual outs ' +
     '(mollifier re-optimization at t*, new tail estimate) are unpriced. This probe ' +

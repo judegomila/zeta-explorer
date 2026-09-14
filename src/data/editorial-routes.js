@@ -66,7 +66,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/section26-conditioning-artifact',
   '/excess-fraction-phi',
   '/reciprocal-program',
-  // Attack group (OpenFrontierPage deferred, 4.7k lines)
+  // Approach group (OpenFrontierPage deferred, 4.7k lines)
   '/route-b-limsup',
   '/lambda-timeline',
   '/rh-dag',

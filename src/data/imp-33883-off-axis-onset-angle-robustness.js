@@ -39,7 +39,7 @@
  *
  * eps^0 ONSET COEFFICIENT: EXACTLY 4/3 FOR ALL theta
  * --------------------------------------------------
- * The eps^0 tier is the outside-the-window tail, regular at x = 0, so setting eps = 0 (z_0 -> 0) kills
+ * The eps^0 tier is the outside-the-window tail, regular at x = 0, so setting eps = 0 (z_0 -> 0) eliminates
  * all angular dependence:
  *     T = integral_{|x|>1} |x|^{-1/2}/x^2 dx = 2 integral_1^{inf} x^{-5/2} dx = 4/3 ,
  * with NO theta in it. The onset coefficient is 4/3 for every evaluation angle -- angle-robust, not an

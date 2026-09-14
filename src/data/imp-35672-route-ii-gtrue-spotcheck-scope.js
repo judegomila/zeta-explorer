@@ -66,7 +66,7 @@
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-35488-route-ii-two-height-gtrue-spotcheck (the executed route-(ii) partial this module scopes)
- * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (killed route-(i) option-(a); named route-(ii) as the sole viable partial)
+ * @see imp-35652-req3-option-a-restricted-support-surrogate-scope (eliminated route-(i) option-(a); named route-(ii) as the sole viable partial)
  * @see imp-35337 (names the OPEN imp-35337a surrogate -> observable dictionary)
  * @see imp-2642/imp-2643 (C_C = (1/8) sqrt(3 pi) ansatz)
  * @see imp-486 (GUE-conditional caveat inherited by C_mb)
@@ -156,7 +156,7 @@ export const IMP35672_ROUTE_II_GTRUE_SPOTCHECK_SCOPE = {
     'Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35488 (executed route-(ii) two-height g_true spot-check; sub-gaps imp-35488a crossover-out-of-table, ' +
-    'imp-35488b observable -> sigma dictionary); imp-35652 (killed route-(i) option-(a), named route-(ii) sole ' +
+    'imp-35488b observable -> sigma dictionary); imp-35652 (eliminated route-(i) option-(a), named route-(ii) sole ' +
     'viable partial); imp-35337 (names OPEN imp-35337a); imp-35475 (Part C sigma-unit budgets); imp-2642/imp-2643 ' +
     '(C_C = (1/8) sqrt(3 pi)); imp-2631 (E_trunc floor); imp-486 (GUE-conditional caveat). Literature: Odlyzko ' +
     'ordinates; Montgomery (1973); RvM unfolding. Platt-Trudgian 2021 (T_PT = 3e12).',

@@ -7,7 +7,7 @@
  *
  * Grades are verbatim and nothing here promotes a bound: kernel-verified /
  * refereed-sound / prose-proof / arb-certified / measured /
- * candidate-unrefereed / contract-not-a-bound / no-go / refuted / killed.
+ * candidate-unrefereed / contract-not-a-bound / no-go / refuted / eliminated.
  * Platt–Trudgian Λ ≤ 0.2 is the peer-reviewed benchmark; RH remains open.
  * NO QED.
  */
@@ -15,7 +15,7 @@
 // Facet order + rendering metadata for the grade chips (warm editorial palette).
 export const GRADE_META = [
   { grade: 'kernel-verified', color: '#4c7a4a', desc: 'Lean 4 proof, sorry-free, standard axioms only (#print axioms audited)' },
-  { grade: 'refereed-sound', color: '#3f6f8a', desc: 'prose proof that survived an adversarial referee pass' },
+  { grade: 'refereed-sound', color: '#3f6f8a', desc: 'prose proof that survived an independent referee pass' },
   { grade: 'prose-proof', color: '#6d55b8', desc: 'written proof, not yet refereed or formalized' },
   { grade: 'arb-certified', color: '#7a6b2e', desc: 'interval computation (Arb/FLINT or mpmath.iv, directed rounding)' },
   { grade: 'measured', color: '#8a6a3f', desc: 'sampled computation — evidence, not a sup or a theorem' },
@@ -23,7 +23,7 @@ export const GRADE_META = [
   { grade: 'contract-not-a-bound', color: '#a9572e', desc: 'fail-closed conditional reduction; establishes no bound' },
   { grade: 'no-go', color: '#9d4a3f', desc: 'a route family shown unreachable by the stated method' },
   { grade: 'refuted', color: '#8c3b3b', desc: 'a specific claim or mechanism shown false' },
-  { grade: 'killed', color: '#6e6259', desc: 'a lane closed on explicit kill criteria (economic or structural)' },
+  { grade: 'killed', color: '#6e6259', desc: 'a lane closed on explicit failure criteria (economic or structural)' },
 ];
 
 export const GRADE_ORDER = GRADE_META.map((g) => g.grade);
@@ -41,7 +41,7 @@ export const GRADE_ORDER = GRADE_META.map((g) => g.grade);
 export const RESULTS = [
   // ── kernel-verified (Lean 4, sorry-free, standard axioms) ──────────────────
   {
-    statement: 'Five-shell identity: unconditionally, E₉₇ = (1−A₉₇)·L(Y₄) − A₉₇·Σ_{g=1..4} L(Z_g) with the 25 primes ≤ 97 cut at (0,5,10,17,25) and the killed shells mutually orthogonal (disjoint Fourier supports).',
+    statement: 'Five-shell identity: unconditionally, E₉₇ = (1−A₉₇)·L(Y₄) − A₉₇·Σ_{g=1..4} L(Z_g) with the 25 primes ≤ 97 cut at (0,5,10,17,25) and the annihilated shells mutually orthogonal (disjoint Fourier supports).',
     grade: 'kernel-verified',
     verification: ['Lean: five_shell_identity (mathlib v4.28, 0 sorry)', 'orthogonality lemmas ip_Z_Z, ip_Z_Y4', 'faithfulness review: FAITHFUL'],
     thread: 'permutation-calculus',
@@ -189,7 +189,7 @@ export const RESULTS = [
   {
     statement: 'S0 note (y-thaw stage 1): m(ρ) = max(|B−ρA|/(1−ρ), |B+ρA|/(1+ρ)) is nondecreasing on [0,1), extending the boundary-circle Improved Triangle Inequality to the full disk |γ′| ≤ g_N; Polymath’s boundary-phase reduction provably does not port to the modulus form.',
     grade: 'refereed-sound',
-    verification: ['adversarial referee pass 2026-09-10 (S0/S1/S2 sound, rows 1–6 accurate, O1 restated)', '400k randomized trials', 'module imp-95208-ythaw-package-stage12'],
+    verification: ['independent referee pass 2026-09-10 (S0/S1/S2 sound, rows 1–6 accurate, O1 restated)', '400k randomized trials', 'module imp-95208-ythaw-package-stage12'],
     thread: 'y-thaw',
     route: null,
     date: '2026-09',
@@ -323,7 +323,7 @@ export const RESULTS = [
     date: '2026-08',
   },
   {
-    statement: '0.1399 row (Theorem 4.5): y* = 33/200, t* = 10103/80000 gives t* + y*²/2 = 0.1399 from two new hypotheses (rectangular slab + directed final-time tail); the certification campaign is designed with kill criteria — conditional design only.',
+    statement: '0.1399 row (Theorem 4.5): y* = 33/200, t* = 10103/80000 gives t* + y*²/2 = 0.1399 from two new hypotheses (rectangular slab + directed final-time tail); the certification campaign is designed with failure criteria — conditional design only.',
     grade: 'contract-not-a-bound',
     verification: ['module imp-95201-01399-certification-campaign', 'slab lane imp-95046 / tail lane imp-95047'],
     thread: '0.1399-row',
@@ -335,13 +335,13 @@ export const RESULTS = [
   {
     statement: 'PT-floor audit: the verified zero height X ≈ 3e12, not barrier slack (≥ 1.2), binds Λ ≤ 0.2 — the whole barrier-tightening class (SOS/Carleman/Putinar/free-sub) is refuted as a Λ < 0.2 lever; the only lever is more verified height.',
     grade: 'no-go',
-    verification: ['79-agent adversarial review', 'interval-rigorous corridor run', 'Burgers/imp-1327 cross-check'],
+    verification: ['79-agent skeptical review', 'interval-rigorous corridor run', 'Burgers/imp-1327 cross-check'],
     thread: 'pt-floor',
     route: '/pt-floor-audit',
     date: '2026-07',
   },
   {
-    statement: 'Brute tiling: a uniform raw-tiling atlas at the anchor cell width over the open family (every window parameter, both seam sides) needs more than 7.2e26 cells — pointwise tiling is not a viable global architecture.',
+    statement: 'Raw tiling: a uniform raw-tiling atlas at the anchor cell width over the open family (every window parameter, both seam sides) needs more than 7.2e26 cells — pointwise tiling is not a viable global architecture.',
     grade: 'no-go',
     verification: ['independent re-derivation from the four stated ingredients (module imp-95049)', 'frozen spec constant confirmed (imp-95012)'],
     thread: 'gate-2',
@@ -349,11 +349,11 @@ export const RESULTS = [
     date: '2026-09',
   },
 
-  // ── kills and refutations ──────────────────────────────────────────────────
+  // ── eliminates and refutations ──────────────────────────────────────────────────
   {
-    statement: '0.1399 tail lane, K2 kill: N₁* = 220,495,706 is 4.01× the economic kill line, and the finite transition lane would need 219,804,718 rows (69.8× the v3 full-replay campaign) — economically dead in the verbatim endpoint-cap architecture.',
+    statement: '0.1399 tail lane, K2 failure: N₁* = 220,495,706 is 4.01× the economic cutoff line, and the finite transition lane would need 219,804,718 rows (69.8× the v3 full-replay campaign) — economically dead in the verbatim endpoint-cap architecture.',
     grade: 'killed',
-    verification: ['K1/K2 kill criteria of imp-95201', 'Arb repricing run (module imp-95206)'],
+    verification: ['K1/K2 failure criteria of imp-95201', 'Arb repricing run (module imp-95206)'],
     thread: '0.1399-row',
     route: null,
     date: '2026-09',

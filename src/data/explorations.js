@@ -2210,7 +2210,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
     title: 'Gap Closing: Regularized Cascade & Darlington Synthesis',
     category: 'proof-theory',
     status: 'complete',
-    summary: 'Systematic attack on the three critical proof gaps (S4, S5, S7). The eta regularization extends the cascade into the critical strip. The Hilbert-Pólya matrix is constructed but eigenvalues do not yet match zeros. The Darlington S-matrix is built but exact unitarity remains open.',
+    summary: 'Systematic approach on the three critical proof gaps (S4, S5, S7). The eta regularization extends the cascade into the critical strip. The Hilbert-Pólya matrix is constructed but eigenvalues do not yet match zeros. The Darlington S-matrix is built but exact unitarity remains open.',
     mathContent: [
       '\\zeta(s) = \\frac{\\eta(s)}{1 - 2^{1-s}}, \\quad \\eta(s) = \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n^s} \\text{ converges for } \\sigma > 0',
       'M_{jk} = \\sum_p \\frac{\\log p}{p} \\cos((\\gamma_j - \\gamma_k)\\log p), \\quad M_{jj} = \\gamma_j',
@@ -2230,15 +2230,15 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
     id: 'exp-053',
     depth: 5,
     date: '2026-03-05',
-    title: 'Spectral Attack: Multi-Pronged Confinement via Independent Measures',
+    title: 'Spectral Approach: Multi-Pronged Confinement via Independent Measures',
     category: 'proof-theory',
     status: 'complete',
-    summary: 'Cross-disciplinary attack combining Fisher-twistor correlation, KL Lyapunov stability, supercritical phase barriers, Fourier-information synthesis, and ZX phase gadgets. Six independent measures all converge on σ=½.',
+    summary: 'Cross-disciplinary approach combining Fisher-twistor correlation, KL Lyapunov stability, supercritical phase barriers, Fourier-information synthesis, and ZX phase gadgets. Six independent measures all converge on σ=½.',
     mathContent: [
       '\\Phi(\\sigma,t) = \\alpha D_{KL} + \\beta |Z \\cdot W|^2 + \\gamma(1-|\\chi|)^2 + \\delta \\Delta H + \\epsilon(1-C/C_{\\max}) + \\zeta \\Delta F',
       'F(\\sigma) \\to \\infty \\text{ where } |Z \\cdot W| \\to 0 \\text{ (anti-correlated at zeros)}',
       'D_{KL}(P_\\sigma \\| P_{1/2}) \\text{ is a Lyapunov function: } \\frac{d}{d\\sigma} D_{KL} < 0 \\text{ for } \\sigma < \\frac{1}{2}',
-      '\\text{Overall attack score: } 8.7/10 \\text{ across 6 strategies}',
+      '\\text{Overall approach score: } 8.7/10 \\text{ across 6 strategies}',
     ],
     insights: [
       'KL divergence satisfies all three Lyapunov conditions: positive, zero only at σ=½, monotonically decreasing toward ½',
@@ -2253,7 +2253,7 @@ The smooth numbers (integers whose prime factors all lie below a bound) appear n
     id: 'exp-054',
     depth: 5,
     date: '2026-03-05',
-    title: 'Proof Checker: Adversarial Testing & Davenport-Heilbronn Discriminator',
+    title: 'Proof Checker: Skeptical Testing & Davenport-Heilbronn Discriminator',
     category: 'proof-theory',
     status: 'complete',
     summary: 'Skeptical verification of every ZPO claim using the Davenport-Heilbronn counterexample — a function with a functional equation but zeros off the critical line. Identifies the Euler product as the ONLY discriminating property.',
@@ -2507,7 +2507,7 @@ where $\\chi_1$ is a character mod 5 and $\\kappa = (\\sqrt{10-2\\sqrt{5}}-2)/(\
 
 **And the fatal consequence**: D-H has infinitely many zeros with $\\text{Re}(\\rho) \\neq 1/2$.
 
-**ZPO discriminator test**: Run every ZPO attack strategy against D-H. Any strategy that "proves" D-H zeros are on the critical line is circular or insufficient:
+**ZPO discriminator test**: Run every ZPO approach strategy against D-H. Any strategy that "proves" D-H zeros are on the critical line is circular or insufficient:
 - Bridge unitarity? **Passes** for D-H (but D-H violates RH) $\\Rightarrow$ bridge unitarity alone is insufficient
 - Hamiltonian minimum at $\\sigma = 1/2$? **Passes** for D-H $\\Rightarrow$ insufficient
 - KL Lyapunov? **Passes** for D-H $\\Rightarrow$ insufficient
@@ -3134,7 +3134,7 @@ The approximation $\\sum c_k f_{1/k} \\approx \\mathbf{1}$ says: the superpositi
 
 If a zero existed at $\\sigma > 1/2$, it would create an $L^2$ obstruction: a component of the identity that cannot be captured by any finite sub-ladder. The zero would represent a "resonance leak" in the ladder's impedance matching.
 
-**Connection to the unified potential**: The $L^2$ distance $d_N$ is related to the unified potential $\\Phi(\\sigma, t)$ from the spectral attack: both measure "how well does the ladder approximate perfect transmission?" The critical line is where the approximation is exact.`,
+**Connection to the unified potential**: The $L^2$ distance $d_N$ is related to the unified potential $\\Phi(\\sigma, t)$ from the spectral approach: both measure "how well does the ladder approximate perfect transmission?" The critical line is where the approximation is exact.`,
     latex: [
       '\\text{RH} \\iff \\overline{\\text{span}\\{f_\\theta\\}}^{L^2(0,1)} \\ni \\mathbf{1}',
       'd_N = \\inf \\left\\| 1 - \\sum_{k=1}^{N} c_k \\{1/(kx)\\} \\right\\|_{L^2}',
@@ -3523,7 +3523,7 @@ Zagier's insight is that both counting problems live in the world of (mock) modu
     depth: 5,
     status: 'complete',
     date: '2026-03-06',
-    content: 'The Guth-Maynard breakthrough (2024) improved zero-density estimates by proving new large value estimates for Dirichlet polynomials. In ZPO language, a Dirichlet polynomial $D(s) = \\sum_{n \\leq N} a_n n^{-s}$ is the transfer function of a finite sub-ladder — a truncation of the full prime cascade. Large values of $|D(s)|$ correspond to resonances of the sub-ladder. Guth-Maynard decompose D into short and long components and use Hölder\'s inequality with an optimal exponent, exploiting multiplicative structure. In ZPO terms: short component = low-prime oscillators (dominant), long component = high-prime oscillators (perturbative), and multiplicative structure = independent cascade stages. Their exponent improvement (0.6 → 0.52 at σ=3/4) translates to tighter confinement of the unitarity deficit near the critical line. The methods may yield explicit bounds on S-matrix elements.',
+    content: 'The Guth-Maynard breakthrough (2024) improved zero-density estimates by proving new large value estimates for Dirichlet polynomials. In ZPO language, a Dirichlet polynomial $D(s) = \\sum_{n \\leq N} a_n n^{-s}$ is the transfer function of a finite sub-ladder — a truncation of the full prime cascade. Large values of $|D(s)|$ correspond to resonances of the sub-ladder. Guth-Maynard decompose D into short and long components and use Hölder\'s inequality with an optimal exponent, using multiplicative structure. In ZPO terms: short component = low-prime oscillators (dominant), long component = high-prime oscillators (perturbative), and multiplicative structure = independent cascade stages. Their exponent improvement (0.6 → 0.52 at σ=3/4) translates to tighter confinement of the unitarity deficit near the critical line. The methods may yield explicit bounds on S-matrix elements.',
     latex: [
       'N(\\sigma, T) \\leq T^{30(1-\\sigma)/13 + o(1)}',
       'D(s) = \\sum_{n \\leq N} a_n n^{-s} \\longleftrightarrow H_{\\text{sub}}(s) = \\text{sub-ladder transfer function}',

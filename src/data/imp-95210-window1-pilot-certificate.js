@@ -35,7 +35,7 @@
  *   rr_j = q_p RefG_j - RefH_j, the reflected-ladder residual, which does
  *          NOT telescope (BROADBAND).
  *
- * FINDING 1 — SLACK OBSTRUCTION (kills every envelope decomposition):
+ * FINDING 1 — SLACK OBSTRUCTION (eliminates every envelope decomposition):
  * the finest modulus-triangle envelope U3 = sum_j |A_{<j}|(|o_j| +
  * |mm_j| + |rr_j|) — which any envelope-scale certificate must bound —
  * has sampled sup 0.3441713029308129 > Rex = 0.2796881955526244, and
@@ -52,7 +52,7 @@
  * (Finding 2). So every certified target that could live at envelope
  * scale is above Rex, and every sub-Rex target varies at phase scale.
  *
- * FINDING 2 — SCALE/RIGOR OBSTRUCTION (kills envelope-sized cells for
+ * FINDING 2 — SCALE/RIGOR OBSTRUCTION (eliminates envelope-sized cells for
  * the undecomposed pilot): the moduli are NOT slow. Measured max
  * |d(sum_j|D_j|)/du| = 2.9466 per q-unit (u; dx = 4*pi*du): the pilot
  * changes by 1% of Rex within 9.49e-4 q-units, which is 78x FINER than

@@ -85,7 +85,7 @@
  * allowance), a 9.21x separation - the pointwise upgrade of the sqrt(96)
  * l2 gain recorded by the first module.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma E is Cauchy-Schwarz plus
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma E is Cauchy-Schwarz plus
  * attainment - elementary, but the recorded chain twice names exactly this
  * step as open, and the content here is the EXACT constant (not an
  * estimate), its attainment (no better generic duality step exists - any

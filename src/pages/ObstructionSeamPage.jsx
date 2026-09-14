@@ -24,7 +24,7 @@ export default function ObstructionSeamPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1">The RH Obstruction Seam</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820, marginTop: 14 }}>
-          The sharpest result of the whole attack: a deep, adversarially-verified assault on the two
+          The sharpest result of the whole program: a deep, independently-verified push on the two
           essential walls (C_H shock modulus + Montgomery pair-correlation) — 16 novel angles, each ruled out
           by ≥2 skeptics at ≥0.82 confidence — reveals not just that the walls stand, but the precise
           <em> structural reason</em> they must.
@@ -36,7 +36,7 @@ export default function ObstructionSeamPage() {
           variant="OPEN-HARD"
           title="Clean negative, over-determined — the gap between provable and sufficient IS the Riemann Hypothesis"
           body={
-            'No route breaches. Every one splits at one seam: the provable half is inert, the sufficient half ' +
+            'No route gets through. Every one splits at one seam: the provable half is inert, the sufficient half ' +
             'is RH-hard, and they never overlap. This is a precise anatomy of the obstruction, not a proof of ' +
             'anything — PT Λ≤0.2 stays SOTA. NO QED.'
           }
@@ -49,7 +49,7 @@ export default function ObstructionSeamPage() {
 
         <h2 className="ed-h2" style={{ marginTop: 28 }}>The seam, bracketed exactly</h2>
         <p style={{ color: 'var(--ink-soft)', lineHeight: 1.7, maxWidth: 840 }}>
-          Two attacks isolate the two sides of the gap — each half conceded by <em>both</em> adversarial referees:
+          Two approaches isolate the two sides of the gap — each half conceded by <em>both</em> skeptical referees:
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {bracket.map((b) => {
@@ -78,7 +78,7 @@ export default function ObstructionSeamPage() {
           ))}
         </ul>
 
-        <h2 className="ed-h2" style={{ marginTop: 28 }}>What the adversarial pass caught (why it's trustworthy)</h2>
+        <h2 className="ed-h2" style={{ marginTop: 28 }}>What the skeptical pass caught (why it's trustworthy)</h2>
         <ul style={{ color: 'var(--faint)', fontSize: 12.5, lineHeight: 1.6, maxWidth: 860 }}>
           {caughtFabrications.map((c, i) => <li key={i} style={{ marginBottom: 4 }}>{c}</li>)}
         </ul>

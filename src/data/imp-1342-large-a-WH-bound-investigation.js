@@ -69,7 +69,7 @@
 // is false and the WH closure for large a never existed. Conj 27.2 is false for
 // large a (imp-1316, rigorous Galerkin lower bound). The corrected rigorous
 // statement is ||V_{a,Phi}|| <= 1 for a in (0, ~37.66] via Hilbert-Schmidt only.
-// The RH/Lambda attack (a <= 0.5) is entirely within this range and is unmoved.
+// The RH/Lambda approach (a <= 0.5) is entirely within this range and is unmoved.
 //
 // SYNTAX SAFETY
 // -------------
@@ -371,7 +371,7 @@ export const IMP_1342_LARGE_A_WH_BOUND_INVESTIGATION_ASSERTIONS = [
   {
     id: 'imp1342-rh-application-unaffected',
     why:
-      'The correction must NOT be misread as breaking the RH attack. The program needs only ' +
+      'The correction must NOT be misread as breaking the RH approach. The program needs only ' +
       'a <= 0.5 (Lambda <= 0.2), inside HS coverage. rhApplicationUnaffected must stay true ' +
       'with the App-S range and Lambda bound recorded.',
     holds: () => {

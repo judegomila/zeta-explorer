@@ -26,7 +26,7 @@
  * @see imp-2430 (on-line canonical-system realizability; named this sub-gap)
  * @see imp-2364 (rectangular winding-number route to ind_-(K_a))
  * @see imp-2425 (Krein spectral-shift route to ind_-(K_a))
- * @see data/three-attacks-section.js (Attack III, Theorem 18.3 + Conjecture 18.4)
+ * @see data/three-attacks-section.js (Approach III, Theorem 18.3 + Conjecture 18.4)
  */
 // imp-2442 -- off-line finite-kappa structure of the de Branges / Pontryagin
 // canonical-system realization.
@@ -42,7 +42,7 @@
 //     K_m(z, w) = ( m(z) - conj m(w) ) / ( z - conj w )
 // has exactly kappa negative squares -- is the m-function of a canonical system in
 // a PONTRYAGIN space Pi_kappa (kappa negative dimensions). The integer kappa is
-// exactly the Attack III negative index ind_-(K_a) of Theorem 18.3 / Conjecture
+// exactly the Approach III negative index ind_-(K_a) of Theorem 18.3 / Conjecture
 // 18.4: under RH ind_-(K_a) = 0 (Hilbert space), and an off-critical zero with
 // Re > a contributes +1 to the index (Krein-Langer: kappa = #off-line zeros).
 //

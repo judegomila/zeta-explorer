@@ -83,7 +83,7 @@
  *   qVN  = 0.7893886848996710          (von Neumann, ensemble)
  *   worst qPure over the 21 points = 0.9048677599457183 (N=6153547, w=0, p=2)
  *   allowance 1.4326672; margin factor 1.4327x (CS), 1.8149x (VN).
- *   imp-95020 KILL rule (Q > 2.8653344): NOT triggered, by a 3.17x margin.
+ *   imp-95020 Stop rule (Q > 2.8653344): NOT triggered, by a 3.17x margin.
  *
  * THE PREVIOUSLY UNMEASURED NUMBER: lambda_max(rho) = 0.6231344958476320
  * (rho trace 1, effective rank ~14 over the 21-point ensemble). This closes
@@ -154,7 +154,7 @@
 
 // ── frozen thresholds (imp-95008 Theorem G / imp-95020) ─────────────────────
 export const IMP95217_Q_ALLOWANCE = 1.4326672; // closure iff Q < this
-export const IMP95217_KILL_LINE = 2.8653344; // imp-95020 kill rule: 2x allowance
+export const IMP95217_KILL_LINE = 2.8653344; // imp-95020 eliminate rule: 2x allowance
 
 export const IMP95217_PRIMES = [
   2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
@@ -561,7 +561,7 @@ export const IMP95217_ASSERTIONS = [
   {
     id: 'imp95217-von-neumann-quotients',
     description:
-      'qVN = sqrt(lambda_max(rho) * K_max) = 0.7893887 <= qCS <= 1 < allowance (monotone-safe Lemma H ordering), the margin factor for the unidentified weld constants improves to 1.8149072, and the imp-95020 kill rule (Q > 2.8653344) is NOT triggered',
+      'qVN = sqrt(lambda_max(rho) * K_max) = 0.7893887 <= qCS <= 1 < allowance (monotone-safe Lemma H ordering), the margin factor for the unidentified weld constants improves to 1.8149072, and the imp-95020 stop rule (Q > 2.8653344) is NOT triggered',
     holds: () =>
       Math.abs(Q_VN - 0.789388684899671) < 1e-6 &&
       Q_VN <= Q_CS + 1e-12 &&

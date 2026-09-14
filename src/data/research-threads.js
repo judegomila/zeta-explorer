@@ -57,7 +57,7 @@ export const THREADS = [
       {
         date: '2026-09-09',
         event:
-          'Adversarial referee pass over continuations 20–52 (three lenses): ALL SOUND-WITH-CAVEATS, zero refutations. Load-bearing caveats recorded: the VX 872M-cell margin, the chain-wide float branch-and-bound nudge-domination assumption (disclosed, unproved), lemma-name collisions, and the class sandwich [0.2320723, 0.24502] being a MODEL-FAMILY constant (no arithmetic transfer claimed).',
+          'Independent referee pass over continuations 20–52 (three lenses): ALL SOUND-WITH-CAVEATS, zero refutations. Load-bearing caveats recorded: the VX 872M-cell margin, the chain-wide float branch-and-bound nudge-domination assumption (disclosed, unproved), lemma-name collisions, and the class sandwich [0.2320723, 0.24502] being a MODEL-FAMILY constant (no arithmetic transfer claimed).',
         verdict: 'refereed sound-with-caveats',
         commit: '0d23e88f0 (era)',
       },
@@ -162,14 +162,14 @@ export const THREADS = [
       {
         date: '2026-09-09',
         event:
-          'imp-95207 split-collar salvage: the 0.139981915 collar KILLED twice over, but a days-scale delivered-face y-thaw of the sealed 0.1787854 candidate to 0.17759432 identified (sharp vecmax weight replacing the triangle weight, whose sealed 7.9e-7 floor was a ~79,000x-pessimistic artifact).',
+          'imp-95207 split-collar salvage: the 0.139981915 collar ELIMINATED twice over, but a days-scale delivered-face y-thaw of the sealed 0.1787854 candidate to 0.17759432 identified (sharp vecmax weight replacing the triangle weight, whose sealed 7.9e-7 floor was a ~79,000x-pessimistic artifact).',
         verdict: 'salvage found',
         module: 'src/data/imp-95207-split-collar-analysis.js',
       },
       {
         date: '2026-09-10',
         event:
-          'Stage 1 (SHARP_WEIGHT_NATIVE_BINDING.md): the sharp-weight native-binding lemma CLOSES at (t = 129/800, y = 0.1808), with the new radial-monotonicity sub-lemma S0. Adversarial referee pass 2026-09-10: S0/S1/S2 sound, rows 1–6 accurate, O1 restated (one route STRUCK with reason recorded).',
+          'Stage 1 (SHARP_WEIGHT_NATIVE_BINDING.md): the sharp-weight native-binding lemma CLOSES at (t = 129/800, y = 0.1808), with the new radial-monotonicity sub-lemma S0. Independent referee pass 2026-09-10: S0/S1/S2 sound, rows 1–6 accurate, O1 restated (one route STRUCK with reason recorded).',
         verdict: 'prose-proof, refereed',
         module: 'formalization/y-thaw-01775943/SHARP_WEIGHT_NATIVE_BINDING.md',
       },
@@ -316,7 +316,7 @@ export const THREADS = [
       },
     ],
     openObjects: [
-      'the breach point: finite N-uniform C_Lip → D_rest (the located exception)',
+      'the crossing point: finite N-uniform C_Lip → D_rest (the located exception)',
     ],
     keyNumbers: [
       { value: 'Λ ≥ 0', meaning: 'Rodgers–Tao — the hypothesis the flow-blindness no-go is conditional on (formalized as hRT)', provenanceRoute: '/flow-blindness-no-go' },
@@ -374,7 +374,7 @@ export const THREADS = [
         date: '2026-09-09',
         event:
           'imp-95206 T-P1: the 0.1399 tail lane K2-KILLED — N1* = 220,495,706, 4.01x the economic line (Arb 320/512-bit, exact integer boundary). The second calibration point of the cost curve.',
-        verdict: 'killed (lane), calibration banked',
+        verdict: 'eliminated (lane), calibration banked',
         module: 'src/data/imp-95206-t-p1-tail-repricing.js',
       },
       {
@@ -398,7 +398,7 @@ export const THREADS = [
     ],
     keyNumbers: [
       { value: 'exp(Θ(1/t))', meaning: 'the derived tail-cutoff scaling — why t↓0 rows price out exponentially', provenanceRoute: '/lambda-bounds' },
-      { value: '220,495,706', meaning: 'N1* at t = 10103/80000 (the killed 0.1399 lane’s Arb-measured cutoff)', provenanceRoute: '/lambda-bounds' },
+      { value: '220,495,706', meaning: 'N1* at t = 10103/80000 (the eliminated 0.1399 lane’s Arb-measured cutoff)', provenanceRoute: '/lambda-bounds' },
     ],
   },
   {
@@ -426,8 +426,8 @@ export const THREADS = [
       {
         date: '2026-09-09',
         event:
-          '0.139981915 and the 0.1399 tail lane KILLED (split-collar analysis + T-P1 repricing) — the sealed minima live on the 0.1787854 face; the salvage became the 0.17759432 y-thaw package (its own thread).',
-        verdict: 'killed (two lanes); salvage spun out',
+          '0.139981915 and the 0.1399 tail lane ELIMINATED (split-collar analysis + T-P1 repricing) — the sealed minima live on the 0.1787854 face; the salvage became the 0.17759432 y-thaw package (its own thread).',
+        verdict: 'eliminated (two lanes); salvage spun out',
         module: 'src/data/imp-95207-split-collar-analysis.js',
       },
     ],

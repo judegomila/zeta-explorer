@@ -74,7 +74,7 @@
  * (3) / imp-95397, unchanged and OPEN. Changes no bound; NO QED; Platt-Trudgian
  * Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) N = 16 witness theta 7.990482e-3 equals
+ * SKEPTICAL SELF-CHECK RECORD. (1) N = 16 witness theta 7.990482e-3 equals
  * the imp-95423 certified EXACT floor to 1e-6 (the search recovers the proven
  * optimum). (2) Every baked hex witness decodes and re-evaluates to its baked
  * theta literal to 1e-15 (round-trip exact). (3) theta_wit < theta(alt) at

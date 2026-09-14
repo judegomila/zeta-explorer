@@ -292,7 +292,7 @@ export default function SimulatorPage() {
             <Link to="/modes" style={{ color: 'var(--brass)', fontSize: 13, textDecoration: 'none' }}>→ Modes (oscillator structure)</Link>
             <Link to="/formal-proof" style={{ color: 'var(--green)', fontSize: 13, textDecoration: 'none' }}>→ Formal Proof (scorecard)</Link>
             <Link to="/gap-closing" style={{ color: 'var(--terra-dk)', fontSize: 13, textDecoration: 'none' }}>→ Gap Closing (S5 operator)</Link>
-            <Link to="/spectral-attack" style={{ color: 'var(--blue)', fontSize: 13, textDecoration: 'none' }}>→ Spectral Attack (unified potential)</Link>
+            <Link to="/spectral-attack" style={{ color: 'var(--blue)', fontSize: 13, textDecoration: 'none' }}>→ Spectral Approach (unified potential)</Link>
           </div>
           <div style={{ marginTop: 12, paddingTop: 10, borderTop: '1px solid var(--hairline)' }}>
             <Link to="/" style={{ color: 'var(--ink-soft)', fontSize: 13, textDecoration: 'none' }}>← the atlas</Link>

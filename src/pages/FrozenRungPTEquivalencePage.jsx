@@ -54,7 +54,7 @@ export default function FrozenRungPTEquivalencePage() {
           <strong>Full rigorous write-up (13pp, math paper).</strong>{' '}
           <a href={paperPdf} target="_blank" rel="noreferrer" className="ed-mono">{paperPdf}</a>
           {' — '}Proves the inertia half + winding-form identity rigorously; L1 conditional (gap
-          named); L2 left OPEN with a 7-attack adversarial self-check. No new bound, not RH.
+          named); L2 left OPEN with a 7-probe skeptical self-check. No new bound, not RH.
         </p>
       )}
 

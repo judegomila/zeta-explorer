@@ -132,7 +132,7 @@
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED on the
  * parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD (in-run refutations preserved).
+ * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) The plain nested-AY cover WITHOUT Lemma MC stalls at 2325/10000
  *     (73-78 unresolved at 4e6/6e6 budgets, depth 69, excess ~1.7e-4
  *     shrinking only linearly in cell width across 10 axes) - the
@@ -645,7 +645,7 @@ function kernelK(a, b, tau) {
   return (2 * (b * Math.exp(-a * tau) - a * Math.exp(-b * tau))) / (b * b - a * a);
 }
 
-// battery W (seed 161616): THEOREM PO attacked directly - seeded in-class
+// battery W (seed 161616): THEOREM PO approached directly - seeded in-class
 // pair-occupancy witnesses (any subset of ladders 0..6 doubled, both
 // parities, free positions, common rate >= 47/200, zeros allowed)
 function runWitnessBattery() {
@@ -743,25 +743,25 @@ export const IMP95145_PAIR_OCCUPANCY_DISPLACEMENT_CAP_ASSERTIONS = [
   {
     id: "imp95145-mc-battery",
     description:
-      "Lemma MC attacked directly: 120000 seeded (A, B, G-floor, G-true, arc-cell) draws x 5 arc samples - the arc-restricted merge cap dominates every sampled exact row factor (zero violations)",
+      "Lemma MC approached directly: 120000 seeded (A, B, G-floor, G-true, arc-cell) draws x 5 arc samples - the arc-restricted merge cap dominates every sampled exact row factor (zero violations)",
     holds: () => BAT_MC.viol === 0 && BAT_MC.worst <= 1 + 1e-9 && BAT_MC.worst > 0.9,
   },
   {
     id: "imp95145-ay2-battery",
     description:
-      "Lemma AY2 attacked directly: 60000 seeded (4 caps, 2 floors, 2 arc-cells) draws x 9 bilinear samples - the nested cap dominates every sampled doubled-doubled bond (zero violations)",
+      "Lemma AY2 approached directly: 60000 seeded (4 caps, 2 floors, 2 arc-cells) draws x 9 bilinear samples - the nested cap dominates every sampled doubled-doubled bond (zero violations)",
     holds: () => BAT_AY2.viol === 0 && BAT_AY2.worst <= 1 + 1e-9 && BAT_AY2.worst > 0.9,
   },
   {
     id: "imp95145-ep-multi-identity",
     description:
-      "multi-block Lemma EP attacked directly: 3000 seeded configurations with several doubled blocks (both parities) - E by the direct packet form and E by the fully folded effective form agree to < 1e-9 relative (identity, not a bound)",
+      "multi-block Lemma EP approached directly: 3000 seeded configurations with several doubled blocks (both parities) - E by the direct packet form and E by the fully folded effective form agree to < 1e-9 relative (identity, not a bound)",
     holds: () => BAT_EP.count > 2800 && BAT_EP.worstRel < 1e-9,
   },
   {
     id: "imp95145-witness-battery",
     description:
-      "THEOREM PO attacked directly: 5000 seeded in-class pair-occupancy witnesses (any subset of ladders 0..6 doubled, BOTH parities, free positions, common rate >= 47/200 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
+      "THEOREM PO approached directly: 5000 seeded in-class pair-occupancy witnesses (any subset of ladders 0..6 doubled, BOTH parities, free positions, common rate >= 47/200 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
     holds: () => BAT_W.viol === 0 && BAT_W.maxE < 0 && BAT_W.count > 4800,
   },
   {

@@ -5,7 +5,7 @@
  * and Λ ≤ 0 at the heights the verified zero list controls: if the intercept
  * a in |t_c(N)| ≈ a + b/N is provably ≤ 0, then the Dyson backward collision
  * argument delivers Λ ≤ 0, which IS the Riemann Hypothesis up to that
- * height. imp-323 proposed two angles of attack:
+ * height. imp-323 proposed two angles of approach:
  *
  *   (a) statistical — show that the fitted a is within one-sided confidence
  *       distance of 0 and use a proper upper CI bound instead of the point

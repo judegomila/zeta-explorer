@@ -14,7 +14,7 @@
  *   function X(w) := xi(1/2 + w), the shifted bridge E_a(z) := X(a - iz), the
  *   shift-bridge ratio Theta_a(z) := E_a^# / E_a, and a Hermite-Biehler /
  *   de Branges threshold theorem (Theorem 15.1). Sections 16 (four equivalent
- *   closure routes), 17 (Blaschke ghosts), 18 (three direct attacks), and
+ *   closure routes), 17 (Blaschke ghosts), 18 (three direct approaches), and
  *   App H restricted-lift drape additional structure over the same skeleton.
  *
  *   This crosswalk walks 10 named ZPO concepts and -- for each one -- asks
@@ -101,7 +101,7 @@ const CROSSWALK_ENTRIES = Object.freeze([
     zpoLocation: 'src/pages/OscillatorsPage.jsx + src/pages/TwinLadderPage.jsx',
     v52Equivalent:
       'Related: the v52 paper uses the centered function X(w) := xi(1/2 + w) ' +
-      'and exploits its evenness X(w) = X(-w) (the functional equation). ' +
+      'and uses its evenness X(w) = X(-w) (the functional equation). ' +
       'The "direct/dual" pair in ZPO is the same data the v52 paper compresses ' +
       'into the even entire X. The v52 shifted bridge E_a^#(z) = X(-a - iz) ' +
       'is the reflected partner of E_a(z) = X(a - iz), which is the direct ' +
@@ -170,7 +170,7 @@ const CROSSWALK_ENTRIES = Object.freeze([
       '\\mathcal{H}(\\sigma, t) = T(\\sigma, t) + V_{\\text{mismatch}}(\\sigma, t) + V_{\\text{bridge}}(\\sigma, t)',
     zpoLocation: 'src/pages/HamiltonianPage.jsx',
     v52Equivalent:
-      'Related (via Attack II of §18, prime-delay domination). v52 §18.2 ' +
+      'Related (via Approach II of §18, prime-delay domination). v52 §18.2 ' +
       'states Re(X\'/X)(w) > 0 for Re w > 0 (Conjecture 15.4). This is the ' +
       'pointwise infinitesimal counterpart of the "ZPO Hamiltonian is ' +
       'minimised at sigma=1/2 with positive curvature": the convexity ' +
@@ -178,7 +178,7 @@ const CROSSWALK_ENTRIES = Object.freeze([
       'integrated form of the prime-delay-domination inequality in the v52 ' +
       'half-plane formulation. Neither is currently proven; both are RH-' +
       'equivalent.',
-    v52Location: PAPER_REF + ', §15.7 (prime-delay interpretation), §18.2 (Attack II)',
+    v52Location: PAPER_REF + ', §15.7 (prime-delay interpretation), §18.2 (Approach II)',
     verdict: VERDICTS.RELATED,
     rationale:
       '"H minimised at sigma=1/2" is the integrated convex statement that ' +
@@ -194,7 +194,7 @@ const CROSSWALK_ENTRIES = Object.freeze([
     zpoLatex: '\\psi(x) = x - \\sum_\\rho \\frac{x^\\rho}{\\rho}',
     zpoLocation: 'src/pages/ModesPage.jsx',
     v52Equivalent:
-      'Related (via Weil explicit formula, §18.3 Attack III). The v52 ' +
+      'Related (via Weil explicit formula, §18.3 Approach III). The v52 ' +
       'twin-ladder quadratic form decomposes spectrally over the same zero ' +
       'set, with each zero rho contributing a "rung" to the prime-delay ' +
       'expansion. The "mode" decomposition in ZPO IS the spectral side of ' +
@@ -286,17 +286,17 @@ const CROSSWALK_ENTRIES = Object.freeze([
     zpoLatex: 'H = xp,\\quad E_n \\longleftrightarrow \\rho_n = 1/2 + i \\gamma_n',
     zpoLocation: 'src/pages/HamiltonianPage.jsx (Berry-Keating Semiclassical Quantization)',
     v52Equivalent:
-      'Related (loosely): v52 §18.1 Attack I (kernel/passivity closure, ' +
+      'Related (loosely): v52 §18.1 Approach I (kernel/passivity closure, ' +
       'Conjecture 18.1) asks for the pair (A_a, B_a) to arise from a ' +
       'positive Hamiltonian canonical system whose Weyl transfer function ' +
       'is Theta_a. This is an OPERATOR-THEORETIC Hamiltonian-canonical-' +
       'system formulation. Berry-Keating proposes a SEMICLASSICAL ' +
-      'Hamiltonian xp; the v52 attack proposes a positive canonical-system ' +
+      'Hamiltonian xp; the v52 approach proposes a positive canonical-system ' +
       'Hamiltonian built from Phi. Both are "construct a Hamiltonian whose ' +
       'spectrum encodes the zeros" research programs, but the constructions ' +
       'are different (Berry-Keating: explicit xp + Maslov; v52 §18.1: ' +
       'passive system whose transfer function is Theta_a).',
-    v52Location: PAPER_REF + ', §18.1 (Attack I: kernel/passivity, Conjecture 18.1)',
+    v52Location: PAPER_REF + ', §18.1 (Approach I: kernel/passivity, Conjecture 18.1)',
     verdict: VERDICTS.RELATED,
     rationale:
       'Both are Hilbert-Polya-style "build the operator" programs, but the ' +

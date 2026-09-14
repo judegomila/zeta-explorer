@@ -2,12 +2,12 @@
  * @module imp-35946-tree-shape-duplicate-audit
  *
  * imp-35946 (numerical, S-frontier ticket audit): imp-35946 asked to "Measure whether the
- * imp-35893 adversarial pairing-tree SHAPE pushes pairwise divide-and-conquer summation
+ * imp-35893 skeptical pairing-tree SHAPE pushes pairwise divide-and-conquer summation
  * toward its depth*eps ceiling on a NON-cancelling all-positive same-sign multiset (where the
  * running accumulator GROWS)" -- specifically: hold N ~ 488602, replace the terms with an
  * all-positive family t_k = 1/sqrt(k), sweep the same balanced->skew->caterpillar tree shapes,
  * tabulate the pairwise normalized error and its ratio to the depth*eps ceiling, and assess
- * whether adversarial tree shape then DOES approach the depth-proportional worst-case bound.
+ * whether worst-case tree shape then DOES approach the depth-proportional worst-case bound.
  *
  * Auditing src/data/ BEFORE writing a new measurement module found this ALREADY DELIVERED:
  * imp-35945-w1-summation-monotone-tree-shape.js re-runs the IDENTICAL seven pairing-tree
@@ -18,7 +18,7 @@
  * Its measured verdict: the worst tree (caterpillarR, depth 3817) reaches ~0.647 of the
  * log2(N)*eps ceiling -- a ~1460x jump over imp-35893 ~4.42e-4 on the cancellation-heavy
  * multiset, CORROBORATING imp-35893 attribution -- but the depth-proportional depth*eps
- * worst-case bound STILL stays far from realized (~0.3%), so adversarial tree shape does NOT
+ * worst-case bound STILL stays far from realized (~0.3%), so worst-case tree shape does NOT
  * approach the depth*eps ceiling even once coherent accumulation is possible. That is exactly
  * the measurement + assessment imp-35946 requested. imp-35946 is a DUPLICATE ticket the
  * anti-starvation frontier scout re-seeded from the same imp-35893 gap description before (or
@@ -44,7 +44,7 @@ export const IMP35946_TREE_SHAPE_DUPLICATE_AUDIT = {
   id: 'imp-35946',
   proofSection: 'S-frontier',
   question:
-    'imp-35946 asked to measure whether adversarial pairing-tree SHAPE pushes pairwise summation ' +
+    'imp-35946 asked to measure whether skeptical pairing-tree SHAPE pushes pairwise summation ' +
     'toward its depth*eps ceiling on a NON-cancelling all-positive multiset t_k = 1/sqrt(k) at ' +
     'N ~ 488602 (the complement of the imp-35893 cancellation-heavy family), sweeping the same ' +
     'balanced->skew->caterpillar shapes and tabulating the error ratio to the depth*eps bound; ' +
@@ -57,7 +57,7 @@ export const IMP35946_TREE_SHAPE_DUPLICATE_AUDIT = {
     'shape. Its measured assessment: the worst tree (caterpillarR, depth 3817) reaches ~0.647 of ' +
     'the log2(N)*eps ceiling (a ~1460x jump over imp-35893 ~4.42e-4, corroborating imp-35893), ' +
     'yet the depth-proportional depth*eps worst-case bound stays far from realized (~0.3%), so ' +
-    'adversarial tree shape does NOT approach the depth*eps ceiling even with cancellation removed.',
+    'worst-case tree shape does NOT approach the depth*eps ceiling even with cancellation removed.',
   duplicateOf: 'imp-35945 (the ticket that authored the pre-existing monotone tree-shape measurement)',
   deliveredWorstRatioToPairwiseCeiling: DELIVERED.summary.worstRatioToPairwiseCeiling,
   deliveredWorstRatioToDepthEpsBound: DELIVERED.summary.worstRatioToDepthEpsBound,
@@ -66,7 +66,7 @@ export const IMP35946_TREE_SHAPE_DUPLICATE_AUDIT = {
   verdict:
     'AUDIT ONLY. No new measurement module added -- imp-35945 already supplies the t_k = 1/sqrt(k) ' +
     'monotone all-positive multiset at N ~ 488602, the seven-shape balanced->caterpillar sweep, the ' +
-    'per-shape ratio to the depth*eps ceiling, and the assessment that adversarial tree shape ' +
+    'per-shape ratio to the depth*eps ceiling, and the assessment that worst-case tree shape ' +
     'approaches the (small) log2(N)*eps ceiling but NOT the depth-proportional depth*eps bound. This ' +
     'module records the duplicate-ticket finding and pins a permanent regression guard confirming the ' +
     'delivered measurement stays present and consistent. Certifies no W1 bound; instantiates no ' +

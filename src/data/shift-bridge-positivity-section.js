@@ -327,7 +327,7 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
     'zero of E_a — that can be searched for in computational experiments.',
 
     'The prime-delay reading (Section 15.7) links Section 15 directly to the ' +
-    'Lambda attack. The infinitesimal form Re(xi\'/xi)(sigma + it) > 0 on ' +
+    'Lambda approach. The infinitesimal form Re(xi\'/xi)(sigma + it) > 0 on ' +
     'Re(s) > 1/2 (Conjecture 15.4) is the pointwise counterpart of the ' +
     'quadratic Weil/twin-ladder positivity form built from log-prime delays. ' +
     'It is also tractable from existing project infrastructure: the ' +
@@ -420,12 +420,12 @@ export const SHIFT_BRIDGE_POSITIVITY = Object.freeze({
       paperSection: '18',
       ticket: 'imp-1199',
       route: '/three-attacks',
-      label: 'Three Concrete Attack Programs',
+      label: 'Three Concrete Approach Programs',
       description:
         'Section 18 reorganizes the four closure routes into three concrete ' +
-        'attack programs: kernel/passivity (Attack I), prime-delay domination ' +
-        '(Attack II, directly continuing Conjecture 15.4), and ' +
-        'Weil/Pontryagin index closure (Attack III).',
+        'approach programs: kernel/passivity (Approach I), prime-delay domination ' +
+        '(Approach II, directly continuing Conjecture 15.4), and ' +
+        'Weil/Pontryagin index closure (Approach III).',
     },
   ],
 

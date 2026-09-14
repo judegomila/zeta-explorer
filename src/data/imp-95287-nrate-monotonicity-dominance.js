@@ -158,7 +158,7 @@
  *      SPLIT-LOO onsets with the R = 1 majorant is a named follow-up,
  *      NOT executed here.
  *
- * ADVERSARIAL RECORD. (1) Envelope identity LEMMA D checked against
+ * SKEPTICAL RECORD. (1) Envelope identity LEMMA D checked against
  * centered finite differences of the pencil eigenvalue across N = 2..6
  * batteries: rel 1.5e-7 at rate separation 0.5, degrading exactly with
  * the Cauchy-Gram conditioning (1.7e-1 at separation 1e-2, where the

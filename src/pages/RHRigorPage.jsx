@@ -501,7 +501,7 @@ export default function RHRigorPage() {
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/formal-proof" style={{ color: 'var(--green)', fontSize: 13 }}>Formal Proof</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/rh-attack" style={{ color: 'var(--blue)', fontSize: 13 }}>RH Attack</Link>
+            <Link to="/rh-attack" style={{ color: 'var(--blue)', fontSize: 13 }}>RH Approach</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/gap-closing" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Gap Closing</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>

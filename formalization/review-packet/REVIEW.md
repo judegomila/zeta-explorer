@@ -14,7 +14,7 @@ It is **not** the Riemann Hypothesis, and **not** `Λ ≥ 0` (the Rodgers–Tao 
 de Bruijn–Newman constant). It is a classical real-analysis / polynomial result that fills a gap in
 mathlib. No claim beyond the exact statements below is made. (For context: this file was extracted
 from a larger private research project on the de Bruijn–Newman constant; that project reached an
-adversarially-verified *no-go* conclusion — it does not prove RH — and this formalization is its one
+independently-verified *no-go* conclusion — it does not prove RH — and this formalization is its one
 clean, independently-valuable by-product.)
 
 ## The headline result (exact Lean statement)

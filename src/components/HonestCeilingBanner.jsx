@@ -46,7 +46,7 @@ const VARIANTS = {
     title: 'The finite-N*=1e4 "beat" is an ESTIMATE, gated on the undischargeable C_H',
     body:
       'The headline finite-N* = 1e4 beat is numerical, not a rigorous bound. It rests on a collision-energy ' +
-      'constant C_H whose discharge is open (the Gronwall attack is refuted). Read it as rigorous-modulo-C_H, ' +
+      'constant C_H whose discharge is open (the Gronwall approach is refuted). Read it as rigorous-modulo-C_H, ' +
       'never as an unconditional finite-N beat.',
   },
   'RH-EQUIVALENT': {

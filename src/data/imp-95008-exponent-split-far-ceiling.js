@@ -111,7 +111,7 @@
  *   fixed-97 theta = 10: floor 0.0012054673720820889 (fifteenth chain
  *     terminal), gap 3318.2150696382446 -> 2444.6515171682004 .
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) validity of Lemma T-STAR was attacked
+ * SKEPTICAL SELF-CHECK RECORD: (1) validity of Lemma T-STAR was stress-tested
  * by direct midpoint quadrature of the envelope correlation integral across
  * (sigma, theta) in {(1,10), (1,2)} x widths {0.3, 1, 3}^2 x separations
  * T in {0, 0.2, Gx(2), 2, 5.556, 20} - zero violations, and the worst ratio

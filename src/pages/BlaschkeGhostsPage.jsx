@@ -7,7 +7,7 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
 /**
- * BlaschkeGhostsPage — renders §17 "Attack on the Wall: Inverse Blaschke
+ * BlaschkeGhostsPage — renders §17 "Approach on the Wall: Inverse Blaschke
  * Ghosts and the Pontryagin Decomposition" from the user's paper at
  * research-inputs/twin_ladder_consolidated_v52.pdf (pages 22-26).
  *

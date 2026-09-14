@@ -4,7 +4,7 @@
  * Data backing the "H_t Corridor Certificates" page (route /ht-corridor-certificates).
  *
  * Proof-chain step: Twin-Ladder v52 program, §14.18–14.19 (Lyapunov/Rouché
- * corridor stage of the de Bruijn–Newman heat-flow attack). These are the
+ * corridor stage of the de Bruijn–Newman heat-flow approach). These are the
  * interval-rigorous zero-localization certificates for H_t at t = 0.18,
  * η = 0.14142 (conditional config target Λ ≤ t + η²/2 = 0.19).
  *

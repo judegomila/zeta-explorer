@@ -320,12 +320,12 @@ export default function ProofPlannerPage() {
               { to: '/formal-proof', label: 'Formal Proof', desc: 'Full proof sections with verification' },
               { to: '/proof-checker', label: 'Proof Checker', desc: 'Automated validation of each step' },
               { to: '/gap-closing', label: 'Gap Closing', desc: 'Strategies for closing identified gaps' },
-              { to: '/rh-attack', label: 'RH Attack', desc: 'Multi-angle attack on the Riemann Hypothesis' },
-              { to: '/spectral-attack', label: 'Spectral Attack', desc: 'Spectral theory approach (Path A)' },
+              { to: '/rh-attack', label: 'RH Approach', desc: 'Multi-angle approach on the Riemann Hypothesis' },
+              { to: '/spectral-attack', label: 'Spectral Approach', desc: 'Spectral theory approach (Path A)' },
               { to: '/connes-adelic', label: 'Connes Adelic Trace', desc: 'Weil-form / adelic framework (Path C)' },
               { to: '/twin-ladder', label: 'Twin Ladder', desc: 'Network model underlying Path B' },
               { to: '/rigor', label: 'Rigor', desc: 'Rigorous assessment of all claims' },
-              { to: '/cross-attack', label: 'Cross-Attack', desc: 'Cross-cutting attack strategies' },
+              { to: '/cross-attack', label: 'Cross-Approach', desc: 'Cross-cutting approach strategies' },
             ].map(link => (
               <Link key={link.to} to={link.to} style={{
                 background: '#fdfaf3', borderRadius: 8, padding: '10px 14px',

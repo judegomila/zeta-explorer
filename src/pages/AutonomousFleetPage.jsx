@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { Figure, Pull } from '../components/editorial/PostLayout.jsx';
 
-/* New explanation page: the autonomous fleet / engine room — how the attack is
+/* New explanation page: the autonomous fleet / engine room — how the approach is
    run. Functional post reading-view. Describes the pipeline, not live status. */
 
 export default function AutonomousFleetPage() {
@@ -11,7 +11,7 @@ export default function AutonomousFleetPage() {
       grade="ENGINE"
       meta={['live', 'infrastructure']}
       title={<>The autonomous fleet</>}
-      dek={<>The attack is run continuously by a fleet of AI engines against a self-refilling queue of tickets, with adversarial referees and hard no-false-QED gates. This page describes how the machine works — not a claim about the mathematics.</>}
+      dek={<>The approach is run continuously by a fleet of AI engines against a self-refilling queue of tickets, with independent referees and hard no-false-QED gates. This page describes how the machine works — not a claim about the mathematics.</>}
       byline={['Infrastructure · mathexplorer', 'method, not result']}
       ticker={<span><b>engine live</b> · fleet working the frontier</span>}
       footer={<>Related: <Link to="/route-map">the wall map</Link> · <Link to="/lambda-bounds">the bounds ledger</Link><br /><br />← <Link to="/">the atlas</Link></>}
@@ -37,7 +37,7 @@ export default function AutonomousFleetPage() {
       </Figure>
 
       <h2>The gates</h2>
-      <p>Two rules are absolute. First: no false QED — the rigorous state of the art stays Λ ≤ 0.2 (Platt–Trudgian), and no engine may claim a proof of RH or a beat of the record. Candidates are labelled candidates. Second: adversarial verification — findings are checked by independent referee agents prompted to refute, not confirm, before anything is recorded.</p>
+      <p>Two rules are absolute. First: no false QED — the rigorous state of the art stays Λ ≤ 0.2 (Platt–Trudgian), and no engine may claim a proof of RH or a beat of the record. Candidates are labelled candidates. Second: skeptical verification — findings are checked by independent referee agents prompted to refute, not confirm, before anything is recorded.</p>
 
       <Pull>The fleet produces candidates and no-gos at scale. It does not produce proofs. Every bound on this site is either rigorous-and-cited or explicitly labelled computer-assisted and unrefereed.</Pull>
 

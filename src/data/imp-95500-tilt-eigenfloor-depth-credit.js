@@ -154,7 +154,7 @@
  * <0.05 percent at m = 8 and ~4e-6 relative at m = 16. The gain
  * concentrates exactly where TILT-DET is the ONLY closed form: tight or
  * coalescent clusters (measured 1.02-1.24x, onset -0.21 depth units at
- * K = 8). (b) The deflation zeros at U are still not exploited
+ * K = 8). (b) The deflation zeros at U are still not used
  * (imp-95499 HONEST LIMITS (a) untouched). (c) The K = 1 looseness
  * envelope 2 e x is untouched (credit is zero at K = 1). (d) Model
  * family only (exponential spans, Cauchy Gram); no mapping to paper

@@ -7,7 +7,7 @@
  * when the imp-2631 truncation floor decays slowly enough in height. With a power floor
  * E_trunc(T0;k) = 3.06e-5 * (T_PT/T0)^k the interior min existed at the constant control
  * k = 0 but was already GONE at the smallest positive grid sample k = 0.2. imp-3465 stated
- * "any k > 0 kills it" and identified k* = 1/2 only as the exponent where the LARGE-N limit
+ * "any k > 0 eliminates it" and identified k* = 1/2 only as the exponent where the LARGE-N limit
  * of sigma flips (-> 0 for k < 1/2, -> 1 for k > 1/2); it never LOCATED the threshold at
  * which the interior min actually ceases to form. This module certifies that threshold.
  *
@@ -48,7 +48,7 @@
  *        E_trunc(T0) ~ (T_PT/T0)^k, which is largest at small N; the global minimum HANDS OFF
  *        from that interior stationary point to the N = 1e2 window boundary. Above k_c the
  *        boundary is the global min, so the imp-3465 shape classifier reads MONOTONE.
- *   (F4) This SHARPENS/CORRECTS imp-3465's "any k > 0 kills it": the interior min in fact
+ *   (F4) This SHARPENS/CORRECTS imp-3465's "any k > 0 eliminates it": the interior min in fact
  *        survives the whole interval [0, k_c) with k_c ~ 0.1967; imp-3465's coarse grid
  *        {0, 0.2, 0.4, 0.5, 0.6} simply straddled k_c -- its smallest positive sample k = 0.2
  *        sits just ABOVE the threshold, which is why the turnover read as already dissolved.
@@ -210,7 +210,7 @@ export const IMP3486_CRITICAL_DECAY_EXPONENT = {
       'confirming the identical imp-3465/imp-3406 sub-terms and search are in use.',
   },
   relationToImp3465:
-    'SHARPENS/CORRECTS imp-3465s "any k > 0 kills it": the interior min survives the whole ' +
+    'SHARPENS/CORRECTS imp-3465s "any k > 0 eliminates it": the interior min survives the whole ' +
     'interval [0, k_c) with k_c ~ 0.1967. imp-3465s coarse grid {0,0.2,0.4,0.5,0.6} straddled ' +
     'k_c -- its smallest positive sample k=0.2 sits just ABOVE the threshold. The physical ' +
     'Ingham sigma=3/4 exponent k=0.4 stays well above k_c, so imp-3465s physical-floor ' +
@@ -229,7 +229,7 @@ export const IMP3486_CRITICAL_DECAY_EXPONENT = {
     'boundary-value crossing) agree on k_c = 0.1966894 to ~8 significant figures. The interior ' +
     'min persists for 0 <= k < k_c and is gone above it via a GLOBAL-MIN HANDOVER to the ' +
     'N = 1e2 window boundary (the interior stationary point survives at N ~ 2.5e3 but is ' +
-    'overtaken by the amplified low-N floor). This sharpens imp-3465s "any k>0 kills it": its ' +
+    'overtaken by the amplified low-N floor). This sharpens imp-3465s "any k>0 eliminates it": its ' +
     'smallest positive grid sample k=0.2 merely sat just above the threshold. Window-dependent; ' +
     'sits below the large-N limit-flip k* = 1/2. No positivity, no bridge closure, no RH claim, ' +
     'NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',

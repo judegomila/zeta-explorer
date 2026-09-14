@@ -38,7 +38,7 @@
  * READING: dropping cancellation makes a LARGE difference to log2(N)*eps-ceiling attainment.
  * The worst tree (caterpillarR, depth 3817) now reaches ~0.647 of the log2(N)*eps ceiling --
  * versus imp-35893's ~4.42e-4 on the oscillatory multiset, a ~1460x jump in relative
- * attainment. So imp-35893's attribution is CORROBORATED in direction: adversarial tree
+ * attainment. So imp-35893's attribution is CORROBORATED in direction: worst-case tree
  * SHAPE DOES push pairwise substantially toward its log2(N)*eps ceiling once the running
  * accumulator grows monotonically (no cancellation). BUT the tree's OWN depth-proportional
  * worst-case forward bound (depth*eps ~ 8.5e-13 at depth 3817) is STILL far from realized:
@@ -215,7 +215,7 @@ export const IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE = {
   id: 'imp-35945',
   proofSection: 'S-frontier',
   question:
-    'Does adversarial pairing-tree SHAPE push pairwise divide-and-conquer summation toward its ' +
+    'Does skeptical pairing-tree SHAPE push pairwise divide-and-conquer summation toward its ' +
     'log2(N)*eps / depth*eps forward-error bound on a MONOTONE same-sign (non-cancelling) multiset ' +
     't_k = 1/sqrt(k) at N ~ 488602 -- the complement of the imp-35893 cancellation-heavy multiset ' +
     'whose benign structure imp-35893 credited for non-attainment? Measurement only; certifies no ' +
@@ -280,7 +280,7 @@ export const IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE = {
   },
   conclusion: {
     monotoneShapePushesTowardLog2Ceiling:
-      'on the monotone non-cancelling multiset adversarial pairing-tree SHAPE DOES push pairwise substantially ' +
+      'on the monotone non-cancelling multiset skeptical pairing-tree SHAPE DOES push pairwise substantially ' +
       'toward its log2(N)*eps ceiling (~65% at worst) -- unlike the cancellation-heavy multiset (imp-35893), ' +
       'confirming that multiset structure, not tree shape alone, governs attainment',
     depthProportionalBoundStaysUnattained:
@@ -290,7 +290,7 @@ export const IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE = {
       'achievable double precision leaves ~4 orders of strict headroom under the barrier margin even with ' +
       'cancellation removed AND worst-case pairing-tree shape; precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures pairwise errors under adversarial tree shapes on a monotone multiset only; it ' +
+      'this module measures pairwise errors under worst-case tree shapes on a monotone multiset only; it ' +
       'evaluates no sum of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays ' +
       'GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725)',
   },
@@ -302,7 +302,7 @@ export const IMP35945_W1_SUMMATION_MONOTONE_TREE_SHAPE = {
     'skew-fraction splits, and left/right caterpillars -- against the SAME association-invariant exact BigInt ' +
     'reference, the worst tree (caterpillarR, depth 3817) now reaches ~0.647 of the log2(N)*eps ceiling, a ' +
     '~1460x jump over imp-35893 ~4.42e-4 on the cancellation-heavy multiset. This CORROBORATES imp-35893 ' +
-    'attribution: removing cancellation lets adversarial tree SHAPE push pairwise substantially toward its ' +
+    'attribution: removing cancellation lets worst-case tree SHAPE push pairwise substantially toward its ' +
     'log2(N)*eps ceiling. HOWEVER the tree own depth*eps worst-case forward bound (~8.5e-13 at depth 3817) is ' +
     'STILL far from realized (~0.3%): all-positive terms alone do not align the rounding-error signs along the ' +
     'caterpillar spine, so the coherent depth-proportional regime is not attained. The error remains ' +

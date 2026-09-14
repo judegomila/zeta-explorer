@@ -17,7 +17,7 @@
  *
  *   The v52 paper Section 24 is a pedagogical recap of the remaining proof
  *   targets in the SHIFT-BRIDGE / GHOST-ABSENCE framework introduced in
- *   Sections 15-23. The two frameworks are PARALLEL ATTACKS on the same
+ *   Sections 15-23. The two frameworks are PARALLEL APPROACHES on the same
  *   goal (RH) that use almost entirely non-overlapping mathematics:
  *
  *     Lambda roadmap: Calogero-Moser ODE, Burgers flow, Polymath15 bridge,
@@ -114,14 +114,14 @@ const CROSSWALK_ENTRIES = Object.freeze([
       '(shift-bridge threshold theorem) establishes RH iff Delta = 0 iff ' +
       'K_a >= 0 for every a > 0 -- a distinct equivalent formulation of the ' +
       'same RH conclusion. §24 pedagogically recaps this as the main remaining ' +
-      'proof target. The two frameworks are parallel attacks on the same ' +
+      'proof target. The two frameworks are parallel approaches on the same ' +
       'endpoint; the lambda-roadmap proof of Lambda = 0 would give RH via ' +
       'Rodgers-Tao, while the shift-bridge proof of K_a >= 0 would give RH via ' +
       'Theorem 15.1. No mathematical identification beyond shared goal.',
   }),
 
   // 2 ────────────────────────────────────────────────────────────────────────
-  // PARTIAL OVERLAP: Route C (Weyl density) ~ Attack III (Weil/Pontryagin).
+  // PARTIAL OVERLAP: Route C (Weyl density) ~ Approach III (Weil/Pontryagin).
   Object.freeze({
     id: 'route-c-density-vs-attack-iii-weil',
     lambdaItem: 'Route C -- density squeeze (G3b Weyl tail, imp-342)',
@@ -129,25 +129,25 @@ const CROSSWALK_ENTRIES = Object.freeze([
       'src/data/lambda-roadmap.js VERIFICATION_EFFORTS id=route-C-density ' +
       'and OPEN_GAPS id=G3b "Weyl tail contribution to S_{k*}"',
     sec24Item:
-      'Attack III -- Weil/Pontryagin index closure (Theorem 18.3 + Conjecture 18.4)',
+      'Approach III -- Weil/Pontryagin index closure (Theorem 18.3 + Conjecture 18.4)',
     sec24Location: PAPER_REF + ', §18.3-§18.4 pp 38-43',
     verdict: VERDICTS.PARTIAL_CORRESPONDENCE,
     rationale:
       'Both use Weil-type spectral density arguments. lambda-roadmap Route C ' +
       'uses the Riemann-von Mangoldt leading density to close gap G3b ' +
       '(c_tail approx 1.290 < 2 from Weyl law, imp-342): the S_k* / B^2 ' +
-      'density squeeze argument. Paper Attack III (§18.3) uses the Weil ' +
+      'density squeeze argument. Paper Approach III (§18.3) uses the Weil ' +
       'explicit formula to certify that the negative Pontryagin index ' +
       'ind_-(K_a) = #{off-critical zeros with Re > a} is zero in every ' +
       'spectral window, passing to the limit to get K_a >= 0. Both routes ' +
-      'exploit Weil/Weyl density, but at different points: Route C uses it ' +
+      'use Weil/Weyl density, but at different points: Route C uses it ' +
       'to bound the bulk contribution to the Calogero-Moser argmin score, ' +
-      'while Attack III uses it to certify the spectral index of the ' +
+      'while Approach III uses it to certify the spectral index of the ' +
       'shift-bridge kernel. They are related in spirit; not the same proof.',
   }),
 
   // 3 ────────────────────────────────────────────────────────────────────────
-  // PARTIAL OVERLAP: Route A (GUE universality) ~ Attack I (passive realization).
+  // PARTIAL OVERLAP: Route A (GUE universality) ~ Approach I (passive realization).
   Object.freeze({
     id: 'route-a-gue-vs-attack-i-passive',
     lambdaItem:
@@ -157,7 +157,7 @@ const CROSSWALK_ENTRIES = Object.freeze([
       'src/data/lambda-roadmap.js VERIFICATION_EFFORTS id=route-A-monotonicity ' +
       '"closesIf: GUE universality established for Calogero-Moser ESM"',
     sec24Item:
-      'Attack I -- kernel/passivity closure, Conjecture 18.1 (realize (A_a, B_a) ' +
+      'Approach I -- kernel/passivity closure, Conjecture 18.1 (realize (A_a, B_a) ' +
       'from a positive Hamiltonian canonical system)',
     sec24Location: PAPER_REF + ', §18.1 pp 38-40; Apps M-O pp 109-121',
     verdict: VERDICTS.PARTIAL_CORRESPONDENCE,
@@ -167,10 +167,10 @@ const CROSSWALK_ENTRIES = Object.freeze([
       'universality: the many-body CM correction constant C_mb requires the ' +
       'Erdos-Schlein-Yau local law for the empirical spectral measure of the ' +
       'Calogero-Moser particle system (imp-486 confirmed irreducible). ' +
-      'Attack I (§18.1) requires realizing the pair (A_a, B_a) as the Weyl ' +
+      'Approach I (§18.1) requires realizing the pair (A_a, B_a) as the Weyl ' +
       'transfer pair of a positive Hamiltonian canonical system whose energy ' +
       'kernel is K_a (the KYP state-space route, Apps M-O, imp-1201). ' +
-      'GUE universality is random-matrix input; Attack I is a passive-system ' +
+      'GUE universality is random-matrix input; Approach I is a passive-system ' +
       'construction. They are DISTINCT research programs but both belong to ' +
       'the "spectral operator-theoretic regularity" family. No literal ' +
       'identification: partial-correspondence is the honest verdict.',
@@ -385,13 +385,13 @@ const CROSSWALK_ENTRIES = Object.freeze([
   }),
 
   // 12 ───────────────────────────────────────────────────────────────────────
-  // §24-GAP: Attack II prime-delay domination -- not in lambda-roadmap.
+  // §24-GAP: Approach II prime-delay domination -- not in lambda-roadmap.
   Object.freeze({
     id: 'attack-ii-prime-delay-domination-sec24-gap',
     lambdaItem: null,
     lambdaLocation: null,
     sec24Item:
-      'Attack II -- prime-delay domination: Re(X-prime/X)(w) > 0 for Re w > 0 ' +
+      'Approach II -- prime-delay domination: Re(X-prime/X)(w) > 0 for Re w > 0 ' +
       '(Conjecture 18.2, §24 recap)',
     sec24Location: PAPER_REF + ', §18.2 pp 40-42',
     verdict: VERDICTS.SEC24_GAP,
@@ -399,14 +399,14 @@ const CROSSWALK_ENTRIES = Object.freeze([
       'Conjecture 18.2 states the archimedean logarithmic derivative ' +
       'Re(X-prime/X)(w) > 0 for all Re w > 0: the completed archimedean ' +
       'drift G_infty dominates the coherent prime-delay echo train under ' +
-      'analytic continuation (three-attacks-section.js, Attack II). ' +
+      'analytic continuation (three-attacks-section.js, Approach II). ' +
       'This is a function-theoretic positivity statement about X(w) = ' +
       'xi(1/2 + w) in the right half-plane. The lambda-roadmap has no entry ' +
       'involving X-prime/X or the prime-delay echo train. The lambda-roadmaps ' +
       'Route B uses Selberg |S(T)| = O(log T / log log T) as analytical input, ' +
       'but this is a zero-density / discrepancy argument, not a ' +
       'X-prime/X positivity argument. SEC24-GAP: the prime-delay ' +
-      'domination Attack II is entirely absent from lambda-roadmap.js.',
+      'domination Approach II is entirely absent from lambda-roadmap.js.',
   }),
 
   // 13 ───────────────────────────────────────────────────────────────────────
@@ -457,7 +457,7 @@ const CROSSWALK_ENTRIES = Object.freeze([
       'The lambda-roadmap has no entries corresponding to any §22 conjecture. ' +
       'The §22 conjectures belong to the shift-bridge / twin-ladder framework ' +
       '(they express properties of X(w) and the twin-ladder transfer operators) ' +
-      'while the lambda-roadmap is scoped to the Dyson-flow / Lambda attack. ' +
+      'while the lambda-roadmap is scoped to the Dyson-flow / Lambda approach. ' +
       'SEC24-GAP: Conjectures 22.1-22.3 are absent from lambda-roadmap.js.',
   }),
 
@@ -474,7 +474,7 @@ const CROSSWALK_ENTRIES = Object.freeze([
     sec24Location: PAPER_REF + ', §23 pp 44-48, §24 pp 48-49',
     verdict: VERDICTS.SEC24_GAP,
     rationale:
-      '§23 introduces a targeted no-ghost attack via Schur-complement freezing: ' +
+      '§23 introduces a targeted no-ghost approach via Schur-complement freezing: ' +
       'partial frozen-bridge evaluation preserves the negative index of K_a, ' +
       'and endpoint bridges act as finite-window positivity repairs. §24 ' +
       'summarises the remaining problem here as: find a bridge renormalization ' +
@@ -535,30 +535,30 @@ export const LAMBDA_ROADMAP_SEC24_CROSSWALK = Object.freeze({
     'T1: K_a >= 0 for all a > 0 (RH iff Delta = 0, §15 Thm 15.1)',
     'T2: Ghost absence B_a^+ = 1 (Conjecture 17.3, SUBSUMED-BY-RH)',
     'T3: Close one of the four equivalent routes (§16 Thm 16.1)',
-    'T4a: Attack I -- passive realization / KYP (Conjecture 18.1)',
-    'T4b: Attack II -- prime-delay domination Re(X-prime/X) > 0 (Conjecture 18.2)',
-    'T4c: Attack III -- Weil/Pontryagin index ind_-(K_a) = 0 (Thm 18.3 + Conj 18.4)',
+    'T4a: Approach I -- passive realization / KYP (Conjecture 18.1)',
+    'T4b: Approach II -- prime-delay domination Re(X-prime/X) > 0 (Conjecture 18.2)',
+    'T4c: Approach III -- Weil/Pontryagin index ind_-(K_a) = 0 (Thm 18.3 + Conj 18.4)',
     'T5: Rigorous-numerics programme Stages I-III (§20)',
     'T6: Conjectures 22.1-22.3 (22.4 subsumed)',
-    'T7: Freezing/bridge renormalization targeted attack (§23)',
+    'T7: Freezing/bridge renormalization targeted approach (§23)',
   ]),
 
   summary:
     'Walked 15 crosswalk entries across three finding-types. The two frameworks ' +
-    '(lambda-roadmap vs v52 §24) are PARALLEL INDEPENDENT ATTACKS on RH using ' +
+    '(lambda-roadmap vs v52 §24) are PARALLEL INDEPENDENT APPROACHES on RH using ' +
     'almost entirely non-overlapping mathematics. Key findings: ' +
     '(1) The shared endpoint (Lambda = 0 iff K_a >= 0 iff RH) is the only ' +
     'true correspondence -- lambda-roadmap Step 5 and §24 Goal T1 are the same ' +
     'mathematical fact via the equivalence chain of §15 Theorem 15.1. ' +
-    '(2) Route C (Weyl density) and Attack III (Weil/Pontryagin) are partially ' +
+    '(2) Route C (Weyl density) and Approach III (Weil/Pontryagin) are partially ' +
     'related via Weil-type density arguments, but at different points in their ' +
     'respective programmes. ' +
-    '(3) Route A GUE universality and Attack I (KYP passivity) are partially ' +
+    '(3) Route A GUE universality and Approach I (KYP passivity) are partially ' +
     'related as spectral-regularity research programmes. ' +
     '(4) Lambda-unique items (Steps 1-3 Dyson ODE, G6 Polymath15 bridge, ' +
     'Route B Burgers uniformity, finite-N Lambda beats, asymptotic 8e-4 bound) ' +
     'have NO §24 equivalents -- the Dyson/Lambda apparatus is absent from v52. ' +
-    '(5) §24-gap items (ghost absence, four closure routes, Attack II ' +
+    '(5) §24-gap items (ghost absence, four closure routes, Approach II ' +
     'prime-delay domination, rigorous-numerics K_a certificates, Conj 22.1-22.3, ' +
     'freezing/bridge renormalization) are entirely absent from lambda-roadmap.js. ' +
     '(6) NAME COLLISION ALERT: lambda-roadmap "Route A/B/C" and §16 "Route A/B/C/D" ' +
@@ -572,7 +572,7 @@ export const LAMBDA_ROADMAP_SEC24_CROSSWALK = Object.freeze({
 
     'The crosswalk does NOT claim the lambda-roadmap and §24 frameworks are ' +
     'compatible or incompatible in a formal mathematical sense -- only that ' +
-    'they are parallel attacks on the same goal (RH) using different formalism.',
+    'they are parallel approaches on the same goal (RH) using different formalism.',
 
     'NONE of the §24 open targets are RESOLVED by the lambda-roadmap, and ' +
     'NONE of the lambda-roadmap open items are RESOLVED by v52 §24. The two ' +

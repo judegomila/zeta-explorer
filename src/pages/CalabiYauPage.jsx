@@ -5,7 +5,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
 
-// Calabi-Yau Manifold Attack — dashboard. Editorial (warm) re-theme: full-width
+// Calabi-Yau Manifold Approach — dashboard. Editorial (warm) re-theme: full-width
 // dashboard, identical structure/content/claims to the legacy dark page.
 
 function cardBaseLeft(color) {
@@ -20,10 +20,10 @@ export default function CalabiYauPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Calabi-Yau Manifold Attack</h1>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Calabi-Yau Manifold Approach</h1>
           <AnimationEmbed id="calabi-yau" />
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760 }}>
-            Attacking the Riemann Hypothesis from the geometry of 6-dimensional Calabi-Yau manifolds.
+            Approaching the Riemann Hypothesis from the geometry of 6-dimensional Calabi-Yau manifolds.
             The Weil conjectures — proved by Deligne for varieties over finite fields — are the
             closest existing analog of RH. This page explores whether the same cohomological
             machinery can be lifted to ζ(s) over ℚ.
@@ -602,8 +602,8 @@ export default function CalabiYauPage() {
           <h3 style={{ fontSize: 14, marginBottom: 12, color: 'var(--faint)' }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {[
-              ['/rh-attack', 'RH Attack Strategies'],
-              ['/spectral-attack', 'Spectral Attack'],
+              ['/rh-attack', 'RH Approach Strategies'],
+              ['/spectral-attack', 'Spectral Approach'],
               ['/twistor', 'Twistor Geometry'],
               ['/statistics', 'GUE Statistics'],
               ['/formal-proof', 'Formal Proof'],

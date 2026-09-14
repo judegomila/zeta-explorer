@@ -161,7 +161,7 @@ export const IMP2631_TRUNCATION_ROUTE_ASSESSMENT = {
   },
   routes: { a: ROUTE_A, b: ROUTE_B, c: ROUTE_C },
   structuralReason:
-    'The only lever below the finite-N* value is a smaller |t_c|, which needs a HIGHER instantiation height; but there the honest thin-strip kappa_T = (4/3)/log T0 -> 0 and E_trunc blows up (imp-2622). Low height keeps E_trunc tiny but caps |t_c|; high height shrinks |t_c| but kills E_trunc. The N* = 1e4 beat sits at the sweet spot.',
+    'The only lever below the finite-N* value is a smaller |t_c|, which needs a HIGHER instantiation height; but there the honest thin-strip kappa_T = (4/3)/log T0 -> 0 and E_trunc blows up (imp-2622). Low height keeps E_trunc tiny but caps |t_c|; high height shrinks |t_c| but eliminates E_trunc. The N* = 1e4 beat sits at the sweet spot.',
   remainingHeadroom:
     'All improvable headroom is on the L_cond side (B1/B2 for |t_c|, and the GUE-conditional C_mb above N = 1e4), NOT on E_trunc.',
   citation:

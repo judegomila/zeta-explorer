@@ -6,7 +6,7 @@ import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
 import FreshnessStamp from '../components/FreshnessStamp.jsx';
 
 // Twin Ladder Explorer — editorial (warm) re-theme.
-// Full-width dashboard. TwinLadderViz (the interactive 5-tab battle station)
+// Full-width dashboard. TwinLadderViz (the interactive 5-tab dashboard)
 // is preserved exactly; only surrounding chrome is re-themed.
 
 // ── Style helpers ──────────────────────────────────────────────────────────
@@ -133,7 +133,7 @@ export default function TwinLadderPage() {
             to a smooth Gaussian proxy <InlineMath tex={"\\Phi_{\\text{fr}}"} /> and shows the slack index
             that measures approximation quality.
             <strong style={{ color: RED }}> Ground-State Collapse</strong> animates how cranking{' '}
-            <InlineMath tex={"\\beta"} /> kills every rung except <InlineMath tex="m = 0" />.
+            <InlineMath tex={"\\beta"} /> eliminates every rung except <InlineMath tex="m = 0" />.
             <strong style={{ color: VIOLET }}> Phase Diagram</strong> renders a 2D heatmap of{' '}
             <InlineMath tex="|Z_{TL}|" /> over the <InlineMath tex={"(\\beta, P)"} /> plane.
           </p>
@@ -224,7 +224,7 @@ export default function TwinLadderPage() {
             <Link to="/oscillators" style={{ color: CYAN, fontSize: 13, textDecoration: 'none' }}>→ Oscillators (LC ladder model)</Link>
             <Link to="/supercritical" style={{ color: PURPLE, fontSize: 13, textDecoration: 'none' }}>→ Supercritical (thermodynamics)</Link>
             <Link to="/hamiltonian" style={{ color: GREEN, fontSize: 13, textDecoration: 'none' }}>→ Hamiltonian (energy landscape)</Link>
-            <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>→ Spectral Attack</Link>
+            <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>→ Spectral Approach</Link>
             <Link to="/zeta" style={{ color: BLUE, fontSize: 13, textDecoration: 'none' }}>→ Zeta Function</Link>
             <Link to="/collapse-chain" style={{ color: RED, fontSize: 13, textDecoration: 'none' }}>→ Collapse Chain</Link>
             <Link to="/schatten-trace-norm" style={{ color: VIOLET, fontSize: 13, textDecoration: 'none' }}>→ Schatten Trace Norm</Link>

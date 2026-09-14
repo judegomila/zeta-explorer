@@ -4,10 +4,10 @@
  * The PT t-floor SENSITIVITY AUDIT: what actually binds the rigorous
  * Λ ≤ 0.2 upper bound — verified zero height, barrier slack, or the AFE tail?
  *
- * Provenance: recommended by a 79-agent adversarial review of novel Λ attacks
+ * Provenance: recommended by a 79-agent skeptical review of novel Λ approaches
  * (novel-lambda-attacks workflow, 2026-07-08) as the single highest-leverage
  * RH-FREE experiment — the one that decides the entire barrier-tightening
- * attack class. Executed against the sister repo's interval-rigorous arb/acb
+ * approach class. Executed against the sister repo's interval-rigorous arb/acb
  * stack (~/Downloads/twin_ladder_rh_repo, python-flint 0.8.0) plus documented
  * Polymath15 constants and the main-repo Burgers Λ(N) chain audit (imp-1327).
  *
@@ -17,7 +17,7 @@
  *
  * CONSEQUENCE: the SOS / Fejér–Riesz / Putinar / Carleman / argument-principle /
  * free-subordination "barrier-tightening" family cannot lower Λ below 0.2 —
- * every one of them attacks a margin that is already ≥ 1.2. The only lever is
+ * every one of them approaches a margin that is already ≥ 1.2. The only lever is
  * more verified RH height (3e12 → 1e13), a known-technology HPC computation.
  *
  * HONEST SCOPE: this is a DIAGNOSTIC audit. It produces no bound, no proof, no
@@ -119,9 +119,9 @@ export const REFUTED_ATTACK_CLASS = {
     'Free-subordination outlier-absorption bounds',
   ],
   why:
-    'Every member attacks the barrier min-modulus / mesh margin (b), which is already ≥ 1.2 and ' +
+    'Every member approaches the barrier min-modulus / mesh margin (b), which is already ≥ 1.2 and ' +
     'NON-binding. No amount of barrier-tightening manufactures verified zero height. This audit ' +
-    '(plus the 79-agent adversarial review) closes the class as a lever for Λ < 0.2.',
+    '(plus the 79-agent skeptical review) closes the class as a lever for Λ < 0.2.',
 };
 
 export const THE_LEVER = {

@@ -263,7 +263,7 @@ export const IMP35948_W1_PROBABILISTIC_SQRTN_APRIORI_SCALE = {
     'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35890 (CERTIFIED deterministic running-accumulator bound this sits below); imp-35812 (exact-BigInt ' +
-    'achieved naive error); imp-35852 / imp-35854 (achieved error under adversarial ordering / kappa sweep); ' +
+    'achieved naive error); imp-35852 / imp-35854 (achieved error under worst-case ordering / kappa sweep); ' +
     'imp-35761 (pessimistic N*eps ceiling); imp-35725 (mechanical N-term certified cost); imp-35681 Part A ' +
     '(A+B-C interval bound greenfield); imp-35674 Part D (N(x)=floor(sqrt(x/4 pi)) retained terms); Higham and ' +
     'Mary 2019 (probabilistic rounding error analysis); Higham 2002 sec 4.2; Platt-Trudgian 2021 (barrier base).',

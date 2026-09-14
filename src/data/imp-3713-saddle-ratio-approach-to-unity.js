@@ -277,7 +277,7 @@ export const IMP3713_SADDLE_RATIO_APPROACH_TO_UNITY = Object.freeze({
     'reproduce imp-3670/imp-3685. FOUR readings across n=3..230: (1) R_n first falls within 1e-3 of 1 at ' +
     'n=152 (r_151=1.00059e-3 outside, r_152=9.74026e-4 inside), so the exact saddle needs n far beyond the ' +
     'imp-3685 n=40 ceiling; (2) BOTH ticket-candidate laws are REJECTED -- n*r_n is strictly decreasing ' +
-    '(7.9327 -> 0.14814), killing c/n, and (ln n)*r_n is strictly decreasing (2.9053 -> 4.893e-3), killing ' +
+    '(7.9327 -> 0.14814), eliminating c/n, and (ln n)*r_n is strictly decreasing (2.9053 -> 4.893e-3), eliminating ' +
     'c/ln n; (3) NO fixed power fits -- the effective local exponent p(n) = -d ln r_n/d ln n grows without ' +
     'bound (1.72 at n=30 -> 2.00 at n=60 -> 2.97 at n=120 -> 4.00 at n=150; the closest tangent r_n ~ 40/n^2 ' +
     'is local, n^2*r_n peaking ~40.7 near n~62); (4) the reason -- R_n OVERSHOOTS through 1 at a FINITE n* ~ 226 ' +
@@ -332,8 +332,8 @@ export const IMP3713_SADDLE_RATIO_APPROACH_TO_UNITY = Object.freeze({
       '(r_151 = 1.00059e-3 still outside, r_152 = 9.74026e-4 inside). The last 1e-3 of the approach lies ' +
       'far beyond the imp-3685 n=40 ceiling (where r_40 ~ 2.44e-2, still ~24x the band).',
     candidateLawsRejected:
-      'Neither ticket-candidate law fits. c/n is killed: n*r_n is strictly DECREASING (7.9327 at n=3 -> ' +
-      '0.14814 at n=152), so there is no constant c with r_n ~ c/n. c/ln n is killed: (ln n)*r_n is strictly ' +
+      'Neither ticket-candidate law fits. c/n is ruled out: n*r_n is strictly DECREASING (7.9327 at n=3 -> ' +
+      '0.14814 at n=152), so there is no constant c with r_n ~ c/n. c/ln n is ruled out: (ln n)*r_n is strictly ' +
       'DECREASING (2.9053 -> 4.893e-3). The true decay is FASTER than either candidate.',
     superPolynomial:
       'No fixed power fits: the effective local exponent p(n) = -d ln r_n/d ln n grows without bound ' +

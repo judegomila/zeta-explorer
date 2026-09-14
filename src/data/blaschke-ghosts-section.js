@@ -1,7 +1,7 @@
 /**
  * @module data/blaschke-ghosts-section
  * @fileoverview Structured source-of-truth for §17 of the research paper
- * (twin_ladder_consolidated_v52.pdf, pp 22-26): "Attack on the Wall: Inverse
+ * (twin_ladder_consolidated_v52.pdf, pp 22-26): "Approach on the Wall: Inverse
  * Blaschke Ghosts and the Pontryagin Decomposition". Backs the /blaschke-ghosts
  * app page (imp-1198). It records the paper claims so the page can render them;
  * it does NOT prove anything new.
@@ -15,7 +15,7 @@
  *     attempted non-circular closures, and the interactive demo parameters.
  *   - BLASCHKE_GHOSTS_SECTION_ASSERTIONS — 9 build-time tripwires re-checking
  *     paper-source path, the negative-square headline, the four-route list, the
- *     negative-index identity, Conjecture 17.3 wording, the three named attacks,
+ *     negative-index identity, Conjecture 17.3 wording, the three named approaches,
  *     the demo parameter ranges, the conjugated half-plane reflection, and the
  *     fixed-shift common-factor caveat.
  *
@@ -27,7 +27,7 @@
  *
  * Tickets: created by imp-1198; module-doc navigation block added by this audit.
  */
-// imp-1198: structured record of §17 "Attack on the Wall: Inverse Blaschke
+// imp-1198: structured record of §17 "Approach on the Wall: Inverse Blaschke
 // Ghosts and the Pontryagin Decomposition" from the user's paper at
 // research-inputs/twin_ladder_consolidated_v52.pdf (pages 22-26).
 //
@@ -286,7 +286,7 @@ export const BLASCHKE_GHOSTS_SECTION_ASSERTIONS = [
   {
     id: 'imp1198-attempted-closures-three-attacks-named',
     why: '§17.7 + §18 name three attempted non-circular closures (kernel/passivity, prime-delay, Weil-Pontryagin). ' +
-         'All three must be listed so the live-attack surface stays auditable.',
+         'All three must be listed so the live approach map stays auditable.',
     holds: () => {
       const ids = BLASCHKE_GHOSTS_SECTION.attemptedClosures.map((a) => a.id);
       return ids.length === 3 &&

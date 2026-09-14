@@ -63,7 +63,7 @@
  *     3.77e-44) - the legality weight prices the small common rate at
  *     1/hLegal ~ (s/x)^s per packet, inflating M by ~eps^(-2s) while E only
  *     grows like 1/eps. The family is therefore FLOOR-IRRELEVANT: it moves
- *     no witness floor, no ceiling, no bound. The refutation kills only the
+ *     no witness floor, no ceiling, no bound. The refutation eliminates only the
  *     LEMMA FORM "E > 0 forces odd mass".
  * (3) The tradeoff sub-gap imp-95008-subgap-attainment-occupancy-tradeoff
  *     remains OPEN. The corrected remaining leg is NAMED:
@@ -84,7 +84,7 @@
  * changes no bound; does NOT promote Lambda <= 0.14; NO QED;
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) in-class membership was attacked: the
+ * SKEPTICAL SELF-CHECK RECORD: (1) in-class membership was stress-tested: the
  * carried chain constrains amplitudes (nonnegative) and prices legality only
  * through the mass weight 1/hLegal in nb - no lower bound on mu exists in
  * THEOREM ER / OD or the imp-95113 battery (which perturbs mus freely); the
@@ -361,7 +361,7 @@ export const IMP95130_PARITY_PURE_EXCESS_REFUTATION = {
   lemmaTP:
     "UNCONDITIONAL two-packet exclusion (sharpness): any two-packet witness has E <= 0 by Cauchy-Schwarz in the Gram geometry (K_12 <= 1/sqrt(mu_1 mu_2)) plus AM-GM, so three blocks is the minimal support for E > 0 - consistent with the carried Lemma ES / single-parity anchor and at the sharp boundary.",
   resolution:
-    "imp-95129-subgap-min-odd-mass RESOLVED NEGATIVELY in its stated E>0-conditioned form: the family is in-class (nonnegative amplitudes, legal grid points, free positive rates; per-pair MAJ caps hold at it with margin >= 1e34), has omega = 0 exactly and E > 0, so no uniform omega_min > 0 over E > 0 MAJ witnesses exists and the equivalent formulation (exclude E > 0 in the parity-pure regime with three or more even blocks) is FALSE. THEOREM OD is untouched (at omega = 0 it degenerates to phi <= 1) and no floor, ceiling, or bound moves: the family measures sup phi = 3.3657348450146935e-29 over its whole E > 0 window (phi = 3.7742503879046544e-44 at the headline eps = 0.02) because the legality weight inflates M by ~eps^(-2s) while E grows only like 1/eps. The refutation kills the lemma FORM (E > 0 forces odd mass), not the tradeoff program.",
+    "imp-95129-subgap-min-odd-mass RESOLVED NEGATIVELY in its stated E>0-conditioned form: the family is in-class (nonnegative amplitudes, legal grid points, free positive rates; per-pair MAJ caps hold at it with margin >= 1e34), has omega = 0 exactly and E > 0, so no uniform omega_min > 0 over E > 0 MAJ witnesses exists and the equivalent formulation (exclude E > 0 in the parity-pure regime with three or more even blocks) is FALSE. THEOREM OD is untouched (at omega = 0 it degenerates to phi <= 1) and no floor, ceiling, or bound moves: the family measures sup phi = 3.3657348450146935e-29 over its whole E > 0 window (phi = 3.7742503879046544e-44 at the headline eps = 0.02) because the legality weight inflates M by ~eps^(-2s) while E grows only like 1/eps. The refutation eliminates the lemma FORM (E > 0 forces odd mass), not the tradeoff program.",
   subGap:
     "imp-95130-subgap-phi-conditional-odd-mass - OPEN: prove a phi-conditional lower bound omega >= omega_min(phi_0) > 0 uniformly over MAJ witnesses with phi >= phi_0 (each phi_0 in (0, 1]), OR exhibit a family with phi bounded away from 0 and omega -> 0. The mechanism measured here - parity-pure excess requires a common rate below ~0.062 and the legality weight then drives phi ~ eps^(2s-1) -> 0 - says only the phi-weighted version can be true; that mechanism is measured on THIS family, not proved as a class bound.",
   openResiduals: [

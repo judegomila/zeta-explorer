@@ -493,7 +493,7 @@ export default function EsyRigidityEmpiricalPage() {
               of N). The verdict
               {' '}<strong style={{ color: tone }}>{verdict}</strong>
               {' '}therefore reflects the macroscopic ESY regime; the
-              recommended direction routes follow-on attack effort
+              recommended direction routes follow-on approach effort
               accordingly.
             </p>
           </div>

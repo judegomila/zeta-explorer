@@ -75,7 +75,7 @@
  * independent lever". This is an assessment, not a certificate; it changes
  * no Lambda bound; NO QED.
  *
- * ADVERSARIAL SELF-CHECK. All numerics below are recomputed from the exact
+ * SKEPTICAL SELF-CHECK. All numerics below are recomputed from the exact
  * closed-form Gram machinery copied verbatim from imp-95254 (import-light,
  * no bundle, no sibling import). The SGN-SAT R and theta values, the CEIL-X
  * witness, and the modulus-scaling theta pair were all reproduced to float.

@@ -41,7 +41,7 @@ export const SIGNIFICANCE = [
   },
   {
     h: 'Honest calibration',
-    b: 'This is NOT new mathematics — every result is classical (1914–1950) — and it is NOT progress on the Riemann Hypothesis (the project’s own adversarial analysis established a no-go “obstruction seam”). Its significance is as verified, reusable foundational infrastructure: a mathlib gap filled in a concept that matters across several fields, machine-checked so downstream results can rest on it with kernel-level confidence. Modest but genuine.',
+    b: 'This is NOT new mathematics — every result is classical (1914–1950) — and it is NOT progress on the Riemann Hypothesis (the project’s own skeptical analysis established a no-go “obstruction seam”). Its significance is as verified, reusable foundational infrastructure: a mathlib gap filled in a concept that matters across several fields, machine-checked so downstream results can rest on it with kernel-level confidence. Modest but genuine.',
   },
 ];
 

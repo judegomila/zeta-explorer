@@ -82,7 +82,7 @@
  *       T=1 floor 0.2385:   54287748 cells, ZERO unresolved, depth 68.
  *     (all four intermediate floors independently certified, superseded).
  *
- * ADVERSARIAL SELF-CHECK RECORD (measured in-run; the honest part):
+ * SKEPTICAL SELF-CHECK RECORD (measured in-run; the honest part):
  * (1) The imp-95150-NAMED u-frame route ">= 1e8 offline" is SPENT in its
  *     per-entry form: the strip-restricted 8-D u-frame cover (mu in
  *     [47/200, 0.2395], QC + PD2 caps, runner committed at scripts/
@@ -100,7 +100,7 @@
  *     unresolved with JR (1477 s) vs 62 without (100 s) - the per-cell
  *     operator iterations cost ~15x and the tree-shape change dominates
  *     the count. JR is retained as a SOUND certificate step (battery-
- *     attacked, zero violations) and OFF in the production covers - the
+ *     approached, zero violations) and OFF in the production covers - the
  *     theorem constants owe it NOTHING.
  * (5) The middle-heavy floor at 47/200 REMAINS OPEN: the strip narrows
  *     [0.235, 0.239) -> [0.235, 0.236) by budget (3e8 vs the prior 8e7),

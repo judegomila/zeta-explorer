@@ -127,7 +127,7 @@
  * off-lattice perturbation are the named residuals of the signed
  * cross-octave leg.
  *
- * ADVERSARIAL RECORD. Closed form vs direct pencil eigensolve on a
+ * SKEPTICAL RECORD. Closed form vs direct pencil eigensolve on a
  * 4x6x5 grid: worst rel 3.4e-14. Witness row exact algebra
  * (32 Lambda - 13)^2 = 153 to 3e-16 rel. Confluent pencil vs COAL-2 law:
  * 3.9e-16. Stable h-form at separation 1e-8: 4e-8 vs the law (the

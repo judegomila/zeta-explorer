@@ -85,7 +85,7 @@
  * interior is reported by the rigorous sandwich, not by the solver. This is a
  * width-1.5e-11 residual on an assessment that changes no bound.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) lambda_max(K) is stable at
+ * SKEPTICAL SELF-CHECK RECORD. (1) lambda_max(K) is stable at
  * 3.9197935113802531e-5 across section sizes NB in {4, 6, 8, 12} (the kernel
  * decays ~2^(-44/3) per even block step, so NB = 4 already resolves it to
  * double precision) and matches the imp-95096 baked LAMBDA_MAX to 13 sig

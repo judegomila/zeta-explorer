@@ -73,7 +73,7 @@
  *
  * @see imp-35239-min-gap-prefactor-real-spacing-reassessment (the two-point endpoint slope refined here)
  * @see imp-35218-real-ordinate-background-field-sup (the running-sup measurement re-run on a denser grid)
- * @see imp-35196-ystar-schedule-reconciliation-assessment (strip route killed; L_strip = 2N/y^2, p_strip = 1)
+ * @see imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; L_strip = 2N/y^2, p_strip = 1)
  * @see imp-35167-g-min-non-collision-certificate-scope (M2/M5/M3 min-gap certificate; the OPEN Q3)
  * @see imp-2563-min-gap-sandwich-theorem (the gap ODE du/ds = -8 + 4 B(s) u; assumes beta finite)
  * @see imp-486 (C_mb GUE-conditional)
@@ -319,7 +319,7 @@ export const IMP35283_MIN_GAP_PREFACTOR_MULTIPOINT_REGRESSION = {
   citation:
     'imp-35239-min-gap-prefactor-real-spacing-reassessment (two-point endpoint slope refined here); ' +
     'imp-35218-real-ordinate-background-field-sup (running-sup beta measurement re-run denser); ' +
-    'imp-35196-ystar-schedule-reconciliation-assessment (strip route killed; L_strip = 2N/y^2, p_strip = 1); ' +
+    'imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; L_strip = 2N/y^2, p_strip = 1); ' +
     'imp-35167-g-min-non-collision-certificate-scope (M2/M5/M3 min-gap certificate; the OPEN Q3); ' +
     'imp-2563-min-gap-sandwich-theorem (gap ODE du/ds = -8 + 4 B(s) u, CONDITIONAL bracket); ' +
     'imp-486 (C_mb GUE-conditional).',

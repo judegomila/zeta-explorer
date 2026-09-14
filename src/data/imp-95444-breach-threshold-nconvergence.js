@@ -1,5 +1,5 @@
 /**
- * imp-95444: LOCALIZE the imp-95374 Finding 3 breach threshold delta* -- the
+ * imp-95444: LOCALIZE the imp-95374 Finding 3 crossing threshold delta* -- the
  * off-lattice log-rate jitter magnitude at which the proven imp-95330 m-uniform
  * floor A_unif4(2) stops lower-bounding the worst-of-N off-lattice seam pencil
  * floor -- and, crucially, measure its dependence on the trial count N and
@@ -18,16 +18,16 @@
  * rate). Each pattern p has a floor floor_p(delta) = lam_min of the finite
  * pencil (Gtilde, blockdiag G0), Gtilde_ij = sech(ln(nu_i/nu_j)/2), which is
  * MONOTONE decreasing in delta, so it crosses the certified value A_unif4(2)
- * at a single per-pattern breach magnitude delta_p (bisected). Because the
- * worst-of-N floor is min_{p<N} floor_p(delta), its breach threshold is exactly
+ * at a single per-pattern crossing magnitude delta_p (bisected). Because the
+ * worst-of-N floor is min_{p<N} floor_p(delta), its crossing threshold is exactly
  *   delta*(N) = min_{p<N} delta_p,
  * a running minimum over the pool -- non-increasing in N by construction. The
  * question is whether that running minimum converges as N grows.
  *
  * KEY IDENTITY. delta*(N) = min_{p<N} delta_p turns an N-nested worst-of-N
  * bisection (N pattern floors re-evaluated at every trial delta) into a single
- * pass of per-pattern breach bisections plus a running minimum -- so the whole
- * N ladder is read off ONE sorted record of pool breach deltas, and the
+ * pass of per-pattern crossing bisections plus a running minimum -- so the whole
+ * N ladder is read off ONE sorted record of pool crossing deltas, and the
  * "record-breaker" patterns (each new pool minimum) are the only ones that move
  * delta*(N).
  *
@@ -70,16 +70,16 @@
  * turns the imp-95430 honestScope (a) "NOT an infimum, larger T lowers delta*"
  * caveat into a MEASURED cost: driving delta* below 5.199% costs a 32x-64x
  * increase in N for the next 0.1-point improvement, so ~5.1% is the practical
- * worst-of-N breach threshold of the A_unif4 lattice margin.
+ * worst-of-N crossing threshold of the A_unif4 lattice margin.
  *
  * HONEST SCOPE / LIMITS. (a) delta*(N) is a worst-of-N estimate of the true
- * off-lattice breach infimum; it is non-increasing in N and has not provably
+ * off-lattice crossing infimum; it is non-increasing in N and has not provably
  * converged (a rarer pattern can lower it at any larger N), but the observed
  * decay past N = 200 is a single 2% step, so ~5.09% is a slow-converging
  * empirical infimum, not a proven one. (b) The infimum is positive: the in-block
  * ratio window ln r_k >= ln(1.3)/2 keeps in-block gaps bounded away from
  * collision, and the base draws u_k are bounded in [-1, 1], so the worst
- * attainable pattern (extreme u) breaches only at a positive delta -- consistent
+ * attainable pattern (extreme u) crosses only at a positive delta -- consistent
  * with the flattening. (c) Model seam pencil measurement only; supplies NO
  * off-lattice floor THEOREM (that is the ~52x-looser imp-95335 Ingham route)
  * and changes NO Lambda bound; the comparison is against the proven m-uniform
@@ -97,19 +97,19 @@
 export const IMP95444_BREACH_THRESHOLD_NCONVERGENCE = {
   id: "imp-95444",
   title:
-    "N-convergence of the imp-95374/imp-95430 breach threshold delta*: the " +
+    "N-convergence of the imp-95374/imp-95430 crossing threshold delta*: the " +
     "worst-of-N off-lattice jitter at which A_unif4(2) stops lower-bounding " +
     "the seam pencil floor, over N = 50..12800",
   object:
     "delta*(N) = min over the first N pool patterns of each patterns own " +
-    "breach magnitude delta_p (per-pattern floor monotone in delta); the " +
+    "crossing magnitude delta_p (per-pattern floor monotone in delta); the " +
     "running minimum is measured for convergence in N",
   aUnif4Rho2: 1.9975337e-9,
   poolSeed: "0xc0ffee",
   m: 8,
   rho: 2,
   poolSize: 12800,
-  // FINDING 1: delta*(N) ladder (running minimum of per-pattern breach deltas)
+  // FINDING 1: delta*(N) ladder (running minimum of per-pattern crossing deltas)
   ladder: [
     { N: 50, deltaStar: 0.08492, pct: 8.492, driverIdx: 14 },
     { N: 100, deltaStar: 0.072321, pct: 7.2321, driverIdx: 94 },
@@ -151,7 +151,7 @@ export const IMP95444_BREACH_THRESHOLD_NCONVERGENCE = {
     "infimum near ~5.09%; NOT sharply converged (a rarer pattern can lower it " +
     "at any larger N) but flattening",
   honestScope:
-    "worst-of-N estimate of the off-lattice breach infimum, non-increasing in " +
+    "worst-of-N estimate of the off-lattice crossing infimum, non-increasing in " +
     "N and NOT provably converged (a rarer pattern can lower it at larger N), " +
     "but the post-plateau decay is a single 2% step so ~5.09% is a slow " +
     "empirical infimum; the infimum is positive (bounded in-block window + " +
@@ -163,7 +163,7 @@ export const IMP95444_BREACH_THRESHOLD_NCONVERGENCE = {
     "obligation (3), signed WEIGHT / modulus-phase and the imp-95212 envelope " +
     "port all remain OPEN",
   verdict:
-    "MEASUREMENT: the imp-95374 Finding 3 breach threshold localizes to a " +
+    "MEASUREMENT: the imp-95374 Finding 3 crossing threshold localizes to a " +
     "converged worst-of-N estimate delta* ~ 5.1% (5.199% at the imp-95430 " +
     "budget N = 400, dropping only to 5.095% by N = 12800). The delta*(N) " +
     "ladder falls steeply to N ~ 200 then flattens -- eight record-breaker " +
@@ -340,9 +340,9 @@ function ratesFromPattern(pat, delta, lnRho) {
   }
   return nus;
 }
-// per-pattern breach magnitude delta_p: floor_p is monotone decreasing in delta,
+// per-pattern crossing magnitude delta_p: floor_p is monotone decreasing in delta,
 // so bisect its single crossing of the certified floor A; Infinity if it never
-// breaches up to the search cap
+// crossings up to the search cap
 function patternBreachDelta(p, A, lnRho, cap = 0.5, iters = 34) {
   const f = (d) => {
     try {
@@ -368,7 +368,7 @@ const rel = (x, y) => Math.abs(x / y - 1);
 const SEED = 0xc0ffee;
 const LN_RHO = Math.LN2;
 
-// Light shared recompute: per-pattern breach deltas for the first 200 pool
+// Light shared recompute: per-pattern crossing deltas for the first 200 pool
 // patterns (covers every record-breaker with idx < 130 and reproduces
 // delta*(N) for N up to 200). One pass; reused across the assertions below.
 const A_CERT = aUnif4(Math.LN2);
@@ -396,7 +396,7 @@ export const IMP95444_ASSERTIONS = [
     id: "imp95444-record-breakers-early",
     description:
       "FINDING 2: the early record-breaker patterns (idx < 130) recompute to " +
-      "their baked per-pattern breach magnitudes (rel 1e-4), and the full " +
+      "their baked per-pattern crossing magnitudes (rel 1e-4), and the full " +
       "baked record-breaker cascade is strictly decreasing in delta*",
     holds: () => {
       for (const r of REC.recordBreakers) {
@@ -412,7 +412,7 @@ export const IMP95444_ASSERTIONS = [
   {
     id: "imp95444-ladder-running-min",
     description:
-      "FINDING 1: delta*(N) = min over the first N pool breach deltas " +
+      "FINDING 1: delta*(N) = min over the first N pool crossing deltas " +
       "reproduces the baked ladder at N = 50, 100, 200 (rel 1e-4), and the " +
       "full baked ladder is non-increasing in N (a running minimum)",
     holds: () => {
@@ -436,7 +436,7 @@ export const IMP95444_ASSERTIONS = [
     id: "imp95444-tail-record-breaker",
     description:
       "FINDING 1/2 tail: the single post-plateau record-breaker (pattern 6228) " +
-      "recomputes to its baked breach magnitude 0.050946 (rel 1e-4), sits " +
+      "recomputes to its baked crossing magnitude 0.050946 (rel 1e-4), sits " +
       "strictly BELOW the N=200..3200 plateau value 0.051987 (worst-of-N keeps " +
       "ratcheting past the imp-95430 budget), and the drop is a marginal < 3% " +
       "relative step (slow heavy-tailed convergence, not a cliff)",

@@ -280,7 +280,7 @@ const REFERENCES = Object.freeze({
     'imp-1149 / src/data/koksma-hlawka-2nd-moment-deviation-bound.js — N^{-3/2} ' +
     'unconditional deviation bound via Koksma-Hlawka 2nd-moment route. The ' +
     'BINDING constraint on closing the linear-1/N gap; rateGap = 0.5 residual ' +
-    'that imp-1300 was seeded to empirically attack at N = 1e8.',
+    'that imp-1300 was seeded to empirically approach at N = 1e8.',
   imp341:
     'src/data/lambda-intercept-burgers-uniformity.js — uniformity strip ' +
     'y_N♯ = √(2π/N), ψ_N(y) bound, and the M_∞ ≥ K1·(L − log 4π)·√N ' +
@@ -484,7 +484,7 @@ export const IMP_1300_HIGHER_N_EMPIRICAL_ASSERTIONS = [
     id: 'imp1300-rate-gap-remains-open',
     why:
       'imp-1149 rateGap = 0.5 (target α = 2 minus rigorous α = 1.5) is the ' +
-      'RESIDUAL this ticket was seeded to attack. Since we are data-limited, ' +
+      'RESIDUAL this ticket was seeded to approach. Since we are data-limited, ' +
       'the rateGap is NOT closed — honest scope must say so explicitly so ' +
       'no downstream code silently flips the rateGap to "closed".',
     holds: () => {

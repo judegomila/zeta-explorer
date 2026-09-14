@@ -122,7 +122,7 @@ const primeDomCanceled =
   Math.abs(row1['Archimedean A[h]'] - row1.prime_sum) < 0.001;
 
 // (4) Zero-dominated regime at sigma=100: prime_sum must collapse to ~0
-//     because exp(-sigma^2 (log n)^2 / 2) kills every n>=2 at sigma=100;
+//     because exp(-sigma^2 (log n)^2 / 2) eliminates every n>=2 at sigma=100;
 //     LHS must match A within 1e-4 absolute.
 const row100 = libBySigma[100];
 const zeroDomMatchesArch =
@@ -376,7 +376,7 @@ export const WEIL_FORMULA_VERIFICATION_ASSERTIONS = [
       'Library claims "rel_error <= 1e-6 (machine precision)" for all 7 ' +
       'Gaussian test functions. We assert the slightly looser 1e-5 to give ' +
       'tail-truncation slack at sigma=100 (where rMax=500 leaves a small ' +
-      'integration tail). A breach would indicate either a new systematic ' +
+      'integration tail). A crossing would indicate either a new systematic ' +
       'bias or an accidental dr / rMax regression in archimedeanTerm().',
   },
   {

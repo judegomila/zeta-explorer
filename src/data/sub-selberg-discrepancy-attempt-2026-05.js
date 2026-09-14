@@ -1,6 +1,6 @@
 /**
  * @module data/sub-selberg-discrepancy-attempt-2026-05
- * @fileoverview imp-1149-sub-sub-selberg-discrepancy — focused attack on the
+ * @fileoverview imp-1149-sub-sub-selberg-discrepancy — focused approach on the
  * single named sub-obstruction blocking the N^{-2} rate in the imp-1149
  * 2nd-moment Koksma-Hlawka chain.
  *
@@ -345,7 +345,7 @@ export const SUB_SELBERG_ATTEMPT = Object.freeze({
   parentTicket: 'imp-1149',
   parentArtefact: 'src/data/koksma-hlawka-2nd-moment-deviation-bound.js',
   title:
-    'Focused attack on the sub-Selberg discrepancy sub-obstruction blocking N^{-2} in imp-1149',
+    'Focused approach on the sub-Selberg discrepancy sub-obstruction blocking N^{-2} in imp-1149',
   builtAt: '2026-05-20T20:00:00Z',
   status: 'failed',
   closureType: 'negative-result-with-named-obstructions',
@@ -466,7 +466,7 @@ export const SUB_SELBERG_ATTEMPT_ASSERTIONS = [
     id: 'sub-selberg-status-failed-honest',
     holds: () => SUB_SELBERG_ATTEMPT.status === 'failed',
     why:
-      'The sub-Selberg discrepancy sub-gap attack is a NEGATIVE result. Status ' +
+      'The sub-Selberg discrepancy sub-gap approach is a NEGATIVE result. Status ' +
       'must remain "failed" (not "closed" / not "partial") to reflect the ' +
       'honest finding that no unconditional sub-Selberg exponent c < 1 is ' +
       'achievable from currently known results. Drift to "closed" or "partial" ' +

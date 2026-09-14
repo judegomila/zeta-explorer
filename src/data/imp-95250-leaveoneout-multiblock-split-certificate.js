@@ -99,7 +99,7 @@
  * suppression of high octaves plus the lattice Blaschke tail, NOT from
  * a block Riesz-basis bound (see HONEST LIMITS (d)).
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA LOO checked directly on
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA LOO checked directly on
  * seeded pseudo-random coefficient vectors across three twin-lattice
  * configurations: worst ratio ||F_k||^2 x (1 - sigma_k^2) / ||F||^2 =
  * 0.0129 (bound 1, large margin -- the lemma is far from tight, which

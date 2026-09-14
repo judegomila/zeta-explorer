@@ -469,7 +469,7 @@ export default function TwinLadderPaperRoadmapPage() {
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/three-attacks" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>
-              Three Attacks (§18)
+              Three Approaches (§18)
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/kyp-bounded-real" style={{ color: 'var(--green)', fontSize: 13 }}>

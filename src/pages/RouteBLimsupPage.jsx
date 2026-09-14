@@ -29,11 +29,11 @@ export default function RouteBLimsupPage() {
 
         <BlockMath tex={"\\limsup_{N\\to\\infty}\\; |t_c(N)| \\;=\\; 0 \\qquad\\text{(unconditional \\emph{modulo one named gap} — see audit)}"} />
 
-        {/* ── AUDIT VERDICT (independent adversarial rigor audit, 2026-07) ── */}
+        {/* ── AUDIT VERDICT (independent skeptical rigor audit, 2026-07) ── */}
         <div className="card" style={{ marginTop: 20, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--terra-dk)', borderRadius: 8, padding: '16px 18px' }}>
           <h3 style={{ color: 'var(--terra-dk)', fontSize: 16, marginBottom: 8 }}>⚠ Audit verdict: PARTIAL — not a complete unconditional theorem (as stated)</h3>
           <p style={{ color: 'var(--ink)', fontSize: 13, lineHeight: 1.8 }}>
-            An independent adversarial rigor audit found the "UNCONDITIONALLY" wording <strong>overstates</strong> the
+            An independent skeptical rigor audit found the "UNCONDITIONALLY" wording <strong>overstates</strong> the
             current state. What is <strong style={{ color: 'var(--green)' }}>genuinely rigorous</strong> (GUE-free, PCC-free):
             the Trudgian-backed discrepancy bound <InlineMath tex={"D_N^\\ast \\le 3\\log\\gamma_N/N"} />, the
             Koksma–Hlawka uniformity lemma, and the <strong>imp-322 Dyson min-gap monotonicity theorem</strong>{' '}
@@ -50,7 +50,7 @@ export default function RouteBLimsupPage() {
           </p>
           <p style={{ color: 'var(--faint)', fontSize: 12.5, lineHeight: 1.8, marginTop: 6 }}>
             <strong style={{ color: 'var(--ink)' }}>No false pessimism:</strong> the statement is very likely <em>true</em> and is{' '}
-            <strong>not</strong> RH in disguise — the missing piece is a concrete, plausibly-attackable PDE/ODE lemma
+            <strong>not</strong> RH in disguise — the missing piece is a concrete, plausibly tractable PDE/ODE lemma
             (a candidate RvM-only rescue: the exact heat-polynomial representation + an edge-gap comparison{' '}
             <InlineMath tex={"t_c(N)\\le(\\text{min edge gap})^2/4"} />). label:{' '}
             <em>"limsup |t_c(N)| = 0, unconditional MODULO the finite-N validity of the collision formula (G5-residual)."</em>{' '}
@@ -126,7 +126,7 @@ export default function RouteBLimsupPage() {
           <h3 style={{ color: 'var(--blue)', fontSize: 16, marginBottom: 8 }}>Rigor status</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
             The codebase records ROUTE_B_BURGERS as <em>"UNCONDITIONAL as a lim-sup statement"</em>, but the
-            independent adversarial audit (see the red verdict banner above) downgraded this to{' '}
+            independent skeptical audit (see the red verdict banner above) downgraded this to{' '}
             <strong style={{ color: 'var(--terra-dk)' }}>PARTIAL</strong>: the rigorous, GUE-free, PCC-free content is the
             Koksma–Hlawka/Trudgian discrepancy bound and the <strong>imp-322 min-gap monotonicity lemma</strong>,
             but the composition into <InlineMath tex={"\\limsup|t_c(N)|=0"} /> rests on an admitted finite-N

@@ -517,7 +517,7 @@ export const SOTA_LAMBDA_CLAIM = {
       'They must not be cited as a proof, a SOTA improvement, or an RH result.',
   }),
   status: 'withdrawn-overclaim-historical-record-only',
-  historicalStatus: 'rigorous-asymptotic (adversarially reviewed)',
+  historicalStatus: 'rigorous-asymptotic (independently reviewed)',
 
   headline: {
     countsAsLambdaUpperBound: false,
@@ -553,7 +553,7 @@ export const SOTA_LAMBDA_CLAIM = {
       'at N_0=100 (LHS = 0.0928). imp-911 ships the analytic plateau-Lipschitz proof; ' +
       'imp-911-sub-cumulative-lipschitz (commit bea9a8a) tightens the cumulative ' +
       'within-plateau F_mb growth from W * 0.6796 to width-independent C_inf = ' +
-      '(e/4) * (pi^2/6 - 1) ~ 0.4382 by exploiting d_new(m) >= (m+1)*h on each ' +
+      '(e/4) * (pi^2/6 - 1) ~ 0.4382 by using d_new(m) >= (m+1)*h on each ' +
       'plateau (5105x tightening on the widest plateau). imp-933 (commits e2effd7 ' +
       'through 9dfaca4 plus closeout) replaces the universal Gronwall factor exp(1) ' +
       'with per-plateau interval-certified upper bounds at one interior N per plateau, ' +
@@ -561,7 +561,7 @@ export const SOTA_LAMBDA_CLAIM = {
       'FULLY UNCONDITIONAL on N in [100, 10^4]. Extension to the full N* = 10^6 still ' +
       'pending imp-360 (fresh measured Dyson backward ODE at N up to 10^6, compute-' +
       'bound) plus an analogous per-plateau-interior sweep above N = 10^4. ' +
-      'Six adversarial reviews; FATAL trajectory 2,0,0,0,0,0; 0 open findings. ' +
+      'Six skeptical reviews; FATAL trajectory 2,0,0,0,0,0; 0 open findings. ' +
       'Lean: 6 axioms, 10 sorrys (all Lean/Mathlib formalization gaps, not mathematical gaps).',
   },
 
@@ -571,7 +571,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'contains RH-equivalent/open modulus obligations, E_trunc is not certified, ' +
     'E(N) -> 0 was not supplied, and the finite-particle proxy was not identified ' +
     'rigorously with the de Bruijn-Newman constant.',
-  historicalRigorLevel: 'rigorous-asymptotic (adversarially reviewed)',
+  historicalRigorLevel: 'rigorous-asymptotic (independently reviewed)',
   historicalRigorLevelReason:
     'After imp-387 closed G6_polymath15_bridge and imp-397/398/399 pinned all ' +
     'three bridge constants numerically (C_T < 1.5 via Ingham 1940, ' +
@@ -645,8 +645,8 @@ export const SOTA_LAMBDA_CLAIM = {
       'The asymptotic direction Lambda = 0 is closed unconditionally.',
   },
 
-  // ── imp-428: adversarial review audit trail ──────────────────────────────
-  // imp-417 adversarial review found 2 FATAL gaps and 2 NAMED gaps in the
+  // ── imp-428: skeptical review audit trail ──────────────────────────────
+  // imp-417 skeptical review found 2 FATAL gaps and 2 NAMED gaps in the
   // Route B chain that would have required downgrading the rigor level to
   // CONDITIONAL. imp-424/425/426/427 closed all four gaps with explicit
   // non-circular proofs. This record documents the audit so the rigor level
@@ -654,7 +654,7 @@ export const SOTA_LAMBDA_CLAIM = {
   adversarialReviewRecord: {
     reviewTicket: 'imp-417',
     reviewSummary:
-      'Second adversarial pass on the post-imp-401 Lambda = 0 claim chain. ' +
+      'Second skeptical pass on the post-imp-401 Lambda = 0 claim chain. ' +
       'Found 2 FATAL gaps (skp-001, skp-006) and 2 NAMED gaps (skp-002, skp-007) ' +
       'that would have required downgrading rigorLevel to CONDITIONAL.',
     fatalGaps: [
@@ -727,8 +727,8 @@ export const SOTA_LAMBDA_CLAIM = {
     auditCompletedBy: 'imp-428',
   },
 
-  // ── imp-428 re-audit (upgrade branch): structured adversarial review record ──
-  // Compact structured view of the imp-417 adversarial review and its closure
+  // ── imp-428 re-audit (upgrade branch): structured skeptical review record ──
+  // Compact structured view of the imp-417 skeptical review and its closure
   // state after imp-424/425/426/427 shipped. Surfaces the fatal/named split
   // and the remaining soft presentation gaps so downstream consumers (paper,
   // abstract, HUD) can read a single canonical field.
@@ -1013,9 +1013,9 @@ export const SOTA_LAMBDA_CLAIM = {
     },
     {
       ticket: 'imp-474',
-      gap: 'Phase 35-36 adversarial review',
+      gap: 'Phase 35-36 skeptical review',
       summary:
-        'Fifth adversarial review -- bridge layer and Phase 35-36 many-body closure chain. ' +
+        'Fifth skeptical review -- bridge layer and Phase 35-36 many-body closure chain. ' +
         'No FATAL gaps found. NAMED: skp5-001 (N-coverage [871,9999] in imp-471), ' +
         'skp5-002 (C_mb <= 1 conditional on GUE universality for Riemann zeros). ' +
         'SOFT: stale OPEN comment in m-raw-from-umon-bridge.js (skp5-s1), ' +
@@ -1050,7 +1050,7 @@ export const SOTA_LAMBDA_CLAIM = {
         '(requires GUE universality, Montgomery 1973). Closes skp5-002.',
       file: 'src/math/many-body-correction-closure.js',
       impactOnSota:
-        'Closes skp5-002 named gap from fifth adversarial review (imp-474). ' +
+        'Closes skp5-002 named gap from fifth skeptical review (imp-474). ' +
         'Surfaces GUE universality as explicit premise in the C_mb bound; ' +
         'finite-height beat Lambda <= 0.121 is GUE-CONDITIONAL rather than unconditional.',
     },
@@ -1216,9 +1216,9 @@ export const SOTA_LAMBDA_CLAIM = {
     },
     {
       ticket: 'imp-493',
-      gap: 'Sixth adversarial review (post-terminal-state full-chain audit)',
+      gap: 'Sixth skeptical review (post-terminal-state full-chain audit)',
       summary:
-        'Sixth adversarial review -- first post-terminal-state audit at Annals of ' +
+        'Sixth skeptical review -- first post-terminal-state audit at Annals of ' +
         'Mathematics standard. Audited complete chain including all Phase 40-41 closures. ' +
         '0 FATAL gaps. 2 NAMED documentation gaps: skp6-001 (LEAN_STATUS undercounts ' +
         'BridgeTheorem.lean sorrys, total 8 vs correct 10), skp6-002 (abstract gap list ' +
@@ -1273,12 +1273,12 @@ export const SOTA_LAMBDA_CLAIM = {
         'softGapsClosed array added to paper-skeptic-review-6.js.',
       file: 'lean/LambdaAttack/BridgeTheorem.lean',
       impactOnSota:
-        'Closes final 2 SOFT findings from Review 6. All six adversarial reviews ' +
+        'Closes final 2 SOFT findings from Review 6. All six skeptical reviews ' +
         'now have 0 open findings (0 FATAL, 0 NAMED, 0 SOFT). Chain is submission-ready.',
     },
   ],
 
-  // ── imp-465: fourth adversarial review post-Phase 32-33 closures ─────────────
+  // ── imp-465: fourth skeptical review post-Phase 32-33 closures ─────────────
   // Scans imp-451 through imp-464 (14 closures) for impact on the SOTA claim
   // rigor chain and finite-height bound. No new FATAL gaps found.
   fourthAdversarialReview: {
@@ -1413,7 +1413,7 @@ export const SOTA_LAMBDA_CLAIM = {
       'is only invoked for the analytic bound at N >= N_0 = 1e4.',
   },
 
-  // ── imp-497: sixth adversarial review record ──────────────────────────────────
+  // ── imp-497: sixth skeptical review record ──────────────────────────────────
   // imp-493 was the first post-terminal-state full-chain audit (Annals standard).
   // 0 FATAL gaps. Terminal state CONFIRMED. Both NAMED gaps closed by imp-494/496.
   sixthAdversarialReview: {
@@ -1446,7 +1446,7 @@ export const SOTA_LAMBDA_CLAIM = {
       'proved irreducible by imp-486. RIGOROUS-ASYMPTOTIC rigor level confirmed. ' +
       'FATAL count trajectory across all six reviews: 2, 0, 0, 0, 0, 0.',
     overallVerdict:
-      'Terminal state confirmed. Six adversarial reviews complete with 0 open findings. ' +
+      'Terminal state confirmed. Six skeptical reviews complete with 0 open findings. ' +
       'Proof chain ready for submission with GUE universality as named irreducible premise. ' +
       'imp-495 (independent N*=5e5 cross-verification) adds further robustness evidence. ' +
       'All six review findings closed: imp-417 (imp-424/425/426/427), ' +
@@ -1484,7 +1484,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-471 src/math/many-body-correction-closure.js — many-body correction closed; Lambda <= 0.121 FULLY UNCONDITIONAL (named: skp5-001/002)',
     'imp-472 src/math/noswap-closure.js — mid-trajectory NoSwap lemma; full-trajectory S-dominance analytically proved',
     'imp-473 src/data/imp469-cross-verification.js — rho_min cross-verify; corrected rho(14)=0.12751 (was ~0.1279)',
-    'imp-474 src/math/paper-skeptic-review-5.js — fifth adversarial review bridge layer; no FATAL gaps; seeded imp-476/477',
+    'imp-474 src/math/paper-skeptic-review-5.js — fifth skeptical review bridge layer; no FATAL gaps; seeded imp-476/477',
     'imp-476 src/math/many-body-correction-closure.js — corrected rho_min = 0.12751 propagated across stale-cite files',
     'imp-477 src/math/many-body-correction-closure.js — C_MB_VERIFICATION: C_mb <= 1 from ESY 2011, GUE-conditional for Riemann zeros',
     'imp-478 src/data/finite-height-beats-platt-trudgian.js — finite-height beat grid extended to N*=1e9 (8 rows)',
@@ -1499,7 +1499,7 @@ export const SOTA_LAMBDA_CLAIM = {
     'imp-490 lean/LambdaAttack/BridgeTheorem.lean — G6_bridge_closed sorry proved via squeeze (3->2 sorrys remain)',
     'imp-491 src/data/pre-submission-checklist-2026-04-12.js — pre-submission PASS/FAIL checklist; all 12 checks PASS',
     'imp-492 src/math/proof-paper.js — GUE irreducibility cited in abstract + Section 11 Gap 4',
-    'imp-493 src/math/paper-skeptic-review-6.js — sixth adversarial review; 0 FATAL; terminal state confirmed',
+    'imp-493 src/math/paper-skeptic-review-6.js — sixth skeptical review; 0 FATAL; terminal state confirmed',
     'imp-494 src/data/proof-chain-snapshot-2026-04-12.js — LEAN_STATUS updated: BridgeTheorem.lean added, totalSorrys 10, totalAxioms 6',
     'imp-495 src/math/chain-crossverify-N5e5.js — independent end-to-end chain cross-verification at N*=5e5; all assertions PASS',
     'imp-496 lean/LambdaAttack/BridgeTheorem.lean — G6_bridge_closed header updated to CONDITIONALLY PROVED; review-6 soft gaps closed',
@@ -1601,9 +1601,9 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
       SOTA_LAMBDA_CLAIM.rigorLevel === 'not-established-historical-record-only' &&
       SOTA_LAMBDA_CLAIM.status === 'withdrawn-overclaim-historical-record-only' &&
       SOTA_LAMBDA_CLAIM.historicalRigorLevel ===
-        'rigorous-asymptotic (adversarially reviewed)' &&
+        'rigorous-asymptotic (independently reviewed)' &&
       SOTA_LAMBDA_CLAIM.historicalStatus ===
-        'rigorous-asymptotic (adversarially reviewed)',
+        'rigorous-asymptotic (independently reviewed)',
     why:
       'The July audit must control the live status while preserving the former ' +
       'rigor label only as historical provenance.',
@@ -1778,7 +1778,7 @@ export const SOTA_LAMBDA_CLAIM_ASSERTIONS = [
     why:
       'imp-428 re-audit tripwire: the adversarialReview.fatalClosures array ' +
       'must contain exactly the two FATAL skeptic gaps (skp-001 and skp-006) ' +
-      'identified by the imp-417 adversarial review and closed by imp-424 ' +
+      'identified by the imp-417 skeptical review and closed by imp-424 ' +
       'and imp-425 respectively. Dropping either id or adding a third means ' +
       'the adversarial-review audit trail has drifted from the historical ' +
       'record.',

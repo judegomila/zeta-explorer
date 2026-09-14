@@ -66,7 +66,7 @@
  * consistent with -0.5333 * ln(1.99146) = -0.368. So the entire
  * recoverable slack in the constant is under 0.4 depth units, versus the
  * ~11 depth-unit onset improvement (27.04 -> 15.98) that SPLIT-RZ already
- * delivers over EV-OCT-UNIF by attacking the NUMERATOR structure.
+ * delivers over EV-OCT-UNIF by approaching the NUMERATOR structure.
  *
  * TAKEAWAY. To move the SPLIT-RZ onset by O(1) depth units one must
  * improve the numerator N(x) -- the coalescence-law depth decay or the

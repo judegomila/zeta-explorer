@@ -99,7 +99,7 @@
  * [0.096745062937484763, 0.2717408057586117], fixed-97 floor
  * 0.0012054673720820889) are UNTOUCHED - this module changes no bound.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the corner identity was attacked
+ * SKEPTICAL SELF-CHECK RECORD: (1) the corner identity was stress-tested
  * algebraically (exponent bookkeeping re-done from Q and gSharp) and
  * numerically (rel <= 5e-15 over b <= 60, j <= 60); (2) the claimed
  * monotonicities of T were checked on grids in both variables on four
@@ -108,7 +108,7 @@
  * convergence was checked at eps = 1e-1 .. 1e-4 on two cells: the gap to
  * envE decreases monotonically, scales linearly in eps (ratio ~0.10 per
  * decade), and stays strictly positive - sup approached, never attained,
- * exactly as Lemma X strictness requires; (4) Lemma EQ was attacked by
+ * exactly as Lemma X strictness requires; (4) Lemma EQ was stress-tested by
  * direct u-space quadrature of integral e_1 e_2 at three pairs including a
  * deep-block pair (rel <= 1.5e-6); (5) 300 deterministic pseudo-random
  * interior pairs per cell never exceed envE and never exceed the

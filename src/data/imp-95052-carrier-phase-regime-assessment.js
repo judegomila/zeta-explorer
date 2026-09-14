@@ -6,7 +6,7 @@
  * SETTING. imp-95011 (the Gate-2 oscillation probe) reduces the whole
  * moment-space batching premise to one arithmetic question: is the trajectory
  * N -> C_E,17(N) a slowly-varying stationary-phase envelope (per-unit-N
- * increment L decays like 1/sqrt(N), decades below the 1e-2 kill threshold, so
+ * increment L decays like 1/sqrt(N), decades below the 1e-2 cutoff threshold, so
  * batching survives) or an unsmoothed prime-alias comb (the e(h N / p) rotation
  * advances an O(1) angle per unit N, L is O(amplitude) >> 1e-2, so batching
  * collapses back to the dead pointwise 7.2e26-cell tiling)? imp-95011 supplies
@@ -63,7 +63,7 @@
  * ASSESSMENT (leaning, NOT a proof either way).
  *   Under the raw prime-alias-comb reading, batching is DEAD at the lower edge
  *   for ANY genuine prime support - not merely "one side of a coin flip" but a
- *   decisive kill by a factor ~3.6 (0.0762 / 0.0214) already at the smallest
+ *   decisive eliminate by a factor ~3.6 (0.0762 / 0.0214) already at the smallest
  *   shell and smallest prime. This SHARPENS imp-95011's symmetric regime map:
  *   the smooth regime is not a favorable default but a NECESSARY and non-generic
  *   condition. Gate-2 batching survival is arithmetically EQUIVALENT to the
@@ -131,7 +131,7 @@ const THRESHOLD_EDGE = survivalThreshold(N_LO); // ~0.02139978
 const THRESHOLD_HI = survivalThreshold(N_HI); // ~0.02836014
 // smallest-shell / smallest-prime product - the most generous case for smooth.
 const MIN_PRODUCT = SHELL_AMP_MIN * Math.log(SMALLEST_PRIME); // ~0.076246
-const MIN_PRODUCT_MARGIN = MIN_PRODUCT / THRESHOLD_EDGE; // ~3.56 (kill factor)
+const MIN_PRODUCT_MARGIN = MIN_PRODUCT / THRESHOLD_EDGE; // ~3.56 (eliminate factor)
 const P_MAX_AT_AMIN = maxPassingPrime(SHELL_AMP_MIN, N_LO); // < 1.215
 const P_MAX_AT_AMAX = maxPassingPrime(SHELL_AMP_MAX, N_LO); // < 1.074
 
@@ -161,7 +161,7 @@ export const IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT = {
     maxPassingPrimeAtAmin: P_MAX_AT_AMIN,
     maxPassingPrimeAtAmax: P_MAX_AT_AMAX,
     interpretation:
-      'even the smallest shell amplitude 0.11 with the smallest prime 2 gives 0.076246 >> 0.02139978 (kill factor ~3.56); the largest prime any documented shell may carry and pass is < 1.215, below which there is no prime. Under the raw comb, batching dies at the lower edge for ANY genuine prime support.',
+      'even the smallest shell amplitude 0.11 with the smallest prime 2 gives 0.076246 >> 0.02139978 (eliminate factor ~3.56); the largest prime any documented shell may carry and pass is < 1.215, below which there is no prime. Under the raw comb, batching dies at the lower edge for ANY genuine prime support.',
   },
   assessment: {
     leaning: 'raw-leaning / burden-on-smooth (NOT a proof either way)',
@@ -183,7 +183,7 @@ export const IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT = {
   namedSubGap: 'imp-95011-sub-arithmetic-carrier-scan',
   isRigorous: false,
   rigorScope:
-    'the controlling quantity (Riemann-von Mangoldt phase advance), the survival inequality, and the lower-edge kill arithmetic are exact; the per-shell amplitude band and the raw-comb model are the documented/assumed structure, and the escape hatches E1/E2 are the honest unestablished route to smooth. No arithmetic measurement of C_E,17 is made or synthesized.',
+    'the controlling quantity (Riemann-von Mangoldt phase advance), the survival inequality, and the lower-edge eliminate arithmetic are exact; the per-shell amplitude band and the raw-comb model are the documented/assumed structure, and the escape hatches E1/E2 are the honest unestablished route to smooth. No arithmetic measurement of C_E,17 is made or synthesized.',
   promotesBound: false,
   verdict:
     'ASSESSMENT (honest partial, leaning RAW / burden-on-smooth): under the raw prime-alias-comb reading the per-unit-N increment L ~ a_g*2pi*log(p_g)/log(N) exceeds the 1e-2 batching-kill threshold at the correlated lower edge by ~3.6x for ANY genuine prime (smallest shell 0.11, smallest prime 2 -> 0.0762 >> 0.0214), so smooth is a NECESSARY non-generic condition, not a default. Gate-2 batching survives iff the correlated carrier has a genuine stationary-phase structure (envelope advance ~1/sqrt N) via escape hatch E1 (near-DC dominant aliases) or E2 (cross-shell phase alignment) - neither established in-repo. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
@@ -203,7 +203,7 @@ export const IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT_ASSERTIONS = [
   },
   {
     id: 'imp95052-raw-comb-kills-at-smallest-shell-and-prime',
-    description: 'even the smallest shell amplitude with the smallest prime exceeds the lower-edge threshold (raw comb kills batching)',
+    description: 'even the smallest shell amplitude with the smallest prime exceeds the lower-edge threshold (raw comb eliminates batching)',
     holds: () => MIN_PRODUCT > THRESHOLD_EDGE && MIN_PRODUCT_MARGIN > 3 && MIN_PRODUCT_MARGIN < 4,
   },
   {
@@ -220,7 +220,7 @@ export const IMP95052_CARRIER_PHASE_REGIME_ASSESSMENT_ASSERTIONS = [
   },
   {
     id: 'imp95052-raw-increment-exceeds-kill',
-    description: 'the raw-model increment of the smallest shell with the smallest prime at the lower edge exceeds the 1e-2 batching kill',
+    description: 'the raw-model increment of the smallest shell with the smallest prime at the lower edge exceeds the 1e-2 batching eliminate',
     holds: () => rawIncrement(SHELL_AMP_MIN, SMALLEST_PRIME, N_LO) > L_KILL,
   },
   {

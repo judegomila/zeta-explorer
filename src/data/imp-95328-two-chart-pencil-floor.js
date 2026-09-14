@@ -1,7 +1,7 @@
 /**
  * imp-95328: THEOREM RZ-PEN2 (two-chart pencil floor) + LEMMA S-MONO +
  * COROLLARY PEN-UNIF2 + COROLLARY SPLIT-PEN2 -- executes the imp-95288
- * ADVERSARIAL RECORD (4) named residual: keep the trace weight
+ * SKEPTICAL RECORD (4) named residual: keep the trace weight
  * w_0^2 = theta^2 POINTWISE (instead of the crude cap pi^2) and close
  * the resulting two-chart minimization. Thirty-first leg of the seam
  * chain. The imp-95288 floor A_pen was measured 25.3 - 91.7x below the
@@ -110,7 +110,7 @@
  * r = 1.3: 15.466164 -> 14.077435; r = 1.05: 15.215651 -> 13.825182.
  * A_pen2(2, 1.3) = 4.706474150e-10 = 34.994 x A_blk.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Endpoint recovery verified to
+ * SKEPTICAL SELF-CHECK RECORD. (1) Endpoint recovery verified to
  * machine precision at a in {ln 2, ln 4, 3, 6} (ratio exactly 1).
  * (2) Grid refutation attempts FAILED: 4001-point and 8001-point theta
  * grids (stable cancellation-free pencil root), rho in {2, 3, 4, e^6},
@@ -145,7 +145,7 @@
  * (obligation (3) gammaSL unchanged); changes NO Lambda bound of the
  * program.
  *
- * ROUTING. The imp-95288 ADVERSARIAL RECORD (4) named residual
+ * ROUTING. The imp-95288 SKEPTICAL RECORD (4) named residual
  * (two-chart sharpening of the RZ-PEN floor) is EXECUTED. New named
  * residual: the beta trace currency (replace 1 - cos(w tau) <=
  * w^2 tau^2 / 2 by the exact 2 sin^2(w tau / 2) profile and re-close

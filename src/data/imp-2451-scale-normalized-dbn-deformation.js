@@ -313,7 +313,7 @@ export const IMP2451_SCALE_NORMALIZED_DBN_DEFORMATION_ASSERTIONS = [
   {
     id: 'imp2451-residual-still-monotone-increasing-in-t',
     why:
-      'The diagnostic that kills the detector hypothesis: even the residual ' +
+      'The diagnostic that eliminates the detector hypothesis: even the residual ' +
       'moves the WRONG way (up with t), so it cannot be flagging the t<0 ' +
       'RH-violating side. If this flips, the interpretation changes.',
     holds: () => {

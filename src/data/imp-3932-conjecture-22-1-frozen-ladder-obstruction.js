@@ -2,7 +2,7 @@
  * @fileoverview imp-3932: Rigorous coefficient-dimension obstruction to
  * Conjecture 22.1 (twin-ladder usefulness) of twin_ladder_consolidated_v52.pdf,
  * the SOLE conjecture graded INDEPENDENT-NOVEL by the imp-1210 literature audit
- * (jointly with 27.2 after imp-1258) that had never been attacked directly.
+ * (jointly with 27.2 after imp-1258) that had never been stress-tested directly.
  *
  * @module data/imp-3932-conjecture-22-1-frozen-ladder-obstruction
  *
@@ -176,7 +176,7 @@
  * cited SOTA upper bound; nothing here claims any Lambda improvement. NO QED
  * on Conjecture 22.1 in full generality is claimed.
  *
- * ADVERSARIAL REFEREE (fresh-context, 2026-07-03): L1-L4 CONFIRMED with no
+ * INDEPENDENT REFEREE (fresh-context, 2026-07-03): L1-L4 CONFIRMED with no
  * gaps (block-degree preservation in the Rolle induction, multiplicity
  * handling at x = 0, the t = t^2 substitution, and the Xi = -f Z sign
  * convention were each independently re-derived; the Xi_fr not-identically-0
@@ -339,7 +339,7 @@ export const IMP_3932_CONJECTURE_22_1_FROZEN_LADDER_OBSTRUCTION = Object.freeze(
   target:
     'Conjecture 22.1 (Twin-ladder usefulness), Section 22 "Conjectures and ' +
     'theorem targets"; audited INDEPENDENT-NOVEL by imp-1210 (2026-05-26) ' +
-    'and never previously attacked.',
+    'and never previously approached.',
   conjectureVerbatim:
     'There exists a frozen-ladder approximation whose certified remainder ' +
     'bound in the classical case is smaller, at equal runtime, than a ' +
@@ -432,7 +432,7 @@ export const IMP_3932_CONJECTURE_22_1_FROZEN_LADDER_OBSTRUCTION = Object.freeze(
   refereeReview: Object.freeze({
     date: '2026-07-03',
     method:
-      'Fresh-context adversarial referee instructed to refute each lemma ' +
+      'Fresh-context independent referee instructed to refute each lemma ' +
       'and the benchmark instantiation, including sign conventions, Rolle ' +
       'block-degree preservation, multiplicity edge cases, class escape ' +
       'hatches (repeated or complex alpha, modulation), and the arithmetic.',

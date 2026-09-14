@@ -108,7 +108,7 @@
  * ([1/pi^2, 0.4] theta, [0.25, 1] dual); the tolerance-checked
  * two-sided enclosure runs over the full regimes.
  *
- * ADVERSARIAL RECORD. (1) LEMMA P-JAC verified to 1.97e-12 worst rel
+ * SKEPTICAL RECORD. (1) LEMMA P-JAC verified to 1.97e-12 worst rel
  * on 200 log-spaced t in [0.02, 5]. (2) Enclosures verified across
  * [1/pi^2, 60] (theta) and [1e-3, 1] (dual) at ULP tolerance, strict
  * on the resolvable windows; lower bounds positive everywhere

@@ -17,7 +17,7 @@
  * "= Odlyzko-Schonhage band-limited interpolation, PARTIALLY-RELATED not novel"
  * without a quantitative bound.
  *
- * THIS MODULE attacks that class boundary quantitatively. It shows the
+ * THIS MODULE approaches that class boundary quantitatively. It shows the
  * modulation escape splits into two regimes and NEITHER admits a genuine
  * equal-runtime certified-remainder advantage over the Platt-Trudgian baseline:
  *
@@ -93,7 +93,7 @@
  * NO imports. Self-contained and light (no zeros bundle). JS strings use double
  * quotes where an apostrophe is needed; JSDoc avoids the close-comment sequence.
  *
- * ADVERSARIAL SELF-CHECK BUILT IN: the assertions below (i) verify the
+ * SKEPTICAL SELF-CHECK BUILT IN: the assertions below (i) verify the
  * single-width reduction E(t) Xi_fr(t) = Polya-Szego exp-polynomial against an
  * INDEPENDENT Simpson quadrature of Phi_fr and against the predicted cosh form,
  * (ii) verify the weakened cap on a modulated instance that ATTAINS it, and

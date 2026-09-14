@@ -41,7 +41,7 @@
  * Neumaier compensation, the worst SHAPE lands on exactly the same roundoff floor as the worst
  * ORDER summed sequentially -- the pairing geometry that made caterpillarL the uncompensated
  * arg-max no longer matters once the additions are compensated. So compensation closes BOTH
- * adversarial levers (order AND shape) to the same floor. Precision stays overwhelmingly
+ * worst-case levers (order AND shape) to the same floor. Precision stays overwhelmingly
  * NON-binding under the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760); the obstruction
  * remains the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725), and the
  * W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A).
@@ -290,7 +290,7 @@ export const IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE = {
       'sequential-KBN floor at the same N ~ 488602 (~1.89e-20): the worst SHAPE lands on the SAME roundoff floor ' +
       'as the worst ORDER summed sequentially -- the pairing geometry no longer matters once additions are compensated',
     bothLeversClosed:
-      'compensation closes BOTH adversarial levers (order AND shape) to the same floor; the geometry that made ' +
+      'compensation closes BOTH worst-case levers (order AND shape) to the same floor; the geometry that made ' +
       'caterpillarL the uncompensated arg-max is neutralized by capturing its per-addition roundoffs',
     allUnderMargin:
       'both schemes remain many orders below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760); precision ' +
@@ -303,12 +303,12 @@ export const IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE = {
       'defeat compensation',
     shapeAndOrderMeetSameFloor:
       'the compensated worst-shape tree lands on the SAME roundoff floor as the imp-36023 sequential worst-order ' +
-      'KBN (~1.89e-20), so compensation neutralizes both adversarial levers to a common floor',
+      'KBN (~1.89e-20), so compensation neutralizes both worst-case levers to a common floor',
     precisionNotBinding:
       'even the compensated worst order-x-shape configuration leaves overwhelming strict headroom under the ' +
       'ceiling and the O(1) barrier margin; precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures pairwise errors under the adversarial order-x-shape arg-max only; it evaluates no sum ' +
+      'this module measures pairwise errors under the skeptical order-x-shape arg-max only; it evaluates no sum ' +
       'of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 ' +
       'Part A) and MECHANICAL (imp-35725)',
   },
@@ -326,7 +326,7 @@ export const IMP36056_KBN_CATERPILLARL_ARGMAX_SHAPE = {
     'IDENTICAL to the imp-36023 sequential-KBN floor at the same N ~ 488602 (~1.89e-20) -- the worst SHAPE lands ' +
     'on exactly the SAME roundoff floor as the worst ORDER summed sequentially, so the pairing geometry that made ' +
     'caterpillarL the uncompensated arg-max no longer matters once the additions are compensated; compensation ' +
-    'closes BOTH adversarial levers (order AND shape) to a common floor. Both schemes remain many orders below ' +
+    'closes BOTH worst-case levers (order AND shape) to a common floor. Both schemes remain many orders below ' +
     'the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760); precision is NOT the binding constraint. The ' +
     'obstruction stays the ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725). Certifies ' +
     'no W1 bound; evaluates no true H_0; instantiates no interval; verifies no inequality; changes no bound; ' +

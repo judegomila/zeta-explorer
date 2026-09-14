@@ -81,7 +81,7 @@
  *       require equivalents of PCC; Heath-Brown 4th-moment is too weak;
  *       alternative observables do not answer the Lambda-attack question.
  *
- *   The live attack surface is NARROWER than imp-1184 mapped at the rate
+ *   The live approach map is NARROWER than imp-1184 mapped at the rate
  *   level (PCC is the bottleneck for rate-improvement on the Stieltjes
  *   observable; rho_3 is a SEPARATE bottleneck for higher-cumulant routes;
  *   no 4th route bypasses both).
@@ -216,7 +216,7 @@ const PER_ROUTE_RECHECK = Object.freeze([
 
     test_function_class_workaround:
       'Restricting to test functions with Fourier-support in (-2/3, 2/3) ' +
-      'makes Rudnick-Sarnak rho_3 UNCONDITIONAL but kills the Poisson- ' +
+      'makes Rudnick-Sarnak rho_3 UNCONDITIONAL but eliminates the Poisson- ' +
       'kernel observable (Fourier extent ~log N at y_micro). No restriction ' +
       'makes the Poisson kernel land inside (-2/3, 2/3) at microscopic scale.',
 
@@ -483,7 +483,7 @@ const VERDICT_DETAIL = Object.freeze({
   fourth_route_genuine_bypasses: 0,
 
   net_change_to_attack_surface:
-    'imp-1184 narrowed the live attack surface to PCC + RS-3pt. imp-1247 ' +
+    'imp-1184 narrowed the live approach map to PCC + RS-3pt. imp-1247 ' +
     'further refines: PCC is the bottleneck for Route 1 ONLY, not Routes 2 ' +
     'or 3. Route 2 needs Sobolev fix (independent). Route 3 needs RS-3pt. ' +
     'The 4th-route survey finds NO unconditional bypass; ratios and RH-' +
@@ -498,7 +498,7 @@ const VERDICT_DETAIL = Object.freeze({
     'other, and they unblock DIFFERENT routes.',
     'Do NOT spend bandwidth on Conrey-Snaith ratios or RH-spectral as ' +
     'unconditional ESY-closure routes; both are STRICTLY STRONGER than PCC.',
-    'imp-1126 3rd-moment attack feeds into 4B (Heath-Brown 4th moment with ' +
+    'imp-1126 3rd-moment approach feeds into 4B (Heath-Brown 4th moment with ' +
     'Cauchy-Schwarz). The rate is weaker than imp-407 baseline so this ' +
     'should NOT be promoted as an ESY-closure path.',
   ]),

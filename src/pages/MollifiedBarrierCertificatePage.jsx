@@ -18,7 +18,7 @@ export default function MollifiedBarrierCertificatePage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1">Mollified Barrier Certificate — the Lone Survivor</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>
-          Of 22 novel Λ attack candidates put through a 79-agent adversarial review, exactly one survived —
+          Of 22 novel Λ approach candidates put through a 79-agent skeptical review, exactly one survived —
           and only reframed as an RH-free tool that <em>matches</em> Platt–Trudgian. This is its built,
           interval-certified pilot. It is genuinely a cleaner barrier certificate; it is provably not a beat.
         </p>

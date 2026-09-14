@@ -1,6 +1,6 @@
 // FreezingBridgePage.jsx -- imp-1221
 // Renders Section 23 ("Freezing, Bridge Renormalization, and a Targeted
-// No-Ghost Attack") of the user's paper "Twin-Ladder Deformations of xi"
+// No-Ghost Approach") of the user's paper "Twin-Ladder Deformations of xi"
 // v52 (research-inputs/twin_ladder_consolidated_v52.pdf, pages 32-36):
 //
 //   23.1  What a freeze can and cannot do                  (Prop. 23.1)
@@ -9,7 +9,7 @@
 //   23.4  Frozen coherent-shell domination                 (Principle 23.4)
 //   23.5  Can a clever freeze finish the proof?            (Conjecture 23.5)
 //   23.6  A practical next experiment                      (5-step protocol)
-//   23.7  Conclusion of the freeze attack
+//   23.7  Conclusion of the freeze approach
 //
 // Pure rendering. All tripwires live in
 // src/data/freezing-bridge-section.js.
@@ -348,7 +348,7 @@ export default function FreezingBridgePage() {
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/three-attacks" style={{ color: 'var(--brass)', fontSize: 13 }}>
-              §18 Three attacks
+              §18 Three approaches
             </Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/frozen-rung-pt-equivalence" style={{ color: 'var(--green)', fontSize: 13 }}>

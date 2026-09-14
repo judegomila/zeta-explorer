@@ -85,7 +85,7 @@
  * (rather than the count M_j) is currently known -- that missing lemma IS
  * the "new signed cross-octave composition" the ledger names. Equivalently
  * in the pencil picture: a block-Schur estimate of lambda_max(D G D, G)
- * that exploits octave structure fails at the same point, because the
+ * that uses octave structure fails at the same point, because the
  * Cauchy Gram is NOT block-diagonally dominant (long-range kernel), so the
  * off-diagonal octave blocks cannot be discarded.
  *
@@ -206,7 +206,7 @@ export const IMP95133_SIGNED_WEIGHT_COMPOSITION_SCOPING = {
   candidateWPB:
     "coupling-aware H-inf multiplicative composition with off-octave normalization: g = prod_j g_j, g_j(nu_i) = w_i on octave j and = 1 elsewhere, so Lambda_union <= (prod_j ||g_j||_inf)^2 by the NP-CERT product law -- a VALID upper bound. VACUOUS: for two rates per octave over three octaves the product 7.59415852e6 dominates the true sqrt(Lambda_union) = 4.10386029e-2 but is loose by ~1.85e8, and the per-octave factors ||g_j||_inf blow up to 265.6 / 107.7 / 265.6. Mechanism: the pin-to-1 normalization forces each factor to swing between O(1) at far nodes and exponentially small on its own octave, an O(condition-number) sup-norm; the split, not the composition, is the killer.",
   survivingOpenFreedom:
-    "the product law is valid for ANY split g_j(nu_i) = w_i^(alpha_ji) with sum_j alpha_ji = 1 (WP-B is the degenerate alpha = 1 on octave, 0 off). A weight-priced certificate would TAPER alpha across octaves so each factor stays O(1) with sup-norm discounted by the octave weight 2^(-j) (deep octaves carry exponentially small data w_i = e^(-2^j x), so a bounded factor need barely move there). No admissible split with a per-factor bound in the octave WEIGHT M_j 2^(-j) rather than the count M_j is known -- that missing lemma is the new signed cross-octave composition. Pencil form: a block-Schur estimate exploiting octave structure fails identically, since the Cauchy Gram is not block-diagonally dominant.",
+    "the product law is valid for ANY split g_j(nu_i) = w_i^(alpha_ji) with sum_j alpha_ji = 1 (WP-B is the degenerate alpha = 1 on octave, 0 off). A weight-priced certificate would TAPER alpha across octaves so each factor stays O(1) with sup-norm discounted by the octave weight 2^(-j) (deep octaves carry exponentially small data w_i = e^(-2^j x), so a bounded factor need barely move there). No admissible split with a per-factor bound in the octave WEIGHT M_j 2^(-j) rather than the count M_j is known -- that missing lemma is the new signed cross-octave composition. Pencil form: a block-Schur estimate using octave structure fails identically, since the Cauchy Gram is not block-diagonally dominant.",
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation (2) currency ledger: depth leg DEAD (imp-95224 DC-NOGO); COUNT leg DELIVERED and TERMINAL (imp-95225 SGN-C, imp-95226 SGN-NP); WEIGHT leg OPEN -- this module scopes it: WP-A refuted (undershoots), WP-B valid but vacuous, tapered-split weight-discounted per-factor bound OPEN; modulus/phase leg OPEN. The width-law paper packets stay uncertified.",
   verdict:

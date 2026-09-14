@@ -69,7 +69,7 @@
  *     the triple via the equicorrelated inverse. Equal caps give
  *     Amax sqrt(k/(1 + (k-1)G)) - the k-generalization of the Lemma MC
  *     full-arc factor: -> 1 at G -> 1, sqrt(k) at G = 0. CONSEQUENCE:
- *     the tail-bond divergence that killed the k-uniform 1/sqrt(G)
+ *     the tail-bond divergence that eliminated the k-uniform 1/sqrt(G)
  *     route in imp-95145 is CURED at fixed k - the inflated (b, b+1)
  *     entry is <= k gcap(2 mu 4^b), bounded and decaying (the KC
  *     factor never divides by a vanishing floor: 1 + (k-1)G >= 1).
@@ -106,7 +106,7 @@
  *     per-entry position corner sups, CW row reduction valid for every
  *     occupied subset, V3/V4 floors. QED (for the stated class).
  *
- * ADVERSARIAL SELF-CHECK RECORD (in-run refutations preserved).
+ * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) The DECOUPLED route - per-bond independent LEMMA KC sups (the
  *     naive k-generalization of Lemma AY2) - is REFUTED as a route to
  *     ANY constant at or below the HS ceiling: with floors already at
@@ -560,7 +560,7 @@ function rnd() {
   return seedState / 0x7fffffff;
 }
 
-// battery KC (seed 262626): LEMMA KC attacked directly - the cone sup cap
+// battery KC (seed 262626): LEMMA KC approached directly - the cone sup cap
 // dominates sampled cone directions against true correlations >= the floor
 function runKcBattery() {
   seedState = 262626;
@@ -634,7 +634,7 @@ function runEpnBattery() {
   return { worstRel, count };
 }
 
-// battery CELL (seed 484848): finite-width triple-bond cells attacked with
+// battery CELL (seed 484848): finite-width triple-bond cells approached with
 // interior samples - the cellTP nested cap dominates every sampled true bond
 function runCellBattery() {
   seedState = 484848;
@@ -713,7 +713,7 @@ function kernelK(a, b, tau) {
   return (2 * (b * Math.exp(-a * tau) - a * Math.exp(-b * tau))) / (b * b - a * a);
 }
 
-// battery W (seed 595959): THEOREM TP attacked directly - seeded in-class
+// battery W (seed 595959): THEOREM TP approached directly - seeded in-class
 // witnesses (ONE block of ladders 0..6 carrying up to three packets, all
 // others at most one, both parities, free positions, common rate >= 47/200)
 function runWitnessBattery() {
@@ -829,7 +829,7 @@ export const IMP95146_TRIPLE_BLOCK_NESTED_FOLD_CAP_ASSERTIONS = [
   {
     id: "imp95146-kc-battery",
     description:
-      "LEMMA KC attacked directly: 60000 seeded (3 caps, floor, 3 true correlations >= floor) draws x 6 cone samples - the feasible-support cone sup dominates every sampled ratio (zero violations)",
+      "LEMMA KC approached directly: 60000 seeded (3 caps, floor, 3 true correlations >= floor) draws x 6 cone samples - the feasible-support cone sup dominates every sampled ratio (zero violations)",
     holds: () => BAT_KC.viol === 0 && BAT_KC.worst <= 1 + 1e-9 && BAT_KC.worst > 0.9,
   },
   {
@@ -871,19 +871,19 @@ export const IMP95146_TRIPLE_BLOCK_NESTED_FOLD_CAP_ASSERTIONS = [
   {
     id: "imp95146-epn-identity",
     description:
-      "LEMMA EPN attacked directly: 4000 seeded tripled-block configurations - the direct 3-packet block bond and norm equal the nested outer-pair forms in the EPN variables to < 1e-9 relative (identity, not a bound)",
+      "LEMMA EPN approached directly: 4000 seeded tripled-block configurations - the direct 3-packet block bond and norm equal the nested outer-pair forms in the EPN variables to < 1e-9 relative (identity, not a bound)",
     holds: () => BAT_EPN.count === 4000 && BAT_EPN.worstRel < 1e-9,
   },
   {
     id: "imp95146-cell-battery",
     description:
-      "the finite-width cell caps attacked directly: 4000 seeded L1 cells x 4 interior samples x 4 bonds - the nested aySup/mcF/KC entry caps dominate every sampled true bond (zero violations)",
+      "the finite-width cell caps approached directly: 4000 seeded L1 cells x 4 interior samples x 4 bonds - the nested aySup/mcF/KC entry caps dominate every sampled true bond (zero violations)",
     holds: () => BAT_CELL.viol === 0 && BAT_CELL.worst <= 1 + 1e-9 && BAT_CELL.worst > 0.9 && BAT_CELL.count > 12000,
   },
   {
     id: "imp95146-witness-battery",
     description:
-      "THEOREM TP attacked directly: 5000 seeded in-class witnesses (one heavy block of ladders 0..6 with up to three packets, all others at most one, BOTH parities, free positions, common rate >= 47/200 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
+      "THEOREM TP approached directly: 5000 seeded in-class witnesses (one heavy block of ladders 0..6 with up to three packets, all others at most one, BOTH parities, free positions, common rate >= 47/200 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
     holds: () => BAT_W.viol === 0 && BAT_W.maxE < 0 && BAT_W.count > 4800,
   },
   {

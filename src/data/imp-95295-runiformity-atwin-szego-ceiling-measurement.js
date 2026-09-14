@@ -68,7 +68,7 @@
  * smallest near there; for r > 1.3 the onset is a model-family
  * EXTRAPOLATION (SPLIT-RZ is proven only on r in (1, 1.3]).
  *
- * ADVERSARIAL RECORD. (1) The exact factorization A_twin =
+ * SKEPTICAL RECORD. (1) The exact factorization A_twin =
  * C(rho) sin^2(pi tau) is checked to full float across the r window
  * (ratio constant to 12 digits). (2) The Szegoe ceiling Q(m, r) >= 1 is
  * verified on the exact 2m x 2m normalized Gram (Jacobi eig) for m up to

@@ -75,7 +75,7 @@
  * final constant is min(j0, B) with Proposition M available as the
  * mass-adaptive alternative in either regime.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the color-class argument needs
+ * SKEPTICAL SELF-CHECK RECORD: (1) the color-class argument needs
  * disjointness at EVERY gap >= j0 (classes mod j0 contain gaps j0, 2 j0, ...),
  * which is exactly why the f-monotonicity lemma is part of the theorem, not
  * decoration; (2) the block-hull width bound uses the SMALLEST |d| in the
@@ -88,7 +88,7 @@
  * (5) SUPPORT is essential: if packets are merely MAJORIZED by bumps with
  * tails, disjointness fails and Theorem N needs an almost-orthogonality
  * Schur variant with explicit tail decay - NOT provided here (named
- * residual); (6) the honest counter-case above was found by the adversarial
+ * residual); (6) the honest counter-case above was found by the skeptical
  * sweep and is asserted, so the module cannot silently overclaim j0 <= B.
  *
  * WHAT REMAINS OPEN (unchanged residuals of the sibling chain): the

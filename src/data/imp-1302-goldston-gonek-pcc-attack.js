@@ -505,7 +505,7 @@ const VERDICT_DETAIL = Object.freeze({
   implicationForLambdaAttack:
     'PCC at 2-point for sigma > 1 remains the SOLE binding obstruction for §15-27 -> ' +
     'RH. After imp-1297 + imp-1302 both produced negative classifications, the ' +
-    'productive direct attacks are: (i) Heath-Brown 1979 4th-moment sharpening past ' +
+    'productive direct approaches are: (i) Heath-Brown 1979 4th-moment sharpening past ' +
     'sigma = 5/4, (ii) Iwaniec-Sarnak 2000 explicit-formula side without PCC input, ' +
     '(iii) Goldston-Yildirim 2003 conditional-on-RH short-gap turned into an ' +
     'absolute mean-square. Engine should seed sub-tickets for each.',
@@ -514,7 +514,7 @@ const VERDICT_DETAIL = Object.freeze({
     'PCC at 2-point has been open for 50+ years (Montgomery 1973). It is a foundational ' +
     'conjecture in analytic number theory and was identified by Montgomery himself as ' +
     'the load-bearing step for the GUE 2-point analogy. The expected outcome of any ' +
-    'direct attack via second-moment refinements is exactly this verdict: improvement ' +
+    'direct approach via second-moment refinements is exactly this verdict: improvement ' +
     'inside the already-proven range, no extension. The classification result here is ' +
     'PRECISELY VALUABLE because it locates the residual gap and rules out the most ' +
     'promising direct lever.',
@@ -550,7 +550,7 @@ export const IMP_1302_GOLDSTON_GONEK_PCC_ATTACK = Object.freeze({
   }),
 
   honestScope: Object.freeze([
-    'This file is a CLASSIFICATION ticket for the candidate direct attack on Montgomery ' +
+    'This file is a CLASSIFICATION ticket for the candidate direct approach on Montgomery ' +
     'PCC at 2-point via Goldston-Gonek 1998 second-moment refinements + Conrey-Snaith ' +
     '2008 arithmetic correction. It is NOT a new closure or a new unconditional bound.',
 
@@ -568,7 +568,7 @@ export const IMP_1302_GOLDSTON_GONEK_PCC_ATTACK = Object.freeze({
     'analytic-number-theory conjecture.',
 
     'CONSEQUENCE for engine planning: after imp-1297 (Selberg-trace ruled out) and ' +
-    'imp-1302 (Goldston-Gonek improves but does not close), the productive attack ' +
+    'imp-1302 (Goldston-Gonek improves but does not close), the productive approach ' +
     'surface for PCC at 2-point requires genuinely new input not in the second-moment / ' +
     'explicit-formula family. The named candidate next levers are documented in ' +
     'VERDICT_DETAIL.implicationForLambdaAttack.',
@@ -848,7 +848,7 @@ export const IMP_1302_GOLDSTON_GONEK_PCC_ATTACK_ASSERTIONS = [
     id: 'imp1302-engine-planning-names-next-levers',
     why:
       'A negative classification is only useful if it points to the next productive ' +
-      'attack. The verdict detail must name candidate next levers (Heath-Brown 1979 ' +
+      'approach. The verdict detail must name candidate next levers (Heath-Brown 1979 ' +
       '4th-moment, Iwaniec-Sarnak 2000, Goldston-Yildirim 2003) so seed-from-gaps can ' +
       'open sub-tickets.',
     holds: () => {

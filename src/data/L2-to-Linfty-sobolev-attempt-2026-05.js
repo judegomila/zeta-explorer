@@ -1,7 +1,7 @@
 // @module data/L2-to-Linfty-sobolev-attempt-2026-05
 // imp-1149-sub-L2-to-Linfty-sobolev-cost
 //
-// Attack the SECOND named obstruction of imp-1149: the L^2-to-L^infty Sobolev
+// Approach the SECOND named obstruction of imp-1149: the L^2-to-L^infty Sobolev
 // cost for the Cauchy-type Stieltjes transform m_N(z) of empirical Riemann
 // zeros, where the standard cost factor 1 / sqrt(y) at the imp-341 uniformity
 // strip y_N = sqrt(2 pi / N) is O(N^{1/4}), which wipes out the squaring gain
@@ -62,7 +62,7 @@
 // the specific family of Stieltjes transforms of empirical zero measures at
 // the imp-341 uniformity strip. The named obstruction
 // imp-1149-sub-L2-to-Linfty-sobolev-cost remains LIVE. No partial wedge of
-// the form 1 / y^{1/2 - eps} for any eps > 0 is delivered by this attack.
+// the form 1 / y^{1/2 - eps} for any eps > 0 is delivered by this approach.
 //
 // This file ships the negative result as an HONEST OBSTRUCTION RECORD so
 // future engine sessions do not re-attempt the same routes. The three routes
@@ -264,7 +264,7 @@ const NAMED_OBSTRUCTIONS = [
       'The pointwise bound |F(x + i y)| <= (pi y)^{-1/2} * ||F( . + i y)||_{L^2} ' +
       'for F holomorphic in C^+ is SHARP on the general H^2 class: the function ' +
       'F_0(z) = (z - i)^{-1} saturates it up to a constant. Any improvement must ' +
-      'exploit a finer-than-H^2 structure on m_N - m_infty.',
+      'use a finer-than-H^2 structure on m_N - m_infty.',
     closes_if:
       'A proof that m_N - m_infty lies in a strict subspace of H^2 with sharper ' +
       'pointwise embedding, e.g. a weighted Hardy space with explicit weight ' +
@@ -296,7 +296,7 @@ const NAMED_OBSTRUCTIONS = [
       'Hardy pointwise bound with a constant 2x worse than the optimal Poisson ' +
       'kernel form. The exponent of y is unchanged at -1/2. No partial wedge.',
     closes_if:
-      'A subharmonic argument exploiting a DIFFERENT non-negative subharmonic ' +
+      'A subharmonic argument using a DIFFERENT non-negative subharmonic ' +
       'majorant of |m_N - m_infty|^2 that is also pointwise comparable to ' +
       '|m_N - m_infty|^2 and integrates to give a 1 / y^{1/2 - eps} bound. ' +
       'No such majorant is known for the Stieltjes transform of bounded ' +
@@ -323,7 +323,7 @@ const NAMED_OBSTRUCTIONS = [
     severity: 'research-grade-open',
     description:
       'Even if the Sobolev cost could be sharpened, the 2nd-moment Koksma-Hlawka ' +
-      'attack also needs the SQUARE of the discrepancy bound, (D_N^*)^2. The ' +
+      'approach also needs the SQUARE of the discrepancy bound, (D_N^*)^2. The ' +
       'unconditional Selberg rate is D_N^* = O((log N) / N), so the square is ' +
       'O((log N)^2 / N^2) -- the right shape, but the constant in front via L^2 ' +
       'is not the SAME as the constant from squaring the L^infty bound. Tied to ' +
@@ -486,7 +486,7 @@ export const L2_LINFTY_ATTEMPT_ASSERTIONS = [
     why:
       'The three routes considered all fail to beat the 1 / sqrt(y) Sobolev ' +
       'cost. status MUST remain failed. Flipping to closed or partial would ' +
-      'be an overclaim: no polynomial improvement exists in this attack.',
+      'be an overclaim: no polynomial improvement exists in this approach.',
   },
   {
     id: 'l2-linfty-trivial-exponent-pinned-at-minus-half',
@@ -529,7 +529,7 @@ export const L2_LINFTY_ATTEMPT_ASSERTIONS = [
     why:
       'At every sampled N in {1000, 10000, 100000, 1000000, 10000000}, the ' +
       'Route R1 bound must be strictly LARGER than the direct L^infty bound. ' +
-      'If this fails the attack would be misclassified -- R1 would partially ' +
+      'If this fails the approach would be misclassified -- R1 would partially ' +
       'succeed.',
   },
   {

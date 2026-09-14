@@ -22,7 +22,7 @@
  * the TRUE total change of arg f around the closed contour dR is EXACTLY 2pi * N with N a
  * non-negative integer -- a theorem, not an approximation. So the only thing standing between
  * the certificate and N is numerical PRECISION: the accumulated interval must isolate which
- * multiple of 2pi the exact total equals. I4 exploits integrality -- it never has to compute the
+ * multiple of 2pi the exact total equals. I4 uses integrality -- it never has to compute the
  * total to high absolute accuracy, only tightly enough to name the integer.
  *
  * THE ERROR BUDGET: HALF-WIDTH < pi (interval WIDTH < 2pi)

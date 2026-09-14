@@ -318,7 +318,7 @@ export const IMP33252_RICHARDSON_EXTRAPOLATE_SADDLE_A_LADDER_ASSERTIONS = [
   {
     id: 'imp33252-raw-ladder-falls-at-order-four',
     why: 'The rebuilt imp-33234 direct-Simpson ladder at n=80 must fall at the Simpson O(h^4) ~16x-per-doubling ' +
-         'rate (>= ~14x each step) over inner N = 1200..19200 -- the premise Richardson extrapolation exploits.',
+         'rate (>= ~14x each step) over inner N = 1200..19200 -- the premise Richardson extrapolation uses.',
     holds: () => rawIsOrderFour && INNER_LADDER.length === 5,
   },
   {

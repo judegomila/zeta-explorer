@@ -168,11 +168,11 @@
  * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
  * SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The termwise TS inequality was
- * attacked on 60000 seeded pairs (rates to 21x the floor, edge-biased
+ * SKEPTICAL SELF-CHECK RECORD. (1) The termwise TS inequality was
+ * approached on 60000 seeded pairs (rates to 21x the floor, edge-biased
  * depths, W to 20.5, gaps to 15.2): worst ratio 0.8787384631400347,
  * zero violations. (2) The cluster-level Lemma TS and the pair
- * extraction were attacked on 8000 seeded clusters (to 5 packets, rates
+ * extraction were stress-tested on 8000 seeded clusters (to 5 packets, rates
  * to 30x, lo/hi/split/none bias cycle) with left-neighbor draws: worst
  * TS ratio 0.9793850084403858, worst pair ratio 0.979072741981957, zero
  * violations; the single-edge-packet equality case reproduces
@@ -183,7 +183,7 @@
  * violations, zero q-range violations; max attained alpha
  * 0.9454907524404704, max gamma 0.6882989029168624 (the corner is
  * approached, confirming the parametrization is not vacuous). (4) The
- * theorem battery attacks THEOREM VC directly: 6000 seeded parity-pure
+ * theorem battery probes THEOREM VC directly: 6000 seeded parity-pure
  * multi-packet witnesses at rates >= 1/4: max E = -0.03544721343090412,
  * zero E > 0 draws. (5) An early one-sided route (bounding
  * M_L + M_R <= 2 + mu max(D_L, D_R) without the kernel enhancement) was
@@ -390,7 +390,7 @@ function tiltExcess(c, edge, side, mu, D) {
   return s;
 }
 
-// battery T (seed 246810): termwise joint inequality attack
+// battery T (seed 246810): termwise joint inequality approach
 function runTermwiseBattery() {
   seedState = 246810;
   let worst = -Infinity;
@@ -416,7 +416,7 @@ function runTermwiseBattery() {
   return { worst, viol };
 }
 
-// battery C (seed 135791): cluster-level Lemma TS + pair-extraction attack
+// battery C (seed 135791): cluster-level Lemma TS + pair-extraction approach
 function runClusterBattery() {
   seedState = 135791;
   let worstTS = -Infinity;
@@ -450,7 +450,7 @@ function runClusterBattery() {
   return { worstTS, violTS, worstPB, violPB };
 }
 
-// battery R (seed 424243): end-to-end head reduction attack, BOTH parities
+// battery R (seed 424243): end-to-end head reduction approach, BOTH parities
 function runReductionBattery() {
   seedState = 424243;
   const D = [
@@ -509,7 +509,7 @@ function runReductionBattery() {
   return { violEntry, violStraddle, violRange, maxAlpha, maxGamma, count };
 }
 
-// battery W (seed 555777): THEOREM VC direct attack at rates >= 1/4
+// battery W (seed 555777): THEOREM VC direct approach at rates >= 1/4
 function runTheoremBattery() {
   seedState = 555777;
   let maxE = -Infinity;
@@ -667,7 +667,7 @@ export const IMP95137_TWO_SIDED_TILT_VECTOR_CAP_ASSERTIONS = [
   {
     id: "imp95137-vc-termwise-battery",
     description:
-      "the termwise Lemma TS inequality attacked on 60000 seeded Gram pairs (rates to 21x the floor, edge-biased depths): worst ratio 0.8787384631400347 < 1, zero violations",
+      "the termwise Lemma TS inequality approached on 60000 seeded Gram pairs (rates to 21x the floor, edge-biased depths): worst ratio 0.8787384631400347 < 1, zero violations",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_T.viol === 0 && BAT_T.worst < 1 && rel(BAT_T.worst, BAT_T_WORST_LIT, 1e-6);
@@ -676,7 +676,7 @@ export const IMP95137_TWO_SIDED_TILT_VECTOR_CAP_ASSERTIONS = [
   {
     id: "imp95137-vc-cluster-battery",
     description:
-      "cluster-level Lemma TS and the pair extraction attacked on 8000 seeded clusters (to 5 packets, rates to 30x, lo/hi/split/none bias cycle) with left-neighbor draws: worst TS ratio 0.9793850084403858, worst pair ratio 0.979072741981957, zero violations of either",
+      "cluster-level Lemma TS and the pair extraction approached on 8000 seeded clusters (to 5 packets, rates to 30x, lo/hi/split/none bias cycle) with left-neighbor draws: worst TS ratio 0.9793850084403858, worst pair ratio 0.979072741981957, zero violations of either",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -690,7 +690,7 @@ export const IMP95137_TWO_SIDED_TILT_VECTOR_CAP_ASSERTIONS = [
   {
     id: "imp95137-vc-reduction-battery",
     description:
-      "end-to-end head reduction attacked on 1500 full-head witnesses in BOTH parities (odd draws exercise the doubled gaps/widths; 1385 evaluable): zero entry-bound violations, zero straddle violations, zero q-range violations; max attained alpha 0.9454907524404704 and gamma 0.6882989029168624 show the parametrization is approached, not vacuous",
+      "end-to-end head reduction approached on 1500 full-head witnesses in BOTH parities (odd draws exercise the doubled gaps/widths; 1385 evaluable): zero entry-bound violations, zero straddle violations, zero q-range violations; max attained alpha 0.9454907524404704 and gamma 0.6882989029168624 show the parametrization is approached, not vacuous",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -706,7 +706,7 @@ export const IMP95137_TWO_SIDED_TILT_VECTOR_CAP_ASSERTIONS = [
   {
     id: "imp95137-vc-theorem-battery",
     description:
-      "THEOREM VC attacked directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 1/4 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.03544721343090412 strictly negative, zero E > 0 draws",
+      "THEOREM VC approached directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 1/4 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.03544721343090412 strictly negative, zero E > 0 draws",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_W.viol === 0 && BAT_W.maxE < 0 && rel(BAT_W.maxE, BAT_W_MAX_E_LIT, 1e-6);

@@ -146,19 +146,19 @@
  *   conditional collapse gammaOV -> gammaSL into an unconditional
  *   model-chain statement.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The K = 1 reduction attacked: LamBarM
+ * SKEPTICAL SELF-CHECK RECORD. (1) The K = 1 reduction stress-tested: LamBarM
  * and xStarM at K = 1 must reproduce the imp-95211 LamBar payoff rows and
  * xStar EXACTLY (asserted to rel 1e-12) -- any deviation would mean the
- * generalization changed the base case. (2) THEOREM DR-M attacked by a
+ * generalization changed the base case. (2) THEOREM DR-M approached by a
  * 4000-draw Rayleigh battery over random H-DYA-M configurations (1..3
  * shells, up to K rates per shell at in-shell ratios >= rho, shell jumps
  * >= 2, random depths and signed coefficients): no violation (a 20000-draw
  * offline run of the same battery: no violation, worst ratio to the bound
- * 0.171). (3) THEOREM HL-M attacked end-to-end by a 2500-draw witness
+ * 0.171). (3) THEOREM HL-M approached end-to-end by a 2500-draw witness
  * battery (multiple packets per rate, exact closed-form integrals): the
  * cross-seam fraction never exceeds min(1, LamBarM), and the per-rate
  * LEMMA R1 collapse identity holds pointwise on every draw. (4) COROLLARY
- * CP attacked on a (K, rho) grid: the bisected xStarM never exceeds the
+ * CP approached on a (K, rho) grid: the bisected xStarM never exceeds the
  * closed-form cap, and at K = 1 the cap is EXACT (delta = 0). (5) The NG
  * boundary checked: A_in(2, 1 + 1e-6) > 1e6 (the price diverges), the NG
  * witness rates violate H-DYA-M(., ., 2, 1.5) under every ordered-shell
@@ -583,7 +583,7 @@ export const IMP95212_MPD_ASSERTIONS = [
   {
     id: "imp95212-mpd-ng-boundary-and-threshold",
     description:
-      "NG-boundary and threshold structure: A_in(2, 1 + 1e-6) > 1e6 (the coalescence price diverges as rho -> 1) and cpCap diverges accordingly; the NG 7-node witness rates violate H-DYA-M(., ., 2, 1.5) under every ordered-shell partition (all consecutive ratios < 1.5 kill multi-rate shells, all < 2 kill singleton chains); LamBarM(.; 2, 1.5) is strictly decreasing, crosses 1/2 exactly at the baked threshold (above at -0.01, below at +0.01), and is vacuous (> 1) at m d = 3 where the K = 1 theorem delivered 0.2234",
+      "NG-boundary and threshold structure: A_in(2, 1 + 1e-6) > 1e6 (the coalescence price diverges as rho -> 1) and cpCap diverges accordingly; the NG 7-node witness rates violate H-DYA-M(., ., 2, 1.5) under every ordered-shell partition (all consecutive ratios < 1.5 eliminate multi-rate shells, all < 2 eliminate singleton chains); LamBarM(.; 2, 1.5) is strictly decreasing, crosses 1/2 exactly at the baked threshold (above at -0.01, below at +0.01), and is vacuous (> 1) at m d = 3 where the K = 1 theorem delivered 0.2234",
     holds: () => {
       if (!(aIn(2, 1 + 1e-6) > 1e6)) return false;
       if (!(cpCap(2, 1 + 1e-6) > cpCap(2, 2) + 10)) return false;

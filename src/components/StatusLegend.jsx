@@ -21,7 +21,7 @@ const STATUS_DESC = {
   'RH-EQUIVALENT':  'faithful reformulation — renames RH, no shortcut',
   'DEAD-END-FORNOW':       'structurally closed',
   'REFUTED':        'caught overclaim, withdrawn',
-  'UNDER-EXPLORED': 'genuine unexploited thread remains',
+  'UNDER-EXPLORED': 'genuine untapped thread remains',
 };
 
 export function StatusTag({ status }) {

@@ -23,8 +23,8 @@ export default function PtFloorSensitivityAuditPage() {
       meta={[`VERDICT ${meta.verdict} · confidence ${meta.confidence}`, meta.date]}
       title="What Binds the Λ ≤ 0.2 Floor? — Sensitivity Audit"
       dek={<>
-        The single highest-leverage RH-free experiment from a 79-agent adversarial review of novel
-        de Bruijn–Newman Λ attacks: at the barrier operating point, which of three candidates actually
+        The single highest-leverage RH-free experiment from a 79-agent skeptical review of novel
+        de Bruijn–Newman Λ approaches: at the barrier operating point, which of three candidates actually
         binds the rigorous Λ ≤ 0.2 floor — the <strong>verified zero height X</strong>, the{' '}
         <strong>barrier min-modulus / mesh slack</strong>, or the <strong>AFE tail e_C</strong>?
       </>}

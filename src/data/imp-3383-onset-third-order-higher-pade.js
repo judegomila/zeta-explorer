@@ -155,7 +155,7 @@ const P2_22 = A2 + A1 * Q1_22 + Q2_22;
 const P22 = (e) => (1 + P1_22 * e + P2_22 * e * e) / (1 + Q1_22 * e + Q2_22 * e * e);
 const DISC_22 = Q1_22 * Q1_22 - 4 * Q2_22;                       // <0 => complex poles
 
-// Relative error vs the direct phi evaluation, and the eps radius at first breach.
+// Relative error vs the direct phi evaluation, and the eps radius at first crossing.
 const relErr = (fn, eps) => Math.abs(fn(eps) - S_TRUE(eps)) / Math.abs(S_TRUE(eps));
 const radiusOf = (fn, tol) => {
   let lo = 1e-6, hi = 3;

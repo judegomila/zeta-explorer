@@ -198,7 +198,7 @@ export const IMP3405_BRIDGE_MASS_LAMBDA_SCALING_LAW = Object.freeze({
       'across a ladder of scale factors by direct integration, extending the imp-3349 single k = 2 point. ' +
       'It does not establish operator positivity.',
     necessaryNotSufficient:
-      'Mass-feasibility B > D_0 kills the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT; the ' +
+      'Mass-feasibility B > D_0 eliminates the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT; the ' +
       'degree-0 budget proxy is circular (its budget IS ||V||). The operator-level K_a >= 0 sign-positivity ' +
       '(off-diagonal endpoint-Hankel step, imp-3066) remains the lone obstruction, UNTOUCHED. No RH verdict.',
     didNotAttemptPositivity: true,

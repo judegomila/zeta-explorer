@@ -98,7 +98,7 @@
  *  (F) WIDE-SEPARATION COLLAPSE: at m = 4, r = 1.5 lattice, x = 8 the
  *      certificate is exact to 7.6e-9 relative (sum/exact - 1).
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Attempted refutation of the
+ * SKEPTICAL SELF-CHECK RECORD. (1) Attempted refutation of the
  * orthogonality claim W_k perp W_l via direct closed-form inner products
  * of the partial-fraction bases: worst normalized cosine 1.6e-11 (clean
  * configs) -- the decomposition is real, not an artifact of the pencil

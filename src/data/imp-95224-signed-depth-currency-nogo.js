@@ -99,14 +99,14 @@
  * fixed y_min is not computed (only the c = (a+b, -2b) family fence).
  * (d) All statements are model-family; nothing touches any Lambda bound.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) SGN-X was verified in EXACT BigInt
+ * SKEPTICAL SELF-CHECK RECORD. (1) SGN-X was verified in EXACT BigInt
  * rational arithmetic (assertion below: W = 3/8, T = 1, bound = 1/4,
  * R - bound = 1/8, factor = 3/2, all as reduced fractions) AND by an
  * independent 200000-panel Simpson quadrature of the actual f (W rel err
  * 5e-16, T truncation-limited 3e-8). (2) The V closed form was checked
  * against direct Gram evaluation at four (a, b, u) points (worst rel
  * 1.2e-14) and its u-monotonicity on a 400-point grid. (3) The silver
- * threshold was attacked from both sides: V_inf = 1.001216 at ratio
+ * threshold was stress-tested from both sides: V_inf = 1.001216 at ratio
  * 5.8184, 0.998790 at 5.8384, and b^2 - 6b + 1 vanishes at b = 3 +
  * 2 sqrt(2) to float precision. (4) The coalescence law was checked at
  * eps = 0.1/0.01/0.001 (V = 5.876952/6.239534/6.275954 -> 6.28 = 1/2 +
@@ -125,7 +125,7 @@
  * UNCHANGED (margin-sizing, per imp-95222); (2) amplitude sign/modulus
  * certificate -- RE-SCOPED BY REFUTATION: the imp-95223 open question is
  * ANSWERED (R <= e^(-y_min) is FALSE for signed multi-rate, exact rational
- * witness at N = 2), and COROLLARY DC-NOGO kills EVERY depth-only signed
+ * witness at N = 2), and COROLLARY DC-NOGO eliminates EVERY depth-only signed
  * bound, so the obligation now reads "price the signed width-law packets
  * in count/weight or per-window modulus/phase currency" -- the
  * octave-Szasz-weight route (imp-95219 pricing, positive cone) is the
@@ -221,7 +221,7 @@ export const IMP95224_SIGNED_DEPTH_CURRENCY_NOGO = {
     satKEdgePerDelta: SAT_K_EDGE_PER_DELTA,
   },
   subGap:
-    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (1) per-window Q extraction UNCHANGED (margin-sizing per imp-95222); (2) amplitude sign/modulus certificate RE-SCOPED BY REFUTATION, not discharged: the imp-95223 both-sides-open question is ANSWERED -- R <= e^(-y_min) is FALSE for signed multi-rate families (exact rational witness at N = 2), and COROLLARY DC-NOGO kills every depth-only signed bound, so the obligation now reads price the signed width-law packets in count/weight or per-window modulus/phase currency, with the imp-95219 octave-Szasz-weight pricing (positive cone) the designated port candidate; (3) envelope-shape port and the seam-convention to chain-gate (gammaSL-form) map UNCHANGED; (4) paper constants per window UNCHANGED. Leg (alpha) unchanged.",
+    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN. Obligation ledger: (1) per-window Q extraction UNCHANGED (margin-sizing per imp-95222); (2) amplitude sign/modulus certificate RE-SCOPED BY REFUTATION, not discharged: the imp-95223 both-sides-open question is ANSWERED -- R <= e^(-y_min) is FALSE for signed multi-rate families (exact rational witness at N = 2), and COROLLARY DC-NOGO eliminates every depth-only signed bound, so the obligation now reads price the signed width-law packets in count/weight or per-window modulus/phase currency, with the imp-95219 octave-Szasz-weight pricing (positive cone) the designated port candidate; (3) envelope-shape port and the seam-convention to chain-gate (gammaSL-form) map UNCHANGED; (4) paper constants per window UNCHANGED. Leg (alpha) unchanged.",
   verdict:
     "RIGOROUS step (an honest NEGATIVE with an exact positive core): THEOREM SGN-X closes the question imp-95223 left open on both sides -- the signed multi-rate seam bound R <= e^(-y_min) is REFUTED by a two-packet family whose every quantity is a ratio of small integers (W = 3/8, T = 1, bound = 1/4, factor 3/2). PROP SGN-V pins the entire violation family in closed form: silver-ratio deep threshold b/a < 3 + 2 sqrt(2), explicit onset depth, and the coalescence law V -> (1 + y_min^2)/2 showing quadratic-in-depth breakdown of the positive-cone bound at N = 2. THEOREM SGN-SAT proves the breakdown is total: signed co-centered families reach R -> 1/2 at every FIXED depth (exact elementary fences), so COROLLARY DC-NOGO: no depth-decaying signed certificate of ANY form exists -- depth currency is dead for signed amplitudes, and the only surviving seam-currency route is count/weight (or modulus/phase) pricing. HONEST: obligation (2) is re-scoped, NOT discharged; a count/weight-priced signed bound remains OPEN on both sides; nothing touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
   rigorScope:

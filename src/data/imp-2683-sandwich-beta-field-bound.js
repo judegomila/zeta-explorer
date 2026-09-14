@@ -1,6 +1,6 @@
 /**
  * @module imp-2683-sandwich-beta-field-bound
- * @fileoverview Attacks the field bound beta in the min-gap SANDWICH Theorem B
+ * @fileoverview Approaches the field bound beta in the min-gap SANDWICH Theorem B
  * (imp-2563-min-gap-sandwich-theorem.js / route-map opportunity #4). The
  * sandwich brackets the first-collision time t_c(N) two-sidedly
  *

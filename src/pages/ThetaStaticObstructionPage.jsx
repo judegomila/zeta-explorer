@@ -302,7 +302,7 @@ export default function ThetaStaticObstructionPage() {
               → Lemma R1-T3 seizing margin viz (asymmetric 4-tie closed form)
             </Link>
             <Link to="/spectral-attack" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>
-              → Spectral Attack (full Theta-trap ladder)
+              → Spectral Approach (full Theta-trap ladder)
             </Link>
             <Link to="/" style={{ fontSize: 12, color: 'var(--terra-dk)', textDecoration: 'none' }}>
               ← the atlas

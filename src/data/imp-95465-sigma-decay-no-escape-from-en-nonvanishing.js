@@ -164,7 +164,7 @@ export const IMP95465_SIGMA_DECAY_NO_ESCAPE = {
     'residual-above-floor -> 0 in lockstep with sigma -> 0), so it RE-STATES the imp-35164 ' +
     'obstruction rather than escaping it. All three imaginable escapes fail: a vanishing ' +
     'share removes leverage from the collapse channel not power from the floor; diminishing ' +
-    'returns pin E >= E_trunc; and the additive-independent E_coll cannot attack E_trunc ' +
+    'returns pin E >= E_trunc; and the additive-independent E_coll cannot approach E_trunc ' +
     '(the only rate-amplification route imp-2621 is REFUTED). Any escape must come from an ' +
     'N-independent E_trunc certificate (imp-34791) or the RH-equivalent C_H bridge (imp-35147), ' +
     'neither reachable via the height/collapse channel sigma measures. imp-2621 stays refuted, ' +

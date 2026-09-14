@@ -98,10 +98,10 @@
  *      delta = 0.3, m = 8, min-rate normalized) fire at x* = 14.4191 --
  *      the certificate is jitter-robust with no re-derivation, touching
  *      the live off-lattice residual (imp-95430/imp-95445 measured the
- *      breach thresholds of the LATTICE certificates; TILT-DET has no
- *      breach threshold to breach).
+ *      crossing thresholds of the LATTICE certificates; TILT-DET has no
+ *      crossing threshold to crossing).
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Attempted refutation of step (3)
+ * SKEPTICAL SELF-CHECK RECORD. (1) Attempted refutation of step (3)
  * via a pencil eigenvalue below 1: none exists (proven; verified to
  * eigenvalue 1.1154 minimum on a near-coalescent K = 5 config). (2)
  * Attempted refutation of domination at near-coalescence: the only
@@ -117,7 +117,7 @@
  * sharpness.
  *
  * HONEST LIMITS. (a) The majorant bounds LambdaPerp_k THROUGH the
- * ambient Lambda(V_k u U_k): it does not exploit the deflation
+ * ambient Lambda(V_k u U_k): it does not use the deflation
  * constraint (the zero conditions at U), so the deflation GAIN measured
  * by imp-95498 (onset 3.56 exact-ingredient) is NOT captured; the
  * re-scoped residual is a closed-form majorant strictly below
@@ -202,7 +202,7 @@ export const IMP95499_TILT_DETERMINANT_PERP_MAJORANT = {
     "coalescence-uniform LambdaPerp majorant",
   rescopedResidual:
     "a closed-form majorant STRICTLY BELOW Lambda(V_k u U_k) that " +
-    "exploits the deflation zeros at U (captures the imp-95498 deflation " +
+    "uses the deflation zeros at U (captures the imp-95498 deflation " +
     "gain); dividing out sub-leading pencil eigenvalues; porting the " +
     "tilt-determinant device to the RZ-PEN block-symbol floor",
   honestScope:

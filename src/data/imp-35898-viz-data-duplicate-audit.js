@@ -34,7 +34,7 @@ export const IMP35898_VIZ_DATA_DUPLICATE_AUDIT = {
   proofSection: 'S-frontier',
   question:
     'imp-35898 asked to add an import-light viz-data module for the imp-35852 five-ordering x ' +
-    'three-scheme adversarial summation error grid at N=488602, contrasted against the ' +
+    'three-scheme skeptical summation error grid at N=488602, contrasted against the ' +
     'imp-35761 coherent N*eps ceiling; audit whether such a module already exists before ' +
     'writing a duplicate.',
   finding:

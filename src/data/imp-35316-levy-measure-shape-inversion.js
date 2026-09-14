@@ -5,7 +5,7 @@
  * for the inherited imp-3220 / imp-3406 / imp-33723 SURROGATE Bernstein crossover map
  * g(N) = K log T0(N) (K = (C_C/E_trunc)^2 ~ 1.5727e8, T0 = effectiveHeightForN(N)), going BEYOND
  * the imp-35114 sign-only completely-monotone checks. imp-35114 extracted the Levy-Khintchine
- * ingredients (drift b = 0, killing a = K log T0(0+) >= 0, and g_prime completely monotone so
+ * ingredients (drift b = 0, eliminating a = K log T0(0+) >= 0, and g_prime completely monotone so
  * dmu >= 0 exists) but explicitly noted "all growth lives in the Levy integral term" WITHOUT
  * characterizing the measure density itself. This module numerically INVERTS the completely-monotone
  * g_prime to estimate the density profile dmu(t)/dt on a resolved t-range, then ROUND-TRIP

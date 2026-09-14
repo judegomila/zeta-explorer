@@ -99,7 +99,7 @@
  * formulation; its cover needs the (u, s, s2)-triple extension of LEMMA MC
  * -- the successor.
  *
- * ADVERSARIAL RECORD. (1) Soundness battery (A): random cells x random
+ * SKEPTICAL RECORD. (1) Soundness battery (A): random cells x random
  * feasible configurations -- the exact copositive min never dips below the
  * MC cell bound; zero-width cells reproduce the exact H to the nudge. (2)
  * Battery (B): random multi-doubled witnesses at band rates -- exact

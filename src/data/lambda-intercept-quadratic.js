@@ -15,7 +15,7 @@
  *   (1) the 5-point Path C baseline PATH_C_BASELINE_FIT (imp-309 / imp-323);
  *   (2) the 8-point imp-329 projected baseline (same 5 points + synthetic
  *       rows at N ∈ {1000, 3000, 5000} sitting EXACTLY on the linear OLS
- *       fit line — a deliberately adversarial test for the quadratic
+ *       fit line — a deliberately skeptical test for the quadratic
  *       model, since synthetic-on-linear-line points pull ĉ toward 0).
  *
  * For each dataset we report:

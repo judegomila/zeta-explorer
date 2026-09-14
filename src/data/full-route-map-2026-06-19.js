@@ -12,7 +12,7 @@
  * THE ONE-LINE TRUTH: there is NO hidden shortcut below RH anywhere in the map.
  * Every route that could deliver an actual Lambda number short of RH funnels
  * into ONE object -- the C_H / G6a Holder-1/2 shock modulus -- which is RH-hard
- * at the modulus (the obvious Gronwall attack is refuted, imp-2640). Everything
+ * at the modulus (the obvious Gronwall approach is refuted, imp-2640). Everything
  * else is rigorous-but-sharpens-the-wrong-term, a faithful RH reformulation, or
  * dead/refuted/non-binding. PLATT-TRUDGIAN Lambda <= 0.2 remains the rigorous
  * SOTA; the project did not produce it.
@@ -25,7 +25,7 @@
  *   RH-EQUIVALENT  - a faithful reformulation; renames RH, no shortcut
  *   DEAD-END-FORNOW       - structurally closed / 50-year wall
  *   REFUTED        - a caught overclaim, withdrawn
- *   UNDER-EXPLORED - genuine unexploited thread remains
+ *   UNDER-EXPLORED - genuine untapped thread remains
  */
 
 import { LAMBDA_DEPENDENCY_MATRIX } from './lambda-roadmap.js';
@@ -37,13 +37,13 @@ export const FULL_ROUTE_MAP = {
     lambdaUpper: [
       { name: 'Route A finite-N*=1e4 beat', status: 'ESTIMATE', opp: 3, note: 'gated on C_H; PT-comparable IF C_H lands' },
       { name: 'Route B Burgers lim-sup t_c->0 (imp-341)', status: 'RIGOROUS-SOTA', opp: 5, note: 'genuine rigorous crown jewel (PCC/GUE-free) but about the PARTICLE FLOW, not Lambda' },
-      { name: 'Route C density squeeze / G3a', status: 'DEAD-END-FORNOW', opp: 1, note: 'GUE extremal scaling R_N~N^4/3 kills it; dissolves into A/B' },
+      { name: 'Route C density squeeze / G3a', status: 'DEAD-END-FORNOW', opp: 1, note: 'GUE extremal scaling R_N~N^4/3 eliminates it; dissolves into A/B' },
       { name: 'Thin-strip E_trunc / kappa_T (imp-2622)', status: 'REFUTED', opp: 0, note: 'frozen-kappa height-mismatch artifact (imp-2630)' },
       { name: 'Step-4 bridge / Polymath15 G6a', status: 'OPEN-HARD', opp: 4, note: 'THE critical lever = C_H; RH-hard at the modulus' },
       { name: 'Theta-trap rigorous t_c^part bound', status: 'CONDITIONAL', opp: 6, note: 'rigorous but NEGATIVE for the headline (sign algebra; buys nothing on Lambda)' },
     ],
     directRH: [
-      { name: 'Volterra ||V||<=1 collapse (imp-1258)', status: 'RH-EQUIVALENT', opp: 1, note: 'KILLED as reduction; 5000x margin was a homogeneity artifact' },
+      { name: 'Volterra ||V||<=1 collapse (imp-1258)', status: 'RH-EQUIVALENT', opp: 1, note: 'ELIMINATED as reduction; 5000x margin was a homogeneity artifact' },
       { name: 'Normalized-R / Conj-26.3', status: 'RH-EQUIVALENT', opp: 2, note: 'least-ruled-out direct target but information-preservingly RH-equivalent' },
       { name: 'Beurling-Nyman (imp-1312)', status: 'RH-EQUIVALENT', opp: 1, note: 'strict equivalence; d_N~1/sqrt(log N) astronomically slow' },
       { name: 'de Branges / CDB-Exist (imp-1340)', status: 'RH-EQUIVALENT', opp: 1, note: 'vacuous without Hermite-Biehler positivity = RH' },
@@ -72,14 +72,14 @@ export const FULL_ROUTE_MAP = {
       { name: 'Conrey-Snaith moments (imp-1126)', status: 'CONDITIONAL', opp: 2, note: 'RMT-conditional' },
     ],
     originalIdeas: [
-      { name: 'Zeta-as-supercritical-fluid thermodynamics', status: 'ESTIMATE', opp: 4, note: 'bulk order-parameter EMPIRICALLY killed (imp-2323, no transition in (1/2,1)); pressure families = RH-equivalent' },
+      { name: 'Zeta-as-supercritical-fluid thermodynamics', status: 'ESTIMATE', opp: 4, note: 'bulk order-parameter EMPIRICALLY eliminated (imp-2323, no transition in (1/2,1)); pressure families = RH-equivalent' },
       { name: 'Topological surface tension = quantized winding', status: 'DEAD-END-FORNOW', opp: 1, note: 'CLOSED (was UNDER-EXPLORED): experiment run (imp-2673/2696/2859), interpretation CORRECTED by imp-34813 -- the Gaussian proxy was the EXACT flow in negative de Bruijn time (conv identity ~1e-9), the "artifact" drop was genuine zeros-leaving-the-line; monotonicity is classical (de Bruijn Thm 13 + jet lemma); ceiling refined: lower side hard-capped (Lambda>0 iff RH false), upper side = the existing Lambda<=0.2 architecture; no new bound' },
       { name: 'Selberg S(T) super-critical (imp-1333)', status: 'RH-EQUIVALENT', opp: 1, note: 'circular Lambda link' },
       { name: 'Levinson-Conrey mollifier (imp-1336)', status: 'DEAD-END-FORNOW', opp: 1, note: 'symmetry-locked to the line' },
-      { name: 'Berry-Keating H=xp (Hilbert-Polya)', status: 'OPEN-HARD', opp: 3, note: 'genuinely open but the missing piece IS the PCC wall; heavily attacked in literature' },
+      { name: 'Berry-Keating H=xp (Hilbert-Polya)', status: 'OPEN-HARD', opp: 3, note: 'genuinely open but the missing piece IS the PCC wall; heavily approached in literature' },
       { name: 'Connes adelic / Weil-positivity', status: 'RH-EQUIVALENT', opp: 2, note: 'Weil positivity = RH across all sub-routes' },
       { name: 'Voronin universality', status: 'RH-EQUIVALENT', opp: 1, note: 'Bagchi strong-recurrence = RH; nonvanishing is where RH hides' },
-      { name: 'Twin-ladder multiplicative deformation', status: 'DEAD-END-FORNOW', opp: 1, note: 'does not reach Lambda; only descendant (Volterra) killed' },
+      { name: 'Twin-ladder multiplicative deformation', status: 'DEAD-END-FORNOW', opp: 1, note: 'does not reach Lambda; only descendant (Volterra) eliminated' },
       { name: 'Prime-caustic / phase-crystal', status: 'DEAD-END-FORNOW', opp: 2, note: 'visualization/metaphor, sigma-independent' },
     ],
     // Post-freeze frontier (added 2026-09-02): the permutation-architecture campaign
@@ -140,9 +140,9 @@ export const ROUTE_MAP_CROSS_CHECK = {
 };
 
 export const FULL_ROUTE_MAP_NEXT_MOVE = {
-  primary: 'Focused adversarially-refereed assault on C_H, framed as "sharpen E(N) toward a CONDITIONAL rigorous beat" (NOT "prove Lambda<0.2"): can the Theta/isolation machinery + exact discriminant ladder supply a COLLISION-REGULARIZED replacement for the divergent Gronwall integral, bounding the shock modulus near the collision where Gronwall blows up? Fails cleanly -> definitively retires the finite-N beat to ESTIMATE.',
+  primary: 'Focused independently-refereed push on C_H, framed as "sharpen E(N) toward a CONDITIONAL rigorous beat" (NOT "prove Lambda<0.2"): can the Theta/isolation machinery + exact discriminant ladder supply a COLLISION-REGULARIZED replacement for the divergent Gronwall integral, bounding the shock modulus near the collision where Gronwall blows up? Fails cleanly -> definitively retires the finite-N beat to ESTIMATE.',
   secondary: 'Time-boxed supercritical-fluid winding-under-heat-flow numerical experiment (d(winding)/d(tau) monotonicity).',
-  doNotInvest: 'PCC attacks, zero-density / literature ports (non-binding E_trunc), re-running the Volterra bare-V pilot.',
+  doNotInvest: 'PCC approaches, zero-density / literature ports (non-binding E_trunc), re-running the Volterra bare-V pilot.',
 };
 
 export const FULL_ROUTE_MAP_ASSERTIONS = [

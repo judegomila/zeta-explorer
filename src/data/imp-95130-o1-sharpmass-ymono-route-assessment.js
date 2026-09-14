@@ -6,7 +6,7 @@
  *
  * THE RESTATED OBLIGATION (imp-95208 STAGE1.obligationsRestated / refereeRecord)
  * ------------------------------------------------------------------------------
- * O1 was re-scoped upward by the 2026-09-10 adversarial referee pass. It is no
+ * O1 was re-scoped upward by the 2026-09-10 independent referee pass. It is no
  * longer "run the triangle Dini cover down to 0.1808 and splice" (route (a),
  * STRUCK: the transfer runs upward from a bottom-edge anchor of the TRIANGLE
  * functional, and the package own sweep shows that triangle floor at 0.1808 has

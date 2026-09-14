@@ -25,7 +25,7 @@
 // (b) Does Apps M-O extend the imp-1258 §15-27 collapse to a wider operator
 //     class (block / matrix-valued / Pontryagin-passive)?
 // (c) Does Apps M-O carry any NEW closure paths to Lambda that the imp-1267
-//     HS / imp-1287 WH wave-15/16 attacks missed?
+//     HS / imp-1287 WH wave-15/16 approaches missed?
 //
 // METHOD
 // ------
@@ -383,7 +383,7 @@ const CLAIM_O_1 = Object.freeze({
     'The Baker-independence-modulated density extension is the open content. ' +
     'Lindemann-Weierstrass on log p (Baker 1966 generalization) makes the ' +
     'delay set linearly independent over Q but does NOT make it dense over R. ' +
-    'A density extension that exploits arithmetic structure of {log p} rather ' +
+    'A density extension that uses arithmetic structure of {log p} rather ' +
     'than topological density would be NEW; none such is established.',
 
   obstruction:
@@ -592,7 +592,7 @@ const QUESTION_C = Object.freeze({
   id: 'q-c-new-closure-paths',
   question:
     'Does Apps M-O carry any NEW closure paths to Lambda that imp-1267 HS / ' +
-    'imp-1287 WH wave-15/16 attacks missed?',
+    'imp-1287 WH wave-15/16 approaches missed?',
   answer: 'no',
   rationale:
     'No. Apps M-O supplies finite-N CHOLESKY PILOTS only (G_{a,N} > 0 at ' +

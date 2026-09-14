@@ -1,26 +1,26 @@
 /**
  * @module data/three-attacks-section
- * @fileoverview imp-1199 -- Paper section 18 "Three Direct Attacks on Ghost
+ * @fileoverview imp-1199 -- Paper section 18 "Three Direct Approaches on Ghost
  *   Absence" — frozen record powering the /three-attacks app page.
  *
  *   This module renders section 18 (pages 26-31) of the consolidated paper
  *   research-inputs/twin_ladder_consolidated_v52.pdf. The section motivates a
  *   "ghost absence" theorem (Conjecture 18.4: the inverse Blaschke ghost
  *   factor B_a^+ is identically 1 for every shift a > 0) and presents three
- *   non-circular attack routes that each reduce to the same statement:
+ *   non-circular approach routes that each reduce to the same statement:
  *
- *     Attack I   -- kernel/passivity closure (Conjecture 18.1):
+ *     Approach I   -- kernel/passivity closure (Conjecture 18.1):
  *                   realize the pair (A_a, B_a) as the Weyl transfer pair of
  *                   a positive Hamiltonian canonical system whose energy
  *                   kernel is K_a.
  *
- *     Attack II  -- prime-delay domination (Conjecture 18.2):
+ *     Approach II  -- prime-delay domination (Conjecture 18.2):
  *                   establish Re(X'/X)(w) > 0 in the half-plane Re w > 0 by
  *                   showing the completed archimedean drift G_infty dominates
  *                   the coherent prime-delay echo train under the analytic
  *                   continuation dictated by the Weil explicit formula.
  *
- *     Attack III -- Weil/Pontryagin index closure (Theorem 18.3 +
+ *     Approach III -- Weil/Pontryagin index closure (Theorem 18.3 +
  *                   Conjecture 18.4): certify that the negative index
  *                   ind_-(K_a) of the shifted twin-ladder Weil form is zero
  *                   in every spectral window and pass to the limit.
@@ -38,9 +38,9 @@
  *
  *   Tripwires (THREE_ATTACKS_SECTION_ASSERTIONS): six build-time guards
  *   wiring the section into the run-assertions.mjs sweep. They check
- *   (i) exactly three attacks are present, (ii) each attack carries a
+ *   (i) exactly three approaches are present, (ii) each approach carries a
  *   non-empty conjecture id of the form "Conjecture 18.x" or "Theorem 18.x",
- *   (iii) each attack carries a non-empty statement, mathFormulation, and
+ *   (iii) each approach carries a non-empty statement, mathFormulation, and
  *   blocker, (iv) the synthesis paragraph is non-empty and mentions the
  *   shared B_a^+ = 1 obstruction, (v) the section title cites §18 and
  *   "Ghost Absence", and (vi) the ghost-absence theorem (Conjecture 18.4)
@@ -55,7 +55,7 @@
 
 // ── Section title and provenance ────────────────────────────────────────────
 
-const SECTION_TITLE = 'Three Direct Attacks on Ghost Absence (§18)';
+const SECTION_TITLE = 'Three Direct Approaches on Ghost Absence (§18)';
 
 const SECTION_PROVENANCE = {
   paperSource: 'research-inputs/twin_ladder_consolidated_v52.pdf',
@@ -64,7 +64,7 @@ const SECTION_PROVENANCE = {
   consolidatedDraft: 'v52',
 };
 
-// ── Section opening (the gateway / setup of the three attacks) ──────────────
+// ── Section opening (the gateway / setup of the three approaches) ──────────────
 
 const SECTION_OPENING = (
   'The inverse-Blaschke factorization isolates the remaining wall. For ' +
@@ -73,16 +73,16 @@ const SECTION_OPENING = (
   'Possible failure of Schur contractivity is therefore not diffuse: it is ' +
   'carried by right-half-plane poles of R_a, equivalently by zeros lambda ' +
   'of X with Re lambda > a. The previous section factors those poles into ' +
-  'inverse Blaschke ghosts. This section attacks the ghost-absence theorem ' +
+  'inverse Blaschke ghosts. This section approaches the ghost-absence theorem ' +
   'through the three remaining routes: (1) kernel/passivity closure; ' +
   '(2) prime-delay domination; (3) Weil/Pontryagin index closure. The ' +
   'conclusion is not a completed proof of RH. The conclusion is sharper: ' +
-  'each attack reduces to the same explicit no-ghost statement ' +
+  'each approach reduces to the same explicit no-ghost statement ' +
   'B_a^+ = 1 (a > 0), and each route gives a different possible way to ' +
   'prove it non-circularly.'
 );
 
-// ── Attack I: kernel/passivity closure (Conjecture 18.1) ────────────────────
+// ── Approach I: kernel/passivity closure (Conjecture 18.1) ────────────────────
 
 const ATTACK_I = Object.freeze({
   id: 'attack-I-kernel-passivity',
@@ -232,7 +232,7 @@ const ATTACK_I = Object.freeze({
   }),
 });
 
-// ── Attack II: prime-delay domination (Conjecture 18.2) ─────────────────────
+// ── Approach II: prime-delay domination (Conjecture 18.2) ─────────────────────
 
 const ATTACK_II = Object.freeze({
   id: 'attack-II-prime-delay-domination',
@@ -281,7 +281,7 @@ const ATTACK_II = Object.freeze({
   ),
 });
 
-// ── Attack III: Weil/Pontryagin index closure (Theorem 18.3 + Conj 18.4) ────
+// ── Approach III: Weil/Pontryagin index closure (Theorem 18.3 + Conj 18.4) ────
 
 const ATTACK_III = Object.freeze({
   id: 'attack-III-weil-pontryagin',
@@ -396,7 +396,7 @@ export const THREE_ATTACKS_SECTION = Object.freeze({
   honestScopeNotes: Object.freeze([
     'This module is a PRESENTATION LAYER over §18 of the user paper ' +
     '(twin_ladder_consolidated_v52.pdf). No new mathematics is asserted.',
-    'All three attacks are flagged CONDITIONAL or RESEARCH-OPEN. The ' +
+    'All three approaches are flagged CONDITIONAL or RESEARCH-OPEN. The ' +
     'page must not advertise any of them as a completed proof of RH.',
     'The synthesis explicitly states that all three routes reduce to the ' +
     'same Ghost Absence Theorem (Conjecture 18.4), and that each route ' +
@@ -411,8 +411,8 @@ export const THREE_ATTACKS_SECTION = Object.freeze({
 
 // ── imp-2364: Pontryagin negative-index ind_-(K_a) numerical tracking ────────
 //
-// FAN-OUT (Attack III, Theorem 18.3 + Conjecture 18.4). The central reduction
-// of Attack III is ind_-(K_a) = #P_a with
+// FAN-OUT (Approach III, Theorem 18.3 + Conjecture 18.4). The central reduction
+// of Approach III is ind_-(K_a) = #P_a with
 //
 //     P_a = { lambda - a : X(lambda) = 0, Re lambda > a },
 //
@@ -586,13 +586,13 @@ export const ATTACK_III_INDEX_NUMERICS = Object.freeze({
   }),
   verdict: 'ind-minus-zero-on-window-grid-rh-true-no-proof',
   honestScope:
-    'NUMERICAL fan-out of Attack III. The winding-number index is an exact ' +
+    'NUMERICAL fan-out of Approach III. The winding-number index is an exact ' +
     'integer invariant; on the RH-true zero model it is 0 for every tested a ' +
     'in (0, 5) and every window T in {30, 55, 80}, robustly (max |raw winding| ' +
     '~ 1e-13, stable under contour refinement). The off-line control proves ' +
     'the computation is a faithful detector rather than a trivial zero. This ' +
     'does NOT prove ind_-(K_a) = 0 for all a and all windows uniformly (which ' +
-    'is Conjecture 18.4 = RH) -- it tests the central conjecture of Attack III ' +
+    'is Conjecture 18.4 = RH) -- it tests the central conjecture of Approach III ' +
     'on the verified low-lying zeros and finds it holds with no near-crossing ' +
     'for any a > 0.',
   references: Object.freeze({
@@ -617,9 +617,9 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
       );
     },
     why:
-      'Section 18 names exactly three attacks (I kernel/passivity, II ' +
+      'Section 18 names exactly three approaches (I kernel/passivity, II ' +
       'prime-delay domination, III Weil/Pontryagin index closure). The ' +
-      'attacks array must have exactly three entries in that order; ' +
+      'approaches array must have exactly three entries in that order; ' +
       'fewer or more indicates the section has drifted from the paper.',
   },
 
@@ -635,9 +635,9 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
       );
     },
     why:
-      'Every attack must cite a conjecture or theorem id of the form ' +
-      '"Conjecture 18.x" or "Theorem 18.x" (Attack I cites 18.1, ' +
-      'Attack II cites 18.2, Attack III cites Theorem 18.3 plus ' +
+      'Every approach must cite a conjecture or theorem id of the form ' +
+      '"Conjecture 18.x" or "Theorem 18.x" (Approach I cites 18.1, ' +
+      'Approach II cites 18.2, Approach III cites Theorem 18.3 plus ' +
       'Conjecture 18.4). A missing or malformed id breaks the citation ' +
       'chain from the page back to the paper.',
   },
@@ -654,7 +654,7 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
       );
     },
     why:
-      'Each attack must carry (i) a substantive plain-text statement of ' +
+      'Each approach must carry (i) a substantive plain-text statement of ' +
       'the conjecture (>50 chars), (ii) at least three KaTeX-ready math ' +
       'formulations, and (iii) a substantive blocker description (>50 ' +
       'chars). Under-developed entries would let the page render but ' +
@@ -679,7 +679,7 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
       'chars), (b) name the Ghost Absence Theorem, (c) cite the shared ' +
       'reduction target B_a^+ = 1, and (d) cite Conjecture 18.4. Any ' +
       'missing piece would weaken the load-bearing claim that the three ' +
-      'attacks reduce to the same statement.',
+      'approaches reduce to the same statement.',
   },
 
   {
@@ -711,7 +711,7 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
       );
     },
     why:
-      'Every attack must carry a currentStatus drawn from a closed ' +
+      'Every approach must carry a currentStatus drawn from a closed ' +
       'whitelist (CONDITIONAL, RESEARCH-OPEN, PARTIAL, OPEN) and a non-empty ' +
       'badgeColor. A "complete" or "closed" status would falsely advertise ' +
       'a proof of RH, which §18 explicitly disclaims.',
@@ -728,7 +728,7 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
              formulas.includes('\\cos(2zu)');
     },
     why:
-      'Attack I must display the canonical e9/e5 Phi and factor-2 transform ' +
+      'Approach I must display the canonical e9/e5 Phi and factor-2 transform ' +
       'arguments; the historical e4/e2 unscaled surrogate caused the false ' +
       'negative-pivot inference.',
   },
@@ -771,11 +771,11 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
     why:
       'The §18.4 synthesis table mapping {route -> positive object, ' +
       'ghost obstruction} must have exactly three rows mirroring the ' +
-      'three attacks; missing or extra rows indicate drift from the ' +
+      'three approaches; missing or extra rows indicate drift from the ' +
       'paper synthesis.',
   },
 
-  // imp-2364: Pontryagin negative-index numerical tracking (Attack III).
+  // imp-2364: Pontryagin negative-index numerical tracking (Approach III).
   {
     id: 'imp2364-online-index-is-zero-on-whole-grid',
     holds: () =>
@@ -784,7 +784,7 @@ export const THREE_ATTACKS_SECTION_ASSERTIONS = [
         IMP2364_A_GRID.length * IMP2364_T_WINDOWS.length &&
       ATTACK_III_INDEX_NUMERICS.onlineIndexTable.every((r) => r.indMinus === 0),
     why:
-      'The headline empirical fact for Attack III: on the RH-true ' +
+      'The headline empirical fact for Approach III: on the RH-true ' +
       '(on-critical-line) zero model the Pontryagin negative index ' +
       'ind_-(K_a) = 0 for every tested a in (0, 5) and every window ' +
       'T in {30, 55, 80}, supporting Conjecture 18.4. A nonzero cell ' +

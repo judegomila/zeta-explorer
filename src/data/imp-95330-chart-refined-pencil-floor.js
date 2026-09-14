@@ -102,7 +102,7 @@
  * 14.016839 -> 13.071303; r = 1.05: 13.764502 -> 12.817538.
  * A_pen4(2, 1.3) = 3.036521148e-9 = 225.76 x A_blk.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Refutation attempts FAILED: 54
+ * SKEPTICAL SELF-CHECK RECORD. (1) Refutation attempts FAILED: 54
  * (rho, r) cells across rho in {2, 2.5, 3, 4, 10, e^6} with r from
  * 1.0005 to rho^0.999 (both coalescence ends), each with an 8001-point
  * coarse theta scan plus 3 rounds of local refinement around the five

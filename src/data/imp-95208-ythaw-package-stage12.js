@@ -55,9 +55,9 @@
  * Until O1-O6 close, 0.17759432 is a package value, not a bound.
  *
  * REFEREE RECORD (appended 2026-09-10; history above kept verbatim): full
- * adversarial pass (note + sealed chain + Polymath Lemma 8.5 + producer
+ * skeptical pass (note + sealed chain + Polymath Lemma 8.5 + producer
  * source + Lean statements + 400k randomized trials). S0 SOUND and
- * load-bearing: the endpoint-motion proof survives step-by-step attack (the
+ * load-bearing: the endpoint-motion proof survives step-by-step approach (the
  * u* > u_minus V-shaped regime handled correctly; 200k randomized trials
  * zero violations; no hidden side conditions); critically, Polymath's
  * boundary-phase reduction provably does NOT port to the modulus form
@@ -90,12 +90,12 @@ export const YTHAW_ROW = {
   yMax: 0.823103881657717, // sqrt(1 - 2 t0), unchanged by the thaw
 };
 
-// ── referee record (appended 2026-09-10; adversarial pass) ──────────────────
+// ── referee record (appended 2026-09-10; skeptical pass) ──────────────────
 export const REFEREE_RECORD_2026_09_10 = {
   date: '2026-09-10',
   scope:
     'note + sealed chain + Polymath Lemma 8.5 + producer source + Lean statements + 400k randomized trials',
-  s0: 'SOUND and load-bearing — endpoint-motion proof survives step-by-step attack: u* > u_minus V-shaped regime handled correctly; 200k randomized trials zero violations; no hidden side conditions',
+  s0: 'SOUND and load-bearing — endpoint-motion proof survives step-by-step approach: u* > u_minus V-shaped regime handled correctly; 200k randomized trials zero violations; no hidden side conditions',
   s0ExactRepair:
     "Polymath's boundary-phase reduction provably does NOT port to the modulus form (dist-to-ray vs dist-to-{0}: 0 can sit inside a disk whose boundary has large modulus), so S0 is the exact necessary repair",
   rows1to6: 'region-membership ACCURATE',
@@ -141,11 +141,11 @@ export const STAGE1 = {
     'O5 site coverage x_*(0.1808) in window 690988',
     'O6 criterion assembly at y0 = 0.1808',
   ],
-  // ── appended 2026-09-10 (adversarial referee pass; obligationsOpen above
+  // ── appended 2026-09-10 (independent referee pass; obligationsOpen above
   // kept verbatim as history — O1 there is the ORIGINAL statement) ──
   refereeRecord: REFEREE_RECORD_2026_09_10,
   gradeUpdate2026_09_10:
-    'prose-proof, REFEREED (adversarial pass 2026-09-10): S0/S1/S2 sound; rows 1-6 accurate; O1 restated (see refereeRecord.o1Restated)',
+    'prose-proof, REFEREED (skeptical pass 2026-09-10): S0/S1/S2 sound; rows 1-6 accurate; O1 restated (see refereeRecord.o1Restated)',
   obligationsRestated: [
     "O1 (RESTATED, supersedes the O1 wording above): prove SHARP-MASS Y-MONOTONICITY of the max-of-kinked-branches summand with y-dependent c(gamma) on [0.1808, 0.187272] — NEW theorem + new producer + new certificates, cost re-scoped upward; route (a) triangle-Dini extension + splice STRUCK (triangle anchor at 0.1808 collapsed per this package's own sweep)",
   ],
@@ -346,7 +346,7 @@ export const IMP_95208_YTHAW_ASSERTIONS = [
       STAGE2.threads <= 12,
     why: 'The run landed far inside the greenlit ~12 CPU-hr envelope: 7,265 CPU-s (~2.02 CPU-hr), 666 s wall on a 12-slot nice-15 pool — the hw = 1e-3 rebuild cadence (remainder cost ~1e-21) removed ~100x of the patch-rebuild estimate.',
   },
-  // appended 2026-09-10 (adversarial referee pass)
+  // appended 2026-09-10 (independent referee pass)
   {
     id: 'imp-95208-ythaw-referee-record-appended',
     holds: () =>
@@ -358,7 +358,7 @@ export const IMP_95208_YTHAW_ASSERTIONS = [
       STAGE1.obligationsOpen[0].startsWith('O1 all-y transfer (Dini)') &&
       STAGE1.obligationsRestated.length === 1 &&
       STAGE1.obligationsRestated[0].includes('SHARP-MASS Y-MONOTONICITY'),
-    why: 'The 2026-09-10 adversarial referee record is appended (not rewritten over history): S0 sound and load-bearing, boundary-phase reduction non-portable to modulus form, O5 shift nit fixed to 1.212e-3, and O1 restated as sharp-mass y-monotonicity with the triangle-Dini route struck while the original O1 wording is preserved in obligationsOpen.',
+    why: 'The 2026-09-10 independent referee record is appended (not rewritten over history): S0 sound and load-bearing, boundary-phase reduction non-portable to modulus form, O5 shift nit fixed to 1.212e-3, and O1 restated as sharp-mass y-monotonicity with the triangle-Dini route struck while the original O1 wording is preserved in obligationsOpen.',
   },
 ];
 

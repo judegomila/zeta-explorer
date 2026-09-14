@@ -56,7 +56,7 @@
  * dominated lower face and DO NOT move the headline inequality. What they buy
  * is fidelity of the per-N model that controls the BRIDGE CONSTANTS E(N)
  * (how faithfully the truncated N-particle collision tracks the true Lambda),
- * not a direct attack on Lambda <= 0. The roadmap narrative that framed SG1
+ * not a direct approach on Lambda <= 0. The roadmap narrative that framed SG1
  * as the headline lever must be rewritten accordingly.
  *
  * imp-1149 RECALIBRATION (S4 agent)

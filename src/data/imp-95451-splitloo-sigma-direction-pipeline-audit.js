@@ -75,7 +75,7 @@
  * LINK 1 (the collar as a genuine norm-amplification upper bound) was NOT
  * previously audited, so this module supplies it: on a concrete twin lattice
  * V_k = {2^k, r 2^k} it (i) computes the true sigma_k, (ii) draws many
- * deterministic adversarial coefficient vectors F = F_k + G, and checks that
+ * deterministic skeptical coefficient vectors F = F_k + G, and checks that
  * the realized amplification ||F_k||/||F|| never exceeds the collar
  * 1/sqrt(1 - sigma_k^2) (LINK 1 direction), the ratio approaching 1 at the
  * principal direction; and it re-confirms the LINK-2 chain
@@ -246,11 +246,11 @@ function gramNorm2(coeff, allRates) {
 }
 
 // LINK 1 AUDIT: is the collar 1/sqrt(1 - sigma_k^2) a genuine UPPER bound on
-// the realized amplification ||F_k||/||F|| for adversarial F = F_k + G, AND is
+// the realized amplification ||F_k||/||F|| for skeptical F = F_k + G, AND is
 // it SHARP (attained)? The exact sup of ||F_k||^2/||F||^2 over all F is the
 // largest generalized eigenvalue of the pencil (J G J, G), J = diag(1 on the
 // block-k coords, 0 else); LEMMA LOO claims this sup equals 1/(1 - sigma_k^2).
-// We verify BOTH: (i) every adversarial sample stays under the collar, and
+// We verify BOTH: (i) every skeptical sample stays under the collar, and
 // (ii) the exact pencil sup equals the collar (sharpness -> the collar is the
 // load-bearing quantity, so an upper bound on sigma_k over-estimates it).
 function link1CollarAudit(m, r, nSamples) {
@@ -274,7 +274,7 @@ function link1CollarAudit(m, r, nSamples) {
     const supRatio = Math.sqrt(ev[ev.length - 1]);
     const sharpErr = Math.abs(supRatio - collar) / collar;
     if (sharpErr > worstSharpErr) worstSharpErr = sharpErr;
-    // (i) adversarial samples must never exceed the collar
+    // (i) skeptical samples must never exceed the collar
     for (let t = 0; t < nSamples; t++) {
       const c = [];
       for (let i = 0; i < all.length; i++) c.push(2 * rnd() - 1);
@@ -388,7 +388,7 @@ export const IMP95451_ASSERTIONS = [
   {
     id: "imp-95451-link1-collar-is-upper-bound",
     description:
-      "LINK 1 (LEMMA LOO): across adversarial coefficient vectors the realized "
+      "LINK 1 (LEMMA LOO): across skeptical coefficient vectors the realized "
       + "amplification ||F_k||/||F|| never exceeds the collar 1/sqrt(1 - "
       + "sigma_k^2) -- the collar is a genuine UPPER bound (safe direction)",
     holds: () => LINK1.worstDeficit >= -1e-9,

@@ -4,7 +4,7 @@
 a NEW candidate package citing the sealed 0.1787854 candidate as base. Sealed
 material (`~/dbn-lambda-audit-review/`, gate2-evaluator copies) is read-only input.
 
-**Grade:** prose-proof; adversarial referee pass 2026-09-10 (see REFEREE
+**Grade:** prose-proof; independent referee pass 2026-09-10 (see REFEREE
 RECORD below). This note proves ONE lemma — the
 per-window binding of the sharp-weight floor at the displaced height — and
 audits every step of the sealed binding chain for hidden uses of the
@@ -24,13 +24,13 @@ and the barrier-section Lemma "Improved triangle inequality".
 
 ---
 
-## REFEREE RECORD (adversarial pass, 2026-09-10)
+## REFEREE RECORD (skeptical pass, 2026-09-10)
 
-Full adversarial pass over the note + the sealed chain + Polymath Lemma 8.5 +
+Full skeptical pass over the note + the sealed chain + Polymath Lemma 8.5 +
 the producer source + the Lean statements + 400k randomized trials.
 
 - **S0 SOUND and load-bearing.** The endpoint-motion proof survives
-  step-by-step attack: the u* > u₋ V-shaped regime is handled correctly;
+  step-by-step analysis: the u* > u₋ V-shaped regime is handled correctly;
   200k randomized trials found zero violations; no hidden side conditions.
 - **S0 is the exact necessary repair.** Polymath's boundary-phase reduction
   provably does NOT port to the modulus form (dist-to-ray vs dist-to-{0}:

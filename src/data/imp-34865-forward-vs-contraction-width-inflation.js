@@ -10,7 +10,7 @@
  * the width, in which case the flat gamma(n_op) bound UNDERSTATES. This module MEASURES that inflation: it
  * instantiates BOTH routes numerically with a directed-rounding surrogate (interval endpoints outward-rounded
  * by one relative EPS per elementary operation) and reports the forward-propagation-vs-contraction width
- * ratio for [T0] at N_cross, then checks whether forward-propagation breaches the imp-34799 (H2) bracket
+ * ratio for [T0] at N_cross, then checks whether forward-propagation crosses the imp-34799 (H2) bracket
  * margin the contraction route clears. FEASIBILITY / MEASUREMENT ONLY; does NOT instantiate the imp-34687a
  * directed-rounding layer; imp-34714a REMAINS OPEN; NO QED.
  *
@@ -35,7 +35,7 @@
  *   - FORWARD width doubles per step: 4.58e5 -> 9.15e5 -> 1.83e6 -> 3.66e6 -> 7.32e6 (T-units) over the ~4
  *     Newton steps of the op-DAG. Mapped to the N-index endpoint image half-width (r_F = K*(w_T/2)/T0, then
  *     r_image = r_F/FP_LO) that is 3.30e4 -> ... -> 5.27e5 after 4 steps: ALREADY ~80 percent of the (H2)
- *     margin delta*N_cross ~ 6.56e5, and it BREACHES the margin at step 5 (ratio 1.61). So the depth-30 chain
+ *     margin delta*N_cross ~ 6.56e5, and it Crosses the margin at step 5 (ratio 1.61). So the depth-30 chain
  *     leaves essentially no head-room and one further step OVERRUNS the bracket.
  *   - CONTRACTION width collapses to ~2.9e-6 in T-units, i.e. an N-index endpoint image half-width ~2.06e-7 --
  *     ~3.1e-13 of the (H2) margin, ~12.5 orders BELOW it (consistent with the imp-34840 ~10-orders head-room
@@ -48,7 +48,7 @@
  * The doubling factor 2 is a STRUCTURAL property of interval subtraction at a Newton fixed point (the
  * correction interval width matches the iterate width), NOT an artifact of the outward-rounding surrogate --
  * the surrogate rounding contributes only the sub-ULP tail. So the qualitative verdict (forward propagation
- * compounds and breaches; contraction does not) is robust; only the exact ~2.56e12 ratio is surrogate-model
+ * compounds and crossings; contraction does not) is robust; only the exact ~2.56e12 ratio is surrogate-model
  * dependent.
  *
  * WHAT STAYS OPEN
@@ -166,7 +166,7 @@ function contractionWidth() {
   return wLast;
 }
 
-const FORWARD_ROWS = forwardWidths(NEWTON_STEPS + 3); // run past the DAG depth to expose the breach step
+const FORWARD_ROWS = forwardWidths(NEWTON_STEPS + 3); // run past the DAG depth to expose the crossing step
 const SEED_WIDTH_T = FORWARD_ROWS[0].wT; // ~4.58e5 T-units
 const FORWARD_WIDTH_T = FORWARD_ROWS[NEWTON_STEPS].wT; // ~7.32e6 after the ~4-step chain
 const CONTRACTION_WIDTH_T = contractionWidth(); // ~2.86e-6 (few ULP of T0)
@@ -184,7 +184,7 @@ const FORWARD_RATIO_TO_MARGIN = FORWARD_IMAGE_HW / BRACKET_MARGIN; // ~0.804 (co
 const CONTRACTION_RATIO_TO_MARGIN = CONTRACTION_IMAGE_HW / BRACKET_MARGIN; // ~3.14e-13
 const CONTRACTION_HEADROOM_ORDERS = Math.log10(BRACKET_MARGIN / CONTRACTION_IMAGE_HW); // ~12.5
 
-// The forward-propagation breach step: first step whose image half-width exceeds the (H2) margin.
+// The forward-propagation crossing step: first step whose image half-width exceeds the (H2) margin.
 let FORWARD_BREACH_STEP = -1;
 for (const r of FORWARD_ROWS) {
   if (toImageHalfWidth(r.wT) > BRACKET_MARGIN) {
@@ -192,7 +192,7 @@ for (const r of FORWARD_ROWS) {
     break;
   }
 }
-const FORWARD_BREACHES = FORWARD_BREACH_STEP > 0; // true (breaches at step ~5)
+const FORWARD_BREACHES = FORWARD_BREACH_STEP > 0; // true (crossings at step ~5)
 
 export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION = {
   id: 'imp-34865',
@@ -204,7 +204,7 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION = {
     'dividing Newton chain COMPOUNDS and can inflate the width (in which case the flat gamma bound understates). ' +
     'MEASURE it: instantiate both routes numerically (directed-rounding surrogate), report the ' +
     'forward-propagation-vs-contraction width ratio for [T0] at N_cross, and confirm whether ' +
-    'forward-propagation breaches the imp-34799 (H2) bracket margin the contraction route clears. ' +
+    'forward-propagation crosses the imp-34799 (H2) bracket margin the contraction route clears. ' +
     'Feasibility / measurement only; does NOT instantiate the imp-34687a layer; imp-34714a REMAINS OPEN; no QED.',
   model: {
     routes:
@@ -217,7 +217,7 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION = {
     inflation:
       'Measured per-step forward growth factor 2.0000 (exact interval-subtraction doubling). From the common ' +
       'seed (T-width ~4.58e5, ~5% of the (H2) margin) the forward route reaches ~7.32e6 in T-units after 4 ' +
-      'steps (image half-width ~5.27e5, ~80% of the margin) and BREACHES the margin at step ~5; the ' +
+      'steps (image half-width ~5.27e5, ~80% of the margin) and Crosses the margin at step ~5; the ' +
       'contraction route collapses to ~2.86e-6 in T-units (image half-width ~2.06e-7, ~3.1e-13 of the margin, ' +
       '~12.5 orders below). Forward/contraction width ratio for [T0] at N_cross ~2.56e12.',
     interpretation:
@@ -258,7 +258,7 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION = {
     'enclosure width per step (measured factor 2.0000: interval subtraction [T]-dT adds widths and near the ' +
     'fixed point w(dT) ~ w([T])), so over the ~4-step op-DAG the [T0] width grows from ~4.58e5 to ~7.32e6 in ' +
     'T-units. Mapped to the N-index endpoint image half-width that is ~5.27e5 -- ALREADY ~80% of the (H2) ' +
-    'margin ~6.56e5, and it BREACHES the margin at step ~5 (ratio ~1.61). The CONTRACTION route (interval-' +
+    'margin ~6.56e5, and it Crosses the margin at step ~5 (ratio ~1.61). The CONTRACTION route (interval-' +
     'Newton operator with intersection, per imp-34687) instead collapses the width to ~2.86e-6 in T-units ' +
     '(image half-width ~2.06e-7, ~3.1e-13 of the margin, ~12.5 orders below, consistent with the imp-34840 ' +
     '~10-orders gamma(n_op) head-room). The forward/contraction width ratio for [T0] at N_cross is ~2.56e12, ' +
@@ -270,7 +270,7 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION = {
   subGap:
     'imp-34714a REMAINS OPEN. This MEASURES (via a first-order outward-rounding surrogate, NOT the imp-34687a ' +
     'certified transcendental layer) that forward-propagation compounds the [T0] width ~2.56e12x over the ' +
-    'contraction floor and breaches the (H2) margin, while the interval-Newton contraction clears it by ' +
+    'contraction floor and crosses the (H2) margin, while the interval-Newton contraction clears it by ' +
     '~12.5 orders. It does NOT instantiate the directed-rounding layer and does NOT prove the endpoints ARE ' +
     'valid enclosures -- it confirms the imp-34840 structural requirement that the contraction route (not ' +
     'forward-propagation) is the one under which the flat gamma(n_op) bound is faithful. Feasibility ' +
@@ -284,7 +284,7 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION = {
     'FORWARD route DOUBLES the enclosure width per step (measured factor 2.0000 -- interval subtraction adds ' +
     'widths, w(dT) ~ w([T]) near the fixed point), growing [T0] from ~4.58e5 to ~7.32e6 in T-units over the ' +
     '~4-step op-DAG; the N-index image half-width reaches ~5.27e5 (~80% of the (H2) margin ~6.56e5) and ' +
-    'BREACHES the margin at step ~5. The CONTRACTION route (interval-Newton operator + intersection, imp-34687 ' +
+    'Crosses the margin at step ~5. The CONTRACTION route (interval-Newton operator + intersection, imp-34687 ' +
     'f monotone+convex) collapses the width to ~2.86e-6 in T-units (image half-width ~2.06e-7, ~3.1e-13 of the ' +
     'margin, ~12.5 orders below). Forward/contraction [T0] width ratio ~2.56e12, and the forward half-width is ' +
     '~10 orders LARGER than the imp-34840 flat gamma(49) estimate (~3.7e-5) -- exactly the understatement it ' +
@@ -325,9 +325,9 @@ export const IMP34865_FORWARD_VS_CONTRACTION_WIDTH_INFLATION_ASSERTIONS = [
       Number.isFinite(FORWARD_WIDTH_T),
   },
   {
-    // Forward propagation BREACHES the (H2) margin; the contraction route clears it by ~12.5 orders.
+    // Forward propagation Crosses the (H2) margin; the contraction route clears it by ~12.5 orders.
     id: 'imp34865-forward-breaches-contraction-clears',
-    description: 'forward image half-width breaches the (H2) margin (at step ~5); contraction clears by ~12.5 orders',
+    description: 'forward image half-width crosses the (H2) margin (at step ~5); contraction clears by ~12.5 orders',
     holds: () =>
       FORWARD_BREACHES &&
       FORWARD_BREACH_STEP >= 4 &&

@@ -303,7 +303,7 @@ function lamMaxPI(M) {
     while (js.size < nt) js.add(5 + Math.floor(rnd() * 4));
     const tails = [...js].map((j) => drawBlock(rnd, j, 1, 1 + Math.floor(rnd() * 5)));
     if (t % 5 === 0) {
-      // adversarial pin: max mass at the 512 / 1024 facing corner
+      // skeptical pin: max mass at the 512 / 1024 facing corner
       heads[4].us[0] = 512; heads[4].as[0] = 8;
       tails[0].us[0] = Math.pow(4, tails[0].j); tails[0].as[0] = 8;
     }
@@ -399,7 +399,7 @@ const FD_TAXONOMY = (() => {
 }
 
 // --------------------------------------------------------------------------
-// (F) end-to-end window battery: the now-unconditional claim attacked on
+// (F) end-to-end window battery: the now-unconditional claim approached on
 // the RAW packet quadratic -- both parities, heavy blocks at every
 // position including tails, multi tails, lowest-block >= 1 draws
 // --------------------------------------------------------------------------
@@ -478,7 +478,7 @@ export const IMP95162_FRAME_REDUCTION_DISCHARGE = {
       "grid battery (rows j <= 60 x full ladder jp <= 64 x mu in [0.45, 3]): worst rowcap/S ratio 0.99999999999999986, binding row 1 as the slot mapping predicts; 600 random witnesses at mu >= 0.45 stay below S(mu) with raw Q >= 0",
     gauge: "400 lowest-block >= 1 witnesses: Q invariance to 1e-11 relative, scaled rates all >= 0.45, raw Q >= 0",
     excision:
-      "sqrt(10) g(512 x 0.1) = 9.59e-21 vs half-ulp 1.11e-16; at the window floor the correction is 1.67e-51; 300-draw block-norm battery (adversarial 512/1024 corner pins included) never violates the TX inequality",
+      "sqrt(10) g(512 x 0.1) = 9.59e-21 vs half-ulp 1.11e-16; at the window floor the correction is 1.67e-51; 300-draw block-norm battery (skeptical 512/1024 corner pins included) never violates the TX inequality",
     integration:
       "1500-draw raw-Q window battery across all five configuration modes (single-heavy all positions, mixed pairs with multi tails, triple-heavy, gauge sector, tail-only-heavy), both parities: worst normalized Q >= 0 (no witness with E > 0 found where the composition says none exists)",
   },
@@ -530,7 +530,7 @@ export const IMP95162_FRAME_REDUCTION_DISCHARGE_ASSERTIONS = [
   {
     id: "imp95162-theorem-tx-excision",
     description:
-      "THEOREM TX: the blocks >= 5 correction sqrt(10) g(512 mu) is below half an ulp at 1 for every mu >= 0.1 (9.59e-21 vs 1.11e-16; 1.67e-51 at the window floor), so every certified float cell bound absorbs arbitrary tails; the 2x2 block-norm inequality survives a 300-draw adversarial battery",
+      "THEOREM TX: the blocks >= 5 correction sqrt(10) g(512 mu) is below half an ulp at 1 for every mu >= 0.1 (9.59e-21 vs 1.11e-16; 1.67e-51 at the window floor), so every certified float cell bound absorbs arbitrary tails; the 2x2 block-norm inequality survives a 300-draw skeptical battery",
     holds: () =>
       MEASURED.txLiterals.corr01 < MEASURED.txLiterals.halfUlp &&
       MEASURED.txLiterals.corrWindow < 1e-50 && MEASURED.txBattery.worstIneq <= 1e-9,

@@ -15,7 +15,7 @@ const SIMS = [
   ['/statistics', 'Zero statistics', 'Spacing distributions against GUE.'],
   ['/simulator', 'Simulator', 'The general finite-model sandbox.'],
   ['/supercritical', 'Supercritical', 'The zeta-as-fluid thermodynamics exploration.'],
-  ['/spectral-attack', 'Spectral attack', 'The operator-spectrum exploration console.'],
+  ['/spectral-attack', 'Spectral approach', 'The operator-spectrum exploration console.'],
   ['/gap-closing', 'Gap closing', 'The historical gap-closing diagnostics (model-level).'],
   ['/formal-proof', 'Formal proof', 'The proof-assistant status console.'],
 ];

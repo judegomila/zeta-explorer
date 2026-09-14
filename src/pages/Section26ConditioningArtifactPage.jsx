@@ -290,7 +290,7 @@ export default function Section26ConditioningArtifactPage() {
               → Hidden-Square Program
             </Link>
             <Link to="/spectral-attack" style={{ fontSize: 12, color: 'var(--blue)', textDecoration: 'none' }}>
-              → Spectral Attack
+              → Spectral Approach
             </Link>
             <Link to="/" style={{ fontSize: 12, color: 'var(--terra-dk)', textDecoration: 'none' }}>
               ← the atlas

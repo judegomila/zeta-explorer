@@ -1,7 +1,7 @@
 // @module data/reciprocal-program-section
 // imp-1200: structured record of Appendices B-G of the user's paper at
 // research-inputs/twin_ladder_consolidated_v52.pdf -- the "reciprocal
-// program". This module now records the 2026-07-23 adversarial audit: the
+// program". This module now records the 2026-07-23 skeptical audit: the
 // Schoenberg variable must be rotated to 1/X(is), and the finite reciprocal
 // constructions below are compact diagnostics, not a global proof route.
 //

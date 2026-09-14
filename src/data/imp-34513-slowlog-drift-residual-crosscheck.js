@@ -22,7 +22,7 @@
  *     (ii) verifying the residual scales as O(h^2) -- doubling h quadruples it (ratio ~4),
  *          halving h quarters it -- which is the SIGNATURE of a pure finite-difference floor,
  *          not a fixed derivation bias;
- *     (iii) Richardson-extrapolating the measured exponent (killing the O(h^2) term with two
+ *     (iii) Richardson-extrapolating the measured exponent (eliminating the O(h^2) term with two
  *          step sizes) and re-differencing against the closed form: the residual then COLLAPSES
  *          ~1000x to the double-precision floor ~1e-12 at every landmark.
  *   Together these CERTIFY the imp-34486 closed form is exact along the crossover: the only gap
@@ -98,7 +98,7 @@ function measuredExponent(N, h) {
   return (Math.log(Np) - Math.log(Nm)) / (Math.log(eColl(Np)) - Math.log(eColl(Nm)));
 }
 
-// Richardson extrapolation of the central-difference estimate: kills the O(h^2) truncation term
+// Richardson extrapolation of the central-difference estimate: eliminates the O(h^2) truncation term
 // using two step sizes h1 > h2, isolating the finite-difference floor from any derivation gap.
 function richardsonExponent(N, h1, h2) {
   const m1 = measuredExponent(N, h1);
@@ -210,7 +210,7 @@ const IMP34513_ASSERTIONS = [
   {
     id: 'imp34513-richardson-certifies-exact-derivation',
     holds: () => MAX_RICHARDSON_RESIDUAL < 1e-10 && RICHARDSON_COLLAPSE_FACTOR > 50,
-    why: 'F2: Richardson extrapolation (killing the O(h^2) term) collapses the residual >50x to the double-precision floor, certifying the closed form is exact to machine precision along the crossover.',
+    why: 'F2: Richardson extrapolation (eliminating the O(h^2) term) collapses the residual >50x to the double-precision floor, certifying the closed form is exact to machine precision along the crossover.',
   },
   {
     id: 'imp34513-honesty-gate-no-qed',

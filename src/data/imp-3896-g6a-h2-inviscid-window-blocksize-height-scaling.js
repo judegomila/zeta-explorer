@@ -20,7 +20,7 @@
  *          M = 1281 -> edge 13,  visc floor 1.05e-5
  *        The window widens MONOTONICALLY and the clean floor deepens ~40x over 8x more particles -- BUT
  *        only LOGARITHMICALLY: doubling M lifts the edge by ~1.5 d, and edge / (M/2) FALLS from 9.9% to
- *        2.0%, so the block edge recedes far slower than the block grows. Brute block-size growth CANNOT
+ *        2.0%, so the block edge recedes far slower than the block grows. Raw block-size growth CANNOT
  *        reach the microscopic y -> 0 continuum; the finite edge is the binding constraint on the
  *        inviscid window and it recedes only ~log M. This sizes the true separation of scales as
  *        logarithmic, not algebraic, in the particle count.
@@ -208,7 +208,7 @@ export const IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING = {
     'size -- the upper edge (argmin visc) goes 8 (M = 161) -> 10 (321) -> 11 (641) -> 13 (1281) and the ' +
     'visc floor deepens 4.37e-4 -> 1.05e-5 -- but only LOGARITHMICALLY: edge / (block half-width M/2) FALLS ' +
     '9.9% -> 2.0%, so the finite block edge recedes far slower than the block grows and CAPS the hydrodynamic ' +
-    'separation of scales at ~log M; brute particle-count growth cannot reach the microscopic y -> 0 ' +
+    'separation of scales at ~log M; raw particle-count growth cannot reach the microscopic y -> 0 ' +
     'continuum. (Q2) the 2 d -> 8 d shrinkage ratio visc(2 d) / visc(8 d) = 518.2x is IDENTICAL to machine ' +
     'precision (spread ' + RATIO_SPREAD.toExponential(1) + ') at the anchor, the crossover and all four ' +
     'heights beyond the ladder (log gamma up to 32): at the s = 0 seed the block is an exact rescaling by d, ' +
@@ -230,7 +230,7 @@ export const IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING = {
     '(321) -> 11 (641) -> 13 (1281) -- and the visc floor deepens 4.37e-4 -> 1.05e-5 over 8x more particles, ' +
     'BUT only LOGARITHMICALLY: doubling M lifts the edge ~1.5 d and edge / (M/2) FALLS 9.9% -> 2.0%, so the ' +
     'finite block edge recedes far slower than the block grows and caps the separation of scales at ~log M -- ' +
-    'brute block-size growth CANNOT push the inviscid window to the microscopic y -> 0 continuum. (Q2) the ' +
+    'raw block-size growth CANNOT push the inviscid window to the microscopic y -> 0 continuum. (Q2) the ' +
     '2 d -> 8 d shrinkage ratio visc(2 d) / visc(8 d) = 518.2x is IDENTICAL to machine precision (relative ' +
     'spread ' + RATIO_SPREAD.toExponential(1) + ') at the anchor, the imp-3642 crossover and four heights ' +
     'BEYOND the ladder (log gamma = 22, 25, 28, 32): at the s = 0 seed the block is an exact rescaling by d so ' +
@@ -265,7 +265,7 @@ export const IMP3896_G6A_H2_INVISCID_WINDOW_BLOCKSIZE_HEIGHT_SCALING_ASSERTIONS 
   },
   {
     // (Q1b) the widening is SUB-LINEAR (logarithmic): the finite edge recedes far slower than the block
-    // grows, so edge / half-width falls -- brute block growth cannot reach the y -> 0 continuum.
+    // grows, so edge / half-width falls -- raw block growth cannot reach the y -> 0 continuum.
     id: 'imp3896-widening-is-sublinear-logarithmic',
     description: 'edge / (M/2) falls monotonically (9.9% -> 2.0%): window widening is logarithmic, not algebraic, in M',
     holds: () =>

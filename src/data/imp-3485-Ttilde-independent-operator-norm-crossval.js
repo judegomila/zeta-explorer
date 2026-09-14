@@ -213,7 +213,7 @@ function lanczosNorm(M, n, mReq) {
     let alpha = 0;
     for (let i = 0; i < n; i++) alpha += w[i] * v[i];
     for (let i = 0; i < n; i++) w[i] -= alpha * v[i] + beta * vPrev[i];
-    // full reorthogonalization against the stored Krylov basis (kills round-off ghosts)
+    // full reorthogonalization against the stored Krylov basis (eliminates round-off ghosts)
     for (const u of basis) {
       let d = 0;
       for (let i = 0; i < n; i++) d += w[i] * u[i];

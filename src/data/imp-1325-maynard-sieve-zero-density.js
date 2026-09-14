@@ -48,7 +48,7 @@
 // HONEST BOTTOM LINE
 // ------------------
 // imp-1325 CLOSES THE SIEVE QUESTION NEGATIVELY and stays OPEN as a research
-// ticket only in the sense that the parent goal (kill the (log T)^A factor)
+// ticket only in the sense that the parent goal (eliminate the (log T)^A factor)
 // is NOT achievable via sieves. The sub-gap is named precisely: the
 // (log T)^A factor in N(sigma, T) is a LARGE-VALUES / EXPLICIT-INGHAM
 // problem, not a sieve problem. The single live density-side lever is the
@@ -194,7 +194,7 @@ const NAMED_SUB_GAP = Object.freeze({
     + 'problem, NOT a sieve problem. No GPY-Maynard sieve mechanism outputs a '
     + 'density bound, and the Guth-Maynard large-value method that does '
     + 'improve the exponent reports T^{o(1)} rather than an explicit '
-    + 'bounded-A factor. Killing the A factor requires an explicit-constants '
+    + 'bounded-A factor. Eliminating the A factor requires an explicit-constants '
     + 'large-values / effective-Ingham paper (Kadiri family with A = 0), not '
     + 'a sieve.',
   liveLever: 'imp-1332 (Guth-Maynard exponent as Ingham-1940 substitute)',

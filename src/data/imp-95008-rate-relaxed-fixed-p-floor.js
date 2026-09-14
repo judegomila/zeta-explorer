@@ -109,7 +109,7 @@
  * e^(lambda - mu) x 2 while Lemma V damping costs only h^2 per unit of
  * mass currency - and M enters the floor linearly, not exponentially.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) legality is NOT assumed - Lemma V
+ * SKEPTICAL SELF-CHECK RECORD: (1) legality is NOT assumed - Lemma V
  * is proved by convexity calculus and cross-checked below against a
  * direct numerical infimum on both branches (interior tangent and
  * h = 1), agreement ~1e-9; (2) the closed-form excess at the baked

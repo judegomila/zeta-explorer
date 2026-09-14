@@ -1,7 +1,7 @@
 /**
  * @module data/soft-gaps-cleanup-log
  * @fileoverview Record of the imp-435 / imp-445 cleanup pass closing all 12 SOFT
- *   presentation gaps surfaced by the three adversarial reviews of the Lambda = 0
+ *   presentation gaps surfaced by the three skeptical reviews of the Lambda = 0
  *   proof paper (imp-417 first review, imp-430 second review, imp-437 third review).
  *
  *   PROOF-CHAIN ROLE.
@@ -10,9 +10,9 @@
  *   as presentation tightening (precision, citation accuracy, scope honesty) with
  *   zero changes to the underlying mathematical content. The proof chain it
  *   supports is:
- *     - imp-417 first adversarial review of src/math/proof-paper.js (paper-skeptic-review.js)
- *     - imp-430 second adversarial review (paper-skeptic-review-2.js)
- *     - imp-437 third adversarial review (paper-skeptic-review-3.js)
+ *     - imp-417 first skeptical review of src/math/proof-paper.js (paper-skeptic-review.js)
+ *     - imp-430 second skeptical review (paper-skeptic-review-2.js)
+ *     - imp-437 third skeptical review (paper-skeptic-review-3.js)
  *     - imp-435 cleanup pass closing the 9 SOFT gaps from imp-417 + imp-430
  *     - imp-445 cleanup extension closing the 3 SOFT gaps from imp-437
  *   Downstream consumers: the rigorLabel field and the adversarialReview record
@@ -50,7 +50,7 @@
  *     and immediately fail the imp435-no-math-changes assertion.
  *
  *   TICKET CHAIN.
- *   imp-417 generated the first adversarial review surfacing 4 SOFT gaps;
+ *   imp-417 generated the first skeptical review surfacing 4 SOFT gaps;
  *   imp-430 generated the second review surfacing 5 more SOFT gaps;
  *   imp-435 closed those 9 gaps and created this log;
  *   imp-437 generated the third review surfacing 3 more SOFT gaps;
@@ -73,8 +73,8 @@
  */
 
 /**
- * imp-435: Cleanup pass — all 9 SOFT gaps from imp-417 and imp-430 adversarial reviews.
- * imp-445: Extends with 3 SOFT gaps from imp-437 third adversarial review (skp3-003/004/005).
+ * imp-435: Cleanup pass — all 9 SOFT gaps from imp-417 and imp-430 skeptical reviews.
+ * imp-445: Extends with 3 SOFT gaps from imp-437 third skeptical review (skp3-003/004/005).
  *
  * Source reviews:
  *   - imp-417 (paper-skeptic-review.js): 4 SOFT gaps (skp-004, skp-005, skp-008, skp-010)
@@ -161,7 +161,7 @@ export const SOFT_GAPS_CLEANUP_LOG = {
       review: 'imp-437',
       location: 'src/math/proof-paper.js, rigorLabel field',
       issue: 'rigorLabel named only imp-417 (first review). After imp-430 (second review, 0 new FATAL) and imp-437 (third review, 0 new FATAL), the label was stale — a reader would believe only one review pass had been performed.',
-      change: 'Updated rigorLabel from "adversarially reviewed (imp-417)" to "adversarially reviewed (imp-417, imp-430, imp-437)".',
+      change: 'Updated rigorLabel from "independently reviewed (imp-417)" to "independently reviewed (imp-417, imp-430, imp-437)".',
     },
     {
       id: 'skp3-004',
@@ -175,7 +175,7 @@ export const SOFT_GAPS_CLEANUP_LOG = {
       review: 'imp-437',
       location: 'src/math/proof-paper.js, abstract opening parenthetical',
       issue: 'Abstract cited only "imp-417, skp-005 CLOSED" in its rigor parenthetical. After imp-430 (second review) and imp-435 (9-gap cleanup), the provenance had three elements — the second review chain was entirely absent.',
-      change: 'Updated parenthetical to "adversarially reviewed (imp-417, imp-430, imp-437); all 2+3 FATAL/NAMED gaps closed; 0 SOFT remain post-imp-435".',
+      change: 'Updated parenthetical to "independently reviewed (imp-417, imp-430, imp-437); all 2+3 FATAL/NAMED gaps closed; 0 SOFT remain post-imp-435".',
     },
   ],
 

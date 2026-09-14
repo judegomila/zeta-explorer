@@ -12,7 +12,7 @@ const LOG2_GAP = D.law.log2_threshold_gap_doublings; // ~4.3154
 const STEP_GAP = D.law.breach_step_gap; // 4
 
 // Staircase of the 2^n forward-width doubling curve nStar(R) = floor(log2 R) + 1, with the two
-// independently recomputed breach ratios (imp-34930) marked as horizontal reference lines and
+// independently recomputed crossing ratios (imp-34930) marked as horizontal reference lines and
 // their crossing steps as vertical markers. All literals baked from imp-34930; no new computation.
 function BreachStepDoublingChart() {
   const svgW = 720;
@@ -124,9 +124,9 @@ export default function Imp34961BreachStepDoublingViz() {
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         The same 2^n forward-width doubling curve, read against two independently recomputed
         reference widths, reproduces both published crossing points: R_seed = {R_SEED} crosses at
-        step n = {NSTAR_SEED} (op-depth {DEPTH_SEED}, the imp-34884 seed-bracket breach), and
+        step n = {NSTAR_SEED} (op-depth {DEPTH_SEED}, the imp-34884 seed-bracket crossing), and
         R_margin &asymp; {R_MARGIN.toFixed(4)} crosses at step n = {NSTAR_MARGIN} (op-depth{' '}
-        {DEPTH_MARGIN}, the imp-34889 (H2)-margin breach). The two crossings are separated by{' '}
+        {DEPTH_MARGIN}, the imp-34889 (H2)-margin crossing). The two crossings are separated by{' '}
         {STEP_GAP} doubling steps, exactly floor(log2(R_margin/R_seed)) = floor(
         {LOG2_GAP.toFixed(4)}).
       </p>

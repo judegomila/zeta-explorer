@@ -21,7 +21,7 @@
  *     1400, totalCompleted 464, criticalPending 0, fatalCount 0),
  *     Lean formalization counts (leanAxiomCount 6, leanSorryCount 10),
  *     a one-line headline, route status (routeA/routeB/routeC),
- *     fatalTrajectory [2,0,0,0,0,0] across the six adversarial reviews,
+ *     fatalTrajectory [2,0,0,0,0,0] across the six skeptical reviews,
  *     the imp-503 assertionUpgrade log, and a verifiedAt timestamp
  *     (re-verified 2026-04-14 by imp-718).
  *   - MILESTONE_EXISTS: boolean true sentinel so callers can guard on
@@ -52,7 +52,7 @@
  *   - imp-497/498/499 all completed (SOTA refresh, preprint assembly, sorry investigation)
  *   - Route B UNCONDITIONALLY closed (lim sup |t_c(N)| = 0, no GUE input)
  *   - Finite-height beat: Lambda <= 0.121 < 0.2, 1.65x tighter than Platt-Trudgian 2021
- *   - Six adversarial reviews passed; FATAL trajectory: 2, 0, 0, 0, 0, 0
+ *   - Six skeptical reviews passed; FATAL trajectory: 2, 0, 0, 0, 0, 0
  *   - Sole open premise: GUE universality (irreducible, named conditional per imp-486)
  *
  * BUILD-TIME ASSERTIONS
@@ -76,7 +76,7 @@ export const SUBMISSION_READY_MARKER = {
   totalImprovements:  1400,   // nextImprovementId from queue-index.json
   totalCompleted:      464,   // completed entries at milestone time
   criticalPending:       0,   // imp-501 (assertion sweep) completed; hard assertion activated by imp-503
-  fatalCount:            0,   // FATAL findings across all 6 adversarial reviews (resolved)
+  fatalCount:            0,   // FATAL findings across all 6 skeptical reviews (resolved)
 
   // ── Lean formalization state ───────────────────────────────────────────────
   leanAxiomCount:   6,   // Foundation.lean (after imp-489 axiom->def conversions)
@@ -92,7 +92,7 @@ export const SUBMISSION_READY_MARKER = {
   routeA:  'CLOSED MODULO GUE UNIVERSALITY — C_mb many-body correction (irreducible conditional)',
   routeC:  'PARTIALLY CLOSED — G3a_sub_fullsum (full S_{k*} lower bound) open',
 
-  // ── Adversarial review FATAL trajectory ───────────────────────────────────
+  // ── Skeptical review FATAL trajectory ───────────────────────────────────
   fatalTrajectory: [2, 0, 0, 0, 0, 0],  // Reviews 1-6; review 1 FATALs addressed by imp-424/425
 
   // ── Assertion upgrade log ──────────────────────────────────────────────────

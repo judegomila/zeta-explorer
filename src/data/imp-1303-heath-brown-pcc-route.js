@@ -80,7 +80,7 @@
  *   mollifier-extension input can eliminate the half-log loss.
  *
  *   This is the EXPECTED outcome for a 50-year-open Millennium-adjacent
- *   conjecture: the THIRD direct attack (after imp-1297 Selberg-trace, and
+ *   conjecture: the THIRD direct approach (after imp-1297 Selberg-trace, and
  *   imp-1302 Goldston-Gonek) lands in the same negative classification
  *   pattern. The valuable output is the precise location of the residual
  *   gap.
@@ -102,7 +102,7 @@
  *   for §15-27 -> RH. After imp-1297 (Selberg-trace ruled out), imp-1302
  *   (Goldston-Gonek improves-but-not-closes), and now imp-1303
  *   (Heath-Brown improves-but-not-closes), the THREE candidate direct
- *   attacks via second/fourth-moment-of-zeta refinements have all produced
+ *   approaches via second/fourth-moment-of-zeta refinements have all produced
  *   the same negative classification. The productive surface narrows.
  *
  *   Remaining named candidate levers (from imp-1302):
@@ -476,7 +476,7 @@ const SUBROUTE_A_SELBERG_1944 = Object.freeze({
 //
 // (This is the same negative content already encoded in the imp-1304
 // ticket plan; imp-1304 will give the full classification of IS2000 as
-// an INDEPENDENT direct attack on PCC at 2-point. The present sub-route
+// an INDEPENDENT direct approach on PCC at 2-point. The present sub-route
 // (b) is only the question "can IS2000 close the HB1979 (log T)^{1/2}
 // slack" -- answered NO here.)
 
@@ -504,7 +504,7 @@ const SUBROUTE_B_IWANIEC_SARNAK_2000 = Object.freeze({
       'cancellation that is absent for a single L-function',
   }),
   pointerToImp1304:
-    'imp-1304 will classify IS2000 as an INDEPENDENT direct attack on PCC at ' +
+    'imp-1304 will classify IS2000 as an INDEPENDENT direct approach on PCC at ' +
     '2-point; this sub-route here only checks whether IS2000 closes the HB1979 ' +
     '(log T)^{1/2} slack -- answered NO',
 });
@@ -693,7 +693,7 @@ const VERDICT_DETAIL = Object.freeze({
     '-> RH. After imp-1297 + imp-1302 + imp-1303 all produced negative ' +
     'classifications in the moment-method family, the remaining named candidate ' +
     'levers are: (i) Iwaniec-Sarnak 2000 as an INDEPENDENT explicit-formula side ' +
-    'attack (imp-1304, pending), (ii) Goldston-Yildirim 2003 conditional-on-RH ' +
+    'approach (imp-1304, pending), (ii) Goldston-Yildirim 2003 conditional-on-RH ' +
     'short-gap turned into an absolute mean-square (imp-1305, pending). Both ' +
     'remaining levers are unlikely to close PCC unconditionally; if both also ' +
     'produce negative classifications the verdict elevates to ' +
@@ -703,7 +703,7 @@ const VERDICT_DETAIL = Object.freeze({
     'PCC at 2-point has been open for 50+ years (Montgomery 1973). The (log T)^{1/2} ' +
     'gap in HB1979 is a structural feature of the 4th-moment-Cauchy-Schwarz argument, ' +
     'not a deficit of the specific Heath-Brown machinery. The expected outcome of ' +
-    'any direct attack via 4th-moment refinements is exactly this verdict: ' +
+    'any direct approach via 4th-moment refinements is exactly this verdict: ' +
     'improvement inside (1, 5/4) by a half-power, no closure. The classification ' +
     'result here is PRECISELY VALUABLE because it confirms the structural gap and ' +
     'rules out the three named sub-routes (Selberg 1944 / IS2000 / Conrey 1989).',
@@ -743,7 +743,7 @@ export const IMP_1303_HEATH_BROWN_PCC_ROUTE = Object.freeze({
   }),
 
   honestScope: Object.freeze([
-    'This file is a CLASSIFICATION ticket for the candidate direct attack on Montgomery ' +
+    'This file is a CLASSIFICATION ticket for the candidate direct approach on Montgomery ' +
     'PCC at 2-point via Heath-Brown 1979 unconditional 4th-moment of zeta + auxiliary ' +
     'refinements (Selberg 1944 mean-square / Iwaniec-Sarnak 2000 1-level density / ' +
     'Conrey 1989 mollifier sieve). It is NOT a new closure or a new unconditional bound.',
@@ -1097,8 +1097,8 @@ export const IMP_1303_HEATH_BROWN_PCC_ROUTE_ASSERTIONS = [
     id: 'imp1303-engine-planning-names-next-levers',
     why:
       'A negative classification is only useful if it points to the next productive ' +
-      'attack. The verdict detail must name candidate next levers (Iwaniec-Sarnak 2000 ' +
-      'INDEPENDENT direct attack, Goldston-Yildirim 2003) so seed-from-gaps can ' +
+      'approach. The verdict detail must name candidate next levers (Iwaniec-Sarnak 2000 ' +
+      'INDEPENDENT direct approach, Goldston-Yildirim 2003) so seed-from-gaps can ' +
       'route to imp-1304 / imp-1305.',
     holds: () => {
       const vd = IMP_1303_HEATH_BROWN_PCC_ROUTE.verdictDetail;

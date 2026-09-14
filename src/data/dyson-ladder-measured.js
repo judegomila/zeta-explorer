@@ -497,14 +497,14 @@ export const DYSON_LADDER_MEASURED = {
     'imp-464 (NoSwap condition), and imp-471 (B2 many-body correction, ' +
     'established conditional on GUE universality) enable upgrading this ' +
     'partial to full. They do not. Those four closures address the ' +
-    'monotonicity + NoSwap + B1/B2 conditions inside the Lambda attack ' +
+    'monotonicity + NoSwap + B1/B2 conditions inside the Lambda approach ' +
     'route — orthogonal to the measured-ladder data-coverage gap. ' +
     'The two remaining blockers are: (1) zeros6 data file not downloaded ' +
     '(~35 MB, 2M Odlyzko ordinates required for N > 100000 measured runs; ' +
     'sub-gap: skp-imp423-compute), and (2) offline O(N^2) compute engine ' +
     'infeasible at Vite build time. Status remains partial until both ' +
     'blockers are resolved. imp-537 re-check (2026-04-14): post-imp-592 ' +
-    'adversarial review and post-imp-583/584/585/590 closures confirm no ' +
+    'skeptical review and post-imp-583/584/585/590 closures confirm no ' +
     'new proof chain developments address the zeros6 or O(N^2) compute ' +
     'blockers. Status remains partial. ' +
     'imp-600 re-check (2026-04-14): post-imp-596 (B1 D-monotone analytic ' +

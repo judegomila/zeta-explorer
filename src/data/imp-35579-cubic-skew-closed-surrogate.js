@@ -112,7 +112,7 @@ function analyzeMap(T0map) {
   const U0 = Math.log(N_MAX);
 
   // Direct cubic coefficient c3 = sigma-triple-prime(u0)/6 via the 5-point third-difference stencil,
-  // Richardson-extrapolated from the h = 2e-2 / 1e-2 pair (kills the leading O(h^2) stencil bias).
+  // Richardson-extrapolated from the h = 2e-2 / 1e-2 pair (eliminates the leading O(h^2) stencil bias).
   const d3FD = (h) =>
     (sigU(U0 + 2 * h) - 2 * sigU(U0 + h) + 2 * sigU(U0 - h) - sigU(U0 - 2 * h)) / (2 * h * h * h);
   const SIGMA_TRIPLE_PRIME = (4 * d3FD(1e-2) - d3FD(2e-2)) / 3;

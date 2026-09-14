@@ -4,7 +4,7 @@
  * shift-damping: an n-shell-UNIFORM cross-seam mass bound for lacunary
  * exponential sums) + THEOREM HL (H-LOC derived from the dyadic dictionary
  * hypothesis H-DYA, with explicit thetas and the instantiated gammaSL):
- * THIRD leg of the seam chain, attacking the named successor sub-gap
+ * THIRD leg of the seam chain, approaching the named successor sub-gap
  * imp-95210-subgap-hloc-from-dyadic-support. The imp-95210 demand -- a
  * per-block rate-dressing cap, since LEMMA NG proved center collars alone
  * cannot supply H-LOC -- is met by the ONE structural feature the dyadic
@@ -36,7 +36,7 @@
  * minimal level; the pairwise consequence mu_s/mu_r >= 2^(s-r) is all the
  * proofs use.
  *
- * LEMMA R1 (rank-one seam collapse; kills in-block dressing exactly).
+ * LEMMA R1 (rank-one seam collapse; eliminates in-block dressing exactly).
  * A single-rate block B(t) = sum_j a_j e^(-mu|t-c_j|) with all c_j <= -d
  * satisfies, for EVERY t >= -d,  B(t) = A e^(-mu t) with
  * A = sum_j a_j e^(mu c_j): since t >= -d >= c_j gives |t-c_j| = t - c_j,
@@ -160,17 +160,17 @@
  *   Only that instantiation converts the conditional collapse
  *   gammaOV -> gammaSL(g(m d)) into an unconditional model-chain statement.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA BI attacked by numerically
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA BI approached by numerically
  * inverting the Cauchy Gram at the dyadic ladder (1, 2, 4, 8) and the
  * non-dyadic (1, 2.5, 7): closed form matches to rel 1e-8 (observed
  * ~1e-12). (2) The coefficient bound |A_r| <= sqrt(2 mu_r) beta_r ||f||
- * attacked by a 5000-draw random battery (random lacunary ladders, random
- * signed coefficients): no violation. (3) THEOREM DR attacked two ways:
+ * approached by a 5000-draw random battery (random lacunary ladders, random
+ * signed coefficients): no violation. (3) THEOREM DR approached two ways:
  * 5000 random Rayleigh quotients (a^T DGD a)/(a^T G a) never exceed the
  * finite-n bound, and the TRUE lambda_max (power iteration on G^(-1) DGD)
  * at (n, m d) = (2, 3), (4, 2), (6, 1), (8, 3) never exceeds either bound
  * -- including (6, 1) where the bound is vacuously > 1, kept deliberately
- * as an honesty row. (4) THEOREM HL attacked end-to-end: 3000 random
+ * as an honesty row. (4) THEOREM HL approached end-to-end: 3000 random
  * dyadic-dictionary witnesses (jittered ratios >= 2, up to 3 packets per
  * shell, random depths), cross-seam fraction computed by EXACT closed-form
  * integrals, never exceeds min(1, LamBar(m d)); the LEMMA R1 collapse
@@ -352,7 +352,7 @@ function trueLambdaMax(mus, d) {
 // ── verdict object ───────────────────────────────────────────────────────────
 export const IMP95211_DYADIC_RATE_LOCALIZATION = {
   ticket:
-    "imp-95211 (third leg of the seam chain, attacking imp-95210-subgap-hloc-from-dyadic-support: the per-block rate-dressing cap demanded by LEMMA NG is supplied by the dyadic-dictionary structure itself -- one fixed rate per shell, lacunary ratio >= 2 -- via a rank-one seam collapse per shell plus an explicit Cauchy biorthogonal bound across shells, giving an n-shell-uniform cross-seam mass bound and hence H-LOC with explicit constants whenever m d > xStar)",
+    "imp-95211 (third leg of the seam chain, approaching imp-95210-subgap-hloc-from-dyadic-support: the per-block rate-dressing cap demanded by LEMMA NG is supplied by the dyadic-dictionary structure itself -- one fixed rate per shell, lacunary ratio >= 2 -- via a rank-one seam collapse per shell plus an explicit Cauchy biorthogonal bound across shells, giving an n-shell-uniform cross-seam mass bound and hence H-LOC with explicit constants whenever m d > xStar)",
   source:
     "Permuting the Zeta Twin Ladder Section 4.5; /permutation-architecture; consumes THEOREM SL / COROLLARY GC-SL and the H-LOC frame (imp-95210), THEOREM OV constants (imp-95209), THEOREM BU (imp-95208), the OD class caps (imp-95129 via imp-95172); carried constants imported from the four sibling verdict objects.",
   hypothesisHDYA:

@@ -34,7 +34,7 @@
  * ||sum c_i f_i||^2 = cT G4 c. NO invertibility of G4 and NO ellipsoid
  * parametrization is needed -- the bound is the RKHS norm of the
  * m-adjusted frame combination. At m = 0 on the axes it is the raw
- * Bessel bound; at the KN multiplier (m kills the sign-frustrated jet
+ * Bessel bound; at the KN multiplier (m eliminates the sign-frustrated jet
  * coordinate) the axis cuts reproduce THEOREM KN exactly: h(1,0) =
  * g(dl), h(0,1) = g(dr) (asserted to 1e-12). Since the feasible set has
  * interior (Slater), min over m >= 0 equals the true support function --

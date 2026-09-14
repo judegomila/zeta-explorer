@@ -118,7 +118,7 @@
  * 1e-9 relative: the antenna CHAIN saturates at one antenna, exactly as
  * the twelfth continuation found at theta = 2.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Theorem T is verified by comparing
+ * SKEPTICAL SELF-CHECK RECORD: (1) Theorem T is verified by comparing
  * the closed-form rational F(eps, nu) against the independent direct
  * 5-packet floor evaluation at multiple (eps, nu) (rel < 1e-12), and
  * epsStar against the quadratic residual (< 1e-12 scaled) and the twelfth

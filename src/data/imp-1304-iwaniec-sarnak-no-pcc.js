@@ -55,7 +55,7 @@
  *   In that sense IS2000 Annals genuinely BYPASSES PCC: no Montgomery
  *   2-point input is used.
  *
- *   BUT the bypass exploits an ARITHMETIC FAMILY (a positive-density
+ *   BUT the bypass uses an ARITHMETIC FAMILY (a positive-density
  *   collection of quadratic twists). The §15-27 ESY-closure 2-point
  *   statistic the engine needs is for the SINGLE Riemann zeta function
  *   in the VERTICAL direction (T -> infinity along height). The
@@ -107,7 +107,7 @@
  *   After imp-1297 (Selberg-trace ruled out), imp-1302 (Goldston-Gonek
  *   improves-but-not-closes), imp-1303 (Heath-Brown improves-but-not-closes),
  *   and now imp-1304 (Iwaniec-Sarnak Annals bypasses-PCC-for-family-not-
- *   single-zeta), FOUR candidate direct attacks via moment-method /
+ *   single-zeta), FOUR candidate direct approaches via moment-method /
  *   explicit-formula refinements have produced negative classifications
  *   for the SINGLE-zeta 2-point statistic the §15-27 closure needs.
  *
@@ -121,7 +121,7 @@
  *   "pcc-genuinely-open-pending-new-input" — the surface of named
  *   moment-method / explicit-formula levers is then exhausted and the
  *   engine should record PCC as a 50-year-open analytic-number-theory
- *   conjecture not closable by named attacks.
+ *   conjecture not closable by named approaches.
  *
  *   The VALUABLE OUTPUT of this ticket is the sharper distinction between
  *   IS2000 Annals (amplifier non-vanishing; bypasses PCC for families)
@@ -703,7 +703,7 @@ const VERDICT_DETAIL = Object.freeze({
     'IS2000-Annals achieves a beautiful BYPASS of PCC for families of quadratic ' +
     'twists — its real architectural achievement — but the FAMILY result does not ' +
     'transfer to single zeta. The expected outcome of any family-averaging direct ' +
-    'attack on single-zeta PCC is exactly this verdict: bypass for families, no ' +
+    'approach on single-zeta PCC is exactly this verdict: bypass for families, no ' +
     'transfer to single zeta. The classification result here is PRECISELY VALUABLE ' +
     'because it CLEANLY SEPARATES the IS2000-Annals amplifier non-vanishing route ' +
     '(this ticket) from the IS2000-GAFA 1-level density route (addressed in imp-1303 ' +
@@ -744,7 +744,7 @@ export const IMP_1304_IWANIEC_SARNAK_NO_PCC = Object.freeze({
   }),
 
   honestScope: Object.freeze([
-    'This file is a CLASSIFICATION ticket for the candidate direct attack on Montgomery ' +
+    'This file is a CLASSIFICATION ticket for the candidate direct approach on Montgomery ' +
     'PCC at 2-point via Iwaniec-Sarnak 2000 Annals "The non-vanishing of central values ' +
     'of automorphic L-functions and Landau-Siegel zeros" (Annals of Math. 151 (2000) ' +
     '1175-1216) amplifier-second-moment non-vanishing machinery WITHOUT PCC input. It ' +
@@ -1137,7 +1137,7 @@ export const IMP_1304_IWANIEC_SARNAK_NO_PCC_ASSERTIONS = [
   {
     id: 'imp1304-engine-planning-names-imp1305-and-reports-four-route-pattern',
     why:
-      'A negative classification is only useful if it points to the next productive attack. ' +
+      'A negative classification is only useful if it points to the next productive approach. ' +
       'The verdict detail must name imp-1305 (Goldston-Yildirim 2003) as the remaining ' +
       'candidate lever AND must report the 4-route pattern (imp-1297 + imp-1302 + imp-1303 + ' +
       'imp-1304 all negative for single zeta) so engine planning correctly interprets the ' +

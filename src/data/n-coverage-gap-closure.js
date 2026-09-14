@@ -18,13 +18,13 @@
  *   3. MID_RANGE_COVERAGE.gapClosed     — upstream confirms mid-range closure
  *   4. MANY_BODY_CORRECTION_CLOSURE midRangeCoverage.gapClosed — full record consistent
  *
- * Tickets: created by imp-505; gap identified by skp5-001 (fifth adversarial review,
+ * Tickets: created by imp-505; gap identified by skp5-001 (fifth skeptical review,
  *   imp-474); mid-range argument implemented in imp-476; JSDoc header added by imp-774.
  *
  * imp-505: Formal closure of skp5-001 — N-coverage gap [871, 9999] in many-body bound
  * Date: 2026-04-12
  *
- * FINDING (skp5-001, fifth adversarial review):
+ * FINDING (skp5-001, fifth skeptical review):
  *   The many-body correction bound |delta_mb(N)| < 1 was only certified for:
  *     (a) N >= N_0 = 10000 — analytic bound via rho_min (imp-471)
  *     (b) N in {2,...,870}  — empirical sweep via m-raw-from-umon-bridge.js
@@ -80,7 +80,7 @@ import {
 export const N_COVERAGE_GAP_CLOSURE = {
   ticket:  'imp-505',
   finding: 'skp5-001',
-  review:  'fifth adversarial review (imp-474)',
+  review:  'fifth skeptical review (imp-474)',
   title:   'Close N-coverage gap [871, 9999] in many-body bound',
 
   gap: {

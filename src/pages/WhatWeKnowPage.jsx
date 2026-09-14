@@ -104,7 +104,7 @@ export default function WhatWeKnowPage() {
       <p>
         Every surviving mapped route seeking to drive the positive bound all the way to
         Λ = 0 funnels into one of two RH-hard objects. Both have been driven to ground by
-        deliberate adversarial assault.
+        deliberate skeptical push.
       </p>
 
       <div className="ed-thm" style={{ borderLeftColor: 'var(--terra, #b5563f)' }}>
@@ -112,7 +112,7 @@ export default function WhatWeKnowPage() {
           C_H WALL — {CH_WALL_FRONTIER.verdict}
         </div>
         <div>
-          The finite-height attack reduces to one constant, C_Lip (gap-Lipschitz at the
+          The finite-height approach reduces to one constant, C_Lip (gap-Lipschitz at the
           zero-collision). The Lipschitz route to bounding it is <strong>provably closed three ways</strong>:
           a Hölder-½ lower bound C_Lip ≥ C_shock/(2√W₁) → ∞; a linear-N norm-mismatch
           (the metric W₁ dilutes a 2-particle collision across all N); and every surrogate refuted.
@@ -139,7 +139,7 @@ export default function WhatWeKnowPage() {
       <h2>③ The meta-finding (the most valuable result)</h2>
       <p>
         Across {ROUTE_COUNT} routes, a uniform pattern: <strong>every promising route, under
-        adversarial scrutiny, turns out to be either not rigorous (the C_H wall) or RH-equivalent
+        skeptical scrutiny, turns out to be either not rigorous (the C_H wall) or RH-equivalent
         (a reformulation).</strong> There is no hidden shortcut below RH anywhere in the map — only
         elegant restatements, each as hard as RH, and they all ultimately meet the same
         two-sided pair-correlation / GUE wall. Knowing <em>precisely</em> where the walls are,
@@ -166,7 +166,7 @@ export default function WhatWeKnowPage() {
 
       <h2>⑤ The verification discipline — six overclaims caught and withdrawn</h2>
       <p style={{ color: 'var(--ink-soft)' }}>
-        The map is trustworthy because confident-looking claims were adversarially refuted
+        The map is trustworthy because confident-looking claims were independently refuted
         <em> before</em> they became results. The ledger:
       </p>
       <div style={{ display: 'grid', gap: 6 }}>

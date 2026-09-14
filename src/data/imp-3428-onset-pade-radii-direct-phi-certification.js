@@ -27,7 +27,7 @@
  *   the range where the radii live -- the direct-phi radii are trustworthy.
  *
  *   ROUTE B -- FINE EXPLICIT eps-GRID RADII (independent of bisection).
- *   Walking eps on a uniform 1e-5 grid and recording the first breach of each tolerance
+ *   Walking eps on a uniform 1e-5 grid and recording the first crossing of each tolerance
  *   against the SAFE direct phi reproduces every imp-3383 anchor to ~5 digits:
  *       T3  1% 0.27057  0.1% 0.11463    P11 1% 0.27341  0.1% 0.10936
  *       T4  1% 0.59577  0.1% 0.31652    P21 1% 0.72393  0.1% 0.36603

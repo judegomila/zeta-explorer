@@ -20,7 +20,7 @@
  * pipeline tracks per-step error empirically but does NOT propagate a
  * certified mathematical interval through the backward Dyson flow. Until
  * the integration is verified-computing rigorous, every Λ-from-Path-C
- * statement is implicitly conditional on float64 not being adversarial.
+ * statement is implicitly conditional on float64 not being skeptical.
  * imp-318 raises this to "critical" because any Λ-based RH argument must
  * end as a theorem, not a numerical fit.
  *

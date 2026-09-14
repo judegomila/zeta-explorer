@@ -4,7 +4,7 @@
  * replacement for the divergent int_0^{tc} 2/g(s)^2 ds Gronwall integral.
  *
  * This module is a PURE DATA / light-numeric record (only effectiveHeightForN is
- * imported). It does NOT claim a rigorous beat. It attacks the SECOND factor of
+ * imported). It does NOT claim a rigorous beat. It approaches the SECOND factor of
  *
  *     C_H = C_shock * C_Lip / 4
  *

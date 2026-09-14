@@ -38,7 +38,7 @@
  *         double-libm artifact inflated by round-off; the genuine quadrature-jitter ceiling is ~10.21.
  *     (3) The fp64 envelope STAYS A VALID (slightly conservative) UPPER BOUND: E_ref &lt; E, so nothing
  *         in the reference-precision band EXCEEDS the shipped 10.78 ULP envelope -- the conservative
- *         ceiling is not breached, it is merely ~5% loose. The direction of the shift (downward)
+ *         ceiling is not crossed, it is merely ~5% loose. The direction of the shift (downward)
  *         means the reference libm makes the band MORE resolved, never less.
  *   The shift magnitude (max |E_ref - E| per height ~0.968 ULP) tracks the imp-33534 measured ~0.947
  *   ULP contamination, confirming the envelope moves by libm-precision noise and not by any quadrature
@@ -137,7 +137,7 @@ export const IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
     'ULP (~5.3%) below the fp64-named ~10.779 ULP, every ceiling shifting down by ~the imp-33534 ~0.947 ULP ' +
     'libm contamination (tau=7: 10.648->9.680; tau=8: 10.779->10.212; tau in {9,10} unchanged, already ' +
     'sub-ULP). Since E_ref < E the shipped fp64 envelope stays a valid ~5%-conservative UPPER BOUND, never ' +
-    'breached by the reference libm. ACCURACY MEASUREMENT ONLY, RH-EQUIVALENT, reference-precision surrogate ' +
+    'crossed by the reference libm. ACCURACY MEASUREMENT ONLY, RH-EQUIVALENT, reference-precision surrogate ' +
     'not a platform survey; changes no bound; imp-3066 untouched; necessary-but-not-sufficient; no QED. ' +
     'PT Lambda <= 0.2 stays SOTA.',
 
@@ -186,7 +186,7 @@ export const IMP33559_ENVELOPE_UNDER_REFERENCE_LIBM = Object.freeze({
       'quadrature one.',
     theEnvelopeStaysAValidUpperBound:
       'Because the reference-precision envelope E_ref ~= 10.212 is BELOW the shipped fp64 E ~= 10.779, nothing ' +
-      'in the reference-precision band exceeds the quoted envelope: the conservative ceiling is not breached, ' +
+      'in the reference-precision band exceeds the quoted envelope: the conservative ceiling is not crossed, ' +
       'merely ~5% loose. The downward direction means a higher-precision libm makes the band MORE resolved, ' +
       'never less -- the imp-33538 envelope remains a safe conservative bound.',
   }),

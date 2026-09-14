@@ -12,7 +12,7 @@
  *   side-weight bookkeeping fix) -- composed with the carried imp-95329
  *   trace cap and imp-95330 chart floor. This note isolates what each of
  *   the two named lemmas contributes and, in particular, the
- *   ADVERSARIAL REFUTATION recorded alongside them: which lemma actually
+ *   SKEPTICAL REFUTATION recorded alongside them: which lemma actually
  *   carries the measured gain, without restating the surrounding
  *   THEOREM/COROLLARY machinery or the other named residual legs
  *   (pair-identity truncation, c3n tail, b-uniform t3 weight) that
@@ -43,7 +43,7 @@
  *   of this potential gain to the det/tr-to-exact-root step (LEMMA
  *   ROOT-MONO's substitution), estimating "up to 1.66x" from the gap
  *   between the true root and its det/tr floor at the TRUE (B, C). The
- *   imp-95331 adversarial self-check REFUTES that attribution: run
+ *   imp-95331 skeptical self-check REFUTES that attribution: run
  *   standalone (exact root without the side-weight split), LEMMA
  *   ROOT-MONO's substitution gains at most 1.006x; run on top of the
  *   split, at most 1.025x. The two legs COUPLE through the discriminant
@@ -100,7 +100,7 @@ const ROOT_MONO_W_SPLIT_HEADWORD = Object.freeze({
     'the cruder det-over-trace substitute C_low / (2 B_up).',
   whyItIsLoadBearing:
     'The measured RZ-PEN5 floor gain over RZ-PEN4 (1.6695x at rho = 10, ' +
-    '1.5389x at rho = e^6, both r = 2) is REAL, but the adversarial ' +
+    '1.5389x at rho = e^6, both r = 2) is REAL, but the skeptical ' +
     'self-check REFUTES the imp-95330 attribution of that gain to the ' +
     'exact-root (LEMMA ROOT-MONO) step: standalone, exact root without ' +
     'the split gains at most 1.006x; on top of the split, at most ' +
@@ -135,7 +135,7 @@ export const IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE = Object.freeze({
     'w_{+1}; composed into THEOREM RZ-PEN5 / COROLLARY PEN-UNIF5',
   question:
     'What do the imp-95331 LEMMA ROOT-MONO and LEMMA W-SPLIT each ' +
-    'establish, and why does the adversarial self-check show the ' +
+    'establish, and why does the skeptical self-check show the ' +
     'measured RZ-PEN5 floor gain is carried by the side-weight split ' +
     'rather than the exact-root substitution the prior residual note ' +
     'attributed it to?',
@@ -144,7 +144,7 @@ export const IMP95345_ROOT_MONO_W_SPLIT_CONCEPT_NOTE = Object.freeze({
   verdict:
     'CONCEPT NOTE ONLY (documentation, not a proof). Restates the ' +
     'imp-95331 LEMMA ROOT-MONO smaller-root monotonicity and LEMMA ' +
-    'W-SPLIT chartwise side-weight fix, and records the adversarial ' +
+    'W-SPLIT chartwise side-weight fix, and records the skeptical ' +
     'REFUTATION that the exact-root step alone gains at most 1.006x ' +
     '(coupled, at most 1.025x) while the side-weight split carries the ' +
     'full measured 1.5-1.7x gain, with every-octave onsets unchanged ' +

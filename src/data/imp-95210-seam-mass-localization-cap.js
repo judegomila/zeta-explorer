@@ -4,7 +4,7 @@
  * optimization, closed form) + COROLLARY GC-SL (global cap gammaSL(g),
  * closed form, gammaSL -> 1/2 + g^2/2) + LEMMA NG (collar insufficiency:
  * center geometry alone provably does NOT supply the hypothesis): SECOND
- * leg of the weld ballast chain, attacking the named successor sub-gap
+ * leg of the weld ballast chain, approaching the named successor sub-gap
  * imp-95209-subgap-seam-localized-overlap. The "block-to-support geometry
  * as new model input" demanded by imp-95209 is pinned to a PRECISE minimal
  * hypothesis -- per-parity cross-seam MASS localization H-LOC -- under
@@ -157,11 +157,11 @@
  *   packets DO carry in the paper (fixed per-shell rate scale) -- that is
  *   exactly the input to formalize.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) THEOREM SL attacked by a 20000-draw
+ * SKEPTICAL SELF-CHECK RECORD. (1) THEOREM SL approached by a 20000-draw
  * random-vector battery over random partitions: the split bound holds on
  * every draw (worst ratio 0.878, no violation); the closed form for g is
- * confirmed against a brute-force grid maximization of cos x sin y +
- * sin x cos y over the feasible rectangle. (2) THEOREM SL-CAP attacked by
+ * confirmed against an exhaustive grid maximization of cos x sin y +
+ * sin x cos y over the feasible rectangle. (2) THEOREM SL-CAP approached by
  * 200000 random feasible tuples across (omega, g): no tuple exceeds the
  * closed form; the constructed corner attains it exactly on the bump
  * branch. (3) COROLLARY GC-SL: stationarity identity at omegaStarSL to
@@ -262,7 +262,7 @@ function upperQ(a, x) {
 // ── verdict object ───────────────────────────────────────────────────────────
 export const IMP95210_SEAM_MASS_LOCALIZATION_CAP = {
   ticket:
-    "imp-95210 (second leg of the seam chain, attacking imp-95209-subgap-seam-localized-overlap: the required new model input is pinned to the per-parity cross-seam mass-localization hypothesis H-LOC; under it THEOREM SL gives <U, V> <= g A B with g = thetaE sqrt(1 - thetaO^2) + thetaO sqrt(1 - thetaE^2) < 1, the imp-95209 optimization re-runs in closed form to gammaSL(g) = 1/2 + g^2/2 + O(1/kappa), and LEMMA NG proves a center-collar hypothesis alone provably cannot supply H-LOC)",
+    "imp-95210 (second leg of the seam chain, approaching imp-95209-subgap-seam-localized-overlap: the required new model input is pinned to the per-parity cross-seam mass-localization hypothesis H-LOC; under it THEOREM SL gives <U, V> <= g A B with g = thetaE sqrt(1 - thetaO^2) + thetaO sqrt(1 - thetaE^2) < 1, the imp-95209 optimization re-runs in closed form to gammaSL(g) = 1/2 + g^2/2 + O(1/kappa), and LEMMA NG proves a center-collar hypothesis alone provably cannot supply H-LOC)",
   source:
     "Permuting the Zeta Twin Ladder Section 4.5; /permutation-architecture; consumes THEOREM OV and its constants (imp-95209), THEOREM BU (imp-95208), the OD class caps (imp-95129 via imp-95172); carried constants imported from the three sibling verdict objects.",
   hypothesisHLOC:
@@ -330,7 +330,7 @@ export const IMP95210_SML_ASSERTIONS = [
   {
     id: "imp95210-sml-split-bound-battery",
     description:
-      "THEOREM SL: 20000-draw random-vector battery over random partitions never violates |<U, V>| <= (cos x sin y + sin x cos y) A B, and the closed form g(thetaE, thetaO) dominates a brute-force grid maximization of the split coefficient over the feasible rectangle (4 theta pairs)",
+      "THEOREM SL: 20000-draw random-vector battery over random partitions never violates |<U, V>| <= (cos x sin y + sin x cos y) A B, and the closed form g(thetaE, thetaO) dominates an exhaustive grid maximization of the split coefficient over the feasible rectangle (4 theta pairs)",
     holds: () => {
       let seed = 987654321;
       const rand = () => {

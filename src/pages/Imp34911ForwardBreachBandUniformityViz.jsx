@@ -6,7 +6,7 @@ const D = IMP34889_FORWARD_BREACH_BAND_UNIFORMITY;
 const TABLE = D.bandTable; // [{k, rho_half_width, breach_step_lo/hi, four_step_ratio_to_margin_lo/hi, ...}]
 
 // The 4-step image-half-width fraction of the (H2) margin at each sampled band point (lo/hi per k rung),
-// against the breach step (constant = 5 everywhere) -- the chart the ticket asks for.
+// against the crossing step (constant = 5 everywhere) -- the chart the ticket asks for.
 function FourStepFractionChart() {
   const svgW = 720;
   const svgH = 300;
@@ -53,7 +53,7 @@ function FourStepFractionChart() {
         strokeDasharray="4 3"
       />
       <text x={padL + cW - 2} y={yAt(1) - 4} textAnchor="end" fill="#f87171" fontSize={9}>
-        margin = (H2) delta*N (breach line)
+        margin = (H2) delta*N (crossing line)
       </text>
 
       <polyline
@@ -140,7 +140,7 @@ export default function Imp34911ForwardBreachBandUniformityViz() {
         The 4-step forward-image half-width stays at {D.measured.four_step_ratio_to_margin_band_min}
         &ndash;{D.measured.four_step_ratio_to_margin_band_max} of the (H2) margin at every sampled
         imp-34693 band point (worst {D.measured.four_step_ratio_to_margin_band_max} at the lower edge,
-        where the margin is smallest) -- always under 1, so the integer breach step is exactly{' '}
+        where the margin is smallest) -- always under 1, so the integer crossing step is exactly{' '}
         {D.measured.breach_step_band_min} band-wide.
       </p>
       <FourStepFractionChart />
@@ -156,7 +156,7 @@ export default function Imp34911ForwardBreachBandUniformityViz() {
         Widest band: k={D.constants.widest_band_k}, half-width &asymp;{' '}
         {D.constants.widest_band_half_width} ({D.constants.widest_band_frac_of_N_cross} of N_cross &asymp;{' '}
         {D.constants.N_cross}). Center-point cross-check against the published imp-34865 literals:
-        width ratio {D.crosscheck.center_width_ratio_matches_imp34865 ? 'matches' : 'MISMATCH'}, breach
+        width ratio {D.crosscheck.center_width_ratio_matches_imp34865 ? 'matches' : 'MISMATCH'}, crossing
         step {D.crosscheck.center_breach_step_matches_imp34865 ? 'matches' : 'MISMATCH'} (both 5).
       </p>
 

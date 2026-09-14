@@ -13,7 +13,7 @@
  * monotone DECREASING in N (C_shock = sqrt(2/(3 log gamma_N)) increases as gamma_N
  * shrinks), the true infimum of the margin over a sub-ladder lies at the SMALLEST N,
  * not at N=2458. The question this ticket asks: how far down can N go before the cap
- * C_shock < 1/3 is actually breached?
+ * C_shock < 1/3 is actually crossed?
  *
  * THE CLOSED FORM. gamma_N = effectiveHeightForN(N) is strictly increasing in N, so
  *   margin(N) = 1/3 - sqrt(2/(3 log gamma_N))   is strictly increasing in N,
@@ -34,7 +34,7 @@
  *       effectiveHeightForN, agreeing to < 1e-6.
  *   (3) Reports the HONEST assessment: the cap C_shock < 1/3 is NOT inviolable at every
  *       N — it requires N > N_star ~ 203, below which gamma_N < e^6 and the closed form
- *       breaches 1/3. But N_star sits a factor ~12.1 BELOW the smallest tabulated
+ *       crossings 1/3. But N_star sits a factor ~12.1 BELOW the smallest tabulated
  *       assembly N=2458, so for every physically realized assembly (N >= 2458) the cap
  *       holds with margin >= 0.0447 (the imp-3132 floor (2 - sqrt 3)/6). The infimum of
  *       the margin over the physical regime [2458, inf) is the N=2458 worst case;

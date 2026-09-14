@@ -47,7 +47,7 @@
  *   overshoots the contraction target 1 by ~ the truncation DIMENSION. The scalar
  *   cover pins each diagonal below 1; it CANNOT pin their sum below 1. Hence a
  *   passive-core domination REACHED FROM THE SCALAR COVER cannot deliver
- *   ||R|| <= 1: the G7 "dominating passive core" must beat the TRACE -- exploit
+ *   ||R|| <= 1: the G7 "dominating passive core" must beat the TRACE -- use
  *   the near-collinearity / angle between the sinh-weighted basis vectors to cut
  *   the EFFECTIVE RANK -- which is content orthogonal to pointwise scalar weight
  *   domination.
@@ -230,7 +230,7 @@ export const IMP33685_SCALAR_COVER_OFFDIAGONAL_REACHABILITY = Object.freeze({
     whyStillOpen:
       'The operator bound sum_j R_jj ~ 4.85 overshoots the contraction target 1 by ~ the truncation ' +
       'dimension: the cover pins each of the (DEG+1) ratios < 1 but cannot pin their SUM < 1. A ' +
-      'passive core delivering ||R|| <= 1 must beat the TRACE -- exploit the near-collinearity / angle ' +
+      'passive core delivering ||R|| <= 1 must beat the TRACE -- use the near-collinearity / angle ' +
       'of the sinh-weighted basis to cut the effective rank -- which pointwise scalar weight ' +
       'domination cannot supply.',
     sharpensImp3066:

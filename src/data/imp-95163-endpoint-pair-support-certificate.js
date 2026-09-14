@@ -12,7 +12,7 @@
  * the intrinsic k = 1 corner crossing 0.2320720394 (which reproduces the
  * imp-95159 head-wall literal 0.23207204 to all recorded digits).
  *
- * WHY A NEW ARCHITECTURE WAS NEEDED (adversarial route first). The
+ * WHY A NEW ARCHITECTURE WAS NEEDED (skeptical route first). The
  * obvious cheaper move -- promote the imp-95154/95155 sampled jet-phantom
  * corner crossing mu ~ 0.2399 to an explicit E > 0 WITNESS and raise the
  * class-sandwich floor -- FAILS, and this run measured why: direct

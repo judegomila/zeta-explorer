@@ -120,7 +120,7 @@
  * k = 114 (interior). K-refinement at rho = e^6: K = 4096 exceeds
  * K = 256 by 0.88 percent -- chart currency stays exhausted.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Pair-floor truth: C_low <= C at
+ * SKEPTICAL SELF-CHECK RECORD. (1) Pair-floor truth: C_low <= C at
  * 11-point in-chart grids over charts {0, 63, 114, 200, 255} and six
  * (rho, r) cells including both coalescence ends; the floor is
  * NEAR-ATTAINED (max C_low / C = 0.9926). (2) Exhaustion measurement:

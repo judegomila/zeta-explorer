@@ -432,7 +432,7 @@ export default function TwistorPage() {
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/zx-calculus" style={{ color: '#f59e0b', fontSize: 13 }}>ZX-Calculus</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/spectral-attack" style={{ color: '#06b6d4', fontSize: 13 }}>Spectral Attack</Link>
+            <Link to="/spectral-attack" style={{ color: '#06b6d4', fontSize: 13 }}>Spectral Approach</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/">&larr; the atlas</Link>
           </div>

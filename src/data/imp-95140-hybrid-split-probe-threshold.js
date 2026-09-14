@@ -44,14 +44,14 @@
  *     Lemma MS row applies at gaps 8/12/16 (BOTH are kept: the ridge
  *     parks z2b = 0.75 where the MS row alone evaluates to 0.4501 ABOVE
  *     the sharp cap 0.4169 - pricing by the row alone was measured to
- *     gain ZERO; see the adversarial record).
+ *     gain ZERO; see the skeptical record).
  * Hence rho12 <= e^{-(8+t) mu} sqrt((1 + Z)(1 - [t = 2] x1b^2)
  *   - 2 mu Z I_t) sqrt(1 + Z qc) + x1b min(g(8 mu), MS row), Z = (8+t) mu.
  * QED (corollary; every ingredient is a carried lemma - the only new move
  * is splitting the bilinear form BEFORE tilting instead of splitting the
  * tilted norm by the triangle inequality).
  *
- * WHY THIS ATTACKS THE LEG. Corollary PF charges the in-ramp fraction
+ * WHY THIS APPROACHES THE LEG. Corollary PF charges the in-ramp fraction
  * x1b at e^{-8 mu} sqrt(1 + 8 mu) sqrt(1 + Z qc) = 0.4501 (mu = 0.24502,
  * qc = 1): the triangle split forces the in-ramp mass through the SAME
  * Cauchy-Schwarz pairing as the sub-foot mass, so it inherits the
@@ -138,7 +138,7 @@
  * promote Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains
  * SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD (in-run refutations preserved so
+ * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved so
  * successors do not repeat them). (1) Pricing <R, C2> by the 3-piece MS
  * row ALONE was measured to gain ZERO: the certificate ridge relocates
  * to z2b = 0.75 where the row evaluates to 0.4501 > g(8 mu) = 0.4169 -
@@ -630,7 +630,7 @@ function tiltExcess(c, edge, side, mu, D) {
   return s;
 }
 
-// battery H (seed 909091): Corollary PH attack, BOTH parities, at the
+// battery H (seed 909091): Corollary PH approach, BOTH parities, at the
 // witnesses ACTUAL parameters: hybrid forms, the exact bilinear split
 // identity at both feet, and the in-ramp piece row cap
 function runHybridBattery() {
@@ -693,7 +693,7 @@ function runHybridBattery() {
   return { violH, violSplit, violRow, worstH2, worstH1, count };
 }
 
-// battery W (seed 606061): THEOREM HS direct attack at rates >= 12251/50000
+// battery W (seed 606061): THEOREM HS direct approach at rates >= 12251/50000
 function runTheoremBatteryHS() {
   seedState = 606061;
   let maxE = -Infinity;
@@ -897,7 +897,7 @@ export const IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95140-hs-hybrid-battery",
     description:
-      "Corollary PH attacked end-to-end on ~1500 full-head witnesses in BOTH parities at their ACTUAL alpha, gamma and piece fractions: zero hybrid-form violations (worst rho12/H2 ratio 0.7105060135250242, worst rho12/H1 ratio 0.4346541717229754), zero exact-bilinear-split identity violations at both feet, zero in-ramp row-cap violations",
+      "Corollary PH approached end-to-end on ~1500 full-head witnesses in BOTH parities at their ACTUAL alpha, gamma and piece fractions: zero hybrid-form violations (worst rho12/H2 ratio 0.7105060135250242, worst rho12/H1 ratio 0.4346541717229754), zero exact-bilinear-split identity violations at both feet, zero in-ramp row-cap violations",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -913,7 +913,7 @@ export const IMP95140_HYBRID_SPLIT_PROBE_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95140-hs-theorem-battery",
     description:
-      "THEOREM HS attacked directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 12251/50000 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.036167673486760386 strictly negative, zero E > 0 draws",
+      "THEOREM HS approached directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 12251/50000 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.036167673486760386 strictly negative, zero E > 0 draws",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_W.viol === 0 && BAT_W.maxE < 0 && rel(BAT_W.maxE, BAT_W_MAX_E_LIT, 1e-6);

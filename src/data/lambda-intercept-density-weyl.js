@@ -481,7 +481,7 @@ export const LAMBDA_INTERCEPT_DENSITY_WEYL_ASSERTIONS = [
     },
     why:
       'The Σ_{i≥2} 1/i² = π²/6 − 1 and Σ_{i≥2} 1/(i(i+1)) = 1/2 identities are ' +
-      'the combinatorial core of the tail derivation. A drift in either kills ' +
+      'the combinatorial core of the tail derivation. A drift in either eliminates ' +
       'the rigorous lower bound — both must be numerically exact and ordered ' +
       'tight > safe so the tight form is indeed the sharper of the two.',
   },

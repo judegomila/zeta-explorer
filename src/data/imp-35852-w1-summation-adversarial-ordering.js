@@ -3,7 +3,7 @@
  *
  * imp-35852 (numerical, S-frontier): MEASURE whether the imp-35812 naive-summation
  * random-walk O(sqrt(N) * u) error growth degrades toward the COHERENT O(N * u)
- * pessimistic ceiling under ADVERSARIALLY-ORDERED term sequences, and whether the
+ * pessimistic ceiling under INDEPENDENTLY-ORDERED term sequences, and whether the
  * pairwise / Kahan-Babuska schemes stay robust to ordering.
  *
  * imp-35812 measured the three summation schemes (naive recursive, pairwise
@@ -14,7 +14,7 @@
  * linear ceiling N * eps ~ 1.08e-10, attributing it to random-walk O(sqrt(N) * u)
  * accumulation rather than coherent O(N * u). But the directed-rounding worst case
  * assumes the N per-step errors add COHERENTLY, and the single oscillatory ordering
- * never stressed that assumption. This module supplies the missing ADVERSARIAL test:
+ * never stressed that assumption. This module supplies the missing SKEPTICAL test:
  * it holds the SAME multiset of terms fixed and re-runs the three schemes under four
  * hostile permutations designed to force coherent accumulation, then measures each
  * scheme error against the SAME exact BigInt reference (the exact sum is
@@ -25,7 +25,7 @@
  * C_mb GUE-conditional (imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian
  * Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL ORDERINGS (same multiset, hostile permutations)
+ * WORST-CASE ORDERINGS (same multiset, hostile permutations)
  * -----------------------------------------------------------------------------
  *   original  : the imp-35812 oscillatory order k = 1 .. N (baseline, well-behaved).
  *   signedAsc : sort by SIGNED value ascending (most-negative first). Builds a large
@@ -49,18 +49,18 @@
  *   magDesc     ~3.05e-17    ~1.27e-18    ~1.89e-20  ~6.55
  *   clustered   ~4.86e-15    ~3.15e-17    ~2.31e-19  ~4.35  (worst naive)
  *
- * READING: the WORST adversarial ordering (clustered sign-runs) pushes the naive error
+ * READING: the WORST worst-case ordering (clustered sign-runs) pushes the naive error
  * UP by ~160x -- from ~6.55 orders below the coherent N * eps ceiling on the oscillatory
  * order to ~4.35 orders below -- exactly the direction the coherence argument predicts.
- * But even the worst adversarial naive error stays > 1e4x (~4.3 orders) BELOW the
+ * But even the worst worst-case naive error stays > 1e4x (~4.3 orders) BELOW the
  * coherent O(N * u) ceiling: full sign-coherence of the N rounding errors is NOT
  * realizable on this data, so the pessimistic linear ceiling is NOT attained even
- * adversarially. Pairwise stays below its own log2(N) * eps ceiling under every ordering
+ * independently. Pairwise stays below its own log2(N) * eps ceiling under every ordering
  * (worst ~3.15e-17 vs ceiling ~4.20e-15), and Kahan-Babuska stays at the unit-roundoff
  * floor with only ~1 order of ordering sensitivity (max ~2.31e-19 << 2 u ~2.22e-16) --
  * both compensated / hierarchical schemes are ORDERING-ROBUST. All errors remain ~10+
  * orders below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760). CONCLUSION:
- * adversarial ordering narrows but does NOT close the gap to the coherent ceiling for
+ * worst-case ordering narrows but does NOT close the gap to the coherent ceiling for
  * naive summation, and leaves pairwise / Kahan essentially unaffected -- precision stays
  * NON-binding under worst-case ordering; the obstruction remains the ENGINEERING of the
  * certified length-N interval sum (MECHANICAL, imp-35725). The W1 A + B - C certificate
@@ -169,7 +169,7 @@ const _trueAbs = _trueNum < 0n ? -_trueNum : _trueNum;
 const TRUE_SUM = (Number(_trueAbs << 40n) / 2 ** 40 / 2 ** 96) * (_trueNum < 0n ? -1 : 1);
 const CONDITION_NUMBER = _sumAbs / Math.abs(TRUE_SUM);
 
-// -- Adversarial orderings (same multiset, hostile permutations) ------------------------
+// -- Worst-case orderings (same multiset, hostile permutations) ------------------------
 function orderOriginal() {
   return Float64Array.from(_base);
 }
@@ -242,7 +242,7 @@ export const IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING = {
   proofSection: 'S-frontier',
   question:
     'Does the imp-35812 naive-summation random-walk O(sqrt(N) * u) error growth degrade toward the ' +
-    'coherent O(N * u) pessimistic ceiling under adversarially-ordered term sequences (sign-aligned / ' +
+    'coherent O(N * u) pessimistic ceiling under independently-ordered term sequences (sign-aligned / ' +
     'magnitude-sorted / clustered) at N ~ 488602, and do pairwise / Kahan stay ordering-robust? ' +
     'Measurement only; certifies no W1 bound; changes no bound; NO QED.',
   representativeSum: {
@@ -278,13 +278,13 @@ export const IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING = {
   },
   reading: {
     adversarialNarrowsGap:
-      'the worst adversarial ordering (clustered same-sign runs) pushes the naive error UP by ~160x -- from ' +
+      'the worst worst-case ordering (clustered same-sign runs) pushes the naive error UP by ~160x -- from ' +
       '~6.55 orders below the coherent N * eps ceiling on the oscillatory order to ~4.35 orders below -- ' +
       'exactly the direction the coherence argument predicts',
     coherentCeilingStillNotAttained:
-      'even the worst adversarial naive error stays > 1e4x (~4.3 orders) BELOW the coherent O(N * u) ceiling: ' +
+      'even the worst worst-case naive error stays > 1e4x (~4.3 orders) BELOW the coherent O(N * u) ceiling: ' +
       'full sign-coherence of the N rounding errors is not realizable on this data, so the pessimistic linear ' +
-      'ceiling is NOT attained even adversarially',
+      'ceiling is NOT attained even independently',
     pairwiseOrderingRobust:
       'pairwise divide-and-conquer stays below its own log2(N) * eps ceiling under every ordering (worst ' +
       '~3.15e-17 vs ceiling ~4.20e-15)',
@@ -297,7 +297,7 @@ export const IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING = {
   },
   conclusion: {
     naiveClimbsButDoesNotReachCeiling:
-      'adversarial ordering NARROWS but does not close the gap to the coherent ceiling for naive summation; ' +
+      'worst-case ordering NARROWS but does not close the gap to the coherent ceiling for naive summation; ' +
       'the coherent O(N * u) worst case is not attained on this data even under hostile permutations',
     compensatedSchemesOrderingRobust:
       'pairwise and Kahan-Babuska are ordering-robust -- pairwise stays below its log2(N) ceiling and Kahan ' +
@@ -306,14 +306,14 @@ export const IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING = {
       'achievable double precision leaves overwhelming strict headroom under WORST-CASE ordering too; ' +
       'precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures scheme errors under adversarial orderings only; it evaluates no sum of H_t and ' +
+      'this module measures scheme errors under worst-case orderings only; it evaluates no sum of H_t and ' +
       'verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) ' +
       'and MECHANICAL (imp-35725)',
   },
   isRigorous: false,
   verdict:
     'NUMERICAL MEASUREMENT (frontier-direction, NOT a certified bound). Re-running naive, pairwise, and ' +
-    'Kahan-Babuska summation on the FIXED imp-35812 length-N = 488602 term multiset under four adversarial ' +
+    'Kahan-Babuska summation on the FIXED imp-35812 length-N = 488602 term multiset under four skeptical ' +
     'orderings (signed-ascending, magnitude-ascending, magnitude-descending, clustered same-sign runs) ' +
     'against the SAME exact BigInt reference, the worst ordering (clustered) raises the naive normalized ' +
     'error to ~4.86e-15 -- ~160x above the ~3.03e-17 oscillatory baseline, climbing from ~6.55 to ~4.35 ' +
@@ -345,9 +345,9 @@ export const IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING_ASSERTIONS = [
       ORDERINGS.length === 5,
   },
   {
-    // Adversarial ordering DEGRADES naive: the worst ordering is >>10x above the oscillatory baseline.
+    // Worst-case ordering DEGRADES naive: the worst ordering is >>10x above the oscillatory baseline.
     id: 'imp35852-adversarial-degrades-naive',
-    description: 'Worst adversarial naive error is >10x above the oscillatory baseline (coherence forced up)',
+    description: 'Worst worst-case naive error is >10x above the oscillatory baseline (coherence forced up)',
     holds: () =>
       NAIVE_WORST / NAIVE_ORIGINAL > 10 &&
       WORST_ORDERING.ordering === 'clustered' &&

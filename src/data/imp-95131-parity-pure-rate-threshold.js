@@ -79,7 +79,7 @@
  * cross-block separation from a block-b packet is > 2^{b - 1} >= r^3 / 4
  * (r^3 = 1/d <= 2^{b + 1}), so x = mu r = (mu tau)(r / tau)
  * <= (mu tau) 4 / r^2 <= 4 (mu tau) <= 8; h is increasing on x < s. QED.
- * (This kills the high-block evasion "small rate but penalty-free because
+ * (This eliminates the high-block evasion "small rate but penalty-free because
  * r is large": any rate small enough to matter at its OWN nearest-pair
  * distance scale is automatically deep in the penalized regime.)
  *
@@ -108,20 +108,20 @@
  * 0.389). (d) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma RC was attacked on a 125000-cell
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma RC was stress-tested on a 125000-cell
  * log grid over (rate, ratio, dimensionless separation) including ratio
  * 10^6 and separation 10^{-4}: zero violations away from the near-equal
  * float-cancellation sliver (r within 1e-6 of 1, where the exact formula
  * loses ~1e-10 to catastrophic cancellation and the true statement is the
  * equality case); the proof-trace Delta(x) >= 0 is checked densely at
- * several ratios. (2) Lemma GS was attacked exhaustively (all rows b <= 60,
+ * several ratios. (2) Lemma GS was stress-tested exhaustively (all rows b <= 60,
  * both parities): the floor 2^{2k - 1} is TIGHT at (b, k) = (0, 1) and
  * (2, 1), so the even-parity constant cannot be improved without changing
- * the class. (3) The battery attacks THEOREM RT directly: 6000 seeded
+ * the class. (3) The battery probes THEOREM RT directly: 6000 seeded
  * random one-per-block parity-pure witnesses (mixed rates >= 2/5, mixed
  * amplitudes including zeros, random block subsets and positions, both
  * parities) - max E strictly negative, max row <= S(2/5); a second 6000-draw
- * free-rate battery attacks the ROW REDUCTION inequality itself: zero
+ * free-rate battery probes the ROW REDUCTION inequality itself: zero
  * violations. (4) Consistency with THEOREM PX: the family has E > 0 at
  * rate 0.127 (below the threshold, as required - a threshold below 0.127
  * would CONTRADICT PX, so the sandwich is genuinely two-sided), E < 0 at
@@ -329,7 +329,7 @@ export const IMP95131_PARITY_PURE_RATE_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95131-rt-lemma-rc-grid",
     description:
-      "Lemma RC holds on a 125000-cell adversarial log grid (rate 1e-3..1e3, ratio 1.01..1e6, dimensionless separation 1e-4..1e4): sqrt(ab) K(a,b,tau) <= f(a tau) with zero relative excess; the near-equal band (ratio < 1.01, float-cancellation sliver of the exact formula around the equality case) stays within 1e-8",
+      "Lemma RC holds on a 125000-cell skeptical log grid (rate 1e-3..1e3, ratio 1.01..1e6, dimensionless separation 1e-4..1e4): sqrt(ab) K(a,b,tau) <= f(a tau) with zero relative excess; the near-equal band (ratio < 1.01, float-cancellation sliver of the exact formula around the equality case) stays within 1e-8",
     holds: () => {
       for (let ia = 0; ia < 50; ia++) {
         const a = Math.pow(10, -3 + (6 * ia) / 49);

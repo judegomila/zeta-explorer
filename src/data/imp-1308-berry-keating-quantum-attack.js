@@ -679,7 +679,7 @@ export const IMP_1308_BERRY_KEATING_QUANTUM_ATTACK = Object.freeze({
 
   honestScope: Object.freeze([
     'This file is a NEW-INPUT CLASSIFICATION ticket for the candidate spectral ' +
-    'attack on Montgomery PCC at 2-point via the Berry-Keating H = xp ' +
+    'approach on Montgomery PCC at 2-point via the Berry-Keating H = xp ' +
     'semiclassical quantum-chaos Hamiltonian (Berry-Keating 1999) plus the ' +
     'Sierra-Townsend 2008 Landau-level quantum correction. It is NOT a new ' +
     'closure or a new unconditional bound.',

@@ -405,7 +405,7 @@ function runIdentityBattery() {
   return { worst, count };
 }
 
-// battery B (seed 565656): rate-pinning attacked - seeded in-class rate
+// battery B (seed 565656): rate-pinning approached - seeded in-class rate
 // tuples >= MU_DW at the witness geometry; the sign-constrained sup never
 // exceeds the common-rate value (measured; the projected value is a valid
 // lower bound of the true sup, so a violation would be a REAL witness)
@@ -433,7 +433,7 @@ function runRatePinBattery() {
   return { viol, maxSup };
 }
 
-// battery C (seed 686868): position optimality attacked - seeded in-class
+// battery C (seed 686868): position optimality approached - seeded in-class
 // position tuples (u1 in [1,2), u2/u3 in [4,8), u4 in [16,32), edge-biased
 // every third draw) at common rate MU_DW; none exceeds the edge-limit lam
 function runPositionBattery() {
@@ -635,19 +635,19 @@ export const IMP95143_DISPLACEMENT_WITNESS_CERTIFICATE_ASSERTIONS = [
   {
     id: "imp95143-identity-battery",
     description:
-      "sign-convention ground truth attacked: 3000 seeded mixed-rate multi-packet draws (both parities, 1-3 packets per block) - the packet form (same-block pairs negative) equals the imp-95136 cluster form to 1e-9 relative on every draw",
+      "sign-convention ground truth stress-tested: 3000 seeded mixed-rate multi-packet draws (both parities, 1-3 packets per block) - the packet form (same-block pairs negative) equals the imp-95136 cluster form to 1e-9 relative on every draw",
     holds: () => BAT_A.count === 3000 && BAT_A.worst < 1e-9,
   },
   {
     id: "imp95143-rate-pin-battery",
     description:
-      "rate pinning attacked: 600 seeded in-class rate tuples >= mu at the witness geometry (spreads to 4x every third draw) - the sign-constrained supremum (a valid lower bound of the true sup) never exceeds the common-rate value; a violation would itself be a better witness and fail the build",
+      "rate pinning stress-tested: 600 seeded in-class rate tuples >= mu at the witness geometry (spreads to 4x every third draw) - the sign-constrained supremum (a valid lower bound of the true sup) never exceeds the common-rate value; a violation would itself be a better witness and fail the build",
     holds: () => BAT_B.viol === 0 && BAT_B.maxSup <= LAM_DW.lam + 1e-9,
   },
   {
     id: "imp95143-position-battery",
     description:
-      "position optimality attacked: 1500 seeded in-class position tuples at the witness rate (edge-hugging every third draw) - no tuple exceeds the both-edges edge-limit lam; the facing-edge corner is the family optimum (measured)",
+      "position optimality stress-tested: 1500 seeded in-class position tuples at the witness rate (edge-hugging every third draw) - no tuple exceeds the both-edges edge-limit lam; the facing-edge corner is the family optimum (measured)",
     holds: () => BAT_C.viol === 0 && BAT_C.maxLam <= jacobiMax(signedMatrix(MU_DW, TAUS_EDGE)).lam + 1e-9,
   },
   {

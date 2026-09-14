@@ -132,14 +132,14 @@
  *   fixed-97 theta = 10: floor 0.0012054673720820889,
  *     gap 2444.6515171682004 -> 642.1998717107592 .
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma 3W was attacked by direct
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma 3W was stress-tested by direct
  * midpoint quadrature of the two-envelope integral across s in {11, 3} x
  * separations x width ratios x window parameters (1000 configurations in the
  * offline sweep, a 54-configuration core re-run by the assertions): ZERO
  * violations, worst integral/bound ratio 0.8167 - the bound is within 23% of
  * truth somewhere, so the family is not vacuous; midpoint sums of the
  * positive integrand on a truncated window underestimate - the safe
- * direction. (2) Lemma RHO was attacked by dense sampling of actual grid
+ * direction. (2) Lemma RHO was stress-tested by dense sampling of actual grid
  * pairs with annulus endpoints approached: zero violations, worst rho/cap =
  * 0.9966 (cap essentially attained). (3) The seventeenth literals
  * (OmegaStar_2, Tx(2), cFar = 2.9469476400572421) are reproduced through an

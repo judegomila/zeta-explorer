@@ -49,7 +49,7 @@
  *   crossover region a in [37.5, 40] is FAR outside the physically relevant
  *   range; for a <= 37.66 the HS bound already proves ||V|| <= 1. This sweep
  *   localizes WHERE Conj 27.2 stops holding empirically; it does NOT affect the
- *   RH attack for Lambda upper bounds in [0, 37.66].
+ *   RH approach for Lambda upper bounds in [0, 37.66].
  *
  *   CROSS-CHECK WITH imp-1316
  *   -------------------------

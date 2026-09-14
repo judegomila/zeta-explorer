@@ -4,7 +4,7 @@
  *
  * @module data/imp-33251-modulation-nyquist-floor-independent-verification
  *
- * imp-33233 attacked the Conjecture 22.1 modulation escape-hatch quantitatively
+ * imp-33233 approached the Conjecture 22.1 modulation escape-hatch quantitatively
  * and produced three headline numbers, all resting on ONE analytic pass:
  *   (A) single-width weakened coefficient floor D >= ceil(M_sc/2);
  *   (B) multi-width/windowed Paley-Wiener + Levinson/Titchmarsh 8.71 zero-density

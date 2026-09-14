@@ -1,5 +1,5 @@
 /**
- * imp-95430: TIGHTER estimate of the imp-95374 Finding 3 breach threshold --
+ * imp-95430: TIGHTER estimate of the imp-95374 Finding 3 crossing threshold --
  * the log-rate jitter magnitude at which the proven imp-95330 m-uniform floor
  * A_unif4 stops lower-bounding the worst-case off-lattice seam pencil floor --
  * as a function of the octave count m and the lattice ratio rho, plus a
@@ -11,10 +11,10 @@
  * worst-of-400 over five discrete jitter magnitudes delta in {2^-6..2^-2},
  * that the proven A_unif4(2) = 1.9975337e-9 kept lower-bounding the
  * worst-of-400 off-lattice pencil floor up to +-6.25% (min 2.344e-9) and was
- * first breached at +-12.5% (min 3.056e-10) -- a coarse [+-6.25%, +-12.5%]
+ * first crossed at +-12.5% (min 3.056e-10) -- a coarse [+-6.25%, +-12.5%]
  * bracket, with the collapse attributed qualitatively to the imp-95253 /
  * imp-95232 separation-pricing tail. This ticket (a) bisects that bracket to a
- * tighter breach threshold, (b) measures how it moves with m and rho, and
+ * tighter crossing threshold, (b) measures how it moves with m and rho, and
  * (c) isolates the collapse mechanism deterministically.
  *
  * PROTOCOL CHANGE (why the tighter estimate is legitimately lower). To make
@@ -22,16 +22,16 @@
  * scaled: unit draws u_k in [-1,1] and in-block ratios ln r_k in
  * (ln 1.3 / 2, ln 1.3] are drawn ONCE from the imp-95374 mulberry32 seed
  * 0xc0ffee, then ln nu_k = k ln rho + delta * u_k. The worst-of-400 min floor
- * is then MONOTONE decreasing in delta (a consistently scaled adversarial
+ * is then MONOTONE decreasing in delta (a consistently scaled skeptical
  * pattern set), so its crossing of A_unif4 bisects cleanly -- unlike the
  * imp-95374 per-delta RE-SEEDING, which draws an independent 400-set at each
  * delta and can miss a worse configuration at the intermediate magnitudes.
  *
- * FINDING 1 (tighter breach threshold, m = 8, rho = 2). The consistently
+ * FINDING 1 (tighter crossing threshold, m = 8, rho = 2). The consistently
  * scaled worst-of-400 pencil floor first dips below the proven A_unif4(2) at
  *   delta* = 0.051987  (+-5.199% log-jitter),
  * BELOW the imp-95374 +-6.25% "still covered" figure: a consistently scaled
- * worst-of-400 breaches the certified floor already near +-5.2%, so the
+ * worst-of-400 crosses the certified floor already near +-5.2%, so the
  * imp-95374 "the margin absorbs ~+-6%" reading was mildly optimistic (an
  * artifact of independent per-delta reseeding). The binding configuration is a
  * SINGLE pattern (index 129 of the 400); its floor crossing alone reproduces
@@ -62,14 +62,14 @@
  * ratio leaves more log-room to jitter before a cross-block gap can close.
  *
  * FINDING 4 (the collapse is a COLLECTIVE effect, not a single pinned pair).
- * At the m = 8 breach configuration the globally smallest log-gap is an
+ * At the m = 8 crossing configuration the globally smallest log-gap is an
  * IN-BLOCK pair, minInBlock = 0.133803, sitting just above the in-block window
  * floor ln(1.3)/2 = 0.131182 (the protocol keeps in-block ratios bounded away
  * from 1, so no in-block collision is possible); the tightest CROSS-block gap
  * is still minCrossBlock = 0.351626, far from closing. The floor is driven
  * down not by any one closing gap but by the full jittered configuration --
  * the cross-block base jitter (which scales with delta) collectively degrades
- * lam_min. This is why the stochastic worst-of-400 breaches at +-5.2%, far
+ * lam_min. This is why the stochastic worst-of-400 crossings at +-5.2%, far
  * below the isolated single-collision requirement of Finding 5.
  *
  * FINDING 5 (near-collision mechanism: an isolated cross-block collision
@@ -86,7 +86,7 @@
  * QUADRATICALLY (the near-null direction enters both the singular numerator
  * Gram and the block-diagonal denominator), not linearly.
  *
- * HONEST SCOPE / LIMITS. (a) Worst-of-T with T = 400; the breach threshold is
+ * HONEST SCOPE / LIMITS. (a) Worst-of-T with T = 400; the crossing threshold is
  * a T-conditional worst-case estimate, NOT an infimum -- larger T finds worse
  * configurations and lowers delta* (bounded below only by the deterministic
  * single-collision requirement, since the in-block window is bounded away from
@@ -109,15 +109,15 @@
 export const IMP95430_BREACH_THRESHOLD_BOUND = {
   id: "imp-95430",
   title:
-    "Tighter breach threshold of the proven A_unif4 m-uniform floor vs the " +
+    "Tighter crossing threshold of the proven A_unif4 m-uniform floor vs the " +
     "worst-of-400 off-lattice seam pencil floor, as a function of m and rho, " +
     "with the near-collision collapse mechanism",
   object:
-    "bisect the imp-95374 Finding 3 [+-6.25%, +-12.5%] breach bracket to a " +
+    "bisect the imp-95374 Finding 3 [+-6.25%, +-12.5%] crossing bracket to a " +
     "tighter jitter threshold delta*(m, rho) using a consistently scaled " +
     "worst-of-400 pattern family, and characterize the collapse past it",
   aUnif4Rho2: 1.9975337e-9,
-  // FINDING 1: tighter breach threshold at m = 8, rho = 2
+  // FINDING 1: tighter crossing threshold at m = 8, rho = 2
   breachM8Rho2: {
     deltaStar: 0.051987,
     pct: 5.199,
@@ -125,7 +125,7 @@ export const IMP95430_BREACH_THRESHOLD_BOUND = {
     imp95374BracketLo: 0.0625,
     imp95374BracketHi: 0.125,
     note:
-      "consistently scaled worst-of-400 breaches at +-5.199%, below the " +
+      "consistently scaled worst-of-400 crossings at +-5.199%, below the " +
       "imp-95374 +-6.25% still-covered figure (per-delta reseeding artifact); " +
       "a single pattern (idx 129) is the binder at the crossing",
   },
@@ -144,13 +144,13 @@ export const IMP95430_BREACH_THRESHOLD_BOUND = {
     { rho: 4, aUnif4: 3.54462e-4, deltaStar: 0.111285, pct: 11.128 },
     { rho: 8, aUnif4: 7.9235e-3, deltaStar: 0.288576, pct: 28.858 },
   ],
-  // FINDING 4: binding-gap diagnosis at the m = 8 breach
+  // FINDING 4: binding-gap diagnosis at the m = 8 crossing
   bindingGapM8: {
     minInBlock: 0.133803,
     minCrossBlock: 0.351626,
     inBlockWindowFloor: 0.131182, // ln(1.3)/2
     note:
-      "smallest gap at breach is an in-block pair near the window floor, not " +
+      "smallest gap at crossing is an in-block pair near the window floor, not " +
       "a closing cross-block collision; the collapse is a collective full- " +
       "configuration effect of the delta-scaled cross-block base jitter",
   },
@@ -180,9 +180,9 @@ export const IMP95430_BREACH_THRESHOLD_BOUND = {
     "obligation (3), signed WEIGHT / modulus-phase and the imp-95212 " +
     "envelope port all remain OPEN",
   verdict:
-    "MEASUREMENT/DERIVATION: the imp-95374 Finding 3 breach bracket sharpens " +
+    "MEASUREMENT/DERIVATION: the imp-95374 Finding 3 crossing bracket sharpens " +
     "to delta* = 5.199% at m = 8 / rho = 2 (a consistently scaled worst-of-400 " +
-    "breaches the certified A_unif4 below the +-6.25% still-covered figure); " +
+    "crosses the certified A_unif4 below the +-6.25% still-covered figure); " +
     "the threshold shrinks with the octave count m (19.97% -> 3.10% over " +
     "m = 4..12, more boundaries and thinner finite-m headroom) and grows with " +
     "the lattice ratio rho (5.20% -> 28.86% over rho = 2..8, wider log-spacing " +
@@ -409,7 +409,7 @@ export const IMP95430_ASSERTIONS = [
     id: "imp95430-breach-threshold-m8-rho2",
     description:
       "FINDING 1: the consistently scaled worst-of-400 pencil floor at m = 8, " +
-      "rho = 2 brackets the breach threshold delta* ~ 0.052 -- worst floor > " +
+      "rho = 2 brackets the crossing threshold delta* ~ 0.052 -- worst floor > " +
       "A_unif4 at delta = 0.05 and < A_unif4 at delta = 0.06, i.e. below the " +
       "imp-95374 +-6.25% still-covered figure",
     holds: () => {
@@ -427,7 +427,7 @@ export const IMP95430_ASSERTIONS = [
     description:
       "FINDING 1: the baked binding pattern (index 129) matches the generator " +
       "(abs 1e-8), its floor crosses A_unif4 between delta = 0 and +-6.25%, " +
-      "and its single-pattern breach bisection reproduces delta* (rel 1e-3)",
+      "and its single-pattern crossing bisection reproduces delta* (rel 1e-3)",
     holds: () => {
       const p = makePatterns(8, 400, 1.3, SEED)[129];
       for (let k = 0; k < 8; k++) {
@@ -451,7 +451,7 @@ export const IMP95430_ASSERTIONS = [
   {
     id: "imp95430-m-dependence-monotone",
     description:
-      "FINDING 2: the baked breach threshold is strictly decreasing in the " +
+      "FINDING 2: the baked crossing threshold is strictly decreasing in the " +
       "octave count m (m = 4..12), and the m = 6 worst-of-400 bracket " +
       "(> A_unif4 at 0.10, < A_unif4 at 0.13) confirms delta*(6) ~ 0.117 sits " +
       "between the m = 4 and m = 8 values",
@@ -470,7 +470,7 @@ export const IMP95430_ASSERTIONS = [
   {
     id: "imp95430-rho-dependence-monotone",
     description:
-      "FINDING 3: the baked breach threshold is strictly increasing in the " +
+      "FINDING 3: the baked crossing threshold is strictly increasing in the " +
       "lattice ratio rho (rho = 2..8), and the rho = 4 worst-of-400 bracket " +
       "(> A_unif4(4) at 0.10, < at 0.12) confirms delta*(rho=4) ~ 0.111 > the " +
       "rho = 2 value",
@@ -506,7 +506,7 @@ export const IMP95430_ASSERTIONS = [
   {
     id: "imp95430-binding-gap-collective",
     description:
-      "FINDING 4: at the m = 8 breach the smallest in-block gap (0.1338) sits " +
+      "FINDING 4: at the m = 8 cross the smallest in-block gap (0.1338) sits " +
       "just above the in-block window floor ln(1.3)/2 (0.1312) while the " +
       "tightest cross-block gap (0.3516) is far from closing -- the collapse " +
       "is collective, not a single pinned collision",

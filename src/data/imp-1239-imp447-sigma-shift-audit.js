@@ -11,7 +11,7 @@
 // at sigma_N = SIGMA_OPT = 0.75 (imp-459 variational hardening from
 // sigma_N = 0.61 used by imp-447). The imp-1179 + imp-1182 BS audit
 // notes a regime where the Bui-Soundararajan log-power obstruction is
-// killed at sigma_BS = 0.99. Is the imp-447 Ingham chain ALGEBRAICALLY
+// eliminated at sigma_BS = 0.99. Is the imp-447 Ingham chain ALGEBRAICALLY
 // admissible at sigma_N = 0.99 too -- i.e. could we re-derive
 // E_trunc_pt at sigma_N = 0.99 without breaking any imp-440 link?
 //

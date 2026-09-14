@@ -10,11 +10,11 @@
 /**
  * @module imp-1126-auto-tripwires
  * @fileoverview Auto-generated tripwire (regression-assertion) skeleton guarding the
- * Conrey-Snaith third-moment attack data module imp-1126-conrey-snaith-3rd-moment-attack.js.
+ * Conrey-Snaith third-moment approach data module imp-1126-conrey-snaith-3rd-moment-attack.js.
  *
  * Proof-chain step: moment-method sub-attack on RH. The third-moment (Conrey-Snaith)
  * route is one of the empirical sub-attacks feeding the broader ESY/Montgomery PCC
- * obstruction analysis; this file does not assert the attack succeeds, only that its
+ * obstruction analysis; this file does not assert the approach succeeds, only that its
  * serialized data module stays loadable and structurally intact.
  *
  * Exports:

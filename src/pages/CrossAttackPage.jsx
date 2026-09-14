@@ -26,31 +26,31 @@ export default function CrossAttackPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Cross-Attack Efficiency Dashboard</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            A unified dashboard that runs <strong>all nine attack vectors</strong> side-by-side,
+            A unified dashboard that runs <strong>all nine approach vectors</strong> side-by-side,
             measures their cross-correlations, and combines them into a single confinement potential
-            that is more constraining than any individual attack alone.
+            that is more constraining than any individual approach alone.
           </p>
         </div>
 
         <div className="card" style={{ ...cardBaseLeft('var(--brass)'), marginBottom: 24 }}>
           <h3 style={{ color: 'var(--brass)', fontSize: 14, marginBottom: 8 }}>The Multi-Pronged Approach</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-            Each attack vector probes a different mathematical structure — information-theoretic,
+            Each approach vector probes a different mathematical structure — information-theoretic,
             geometric, algebraic, or spectral — that independently constrains the real part of
             zeta zeros to <InlineMath tex={'\\sigma = \\tfrac{1}{2}'} />. By evaluating them jointly,
-            we can identify which attacks are <em>redundant</em> (measuring the same underlying
+            we can identify which approaches are <em>redundant</em> (measuring the same underlying
             phenomenon) and which are <em>independent</em> (providing genuinely distinct evidence).
           </p>
         </div>
 
         <BlockMath tex={
           '\\Phi_{\\text{combined}}(\\sigma, t) = \\sum_{k=1}^{9} w_k \\cdot A_k(\\sigma, t), ' +
-          '\\quad \\text{where each } A_k \\text{ is an independent attack score}'
+          '\\quad \\text{where each } A_k \\text{ is an independent approach score}'
         } />
 
         <div className="two-col" style={{ marginTop: 24 }}>
           <div className="card" style={cardBaseLeft('var(--blue)')}>
-            <h3 style={{ color: 'var(--blue)', fontSize: 14 }}>Nine Attack Vectors</h3>
+            <h3 style={{ color: 'var(--blue)', fontSize: 14 }}>Nine Approach Vectors</h3>
             <ul style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 2 }}>
               <li><strong style={{ color: 'var(--blue)' }}>Fisher Information:</strong> Diverges at zeros, peaked at the critical line</li>
               <li><strong style={{ color: 'var(--green)' }}>KL Divergence:</strong> Information-theoretic distance from equilibrium at <InlineMath tex={'\\sigma=\\tfrac{1}{2}'} /></li>
@@ -66,8 +66,8 @@ export default function CrossAttackPage() {
           <div className="card" style={cardBaseLeft('var(--brass-dk)')}>
             <h3 style={{ color: 'var(--brass-dk)', fontSize: 14 }}>Why Cross-Correlation Matters</h3>
             <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-              If two attacks are strongly correlated (Pearson |r| &gt; 0.7), they are likely measuring
-              the same underlying structure and are <em>redundant</em>. Independent attacks (|r| &lt; 0.3)
+              If two approaches are strongly correlated (Pearson |r| &gt; 0.7), they are likely measuring
+              the same underlying structure and are <em>redundant</em>. Independent approaches (|r| &lt; 0.3)
               provide genuinely distinct evidence. The effective number of independent constraints is
               what determines how much distinct information the battery carries.
             </p>
@@ -83,12 +83,12 @@ export default function CrossAttackPage() {
         {/* ─── Visualization ─── */}
         <CrossAttackViz />
 
-        {/* ─── Attack Independence ─── */}
+        {/* ─── Approach Independence ─── */}
         <div className="card" style={{ ...cardBaseLeft('var(--green)'), marginTop: 24 }}>
-          <h3 style={{ color: 'var(--green)', fontSize: 14, marginBottom: 8 }}>Attack Independence</h3>
+          <h3 style={{ color: 'var(--green)', fontSize: 14, marginBottom: 8 }}>Approach Independence</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-            The efficiency matrix (Tab 1) reveals the correlation structure across all nine attacks.
-            Green cells indicate <strong>independent</strong> attack pairs: these provide distinct,
+            The efficiency matrix (Tab 1) reveals the correlation structure across all nine approaches.
+            Green cells indicate <strong>independent</strong> approach pairs: these provide distinct,
             non-redundant evidence for <InlineMath tex={'\\sigma = \\tfrac{1}{2}'} />.
             Red cells indicate <strong>redundant</strong> pairs that measure essentially the same phenomenon.
           </p>
@@ -106,10 +106,10 @@ export default function CrossAttackPage() {
         <div className="card" style={{ ...cardBaseLeft('var(--blue)'), marginTop: 24 }}>
           <h3 style={{ color: 'var(--blue)', fontSize: 14, marginBottom: 8 }}>Unified Confinement</h3>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8 }}>
-            The combined score (Tab 3) weights all attacks into a single confinement
+            The combined score (Tab 3) weights all approaches into a single confinement
             potential <InlineMath tex={'\\Phi_{\\text{combined}}(\\sigma, t)'} />. By construction,
             this potential has a deeper, sharper well at <InlineMath tex={'\\sigma = \\tfrac{1}{2}'} /> than
-            any individual attack — the combined constraint is strictly stronger.
+            any individual approach — the combined constraint is strictly stronger.
           </p>
           <BlockMath tex={
             '\\Phi_{\\text{combined}}(\\sigma, t) \\geq \\max_k \\, w_k \\cdot A_k(\\sigma, t) ' +
@@ -127,8 +127,8 @@ export default function CrossAttackPage() {
           <h3 style={{ color: 'var(--faint)', fontSize: 14, marginBottom: 12 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
             {[
-              { to: '/spectral-attack', label: 'Spectral Attack', color: 'var(--brass)' },
-              { to: '/rh-attack', label: 'RH Attack', color: 'var(--terra-dk)' },
+              { to: '/spectral-attack', label: 'Spectral Approach', color: 'var(--brass)' },
+              { to: '/rh-attack', label: 'RH Approach', color: 'var(--terra-dk)' },
               { to: '/calabi-yau', label: 'Calabi-Yau', color: 'var(--brass)' },
               { to: '/gap-closing', label: 'Gap Closing', color: 'var(--brass-dk)' },
               { to: '/proof-checker', label: 'Proof Checker', color: 'var(--blue)' },

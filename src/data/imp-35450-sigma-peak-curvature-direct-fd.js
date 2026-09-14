@@ -106,7 +106,7 @@ const FD_STEPS = [1e-1, 5e-2, 2e-2, 1e-2, 5e-3, 2e-3];
 const FD_CURVATURES = FD_STEPS.map(curvatureFD);
 const K_FD_SMALLEST = FD_CURVATURES[FD_CURVATURES.length - 1]; // h = 2e-3 plateau ~6.43191e-3
 
-// Richardson extrapolation (kills the leading O(h^2) truncation term) from the h = 2e-2 / 1e-2 pair.
+// Richardson extrapolation (eliminates the leading O(h^2) truncation term) from the h = 2e-2 / 1e-2 pair.
 const K_FD_RICHARDSON = (4 * curvatureFD(1e-2) - curvatureFD(2e-2)) / 3; // ~6.431910e-3
 
 // imp-35411 width-inferred k, reproduced EXACTLY from its raw width constant (NOT the rounded 6.428e-3 quote).

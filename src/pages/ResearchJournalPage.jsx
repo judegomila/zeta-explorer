@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { SESSIONS } from '../data/sessions.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
-// Research Journal — coarse-grained session narratives of the RH Λ attack.
+// Research Journal — coarse-grained session narratives of the RH Λ approach.
 // Read interface for src/data/sessions.js (SESSIONS.md is the write-through).
 // Companion to:
 //   /improvements       — per-commit improvement log
@@ -126,7 +126,7 @@ export default function ResearchJournalPage() {
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Research Journal</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Coarse-grained journal of early work sessions on the Riemann
-            Hypothesis Λ bound attack — one entry per session, {SESSIONS.length}{' '}
+            Hypothesis Λ bound approach — one entry per session, {SESSIONS.length}{' '}
             entries total, last updated {reversed[0].date}. Journaling was
             superseded by the ticket queue, so these entries are a dated
             record, not the live context: the blockers they name (e.g. C_H

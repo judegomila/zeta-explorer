@@ -122,7 +122,7 @@
  *   fixed-97 base is nearly append-saturated, and its terminal certificate
  *   above makes that rigorous at the single-append level.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the Theorem Z rational function is
+ * SKEPTICAL SELF-CHECK RECORD: (1) the Theorem Z rational function is
  * verified against the independent direct N-packet floor evaluation at
  * baked and off-optimal (eps, nu) to < 1e-12 relative; (2) the first-order
  * coefficient (with the mass-drag term) matches central finite differences

@@ -20,7 +20,7 @@ import { thermodynamicState } from '../math/supercritical.js';
 const TABS = ['Efficiency Matrix', '\u03c3 Sweep', 'Combined Score'];
 const TAB_COLORS = ['#8b5cf6', '#3b82f6', '#10b981'];
 
-// Attack names used across all tabs
+// Approach names used across all tabs
 const ATTACK_NAMES = [
   'Fisher', 'KL Divergence', 'Lyapunov', 'Phase Barrier',
   'CY Spectral', 'CY Modularity', 'Li Coefficients',
@@ -35,8 +35,8 @@ const ATTACK_COLORS = [
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
 /**
- * Run all attack scores at a given sigma and t.
- * Returns an array of 9 numbers, one per attack, each in [0, ~10].
+ * Run all approach scores at a given sigma and t.
+ * Returns an array of 9 numbers, one per approach, each in [0, ~10].
  */
 function allAttackScores(sigma, t, numPrimes) {
   const s = [sigma, t];
@@ -462,7 +462,7 @@ function SigmaSweepTab({ t, numPrimes, sigmaMin, sigmaMax }) {
     ctx.textAlign = 'center';
     ctx.fillText('\u03c3 = 1/2', xHalf, margin.top - 8);
 
-    // Draw each attack line
+    // Draw each approach line
     for (let a = 0; a < ATTACK_NAMES.length; a++) {
       ctx.strokeStyle = ATTACK_COLORS[a];
       ctx.lineWidth = 1.8;
@@ -807,7 +807,7 @@ export default function CrossAttackViz() {
       {/* Weight sliders (show on Combined Score tab) */}
       {tab === 2 && (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 8, marginBottom: 16, padding: 12, background: '#0f172a', borderRadius: 8 }}>
-          <div style={{ gridColumn: '1 / -1', fontSize: 11, color: '#64748b', fontWeight: 600, marginBottom: 4 }}>Attack Weights</div>
+          <div style={{ gridColumn: '1 / -1', fontSize: 11, color: '#64748b', fontWeight: 600, marginBottom: 4 }}>Approach Weights</div>
           {ATTACK_NAMES.map((name, i) => (
             <label key={name} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 11 }}>
               <span style={{ color: ATTACK_COLORS[i], width: 85, flexShrink: 0 }}>{name}</span>

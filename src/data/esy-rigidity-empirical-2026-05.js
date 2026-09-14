@@ -1,13 +1,13 @@
 /**
  * @module data/esy-rigidity-empirical-2026-05
- * @fileoverview imp-1108 SOTA attack #3 — empirical measurement of the
+ * @fileoverview imp-1108 SOTA approach #3 — empirical measurement of the
  * Erdos-Schlein-Yau local-semicircle fluctuation psi_N(z) on Odlyzko Riemann
  * zeros (N in {100..10000}) to test deterministic ESY-rigidity for zeta zeros.
  * Proof-chain role: empirical scouting for the ESY port that would unlock
  * asymptotic improvement of the Polymath15 Lambda bound (parents imp-370 /
  * imp-407 / imp-508 / imp-1106).
  */
-// imp-1108 -- SOTA attack #3: numerical empirical measurement of ESY psi_N
+// imp-1108 -- SOTA approach #3: numerical empirical measurement of ESY psi_N
 // at our existing N (first N Odlyzko Riemann zeros, N in {100, 500, 1000,
 // 5000, 10000}).
 //
@@ -35,7 +35,7 @@
 // numerically rigidity-compatible with ESY at our existing N? A positive
 // answer is a strong hint that the rigorous port is achievable; a negative
 // answer would name a precise empirical obstruction and pivot subsequent
-// attack effort toward Goldston-Yildirim (sieve) or Soundararajan-Bui
+// approach effort toward Goldston-Yildirim (sieve) or Soundararajan-Bui
 // (zero-density estimates) instead.
 //
 // OPERATIONAL DEFINITION OF psi_N
@@ -92,7 +92,7 @@
 // ------------
 // This is a PURE EMPIRICAL exploration -- it does NOT prove rigidity for
 // Riemann zeros and does NOT close any of obstacles O1-O3. A favourable
-// slope means only that the rigorous attack is empirically consistent.
+// slope means only that the rigorous approach is empirically consistent.
 // An unfavourable slope would falsify the operational ESY analogy and is
 // the more useful outcome (it would route follow-on effort).
 //
@@ -367,7 +367,7 @@ const VERDICT_MICRO = classifySlope(FIT_RMS);
 
 const RECOMMENDED_DIRECTION = (function () {
   if (VERDICT === 'ESY-COMPATIBLE') {
-    return 'pursue rigorous port (imp-370 / imp-1106) -- the empirical scaling on the first 10^4 unfolded Odlyzko zeros is consistent with the ESY local-law fluctuation rate; the rigorous attack is not contradicted by the data';
+    return 'pursue rigorous port (imp-370 / imp-1106) -- the empirical scaling on the first 10^4 unfolded Odlyzko zeros is consistent with the ESY local-law fluctuation rate; the rigorous approach is not contradicted by the data';
   }
   if (VERDICT === 'ESY-INCOMPATIBLE') {
     return 'ESY route is wrong, pivot to Goldston-Yildirim sieve (imp-1107 alternative 1) or Soundararajan-Bui density (imp-1107 alternative 2) -- the empirical scaling on the first 10^4 unfolded Odlyzko zeros falsifies the ESY-style fluctuation rate';
@@ -405,7 +405,7 @@ export const ESY_RIGIDITY_EMPIRICAL = Object.freeze({
   recommendedDirection: RECOMMENDED_DIRECTION,
   honestScope: Object.freeze([
     'Empirical exploration only -- does NOT prove rigidity for the Riemann zeros and does NOT close any of obstacles O1 (arithmetic input), O2 (forward-vs-backward heat flow), or O3 (deterministic-vs-probabilistic concentration)',
-    'A favourable slope means the rigorous attack is empirically consistent; an unfavourable slope would falsify the operational ESY analogy and is the more useful outcome (routes follow-on effort)',
+    'A favourable slope means the rigorous approach is empirically consistent; an unfavourable slope would falsify the operational ESY analogy and is the more useful outcome (routes follow-on effort)',
     'Slope fit uses 5 datapoints (N in {100, 500, 1000, 5000, 10000}); slope-fit uncertainty is not quantified by a bootstrap because the underlying zero data is deterministic and the 5 points are exact (the RMS sample noise is captured implicitly in R^2)',
     'Unfolding via the leading-order Riemann-von Mangoldt density log(gamma/(2 pi))/(2 pi); subleading corrections O(1/log gamma) bias the mean spacing by approximately +0.02 at N = 100 and approximately +0.0001 at N = 10000 (cf imp-1098 raw mean spacing 1.2239 at N=1000)',
     'IMPORTANT: the ticket-fixed operational definition uses MICROSCOPIC eta = c/N where the ESY local law is BOUNDED (slope approximately 0) not 1/N -- the ticket conflates the macroscopic-scale rate with the microscopic-scale prediction; we report the literal microscopic answer in fittedRateMicro and the well-posed macroscopic answer in fittedRate (headline)',

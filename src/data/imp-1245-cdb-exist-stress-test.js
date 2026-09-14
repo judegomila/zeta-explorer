@@ -1,5 +1,5 @@
 /**
- * @fileoverview Adversarial stress-test of the imp-1241 CDB-Exist three-of-four
+ * @fileoverview Stress-test of the imp-1241 CDB-Exist three-of-four
  * unification claim. Exports IMP_1245_CDB_EXIST_STRESS_TEST (the frozen
  * three-axis audit record with per-axis verdicts, overall verdict, and an
  * updated paper recommendation relative to imp-1241) and IMP_1245_ASSERTIONS
@@ -42,7 +42,7 @@
  * @see imp-1258
  */
 
-// imp-1245: OPUS-4.8 adversarial stress-test of the imp-1241 CDB-Exist
+// imp-1245: OPUS-4.8 stress-test of the imp-1241 CDB-Exist
 //           three-of-four unification claim.
 //
 // QUESTION UNDER TEST
@@ -56,7 +56,7 @@
 //   Theta_a(z) = E_a^#(z) / E_a(z).
 //
 // Before recommending to the paper author that 3 conjectures be folded into
-// 1, the unification needs adversarial review along three axes:
+// 1, the unification needs skeptical review along three axes:
 //
 //   (a) Does 18.1 actually reduce to canonical-system existence, or is it
 //       a fundamentally different KYP-passivity problem that only LOOKS
@@ -450,7 +450,7 @@ export const IMP_1245_CDB_EXIST_STRESS_TEST = Object.freeze({
       'and resolvable by additional citations / standing hypotheses in ' +
       'the unified statement. They do not threaten the unification.',
     'No empirical or numerical work is done in this audit; it is a pure ' +
-      'adversarial review of a structural claim. Empirical verification ' +
+      'skeptical review of a structural claim. Empirical verification ' +
       'of CDB-Exist would require constructing dm_a from Phi, which is ' +
       'precisely the open content.',
   ]),

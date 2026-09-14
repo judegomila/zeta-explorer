@@ -222,7 +222,7 @@ export default function RouteMapPage() {
 
         {/* Frontier residuals: deterministic vs RH-hard */}
         <div style={{ ...edCard, marginBottom: 18, borderColor: 'rgba(194,58,28,0.35)' }}>
-          <h3 style={{ color: 'var(--terra-dk)', marginTop: 0 }}>Frontier Assault Verdict ({CH_WALL_FRONTIER.date})</h3>
+          <h3 style={{ color: 'var(--terra-dk)', marginTop: 0 }}>Frontier Push Verdict ({CH_WALL_FRONTIER.date})</h3>
           <p style={{ fontSize: 12.5, color: 'var(--ink-soft)', marginTop: 0, marginBottom: 14 }}>
             Status: <strong style={{ color: 'var(--terra-dk)' }}>{CH_WALL_FRONTIER.verdict}</strong> — the Lipschitz route is{' '}
             provably closed three independent ways. The only remaining forward move is deterministic.
@@ -257,7 +257,7 @@ export default function RouteMapPage() {
             Sharpest diagnosis: {CH_WALL_FRONTIER.sharpestDiagnosis}
           </div>
           <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 5, background: 'rgba(63,107,134,0.08)', border: '1px solid rgba(63,107,134,0.3)', fontSize: 12, color: 'var(--blue)', lineHeight: 1.6 }}>
-            <strong style={{ color: 'var(--blue)', letterSpacing: '0.04em' }}>TWO INDEPENDENT ASSAULTS — SAME TARGET.</strong>{' '}
+            <strong style={{ color: 'var(--blue)', letterSpacing: '0.04em' }}>TWO INDEPENDENT PUSHES — SAME TARGET.</strong>{' '}
             The C_H frontier ({CH_WALL_FRONTIER.date}) and the econn-metric rearchitecture ({ECONN_METRIC_REARCH.date})
             converge on the <em>same named deterministic target</em>:{' '}
             <strong>D_rest(t_c)</strong> — {ECONN_METRIC_REARCH.trueWall}.

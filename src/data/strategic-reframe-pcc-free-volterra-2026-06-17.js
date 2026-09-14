@@ -2,7 +2,7 @@
  * @module strategic-reframe-pcc-free-volterra-2026-06-17
  *
  * STRATEGIC REFRAME (Opus 4.8 max fan-out, 2026-06-17, fresh-angles-pcc-fanout
- * 4 routes + adversarial synthesis). The single most consequential strategic
+ * 4 routes + skeptical synthesis). The single most consequential strategic
  * finding of the session: the project's closest-to-rigorous direct-RH target
  * does NOT inherit the Montgomery pair-correlation (PCC) barrier.
  *
@@ -50,7 +50,7 @@
  * dependency and naming the real (operator-theory) gaps precisely.
  *
  * DEAD / NON-BINDING (do not invest):
- *   - PCC attacks (Goldston-Gonek imp-1302, Selberg-trace imp-1297): correctly
+ *   - PCC approaches (Goldston-Gonek imp-1302, Selberg-trace imp-1297): correctly
  *     closed NEGATIVE; the support>1 strong PCC is genuinely 50-years-open.
  *     [imp-1302 separately has a BUILD-CERTIFIED fabricated citation: cites
  *     "Annals of Math 148 (1998)" but GG1998 is Acta Arithmetica 84, 155-192 --
@@ -77,7 +77,7 @@ export const STRATEGIC_REFRAME = {
   finding: 'The Volterra/Conj-27.2 route to RH is PCC-FREE (imp-1258 PCC caveat is a mis-attributed unsupported assertion)',
   closestToRigorousTarget: 'Conjecture 27.2 (||V_{a,Phi}||<=1, physical band), closenessScore 0.65, ~5000x HS margin',
   realGaps: ['GAP-1 Section-27 block-positivity<=>K_a-PSD identity (highest leverage)', 'GAP-2 L^2([0,inf)) Volterra norm bound (Conj 27.2 itself)'],
-  pccStatus: 'Montgomery strong PCC (support>1) remains 50-years-open; NOT in the 27.2 chain; do not invest in attacking it',
+  pccStatus: 'Montgomery strong PCC (support>1) remains 50-years-open; NOT in the 27.2 chain; do not invest in approaching it',
   literatureLeverage: 'ZERO rigorous leverage from 2024 zero-density (E_trunc non-binding, wrong object for PCC)',
   fifthOverclaim: 'imp-1302 build-certifies a fabricated citation (Annals 148 vs real Acta Arithmetica 84, 155-192)',
   honestGuard: 'PCC-FREE does NOT mean rigorous; 27.2=>RH has the two named operator-theory gaps',

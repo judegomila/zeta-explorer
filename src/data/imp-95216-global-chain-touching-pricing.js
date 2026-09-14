@@ -8,7 +8,7 @@
  * diverges as rho tends to 1, with an explicit lower bound -- the LEMMA NG
  * coalescence boundary seen from the positive side).
  *
- * Eighth leg of the seam chain, attacking the open sub-gap
+ * Eighth leg of the seam chain, approaching the open sub-gap
  * imp-95212-subgap-fresnel-airy-envelope-port at its obligation (iii)
  * fence. imp-95215 (THEOREM SZ) fenced obligation (iii) two-sidedly:
  * NECESSARY, a Szasz-summability certificate; ADMISSIBLE remaining
@@ -137,16 +137,16 @@
  * in-shell separation with near-touching seam pairs) is precisely part
  * of the open extraction. (e) Obligation (iii) is NOT closed: the
  * bounded-occupancy touching class WITHOUT a ratio floor stays open
- * (its Szasz sum converges, THEOREM SZ does not kill it; no GC-type
+ * (its Szasz sum converges, THEOREM SZ does not eliminate it; no GC-type
  * bound prices it -- the NG corner). (f) Model-family constants
  * (sigma = 1, theta = 10) throughout; gammaSL remains a cap, not a
  * measurement; measured class sup phi = 0.3572 untouched.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Proof audit: the DR proof uses the
+ * SKEPTICAL SELF-CHECK RECORD. (1) Proof audit: the DR proof uses the
  * rate hypothesis at exactly two points (damping floor, pairwise-ratio
  * floor); both are re-derived from the chain hypothesis by induction;
  * LEMMA BI and LEMMA R1 are checked to be rate-structure agnostic (no
- * other step touches the rates). (2) Exact reduction attacked: C_geo(2)
+ * other step touches the rates). (2) Exact reduction stress-tested: C_geo(2)
  * reproduces C_inf to rel 0 and the bisected xStarGeo(2) reproduces
  * xStar to rel 3.4e-16. (3) 3000-draw random battery (chains with
  * ratios >= rho but NOT exact, random m, n <= 6, random depths spanning
@@ -447,7 +447,7 @@ export const IMP95216_GCT_ASSERTIONS = [
   {
     id: "imp95216-gct-true-vs-bound-battery",
     description:
-      "adversarial cross-check on exact Cauchy Gram pairs (closed-form integrals, power iteration): 800 seeded random chains with consecutive ratios >= rho (not exact chains), random m and depth -- the true wrong-side Rayleigh ratio never exceeds min(1, LamGeoBar(m d; rho)); the canonical honesty row (exact 1.5-chain, n = 4, m d = 6) reproduces true 0.002681 vs bound 0.060390",
+      "skeptical cross-check on exact Cauchy Gram pairs (closed-form integrals, power iteration): 800 seeded random chains with consecutive ratios >= rho (not exact chains), random m and depth -- the true wrong-side Rayleigh ratio never exceeds min(1, LamGeoBar(m d; rho)); the canonical honesty row (exact 1.5-chain, n = 4, m d = 6) reproduces true 0.002681 vs bound 0.060390",
     holds: () => {
       const relB = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       const mus4 = [1, 1.5, 2.25, 3.375];

@@ -4,7 +4,7 @@
  *   groups G_q = Delta(2, q, infinity) (for prime q) have a DIFFERENT
  *   spectral structure that gives a single-zeta 2-point bound at Fourier
  *   support > 1 WITHOUT routing through the SL(2, Z) Sarnak arithmetic-
- *   quantum-chaos (AQC) equivalence that killed the Selberg-trace route in
+ *   quantum-chaos (AQC) equivalence that eliminated the Selberg-trace route in
  *   imp-1297?
  *
  *   CONTEXT
@@ -513,7 +513,7 @@ export const IMP_1339_HECKE_TRIANGLE_SELBERG_TRACE = Object.freeze({
   }),
 
   honestScope: Object.freeze([
-    'This file is a CLASSIFICATION ticket for the candidate spectral attack on ' +
+    'This file is a CLASSIFICATION ticket for the candidate spectral approach on ' +
     'Montgomery PCC at 2-point via the Hecke triangle group G_q = ' +
     'Delta(2, q, infinity) Selberg trace formula (the third escape route named ' +
     'in the imp-1308 closure, after imp-1310 and the imp-1241 de Branges route). ' +

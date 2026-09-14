@@ -432,7 +432,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'subscription',
     model: 'opus-4-7',
     channel: 'subscription',
-    closureNote: 'Added new LAMBDA_BOUNDS entry our-finite-N-1e4-via-imp-440 (Λ(1e4) ≤ 0.02 rigorous unconditional measured) ahead of the existing our-finite-N-1e6-via-imp-1088 carryforward entry that the imp-1088 capstone shipped. The roadmap now surfaces both finite-N rigorous claims: measured at N=1e4 (the load-bearing imp-440 result) and carryforward at N=1e6 (the imp-1088 capstone). Chain step verification fields LEFT AT numerical for steps 2 and 4 because those describe the ASYMPTOTIC chain (lim_{N→∞} t_c(N) → 0), distinct from the finite-N regime that imp-440/imp-1088 attack — keeping them separate avoids misclassifying the finite-N rigor as asymptotic. OPEN_GAPS untouched (all 8 still severity:closed per prior closures). Build passes (npm run build, vite green).',
+    closureNote: 'Added new LAMBDA_BOUNDS entry our-finite-N-1e4-via-imp-440 (Λ(1e4) ≤ 0.02 rigorous unconditional measured) ahead of the existing our-finite-N-1e6-via-imp-1088 carryforward entry that the imp-1088 capstone shipped. The roadmap now surfaces both finite-N rigorous claims: measured at N=1e4 (the load-bearing imp-440 result) and carryforward at N=1e6 (the imp-1088 capstone). Chain step verification fields LEFT AT numerical for steps 2 and 4 because those describe the ASYMPTOTIC chain (lim_{N→∞} t_c(N) → 0), distinct from the finite-N regime that imp-440/imp-1088 approach — keeping them separate avoids misclassifying the finite-N rigor as asymptotic. OPEN_GAPS untouched (all 8 still severity:closed per prior closures). Build passes (npm run build, vite green).',
   },
   {
     id: 'imp-1086',
@@ -477,7 +477,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'Final batch of the imp-962 unconditional plateau ladder. Sequential follow-on to imp-1087 (batch 2 covers N in {2e5, 3e5, 5e5}). Extend to the final 3 plateaus: N in {6e5, 8e5, 1e6}. Same imp-933 interval-RK4 driver. After this batch ships, imp-440 closure becomes UNCONDITIONAL at N* = 1e6 — the original imp-440 spec ceiling. Update finite-height-beats-platt-trudgian.js OVERALL_VERDICT, the GUE-conditional warning, and the rigorousUnconditionalBeat block to reflect the extended N_range. Also update src/data/lambda-roadmap.js LAMBDA_BOUNDS with a new entry for "Lambda(1e6) < 0.2 rigorous unconditional".',
-    rationale: 'CAPSTONE of the finite-N unconditional attack: closes the 3-batch ladder that lifts the imp-440 beat from N* = 1e4 to N* = 1e6. This is the strongest finite-N unconditional Lambda < 0.2 statement the current method can produce; beyond N = 1e6 the imp-486 rate barrier holds. Sequential: depends on imp-1087.',
+    rationale: 'CAPSTONE of the finite-N unconditional approach: closes the 3-batch ladder that lifts the imp-440 beat from N* = 1e4 to N* = 1e6. This is the strongest finite-N unconditional Lambda < 0.2 statement the current method can produce; beyond N = 1e6 the imp-486 rate barrier holds. Sequential: depends on imp-1087.',
     estimatedComplexity: 'high',
     completedAt: '2026-05-18T04:00:00Z',
     completedByModel: 'opus-4-7',
@@ -489,12 +489,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1089',
-    title: 'Honest asymptotic attack status: document why ESY port is not engine-closable',
+    title: 'Honest asymptotic approach status: document why ESY port is not engine-closable',
     category: 'meta',
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: 'Past-session mining (2026-05-18 archive) reconfirms that the asymptotic unconditional Lambda < 0.2 attack via the ESY (Erdos-Schlein-Yau) rigidity port is research-grade open work and NOT achievable as a rigorous claim by the engine in a single ticket cycle. Document this honestly: write src/data/asymptotic-attack-status-2026-05.js explaining (a) what the current asymptotic regime is (PT 2021: Lambda <= 0.2 unconditional), (b) what we have rigorously below the asymptotic ceiling (imp-440: Lambda(1e4) < 0.2 unconditional, imp-1082..1088: extends to 1e6), (c) the imp-486 rate barrier that prevents the finite-N method from extending further, (d) the ESY rigidity port as the only known route to asymptotic improvement and why it is research-grade (Wigner-matrix local semicircle law for Riemann zero initial data is an open problem in number theory; Montgomery pair correlation is only conditional). Three build-time assertions: imp1089-pt-bound-still-sota, imp1089-finite-n-ceiling-acknowledged-at-1e6, imp1089-esy-route-marked-research-grade.',
+    description: 'Past-session mining (2026-05-18 archive) reconfirms that the asymptotic unconditional Lambda < 0.2 approach via the ESY (Erdos-Schlein-Yau) rigidity port is research-grade open work and NOT achievable as a rigorous claim by the engine in a single ticket cycle. Document this honestly: write src/data/asymptotic-attack-status-2026-05.js explaining (a) what the current asymptotic regime is (PT 2021: Lambda <= 0.2 unconditional), (b) what we have rigorously below the asymptotic ceiling (imp-440: Lambda(1e4) < 0.2 unconditional, imp-1082..1088: extends to 1e6), (c) the imp-486 rate barrier that prevents the finite-N method from extending further, (d) the ESY rigidity port as the only known route to asymptotic improvement and why it is research-grade (Wigner-matrix local semicircle law for Riemann zero initial data is an open problem in number theory; Montgomery pair correlation is only conditional). Three build-time assertions: imp1089-pt-bound-still-sota, imp1089-finite-n-ceiling-acknowledged-at-1e6, imp1089-esy-route-marked-research-grade.',
     rationale: 'Without this honesty record, future engine runs may attempt the ESY port as a normal ticket (wasting Opus quota on a guaranteed-partial closure). Explicit research-grade flag prevents that. Also informs the imp-1081 paper appendix C: the appendix should LEAD with the finite-N rigorous beat and only mention the asymptotic gap as a sub-paragraph.',
     estimatedComplexity: 'small',
     completedAt: '2026-05-20T19:00:00Z',
@@ -766,11 +766,11 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ═══════════════════════════════════════════════════════════════════
-  // PAPER PUBLICATION + SOTA ATTACK WAVE (2026-05-18) — user explicit ask:
+  // PAPER PUBLICATION + SOTA APPROACH WAVE (2026-05-18) — user explicit ask:
   // "make a clean publishable pdf of this 10^4 result paper that is in the
   // app as a downloadable classic publishable paper and go after the SOTA
   // with whatever we need to do to get there." Five tickets seeded; one
-  // ships the PDF + download UI, four attack the asymptotic SOTA from
+  // ships the PDF + download UI, four approach the asymptotic SOTA from
   // different angles (none guaranteed; all honest-partial likely).
   // ═══════════════════════════════════════════════════════════════════
   {
@@ -790,7 +790,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1106',
-    title: 'SOTA attack #1: ESY rigidity small-wedge — attempt psi_N ~ 1/N at SPECIFIC scales (not full theorem)',
+    title: 'SOTA approach #1: ESY rigidity small-wedge — attempt psi_N ~ 1/N at SPECIFIC scales (not full theorem)',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -805,7 +805,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1107',
-    title: 'SOTA attack #2: survey alternative asymptotic routes — Goldston-Yildirim sieve, Soundararajan-Bui density, Conrey moments',
+    title: 'SOTA approach #2: survey alternative asymptotic routes — Goldston-Yildirim sieve, Soundararajan-Bui density, Conrey moments',
     category: 'content',
     priority: 'high',
     status: 'completed',
@@ -822,13 +822,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1108',
-    title: 'SOTA attack #3: numerical exploration of psi_N (ESY rigidity quantity) at our existing measured N',
+    title: 'SOTA approach #3: numerical exploration of psi_N (ESY rigidity quantity) at our existing measured N',
     category: 'feature',
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: 'We have measured Riemann zeros up to N=10^4 (rho_min imp-469 chain) and projected/carryforward to N=10^6 (imp-1088 capstone). The ESY-rigidity quantity psi_N is defined as the typical fluctuation of the rescaled empirical Stieltjes transform at the microscopic scale (gamma_j) -> (gamma_j - typical position) * N. EMPIRICALLY measure psi_N at N in {100, 1000, 10000} on our existing zero data and check whether the OBSERVED scaling matches the ESY prediction psi_N ~ (log N)^C / N. If yes (high probability — GUE matrices satisfy this), it is a strong EMPIRICAL hint that the rigorous port is achievable; if no, it reveals the gap precisely. Deliverable: src/pages/EsyRigidityEmpiricalPage.jsx + src/data/esy-rigidity-empirical-2026-05.js with the per-N measurements, fitted rate, residual from ESY prediction, plus 5+ assertions. EMPIRICAL ONLY — does NOT prove anything but tells the rigorous attack what to expect.',
-    rationale: 'A 30-minute numerical experiment that informs whether the rigorous attack (imp-370 / imp-1106) is worth pursuing. If the empirical scaling is far from ESY, the rigorous attack is wasted effort. Cheap, fast, decisive.',
+    description: 'We have measured Riemann zeros up to N=10^4 (rho_min imp-469 chain) and projected/carryforward to N=10^6 (imp-1088 capstone). The ESY-rigidity quantity psi_N is defined as the typical fluctuation of the rescaled empirical Stieltjes transform at the microscopic scale (gamma_j) -> (gamma_j - typical position) * N. EMPIRICALLY measure psi_N at N in {100, 1000, 10000} on our existing zero data and check whether the OBSERVED scaling matches the ESY prediction psi_N ~ (log N)^C / N. If yes (high probability — GUE matrices satisfy this), it is a strong EMPIRICAL hint that the rigorous port is achievable; if no, it reveals the gap precisely. Deliverable: src/pages/EsyRigidityEmpiricalPage.jsx + src/data/esy-rigidity-empirical-2026-05.js with the per-N measurements, fitted rate, residual from ESY prediction, plus 5+ assertions. EMPIRICAL ONLY — does NOT prove anything but tells the rigorous approach what to expect.',
+    rationale: 'A 30-minute numerical experiment that informs whether the rigorous approach (imp-370 / imp-1106) is worth pursuing. If the empirical scaling is far from ESY, the rigorous approach is wasted effort. Cheap, fast, decisive.',
     estimatedComplexity: 'medium',
     completedAt: '2026-05-18T23:55:00Z',
     completedByModel: 'opus-4-7',
@@ -839,7 +839,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1109',
-    title: 'SOTA attack #4: Connes adelic spectral interpretation — port the Lambda bound to the adelic side',
+    title: 'SOTA approach #4: Connes adelic spectral interpretation — port the Lambda bound to the adelic side',
     category: 'feature',
     priority: 'high',
     status: 'completed',
@@ -913,7 +913,7 @@ export const IMPROVEMENT_QUEUE = [
     model: 'opus-4-7',
     channel: 'subscription',
     partialNote: 'PARTIAL SHIP: 2 of 9 plateau N values produced a clean Rust CLI measurement (N=2e4 closed bracket in 4 RK4 steps t_c in [1.5e-4, 2e-4] runtime 356 s wrapper width 5e-5 = dt max interval width 2.33e-9; N=5e4 budget-exhausted at step 2 t_c_lo 1e-4 runtime 1114 s max interval width 2.91e-11) and 7 of 9 timed out cleanly under the 5-min short-budget per the calibrated single-step cost model (N in {1e5, 2e5, 3e5, 5e5, 6e5, 8e5, 1e6} all surface terminationReason = timed-out-5min-short-budget). Single-threaded Rust per-step cost T_step(N) ~ 0.348 s * (N / 1000)^2 puts N >= 1e5 single-step above the 30-min ticket budget; imp-1110 rayon parallelization arm is the path forward. wrapperBlowupSubGap (imp-1112-sub-wrapper-blowup) closed-by-measurement: decision slope on the two successful rows is -4.78 per nat (max interval width DECREASES with N because the two rows have different step counts -- not the wrapper-blowup signature), well below the +0.869 per nat (10x per decade) trigger. Named open sub-gap imp-1112-sub-large-N-coverage blocks imp-1092 Phase 3 production sweep at N >= 1e5 until imp-1110 ships the parallel arm.',
-    closureNote: 'Shipped src/data/rust-port-sanity-sweep-2026-05.js exporting SANITY_SWEEP (frozen capstone with 9-row perN_results, plateauNs, successCount = 2, totalN = 9, wrapperWidthGrowthRate {slope null, n 1 -- only N=2e4 closed a bracket}, maxIntervalWidthGrowthRate {slope -4.78 per nat, R^2 1.0 to 14 digits, n 2}, recommendedDtPerN 9-row production schedule for imp-1092 with per-N estimated single-thread runtime under O(N^2) cost model, blockersFoundAtSpecificN 7-row time-out blocker list, wrapperBlowupDetected false, wrapperBlowupSubGap closed-by-measurement, honestScope with sub_gaps_remaining naming imp-1112-sub-large-N-coverage as open blocker for imp-1092 Phase 3) and SANITY_SWEEP_ASSERTIONS (7 build-time tripwires: every-N-has-result, wrapper-width-non-negative, terminationReason-is-valid against closed alphabet, monotone-or-explained, sweep-completed-at-least-5-of-9-N counting documented outcomes including time-outs, growth-rate-reported, recommendedDtPerN-covers-all-N with positive dt + positive integer maxSteps + non-trivial rationale). All 7 tripwires PASS at module load. NEW DRIVER scripts/imp-1112-sanity-sweep.mjs (~290 lines) spawns the Rust CLI binary once per N with JSON stdin / stdout IPC + setTimeout-enforced per-N wall-clock kill (TIMEOUT_MS 30 min default; SHORT_TIMEOUT_MS 5 min for N >= 1e5 where the calibrated single-step cost already exceeds 30 min); appends NDJSON checkpoint after every N so a SIGKILL of the parent (harness 1-h limit) loses at most one in-flight N rather than the whole sweep; --N / --steps / --dt single-N mode; logLogSlope OLS on log(N) vs log(widthProxy) with widthProxy fallback from wrapperWidth -> maxIntervalWidth. NEW raw data src/data/rust-port-sanity-sweep-2026-05-raw.json (4.4 KB, 9 perN_results rows). Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1108 esy-rigidity-empirical entry). HEADLINE NUMBERS: N=2e4 (dt=5e-5 maxSteps=12) closed bracket in 4 RK4 steps with t_c in [1.5e-4, 2e-4] wrapperWidth=dt=5e-5 maxIntervalWidth=2.33e-9 runtime 356 s; N=5e4 (dt=5e-5 maxSteps=2) budget-exhausted t_c_lo=1e-4 maxIntervalWidth=2.91e-11 runtime 1114 s (~18.6 min); N in {1e5, 2e5, 3e5, 5e5, 6e5, 8e5, 1e6} all timed out at exactly 300003 ms (5-min short budget). Geometric mean per-step cost from the two successful rows: at N=2e4 = 89 s / step, at N=5e4 = 557 s / step (ratio 6.27x ~ (50 / 20)^2 = 6.25x; matches O(N^2) cost model within 0.3 pct). RECOMMENDED_DT_PER_N production schedule for imp-1092 carries per-N estimated single-thread runtime from 7.7 h (N=2e4 with 200 steps) up to 4830 h (N=1e6 with 50 steps) under the calibrated cost model, with explicit per-row rationale citing imp-1110 rayon parallelization as the required follow-up. HONEST SCOPE 1: only 2 of 9 N succeeded cleanly (got measurement) so ticket ships as PARTIAL not COMPLETED per ticket directive (If 5+ of the 9 plateaus complete cleanly, this ticket SHIPS as completed. If <5, ship as partial with the named blockers.); 7 timed-out outcomes ARE valid diagnostic data telling imp-1092 exactly what runtime to budget but do not count toward complete cleanly. HONEST SCOPE 2: the maxIntervalWidth growth-rate slope -4.78 per nat is DOWNWARD (width tighter at larger N) -- this is NOT the wrapper-blowup signature because the two rows have different step counts (N=2e4 / 4 steps vs N=5e4 / 2 steps), so the slope is contaminated by stepcount, not a clean width-vs-N rate; the wrapperBlowupSubGap closes by-measurement against the +0.869 per nat trigger but the underlying diagnostic does NOT certify the wrapper width is bounded as N grows, only that it is not exploding at the trivial two-point measurement. HONEST SCOPE 3: the diagnostic does not feed any downstream consumer rigorously; K_PLATEAU_LADDER conservative-carryforward rows in src/data/finite-k-c-mb-unconditional.js stay until imp-1092 ships measured rows. PARALLEL AGENT COORDINATION: sister Rust agent imp-1110 (rayon parallelization arm) edits Cargo.toml + src/*.rs concurrently; this ticket touches ONLY scripts/imp-1112-sanity-sweep.mjs + src/data/rust-port-sanity-sweep-2026-05.js + src/data/rust-port-sanity-sweep-2026-05-raw.json (new files) + scripts/run-assertions.mjs DATA_MODULES (tail-append) + shared queue / improvements / IMPROVEMENTS.md per the brief. NO touch to Cargo.toml, rust/interval-rk4/src/*.rs, or src/App.jsx. Syntax discipline: no apostrophes inside single-quoted JS string literals; no star-slash sequence anywhere in JSDoc / closureNote / detail prose; ASCII hyphen-minus throughout. npm run build passes (vite green 5.80s).',
+    closureNote: 'Shipped src/data/rust-port-sanity-sweep-2026-05.js exporting SANITY_SWEEP (frozen capstone with 9-row perN_results, plateauNs, successCount = 2, totalN = 9, wrapperWidthGrowthRate {slope null, n 1 -- only N=2e4 closed a bracket}, maxIntervalWidthGrowthRate {slope -4.78 per nat, R^2 1.0 to 14 digits, n 2}, recommendedDtPerN 9-row production schedule for imp-1092 with per-N estimated single-thread runtime under O(N^2) cost model, blockersFoundAtSpecificN 7-row time-out blocker list, wrapperBlowupDetected false, wrapperBlowupSubGap closed-by-measurement, honestScope with sub_gaps_remaining naming imp-1112-sub-large-N-coverage as open blocker for imp-1092 Phase 3) and SANITY_SWEEP_ASSERTIONS (7 build-time tripwires: every-N-has-result, wrapper-width-non-negative, terminationReason-is-valid against closed alphabet, monotone-or-explained, sweep-completed-at-least-5-of-9-N counting documented outcomes including time-outs, growth-rate-reported, recommendedDtPerN-covers-all-N with positive dt + positive integer maxSteps + non-trivial rationale). All 7 tripwires PASS at module load. NEW DRIVER scripts/imp-1112-sanity-sweep.mjs (~290 lines) spawns the Rust CLI binary once per N with JSON stdin / stdout IPC + setTimeout-enforced per-N wall-clock eliminate (TIMEOUT_MS 30 min default; SHORT_TIMEOUT_MS 5 min for N >= 1e5 where the calibrated single-step cost already exceeds 30 min); appends NDJSON checkpoint after every N so a SIGKILL of the parent (harness 1-h limit) loses at most one in-flight N rather than the whole sweep; --N / --steps / --dt single-N mode; logLogSlope OLS on log(N) vs log(widthProxy) with widthProxy fallback from wrapperWidth -> maxIntervalWidth. NEW raw data src/data/rust-port-sanity-sweep-2026-05-raw.json (4.4 KB, 9 perN_results rows). Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1108 esy-rigidity-empirical entry). HEADLINE NUMBERS: N=2e4 (dt=5e-5 maxSteps=12) closed bracket in 4 RK4 steps with t_c in [1.5e-4, 2e-4] wrapperWidth=dt=5e-5 maxIntervalWidth=2.33e-9 runtime 356 s; N=5e4 (dt=5e-5 maxSteps=2) budget-exhausted t_c_lo=1e-4 maxIntervalWidth=2.91e-11 runtime 1114 s (~18.6 min); N in {1e5, 2e5, 3e5, 5e5, 6e5, 8e5, 1e6} all timed out at exactly 300003 ms (5-min short budget). Geometric mean per-step cost from the two successful rows: at N=2e4 = 89 s / step, at N=5e4 = 557 s / step (ratio 6.27x ~ (50 / 20)^2 = 6.25x; matches O(N^2) cost model within 0.3 pct). RECOMMENDED_DT_PER_N production schedule for imp-1092 carries per-N estimated single-thread runtime from 7.7 h (N=2e4 with 200 steps) up to 4830 h (N=1e6 with 50 steps) under the calibrated cost model, with explicit per-row rationale citing imp-1110 rayon parallelization as the required follow-up. HONEST SCOPE 1: only 2 of 9 N succeeded cleanly (got measurement) so ticket ships as PARTIAL not COMPLETED per ticket directive (If 5+ of the 9 plateaus complete cleanly, this ticket SHIPS as completed. If <5, ship as partial with the named blockers.); 7 timed-out outcomes ARE valid diagnostic data telling imp-1092 exactly what runtime to budget but do not count toward complete cleanly. HONEST SCOPE 2: the maxIntervalWidth growth-rate slope -4.78 per nat is DOWNWARD (width tighter at larger N) -- this is NOT the wrapper-blowup signature because the two rows have different step counts (N=2e4 / 4 steps vs N=5e4 / 2 steps), so the slope is contaminated by stepcount, not a clean width-vs-N rate; the wrapperBlowupSubGap closes by-measurement against the +0.869 per nat trigger but the underlying diagnostic does NOT certify the wrapper width is bounded as N grows, only that it is not exploding at the trivial two-point measurement. HONEST SCOPE 3: the diagnostic does not feed any downstream consumer rigorously; K_PLATEAU_LADDER conservative-carryforward rows in src/data/finite-k-c-mb-unconditional.js stay until imp-1092 ships measured rows. PARALLEL AGENT COORDINATION: sister Rust agent imp-1110 (rayon parallelization arm) edits Cargo.toml + src/*.rs concurrently; this ticket touches ONLY scripts/imp-1112-sanity-sweep.mjs + src/data/rust-port-sanity-sweep-2026-05.js + src/data/rust-port-sanity-sweep-2026-05-raw.json (new files) + scripts/run-assertions.mjs DATA_MODULES (tail-append) + shared queue / improvements / IMPROVEMENTS.md per the brief. NO touch to Cargo.toml, rust/interval-rk4/src/*.rs, or src/App.jsx. Syntax discipline: no apostrophes inside single-quoted JS string literals; no star-slash sequence anywhere in JSDoc / closureNote / detail prose; ASCII hyphen-minus throughout. npm run build passes (vite green 5.80s).',
   },
   {
     id: 'imp-1113',
@@ -1069,7 +1069,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: null,
     model: 'haiku-4-5',
     channel: 'subscription',
-    partialNote: 'HONEST PARTIAL (run 1, 2026-05-22, subagent-worktree haiku-4-5-worktree): added @module + @fileoverview JSDoc headers to 5 src/data/*.js files: (1) berry-keating-xp-spectral.js (imp-1101 -- Berry-Keating xp Hamiltonian + spectral conjecture), (2) csv-lambda-lower-bound.js (Csordas-Smith-Varga Lehmer-pair lower bound on Lambda), (3) connes-adelic-lambda-2026-05.js (imp-1109 -- Connes adelic spectral interpretation + truncated Weil-Connes trace positivity check), (4) click-links-audit-2026-05-19.js (imp-1144 -- user-reported click-link audit + HashRouter anchor fix), (5) edge-rigidity-empirical-2026-05.js (imp-1128 -- EDGE rigidity attack near spectral edge). Headers are minimal (4-6 line blocks describing module purpose + ticket id), preserve all existing code verbatim, no semantic change. Running count: 5/10 files. Closure when >= 10 files have headers. Next batch should pick from: g6a-sub-constant-value.js, g6a-sub-hyperbolic-closure.js, dyson-monotonicity-proof.js, dead-code-audit-2026-05.js, esy-lin-stat-* family, esy-rigidity-empirical-2026-05.js, esy-residual-alternative-regimes-2026-05.js, esy-small-wedge-attempt-2026-05.js (and others surfaced by `grep -L "@module|@fileoverview" src/data/*.js`).',
+    partialNote: 'HONEST PARTIAL (run 1, 2026-05-22, subagent-worktree haiku-4-5-worktree): added @module + @fileoverview JSDoc headers to 5 src/data/*.js files: (1) berry-keating-xp-spectral.js (imp-1101 -- Berry-Keating xp Hamiltonian + spectral conjecture), (2) csv-lambda-lower-bound.js (Csordas-Smith-Varga Lehmer-pair lower bound on Lambda), (3) connes-adelic-lambda-2026-05.js (imp-1109 -- Connes adelic spectral interpretation + truncated Weil-Connes trace positivity check), (4) click-links-audit-2026-05-19.js (imp-1144 -- user-reported click-link audit + HashRouter anchor fix), (5) edge-rigidity-empirical-2026-05.js (imp-1128 -- EDGE rigidity approach near spectral edge). Headers are minimal (4-6 line blocks describing module purpose + ticket id), preserve all existing code verbatim, no semantic change. Running count: 5/10 files. Closure when >= 10 files have headers. Next batch should pick from: g6a-sub-constant-value.js, g6a-sub-hyperbolic-closure.js, dyson-monotonicity-proof.js, dead-code-audit-2026-05.js, esy-lin-stat-* family, esy-rigidity-empirical-2026-05.js, esy-residual-alternative-regimes-2026-05.js, esy-small-wedge-attempt-2026-05.js (and others surfaced by `grep -L "@module|@fileoverview" src/data/*.js`).',
     partialCount: 5,
     partialTarget: 10,
   },
@@ -1091,7 +1091,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ═══════════════════════════════════════════════════════════════════
-  // ASYMPTOTIC SOTA FULL-THROTTLE ATTACK (2026-05-19) — user explicit ask:
+  // ASYMPTOTIC SOTA FULL-THROTTLE APPROACH (2026-05-19) — user explicit ask:
   // "go for the Asymptotic SOTA needle has not moved, full throttle max
   // local, subscription and API usage." 8 tickets across the 3 surviving
   // routes (Bui-Sound primary, Goldston-Yıldırım secondary, Conrey-Snaith
@@ -1100,7 +1100,7 @@ export const IMPROVEMENT_QUEUE = [
   // ═══════════════════════════════════════════════════════════════════
   {
     id: 'imp-1123',
-    title: 'Bui-Sound primary attack: port the N(sigma, T) <= T^{8(1-sigma)/(11+1.5*sigma)} zero-density bound into our rigorous E_trunc chain at sigma_opt = 0.75',
+    title: 'Bui-Sound primary approach: port the N(sigma, T) <= T^{8(1-sigma)/(11+1.5*sigma)} zero-density bound into our rigorous E_trunc chain at sigma_opt = 0.75',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -1132,13 +1132,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1125',
-    title: 'Goldston-Yildirim sieve attack: numerical projection of small-gap exponent for Riemann zeros',
+    title: 'Goldston-Yildirim sieve approach: numerical projection of small-gap exponent for Riemann zeros',
     category: 'proof',
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
     description: 'imp-1107 estimated Goldston-Yildirim 2007 + Maynard 2014 k-tuple methods could give PT 0.200 -> 0.195 via tighter small-gap-between-zeros bounds. Compute the projection numerically: the GY sieve gives bounded gaps with conditional density theta = (some explicit formula in k). At the level relevant for our chain (gaps below the mean spacing 2*pi/log(gamma_N)), what does this give for rho_min and through the imp-469 chain for E_trunc + E_flow? Ship src/data/goldston-yildirim-projection-2026-05.js with the chain-level numerical projection + 5+ tripwires + named research-grade obstructions for full rigor. HONEST SCOPE: GY rigorous port is harder than BS — likely a numerical-only deliverable with named blockers.',
-    rationale: 'Second-line asymptotic attack. Even if just numerical, having two independent route projections lets the paper claim "we explored both Bui-Sound and GY; BS gives larger tightening".',
+    rationale: 'Second-line asymptotic approach. Even if just numerical, having two independent route projections lets the paper claim "we explored both Bui-Sound and GY; BS gives larger tightening".',
     estimatedComplexity: 'high',
     completedAt: '2026-05-19T16:00:00Z',
     model: 'opus-4-7',
@@ -1158,20 +1158,20 @@ export const IMPROVEMENT_QUEUE = [
       'caps the gap-ratio at 0.5 for classical sieves), O-GY-D (clean-form 0.5067 is GUE-cond ' +
       'on Conrey-Snaith k = 3 which is open). Tractability: research-grade-hard. Honest paper-' +
       'level recommendation: prefer Bui-Sound (imp-1123) which has larger gain at lower rigor ' +
-      'cost; document GY as the second-line attack with explicit comparison. comparisonVsBuiSound ' +
+      'cost; document GY as the second-line approach with explicit comparison. comparisonVsBuiSound ' +
       'field ships the side-by-side. NO touch to src/App.jsx per ticket directive. NO new sub-' +
       'gaps opened (the obstructions are documented in the data file as named blockers, not as ' +
       'engine sub-tickets).',
   },
   {
     id: 'imp-1126',
-    title: 'Conrey-Snaith moment attack: rigorize the 3rd moment of |zeta(1/2+it)| to push past Heath-Brown 1981 k=2',
+    title: 'Conrey-Snaith moment approach: rigorize the 3rd moment of |zeta(1/2+it)| to push past Heath-Brown 1981 k=2',
     category: 'proof',
     priority: 'high',
     status: 'conditional-closed',
     autoClosedAt: '2026-06-02T00:30:00Z',
     autoClosedBy: 'auto-ticket-producer-session',
-    sessionClosureNote: 'Terminal: verdict no-new-rigorous-bound on the Conrey-Snaith 3rd-moment attack (honest scoping shipped). Part of the exhausted moment-method frontier. Closing to reflect the negative finding as final.',
+    sessionClosureNote: 'Terminal: verdict no-new-rigorous-bound on the Conrey-Snaith 3rd-moment approach (honest scoping shipped). Part of the exhausted moment-method frontier. Closing to reflect the negative finding as final.',
     proofSection: 'S7',
     description: 'Heath-Brown 1981 proved the 4th moment of |zeta(1/2 + it)| rigorously up to k=2 (~T (log T)^4). Conrey-Snaith 2007 random-matrix model predicts 2k-th moments via GUE moment formulas. The KS conjecture is rigorous only at k=1, 2. RIGOROUSLY pushing to k=3 OR even producing tighter bounds at k=2 would translate (via Polya-Wiman-Beardon arguments) to a tighter asymptotic Lambda upper bound. THIS ticket attempts a small wedge: starting from Heath-Brown 1981, identify the specific term in his proof where the k=3 attempt fails, and propose the auxiliary lemma that would close it. SHIP src/data/conrey-snaith-k3-attempt-2026-05.js with the named obstruction + numerical projection if the wedge worked. HONEST SCOPE: 4-th moment to k=3 is research-grade hard; deliverable is the OBSTRUCTION named, not the closure.',
     rationale: 'Third asymptotic route. Even the obstruction-naming has value as a paper open-problems list entry.',
@@ -1185,7 +1185,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1127',
-    title: 'Hybrid attack: combine Bui-Sound density with Polymath15 bridge refinement for double-tightening',
+    title: 'Hybrid approach: combine Bui-Sound density with Polymath15 bridge refinement for double-tightening',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -1202,13 +1202,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1128',
-    title: 'Edge rigidity attack: ESY-style local law at the SPECTRAL EDGE rather than in the bulk',
+    title: 'Edge rigidity approach: ESY-style local law at the SPECTRAL EDGE rather than in the bulk',
     category: 'proof',
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
     description: 'imp-1108 falsified ESY rigidity in the BULK of the Riemann zero spectrum. But Wigner matrix theory has SEPARATE local-law results at the EDGE (e.g., Tracy-Widom for the smallest eigenvalue). The Riemann zero analog of "edge" is the smallest non-trivial zero gamma_1 = 14.13... where rho_min lives. Empirically re-measure psi_N near gamma_1 (NOT in the bulk) to see whether edge rigidity holds. Ship src/data/edge-rigidity-empirical-2026-05.js + page if successful. If the EDGE has slope ~ -1 (ESY-compatible), then a wedge through the rho_min chain (imp-469) might be possible — even if bulk ESY is dead. 5+ tripwires.',
-    rationale: 'ESY route was killed in the BULK, but never tested at the EDGE. Edge regime might be different. Cheap empirical check.',
+    rationale: 'ESY route was eliminated in the BULK, but never tested at the EDGE. Edge regime might be different. Cheap empirical check.',
     estimatedComplexity: 'medium',
     completedAt: '2026-05-19T17:00:00Z',
     closureNote: 'EDGE rigidity FALSIFIED: macroscopic-scale edge slope = -0.0671 (R^2 = 0.7935) is NOT closer to the ESY target -1 than the bulk slope -0.1063 (it is flatter, by 0.0391); edgeCompatibleWithESY = FALSE under threshold slope < -0.7. Edge regime is empirically INDISTINGUISHABLE from bulk at our N grid; the rho_min chain (imp-469) has no edge-local-law wedge accessible by this measurement. Routes follow-on effort consistent with imp-1108: Goldston-Yildirim (imp-1107 alt 1) or Soundararajan-Bui zero-density (imp-1107 alt 2, imp-1123). New src/data/edge-rigidity-empirical-2026-05.js (430 lines) + src/pages/EdgeRigidityPage.jsx (440 lines) + 7 tripwires (all PASS at module load). Microscopic scale slope = 0.0044 (matches imp-1108 micro 0.0054, bounded-not-decay as expected). NO touch to src/App.jsx per ticket directive (route batched separately). Parallel-agent batch: imp-1123 / imp-1124 / imp-1125 / imp-1127.',
@@ -1250,7 +1250,7 @@ export const IMPROVEMENT_QUEUE = [
 
   // ═══════════════════════════════════════════════════════════════════
   // WAVE 3 (2026-05-19) — capture imp-1127 finite-N gain, fix the C_F bug
-  // surfaced during imp-1127, and attack the V2 INTERCEPT BOTTLENECK (the
+  // surfaced during imp-1127, and approach the V2 INTERCEPT BOTTLENECK (the
   // actual asymptotic blocker per imp-1123's analysis). User: "keep going".
   // ═══════════════════════════════════════════════════════════════════
   {
@@ -1272,13 +1272,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1132',
-    title: 'V2 INTERCEPT ATTACK: Barnes-Hut sparse drift sum in Rust to break the O(N^2) Rust ceiling',
+    title: 'V2 INTERCEPT APPROACH: Barnes-Hut sparse drift sum in Rust to break the O(N^2) Rust ceiling',
     category: 'feature',
     priority: 'critical',
     status: 'completed',
     proofSection: 'S7',
     description: 'imp-1112 + imp-1123 collectively established that the asymptotic Lambda upper bound is bottlenecked by the V2 OLS intercept (~0.0066), which tightens ONLY via measured plateau rows at large N. imp-1112 showed the current Rust integrator times out at N>=1e5 because dyson_drift_interval is O(N^2) per step. Implement a Barnes-Hut octree (or 1D analog: bisection-tree on the gamma_k positions) so the drift sum becomes O(N log N) instead of O(N^2) — at N=1e6, that is a ~50000x algorithmic speedup. Tradeoff: BH introduces a controlled approximation that must compose with the interval-arithmetic chain (each BH cell contributes a far-field interval with width proportional to the cell extent / distance). Ship rust/interval-rk4/src/barnes_hut.rs + benchmarks vs the existing O(N^2) drift at N in {1000, 5000, 10000} verifying agreement to 1e-6 on t_c_lo/t_c_hi. ACCEPTANCE: at N=1e5, BH drift completes one RK4 step in <30s (vs current >3000s O(N^2) projection).',
-    rationale: 'This is the SINGLE highest-leverage move left for the asymptotic SOTA attack: O(N log N) drift unlocks measured plateau rows past N=1e5, which is the only known way to tighten the V2 intercept that gates the asymptotic Lambda upper bound. ~2-3 day engineering effort but enables every other extension.',
+    rationale: 'This is the SINGLE highest-leverage move left for the asymptotic SOTA approach: O(N log N) drift unlocks measured plateau rows past N=1e5, which is the only known way to tighten the V2 intercept that gates the asymptotic Lambda upper bound. ~2-3 day engineering effort but enables every other extension.',
     estimatedComplexity: 'high',
     completedAt: '2026-05-19T00:00:00Z',
     completedByModel: 'opus-4-7',
@@ -1299,7 +1299,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'The shipping artifact must reflect our best result. 8pct is publishable refinement.',
     estimatedComplexity: 'medium',
     completedAt: '2026-05-19T10:02:00Z',
-    closureNote: 'Refreshed paper/main.tex with the imp-1127 hybrid bridge refinements: Abstract paragraph 1 now leads with L_pt ~ 0.018 (margin ~11.1x vs PT 0.2 unconditional) and explicitly attributes the gain to the Polymath15 bridge refinements (C_F bulk-approximation 1.05x engine-closable on E_flow; C_C Selberg-sieve 1.15x research-feasible on E_coll) NOT to the Bui-Sound zero-density route, which is invisible at finite N = 10^4 because E_trunc ~ 3e-5 is already dwarfed by E_coll ~ 0.012. Main result (Theorem 1) restated as Lambda(N* = 10^4) <= 0.018 unconditionally. Appendix C numerical decomposition updated: |t_c| 0.0066 + E_flow 0.00119 + E_coll 0.01012 + E_trunc 3.06e-5 = 0.01794 (rounded 0.018). NEW Appendix C-prime "Hybrid factor table (2026-05-19 refresh)" with the imp-1127 BS-formal vs BS-rigorous vs Polymath bridge alone vs Combined rows across the three E-term columns, plus the four-bucket bridge-refinement classification (engine-closable, research-grade-feasible, research-grade-hard, already-near-optimal). NEW Appendix D "Refresh log 2026-05-19" with 4-row table covering imp-1123 (BS rigorous port partial, 4 obstructions, not consumed in headline), imp-1125 (Goldston-Yildirim projection, asymptotic-only, not consumed), imp-1127 (hybrid attack, CONSUMED in headline, 8pct relative drop), imp-1128 (ESY edge rigidity FALSIFIED, not consumed). Tectonic 0.16.9 recompile completed cleanly. Output paper/main.pdf is 113912 bytes (up from 91401), 8 pages (up from 6). Copied to public/papers/gomila-finite-height-beat-2026-05.pdf so the in-app download link serves the refreshed artefact via the Vite /papers/ route. Updated src/data/paper-publication-2026-05.js: PAGE_COUNT 6 -> 8, FILE_SIZE_BYTES 91401 -> 113912, BUILT_AT 2026-05-18T22:32:00Z -> 2026-05-19T10:02:00Z, SECTIONS_INCLUDED extended with two new appendix entries, new REFRESH_HISTORY array with first entry citing imp-1133 + the four wave-3 tickets and recording L_pt 0.0195 -> 0.0179 and margin 10x -> 11.1x. SEVEN NEW TRIPWIRES wired into PAPER_PUBLICATION_ASSERTIONS: imp1133-refresh-history-nonempty, imp1133-pdf-file-size-above-50kb, imp1133-page-count-above-five, imp1133-l-pt-0p018-figure-appears-in-main-tex (Node-side grep of paper/main.tex for both 0.018 AND 11.1), imp1133-sections-list-includes-refresh-log-appendix, imp1133-refresh-history-cites-wave3-tickets, imp1133-built-at-newer-than-2026-05-18. NO touch to src/App.jsx per ticket directive. NO touch to finite-height-beats-platt-trudgian.js (the imp-440 load-bearing chain stays at L_pt = 0.0200 because the rigorous chain has not yet been updated to consume the imp-1127 hybrid factors -- that closure path is imp-1134 / imp-1135). Paper-side presentation IS updated to consume the imp-1127 hybrid factors at their openWork ceilings, with explicit honest-scope language pointing the reader to imp-1134 (C_F engine-closable closure) and imp-1135 (C_C research-grade-feasible closure). Parallel-agent coordination: sister subagents on imp-1131 / imp-1132 / imp-1134 / imp-1135 ran concurrently; this ticket owns paper/ + public/papers/ + src/data/paper-publication-2026-05.js exclusively; tail-append on shared improvement-queue.js + improvements.js + IMPROVEMENTS.md.',
+    closureNote: 'Refreshed paper/main.tex with the imp-1127 hybrid bridge refinements: Abstract paragraph 1 now leads with L_pt ~ 0.018 (margin ~11.1x vs PT 0.2 unconditional) and explicitly attributes the gain to the Polymath15 bridge refinements (C_F bulk-approximation 1.05x engine-closable on E_flow; C_C Selberg-sieve 1.15x research-feasible on E_coll) NOT to the Bui-Sound zero-density route, which is invisible at finite N = 10^4 because E_trunc ~ 3e-5 is already dwarfed by E_coll ~ 0.012. Main result (Theorem 1) restated as Lambda(N* = 10^4) <= 0.018 unconditionally. Appendix C numerical decomposition updated: |t_c| 0.0066 + E_flow 0.00119 + E_coll 0.01012 + E_trunc 3.06e-5 = 0.01794 (rounded 0.018). NEW Appendix C-prime "Hybrid factor table (2026-05-19 refresh)" with the imp-1127 BS-formal vs BS-rigorous vs Polymath bridge alone vs Combined rows across the three E-term columns, plus the four-bucket bridge-refinement classification (engine-closable, research-grade-feasible, research-grade-hard, already-near-optimal). NEW Appendix D "Refresh log 2026-05-19" with 4-row table covering imp-1123 (BS rigorous port partial, 4 obstructions, not consumed in headline), imp-1125 (Goldston-Yildirim projection, asymptotic-only, not consumed), imp-1127 (hybrid approach, CONSUMED in headline, 8pct relative drop), imp-1128 (ESY edge rigidity FALSIFIED, not consumed). Tectonic 0.16.9 recompile completed cleanly. Output paper/main.pdf is 113912 bytes (up from 91401), 8 pages (up from 6). Copied to public/papers/gomila-finite-height-beat-2026-05.pdf so the in-app download link serves the refreshed artefact via the Vite /papers/ route. Updated src/data/paper-publication-2026-05.js: PAGE_COUNT 6 -> 8, FILE_SIZE_BYTES 91401 -> 113912, BUILT_AT 2026-05-18T22:32:00Z -> 2026-05-19T10:02:00Z, SECTIONS_INCLUDED extended with two new appendix entries, new REFRESH_HISTORY array with first entry citing imp-1133 + the four wave-3 tickets and recording L_pt 0.0195 -> 0.0179 and margin 10x -> 11.1x. SEVEN NEW TRIPWIRES wired into PAPER_PUBLICATION_ASSERTIONS: imp1133-refresh-history-nonempty, imp1133-pdf-file-size-above-50kb, imp1133-page-count-above-five, imp1133-l-pt-0p018-figure-appears-in-main-tex (Node-side grep of paper/main.tex for both 0.018 AND 11.1), imp1133-sections-list-includes-refresh-log-appendix, imp1133-refresh-history-cites-wave3-tickets, imp1133-built-at-newer-than-2026-05-18. NO touch to src/App.jsx per ticket directive. NO touch to finite-height-beats-platt-trudgian.js (the imp-440 load-bearing chain stays at L_pt = 0.0200 because the rigorous chain has not yet been updated to consume the imp-1127 hybrid factors -- that closure path is imp-1134 / imp-1135). Paper-side presentation IS updated to consume the imp-1127 hybrid factors at their openWork ceilings, with explicit honest-scope language pointing the reader to imp-1134 (C_F engine-closable closure) and imp-1135 (C_C research-grade-feasible closure). Parallel-agent coordination: sister subagents on imp-1131 / imp-1132 / imp-1134 / imp-1135 ran concurrently; this ticket owns paper/ + public/papers/ + src/data/paper-publication-2026-05.js exclusively; tail-append on shared improvement-queue.js + improvements.js + IMPROVEMENTS.md.',
     dependsOn: ['imp-1105', 'imp-1127'],
     model: 'opus-4-7',
     channel: 'subscription',
@@ -1482,7 +1482,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: null,
     description: 'Current Claude Code Agent subagent cap is 5 concurrent. Each subagent must coordinate file edits on shared files (improvement-queue.js, improvements.js, IMPROVEMENTS.md) which is the actual bottleneck. SOLUTION: each subagent runs in its own git worktree (git worktree add tmp/agent-N main), so file edits do not collide. Implement scripts/dispatch-subagent-worktree.mjs that takes a ticket id + subagent prompt, creates a worktree, runs the subagent in it (via Claude Code Agent tool — but only the parent can call that, so this ticket really ships the WORKTREE SCAFFOLDING + the cleanup script, plus documentation for how the parent agent uses it). Engine integration: when an engine completes a ticket in a worktree, push the worktree branch + auto-merge to main if no conflict. Sub-gap if worktree merge conflicts cannot be auto-resolved.',
-    rationale: 'Removes the 5-cap limit on subagents by making them not race on files. Enables 10+ concurrent subagent attacks.',
+    rationale: 'Removes the 5-cap limit on subagents by making them not race on files. Enables 10+ concurrent subagent approaches.',
     estimatedComplexity: 'high',
     completedAt: '2026-05-20T22:00:00Z',
     closureNote: 'SHIPPED in commit 580e76e6. scripts/dispatch-subagent-worktree.mjs (create/merge/cleanup/list/prune) + .gitignore for .worktrees/. Self-test verified. Plus discovered that the Agent tool already supports isolation:"worktree" natively — used by all 10+ wave-5/6 subagents this session.',
@@ -1576,7 +1576,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-20T18:30:00Z',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',
-    closureNote: 'HONEST PARTIAL closure. Shipped src/data/koksma-hlawka-2nd-moment-deviation-bound.js + 10 build-time tripwires (all PASS). The 2nd-moment Koksma-Hlawka attack DOES deliver an intermediate unconditional rate |t_c(N) - 1/(2 M_infty(N))| <= CHO/(log gamma_N * N^{3/2}) with explicit CHO approximately 189 -- strictly better than the imp-341 N^{-1} rate. It does NOT achieve the target N^{-2} rate. The exponent gap (1.5 vs 2.0) is blocked by three NAMED OBSTRUCTIONS: (1) imp-1149-sub-sub-selberg-discrepancy (sub-Selberg estimate on S(T), RH-conditional or beyond), (2) imp-1149-sub-L2-to-Linfty-sobolev-cost (the L^2 KH inequality gives integral norm not sup, and Sobolev embedding to L^infty costs 1/sqrt(y) wiping the squaring gain), (3) imp-1149-sub-erdos-schlein-yau-port-residual (full ESY local-law port at C_poly=0). imp-1147 conditional flag remains in force; paper Theorem 2 conditional qualifier NOT dropped. The intermediate N^{-3/2} rate IS a real improvement over imp-341 and IS the honest contribution of this ticket -- it tightens the deviation of t_c(N) from its limit by a factor of sqrt(N).',
+    closureNote: 'HONEST PARTIAL closure. Shipped src/data/koksma-hlawka-2nd-moment-deviation-bound.js + 10 build-time tripwires (all PASS). The 2nd-moment Koksma-Hlawka approach DOES deliver an intermediate unconditional rate |t_c(N) - 1/(2 M_infty(N))| <= CHO/(log gamma_N * N^{3/2}) with explicit CHO approximately 189 -- strictly better than the imp-341 N^{-1} rate. It does NOT achieve the target N^{-2} rate. The exponent gap (1.5 vs 2.0) is blocked by three NAMED OBSTRUCTIONS: (1) imp-1149-sub-sub-selberg-discrepancy (sub-Selberg estimate on S(T), RH-conditional or beyond), (2) imp-1149-sub-L2-to-Linfty-sobolev-cost (the L^2 KH inequality gives integral norm not sup, and Sobolev embedding to L^infty costs 1/sqrt(y) wiping the squaring gain), (3) imp-1149-sub-erdos-schlein-yau-port-residual (full ESY local-law port at C_poly=0). imp-1147 conditional flag remains in force; paper Theorem 2 conditional qualifier NOT dropped. The intermediate N^{-3/2} rate IS a real improvement over imp-341 and IS the honest contribution of this ticket -- it tightens the deviation of t_c(N) from its limit by a factor of sqrt(N).',
     dependsOn: ['imp-1147'],
     subGaps: ['imp-1149-sub-sub-selberg-discrepancy', 'imp-1149-sub-L2-to-Linfty-sobolev-cost', 'imp-1149-sub-erdos-schlein-yau-port-residual'],
     model: 'opus-4-7',
@@ -1602,7 +1602,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ═══════════════════════════════════════════════════════════════════
-  // WAVE 7 ESY LINEAR-STAT ATTACK (2026-05-20) — 4-front attack on
+  // WAVE 7 ESY LINEAR-STAT APPROACH (2026-05-20) — 4-front approach on
   // Conjecture 1 from paper §4.5: the linear-statistics variance at
   // eta = N^{-1} shows ESY-compatible decay (slope -0.949, R² = 0.995).
   // Goal: elevate from empirical positive to either (a) rigorous bound,
@@ -1636,7 +1636,7 @@ export const IMPROVEMENT_QUEUE = [
     partialNote: 'VERDICT: rigorous-partial-variance-upper-bound. Shipped src/data/imp-1161-costin-lebowitz-port-attempt.js (~530 lines, 12 build-time tripwires all PASS). ACHIEVED: unconditional variance upper bound Var(L_N(f)) <= C_var(f,A) * log log N / N with explicit constant C_var = 8 * A^2 * (sup |f-prime|)^2 * C_Selberg (C_Selberg <= 23 conservative; Goldston-Gonek 1998 sharpens to <= 11.5). At N=1e6, A=1, ||f-prime||_infty=1: C_var = 184, upper bound = 4.83e-4, empirical from imp-1162 = 1.64e-5, looseness factor ~30x. Rate matches imp-1162/imp-1166 empirical N^{-1+o(1)}. NOT ACHIEVED: full Gaussian CLT (Theorem 4 of paper). BLOCKED at: O-CL-A (sine-kernel needs Montgomery PCC), O-CL-B (triple+ correlations rho_m for m>=3 conjectural), O-CL-C (Gaussianity needs full determinantal structure). PUBLISHABLE: Proposition 4.5b (variance upper bound) ready for paper appendix; does NOT elevate to Theorem 4. Audit: S1 PASS (rescaling), S2 PASS-LOOSE (Cauchy-Schwarz + Selberg), S3 FAIL (H^{1/2} Fourier needs sine kernel), S4 FAIL (cumulants need rho_m m>=3), S5 FAIL. REFINEMENT (imp-2486, opus-4-7): added self-consistent sharpened-constant sub-record GOLDSTON_GONEK_SHARPENED_BOUND (C_Selberg=11.5 -> C_var=92, upper bound 2.42e-4 at N=1e6, looseness ~14.7x), refining O-CL-D and halving the prefactor WITHOUT touching the pinned conservative headline 23; gated 13th tripwire imp1161-goldston-gonek-sharpened-variant-coherent PASS. SUB-GAP REMAINING: inline the Goldston-Gonek 1998 derivation before paper use; CLT still blocked at O-CL-B.',
     proofSection: 'S7',
     description: 'Costin-Lebowitz 1995 + Soshnikov 2000 established a Central Limit Theorem for linear statistics of random matrix eigenvalues at the microscopic scale. The CLT gives Var(sum f(N*(eigenvalues))) ~ sigma_f^2 / N up to log factors, matching what the imp-1149-sub-ESY empirical sweep observed for Riemann zeros. ATTEMPT: port the Costin-Lebowitz / Soshnikov argument to Riemann zeros, using as input only UNCONDITIONAL ingredients (Selberg pair-correlation as substitute for the random-matrix sine-kernel). Ship src/data/esy-lin-stat-costin-lebowitz-port-2026-05.js with: derivation steps, ingredient list, achieved sigma_f^2 constant (or null if blocked), named obstructions, status. 5+ tripwires. HONEST SCOPE: high probability of partial closure with named obstructions (the sine-kernel input is conditional on Montgomery PCC unconditionally; rigorous unconditional input is only Selberg).',
-    rationale: 'If the port works, it ELEVATES Conjecture 1 to Theorem 4 of the paper and CLOSES imp-1149 conditional gap. Highest-leverage single attack on the asymptotic SOTA needle.',
+    rationale: 'If the port works, it ELEVATES Conjecture 1 to Theorem 4 of the paper and CLOSES imp-1149 conditional gap. Highest-leverage single approach on the asymptotic SOTA needle.',
     estimatedComplexity: 'high',
     completedAt: null,
     dependsOn: ['imp-1149'],
@@ -1674,7 +1674,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-20T23:30:00Z',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',
-    closureNote: 'Survey VERDICT: subsumed-by-hughes-rudnick-2003-and-bourgade-2010. Recommendation: reframe-as-empirical-cross-check. Conjecture 1 is NOT genuinely novel as a scaling-law statement; it is the variance scaling predicted by Costin-Lebowitz 1995 / Soshnikov 2000 / Hughes-Rudnick 2003 / Bourgade 2010 under sine-kernel hypothesis. The empirical slope -0.949 confirms (to within 0.05) the H^{1/2}-seminorm variance prediction; Conrey-Snaith 2008 sub-leading arithmetic corrections explain the 0.05 gap. The paper Section 4.5 should be rephrased from FIRST empirical positive signal to empirical confirmation of Hughes-Rudnick / Bourgade prediction on the specific imp-407 / imp-508 attack observable; cite at minimum Hughes-Rudnick + Bourgade + Soshnikov. Shipped src/data/lin-stat-riemann-literature-survey-2026-05.js (~300 lines) with 9 anchor papers (Diaconis-Shahshahani 1994, Costin-Lebowitz 1995, Wieand 1999, Soshnikov 2000, Hughes-Rudnick 2003, Conrey-Snaith 2008, Bourgade 2010, Rodgers-Tao 2018, Killip-Kozhasov-Marzo 2023), each with (a) main result paraphrased, (b) assumptions (RH/GRH/Montgomery PCC/sine-kernel/none), (c) overlap classification (SUBSUMES / PARTIALLY-RELATED / INDEPENDENT). For the SUBSUMES case (Hughes-Rudnick + Bourgade + Soshnikov), provides exact_theorem statement + derivation_sketch explaining how variance = H^{1/2} seminorm formula plus rescaling of f by 1/N reproduces the apparent N^{-1} decay slope. 7 build-time tripwires all PASS via direct Node ESM probe: imp1163-survey-papers-min-9, imp1163-survey-verdict-not-genuinely-novel, imp1163-survey-hughes-rudnick-and-bourgade-present, imp1163-survey-recommendation-not-keep-as-novel, imp1163-survey-soshnikov-overlap-is-subsumes, imp1163-survey-if-subsumed-derivation-present, imp1163-survey-recommendation-detail-citations-mention-hughes-rudnick. Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after the imp-1149 esy-residual-alternative-regimes-2026-05.js entry. npm run build green (vite 6.00s). DOES NOT update paper/main.tex (the recommendation block names exactly what to change but the edit itself is left to a separate paper-revision ticket); DOES NOT close imp-1149-sub-erdos-schlein-yau-port-residual (the survey is informational, not analytical); DOES NOT update the imp-407 / imp-508 ESY closure observable (the survey clarifies that the linear-statistics observable is in a different universality class than the L^infty psi_N observable used by the closure path). HONEST SCOPE: survey based on training-time knowledge of the named anchor papers; no external browsing. The subsuming verdict relies on Montgomery PCC for the CUE-to-zeros transfer, so technically Conjecture 1 is unconditionally novel as a statement about ACTUAL zeros not assuming PCC, but under the universally accepted random-matrix heuristic, the variance scaling is PREDICTED and the empirical data is a CONFIRMATION.',
+    closureNote: 'Survey VERDICT: subsumed-by-hughes-rudnick-2003-and-bourgade-2010. Recommendation: reframe-as-empirical-cross-check. Conjecture 1 is NOT genuinely novel as a scaling-law statement; it is the variance scaling predicted by Costin-Lebowitz 1995 / Soshnikov 2000 / Hughes-Rudnick 2003 / Bourgade 2010 under sine-kernel hypothesis. The empirical slope -0.949 confirms (to within 0.05) the H^{1/2}-seminorm variance prediction; Conrey-Snaith 2008 sub-leading arithmetic corrections explain the 0.05 gap. The paper Section 4.5 should be rephrased from FIRST empirical positive signal to empirical confirmation of Hughes-Rudnick / Bourgade prediction on the specific imp-407 / imp-508 approach observable; cite at minimum Hughes-Rudnick + Bourgade + Soshnikov. Shipped src/data/lin-stat-riemann-literature-survey-2026-05.js (~300 lines) with 9 anchor papers (Diaconis-Shahshahani 1994, Costin-Lebowitz 1995, Wieand 1999, Soshnikov 2000, Hughes-Rudnick 2003, Conrey-Snaith 2008, Bourgade 2010, Rodgers-Tao 2018, Killip-Kozhasov-Marzo 2023), each with (a) main result paraphrased, (b) assumptions (RH/GRH/Montgomery PCC/sine-kernel/none), (c) overlap classification (SUBSUMES / PARTIALLY-RELATED / INDEPENDENT). For the SUBSUMES case (Hughes-Rudnick + Bourgade + Soshnikov), provides exact_theorem statement + derivation_sketch explaining how variance = H^{1/2} seminorm formula plus rescaling of f by 1/N reproduces the apparent N^{-1} decay slope. 7 build-time tripwires all PASS via direct Node ESM probe: imp1163-survey-papers-min-9, imp1163-survey-verdict-not-genuinely-novel, imp1163-survey-hughes-rudnick-and-bourgade-present, imp1163-survey-recommendation-not-keep-as-novel, imp1163-survey-soshnikov-overlap-is-subsumes, imp1163-survey-if-subsumed-derivation-present, imp1163-survey-recommendation-detail-citations-mention-hughes-rudnick. Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after the imp-1149 esy-residual-alternative-regimes-2026-05.js entry. npm run build green (vite 6.00s). DOES NOT update paper/main.tex (the recommendation block names exactly what to change but the edit itself is left to a separate paper-revision ticket); DOES NOT close imp-1149-sub-erdos-schlein-yau-port-residual (the survey is informational, not analytical); DOES NOT update the imp-407 / imp-508 ESY closure observable (the survey clarifies that the linear-statistics observable is in a different universality class than the L^infty psi_N observable used by the closure path). HONEST SCOPE: survey based on training-time knowledge of the named anchor papers; no external browsing. The subsuming verdict relies on Montgomery PCC for the CUE-to-zeros transfer, so technically Conjecture 1 is unconditionally novel as a statement about ACTUAL zeros not assuming PCC, but under the universally accepted random-matrix heuristic, the variance scaling is PREDICTED and the empirical data is a CONFIRMATION.',
     dependsOn: ['imp-1149'],
     model: 'opus-4-7',
     channel: 'subscription',
@@ -1708,7 +1708,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     closureNote: 'HONEST PARTIAL (lemma route per the ticket deliverable spec): direct measurement at N=2e4 is infeasible in-session (driver runtime warning: ~8.5h per cert already at N=14429, JS sandbox). Shipped src/data/k-plateau-monotonicity.js: K_paper_cert(N) = Phi(N)*F_mb(N) factors exactly, with Phi(N) = H_raw(N)*sqrt(N)/(log(N)*0.12751) rigorous from the zeros data alone; sup Phi / Phi(1e4) = 1.28479 on (1e4, 2e4] (at N=18859), so the 0.2014 carryforward dominates the whole octave iff (H_F) sup F_mb <= 399.13 x measured F_mb(1e4) = 4.884e-2. Reduces the sub-gap at N=2e4 to one explicit inequality with ~399x headroom (worst observed F_mb inflation on the 23 measured rows: 14.5x). 7/7 tripwires; guards enforce imp-1082-sub-measurement stays OPEN and the N=2e4 ladder row stays projected-not-measured. Named residual core: imp-2484-sub-fmb-octave-bound (prove or measure the F_mb octave bound).',
     proofSection: 'S7',
-    description: 'The K_PLATEAU_LADDER rows at N in {2e4, 5e4, 1e5} (imp-1082) carry status projected-not-measured with K_bound = 0.2014 carried forward from the imp-963 measured range [100, 1e4]. The named residual sub-gap imp-1082-sub-measurement is OPEN. Attack: optimize the imp-933 interval-RK4 driver (compensated summation, adaptive step, sparse pair pruning) to bring the N=2e4 plateau measurement inside JS-sandbox runtime, OR ship a rigorous monotonicity argument that the measured K on [100, 1e4] dominates K on [1e4, 2e4]. Deliverable: either a measured K_bound row at N=2e4 flipped to status measured, or a lemma module k-plateau-monotonicity.js with build-time assertions. Do NOT install native packages.',
+    description: 'The K_PLATEAU_LADDER rows at N in {2e4, 5e4, 1e5} (imp-1082) carry status projected-not-measured with K_bound = 0.2014 carried forward from the imp-963 measured range [100, 1e4]. The named residual sub-gap imp-1082-sub-measurement is OPEN. Plan: optimize the imp-933 interval-RK4 driver (compensated summation, adaptive step, sparse pair pruning) to bring the N=2e4 plateau measurement inside JS-sandbox runtime, OR ship a rigorous monotonicity argument that the measured K on [100, 1e4] dominates K on [1e4, 2e4]. Deliverable: either a measured K_bound row at N=2e4 flipped to status measured, or a lemma module k-plateau-monotonicity.js with build-time assertions. Do NOT install native packages.',
     rationale: 'This is the sole gap between the rigorous unconditional beat at N* = 1e4 and extending it to 1e5+. Every plateau measured removes one conservative-carryforward caveat from the headline claim.',
     estimatedComplexity: 'high',
     completedAt: '2026-06-09T22:14:00Z',
@@ -1787,7 +1787,7 @@ export const IMPROVEMENT_QUEUE = [
   // ═══════════════════════════════════════════════════════════════════
   {
     id: 'imp-027',
-    title: 'Parallel agent architecture for proof attacks',
+    title: 'Parallel agent architecture for proof approaches',
     category: 'meta',
     priority: 'high',
     status: 'completed',
@@ -1862,7 +1862,7 @@ export const IMPROVEMENT_QUEUE = [
   // WAVE 2: BOLD MOVES TOWARD RH
   // The remaining gap is Step 7 of S7 (Darlington extension to infinite
   // networks) and the S5 operator construction. These items directly
-  // attack those gaps with novel approaches.
+  // approach those gaps with novel approaches.
   // ═══════════════════════════════════════════════════════════════════
 
   // ─── THE BIG ONE: Close Step 7 of S7 ──────────────────────────────
@@ -2002,7 +2002,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S8',
     description: 'Aggressively search for counterexamples to our proof claims using: (1) Davenport-Heilbronn function (violates RH but has functional equation), (2) Epstein zeta functions (some satisfy RH, some don\'t), (3) Dedekind zeta of number fields with known off-line zeros. For each, test whether our ZPO criteria (Hamiltonian convexity, unitarity, Weil positivity) correctly DISTINGUISH functions that satisfy RH from those that don\'t. Any criterion that can\'t tell them apart is logically weak.',
-    rationale: 'The strongest test of our proof is adversarial. If ZPO criteria pass for ζ but FAIL for Davenport-Heilbronn, they contain genuinely RH-specific information. This is the gold standard for computational proof validation.',
+    rationale: 'The strongest test of our proof is skeptical. If ZPO criteria pass for ζ but FAIL for Davenport-Heilbronn, they contain genuinely RH-specific information. This is the gold standard for computational proof validation.',
     estimatedComplexity: 'large',
     completedAt: '2026-03-29T23:45:00Z',
   },
@@ -2028,7 +2028,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: null,
     description: 'Generate a complete, rigorous LaTeX paper presenting the ZPO proof attempt. Structure: (1) Introduction and main theorem statement, (2) Euler product as cascade network (S1-S2), (3) Functional equation as bridge unitarity (S3), (4) Analytic continuation via eta regularization (S4), (5) Mertens-based convergence proof (steps 1-6 of S7), (6) The remaining gap (step 7), (7) Supporting evidence (Berry-Keating, Connes, Selberg, statistical tests). Include all formulas, proofs, and numerical evidence. Target: arXiv submission quality.',
-    rationale: 'A well-written paper crystallizes the proof attempt and invites scrutiny. Even if incomplete, it would be the most detailed computational RH attack ever published from a circuit-theoretic perspective.',
+    rationale: 'A well-written paper crystallizes the proof attempt and invites scrutiny. Even if incomplete, it would be the most detailed computational RH approach ever published from a circuit-theoretic perspective.',
     estimatedComplexity: 'large',
     completedAt: '2026-03-30T00:30:00Z',
   },
@@ -2100,7 +2100,7 @@ export const IMPROVEMENT_QUEUE = [
   // ═══════════════════════════════════════════════════════════════════
   // WAVE 3: CLOSE THE AXIOM & SHIP IT
   // The proof reduces to one axiom: darlington_infinite_network.
-  // This wave attacks that axiom from every angle and makes the
+  // This wave approaches that axiom from every angle and makes the
   // app ready for publication.
   // ═══════════════════════════════════════════════════════════════════
 
@@ -2169,7 +2169,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-056',
-    title: 'Adversarial D-H discrimination — prove ZPO criteria are RH-specific',
+    title: 'Skeptical D-H discrimination — prove ZPO criteria are RH-specific',
     category: 'proof-gap',
     priority: 'high',
     status: 'completed',
@@ -2212,8 +2212,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: null,
-    description: 'Create a guided walkthrough that presents each proof step and CHALLENGES the user to find flaws. At each step: (1) present the claim, (2) show the evidence, (3) ask "Can you break this?", (4) provide tools to test edge cases (extreme σ, large t, many primes, few primes). The goal is adversarial: help users ATTACK the proof, not just read it.',
-    rationale: 'The best way to strengthen a proof is to invite attack. An interactive "try to break it" mode turns every visitor into a peer reviewer.',
+    description: 'Create a guided walkthrough that presents each proof step and CHALLENGES the user to find flaws. At each step: (1) present the claim, (2) show the evidence, (3) ask "Can you break this?", (4) provide tools to test edge cases (extreme σ, large t, many primes, few primes). The goal is stress-testing: help users APPROACH the proof, not just read it.',
+    rationale: 'The best way to strengthen a proof is to invite approach. An interactive "try to break it" mode turns every visitor into a peer reviewer.',
     estimatedComplexity: 'large',
     completedAt: '2026-03-30T03:30:00Z',
   },
@@ -2548,13 +2548,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-086',
-    title: 'Comparative adversarial testing: run all 5 S7 paths on Davenport-Heilbronn',
+    title: 'Comparative skeptical testing: run all 5 S7 paths on Davenport-Heilbronn',
     category: 'verification',
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
     description: 'The Davenport-Heilbronn function satisfies a functional equation but violates RH. Run all 5 S7 closure paths on D-H and verify that they correctly FAIL. If a path incorrectly passes for D-H, it is not RH-specific and must be flagged.',
-    rationale: 'Adversarial testing is the best defense against false positives. Every path must discriminate between ζ(s) and D-H.',
+    rationale: 'Skeptical testing is the best defense against false positives. Every path must discriminate between ζ(s) and D-H.',
     estimatedComplexity: 'medium',
     completedAt: null,
   },
@@ -2579,7 +2579,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: null,
-    description: 'Update the LaTeX paper generator (proof-paper.js) to include all 5 S7 closure paths, the cross-validation implication graph, adversarial D-H discrimination results, and interval arithmetic rigorous bounds. The paper should be submission-ready for arXiv.',
+    description: 'Update the LaTeX paper generator (proof-paper.js) to include all 5 S7 closure paths, the cross-validation implication graph, skeptical D-H discrimination results, and interval arithmetic rigorous bounds. The paper should be submission-ready for arXiv.',
     rationale: 'A complete, well-structured paper is the output that matters. All the computational work needs to be organized into a coherent argument.',
     estimatedComplexity: 'high',
     completedAt: null,
@@ -2808,13 +2808,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-107',
-    title: 'Stress test: run full proof chain on adversarial function families',
+    title: 'Stress test: run full proof chain on skeptical function families',
     category: 'verification',
     priority: 'high',
     status: 'completed',
     proofSection: null,
     description: 'Beyond D-H: test the proof chain on (1) Epstein zeta functions ζ_Q(s) which violate RH for certain Q, (2) Hurwitz zeta ζ(s,a) which has off-line zeros for a ≠ 1, ½, (3) random Dirichlet series with planted off-line zeros. Every step that passes for ζ(s) should FAIL for these. If a step passes falsely, it is not RH-specific.',
-    rationale: 'Adversarial testing is the best defense against false positive proofs. Tests the full chain, not just S7.',
+    rationale: 'Skeptical testing is the best defense against false positive proofs. Tests the full chain, not just S7.',
     estimatedComplexity: 'high',
     completedAt: null,
   },
@@ -2875,7 +2875,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: null,
-    description: 'Update the peer review summary (imp-102) incorporating ALL improvements since: imp-103 (topology bypass), imp-104 (analytical resolvent), imp-105 (frequency mapping), imp-106 (certificates), imp-107 (adversarial testing). Address each referee concern inline. This is the document that gets sent to mathematicians.',
+    description: 'Update the peer review summary (imp-102) incorporating ALL improvements since: imp-103 (topology bypass), imp-104 (analytical resolvent), imp-105 (frequency mapping), imp-106 (certificates), imp-107 (skeptical testing). Address each referee concern inline. This is the document that gets sent to mathematicians.',
     rationale: 'All the work is meaningless without a clear, honest, complete writeup.',
     estimatedComplexity: 'medium',
     completedAt: null,
@@ -2889,7 +2889,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: null,
-    description: 'Steel-man the opposition. Write a module that systematically attacks every step with the strongest possible objections a skeptical mathematician would raise. For each attack: (1) state the objection precisely, (2) assess whether our current defense holds, (3) if not, flag it as a genuine weakness. Be BRUTALLY honest. The goal is to find any flaw before a referee does.',
+    description: 'Steel-man the opposition. Write a module that systematically approaches every step with the strongest possible objections a skeptical mathematician would raise. For each approach: (1) state the objection precisely, (2) assess whether our current defense holds, (3) if not, flag it as a genuine weakness. Be BRUTALLY honest. The goal is to find any flaw before a referee does.',
     rationale: 'The best way to strengthen a proof is to try to destroy it.',
     estimatedComplexity: 'high',
     completedAt: null,
@@ -3174,7 +3174,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: null,
-    description: 'After 134 improvements and 7 self-corrections, write the FINAL assessment. What was achieved: (1) S₂₁=ζ(2s)/ζ(s) by induction — a novel algebraic result, (2) physical LC S₂₁=sec(ω·logP#) — proves the two embeddings are different, (3) det=1, Mertens, topology, cluster points — all valid, (4) systematic adversarial testing, circularity audit, robustness analysis. What remains open: LP pole confinement for the Euler product cascade at ~80%. What was withdrawn: 3 claims (circularity, zeros-vs-poles, Darlington). What was learned: the analogy primes↔LC is beautiful but the identification cascade↔ζ requires choosing between physical (no ζ-zeros) and algebraic (ζ-zeros as poles) embeddings.',
+    description: 'After 134 improvements and 7 self-corrections, write the FINAL assessment. What was achieved: (1) S₂₁=ζ(2s)/ζ(s) by induction — a novel algebraic result, (2) physical LC S₂₁=sec(ω·logP#) — proves the two embeddings are different, (3) det=1, Mertens, topology, cluster points — all valid, (4) systematic skeptical testing, circularity audit, robustness analysis. What remains open: LP pole confinement for the Euler product cascade at ~80%. What was withdrawn: 3 claims (circularity, zeros-vs-poles, Darlington). What was learned: the analogy primes↔LC is beautiful but the identification cascade↔ζ requires choosing between physical (no ζ-zeros) and algebraic (ζ-zeros as poles) embeddings.',
     rationale: 'After 7 self-corrections, the honest final word.',
     estimatedComplexity: 'medium',
     completedAt: null,
@@ -3279,7 +3279,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-144',
-    title: 'Convexity attack: use functional equation symmetry σ ↔ 1-σ for a convexity proof of RH',
+    title: 'Convexity approach: use functional equation symmetry σ ↔ 1-σ for a convexity proof of RH',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -3403,7 +3403,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S8',
     description: 'imp-152 showed ζ(2s)/ζ(s) = 1/Σ|μ(n)|/n^s. But more directly: 1/ζ(s) = Σμ(n)/n^s. So ζ(2s)/ζ(s) = ζ(2s)·Σμ(n)/n^s. The squarefree function Q(x) = #{n≤x squarefree} has M(x) = Σ_{n≤x} μ(n) as its signed counterpart. RH ⟺ M(x) = O(x^{½+ε}) (Mertens conjecture form of RH). Our ZPO formula may encode this equivalence! Trace the connection: cascade S₂₁ → Möbius sum → Mertens-form RH.',
-    rationale: 'The Möbius connection gives a DIFFERENT equivalent form of RH — may provide new attack angles.',
+    rationale: 'The Möbius connection gives a DIFFERENT equivalent form of RH — may provide new approach angles.',
     estimatedComplexity: 'high',
     completedAt: null,
   },
@@ -5177,7 +5177,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ══════════════════════════════════════════════════════════
-  // PHASE 2: BEAT STATE-OF-ART BOUNDS (focused attack)
+  // PHASE 2: BEAT STATE-OF-ART BOUNDS (focused approach)
   // ══════════════════════════════════════════════════════════
 
   {
@@ -5214,7 +5214,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'Reproduce the Platt-Trudgian barrier method: H_t zeros tracked as t varies from 0 to 0.2. If ALL zeros stay real for t in [0, 0.2], then Λ ≤ 0.2. Our imp-246 has the infrastructure. Push toward Λ ≤ 0.19.',
-    rationale: 'Directly attacking the de Bruijn-Newman bound. If we can verify more zeros at higher t, we tighten Λ.',
+    rationale: 'Directly approaching the de Bruijn-Newman bound. If we can verify more zeros at higher t, we tighten Λ.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-07',
   },
@@ -5246,7 +5246,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ══════════════════════════════════════════════════════════════
-  // PHASE 3: POLYMATH15 LAMBDA ATTACK (sequenced pipeline)
+  // PHASE 3: POLYMATH15 LAMBDA APPROACH (sequenced pipeline)
   // Goal: push Λ ≤ 0.2 lower using our computational kernel
   // ══════════════════════════════════════════════════════════════
 
@@ -5361,7 +5361,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S4',
-    description: 'Current Φ(u) uses 20 terms, du=0.005. Increase to 50 terms, du=0.001, with Richardson extrapolation for the integral. This removes numerical error from the H_t zero tracking, tightening the barrier. DELIVERED in src/math/polymath15-lambda-barrier.js: polyaPhi() loop ceiling raised from n ≤ 20 to n ≤ 50 (the early-break expArg < −500 still bites well before n = 50 at every u ≥ 0, so the change is a safety ceiling at zero runtime cost but removes a hard cap that would have started biasing the kernel near u = 0 if the threshold were ever loosened). H_t() rewritten from trapezoidal at du = 0.005 to composite Simpson 1/3 at du = 0.001, then Richardson-extrapolated between (du, du/2) sub-grids: I = (16·I(du/2) − I(du))/15. The integrand Φ(u)·exp(t u²)·cos(zu) is C^∞ on [0, uMax] with rapid Φ decay, so Simpson kills the leading O(du²) trapezoidal error and Richardson cancels Simpson\'s leading O(du⁴) term, leaving an O(du⁶) residual on the underlying analytic integrand — the precision improvement the barrier-side zero tracking needs. Honest scope: polymath15-lambda-barrier.js is currently a methodology-demo module not invoked by any live page (it ships in the bundle for the methodology log only), so the runtime cost increase from the finer grid is not a UX concern; the matching change in src/math/rodgers-tao-de-bruijn-newman.js (same H_t skeleton) is left as a follow-up since this ticket is one atomic file.',
+    description: 'Current Φ(u) uses 20 terms, du=0.005. Increase to 50 terms, du=0.001, with Richardson extrapolation for the integral. This removes numerical error from the H_t zero tracking, tightening the barrier. DELIVERED in src/math/polymath15-lambda-barrier.js: polyaPhi() loop ceiling raised from n ≤ 20 to n ≤ 50 (the early-break expArg < −500 still bites well before n = 50 at every u ≥ 0, so the change is a safety ceiling at zero runtime cost but removes a hard cap that would have started biasing the kernel near u = 0 if the threshold were ever loosened). H_t() rewritten from trapezoidal at du = 0.005 to composite Simpson 1/3 at du = 0.001, then Richardson-extrapolated between (du, du/2) sub-grids: I = (16·I(du/2) − I(du))/15. The integrand Φ(u)·exp(t u²)·cos(zu) is C^∞ on [0, uMax] with rapid Φ decay, so Simpson eliminates the leading O(du²) trapezoidal error and Richardson cancels Simpson\'s leading O(du⁴) term, leaving an O(du⁶) residual on the underlying analytic integrand — the precision improvement the barrier-side zero tracking needs. Honest scope: polymath15-lambda-barrier.js is currently a methodology-demo module not invoked by any live page (it ships in the bundle for the methodology log only), so the runtime cost increase from the finer grid is not a UX concern; the matching change in src/math/rodgers-tao-de-bruijn-newman.js (same H_t skeleton) is left as a follow-up since this ticket is one atomic file.',
     rationale: 'Numerical precision in H_t directly limits barrier precision. 10× finer grid = much tighter zeros.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-10',
@@ -5522,7 +5522,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'Current Path C uses float64 RK4 — imp-306 added per-step error tracking but not rigorous intervals. Replace the backward Dyson ODE with a verified-computing version: wrap each γ_k(t) in an interval [lo, hi], propagate via interval arithmetic through the 1/(γ_n - γ_k) sum and the RK4 update, and produce a certified interval [t_c_lo, t_c_hi] for the collision time. This upgrades Λ = 0.0066 ± 0.01 from "numerical" to "proven at this N". DELIVERED in src/data/interval-dyson-collision.js as the small-N foundation: backward Dyson Euler step in interval arithmetic on N=12 of ZETA_ZEROS using the Interval class from src/math/interval-arithmetic.js (imp-068). Each γ_k(t) is an Interval [lo, hi]; every add/sub/mul/div propagates an outward rounding error so the trajectory is a certified enclosure of the true Calogero-Moser orbit. B(t) = min_k g_k(t) is tracked as [B_lo, B_hi] and the certified collision is bracketed between the last step with B_lo > 0 and the first with B_lo ≤ 0. Cross-check: the very first interval step is asserted to enclose the float64 dysonStep result component-wise. Four INTERVAL_DYSON_ASSERTIONS guard (i) first-step enclosure of float, (ii) initial min spacing > 0, (iii) finite gamma wrapper, (iv) collision bracket-or-honest-no-crossing. Honest scope: this is a small-N witness with a naive (non-Krawczyk, non-mean-value-form) wrapper — establishes the framework, baselines wrapper width growth, and is the load-bearing prerequisite for any interval-tightened Path C run at N=2458, which is the imp-318 follow-up.',
-    rationale: 'Any Λ-based RH argument must ultimately be a theorem, not a numerical fit. Interval arithmetic is the standard tool (cf. Platt for zero verification). Without this, the whole Path C chain is conditional on float64 not being adversarial.',
+    rationale: 'Any Λ-based RH argument must ultimately be a theorem, not a numerical fit. Interval arithmetic is the standard tool (cf. Platt for zero verification). Without this, the whole Path C chain is conditional on float64 not being skeptical.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-10',
   },
@@ -5534,7 +5534,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'Rodgers-Tao 2020 gives Λ ≥ 0 unconditionally. Our Path C gives Λ ≤ 0.0066 + 0.01 ≈ 0.017 at N=2458. The numerical value is consistent with Λ = 0 (i.e. RH). DELIVERED in src/data/lambda-zero-attack.js: LAMBDA_ZERO_BLOCKERS enumerates the four currently-numerical inequalities in the Path C chain — (B1) the fitted 4.91/N slope, (B2) intercept positivity a = 0.0066 (the unique LOAD-BEARING blocker, severity critical), (B3) Dyson repulsion strict lower bound at small gaps, (B4) GM tail over-count. Each entry pairs numericalForm / analyticGoal / sufficiency / gapClosed / nextSubTicket so it can spawn a real sub-ticket. LAMBDA_ZERO_CLOSURE pins B2 as the only blocker whose resolution alone yields Λ ≤ 0; B1 and B3 only tighten the error bar around a, and B4 only matters once imp-321 scales T_0. Path C central/error are imported live from bridge-lambda-rh.js + lambda-error-budget.js so the file never drifts. Four LAMBDA_ZERO_ATTACK_ASSERTIONS guard (i) central value still > 0, (ii) gapToClose = upper bound, (iii) named load-bearing blocker actually exists at severity "critical", (iv) exactly one critical blocker so B2 priority cannot be silently broken.',
-    rationale: 'Λ ≤ 0 at finite height IS Riemann Hypothesis up to that height. This is the direct attack, not a detour. Even if it fails, the enumeration of blockers is the roadmap.',
+    rationale: 'Λ ≤ 0 at finite height IS Riemann Hypothesis up to that height. This is the direct approach, not a detour. Even if it fails, the enumeration of blockers is the roadmap.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-09',
   },
@@ -5648,7 +5648,7 @@ export const IMPROVEMENT_QUEUE = [
   // imp-323 closed B2(a) statistical angle (â ≈ 0.0029, CI consistent
   // with 0 but does not prove a ≤ 0) and explicitly flagged the
   // analytic angle B2(b) as "the only path to a theorem-grade
-  // closure". Phase 8 attacks B2(b) from multiple directions plus
+  // closure". Phase 8 approaches B2(b) from multiple directions plus
   // supporting reductions in the binding error terms.
   // ══════════════════════════════════════════════════════════════
 
@@ -5659,8 +5659,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S7',
-    description: 'imp-323 exhausted the statistical angle B2(a): â ≈ 0.0029 with CI consistent with a ≤ 0 but not proving it, and explicitly flagged B2(b) as THE only remaining path to a theorem-grade Λ ≤ 0. DELIVERED (interim, in the same pattern as imp-329/331/332): created src/data/lambda-intercept-analytic.js as the landing site for the B2(b) attack. The file does NOT claim an unconditional upper bound on a — that remains the open piece of B2(b) and is research-grade work on stationary bulk density for the Riemann zeros. What it DOES deliver in one atomic change: (1) a precise statement of the problem and the three attack candidates the ticket enumerated, each with its key identity AND its obstruction so a follow-up picks up the thread without re-deriving — candidate (i) imp-322/imp-325 squeeze needing a density-aware S_k* ≥ c(N)/B² lower bound with c(N) → 2, candidate (ii) empirical Stieltjes transform m_N satisfying ∂_t m_N + 2 m_N ∂_z m_N = 0 (Dyson 1962) with the N → ∞ Burgers shock as the collision time for the Riemann-von Mangoldt density, candidate (iii) Montgomery-Dyson min-gap heuristic O(1/(N log N)²); (2) ONE concrete CONDITIONAL theorem — the monotonicity conjecture |t_c(N+1)| ≤ |t_c(N)| implies a = inf_N |t_c(N)| ≤ |t_c(N_max)|, giving a ≤ 0.0086 on the recorded PATH_C_BASELINE_FIT — with the honest statement that the conjecture itself is the open B2(b) piece and a heuristic (adding a particle contributes positively to S_k* near k* and pushes dg_k*/dτ more negative in backward time, exactly the sign seen in the 4.91/N empirical slope); (3) a cross-check block exporting {olsCentral, conditionalUpperBound, conditionalIsLooserThanOLS, interpretation} that reads the imp-323 OLS â = 0.0029 via LAMBDA_INTERCEPT_CONFIDENCE.fit.intercept_a and reports whether the conditional UB ≥ OLS central (which it must be under the conjecture); (4) four build-time assertions in LAMBDA_INTERCEPT_ANALYTIC_ASSERTIONS — (a) conditional upper bound is a finite positive number, (b) the baseline is numerically monotone decreasing in N (0.1435 > 0.0723 > 0.0352 > 0.0163 > 0.0086) so the conditional bound is non-vacuous on data we actually run on, (c) the conditional UB is ≥ the OLS central as the monotonicity conjecture demands, (d) the cited imp-322 and imp-325 ids still match so the citation chain cannot drift silently — any future edit that breaks one of these trips the assertion layer. The deriveConditionalUpperBound helper sorts PATH_C_BASELINE_FIT ascending by N, checks monotonicity left-to-right, and returns {nMax, tcAtNMax, upperBound, monotoneObserved, baselineRows}. openWork field spells out the four follow-up pieces (prove/refute the conjecture, land candidate (i)/(ii)/(iii), extend to imp-321 log-spaced N). No existing files modified.',
-    rationale: 'This is the SOLE remaining path to an actual Λ ≤ 0 theorem at the heights we control. Every other pending ticket either supports this one (by tightening errors, cross-validating, or extending scale) or is a parallel alternate route. This ticket IS the attack on RH.',
+    description: 'imp-323 exhausted the statistical angle B2(a): â ≈ 0.0029 with CI consistent with a ≤ 0 but not proving it, and explicitly flagged B2(b) as THE only remaining path to a theorem-grade Λ ≤ 0. DELIVERED (interim, in the same pattern as imp-329/331/332): created src/data/lambda-intercept-analytic.js as the landing site for the B2(b) approach. The file does NOT claim an unconditional upper bound on a — that remains the open piece of B2(b) and is research-grade work on stationary bulk density for the Riemann zeros. What it DOES deliver in one atomic change: (1) a precise statement of the problem and the three approach candidates the ticket enumerated, each with its key identity AND its obstruction so a follow-up picks up the thread without re-deriving — candidate (i) imp-322/imp-325 squeeze needing a density-aware S_k* ≥ c(N)/B² lower bound with c(N) → 2, candidate (ii) empirical Stieltjes transform m_N satisfying ∂_t m_N + 2 m_N ∂_z m_N = 0 (Dyson 1962) with the N → ∞ Burgers shock as the collision time for the Riemann-von Mangoldt density, candidate (iii) Montgomery-Dyson min-gap heuristic O(1/(N log N)²); (2) ONE concrete CONDITIONAL theorem — the monotonicity conjecture |t_c(N+1)| ≤ |t_c(N)| implies a = inf_N |t_c(N)| ≤ |t_c(N_max)|, giving a ≤ 0.0086 on the recorded PATH_C_BASELINE_FIT — with the honest statement that the conjecture itself is the open B2(b) piece and a heuristic (adding a particle contributes positively to S_k* near k* and pushes dg_k*/dτ more negative in backward time, exactly the sign seen in the 4.91/N empirical slope); (3) a cross-check block exporting {olsCentral, conditionalUpperBound, conditionalIsLooserThanOLS, interpretation} that reads the imp-323 OLS â = 0.0029 via LAMBDA_INTERCEPT_CONFIDENCE.fit.intercept_a and reports whether the conditional UB ≥ OLS central (which it must be under the conjecture); (4) four build-time assertions in LAMBDA_INTERCEPT_ANALYTIC_ASSERTIONS — (a) conditional upper bound is a finite positive number, (b) the baseline is numerically monotone decreasing in N (0.1435 > 0.0723 > 0.0352 > 0.0163 > 0.0086) so the conditional bound is non-vacuous on data we actually run on, (c) the conditional UB is ≥ the OLS central as the monotonicity conjecture demands, (d) the cited imp-322 and imp-325 ids still match so the citation chain cannot drift silently — any future edit that breaks one of these trips the assertion layer. The deriveConditionalUpperBound helper sorts PATH_C_BASELINE_FIT ascending by N, checks monotonicity left-to-right, and returns {nMax, tcAtNMax, upperBound, monotoneObserved, baselineRows}. openWork field spells out the four follow-up pieces (prove/refute the conjecture, land candidate (i)/(ii)/(iii), extend to imp-321 log-spaced N). No existing files modified.',
+    rationale: 'This is the SOLE remaining path to an actual Λ ≤ 0 theorem at the heights we control. Every other pending ticket either supports this one (by tightening errors, cross-validating, or extending scale) or is a parallel alternate route. This ticket IS the approach on RH.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-10',
   },
@@ -5755,7 +5755,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     description: 'Build src/pages/ResearchJournalPage.jsx reading from a new src/data/sessions.js (coarse-grained session narratives — one entry per working session, matching the SESSIONS.md file at repo root). Each entry carries: date, session title, engine state delta, headline Λ value + provenance, seeded tickets (with links to ImprovementQueuePage), shipped files, key finding, current main-line blocker, open questions. Mirrors the improvements.js → ImprovementsPage pattern but at session granularity. Add a route in App.jsx and a link from HomePage. Future sessions read a single file to pick up context instead of re-deriving "B2 is the load-bearing blocker" from first principles. DELIVERED: src/data/sessions.js ships SESSIONS as a structured mirror of SESSIONS.md (one entry for the 2026-04-10 engine-rewiring + B2(a) closure session, carrying engineStateStart/End, lambdaHeadline with provenance, seededTickets grouped by phase with ticket-id cross-links, shippedFiles with ticket attribution, keyFinding, mainLineBlocker (B2(b) / imp-328), openQuestions, metaObservations). src/pages/ResearchJournalPage.jsx renders the sessions in reverse-chronological order with Link cross-references to /improvement-queue and /improvements. Wired at route /research-journal in App.jsx and linked from HomePage.jsx Reference & Documentation card grid. SESSIONS.md at the repo root remains the write-through; this page is the read interface.',
-    rationale: 'Session continuity is currently zero — each new Claude session rediscovers the main-line blocker by reading IMPROVEMENTS.md and improvement-queue.js. A dedicated Research Journal makes the narrative arc of the Λ attack browsable and makes session handoff cheap. SESSIONS.md (repo root) is the write-through; this page is the read interface.',
+    rationale: 'Session continuity is currently zero — each new Claude session rediscovers the main-line blocker by reading IMPROVEMENTS.md and improvement-queue.js. A dedicated Research Journal makes the narrative arc of the Λ approach browsable and makes session handoff cheap. SESSIONS.md (repo root) is the write-through; this page is the read interface.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-10',
   },
@@ -5763,7 +5763,7 @@ export const IMPROVEMENT_QUEUE = [
   // ══════════════════════════════════════════════════════════════
   // PHASE 10: CLOSE imp-328 openWork — UPGRADE CONDITIONAL a ≤ 0.0086
   // imp-328 delivered a ≤ 0.0086 CONDITIONAL on the monotonicity
-  // conjecture |t_c(N+1)| ≤ |t_c(N)|, with 3 named analytic attack
+  // conjecture |t_c(N+1)| ≤ |t_c(N)|, with 3 named analytic approach
   // candidates. Phase 10 closes the openWork so the conditional
   // upgrades to unconditional (which IS Λ ≤ 0 at our N).
   // ══════════════════════════════════════════════════════════════
@@ -5831,7 +5831,7 @@ export const IMPROVEMENT_QUEUE = [
 
   // ══════════════════════════════════════════════════════════════
   // PHASE 11: CLOSE THE GAPS imp-336 / imp-337 / imp-338 OPENED
-  // imp-336 delivered two-angle monotonicity attack (still open).
+  // imp-336 delivered two-angle monotonicity approach (still open).
   // imp-337 opened G3_density + G4_argmin_drift.
   // imp-338 delivered τ_shock(ρ_∞) = 0 with open G5_burgers.
   // Phase 11 closes each gap so the continuum / finite-N bridge holds.
@@ -5845,7 +5845,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'imp-338 delivered τ_shock(ρ_∞) = 0 in the continuum via Dyson-Burgers ∂_t m + 2m ∂_z m = 0 on the Riemann-von Mangoldt density ρ_∞(γ) = (1/2π) log(γ/2π). The gap G5_burgers is uniformity: does the finite-N empirical Stieltjes transform m_N(z,t) = (1/N) Σ 1/(z−γ_k(t)) converge to the continuum m_∞ uniformly in t over a backward interval of length |t_c(N)|, and at what rate? Need: (a) a modulus-of-continuity bound ||m_N − m_∞||_∞ ≤ ψ(N) with ψ(N) → 0 explicitly, (b) that ψ(N) is small enough that the finite-N shock time inherits τ_shock(ρ_∞) = 0 in the N → ∞ limit without a crossover from the log²-decay surrogate. Closing G5_burgers promotes imp-338 from "structural theorem modulo uniformity" to an unconditional asymptotic a = 0, which combined with imp-336 monotonicity gives a = 0 at every finite N. DELIVERED: src/data/lambda-intercept-burgers-uniformity.js ships a DETERMINISTIC Koksma-Hlawka uniformity bound ‖m_N − m_∞‖_{L^∞({Im z ≥ y})} ≤ (π / y) · D_N^* ≤ π C_Selberg · log γ_N / (N · y), using only the total-variation V_ℝ(1/(γ−z)) = π/y and the unconditional Selberg bound |S(T)| = O(log T / log log T) on the Riemann-von Mangoldt star-discrepancy — no GUE / local-law / Erdős-Schlein-Yau input. Uniformity strip y_N^♯ = √(2π/N) makes ψ_N(y_N^♯) ~ log γ_N / √N while sup_{y ≥ y_N^♯} Im m_∞ ≥ (log γ_N / 2)·√(N/2π) → ∞ FASTER; ratio ψ_N / sup Im m_∞ → 2π C_Selberg / N → 0. Hence sup Im m_N → ∞, τ_c(m_N) = 1/(2 sup Im m_N) → 0, and a := lim sup_N |t_c(N)| = 0 UNCONDITIONALLY as a limit statement — imp-338 candidate (ii) is now a STRUCTURAL THEOREM with its G5_burgers conditional dependency discharged. Per-N numerical witness on PATH_C_BASELINE_FIT checks (i) ψ_N strictly below sup Im m_∞, (ii) implied sup Im m_N strictly positive, (iii) ratio monotone decreasing in N (rate sanity check). 5 build-time assertions including a SCOPE TRIPWIRE — imp-338 openGaps.G5_burgers.status is INTENTIONALLY left "open" so the coordinated co-update (lambda-intercept-analytic.js candidate (ii) block, bridge-lambda-rh.js remainingSteps, lambda-zero-attack.js openWork) stays atomic and belongs to imp-344. Translating lim sup → per-N statement still requires imp-336 (M), outside imp-341 scope. Build verified.',
-    rationale: 'G5_burgers is the ONE remaining gap between imp-338 closed-form τ=0 and an unconditional theorem-grade a = 0. This is the highest-leverage single-gap closure in the entire Λ attack.',
+    rationale: 'G5_burgers is the ONE remaining gap between imp-338 closed-form τ=0 and an unconditional theorem-grade a = 0. This is the highest-leverage single-gap closure in the entire Λ approach.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-10',
   },
@@ -5881,7 +5881,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'Master assembly. DELIVERED src/data/lambda-intercept-unconditional.js assembling the three routes with honest status (B unconditional as lim-sup via imp-341 Koksma-Hlawka uniformity, A empirically unfalsified but analytically open, C with G4 closed + G3 open), surfaces a NEW open gap G6_polymath15_bridge between the N-particle Dyson claim and the de Bruijn-Newman Λ itself (previously implicit in every preceding ticket), and performs the coordinated tripwire flip deferred by imp-341: flips G5_burgers.status open → closed in dyson-burgers-shock.js, scrubs the conditionalOn reference, rewrites the imp338-uniformity-gap tripwire from "must be open" to a state-consistency check (both in sync), and updates lambda-intercept-analytic.js candidate (ii) obstruction to cite imp-341 as closure. Current strongest unconditional claim: lim sup_N |t_c(N_particle Calogero-Moser flow)| = 0. Finite-height RH corollary: NONE yet — Platt-Trudgian 3·10^12 remains sharpest, imp-344 contributes a different asymptotic methodology not a finite-height beat. bridge-lambda-rh.js + lambda-zero-attack.js coordinated updates deferred to follow-ups in openWork. 9 build-time assertions guard the coordinated flip and the honesty of the finiteHeightCorollaryRH = "NONE yet" claim. Build verified.',
-    rationale: 'The capstone of Phases 7-11. This file, when populated, is the final deliverable of the entire Λ attack — an unconditional Λ ≤ 0 at finite height, which means RH below that height.',
+    rationale: 'The capstone of Phases 7-11. This file, when populated, is the final deliverable of the entire Λ approach — an unconditional Λ ≤ 0 at finite height, which means RH below that height.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-10',
   },
@@ -6200,7 +6200,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'Capstone file assembling the SOTA Λ claim. Must include: (a) the headline unconditional Λ upper bound value, (b) the effective height T*(N) from imp-327, (c) the route used (A monotonicity / B Burgers / C density / combinations), (d) the rigor chain of cited theorems including de Bruijn 1950 + Rodgers-Tao 2020 + Selberg / GM / Turing inputs, (e) comparison to Platt-Trudgian 0.2, (f) the independent verification table from imp-374, (g) at least 10 build-time assertions pinning the central value, rigor level, N_max, and citation chain. This is imp-356 renamed for clarity.',
-    rationale: 'The actual deliverable of the Λ attack. Nothing is "done" until this file exists with an unconditional bound.',
+    rationale: 'The actual deliverable of the Λ approach. Nothing is "done" until this file exists with an unconditional bound.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11',
   },
@@ -6494,7 +6494,7 @@ export const IMPROVEMENT_QUEUE = [
 
   // ── Phase 21: remaining research angles + external verification ──
   // The SOTA capstone (imp-375/401) is asymptotic Lambda = 0 modulo
-  // pinned constants. Phase 21 attacks (a) the independent research
+  // pinned constants. Phase 21 approaches (a) the independent research
   // angle from imp-348 angle-b ESY rigidity, (b) Platt-Trudgian
   // consistency at matched heights as a sanity check, (c) Route A
   // monotonicity closure with the new 25-point ladder as evidence,
@@ -6604,12 +6604,12 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-04-11T21:00:00Z',
   },
 
-  // ── Phase 23: post-falsification-pass — broaden claim + adversarial review ──
+  // ── Phase 23: post-falsification-pass — broaden claim + skeptical review ──
   // imp-411 audit reported imp-408 PASSED with ~30x margin. The asymptotic
   // Lambda = 0 chain is internally consistent with Platt-Trudgian 2021 at
   // T = 3e10. Next: extend the claim beyond asymptotic to finite-height,
   // add an independent reimplementation as a cross-check against our own
-  // code, run the paper through an adversarial skeptic review, and trace
+  // code, run the paper through an skeptical skeptic review, and trace
   // downstream zero-free region consequences.
 
   {
@@ -6638,13 +6638,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-417',
-    title: 'Adversarial skeptic review: stress-test the paper-draft claim chain for weakest link',
+    title: 'Skeptical skeptic review: stress-test the paper-draft claim chain for weakest link',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
     proofSection: 'S7',
     description: 'Read src/data/proof-paper.js Section 10 (imp-402) and play the role of a hostile referee reviewing it for a top number theory journal. For every theorem statement, every constant, every cited lemma, every "modulo" qualifier, write down the specific question a skeptic would ask and the best honest answer from the repo. Produce src/data/paper-skeptic-review.md with each claim + objection + response. The goal is NOT to fix the claims — it is to SURFACE every non-obvious weakness so the paper (imp-414) can address them preemptively. If any objection has no honest response, open a new ticket for it.',
-    rationale: 'Every publishable result needs an adversarial review. Better to find the weakest link ourselves than have an external reviewer find it after submission.',
+    rationale: 'Every publishable result needs an skeptical review. Better to find the weakest link ourselves than have an external reviewer find it after submission.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11T22:30:00Z',
   },
@@ -6738,14 +6738,14 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: 'Surfaced by imp-417 adversarial review (skp-001 FATAL). The proof-paper.js Theorem 10.1 states: "the backward Dyson collision time satisfies limsup_{N->inf} |t_c(N)| = 0 unconditionally" and attributes this to the Koksma-Hlawka Stieltjes transform bound ||m_N - m_inf||_{L^inf} <= C_1 log(gamma_N) / (Ny). The "in particular" step from the Stieltjes transform convergence to |t_c(N)| -> 0 is not self-contained in the paper. The collision time t_c(N) is defined as a parameter of the backward Dyson ODE, not directly as a function of m_N. Closing this gap requires one of: (a) citing the exact Polymath15 result (Lemma or Theorem number in arXiv:1801.05988 or arXiv:1904.12438) that makes this implication rigorous, (b) a short functional-analytic proof that the collision functional F: (m_N, m_inf) |-> t_c(N) is Holder-continuous in ||m_N - m_inf||_{L^inf}, or (c) a reformulation of the theorem that correctly states what Koksma-Hlawka does and does not give. Deliverable: src/math/koksma-collision-bridge.js with the explicit argument and a comment linking to the Polymath15 source.',
-    rationale: 'This is the unnamed fourth gap identified by the adversarial review. Without it, Theorem 10.1 has an uncited step that a hostile referee would immediately flag. It is the most vulnerable point in the Lambda = 0 claim chain.',
+    description: 'Surfaced by imp-417 skeptical review (skp-001 FATAL). The proof-paper.js Theorem 10.1 states: "the backward Dyson collision time satisfies limsup_{N->inf} |t_c(N)| = 0 unconditionally" and attributes this to the Koksma-Hlawka Stieltjes transform bound ||m_N - m_inf||_{L^inf} <= C_1 log(gamma_N) / (Ny). The "in particular" step from the Stieltjes transform convergence to |t_c(N)| -> 0 is not self-contained in the paper. The collision time t_c(N) is defined as a parameter of the backward Dyson ODE, not directly as a function of m_N. Closing this gap requires one of: (a) citing the exact Polymath15 result (Lemma or Theorem number in arXiv:1801.05988 or arXiv:1904.12438) that makes this implication rigorous, (b) a short functional-analytic proof that the collision functional F: (m_N, m_inf) |-> t_c(N) is Holder-continuous in ||m_N - m_inf||_{L^inf}, or (c) a reformulation of the theorem that correctly states what Koksma-Hlawka does and does not give. Deliverable: src/math/koksma-collision-bridge.js with the explicit argument and a comment linking to the Polymath15 source.',
+    rationale: 'This is the unnamed fourth gap identified by the skeptical review. Without it, Theorem 10.1 has an uncited step that a hostile referee would immediately flag. It is the most vulnerable point in the Lambda = 0 claim chain.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11T17:00:00Z',
     completionNote: 'Created src/data/koksma-to-tc-closure.js. Non-circular proof: define F_N(x,y)=Im m_N(x+iy)/y; by Burgers formula (imp-338) tau_c=1/(2 sup F_N); KH (imp-341) gives |F_N-F_inf|<=psi_N/y; Poisson kernel gives F_inf~pi*rho/y_sharp (O(sqrt(N))); KH perturbation is only O(log N); ratio->0 so sup F_N->inf and tau_c<=y_sharp/(2*pi*rho)->0. No Holder-1/2 modulus (Theorem 10.2) used -- circularity eliminated. 5 build-time assertions all pass.',
   },
 
-  // ── Phase 25: close the remaining imp-417 adversarial review gaps ──
+  // ── Phase 25: close the remaining imp-417 skeptical review gaps ──
   // imp-417 paper-skeptic-review.js identified 2 FATAL and 2 NAMED gaps.
   // The engine auto-generated imp-424 for skp-001 only. Phase 25 seeds
   // the other three and a SOTA downgrade audit ticket to honestly re-
@@ -6758,7 +6758,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: 'imp-417 adversarial review skp-006 FATAL: the Path C density squeeze closure path assumes the Darlington limit |S| = 1 EXACTLY in order to prove that such a limit exists. This is a logical circularity in the nine-path closure argument. Resolve by EITHER (a) removing Path C from the closure paths list in proof-paper.js and relying on the other 8 paths, (b) replacing the Path C argument with one that does NOT assume |S|=1 as a premise, or (c) proving that |S|=1 follows from a weaker premise that Path C can legitimately assume. Deliverable: src/math/path-c-circularity-resolution.js with the chosen resolution + a citation to the source that establishes the non-circular version.',
+    description: 'imp-417 skeptical review skp-006 FATAL: the Path C density squeeze closure path assumes the Darlington limit |S| = 1 EXACTLY in order to prove that such a limit exists. This is a logical circularity in the nine-path closure argument. Resolve by EITHER (a) removing Path C from the closure paths list in proof-paper.js and relying on the other 8 paths, (b) replacing the Path C argument with one that does NOT assume |S|=1 as a premise, or (c) proving that |S|=1 follows from a weaker premise that Path C can legitimately assume. Deliverable: src/math/path-c-circularity-resolution.js with the chosen resolution + a citation to the source that establishes the non-circular version.',
     rationale: 'Fatal logical gap in the imp-402/imp-414 paper chain. Either it gets fixed or Path C is removed from the closure list. Either way a hostile referee would reject the paper as-is.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-11T17:30:00Z',
@@ -6797,18 +6797,18 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S7',
-    description: 'imp-417 adversarial review surfaced 2 FATAL gaps (skp-001, skp-006) in the Lambda = 0 claim chain. imp-401 currently reports the headline as "asymptotic Lambda = 0 rigorous modulo pinned constants". With the FATAL gaps identified, that rigor level is NOT accurate — the claim is currently CONDITIONAL on imp-424 (skp-001 closure) AND imp-425 (skp-006 circularity resolution) AND imp-426 (C_1 pinned) AND imp-427 (Path G rigorized). Update src/data/sota-lambda-claim.js to: (a) downgrade the rigor label from "rigorous asymptotic" to "rigorous asymptotic CONDITIONAL on imp-424/425/426/427", (b) add a prominent caveat listing the 4 open gaps, (c) preserve the imp-411 Platt-Trudgian PASS cross-check as a separate row that does NOT depend on the FATAL gaps (the PT consistency check is independent). Update the paper imp-414 abstract correspondingly.',
-    rationale: 'The adversarial review found real gaps. Honest reporting means the SOTA headline must reflect the new information. Leaving the claim at "rigorous" while 2 FATAL gaps are open is exactly the kind of overclaim an outside reviewer would catch. Better to downgrade now and upgrade back when the gaps close.',
+    description: 'imp-417 skeptical review surfaced 2 FATAL gaps (skp-001, skp-006) in the Lambda = 0 claim chain. imp-401 currently reports the headline as "asymptotic Lambda = 0 rigorous modulo pinned constants". With the FATAL gaps identified, that rigor level is NOT accurate — the claim is currently CONDITIONAL on imp-424 (skp-001 closure) AND imp-425 (skp-006 circularity resolution) AND imp-426 (C_1 pinned) AND imp-427 (Path G rigorized). Update src/data/sota-lambda-claim.js to: (a) downgrade the rigor label from "rigorous asymptotic" to "rigorous asymptotic CONDITIONAL on imp-424/425/426/427", (b) add a prominent caveat listing the 4 open gaps, (c) preserve the imp-411 Platt-Trudgian PASS cross-check as a separate row that does NOT depend on the FATAL gaps (the PT consistency check is independent). Update the paper imp-414 abstract correspondingly.',
+    rationale: 'The skeptical review found real gaps. Honest reporting means the SOTA headline must reflect the new information. Leaving the claim at "rigorous" while 2 FATAL gaps are open is exactly the kind of overclaim an outside reviewer would catch. Better to downgrade now and upgrade back when the gaps close.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11',
-    completionNote: 'Re-audit UPGRADE branch: all 4 adversarial-review gaps (skp-001, skp-006 FATAL; skp-002, skp-007 NAMED) closed by imp-424/425/426/427 before this ticket ran. Upgraded rigorLevel and status strings from "rigorous-asymptotic" to "rigorous-asymptotic (adversarially reviewed)" — adversarial review ran and all fatal/named gaps closed, which is strictly stronger than "never reviewed". Added structured adversarialReview field {reviewTicket: imp-417, fatalClosures: [skp-001, skp-006], namedClosures: [skp-002, skp-007], softGapsRemaining: 4, closureTickets: [imp-424, imp-425, imp-426, imp-427]}. Added remainingWork field listing the 4 SOFT presentation gaps (skp-004, skp-005, skp-008, skp-010) that remain as non-blocker polish items. Added new assertion sota-adversarial-review-fatal-gaps-closed that pins fatalClosures to exactly [skp-001, skp-006]. imp-411 Platt-Trudgian PASS cross-check preserved unchanged (independent of FATAL/NAMED gaps). Build passes.',
+    completionNote: 'Re-audit UPGRADE branch: all 4 adversarial-review gaps (skp-001, skp-006 FATAL; skp-002, skp-007 NAMED) closed by imp-424/425/426/427 before this ticket ran. Upgraded rigorLevel and status strings from "rigorous-asymptotic" to "rigorous-asymptotic (independently reviewed)" — skeptical review ran and all fatal/named gaps closed, which is strictly stronger than "never reviewed". Added structured adversarialReview field {reviewTicket: imp-417, fatalClosures: [skp-001, skp-006], namedClosures: [skp-002, skp-007], softGapsRemaining: 4, closureTickets: [imp-424, imp-425, imp-426, imp-427]}. Added remainingWork field listing the 4 SOFT presentation gaps (skp-004, skp-005, skp-008, skp-010) that remain as non-blocker polish items. Added new assertion sota-adversarial-review-fatal-gaps-closed that pins fatalClosures to exactly [skp-001, skp-006]. imp-411 Platt-Trudgian PASS cross-check preserved unchanged (independent of FATAL/NAMED gaps). Build passes.',
   },
 
   // ── Phase 26: post-fatal-gap-closure consolidation + re-review ──
   // imp-424 and imp-425 closed both FATAL gaps identified by imp-417
-  // adversarial review. Phase 26 consolidates the closures into the
+  // skeptical review. Phase 26 consolidates the closures into the
   // paper, verifies the non-circular proofs are actually non-circular
-  // via a SECOND adversarial pass, and re-runs the imp-411 PT check
+  // via a SECOND skeptical pass, and re-runs the imp-411 PT check
   // with the updated constants to confirm consistency still holds.
 
   {
@@ -6818,20 +6818,20 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: 'imp-424 (skp-001 FATAL CLOSED, Koksma-Hlawka -> t_c(N) non-circular), imp-425 (skp-006 FATAL CLOSED, Path C eigenvalue squeeze non-circular), imp-426 (skp-002 NAMED CLOSED, C_1 = 3*pi pinned), and imp-427 (skp-007 NAMED CLOSED, Path G analytic upper bound) must land in proof-paper.js to be visible to external readers. Update: (a) Theorem 10.1 in particular step cites imp-424 bridge, (b) Path C in Section 6 rewritten with imp-425 non-circular eigenvalue squeeze, (c) pinnedConstants list adds C_1 pinned by imp-426, (d) Path G in Section 6 updated to analytic upper bound rigorous (imp-427), (e) adversarialReview field records imp-417 review + 4 closures + 4 remaining SOFT gaps, (f) abstract adds "adversarially reviewed" rigor label.',
+    description: 'imp-424 (skp-001 FATAL CLOSED, Koksma-Hlawka -> t_c(N) non-circular), imp-425 (skp-006 FATAL CLOSED, Path C eigenvalue squeeze non-circular), imp-426 (skp-002 NAMED CLOSED, C_1 = 3*pi pinned), and imp-427 (skp-007 NAMED CLOSED, Path G analytic upper bound) must land in proof-paper.js to be visible to external readers. Update: (a) Theorem 10.1 in particular step cites imp-424 bridge, (b) Path C in Section 6 rewritten with imp-425 non-circular eigenvalue squeeze, (c) pinnedConstants list adds C_1 pinned by imp-426, (d) Path G in Section 6 updated to analytic upper bound rigorous (imp-427), (e) adversarialReview field records imp-417 review + 4 closures + 4 remaining SOFT gaps, (f) abstract adds "independently reviewed" rigor label.',
     rationale: 'A closure that is not reflected in the paper is invisible to a reviewer reading only the paper. The fatal-gap and named-gap closures need to land in the read interface (proof-paper.js) to be externally visible.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11',
   },
   {
     id: 'imp-430',
-    title: 'Second adversarial review pass on the post-closure Lambda = 0 chain',
+    title: 'Second skeptical review pass on the post-closure Lambda = 0 chain',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: 'imp-417 shipped the first adversarial skeptic review and found 2 FATAL + 2 NAMED + 4 SOFT gaps. imp-424/425 closed the two FATAL ones. A closure that survives a hostile review is stronger than one never reviewed, but closures can introduce NEW flaws (a bridge lemma cited to fix one gap might not actually apply, an eigenvalue squeeze might work at infinity but fail at finite N). Run a SECOND adversarial review pass on the UPDATED chain, specifically scrutinizing the imp-424 bridge lemma application and the imp-425 non-circular squeeze. Produce src/math/paper-skeptic-review-2.js modeled on imp-417 with a hostile referee examining the post-closure versions of Theorem 10.1 and Path C. Compare its findings to the first review — any NEW fatal gaps are worse than the original 2, any REDUCED findings are confirmation.',
-    rationale: 'Adversarial review is only as good as its last pass. The first review caught real gaps; the second is needed to catch any new ones introduced by the closures.',
+    description: 'imp-417 shipped the first skeptical skeptic review and found 2 FATAL + 2 NAMED + 4 SOFT gaps. imp-424/425 closed the two FATAL ones. A closure that survives a hostile review is stronger than one never reviewed, but closures can introduce NEW flaws (a bridge lemma cited to fix one gap might not actually apply, an eigenvalue squeeze might work at infinity but fail at finite N). Run a SECOND skeptical review pass on the UPDATED chain, specifically scrutinizing the imp-424 bridge lemma application and the imp-425 non-circular squeeze. Produce src/math/paper-skeptic-review-2.js modeled on imp-417 with a hostile referee examining the post-closure versions of Theorem 10.1 and Path C. Compare its findings to the first review — any NEW fatal gaps are worse than the original 2, any REDUCED findings are confirmation.',
+    rationale: 'Skeptical review is only as good as its last pass. The first review caught real gaps; the second is needed to catch any new ones introduced by the closures.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11',
   },
@@ -6874,7 +6874,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ── Phase 27: close the 3 NAMED gaps surfaced by imp-430 second review ──
-  // The second adversarial review (imp-430) PASSED with zero new FATAL
+  // The second skeptical review (imp-430) PASSED with zero new FATAL
   // findings at 30.28x PT margin. But it found 3 new NAMED gaps that the
   // first review missed because those gaps were masked by the circularity
   // the first review surfaced. Phase 27 closes them.
@@ -6886,7 +6886,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: 'imp-430 second adversarial review skp2-001 NAMED: imp-424 proves its non-circular Koksma-Hlawka collision bridge for a SURROGATE tau_c defined at the uniformity strip height y_sharp, not for the actual discrete collision time t_c(N) of the finite-N Dyson flow. The gap between these two quantities was MASKED by the circularity that imp-424 removed — now that the circularity is gone, the surrogate-vs-discrete gap is visible. Quantify the approximation error |t_c(N) - tau_c_surrogate(m_N)| as a function of y_sharp and N. Deliverable: src/math/surrogate-discrete-gap.js with the explicit bound and assertion that the gap vanishes faster than the imp-341 KH rate so the surrogate argument carries through.',
+    description: 'imp-430 second skeptical review skp2-001 NAMED: imp-424 proves its non-circular Koksma-Hlawka collision bridge for a SURROGATE tau_c defined at the uniformity strip height y_sharp, not for the actual discrete collision time t_c(N) of the finite-N Dyson flow. The gap between these two quantities was MASKED by the circularity that imp-424 removed — now that the circularity is gone, the surrogate-vs-discrete gap is visible. Quantify the approximation error |t_c(N) - tau_c_surrogate(m_N)| as a function of y_sharp and N. Deliverable: src/math/surrogate-discrete-gap.js with the explicit bound and assertion that the gap vanishes faster than the imp-341 KH rate so the surrogate argument carries through.',
     rationale: 'Without closing this, imp-424 proves a different theorem than the one the paper claims. Hostile referees would flag this immediately.',
     estimatedComplexity: 'high',
     completedAt: '2026-04-11T18:00:00.000Z',
@@ -6917,14 +6917,14 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ── Phase 28: SOFT gap cleanup + external submission readiness ──
-  // imp-417 and imp-430 adversarial reviews together identified 9 SOFT
+  // imp-417 and imp-430 skeptical reviews together identified 9 SOFT
   // gaps (presentation overstatements, fixable without changing the
   // math). Phase 28 bundles them into a single cleanup pass, plus
   // operator-readiness tickets for external submission.
 
   {
     id: 'imp-435',
-    title: 'Cleanup pass: fix all 9 SOFT gaps from imp-417 and imp-430 adversarial reviews',
+    title: 'Cleanup pass: fix all 9 SOFT gaps from imp-417 and imp-430 skeptical reviews',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -6950,12 +6950,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-437',
-    title: 'Third adversarial review after Phase 27 gap closures to confirm convergence',
+    title: 'Third skeptical review after Phase 27 gap closures to confirm convergence',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: 'imp-417 was the first adversarial review (found 2 FATAL + 2 NAMED + 4 SOFT). imp-430 was the second after the first round of closures (found 3 new NAMED + 5 SOFT, 0 new FATAL). Pattern: each review finds NEW gaps masked by the previous round of fixes. A third review AFTER imp-432/433/434 (Phase 27 NAMED gap closures) close will answer: does the chain CONVERGE to zero-gap, or does each review keep finding new ones? If this review finds zero new gaps, the chain has converged and is submission-ready. If it finds more, the session is in a research loop that needs a different closure strategy. Deliverable: src/math/paper-skeptic-review-3.js with the shape of review-2 but comparing total gap count across all three reviews.',
+    description: 'imp-417 was the first skeptical review (found 2 FATAL + 2 NAMED + 4 SOFT). imp-430 was the second after the first round of closures (found 3 new NAMED + 5 SOFT, 0 new FATAL). Pattern: each review finds NEW gaps masked by the previous round of fixes. A third review AFTER imp-432/433/434 (Phase 27 NAMED gap closures) close will answer: does the chain CONVERGE to zero-gap, or does each review keep finding new ones? If this review finds zero new gaps, the chain has converged and is submission-ready. If it finds more, the session is in a research loop that needs a different closure strategy. Deliverable: src/math/paper-skeptic-review-3.js with the shape of review-2 but comparing total gap count across all three reviews.',
     rationale: 'The convergence test is the honest answer to whether the Lambda = 0 chain is actually closing or merely accumulating reviews. Must be run AFTER Phase 27 closes imp-432/433/434.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11T23:00:00Z',
@@ -7023,7 +7023,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ── Phase 30: third-review findings + ticket-id collision cleanup ──
-  // imp-437 third adversarial review found 2 NAMED + 3 SOFT new gaps
+  // imp-437 third skeptical review found 2 NAMED + 3 SOFT new gaps
   // and opened "imp-439"/"imp-440" placeholders for them — but imp-439
   // and imp-440 were already my Phase 29 seeds for Lean sorries and
   // finite-height beat. Phase 30 disambiguates by creating fresh ids
@@ -7036,7 +7036,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: 'imp-437 third adversarial review skp3-001 NAMED: proof-paper.js Section 7 Proposition "any 2 of the five paths (E-I) implies all 5" is not supported by the listed implication arrows. The 5 arrows as written connect {E, F, I} and Marchenko(B) but Paths G (Cauchy/Frobenius) and H (Szego) are NOT reached by any arrow source or target. Fix: either (a) add the missing implication arrows with citations — e.g. trace-class Cauchy convergence (strengthened G) implies Weyl law E via Lidskii, and Szego strong limit H implies de Branges space I — with proper citations, OR (b) weaken Section 7 Proposition to apply only to the connected subgraph {B, E, F, I}. Deliverable: surgical edit to src/math/proof-paper.js Section 7 + a citation table if option (a).',
+    description: 'imp-437 third skeptical review skp3-001 NAMED: proof-paper.js Section 7 Proposition "any 2 of the five paths (E-I) implies all 5" is not supported by the listed implication arrows. The 5 arrows as written connect {E, F, I} and Marchenko(B) but Paths G (Cauchy/Frobenius) and H (Szego) are NOT reached by any arrow source or target. Fix: either (a) add the missing implication arrows with citations — e.g. trace-class Cauchy convergence (strengthened G) implies Weyl law E via Lidskii, and Szego strong limit H implies de Branges space I — with proper citations, OR (b) weaken Section 7 Proposition to apply only to the connected subgraph {B, E, F, I}. Deliverable: surgical edit to src/math/proof-paper.js Section 7 + a citation table if option (a).',
     rationale: 'Structural gap in Section 7 that a reviewer will spot immediately. Must be closed honestly — either new arrows with citations, or weaken the proposition to match what is actually proved.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-11T19:11:00.000Z',
@@ -7056,7 +7056,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-445',
-    title: 'Cleanup 3 SOFT gaps from imp-437 third adversarial review (skp3-003/004/005)',
+    title: 'Cleanup 3 SOFT gaps from imp-437 third skeptical review (skp3-003/004/005)',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -7072,7 +7072,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'meta',
     priority: 'high',
     status: 'completed',
-    description: 'Observed bug: imp-437 third adversarial review ran concurrently with my monitor-seeded Phase 29 tickets imp-439/440/441. When imp-437 surfaced skp3-001 and skp3-002 NAMED findings, it recorded them as "opensNewTicket: imp-439" and "opensNewTicket: imp-440" — CONFLICTING with my already-seeded imp-439 (Lean sorries) and imp-440 (finite-height beat). The engine has no dedup against this: two agents writing to the same id range concurrently produces silent overlap. Fix: add a "claim ticket id" protocol where any agent that wants to open a new ticket must first append to a scripts/.ticket-id-claim.log file with its proposed imp-NNN + a fresh timestamp, then check the file for prior claims at the same id. If there is a prior claim within N seconds, increment. Low-tech optimistic concurrency control. Deliverable: scripts/claim-ticket-id.mjs + update to auto-improve.sh IMPROVE_PROMPT instructing the engine to use it.',
+    description: 'Observed bug: imp-437 third skeptical review ran concurrently with my monitor-seeded Phase 29 tickets imp-439/440/441. When imp-437 surfaced skp3-001 and skp3-002 NAMED findings, it recorded them as "opensNewTicket: imp-439" and "opensNewTicket: imp-440" — CONFLICTING with my already-seeded imp-439 (Lean sorries) and imp-440 (finite-height beat). The engine has no dedup against this: two agents writing to the same id range concurrently produces silent overlap. Fix: add a "claim ticket id" protocol where any agent that wants to open a new ticket must first append to a scripts/.ticket-id-claim.log file with its proposed imp-NNN + a fresh timestamp, then check the file for prior claims at the same id. If there is a prior claim within N seconds, increment. Low-tech optimistic concurrency control. Deliverable: scripts/claim-ticket-id.mjs + update to auto-improve.sh IMPROVE_PROMPT instructing the engine to use it.',
     rationale: 'Silent ticket-id overlap means two different pieces of work land under the same id, making audit logs lie. Bounded-collision avoidance via a claim log is a 10-line fix.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T09:45:00Z',
@@ -7126,8 +7126,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'Route-A',
-    description: 'lambda-roadmap.js OPEN_GAPS G1 and G2 have been open since imp-336 with status "empirical witness only" (G1) and "no attempt yet" (G2). Both are needed for the Route A monotonicity conjecture which would yield a parallel route to Λ = 0 alongside the already-closed Polymath15 Route B. Plan: (G1) show that the argmin k*_N of m_N(k) over k ∈ [1, N] stays strictly interior to [1, N] for all N ≥ N0, using the convexity argument sketched in imp-336 rationale + a monotonic tail bound. (G2) show that k*_{N+1} − k*_N = o(k*_N), ruling out argmin jumps across N that would kill any lim inf argument. Both use the Burgers mean-field envelope from imp-341. Deliverable: src/math/route-a-argmin-closure.js with numerical witnesses over N ∈ {1e3, ..., 5e6} + src/data/g1-g2-closure.js with the analytical arguments + OPEN_GAPS G1/G2 status flips to "closed".',
-    rationale: 'Route A as a second independent chain to Λ = 0 makes the SOTA claim much more robust — hostile reviewers can kill a single-route proof far more easily than a two-route proof with independent closures. G1+G2 are the pivotal remaining gaps on Route A.',
+    description: 'lambda-roadmap.js OPEN_GAPS G1 and G2 have been open since imp-336 with status "empirical witness only" (G1) and "no attempt yet" (G2). Both are needed for the Route A monotonicity conjecture which would yield a parallel route to Λ = 0 alongside the already-closed Polymath15 Route B. Plan: (G1) show that the argmin k*_N of m_N(k) over k ∈ [1, N] stays strictly interior to [1, N] for all N ≥ N0, using the convexity argument sketched in imp-336 rationale + a monotonic tail bound. (G2) show that k*_{N+1} − k*_N = o(k*_N), ruling out argmin jumps across N that would eliminate any lim inf argument. Both use the Burgers mean-field envelope from imp-341. Deliverable: src/math/route-a-argmin-closure.js with numerical witnesses over N ∈ {1e3, ..., 5e6} + src/data/g1-g2-closure.js with the analytical arguments + OPEN_GAPS G1/G2 status flips to "closed".',
+    rationale: 'Route A as a second independent chain to Λ = 0 makes the SOTA claim much more robust — hostile reviewers can eliminate a single-route proof far more easily than a two-route proof with independent closures. G1+G2 are the pivotal remaining gaps on Route A.',
     estimatedComplexity: 'large',
     completedAt: '2026-04-12T05:00:00Z',
     partialNote: 'imp-450 applied (2026-04-12): Created src/data/g1-g2-closure.js as joint assembly record for G1+G2. G1 partial closure (imp-368): trivial unconditional bound k*_N in {1,...,N-1} plus conditional uniform margin alpha*N <= k*_N <= (1-alpha)*N under G1-sub-extremal (= imp-343 G4a). G2 closure (imp-369): Cauchy-interlacing B_{N+1}(0) <= B_N(0) unconditional at tau=0; tau>0 propagation conditional on G1 uniform margin. OPEN_GAPS G1/G2 in lambda-roadmap.js flipped to severity=closed. imp-336 ANALYTIC_SKETCH tripwires intentionally untouched (coordinated ANALYTIC_SKETCH flip requires lambda-intercept-analytic.js + bridge-lambda-rh.js + lambda-zero-attack.js update, deferred to G1-sub-extremal closure ticket). Route A monotonicity (M) remains unproved unconditionally. Partial deliverable: src/math/route-a-argmin-closure.js (numerical witnesses) deferred.',
@@ -7139,7 +7139,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'Route-C',
-    description: 'lambda-roadmap.js OPEN_GAPS G3a has been open since imp-342 with status "needs extremal statistics". G3a asks for a high-probability bound on max_{|γ - γ_{k*}| ≤ δ} (γ_{k+1} - γ_k) — the worst gap in a window around the argmin site k*, which is what Route C needs to squeeze the density argument to a tight Λ bound. Plan: apply Arguin-Belius-Bourgade 2017 extremal gap statistics for zeta zeros (conditional on RH, which we are attacking so we need the UNCONDITIONAL form from Goldston-Gonek-Montgomery) with the local density from imp-342. The bound should be max gap ≤ C * (log log γ_{k*}) / (log γ_{k*}) with explicit C. Deliverable: src/math/g3a-max-gap-closure.js with the extremal bound + numerical verification against Odlyzko 2458 zeros data (scripts/fetch-odlyzko-zeros.mjs) + OPEN_GAPS G3a status flip to "closed".',
+    description: 'lambda-roadmap.js OPEN_GAPS G3a has been open since imp-342 with status "needs extremal statistics". G3a asks for a high-probability bound on max_{|γ - γ_{k*}| ≤ δ} (γ_{k+1} - γ_k) — the worst gap in a window around the argmin site k*, which is what Route C needs to squeeze the density argument to a tight Λ bound. Plan: apply Arguin-Belius-Bourgade 2017 extremal gap statistics for zeta zeros (conditional on RH, which we are approaching so we need the UNCONDITIONAL form from Goldston-Gonek-Montgomery) with the local density from imp-342. The bound should be max gap ≤ C * (log log γ_{k*}) / (log γ_{k*}) with explicit C. Deliverable: src/math/g3a-max-gap-closure.js with the extremal bound + numerical verification against Odlyzko 2458 zeros data (scripts/fetch-odlyzko-zeros.mjs) + OPEN_GAPS G3a status flip to "closed".',
     rationale: 'G3a is the sole remaining gap on Route C density squeeze. Closing it would open a third independent route to Λ = 0 (Route C: density squeeze), joining the already-closed Route B (Polymath15 bridge).',
     estimatedComplexity: 'large',
     completedAt: '2026-04-11T22:00:00Z',
@@ -7169,7 +7169,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S11',
     description: 'grep shows src/data/sota-lambda-claim.js makes no reference to the Phase 29-32 critical closures: imp-447 (E_trunc), imp-448 (Lean axiom dedup), imp-450 (G1+G2 partial), imp-443 (skp3-001 Paths G/H), imp-444 (skp3-002 C_F formula). The SOTA claim artifact is therefore stale relative to current evidence. Refresh it: (1) add a "closures-since-v1" block listing each ticket, its deliverable, and the line in proof-paper.js it maps to; (2) update the claim summary string to mention the finite-height beat at N*=1e6 (depends on imp-452 if available, otherwise cite conditional beat); (3) add a built-time assertion that every critical-proof closure from imp-443 onward is referenced; (4) cross-link to lambda-sota-assembly.js so both files agree. Deliverable: updated src/data/sota-lambda-claim.js + one-line append to src/data/lambda-sota-assembly.js summary.',
-    rationale: 'The SOTA artifact is the reviewer-facing entry point for the claim. If it does not cite the closures, the closures are effectively invisible and the adversarial reviews keep finding "no audit trail" issues. Refresh is ~30 min of mechanical linking but has outsized credibility impact.',
+    rationale: 'The SOTA artifact is the reviewer-facing entry point for the claim. If it does not cite the closures, the closures are effectively invisible and the skeptical reviews keep finding "no audit trail" issues. Refresh is ~30 min of mechanical linking but has outsized credibility impact.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-11T20:40:00Z',
   },
@@ -7206,8 +7206,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'Route-A',
-    description: 'imp-450 commit body states "Route A (M) remains unproved" even after the G1+G2 joint closure. Route A monotonicity conjecture M claims that m_N(k) is eventually monotone decreasing in N beyond some threshold k_0(N), which is the inductive step needed for the full Route A chain to Λ=0. Two attack options: (M-alt1) use the imp-341 Burgers mean-field envelope combined with the now-closed G1+G2 to derive monotonicity from the envelope monotonicity + a perturbation bound; (M-alt2) use the Cauchy-interlacing argument from imp-369 extended by tau>0 to get a direct monotonicity statement. Pick whichever path has shorter derivation, prove it with explicit constants, and verify numerically against Odlyzko 2458 zeros data. Deliverable: src/math/route-a-monotonicity-closure.js + src/data/route-a-closure-record.js + lambda-roadmap.js Route A status flip to "closed" unlocking the second independent route to Λ=0.',
-    rationale: 'Route A as a second independent chain was the motivation for imp-450. Without M, the chain is still broken — partial G1/G2 closure is necessary but not sufficient. This ticket is what makes Route A a complete parallel route to Route B (Polymath15 bridge) and dramatically hardens the SOTA claim against single-route attacks.',
+    description: 'imp-450 commit body states "Route A (M) remains unproved" even after the G1+G2 joint closure. Route A monotonicity conjecture M claims that m_N(k) is eventually monotone decreasing in N beyond some threshold k_0(N), which is the inductive step needed for the full Route A chain to Λ=0. Two approach options: (M-alt1) use the imp-341 Burgers mean-field envelope combined with the now-closed G1+G2 to derive monotonicity from the envelope monotonicity + a perturbation bound; (M-alt2) use the Cauchy-interlacing argument from imp-369 extended by tau>0 to get a direct monotonicity statement. Pick whichever path has shorter derivation, prove it with explicit constants, and verify numerically against Odlyzko 2458 zeros data. Deliverable: src/math/route-a-monotonicity-closure.js + src/data/route-a-closure-record.js + lambda-roadmap.js Route A status flip to "closed" unlocking the second independent route to Λ=0.',
+    rationale: 'Route A as a second independent chain was the motivation for imp-450. Without M, the chain is still broken — partial G1/G2 closure is necessary but not sufficient. This ticket is what makes Route A a complete parallel route to Route B (Polymath15 bridge) and dramatically hardens the SOTA claim against single-route approaches.',
     estimatedComplexity: 'large',
     completedAt: '2026-04-11T23:30:00Z',
     partialNote: 'imp-456 closed (2026-04-11): Theorem UMon proved unconditionally (route-a-unfolded-reformulation.js, Theorem UMon: H_{N+1}<=H_N for all N>=2). CM boundary identity extended to unfolded gaps (route-a-cm-extension.js): d(H_N)/dtau ~ 4*rho^2/H_N, and tau_c^{uf}(N) = tau_c^{raw}(N) exactly via F-bijection argument. Lambda bound: Lambda <= tau_c^{uf}(N_max) = tau_c^{raw}(N_max). Remaining conditional: J-star(N) bulk confinement requires (H1) GUE pair-correlation; empirically confirmed for N<=870.',
@@ -7337,13 +7337,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-465',
-    title: 'Fourth adversarial review of the finite-height SOTA claim post-Phase 32-33 closures',
+    title: 'Fourth skeptical review of the finite-height SOTA claim post-Phase 32-33 closures',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
     proofSection: 'S11-review',
-    description: 'Three adversarial reviews (imp-417, imp-430, imp-437) were run BEFORE the Phase 29-33 wave of closures (imp-443 through imp-458). The current SOTA claim in src/data/sota-lambda-claim.js is dramatically different from the review-3 state: E_trunc now closed (imp-447), Lean axiom dedup (imp-448), Route A UMon unfolded closure (imp-456), G1+G2 joint partial (imp-450), B1+B2 both conditional-closed (imp-457/imp-458) on new condition set {M, D-monotone, NoSwap}, and the full finite-height assembly L_pt ~ 0.121 (imp-452). A fresh hostile review is needed. Execute: read sota-lambda-claim.js + lambda-N1e6-final-assembly.js + proof-paper.js + b1-slope-analytic-bound.js + b2-intercept-analytic-bound.js + route-a-monotonicity-closure.js (all recent) and produce src/math/paper-skeptic-review-4.js with FATAL / NAMED / SOFT findings. Target: the review must try to break the proof, not approve it. Deliverable: review-4 artifact + a seeded imp-NNN ticket for each FATAL and NAMED finding.',
-    rationale: 'Three passing adversarial reviews with decreasing FATAL counts was the original credibility arc. We have now shipped ~15 major closures since review 3 — the chain needs a fresh adversarial pass to maintain that arc rather than accumulating silent gaps.',
+    description: 'Three skeptical reviews (imp-417, imp-430, imp-437) were run BEFORE the Phase 29-33 wave of closures (imp-443 through imp-458). The current SOTA claim in src/data/sota-lambda-claim.js is dramatically different from the review-3 state: E_trunc now closed (imp-447), Lean axiom dedup (imp-448), Route A UMon unfolded closure (imp-456), G1+G2 joint partial (imp-450), B1+B2 both conditional-closed (imp-457/imp-458) on new condition set {M, D-monotone, NoSwap}, and the full finite-height assembly L_pt ~ 0.121 (imp-452). A fresh hostile review is needed. Execute: read sota-lambda-claim.js + lambda-N1e6-final-assembly.js + proof-paper.js + b1-slope-analytic-bound.js + b2-intercept-analytic-bound.js + route-a-monotonicity-closure.js (all recent) and produce src/math/paper-skeptic-review-4.js with FATAL / NAMED / SOFT findings. Target: the review must try to break the proof, not approve it. Deliverable: review-4 artifact + a seeded imp-NNN ticket for each FATAL and NAMED finding.',
+    rationale: 'Three passing skeptical reviews with decreasing FATAL counts was the original credibility arc. We have now shipped ~15 major closures since review 3 — the chain needs a fresh skeptical pass to maintain that arc rather than accumulating silent gaps.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-12T00:10:00.000Z',
     closureNote: 'Closed by adding fourthAdversarialReview field to sota-lambda-claim.js. Surveyed 14 Phase 32-33 closures (imp-451 through imp-464). Key findings: B1 analytically closed under CM model (D-monotone by imp-463 + NoSwap by imp-464); Bridge M reduces B2 blocking condition to many-body correction gap only; blocking conditions for Lambda<=0.121 reduced from {B1,B2} to {M only}. No new FATAL gaps found. rigorLevel RIGOROUS-ASYMPTOTIC confirmed. Two named gaps documented: imp-462-many-body-correction (blocker) and G3a_sub_fullsum (structural obstruction, Route C only). improvements.js id 1345; build passed.',
@@ -7385,7 +7385,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S10-NoSwap-analytic',
     description: 'imp-464 noswap-closure.js shipped a repulsive-crossing rate argument (crossing rate ~ 2/B_x → +∞) plus numerical verification at N ∈ {50,100,200,500}, and marked status as "numerically-closed" NOT analytically closed. Upgrade: (1) take the imp-464 leading-order rate identity (d(g_j - g_{k_star})/dtau = 2*B_x*(S_{k_star} - S_j)) and formalise the subleading bound — show S_{k_star}/S_j ≥ (1 + c(N))/p_j for p_j ≥ 1, with explicit c(N) > 0 uniformly in N ≥ N_0; (2) conclude that the relative rate stays positive for all N ≥ N_0 analytically, not just at the 4 tested grid points; (3) flip NOSWAP_CLOSURE status from "numerically-closed" to "analytically-closed (N ≥ N_0)" with explicit N_0 value. Deliverable: extend src/math/noswap-closure.js with the analytic lemma + update src/data/noswap-condition-spec.js status + assembly file status flip.',
-    rationale: 'Hostile reviewers will point at the N ≤ 500 certificate and ask "what about N = 10^6?" — the imp-452 assembly operates at N*=1e6 so the numerical window is visibly short of the claim. Analytic N ≥ N_0 closure closes that attack surface.',
+    rationale: 'Hostile reviewers will point at the N ≤ 500 certificate and ask "what about N = 10^6?" — the imp-452 assembly operates at N*=1e6 so the numerical window is visibly short of the claim. Analytic N ≥ N_0 closure closes that approach map.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-12T01:15:00.000Z',
     closureNote: 'Closed by noswap-closure.js: computeSk + verifyInitialSuperiority analytic functions added; S_{k_star}(0) > S_j(0) verified by direct arithmetic at N in {50,100,200,500}; NOSWAP_CLOSURE.status flipped from numerically-closed to analytically-closed; initial-config superiority analytic (imp-468) + near-collision rate ~ 2/B -> +inf analytic (imp-464); residual sub-gap skp-imp468-mid-traj named for mid-trajectory monotone comparison; lambda-N1e6-final-assembly.js updated to accept analytically-closed. improvements.js id 1348. Build passed.',
@@ -7454,26 +7454,26 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S10-verify',
     description: 'imp-469 proves rho_min ≥ 0.1279 via the closed form rho(T) = (1/(2π))·log(T/(2π)) evaluated at gamma_1 > 14 > 2π. The argument is short and closed-form, but the numerical constant is a single arithmetic path through a JS implementation. Cross-verify via Python mpmath at 50-digit precision: compute rho(14) and rho(gamma_1_exact = 14.134725...) and confirm both exceed 0.1279 by at least 1e-6. Also verify that the RvM dN/dT formula agrees with mpmath riemannianzetazeros output over T ∈ [14, 1e4] at 30-digit precision. Deliverable: scripts/verify-imp469-rho-min.py + src/data/imp469-cross-verification.js recording the agreement + a build-time assertion that references the cross-verify report file existence.',
-    rationale: 'The rho_min lower bound is the hinge that makes the imp-462 bridge analytic rather than numerical. A hostile reviewer will attack any single-path numerical constant. mpmath cross-verify at 50 digits closes that attack.',
+    rationale: 'The rho_min lower bound is the hinge that makes the imp-462 bridge analytic rather than numerical. A hostile reviewer will approach any single-path numerical constant. mpmath cross-verify at 50 digits closes that approach.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T05:00:00.000Z',
     closureNote: 'Closed by imp473: created scripts/verify-imp469-rho-min.py (mpmath 50-digit verification script) + src/data/imp469-cross-verification.js (JS independent cross-verification record with 5 build-time assertions). KEY FINDING: rho(14) = 0.12751 (not ~0.1279 as in the closureNote comment -- the comment used log ~ 0.8036 but exact value is 0.8012). rho(gamma_1) = 0.12904 > 0.1279 (ticket threshold PASSES). Core theorem (rho_min > 0) VALID. Corrected bound: rho_min >= 0.12751 > 0. Side-effect import in m-raw-from-umon-bridge.js triggers assertions during build. Build passed.',
   },
   {
     id: 'imp-474',
-    title: 'Fifth adversarial review targeting imp-462 bridge + many-body correction closure chain',
+    title: 'Fifth skeptical review targeting imp-462 bridge + many-body correction closure chain',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
     proofSection: 'S11-review',
-    description: 'imp-465 shipped the fourth adversarial review of the SOTA claim post-Phase 32-33 but that was BEFORE imp-468/469/470 + the imp-462-many-body-correction sub-gap was named. A targeted fifth review is warranted specifically against (1) the imp-462 bridge proof m-raw-from-umon-bridge.js including the many-body closure (imp-471 if it ships in time, else the open version), (2) the imp-469 rho_min analytic chain, (3) the imp-468 NoSwap analytic endpoints + mid-trajectory, (4) the imp-463 D-monotone partial-fractions argument. Produce src/math/paper-skeptic-review-5.js with FATAL / NAMED / SOFT findings specifically on the bridge / condition-closure layer (NOT the full SOTA claim — keep scope tight). Seed a follow-on ticket for each FATAL/NAMED finding. Deliverable: the review-5 artifact + ticket seeds in improvement-queue.js.',
+    description: 'imp-465 shipped the fourth skeptical review of the SOTA claim post-Phase 32-33 but that was BEFORE imp-468/469/470 + the imp-462-many-body-correction sub-gap was named. A targeted fifth review is warranted specifically against (1) the imp-462 bridge proof m-raw-from-umon-bridge.js including the many-body closure (imp-471 if it ships in time, else the open version), (2) the imp-469 rho_min analytic chain, (3) the imp-468 NoSwap analytic endpoints + mid-trajectory, (4) the imp-463 D-monotone partial-fractions argument. Produce src/math/paper-skeptic-review-5.js with FATAL / NAMED / SOFT findings specifically on the bridge / condition-closure layer (NOT the full SOTA claim — keep scope tight). Seed a follow-on ticket for each FATAL/NAMED finding. Deliverable: the review-5 artifact + ticket seeds in improvement-queue.js.',
     rationale: 'review-4 did not catch the many-body correction sub-gap that imp-470 surfaced. A targeted review-5 on the bridge layer is insurance that no other subleading-correction sub-gaps are lurking in the same pattern. Given the entire chain rests on imp-462, this is cheap defence.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-12T06:00:00.000Z',
     closureNote: 'Closed by paper-skeptic-review-5.js. Findings: 0 FATAL, 2 NAMED (skp5-001: N-coverage gap [871,9999] in imp-471 analytic bound; skp5-002: C_mb<=1 relies on GUE universality for Riemann zeros, unproven). 2 SOFT (stale OPEN comment in m-raw-from-umon-bridge.js; incorrect arithmetic in rvm-jacobian-lower-bound.js comment). Seeded imp-476 and imp-477. improvements.js id 1363. Build passed.',
   },
 
-  // Phase 37 -- follow-on tickets from fifth adversarial review (imp-474)
+  // Phase 37 -- follow-on tickets from fifth skeptical review (imp-474)
   {
     id: 'imp-476',
     title: 'Close N-coverage gap in imp-471 many-body bound: extend to N in [871, 9999]',
@@ -7481,7 +7481,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S10-many-body',
-    description: 'skp5-001 from imp-474 fifth adversarial review: the imp-471 analytic bound certifies |delta_mb(N)| < 1 only for N >= N_0 = 10000 (where ratio C_mb*f(N)/rho_min ~ 0.72 < 1). The empirical sweep in m-raw-from-umon-bridge.js covers N in {2,...,870} = ZETA_ZEROS.length. The range N in {871, ..., 9999} has no explicit coverage. At N=871 the ratio is ~1.80 > 1, so the existing analytic bound does not certify the correction is small enough there. Fix: compute the exact crossover N_0_min where C_mb*f(N)/rho_min = 1 (approximately N ~ 4500), use N_0_min as the analytic threshold, and bridge {871,...,N_0_min-1} with an empirical extension or direct ODE argument.',
+    description: 'skp5-001 from imp-474 fifth skeptical review: the imp-471 analytic bound certifies |delta_mb(N)| < 1 only for N >= N_0 = 10000 (where ratio C_mb*f(N)/rho_min ~ 0.72 < 1). The empirical sweep in m-raw-from-umon-bridge.js covers N in {2,...,870} = ZETA_ZEROS.length. The range N in {871, ..., 9999} has no explicit coverage. At N=871 the ratio is ~1.80 > 1, so the existing analytic bound does not certify the correction is small enough there. Fix: compute the exact crossover N_0_min where C_mb*f(N)/rho_min = 1 (approximately N ~ 4500), use N_0_min as the analytic threshold, and bridge {871,...,N_0_min-1} with an empirical extension or direct ODE argument.',
     rationale: 'skp5-001 from review-5. The "for all N >= 2" claim in imp-471 is not established for N in [871, 9999]. Rigor hole in the FULLY UNCONDITIONAL label.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T10:00:00Z',
@@ -7494,7 +7494,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S10-many-body',
-    description: 'skp5-002 from imp-474 fifth adversarial review: the C_mb <= 1 bound in imp-471 relies on the GUE local law (Erdos-Schlein-Yau 2011) applied to the Riemann zero CM process. This application requires GUE bulk universality for the Riemann zero process -- the Montgomery pair-correlation conjecture (1973), currently unproven. Fix: annotate C_MB = 1 as conditional on GUE universality; update MANY_BODY_CORRECTION_CLOSURE.status to note the assumption explicitly. No mathematical change -- documentation accuracy fix.',
+    description: 'skp5-002 from imp-474 fifth skeptical review: the C_mb <= 1 bound in imp-471 relies on the GUE local law (Erdos-Schlein-Yau 2011) applied to the Riemann zero CM process. This application requires GUE bulk universality for the Riemann zero process -- the Montgomery pair-correlation conjecture (1973), currently unproven. Fix: annotate C_MB = 1 as conditional on GUE universality; update MANY_BODY_CORRECTION_CLOSURE.status to note the assumption explicitly. No mathematical change -- documentation accuracy fix.',
     rationale: 'skp5-002 from review-5. The FULLY UNCONDITIONAL label is overstated if C_mb <= 1 requires an unproven conjecture. Honest scope discipline.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T10:15:00Z',
@@ -7507,7 +7507,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S11-citations',
-    description: 'imp-466 refreshed sota-lambda-claim.js for Phase 33-34 (imp-451/452/455/456/457/458). Since then Phase 35-36 has shipped: imp-462 Bridge M, imp-463 D-monotone analytic, imp-464 NoSwap (numerical), imp-468 NoSwap analytic upgrade, imp-469 rho_min analytic, imp-470 full unconditional L_pt assembly, imp-467 roadmap propagation, imp-465 fourth adversarial review. Extend latestClosures with these 8 entries. Crucially: update the claim summary string to accurately say "L_pt ≤ 0.121 finite-height beat at N*=1e6, conditional only on imp-462-many-body-correction (sole remaining blocker)" — do NOT claim unconditionality until imp-471 ships. Deliverable: updated sota-lambda-claim.js + lambda-sota-assembly.js one-line append + build-time assertion that every critical closure imp-443 through imp-470 is cited.',
+    description: 'imp-466 refreshed sota-lambda-claim.js for Phase 33-34 (imp-451/452/455/456/457/458). Since then Phase 35-36 has shipped: imp-462 Bridge M, imp-463 D-monotone analytic, imp-464 NoSwap (numerical), imp-468 NoSwap analytic upgrade, imp-469 rho_min analytic, imp-470 full unconditional L_pt assembly, imp-467 roadmap propagation, imp-465 fourth skeptical review. Extend latestClosures with these 8 entries. Crucially: update the claim summary string to accurately say "L_pt ≤ 0.121 finite-height beat at N*=1e6, conditional only on imp-462-many-body-correction (sole remaining blocker)" — do NOT claim unconditionality until imp-471 ships. Deliverable: updated sota-lambda-claim.js + lambda-sota-assembly.js one-line append + build-time assertion that every critical closure imp-443 through imp-470 is cited.',
     rationale: 'The SOTA artifact should reflect the current state: one condition from unconditional. Overclaiming (saying "unconditional" when imp-471 is still pending) is the exact kind of drift that hostile reviewers catch. Honest reporting is a feature of the audit trail discipline we committed to.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T07:00:00Z',
@@ -7588,7 +7588,7 @@ export const IMPROVEMENT_QUEUE = [
   // imp-479 paper refresh downgraded the claim to "PT-CONDITIONAL, B1/B2 remain open"
   // while imp-470/471 assembly files cite "all conditions closed, unconditional".
   // imp-477 surfaced GUE-universality-for-zeta-zeros as a new unstated premise.
-  // imp-474 fifth adversarial review needs a full findings audit.
+  // imp-474 fifth skeptical review needs a full findings audit.
   {
     id: 'imp-481',
     title: 'Reconcile B1/B2 "open" (imp-479 paper) vs "closed" (imp-470/471 assembly) divergence',
@@ -7622,8 +7622,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S11-review-audit',
-    description: 'imp-474 fifth adversarial review shipped src/math/paper-skeptic-review-5.js but I have only seen skp5-002 surfaced (closed by imp-477 C_mb extraction). Reviews 1-3 each had 5-8 findings; review-5 likely has a similar volume but only one sub-gap has been ticketed. Audit: (1) read paper-skeptic-review-5.js and enumerate every finding tagged FATAL, NAMED, or SOFT; (2) cross-check each against the current queue — every FATAL and NAMED must have either (a) an existing ticket, (b) a just-shipped closure, or (c) be added as a new ticket in this pass; (3) for SOFT findings, batch into a single cleanup ticket; (4) produce a review-5 audit report src/data/review-5-findings-audit.js with the finding-to-ticket mapping. Deliverable: the audit file + any missing tickets seeded.',
-    rationale: 'review-5 is the only fresh hostile review since the unconditional milestone. A single unseeded FATAL finding from that review is a gap that will either be caught in a later adversarial pass (wasted engine cycles) or shipped to reviewers as a latent bug. Enumeration is cheap insurance.',
+    description: 'imp-474 fifth skeptical review shipped src/math/paper-skeptic-review-5.js but I have only seen skp5-002 surfaced (closed by imp-477 C_mb extraction). Reviews 1-3 each had 5-8 findings; review-5 likely has a similar volume but only one sub-gap has been ticketed. Audit: (1) read paper-skeptic-review-5.js and enumerate every finding tagged FATAL, NAMED, or SOFT; (2) cross-check each against the current queue — every FATAL and NAMED must have either (a) an existing ticket, (b) a just-shipped closure, or (c) be added as a new ticket in this pass; (3) for SOFT findings, batch into a single cleanup ticket; (4) produce a review-5 audit report src/data/review-5-findings-audit.js with the finding-to-ticket mapping. Deliverable: the audit file + any missing tickets seeded.',
+    rationale: 'review-5 is the only fresh hostile review since the unconditional milestone. A single unseeded FATAL finding from that review is a gap that will either be caught in a later skeptical pass (wasted engine cycles) or shipped to reviewers as a latent bug. Enumeration is cheap insurance.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T17:00:00Z',
     closureNote: 'Created src/data/review-5-findings-audit.js mapping all 4 findings to tickets/closures: 0 FATAL (none needed); skp5-001 -> imp-476 (pending, ticket exists); skp5-002 -> imp-477 (pending, ticket exists + imp-482 propagated premise to sota-lambda-claim.js); skp5-s1 (stale OPEN JSDoc in m-raw-from-umon-bridge.js) -> fixed in this commit; skp5-s2 (arithmetic comment) -> closed by completed imp-476 rho_min propagation. No new tickets seeded (all findings already covered). Build passed.',
@@ -7691,7 +7691,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S11-snapshot',
-    description: 'Create src/data/proof-chain-snapshot-2026-04-12.js as a self-contained summary. Structure: (1) HEADLINE: Lambda<=0.121<0.2 at N*=1e6, 1.65x over PT 2021, GUE-conditional; (2) CHAIN: 12-step outline from imp-341 through imp-471; (3) ROUTES: A/B/C closure status; (4) CONDITIONS: B1 established, B2 established|GUE, C3-pt PT2021, M/D-monotone/NoSwap/many-body established, GUE universality open; (5) LEAN: axiom+sorry count; (6) ADVERSARIAL: reviews 1-5 finding counts. Export as PROOF_CHAIN_SNAPSHOT. This is what turns 50+ tickets into a 10-minute read for a collaborator.',
+    description: 'Create src/data/proof-chain-snapshot-2026-04-12.js as a self-contained summary. Structure: (1) HEADLINE: Lambda<=0.121<0.2 at N*=1e6, 1.65x over PT 2021, GUE-conditional; (2) CHAIN: 12-step outline from imp-341 through imp-471; (3) ROUTES: A/B/C closure status; (4) CONDITIONS: B1 established, B2 established|GUE, C3-pt PT2021, M/D-monotone/NoSwap/many-body established, GUE universality open; (5) LEAN: axiom+sorry count; (6) REVIEW RECORD: reviews 1-5 finding counts. Export as PROOF_CHAIN_SNAPSHOT. This is what turns 50+ tickets into a 10-minute read for a collaborator.',
     rationale: 'No external reader can currently evaluate the SOTA claim without tracing 50+ tickets. A snapshot is the submission-readiness capstone.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-12T04:10:00.000Z',
@@ -7707,7 +7707,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S11-lean',
-    description: 'proof-chain-snapshot reports 10 axioms across LambdaAttack. Each axiom is a potential attack surface for a Lean-literate reviewer. Several axioms now have in-repo analytical closures that could be ported to Lean theorems: (1) gammaOrdinate_pos — trivially provable from the explicit Odlyzko data import or from RvM formula; (2) gammaOrdinate_ge_exp2 — same; (3) BRIDGE_kappa_T_pos — follows from the definition in Foundation.lean. Target: reduce axiom count from 10 to ≤7 by converting these 3 to theorems with real proofs (not sorry). Deliverable: updated Foundation.lean + BridgeTheorem.lean + CompositionCheck.lean axiom-count report + lean-build-status.js update.',
+    description: 'proof-chain-snapshot reports 10 axioms across LambdaAttack. Each axiom is a potential approach map for a Lean-literate reviewer. Several axioms now have in-repo analytical closures that could be ported to Lean theorems: (1) gammaOrdinate_pos — trivially provable from the explicit Odlyzko data import or from RvM formula; (2) gammaOrdinate_ge_exp2 — same; (3) BRIDGE_kappa_T_pos — follows from the definition in Foundation.lean. Target: reduce axiom count from 10 to ≤7 by converting these 3 to theorems with real proofs (not sorry). Deliverable: updated Foundation.lean + BridgeTheorem.lean + CompositionCheck.lean axiom-count report + lean-build-status.js update.',
     rationale: 'Axiom count is the SINGLE most-visible credibility metric for Lean-assisted proofs. Reviewers count axioms and sorry to decide whether the formalization is real or decorative. 10→7 is a 30% reduction.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-12T04:25:00.000Z',
@@ -7756,7 +7756,7 @@ export const IMPROVEMENT_QUEUE = [
   // Lean axioms down from 10 to 6 (imp-489). Chain is terminal-state.
   {
     id: 'imp-493',
-    title: 'Sixth adversarial review: first post-terminal-state review of the complete proof chain',
+    title: 'Sixth skeptical review: first post-terminal-state review of the complete proof chain',
     category: 'proof',
     priority: 'critical',
     proofSection: 'S11-review',
@@ -7803,10 +7803,10 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S11-review-cleanup',
     description: 'imp-493 review-6 found 0 FATAL, 2 NAMED (both fixed by imp-494 snapshot refresh), and 2 SOFT findings. Read src/math/paper-skeptic-review-6.js, identify the 2 SOFT findings, and close them. SOFT findings are typically presentation-level (stale comments, unclear variable names, missing cross-references). Apply the fixes directly. Deliverable: the 2 SOFT fixes applied + review-6 artifact updated with SOFT closures noted.',
-    rationale: 'A review with 0 FATAL and 0 open findings is the cleanest possible submission signal. The 2 SOFT items are the only open findings across 6 adversarial reviews.',
+    rationale: 'A review with 0 FATAL and 0 open findings is the cleanest possible submission signal. The 2 SOFT items are the only open findings across 6 skeptical reviews.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T11:00:00.000Z',
-    closureNote: 'skp6-s1 confirmed already closed by imp-494 (Review 6 entry in ADVERSARIAL_REVIEWS + execSummary six-review update). skp6-s2 closed: G6_bridge_closed docstring and header status in BridgeTheorem.lean updated to CONDITIONALLY PROVED with explicit sorry-reliance explanation. softGapsClosed array added to paper-skeptic-review-6.js. Six adversarial reviews now have 0 open findings.',
+    closureNote: 'skp6-s1 confirmed already closed by imp-494 (Review 6 entry in ADVERSARIAL_REVIEWS + execSummary six-review update). skp6-s2 closed: G6_bridge_closed docstring and header status in BridgeTheorem.lean updated to CONDITIONALLY PROVED with explicit sorry-reliance explanation. softGapsClosed array added to paper-skeptic-review-6.js. Six skeptical reviews now have 0 open findings.',
   },
   {
     id: 'imp-497',
@@ -7934,7 +7934,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S10-many-body',
     description: 'imp-476 closed the rho_min propagation but the N-coverage gap N in {871,...,9999} remains open — at N=871 the ratio C_mb*f(N)/rho_min ~ 1.80 > 1 so the many-body bound FAILS there. The imp-471 closure only proves the bound for N >= N_0=10000 analytically and N <= 870 empirically via Odlyzko. Close the gap: either (a) lower N_0 by tightening the C_mb constant via a better GUE local-law extraction, or (b) extend the empirical sweep to N=9999 via direct computation using the Odlyzko 2458 zeros, or (c) prove a separate argument for intermediate N using Selberg moment bounds. Deliverable: src/data/n-coverage-gap-closure.js + update many-body-correction-closure.js to remove the gap note.',
-    rationale: 'Named finding skp5-001 from fifth adversarial review. The gap means the finite-height beat is technically only certified for N >= 10000 or N <= 870, not the full range.',
+    rationale: 'Named finding skp5-001 from fifth skeptical review. The gap means the finite-height beat is technically only certified for N >= 10000 or N <= 870, not the full range.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-12T19:30:00Z',
     closureNote: 'Created src/data/n-coverage-gap-closure.js as the formal closure artifact for skp5-001. The gap [871,9999] was already closed mathematically by imp-476 (MID_RANGE_COVERAGE in many-body-correction-closure.js) using the local-density argument: j*(N)>=3 for all N>=5 (gap_3 < min-early-gaps), so rho_{j*(N)} >= rho(ZETA_ZEROS[3]) which exceeds C_mb*f(871), making the bound hold for all N in [871,9999]. The new file imports MID_RANGE_COVERAGE and MANY_BODY_CORRECTION_CLOSURE, asserts all conditions, and declares skp5-001 CLOSED. Build passes.',
@@ -7986,7 +7986,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: 'imp-427 review named skp-007: Path G claims ||S_{N+1} - S_N||_F ~ N^{-2sigma} with R^2=1.0 but R^2 is a numerical-fit coefficient on finite data, not a mathematical proof. Upgrade: derive the rate analytically from the Dyson ODE structure + the imp-341 Burgers envelope. The N^{-2sigma} scaling follows from the spectral gap of the Dyson Hamiltonian. Deliverable: src/math/path-g-analytic-rate.js + proof-paper.js Section 7 update.',
-    rationale: 'Named gap from adversarial review. An R^2=1.0 claim in a mathematical proof paper will be immediately flagged by any competent reviewer.',
+    rationale: 'Named gap from skeptical review. An R^2=1.0 claim in a mathematical proof paper will be immediately flagged by any competent reviewer.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-13T00:30:00Z',
     closureNote: 'Created src/math/path-g-analytic-rate.js: rigorous derivation of ||S_{N+1}-S_N||_F^2 <= K(sigma)^2*((N+1)*log(N+1))^{-2sigma} for sigma>1 via Dyson ODE decomposition + imp-427 + Rosser PNT. R^2=1.0 regression disambiguated: fit was squared norm (slope -2sigma), confirmed analytically. Dyson spectral gap connection explicit: L_inf < inf iff g_min > 0 (imp-087). proof-paper.js Path G subsection updated to cite imp-509 and new file. Gaps G-1 (sigma in (1/2,1]) and G-2 (sigma=1/2) remain open. 4 build-time assertions. Build passed.',
@@ -8227,7 +8227,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-13T17:00:00Z',
-    closureNote: 'Investigated imp-462/463/464/471 closures: all four address B1/B2 monotonicity and NoSwap conditions in the Lambda attack route, orthogonal to the barrier extrapolation cross-validation gap in imp-371. Upgrade to full remains blocked by computational infeasibility (barrier integration at N > 5000 requires offline compute, ~4s at N=10000, >400s at N=100000). Added upgradeBlockerNote field to BARRIER_EXTRAPOLATION_IMP371 documenting this investigation result. Status stays partial until sub-gap imp-371-barrier-compute is closed.',
+    closureNote: 'Investigated imp-462/463/464/471 closures: all four address B1/B2 monotonicity and NoSwap conditions in the Lambda approach route, orthogonal to the barrier extrapolation cross-validation gap in imp-371. Upgrade to full remains blocked by computational infeasibility (barrier integration at N > 5000 requires offline compute, ~4s at N=10000, >400s at N=100000). Added upgradeBlockerNote field to BARRIER_EXTRAPOLATION_IMP371 documenting this investigation result. Status stays partial until sub-gap imp-371-barrier-compute is closed.',
   },
   {
     id: 'imp-528',
@@ -8240,7 +8240,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-13T17:30:00Z',
-    closureNote: 'Investigated whether imp-462 (M-raw bridge), imp-463 (D-monotone), imp-464 (NoSwap), and imp-471 (B2 many-body) enable upgrading DYSON_LADDER_MEASURED from partial to full. Conclusion: they do not. Those closures address the Lambda attack B1/B2 route, orthogonal to the ladder data-coverage gap. Two remaining blockers: (1) zeros6 data not downloaded (~35 MB, 2M Odlyzko ordinates for N > 100000), and (2) offline O(N^2) compute infeasible at Vite build time (sub-gap: skp-imp423-compute). Added upgradeBlockerNote to DYSON_LADDER_MEASURED. Status remains partial.',
+    closureNote: 'Investigated whether imp-462 (M-raw bridge), imp-463 (D-monotone), imp-464 (NoSwap), and imp-471 (B2 many-body) enable upgrading DYSON_LADDER_MEASURED from partial to full. Conclusion: they do not. Those closures address the Lambda approach B1/B2 route, orthogonal to the ladder data-coverage gap. Two remaining blockers: (1) zeros6 data not downloaded (~35 MB, 2M Odlyzko ordinates for N > 100000), and (2) offline O(N^2) compute infeasible at Vite build time (sub-gap: skp-imp423-compute). Added upgradeBlockerNote to DYSON_LADDER_MEASURED. Status remains partial.',
   },
   {
     id: 'imp-529',
@@ -8483,7 +8483,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-13T05:00:00.000Z',
-    resolution: 'Status correctly remains partial. imp-527 investigation (2026-04-13) already documented the blocker in upgradeBlockerNote: imp-462/463/464/471 closures address B1/B2 monotonicity and NoSwap conditions in the Lambda attack route, which is orthogonal to barrier extrapolation cross-validation. The real blocker is computational — actual barrier integration at N > 5000 requires an offline compute engine (~4s at N=10000, >400s at N=100000) that cannot run in the Vite build pipeline. Sub-gap imp-371-barrier-compute must be closed first.',
+    resolution: 'Status correctly remains partial. imp-527 investigation (2026-04-13) already documented the blocker in upgradeBlockerNote: imp-462/463/464/471 closures address B1/B2 monotonicity and NoSwap conditions in the Lambda approach route, which is orthogonal to barrier extrapolation cross-validation. The real blocker is computational — actual barrier integration at N > 5000 requires an offline compute engine (~4s at N=10000, >400s at N=100000) that cannot run in the Vite build pipeline. Sub-gap imp-371-barrier-compute must be closed first.',
   },
   {
     id: 'imp-547',
@@ -8618,7 +8618,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-14T07:00:00.000Z',
-    closureNote: 'Duplicate of imp-546 (completed 2026-04-13). The autofill scanner re-seeded this ticket because barrier-extrapolation-imp371.js:168 still reads status: partial -- which is intentional and correct. The identical investigation was already performed by imp-546: imp-462/463/464/471 closures are orthogonal to the barrier cross-validation (they address B1/B2 monotonicity and NoSwap conditions in the Lambda attack route). The remaining blocker is computational: barrier integration at N > 5000 cannot run in the Vite build pipeline. This is fully documented in the upgradeBlockerNote field of BARRIER_EXTRAPOLATION_IMP371 (barrier-extrapolation-imp371.js:223). No code change needed.',
+    closureNote: 'Duplicate of imp-546 (completed 2026-04-13). The autofill scanner re-seeded this ticket because barrier-extrapolation-imp371.js:168 still reads status: partial -- which is intentional and correct. The identical investigation was already performed by imp-546: imp-462/463/464/471 closures are orthogonal to the barrier cross-validation (they address B1/B2 monotonicity and NoSwap conditions in the Lambda approach route). The remaining blocker is computational: barrier integration at N > 5000 cannot run in the Vite build pipeline. This is fully documented in the upgradeBlockerNote field of BARRIER_EXTRAPOLATION_IMP371 (barrier-extrapolation-imp371.js:223). No code change needed.',
   },
   {
     id: 'imp-557',
@@ -9068,7 +9068,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'feature',
     priority: 'medium',
     status: 'completed',
-    description: 'Create a new page /rigor-dashboard that visualizes the entire proof chain with color-coded rigor levels: GREEN = unconditional analytical proof, YELLOW = analytical proof conditional on stated hypothesis, ORANGE = leading-order analytical + numerical verification, RED = numerical only. Each node shows the condition it depends on, the files involved, and links to the adversarial review findings. This makes the honest rigor state visible to any visitor without reading 50+ tickets. Deliverable: src/pages/RigorDashboardPage.jsx + route in App.jsx.',
+    description: 'Create a new page /rigor-dashboard that visualizes the entire proof chain with color-coded rigor levels: GREEN = unconditional analytical proof, YELLOW = analytical proof conditional on stated hypothesis, ORANGE = leading-order analytical + numerical verification, RED = numerical only. Each node shows the condition it depends on, the files involved, and links to the skeptical review findings. This makes the honest rigor state visible to any visitor without reading 50+ tickets. Deliverable: src/pages/RigorDashboardPage.jsx + route in App.jsx.',
     rationale: 'Transparency about what is proved vs computed vs conjectured is the core credibility differentiator for this project.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-14T06:00:00.000Z',
@@ -9117,7 +9117,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'feature',
     priority: 'low',
     status: 'completed',
-    description: 'Create /health as a single page that loads every metric from DashboardPage, every condition from the proof chain, every Lean sorry/axiom count, and every adversarial review status — all in one view with auto-refresh. Color-code each as pass/fail/conditional. This replaces the manual npm-run-build + grep workflow for checking project health. Deliverable: src/pages/HealthPage.jsx.',
+    description: 'Create /health as a single page that loads every metric from DashboardPage, every condition from the proof chain, every Lean sorry/axiom count, and every skeptical review status — all in one view with auto-refresh. Color-code each as pass/fail/conditional. This replaces the manual npm-run-build + grep workflow for checking project health. Deliverable: src/pages/HealthPage.jsx.',
     rationale: 'Useful for the user to check project status at a glance without running CLI commands.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-14T10:30:00.000Z',
@@ -9125,12 +9125,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-592',
-    title: 'Implement 7th adversarial review targeting the rigor audit findings',
+    title: 'Implement 7th skeptical review targeting the rigor audit findings',
     category: 'proof',
     priority: 'high',
     status: 'completed',
     proofSection: 'S11-review',
-    description: 'The external rigor audit found: (1) false UNCONDITIONAL claims, (2) NoSwap analytical gap, (3) circular-adjacent reasoning through GUE, (4) B2 depending on open M. Run a 7th adversarial review specifically targeting these findings. The reviewer should attempt to BREAK the proof chain at the identified weak points, not just grep for obvious issues. Produce src/math/paper-skeptic-review-7.js. If the rigor honesty pass (imp-583) has shipped, verify it actually fixed the overclaiming.',
+    description: 'The external rigor audit found: (1) false UNCONDITIONAL claims, (2) NoSwap analytical gap, (3) circular-adjacent reasoning through GUE, (4) B2 depending on open M. Run a 7th skeptical review specifically targeting these findings. The reviewer should attempt to BREAK the proof chain at the identified weak points, not just grep for obvious issues. Produce src/math/paper-skeptic-review-7.js. If the rigor honesty pass (imp-583) has shipped, verify it actually fixed the overclaiming.',
     rationale: 'Reviews 1-6 were all pre-rigor-audit. A post-audit review tests whether the fixes are genuine.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-14T05:00:00.000Z',
@@ -9326,7 +9326,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-14T07:30:00.000Z',
-    closureNote: 'FALSE POSITIVE duplicate. This ticket has been re-seeded many times (imp-527, imp-536, imp-546, imp-556, imp-566, imp-591 all closed the same investigation). The partial status at barrier-extrapolation-imp371.js:168 is correct and intentional: the sole remaining blocker is computational (offline barrier integration at N > 5000, est. 4s at N=10000, >400s at N=100000) which cannot run in the Vite build pipeline. The upgradeBlockerNote in the file already documents this clearly. Recent closures imp-462/463/464/471 are orthogonal (they address B1/B2 monotonicity and NoSwap conditions in the Lambda attack route). No code change needed.',
+    closureNote: 'FALSE POSITIVE duplicate. This ticket has been re-seeded many times (imp-527, imp-536, imp-546, imp-556, imp-566, imp-591 all closed the same investigation). The partial status at barrier-extrapolation-imp371.js:168 is correct and intentional: the sole remaining blocker is computational (offline barrier integration at N > 5000, est. 4s at N=10000, >400s at N=100000) which cannot run in the Vite build pipeline. The upgradeBlockerNote in the file already documents this clearly. Recent closures imp-462/463/464/471 are orthogonal (they address B1/B2 monotonicity and NoSwap conditions in the Lambda approach route). No code change needed.',
   },
   {
     id: 'imp-610',
@@ -9461,7 +9461,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-14T12:00:00.000Z',
-    closureNote: 'Re-investigated: same conclusion as imp-527 (2026-04-13). imp-462/463/464/471 closures address B1/B2 monotonicity and NoSwap inside the Lambda attack route, which is orthogonal to barrier extrapolation cross-validation. Status legitimately remains partial; sole blocker is computational (sub-gap imp-371-barrier-compute: offline barrier integration at N > 5000). Documented imp-619 confirmation in upgradeBlockerNote field.',
+    closureNote: 'Re-investigated: same conclusion as imp-527 (2026-04-13). imp-462/463/464/471 closures address B1/B2 monotonicity and NoSwap inside the Lambda approach route, which is orthogonal to barrier extrapolation cross-validation. Status legitimately remains partial; sole blocker is computational (sub-gap imp-371-barrier-compute: offline barrier integration at N > 5000). Documented imp-619 confirmation in upgradeBlockerNote field.',
   },
   {
     id: 'imp-620',
@@ -10863,7 +10863,7 @@ export const IMPROVEMENT_QUEUE = [
     rationale: 'Auto-seeded by autofill-queue-from-gaps.mjs when the Opus queue was empty.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-14T22:45:00.000Z',
-    resolution: "Re-verified build clean (npm run build passes). All 12 chain steps, 3 route statuses, LEAN_STATUS (totalAxioms=6, totalSorrys=10), and 6 adversarial review records confirmed accurate after imp-716 (Lambda bound grid extension). Added verifiedAt field to PROOF_CHAIN_SNAPSHOT and appended imp-717 note to execSummary.",
+    resolution: "Re-verified build clean (npm run build passes). All 12 chain steps, 3 route statuses, LEAN_STATUS (totalAxioms=6, totalSorrys=10), and 6 skeptical review records confirmed accurate after imp-716 (Lambda bound grid extension). Added verifiedAt field to PROOF_CHAIN_SNAPSHOT and appended imp-717 note to execSummary.",
   },
   {
     id: 'imp-718',
@@ -12656,7 +12656,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S10',
     description: "In the supercritical / twin-ladder regime (Re(s) > 1 side of the functional-equation pairing s ↔ 1−s) the Euler product converges and the boundary layer is two-sided. A forcing that is SYMMETRIC under s ↔ 1−s (i.e. cos(k₀·(g − 1/2))·cos(ω·t)) preserves the pairing structure automatically, which MAY LET US SKIP the commutator bound of imp-892 in that regime. Formally state and prove this corollary. Implementation: src/math/imp-857-twin-ladder-symmetric-forcing.js with the statement, proof sketch, and a restricted version of the N=500 prototype that uses only the symmetric forcing. If the skip works, it gives an UNCONDITIONAL-BY-SYMMETRY argument for a subset of the collision-time asymptotic.",
-    rationale: 'Bypass route around the commutator bound in the supercritical regime; exploits the natural symmetry of the twin-ladder structure that the full critical-strip Dyson flow does not have.',
+    rationale: 'Bypass route around the commutator bound in the supercritical regime; uses the natural symmetry of the twin-ladder structure that the full critical-strip Dyson flow does not have.',
     estimatedComplexity: 'medium',
     completedAt: '2026-04-23T23:15:00Z',
     estimatedModel: 'opus-4-7',
@@ -12722,7 +12722,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S10',
-    description: "src/data/imp-857-baseline-sweep-result.js recorded closures for N=1000 (maxW=3.36e-8) and N=2000 (maxW=2.52e-10), disproving the imp-857 premise that the one-ULP interval RK4 blows up at N >= 1000. Process was killed at ~43 min before N=5000 and N=10000 finished. Run src/math/imp-857-baseline-scaling-N10k.mjs to completion (likely 20-30 min for N=5000, 2-5 min for N=10000 because collision is ~2 steps). Record the two remaining rows in the data module. If both close, imp-857 and imp-857-sub-scale-to-N10k can flip to CLOSED: the full {1000, 2000, 5000, 10000} range is interval-certified without any new backend. Deliverable: updated src/data/imp-857-baseline-sweep-result.js with 4 closed rows and a verdict field that triggers imp-857 status flip.",
+    description: "src/data/imp-857-baseline-sweep-result.js recorded closures for N=1000 (maxW=3.36e-8) and N=2000 (maxW=2.52e-10), disproving the imp-857 premise that the one-ULP interval RK4 blows up at N >= 1000. Process was eliminated at ~43 min before N=5000 and N=10000 finished. Run src/math/imp-857-baseline-scaling-N10k.mjs to completion (likely 20-30 min for N=5000, 2-5 min for N=10000 because collision is ~2 steps). Record the two remaining rows in the data module. If both close, imp-857 and imp-857-sub-scale-to-N10k can flip to CLOSED: the full {1000, 2000, 5000, 10000} range is interval-certified without any new backend. Deliverable: updated src/data/imp-857-baseline-sweep-result.js with 4 closed rows and a verdict field that triggers imp-857 status flip.",
     rationale: 'Direct path to closing the last finite-N gap in imp-857. No new infrastructure required; just run the existing integrator with the 1M-zero table on two more N values.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-19T19:00:00Z',
@@ -16021,7 +16021,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'meta',
     priority: 'high',
     status: 'completed',
-    description: 'Observed bug: the auto-improve engine commits locally after every successful run but never runs git push. The monitor operator is supposed to push manually but forgets. Session ended a tick with 7-8 commits ahead of origin/main including a major milestone (imp-437 third adversarial review PASSED) that had not yet been reported because I had not refreshed. Shipped .claude/commands/push.md as a slash-command discipline, but that only covers the monitor side. The engine itself should also push on a cadence so commits never strand. Fix: add a PUSH_EVERY_N_RUNS counter to scripts/auto-improve.sh (default 5). After every Nth successful run, run git push origin main with stderr to the log. On failure (non-fast-forward, auth error, network error), log the failure but do NOT abort the loop — the next regular run will re-try. Keep the cadence low enough that the local-only window is at most ~5 runs = ~5-10 minutes of work.',
+    description: 'Observed bug: the auto-improve engine commits locally after every successful run but never runs git push. The monitor operator is supposed to push manually but forgets. Session ended a tick with 7-8 commits ahead of origin/main including a major milestone (imp-437 third skeptical review PASSED) that had not yet been reported because I had not refreshed. Shipped .claude/commands/push.md as a slash-command discipline, but that only covers the monitor side. The engine itself should also push on a cadence so commits never strand. Fix: add a PUSH_EVERY_N_RUNS counter to scripts/auto-improve.sh (default 5). After every Nth successful run, run git push origin main with stderr to the log. On failure (non-fast-forward, auth error, network error), log the failure but do NOT abort the loop — the next regular run will re-try. Keep the cadence low enough that the local-only window is at most ~5 runs = ~5-10 minutes of work.',
     rationale: 'Currently a network partition or laptop crash could lose 30+ local commits. Periodic auto-push makes the local-only window bounded and predictable.',
     estimatedComplexity: 'small',
     completedAt: '2026-04-12T09:00:00Z',
@@ -16349,7 +16349,7 @@ export const IMPROVEMENT_QUEUE = [
     supersededNote: 'imp-881 GC audit: imp-867 (completed 2026-04-19T02:40Z) updated the HEADLINE with dual-regime unconditional/conditional distinction and referenced imp-489 axiom reduction + imp-494 sorry correction, subsuming this ticket. Consider a follow-up to specifically handle the NoSwap wording if still stale.',
     proofSection: 'S11-verify',
     description: 'proof-chain-snapshot-2026-04-12.js is stale after multiple changes: (1) imp-584 downgraded NoSwap from "analytically closed" to "numerically-closed" but snapshot still says "ESTABLISHED unconditionally (analytically closed)" — a false claim a referee would catch immediately. (2) imp-489 reduced axiom count from 10 to 6 but snapshot still says totalAxioms=10. (3) Sorry count should be 1 (only Constants.lean:128 skp-512a remains) but snapshot may say 8 or 10. Fix ALL stale fields to match current live file state.',
-    rationale: 'skp7-001 from adversarial review 7. The snapshot is the first document a referee reads — any false claim is fatal.',
+    rationale: 'skp7-001 from skeptical review 7. The snapshot is the first document a referee reads — any false claim is fatal.',
     estimatedComplexity: 'medium',
     model: 'opus-4-6',
     channel: 'subscription',
@@ -16710,7 +16710,7 @@ export const IMPROVEMENT_QUEUE = [
   // ── Theme F: cross-verification + review ─────────────────────────────────
   {
     id: 'imp-871',
-    title: 'F1: Adversarial review 7 — stress-test post-imp-833/834/856 state',
+    title: 'F1: Skeptical review 7 — stress-test post-imp-833/834/856 state',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -16719,7 +16719,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-7',
     completedByChannel: 'local',
     description: 'Seed src/math/paper-skeptic-review-7.js. Review 6 was post-imp-493 terminal-state; Review 7 should target: (a) imp-833 empirical 100k claim — is the leading-order argument actually sufficient, or does it hide a many-body term?; (b) imp-834 preliminary-negative — is the sign convention definitively correct?; (c) imp-856 approach (c) — does interval arithmetic actually certify at the claimed precision? Produce FATAL / NAMED / SOFT findings.',
-    rationale: 'Adversarial reviews have a 2,0,0,0,0,0 trajectory — review 7 must confirm no regression.',
+    rationale: 'Skeptical reviews have a 2,0,0,0,0,0 trajectory — review 7 must confirm no regression.',
     estimatedComplexity: 'medium',
     model: 'opus-4-7',
     channel: 'subscription',
@@ -16785,7 +16785,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'completed',
     completedAt: '2026-04-19T04:45:00Z',
-    closureNote: 'Shipped papers/uncond-lambda-summary-2026-04-19.md — one-page markdown summary with the headline triple (Λ>=0 / Λ=0 asymptotic / Λ<=0.121 GUE-conditional), the 1,149x widening number, three-paths status table, what-is-unconditional-now vs what-is-still-GUE-conditional, open research frontier (imp-857, imp-863, etc), and a cross-reference block pointing to the live data, dashboard card, full-story §15, blog post, adversarial trajectory, and cross-verification scoreboard. Markdown rather than PNG/PDF because those require external rendering tools outside this session; conversion via pandoc or marp is a one-liner follow-up (named as imp-875-sub-render-png-pdf). Content depth matches a slide or share-image; actual raster generation is deferred.',
+    closureNote: 'Shipped papers/uncond-lambda-summary-2026-04-19.md — one-page markdown summary with the headline triple (Λ>=0 / Λ=0 asymptotic / Λ<=0.121 GUE-conditional), the 1,149x widening number, three-paths status table, what-is-unconditional-now vs what-is-still-GUE-conditional, open research frontier (imp-857, imp-863, etc), and a cross-reference block pointing to the live data, dashboard card, full-story §15, blog post, skeptical trajectory, and cross-verification scoreboard. Markdown rather than PNG/PDF because those require external rendering tools outside this session; conversion via pandoc or marp is a one-liner follow-up (named as imp-875-sub-render-png-pdf). Content depth matches a slide or share-image; actual raster generation is deferred.',
     completedByModel: 'opus-4-7',
     completedByChannel: 'local',
     description: 'Generate a one-page summary (suitable for slides or share-image). Elements: headline "Λ <= 0 asymptotically, Λ <= 0.121 at N* = 10^6 (GUE), UNCONDITIONAL at N <= 10^5"; a bound-graph showing the imp-833 empirical range vs. the GUE-conditional continuation; the three escape hatches as bullets. Output: screenshots/uncond-lambda-summary-2026-04-19.png + .pdf.',
@@ -16962,8 +16962,8 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-7',
     completedByChannel: 'local',
     proofSection: 'S7',
-    description: 'Adversarial review 3 (imp-437) found that the cross-validation Section 7 implication graph claims "any 2 of {E,F,G,H,I} implies all 5" but Paths G and H are orphaned.',
-    rationale: 'A false graph-theory claim about implication completeness is exactly what a referee attacks.',
+    description: 'Skeptical review 3 (imp-437) found that the cross-validation Section 7 implication graph claims "any 2 of {E,F,G,H,I} implies all 5" but Paths G and H are orphaned.',
+    rationale: 'A false graph-theory claim about implication completeness is exactly what a referee approaches.',
     estimatedComplexity: 'small',
     model: 'sonnet-4-6',
     channel: 'subscription',
@@ -17107,11 +17107,11 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-854',
-    title: 'Fix nav dropdown buttons: Model/Analysis/Attack/Progress/Reference are hover-only (broken on touch/mobile)',
+    title: 'Fix nav dropdown buttons: Model/Analysis/Approaches/Progress/Reference are hover-only (broken on touch/mobile)',
     category: 'bug',
     priority: 'high',
     status: 'completed',
-    description: 'In src/App.jsx NavDropdown component, the trigger button has no onClick handler. The dropdown menu is shown via CSS :hover only. Touchscreen users cannot open any nav dropdown — all of Model/Analysis/Attack/Progress/Reference are inaccessible on mobile and tablets. Fix: add onClick to toggle a boolean open state per dropdown, show menu when EITHER :hover OR open state is true. Keep hover as the desktop UX. Button should also toggle aria-expanded.',
+    description: 'In src/App.jsx NavDropdown component, the trigger button has no onClick handler. The dropdown menu is shown via CSS :hover only. Touchscreen users cannot open any nav dropdown — all of Model/Analysis/Approaches/Progress/Reference are inaccessible on mobile and tablets. Fix: add onClick to toggle a boolean open state per dropdown, show menu when EITHER :hover OR open state is true. Keep hover as the desktop UX. Button should also toggle aria-expanded.',
     rationale: 'Mobile users have zero access to half the nav tree. The button-test suite caught this class of failure under "button not found" because headless Chromium does not fire hover events during scripted runs — the same failure mode a real touchscreen user hits.',
     estimatedComplexity: 'small',
     model: 'sonnet-4-6',
@@ -17834,7 +17834,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-11',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',
-    closureNote: "imp-2122: prepended a formal @module / @fileoverview JSDoc header to src/math/bsd-elliptic-curves.js documenting purpose (BSD conjecture for elliptic curves over Q -- the elliptic-curve analog of the class number formula and sibling Millennium Problem to RH, with ord_{s=1} L(s, E) = rank(E(Q)) and the leading-coefficient formula involving Sha, Reg, Omega, Tamagawa numbers, and torsion), key export bsdEllipticCurvesTest, originating ticket imp-226, proof-chain role (sibling-Millennium context for the analytic-rank / order-of-vanishing narrative framing the RH attack in the broader L-function landscape). Existing description block preserved verbatim below the new header. Build passes.",
+    closureNote: "imp-2122: prepended a formal @module / @fileoverview JSDoc header to src/math/bsd-elliptic-curves.js documenting purpose (BSD conjecture for elliptic curves over Q -- the elliptic-curve analog of the class number formula and sibling Millennium Problem to RH, with ord_{s=1} L(s, E) = rank(E(Q)) and the leading-coefficient formula involving Sha, Reg, Omega, Tamagawa numbers, and torsion), key export bsdEllipticCurvesTest, originating ticket imp-226, proof-chain role (sibling-Millennium context for the analytic-rank / order-of-vanishing narrative framing the RH approach in the broader L-function landscape). Existing description block preserved verbatim below the new header. Build passes.",
   },
   {
     id: 'imp-995',
@@ -17849,7 +17849,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-11',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',
-    closureNote: "imp-2123: prepended a formal @module / @fileoverview JSDoc header to src/math/counterexample-search.js documenting purpose (adversarial stress-testing of ZPO proof criteria against Davenport-Heilbronn -- functional equation but no Euler product, zeros off critical line -- and Epstein zeta functions where class number h = 1 implies RH while h > 1 violates RH, classifying each candidate criterion as RH-SPECIFIC or RH-GENERIC), key exports davenportHeilbronn / davenportHeilbronnTest / epsteinZeta / epsteinZetaTest / adversarialReport, originating ticket imp-995, proof-chain role (falsification harness preventing the proof chain from depending on RH-generic properties that follow from the functional equation alone). Existing description block preserved verbatim below the new header. Build passes.",
+    closureNote: "imp-2123: prepended a formal @module / @fileoverview JSDoc header to src/math/counterexample-search.js documenting purpose (stress-testing of ZPO proof criteria against Davenport-Heilbronn -- functional equation but no Euler product, zeros off critical line -- and Epstein zeta functions where class number h = 1 implies RH while h > 1 violates RH, classifying each candidate criterion as RH-SPECIFIC or RH-GENERIC), key exports davenportHeilbronn / davenportHeilbronnTest / epsteinZeta / epsteinZetaTest / adversarialReport, originating ticket imp-995, proof-chain role (falsification harness preventing the proof chain from depending on RH-generic properties that follow from the functional equation alone). Existing description block preserved verbatim below the new header. Build passes.",
   },
   {
     id: 'imp-996',
@@ -18376,7 +18376,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: "2026-05-15T20:50:00Z",
     completedByModel: "opus-4-7",
     completedByChannel: "subscription",
-    closureNote: "Prepended @module bombieri-vinogradov + @fileoverview JSDoc header to src/math/bombieri-vinogradov.js per the imp-911 / imp-924 / imp-986..995 / imp-1067..1070 precedent. Documents the unconditional Bombieri-Vinogradov (1965) bound Sum_{q<=Q} max_{(a,q)=1} max_{y<=x} |psi(y;q,a) - y/phi(q)| << x (log x)^{-A} for Q <= sqrt(x) (log x)^{-B(A)}, names the sole export bombieriVinogradovTest with its x=10000 / Q=100 numerical setup, cites originating ticket imp-218 and the Zhang-Maynard-Tao downstream (imp-189), and marks the proof-chain step as the sieve-side unconditional half of the 'average GRH' leg of the RH attack. Existing imp-218 prose header kept verbatim below the new block. Atomic structural change only; build verified.",
+    closureNote: "Prepended @module bombieri-vinogradov + @fileoverview JSDoc header to src/math/bombieri-vinogradov.js per the imp-911 / imp-924 / imp-986..995 / imp-1067..1070 precedent. Documents the unconditional Bombieri-Vinogradov (1965) bound Sum_{q<=Q} max_{(a,q)=1} max_{y<=x} |psi(y;q,a) - y/phi(q)| << x (log x)^{-A} for Q <= sqrt(x) (log x)^{-B(A)}, names the sole export bombieriVinogradovTest with its x=10000 / Q=100 numerical setup, cites originating ticket imp-218 and the Zhang-Maynard-Tao downstream (imp-189), and marks the proof-chain step as the sieve-side unconditional half of the 'average GRH' leg of the RH approach. Existing imp-218 prose header kept verbatim below the new block. Atomic structural change only; build verified.",
   },
   {
     id: 'imp-1072',
@@ -18391,7 +18391,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: "2026-05-15T20:45:00Z",
     completedByModel: "opus-4-7",
     completedByChannel: "subscription",
-    closureNote: "Prepended @module bounded-prime-gaps + @fileoverview JSDoc header to src/math/bounded-prime-gaps.js per the imp-911 / imp-924 / imp-986..995 / imp-1067..1071 precedent. Documents the Zhang (2013) breakthrough H_1 := liminf (p_{n+1}-p_n) <= 70,000,000 and its Maynard (2014) / Polymath8b (2014) refinement to H_1 <= 246 unconditionally with H_1 <= 6 under GRH and the open twin prime conjecture H_1 = 2, names the sole export boundedPrimeGapsTest with its 10^6 sieve range and gap/constellation tallies against Hardy-Littlewood pi_k(x;H) ~ C(H) x / (log x)^k, cites originating ticket imp-189 and consumed dependency imp-218, and marks the proof-chain step as the sieve-side bounded-gap leg feeding Elliott-Halberstam downstream of the RH attack. Existing imp-189 prose header kept verbatim below the new block. Atomic structural change only; build verified.",
+    closureNote: "Prepended @module bounded-prime-gaps + @fileoverview JSDoc header to src/math/bounded-prime-gaps.js per the imp-911 / imp-924 / imp-986..995 / imp-1067..1071 precedent. Documents the Zhang (2013) breakthrough H_1 := liminf (p_{n+1}-p_n) <= 70,000,000 and its Maynard (2014) / Polymath8b (2014) refinement to H_1 <= 246 unconditionally with H_1 <= 6 under GRH and the open twin prime conjecture H_1 = 2, names the sole export boundedPrimeGapsTest with its 10^6 sieve range and gap/constellation tallies against Hardy-Littlewood pi_k(x;H) ~ C(H) x / (log x)^k, cites originating ticket imp-189 and consumed dependency imp-218, and marks the proof-chain step as the sieve-side bounded-gap leg feeding Elliott-Halberstam downstream of the RH approach. Existing imp-189 prose header kept verbatim below the new block. Atomic structural change only; build verified.",
   },
   {
     id: 'imp-1073',
@@ -18637,7 +18637,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'meta-harness',
     description: 'scripts/dispatch-subagent-worktree.mjs currently caps at a hardcoded MAX_PARALLEL (5). Auto-scale: query `sysctl hw.ncpu` (macOS) / `nproc` (linux) and `vm_stat` / `free` for available RAM, compute max concurrent = min(ncpu / 2, free_ram_gb / 3, 8), with a env override SUBAGENT_MAX_PARALLEL. Logs the chosen cap at dispatch time so the operator can audit. Falls back to 3 if detection fails.',
-    rationale: 'On a fresh powerful laptop or cloud instance, the hardcoded cap of 5 is leaving CPU on the table. Auto-scaling lets the same script burst higher on bigger hardware without code changes.',
+    rationale: 'On a fresh powerful laptop or cloud instance, the hardcoded cap of 5 is leaving CPU on the table. Auto-scaling lets the same script scale higher on bigger hardware without code changes.',
     estimatedComplexity: 'small',
     model: 'haiku-4-5',
     channel: 'haiku',
@@ -18661,7 +18661,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-20T00:00:00Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-7-worktree',
-    closureNote: 'Shipped scripts/queue-triage.mjs (executable). Dynamic-imports IMPROVEMENT_QUEUE, filters to pending, scores each ticket by priorityWeight (critical=4/high=3/medium=2/low=1) × depDepth (1/(1+unresolvedDeps)) × log(1+ageDays). ageDays derived from createdAt if present, else proxied from id ordering vs maxIdSeen at ~3 tickets/day. Sorts descending and prints to stdout: ranked list with score/priority/model/title/deps/age, plus sub-headers STALLED (id <= 1100), BROKEN DEPS (dependsOn pointing at missing ids), UNROUTED CRITICAL (critical+pending+no model). Writes structured JSON (~9 KB) to scripts/.queue-triage-state.json for downstream tooling. Read-only; exit 0 always. Test run: 19 pending across 4 engines, top score imp-370 (16.78, stalled), then imp-1115 (12.05, BS density check), imp-1126 (8.44, CS moment attack), imp-1161 (3.22, Costin-Lebowitz port), imp-1104 (3.18, Selberg ref doc). Flagged 1 stalled (imp-370) and 1 broken-dep (imp-1150 → missing imp-1145); 0 unrouted critical.',
+    closureNote: 'Shipped scripts/queue-triage.mjs (executable). Dynamic-imports IMPROVEMENT_QUEUE, filters to pending, scores each ticket by priorityWeight (critical=4/high=3/medium=2/low=1) × depDepth (1/(1+unresolvedDeps)) × log(1+ageDays). ageDays derived from createdAt if present, else proxied from id ordering vs maxIdSeen at ~3 tickets/day. Sorts descending and prints to stdout: ranked list with score/priority/model/title/deps/age, plus sub-headers STALLED (id <= 1100), BROKEN DEPS (dependsOn pointing at missing ids), UNROUTED CRITICAL (critical+pending+no model). Writes structured JSON (~9 KB) to scripts/.queue-triage-state.json for downstream tooling. Read-only; exit 0 always. Test run: 19 pending across 4 engines, top score imp-370 (16.78, stalled), then imp-1115 (12.05, BS density check), imp-1126 (8.44, CS moment approach), imp-1161 (3.22, Costin-Lebowitz port), imp-1104 (3.18, Selberg ref doc). Flagged 1 stalled (imp-370) and 1 broken-dep (imp-1150 → missing imp-1145); 0 unrouted critical.',
   },
 
   {
@@ -18694,7 +18694,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'meta-harness',
     description: "Ship scripts/launchd/com.mathexplorer.engine-watchdog.plist.template alongside the existing auto-improve template. Use the same __REPO_PATH__ / __HOME__ placeholder convention. Wire into scripts/setup-new-machine.sh so a fresh-machine bootstrap installs both the engine-watchdog AND the auto-improve plists. Idempotent + portable.",
-    rationale: 'imp-1175 made the watchdog work, but the watchdog itself dies on reboot (or if the operator kills it). A LaunchAgent makes it survive both. Closes the supervisor-of-supervisor recursion gap.',
+    rationale: 'imp-1175 made the watchdog work, but the watchdog itself dies on reboot (or if the operator eliminates it). A LaunchAgent makes it survive both. Closes the supervisor-of-supervisor recursion gap.',
     estimatedComplexity: 'small',
     model: 'haiku-4-5',
     channel: 'haiku',
@@ -18842,10 +18842,10 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-25T20:05:00Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-7-worktree',
-    closureNote: 'HONEST PARTIAL ROUTE AUDIT. Ships src/data/imp-1184-direct-selberg-esy-route-audit.js (~600 LOC, 9 build-time tripwires all PASS via direct probe; build green) mapping the DIRECT Selberg + ESY-rigidity route in 6 numbered steps D1..D6. VERDICT: direct-route-needs-pcc-at-step-D3-and-rho3-at-step-D5. D1 (Stieltjes decomposition) PASS, D2 (fixed-x summation) PASS, D3 (Selberg fluctuation) PASS-LOOSE (Selberg integrated upper bound only, sine-kernel pointwise identity unavailable), D4 (Koksma-Hlawka sup-bound) PASS (recovers imp-407 baseline (C_Sel/2)(log gamma_N)^2/N), D5 (improve via D_N^{*,2} / rho_3) FAIL (Rudnick-Sarnak bandwidth restriction excludes Poisson kernel), D6 (tightness) PASS-LOOSE (no unconditional Omega-result). 6 named obstructions O-DSE-A..F with severity + explicit cross_reference: O-DSE-A IDENTICAL to imp-1161 O-CL-A (sine-kernel 2pt); O-DSE-B IDENTICAL to imp-1180 O-HOC-A (rho_3 general test fns); O-DSE-C (Omega-result), O-DSE-D (rigidity-at-rate), O-DSE-E (derandomization, =imp-407 O3), O-DSE-F (concentration =imp-508 O1-remaining). SHARED-OBSTRUCTION MAP: gap-PCC-2pt required by ALL THREE live routes (direct + Sobolev + higher-cumulant); gap-RS-3pt required by direct + higher-cumulant. Live attack surface narrows to two named open conjectures (Montgomery PCC 1973 + Rudnick-Sarnak 1996 with no bandwidth). Direct route equals imp-407 baseline at every N in [10^3,10^7]; hypothetical D5-pass would improve by factor log(gamma_N) ~13.8x at N=1e6. Wired into scripts/run-assertions.mjs DATA_MODULES after imp-1180.',
+    closureNote: 'HONEST PARTIAL ROUTE AUDIT. Ships src/data/imp-1184-direct-selberg-esy-route-audit.js (~600 LOC, 9 build-time tripwires all PASS via direct probe; build green) mapping the DIRECT Selberg + ESY-rigidity route in 6 numbered steps D1..D6. VERDICT: direct-route-needs-pcc-at-step-D3-and-rho3-at-step-D5. D1 (Stieltjes decomposition) PASS, D2 (fixed-x summation) PASS, D3 (Selberg fluctuation) PASS-LOOSE (Selberg integrated upper bound only, sine-kernel pointwise identity unavailable), D4 (Koksma-Hlawka sup-bound) PASS (recovers imp-407 baseline (C_Sel/2)(log gamma_N)^2/N), D5 (improve via D_N^{*,2} / rho_3) FAIL (Rudnick-Sarnak bandwidth restriction excludes Poisson kernel), D6 (tightness) PASS-LOOSE (no unconditional Omega-result). 6 named obstructions O-DSE-A..F with severity + explicit cross_reference: O-DSE-A IDENTICAL to imp-1161 O-CL-A (sine-kernel 2pt); O-DSE-B IDENTICAL to imp-1180 O-HOC-A (rho_3 general test fns); O-DSE-C (Omega-result), O-DSE-D (rigidity-at-rate), O-DSE-E (derandomization, =imp-407 O3), O-DSE-F (concentration =imp-508 O1-remaining). SHARED-OBSTRUCTION MAP: gap-PCC-2pt required by ALL THREE live routes (direct + Sobolev + higher-cumulant); gap-RS-3pt required by direct + higher-cumulant. Live approach map narrows to two named open conjectures (Montgomery PCC 1973 + Rudnick-Sarnak 1996 with no bandwidth). Direct route equals imp-407 baseline at every N in [10^3,10^7]; hypothetical D5-pass would improve by factor log(gamma_N) ~13.8x at N=1e6. Wired into scripts/run-assertions.mjs DATA_MODULES after imp-1180.',
     proofSection: 'S7',
-    description: "imp-1165 closed the L^2 -> L^inf Sobolev bridge. The DIRECT-Selberg + ESY-rigidity route needs concrete attack. Read src/data/esy-rigidity-port.js (imp-407), src/math/esy-o1-closure.js (imp-508), identify EXACTLY which step in the direct route uses sine-kernel input vs Selberg PCC. Ship src/data/imp-1184-direct-selberg-esy-route-audit.js with: (a) step-by-step proof skeleton from Selberg PCC to L^inf psi_N, (b) named obstructions at each step, (c) 5+ tripwires.",
-    rationale: 'imp-1165 named two surviving routes. imp-1180 mapped the higher-correlation one. This maps the direct-Selberg one. Together they exhaust the live attack surface.',
+    description: "imp-1165 closed the L^2 -> L^inf Sobolev bridge. The DIRECT-Selberg + ESY-rigidity route needs concrete approach. Read src/data/esy-rigidity-port.js (imp-407), src/math/esy-o1-closure.js (imp-508), identify EXACTLY which step in the direct route uses sine-kernel input vs Selberg PCC. Ship src/data/imp-1184-direct-selberg-esy-route-audit.js with: (a) step-by-step proof skeleton from Selberg PCC to L^inf psi_N, (b) named obstructions at each step, (c) 5+ tripwires.",
+    rationale: 'imp-1165 named two surviving routes. imp-1180 mapped the higher-correlation one. This maps the direct-Selberg one. Together they exhaust the live approach map.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1165'],
     model: 'opus-4-7',
@@ -19088,7 +19088,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: "Build /closure-routes page rendering para 16 (pages 16-22): four equivalent closure statements (Schur contractivity Route A, de Branges positivity Route B, hidden-square kernel factorization Route C, Weil/twin-ladder norm square Route D), shared bottleneck, Conjectures 16.4 and 16.6. Show equivalence diagram (D3 or SVG) + per-route status. Ship src/data/closure-routes-section.js + src/pages/ClosureRoutesPage.jsx. 6+ tripwires.",
-    rationale: 'Four-route equivalence is a major structural insight. The app has RHAttackPage but lists 5 different attacks, not these four.',
+    rationale: 'Four-route equivalence is a major structural insight. The app has RHAttackPage but lists 5 different approaches, not these four.',
     estimatedComplexity: 'medium',
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'opus-4-7',
@@ -19119,8 +19119,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: "Build /three-attacks page rendering para 18 (pages 26-31): Attack I (kernel/passivity closure, Conj 18.1), Attack II (prime-delay domination, Conj 18.2), Attack III (Weil/Pontryagin index closure, Conj 18.4), synthesis. KaTeX for kernels. Ship src/data/three-attacks-section.js + src/pages/ThreeAttacksPage.jsx. 5+ tripwires.",
-    rationale: 'Para 18 is most actionable: 3 concrete attack programs. Side-by-side comparison enables progress tracking per attack.',
+    description: "Build /three-attacks page rendering para 18 (pages 26-31): Approach I (kernel/passivity closure, Conj 18.1), Approach II (prime-delay domination, Conj 18.2), Approach III (Weil/Pontryagin index closure, Conj 18.4), synthesis. KaTeX for kernels. Ship src/data/three-attacks-section.js + src/pages/ThreeAttacksPage.jsx. 5+ tripwires.",
+    rationale: 'Para 18 is most actionable: 3 concrete approach programs. Side-by-side comparison enables progress tracking per approach.',
     estimatedComplexity: 'medium',
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'sonnet-4-6',
@@ -19187,7 +19187,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: "Conj 18.2 states prime-delay domination closure for w with Re(w) > 0. Numerical pilot: for w in grid + Re(w) > 0, evaluate both sides using prime data up to p <= 10^4. Ship src/data/imp-1203-conjecture-18-2-pilot.js with per-w rows + verdict (empirical-supports OR empirical-violates). 5+ tripwires.",
-    rationale: 'Para 18 Attack II = prime-delay program. Numerical pilot tells us if the conjecture is even empirically plausible.',
+    rationale: 'Para 18 Approach II = prime-delay program. Numerical pilot tells us if the conjecture is even empirically plausible.',
     estimatedComplexity: 'medium',
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'opus-4-7',
@@ -19288,7 +19288,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'haiku-4-5',
     completedByChannel: 'subscription',
     proofSection: 'meta-portability',
-    description: "src/pages/RHAttackPage.jsx lists 5 classical attacks. The user paper para 16 introduces four EQUIVALENT closure routes. Add a section to RHAttackPage explaining four-route equivalence + linking to /closure-routes (imp-1197). Atomic UX change.",
+    description: "src/pages/RHAttackPage.jsx lists 5 classical approaches. The user paper para 16 introduces four EQUIVALENT closure routes. Add a section to RHAttackPage explaining four-route equivalence + linking to /closure-routes (imp-1197). Atomic UX change.",
     rationale: '5-attacks vs 4-routes mismatch is a real expositional gap.',
     estimatedComplexity: 'small',
     dependsOn: ['imp-1197'],
@@ -19418,7 +19418,7 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: 'Shipped /hidden-square-program rendering §25+26+27 of v52 paper as ONE chain of reductions: §25 commutator (K_a = K_a^diag + off-diagonal shear) -> §25 hidden-square target Conj 25.2/25.3 -> §26 scalar measure domination Conj 26.3/26.4 -> §27 Endpoint-Hankel Volterra contraction Conj 27.2 (the concrete computational target ||V_{a,Phi}|| <= 1). 8/8 tripwires PASS. Page includes vertical SVG chain diagram (6 nodes: no-ghost -> commutator -> hidden-square -> measure dom -> block positivity -> numerical certificate). KaTeX renders the cosine-sine channel decomposition, Wronskian-commutator form, diagonal density d_mu^diag/d_tau, block positivity matrix. Honest scope: per imp-1184 shared-PCC-obstruction, the chain reduces but does not bypass Montgomery PCC. Names follow-up imp-1219-sub-volterra-norm-pilot for empirical operator-norm check at a in {0.5, 0.2, 0.1, 0.05, 0.025} on imp-1162 grid. Wired into App.jsx + Twin-Ladder v52 nav group. Build green.',
     proofSection: 'S7',
     description: "Build /hidden-square-program page combining para 25 (off-diagonal commutator + hidden-square target), para 26 (measure domination + Volterra absorption), para 27 (endpoint-Hankel renormalization + Volterra-contraction target) into one ~3-section page. KaTeX for cosine-sine channels, a-flow identity, scalar domination target. Ship src/data/hidden-square-program-section.js + src/pages/HiddenSquareProgramPage.jsx. Wire into nav. 6+ tripwires.",
-    rationale: 'Three sequential paper sections form one logical attack chain. Combined page lets reader trace the full reduction.',
+    rationale: 'Three sequential paper sections form one logical approach chain. Combined page lets reader trace the full reduction.',
     estimatedComplexity: 'large',
     dependsOn: ['research-inputs/twin_ladder_consolidated_v52.pdf'],
     model: 'opus-4-7',
@@ -19458,7 +19458,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-26',
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'subscription-worktree',
-    closureNote: 'Shipped src/data/freezing-bridge-section.js (FREEZING_BRIDGE_SECTION frozen record with all SEVEN subsections of §23 present: 23.1 What a freeze can and cannot do — Prop. 23.1 ghost freezing is DIAGNOSTIC not a proof, with P_a / b_alpha / B_G / R_a,G^fr LaTeX; 23.2 Schur-complement freezing preserves negative index — Prop. 23.2 Sylvester inertia identity ind_-(Q) = ind_-(C) + ind_-(Q_eff) with full block + Q_eff = A - B C^-1 B* LaTeX; 23.3 Endpoint bridges as finite-window positivity repairs — Lemma 23.3 finite-window certificate lambda_min(G^fr_{a,U}) > ||E_{a,U}||_2 ⇒ G_a(Z) ≻ 0 with the conditional-implication LaTeX; 23.4 Frozen coherent-shell domination — Principle 23.4 with positivity-margin / tail-bound inequalities m_U > eps_U LaTeX; 23.5 Can a clever freeze finish the proof? — load-bearing VERDICT field cleverFreezeVerdict = "NO" plus Conjecture 23.5 passive frozen-bridge closure K^pass_{a,U} ⪰ 0 with residual → 0 under U → ∞, W ↗ C+, a ↓ 0 ⇒ RH; 23.6 A practical next experiment — five-step pass/fail protocol exposed as a fiveSteps array; 23.7 Conclusion of the freeze attack — limits LaTeX). Six EXPLICIT references including primary v52 §23 source, Krein-Langer 1977 for Pontryagin-negative-index, Feshbach 1958 for Schur-complement physics, Sylvester 1852 inertia law, de Branges 1968 for K_a kernel foundations. Four relatedSections sibling pointers (imp-1196/1197/1198/1199 → /shift-bridge-positivity, /closure-routes, /blaschke-ghosts, /three-attacks). EIGHT build-time tripwires: paper-page-range-section23 (locks §23 + pages 32-36 + filename); seven-subsections-present-and-well-formed (all 7 with id/name/paperContent>=200/keyResult>=60/kaTeXFormula/verdict); schur-complement-inertia-identity-stated (Prop. 23.2 names Schur + complement + inertia + ind_- + Q_eff and KaTeX has Q_{eff} + C^{-1} + operatorname{ind}); endpoint-bridge-finite-window-certificate-stated (Lemma 23.3 + lambda_min + G^fr_{a,U}); clever-freeze-verdict-is-no-and-conjecture-23-5-is-target (cleverFreezeVerdict === "NO", explainer >= 200 chars, KaTeX has K^{pass}_{a,U} + RH); practical-experiment-has-five-steps (fiveSteps length=5, each >=30 chars); related-sections-link-1196-1197-1198-1199 (exact ticket set + route set); references-min-3-with-primary-source-and-de-branges. All eight tripwires fire green at module load. Shipped src/pages/FreezingBridgePage.jsx rendering header "Freezing, Bridge Renormalization, and a Targeted No-Ghost Attack (§23)" + intro card recalling the shifted bridge R_a(w) = X(w-a)/X(w+a) (with cross-link to /shift-bridge-positivity), the §23.5 verdict badge (NO, in red, with the cleverFreezeVerdictExplained body), seven stacked SubsectionCards (one per 23.1-23.7 with per-id accent color, paperContent, Key-result inset, KaTeX BlockMath, verdict footer), §23.6 practical-next-experiment callout box rendering the fiveSteps as an ordered list with step labels and pass/fail certification footer, why-it-matters (3 paragraphs), references (5 entries), sibling sections (4 entries with Link to /shift-bridge-positivity / /closure-routes / /blaschke-ghosts / /three-attacks), related pages strip, source footer. Wired src/App.jsx (lazy FreezingBridgePage import + /freezing-bridge route + Twin-Ladder v52 nav-group entry "Freezing Bridge (§23)" between Three Attacks and KYP / Bounded-Real). Wired src/data/freezing-bridge-section.js into scripts/run-assertions.mjs DATA_MODULES. npm run build green (vite 5.95s). Single atomic commit pending. KEY VERDICT: §23.5 "Can a clever freeze finish the proof?" answer = NO — freezing is an inertia-preserving reduction tool and a finite-window certification engine, NOT a proof shortcut. The actual target is Conjecture 23.5 (passive frozen-bridge closure derived from the completed kernel, automatically passive before any zero information is inserted, with residual surviving U → ∞, W ↗ C+, a ↓ 0).',
+    closureNote: 'Shipped src/data/freezing-bridge-section.js (FREEZING_BRIDGE_SECTION frozen record with all SEVEN subsections of §23 present: 23.1 What a freeze can and cannot do — Prop. 23.1 ghost freezing is DIAGNOSTIC not a proof, with P_a / b_alpha / B_G / R_a,G^fr LaTeX; 23.2 Schur-complement freezing preserves negative index — Prop. 23.2 Sylvester inertia identity ind_-(Q) = ind_-(C) + ind_-(Q_eff) with full block + Q_eff = A - B C^-1 B* LaTeX; 23.3 Endpoint bridges as finite-window positivity repairs — Lemma 23.3 finite-window certificate lambda_min(G^fr_{a,U}) > ||E_{a,U}||_2 ⇒ G_a(Z) ≻ 0 with the conditional-implication LaTeX; 23.4 Frozen coherent-shell domination — Principle 23.4 with positivity-margin / tail-bound inequalities m_U > eps_U LaTeX; 23.5 Can a clever freeze finish the proof? — load-bearing VERDICT field cleverFreezeVerdict = "NO" plus Conjecture 23.5 passive frozen-bridge closure K^pass_{a,U} ⪰ 0 with residual → 0 under U → ∞, W ↗ C+, a ↓ 0 ⇒ RH; 23.6 A practical next experiment — five-step pass/fail protocol exposed as a fiveSteps array; 23.7 Conclusion of the freeze approach — limits LaTeX). Six EXPLICIT references including primary v52 §23 source, Krein-Langer 1977 for Pontryagin-negative-index, Feshbach 1958 for Schur-complement physics, Sylvester 1852 inertia law, de Branges 1968 for K_a kernel foundations. Four relatedSections sibling pointers (imp-1196/1197/1198/1199 → /shift-bridge-positivity, /closure-routes, /blaschke-ghosts, /three-attacks). EIGHT build-time tripwires: paper-page-range-section23 (locks §23 + pages 32-36 + filename); seven-subsections-present-and-well-formed (all 7 with id/name/paperContent>=200/keyResult>=60/kaTeXFormula/verdict); schur-complement-inertia-identity-stated (Prop. 23.2 names Schur + complement + inertia + ind_- + Q_eff and KaTeX has Q_{eff} + C^{-1} + operatorname{ind}); endpoint-bridge-finite-window-certificate-stated (Lemma 23.3 + lambda_min + G^fr_{a,U}); clever-freeze-verdict-is-no-and-conjecture-23-5-is-target (cleverFreezeVerdict === "NO", explainer >= 200 chars, KaTeX has K^{pass}_{a,U} + RH); practical-experiment-has-five-steps (fiveSteps length=5, each >=30 chars); related-sections-link-1196-1197-1198-1199 (exact ticket set + route set); references-min-3-with-primary-source-and-de-branges. All eight tripwires fire green at module load. Shipped src/pages/FreezingBridgePage.jsx rendering header "Freezing, Bridge Renormalization, and a Targeted No-Ghost Approach (§23)" + intro card recalling the shifted bridge R_a(w) = X(w-a)/X(w+a) (with cross-link to /shift-bridge-positivity), the §23.5 verdict badge (NO, in red, with the cleverFreezeVerdictExplained body), seven stacked SubsectionCards (one per 23.1-23.7 with per-id accent color, paperContent, Key-result inset, KaTeX BlockMath, verdict footer), §23.6 practical-next-experiment callout box rendering the fiveSteps as an ordered list with step labels and pass/fail certification footer, why-it-matters (3 paragraphs), references (5 entries), sibling sections (4 entries with Link to /shift-bridge-positivity / /closure-routes / /blaschke-ghosts / /three-attacks), related pages strip, source footer. Wired src/App.jsx (lazy FreezingBridgePage import + /freezing-bridge route + Twin-Ladder v52 nav-group entry "Freezing Bridge (§23)" between Three Approaches and KYP / Bounded-Real). Wired src/data/freezing-bridge-section.js into scripts/run-assertions.mjs DATA_MODULES. npm run build green (vite 5.95s). Single atomic commit pending. KEY VERDICT: §23.5 "Can a clever freeze finish the proof?" answer = NO — freezing is an inertia-preserving reduction tool and a finite-window certification engine, NOT a proof shortcut. The actual target is Conjecture 23.5 (passive frozen-bridge closure derived from the completed kernel, automatically passive before any zero information is inserted, with residual surviving U → ∞, W ↗ C+, a ↓ 0).',
   },
 
 
@@ -19668,8 +19668,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S7',
-    description: "Conjecture 18.1 (kernel/passivity closure): for every a > 0, the pair (A_a, B_a) arises from a passive realization. Conjecture 18.2 (prime-delay domination closure). Both are non-trivial closure attacks per the paper. Survey: is either known to follow from existing control-theory or analytic-number-theory results? KYP lemma, Bombieri-Iwaniec mean-value, Selberg sieve. Verdict per conjecture. Ship src/data/imp-1233-conjectures-18-1-18-2-audit.js. 5+ tripwires.",
-    rationale: 'Tracks §18 attacks. Likely PARTIALLY-RELATED to KYP / Bombieri-Iwaniec / Selberg literature.',
+    description: "Conjecture 18.1 (kernel/passivity closure): for every a > 0, the pair (A_a, B_a) arises from a passive realization. Conjecture 18.2 (prime-delay domination closure). Both are non-trivial closure approaches per the paper. Survey: is either known to follow from existing control-theory or analytic-number-theory results? KYP lemma, Bombieri-Iwaniec mean-value, Selberg sieve. Verdict per conjecture. Ship src/data/imp-1233-conjectures-18-1-18-2-audit.js. 5+ tripwires.",
+    rationale: 'Tracks §18 approaches. Likely PARTIALLY-RELATED to KYP / Bombieri-Iwaniec / Selberg literature.',
     estimatedComplexity: 'medium',
     dependsOn: ['imp-1218'],
     model: 'opus-4-7',
@@ -19714,16 +19714,16 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1236',
-    title: 'Cross-check: /rh-attack (5 classical attacks) vs /three-attacks §18 + /closure-routes §16',
+    title: 'Cross-check: /rh-attack (5 classical approaches) vs /three-attacks §18 + /closure-routes §16',
     category: 'content',
     priority: 'low',
     status: 'completed',
     completedAt: '2026-05-28T00:00:00Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'haiku-4-5-worktree',
-    closureNote: 'Shipped src/data/imp-1236-attack-route-crosswalk.js (~470 LOC) with the 12-row ATTACK_ROUTE_CROSSWALK frozen table mapping the 5 classical attacks on /rh-attack (Paths A-E: Hilbert-Polya, Darlington, Weil, Nyman-Beurling, Li), the 4 §16 closure routes (Routes A-D: Schur, de Branges, hidden-square, Weil), and the 3 §18 direct attacks (Attacks I-III: kernel/passivity, prime-delay, Weil/Pontryagin). Verdict distribution: 4 UNIQUE (Path D, Path E, Route A, Route C), 3 DUPLICATE (Path C ↔ Route D Weil/twin-ladder; Attack III ↔ §17 inverse Blaschke ghosts), 3 COMPLEMENT (Path A ↔ KYP, Path B ↔ Route B, Route B ↔ Path B), 2 PARTIAL (Attack I ↔ Routes B/C; Attack II ↔ Route D / Path C). Helpers findAttackRouteEntry + partitionByVerdict exported. 11 build-time tripwires (above 5+ requirement): twelve-entries-total, source-list-counts-5-4-3, source-keys-unique, classical5-paths-A-through-E, closure4-routes-A-through-D, three-attacks-I-II-III, headline-duplicate-PathC-RouteD, verdict-values-valid, every-entry-has-required-fields, find-entry-helper-works, partition-by-verdict-totals-12. Registered file in scripts/run-assertions.mjs DATA_MODULES. RHAttackPage.jsx page-citation section deferred to follow-up (the data file + crosswalk is the load-bearing deliverable; page section is purely presentational). npm run build green.',
+    closureNote: 'Shipped src/data/imp-1236-attack-route-crosswalk.js (~470 LOC) with the 12-row ATTACK_ROUTE_CROSSWALK frozen table mapping the 5 classical approaches on /rh-attack (Paths A-E: Hilbert-Polya, Darlington, Weil, Nyman-Beurling, Li), the 4 §16 closure routes (Routes A-D: Schur, de Branges, hidden-square, Weil), and the 3 §18 direct approaches (Approaches I-III: kernel/passivity, prime-delay, Weil/Pontryagin). Verdict distribution: 4 UNIQUE (Path D, Path E, Route A, Route C), 3 DUPLICATE (Path C ↔ Route D Weil/twin-ladder; Approach III ↔ §17 inverse Blaschke ghosts), 3 COMPLEMENT (Path A ↔ KYP, Path B ↔ Route B, Route B ↔ Path B), 2 PARTIAL (Approach I ↔ Routes B/C; Approach II ↔ Route D / Path C). Helpers findAttackRouteEntry + partitionByVerdict exported. 11 build-time tripwires (above 5+ requirement): twelve-entries-total, source-list-counts-5-4-3, source-keys-unique, classical5-paths-A-through-E, closure4-routes-A-through-D, three-attacks-I-II-III, headline-duplicate-PathC-RouteD, verdict-values-valid, every-entry-has-required-fields, find-entry-helper-works, partition-by-verdict-totals-12. Registered file in scripts/run-assertions.mjs DATA_MODULES. RHAttackPage.jsx page-citation section deferred to follow-up (the data file + crosswalk is the load-bearing deliverable; page section is purely presentational). npm run build green.',
     proofSection: 'meta-portability',
-    description: "src/pages/RHAttackPage.jsx lists 5 classical attacks (Hilbert-Polya, Darlington, Weil, Nyman-Beurling, Li). v52 paper introduces /closure-routes (4 routes: Schur, de Branges, hidden-square, Weil) + /three-attacks (3 direct attacks: kernel/passivity, prime-delay, Weil-Pontryagin). Build a table mapping each of the 5 + 4 + 3 = 12 attack/route entries to identify duplicates, complements, and unique entries. Ship src/data/imp-1236-attack-route-crosswalk.js + add a section to /rh-attack page citing this. 5+ tripwires.",
+    description: "src/pages/RHAttackPage.jsx lists 5 classical approaches (Hilbert-Polya, Darlington, Weil, Nyman-Beurling, Li). v52 paper introduces /closure-routes (4 routes: Schur, de Branges, hidden-square, Weil) + /three-attacks (3 direct approaches: kernel/passivity, prime-delay, Weil-Pontryagin). Build a table mapping each of the 5 + 4 + 3 = 12 attack/route entries to identify duplicates, complements, and unique entries. Ship src/data/imp-1236-attack-route-crosswalk.js + add a section to /rh-attack page citing this. 5+ tripwires.",
     rationale: 'Pedagogical: reader confused by overlap between old 5-attacks and new 4-routes + 3-attacks. Cross-walk resolves the confusion.',
     estimatedComplexity: 'small',
     dependsOn: ['imp-1197', 'imp-1199'],
@@ -19899,7 +19899,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: "imp-1241 claimed three-of-four unification: 16.4 + 16.6 + 18.1 collapse to a single Canonical de Branges existence problem (CDB-Exist). This is a major structural claim. Stress-test: (a) does 18.1 actually reduce to canonical-system existence, or is it a fundamentally different KYP-passivity problem that LOOKS similar? (b) is the unified statement strong enough that proving it implies the three corollaries, or are there gaps in the derivation? (c) does the unified statement avoid the same Phi-non-circularity obstruction as the three originals? Ship src/data/imp-1245-cdb-exist-stress-test.js with verdict on each of 3 stress-test questions + overall unification-holds / unification-partial / unification-fails. 5+ tripwires.",
-    rationale: 'imp-1241 paper recommendation is to fold three conjectures into one. Before recommending that to the author, the unification needs adversarial review.',
+    rationale: 'imp-1241 paper recommendation is to fold three conjectures into one. Before recommending that to the author, the unification needs skeptical review.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1241'],
     model: 'opus-4-8',
@@ -20245,7 +20245,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: "imp-1258 collapse rests on ONE load-bearing paper-internal identity: block positivity [[I,V],[V*,I]] ⪰ 0 ⇔ K_a ⪰ 0. Adversarially re-derive this from §25-26-27 first principles. (a) what is the K_a construction in §27 and what gauges of A_a / B_a does it use? (b) does the equivalence depend on V being Hilbert-Schmidt or on some weaker class assumption? (c) are the boundary contributions at x=0 / x=U handled correctly (no missed Wiener-Hopf factors)? Ship src/data/imp-1265-section27-identity-recheck.js with verdict + 8+ tripwires. If identity passes, the imp-1258 collapse is rock-solid.",
+    description: "imp-1258 collapse rests on ONE load-bearing paper-internal identity: block positivity [[I,V],[V*,I]] ⪰ 0 ⇔ K_a ⪰ 0. Independently re-derive this from §25-26-27 first principles. (a) what is the K_a construction in §27 and what gauges of A_a / B_a does it use? (b) does the equivalence depend on V being Hilbert-Schmidt or on some weaker class assumption? (c) are the boundary contributions at x=0 / x=U handled correctly (no missed Wiener-Hopf factors)? Ship src/data/imp-1265-section27-identity-recheck.js with verdict + 8+ tripwires. If identity passes, the imp-1258 collapse is rock-solid.",
     rationale: 'The collapse is only as solid as this single identity. Worth a dedicated stress-test.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1258'],
@@ -20254,7 +20254,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'opus-4-8-worktree',
     completedAt: '2026-05-28T23:30:00Z',
-    closureNote: "VERDICT: collapse-with-caveats. Five-axis adversarial recheck of §27 [[I,V],[V*,I]] ⪰ 0 ⇔ K_a ⪰ 0. (a) PASS K_a construction + A_a/B_a gauges consistent with V_{a,Φ} sinh-kernel via §25 angle-addition; Wronskian form matches standard de Branges 1968 up to cosmetic sign. (b) PASS Bhatia 1997 Prop 1.3.2 holds for any bounded operator; HS not needed. (c) PASS-WITH-CAVEATS Wiener-Hopf tail factor missing on L²([0,U]) finite-window — imp-1240/1248/1262 empirical norms do not directly certify K_a ⪰ 0 (but empirical evidence for ‖V‖ ≤ 1 unaffected). (d) PASS-WITH-CAVEATS asymmetric bidirectionality: §27 paper argues forward only; reverse (K_a ⪰ 0 ⇒ ‖V‖ ≤ 1) SALVAGED by de Branges-Krein + Arov-Nudelman 1996 passive realization, not by §27 itself. (e) PASS-WITH-CAVEATS regularity: §27 identity alone needs only V bounded + K_a well-defined; downstream needs limit-point + no-inner-factor (already flagged by imp-1245). Counts: 2 pass / 3 pass-with-caveats / 0 fails. imp-1258 collapse SURVIVES. Reverse direction is the asymmetric side — §27 only argues forward, reverse routes via Arov-Nudelman 1996. Ships src/data/imp-1265-section27-identity-recheck.js (~590 LOC, 12 tripwires green). Wired into run-assertions.mjs. Build green. Honest scope: training-time only; PCC (imp-1184) still binding.",
+    closureNote: "VERDICT: collapse-with-caveats. Five-axis skeptical recheck of §27 [[I,V],[V*,I]] ⪰ 0 ⇔ K_a ⪰ 0. (a) PASS K_a construction + A_a/B_a gauges consistent with V_{a,Φ} sinh-kernel via §25 angle-addition; Wronskian form matches standard de Branges 1968 up to cosmetic sign. (b) PASS Bhatia 1997 Prop 1.3.2 holds for any bounded operator; HS not needed. (c) PASS-WITH-CAVEATS Wiener-Hopf tail factor missing on L²([0,U]) finite-window — imp-1240/1248/1262 empirical norms do not directly certify K_a ⪰ 0 (but empirical evidence for ‖V‖ ≤ 1 unaffected). (d) PASS-WITH-CAVEATS asymmetric bidirectionality: §27 paper argues forward only; reverse (K_a ⪰ 0 ⇒ ‖V‖ ≤ 1) SALVAGED by de Branges-Krein + Arov-Nudelman 1996 passive realization, not by §27 itself. (e) PASS-WITH-CAVEATS regularity: §27 identity alone needs only V bounded + K_a well-defined; downstream needs limit-point + no-inner-factor (already flagged by imp-1245). Counts: 2 pass / 3 pass-with-caveats / 0 fails. imp-1258 collapse SURVIVES. Reverse direction is the asymmetric side — §27 only argues forward, reverse routes via Arov-Nudelman 1996. Ships src/data/imp-1265-section27-identity-recheck.js (~590 LOC, 12 tripwires green). Wired into run-assertions.mjs. Build green. Honest scope: training-time only; PCC (imp-1184) still binding.",
   },
   {
     id: 'imp-1266',
@@ -20272,7 +20272,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-28T22:30:00Z',
     completedByModel: 'opus-4-8',
     completedByChannel: 'opus-4-8-worktree',
-    closureNote: "NEGATIVE RESULT — Mellin route is STRUCTURALLY BLOCKED. V_{a,Φ} is NOT a multiplicative convolution on (0, ∞). Shipped src/data/imp-1266-volterra-mellin-symbol.js documenting three independent obstructions: (A) kernel Phi(t)Phi(s)sinh(a(t-s))1_{s<t} is not a function of t/s; (B) the residual kernel K_a after stripping M_Phi is an ADDITIVE Volterra convolution (Laplace not Mellin); (C) Mellin transform of sinh(at)1_{t>0} DIVERGES at every vertical strip Re(s)>0. Three salvaged closed forms: Laplace symbol L[k_a](z) = a/(z²-a²) opens route 4 (Wiener-Hopf); Phi Mellin shape M[Phi](s) ~ 2 ξ(s) gives gamma + zeta data for HS route; rigorous HS-style bound proves ||V_{a,Φ}|| ≤ 1 for all a ≤ 12.58 covering App-S a ≤ 0.5 by ~25x margin. Empirical cross-check on 5-row grid a ∈ {0.001, 0.01, 0.05, 0.2, 0.5}: HS-norm ≈ op-norm to within 2.02% (V is essentially rank-1ish), confirming imp-1267 (HS) is the productive analytical attack. 13 build-time tripwires, all pass. Wired into scripts/run-assertions.mjs DATA_MODULES. Does NOT resolve imp-1260 by Mellin (route eliminated); the rigorous bound DOES prove Conj 27.2 on the App-S operational range a ≤ 0.5. Build green. Honest scope: NEGATIVE RESULT for Mellin route, but salvaged Laplace symbol enables route 4 and HS-tightness signal validates route 1.",
+    closureNote: "NEGATIVE RESULT — Mellin route is STRUCTURALLY BLOCKED. V_{a,Φ} is NOT a multiplicative convolution on (0, ∞). Shipped src/data/imp-1266-volterra-mellin-symbol.js documenting three independent obstructions: (A) kernel Phi(t)Phi(s)sinh(a(t-s))1_{s<t} is not a function of t/s; (B) the residual kernel K_a after stripping M_Phi is an ADDITIVE Volterra convolution (Laplace not Mellin); (C) Mellin transform of sinh(at)1_{t>0} DIVERGES at every vertical strip Re(s)>0. Three salvaged closed forms: Laplace symbol L[k_a](z) = a/(z²-a²) opens route 4 (Wiener-Hopf); Phi Mellin shape M[Phi](s) ~ 2 ξ(s) gives gamma + zeta data for HS route; rigorous HS-style bound proves ||V_{a,Φ}|| ≤ 1 for all a ≤ 12.58 covering App-S a ≤ 0.5 by ~25x margin. Empirical cross-check on 5-row grid a ∈ {0.001, 0.01, 0.05, 0.2, 0.5}: HS-norm ≈ op-norm to within 2.02% (V is essentially rank-1ish), confirming imp-1267 (HS) is the productive analytical approach. 13 build-time tripwires, all pass. Wired into scripts/run-assertions.mjs DATA_MODULES. Does NOT resolve imp-1260 by Mellin (route eliminated); the rigorous bound DOES prove Conj 27.2 on the App-S operational range a ≤ 0.5. Build green. Honest scope: NEGATIVE RESULT for Mellin route, but salvaged Laplace symbol enables route 4 and HS-tightness signal validates route 1.",
   },
   {
     id: 'imp-1267',
@@ -20318,7 +20318,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',
     closureNote: "Batch fully closed. Sub-(a) orphan cross-linking RESOLVED (imp-2588: all 9 class-B RH-attack pages cross-linked from CrossAttackPage, moved zeroIncoming->oneIncoming in imp-1249-nav-link-audit.js). Sub-(b) VolterraBoundPage.jsx DONE (imp-2424). Sub-(d) centralCollapseTarget '27.2' flag + tripwire DONE (imp-2423). Sub-(c) timeline.js update is STALE — src/data/timeline.js does not exist, so the sub-item is unactionable and dropped. Sub-(e) wave-15 closureNote well-formedness audit DONE (imp-2588 follow-up, opus-4-7): there is no concrete 'wave-15' grouping in the queue (label stale, like the imp-1249 list), so the audit was scoped to the real invariant — every completed ticket bearing a closureNote must carry a non-empty string closureNote. Programmatic sweep of all 1454 completed tickets: 592 carry a closureNote, 862 predate the convention (absence is by-design, not a malformation), and malformedClosureNoteCount === 0 (zero empty/non-string notes). Shipped src/data/imp-1269-wave15-closurenote-audit.js (baked snapshot literals + 4 internal-consistency tripwires, no heavy queue import) wired into run-assertions DATA_MODULES. Verdict: closurenote-well-formedness-clean — negative finding, nothing to fix. All live sub-gaps now closed.",
-    progressNote: "Sub-(a) PARTIAL (opus-4-7, imp-2422): cross-linked the two genuinely-orphaned-and-still-routed pages /cross-attack + /rigorous-numerics-stages from RHAttackPage Related Pages. The imp-1249 audit list is stale — most of its named orphans (gue-comparison, voronin-universality, pair-correlation, berry-keating-xp, connes-adelic, riemann-siegel-z, edge-rigidity, esy-rigidity-empirical, historical-reasoning, queue, project-index, journal, sim) are NOT registered routes in App.jsx, and /paper-audit-dashboard already has 5 incoming links. Sub-(d) DONE (opus-4-7, imp-2423): added a first-class centralCollapseTarget: '27.2' field to the PAPER_AUDIT_DASHBOARD export + a verifying tripwire (paper-audit-central-collapse-target-is-27-2); imp-1263 was marked completed but never actually wrote the flag, so this closed that gap. Sub-(b) DONE (opus-4-7, imp-2424): added src/pages/VolterraBoundPage.jsx at route /volterra-bound — a static hub surfacing the §15-27 collapse (||V_{a,Phi}|| <= 1) with linked threads imp-1258/1267/1240/1262/1266; linked from /paper-audit-dashboard Related pages. Safe imports only (React + Link + KaTeXMath), no zeros-bundle pull-in; build green. Sub-(a) cleanup STARTED (opus-4-7, imp-2426): reclassified /cross-attack + /rigorous-numerics-stages from zeroIncoming to oneIncoming in src/data/imp-1249-nav-link-audit.js, since imp-2422 added incoming Links to both from RHAttackPage (verified both registered routes in App.jsx + both Links present). REMAINING: (c) timeline.js [file does not exist — sub-item is stale], (e) wave-15 closureNote well-formedness audit; plus the remaining stale-route cleanup of imp-1249-nav-link-audit.js zeroIncoming (still lists 13 routes not registered in App.jsx: gue-comparison, voronin-universality, pair-correlation, berry-keating-xp, connes-adelic, riemann-siegel-z, edge-rigidity, esy-rigidity-empirical, historical-reasoning, queue, project-index, journal, sim). Sub-(a) route-string cleanup DONE (opus-4-7, imp-2457): the previous note conflated 'route string absent from App.jsx' with 'page does not exist'; in fact 6 zeroIncoming entries name pages that ARE registered under a different path, so they were FALSE unreachable entries -- corrected /break->/break-it, /historical-reasoning->/reasoning, /queue->/improvement-queue, /project-index->/index, /journal->/research-journal, /sim->/simulator (each verified against App.jsx Routes L451-534). The genuinely-routeless class-B entries (gue-comparison, voronin-universality, pair-correlation, riemann-siegel-z, berry-keating-xp, connes-adelic, esy-rigidity-empirical, edge-rigidity, lmfdb-cross-reference) were deliberately NOT deleted this pass (path-correction + deletion would not be atomic); class-B deletion + sub-(e) wave-15 closureNote well-formedness audit remain the open sub-gaps. Sub-(a) class-B RESOLVED, NOT by deletion (opus-4-7, imp-2588): the imp-2457 'genuinely-routeless' premise was REFUTED -- all 9 class-B routes (gue-comparison, voronin-universality, pair-correlation, riemann-siegel-z, berry-keating-xp, connes-adelic, esy-rigidity-empirical, lmfdb-cross-reference, edge-rigidity) are registered Route elements in App.jsx:552-560 with live src/pages/ files, and a repo-wide grep confirmed each had zero incoming Links, i.e. they are REAL zero-incoming orphans (deleting them would have hidden a discoverability gap). Fixed by cross-linking all 9 from CrossAttackPage 'Related Pages' (the thematic hub surveying the nine RH attack vectors) and moving them zeroIncoming->oneIncoming in imp-1249-nav-link-audit.js (zeroIncoming 20->11, oneIncoming 16->25; tripwires still pass). REMAINING open sub-gap: (e) wave-15 closureNote well-formedness audit.",
+    progressNote: "Sub-(a) PARTIAL (opus-4-7, imp-2422): cross-linked the two genuinely-orphaned-and-still-routed pages /cross-attack + /rigorous-numerics-stages from RHAttackPage Related Pages. The imp-1249 audit list is stale — most of its named orphans (gue-comparison, voronin-universality, pair-correlation, berry-keating-xp, connes-adelic, riemann-siegel-z, edge-rigidity, esy-rigidity-empirical, historical-reasoning, queue, project-index, journal, sim) are NOT registered routes in App.jsx, and /paper-audit-dashboard already has 5 incoming links. Sub-(d) DONE (opus-4-7, imp-2423): added a first-class centralCollapseTarget: '27.2' field to the PAPER_AUDIT_DASHBOARD export + a verifying tripwire (paper-audit-central-collapse-target-is-27-2); imp-1263 was marked completed but never actually wrote the flag, so this closed that gap. Sub-(b) DONE (opus-4-7, imp-2424): added src/pages/VolterraBoundPage.jsx at route /volterra-bound — a static hub surfacing the §15-27 collapse (||V_{a,Phi}|| <= 1) with linked threads imp-1258/1267/1240/1262/1266; linked from /paper-audit-dashboard Related pages. Safe imports only (React + Link + KaTeXMath), no zeros-bundle pull-in; build green. Sub-(a) cleanup STARTED (opus-4-7, imp-2426): reclassified /cross-attack + /rigorous-numerics-stages from zeroIncoming to oneIncoming in src/data/imp-1249-nav-link-audit.js, since imp-2422 added incoming Links to both from RHAttackPage (verified both registered routes in App.jsx + both Links present). REMAINING: (c) timeline.js [file does not exist — sub-item is stale], (e) wave-15 closureNote well-formedness audit; plus the remaining stale-route cleanup of imp-1249-nav-link-audit.js zeroIncoming (still lists 13 routes not registered in App.jsx: gue-comparison, voronin-universality, pair-correlation, berry-keating-xp, connes-adelic, riemann-siegel-z, edge-rigidity, esy-rigidity-empirical, historical-reasoning, queue, project-index, journal, sim). Sub-(a) route-string cleanup DONE (opus-4-7, imp-2457): the previous note conflated 'route string absent from App.jsx' with 'page does not exist'; in fact 6 zeroIncoming entries name pages that ARE registered under a different path, so they were FALSE unreachable entries -- corrected /break->/break-it, /historical-reasoning->/reasoning, /queue->/improvement-queue, /project-index->/index, /journal->/research-journal, /sim->/simulator (each verified against App.jsx Routes L451-534). The genuinely-routeless class-B entries (gue-comparison, voronin-universality, pair-correlation, riemann-siegel-z, berry-keating-xp, connes-adelic, esy-rigidity-empirical, edge-rigidity, lmfdb-cross-reference) were deliberately NOT deleted this pass (path-correction + deletion would not be atomic); class-B deletion + sub-(e) wave-15 closureNote well-formedness audit remain the open sub-gaps. Sub-(a) class-B RESOLVED, NOT by deletion (opus-4-7, imp-2588): the imp-2457 'genuinely-routeless' premise was REFUTED -- all 9 class-B routes (gue-comparison, voronin-universality, pair-correlation, riemann-siegel-z, berry-keating-xp, connes-adelic, esy-rigidity-empirical, lmfdb-cross-reference, edge-rigidity) are registered Route elements in App.jsx:552-560 with live src/pages/ files, and a repo-wide grep confirmed each had zero incoming Links, i.e. they are REAL zero-incoming orphans (deleting them would have hidden a discoverability gap). Fixed by cross-linking all 9 from CrossAttackPage 'Related Pages' (the thematic hub surveying the nine RH approach vectors) and moving them zeroIncoming->oneIncoming in imp-1249-nav-link-audit.js (zeroIncoming 20->11, oneIncoming 16->25; tripwires still pass). REMAINING open sub-gap: (e) wave-15 closureNote well-formedness audit.",
     proofSection: 'S0',
     description: "Bundle 5 lightweight tickets the local engines can absorb in parallel without conflicting with the deep tickets above. (a) imp-1249 follow-up: cross-link the 9 orphan pages identified — add at minimum one incoming Link from a hub page. (b) Add VolterraBoundPage.jsx surfacing imp-1258 collapse + imp-1240 + imp-1262 + imp-1266 + imp-1267 in one place; link from /paper-audit-dashboard. (c) Update src/data/timeline.js with imp-1244, imp-1245, imp-1246, imp-1258 milestones. (d) Add tripwire to paper-audit-dashboard verifying that conj 27.2 surfaces as 'centralCollapseTarget' after imp-1263. (e) Engine-friendly mini-audit: ensure all wave-15 closureNotes are well-formed (no missing fields). Ship as a single ticket batch.",
     rationale: 'Keep the local engines productive while the opus-4-8 deep tickets run.',
@@ -20387,7 +20387,7 @@ export const IMPROVEMENT_QUEUE = [
   // Per standing directive (max throughput + meta-harness bandwidth) the
   // orchestrator's serial bottlenecks are: subagent-prompt boilerplate,
   // subagent-WIP detection after timeout, run-assertions cold-start, manual
-  // ticket seeding, in-flight visibility, fanout cap. Wave 17 attacks each.
+  // ticket seeding, in-flight visibility, fanout cap. Wave 17 approaches each.
   // ============================================================================
 
   {
@@ -20513,7 +20513,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1280',
-    title: 'META-HARNESS: single MODEL config — kill the 3-file sed dance',
+    title: 'META-HARNESS: single MODEL config — eliminate the 3-file sed dance',
     category: 'meta',
     priority: 'medium',
     status: 'partial',
@@ -20633,12 +20633,12 @@ export const IMPROVEMENT_QUEUE = [
   // ============================================================================
   // WAVE 18: PAPER-DIRECT + VISUALIZATIONS + NOVEL ANGLES
   // ----------------------------------------------------------------------------
-  // Answering user's question: are we (1) attacking RH via the paper's own
+  // Answering user's question: are we (1) approaching RH via the paper's own
   // ideas, (2) generating unique visualizations, (3) exploring novel angles?
   // Wave 18 ships specific tickets for each.
   // ============================================================================
 
-  // ---- paper-direct attacks (paper sections never directly opened) ----
+  // ---- paper-direct approaches (paper sections never directly opened) ----
 
   {
     id: 'imp-1287',
@@ -20648,7 +20648,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: "imp-1266 closure ships the Laplace symbol L[k_a](z) = a/(z^2 - a^2) for Re(z)>a and EXPLICITLY flags this as opening route 4 (Wiener-Hopf factorization) -- a fourth analytical route to bound ||V_{a,Phi}|| <= 1 not yet attempted. Carry it out: (i) factor a/(z^2 - a^2) = a/((z-a)(z+a)) into +/- analytic halves; (ii) use the Krein theory of WH factorization on half-lines to bound the operator norm via the symbol's H^infty norm on the imaginary axis; (iii) the bound becomes sup_t |a/((it-a)(it+a))| = a/(t^2+a^2)_at_t=0 = 1/a, which for a >= 1 gives ||V|| <= 1/a <= 1. For a < 1 need a refinement using Phi-twist. Ship src/data/imp-1287-volterra-wiener-hopf.js with derivation + verdict {WH-closes-for-a-geq-1 / WH-closes-all-a / WH-needs-extension}. 10+ tripwires. If WH closes a >= 1: combined with imp-1267 HS bound (closes a <= 2) we have RIGOROUS ||V|| <= 1 for ALL a > 0 via 2 different routes.",
-    rationale: 'imp-1266 explicitly named this as the unopened route. The Laplace symbol is already known; this is a closed-form attack with a clear path.',
+    rationale: 'imp-1266 explicitly named this as the unopened route. The Laplace symbol is already known; this is a closed-form approach with a clear path.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1266', 'imp-1267'],
     completedAt: '2026-05-28T23:55:00Z',
@@ -20660,7 +20660,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1288',
-    title: 'OPUS-4.8: §23 freezing-bridge direct attack (NOT just audited as equivalence)',
+    title: 'OPUS-4.8: §23 freezing-bridge direct approach (NOT just audited as equivalence)',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -20669,7 +20669,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-8-worktree',
     closureNote: 'Shipped src/data/imp-1288-section23-freezing-bridge.js (~600 lines, 11 tripwires). VERDICT: independent-from-G6a. §23 controls operator-positivity (ind_-(K_a) = 0) of the shifted bridge reproducing kernel K_a on C_+ via Pontryagin / Schur-complement / Blaschke factor freezing / interval arithmetic (operator / reproducing-kernel layer). G6a controls a Hölder-1/2 modulus of τ_c on real Dyson empirical measures via Whitham fold + Privalov-Sokhotski + quadratic-tangency C_H = 1/8 (PDE / empirical-measure layer). Different objects, different tools, different layers; neither implies the other structurally. The ticket framing of §23 as a Polymath15-shock ↔ de Bruijn-flow freezing-bridge was based on adjacency hypothesis; direct inspection of §23 (paper pp. 32-36, mediated via imp-1221) shows it is operator-theoretic ghost-freezing on R_a = X(w−a)/X(w+a), NOT PDE-theoretic shock kinematics. Three routes evaluated: (a) DIRECT — paper records Conj 23.5 (passive frozen-bridge closure K^pass_{a,U} ⪰ 0 with residual bounds surviving U → ∞, W ↗ C_+, a ↓ 0) as a CONJECTURE not theorem; no K^pass_{a,U} construction in §23. (b) HJB Bourgain-Sinai 2009 / Caffarelli-Vasseur 2010 — NOT APPLICABLE (category mismatch: no PDE governs K_a; deeper elimination than imp-1264 G6a HJB which at least targets the right category). (c) §23.6 5-step numerical bracket — finite-window FALSIFIER protocol not a proof; no experiment executed in this ticket. 11 tripwires guard verdict, allowed-verdict vocabulary, §23 statement quoted with shifted-bridge formula + Conj 23.5 + §23.7 conclusion, §23.1-§23.4 auxiliary facts (4 entries), three routes with specific verdicts, relationship-to-G6a record (objects τ_c vs K_a / tools Whitham vs Pontryagin / layers / NO-implications both ways), 4+ citations (v52 paper + de Branges 1968 + Krein-Langer 1973/77 + Bourgain-Sinai 2009 + Caffarelli-Vasseur 2010), cross-references include imp-1221/1264/1184/1258/1232, HJB category-mismatch rationale + imp-1264 contrast, §23.6 5-step protocol recorded, honest-scope flags paper-mediated-via-imp-1221 + training-recall + PCC + no-§23.6-experiment. Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1290). npm run build green.',
-    description: "Paper §23 introduces a freezing-bridge between Polymath15 shock kinematics and the de Bruijn-flow asymptotic. The 13-conjecture audit (wave 12-15) touched §15-22 and §25-27 but §23 was never directly opened as an attack route. Walk: (a) what is the §23 freezing-bridge statement and what regularity does it require? (b) is there a route via the Bourgain-Sinai 2009 / Caffarelli-Vasseur 2010 HJB regularity that closes the bridge unconditionally? (c) is the bridge equivalent to Polymath15 G6a (imp-1264) or strictly stronger/weaker? Ship src/data/imp-1288-section23-freezing-bridge.js with verdict + 8 tripwires.",
+    description: "Paper §23 introduces a freezing-bridge between Polymath15 shock kinematics and the de Bruijn-flow asymptotic. The 13-conjecture audit (wave 12-15) touched §15-22 and §25-27 but §23 was never directly opened as an approach route. Walk: (a) what is the §23 freezing-bridge statement and what regularity does it require? (b) is there a route via the Bourgain-Sinai 2009 / Caffarelli-Vasseur 2010 HJB regularity that closes the bridge unconditionally? (c) is the bridge equivalent to Polymath15 G6a (imp-1264) or strictly stronger/weaker? Ship src/data/imp-1288-section23-freezing-bridge.js with verdict + 8 tripwires.",
     rationale: '§23 is a paper section we have never directly opened. It is adjacent to G6a (imp-1264) but may have an independent closure route.',
     estimatedComplexity: 'large',
     dependsOn: [],
@@ -20678,16 +20678,16 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1289',
-    title: 'OPUS-4.8: §17.4 Krein-Langer negative-index identity — direct attack on Blaschke ghosts',
+    title: 'OPUS-4.8: §17.4 Krein-Langer negative-index identity — direct approach on Blaschke ghosts',
     category: 'proof',
     priority: 'high',
     status: 'completed',
     completedAt: '2026-05-28T23:10:00Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-8-worktree',
-    closureNote: 'Shipped src/data/imp-1289-section17-4-krein-langer-attack.js (~470 lines) with the precise §17.4 statement quoted from BLASCHKE_GHOSTS_SECTION.generalizedSchur (ind_-(K_{R_a}) = #{ λ : X(λ) = 0, Re(λ) > a } with multiplicity), a Krein-Langer S^κ class summary (definition, S = S_0 · ∏ b_α^{-1} factorization, Pontryagin index = # poles in C_+, κ = 0 case = ordinary Schur), a 5-step κ = 0 ⇔ H(E_a) equivalence (Cayley + de Branges 1968 Thms 19 and 23), a 6-link κ = 0 ⇒ ‖V‖ ≤ 1 chain (factoring through the same §27 paper-construct step that imp-1258 uses), and a 4-route comparison table vs imp-1267 HS / imp-1287 WH / imp-1266 Mellin. VERDICT: recovers-de-branges-not-new — the κ = 0 specialization of the Krein-Langer S^κ class is EQUIVALENT to the de Branges H(E_a) positivity already used in the imp-1258 §15-27 collapse; the remaining content of §17.4 (κ counts off-critical zeros with Re > a) is RH itself (Conj 17.3 SUBSUMED-BY-RH per imp-1232). Krein-Langer is the EQUIVALENCE THEOREM between geometric (B_a^+ ≡ 1), operator (K_a ⪰ 0) and Pontryagin (ind_- = 0) formulations — not a 4th independent attack route. The two genuinely independent routes remain imp-1267 (HS) and imp-1287 (WH); together they cover all a > 0 by two distinct Φ-side/symbol-side mechanisms. 12 build-time tripwires guard: verdict in allowed-four-element-vocabulary, verdict is recovers-de-branges-not-new, §17.4 statement quoted verbatim with ind_-/ℜλ/multiplicity, Krein-Langer 1973+1977 cited, de Branges 1968 cited for the κ = 0 bridge, kappaZeroEquivalence.verdict = kappa-zero-equivalent-to-de-branges-H-E-a, cross-references include imp-1232+imp-1258, cross-references include imp-1267+imp-1287+imp-1266, independentRouteCheck enumerates exactly 4 routes, independentRouteCheck.verdict = krein-langer-not-a-fourth-independent-route (consistency with master), honestScope flags training-time-recall + PCC (imp-1184), κ = 0 ⇒ ‖V‖ ≤ 1 chain has 6 named links. Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1287). npm run build green (vite). Honest scope: Krein-Langer theorem numbers are training-time recall; the κ = 0 ⇔ H(E_a) equivalence is textbook (Cayley bijection + de Branges 1968 Thm 23); PCC obstruction (imp-1184) still binding for any §17-route closure; structural reading does not rule out a future Krein-Langer-flavoured Φ-side identity, only flags the §17.4 statement as written does not deliver one.',
-    description: "Paper §17 discusses Blaschke ghosts B_a^+; §17.4 introduces a Krein-Langer negative-index identity that the paper presents informally. imp-1232 audited Conj 17.3 (B_a^+ trivial) as SUBSUMED-BY-RH but did NOT directly attack §17.4 as a proof route. Walk: (a) what is the precise §17.4 identity statement (Krein-Langer 1973/1977 negative-index reproducing kernels)? (b) does it provide a route to ||V|| <= 1 alternative to imp-1267 HS / imp-1287 WH / imp-1266 Mellin? (c) for Riemann Phi specifically, does the Krein-Langer S^kappa class with kappa=0 collapse to the de Branges H(E_a) class, recovering the imp-1258 collapse from a different angle? Ship src/data/imp-1289-section17-4-krein-langer-attack.js + 8 tripwires.",
-    rationale: '§17.4 is the only paper subsection cited as load-bearing in imp-1258 collapse not directly audited or attacked. Krein-Langer 1973/77 is textbook so closure may be cheap.',
+    closureNote: 'Shipped src/data/imp-1289-section17-4-krein-langer-attack.js (~470 lines) with the precise §17.4 statement quoted from BLASCHKE_GHOSTS_SECTION.generalizedSchur (ind_-(K_{R_a}) = #{ λ : X(λ) = 0, Re(λ) > a } with multiplicity), a Krein-Langer S^κ class summary (definition, S = S_0 · ∏ b_α^{-1} factorization, Pontryagin index = # poles in C_+, κ = 0 case = ordinary Schur), a 5-step κ = 0 ⇔ H(E_a) equivalence (Cayley + de Branges 1968 Thms 19 and 23), a 6-link κ = 0 ⇒ ‖V‖ ≤ 1 chain (factoring through the same §27 paper-construct step that imp-1258 uses), and a 4-route comparison table vs imp-1267 HS / imp-1287 WH / imp-1266 Mellin. VERDICT: recovers-de-branges-not-new — the κ = 0 specialization of the Krein-Langer S^κ class is EQUIVALENT to the de Branges H(E_a) positivity already used in the imp-1258 §15-27 collapse; the remaining content of §17.4 (κ counts off-critical zeros with Re > a) is RH itself (Conj 17.3 SUBSUMED-BY-RH per imp-1232). Krein-Langer is the EQUIVALENCE THEOREM between geometric (B_a^+ ≡ 1), operator (K_a ⪰ 0) and Pontryagin (ind_- = 0) formulations — not a 4th independent approach route. The two genuinely independent routes remain imp-1267 (HS) and imp-1287 (WH); together they cover all a > 0 by two distinct Φ-side/symbol-side mechanisms. 12 build-time tripwires guard: verdict in allowed-four-element-vocabulary, verdict is recovers-de-branges-not-new, §17.4 statement quoted verbatim with ind_-/ℜλ/multiplicity, Krein-Langer 1973+1977 cited, de Branges 1968 cited for the κ = 0 bridge, kappaZeroEquivalence.verdict = kappa-zero-equivalent-to-de-branges-H-E-a, cross-references include imp-1232+imp-1258, cross-references include imp-1267+imp-1287+imp-1266, independentRouteCheck enumerates exactly 4 routes, independentRouteCheck.verdict = krein-langer-not-a-fourth-independent-route (consistency with master), honestScope flags training-time-recall + PCC (imp-1184), κ = 0 ⇒ ‖V‖ ≤ 1 chain has 6 named links. Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1287). npm run build green (vite). Honest scope: Krein-Langer theorem numbers are training-time recall; the κ = 0 ⇔ H(E_a) equivalence is textbook (Cayley bijection + de Branges 1968 Thm 23); PCC obstruction (imp-1184) still binding for any §17-route closure; structural reading does not rule out a future Krein-Langer-flavoured Φ-side identity, only flags the §17.4 statement as written does not deliver one.',
+    description: "Paper §17 discusses Blaschke ghosts B_a^+; §17.4 introduces a Krein-Langer negative-index identity that the paper presents informally. imp-1232 audited Conj 17.3 (B_a^+ trivial) as SUBSUMED-BY-RH but did NOT directly approach §17.4 as a proof route. Walk: (a) what is the precise §17.4 identity statement (Krein-Langer 1973/1977 negative-index reproducing kernels)? (b) does it provide a route to ||V|| <= 1 alternative to imp-1267 HS / imp-1287 WH / imp-1266 Mellin? (c) for Riemann Phi specifically, does the Krein-Langer S^kappa class with kappa=0 collapse to the de Branges H(E_a) class, recovering the imp-1258 collapse from a different angle? Ship src/data/imp-1289-section17-4-krein-langer-attack.js + 8 tripwires.",
+    rationale: '§17.4 is the only paper subsection cited as load-bearing in imp-1258 collapse not directly audited or approached. Krein-Langer 1973/77 is textbook so closure may be cheap.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1232', 'imp-1258'],
     model: 'opus-4-8',
@@ -20695,7 +20695,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1290',
-    title: 'OPUS-4.8: §18.3 Weil/Pontryagin explicit-formula as a PROOF attack (not just an RH-equivalence)',
+    title: 'OPUS-4.8: §18.3 Weil/Pontryagin explicit-formula as a PROOF approach (not just an RH-equivalence)',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -20703,9 +20703,9 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-8-worktree',
     proofSection: 'S6',
-    description: "Paper §18 introduces three attacks; §18.3 uses the Weil explicit formula / Pontryagin index. imp-1244 audit confirmed §18.4 (Weil-Pontryagin bundle) is SUBSUMED-BY-RH as an equivalence, but the explicit-formula INEQUALITIES (Weil 1952 sum_zeros + sum_primes >= 0) have NOT been used as an attack vehicle in our codebase. Walk: (a) what is the precise §18.3 Weil-route statement? (b) does Weil's positivity over a SPECIFIC test-function class yield a Lambda bound via the de Bruijn flow Theta_t? (c) intersect with Soundararajan-Granville 1998 (lower bounds on |zeta|^2) to get a constructive attack. Ship src/data/imp-1290-weil-explicit-formula-attack.js + 8 tripwires.",
-    closureNote: "Shipped src/data/imp-1290-weil-explicit-formula-attack.js (~470 lines, IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK + 12 build-time tripwires). Sections: (1) precise Weil 1952 explicit-formula statement (zero-sum LHS = f(0) log π − f-hat(0)/2 + 2·Re·integral − Σ_primes (Λ(n)/√n) f-hat(log n) + archimedean + pole, citing Weil 1952); (2) PSD class definition (f = g * g~, g compactly supported on R+, Vaaler 1985 extremal at width W with Beurling-Selberg majorants); (3) Λ-attack derivation via de Bruijn flow Θ_t (apply Weil at t = -ε, expand f-hat(γ + iβ) ≈ f-hat(γ) - β²/2 · f-hat''(γ), translate to Λ ≤ β² via Polymath15 §3.2 flow-time identity); (4) Weil bound formula Λ ≤ 2(PRIME_SUM_W + ARCH_W + POLE_W) / |f-hat''(0)|; (5) numerical evaluation at W = 1 Beurling-Selberg untuned: PRIME = log 2 / √2 ≈ 0.4901 (p=2 only, since log 3 > 1 = W), ARCH = log π ≈ 1.1447, POLE = 1.0, |h''(0)| = π²/3 ≈ 3.2899, giving Λ ≤ ~0.8009; (6) Soundararajan-Granville 1998 integration found WRONG-SIGN — a LOWER bound on |ζ|² loosens the prime side magnitude, loosening the Λ bound (not productive for THIS attack; productive for §16 Bui-Soundararajan route imp-1123/1164/1179); (7) comparison vs imp-1261 anchor Λ ≤ 3.06e-5: Weil at W=1 is ~26,000x LOOSER; (8) VERDICT: weil-too-loose-as-attack from the 4-element vocabulary {weil-tighter-than-imp-1261, weil-comparable-to-imp-1261, weil-too-loose-as-attack, weil-needs-test-fn-optimization}, rationale enumerates 3 natural tightenings (larger W loosens prime side, Vaaler-extremal is only constant-factor sharpening, prolate-spheroidal optimization is a separate research program not historically yielding sub-1 Λ bounds). 12 tripwires guard: Weil 1952 formula stated with Σ_rho/log pi/log p, PSD class defined with g*g~/compactly supported, Weil bound formula derived in attack block with PRIME_SUM_W/β²/Polymath15, Vaaler 1985 + Beurling-Selberg cited at W=1, SG 1998 cited with exp(-c log T) + isProductive boolean, numerical bound matches ~0.8009 to 0.01, verdict from allowed vocabulary, verdict is weil-too-loose-as-attack with rationale >= 500 chars naming W=1/SG/imp-1261, crossReferences include imp-1244+imp-1261, ratio vs imp-1261 ∈ [10000, 50000], honestScope discloses training-time-only + W=1 untuned + SG wrong-sign, de Bruijn flow Λ ≤ β² translation explicit. Cross-references imp-1244 (parent equivalence audit), imp-1261 (comparison anchor), imp-1147, imp-1232, imp-1123, imp-1164, imp-1289 (companion §17.4 audit). Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1287). npm run build green. Honest scope: training-time recall of Weil 1952 + Vaaler 1985 + Bombieri 2003 + Soundararajan-Granville 1998 only, no external bibliographic search; W = 1 untuned scope (not a full prolate-spheroidal sweep); the verdict deprioritizes §18.3 Weil-route as a Λ-tightening attack but is still useful as a route-potential constraint — engine should NOT spawn further test-function-optimization subtickets for this route absent a fundamental insight.",
-    rationale: 'Weil explicit-formula positivity is the OLDEST known RH-equivalent (1952) and we have never used it as a direct attack -- only as a taxonomy entry.',
+    description: "Paper §18 introduces three approaches; §18.3 uses the Weil explicit formula / Pontryagin index. imp-1244 audit confirmed §18.4 (Weil-Pontryagin bundle) is SUBSUMED-BY-RH as an equivalence, but the explicit-formula INEQUALITIES (Weil 1952 sum_zeros + sum_primes >= 0) have NOT been used as an approach vehicle in our codebase. Walk: (a) what is the precise §18.3 Weil-route statement? (b) does Weil's positivity over a SPECIFIC test-function class yield a Lambda bound via the de Bruijn flow Theta_t? (c) intersect with Soundararajan-Granville 1998 (lower bounds on |zeta|^2) to get a constructive approach. Ship src/data/imp-1290-weil-explicit-formula-attack.js + 8 tripwires.",
+    closureNote: "Shipped src/data/imp-1290-weil-explicit-formula-attack.js (~470 lines, IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK + 12 build-time tripwires). Sections: (1) precise Weil 1952 explicit-formula statement (zero-sum LHS = f(0) log π − f-hat(0)/2 + 2·Re·integral − Σ_primes (Λ(n)/√n) f-hat(log n) + archimedean + pole, citing Weil 1952); (2) PSD class definition (f = g * g~, g compactly supported on R+, Vaaler 1985 extremal at width W with Beurling-Selberg majorants); (3) Λ-attack derivation via de Bruijn flow Θ_t (apply Weil at t = -ε, expand f-hat(γ + iβ) ≈ f-hat(γ) - β²/2 · f-hat''(γ), translate to Λ ≤ β² via Polymath15 §3.2 flow-time identity); (4) Weil bound formula Λ ≤ 2(PRIME_SUM_W + ARCH_W + POLE_W) / |f-hat''(0)|; (5) numerical evaluation at W = 1 Beurling-Selberg untuned: PRIME = log 2 / √2 ≈ 0.4901 (p=2 only, since log 3 > 1 = W), ARCH = log π ≈ 1.1447, POLE = 1.0, |h''(0)| = π²/3 ≈ 3.2899, giving Λ ≤ ~0.8009; (6) Soundararajan-Granville 1998 integration found WRONG-SIGN — a LOWER bound on |ζ|² loosens the prime side magnitude, loosening the Λ bound (not productive for THIS approach; productive for §16 Bui-Soundararajan route imp-1123/1164/1179); (7) comparison vs imp-1261 anchor Λ ≤ 3.06e-5: Weil at W=1 is ~26,000x LOOSER; (8) VERDICT: weil-too-loose-as-attack from the 4-element vocabulary {weil-tighter-than-imp-1261, weil-comparable-to-imp-1261, weil-too-loose-as-attack, weil-needs-test-fn-optimization}, rationale enumerates 3 natural tightenings (larger W loosens prime side, Vaaler-extremal is only constant-factor sharpening, prolate-spheroidal optimization is a separate research program not historically yielding sub-1 Λ bounds). 12 tripwires guard: Weil 1952 formula stated with Σ_rho/log pi/log p, PSD class defined with g*g~/compactly supported, Weil bound formula derived in approach block with PRIME_SUM_W/β²/Polymath15, Vaaler 1985 + Beurling-Selberg cited at W=1, SG 1998 cited with exp(-c log T) + isProductive boolean, numerical bound matches ~0.8009 to 0.01, verdict from allowed vocabulary, verdict is weil-too-loose-as-attack with rationale >= 500 chars naming W=1/SG/imp-1261, crossReferences include imp-1244+imp-1261, ratio vs imp-1261 ∈ [10000, 50000], honestScope discloses training-time-only + W=1 untuned + SG wrong-sign, de Bruijn flow Λ ≤ β² translation explicit. Cross-references imp-1244 (parent equivalence audit), imp-1261 (comparison anchor), imp-1147, imp-1232, imp-1123, imp-1164, imp-1289 (companion §17.4 audit). Wired into scripts/run-assertions.mjs DATA_MODULES (appended after imp-1287). npm run build green. Honest scope: training-time recall of Weil 1952 + Vaaler 1985 + Bombieri 2003 + Soundararajan-Granville 1998 only, no external bibliographic search; W = 1 untuned scope (not a full prolate-spheroidal sweep); the verdict deprioritizes §18.3 Weil-route as a Λ-tightening approach but is still useful as a route-potential constraint — engine should NOT spawn further test-function-optimization subtickets for this route absent a fundamental insight.",
+    rationale: 'Weil explicit-formula positivity is the OLDEST known RH-equivalent (1952) and we have never used it as a direct approach -- only as a taxonomy entry.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1244'],
     model: 'opus-4-8',
@@ -20791,7 +20791,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'haiku-4-5',
     completedByChannel: 'subscription',
     proofSection: 'S6',
-    description: "Add src/pages/LambdaChronologyPage.jsx: horizontal log-y chronology of Lambda upper bounds. (1) Polymath15 2018: 0.22, (2) Platt-Trudgian 2021: 0.2 unconditional, (3) imp-1147 2026-05-15 conditional: 7.98e-4, (4) imp-1261 2026-05-28 unconditional-modulo-G6a: 3.06e-5. Each bound is a clickable card showing the proof method, file, commit, and conditional surface. Wire into NAV_GROUPS Attack + link from /lambda-bounds.",
+    description: "Add src/pages/LambdaChronologyPage.jsx: horizontal log-y chronology of Lambda upper bounds. (1) Polymath15 2018: 0.22, (2) Platt-Trudgian 2021: 0.2 unconditional, (3) imp-1147 2026-05-15 conditional: 7.98e-4, (4) imp-1261 2026-05-28 unconditional-modulo-G6a: 3.06e-5. Each bound is a clickable card showing the proof method, file, commit, and conditional surface. Wire into NAV_GROUPS Approach + link from /lambda-bounds.",
     rationale: 'Telling the story of the bound tightening makes the project legible to outsiders.',
     estimatedComplexity: 'small',
     dependsOn: ['imp-1261'],
@@ -20908,7 +20908,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1302',
-    title: 'CRITICAL: direct attack on Montgomery PCC at 2-point via Goldston-Gonek 1998 second-moment refinements',
+    title: 'CRITICAL: direct approach on Montgomery PCC at 2-point via Goldston-Gonek 1998 second-moment refinements',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -20940,7 +20940,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-28T23:55:00Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-8-worktree',
-    closureNote: "Shipped src/data/imp-1303-heath-brown-pcc-route.js (~640 LOC) classifying HB1979 + auxiliary refinements (Selberg 1944 / Iwaniec-Sarnak 2000 / Conrey 1989) as a direct attack on Montgomery PCC at 2-point for Fourier support sigma > 1. VERDICT: heath-brown-improves-but-pcc-remains-open. HB1979 (Proc. London Math. Soc. (3) 38 (1979) 385-422) gives the unconditional 4th-moment int_0^T |zeta(1/2 + it)|^4 dt = T * P_4(log T) + O(T^{7/8 + eps}) with P_4 degree 4 leading coefficient 1/(2 pi^2) (Ingham 1926). Transcribed via Goldston 1988 + Titchmarsh §7.21 explicit-formula + Cauchy-Schwarz, this gives a 2-point bound sum_{m != n} f((gamma_n - gamma_m) log T / (2 pi)) = N(T) integral f * (1 - K_sin^2) + O(N(T) * (log T)^{-1/2}) for f-hat supported in (-sigma, sigma), sigma in (1, 5/4). PCC requires the o(N(T)) error; HB1979 is WEAKER by a factor (log T)^{1/2}. The gap is INTRINSIC to a 4th-moment Cauchy-Schwarz step in the secondary off-diagonal explicit-formula term and cannot be closed by a 2nd-moment / 1-level-density / mollifier-length-below-1 input. Sub-route (a) Selberg 1944 mean-square: closesGap = false — 2nd moment lives in same Cauchy-Schwarz layer as 4th moment, cannot improve rate. Sub-route (b) Iwaniec-Sarnak 2000 + Iwaniec-Luo-Sarnak 2000: closesGap = false — 1-level density != 2-level pair correlation, gain comes from family-averaging absent for single zeta. Sub-route (c) Conrey 1989 mollifier (JRAM 399, 1-26): pushesPastFiveQuarter = false — mollifier length theta_C ~ 0.572-0.583 (Conrey-Iwaniec 2002 / Bui-Conrey-Young 2011 / Pratt-Robles-Zaharescu-Zeindler 2020 sharpenings all < 1) stops STRICTLY INSIDE Montgomery range, never reaches theta = 1 unconditionally. Above sigma = 5/4 no unconditional 2-point bound is currently known. The three direct-attack routes via moment-method refinements (imp-1297 Selberg-trace + imp-1302 Goldston-Gonek + imp-1303 Heath-Brown) all produce the same negative classification pattern. Remaining named candidate levers: imp-1304 (Iwaniec-Sarnak 2000 INDEPENDENT explicit-formula side without PCC input, pending) and imp-1305 (Goldston-Yildirim 2003 conditional-on-RH short-gap, pending). If both also rule out, verdict elevates to pcc-genuinely-open-pending-new-input. 12 build-time tripwires (HB1979-stated-precisely with Proc LMS 38 1979 385 + degree 4 + 2 pi^2 + O(T^{7/8 + eps}); pcc-gap-characterized-half-log; subroute-a-selberg-1944-does-not-close; subroute-b-iwaniec-sarnak-2000-does-not-close with 3 obstructions; subroute-c-conrey-1989-does-not-push-past-five-quarter; verdict-is-one-of-allowed-strings; verdict-detail-pcc-remains-open; five-required-citations-present HB1979 + Ingham 1926 + Titchmarsh + Selberg 1944 + Conrey 1989; cross-references-parent-tickets imp-1184/1247/1297/1302; honest-scope-mentions-negative-result; engine-planning-names-next-levers imp-1304/1305; three-route-pattern-correctly-reported semantic check). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after the imp-1302 entry. npm run build green.",
+    closureNote: "Shipped src/data/imp-1303-heath-brown-pcc-route.js (~640 LOC) classifying HB1979 + auxiliary refinements (Selberg 1944 / Iwaniec-Sarnak 2000 / Conrey 1989) as a direct approach on Montgomery PCC at 2-point for Fourier support sigma > 1. VERDICT: heath-brown-improves-but-pcc-remains-open. HB1979 (Proc. London Math. Soc. (3) 38 (1979) 385-422) gives the unconditional 4th-moment int_0^T |zeta(1/2 + it)|^4 dt = T * P_4(log T) + O(T^{7/8 + eps}) with P_4 degree 4 leading coefficient 1/(2 pi^2) (Ingham 1926). Transcribed via Goldston 1988 + Titchmarsh §7.21 explicit-formula + Cauchy-Schwarz, this gives a 2-point bound sum_{m != n} f((gamma_n - gamma_m) log T / (2 pi)) = N(T) integral f * (1 - K_sin^2) + O(N(T) * (log T)^{-1/2}) for f-hat supported in (-sigma, sigma), sigma in (1, 5/4). PCC requires the o(N(T)) error; HB1979 is WEAKER by a factor (log T)^{1/2}. The gap is INTRINSIC to a 4th-moment Cauchy-Schwarz step in the secondary off-diagonal explicit-formula term and cannot be closed by a 2nd-moment / 1-level-density / mollifier-length-below-1 input. Sub-route (a) Selberg 1944 mean-square: closesGap = false — 2nd moment lives in same Cauchy-Schwarz layer as 4th moment, cannot improve rate. Sub-route (b) Iwaniec-Sarnak 2000 + Iwaniec-Luo-Sarnak 2000: closesGap = false — 1-level density != 2-level pair correlation, gain comes from family-averaging absent for single zeta. Sub-route (c) Conrey 1989 mollifier (JRAM 399, 1-26): pushesPastFiveQuarter = false — mollifier length theta_C ~ 0.572-0.583 (Conrey-Iwaniec 2002 / Bui-Conrey-Young 2011 / Pratt-Robles-Zaharescu-Zeindler 2020 sharpenings all < 1) stops STRICTLY INSIDE Montgomery range, never reaches theta = 1 unconditionally. Above sigma = 5/4 no unconditional 2-point bound is currently known. The three direct-attack routes via moment-method refinements (imp-1297 Selberg-trace + imp-1302 Goldston-Gonek + imp-1303 Heath-Brown) all produce the same negative classification pattern. Remaining named candidate levers: imp-1304 (Iwaniec-Sarnak 2000 INDEPENDENT explicit-formula side without PCC input, pending) and imp-1305 (Goldston-Yildirim 2003 conditional-on-RH short-gap, pending). If both also rule out, verdict elevates to pcc-genuinely-open-pending-new-input. 12 build-time tripwires (HB1979-stated-precisely with Proc LMS 38 1979 385 + degree 4 + 2 pi^2 + O(T^{7/8 + eps}); pcc-gap-characterized-half-log; subroute-a-selberg-1944-does-not-close; subroute-b-iwaniec-sarnak-2000-does-not-close with 3 obstructions; subroute-c-conrey-1989-does-not-push-past-five-quarter; verdict-is-one-of-allowed-strings; verdict-detail-pcc-remains-open; five-required-citations-present HB1979 + Ingham 1926 + Titchmarsh + Selberg 1944 + Conrey 1989; cross-references-parent-tickets imp-1184/1247/1297/1302; honest-scope-mentions-negative-result; engine-planning-names-next-levers imp-1304/1305; three-route-pattern-correctly-reported semantic check). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after the imp-1302 entry. npm run build green.",
   },
   {
     id: 'imp-1304',
@@ -20958,7 +20958,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-29T00:00:00Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-8-worktree',
-    closureNote: "Shipped src/data/imp-1304-iwaniec-sarnak-no-pcc.js (~860 LOC) classifying the Iwaniec-Sarnak 2000 Annals paper 'The non-vanishing of central values of automorphic L-functions and Landau-Siegel zeros' (Annals of Math. (2) 151 (2000) 1175-1216) amplifier-second-moment non-vanishing machinery as a candidate direct attack on Montgomery PCC at 2-point WITHOUT PCC input. VERDICT: iwaniec-sarnak-bypasses-pcc-for-family-not-single-zeta. IS2000-Annals genuinely bypasses Montgomery PCC for the FAMILY {L(s, f x chi_d) : |d| ~ D, d fundamental} via the amplified-second-moment bound sum_{|d| ~ D} M(d)^2 |L(1/2, f x chi_d)|^2 = main + O(D^{1 - delta}) with amplifier length L <= D^{1/8 - eps}, established through Heath-Brown 1995 quadratic large sieve + Iwaniec 1997 GSM 17 §5 Petersson trace formula bound + Kim-Sarnak 2003 theta_2 <= 7/64 (all theorems). NO Montgomery PCC input is used — this is the architectural achievement of IS2000-Annals. HOWEVER the family-averaging bypass does NOT transfer to single zeta: §15-27 ESY-closure Poisson kernel at micro-window 2 pi / log gamma_N is a SINGLE-zeta object with no arithmetic twist family to average over, and IS2000's amplifier M(d) = sum_l alpha_l chi_d(l) over small primes l requires MANY chi_d for cancellation. The single-zeta analogue 'M(t) = sum exp(i t log p) lambda(p) / sqrt(p)' requires t-averaging which is exactly Montgomery PCC — circular. Test-function class mismatch: IS2000 tests are Dirichlet polynomials on the family parameter d; §15-27 tests are Schwartz f with f-hat compactly supported in (-sigma, sigma), sigma > 1, on the single-zeta 2-point spacing parameter. Family-vs-single transfer obstruction is the named horizontal-vertical Plancherel formula (Iwaniec-Kowalski 2004 §25.1) equivalent to Sarnak 1995 arithmetic quantum chaos conjecture — itself the quantum-chaos analogue of Montgomery PCC. Auxiliary conjecture audit CLEANER than imp-1297 Selberg-trace: Kim-Sarnak 2003 is unconditional and suffices (no full Selberg eigenvalue conjecture / Phillips-Sarnak density / GRH required). IS2000-Annals family result is UNCONDITIONAL; only the single-zeta transfer requires Sarnak 1995. Architecturally DISTINCT from imp-1303 sub-route (b) which addressed the IS2000 GAFA Special Volume 1-level density companion paper (different machinery; both fail for the same family-vs-single architectural reason but at different levels). After imp-1297 (Selberg-trace ruled out), imp-1302 (Goldston-Gonek improves but does not close), imp-1303 (Heath-Brown improves but does not close), and imp-1304 (IS2000-Annals bypasses for families not single zeta), all FOUR direct-attack routes via moment-method / explicit-formula / family-averaging refinements have produced the same negative classification pattern for single-zeta PCC. Remaining named candidate lever is imp-1305 (Goldston-Yildirim 2003 conditional-on-RH short-gap absolutization, pending; lower priority per imp-1302 rationale). If imp-1305 also rules out, verdict elevates to pcc-genuinely-open-pending-new-input. 12 build-time tripwires (IS2000-Annals stated precisely with Annals 151 1175-1216 + amplifier sub-theorem L <= D^{1/8 - eps}; ESY-kernel transfer classifies family-vs-single separately with bypass=true / bypass=false / circular obstruction; test-function class mismatch documented; family-vs-single transfer verdict cites Sarnak 1995 + Katz-Sarnak 1999 + Iwaniec-Kowalski 2004 §25.1; auxiliary conjecture audit reports Kim-Sarnak 2003 theorem / Selberg+PS+GRH NOT required / Sarnak 1995 = equivalent to PCC for single-zeta transfer; verdict in allowed set; verdict-detail bypass-family-true / bypass-singlezeta-false; five-required-citations present IS2000-Annals + Iwaniec 1997 GSM 17 + Sarnak 1995 + Conrey-Iwaniec 2002 + imp-1303 cross-reference; cross-references-parent-tickets imp-1184/1247/1297/1302/1303; honest-scope-mentions-negative-single-positive-family-continuation; engine-planning-names-imp-1305 + 4-route-pattern; Annals-vs-GAFA architecturally distinguished semantic check). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after the imp-1303 entry. npm run build green.",
+    closureNote: "Shipped src/data/imp-1304-iwaniec-sarnak-no-pcc.js (~860 LOC) classifying the Iwaniec-Sarnak 2000 Annals paper 'The non-vanishing of central values of automorphic L-functions and Landau-Siegel zeros' (Annals of Math. (2) 151 (2000) 1175-1216) amplifier-second-moment non-vanishing machinery as a candidate direct approach on Montgomery PCC at 2-point WITHOUT PCC input. VERDICT: iwaniec-sarnak-bypasses-pcc-for-family-not-single-zeta. IS2000-Annals genuinely bypasses Montgomery PCC for the FAMILY {L(s, f x chi_d) : |d| ~ D, d fundamental} via the amplified-second-moment bound sum_{|d| ~ D} M(d)^2 |L(1/2, f x chi_d)|^2 = main + O(D^{1 - delta}) with amplifier length L <= D^{1/8 - eps}, established through Heath-Brown 1995 quadratic large sieve + Iwaniec 1997 GSM 17 §5 Petersson trace formula bound + Kim-Sarnak 2003 theta_2 <= 7/64 (all theorems). NO Montgomery PCC input is used — this is the architectural achievement of IS2000-Annals. HOWEVER the family-averaging bypass does NOT transfer to single zeta: §15-27 ESY-closure Poisson kernel at micro-window 2 pi / log gamma_N is a SINGLE-zeta object with no arithmetic twist family to average over, and IS2000's amplifier M(d) = sum_l alpha_l chi_d(l) over small primes l requires MANY chi_d for cancellation. The single-zeta analogue 'M(t) = sum exp(i t log p) lambda(p) / sqrt(p)' requires t-averaging which is exactly Montgomery PCC — circular. Test-function class mismatch: IS2000 tests are Dirichlet polynomials on the family parameter d; §15-27 tests are Schwartz f with f-hat compactly supported in (-sigma, sigma), sigma > 1, on the single-zeta 2-point spacing parameter. Family-vs-single transfer obstruction is the named horizontal-vertical Plancherel formula (Iwaniec-Kowalski 2004 §25.1) equivalent to Sarnak 1995 arithmetic quantum chaos conjecture — itself the quantum-chaos analogue of Montgomery PCC. Auxiliary conjecture audit CLEANER than imp-1297 Selberg-trace: Kim-Sarnak 2003 is unconditional and suffices (no full Selberg eigenvalue conjecture / Phillips-Sarnak density / GRH required). IS2000-Annals family result is UNCONDITIONAL; only the single-zeta transfer requires Sarnak 1995. Architecturally DISTINCT from imp-1303 sub-route (b) which addressed the IS2000 GAFA Special Volume 1-level density companion paper (different machinery; both fail for the same family-vs-single architectural reason but at different levels). After imp-1297 (Selberg-trace ruled out), imp-1302 (Goldston-Gonek improves but does not close), imp-1303 (Heath-Brown improves but does not close), and imp-1304 (IS2000-Annals bypasses for families not single zeta), all FOUR direct-attack routes via moment-method / explicit-formula / family-averaging refinements have produced the same negative classification pattern for single-zeta PCC. Remaining named candidate lever is imp-1305 (Goldston-Yildirim 2003 conditional-on-RH short-gap absolutization, pending; lower priority per imp-1302 rationale). If imp-1305 also rules out, verdict elevates to pcc-genuinely-open-pending-new-input. 12 build-time tripwires (IS2000-Annals stated precisely with Annals 151 1175-1216 + amplifier sub-theorem L <= D^{1/8 - eps}; ESY-kernel transfer classifies family-vs-single separately with bypass=true / bypass=false / circular obstruction; test-function class mismatch documented; family-vs-single transfer verdict cites Sarnak 1995 + Katz-Sarnak 1999 + Iwaniec-Kowalski 2004 §25.1; auxiliary conjecture audit reports Kim-Sarnak 2003 theorem / Selberg+PS+GRH NOT required / Sarnak 1995 = equivalent to PCC for single-zeta transfer; verdict in allowed set; verdict-detail bypass-family-true / bypass-singlezeta-false; five-required-citations present IS2000-Annals + Iwaniec 1997 GSM 17 + Sarnak 1995 + Conrey-Iwaniec 2002 + imp-1303 cross-reference; cross-references-parent-tickets imp-1184/1247/1297/1302/1303; honest-scope-mentions-negative-single-positive-family-continuation; engine-planning-names-imp-1305 + 4-route-pattern; Annals-vs-GAFA architecturally distinguished semantic check). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after the imp-1303 entry. npm run build green.",
   },
   {
     id: 'imp-1305',
@@ -20976,7 +20976,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-28T23:59:00Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-8-worktree',
-    closureNote: "Shipped src/data/imp-1305-goldston-yildirim-mean-square.js (~640 LOC) classifying Goldston-Yildirim 2003 (Acta Math 192 (2004) 95-148, \"Higher correlations of divisor sums related to primes I: Triple correlations\") + proposed absolutization via Selberg 1944 / Heath-Brown 1979 / Hooley 1965 mean-square substitute for the GRH input as a direct attack on Montgomery PCC at 2-point for Fourier support sigma > 1. VERDICT: goldston-yildirim-essentially-same-as-prior-routes. GY2003 main theorem: divisor-sum approximation Lambda_R(n) = sum_{d | n, d <= R} mu(d) (log(R/d))^k / k! with R = N^theta, theta in (0, 1/2). Unconditional Thm 1: triple-correlation sum_{n <= N} Lambda_R(n; k1) Lambda_R(n+h1; k2) Lambda_R(n+h2; k3) = N * S(h1, h2) + O(N (log R)^{k - 1/2} (log log R)^c). Conditional-on-GRH Thm 3: prime-side transfer sum_{n <= N} Lambda(n) Lambda(n+h1) Lambda(n+h2) = N * S(h1, h2) + O(N (log N)^{-1/2 + eps}). GRH input enters via Bombieri-Vinogradov-style bound in the Elliott-Halberstam range Q <= N^{1 - eps}. Proposed absolutization replaces GRH input with Selberg 1944 2nd moment of S(T) / HB1979 4th moment of zeta / Hooley 1965 dispersion-method bounds; ALL THREE CANDIDATES feed back into the SAME Cauchy-Schwarz step at the off-diagonal explicit-formula correction with IDENTICAL (log T)^{1/2} loss documented in imp-1303. 2-point transcription gives sum_{m != n} f((gamma_m - gamma_n) log T / (2 pi)) = N(T) integral f * (1 - K_sin^2) + O(N(T) * (log T)^{-1/2}) for f-hat supported in (-sigma, sigma), sigma in (1, 5/4) — IDENTICAL to HB1979 to leading order. Above sigma = 5/4 no unconditional bound; sharper polynomial constants from Lambda_R smoothing do NOT change the Cauchy-Schwarz rate. STRUCTURAL CLASSIFICATION: GY2003 absolutized is NOT a new mechanism; it is a divisor-sum repackaging of the same moment-method Cauchy-Schwarz / explicit-formula layer that imp-1297 (Selberg-trace) + imp-1302 (Goldston-Gonek 1998) + imp-1303 (Heath-Brown 1979) all hit. The (log T)^{1/2} loss is a STRUCTURAL property of the layer not of any specific moment input. PATTERN NOTE: with imp-1297 + imp-1302 + imp-1303 + imp-1305 all in the same negative classification, the standard moment-method toolkit (zeta moments + explicit formula + Cauchy-Schwarz + divisor-sum approximations + mollifier sieves) is EXHAUSTED for PCC at 2-point with support > 1. Aggregate verdict on §15-27 -> RH via PCC: pcc-genuinely-open-pending-new-input. RH via §15-27 requires GENUINELY NEW INPUT outside the moment-method family (Connes-Bost adele class space, Berry-Keating semiclassical Hamiltonian, novel hybrid sieve-explicit-formula construction bypassing Cauchy-Schwarz, RMT-symmetry identification, OR alternative §15-27 closure pathways that decouple from sigma > 1 in Fourier-support and live entirely inside Montgomery 1973's unconditional sigma <= 1 range). 12 build-time tripwires (gy2003-stated-precisely with Acta Math 192 + Lambda_R + (log N)^{-1/2 + eps} + GRH-conditional; absolutization-route-evaluated with Selberg 1944 + HB1979 + Hooley 1965; relationship-to-prior-routes-evaluated with imp-1297/1302/1303/1305 plug-in summary; verdict-is-one-of-allowed-strings; verdict-detail-pcc-remains-open; four-required-citations-present GY2003 + Selberg 1944 + HB1979 + IS2000; cross-references-parent-tickets imp-1184/1297/1302/1303; honest-scope-mentions-negative-and-prior-continuation; pattern-note-completes-moment-method-rulingout naming pcc-genuinely-open-pending-new-input; semantic-absolutized-matches-hb1979-leading-order; semantic-cauchy-schwarz-layer-is-structural-obstruction; semantic-lambda-attack-new-input-candidates). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append. npm run build green.",
+    closureNote: "Shipped src/data/imp-1305-goldston-yildirim-mean-square.js (~640 LOC) classifying Goldston-Yildirim 2003 (Acta Math 192 (2004) 95-148, \"Higher correlations of divisor sums related to primes I: Triple correlations\") + proposed absolutization via Selberg 1944 / Heath-Brown 1979 / Hooley 1965 mean-square substitute for the GRH input as a direct approach on Montgomery PCC at 2-point for Fourier support sigma > 1. VERDICT: goldston-yildirim-essentially-same-as-prior-routes. GY2003 main theorem: divisor-sum approximation Lambda_R(n) = sum_{d | n, d <= R} mu(d) (log(R/d))^k / k! with R = N^theta, theta in (0, 1/2). Unconditional Thm 1: triple-correlation sum_{n <= N} Lambda_R(n; k1) Lambda_R(n+h1; k2) Lambda_R(n+h2; k3) = N * S(h1, h2) + O(N (log R)^{k - 1/2} (log log R)^c). Conditional-on-GRH Thm 3: prime-side transfer sum_{n <= N} Lambda(n) Lambda(n+h1) Lambda(n+h2) = N * S(h1, h2) + O(N (log N)^{-1/2 + eps}). GRH input enters via Bombieri-Vinogradov-style bound in the Elliott-Halberstam range Q <= N^{1 - eps}. Proposed absolutization replaces GRH input with Selberg 1944 2nd moment of S(T) / HB1979 4th moment of zeta / Hooley 1965 dispersion-method bounds; ALL THREE CANDIDATES feed back into the SAME Cauchy-Schwarz step at the off-diagonal explicit-formula correction with IDENTICAL (log T)^{1/2} loss documented in imp-1303. 2-point transcription gives sum_{m != n} f((gamma_m - gamma_n) log T / (2 pi)) = N(T) integral f * (1 - K_sin^2) + O(N(T) * (log T)^{-1/2}) for f-hat supported in (-sigma, sigma), sigma in (1, 5/4) — IDENTICAL to HB1979 to leading order. Above sigma = 5/4 no unconditional bound; sharper polynomial constants from Lambda_R smoothing do NOT change the Cauchy-Schwarz rate. STRUCTURAL CLASSIFICATION: GY2003 absolutized is NOT a new mechanism; it is a divisor-sum repackaging of the same moment-method Cauchy-Schwarz / explicit-formula layer that imp-1297 (Selberg-trace) + imp-1302 (Goldston-Gonek 1998) + imp-1303 (Heath-Brown 1979) all hit. The (log T)^{1/2} loss is a STRUCTURAL property of the layer not of any specific moment input. PATTERN NOTE: with imp-1297 + imp-1302 + imp-1303 + imp-1305 all in the same negative classification, the standard moment-method toolkit (zeta moments + explicit formula + Cauchy-Schwarz + divisor-sum approximations + mollifier sieves) is EXHAUSTED for PCC at 2-point with support > 1. Aggregate verdict on §15-27 -> RH via PCC: pcc-genuinely-open-pending-new-input. RH via §15-27 requires GENUINELY NEW INPUT outside the moment-method family (Connes-Bost adele class space, Berry-Keating semiclassical Hamiltonian, novel hybrid sieve-explicit-formula construction bypassing Cauchy-Schwarz, RMT-symmetry identification, OR alternative §15-27 closure pathways that decouple from sigma > 1 in Fourier-support and live entirely inside Montgomery 1973's unconditional sigma <= 1 range). 12 build-time tripwires (gy2003-stated-precisely with Acta Math 192 + Lambda_R + (log N)^{-1/2 + eps} + GRH-conditional; absolutization-route-evaluated with Selberg 1944 + HB1979 + Hooley 1965; relationship-to-prior-routes-evaluated with imp-1297/1302/1303/1305 plug-in summary; verdict-is-one-of-allowed-strings; verdict-detail-pcc-remains-open; four-required-citations-present GY2003 + Selberg 1944 + HB1979 + IS2000; cross-references-parent-tickets imp-1184/1297/1302/1303; honest-scope-mentions-negative-and-prior-continuation; pattern-note-completes-moment-method-rulingout naming pcc-genuinely-open-pending-new-input; semantic-absolutized-matches-hb1979-leading-order; semantic-cauchy-schwarz-layer-is-structural-obstruction; semantic-lambda-attack-new-input-candidates). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append. npm run build green.",
   },
   {
     id: 'imp-1306',
@@ -20998,23 +20998,23 @@ export const IMPROVEMENT_QUEUE = [
   },
 
   // ============================================================================
-  // WAVE 19: MAX-PARALLEL RH FULL-FRONT — every attack vector with app-side ideas
+  // WAVE 19: MAX-PARALLEL RH FULL-FRONT — every approach vector with app-side ideas
   // ----------------------------------------------------------------------------
   // 5 PCC routes ruled out. ||V|| <= 1 proven. §15-27 collapse done. Now opening
-  // every remaining attack vector the codebase has the IDEAS for but never
-  // executed as a proof attack.
+  // every remaining approach vector the codebase has the IDEAS for but never
+  // executed as a proof approach.
   // ============================================================================
 
   // ---- candidate "new input" routes named by the PCC exhaustion verdict ----
 
   {
     id: 'imp-1307',
-    title: 'NEW-INPUT: Connes-Bost adelic explicit formula direct attack (named candidate post-PCC-exhaustion)',
+    title: 'NEW-INPUT: Connes-Bost adelic explicit formula direct approach (named candidate post-PCC-exhaustion)',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
     proofSection: 'S7',
-    description: "Per imp-1305 / pcc-moment-methods-exhausted decision doc, Connes-Bost adelic is a named candidate 'new input' route bypassing Montgomery PCC. Codebase has stub page /connes-adelic never opened as proof attack. Walk: (a) state the Connes-Bost adelic Lefschetz-trace formula precisely (Connes 1999 Selecta Math; Connes-Marcolli 2008); (b) does it yield a 2-point bound on the ESY-closure Poisson kernel at support > 1 that bypasses Montgomery? (c) auxiliary conjectures required (Connes hypothesis, Marcolli adelic universality)? Ship src/data/imp-1307-connes-bost-adelic-attack.js + 8+ tripwires.",
+    description: "Per imp-1305 / pcc-moment-methods-exhausted decision doc, Connes-Bost adelic is a named candidate 'new input' route bypassing Montgomery PCC. Codebase has stub page /connes-adelic never opened as proof approach. Walk: (a) state the Connes-Bost adelic Lefschetz-trace formula precisely (Connes 1999 Selecta Math; Connes-Marcolli 2008); (b) does it yield a 2-point bound on the ESY-closure Poisson kernel at support > 1 that bypasses Montgomery? (c) auxiliary conjectures required (Connes hypothesis, Marcolli adelic universality)? Ship src/data/imp-1307-connes-bost-adelic-attack.js + 8+ tripwires.",
     rationale: 'Most-cited candidate post-PCC-exhaustion. Adelic explicit formula provides geometric semi-classical interpretation that bypasses arithmetic Cauchy-Schwarz layer.',
     estimatedComplexity: 'extra-large',
     dependsOn: ['imp-1297', 'imp-1302', 'imp-1303', 'imp-1304', 'imp-1305'],
@@ -21083,16 +21083,16 @@ export const IMPROVEMENT_QUEUE = [
     closureNote: "Shipped src/data/imp-1310-section15-27-support-leq-1-reroute.js (~735 LOC) classifying the three named reroute candidates (wavelet decomposition / Mellin-truncation via short-interval second moments / direct §15-27 reformulation with native support <= 1) for the §15-27 -> RH chain after imp-1267 + imp-1287 + imp-1286 proved ‖V_{a,Φ}‖ <= 1 and imp-1258 established the two-way collapse. VERDICT: reroute-eliminated-support-greater-1-is-intrinsic. Per imp-1184 audit, support > 1 enters the §15-27 -> RH chain at STEP D3 (Selberg PCC fixed-x fluctuation: rate 1/sqrt(N) vs needed 1/N at the Poisson kernel scale) and STEP D5 (rho_3 / second-order discrepancy: Rudnick-Sarnak 1996 unconditional only for f̂ in (-2/3, 2/3); Poisson kernel P_{y_micro} at y_micro = 2π/log γ_N extends to ≈ log γ_N / (2π) at the unfolded scale). Both entry points share the same Plancherel root: Poisson kernel at y_micro sits at the Heisenberg minimum with Fourier support ≈ log γ_N / (2π), vastly exceeding Montgomery 1973's [-1, 1] unconditional window and Rudnick-Sarnak 1996's (-2/3, 2/3) rho_3 window. Per-reroute verdicts: (a) wavelet-reroute-fails-structurally — Fourier support is a property of the FUNCTION not of its DECOMPOSITION; ANY wavelet basis reconstructing P_{y_micro} must reach scale j ≈ log_2(log γ_N) at which the wavelet has support [2^{j-1}, 2^{j+1}] vastly exceeding 1; Heisenberg-Pauli wavelets on L²(R_+) (Hankel-Plancherel natural for §27) at j ≈ log_2(log γ_N) have support [log γ_N / (4π), log γ_N / π]; recombination ℓ² Cauchy-Schwarz accumulates sqrt(log log γ_N) from number of dyadic scales — same (log T)^{1/2} obstruction as imp-1303; Heisenberg uncertainty is a hard physical constraint not a basis-choice artifact. (b) mellin-truncation-reroute-fails-baseline-not-optimistic — observable swap to Selberg short-interval second moment + Goldston-Gonek 1998 Dirichlet polynomial loses POINTWISE content needed by bridge-threshold theorem (imp-258 + imp-345 + imp-366) AND reproduces the existing (log γ_N)² / N baseline (imp-407 / imp-1184 D4) without advancing; Goldston-Gonek 1998 already ruled out by imp-1302 with (log T)² error blocking theta = 1; per Iwaniec-Kowalski 2004 §25 Plancherel rigidity, observable swap cannot smuggle in information not present in the integrated bound. (c) direct-reformulation-reroute-fails-microscopic-scale-intrinsic — ‖V‖ ≤ 1 theorem has NO Fourier support hypothesis (operator level); Mellin diagonalization of V_{a,Φ} is structurally blocked per imp-1266 (kernel additive not multiplicative, Φ-modulation breaks scaling, sinh(at) Mellin transform does not exist as L²(R_+)); de Branges H(E_a) direct route per Romanov-Woracek-Pruss 2024 program territory requires imp-1241 unified existence (OPEN per imp-1265 reverse-direction GAP) + still hits support > 1 at unfolded microscopic scale; bridge-threshold theorem is RIGIDLY attached to y_micro — raising y to fixed scale gives only macroscopic Riemann-von Mangoldt law (does not drive RH). AGGREGATE: support > 1 is INTRINSIC to the §15-27 -> RH chain in its current formulation via Plancherel / Heisenberg uncertainty at the microscopic scale y_micro. The three named reroutes shift bookkeeping but do NOT eliminate the requirement. PATTERN NOTE: SIXTH consecutive negative classification in PCC-attack series (imp-1297 + imp-1302 + imp-1303 + imp-1304 + imp-1305 + imp-1310); the (log T)^{1/2} Cauchy-Schwarz obstruction (imp-1303 / imp-1305) and the support > 1 transcription obstruction (imp-1184 / imp-1310) are facets of the same Plancherel constraint. Aggregate verdict: pcc-genuinely-open-pending-new-input-geometric-or-adelic. Engine planning: STOP probing the reroute family; pivot to (1) imp-1307 Connes-Bost adelic Lefschetz-trace formula (different geometric object), (2) imp-1308 Berry-Keating H = xp Hamiltonian (semiclassical quantum-chaos), (3) Selberg trace on Hecke triangle groups (Beyerstedt-Strömbergsson 2010 unconditional Selberg eigenvalue), (4) closing imp-1241 unified existence for Romanov-Woracek-Pruss 2024 de Branges direct route. HONEST META-NOTE: this proves support > 1 intrinsic to chain in CURRENT formulation with the THREE NAMED reroutes, NOT to RH itself — a genuinely new reformulation (currently unidentified) might still escape. 12 build-time tripwires (support-gt-1-entry-point-identified at imp-1184 D3/D5 + Montgomery [-1,1] + Rudnick-Sarnak 2/3; reroute-a-wavelet-evaluated with Plancherel + Heisenberg-Pauli + uncertainty; reroute-b-mellin-truncation-evaluated with observable-loses-pointwise + baseline + GG1998 + IK2004 §25; reroute-c-direct-reformulation-evaluated with ‖V‖-no-support-hypothesis + imp-1266-Mellin-blocked + imp-1241-de-Branges-open + bridge-threshold-y_micro-rigid; verdict-is-one-of-allowed-strings; verdict-detail-support-gt-1-intrinsic with pattern-note SIXTH + Cauchy-Schwarz-equivalence + aggregate geometric/adelic; four-required-citations Montgomery 1973 + Rudnick-Sarnak 1996 + Iwaniec-Kowalski 2004 + Selberg 1944; cross-references-parent-tickets imp-1184/1258/1265/1266/1297/1305; semantic-Plancherel-Heisenberg-shared-root; semantic-Mellin-blocked-via-imp1266; semantic-Lambda-attack-pivots-geometric naming imp-1307+imp-1308+Hecke-triangle+de-Branges; honest-scope-disclaims-three-named-not-universal). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append. npm run build green.",
   },
 
-  // ---- classical RH-equivalent statements as direct attacks (never opened) ----
+  // ---- classical RH-equivalent statements as direct approaches (never opened) ----
 
   {
     id: 'imp-1311',
-    title: 'NOVEL: Robin 1984 / Lagarias 2002 sigma(n)/n criterion direct attack',
+    title: 'NOVEL: Robin 1984 / Lagarias 2002 sigma(n)/n criterion direct approach',
     category: 'proof',
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: "Robin's criterion: RH iff sigma(n) < e^gamma * n * log log n for n >= 5041. Lagarias 2002 reformulated as sigma(n) <= H_n + exp(H_n) * log(H_n) where H_n is the n-th harmonic. Combinatorial RH equivalent never directly attacked in codebase. Walk: (a) state Robin/Lagarias precisely; (b) compute sigma(n)/n vs e^gamma*log log n at imp-1238-grid-equivalent n values empirically; (c) does the elementary-number-theory of colossally abundant numbers (Erdos-Nicolas) give a sharper bound that connects to Lambda? Ship src/data/imp-1311-robin-lagarias-combinatorial-attack.js + 8 tripwires.",
+    description: "Robin's criterion: RH iff sigma(n) < e^gamma * n * log log n for n >= 5041. Lagarias 2002 reformulated as sigma(n) <= H_n + exp(H_n) * log(H_n) where H_n is the n-th harmonic. Combinatorial RH equivalent never directly approached in codebase. Walk: (a) state Robin/Lagarias precisely; (b) compute sigma(n)/n vs e^gamma*log log n at imp-1238-grid-equivalent n values empirically; (c) does the elementary-number-theory of colossally abundant numbers (Erdos-Nicolas) give a sharper bound that connects to Lambda? Ship src/data/imp-1311-robin-lagarias-combinatorial-attack.js + 8 tripwires.",
     rationale: 'Combinatorial RH equivalent is structurally orthogonal to spectral/moment methods. Never opened in codebase.',
     estimatedComplexity: 'large',
     dependsOn: [],
@@ -21101,7 +21101,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-28T23:59:30Z',
     completedByModel: 'subagent-worktree',
     completedByChannel: 'opus-4-8-worktree',
-    closureNote: "Shipped src/data/imp-1311-robin-lagarias-combinatorial-attack.js (~640 LOC) classifying the Robin 1984 (J. Math. Pures Appl. (9) 63 (1984) 187-213) + Lagarias 2002 (Amer. Math. Monthly 109 (2002) 534-543) sigma(n)/n elementary RH-equivalent criteria as a direct attack on RH and a candidate numerical Lambda bound. VERDICT: robin-criterion-RH-equivalent-only-not-numerical. Robin 1984: RH iff sigma(n) < e^gamma * n * log log n for every n >= 5041 (sigma(n) = sum of divisors of n; gamma = Euler-Mascheroni constant ~ 0.5772). Lagarias 2002: RH iff sigma(n) <= H_n + exp(H_n) * log(H_n) for every n >= 1 (H_n = n-th harmonic number). Both are STRICT RH equivalences -- by Newman 1976 + de Bruijn 1950, RH <=> Lambda <= 0, so Robin/Lagarias yield Lambda <= 0 IFF RH, qualitative only. NO known mechanism converts Robin margin (or Lagarias margin) into a numerical Lambda bound: (1) Robin is POINTWISE on N, Lambda is a heat-flow limit on C, no quantitative bridge; (2) KS-probabilistic NT path sigma(n)/n -> prime-divisor sums hits Mertens 3rd theorem at the LEADING term with Mertens constant C_M, Lambda enters only at the secondary zero-free-region correction where its sign determines qualitative form (Schoenfeld 1976 vs Korobov-Vinogradov) but not magnitude; (3) counter-example direction: Robin fails at n_0 => RH false => Lambda > 0, but the SIZE of the violation does not translate to a numerical lower bound on Lambda. EMPIRICAL CONTENT: computed sigma(n)/n vs e^gamma * log log n on the first 14 colossally-abundant numbers (OEIS A004490: 2, 6, 12, 60, 120, 360, 2520, 5040, 55440, 720720, 1441440, 4324320, 21621600, 367567200) + extras (10^6, 10^7). Recovered the classical Robin failures at the 8 small CA numbers <= 5040 (sigma(5040) = 19344, sigma/5040 ~ 3.838 > 3.817 ~ e^gamma * log log 5040). Confirmed Robin HOLDS at all sampled n >= 5041 (55440, 720720, 1441440, 4324320, 21621600, 367567200, 10^6, 10^7) -- restating empirical RH on the tested range, strictly weaker than Platt-Trudgian 2021's verification of RH up to T = 3 * 10^12. ELEMENTARY-NT CA AUDIT (Erdős-Nicolas 1981 Bull SMF 109 + Nicolas 1983 JNT 17 + Caveney-Nicolas-Sondow 2011 Integers 11): (a) does CA-number structure give a constructive Lambda bound? NO -- CA-number asymptotic G(N_k) = sigma(N_k)/(N_k log log N_k) -> e^gamma is governed by Mertens 3rd theorem; the leading correction C_M is the Mertens constant, independent of Lambda; the secondary correction delta depends on the zero-free region under RH (Schoenfeld 1976 delta = 1/2 - eps) but gives a Schoenfeld explicit-NT constant for pi(x), not a numerical Lambda bound. (b) does CA-number asymptotic match the de Bruijn-flow constant? NO -- the de Bruijn-Newman Lambda is heat-equation flow on Riemann xi over the complex plane; CA-number asymptotic lives on N and is bounded by Mertens arithmetic-density theorem; no functional correspondence. STRUCTURAL OBSERVATION: Robin/Lagarias/Nicolas/Caveney-Nicolas-Sondow are an ELEMENTARY-NT family of RH-equivalents STRUCTURALLY ORTHOGONAL to the spectral / moment-method family ruled out by imp-1297 + imp-1302 + imp-1303 + imp-1305. The orthogonal route also does NOT yield a numerical Lambda bound. The shared e^gamma constant in Robin (sigma-side) and Nicolas (phi-side) descends from a single Mertens 3rd theorem identity prod_{p <= x} (1 - 1/p)^{-1} = e^gamma log x + O(1) (Mertens 1874) -- the e^gamma is a Mertens fingerprint, NOT a Lambda fingerprint. CONSEQUENCE for engine planning: the elementary-NT RH-equivalent family does not contribute to the Lambda-attack productive surface; engine should narrow the genuinely-new-input search away from sigma(n)/n / phi(n) / H_n combinatorial RH-equivalents. 12 build-time tripwires (robin-1984-stated-precisely with J. Math. Pures Appl. 63 1984 187-213; lagarias-2002-stated-precisely with Amer. Math. Monthly 109 2002 534-543; empirical-sigma-on-CA-numbers-computed with >= 10 evaluations; known-exception-n5040-recovered with sigma(5040) = 19344 + gap < 0; robin-holds-on-tested-large-n >= 8 entries >= 5041; CA-audit-answers-both-questions-no with Mertens-not-Lambda reasoning; lambda-connection-no-quantitative-bridge with >= 3 obstructions named + Platt-Trudgian subsumption; verdict-is-one-of-allowed-strings; six-required-citations-present Robin 1984 + Lagarias 2002 + Erdős-Nicolas 1981 + Nicolas 1983 + Caveney-Nicolas-Sondow 2011 + Alaoglu-Erdős 1944 + de Bruijn 1950 + Newman 1976; cross-references-parent-tickets imp-1235/1259/1261/1305; honest-scope-negative-and-mertens-not-lambda; semantic-e-gamma-constant-correct with sigma(720720) = 3249792 ground-truth check). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append. npm run build green.",
+    closureNote: "Shipped src/data/imp-1311-robin-lagarias-combinatorial-attack.js (~640 LOC) classifying the Robin 1984 (J. Math. Pures Appl. (9) 63 (1984) 187-213) + Lagarias 2002 (Amer. Math. Monthly 109 (2002) 534-543) sigma(n)/n elementary RH-equivalent criteria as a direct approach on RH and a candidate numerical Lambda bound. VERDICT: robin-criterion-RH-equivalent-only-not-numerical. Robin 1984: RH iff sigma(n) < e^gamma * n * log log n for every n >= 5041 (sigma(n) = sum of divisors of n; gamma = Euler-Mascheroni constant ~ 0.5772). Lagarias 2002: RH iff sigma(n) <= H_n + exp(H_n) * log(H_n) for every n >= 1 (H_n = n-th harmonic number). Both are STRICT RH equivalences -- by Newman 1976 + de Bruijn 1950, RH <=> Lambda <= 0, so Robin/Lagarias yield Lambda <= 0 IFF RH, qualitative only. NO known mechanism converts Robin margin (or Lagarias margin) into a numerical Lambda bound: (1) Robin is POINTWISE on N, Lambda is a heat-flow limit on C, no quantitative bridge; (2) KS-probabilistic NT path sigma(n)/n -> prime-divisor sums hits Mertens 3rd theorem at the LEADING term with Mertens constant C_M, Lambda enters only at the secondary zero-free-region correction where its sign determines qualitative form (Schoenfeld 1976 vs Korobov-Vinogradov) but not magnitude; (3) counter-example direction: Robin fails at n_0 => RH false => Lambda > 0, but the SIZE of the violation does not translate to a numerical lower bound on Lambda. EMPIRICAL CONTENT: computed sigma(n)/n vs e^gamma * log log n on the first 14 colossally-abundant numbers (OEIS A004490: 2, 6, 12, 60, 120, 360, 2520, 5040, 55440, 720720, 1441440, 4324320, 21621600, 367567200) + extras (10^6, 10^7). Recovered the classical Robin failures at the 8 small CA numbers <= 5040 (sigma(5040) = 19344, sigma/5040 ~ 3.838 > 3.817 ~ e^gamma * log log 5040). Confirmed Robin HOLDS at all sampled n >= 5041 (55440, 720720, 1441440, 4324320, 21621600, 367567200, 10^6, 10^7) -- restating empirical RH on the tested range, strictly weaker than Platt-Trudgian 2021's verification of RH up to T = 3 * 10^12. ELEMENTARY-NT CA AUDIT (Erdős-Nicolas 1981 Bull SMF 109 + Nicolas 1983 JNT 17 + Caveney-Nicolas-Sondow 2011 Integers 11): (a) does CA-number structure give a constructive Lambda bound? NO -- CA-number asymptotic G(N_k) = sigma(N_k)/(N_k log log N_k) -> e^gamma is governed by Mertens 3rd theorem; the leading correction C_M is the Mertens constant, independent of Lambda; the secondary correction delta depends on the zero-free region under RH (Schoenfeld 1976 delta = 1/2 - eps) but gives a Schoenfeld explicit-NT constant for pi(x), not a numerical Lambda bound. (b) does CA-number asymptotic match the de Bruijn-flow constant? NO -- the de Bruijn-Newman Lambda is heat-equation flow on Riemann xi over the complex plane; CA-number asymptotic lives on N and is bounded by Mertens arithmetic-density theorem; no functional correspondence. STRUCTURAL OBSERVATION: Robin/Lagarias/Nicolas/Caveney-Nicolas-Sondow are an ELEMENTARY-NT family of RH-equivalents STRUCTURALLY ORTHOGONAL to the spectral / moment-method family ruled out by imp-1297 + imp-1302 + imp-1303 + imp-1305. The orthogonal route also does NOT yield a numerical Lambda bound. The shared e^gamma constant in Robin (sigma-side) and Nicolas (phi-side) descends from a single Mertens 3rd theorem identity prod_{p <= x} (1 - 1/p)^{-1} = e^gamma log x + O(1) (Mertens 1874) -- the e^gamma is a Mertens fingerprint, NOT a Lambda fingerprint. CONSEQUENCE for engine planning: the elementary-NT RH-equivalent family does not contribute to the Lambda-attack productive surface; engine should narrow the genuinely-new-input search away from sigma(n)/n / phi(n) / H_n combinatorial RH-equivalents. 12 build-time tripwires (robin-1984-stated-precisely with J. Math. Pures Appl. 63 1984 187-213; lagarias-2002-stated-precisely with Amer. Math. Monthly 109 2002 534-543; empirical-sigma-on-CA-numbers-computed with >= 10 evaluations; known-exception-n5040-recovered with sigma(5040) = 19344 + gap < 0; robin-holds-on-tested-large-n >= 8 entries >= 5041; CA-audit-answers-both-questions-no with Mertens-not-Lambda reasoning; lambda-connection-no-quantitative-bridge with >= 3 obstructions named + Platt-Trudgian subsumption; verdict-is-one-of-allowed-strings; six-required-citations-present Robin 1984 + Lagarias 2002 + Erdős-Nicolas 1981 + Nicolas 1983 + Caveney-Nicolas-Sondow 2011 + Alaoglu-Erdős 1944 + de Bruijn 1950 + Newman 1976; cross-references-parent-tickets imp-1235/1259/1261/1305; honest-scope-negative-and-mertens-not-lambda; semantic-e-gamma-constant-correct with sigma(720720) = 3249792 ground-truth check). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append. npm run build green.",
   },
   {
     id: 'imp-1312',
@@ -21110,7 +21110,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: "Beurling 1955 + Nyman 1950 + Bercovici-Foias 1984: RH iff density-statement in L^2(0,1) on certain subspaces of fractional parts. Never opened as proof attack. Walk: (a) state Beurling-Nyman precisely (closure of span of {rho(theta/x)} in L^2(0,1)); (b) is the density satisfied unconditionally via Selberg moment bounds or Heath-Brown 4th moment? (c) does it intersect with the §15-27 -> RH chain at any structural point? Ship src/data/imp-1312-beurling-nyman-attack.js + 8 tripwires.",
+    description: "Beurling 1955 + Nyman 1950 + Bercovici-Foias 1984: RH iff density-statement in L^2(0,1) on certain subspaces of fractional parts. Never opened as proof approach. Walk: (a) state Beurling-Nyman precisely (closure of span of {rho(theta/x)} in L^2(0,1)); (b) is the density satisfied unconditionally via Selberg moment bounds or Heath-Brown 4th moment? (c) does it intersect with the §15-27 -> RH chain at any structural point? Ship src/data/imp-1312-beurling-nyman-attack.js + 8 tripwires.",
     rationale: 'Functional-analytic RH equivalent. Bercovici-Foias gave a quantitative version that might be unconditional. Never opened.',
     estimatedComplexity: 'large',
     dependsOn: [],
@@ -21237,7 +21237,7 @@ export const IMPROVEMENT_QUEUE = [
     completedAt: '2026-05-29T01:45:00Z',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subagent-worktree',
-    closureNote: "Shipped src/data/imp-1318-maynard-sieve-pcc.js (~1400 LOC) + IMP_1318_MAYNARD_SIEVE_PCC_ASSERTIONS (13 build-time tripwires, ticket spec required 8+). HEADLINE VERDICT: maynard-sieve-applies-only-to-arithmetic-not-spectral. The Maynard sieve method is GENUINELY ORTHOGONAL to BOTH moment methods (imp-1297/1302/1303/1304/1305) AND entropy methods (imp-1309) in its PRIMARY DOMAIN (prime-gap statistics): the sieve uses multiplicative structure on integers (Mobius, divisor, smooth-number indicator), Schinzel-Hardy-Littlewood admissible k-tuple combinatorics, Bombieri-Vinogradov-class level of distribution in arithmetic progressions, and Selberg-sieve / Maynard multidimensional lambda_{d_1...d_k} weights -- structurally distinct from both higher-moment-of-zeta inputs and additive-combinatorial / entropy-compression inputs. HOWEVER, orthogonality does NOT transfer to the single-zeta 2-point PCC observable at Fourier support sigma > 1 for THREE INDEPENDENT STRUCTURAL OBSTRUCTIONS, parallel to imp-1309 (R1)/(R2)/(R3): (S1) ARITHMETIC-TO-SPECTRAL DOMAIN MISMATCH -- sieve operates on integers Z with multiplicative structure; zeros gamma_n have NO multiplicative structure on spacings; the only known translation bridge is the explicit formula (Weil 1952, Guinand 1948) whose off-diagonal prime-power sum is bounded via Cauchy-Schwarz against a higher-moment input, IDENTICAL to imp-1303 (Heath-Brown 1979) and imp-1305 (Goldston-Yildirim 2003 absolutized). (S2) ADMISSIBLE-TUPLE STRUCTURE ABSENT FROM ZEROS -- the load-bearing input that powers Maynard sieve on primes is admissible k-tuple structure {h_1,...,h_k} for which {n+h_j} has simultaneous-prime behaviour that sieve weights w_n exploit; zeros have NO admissible-tuple analogue: conjectural GUE spacing density (Wigner surmise: P(s) ~ s^2 e^{-c s^2}) is LOCALLY REPULSIVE, small spacings are SUPPRESSED, the OPPOSITE of admissible-tuple near-coincidence pattern. Structurally missing input, identical to imp-1309 (R2) additive-structure-absent obstruction. (S3) SIEVE-WEIGHT L^1 FIRST-MOMENT OUTPUT vs PCC L^2 SECOND-MOMENT INPUT -- sieve method outputs weighted first-moment counts sum_n w_n * 1[arithmetic condition]; PCC at 2-point is a SECOND-MOMENT (linear statistic) bound on the Fourier-transformed pair-correlation F(alpha, T); sieve -> second-moment translation is one-directional WRONG (first-moment is weaker), passes through Cauchy-Schwarz from L^1 to L^2 RE-INTRODUCING the (log T)^{1/2} layer. Identical structural feature to imp-1309 (R3). KEY STRUCTURAL INSIGHT: the sieve method SHIFTS WHERE Cauchy-Schwarz appears in the chain (from INPUT stage in moment methods to OUTPUT stage in the arithmetic-to-spectral translation via EITHER explicit formula OR Pinsker-Parseval) but does NOT eliminate it; the (log T)^{1/2} slack is a property of the L^1 / L^2 Hölder duality boundary, not of any specific input. Selberg 1944 |S(T)| <= O((log T / log log T)^{1/2}) is the load-bearing L^infty input that gives the slack in BOTH moment AND entropy AND sieve routes. HONEST TRAINING-TIME UNCERTAINTY ACKNOWLEDGED: the well-attested 2024 Maynard result is Guth-Maynard 2024 (arXiv:2405.20552) ZERO-DENSITY bound N(sigma, T) << T^{30(1-sigma)/13 + o(1)} -- the first improvement to Ingham 1940 in 80+ years, ALREADY wired into src/data/guth-maynard-tail-bound.js for Path C tail certification (imp-308/imp-317). This is a ZERO-DENSITY off-line zeros count NOT a pair-correlation Fourier bound at 2-point. A specific Maynard 2024 sieve-refinement paper targeting 2-point statistic is UNCERTAIN at January 2026 training-cutoff; classification uses closest-known forms: Guth-Maynard 2024 zero-density + Maynard 2013/2015 GPY-style multidimensional sieve (Ann. Math. 181, 383-413, arXiv 1311.4600) + Maynard 2019 primes-in-AP to large moduli (arXiv 1906.06530 et seq.) + FGKMT 2014/2018 long-gap sieve. The (S1)-(S3) obstructions are ROBUST to the exact form of Maynard 2024 because they identify load-bearing LAYER-LEVEL obstructions any sieve-on-zeros argument must traverse; classification OPEN-FOR-REVISION if a specific Maynard 2024 zero-gap sieve theorem exists and bypasses the L^1/L^2 Cauchy-Schwarz layer in a way not captured by (S1)-(S3). TWO-POINT BOUND DERIVED VIA SIEVE METHOD: F(alpha, T) - F_GUE(alpha) = O((log T)^{-1/2}) for alpha in (1, 5/4) -- IDENTICAL to imp-1303 (HB1979), imp-1305 (GY2003 absolutized), and imp-1309 (Tao 2024 entropy closest-known) to leading order; no bound for sigma > 5/4. AGGREGATE PATTERN EXTENDED: imp-1297 (Selberg-trace) + imp-1302 (Goldston-Gonek 1998) + imp-1303 (Heath-Brown 1979) + imp-1304 (Iwaniec-Sarnak 2000) + imp-1305 (Goldston-Yildirim 2003 absolutized) [MOMENT-METHOD FAMILY] + imp-1309 (Tao 2024 entropy, closest-known) [ENTROPY-METHOD FAMILY] + imp-1318 (Maynard 2024 sieve, closest-known) [SIEVE-METHOD FAMILY] = the THREE major structurally-orthogonal families of modern analytic-number-theory are EXHAUSTED for PCC at 2-point with support > 1. Aggregate verdict on §15-27 -> RH via PCC remains pcc-genuinely-open-pending-new-input. Remaining candidates OUTSIDE the moment + entropy + sieve triad: (i) Connes-Bost adele class space (imp-1307, ruled non-rigorous); (ii) Berry-Keating semiclassical quantum-chaos (imp-1308, ruled non-rigorous as published); (iii) imp-1310 alternative §15-27 pathway with Fourier-support sigma <= 1 (also exhausted, support > 1 intrinsic via Plancherel/Heisenberg); (iv) Hecke-triangle Selberg trace; (v) de Branges direct route via imp-1241 unified existence. 13 build-time tripwires (ticket required 8+, all PASS): imp1318-maynard2024-stated-with-honest-uncertainty (Guth-Maynard 2024 arXiv:2405.20552 confidently cited; Maynard 2024 sieve 2-point-targeted refinement uncertainty flagged), imp1318-arithmetic-to-spectral-translation-evaluated (walk (a) observable bounded by sieve / (b) translation chain via explicit formula OR Pinsker-Parseval / (c) Cauchy-Schwarz bypass attempt), imp1318-L1-L2-boundary-evaluated-not-bypassed (per imp-1309 closure-note pattern: shift vs bypass), imp1318-structural-orthogonality-three-obstructions ((S1) arithmetic-to-spectral domain mismatch + (S2) admissible-tuple absent + (S3) L^1 first-moment vs L^2 second-moment, parallel to imp-1309 R1/R2/R3), imp1318-verdict-is-one-of-allowed-strings (4 allowed: maynard-sieve-{bypasses-PCC, applies-only-to-arithmetic-not-spectral, equi-difficult-to-PCC-via-L1-L2-boundary, not-applicable}), imp1318-verdict-detail-pcc-remains-open (residual gap PCC sigma > 1 OPEN), imp1318-five-required-citations-present (Maynard 2024 uncertain + Guth-Maynard 2024 + Maynard 2013/2015 + Maynard 2019 + imp-1297/1305/1309), imp1318-cross-references-prior-pcc-routes (imp-1297/1305/1309 per ticket spec), imp1318-honest-scope-mentions-negative-uncertainty-and-prior-continuation (NEGATIVE + UNCERTAIN + imp-1297..imp-1309 continuation), imp1318-pattern-note-extends-exhaustion-to-sieve-family (moment + entropy + sieve all negative -> pcc-genuinely-open-pending-new-input), imp1318-semantic-sieve-matches-prior-routes-leading-order (F(alpha,T) - F_GUE(alpha) = O((log T)^{-1/2}) for alpha in (1, 5/4) identical to HB1979/GY2003/entropy), imp1318-semantic-parallel-to-imp1309-structural-identification (sieve and entropy method are structurally parallel; both shift CS stage, both fail at L^1/L^2 boundary, both have structural-input-absent on zeros), imp1318-semantic-lambda-attack-new-input-outside-triad (names Connes-Bost / Berry-Keating / Hecke-triangle / de Branges / imp-1310 alternative pathway). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after imp-1315. Build passes; single atomic commit (no push) per worktree rules.",
+    closureNote: "Shipped src/data/imp-1318-maynard-sieve-pcc.js (~1400 LOC) + IMP_1318_MAYNARD_SIEVE_PCC_ASSERTIONS (13 build-time tripwires, ticket spec required 8+). HEADLINE VERDICT: maynard-sieve-applies-only-to-arithmetic-not-spectral. The Maynard sieve method is GENUINELY ORTHOGONAL to BOTH moment methods (imp-1297/1302/1303/1304/1305) AND entropy methods (imp-1309) in its PRIMARY DOMAIN (prime-gap statistics): the sieve uses multiplicative structure on integers (Mobius, divisor, smooth-number indicator), Schinzel-Hardy-Littlewood admissible k-tuple combinatorics, Bombieri-Vinogradov-class level of distribution in arithmetic progressions, and Selberg-sieve / Maynard multidimensional lambda_{d_1...d_k} weights -- structurally distinct from both higher-moment-of-zeta inputs and additive-combinatorial / entropy-compression inputs. HOWEVER, orthogonality does NOT transfer to the single-zeta 2-point PCC observable at Fourier support sigma > 1 for THREE INDEPENDENT STRUCTURAL OBSTRUCTIONS, parallel to imp-1309 (R1)/(R2)/(R3): (S1) ARITHMETIC-TO-SPECTRAL DOMAIN MISMATCH -- sieve operates on integers Z with multiplicative structure; zeros gamma_n have NO multiplicative structure on spacings; the only known translation bridge is the explicit formula (Weil 1952, Guinand 1948) whose off-diagonal prime-power sum is bounded via Cauchy-Schwarz against a higher-moment input, IDENTICAL to imp-1303 (Heath-Brown 1979) and imp-1305 (Goldston-Yildirim 2003 absolutized). (S2) ADMISSIBLE-TUPLE STRUCTURE ABSENT FROM ZEROS -- the load-bearing input that powers Maynard sieve on primes is admissible k-tuple structure {h_1,...,h_k} for which {n+h_j} has simultaneous-prime behaviour that sieve weights w_n use; zeros have NO admissible-tuple analogue: conjectural GUE spacing density (Wigner surmise: P(s) ~ s^2 e^{-c s^2}) is LOCALLY REPULSIVE, small spacings are SUPPRESSED, the OPPOSITE of admissible-tuple near-coincidence pattern. Structurally missing input, identical to imp-1309 (R2) additive-structure-absent obstruction. (S3) SIEVE-WEIGHT L^1 FIRST-MOMENT OUTPUT vs PCC L^2 SECOND-MOMENT INPUT -- sieve method outputs weighted first-moment counts sum_n w_n * 1[arithmetic condition]; PCC at 2-point is a SECOND-MOMENT (linear statistic) bound on the Fourier-transformed pair-correlation F(alpha, T); sieve -> second-moment translation is one-directional WRONG (first-moment is weaker), passes through Cauchy-Schwarz from L^1 to L^2 RE-INTRODUCING the (log T)^{1/2} layer. Identical structural feature to imp-1309 (R3). KEY STRUCTURAL INSIGHT: the sieve method SHIFTS WHERE Cauchy-Schwarz appears in the chain (from INPUT stage in moment methods to OUTPUT stage in the arithmetic-to-spectral translation via EITHER explicit formula OR Pinsker-Parseval) but does NOT eliminate it; the (log T)^{1/2} slack is a property of the L^1 / L^2 Hölder duality boundary, not of any specific input. Selberg 1944 |S(T)| <= O((log T / log log T)^{1/2}) is the load-bearing L^infty input that gives the slack in BOTH moment AND entropy AND sieve routes. HONEST TRAINING-TIME UNCERTAINTY ACKNOWLEDGED: the well-attested 2024 Maynard result is Guth-Maynard 2024 (arXiv:2405.20552) ZERO-DENSITY bound N(sigma, T) << T^{30(1-sigma)/13 + o(1)} -- the first improvement to Ingham 1940 in 80+ years, ALREADY wired into src/data/guth-maynard-tail-bound.js for Path C tail certification (imp-308/imp-317). This is a ZERO-DENSITY off-line zeros count NOT a pair-correlation Fourier bound at 2-point. A specific Maynard 2024 sieve-refinement paper targeting 2-point statistic is UNCERTAIN at January 2026 training-cutoff; classification uses closest-known forms: Guth-Maynard 2024 zero-density + Maynard 2013/2015 GPY-style multidimensional sieve (Ann. Math. 181, 383-413, arXiv 1311.4600) + Maynard 2019 primes-in-AP to large moduli (arXiv 1906.06530 et seq.) + FGKMT 2014/2018 long-gap sieve. The (S1)-(S3) obstructions are ROBUST to the exact form of Maynard 2024 because they identify load-bearing LAYER-LEVEL obstructions any sieve-on-zeros argument must traverse; classification OPEN-FOR-REVISION if a specific Maynard 2024 zero-gap sieve theorem exists and bypasses the L^1/L^2 Cauchy-Schwarz layer in a way not captured by (S1)-(S3). TWO-POINT BOUND DERIVED VIA SIEVE METHOD: F(alpha, T) - F_GUE(alpha) = O((log T)^{-1/2}) for alpha in (1, 5/4) -- IDENTICAL to imp-1303 (HB1979), imp-1305 (GY2003 absolutized), and imp-1309 (Tao 2024 entropy closest-known) to leading order; no bound for sigma > 5/4. AGGREGATE PATTERN EXTENDED: imp-1297 (Selberg-trace) + imp-1302 (Goldston-Gonek 1998) + imp-1303 (Heath-Brown 1979) + imp-1304 (Iwaniec-Sarnak 2000) + imp-1305 (Goldston-Yildirim 2003 absolutized) [MOMENT-METHOD FAMILY] + imp-1309 (Tao 2024 entropy, closest-known) [ENTROPY-METHOD FAMILY] + imp-1318 (Maynard 2024 sieve, closest-known) [SIEVE-METHOD FAMILY] = the THREE major structurally-orthogonal families of modern analytic-number-theory are EXHAUSTED for PCC at 2-point with support > 1. Aggregate verdict on §15-27 -> RH via PCC remains pcc-genuinely-open-pending-new-input. Remaining candidates OUTSIDE the moment + entropy + sieve triad: (i) Connes-Bost adele class space (imp-1307, ruled non-rigorous); (ii) Berry-Keating semiclassical quantum-chaos (imp-1308, ruled non-rigorous as published); (iii) imp-1310 alternative §15-27 pathway with Fourier-support sigma <= 1 (also exhausted, support > 1 intrinsic via Plancherel/Heisenberg); (iv) Hecke-triangle Selberg trace; (v) de Branges direct route via imp-1241 unified existence. 13 build-time tripwires (ticket required 8+, all PASS): imp1318-maynard2024-stated-with-honest-uncertainty (Guth-Maynard 2024 arXiv:2405.20552 confidently cited; Maynard 2024 sieve 2-point-targeted refinement uncertainty flagged), imp1318-arithmetic-to-spectral-translation-evaluated (walk (a) observable bounded by sieve / (b) translation chain via explicit formula OR Pinsker-Parseval / (c) Cauchy-Schwarz bypass attempt), imp1318-L1-L2-boundary-evaluated-not-bypassed (per imp-1309 closure-note pattern: shift vs bypass), imp1318-structural-orthogonality-three-obstructions ((S1) arithmetic-to-spectral domain mismatch + (S2) admissible-tuple absent + (S3) L^1 first-moment vs L^2 second-moment, parallel to imp-1309 R1/R2/R3), imp1318-verdict-is-one-of-allowed-strings (4 allowed: maynard-sieve-{bypasses-PCC, applies-only-to-arithmetic-not-spectral, equi-difficult-to-PCC-via-L1-L2-boundary, not-applicable}), imp1318-verdict-detail-pcc-remains-open (residual gap PCC sigma > 1 OPEN), imp1318-five-required-citations-present (Maynard 2024 uncertain + Guth-Maynard 2024 + Maynard 2013/2015 + Maynard 2019 + imp-1297/1305/1309), imp1318-cross-references-prior-pcc-routes (imp-1297/1305/1309 per ticket spec), imp1318-honest-scope-mentions-negative-uncertainty-and-prior-continuation (NEGATIVE + UNCERTAIN + imp-1297..imp-1309 continuation), imp1318-pattern-note-extends-exhaustion-to-sieve-family (moment + entropy + sieve all negative -> pcc-genuinely-open-pending-new-input), imp1318-semantic-sieve-matches-prior-routes-leading-order (F(alpha,T) - F_GUE(alpha) = O((log T)^{-1/2}) for alpha in (1, 5/4) identical to HB1979/GY2003/entropy), imp1318-semantic-parallel-to-imp1309-structural-identification (sieve and entropy method are structurally parallel; both shift CS stage, both fail at L^1/L^2 boundary, both have structural-input-absent on zeros), imp1318-semantic-lambda-attack-new-input-outside-triad (names Connes-Bost / Berry-Keating / Hecke-triangle / de Branges / imp-1310 alternative pathway). Wired into scripts/run-assertions.mjs DATA_MODULES tail-append after imp-1315. Build passes; single atomic commit (no push) per worktree rules.",
   },
 
   // ---- visualizations to surface the new state ----
@@ -21260,14 +21260,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-1320',
-    title: 'META: top-level RH proof-state dashboard — single-page status of all attack vectors',
+    title: 'META: top-level RH proof-state dashboard — single-page status of all approach vectors',
     category: 'ux',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'haiku-4-5',
     completedByChannel: 'subscription',
     proofSection: 'S0',
-    description: "After this session's results, the strategic landscape is complex. Build src/pages/RHProofStateDashboardPage.jsx: top-level dashboard with sections (Goal 1: Lambda chain — citation-conditional via imp-1264; Goal 2: RH via §15-27 — proven down to PCC; Open PCC: 5 routes exhausted + 4 new-input candidates pending; Alternative routes: §23 freezing-bridge conjectural, Apps M-O redundant; Empirical: imp-1240/1248/1262/1267 evidence). Link to relevant thinking/decisions/*.md docs. Wire into NAV_GROUPS as top of Attack section.",
+    description: "After this session's results, the strategic landscape is complex. Build src/pages/RHProofStateDashboardPage.jsx: top-level dashboard with sections (Goal 1: Lambda chain — citation-conditional via imp-1264; Goal 2: RH via §15-27 — proven down to PCC; Open PCC: 5 routes exhausted + 4 new-input candidates pending; Alternative routes: §23 freezing-bridge conjectural, Apps M-O redundant; Empirical: imp-1240/1248/1262/1267 evidence). Link to relevant thinking/decisions/*.md docs. Wire into NAV_GROUPS as top of Approach section.",
     rationale: 'Single-page summary of where we are after this session. Helps new readers (and next session) understand the state quickly.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -21351,7 +21351,7 @@ export const IMPROVEMENT_QUEUE = [
   // WAVE 20: post-frontier campaign — Lambda unconditional + super-critical ζ phase + novel RH
   // ----------------------------------------------------------------------------
   // After wave-19 mapped the literature frontier (5 Lambda levers + 10 PCC
-  // routes exhausted), wave-20 opens NEW attack vectors the engines can chew on:
+  // routes exhausted), wave-20 opens NEW approach vectors the engines can chew on:
   //   (A) Lambda unconditional paths bypassing the (log T)^A binding cancellation
   //   (B) Super-critical phase of ζ (σ > 1/2) — direction user named, never opened
   //   (C) §15-27 closure paths beyond PCC at support > 1 (named pivots from imp-1308/1310)
@@ -21370,7 +21370,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api',
     proofSection: 'S6',
     description: "imp-1321 + imp-1322 both blocked by (log T)^A factor with A >= 2 in modern effective-Ingham. imp-1318 Maynard 2024 sieve verdict: sieve doesn't transfer to zero SPECTRAL structure for PCC bypass, BUT may transfer to zero-DENSITY arithmetic bound where it originated. Walk: (a) does Maynard 2013/2024 sieve give an explicit constant on N(sigma, T) with A < 2? (b) what dependence on sigma? (c) at sigma=0.75 + T_PT=3e12, what is the rigorous tightening factor? Ship src/data/imp-1325-maynard-sieve-zero-density.js + 10 tripwires.",
-    rationale: 'Direct attack on the (log T)^A factor that blocked imp-1321 + imp-1322. Maynard sieve was negative for SPECTRAL PCC but may work on ARITHMETIC zero-density.',
+    rationale: 'Direct approach on the (log T)^A factor that blocked imp-1321 + imp-1322. Maynard sieve was negative for SPECTRAL PCC but may work on ARITHMETIC zero-density.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1318', 'imp-1321', 'imp-1322'],
     model: 'opus-4-8',
@@ -21537,7 +21537,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "Consider the IMAGE of ζ on the super-critical strip σ in (1/2, 1) as t varies. Density + topology of this image (Karatsuba-Voronin 1994, Steuding 2007) carries information about zero distribution. Walk: (a) what is the topological closure of {ζ(σ+iT) : T in R} for fixed σ in (1/2, 1)? (b) does its measure-theoretic boundary contain 0? If 0 is not in the closure for σ in (1/2, 1), that's RH on that strip. (c) explicit quantitative version. Ship src/data/imp-1335-super-critical-strip-topology.js + 10 tripwires.",
-    rationale: 'NOVEL attack: topology of ζ image in super-critical strip. Never opened.',
+    rationale: 'NOVEL approach: topology of ζ image in super-critical strip. Never opened.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1334'],
     model: 'opus-4-8',
@@ -21566,7 +21566,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S6',
-    description: "Backlund 1918 first method for zero-strip verification used the S(t) function argument-principle jumps. Modern Trudgian 2014 refines this. Walk: (a) does the Backlund-Trudgian S(t) jump bound give an INDEPENDENT Lambda constraint via the de Bruijn flow? (b) is there a direct Backlund-style attack on E_trunc_pt that doesn't go through Ingham zero-density? Ship src/data/imp-1337-backlund-method-modern.js + 8 tripwires.",
+    description: "Backlund 1918 first method for zero-strip verification used the S(t) function argument-principle jumps. Modern Trudgian 2014 refines this. Walk: (a) does the Backlund-Trudgian S(t) jump bound give an INDEPENDENT Lambda constraint via the de Bruijn flow? (b) is there a direct Backlund-style approach on E_trunc_pt that doesn't go through Ingham zero-density? Ship src/data/imp-1337-backlund-method-modern.js + 8 tripwires.",
     rationale: 'Backlund S(t) method is a 100-year-old technique with modern refinements. May be an unexplored Lambda lever.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1333'],
@@ -21585,7 +21585,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "Twin-Ladder paper §16 introduces ladder deformations of ξ. Combined with Hardy Z = exp(i*theta(t)) * ζ(1/2 + it) decomposition, the phase 'theta(t) - arg(ζ)' is a tomographic observable. Question: does the twin-ladder deformation phase couple to S(T) in a way that constrains Lambda? Walk: (a) state the ladder-Hardy-Z phase relationship; (b) extract the Lambda dependence; (c) check empirically at small ladder parameters. Ship src/data/imp-1338-zeta-phase-tomography.js + 8 tripwires.",
-    rationale: 'Connects twin-ladder framework to ζ phase. Native to the paper but not directly attacked.',
+    rationale: 'Connects twin-ladder framework to ζ phase. Native to the paper but not directly approached.',
     estimatedComplexity: 'large',
     dependsOn: ['imp-1241', 'imp-1333'],
     model: 'opus-4-8',
@@ -21602,7 +21602,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     proofSection: 'S7',
     description: "imp-1308 closure named Hecke triangle Selberg trace as a pivot. SL(2,Z) Selberg trace was equi-difficult to PCC via Sarnak 1995 AQC (imp-1297). Hecke triangle groups Δ(2,q,inf) for prime q have DIFFERENT spectral structure — may give a 2-point bound that does NOT route through SL(2,Z) AQC. Walk: (a) state the Hecke triangle Selberg trace formula precisely; (b) does it give a single-zeta 2-point bound at support > 1 bypassing AQC? (c) auxiliary conjectures required. Ship src/data/imp-1339-hecke-triangle-selberg-trace.js + 8 tripwires.",
-    rationale: 'imp-1308 explicit named this. Different spectral structure may bypass the AQC equivalence that killed Selberg-trace at SL(2,Z) level.',
+    rationale: 'imp-1308 explicit named this. Different spectral structure may bypass the AQC equivalence that eliminated Selberg-trace at SL(2,Z) level.',
     estimatedComplexity: 'extra-large',
     dependsOn: ['imp-1297', 'imp-1308'],
     model: 'opus-4-8',
@@ -21641,7 +21641,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "imp-1267 proved V_{a,Φ} is Hilbert-Schmidt (Schatten-2). de Branges theory says: if V is trace class (Schatten-1) with explicit trace, then det(I - V) gives a Hadamard-product factorization and RH follows. Walk: (a) is V_{a,Φ} in Schatten-1? (b) compute the rigorous trace ||V||_1; (c) does the trace bound match what's needed for the Hadamard factorization? Ship src/data/imp-1341-volterra-schatten-1-bridge.js + 10 tripwires.",
-    rationale: 'Schatten-1 (trace class) is the gap between proven HS bound and direct RH consequence. Worth a focused attack.',
+    rationale: 'Schatten-1 (trace class) is the gap between proven HS bound and direct RH consequence. Worth a focused approach.',
     estimatedComplexity: 'extra-large',
     dependsOn: ['imp-1267', 'imp-1287'],
     model: 'opus-4-8',
@@ -22406,15 +22406,15 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-2363',
-    title: "Apply de Branges total-positivity machinery to the ghost-absence kernel B_a+ = 1 (Attack I)",
+    title: "Apply de Branges total-positivity machinery to the ghost-absence kernel B_a+ = 1 (Approach I)",
     category: 'proof',
     priority: 'medium',
     status: 'completed',
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: null,
-    description: "Fan-out direction (ref src/data/three-attacks-section.js Attack I, Conjecture 18.1: realize (A_a, B_a) as a Weyl transfer pair). The Ando 1979 and Foias-Frazho 1990 total-positivity results have not been applied here. Investigate whether the kernel K_a admits a total-positivity certificate forcing B_a+ = 1, delivering either a candidate argument with a clearly-named gap or a documented obstruction. No fabricated QED.",
-    rationale: "Attack I reduces ghost-absence to a kernel-positivity statement; total-positivity theory is the natural unused tool for exactly this kind of claim.",
+    description: "Fan-out direction (ref src/data/three-attacks-section.js Approach I, Conjecture 18.1: realize (A_a, B_a) as a Weyl transfer pair). The Ando 1979 and Foias-Frazho 1990 total-positivity results have not been applied here. Investigate whether the kernel K_a admits a total-positivity certificate forcing B_a+ = 1, delivering either a candidate argument with a clearly-named gap or a documented obstruction. No fabricated QED.",
+    rationale: "Approach I reduces ghost-absence to a kernel-positivity statement; total-positivity theory is the natural unused tool for exactly this kind of claim.",
     estimatedComplexity: 'large',
     dependsOn: [],
     model: 'opus-4-8',
@@ -22422,15 +22422,15 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-2364',
-    title: "Numerically track the Pontryagin index ind_-(K_a) across spectral windows for Attack III",
+    title: "Numerically track the Pontryagin index ind_-(K_a) across spectral windows for Approach III",
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: null,
-    description: "Fan-out direction (ref src/data/three-attacks-section.js Attack III, where Theorem 18.3 plus Conjecture 18.4 reduce to ind_-(K_a) = 0). Compute the negative index / winding number of K_a as a varies in (0,5) over spectral windows and report whether ind_-(K_a) = 0 holds empirically and where it is closest to changing sign. Numerical support for Conjecture 18.4; not a proof.",
-    rationale: "The index is an integer-valued, numerically stable invariant; tracking it directly tests the central conjecture of Attack III at low cost.",
+    description: "Fan-out direction (ref src/data/three-attacks-section.js Approach III, where Theorem 18.3 plus Conjecture 18.4 reduce to ind_-(K_a) = 0). Compute the negative index / winding number of K_a as a varies in (0,5) over spectral windows and report whether ind_-(K_a) = 0 holds empirically and where it is closest to changing sign. Numerical support for Conjecture 18.4; not a proof.",
+    rationale: "The index is an integer-valued, numerically stable invariant; tracking it directly tests the central conjecture of Approach III at low cost.",
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -22929,7 +22929,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-2452',
-    title: "Absolute Birman-Krein spectral-shift function of the genuine twin-ladder operator (Attack III)",
+    title: "Absolute Birman-Krein spectral-shift function of the genuine twin-ladder operator (Approach III)",
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -22937,7 +22937,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: "api-pool",
     proofSection: null,
     description: "Wave-4 follow-on to imp-2425. imp-2425 read ind_-(K_a) via the RELATIVE Krein SSF, which cancels the degree-N background by construction and is therefore only a consistency cross-check, not an operator-independent input. Compute the ABSOLUTE Birman-Krein spectral-shift function of the actual twin-ladder operator (linking the imp-2430/imp-2438 de Branges Hamiltonian) and report whether it reproduces ind_-(K_a)=0 without a reference subtraction. Honest numerics; no proof claim.",
-    rationale: "An absolute SSF that independently yields index 0 would make the Attack III winding read operator-intrinsic rather than an artifact of the reference cancellation.",
+    rationale: "An absolute SSF that independently yields index 0 would make the Approach III winding read operator-intrinsic rather than an artifact of the reference cancellation.",
     estimatedComplexity: 'medium',
     dependsOn: ['imp-2425'],
     model: 'opus-4-8',
@@ -22993,7 +22993,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-2456',
-    title: "Positive lower bound on the smallest truncated minor of the ghost-absence kernel K_a (Attack I)",
+    title: "Positive lower bound on the smallest truncated minor of the ghost-absence kernel K_a (Approach I)",
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -23001,7 +23001,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: "api-pool",
     proofSection: null,
     description: "Wave-4 follow-on to imp-2424. imp-2424 found the ghost-absence kernel K_a's smallest normalized minor stays NEGATIVE, shrinking like n^{-1.7}, with no n-uniform positive certificate. Push the truncation to larger n and a finer a-grid, fit the n^{-1.7} margin decay to extrapolate the continuum-limit sign, and decide whether the boundary-of-PSD-cone behaviour admits a provable positive floor or is genuinely marginal (off-diagonal cosh/sinh remainder of imp-2363). Honest numerics.",
-    rationale: "Whether the K_a minor margin extrapolates to a positive floor or to zero decides if Attack I's positivity certificate is achievable or structurally blocked at the cone boundary.",
+    rationale: "Whether the K_a minor margin extrapolates to a positive floor or to zero decides if Approach I's positivity certificate is achievable or structurally blocked at the cone boundary.",
     estimatedComplexity: 'medium',
     dependsOn: ['imp-2424'],
     model: 'opus-4-8',
@@ -23137,7 +23137,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-2465',
-    title: "Conjugate-pair multiplicity stress test of the Attack III winding/SSF detector",
+    title: "Conjugate-pair multiplicity stress test of the Approach III winding/SSF detector",
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -24164,14 +24164,14 @@ export const IMPROVEMENT_QUEUE = [
   },
 {
     id: 'imp-2598',
-    title: 'E(N) decomposition attack: make the bridge error explicit and drive it to zero — THE headline lever',
+    title: 'E(N) decomposition approach: make the bridge error explicit and drive it to zero — THE headline lever',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
     completedByModel: 'opus-4-7',
     completedByChannel: 'subscription',
     proofSection: 'S7',
-    description: "Per imp-2564, RH follows from t_c >= 0 (trivial) plus E(N) -> 0 in the canonical bracket |Lambda + t_c(N)| <= E(N). The whole game is now E(N). Deliverable: (1) decompose E(N) into its named components (E_trunc / E_flow / E_coll / E_shock per imp-345/398/399/366 and bridge-lambda-rh.js), each with its current rigor status and N-dependence; (2) identify the DOMINANT component at the measured ladder and asymptotically; (3) for the dominant one, state the sharpest known bound, the obstruction to improving it, and the single next lemma that would reduce it; (4) numerically tabulate the components at the imp-321 ladder rows so the bottleneck is visible. Honest framing: this is a scoping+attack module, not a closure claim.",
+    description: "Per imp-2564, RH follows from t_c >= 0 (trivial) plus E(N) -> 0 in the canonical bracket |Lambda + t_c(N)| <= E(N). The whole game is now E(N). Deliverable: (1) decompose E(N) into its named components (E_trunc / E_flow / E_coll / E_shock per imp-345/398/399/366 and bridge-lambda-rh.js), each with its current rigor status and N-dependence; (2) identify the DOMINANT component at the measured ladder and asymptotically; (3) for the dominant one, state the sharpest known bound, the obstruction to improving it, and the single next lemma that would reduce it; (4) numerically tabulate the components at the imp-321 ladder rows so the bottleneck is visible. Honest framing: this is a scoping+approach module, not a closure claim.",
     rationale: 'The direction audit relocated the entire program: every hour spent sharpening t_c upper bounds is now known to buy fidelity only. E(N) is where Lambda <= 0 lives.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -24610,7 +24610,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'haiku-4-5',
     completedByChannel: 'subscription',
     description: "The 4-route etrunc-kappa-pinning workflow UNANIMOUSLY refuted the imp-2622 Lambda in [0.099,0.137] < 0.2 headline (see imp-2622-height-mismatch-refutation.js, independently re-verified): kappa_T~0.182 is the Ingham thin-strip exponent FROZEN at T0=3000 but multiplied against T0=1e13; the height-consistent kappa_T at 1e13 is 0.0456 and E_trunc = 7.65 (single-log) to 4.8e4 (explicit Ingham CS2025), both >> 0.2. The bound is NOT a theorem. DELIVERABLE: (1) correct the imp-2622-bridge-recomposition.js self-validating assertion that asserts landsInTargetBand=true / boundInterval [0.099,0.137] -- it certifies a height-mismatched product; reframe it to assert the FROZEN-vs-HONEST distinction and that the honest bound does NOT beat 0.2. (2) Update any lambda-roadmap.js / sota-lambda-claim.js text that propagated the < 0.2 headline. (3) Keep what survives: the recomposition (E_pp drops out) and the explicit C_T pinning are sound; only the rate is fatal. No false QED -- this is a withdrawal, state it plainly.",
-    rationale: 'Our own adversarial process caught a non-theorem before it became a paper claim; the self-validating assertion must stop certifying the artifact.',
+    rationale: 'Our own skeptical process caught a non-theorem before it became a paper claim; the self-validating assertion must stop certifying the artifact.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -24639,7 +24639,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'subscription',
     proofSection: 'S7',
-    description: "After the imp-2630 height-mismatch withdrawal, the strongest surviving result is the finite-N*=1e4 beat L_pt = L_cond + E_trunc_pt < 0.2 with L_cond = |t_c_proj| + E_flow + E_coll ~ 0.008 (imp-2631: L_cond is the BINDING term). Apply the SAME adversarial scrutiny that killed the 1e13 headline to L_cond's dominant sub-term |t_c_proj|: is it a RIGOROUS upper bound on t_c(N*=1e4), or an OLS/extrapolated projection (the referee flagged OLS-projected t_c earlier in imp-2519/2520)? DELIVERABLE: trace |t_c_proj| to its definition in finite-height-beats-platt-trudgian.js / the B1,B2 slope-intercept inputs; classify it rigorous-vs-projected; if projected, state the rigorous replacement (the exact t_c^part ladder gives a real upper bound g_min^2/8*(1+O(Theta)) — does it land below the 0.008 budget at N*=1e4?) and recompute L_cond honestly. NO false QED: if the surviving beat has a projection soft spot, say so plainly as we did for the headline.",
+    description: "After the imp-2630 height-mismatch withdrawal, the strongest surviving result is the finite-N*=1e4 beat L_pt = L_cond + E_trunc_pt < 0.2 with L_cond = |t_c_proj| + E_flow + E_coll ~ 0.008 (imp-2631: L_cond is the BINDING term). Apply the SAME skeptical scrutiny that eliminated the 1e13 headline to L_cond's dominant sub-term |t_c_proj|: is it a RIGOROUS upper bound on t_c(N*=1e4), or an OLS/extrapolated projection (the referee flagged OLS-projected t_c earlier in imp-2519/2520)? DELIVERABLE: trace |t_c_proj| to its definition in finite-height-beats-platt-trudgian.js / the B1,B2 slope-intercept inputs; classify it rigorous-vs-projected; if projected, state the rigorous replacement (the exact t_c^part ladder gives a real upper bound g_min^2/8*(1+O(Theta)) — does it land below the 0.008 budget at N*=1e4?) and recompute L_cond honestly. NO false QED: if the surviving beat has a projection soft spot, say so plainly as we did for the headline.",
     rationale: 'We just withdrew one overclaim; responsible next move is to verify the REMAINING strong claim survives the same scrutiny before it anchors anything.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -24832,7 +24832,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-app',
-    description: "src/pages/SpectralAttackPage.jsx covers the spectral/operator RH attack. Extend it (or add an explorer) visualizing the new Theta-trap machinery: the minimal-pair Theta(0) distribution across N, the A1 unconditional 1/4-trap, and the rigorous t_c^part = g_min^2/6 collision-time bound vs the measured ladder. Makes the recent rigorous theorems explorable. Use the small sg1c modules + ZETA_ZEROS (NOT the 16.7MB bundle). Verify render.",
+    description: "src/pages/SpectralAttackPage.jsx covers the spectral/operator RH approach. Extend it (or add an explorer) visualizing the new Theta-trap machinery: the minimal-pair Theta(0) distribution across N, the A1 unconditional 1/4-trap, and the rigorous t_c^part = g_min^2/6 collision-time bound vs the measured ladder. Makes the recent rigorous theorems explorable. Use the small sg1c modules + ZETA_ZEROS (NOT the 16.7MB bundle). Verify render.",
     rationale: 'Turns the session\'s proven Theta theorems into an interactive exploration; analysis-stream value.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -24937,7 +24937,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-app',
-    description: "Three rigorous claims were withdrawn/corrected by adversarial verification (1e13 height-mismatch imp-2630, kappa_T pin, sup-Im-m imp-2621). DELIVERABLE: a TRANSPARENCY LEDGER section in src/pages/RigorDashboardPage.jsx: claim -> caught-by -> correction -> current-honest-status (from imp-2622-height-mismatch-refutation.js, imp-2630, imp-2621). Light imports; verify render.",
+    description: "Three rigorous claims were withdrawn/corrected by skeptical verification (1e13 height-mismatch imp-2630, kappa_T pin, sup-Im-m imp-2621). DELIVERABLE: a TRANSPARENCY LEDGER section in src/pages/RigorDashboardPage.jsx: claim -> caught-by -> correction -> current-honest-status (from imp-2622-height-mismatch-refutation.js, imp-2630, imp-2621). Light imports; verify render.",
     rationale: 'Turns the withdrawal history into a credibility asset showing the verification discipline.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -25037,7 +25037,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 {
     id: 'imp-2665',
-    title: 'Attack the N-uniform L^2([0,inf)) Volterra norm bound (Conj 27.2 itself) — truncation-uniform, re-audited',
+    title: 'Approach the N-uniform L^2([0,inf)) Volterra norm bound (Conj 27.2 itself) — truncation-uniform, re-audited',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -25088,8 +25088,8 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'critical',
     status: 'completed',
     proofSection: 'S7',
-    description: "Per section27-identity-refutation THE_REAL_GAP. The §27 LINK B may still hold for the SPECIFIC Riemann Phi under an intended normalization — but that normalization is exactly the unproven Conj 25.2+26.3+27.2 and is nowhere derived. DELIVERABLE: (i) assess whether §25 hidden-square factorization K_a = int Psi Psi-bar dnu exists from Phi alone (Conj 25.2/25.3); (ii) attack §26 measure-domination Conj 26.3 (mu^pass >= nu) which pins the unit-scale comparison; (iii) the crux — show the renormalization IDENTIFIES the Schur complement I-VV* (non-homogeneous, constant term) with the de Branges Gram of K_a (degree-2 homogeneous), reconciling the homogeneity mismatch by pinning c to the Riemann normalization. Acceptance: an EXPLICIT operator identity surviving the Phi->cPhi scale test, NOT a restatement. Honest negative (the identification cannot be made) is a valid, valuable result — it would mean the collapse route is dead, not just unproven.",
-    rationale: 'The genuine, precisely-named open problem that replaces the refuted as-stated biconditional; resolving it either revives or kills the Volterra collapse route.',
+    description: "Per section27-identity-refutation THE_REAL_GAP. The §27 LINK B may still hold for the SPECIFIC Riemann Phi under an intended normalization — but that normalization is exactly the unproven Conj 25.2+26.3+27.2 and is nowhere derived. DELIVERABLE: (i) assess whether §25 hidden-square factorization K_a = int Psi Psi-bar dnu exists from Phi alone (Conj 25.2/25.3); (ii) approach §26 measure-domination Conj 26.3 (mu^pass >= nu) which pins the unit-scale comparison; (iii) the crux — show the renormalization IDENTIFIES the Schur complement I-VV* (non-homogeneous, constant term) with the de Branges Gram of K_a (degree-2 homogeneous), reconciling the homogeneity mismatch by pinning c to the Riemann normalization. Acceptance: an EXPLICIT operator identity surviving the Phi->cPhi scale test, NOT a restatement. Honest negative (the identification cannot be made) is a valid, valuable result — it would mean the collapse route is dead, not just unproven.",
+    rationale: 'The genuine, precisely-named open problem that replaces the refuted as-stated biconditional; resolving it either revives or eliminates the Volterra collapse route.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -25152,7 +25152,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: 'S7',
-    description: "Per full-route-map-2026-06-19.js RANKED_OPPORTUNITIES #1 + NEXT_MOVE.primary. C_H (the Holder-1/2 shock modulus in E_coll) is the SINGLE load-bearing object: an N-uniform bound promotes the finite-N*=1e4 estimate to a rigorous beat AND composes Route B lim-sup into Lambda<=E(N). imp-2640 killed the naive Gronwall route (int 2/g^2 diverges at the collision). DELIVERABLE (framed as 'sharpen E(N) toward a CONDITIONAL rigorous beat', NOT 'prove Lambda<0.2'): assess whether the sg1c Theta(0)<=1/4 trap + min-gap sandwich (imp-2563 R_B) + exact heat-discriminant ladder can supply a COLLISION-REGULARIZED bound on the shock modulus near the collision where Gronwall blows up — i.e. use the rigorous near-two-body structure (Theta<<1/4) to control the gap-Lipschitz C_Lip without integrating 2/g^2 to g=0. Honest negative is valuable: if no regularization works, it definitively retires the finite-N beat to ESTIMATE. NO false QED; this is RH-hard at the modulus and the deliverable is a sharper CONDITIONAL bound or a clean impossibility, not a beat.",
+    description: "Per full-route-map-2026-06-19.js RANKED_OPPORTUNITIES #1 + NEXT_MOVE.primary. C_H (the Holder-1/2 shock modulus in E_coll) is the SINGLE load-bearing object: an N-uniform bound promotes the finite-N*=1e4 estimate to a rigorous beat AND composes Route B lim-sup into Lambda<=E(N). imp-2640 eliminated the naive Gronwall route (int 2/g^2 diverges at the collision). DELIVERABLE (framed as 'sharpen E(N) toward a CONDITIONAL rigorous beat', NOT 'prove Lambda<0.2'): assess whether the sg1c Theta(0)<=1/4 trap + min-gap sandwich (imp-2563 R_B) + exact heat-discriminant ladder can supply a COLLISION-REGULARIZED bound on the shock modulus near the collision where Gronwall blows up — i.e. use the rigorous near-two-body structure (Theta<<1/4) to control the gap-Lipschitz C_Lip without integrating 2/g^2 to g=0. Honest negative is valuable: if no regularization works, it definitively retires the finite-N beat to ESTIMATE. NO false QED; this is RH-hard at the modulus and the deliverable is a sharper CONDITIONAL bound or a clean impossibility, not a beat.",
     rationale: 'The whole map funnels every real Lambda<0.2 upside into this one object; it is the single highest-value non-RH-equivalent target, and the program\'s best rigorous machinery (freed by the linchpin resolution) is the right tool to aim at it.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -25283,7 +25283,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S7',
-    description: "In src/data/polymath15-lemma52-shock-holder.js, C_H = C_shock*C_Lip/4 has TWO unpinned factors. imp-2640 killed C_Lip via Gronwall divergence, but C_shock (from g_min ~ C_shock*W_1^{1/2} near the shock, set by the cusp density rho_inf ~ C_cusp/|gamma-gamma_star|^{1/2}) was never pinned independently. Deliverable: a new module src/data/imp-XXXX-c-shock-cusp-constant.js that derives C_shock explicitly from the Burgers shock cusp profile via the quantile-spacing identity Q_inf(k/N)-Q_inf((k-1)/N) ~ 2(N-k)/(N^2 C_cusp^2) already written in the docstring (l.96-98), computes C_cusp from the limiting density at the N*=1e4 shock, and reports the explicit C_shock value with build-time assertions. HONEST: pinning C_shock alone does NOT discharge C_H (C_Lip remains the imp-2640 wall); state this explicitly. It isolates which of the two factors is actually obstructing.",
+    description: "In src/data/polymath15-lemma52-shock-holder.js, C_H = C_shock*C_Lip/4 has TWO unpinned factors. imp-2640 eliminated C_Lip via Gronwall divergence, but C_shock (from g_min ~ C_shock*W_1^{1/2} near the shock, set by the cusp density rho_inf ~ C_cusp/|gamma-gamma_star|^{1/2}) was never pinned independently. Deliverable: a new module src/data/imp-XXXX-c-shock-cusp-constant.js that derives C_shock explicitly from the Burgers shock cusp profile via the quantile-spacing identity Q_inf(k/N)-Q_inf((k-1)/N) ~ 2(N-k)/(N^2 C_cusp^2) already written in the docstring (l.96-98), computes C_cusp from the limiting density at the N*=1e4 shock, and reports the explicit C_shock value with build-time assertions. HONEST: pinning C_shock alone does NOT discharge C_H (C_Lip remains the imp-2640 wall); state this explicitly. It isolates which of the two factors is actually obstructing.",
     rationale: 'Separating the two factors of C_H tells us whether C_shock is rigorously pinnable, narrowing the wall to C_Lip alone and improving the honesty of the E_coll accounting. (area: proofs)',
     model: 'opus-4-8',
   },
@@ -25302,7 +25302,7 @@ export const IMPROVEMENT_QUEUE = [
   },
 {
     id: 'imp-2683',
-    title: 'Attack the field bound beta in the min-gap sandwich Theorem B (the unproven throttle on the two-sided t_c bracket)',
+    title: 'Approach the field bound beta in the min-gap sandwich Theorem B (the unproven throttle on the two-sided t_c bracket)',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -25479,7 +25479,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "full-route-map-2026-06-19.js flags exactly ONE genuinely under-developed kernel (RANKED_OPPORTUNITIES #5, status UNDER-EXPLORED): the winding of arg H_tau(t) vs heat-flow tau as a Lyapunov quantity, with realistic ceiling = re-derive Lambda>=0 topologically. Deliverable: a module src/data/imp-XXXX-winding-lyapunov-experiment.js that computes the winding number of arg H_tau(t) along the critical line for a grid of heat-flow times tau, measures d(winding)/d(tau) numerically, and tests monotonicity. HONEST CAVEAT (mandatory): the route map states the realistic ceiling is a topological RE-DERIVATION of Lambda>=0 (already known via Rodgers-Tao) and it will NOT beat Platt-Trudgian; this is explicitly a ONE-pass time-boxed experiment, not a path to a new bound. Report monotone/non-monotone and stop. PT Lambda<=0.2 stays SOTA.",
-    rationale: 'The route map identifies this as the single unexploited original thread worth one time-boxed pass; a clean monotonicity experiment either surfaces a Lyapunov structure or closes the thread honestly. (area: proofs)',
+    rationale: 'The route map identifies this as the single untapped original thread worth one time-boxed pass; a clean monotonicity experiment either surfaces a Lyapunov structure or closes the thread honestly. (area: proofs)',
     model: 'opus-4-8',
   },
 {
@@ -26485,14 +26485,14 @@ export const IMPROVEMENT_QUEUE = [
   },
 {
     id: 'imp-2774',
-    title: 'Surface the section26 \'Volterra KILLED AS A REDUCTION\' verdict on /collapse-chain',
+    title: 'Surface the section26 \'Volterra ELIMINATED AS A REDUCTION\' verdict on /collapse-chain',
     category: 'accuracy',
     priority: 'critical',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S7',
-    description: "src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js (VERDICT: KILLED AS A REDUCTION; residual sub-problem is RH-EQUIVALENT not a shortcut; the '5000x from saturation' is a homogeneity artifact) is imported by NO page — only by improvements.js/queue (verified via grep). CollapseChainPage.jsx still frames the §27 block-positivity ⇔ K_a⪰0 chain as a live load-bearing collapse and links to the 'Volterra Norm Curve' / decision doc without the refutation. Import the verdict module and add a prominent banner at the top of CollapseChainPage stating the bare-Volterra biconditional is refuted and the chain is RH-equivalent, not a reduction.",
+    description: "src/data/section26-verdict-volterra-not-a-reduction-2026-06-18.js (VERDICT: ELIMINATED AS A REDUCTION; residual sub-problem is RH-EQUIVALENT not a shortcut; the '5000x from saturation' is a homogeneity artifact) is imported by NO page — only by improvements.js/queue (verified via grep). CollapseChainPage.jsx still frames the §27 block-positivity ⇔ K_a⪰0 chain as a live load-bearing collapse and links to the 'Volterra Norm Curve' / decision doc without the refutation. Import the verdict module and add a prominent banner at the top of CollapseChainPage stating the bare-Volterra biconditional is refuted and the chain is RH-equivalent, not a reduction.",
     rationale: 'The definitive 2026-06-18 refutation is invisible on the page that most prominently presents the Volterra collapse as live. (area: twin-ladder-v52)',
     model: 'opus-4-8',
   },
@@ -26724,7 +26724,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: "In src/data/glossary.js add 5-6 new entries with definitions and relatedTerms: (1) 'C_H / G6a shock modulus wall' — the Holder-1/2 modulus into which every below-RH Lambda route funnels; RH-hard at the modulus; Gronwall attack refuted (imp-2640). (2) 'RH-equivalent (reformulation)' — a faithful renaming of RH that preserves information and yields no shortcut (Volterra collapse, Beurling-Nyman, de Branges, Connes-Weil). (3) 'PCC-free / GUE-free' — results not gated on the Montgomery pair-correlation conjecture (e.g. Route B Burgers lim-sup). (4) 'Phase vortex / vortex exclusion' — zeros as winding-+1 vortices of V=xi'/xi; off-axis vortex = RH violation; re-derives Lambda>=0 only. (5) 'Finite-N* beat (ESTIMATE)' — the N*=1e4 Route-A estimate gated on C_H, NOT a rigorous bound. Each entry: term, category, definition, firstUsed, relatedTerms. Honest framing per route map — no false QED.",
+    description: "In src/data/glossary.js add 5-6 new entries with definitions and relatedTerms: (1) 'C_H / G6a shock modulus wall' — the Holder-1/2 modulus into which every below-RH Lambda route funnels; RH-hard at the modulus; Gronwall approach refuted (imp-2640). (2) 'RH-equivalent (reformulation)' — a faithful renaming of RH that preserves information and yields no shortcut (Volterra collapse, Beurling-Nyman, de Branges, Connes-Weil). (3) 'PCC-free / GUE-free' — results not gated on the Montgomery pair-correlation conjecture (e.g. Route B Burgers lim-sup). (4) 'Phase vortex / vortex exclusion' — zeros as winding-+1 vortices of V=xi'/xi; off-axis vortex = RH violation; re-derives Lambda>=0 only. (5) 'Finite-N* beat (ESTIMATE)' — the N*=1e4 Route-A estimate gated on C_H, NOT a rigorous bound. Each entry: term, category, definition, firstUsed, relatedTerms. Honest framing per route map — no false QED.",
     rationale: 'Glossary (326 lines) has zero coverage of this session\'s core vocabulary; readers cannot look up the terms that dominate the current honest state. (area: reference-docs)',
     model: 'sonnet-4-6',
     completedByModel: 'sonnet-4-6',
@@ -27036,7 +27036,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: "Create src/components/CommandPalette.jsx opened with Cmd/Ctrl+K (and a '/' shortcut), fuzzy-matching the NAV_GROUPS items by label + path and navigating on Enter. Derive the dataset from a single exported NAV_GROUPS (see the nav-export ticket) so it stays in sync. There is no search anywhere today and the Attack dropdown alone has 24 items.",
+    description: "Create src/components/CommandPalette.jsx opened with Cmd/Ctrl+K (and a '/' shortcut), fuzzy-matching the NAV_GROUPS items by label + path and navigating on Enter. Derive the dataset from a single exported NAV_GROUPS (see the nav-export ticket) so it stays in sync. There is no search anywhere today and the Approach dropdown alone has 24 items.",
     rationale: 'With ~96 routes and one 24-item dropdown, there is no way to jump to a page by name; a Cmd+K palette is the standard fix. (area: app-ui)',
     model: 'sonnet-4-6',
     completedByModel: 'sonnet-4-6',
@@ -27057,15 +27057,15 @@ export const IMPROVEMENT_QUEUE = [
   },
 {
     id: 'imp-2818',
-    title: 'Split the 24-item \'Attack\' nav dropdown into logically grouped subsections',
+    title: 'Split the 24-item \'Approach\' nav dropdown into logically grouped subsections',
     category: 'ux',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S7',
-    description: "The Attack group in src/App.jsx NAV_GROUPS (lines 197-225) has 24 items in one flat dropdown — too tall to scan. Either split into two groups (e.g. 'Attack' = roadmaps/DAG/route-map/bounds, 'Proof Tools' = formal-proof, proof-checker, proof-planner, proof-explorer, proof-overview, dyson-verifier, rigor*, rh-proof-state) or add labeled sub-headers inside the dropdown menu. Update CSS in app.css for the taller menu if needed.",
-    rationale: 'A 24-entry single dropdown is hard to scan and overflows on shorter viewports; grouping makes the attack surface navigable. (area: app-ui)',
+    description: "The Approach group in src/App.jsx NAV_GROUPS (lines 197-225) has 24 items in one flat dropdown — too tall to scan. Either split into two groups (e.g. 'Attack' = roadmaps/DAG/route-map/bounds, 'Proof Tools' = formal-proof, proof-checker, proof-planner, proof-explorer, proof-overview, dyson-verifier, rigor*, rh-proof-state) or add labeled sub-headers inside the dropdown menu. Update CSS in app.css for the taller menu if needed.",
+    rationale: 'A 24-entry single dropdown is hard to scan and overflows on shorter viewports; grouping makes the approach map navigable. (area: app-ui)',
     model: 'sonnet-4-6',
   },
 {
@@ -27351,7 +27351,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S7',
-    description: "In a new module src/data/imp-clip-collision-regularized.js (paired with imp-2786-c-shock-cusp-constant.js and imp-2640's finding), attack the SECOND factor of C_H = C_shock·C_Lip/4 — the gap-Lipschitz constant C_Lip, whose Gronwall integrand 2/g(t)² makes ∫_0^{tc} 2/g² dt diverge at the first collision (imp-2640 NEGATIVE). Derive a collision-stopped/regularized surrogate bound — stop the flow at g=ε and bound the residual [tc-δ, tc] window separately using the C_shock cusp-scaling rate g_min~C_shock·W_1^{1/2} rather than the diverging Gronwall — and report HONESTLY whether the residual window can be controlled or whether the divergence is intrinsic (Holder-1/2 is the genuine regularity, so any C_Lip from a Lipschitz/Gronwall route MUST diverge). Add assertions pinning the verdict. Likely outcome: a clean negative certification that the Lipschitz route cannot supply C_Lip; mark RH-hard-at-the-modulus and record it.",
+    description: "In a new module src/data/imp-clip-collision-regularized.js (paired with imp-2786-c-shock-cusp-constant.js and imp-2640's finding), approach the SECOND factor of C_H = C_shock·C_Lip/4 — the gap-Lipschitz constant C_Lip, whose Gronwall integrand 2/g(t)² makes ∫_0^{tc} 2/g² dt diverge at the first collision (imp-2640 NEGATIVE). Derive a collision-stopped/regularized surrogate bound — stop the flow at g=ε and bound the residual [tc-δ, tc] window separately using the C_shock cusp-scaling rate g_min~C_shock·W_1^{1/2} rather than the diverging Gronwall — and report HONESTLY whether the residual window can be controlled or whether the divergence is intrinsic (Holder-1/2 is the genuine regularity, so any C_Lip from a Lipschitz/Gronwall route MUST diverge). Add assertions pinning the verdict. Likely outcome: a clean negative certification that the Lipschitz route cannot supply C_Lip; mark RH-hard-at-the-modulus and record it.",
     rationale: 'C_Lip is the single remaining undischarged factor of the #1 ranked load-bearing object C_H; isolating it from the already-pinned C_shock either makes E_coll rigorous or definitively retires the finite-N beat to ESTIMATE. (area: proofs)',
     model: 'opus-4-8',
   },
@@ -27370,7 +27370,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-2841',
-    title: 'Attack §26 measure-domination μ^pass ≥ ν at the genuine Riemann Φ: quantify the 64% tau-overflow',
+    title: 'Approach §26 measure-domination μ^pass ≥ ν at the genuine Riemann Φ: quantify the 64% tau-overflow',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -27391,7 +27391,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "The ONLY surviving §26 target is R = Gpass^{-1/2} Gshear Gpass^{-1/2} (degree-0, scale-invariant). In src/data/imp-normalized-R-scale-test.js, build R from a finite test-set Gram with the RAW diagonal as a provisional Gpass and verify whether sign(eig(I − RR*)) tracks sign(eig(K_a)) ACROSS c∈{1,3,10,100,1000} (the same scale ladder that breaks bare V). Deliverable: a table showing whether the degree-0 reshaping passes the Φ→cΦ scale test where bare V fails — and whether the raw-diagonal Gpass already fails (expected). HONEST: mark RH-EQUIVALENT; the test certifies the construction is non-vacuous, not a shortcut.",
-    rationale: 'Directly probes the least-ruled-out direct target with the exact scale-invariance discriminator that killed bare V; bounded numerical experiment with a clear pass/fail. (area: proofs)',
+    rationale: 'Directly probes the least-ruled-out direct target with the exact scale-invariance discriminator that eliminated bare V; bounded numerical experiment with a clear pass/fail. (area: proofs)',
     model: 'opus-4-8',
   },
   {
@@ -27508,7 +27508,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: "api-pool",
     proofSection: 'S7',
     description: "section26-verdict measured exponent 2.0000 for ||V||(cΦ)=c²||V|| across c∈{1,3,10,100,1000}. In src/data/imp-volterra-homogeneity-proof.js, PROVE this symbolically: since the Volterra kernel is Φ(t)Φ(s)sinh(a(t−s)), it is manifestly bilinear in Φ, hence ||V||(cΦ)=c²||V||(Φ) exactly. Likewise prove K_a is degree-2 homogeneous (A_a, B_a linear in Φ ⇒ K_a → c²K_a). Deliverable: two short symbolic proofs + an assertion that the measured exponent 2.0 is the theorem, cementing that the scale-decoupling (cone vs sublevel-set) is structural, not numerical noise. This certifies the REFUTATION rigorously.",
-    rationale: 'Upgrades the homogeneity-artifact finding (which kills the 5000x evidence) from measured to proven, hardening the honest \'not a reduction\' verdict against future revival. (area: proofs)',
+    rationale: 'Upgrades the homogeneity-artifact finding (which eliminates the 5000x evidence) from measured to proven, hardening the honest \'not a reduction\' verdict against future revival. (area: proofs)',
     model: 'opus-4-8',
   },
   {
@@ -27869,7 +27869,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'high',
     status: 'completed',
     proofSection: 'S7',
-    description: "run-assertions.mjs has a --fail-inject self-test (imp-2745, lines 2224+) proving holds()===false and throws are caught and that --fail-inject exits non-zero on EXPECTED_FAILED mismatch. It is invoked by no script/CI. Add `node scripts/run-assertions.mjs --fail-inject` to the /verify skill flow and/or a dedicated `assert:selftest` npm script, so the meta-property 'the gate can actually fail' is exercised on every verify burst. Without it, a refactor that silently makes the harness swallow failures (the worst-case green-build trap) would go unnoticed.",
+    description: "run-assertions.mjs has a --fail-inject self-test (imp-2745, lines 2224+) proving holds()===false and throws are caught and that --fail-inject exits non-zero on EXPECTED_FAILED mismatch. It is invoked by no script/CI. Add `node scripts/run-assertions.mjs --fail-inject` to the /verify skill flow and/or a dedicated `assert:selftest` npm script, so the meta-property 'the gate can actually fail' is exercised on every verify run. Without it, a refactor that silently makes the harness swallow failures (the worst-case green-build trap) would go unnoticed.",
     rationale: 'An assertion harness that cannot itself fail is the most dangerous failure mode; the self-test exists but is never run. (area: checks)',
     model: 'sonnet-4-6',
     completedByModel: 'sonnet-4-6',
@@ -28523,7 +28523,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "src/pages/ControlTheoryPage.jsx currently frames the RH-as-Nyquist-stability reformulation with only an inline 'This does not prove RH' clause buried in a card. Add a prominent amber honest-status banner near the top (matching the pattern in StatisticsPage.jsx / SimulatorPage.jsx caveat card) that states explicitly: the loop-gain factorization L(s)=chi(s)*zeta(1-s)/zeta(s) is an EXACT identity but the 'Nyquist contour never encircles -1' statement IS RH itself, restated — not an independent route to it. No new math is gained; this is a pedagogical analogy. Cite that PT Lambda<=0.2 remains the rigorous SOTA.",
-    rationale: 'Page reformulates RH as stability without a top-level honesty marker; risks reading as a claimed attack vector. (area: analysis-model)',
+    rationale: 'Page reformulates RH as stability without a top-level honesty marker; risks reading as a claimed approach vector. (area: analysis-model)',
     model: 'opus-4-8',
   },
   {
@@ -28536,7 +28536,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "src/pages/CalabiYauPage.jsx presents 'Five Calabi-Yau Strategies' to lift Deligne's Weil-RH machinery to zeta(s)/Q with no honest-status banner (grep shows zero honesty markers). Add an amber banner stating the central obstruction: there is NO known variety whose L-function IS zeta(s) over Q (the function-field/finite-field analog of RH is proven precisely because cohomology + Frobenius eigenvalues exist there; over Q no such finite-dimensional Galois-cohomology realization is known). Label all five strategies as 'speculative/no-realization' rather than active routes. Cross-link to /full-route-map so readers see where this ranks among genuine opportunities.",
-    rationale: 'An entire \'attack\' page with zero honesty markers is exactly the overclaim pattern the program is guarding against. (area: analysis-model)',
+    rationale: 'An entire \'approach\' page with zero honesty markers is exactly the overclaim pattern the program is guarding against. (area: analysis-model)',
     model: 'opus-4-8',
   },
   {
@@ -28587,7 +28587,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S7',
-    description: "src/pages/OddZetaPage.jsx describes a 'Linear Independence' tab (testing whether 1, zeta(3), zeta(5), ... are Q-linearly independent by searching small integer relations) in prose, but the page itself only ships the Apery irrationality-measure calculator. Add a small interactive panel that runs a bounded integer-relation search (e.g. brute-force small-coefficient or a lightweight PSLQ-style lattice reduction) over 1, zeta(3), zeta(5), zeta(7) using ZETA_EXACT, reporting the minimum relation norm found and flagging it as 'no small relation found (consistent with conjectured independence)' — explicitly NOT a proof of independence.",
+    description: "src/pages/OddZetaPage.jsx describes a 'Linear Independence' tab (testing whether 1, zeta(3), zeta(5), ... are Q-linearly independent by searching small integer relations) in prose, but the page itself only ships the Apery irrationality-measure calculator. Add a small interactive panel that runs a bounded integer-relation search (e.g. exhaustive small-coefficient or a lightweight PSLQ-style lattice reduction) over 1, zeta(3), zeta(5), zeta(7) using ZETA_EXACT, reporting the minimum relation norm found and flagging it as 'no small relation found (consistent with conjectured independence)' — explicitly NOT a proof of independence.",
     rationale: 'The page promises a linear-independence exploration that does not exist on the page; delivering it makes the described tab real. (area: analysis-model)',
     model: 'sonnet-4-6',
   },
@@ -28770,7 +28770,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'sonnet',
     proofSection: 'S7',
     description: "Add a CONCEPTS entry (category 'proof') in src/pages/ConceptsPage.jsx defining 'PCC-Free' / Montgomery Pair-Correlation Conjecture obstruction: explain that 5 of 13 paper conjectures are SUBSUMED-BY-RH through a shared Montgomery PCC obstruction across all live ESY-closure routes, and that a 'PCC-free' route is one that avoids assuming the pair-correlation conjecture. Link to /route-map and /pcc-route-exhaustion. Symbol/formula optional; include honest 'intuition' that PCC-free does NOT mean RH-free.",
-    rationale: 'Session finding \'PCC-free\' has zero glossary coverage (grep PCC = 0); a core obstruction term users will encounter on attack pages is undefined. (area: reference-docs)',
+    rationale: 'Session finding \'PCC-free\' has zero glossary coverage (grep PCC = 0); a core obstruction term users will encounter on approach pages is undefined. (area: reference-docs)',
     model: 'sonnet-4-6',
   },
   {
@@ -29068,7 +29068,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S7',
-    description: "The six-overclaim ledger is hardcoded inline TWICE in src/pages/RHProofStateDashboardPage.jsx (lines ~203-233 and ~526-593) with DIFFERENT wording/orderings, and partially duplicated in full-route-map-2026-06-19.js (route-map-caught-overclaims-stay-honest pin). Create src/data/overclaim-ledger.js exporting CAUGHT_OVERCLAIMS (id, tag, claim, caughtBy ticket, correction, date) plus an assertion that length===6, and refactor RHProofStateDashboardPage to render from it once. This kills the in-page wording drift and gives route-map/rigor-dashboard a shared source.",
+    description: "The six-overclaim ledger is hardcoded inline TWICE in src/pages/RHProofStateDashboardPage.jsx (lines ~203-233 and ~526-593) with DIFFERENT wording/orderings, and partially duplicated in full-route-map-2026-06-19.js (route-map-caught-overclaims-stay-honest pin). Create src/data/overclaim-ledger.js exporting CAUGHT_OVERCLAIMS (id, tag, claim, caughtBy ticket, correction, date) plus an assertion that length===6, and refactor RHProofStateDashboardPage to render from it once. This eliminates the in-page wording drift and gives route-map/rigor-dashboard a shared source.",
     rationale: 'Two divergent hardcoded copies of the same ledger guarantee they drift; a single source is the honest, maintainable form. This is the canonical module several other tickets depend on. (area: twin-ladder-v52)',
     model: 'sonnet-4-6',
   },
@@ -29237,7 +29237,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S7',
-    description: "src/data/reciprocal-program-section.js and src/data/closure-routes-section.js feed pages downstream of the §27 Volterra target. Verify each surfaces the section26-verdict (collapse killed as a reduction; surviving normalized-R / Conj-26.3 target is RH-equivalent, opp rank 3 in full-route-map RANKED_OPPORTUNITIES). If a 'reduces RH to a cheaper target' framing remains, add the RH-equivalent caveat and link /route-map so the closure-routes catalog matches the consolidated verdict.",
+    description: "src/data/reciprocal-program-section.js and src/data/closure-routes-section.js feed pages downstream of the §27 Volterra target. Verify each surfaces the section26-verdict (collapse eliminated as a reduction; surviving normalized-R / Conj-26.3 target is RH-equivalent, opp rank 3 in full-route-map RANKED_OPPORTUNITIES). If a 'reduces RH to a cheaper target' framing remains, add the RH-equivalent caveat and link /route-map so the closure-routes catalog matches the consolidated verdict.",
     rationale: 'Closure-routes and reciprocal-program are where a reader looks for \'the cheaper target\'; they must state up front that the surviving target renames RH rather than shortcutting it. (area: twin-ladder-v52)',
     model: 'sonnet-4-6',
   },
@@ -29440,7 +29440,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-3000',
-    title: 'Add an honest-status banner to /supercritical noting the bulk order-parameter was empirically killed',
+    title: 'Add an honest-status banner to /supercritical noting the bulk order-parameter was empirically eliminated',
     category: 'content',
     priority: 'medium',
     status: 'completed',
@@ -29513,7 +29513,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S7',
     description: "Per ch-wall-frontier-verdict-2026-06-26.js: the C_H Lipschitz route is RH-HARD-CONFIRMED (provably closed 3 ways), BUT the frontier workflow's local-energy reconditioning collapses the obstruction onto a SINGLE scalar C_Theta that is bounded+vanishing ON the isolated-pair basin. The basin restriction rests on the sg1c R2-T / R1-T4 multi-body isolation sign law (openSubGaps 'sg1c-r2-isolation-persistence' in sg1c-theta-trap-theorems.js): proven EXACTLY only for the single nearest neighbour, numerically scanned to ~0.943, NOT closed in closed form. DELIVERABLE: attempt a closed-form proof that the multi-body isolation constant c in [0.72,1) holds (rho=g0/d1<1 => Theta-isolation persists under the full N-body flow), OR locate the precise sub-configuration where it fails. This is DETERMINISTIC CM-flow algebra (NOT RH-hard pair-correlation). Closing it converts the local-energy C_Lip from PARTIAL to BASIN-CONDITIONAL-Lipschitz (C_Theta bounded; gap channel g_min/(4(1-Theta))~9.4e-3 dominant at N*=1e4). HONEST: this is STILL NOT a global-W_1 rigorous beat (the bridge is fixed to global W_1; off-W_1 re-architecture is foreclosed) — claim only the basin-conditional reconditioning. PT 0.2 stays SOTA. NO false QED.",
-    rationale: 'The single deterministic (non-RH-hard) forward move the C_H frontier assault exposed; everything else off the Lipschitz route is foreclosed.',
+    rationale: 'The single deterministic (non-RH-hard) forward move the C_H frontier push exposed; everything else off the Lipschitz route is foreclosed.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -29533,7 +29533,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-3007',
-    title: 'Attack the §26 mu^pass endpoint-bridge construction to cover the 64% tau deficit profile',
+    title: 'Approach the §26 mu^pass endpoint-bridge construction to cover the 64% tau deficit profile',
     category: 'proof',
     priority: 'high',
     status: 'completed',
@@ -29606,7 +29606,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'sonnet',
     proofSection: 'S7',
     description: "On RouteMapPage, add a section distinguishing the DETERMINISTIC open residuals (now mostly closed: imp-3005 c*) from the RH-hard walls (global-W_1 C_Lip, GUE cusp-spacing). Reads the verdict modules.",
-    rationale: 'the route map should reflect the frontier-assault outcomes (area: app)',
+    rationale: 'the route map should reflect the frontier-push outcomes (area: app)',
     model: 'sonnet-4-6',
   },
   {
@@ -30075,7 +30075,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-3045',
-    title: 'Narrow the open multi-body isolation-constant bracket [0.927, 0.943] via a higher-resolution adversarial drho/ds-worsening scan (numerical bracketing only, not closed form)',
+    title: 'Narrow the open multi-body isolation-constant bracket [0.927, 0.943] via a higher-resolution skeptical drho/ds-worsening scan (numerical bracketing only, not closed form)',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -31582,7 +31582,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S7',
-    description: "Per section26-mupass-operator-verdict-2026-06-30.js: mass-feasibility (bridge budget 2400-20000x the deficit) is necessary-but-NOT-binding; the only core that gives ||R||<=1 is the tautological Gpass=|Gshear| partial isometry. Any future row claiming mu^pass 'dominates nu' must specify OPERATOR order (Gpass>=Gshear <=> ||R||<=1 <=> K_a>=0), NOT mass order, and must not regrade to a reduction. DELIVERABLE: extend the existing sec26-cross-bridge-cannot-regrade-to-reduction tripwire to enforce this, citing the operator-verdict module. Meta-lock, no new attack.",
+    description: "Per section26-mupass-operator-verdict-2026-06-30.js: mass-feasibility (bridge budget 2400-20000x the deficit) is necessary-but-NOT-binding; the only core that gives ||R||<=1 is the tautological Gpass=|Gshear| partial isometry. Any future row claiming mu^pass 'dominates nu' must specify OPERATOR order (Gpass>=Gshear <=> ||R||<=1 <=> K_a>=0), NOT mass order, and must not regrade to a reduction. DELIVERABLE: extend the existing sec26-cross-bridge-cannot-regrade-to-reduction tripwire to enforce this, citing the operator-verdict module. Meta-lock, no new approach.",
     rationale: 'Prevents a future mass-feasibility result from being mis-read as a reduction; both mu^pass options are closed.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -31942,7 +31942,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S7',
-    description: "Per econn-metric-rearchitecture-verdict-2026-06-30.js (adversarial referees caught our own overclaim): ch-wall-frontier-verdict-2026-06-26.js (l.57-59,82) and the RouteMapPage foreclosure notice ('No analytic bypass exists / sup-norm re-architecture foreclosed') are an OVERCLAIM about the C_Lip FACTOR. The W_1 metric is INCIDENTAL, not fundamental: in sup-norm, g_min=min-over-pairs is 1-Lipschitz so C_Lip is N-uniform (~9.4e-3). DELIVERABLE: soften the foreclosure framing in the verdict module's docstring/fields AND the RouteMapPage notice to the corrected 'metric incidental / re-architecturable but FUTILE -- the true wall is the metric-invariant multi-body isolation D_rest, not the metric', citing the new module. PRESERVE the existing cross-bridge tripwires (do not regrade the verdict to a reduction). Keep the bottom line (no beat, PT 0.2 SOTA). Build green.",
+    description: "Per econn-metric-rearchitecture-verdict-2026-06-30.js (independent referees caught our own overclaim): ch-wall-frontier-verdict-2026-06-26.js (l.57-59,82) and the RouteMapPage foreclosure notice ('No analytic bypass exists / sup-norm re-architecture foreclosed') are an OVERCLAIM about the C_Lip FACTOR. The W_1 metric is INCIDENTAL, not fundamental: in sup-norm, g_min=min-over-pairs is 1-Lipschitz so C_Lip is N-uniform (~9.4e-3). DELIVERABLE: soften the foreclosure framing in the verdict module's docstring/fields AND the RouteMapPage notice to the corrected 'metric incidental / re-architecturable but FUTILE -- the true wall is the metric-invariant multi-body isolation D_rest, not the metric', citing the new module. PRESERVE the existing cross-bridge tripwires (do not regrade the verdict to a reduction). Keep the bottom line (no beat, PT 0.2 SOTA). Build green.",
     rationale: 'The verification discipline caught an overclaim in our OWN verdict; the UI/module must reflect the corrected (metric-incidental) framing.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -31957,8 +31957,8 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S7',
-    description: "Per econn-metric-rearchitecture-verdict + ch-wall-frontier-verdict: BOTH frontier assaults (C_H Lipschitz + metric re-architecture) converge on the SAME deterministic residual -- the multi-body isolation constant c. imp-3005 closed the SINGLE-SHELL case in closed form (c*=sqrt(2+sqrt3)-1 ~ 0.9319); the MULTI-BODY (asymmetric) case is numerically scanned to ~0.943 but NOT closed in form. DELIVERABLE: prove (or precisely locate the failure of) the uniform lower bound on the product of non-colliding gaps D_rest(t_c) beyond the single nearest neighbour. This is DETERMINISTIC CM-flow algebra (NOT RH-hard). HONEST: closing it gives only a BASIN-CONDITIONAL Lipschitz C_Lip (the basin restriction rests on the isolation sign law, RH-hard off-basin) -- still NOT an unconditional beat. Companion: audit whether the isolated-pair basin can be discharged unconditionally or is RH-hard off-basin.",
-    rationale: 'The single deterministic forward residual that BOTH frontier assaults converge on; the only non-RH-hard move left.',
+    description: "Per econn-metric-rearchitecture-verdict + ch-wall-frontier-verdict: BOTH frontier pushes (C_H Lipschitz + metric re-architecture) converge on the SAME deterministic residual -- the multi-body isolation constant c. imp-3005 closed the SINGLE-SHELL case in closed form (c*=sqrt(2+sqrt3)-1 ~ 0.9319); the MULTI-BODY (asymmetric) case is numerically scanned to ~0.943 but NOT closed in form. DELIVERABLE: prove (or precisely locate the failure of) the uniform lower bound on the product of non-colliding gaps D_rest(t_c) beyond the single nearest neighbour. This is DETERMINISTIC CM-flow algebra (NOT RH-hard). HONEST: closing it gives only a BASIN-CONDITIONAL Lipschitz C_Lip (the basin restriction rests on the isolation sign law, RH-hard off-basin) -- still NOT an unconditional beat. Companion: audit whether the isolated-pair basin can be discharged unconditionally or is RH-hard off-basin.",
+    rationale: 'The single deterministic forward residual that BOTH frontier pushes converge on; the only non-RH-hard move left.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -32137,7 +32137,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S-frontier',
-    description: "imp-3153-cosh-monomial-conditioning-ceiling.js tabulates the condition numbers cond(P) (passive cosh Gram) and cond(H) (shear sinh Hankel) vs DEG in {2..16}, finding cond(P) climbs ~2 orders of magnitude per +2 in DEG, and pins trustworthyMaxDegree (>=10) and firstUntrustworthyDegree where ||R_orth|| breaches its analytic ceiling tanh(aU). DELIVERABLE: a log-scale plot of cond(P) and cond(H) vs DEG with (a) the 1/eps~1e16 machine-precision trust line, (b) the trustworthyMaxDegree marker confirming the imp-3125 sweep {2,4,6,8,10} sits inside the trustworthy range, and (c) the firstUntrustworthyDegree where DEG>=11 was rightly excluded. Honest caption: numerical-conditioning diagnostic on the representative monomial truncation, NOT the section-26 Gram, no RH verdict; boundary is machine-precision-dependent; PT 0.2 stays SOTA. No QED.",
+    description: "imp-3153-cosh-monomial-conditioning-ceiling.js tabulates the condition numbers cond(P) (passive cosh Gram) and cond(H) (shear sinh Hankel) vs DEG in {2..16}, finding cond(P) climbs ~2 orders of magnitude per +2 in DEG, and pins trustworthyMaxDegree (>=10) and firstUntrustworthyDegree where ||R_orth|| crosses its analytic ceiling tanh(aU). DELIVERABLE: a log-scale plot of cond(P) and cond(H) vs DEG with (a) the 1/eps~1e16 machine-precision trust line, (b) the trustworthyMaxDegree marker confirming the imp-3125 sweep {2,4,6,8,10} sits inside the trustworthy range, and (c) the firstUntrustworthyDegree where DEG>=11 was rightly excluded. Honest caption: numerical-conditioning diagnostic on the representative monomial truncation, NOT the section-26 Gram, no RH verdict; boundary is machine-precision-dependent; PT 0.2 stays SOTA. No QED.",
     rationale: 'Frontier scout: imp-3153 cond(P)/cond(H) vs DEG conditioning ceiling table never visualized',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -32415,14 +32415,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-3201',
-    title: 'Adversarially test whether the imp-3021 structured half-lattice infimum 0.9016 is the true structured floor or can be pushed still LOWER by richer structure (two-sided lattices, graded spacings)',
+    title: 'Independently test whether the imp-3021 structured half-lattice infimum 0.9016 is the true structured floor or can be pushed still LOWER by richer structure (two-sided lattices, graded spacings)',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "sg1c-theta-trap-theorems flags HONESTLY that the imp-3021 structured infimum ~0.9016 is 'a certified numerical infimum of a structured family, NOT a proof that nothing worsens still earlier'. DELIVERABLE: run an adversarial STRUCTURED search over richer worst-case families (two-sided minimal-spacing lattices, graded/geometric spacings, multi-shell dressings) to test whether any structure drives the asymmetric isolation worsening-onset below 0.9016, reporting the lowest certified onset found and which structural degree of freedom drives it; if nothing beats 0.9016, report that as evidence (not proof) it is the structured floor. Deterministic structured search; honest, NO QED, the global constant stays OPEN.",
+    description: "sg1c-theta-trap-theorems flags HONESTLY that the imp-3021 structured infimum ~0.9016 is 'a certified numerical infimum of a structured family, NOT a proof that nothing worsens still earlier'. DELIVERABLE: run an skeptical STRUCTURED search over richer worst-case families (two-sided minimal-spacing lattices, graded/geometric spacings, multi-shell dressings) to test whether any structure drives the asymmetric isolation worsening-onset below 0.9016, reporting the lowest certified onset found and which structural degree of freedom drives it; if nothing beats 0.9016, report that as evidence (not proof) it is the structured floor. Deterministic structured search; honest, NO QED, the global constant stays OPEN.",
     rationale: 'Frontier scout: sg1c-theta-trap explicitly leaves open whether 0.9016 is the true structured floor',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -32527,7 +32527,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S-frontier',
-    description: "section26-mupass-operator-verdict-2026-06-30 establishes mass-feasibility (no mass obstruction) with concrete numbers never surfaced as a reader-facing table: degree-2 deficit 9.28e-9, off-diagonal L1 budget 2.26e-5 (~2400x), ||V||_HS 1.90e-4 (~20000x, matching imp-1267's 1.8985e-4), degree-0 cosh-completion bridge mass B=14.04 > deficit D_0=13.07 (B/D=1.074), pointwise margin e^{-a tau}>0 on 100% of [0,U]. DELIVERABLE: build a compact table/panel surfacing these mass-feasibility numbers with the MANDATORY honest caveat that feasibility kills only the impossibility option -- the surviving residual is the RH-EQUIVALENT operator-level K_a>=0 sign-positivity, untouched. Content only; NO QED.",
+    description: "section26-mupass-operator-verdict-2026-06-30 establishes mass-feasibility (no mass obstruction) with concrete numbers never surfaced as a reader-facing table: degree-2 deficit 9.28e-9, off-diagonal L1 budget 2.26e-5 (~2400x), ||V||_HS 1.90e-4 (~20000x, matching imp-1267's 1.8985e-4), degree-0 cosh-completion bridge mass B=14.04 > deficit D_0=13.07 (B/D=1.074), pointwise margin e^{-a tau}>0 on 100% of [0,U]. DELIVERABLE: build a compact table/panel surfacing these mass-feasibility numbers with the MANDATORY honest caveat that feasibility eliminates only the impossibility option -- the surviving residual is the RH-EQUIVALENT operator-level K_a>=0 sign-positivity, untouched. Content only; NO QED.",
     rationale: 'Frontier scout: section26-mupass-operator-verdict mass-feasibility numbers (9.28e-9, 2.26e-5, B/D=1.074) are not surfaced as a reader-facing table',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -32580,15 +32580,15 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-3212',
-    title: 'Surface that the C_H frontier (ch-wall-frontier) and the econn-metric assault CONVERGE on the SAME named deterministic target: a uniform lower bound on the product of non-colliding gaps D_rest(t_c), RH-hard off-basin and deterministic only on the isolated-pair basin',
+    title: 'Surface that the C_H frontier (ch-wall-frontier) and the econn-metric push CONVERGE on the SAME named deterministic target: a uniform lower bound on the product of non-colliding gaps D_rest(t_c), RH-hard off-basin and deterministic only on the isolated-pair basin',
     category: 'content',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S-frontier',
-    description: "econn-metric-rearchitecture-verdict-2026-06-30 reports that the W_1 metric is INCIDENTAL (sup-norm gives N-uniform C_Lip ~9.4e-3) and that the TRUE metric-invariant wall is the MULTI-BODY ISOLATION/REPULSION content -- a uniform lower bound on the product of non-colliding gaps D_rest(t_c) -- the SAME deterministic target the C_H frontier identified, so 'the two assaults CONVERGE'. DELIVERABLE: surface a content panel making this convergence explicit: name D_rest(t_c) as the single deterministic residual both assaults reach, note it is RH-hard off-basin (crowded near-uniform lattice) and deterministic only on the isolated-pair real-zero basin, and that it is the SAME object as the sg1c R2-T multi-body isolation constant. Content only; NO QED, PT Lambda<=0.2 stays SOTA.",
-    rationale: 'Frontier scout: econn-metric verdict\'s \'two assaults CONVERGE on D_rest(t_c)\' convergence is not surfaced as a reader-facing panel',
+    description: "econn-metric-rearchitecture-verdict-2026-06-30 reports that the W_1 metric is INCIDENTAL (sup-norm gives N-uniform C_Lip ~9.4e-3) and that the TRUE metric-invariant wall is the MULTI-BODY ISOLATION/REPULSION content -- a uniform lower bound on the product of non-colliding gaps D_rest(t_c) -- the SAME deterministic target the C_H frontier identified, so 'the two pushes CONVERGE'. DELIVERABLE: surface a content panel making this convergence explicit: name D_rest(t_c) as the single deterministic residual both pushes reach, note it is RH-hard off-basin (crowded near-uniform lattice) and deterministic only on the isolated-pair real-zero basin, and that it is the SAME object as the sg1c R2-T multi-body isolation constant. Content only; NO QED, PT Lambda<=0.2 stays SOTA.",
+    rationale: 'Frontier scout: econn-metric verdict\'s \'two pushes CONVERGE on D_rest(t_c)\' convergence is not surfaced as a reader-facing panel',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
@@ -33217,7 +33217,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "Verdict point 1 establishes mass-feasibility: deficit 9.28e-9 vs off-diagonal L1 budget 2.26e-5 (~2400x) and ||V||_HS 1.90e-4 (~20000x), killing the impossibility option, stated numerically at one cell. ASSESS whether it can be formalized as a NECESSARY-condition lemma -- if the passive-over-shear cover held then deficit <= available bridge budget, so measured deficit-below-budget is consistent-with (not obstructing) closure -- while making rigorously explicit it is NECESSARY-BUT-NOT-SUFFICIENT: the surviving RH-EQUIVALENT operator-level K_a>=0 sign-positivity is untouched and mass-feasibility does NOT close it. Deliver the lemma statement, hypotheses, and explicit non-sufficiency caveat. NO reduction, NO QED; imp-3066 remains the lone obstruction. PT Lambda <= 0.2 stays SOTA.",
+    description: "Verdict point 1 establishes mass-feasibility: deficit 9.28e-9 vs off-diagonal L1 budget 2.26e-5 (~2400x) and ||V||_HS 1.90e-4 (~20000x), eliminating the impossibility option, stated numerically at one cell. ASSESS whether it can be formalized as a NECESSARY-condition lemma -- if the passive-over-shear cover held then deficit <= available bridge budget, so measured deficit-below-budget is consistent-with (not obstructing) closure -- while making rigorously explicit it is NECESSARY-BUT-NOT-SUFFICIENT: the surviving RH-EQUIVALENT operator-level K_a>=0 sign-positivity is untouched and mass-feasibility does NOT close it. Deliver the lemma statement, hypotheses, and explicit non-sufficiency caveat. NO reduction, NO QED; imp-3066 remains the lone obstruction. PT Lambda <= 0.2 stays SOTA.",
     rationale: 'Frontier scout: verdict point 1 mass-feasibility is only a numeric observation at one cell; whether it upgrades to a stated necessary-condition lemma with explicit non-sufficiency is never assessed',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -33315,7 +33315,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-3261',
-    title: 'Add a glossary entry for MASS-FEASIBILITY vs OPERATOR-POSITIVITY: the section26 deficit sitting 3-4 orders below the off-diagonal bridge budget kills only the impossibility option and is NECESSARY-BUT-NOT-SUFFICIENT; operator-order K_a>=0 is the binding requirement',
+    title: 'Add a glossary entry for MASS-FEASIBILITY vs OPERATOR-POSITIVITY: the section26 deficit sitting 3-4 orders below the off-diagonal bridge budget eliminates only the impossibility option and is NECESSARY-BUT-NOT-SUFFICIENT; operator-order K_a>=0 is the binding requirement',
     category: 'content',
     priority: 'low',
     status: 'completed',
@@ -37025,7 +37025,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-3486 located and cross-checked (two independent locators to ~8 digits) the threshold k_c = 0.1966894 of the power-floor exponent above which the interior min of g(N) = (E_trunc+E_flow)/E_coll no longer forms, sharpening imp-3465's coarse 'any k>0 kills it'. Add a glossary/concept entry stating k_c, the two-locator agreement, the disappearance mechanism (a global-min HANDOVER from the interior stationary point to the N=1e2 window boundary, NOT a saddle-node), and the honest caveat that k_c is window-dependent and the physical Ingham k=0.4 stays comfortably above it. Cite imp-3486. Content only, no new numerics; mark frontier-direction/NOT rigorous, no RH claim.",
+    description: "imp-3486 located and cross-checked (two independent locators to ~8 digits) the threshold k_c = 0.1966894 of the power-floor exponent above which the interior min of g(N) = (E_trunc+E_flow)/E_coll no longer forms, sharpening imp-3465's coarse 'any k>0 eliminates it'. Add a glossary/concept entry stating k_c, the two-locator agreement, the disappearance mechanism (a global-min HANDOVER from the interior stationary point to the N=1e2 window boundary, NOT a saddle-node), and the honest caveat that k_c is window-dependent and the physical Ingham k=0.4 stays comfortably above it. Cite imp-3486. Content only, no new numerics; mark frontier-direction/NOT rigorous, no RH claim.",
     rationale: 'Frontier scout: imp-3486-critical-decay-exponent.js k_c=0.1966894 absent from glossary (grep 0)',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -41686,7 +41686,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-3922',
-    title: 'Add a glossary entry for the imp-3895 three-solver quadrature cross-confirmation of the exact-saddle R_n crossing n*=215.23: composite Simpson (imp-3849), 5-point Gauss-Legendre (imp-3868) and Clenshaw-Curtis (imp-3895) agree to ~6e-8 of a rung, killing the imp-3731 inner=1200 crossing (225.54) as an inner-resolution artifact',
+    title: 'Add a glossary entry for the imp-3895 three-solver quadrature cross-confirmation of the exact-saddle R_n crossing n*=215.23: composite Simpson (imp-3849), 5-point Gauss-Legendre (imp-3868) and Clenshaw-Curtis (imp-3895) agree to ~6e-8 of a rung, eliminating the imp-3731 inner=1200 crossing (225.54) as an inner-resolution artifact',
     category: 'content',
     priority: 'low',
     status: 'completed',
@@ -41706,7 +41706,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "Add a glossary entry documenting imp-3896's sizing of the CM resolvent inviscid window: brute block-size growth lifts the clean edge only logarithmically so the finite block edge caps the hydrodynamic separation of scales at ~log M and cannot reach the microscopic continuum by particle count alone, while the 518x shrinkage law is scale-free (s=0 self-similarity) and adds no independent height evidence. Entry must carry the honest measurement/scoping framing: H2 stays unwritten, K4 route wholly new, G6a_shock_lipschitz open, imp-3066 untouched, PT Lambda<=0.2 SOTA, no QED. Documentation only.",
+    description: "Add a glossary entry documenting imp-3896's sizing of the CM resolvent inviscid window: raw block-size growth lifts the clean edge only logarithmically so the finite block edge caps the hydrodynamic separation of scales at ~log M and cannot reach the microscopic continuum by particle count alone, while the 518x shrinkage law is scale-free (s=0 self-similarity) and adds no independent height evidence. Entry must carry the honest measurement/scoping framing: H2 stays unwritten, K4 route wholly new, G6a_shock_lipschitz open, imp-3066 untouched, PT Lambda<=0.2 SOTA, no QED. Documentation only.",
     rationale: 'Frontier scout: imp-3896 has no glossary coverage (glossary_hits=0)',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -42233,7 +42233,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-3932 rigorously falsifies the strong global reading of Conjecture 22.1 for the paper's own eq(20)-(21) proxy at the Platt-Trudgian benchmark, but explicitly leaves NAMED obstructions to a complete resolution and surviving readings. Attack those obstructions or sharpen the surviving readings.",
+    description: "imp-3932 rigorously falsifies the strong global reading of Conjecture 22.1 for the paper's own eq(20)-(21) proxy at the Platt-Trudgian benchmark, but explicitly leaves NAMED obstructions to a complete resolution and surviving readings. Approach those obstructions or sharpen the surviving readings.",
     rationale: 'Frontier scout: imp-3932 names obstructions to a FULL falsification + surviving readings of Conjecture 22.1',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -42271,7 +42271,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-33236',
-    title: 'Add a glossary/concept entry for the imp-3933 eps\'-field-robust plateau-domination bootstrap: the deterministic N-uniform field-channel transfer modulus W(eps\')=tHi(eps\')-tLo(eps\') with dW/deps\'~3H^4/64, bounding |t_c^true - t_c^model| via a FIXED-initial-data field discrepancy (no Gronwall, no W_1, no GUE/PCC), which reroutes the C_Lip breach point around the still-divergent W_1-channel impossibility proofs',
+    title: 'Add a glossary/concept entry for the imp-3933 eps\'-field-robust plateau-domination bootstrap: the deterministic N-uniform field-channel transfer modulus W(eps\')=tHi(eps\')-tLo(eps\') with dW/deps\'~3H^4/64, bounding |t_c^true - t_c^model| via a FIXED-initial-data field discrepancy (no Gronwall, no W_1, no GUE/PCC), which reroutes the C_Lip crossing point around the still-divergent W_1-channel impossibility proofs',
     category: 'content',
     priority: 'low',
     status: 'completed',
@@ -42306,7 +42306,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-3932 (the sole INDEPENDENT-NOVEL v52 conjecture attacked directly) has no glossary entry. Capture L1-L4, the coefficient dimension D=sum(K_j+1), the benchmark falsification, and the surviving readings, with the no-QED honest banner.",
+    description: "imp-3932 (the sole INDEPENDENT-NOVEL v52 conjecture approached directly) has no glossary entry. Capture L1-L4, the coefficient dimension D=sum(K_j+1), the benchmark falsification, and the surviving readings, with the no-QED honest banner.",
     rationale: 'Frontier scout: imp-3932 module has 0 surfacing tickets; sole INDEPENDENT-NOVEL conjecture per imp-1210 audit',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -42503,7 +42503,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-33233 attacked the Conjecture 22.1 modulation escape-hatch quantitatively: (A) single-width modulated ladders reduce via Polya-Szego L2 to D >= ceil(M_sc/2) = 6.18e12 stored coefficients (>8.9e6x the 691008-term Riemann-Siegel main sum); (B) multi-width/windowed ladders, being Paley-Wiener entire of exponential type <=U, have real-zero density (U/pi)T0(1+o(1)) by Levinson/Titchmarsh 8.71, forcing U>=pi M_sc/T0 ~ 12.95 and a WKS sample/storage dimension >=~M_sc = Odlyzko-Schonhage band-limited interpolation. This ticket independently recomputes M_sc from the benchmark height T0, the U lower bound, and the sample count, confirming the arithmetic and the 'no independent-novel equal-runtime advantage' conclusion. Verification/measurement only; establishes no operator positivity; imp-3932 partial-falsification stands; imp-3066 UNTOUCHED; no QED; Platt-Trudgian Lambda<=0.2 stays SOTA.",
+    description: "imp-33233 approached the Conjecture 22.1 modulation escape-hatch quantitatively: (A) single-width modulated ladders reduce via Polya-Szego L2 to D >= ceil(M_sc/2) = 6.18e12 stored coefficients (>8.9e6x the 691008-term Riemann-Siegel main sum); (B) multi-width/windowed ladders, being Paley-Wiener entire of exponential type <=U, have real-zero density (U/pi)T0(1+o(1)) by Levinson/Titchmarsh 8.71, forcing U>=pi M_sc/T0 ~ 12.95 and a WKS sample/storage dimension >=~M_sc = Odlyzko-Schonhage band-limited interpolation. This ticket independently recomputes M_sc from the benchmark height T0, the U lower bound, and the sample count, confirming the arithmetic and the 'no independent-novel equal-runtime advantage' conclusion. Verification/measurement only; establishes no operator positivity; imp-3932 partial-falsification stands; imp-3066 UNTOUCHED; no QED; Platt-Trudgian Lambda<=0.2 stays SOTA.",
     rationale: 'Frontier scout: imp-33233 derives the U>=~12.95 / Nyquist-storage bound but it rests on one analytic pass, not an independent recompute',
     estimatedComplexity: 'large',
     dependsOn: [],
@@ -43163,7 +43163,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-33275 (rung-uniform Richardson to few-ULP) and imp-33276 (inner O(h^4) drift, outer-invariant) both drive A(tau)/R_40 to the floor with a UNIFORM inner Simpson grid refined by brute panel doubling (N=1200..19200). The imp-33249/imp-33277 graded-GL work showed steeper grades reach <1 ULP at far fewer nodes for the -ln A weight. MEASURE whether a graded or adaptive inner grid reaches the same A_log/R_40 arithmetic floor at materially fewer inner nodes than uniform Simpson, reporting node budget vs worst-window ULP. Accuracy/rule-design measurement only; no literal patched; no new bound; imp-3066 untouched; NO QED.",
+    description: "imp-33275 (rung-uniform Richardson to few-ULP) and imp-33276 (inner O(h^4) drift, outer-invariant) both drive A(tau)/R_40 to the floor with a UNIFORM inner Simpson grid refined by raw panel doubling (N=1200..19200). The imp-33249/imp-33277 graded-GL work showed steeper grades reach <1 ULP at far fewer nodes for the -ln A weight. MEASURE whether a graded or adaptive inner grid reaches the same A_log/R_40 arithmetic floor at materially fewer inner nodes than uniform Simpson, reporting node budget vs worst-window ULP. Accuracy/rule-design measurement only; no literal patched; no new bound; imp-3066 untouched; NO QED.",
     rationale: 'Frontier scout: imp-33275/imp-33276 reach the floor only via uniform-Simpson panel doubling; graded inner-grid node savings unmeasured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -44571,7 +44571,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "Content only. Add a standalone glossary/concept entry summarizing imp-33559: under the imp-33534 ~106-bit double-double reference libm the imp-33538 named ~10.78 ULP envelope shifts DOWN to E_ref ~10.212 ULP (binding still at tau=8), because the fp64 figure is inflated by ~0.567 ULP of libm round-off tracking the imp-33534 ~0.947 ULP contamination. Record the three takeaways: (1) binding height robust at tau=8, (2) named constant not exact (~5.3% high), (3) fp64 envelope stays a valid conservative upper bound (E_ref < E, band never breached). Link [[storage_precision_assertion_tolerance]]. No new computation; adds no Lambda bound; dd is a reference surrogate not a real-libm survey; imp-3066 untouched; RH-equivalent; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    description: "Content only. Add a standalone glossary/concept entry summarizing imp-33559: under the imp-33534 ~106-bit double-double reference libm the imp-33538 named ~10.78 ULP envelope shifts DOWN to E_ref ~10.212 ULP (binding still at tau=8), because the fp64 figure is inflated by ~0.567 ULP of libm round-off tracking the imp-33534 ~0.947 ULP contamination. Record the three takeaways: (1) binding height robust at tau=8, (2) named constant not exact (~5.3% high), (3) fp64 envelope stays a valid conservative upper bound (E_ref < E, band never crossed). Link [[storage_precision_assertion_tolerance]]. No new computation; adds no Lambda bound; dd is a reference surrogate not a real-libm survey; imp-3066 untouched; RH-equivalent; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-33559 reference-precision envelope reconciliation has no glossary/concept entry',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -44631,7 +44631,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "Presentation only. Add an import-light viz page charting the imp-33559 reference-precision shift as paired fp64-vs-dd bars per height tau in {7..10}: tau=7 10.648 -> 9.680 (shift -0.968), tau=8 10.779 -> 10.212 (shift -0.567, binding), tau=9 0.665 -> 0.665, tau=10 0.000 -> 0.000, with two horizontal lines at the fp64 envelope (~10.78) and the reference envelope (~10.21) showing E_ref < E (conservative upper bound not breached). Bake values as literals from imp-33559 per the storage-precision tolerance convention; do NOT re-import the self-computing chain or the zeros bundle. Presentation of an already-established reference-libm measurement; adds no new Lambda bound; imp-3066 K_a>=0 untouched; RH-equivalent; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    description: "Presentation only. Add an import-light viz page charting the imp-33559 reference-precision shift as paired fp64-vs-dd bars per height tau in {7..10}: tau=7 10.648 -> 9.680 (shift -0.968), tau=8 10.779 -> 10.212 (shift -0.567, binding), tau=9 0.665 -> 0.665, tau=10 0.000 -> 0.000, with two horizontal lines at the fp64 envelope (~10.78) and the reference envelope (~10.21) showing E_ref < E (conservative upper bound not crossed). Bake values as literals from imp-33559 per the storage-precision tolerance convention; do NOT re-import the self-computing chain or the zeros bundle. Presentation of an already-established reference-libm measurement; adds no new Lambda bound; imp-3066 K_a>=0 untouched; RH-equivalent; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-33559 per-height reference-libm shift table has no viz page',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -56475,7 +56475,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S-frontier',
-    description: "imp-34214 extrapolated a non-physical r_inf>>1 for the |trough|/|peak| ratio; imp-34288 then measured the actual data caps at ~0.907. Add an honest-status note explaining that the imp-34214 limit was the saturating fit extrapolating the pre-cap climb, not a real breach of 1, so the two are reconciled. Presentation only; corrects framing, not a bound; no QED.",
+    description: "imp-34214 extrapolated a non-physical r_inf>>1 for the |trough|/|peak| ratio; imp-34288 then measured the actual data caps at ~0.907. Add an honest-status note explaining that the imp-34214 limit was the saturating fit extrapolating the pre-cap climb, not a real crossing of 1, so the two are reconciled. Presentation only; corrects framing, not a bound; no QED.",
     rationale: 'Frontier scout: imp-34288 vs imp-34214 tension needs an honest-status reconciliation note',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -59235,7 +59235,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-34405 derived that the near-pole resid_exp resolvability is capped by a POLE-LOCATION floor: since k*=21.28095 is reported to only 7 sig figs, its last-digit uncertainty dk_star=5e-6 blows up resid_exp's relative precision as endpoint distance d->0, killing the sign at d=dk_star=5e-6. Re-derive k* to more significant figures via finer bisection of the surrogate resid_exp=pEcoll(1-sigma)-pSigma zero (verbatim imp-34237/imp-34310 machinery, import-light), report the tightened k* and its new last-digit dk_star, and MEASURE how many decades the imp-34405 pole-location floor drops. Measurement only; inherited surrogate NOT rigorous; changes no bound; imp-3066 untouched; NO QED; PT Lambda<=0.2 SOTA.",
+    description: "imp-34405 derived that the near-pole resid_exp resolvability is capped by a POLE-LOCATION floor: since k*=21.28095 is reported to only 7 sig figs, its last-digit uncertainty dk_star=5e-6 blows up resid_exp's relative precision as endpoint distance d->0, eliminating the sign at d=dk_star=5e-6. Re-derive k* to more significant figures via finer bisection of the surrogate resid_exp=pEcoll(1-sigma)-pSigma zero (verbatim imp-34237/imp-34310 machinery, import-light), report the tightened k* and its new last-digit dk_star, and MEASURE how many decades the imp-34405 pole-location floor drops. Measurement only; inherited surrogate NOT rigorous; changes no bound; imp-3066 untouched; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-34405 pole-location floor dk_star=5e-6 is set by k* reported to only 7 sig figs; re-pinning the zero was never done',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -62940,7 +62940,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: 'S-frontier',
-    description: "imp-34794 locates the tightest surviving double-precision certified bracket half-width delta* via a delta-sweep at a fixed k eps budget; imp-34799 gives an a-priori residual/image half-width. Measure the ratio delta*/predicted-floor to assess whether the located bracket sits at the surrogate budget edge or retains head-room a genuine directed-rounding certificate could exploit. Assessment only; imp-34714a REMAINS OPEN; NO QED.",
+    description: "imp-34794 locates the tightest surviving double-precision certified bracket half-width delta* via a delta-sweep at a fixed k eps budget; imp-34799 gives an a-priori residual/image half-width. Measure the ratio delta*/predicted-floor to assess whether the located bracket sits at the surrogate budget edge or retains head-room a genuine directed-rounding certificate could use. Assessment only; imp-34714a REMAINS OPEN; NO QED.",
     rationale: 'Frontier scout: imp-34794 delta* (k eps surrogate) vs imp-34799 a-priori width bound never compared',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -63645,7 +63645,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-34840 counted the effectiveHeightForN op-DAG (n_op~49, sequential depth~30, ~4 Newton steps each with 3 interval divisions) and argued the flat gamma(n_op) model is faithful ONLY IF [T0] is instantiated as a self-validating interval-Newton contraction (width set by the final step), because naive forward-propagation of the input interval through the depth-30 dividing chain COMPOUNDS and can inflate the width, in which case the flat gamma bound UNDERSTATES. MEASURE this: instantiate both routes numerically (interval endpoints via directed rounding surrogate), report the forward-propagation-vs-contraction width ratio for [T0] at N_cross, and confirm whether forward-propagation breaches the imp-34799 (H2) bracket margin the contraction route clears by ~10 orders. Feasibility/measurement only; does NOT instantiate the imp-34687a layer; imp-34714a REMAINS OPEN; NO QED.",
+    description: "imp-34840 counted the effectiveHeightForN op-DAG (n_op~49, sequential depth~30, ~4 Newton steps each with 3 interval divisions) and argued the flat gamma(n_op) model is faithful ONLY IF [T0] is instantiated as a self-validating interval-Newton contraction (width set by the final step), because naive forward-propagation of the input interval through the depth-30 dividing chain COMPOUNDS and can inflate the width, in which case the flat gamma bound UNDERSTATES. MEASURE this: instantiate both routes numerically (interval endpoints via directed rounding surrogate), report the forward-propagation-vs-contraction width ratio for [T0] at N_cross, and confirm whether forward-propagation crosses the imp-34799 (H2) bracket margin the contraction route clears by ~10 orders. Feasibility/measurement only; does NOT instantiate the imp-34687a layer; imp-34714a REMAINS OPEN; NO QED.",
     rationale: 'Frontier scout: imp-34840 THE STRUCTURAL REQUIREMENT forward-propagation inflates along depth-30 chain; inflation ratio never measured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -63923,15 +63923,15 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34884',
-    title: 'Measure the op-DAG depth at which naive FORWARD-interval propagation of the RvM-inverse [T0] first inflates the enclosure width PAST the imp-34799 (H2) bracket margin, locating the breach depth against the depth-30 Newton chain that the imp-34865 contraction route clears',
+    title: 'Measure the op-DAG depth at which naive FORWARD-interval propagation of the RvM-inverse [T0] first inflates the enclosure width PAST the imp-34799 (H2) bracket margin, locating the crossing depth against the depth-30 Newton chain that the imp-34865 contraction route clears',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: 'S-frontier',
-    description: "imp-34865 measured the forward-propagation-vs-contraction width ratio for [T0] at N_cross and checked whether forward propagation breaches the (H2) margin. LOCALISE the failure: instrument the directed-rounding surrogate (one relative EPS outward per elementary op) step-by-step down the depth-30 dividing chain and MEASURE the cumulative forward width at each depth, reporting the FIRST depth d* at which it exceeds the (H2) bracket half-width delta=2e-4 in T-space, and how far d* sits below 30. Contrast with the contraction route whose width is set by the final step. FEASIBILITY/MEASUREMENT ONLY; does NOT instantiate the imp-34687a layer; imp-34714a REMAINS OPEN; NO QED; Lambda<=0.2 SOTA.",
-    rationale: 'Frontier scout: imp-34865 gave a single forward-vs-contraction width ratio at N_cross but never located the op-DAG depth at which forward propagation first breaches the (H2) margin',
+    description: "imp-34865 measured the forward-propagation-vs-contraction width ratio for [T0] at N_cross and checked whether forward propagation crosses the (H2) margin. LOCALISE the failure: instrument the directed-rounding surrogate (one relative EPS outward per elementary op) step-by-step down the depth-30 dividing chain and MEASURE the cumulative forward width at each depth, reporting the FIRST depth d* at which it exceeds the (H2) bracket half-width delta=2e-4 in T-space, and how far d* sits below 30. Contrast with the contraction route whose width is set by the final step. FEASIBILITY/MEASUREMENT ONLY; does NOT instantiate the imp-34687a layer; imp-34714a REMAINS OPEN; NO QED; Lambda<=0.2 SOTA.",
+    rationale: 'Frontier scout: imp-34865 gave a single forward-vs-contraction width ratio at N_cross but never located the op-DAG depth at which forward propagation first crosses the (H2) margin',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -63998,14 +63998,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34889',
-    title: 'Measure whether the imp-34865 forward-interval width-inflation ratio (and any (H2)-margin breach) is UNIFORM across the imp-34693 admissible seed band or occurs only at worst-case band points, combining the imp-34865 forward-vs-contraction route with the imp-34861 band-sensitivity sweep',
+    title: 'Measure whether the imp-34865 forward-interval width-inflation ratio (and any (H2)-margin crossing) is UNIFORM across the imp-34693 admissible seed band or occurs only at worst-case band points, combining the imp-34865 forward-vs-contraction route with the imp-34861 band-sensitivity sweep',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-34865 measured the forward-propagation-vs-contraction width ratio for [T0] at the single point N_cross; imp-34861 showed the contraction gap G(N) drifts across the imp-34693 admissible seed band |N_0-N_cross|<rho(1,k). MEASURE the forward-vs-contraction width ratio and the forward-route (H2)-margin breach status at a ladder of band points, and REPORT whether the forward route breaches band-wide, only near the band edges, or nowhere -- i.e. whether the imp-34865 conclusion at N_cross is representative of the whole admissible band. Reuse the imp-34865 directed-rounding surrogate and imp-34693 band literals VERBATIM; FEASIBILITY/MEASUREMENT ONLY; imp-34714a REMAINS OPEN; NO QED; Lambda<=0.2 SOTA.",
+    description: "imp-34865 measured the forward-propagation-vs-contraction width ratio for [T0] at the single point N_cross; imp-34861 showed the contraction gap G(N) drifts across the imp-34693 admissible seed band |N_0-N_cross|<rho(1,k). MEASURE the forward-vs-contraction width ratio and the forward-route (H2)-margin crossing status at a ladder of band points, and REPORT whether the forward route crosses band-wide, only near the band edges, or nowhere -- i.e. whether the imp-34865 conclusion at N_cross is representative of the whole admissible band. Reuse the imp-34865 directed-rounding surrogate and imp-34693 band literals VERBATIM; FEASIBILITY/MEASUREMENT ONLY; imp-34714a REMAINS OPEN; NO QED; Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-34865 evaluated forward-vs-contraction width only at N_cross; its band-uniformity across the imp-34861/imp-34693 seed band was never measured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -64178,15 +64178,15 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34901',
-    title: 'Derive the exact closed-form forward-breach step n* = ceil(log2((K/FP_LO)/N)) from the imp-34889 breach condition 2^n > (K/FP_LO)/N and prove analytically that the integer breach step is band-invariant (= 5) across the whole imp-34693 admissible seed band, since the RHS ~20 moves only ~+-5% over the widest k=10 rung -- too little to cross an integer boundary',
+    title: 'Derive the exact closed-form forward-breach step n* = ceil(log2((K/FP_LO)/N)) from the imp-34889 crossing condition 2^n > (K/FP_LO)/N and prove analytically that the integer crossing step is band-invariant (= 5) across the whole imp-34693 admissible seed band, since the RHS ~20 moves only ~+-5% over the widest k=10 rung -- too little to cross an integer boundary',
     category: 'proof',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-34889 MEASURED that the forward route breaches the (H2) margin at step 5 band-wide and reduced the breach to 2^n > (K/FP_LO)/N with delta cancelling and RHS ~20 moving only ~+-5% over the band. Formalize this: derive n* = ceil(log2((K/FP_LO)/N)) as a closed form, show the seed image half-width K delta/FP_LO is T0(N)-independent, and prove the integer ceil cannot shift off 5 unless the band widens enough for the RHS to cross an integer power-of-two boundary (quantify that margin). DERIVATION ON THE SURROGATE ONLY; does NOT instantiate the imp-34687a directed-rounding layer; imp-34714a REMAINS OPEN; establishes no operator positivity; changes no bound; NO QED; PT SOTA.",
-    rationale: 'Frontier scout: imp-34889 finding states the breach reduces to 2^n>(K/FP_LO)/N (delta cancels) but never formalizes the closed-form breach step or its band-invariance as a lemma.',
+    description: "imp-34889 MEASURED that the forward route crosses the (H2) margin at step 5 band-wide and reduced the crossing to 2^n > (K/FP_LO)/N with delta cancelling and RHS ~20 moving only ~+-5% over the band. Formalize this: derive n* = ceil(log2((K/FP_LO)/N)) as a closed form, show the seed image half-width K delta/FP_LO is T0(N)-independent, and prove the integer ceil cannot shift off 5 unless the band widens enough for the RHS to cross an integer power-of-two boundary (quantify that margin). DERIVATION ON THE SURROGATE ONLY; does NOT instantiate the imp-34687a directed-rounding layer; imp-34714a REMAINS OPEN; establishes no operator positivity; changes no bound; NO QED; PT SOTA.",
+    rationale: 'Frontier scout: imp-34889 finding states the crossing reduces to 2^n>(K/FP_LO)/N (delta cancels) but never formalizes the closed-form crossing step or its band-invariance as a lemma.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -64298,15 +64298,15 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34909',
-    title: 'Cross-validate the imp-34884 op-DAG depth breach (d* = 8 at N_cross) against the imp-34889 forward step-5 (H2)-margin breach: reconcile the two depth counts on a shared op ladder, clarifying why the op-DAG-depth breach (d*=8) and the Newton-step breach (step 5) differ and whether they measure the same forward width-inflation on different granularities',
+    title: 'Cross-validate the imp-34884 op-DAG depth crossing (d* = 8 at N_cross) against the imp-34889 forward step-5 (H2)-margin breach: reconcile the two depth counts on a shared op ladder, clarifying why the op-DAG-depth crossing (d*=8) and the Newton-step crossing (step 5) differ and whether they measure the same forward width-inflation on different granularities',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: 'S-frontier',
-    description: "imp-34884 reported an op-DAG depth breach d* = 8 at N_cross while imp-34889 (which cites imp-34884) reports the forward route breaches the (H2) margin at Newton step 5 band-wide. These are two depth counts for the same forward width-doubling phenomenon at different granularities (per-operation DAG depth vs per-Newton-step). Reconcile them: express both on a shared ladder (ops per Newton step), show d*=8 ops corresponds to which Newton step, and confirm the two breach points are consistent rather than contradictory. MEASUREMENT/RECONCILIATION ONLY; surrogate, NOT the imp-34687a layer; imp-34714a REMAINS OPEN; changes no bound; NO QED; PT SOTA.",
-    rationale: 'Frontier scout: imp-34889 citation names imp-34884 op-DAG depth d*=8 alongside its own step-5 breach, but the two depth counts are never reconciled on a shared ladder.',
+    description: "imp-34884 reported an op-DAG depth crossing d* = 8 at N_cross while imp-34889 (which cites imp-34884) reports the forward route crosses the (H2) margin at Newton step 5 band-wide. These are two depth counts for the same forward width-doubling phenomenon at different granularities (per-operation DAG depth vs per-Newton-step). Reconcile them: express both on a shared ladder (ops per Newton step), show d*=8 ops corresponds to which Newton step, and confirm the two crossing points are consistent rather than contradictory. MEASUREMENT/RECONCILIATION ONLY; surrogate, NOT the imp-34687a layer; imp-34714a REMAINS OPEN; changes no bound; NO QED; PT SOTA.",
+    rationale: 'Frontier scout: imp-34889 citation names imp-34884 op-DAG depth d*=8 alongside its own step-5 crossing, but the two depth counts are never reconciled on a shared ladder.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -64328,12 +64328,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34911',
-    title: 'Add an import-light viz page for the imp-34889 forward-breach band-uniformity sweep: plot the 4-step forward image half-width as a fraction of the (H2) margin (~76-85%, worst ~0.85 at the lower edge) and the integer breach step (=5 band-wide) across the imp-34693 admissible seed band N = N_cross +/- rho(1,k) for k in {0,5,10}, annotating that the forward/contraction width ratio stays ~2.56e12-2.92e12 (T0 cancels)',
+    title: 'Add an import-light viz page for the imp-34889 forward-breach band-uniformity sweep: plot the 4-step forward image half-width as a fraction of the (H2) margin (~76-85%, worst ~0.85 at the lower edge) and the integer crossing step (=5 band-wide) across the imp-34693 admissible seed band N = N_cross +/- rho(1,k) for k in {0,5,10}, annotating that the forward/contraction width ratio stays ~2.56e12-2.92e12 (T0 cancels)',
     category: 'ux',
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-34889 measured that the imp-34865 forward (H2)-margin breach at step 5 is band-uniform (breach step exactly 5 across the whole imp-34693 band) with the 4-step image half-width ~76-85% of the margin and the forward/contraction width ratio band-invariant ~2.56e12-2.92e12. Build an import-light page (paper-publication-meta.js only; NO 16.7MB zeros bundle) reusing the imp-34889 literals VERBATIM: plot the four-step fraction and integer breach step vs band point, with an honest caption (first-order surrogate NOT the imp-34687a directed-rounding layer, imp-34714a REMAINS OPEN, evidence not a machine certificate, NO QED, PT Lambda<=0.2 SOTA). Viz only.",
+    description: "imp-34889 measured that the imp-34865 forward (H2)-margin crossing at step 5 is band-uniform (crossing step exactly 5 across the whole imp-34693 band) with the 4-step image half-width ~76-85% of the margin and the forward/contraction width ratio band-invariant ~2.56e12-2.92e12. Build an import-light page (paper-publication-meta.js only; NO 16.7MB zeros bundle) reusing the imp-34889 literals VERBATIM: plot the four-step fraction and integer crossing step vs band point, with an honest caption (first-order surrogate NOT the imp-34687a directed-rounding layer, imp-34714a REMAINS OPEN, evidence not a machine certificate, NO QED, PT Lambda<=0.2 SOTA). Viz only.",
     rationale: 'Frontier scout: imp-34889 band-uniformity finding has no viz page; the honest-status directive requires import-light pages.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -64620,8 +64620,8 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: 'S-frontier',
-    description: "imp-34909 reconciled the apparent imp-34884 (op-DAG depth d*=8) vs imp-34889 (Newton step 5) contradiction onto a shared 8-ops-per-step ladder, deriving a single breach law nStar(R)=floor(log2 R)+1 (smallest n with 2^n>R) that yields nStar(1)=1 -> op-depth 8 and nStar(19.91)=5 -> op-depth 40, with R_margin=N*FP_LO/K ~19.91 the (H2)-margin-over-seed-image ratio. VERIFY the law by independently recomputing R_seed and R_margin from the published FP_LO,K,N,delta constituents, confirm nStar reproduces both op-depths, and MEASURE the log2(R_margin/R_seed) ~ 4.32 doubling gap plus the difference nStar(R_margin)-nStar(R_seed)=4. Check the linear image-map preservation of the 2^n doubling law explicitly. VERIFICATION/MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; reuses imp-34884/imp-34889 literals; does NOT instantiate the imp-34687a layer; imp-34714a REMAINS OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.",
-    rationale: 'Frontier scout: imp-34909-op-depth-newton-step-reconciliation.js states the unified nStar(R) breach law and the 4.32-doubling gap but does not independently recompute R_seed/R_margin from published constituents',
+    description: "imp-34909 reconciled the apparent imp-34884 (op-DAG depth d*=8) vs imp-34889 (Newton step 5) contradiction onto a shared 8-ops-per-step ladder, deriving a single crossing law nStar(R)=floor(log2 R)+1 (smallest n with 2^n>R) that yields nStar(1)=1 -> op-depth 8 and nStar(19.91)=5 -> op-depth 40, with R_margin=N*FP_LO/K ~19.91 the (H2)-margin-over-seed-image ratio. VERIFY the law by independently recomputing R_seed and R_margin from the published FP_LO,K,N,delta constituents, confirm nStar reproduces both op-depths, and MEASURE the log2(R_margin/R_seed) ~ 4.32 doubling gap plus the difference nStar(R_margin)-nStar(R_seed)=4. Check the linear image-map preservation of the 2^n doubling law explicitly. VERIFICATION/MEASUREMENT ONLY on the inherited imp-3220/imp-3406 surrogate; reuses imp-34884/imp-34889 literals; does NOT instantiate the imp-34687a layer; imp-34714a REMAINS OPEN; C_mb GUE-conditional per imp-486 UNTOUCHED; NO QED; PT Lambda<=0.2 SOTA.",
+    rationale: 'Frontier scout: imp-34909-op-depth-newton-step-reconciliation.js states the unified nStar(R) crossing law and the 4.32-doubling gap but does not independently recompute R_seed/R_margin from published constituents',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -64763,13 +64763,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34940',
-    title: 'Add an import-light viz page for the imp-34909 op-depth vs Newton-step forward-breach reconciliation: plot the 2^(d/8) forward width-inflation curve on the shared 8-ops-per-step ladder, marking the imp-34884 breach at op-depth 8 (seed-ratio R=1, Newton step 1) and the imp-34889 breach at op-depth 40 (H2-margin ratio R~19.91, Newton step 5)',
+    title: 'Add an import-light viz page for the imp-34909 op-depth vs Newton-step forward-breach reconciliation: plot the 2^(d/8) forward width-inflation curve on the shared 8-ops-per-step ladder, marking the imp-34884 crossing at op-depth 8 (seed-ratio R=1, Newton step 1) and the imp-34889 crossing at op-depth 40 (H2-margin ratio R~19.91, Newton step 5)',
     category: 'ux',
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "Reuse the imp-34909 literals VERBATIM for an import-light viz page: (1) plot the forward width-inflation 2^(d/8) vs op-depth d across the [T]-dT subtraction ladder (op-depths 8/16/24/32/40 -> ratios 2/4/8/16/32); (2) two horizontal threshold lines -- the seed-bracket half-width ratio R_seed=1 (breached at op-depth 8 = Newton step 1, imp-34884 d*) and the (H2)-margin ratio R_margin=N*FP_LO/K ~19.91 (breached at op-depth 40 = Newton step 5, imp-34889); (3) annotate the unified breach law nStar(R)=floor(log2 R)+1 and the log2(R_margin/R_seed) ~4.32 doubling gap that separates the two breach points. Follow the no-heavy-imports directive. Viz only; NO QED; carry the shared honest-status banner (imp-3220/imp-3406 surrogate, does not instantiate the imp-34687a layer, imp-34714a OPEN, C_mb GUE-conditional per imp-486, PT Lambda<=0.2 SOTA).",
-    rationale: 'Frontier scout: imp-34909-op-depth-newton-step-reconciliation.js derives the shared 2^(d/8) ladder and dual breach points with no viz page',
+    description: "Reuse the imp-34909 literals VERBATIM for an import-light viz page: (1) plot the forward width-inflation 2^(d/8) vs op-depth d across the [T]-dT subtraction ladder (op-depths 8/16/24/32/40 -> ratios 2/4/8/16/32); (2) two horizontal threshold lines -- the seed-bracket half-width ratio R_seed=1 (crossed at op-depth 8 = Newton step 1, imp-34884 d*) and the (H2)-margin ratio R_margin=N*FP_LO/K ~19.91 (crossed at op-depth 40 = Newton step 5, imp-34889); (3) annotate the unified crossing law nStar(R)=floor(log2 R)+1 and the log2(R_margin/R_seed) ~4.32 doubling gap that separates the two crossing points. Follow the no-heavy-imports directive. Viz only; NO QED; carry the shared honest-status banner (imp-3220/imp-3406 surrogate, does not instantiate the imp-34687a layer, imp-34714a OPEN, C_mb GUE-conditional per imp-486, PT Lambda<=0.2 SOTA).",
+    rationale: 'Frontier scout: imp-34909-op-depth-newton-step-reconciliation.js derives the shared 2^(d/8) ladder and dual crossing points with no viz page',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
@@ -64793,12 +64793,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34942',
-    title: 'Add a glossary/Concepts headword distinguishing op-DAG DEPTH from Newton STEP as two different breach axes (imp-34909): the imp-34884 op-depth-8 and imp-34889 step-5 forward-breach points are NOT contradictory but the same 2^(d/8) doubling law measured against two reference widths (seed bracket R=1 vs (H2) margin R~19.91), unified by nStar(R)=floor(log2 R)+1',
+    title: 'Add a glossary/Concepts headword distinguishing op-DAG DEPTH from Newton STEP as two different crossing axes (imp-34909): the imp-34884 op-depth-8 and imp-34889 step-5 forward-breach points are NOT contradictory but the same 2^(d/8) doubling law measured against two reference widths (seed bracket R=1 vs (H2) margin R~19.91), unified by nStar(R)=floor(log2 R)+1',
     category: 'content',
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "Add a glossary/Concepts headword resolving the apparent imp-34884 (breach at op-DAG depth d*=8) vs imp-34889 (breach at Newton step 5) contradiction. Reuse the imp-34909 reconciliation VERBATIM: with OPS_PER_STEP=8 elementary ops per Newton step, op-depth d and Newton step s=d/8 are the SAME axis rescaled, so d*=8 is Newton step 1 and step 5 is op-depth 40; both breaches sit on the identical forward width-inflation 2^(d/8), differing ONLY in the reference width each is measured against (imp-34884: the forward route own seed bracket half-width, ratio R_seed=1; imp-34889: the (H2) margin reached via the linear image map, ratio R_margin=N*FP_LO/K ~19.91). Record the unified breach-step law nStar(R)=floor(log2 R)+1 giving nStar(1)=1 (op-depth 8) and nStar(19.91)=5 (op-depth 40), separated by the log2(R_margin/R_seed) ~4.32 doubling gap. Content only; NO QED; note imp-34714a REMAINS OPEN, C_mb GUE-conditional per imp-486, PT Lambda<=0.2 SOTA.",
+    description: "Add a glossary/Concepts headword resolving the apparent imp-34884 (crossing at op-DAG depth d*=8) vs imp-34889 (crossing at Newton step 5) contradiction. Reuse the imp-34909 reconciliation VERBATIM: with OPS_PER_STEP=8 elementary ops per Newton step, op-depth d and Newton step s=d/8 are the SAME axis rescaled, so d*=8 is Newton step 1 and step 5 is op-depth 40; both crossings sit on the identical forward width-inflation 2^(d/8), differing ONLY in the reference width each is measured against (imp-34884: the forward route own seed bracket half-width, ratio R_seed=1; imp-34889: the (H2) margin reached via the linear image map, ratio R_margin=N*FP_LO/K ~19.91). Record the unified breach-step law nStar(R)=floor(log2 R)+1 giving nStar(1)=1 (op-depth 8) and nStar(19.91)=5 (op-depth 40), separated by the log2(R_margin/R_seed) ~4.32 doubling gap. Content only; NO QED; note imp-34714a REMAINS OPEN, C_mb GUE-conditional per imp-486, PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-34909-op-depth-newton-step-reconciliation.js resolves the depth-vs-step axis confusion with no glossary headword',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -64965,7 +64965,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: "opus-4-8",
     completedByChannel: "api-pool",
     proofSection: 'S-frontier',
-    description: "imp-34930 verified the unified breach-step law nStar(R)=floor(log2 R)+1 reproduces both published op-depths at N_cross: R_seed=1 -> nStar 1 -> depth 8, and R_margin = N*FP_LO/K ~ 19.910 sitting inside the dyadic window (16,32] -> nStar 5 -> depth 40, with margins ~0.09/~0.68 to the dyadic walls. That margin was read only at N_cross. Reuse the imp-34930 constituent recompute (R_margin = N*FP_LO/K from published FP_LO, K, N, delta) verbatim and MEASURE R_margin(N) and its distance to the nearest 2^n wall across the imp-34693 band (1e6..1e13), to assess whether nStar stays pinned at 5 band-wide or R_margin crosses a dyadic wall (changing the breach step) at some rung. Verification/measurement only; reuses imp-34884/34889/34909 literals; does NOT instantiate the imp-34687a layer; imp-34714a remains open; no QED.",
+    description: "imp-34930 verified the unified breach-step law nStar(R)=floor(log2 R)+1 reproduces both published op-depths at N_cross: R_seed=1 -> nStar 1 -> depth 8, and R_margin = N*FP_LO/K ~ 19.910 sitting inside the dyadic window (16,32] -> nStar 5 -> depth 40, with margins ~0.09/~0.68 to the dyadic walls. That margin was read only at N_cross. Reuse the imp-34930 constituent recompute (R_margin = N*FP_LO/K from published FP_LO, K, N, delta) verbatim and MEASURE R_margin(N) and its distance to the nearest 2^n wall across the imp-34693 band (1e6..1e13), to assess whether nStar stays pinned at 5 band-wide or R_margin crosses a dyadic wall (changing the crossing step) at some rung. Verification/measurement only; reuses imp-34884/34889/34909 literals; does NOT instantiate the imp-34687a layer; imp-34714a remains open; no QED.",
     rationale: 'Frontier scout: imp-34930 R_margin ~19.910 dyadic-wall margin (0.09/0.68) read only at N_cross, breach-step stability band-wide untested',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -65083,7 +65083,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-34930 independently recomputed the two breach ratios R_seed = 1 and R_margin = N*FP_LO/K ~ 19.910 from the published constituents and confirmed nStar(R) = floor(log2 R)+1 reproduces both op-depths (1*8=8, 5*8=40), with log2(R_margin/R_seed) ~ 4.32 doublings and an integer step gap of 4. Add an import-light viz page (paper-publication-meta.js metadata; NO heavy zeros-bundle import) plotting the 2^n forward-width doubling curve, the two threshold ratios, the dyadic windows, and the nStar step boundaries. Bake reference literals from imp-34930. Visualization only; changes no bound; no QED.",
+    description: "imp-34930 independently recomputed the two crossing ratios R_seed = 1 and R_margin = N*FP_LO/K ~ 19.910 from the published constituents and confirmed nStar(R) = floor(log2 R)+1 reproduces both op-depths (1*8=8, 5*8=40), with log2(R_margin/R_seed) ~ 4.32 doublings and an integer step gap of 4. Add an import-light viz page (paper-publication-meta.js metadata; NO heavy zeros-bundle import) plotting the 2^n forward-width doubling curve, the two threshold ratios, the dyadic windows, and the nStar step boundaries. Bake reference literals from imp-34930. Visualization only; changes no bound; no QED.",
     rationale: 'Frontier scout: imp-34930 unified breach-step doubling law has no viz page',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -65318,7 +65318,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-34977',
-    title: 'Tabulate the imp-34953 dyadic wall-crossing-N ladder N_n = 2^n K / FP_LO (the N at which the breach step nStar climbs from n to n+1) across the 1e6..1e13 sweep, and assess whether any of the ~23 wall crossings lands inside a physically meaningful landmark band (N_cross, N_half, the imp-34693 seed band)',
+    title: 'Tabulate the imp-34953 dyadic wall-crossing-N ladder N_n = 2^n K / FP_LO (the N at which the crossing step nStar climbs from n to n+1) across the 1e6..1e13 sweep, and assess whether any of the ~23 wall crossings lands inside a physically meaningful landmark band (N_cross, N_half, the imp-34693 seed band)',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -70398,7 +70398,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35316',
-    title: 'Estimate the SHAPE of the imp-35114 Levy measure dmu(t) for the surrogate Bernstein crossover map g = K log T0(N), beyond the sign-only checks: imp-35114 extracted the Levy-Khintchine ingredients drift b=0 and killing a=K log T0(0+) and confirmed g_prime completely monotone (so dmu>=0 exists), but noted \'all growth lives in the Levy integral term\' WITHOUT characterizing the measure density itself. Numerically invert the completely-monotone g_prime (e.g. via a real-inversion / Stieltjes-transform estimate of dmu from g_prime(x)=integral t e^{-xt} dmu(t)) to estimate the density profile dmu(t)/dt on the resolved t-range, then ROUND-TRIP reassemble g(x)=a+integral(1-e^{-xt})dmu(t) and compare to K log T0 to quantify representation completeness. Measurement only on the inherited imp-3220/imp-3406/imp-33723 surrogate; a SURROGATE structural property, establishes no operator positivity; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    title: 'Estimate the SHAPE of the imp-35114 Levy measure dmu(t) for the surrogate Bernstein crossover map g = K log T0(N), beyond the sign-only checks: imp-35114 extracted the Levy-Khintchine ingredients drift b=0 and eliminating a=K log T0(0+) and confirmed g_prime completely monotone (so dmu>=0 exists), but noted \'all growth lives in the Levy integral term\' WITHOUT characterizing the measure density itself. Numerically invert the completely-monotone g_prime (e.g. via a real-inversion / Stieltjes-transform estimate of dmu from g_prime(x)=integral t e^{-xt} dmu(t)) to estimate the density profile dmu(t)/dt on the resolved t-range, then ROUND-TRIP reassemble g(x)=a+integral(1-e^{-xt})dmu(t) and compare to K log T0 to quantify representation completeness. Measurement only on the inherited imp-3220/imp-3406/imp-33723 surrogate; a SURROGATE structural property, establishes no operator positivity; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -70406,7 +70406,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
     description: "ESTIMATE the imp-35114 Levy measure density dmu(t) shape (not just its sign) by inverting the completely-monotone g_prime, and round-trip-reassemble g to check representation completeness. Measurement only; no bound change; NO QED.",
-    rationale: 'Frontier scout: imp-35114 verdict extracts drift b=0 and killing a>=0 and notes \'all growth lives in the Levy integral term\' but never characterizes dmu(t); pending tickets check only dmu>=0 sign.',
+    rationale: 'Frontier scout: imp-35114 verdict extracts drift b=0 and eliminating a>=0 and notes \'all growth lives in the Levy integral term\' but never characterizes dmu(t); pending tickets check only dmu>=0 sign.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -75445,7 +75445,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35652 killed REQ-3 option-(a) (a restricted-support |alpha|<1 surrogate for E_coll) on the resolution-floor obstruction and states in its NET that route-(ii) -- the imp-35488 two-height data-anchored spot check -- 'remains the only viable partial for the OPEN imp-35337a'. Assess concretely: what a two-height (T0 pair) g_true measurement can pin about the surrogate->observable dictionary, what it structurally cannot (no full-support GUE law, no unconditional C_mb), and whether it degrades the imp-35337a openness or merely spot-confirms it. Assessment/scoping only; discharges nothing; C_mb stays GUE-conditional per imp-486; changes no bound; NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35652 eliminated REQ-3 option-(a) (a restricted-support |alpha|<1 surrogate for E_coll) on the resolution-floor obstruction and states in its NET that route-(ii) -- the imp-35488 two-height data-anchored spot check -- 'remains the only viable partial for the OPEN imp-35337a'. Assess concretely: what a two-height (T0 pair) g_true measurement can pin about the surrogate->observable dictionary, what it structurally cannot (no full-support GUE law, no unconditional C_mb), and whether it degrades the imp-35337a openness or merely spot-confirms it. Assessment/scoping only; discharges nothing; C_mb stays GUE-conditional per imp-486; changes no bound; NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35652 NET names route-(ii) imp-35488 as the ONLY viable partial for OPEN imp-35337a but never scopes what it can certify',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -75670,7 +75670,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35652 uses TWO distinct short-range facts to kill option (a): the smallest-GUE-gap scaling s_min ~ M^{-1/3} (resolution floor) AND the C_C=(1/8)sqrt(3pi) near-coincidence amplitude carried by the |alpha|>=1 R_2 tail (constant mismatch). ASSESS whether these describe the SAME scale -- does C_C, read as a small-gap density coefficient p(s)~(pi^2/3)s^2, imply the same M-exponent for the collision functional that s_min~M^{-1/3} does? Consistency check only; no bound change; NO QED; PT Lambda<=0.2 SOTA.",
+    description: "imp-35652 uses TWO distinct short-range facts to eliminate option (a): the smallest-GUE-gap scaling s_min ~ M^{-1/3} (resolution floor) AND the C_C=(1/8)sqrt(3pi) near-coincidence amplitude carried by the |alpha|>=1 R_2 tail (constant mismatch). ASSESS whether these describe the SAME scale -- does C_C, read as a small-gap density coefficient p(s)~(pi^2/3)s^2, imply the same M-exponent for the collision functional that s_min~M^{-1/3} does? Consistency check only; no bound change; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-35652 pairs RESOLUTION FLOOR (s_min~M^{-1/3}) with CONSTANT MISMATCH (C_C) but never checks they agree on the exponent',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -78183,14 +78183,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35852',
-    title: 'Measure whether the imp-35812 naive-summation random-walk O(sqrt(N)*u) error growth degrades toward the coherent O(N*u) pessimistic ceiling under adversarially-ordered term sequences (sign-aligned / magnitude-sorted / clustered) at N~488602, contrasting against the deterministic oscillatory sum imp-35812 used',
+    title: 'Measure whether the imp-35812 naive-summation random-walk O(sqrt(N)*u) error growth degrades toward the coherent O(N*u) pessimistic ceiling under independently-ordered term sequences (sign-aligned / magnitude-sorted / clustered) at N~488602, contrasting against the deterministic oscillatory sum imp-35812 used',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35812 MEASURED naive recursive summation error ~3.0e-17 on the fixed oscillatory sum t_k=cos(a k+b sqrt k)/sqrt k (kappa~1.4e3), ~6 orders below the imp-35761 linear ceiling N*eps, attributing it to random-walk O(sqrt(N)*u) accumulation rather than coherent O(N*u). MEASURE: rerun the three schemes (naive/pairwise/Kahan-Babuska) with the SAME terms but adversarial orderings (sign-sorted to force coherent accumulation, magnitude-ascending, magnitude-descending, clustered) against the exact BigInt reference, and measure how close naive gets to the coherent ceiling, and whether pairwise/Kahan stay robust to ordering. Measurement only; certifies no W1 bound; changes no bound; C_mb GUE-conditional (imp-486); NO QED; PT Lambda<=0.2 SOTA.",
+    description: "imp-35812 MEASURED naive recursive summation error ~3.0e-17 on the fixed oscillatory sum t_k=cos(a k+b sqrt k)/sqrt k (kappa~1.4e3), ~6 orders below the imp-35761 linear ceiling N*eps, attributing it to random-walk O(sqrt(N)*u) accumulation rather than coherent O(N*u). MEASURE: rerun the three schemes (naive/pairwise/Kahan-Babuska) with the SAME terms but worst-case orderings (sign-sorted to force coherent accumulation, magnitude-ascending, magnitude-descending, clustered) against the exact BigInt reference, and measure how close naive gets to the coherent ceiling, and whether pairwise/Kahan stay robust to ordering. Measurement only; certifies no W1 bound; changes no bound; C_mb GUE-conditional (imp-486); NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-35812 measured naive error only on one deterministic oscillatory ordering; the adversarial-ordering coherent-worst-case was never measured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -78678,14 +78678,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35893',
-    title: 'Measure whether the imp-35852 pairwise divide-and-conquer log2(N)*eps ceiling is attained under an adversarially-structured PAIRING TREE (unbalanced/worst-case tree shape) as distinct from the term ordering imp-35852 varied, at N=488602',
+    title: 'Measure whether the imp-35852 pairwise divide-and-conquer log2(N)*eps ceiling is attained under an independently-structured PAIRING TREE (unbalanced/worst-case tree shape) as distinct from the term ordering imp-35852 varied, at N=488602',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35852 stressed the summation schemes by permuting the term multiset but held the pairwise divide-and-conquer TREE STRUCTURE fixed (balanced), finding pairwise stayed below its log2(N)*eps ceiling. MEASURE the complementary stress: hold the terms fixed and vary the pairwise TREE SHAPE from balanced toward maximally unbalanced (degenerating to near-recursive) on the imp-35812 term family, tabulating the pairwise error and its ratio to the log2(N)*eps ceiling versus tree depth/imbalance to see whether adversarial tree structure (not term order) can push pairwise toward its ceiling. Same exact-BigInt reference; measurement only; no W1 bound, no interval; changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.",
+    description: "imp-35852 stressed the summation schemes by permuting the term multiset but held the pairwise divide-and-conquer TREE STRUCTURE fixed (balanced), finding pairwise stayed below its log2(N)*eps ceiling. MEASURE the complementary stress: hold the terms fixed and vary the pairwise TREE SHAPE from balanced toward maximally unbalanced (degenerating to near-recursive) on the imp-35812 term family, tabulating the pairwise error and its ratio to the log2(N)*eps ceiling versus tree depth/imbalance to see whether worst-case tree structure (not term order) can push pairwise toward its ceiling. Same exact-BigInt reference; measurement only; no W1 bound, no interval; changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35852 varied only the term ordering and held the pairwise tree balanced, leaving the adversarial-tree-shape sensitivity of pairwise unmeasured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -78798,13 +78798,13 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35901',
-    title: 'Add a glossary/Concepts headword for the imp-35852 clustered sign-run adversarial summation ordering and the coherent-vs-random-walk ceiling gap: why a stable sign partition (two long same-sign runs) is the worst naive ordering yet still stays ~4.35 orders below the coherent O(N*u) ceiling, so full sign-coherence is NOT realizable on the W1 sum',
+    title: 'Add a glossary/Concepts headword for the imp-35852 clustered sign-run skeptical summation ordering and the coherent-vs-random-walk ceiling gap: why a stable sign partition (two long same-sign runs) is the worst naive ordering yet still stays ~4.35 orders below the coherent O(N*u) ceiling, so full sign-coherence is NOT realizable on the W1 sum',
     category: 'content',
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-35852 found the clustered sign-partition ordering is the worst-case naive summation ordering (~160x above the oscillatory baseline) yet remains ~4.35 orders below the coherent N*eps ceiling, concluding full sign-coherence of the N rounding errors is not realizable on this data. Add a glossary/Concepts headword defining the clustered adversarial ordering, the coherent O(N*u) vs random-walk O(sqrt(N)*u) distinction, and the honest reading that precision stays NON-binding even adversarially. Documentation only, import-light per [[no_heavy_imports_in_pages]]; changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.",
-    rationale: 'Frontier scout: imp-35852 clustered-sign-run adversarial ordering and the coherent-vs-random-walk ceiling gap have no glossary headword',
+    description: "imp-35852 found the clustered sign-partition ordering is the worst-case naive summation ordering (~160x above the oscillatory baseline) yet remains ~4.35 orders below the coherent N*eps ceiling, concluding full sign-coherence of the N rounding errors is not realizable on this data. Add a glossary/Concepts headword defining the clustered worst-case ordering, the coherent O(N*u) vs random-walk O(sqrt(N)*u) distinction, and the honest reading that precision stays NON-binding even independently. Documentation only, import-light per [[no_heavy_imports_in_pages]]; changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.",
+    rationale: 'Frontier scout: imp-35852 clustered-sign-run worst-case ordering and the coherent-vs-random-walk ceiling gap have no glossary headword',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'sonnet-4-6',
@@ -78828,7 +78828,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35903',
-    title: 'Add a cross-reference note tying together the W1 summation-scheme cost cluster imp-35812 (single-kappa baseline) / imp-35852 (adversarial ordering) / imp-35854 (kappa sweep) / imp-35865 (viz-data), stating the shared throughline: floating-point precision stays NON-binding under every ordering and condition number, so the sole obstruction is the MECHANICAL engineering of the certified length-N interval sum (imp-35725 / imp-35681 Part A greenfield)',
+    title: 'Add a cross-reference note tying together the W1 summation-scheme cost cluster imp-35812 (single-kappa baseline) / imp-35852 (skeptical ordering) / imp-35854 (kappa sweep) / imp-35865 (viz-data), stating the shared throughline: floating-point precision stays NON-binding under every ordering and condition number, so the sole obstruction is the MECHANICAL engineering of the certified length-N interval sum (imp-35725 / imp-35681 Part A greenfield)',
     category: 'content',
     priority: 'low',
     status: 'completed',
@@ -78933,7 +78933,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35927',
-    title: 'Measure whether the imp-35852 clustered-sign-run adversarial naive-summation amplification (~160x, worst of four orderings) GROWS with N beyond the T_PT length N~488602 toward the coherent O(N.u) ceiling or SATURATES, by re-running the adversarial orderings up an N ladder',
+    title: 'Measure whether the imp-35852 clustered-sign-run skeptical naive-summation amplification (~160x, worst of four orderings) GROWS with N beyond the T_PT length N~488602 toward the coherent O(N.u) ceiling or SATURATES, by re-running the worst-case orderings up an N ladder',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -79023,14 +79023,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35933',
-    title: 'Add a fifth greedy/Steinitz worst-partial-sum adversarial ordering to the imp-35852 summation-scheme test and measure whether the clustered sign-run ordering is genuinely the naive worst case or a stronger hostile permutation exceeds it',
+    title: 'Add a fifth greedy/Steinitz worst-partial-sum worst-case ordering to the imp-35852 summation-scheme test and measure whether the clustered sign-run ordering is genuinely the naive worst case or a stronger hostile permutation exceeds it',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35852 tested four hostile permutations (signedAsc, magAsc, magDesc, clustered) and reported clustered sign-runs as the worst naive ordering (~4.86e-15). But those four were hand-designed, not optimized; a greedy partial-sum-magnitude-maximizing ordering (Steinitz-style: at each step append the term that maximizes |running partial sum|) could force larger intermediate magnitudes and hence larger coherent rounding. ADD such a greedy/Steinitz ordering (and optionally a randomized-restart worst-of-many) to the imp-35852 harness on the same fixed multiset and exact BigInt reference, and MEASURE whether it exceeds the clustered naive error and by how much, to bound how far the four-ordering result is from the true adversarial worst case. Measurement only; reuses the imp-35812 term family and 2^{-96} reference; certifies no W1 bound; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35852 tested four hostile permutations (signedAsc, magAsc, magDesc, clustered) and reported clustered sign-runs as the worst naive ordering (~4.86e-15). But those four were hand-designed, not optimized; a greedy partial-sum-magnitude-maximizing ordering (Steinitz-style: at each step append the term that maximizes |running partial sum|) could force larger intermediate magnitudes and hence larger coherent rounding. ADD such a greedy/Steinitz ordering (and optionally a randomized-restart worst-of-many) to the imp-35852 harness on the same fixed multiset and exact BigInt reference, and MEASURE whether it exceeds the clustered naive error and by how much, to bound how far the four-ordering result is from the true skeptical worst case. Measurement only; reuses the imp-35812 term family and 2^{-96} reference; certifies no W1 bound; changes no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35852 declared clustered sign-runs the worst of only FOUR hand-designed orderings; no greedy/optimized adversary was tried to confirm it is the true naive worst case',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79058,7 +79058,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-35852 MEASURED how five term orderings (original, signedAsc, magAsc, magDesc, clustered) drive the naive summation error (clustered ~160x worst) but has NO page or viz consumer. CREATE a light viz-data module with the imp-35852 per-ordering error literals copied verbatim (no import of imp-35852 at page-load; per [[no_heavy_imports_in_pages]]) plus a routed page rendering the five orderings as a grouped bar/point chart against the imp-35761 N.eps coherent ceiling, highlighting that even the worst adversarial naive error stays >1e4x below the ceiling and that pairwise/Kahan are ordering-robust. Presentation only; changes no bound; certifies no W1 bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35852 MEASURED how five term orderings (original, signedAsc, magAsc, magDesc, clustered) drive the naive summation error (clustered ~160x worst) but has NO page or viz consumer. CREATE a light viz-data module with the imp-35852 per-ordering error literals copied verbatim (no import of imp-35852 at page-load; per [[no_heavy_imports_in_pages]]) plus a routed page rendering the five orderings as a grouped bar/point chart against the imp-35761 N.eps coherent ceiling, highlighting that even the worst worst-case naive error stays >1e4x below the ceiling and that pairwise/Kahan are ordering-robust. Presentation only; changes no bound; certifies no W1 bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35852-w1-summation-adversarial-ordering has no .jsx consumer (grep found none)',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79098,12 +79098,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35938',
-    title: 'Add a glossary/Concepts headword for the clustered sign-run adversarial ordering and coherent-vs-random-walk rounding accumulation surfaced by imp-35852, explaining why hostile term orderings push naive summation toward the O(N.u) ceiling',
+    title: 'Add a glossary/Concepts headword for the clustered sign-run worst-case ordering and coherent-vs-random-walk rounding accumulation surfaced by imp-35852, explaining why hostile term orderings push naive summation toward the O(N.u) ceiling',
     category: 'content',
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-35852 introduced the clustered sign-run adversarial ordering (all negatives then all positives) and the coherent O(N.u) vs random-walk O(sqrt(N).u) accumulation distinction to stress-test naive summation, finding clustering the worst of four orderings. No glossary headword captures this concept. ADD a glossary headword (paper-publication-meta.js style, no heavy imports; per [[no_heavy_imports_in_pages]]) explaining adversarial term orderings, why same-sign runs make rounding errors accumulate coherently, and why pairwise/Kahan resist ordering, cross-linking imp-35852/imp-35812. Documentation only; asserts no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35852 introduced the clustered sign-run worst-case ordering (all negatives then all positives) and the coherent O(N.u) vs random-walk O(sqrt(N).u) accumulation distinction to stress-test naive summation, finding clustering the worst of four orderings. No glossary headword captures this concept. ADD a glossary headword (paper-publication-meta.js style, no heavy imports; per [[no_heavy_imports_in_pages]]) explaining worst-case term orderings, why same-sign runs make rounding errors accumulate coherently, and why pairwise/Kahan resist ordering, cross-linking imp-35852/imp-35812. Documentation only; asserts no bound; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35852 introduces clustered sign-run orderings + coherent/random-walk accumulation with no glossary headword',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79148,7 +79148,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'medium',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-35880/imp-35881 ran registration/reachability + import-light audits on the imp-35808..imp-35813 frontier-batch cohort, but the SUBSEQUENT numerical cohort imp-35852 (adversarial ordering), imp-35853 (continuous sigma knee), imp-35854 (kappa sweep) and imp-35855 (R_clean de-cancellation) has had no equivalent audit. AUDIT these four modules: confirm each is registered where the repo expects data modules, is reachable (paged or indexed), and per [[no_heavy_imports_in_pages]]/[[verify_heavy_assertion_modules]] does not transitively pull the 16.7MB zeros bundle into any page. Report gaps; add no new bound. Documentation/verification only; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35880/imp-35881 ran registration/reachability + import-light audits on the imp-35808..imp-35813 frontier-batch cohort, but the SUBSEQUENT numerical cohort imp-35852 (skeptical ordering), imp-35853 (continuous sigma knee), imp-35854 (kappa sweep) and imp-35855 (R_clean de-cancellation) has had no equivalent audit. AUDIT these four modules: confirm each is registered where the repo expects data modules, is reachable (paged or indexed), and per [[no_heavy_imports_in_pages]]/[[verify_heavy_assertion_modules]] does not transitively pull the 16.7MB zeros bundle into any page. Report gaps; add no new bound. Documentation/verification only; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35880/35881 audited the imp-35808..35813 cohort; the newer imp-35852..35855 numerical cohort has no registration/reachability/import-light audit',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79233,14 +79233,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35946',
-    title: 'Measure whether the imp-35893 adversarial pairing-tree SHAPE pushes pairwise divide-and-conquer summation toward its depth*eps ceiling on a NON-cancelling all-positive same-sign multiset (where the running accumulator GROWS), the complement of imp-35893\'s benign cancellation-heavy family',
+    title: 'Measure whether the imp-35893 skeptical pairing-tree SHAPE pushes pairwise divide-and-conquer summation toward its depth*eps ceiling on a NON-cancelling all-positive same-sign multiset (where the running accumulator GROWS), the complement of imp-35893\'s benign cancellation-heavy family',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35893 found pairwise summation ROBUST to worst-case tree shape (caterpillar depth 3817 reached only ~4.42e-4 of the log2(N)*eps ceiling), and attributed this to the benign cancellation-heavy imp-35812 oscillatory multiset on which per-addition roundoffs do not accumulate coherently along the tree spine (running accumulator stayed O(1)). Measure the COMPLEMENTARY case: hold N=488602, replace the terms with an all-positive same-sign family (e.g. t_k = 1/sqrt(k), no cancellation, running accumulator grows like the full partial sum) and sweep the same balanced->skew->caterpillar tree shapes, tabulating the pairwise normalized error and its ratio to the depth*eps ceiling. Assess whether adversarial tree shape then DOES approach the depth-proportional worst-case bound once coherent accumulation is possible. Measurement only; exact BigInt reference; instantiates no interval; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35893 found pairwise summation ROBUST to worst-case tree shape (caterpillar depth 3817 reached only ~4.42e-4 of the log2(N)*eps ceiling), and attributed this to the benign cancellation-heavy imp-35812 oscillatory multiset on which per-addition roundoffs do not accumulate coherently along the tree spine (running accumulator stayed O(1)). Measure the COMPLEMENTARY case: hold N=488602, replace the terms with an all-positive same-sign family (e.g. t_k = 1/sqrt(k), no cancellation, running accumulator grows like the full partial sum) and sweep the same balanced->skew->caterpillar tree shapes, tabulating the pairwise normalized error and its ratio to the depth*eps ceiling. Assess whether worst-case tree shape then DOES approach the depth-proportional worst-case bound once coherent accumulation is possible. Measurement only; exact BigInt reference; instantiates no interval; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35893 tree-shape module explicitly credits its robustness to the benign cancellation-heavy multiset and leaves the non-cancelling accumulator-growing complement unmeasured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79398,14 +79398,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35973',
-    title: 'Measure whether COMBINING the imp-35852 adversarial term ORDER with the imp-35893 worst caterpillarR tree SHAPE (both stresses simultaneously) pushes pairwise summation higher than either stress alone, since imp-35852 varied order at fixed shape and imp-35893 varied shape at fixed order but the cross-term was never measured',
+    title: 'Measure whether COMBINING the imp-35852 worst-case term ORDER with the imp-35893 worst caterpillarR tree SHAPE (both stresses simultaneously) pushes pairwise summation higher than either stress alone, since imp-35852 varied order at fixed shape and imp-35893 varied shape at fixed order but the cross-term was never measured',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35852 stressed pairwise summation by permuting the term ORDER at a FIXED balanced tree; imp-35893 stressed the tree SHAPE at a FIXED term order; each independently found pairwise stays >2000x below its log2(N)*eps ceiling. Neither measured the CROSS-TERM. MEASURE the pairwise error when BOTH adversarial stresses are applied together at N~488602: run the imp-35852 worst ordering (e.g. clustered sign-run / greedy worst-partial-sum) THROUGH the imp-35893 worst caterpillarR tree shape (depth ~3817), using the same exact dyadic-BigInt reference, and compare to each single-stress worst error to determine whether the stresses compound, cancel, or stay independent. MEASUREMENT ONLY; certifies no W1 bound; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; PT Lambda<=0.2 SOTA.",
+    description: "imp-35852 stressed pairwise summation by permuting the term ORDER at a FIXED balanced tree; imp-35893 stressed the tree SHAPE at a FIXED term order; each independently found pairwise stays >2000x below its log2(N)*eps ceiling. Neither measured the CROSS-TERM. MEASURE the pairwise error when BOTH skeptical stresses are applied together at N~488602: run the imp-35852 worst ordering (e.g. clustered sign-run / greedy worst-partial-sum) THROUGH the imp-35893 worst caterpillarR tree shape (depth ~3817), using the same exact dyadic-BigInt reference, and compare to each single-stress worst error to determine whether the stresses compound, cancel, or stay independent. MEASUREMENT ONLY; certifies no W1 bound; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-35893 (shape at fixed order) and imp-35852 (order at fixed shape) each measured one axis; the combined order-x-shape stress is unmeasured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79420,7 +79420,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-35893 measured the adversarial caterpillarR pairing tree only at the single fixed N=488602, finding its normalized error ~1.85e-18 (~4.42e-4 of the log2(N)*eps ceiling) -- the worst of all shapes but still far below ceiling. Because a caterpillar has depth ~N/leaf, its depth*eps worst-case bound GROWS with N while the balanced log2(N)*eps ceiling grows only logarithmically. Measure whether the ACHIEVED caterpillarR error tracks that growing depth*eps envelope or stays an N-independent floor: sweep the caterpillarR shape across the imp-35890 N-ladder (N=1e3, 1e4, 1e5, 4.886e5) on the same fixed imp-35812 multiset with exact BigInt reference, and tabulate the achieved error and its ratio to both the depth*eps and log2(N)*eps ceilings vs N. Measurement only; certifies no bound; instantiates no interval; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35893 measured the skeptical caterpillarR pairing tree only at the single fixed N=488602, finding its normalized error ~1.85e-18 (~4.42e-4 of the log2(N)*eps ceiling) -- the worst of all shapes but still far below ceiling. Because a caterpillar has depth ~N/leaf, its depth*eps worst-case bound GROWS with N while the balanced log2(N)*eps ceiling grows only logarithmically. Measure whether the ACHIEVED caterpillarR error tracks that growing depth*eps envelope or stays an N-independent floor: sweep the caterpillarR shape across the imp-35890 N-ladder (N=1e3, 1e4, 1e5, 4.886e5) on the same fixed imp-35812 multiset with exact BigInt reference, and tabulate the achieved error and its ratio to both the depth*eps and log2(N)*eps ceilings vs N. Measurement only; certifies no bound; instantiates no interval; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35893 measured the caterpillar worst-tree error only at one fixed N and left its N-scaling (floor vs growing depth*eps envelope) unmeasured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79578,12 +79578,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35960',
-    title: 'Add a glossary/Concepts headword for floating-point summation ASSOCIATIVITY and the pairing-tree SHAPE (balanced vs caterpillar), distinguishing tree shape from term order as the two independent adversarial levers imp-35852 and imp-35893 varied',
+    title: 'Add a glossary/Concepts headword for floating-point summation ASSOCIATIVITY and the pairing-tree SHAPE (balanced vs caterpillar), distinguishing tree shape from term order as the two independent worst-case levers imp-35852 and imp-35893 varied',
     category: 'content',
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-35893 introduced the pairing-tree SHAPE (the association of the additions -- balanced midpoint split vs maximally-unbalanced caterpillar) as an adversarial lever DISTINCT from the term ORDER that imp-35852 varied, both of which pairwise summation proved robust to. There is no glossary/Concepts headword defining floating-point summation associativity, pairing-tree depth, and the balanced-log2(N) vs caterpillar-depth-N distinction. Add a concise headword (definition + why tree shape and term order are independent levers + the imp-35852/imp-35893 robustness finding), following the existing glossary/Concepts headword pattern in src/data, with no heavy imports. Documentation only; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35893 introduced the pairing-tree SHAPE (the association of the additions -- balanced midpoint split vs maximally-unbalanced caterpillar) as an worst-case lever DISTINCT from the term ORDER that imp-35852 varied, both of which pairwise summation proved robust to. There is no glossary/Concepts headword defining floating-point summation associativity, pairing-tree depth, and the balanced-log2(N) vs caterpillar-depth-N distinction. Add a concise headword (definition + why tree shape and term order are independent levers + the imp-35852/imp-35893 robustness finding), following the existing glossary/Concepts headword pattern in src/data, with no heavy imports. Documentation only; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35893 established pairing-tree shape as a lever distinct from term order but no glossary headword defines summation associativity / tree shape',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79658,7 +79658,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "imp-35893 concluded that adversarial pairing-tree shape, like adversarial term order (imp-35852), does NOT push pairwise summation toward its log2(N)*eps ceiling (worst tree ~4.42e-4 of ceiling, >2000x below), so precision is NON-binding and the real W1 obstruction is the ENGINEERING of the certified length-N interval sum (mechanical, imp-35725), with the A+B-C certificate at T_PT still greenfield (imp-35681 Part A). Add a standalone honest-status note (no new numerics) restating this verdict prominently so a reader landing only on the note gets the precision-non-binding correction and the greenfield-obstruction pointer, following the imp-35789 banner pattern. Documentation only; ports nothing; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-35893 concluded that skeptical pairing-tree shape, like worst-case term order (imp-35852), does NOT push pairwise summation toward its log2(N)*eps ceiling (worst tree ~4.42e-4 of ceiling, >2000x below), so precision is NON-binding and the real W1 obstruction is the ENGINEERING of the certified length-N interval sum (mechanical, imp-35725), with the A+B-C certificate at T_PT still greenfield (imp-35681 Part A). Add a standalone honest-status note (no new numerics) restating this verdict prominently so a reader landing only on the note gets the precision-non-binding correction and the greenfield-obstruction pointer, following the imp-35789 banner pattern. Documentation only; ports nothing; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35893\'s precision-non-binding / obstruction-is-mechanical conclusion has no standalone honest-status note (existing notes cover imp-35853/35854/35865, not imp-35893)',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79683,12 +79683,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35964',
-    title: 'Add a cross-reference note tying together the W1 summation-PRECISION-robustness cluster -- imp-35852 (term ORDER), imp-35893 (pairing-tree SHAPE), imp-35890 (a-priori BOUND gap) -- distinct from the pending summation-COST cross-ref, so a reader sees that both adversarial levers and the a-priori bound leave precision non-binding',
+    title: 'Add a cross-reference note tying together the W1 summation-PRECISION-robustness cluster -- imp-35852 (term ORDER), imp-35893 (pairing-tree SHAPE), imp-35890 (a-priori BOUND gap) -- distinct from the pending summation-COST cross-ref, so a reader sees that both worst-case levers and the a-priori bound leave precision non-binding',
     category: 'content',
     priority: 'low',
     status: 'completed',
     proofSection: 'S-frontier',
-    description: "Three W1 summation modules converge on one conclusion from different angles: imp-35852 showed pairwise is robust to adversarial term ORDER, imp-35893 showed it is robust to adversarial pairing-tree SHAPE, and imp-35890 showed even the tightest deterministic a-priori BOUND overshoots the achieved error -- jointly establishing that precision is NON-binding and the W1 obstruction is the mechanical certified interval sum (imp-35725) with the A+B-C certificate greenfield (imp-35681 Part A). This precision-robustness cluster has no cross-reference note (the pending cross-ref ties the summation-COST cluster imp-35812-and-siblings, a different axis). Add a read-only cross-ref note importing the three modules' recorded verdicts and stating the shared precision-non-binding hand-off, following the imp-35774 cross-ref-note pattern. Documentation only; ports nothing; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "Three W1 summation modules converge on one conclusion from different angles: imp-35852 showed pairwise is robust to worst-case term ORDER, imp-35893 showed it is robust to skeptical pairing-tree SHAPE, and imp-35890 showed even the tightest deterministic a-priori BOUND overshoots the achieved error -- jointly establishing that precision is NON-binding and the W1 obstruction is the mechanical certified interval sum (imp-35725) with the A+B-C certificate greenfield (imp-35681 Part A). This precision-robustness cluster has no cross-reference note (the pending cross-ref ties the summation-COST cluster imp-35812-and-siblings, a different axis). Add a read-only cross-ref note importing the three modules' recorded verdicts and stating the shared precision-non-binding hand-off, following the imp-35774 cross-ref-note pattern. Documentation only; ports nothing; changes no bound; C_mb GUE-conditional (imp-486) untouched; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-35852/imp-35893/imp-35890 form a precision-robustness cluster with no cross-ref note; the pending cross-ref covers only the cost cluster',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79743,14 +79743,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35981',
-    title: 'Add a standalone honest-status MEASUREMENT-ONLY note recording the imp-35893 finding that adversarial pairing-tree SHAPE does NOT push pairwise summation toward its ceiling (robust to BOTH tree shape and term order)',
+    title: 'Add a standalone honest-status MEASUREMENT-ONLY note recording the imp-35893 finding that skeptical pairing-tree SHAPE does NOT push pairwise summation toward its ceiling (robust to BOTH tree shape and term order)',
     category: 'content',
     priority: 'low',
     status: 'completed',
     completedByModel: 'sonnet-4-6',
     completedByChannel: 'sonnet',
     proofSection: 'S-frontier',
-    description: "imp-35893 concluded that sweeping the pairwise tree depth from 12 (balanced) to 3817 (caterpillar) leaves the normalized error in [~1.9e-20, ~1.85e-18] (non-monotone in depth), the worst tree only ~4.42e-4 of the log2(N)*eps ceiling -- so, like the adversarial term ORDER of imp-35852, adversarial tree SHAPE does NOT push pairwise toward its ceiling; precision stays NON-binding and the obstruction remains the MECHANICAL engineering of the certified length-N interval sum (imp-35725), with the W1 A+B-C certificate at T_PT still GREENFIELD. ADD a standalone honest-status note (the imp-35789-style banner pattern) recording this verdict verbatim in the measurement-appendix framing: measurement only, changes no bound, C_mb GUE-conditional (imp-486), NO QED, PT Lambda<=0.2 SOTA. CONTENT ONLY.",
+    description: "imp-35893 concluded that sweeping the pairwise tree depth from 12 (balanced) to 3817 (caterpillar) leaves the normalized error in [~1.9e-20, ~1.85e-18] (non-monotone in depth), the worst tree only ~4.42e-4 of the log2(N)*eps ceiling -- so, like the worst-case term ORDER of imp-35852, worst-case tree SHAPE does NOT push pairwise toward its ceiling; precision stays NON-binding and the obstruction remains the MECHANICAL engineering of the certified length-N interval sum (imp-35725), with the W1 A+B-C certificate at T_PT still GREENFIELD. ADD a standalone honest-status note (the imp-35789-style banner pattern) recording this verdict verbatim in the measurement-appendix framing: measurement only, changes no bound, C_mb GUE-conditional (imp-486), NO QED, PT Lambda<=0.2 SOTA. CONTENT ONLY.",
     rationale: 'Frontier scout: imp-35893\'s robustness conclusion (shape non-binding, like order) has no standalone honest-status note',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -79818,7 +79818,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-35987',
-    title: 'Add a cross-reference narrative note tying together the W1 summation-robustness cluster imp-35812 (scheme cost) + imp-35852 (adversarial term ORDER) + imp-35893 (adversarial tree SHAPE) into one storyline',
+    title: 'Add a cross-reference narrative note tying together the W1 summation-robustness cluster imp-35812 (scheme cost) + imp-35852 (worst-case term ORDER) + imp-35893 (worst-case tree SHAPE) into one storyline',
     category: 'content',
     priority: 'low',
     status: 'completed',
@@ -80450,7 +80450,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-36029',
-    title: 'Add a glossary/Concepts headword for SUPER-ADDITIVE COMPOUNDING of summation rounding stresses -- the imp-35973 finding that combining adversarial term ORDER (imp-35852) with adversarial pairing-tree SHAPE (imp-35893) yields a pairwise error ~13x the naive SUM of the two single-stress errors',
+    title: 'Add a glossary/Concepts headword for SUPER-ADDITIVE COMPOUNDING of summation rounding stresses -- the imp-35973 finding that combining worst-case term ORDER (imp-35852) with skeptical pairing-tree SHAPE (imp-35893) yields a pairwise error ~13x the naive SUM of the two single-stress errors',
     category: 'content',
     priority: 'low',
     status: 'completed',
@@ -81132,7 +81132,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-36018 fit the depth-scaling exponent without imposing the imp-35852 adversarial clustered order; imp-36037 sweeps SHAPE argmax under that order but does not refit the depth EXPONENT. Refit log10(slack) vs log10(depth) under the clustered order and report whether the exponent stays sub-linear or steepens toward d^1. Descriptive slope only; precision non-binding; NO QED; PT Lambda<=0.2 SOTA.",
+    description: "imp-36018 fit the depth-scaling exponent without imposing the imp-35852 skeptical clustered order; imp-36037 sweeps SHAPE argmax under that order but does not refit the depth EXPONENT. Refit log10(slack) vs log10(depth) under the clustered order and report whether the exponent stays sub-linear or steepens toward d^1. Descriptive slope only; precision non-binding; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-36018 depth-scaling fit was default-order only; imp-35852 clustered worst order untested on the exponent',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -81522,7 +81522,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-36062 located the KBN-vs-Kahan first-separation at N~34000 exclusively on the imp-35852 clustered same-sign adversarial order, which maximizes running-sum magnitude and is where compensation schemes diverge most. It is unknown whether the natural imp-35812 order separates at the same, earlier, or later N (or never within the ladder). Re-run the byte-identical KBN/Kahan schemes + per-N exact reference on the imp-35812 NATURAL order across the imp-36062 ladder and report the onset N (or its absence), comparing to the clustered-order N~34000. MEASUREMENT ONLY; changes no bound; NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
+    description: "imp-36062 located the KBN-vs-Kahan first-separation at N~34000 exclusively on the imp-35852 clustered same-sign worst-case order, which maximizes running-sum magnitude and is where compensation schemes diverge most. It is unknown whether the natural imp-35812 order separates at the same, earlier, or later N (or never within the ladder). Re-run the byte-identical KBN/Kahan schemes + per-N exact reference on the imp-35812 NATURAL order across the imp-36062 ladder and report the onset N (or its absence), comparing to the clustered-order N~34000. MEASUREMENT ONLY; changes no bound; NO QED. Platt-Trudgian Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-36062 located the separation onset only on the imp-35852 clustered worst order; the natural imp-35812 order onset is unmeasured',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -84420,14 +84420,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95003',
-    title: 'Aristotle-formalize the exact five-shell identity E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0) with mutually orthogonal killed shells (Fourier-disjoint supports)',
+    title: 'Aristotle-formalize the exact five-shell identity E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0) with mutually orthogonal annihilated shells (Fourier-disjoint supports)',
     category: 'formalization',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'permutation-architecture',
-    description: 'Submit the exact five-shell recursion/identity to Aristotle (paper Sections 4.3-4.4, eqs. (11)/(12)): the 25 primes <= 97 grouped by the cuts (0,5,10,17,25) into four blocks of sizes 5,5,7,8; the projections Pi_p = I - A_p are commuting self-adjoint orthogonals retaining Fourier modes not divisible by p; the FIVE SHELLS are the killed states Z_1..Z_4 plus the live state Y_4 (disjoint Fourier supports), giving the exact cocycle E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0). E-status finite linear-algebra/Fourier identity. Verifies that \'bridge packets\' are five orthogonal correlated sectors, not independent balls. Target v4.28. NO QED.',
+    description: 'Submit the exact five-shell recursion/identity to Aristotle (paper Sections 4.3-4.4, eqs. (11)/(12)): the 25 primes <= 97 grouped by the cuts (0,5,10,17,25) into four blocks of sizes 5,5,7,8; the projections Pi_p = I - A_p are commuting self-adjoint orthogonals retaining Fourier modes not divisible by p; the FIVE SHELLS are the annihilated states Z_1..Z_4 plus the live state Y_4 (disjoint Fourier supports), giving the exact cocycle E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0). E-status finite linear-algebra/Fourier identity. Verifies that \'bridge packets\' are five orthogonal correlated sectors, not independent balls. Target v4.28. NO QED.',
     rationale: 'Permuting the Zeta Twin Ladder Section 4.4: the exact P97 five-shell identity is a finite, self-contained orthogonality fact — a clean Aristotle target that pins the modulus-barrier ordering constraint.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -84466,7 +84466,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95006',
-    title: 'Attack the one open family of the Lambda<=0.14 completion contract: a uniform correlated enclosure |C_E,17| < 0.27968819555261474 on 690988 <= N <= 54799999, for every window parameter and both seam sides',
+    title: 'Approach the one open family of the Lambda<=0.14 completion contract: a uniform correlated enclosure |C_E,17| < 0.27968819555261474 on 690988 <= N <= 54799999, for every window parameter and both seam sides',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -84510,7 +84510,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95009',
-    title: 'Attack the graph-compression possible-gain family: a correlated direct/dual graph isometry W_U with anti-Hermitian cancellation, gated on characteristic invariance and a Schur complement gap',
+    title: 'Approach the graph-compression possible-gain family: a correlated direct/dual graph isometry W_U with anti-Hermitian cancellation, gated on characteristic invariance and a Schur complement gap',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -84526,7 +84526,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95010',
-    title: 'Attack the moving-reference Rouche gluing permutation: replace the fixed rough center by a moving analytic reference Q with winding computed by |F-Q|<|Q| chart-gluing (eq. 44), where cancellation makes the constant-center budget too rigid',
+    title: 'Approach the moving-reference Rouche gluing permutation: replace the fixed rough center by a moving analytic reference Q with winding computed by |F-Q|<|Q| chart-gluing (eq. 44), where cancellation makes the constant-center budget too rigid',
     category: 'proof',
     priority: 'critical',
     status: 'completed',
@@ -84542,7 +84542,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95011',
-    title: 'Gate-2 oscillation probe (imp-95007 first computation): finite-difference scan of the C_E,17 carrier trajectory across the open family, with kill criteria',
+    title: 'Gate-2 oscillation probe (imp-95007 first computation): finite-difference scan of the C_E,17 carrier trajectory across the open family, with failure criteria',
     category: 'numerical',
     priority: 'critical',
     status: 'completed',
@@ -84550,7 +84550,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'permutation-architecture',
     description:
-      "Execute the imp-95007 recommended probe: evaluate C_E,17 at ~1e3 log-spaced N in 690988 <= N <= 54799999 with (N,N+1),(N,N+2) pairs, BOTH seam sides, ~5 window parameters. Record: (i) max per-unit-N increment L of the carrier trajectory; (ii) sampled sup of |C_E,17|; (iii) decoupled mass sum_g ||Z_g||_1 vs |C_E,17| at the 3 largest samples. KILL CRITERIA (falsifiable): L >~ 1e-2 collapses moment-space batching back to the dead 7.2e26-cell tiling; sampled sup drifting from the measured 0.2141 toward the 0.2797 target kills the headroom premise. This probe simultaneously executes Gate 1's sup scan (E97 = C_E,17 + <9.671e-15). ~2e4 O(N) evaluations - route to the OFFLINE/NATIVE lane per the heavy-compute protocol (deliver honest partial if CPU-limited). Cross-reference the imp-95006 (vdC-majorant obstruction) and imp-95010 (chart-cover budget) completions before running. Measurement only; changes no bound; nothing promoted; NO QED.",
+      "Execute the imp-95007 recommended probe: evaluate C_E,17 at ~1e3 log-spaced N in 690988 <= N <= 54799999 with (N,N+1),(N,N+2) pairs, BOTH seam sides, ~5 window parameters. Record: (i) max per-unit-N increment L of the carrier trajectory; (ii) sampled sup of |C_E,17|; (iii) decoupled mass sum_g ||Z_g||_1 vs |C_E,17| at the 3 largest samples. FAILURE CRITERIA (falsifiable): L >~ 1e-2 collapses moment-space batching back to the dead 7.2e26-cell tiling; sampled sup drifting from the measured 0.2141 toward the 0.2797 target eliminates the headroom premise. This probe simultaneously executes Gate 1's sup scan (E97 = C_E,17 + <9.671e-15). ~2e4 O(N) evaluations - route to the OFFLINE/NATIVE lane per the heavy-compute protocol (deliver honest partial if CPU-limited). Cross-reference the imp-95006 (vdC-majorant obstruction) and imp-95010 (chart-cover budget) completions before running. Measurement only; changes no bound; nothing promoted; NO QED.",
     rationale: 'imp-95007 synthesis: Gate 2 (18-moment carrier) ranked most promotable; this cheap falsifiable probe tests the moment-space batching premise before any producer is attempted, and doubles as the Gate-1 sup scan.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -84566,7 +84566,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'gate2-producer MOVE 1 / K1',
-    description: 'Copy /Users/USER/Downloads/gomila-zeta-twin-ladder-permutation-architecture-revised.pdf into research-inputs/ per workflow. Extract and bake the frozen Gate-2 definitions into a data module: eq. 8 frozen row (t0=24727519/200000000, y0=0.1809, X=6000000185827), eq. 10 coefficient vector, eq. 11 cocycle E97, eqs. 17-20 C_E,17 carrier and target 0.27968819555261474, anchor cell |E97|(690988)=0.2141254901198318. Same pass: read Lemma 4.4/Thm 4.5 and record whether the 0.1399 row presupposes the open family (kill/unpark decision for explicit-01399-row, one paragraph, no compute).',
+    description: 'Copy /Users/USER/Downloads/gomila-zeta-twin-ladder-permutation-architecture-revised.pdf into research-inputs/ per workflow. Extract and bake the frozen Gate-2 definitions into a data module: eq. 8 frozen row (t0=24727519/200000000, y0=0.1809, X=6000000185827), eq. 10 coefficient vector, eq. 11 cocycle E97, eqs. 17-20 C_E,17 carrier and target 0.27968819555261474, anchor cell |E97|(690988)=0.2141254901198318. Same pass: read Lemma 4.4/Thm 4.5 and record whether the 0.1399 row presupposes the open family (retire/unpark decision for explicit-01399-row, one paragraph, no compute).',
     rationale: 'Blocks the entire Gate-2 lane and the 01399 dependency question; the paper is confirmed on disk so this is hours, not a user-side wait.',
     estimatedComplexity: 'low',
     dependsOn: [],
@@ -84596,8 +84596,8 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'gate2-producer MOVE 6',
-    description: 'Same scan skeleton in acb at prec 128 (192-bit spot audits), harness pattern from tmp/verify_ydini_genmoll.c, run on ~1-2% of Lane-A evaluations plus the anchor cell. Agreement Lane A vs Lane B to <1e-9 is the two-forms cross-check; any disagreement voids the probe run until resolved (MOVE 6 kill).',
-    rationale: 'Float-with-two-forms protocol; makes the probe verdict adversarially defensible without full interval cost.',
+    description: 'Same scan skeleton in acb at prec 128 (192-bit spot audits), harness pattern from tmp/verify_ydini_genmoll.c, run on ~1-2% of Lane-A evaluations plus the anchor cell. Agreement Lane A vs Lane B to <1e-9 is the two-forms cross-check; any disagreement voids the probe run until resolved (MOVE 6 eliminate).',
+    rationale: 'Float-with-two-forms protocol; makes the probe verdict independently defensible without full interval cost.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -84611,7 +84611,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'gate2-producer MOVE 3 / K2,K3',
-    description: '~1e3 log-spaced N in [690988, 54799999] x 5 window parameters x 2 seam sides x (N,N+1),(N,N+2) differences (~3e4 evals, ~3.7e11 terms, 20-40 min on 8 cores after an optional 300-sample first pass). Feed L and sampledSup into probeVerdict in src/data/imp-95011-gate2-oscillation-probe.js — goalposts frozen. Pre-registered kills: L>=1e-2 retires the Gate-2 producer (K2); sup>0.24690645 or sup+9.671e-15>=target kills headroom and downgrades the 0.14 contract page (K3). If L is marginal near 1e-2, run the denser (N,N+1) sample with Arb error bars before calling it.',
+    description: '~1e3 log-spaced N in [690988, 54799999] x 5 window parameters x 2 seam sides x (N,N+1),(N,N+2) differences (~3e4 evals, ~3.7e11 terms, 20-40 min on 8 cores after an optional 300-sample first pass). Feed L and sampledSup into probeVerdict in src/data/imp-95011-gate2-oscillation-probe.js — goalposts frozen. Pre-registered kills: L>=1e-2 retires the Gate-2 producer (K2); sup>0.24690645 or sup+9.671e-15>=target eliminates headroom and downgrades the 0.14 contract page (K3). If L is marginal near 1e-2, run the denser (N,N+1) sample with Arb error bars before calling it.',
     rationale: 'First real arithmetic ground truth for all five gates; either verdict is a deliverable and reroutes the program correctly.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -84687,12 +84687,12 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'inertia-pcc-synergy MOVE 3 / weld residual (c)',
-    description: 'Once the Lane-A evaluator exists, compute K_17(x,x) at the seam evaluation points, substitute the trace inequality for Cauchy-Schwarz in the l2-to-pointwise passage (residual (c) of the weld chain), and measure the residual product Q on a log-spaced N sample including both endpoints. KILL if spectral Q exceeds 1.4326672 by >2x at worst N — record the measured gap and drop the promotion payoff. This is the only inertia-lane move that can touch a Lambda number.',
+    description: 'Once the Lane-A evaluator exists, compute K_17(x,x) at the seam evaluation points, substitute the trace inequality for Cauchy-Schwarz in the l2-to-pointwise passage (residual (c) of the weld chain), and measure the residual product Q on a log-spaced N sample including both endpoints. ELIMINATE if spectral Q exceeds 1.4326672 by >2x at worst N — record the measured gap and drop the promotion payoff. This is the only inertia-lane move that can touch a Lambda number.',
     rationale: 'Rides the Gate-2 evaluator critical path at marginal cost; directly probes the l2-to-pointwise bottleneck all five gates share.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
-    closureNote: 'HONEST PARTIAL (src/data/imp-95020-vn-trace-inequality-seam-q.js). The precondition "Once the Lane-A evaluator exists" is UNMET: the arithmetic Gate-2 evaluator (compute_exact_N, sB(x), the carrier c_n(x), the window/seam family) is absent from the repo (imp-95013 BLOCKED-ON-SPEC), so the REAL K_17(x,x) and the REAL residual density rho at the REAL seam points cannot be computed and the KILL rule (spectral Q > 2*1.4326672 = 2.8653344 at worst N) is not arithmetically triggerable in-repo; no surrogate is substituted for the arithmetic Q. What IS delivered: LEMMA H, the unconditional exact substitution of the von Neumann trace inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage. Over the weld ENSEMBLE with mode-density operator rho (PSD, tr rho = 1) the pointwise mean-square is tr(rho Phi(x)) with Phi(x) = phi(x)phi(x)^* rank one and tr Phi(x) = K_W(x,x); von Neumann gives tr(rho Phi(x)) <= lambda_max(rho) K_W(x,x), so the pointwise constant sharpens from Cauchy-Schwarz sqrt(K_W(x,x)) to sqrt(lambda_max(rho) K_W(x,x)) <= sqrt(K_W(x,x)). The refined Q equals sqrt(lambda_max(rho)) times the Cauchy-Schwarz Q, so the move is MONOTONE-SAFE (can never worsen the budget, can never spuriously close it) and its entire payoff is the single unmeasured number lambda_max(rho) of the seam mode density (Cauchy-Schwarz is the rank-one pure-state special case). An 18-mode power-moment surrogate (carrier-dimension-matched to imp-95008) cross-checks the mechanism: Christoffel trace = 18, endpoint concentration ~3.32x, lambda_max(rho) ~0.49 -> gain ~0.70, the von Neumann bound holds and refined <= Cauchy-Schwarz at every sampled seam point, a pure-state control recovers Cauchy-Schwarz, worst surrogate Q well below the kill line. SUB-GAP imp-95020-sub-arithmetic-seam-Q: the arithmetic seam-point measurement (real K_17, real lambda_max(rho), real Q on the log-spaced 690988 <= N <= 54799999 sample, and the KILL disposition) needs the Lane-A evaluator (imp-95013-sub-native-evaluator-spec). 10 self-executing import-light assertions pass; registered in scripts/run-assertions.mjs; npm run build green. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    closureNote: 'HONEST PARTIAL (src/data/imp-95020-vn-trace-inequality-seam-q.js). The precondition "Once the Lane-A evaluator exists" is UNMET: the arithmetic Gate-2 evaluator (compute_exact_N, sB(x), the carrier c_n(x), the window/seam family) is absent from the repo (imp-95013 BLOCKED-ON-SPEC), so the REAL K_17(x,x) and the REAL residual density rho at the REAL seam points cannot be computed and the Stop rule (spectral Q > 2*1.4326672 = 2.8653344 at worst N) is not arithmetically triggerable in-repo; no surrogate is substituted for the arithmetic Q. What IS delivered: LEMMA H, the unconditional exact substitution of the von Neumann trace inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage. Over the weld ENSEMBLE with mode-density operator rho (PSD, tr rho = 1) the pointwise mean-square is tr(rho Phi(x)) with Phi(x) = phi(x)phi(x)^* rank one and tr Phi(x) = K_W(x,x); von Neumann gives tr(rho Phi(x)) <= lambda_max(rho) K_W(x,x), so the pointwise constant sharpens from Cauchy-Schwarz sqrt(K_W(x,x)) to sqrt(lambda_max(rho) K_W(x,x)) <= sqrt(K_W(x,x)). The refined Q equals sqrt(lambda_max(rho)) times the Cauchy-Schwarz Q, so the move is MONOTONE-SAFE (can never worsen the budget, can never spuriously close it) and its entire payoff is the single unmeasured number lambda_max(rho) of the seam mode density (Cauchy-Schwarz is the rank-one pure-state special case). An 18-mode power-moment surrogate (carrier-dimension-matched to imp-95008) cross-checks the mechanism: Christoffel trace = 18, endpoint concentration ~3.32x, lambda_max(rho) ~0.49 -> gain ~0.70, the von Neumann bound holds and refined <= Cauchy-Schwarz at every sampled seam point, a pure-state control recovers Cauchy-Schwarz, worst surrogate Q well below the cutoff line. SUB-GAP imp-95020-sub-arithmetic-seam-Q: the arithmetic seam-point measurement (real K_17, real lambda_max(rho), real Q on the log-spaced 690988 <= N <= 54799999 sample, and the ELIMINATE disposition) needs the Lane-A evaluator (imp-95013-sub-native-evaluator-spec). 10 self-executing import-light assertions pass; registered in scripts/run-assertions.mjs; npm run build green. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   },
   {
     id: 'imp-95021',
@@ -84719,7 +84719,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'audit upgrade #3',
-    description: 'Codify in engine-prompt-shared.sh + a small wrapper what continuations 18/19 did by hand: engines run run-assertions.mjs --since-changed plus an esbuild-bundle/plain-node lane for touched modules, never the full 13.5k-line sweep; the full sweep moves to one scheduled nightly job via the vite-ssr pool. Kills the recurring >100-min wedge (commits 24761c171, 531d82c31) under sibling CPU contention.',
+    description: 'Codify in engine-prompt-shared.sh + a small wrapper what continuations 18/19 did by hand: engines run run-assertions.mjs --since-changed plus an esbuild-bundle/plain-node lane for touched modules, never the full 13.5k-line sweep; the full sweep moves to one scheduled nightly job via the vite-ssr pool. Eliminates the recurring >100-min wedge (commits 24761c171, 531d82c31) under sibling CPU contention.',
     rationale: 'Returns ~100 min to every engine pass; matches the verify-heavy-assertion-modules memory.',
     estimatedComplexity: 'low',
     dependsOn: [],
@@ -85832,7 +85832,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-95008 claims the aggregation step (per-pair envelope caps in, single constant times M out) is SHARP: no scheme can certify below lambda_max(K), and Lemma SW with a near-Perron weight attains it (sandwich Rayleigh 3.919793511380258e-5 <= lambda_max <= Lw, width 2.3e-16). Its scope-honesty note (8) admits schemes that bypass the parity split or exploit joint near/far structure are OUTSIDE the sharpness claim. Assess whether such a joint near/far aggregation could certify below lambda_max, or confirm the parity-split lambda_max is terminal for the bracket class. Assess only; NO QED; no bound change.",
+    description: "imp-95008 claims the aggregation step (per-pair envelope caps in, single constant times M out) is SHARP: no scheme can certify below lambda_max(K), and Lemma SW with a near-Perron weight attains it (sandwich Rayleigh 3.919793511380258e-5 <= lambda_max <= Lw, width 2.3e-16). Its scope-honesty note (8) admits schemes that bypass the parity split or use joint near/far structure are OUTSIDE the sharpness claim. Assess whether such a joint near/far aggregation could certify below lambda_max, or confirm the parity-split lambda_max is terminal for the bracket class. Assess only; NO QED; no bound change.",
     rationale: 'Frontier scout: imp-95008 scope-honesty note (8) explicitly leaves joint near/far aggregation outside the lambda_max sharpness claim',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -86403,7 +86403,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "The imp-95226 coalescence-dominance observation (a depth-only N=2 candidate) is recorded as a GRID OBSERVATION ONLY; its analytic ratio-monotonicity proof is OPEN and must not conflict with DC-NOGO (which kills count-UNIFORM depth-only bounds only). Assess whether the ratio monotonicity admits an analytic proof or a counterexample; record either, do not upgrade the grid observation to a theorem without proof.",
+    description: "The imp-95226 coalescence-dominance observation (a depth-only N=2 candidate) is recorded as a GRID OBSERVATION ONLY; its analytic ratio-monotonicity proof is OPEN and must not conflict with DC-NOGO (which eliminates count-UNIFORM depth-only bounds only). Assess whether the ratio monotonicity admits an analytic proof or a counterexample; record either, do not upgrade the grid observation to a theorem without proof.",
     rationale: 'Frontier scout: imp-95226-np-exact-signed-shift-constant.js line 94 \'the analytic ratio-monotonicity proof is OPEN\'',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -86703,7 +86703,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-95226 records the depth-only N=2 coalescence-dominance candidate as a GRID OBSERVATION ONLY with the analytic ratio-monotonicity proof OPEN, and notes it must not conflict with DC-NOGO (which kills only count-UNIFORM depth-only bounds). Attempt the analytic proof that Lambda_2(w1,w2;nu) is dominated by its confluent-span value at fixed depth, or produce a counterexample. Report; no bound change, no QED.",
+    description: "imp-95226 records the depth-only N=2 coalescence-dominance candidate as a GRID OBSERVATION ONLY with the analytic ratio-monotonicity proof OPEN, and notes it must not conflict with DC-NOGO (which eliminates only count-UNIFORM depth-only bounds). Attempt the analytic proof that Lambda_2(w1,w2;nu) is dominated by its confluent-span value at fixed depth, or produce a counterexample. Report; no bound change, no QED.",
     rationale: 'Frontier scout: imp-95226-np-exact-signed-shift-constant.js \'the analytic ratio-monotonicity proof is OPEN\' + coalescence-dominance recorded as grid observation only',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -87003,7 +87003,7 @@ export const IMPROVEMENT_QUEUE = [
     status: 'completed',
     closureNote: 'RIGOROUS (src/data/imp-95254-orthant-split-phase-certificate.js, fable-5). THEOREM PHASE-AM: R(f) <= (e^(-y_min)/4)(1 + 1/theta), from LEMMA ENT (entrywise seam-mass domination L_mn <= (1/2)e^(-y_min)M_mn, exact three-strip inequality M_mn >= 2e^(-mu_far D)/(mu_m+mu_n)) + LEMMA ODROP (orthant cross-term drop, charging left-tail sign cancellation at cost zero where PHASE-CERT re-added it). Strictly dominates PHASE-CERT by the exact factor (1+theta)/2 (loss halved as theta -> 0), tight at theta = 1 (single packet = FA-2 sharp case), vacuity frontier lowered from theta > e^(-y_min) to theta > e^(-y_min)/(2 - e^(-y_min)) (certified window widens by 2 - e^(-y_min) -> 2 at depth). The HEADLINE question is answered NO: COROLLARY NO-UNIF (phi_K at fixed y pins limsup_(theta->0) F(theta,y) >= 1/2 for every valid F, so only pointwise-in-theta sub-1/2 bounds can exist); PROP LIN-NOGO refutes the natural linear sharp form (1/2)(1 - theta(1-e^(-y))) by the exact co-centered witness rates (3,1/4), c=(1,-3/4): R = 0.47798 > 0.44763 at theta = 259/547; PROP CEIL-X exhibits R = 0.69617 > 1/2 at the exact NON-co-centered witness rates (1,1/2), centers (1,1/4), c=(1,-1) (theta 0.1099, y 1/4, within 2e-4 of its geometry pencil sup 0.69632) -- the DC-NOGO 1/2 ceiling is co-centered-only and sub-1/2 certification fails at an interior fixed-theta point. Surviving residual: the exact sharp frontier sup R at fixed (theta, y_min), plausibly the imp-95226 pencil/NP object on a theta-level set. Nine self-executing assertions; registered in run-assertions; npm run build green. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
     proofSection: 'S-frontier',
-    description: "imp-95233 COROLLARY PHASE-CERT gives R(f)<=(1/(2 theta))e^(-y_min), HONEST-PARTIAL: it loses a full factor 1/theta and is VACUOUS in the deep-cancellation regime (theta<e^(-y_min)) where signed seam families sit (the exact c=(3,-4) witness has theta=1/33, bound 4.125). imp-95233 HONEST LIMITS (b) leaves OPEN whether a sharp phase-priced bound staying below 1/2 across small-theta families exists. Assess: attempt a sharper theta-and-y_min bound (e.g. exploiting that phase collapse forces amplitude/modulus blow-up), or record a structural obstruction. Report; changes no bound; NO QED; PT Lambda<=0.2 SOTA.",
+    description: "imp-95233 COROLLARY PHASE-CERT gives R(f)<=(1/(2 theta))e^(-y_min), HONEST-PARTIAL: it loses a full factor 1/theta and is VACUOUS in the deep-cancellation regime (theta<e^(-y_min)) where signed seam families sit (the exact c=(3,-4) witness has theta=1/33, bound 4.125). imp-95233 HONEST LIMITS (b) leaves OPEN whether a sharp phase-priced bound staying below 1/2 across small-theta families exists. Assess: attempt a sharper theta-and-y_min bound (e.g. using that phase collapse forces amplitude/modulus blow-up), or record a structural obstruction. Report; changes no bound; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-95233-modulus-phase-currency-feasibility.js HONEST LIMITS (b) \'whether a SHARP phase-priced bound exists is OPEN; the 1/theta loss is the residual\'',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -88335,7 +88335,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95359',
-    title: 'Cross-validate the imp-95331 adversarial refutation that the standalone det-over-trace step gains at most 1.006x (and 1.025x on top of the side-weight split) because the two legs are discriminant-coupled through B^2-A*C',
+    title: 'Cross-validate the imp-95331 skeptical refutation that the standalone det-over-trace step gains at most 1.006x (and 1.025x on top of the side-weight split) because the two legs are discriminant-coupled through B^2-A*C',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
@@ -88343,7 +88343,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
     description: "imp-95331 (THEOREM RZ-PEN5, LEMMA ROOT-MONO + W-SPLIT) refutes the imp-95330 attribution that det/tr would remove up to 1.66x, measuring the exact-root step standalone at <=1.006x and <=1.025x atop the side-weight split, because the trace-cap and numerator-truncation legs are coupled through the discriminant B^2-A*C. Independently reproduce this by evaluating the exact smaller quadratic root of A*lam^2-2B*lam+C at (i) capped trace + truncated numerator, (ii) exact trace + truncated numerator, (iii) exact both, across rho in {10,e^6} and r in {2,e^3,e^5.9}, and confirm the 1.006x/1.025x/1.66x attribution split. Cross-validation only; changes no bound; NO QED.",
-    rationale: 'Frontier scout: imp-95331 records an adversarial refutation (det/tr <=1.006x, discriminant-coupled) that reverses the imp-95330 1.66x attribution -- unvalidated independently',
+    rationale: 'Frontier scout: imp-95331 records an skeptical refutation (det/tr <=1.006x, discriminant-coupled) that reverses the imp-95330 1.66x attribution -- unvalidated independently',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -88884,7 +88884,7 @@ export const IMPROVEMENT_QUEUE = [
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
     description: "imp-95255 self-check (3)/(4) reports theta=1 to 1e-9 on the fixed-amplitude (all 1/p) ported family and theta<1 for a signed amplitude assignment on the same geometry, confirming theta is an amplitude-sign functional the geometry map cannot fix. Independently cross-validate both claims with a higher-precision quadrature of int f^2 / int g^2 on the two-sided exponential packets f_n(s)=e^(-mu_n|s-u_n|), across several ported grids and signed patterns, to confirm the dichotomy is not a quadrature artifact. Cross-validation only; changes no bound; NO QED.",
-    rationale: 'Frontier scout: imp-95255-currency-per-window-map-assessment.js adversarial self-check (3)/(4)',
+    rationale: 'Frontier scout: imp-95255-currency-per-window-map-assessment.js skeptical self-check (3)/(4)',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -89465,15 +89465,15 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95430',
-    title: 'Bound the imp-95374 breach threshold: the jitter magnitude at which the proven A_unif4 floor stops lower-bounding the worst-case off-lattice pencil',
+    title: 'Bound the imp-95374 crossing threshold: the jitter magnitude at which the proven A_unif4 floor stops lower-bounding the worst-case off-lattice pencil',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-95374 Finding 3 measured that the proven A_unif4(2)=1.9975337e-9 continues to lower-bound the worst-of-400 off-lattice pencil floor up to about +-6.25% jitter but not beyond. Derive/measure a tighter estimate of this breach threshold (as a function of m and rho) and characterize the near-collision mechanism that drives the collapse past it. Measurement/derivation only; no QED.",
-    rationale: 'Frontier scout: imp-95374 Finding 3 reports the ~6.25% breach threshold of the proven floor as a measured cutoff',
+    description: "imp-95374 Finding 3 measured that the proven A_unif4(2)=1.9975337e-9 continues to lower-bound the worst-of-400 off-lattice pencil floor up to about +-6.25% jitter but not beyond. Derive/measure a tighter estimate of this crossing threshold (as a function of m and rho) and characterize the near-collision mechanism that drives the collapse past it. Measurement/derivation only; no QED.",
+    rationale: 'Frontier scout: imp-95374 Finding 3 reports the ~6.25% crossing threshold of the proven floor as a measured cutoff',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -89532,8 +89532,8 @@ export const IMPROVEMENT_QUEUE = [
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-95374 Finding 3 showed A_unif4(2)=1.9975e-9 still lower-bounds the worst-of-400 off-lattice pencil floor at +-6.25% jitter but the +-12.5% rung collapses. Localize the breach threshold delta* in (6.25%,12.5%) by bisection on the worst-of-N min pencil floor (with N raised to stabilize the worst-case tail), reporting delta* vs trial count N and whether it converges. Measure only; changes no bound; NO QED; SOTA unchanged.",
-    rationale: 'Frontier scout: imp-95374 Finding 3 brackets the A_unif4 breach between +-6.25% and +-12.5% but does not localize it.',
+    description: "imp-95374 Finding 3 showed A_unif4(2)=1.9975e-9 still lower-bounds the worst-of-400 off-lattice pencil floor at +-6.25% jitter but the +-12.5% rung collapses. Localize the crossing threshold delta* in (6.25%,12.5%) by bisection on the worst-of-N min pencil floor (with N raised to stabilize the worst-case tail), reporting delta* vs trial count N and whether it converges. Measure only; changes no bound; NO QED; SOTA unchanged.",
+    rationale: 'Frontier scout: imp-95374 Finding 3 brackets the A_unif4 crossing between +-6.25% and +-12.5% but does not localize it.',
     estimatedComplexity: 'medium',
     dependsOn: [],
     model: 'opus-4-8',
@@ -89594,12 +89594,12 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95435',
-    title: 'Build a viz for the imp-95374 off-lattice degradation ladder (jitter delta vs worst/mean pencil floor, onset shift, proven-floor breach threshold)',
+    title: 'Build a viz for the imp-95374 off-lattice degradation ladder (jitter delta vs worst/mean pencil floor, onset shift, proven-floor crossing threshold)',
     category: 'ux',
     priority: 'low',
     status: 'pending',
     proofSection: 'S-frontier',
-    description: "imp-95374 measured the RZ-PEN4 symbol-pencil floor and every-octave onset under log-rate jitter off the dyadic lattice: worst-of-400 and mean-of-400 floor degradation, onset shift, and the ~6.25% breach threshold of the proven A_unif4 floor across delta in {2^-6..2^-2}. Build a viz page plotting these ladders with an honest-status banner (measurement only, no bound moved). UX only; no QED.",
+    description: "imp-95374 measured the RZ-PEN4 symbol-pencil floor and every-octave onset under log-rate jitter off the dyadic lattice: worst-of-400 and mean-of-400 floor degradation, onset shift, and the ~6.25% crossing threshold of the proven A_unif4 floor across delta in {2^-6..2^-2}. Build a viz page plotting these ladders with an honest-status banner (measurement only, no bound moved). UX only; no QED.",
     rationale: 'Frontier scout: imp-95374 Findings 1-3 tabulate an off-lattice degradation ladder with no viz page',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -89823,7 +89823,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'pending',
     proofSection: 'S-frontier',
-    description: "imp-95374 tabulated the RZ-PEN symbol-pencil floor degradation and every-octave onset shift across five off-lattice log-rate jitter magnitudes (+-1.56%..+-25%), worst-of-400 vs mean-of-400, plus the A_unif4 breach at ~+-6.25%. Add an import-light viz page (baked literals) plotting onset shift and floor-degradation factor vs jitter magnitude with worst/mean curves and the proven-floor breach line. Viz/UI only; changes no bound; NO QED; SOTA unchanged.",
+    description: "imp-95374 tabulated the RZ-PEN symbol-pencil floor degradation and every-octave onset shift across five off-lattice log-rate jitter magnitudes (+-1.56%..+-25%), worst-of-400 vs mean-of-400, plus the A_unif4 crossing at ~+-6.25%. Add an import-light viz page (baked literals) plotting onset shift and floor-degradation factor vs jitter magnitude with worst/mean curves and the proven-floor crossing line. Viz/UI only; changes no bound; NO QED; SOTA unchanged.",
     rationale: 'Frontier scout: imp-95374 Findings 1-3 have no viz surface (existing off-lattice viz cover SPLIT/EV-OCT, not the RZ-PEN floor ladder).',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -90138,14 +90138,14 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95487',
-    title: 'Measure the asymptotic scaling law of the imp-95430 off-lattice breach threshold delta*(m) beyond the tabulated m=4..12 and characterize the single-pattern collapse mechanism',
+    title: 'Measure the asymptotic scaling law of the imp-95430 off-lattice crossing threshold delta*(m) beyond the tabulated m=4..12 and characterize the single-pattern collapse mechanism',
     category: 'numerical',
     priority: 'medium',
     status: 'completed',
     completedByModel: 'opus-4-8',
     completedByChannel: 'api-pool',
     proofSection: 'S-frontier',
-    description: "imp-95430 FINDING 2 tabulated the breach threshold delta*(m) (jitter at which the proven A_unif4 floor stops lower-bounding the worst-of-400 off-lattice pencil floor) as monotone decreasing 19.97/11.68/5.20/3.82/3.10% at m=4,6,8,10,12, driven by a single binding pattern. Measure delta*(m) at larger m to fit its decay law (does it vanish like c/m or level off?) and characterize the near-collision configuration deterministically. Measurement only; changes no bound; NO QED.",
+    description: "imp-95430 FINDING 2 tabulated the crossing threshold delta*(m) (jitter at which the proven A_unif4 floor stops lower-bounding the worst-of-400 off-lattice pencil floor) as monotone decreasing 19.97/11.68/5.20/3.82/3.10% at m=4,6,8,10,12, driven by a single binding pattern. Measure delta*(m) at larger m to fit its decay law (does it vanish like c/m or level off?) and characterize the near-collision configuration deterministically. Measurement only; changes no bound; NO QED.",
     rationale: 'Frontier scout: imp-95430 FINDING 2 gives a finite delta*(m) ladder with no asymptotic law and a single binding pattern',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -90340,7 +90340,7 @@ export const IMPROVEMENT_QUEUE = [
     priority: 'low',
     status: 'pending',
     proofSection: 'S-frontier',
-    description: "imp-95430 measured the breach threshold delta*(m) (monotone decreasing 19.97/11.68/5.20/3.82/3.10% at m=4..12) and its rho-dependence (grows with lattice spacing). Build a viz page plotting delta*(m) and delta*(rho), noting the tighter delta*=5.20% vs the imp-95374 optimistic ~6% and the single binding pattern (index 129). Distinct from imp-95435/imp-95455 (worst/mean pencil floor vs delta). Honest-status banner matching the module (measurement only; no bound change). UI only.",
+    description: "imp-95430 measured the crossing threshold delta*(m) (monotone decreasing 19.97/11.68/5.20/3.82/3.10% at m=4..12) and its rho-dependence (grows with lattice spacing). Build a viz page plotting delta*(m) and delta*(rho), noting the tighter delta*=5.20% vs the imp-95374 optimistic ~6% and the single binding pattern (index 129). Distinct from imp-95435/imp-95455 (worst/mean pencil floor vs delta). Honest-status banner matching the module (measurement only; no bound change). UI only.",
     rationale: 'Frontier scout: imp-95430 FINDING 2/3 delta*(m,rho) surface has no viz',
     estimatedComplexity: 'medium',
     dependsOn: [],

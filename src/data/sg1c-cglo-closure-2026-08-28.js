@@ -140,7 +140,7 @@ function bisectRoot(fn, lo, hi) {
 }
 const C_HALF = bisectRoot(cgloRateBound, 0.5, 0.9999); // 0.8980208880762339 = c_glob
 
-// ---- direct N-body machinery for the adversarial certification
+// ---- direct N-body machinery for the skeptical certification
 function force(x) {
   const N = x.length, F = new Array(N).fill(0);
   for (let k = 0; k < N; k++) {
@@ -169,12 +169,12 @@ function nearestIdx(x, i0, i1) {
   }
   return { jp, d };
 }
-// deterministic LCG so the adversarial sweep is reproducible in every build
+// deterministic LCG so the skeptical sweep is reproducible in every build
 function lcg(seed) {
   let s = seed;
   return () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
 }
-// adversarial sweep: random admissible configs (globally minimal pair, both sides,
+// skeptical sweep: random admissible configs (globally minimal pair, both sides,
 // dense-right biased); returns worst (bound - rate) slack and any violations
 export function cgloAdversarialSweep(trials, seed) {
   const rand = lcg(seed);
@@ -279,7 +279,7 @@ export const SG1C_CGLO_CLOSURE_ASSERTIONS = [
   },
   {
     id: 'sg1c-cglo-closure-adversarial-universal-bound',
-    description: 'deterministic adversarial sweep (LCG seed 12345, 20000 trials, up to 4 left + 6 right particles, dense-right biased, both nearest sides, ties included): ZERO violations of d^2 rate <= R(rho) across every admissible config generated',
+    description: 'deterministic skeptical sweep (LCG seed 12345, 20000 trials, up to 4 left + 6 right particles, dense-right biased, both nearest sides, ties included): ZERO violations of d^2 rate <= R(rho) across every admissible config generated',
     holds: () => {
       const s = cgloAdversarialSweep(20000, 12345);
       return s.tested > 15000 && s.violations === 0;

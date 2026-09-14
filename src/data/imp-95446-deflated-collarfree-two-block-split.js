@@ -110,7 +110,7 @@
  * through inter-block coalescence (samples at gap 1e-3/1e-4/1e-5, d = 8:
  * 5.0608e-10, 5.0901e-10, 5.0930e-10, converging).
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) DEFL-ORTH isometry + orthogonality
+ * SKEPTICAL SELF-CHECK RECORD. (1) DEFL-ORTH isometry + orthogonality
  * verified entrywise (Gram of g equals G1 to rel 1e-12..1e-9; <g_i, K_m>
  * = 0 to abs 1e-13) -- the sharpest numerical test since it checks full
  * matrices. (2) The sandwich holds on a 300-point grid over both

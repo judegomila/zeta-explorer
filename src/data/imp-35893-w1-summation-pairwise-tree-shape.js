@@ -2,7 +2,7 @@
  * @module imp-35893-w1-summation-pairwise-tree-shape
  *
  * imp-35893 (numerical, S-frontier): MEASURE whether the imp-35852 pairwise
- * divide-and-conquer log2(N)*eps ceiling is attained under an adversarially-structured
+ * divide-and-conquer log2(N)*eps ceiling is attained under an independently-structured
  * PAIRING TREE (unbalanced / worst-case tree SHAPE) -- as distinct from the term
  * ORDERING that imp-35852 varied -- at N = 488602.
  *
@@ -60,8 +60,8 @@
  * ~3.4 orders (>2000x) BELOW it, and ~16x below even the naive-original error ~3.03e-17.
  * The depth-proportional worst-case bound (depth*eps, ~8.5e-13 at depth 3817) is NOT
  * realized: on this benign cancellation-heavy multiset the per-addition rounding errors do
- * not accumulate coherently along the tree spine, so adversarial tree SHAPE -- exactly
- * like the adversarial term ORDER of imp-35852 -- does NOT push pairwise toward its
+ * not accumulate coherently along the tree spine, so worst-case tree SHAPE -- exactly
+ * like the worst-case term ORDER of imp-35852 -- does NOT push pairwise toward its
  * ceiling. Pairwise is ROBUST to BOTH tree shape and term order. All shapes remain ~10+
  * orders below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760). CONCLUSION:
  * precision stays NON-binding under worst-case pairing-tree shape too; the obstruction
@@ -227,7 +227,7 @@ export const IMP35893_W1_SUMMATION_PAIRWISE_TREE_SHAPE = {
   id: 'imp-35893',
   proofSection: 'S-frontier',
   question:
-    'Does adversarial pairing-tree SHAPE (unbalanced / caterpillar trees, as distinct from the term ' +
+    'Does skeptical pairing-tree SHAPE (unbalanced / caterpillar trees, as distinct from the term ' +
     'ORDERING imp-35852 varied) push pairwise divide-and-conquer summation toward its log2(N)*eps ' +
     'ceiling on the fixed imp-35812 N ~ 488602 term family? Measurement only; certifies no W1 bound; ' +
     'changes no bound; NO QED.',
@@ -286,17 +286,17 @@ export const IMP35893_W1_SUMMATION_PAIRWISE_TREE_SHAPE = {
   },
   conclusion: {
     treeShapeDoesNotReachCeiling:
-      'adversarial pairing-tree SHAPE does NOT push pairwise toward its log2(N)*eps ceiling on this benign ' +
+      'skeptical pairing-tree SHAPE does NOT push pairwise toward its log2(N)*eps ceiling on this benign ' +
       'cancellation-heavy multiset; the depth-proportional worst case is not realized because the ' +
       'per-addition rounding errors do not accumulate coherently along the tree spine',
     pairwiseRobustToShapeAndOrder:
-      'pairwise is ROBUST to BOTH tree shape (here) and term order (imp-35852) -- neither adversarial lever ' +
+      'pairwise is ROBUST to BOTH tree shape (here) and term order (imp-35852) -- neither worst-case lever ' +
       'closes the gap to its ceiling',
     precisionNotBinding:
       'achievable double precision leaves overwhelming strict headroom under WORST-CASE pairing-tree shape too; ' +
       'precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures pairwise errors under adversarial tree shapes only; it evaluates no sum of H_t and ' +
+      'this module measures pairwise errors under worst-case tree shapes only; it evaluates no sum of H_t and ' +
       'verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) ' +
       'and MECHANICAL (imp-35725)',
   },
@@ -311,8 +311,8 @@ export const IMP35893_W1_SUMMATION_PAIRWISE_TREE_SHAPE = {
     'deeper than balanced but lower error). The worst tree (caterpillarR) reaches only ~4.42e-4 of the ' +
     'log2(N)*eps ceiling -- still >2000x below it, ~16x below even the naive-original error ~3.03e-17, and it ' +
     'under-realizes its own depth*eps bound by ~4.6e-6: the per-addition rounding errors do not accumulate ' +
-    'coherently along the tree spine on this cancellation-heavy data. Adversarial tree SHAPE, exactly like the ' +
-    'adversarial term ORDER of imp-35852, does NOT push pairwise toward its ceiling; pairwise is ROBUST to both ' +
+    'coherently along the tree spine on this cancellation-heavy data. Worst-case tree SHAPE, exactly like the ' +
+    'worst-case term ORDER of imp-35852, does NOT push pairwise toward its ceiling; pairwise is ROBUST to both ' +
     'levers. All shapes remain ~10+ orders below the O(1) barrier margin |A_t + B_t| - |C_t|. Precision is NOT ' +
     'the binding constraint even under worst-case pairing-tree shape; the obstruction stays the ENGINEERING of ' +
     'the certified length-N interval sum (MECHANICAL, imp-35725). Certifies no W1 bound; evaluates no true H_0; ' +

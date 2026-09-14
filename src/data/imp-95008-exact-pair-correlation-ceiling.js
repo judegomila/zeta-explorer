@@ -124,7 +124,7 @@
  * The headline gap now nearly factors as (parity 2) x 1.4044: the parity
  * AM-GM factor is the dominant surviving achieved-side slack.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma PF was attacked by direct
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma PF was stress-tested by direct
  * midpoint quadrature across s in {11, 3} x separations x width ratios
  * (18 configurations re-run by the assertions, two-sided tolerance): the
  * residuals shrink as the quadrature is refined (corner at N = 2e6 agrees
@@ -361,7 +361,7 @@ function iExact(T, rho, s) {
 // intermediate a^(1-k) terms huge), then multiply the aggregate by rho^s at the
 // end. Algebraically identical to iExact; the two evaluations differ only by
 // float cancellation, so their gap is a direct MEASUREMENT of the partial-
-// fraction conditioning quoted in scope (adversarial self-check 2).
+// fraction conditioning quoted in scope (skeptical self-check 2).
 function iUnfolded(T, rho, s) {
   const bb = 1 + T;
   let wOut = 0;

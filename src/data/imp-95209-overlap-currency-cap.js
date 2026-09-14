@@ -138,12 +138,12 @@
  *   kappa sqrt(omega) at small omega) localizes exactly where that
  *   geometry must bite.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The exact identity E = X_e + X_o -
+ * SKEPTICAL SELF-CHECK RECORD. (1) The exact identity E = X_e + X_o -
  * N_e - N_o + 2 <U, V> is verified on a 60-draw deterministic LCG witness
  * battery (3..10 packets, blocks 0..7, exact exponential-packet kernel)
  * to rel 1e-9, together with Cauchy-Schwarz and the consequence
  * E <= 2 X_env - (sqrt(P) - sqrt(R))^2. (2) The relaxation sup is
- * attacked by 200000 random feasible tuples (P, R, X_e, X_o) across
+ * approached by 200000 random feasible tuples (P, R, X_e, X_o) across
  * omega in [1e-7, 1]: no violation, worst ratio 0.9905 (near-attained),
  * and the constructed corner (P = sigmaE, R = betaSq, caps) attains the
  * closed form exactly. (3) The stationarity identity (1 - 2 omega*)

@@ -73,7 +73,7 @@ function simpson(f, a, b, n) {
 // GUE structure factor S(alpha) = |alpha| in-band, 1 on the collision plateau.
 const structureFactor = (alpha) => (Math.abs(alpha) < ALPHA_LIMIT ? Math.abs(alpha) : 1);
 
-// Band-averaged structure factor over |alpha| < 1 (exploit even symmetry; the
+// Band-averaged structure factor over |alpha| < 1 (use even symmetry; the
 // integrand is linear on [0, ALPHA_LIMIT] so Simpson is exact). This is the
 // mean-scale amplitude the band-limited proxy recovers.
 const NPAN = 1000;

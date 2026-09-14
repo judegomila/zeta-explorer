@@ -3,7 +3,7 @@
  * its exact octave-Szasz weight law W(p, D) = Theta((pD)^(2/3))) + PROP EXP
  * (width-exponent dichotomy: the weight is (p, D)-uniformly bounded iff the
  * width-decay exponent exceeds 1; the paper pins 1/3) + THEOREM NOGO-CC
- * (truth-level common-collar kill: for Q (pD)^(1/3) > 1.8763 the exact
+ * (truth-level common-collar refutation: for Q (pD)^(1/3) > 1.8763 the exact
  * truth of EVERY common-collar hypothesis class containing the ported
  * family exceeds 1/2, so no common-collar certificate, however sharp,
  * delivers H-LOC) + PROP NOGO-E / PROP NOGO-D (quantified failure of
@@ -15,7 +15,7 @@
  * family truth is SMALL: the family looks localizable, the certificate
  * architecture provably cannot see it).
  *
- * Twelfth leg of the seam chain, attacking the FIRST extraction leg of the
+ * Twelfth leg of the seam chain, approaching the FIRST extraction leg of the
  * open sub-gap imp-95212-subgap-fresnel-airy-envelope-port: "the
  * alias-denominator to dictionary-rate map" (recorded by imp-95219 as one
  * of the three remaining obligations, alongside the per-parity weight W
@@ -30,7 +30,7 @@
  * violates by orders of magnitude. The port is REROUTED: the surviving leg
  * is amplitude-weighted pricing (paper eq 14 pins each alias amplitude at
  * 1/p; the composition floors used here all evaluate the class at
- * ADVERSARIAL coefficients and do not apply to fixed-amplitude families).
+ * SKEPTICAL coefficients and do not apply to fixed-amplitude families).
  *
  * THE MAP (LEMMA GRID + LEMMA MAP; forced by the imp-95071 transcription).
  * Paper eq (14) expands the prime projection into aliases h = 1..p-1; eq
@@ -79,7 +79,7 @@
  * pins beta = 1/3 (sub-linear), so the weight blowup is intrinsic to the
  * Fresnel-Airy cube-root scaling, not an artifact of the census.
  *
- * THEOREM NOGO-CC (common-collar truth kill; elementary and decisive).
+ * THEOREM NOGO-CC (common-collar truth eliminate; elementary and decisive).
  * Every certificate of the chain (A dyadic, B ratio-floor, C count, D
  * occupancy, E Szasz-weight -- THEOREM DR / DR-M / DR-R / DR-A / GC / SI /
  * OC / SZ-P) prices a COMMON-COLLAR class: rates >= m, ALL centers at
@@ -95,9 +95,9 @@
  * x_avail < ln(2)/2, for which it SUFFICES that
  *   Q (pD)^(1/3) > kC = (32/31) 2^(-2/3) (2/ln 2) = 1.8763167490012385 .
  * At the model normalization Q = 2^(-2/3): every window with pD >
- * (kC/Q)^3 = 26.422776868750283 is killed at the TRUTH level -- no
+ * (kC/Q)^3 = 26.422776868750283 is eliminated at the TRUTH level -- no
  * common-collar certificate, sharp or not, can deliver H-LOC there. QED.
- * (Direct rows below also kill (5,2), (7,2), (59,1), (3,4), (2,8) by the
+ * (Direct rows below also eliminate (5,2), (7,2), (59,1), (3,4), (2,8) by the
  * exact per-cell x_avail; a handful of tiny cells, e.g. (11,1), (5,1),
  * survive NOGO-CC formally while still failing every EXISTING certificate
  * threshold by orders of magnitude.)
@@ -195,7 +195,7 @@
  * (sigma = 1, theta = 10) throughout the carried chain; nothing here
  * touches any Lambda bound.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The census identity was attacked by
+ * SKEPTICAL SELF-CHECK RECORD. (1) The census identity was stress-tested by
  * recomputing W two ways (integer census vs the imp-95219 octaveWeight
  * convention on the explicit rate list): exact agreement on all rows.
  * (2) THEOREM AW bounds checked on rows up to pD = 104729 (ratio
@@ -203,7 +203,7 @@
  * initial hunch "the alias family truth itself fails H-LOC" was REFUTED
  * by the measured contrast (0.18 < 1/2 at (5,2)) and the claim was
  * downgraded to the common-collar class (where it is PROVED, 0.94): the
- * kill is architectural, not familial -- recorded as the trap of this
+ * eliminate is architectural, not familial -- recorded as the trap of this
  * leg. (4) NOGO-D was checked on exact octave rows ((997,1): M = 448,
  * x = 0.7812 <= 0.8048 <= 2.0645 caps, floor 223.75; (251,2): M = 56,
  * x = 1.2632 <= 1.2836 <= 1.3006, floor 27.75). (5) The Markov-floor
@@ -391,7 +391,7 @@ function commonCollarSup(mus, d) {
 // ── verdict object ───────────────────────────────────────────────────────────
 export const IMP95220_ALIAS_WIDTH_LAW_WEIGHT_NOGO = {
   ticket:
-    "imp-95220 (twelfth leg of the seam chain: the alias-denominator to dictionary-rate map -- the first of the three imp-95219 extraction obligations of the open sub-gap imp-95212-subgap-fresnel-airy-envelope-port -- is ANSWERED: the width-law port is forced by the imp-95071 transcription, its octave-Szasz weight is an exact census growing like (pD)^(2/3), and the coefficient-uniform certificate architecture is closed off by a truth-level common-collar kill plus quantified E/octave/partition no-gos, all as explicit inequalities in the per-window isolation group Q)",
+    "imp-95220 (twelfth leg of the seam chain: the alias-denominator to dictionary-rate map -- the first of the three imp-95219 extraction obligations of the open sub-gap imp-95212-subgap-fresnel-airy-envelope-port -- is ANSWERED: the width-law port is forced by the imp-95071 transcription, its octave-Szasz weight is an exact census growing like (pD)^(2/3), and the coefficient-uniform certificate architecture is closed off by a truth-level common-collar eliminate plus quantified E/octave/partition no-gos, all as explicit inequalities in the per-window isolation group Q)",
   lemmaGridMap:
     "G(p, D) = { n/p : 1 <= n <= pD, p not dividing n } (paper eq 14/15 alias grid, imp-95071/imp-95214); width-law port mu(d) = d^(1/3)/c, depth u(d) = v/d; per-packet depth-rate product x(d) = (v/c) d^(-2/3), strictly decreasing (wide packets deep, narrow packets shallow); EXACT identity x(D/2) = 1/Q with Q = (c D^(2/3)/v) 2^(-2/3) the imp-95026 per-window isolation group.",
   theoremAW:
@@ -399,11 +399,11 @@ export const IMP95220_ALIAS_WIDTH_LAW_WEIGHT_NOGO = {
   propEXP:
     "width-exponent dichotomy: under mu(d) = d^(gamma)/c the weight is (p, D)-uniformly bounded iff gamma > 1 (closed cap (2^(1/gamma)-1)/(1-2^(1/gamma-1)) + 2); gamma = 1 gives log growth; gamma < 1 gives (pD)^(1-gamma). The paper pins gamma = beta = 1/3: the blowup is intrinsic to the Fresnel-Airy cube-root scaling.",
   theoremNOGOCC:
-    "common-collar truth kill: every chain certificate prices a common-collar class (LEMMA R1 absorbs per-packet depths into free coefficients); any such class containing the ported family has x_avail = m dbar <= (32/31) 2^(-2/3) / (Q (pD)^(1/3)) and contains the slowest singleton at the collar, truth e^(-2 x_avail) exactly. For Q (pD)^(1/3) > kC = 1.8763167490012385 the class truth exceeds 1/2: H-LOC is uncertifiable from ANY common-collar bound, sharp or not. Model normalization: every window with pD > 26.422776868750283 is truth-killed.",
+    "common-collar truth refutation: every chain certificate prices a common-collar class (LEMMA R1 absorbs per-packet depths into free coefficients); any such class containing the ported family has x_avail = m dbar <= (32/31) 2^(-2/3) / (Q (pD)^(1/3)) and contains the slowest singleton at the collar, truth e^(-2 x_avail) exactly. For Q (pD)^(1/3) > kC = 1.8763167490012385 the class truth exceeds 1/2: H-LOC is uncertifiable from ANY common-collar bound, sharp or not. Model normalization: every window with pD > 26.422776868750283 is truth-killed.",
   propNOGOE:
     "certificate E fires only if Q < qNecE/(pD), qNecE = 1024 x 2^(-2/3)/(310 aStar) = 0.6608048321430365 (p >= 2, pD >= 64) -- 1/(pD) smallness, strictly stronger than the NOGO-CC line. Model normalization: never (Q pD >= 40.3 at the first admissible rung; every sampled row below 64 fails directly).",
   propNOGOD:
-    "depth-discounted octave composition: the top full octave has x_J0 <= (64/31) 2^(-2/3)/Q = 1.300563664407611/Q bounded in pD while M_J0 >= 7pD/128 - 1 grows; the imp-95217 Markov floor kills any octave-class-uniform price once x_J0 < (2 M_J0 - 1)/4, so firing requires Q < 4 xTopCap/(7pD/64 - 3) ~ 47.56/(pD). Model normalization crossover: dead past pD = 102.93087557603685.",
+    "depth-discounted octave composition: the top full octave has x_J0 <= (64/31) 2^(-2/3)/Q = 1.300563664407611/Q bounded in pD while M_J0 >= 7pD/128 - 1 grows; the imp-95217 Markov floor eliminates any octave-class-uniform price once x_J0 < (2 M_J0 - 1)/4, so firing requires Q < 4 xTopCap/(7pD/64 - 3) ~ 47.56/(pD). Model normalization crossover: dead past pD = 102.93087557603685.",
   theoremNOGOP:
     "partition no-go: any certificate that partitions into cells, prices each cell uniformly over the coalescence-closed class H-CNT(K_cell, mu_min, u_min), and composes by the chain sum or TVC product on sqrt prices, fails for pD > pdCritP(Q) = 4(Kcrit Lcrit + 2), Kcrit = 2/Q + 1/2, b = e^(-1/Q), Lcrit = max(ln(1+2^(-1/2))/ln(1+b), 2^(-1/2)/b). Dichotomy: a big shallow cell is Markov-floored; many small shallow cells each price >= b (their own singleton truth) and the composition diverges. Model normalization: pdCritP = 58.83683065351219. Class-uniformity is load-bearing: per-cell bounds using the ACTUAL amplitudes are not obstructed -- that is the reroute.",
   measuredContrast:
@@ -426,7 +426,7 @@ export const IMP95220_ALIAS_WIDTH_LAW_WEIGHT_NOGO = {
   subGap:
     "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, REROUTED: the alias-denominator to dictionary-rate map leg is ANSWERED (width-law port forced, weight exact and divergent, coefficient-uniform architecture closed off up to explicit Q-inequalities). Remaining legs: (alpha) extract the per-window isolation group Q and test the ladder Q <= kC (pD)^(-1/3) (else the common-collar truth itself is dead), then Q < qNecE/(pD) for certificate E -- all current evidence (model normalization, eq-10 carrier) says Q = Theta(1), failing both; OR (beta) the amplitude-weighted certificate: price the paper eq (14) fixed-amplitude family (1/p per alias) natively with per-packet depths kept -- the adversarial-coefficient floors used by every no-go here do NOT apply to fixed amplitudes, and the measured 0.18-vs-0.94 gap is the available room. Plus, unchanged: the paper constants (m, d per window).",
   verdict:
-    "RIGOROUS step, and an honest NEGATIVE with an exact positive core: THEOREM AW computes the alias-denominator to dictionary-rate map (the first imp-95219 extraction leg) in closed form -- G(p,D) is the punctured (1/p)-lattice, the width-law port mu = d^(1/3)/c is forced by the one recoverable paper constant beta = 1/3, and the per-parity octave-Szasz weight is the exact census W(p,D) = sum 2^(-floor(log2 n/3)), two-sidedly (5/32)(pD)^(2/3) <= W <= (28/3)(pD)^(2/3): the ONE scalar the universal certificate needs exists and DIVERGES. Consequences, all explicit in the per-window isolation group Q: THEOREM NOGO-CC (for Q(pD)^(1/3) > 1.8763 the exact common-collar class truth exceeds 1/2 -- no common-collar certificate, sharp or not, can deliver H-LOC; model normalization kills every window with pD > 26.42), PROP NOGO-E (E fires only if Q < 0.6608/(pD)), PROP NOGO-D (octave depth-discounting fires only if Q < 47.56/(pD) asymptotically; dead past pD = 102.93 at model normalization), THEOREM NOGO-P (any cellwise class-uniform sum/product-composed certificate dies past pdCritP(Q) = 58.84 at model normalization). MEASURED CONTRAST: the actual per-packet-depth family truth is small (0.1813 at (5,2)) while the common-collar class truth is 0.9397 -- the kill is architectural, not familial. REROUTE: the surviving leg is amplitude-weighted pricing of the eq (14) fixed-amplitude (1/p) family with per-packet depths (adversarial-coefficient floors do not apply there), or an extracted Q small enough to revive the menu (all evidence says Q = Theta(1)). HONEST: all no-gos conditional on the width-law port (PROP EXP: only a super-linear width exponent would change the verdict) and stated as Q-inequalities with Q unextracted; the (59,1) row is a window lower bound; nothing here touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+    "RIGOROUS step, and an honest NEGATIVE with an exact positive core: THEOREM AW computes the alias-denominator to dictionary-rate map (the first imp-95219 extraction leg) in closed form -- G(p,D) is the punctured (1/p)-lattice, the width-law port mu = d^(1/3)/c is forced by the one recoverable paper constant beta = 1/3, and the per-parity octave-Szasz weight is the exact census W(p,D) = sum 2^(-floor(log2 n/3)), two-sidedly (5/32)(pD)^(2/3) <= W <= (28/3)(pD)^(2/3): the ONE scalar the universal certificate needs exists and DIVERGES. Consequences, all explicit in the per-window isolation group Q: THEOREM NOGO-CC (for Q(pD)^(1/3) > 1.8763 the exact common-collar class truth exceeds 1/2 -- no common-collar certificate, sharp or not, can deliver H-LOC; model normalization eliminates every window with pD > 26.42), PROP NOGO-E (E fires only if Q < 0.6608/(pD)), PROP NOGO-D (octave depth-discounting fires only if Q < 47.56/(pD) asymptotically; dead past pD = 102.93 at model normalization), THEOREM NOGO-P (any cellwise class-uniform sum/product-composed certificate dies past pdCritP(Q) = 58.84 at model normalization). MEASURED CONTRAST: the actual per-packet-depth family truth is small (0.1813 at (5,2)) while the common-collar class truth is 0.9397 -- the eliminate is architectural, not familial. REROUTE: the surviving leg is amplitude-weighted pricing of the eq (14) fixed-amplitude (1/p) family with per-packet depths (adversarial-coefficient floors do not apply there), or an extracted Q small enough to revive the menu (all evidence says Q = Theta(1)). HONEST: all no-gos conditional on the width-law port (PROP EXP: only a super-linear width exponent would change the verdict) and stated as Q-inequalities with Q unextracted; the (59,1) row is a window lower bound; nothing here touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
   rigorScope:
     "LEMMA GRID/MAP and THEOREM AW are exact integer-census statements plus elementary two-sided estimates (full-octave counting; every step explicit). THEOREM NOGO-CC uses only: the collar is at most the minimal depth, the class contains the slowest singleton at the collar, and the K = 1 truth e^(-2x) is exact and attained (imp-95217). PROP NOGO-E consumes the imp-95219 validity edge xStarSz >= 2 aStar W as proved. PROP NOGO-D and THEOREM NOGO-P consume the imp-95217 Markov floor (confluent witness, coalescence-closed classes) and the chain composition laws as proved; the dichotomy argument is elementary counting. All no-gos are scoped to the stated architecture (common collar / octave composition / cellwise class-uniform prices with sum or product composition) and to the width-law port; the numerics cross-check and are not the claim.",
 };
@@ -533,7 +533,7 @@ export const IMP95220_AWL_ASSERTIONS = [
   {
     id: "imp95220-awl-nogo-cc",
     description:
-      "THEOREM NOGO-CC: kC and the model kill line reproduce (kC = 1.8763167490012385, (kC/Q)^3 = 26.422776868750283); the collar gate anchor x < ln2/2 matches the imported imp-95217 K = 1 threshold exactly; direct rows (5,2), (7,2), (59,1), (3,4), (2,8) at model normalization have x_avail < ln2/2 so the singleton truth e^(-2 x_avail) > 1/2, and the honest survivors (11,1), (5,1), (3,1) have x_avail >= ln2/2; the exact (5,2) common-collar class truth reproduces 0.9396854422433276 (rel 1e-6) and exceeds both 1/2 and its singleton floor",
+      "THEOREM NOGO-CC: kC and the model cutoff line reproduce (kC = 1.8763167490012385, (kC/Q)^3 = 26.422776868750283); the collar gate anchor x < ln2/2 matches the imported imp-95217 K = 1 threshold exactly; direct rows (5,2), (7,2), (59,1), (3,4), (2,8) at model normalization have x_avail < ln2/2 so the singleton truth e^(-2 x_avail) > 1/2, and the honest survivors (11,1), (5,1), (3,1) have x_avail >= ln2/2; the exact (5,2) common-collar class truth reproduces 0.9396854422433276 (rel 1e-6) and exceeds both 1/2 and its singleton floor",
     holds: () => {
       const rel = (a, b, t) => Math.abs(a - b) <= t * Math.abs(b);
       if (!rel(K_C, ((32 / 31) * Math.pow(2, -2 / 3) * 2) / Math.log(2), 1e-15))
@@ -633,7 +633,7 @@ export const IMP95220_AWL_ASSERTIONS = [
   {
     id: "imp95220-awl-nogo-p",
     description:
-      "THEOREM NOGO-P: pdCritP(Q_model) reproduces 58.83683065351219 (rel 1e-12); the Markov-floor gate Q(2K-1, (2K-1)/2) >= 1/2 holds for K = 1..40 (upper incomplete gamma, imp-95217 floor at the collar edge); the shallow count Nhalf >= pD/4 - 2 holds exactly on the census rows; pdCritP is decreasing as Q shrinks toward 0.2 (smaller Q makes the architecture harder to kill, as the honest limit records)",
+      "THEOREM NOGO-P: pdCritP(Q_model) reproduces 58.83683065351219 (rel 1e-12); the Markov-floor gate Q(2K-1, (2K-1)/2) >= 1/2 holds for K = 1..40 (upper incomplete gamma, imp-95217 floor at the collar edge); the shallow count Nhalf >= pD/4 - 2 holds exactly on the census rows; pdCritP is decreasing as Q shrinks toward 0.2 (smaller Q makes the architecture harder to eliminate, as the honest limit records)",
     holds: () => {
       const rel = (a, b, t) => Math.abs(a - b) <= t * Math.abs(b);
       if (!rel(pdCritP(Q_MODEL), PD_CRIT_P_MODEL, 1e-12)) return false;
@@ -660,7 +660,7 @@ export const IMP95220_AWL_ASSERTIONS = [
   {
     id: "imp95220-awl-measured-contrast",
     description:
-      "MEASURED CONTRAST rows reproduce (rel 1e-6): seam-convention sup 0.18133934321273545 at (5,2) full family and best 8-window 0.09468690281959193 at (59,1), both strictly below 1/2, while the common-collar class truth at (5,2) is 0.9396854422433276 -- the gap the amplitude-weighted reroute must exploit",
+      "MEASURED CONTRAST rows reproduce (rel 1e-6): seam-convention sup 0.18133934321273545 at (5,2) full family and best 8-window 0.09468690281959193 at (59,1), both strictly below 1/2, while the common-collar class truth at (5,2) is 0.9396854422433276 -- the gap the amplitude-weighted reroute must use",
     holds: () => {
       const rel = (a, b, t) => Math.abs(a - b) <= t * Math.abs(b);
       const s52 = seamSup(aliasFamily(5, 2));

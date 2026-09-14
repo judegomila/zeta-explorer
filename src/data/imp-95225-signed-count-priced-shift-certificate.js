@@ -113,7 +113,7 @@
  * -> SGN-C (any N, polynomial collar, coalescence-uniform). DOES NOT: the
  * width-law alias packets have N ~ pD with x = Theta(1) (imp-95220), deep
  * inside the vacuity region -- SGN-C does NOT certify the paper packets
- * (consistent with every imp-95220 no-go; the kill there was architectural
+ * (consistent with every imp-95220 no-go; the eliminate there was architectural
  * and this bound respects it). The WEIGHT-priced signed bound (W in place
  * of N, W possibly << N) remains OPEN: the imp-95218/95219 cross-octave
  * TVC composition is a POSITIVE-CONE device (products of (1+t_j) need
@@ -124,15 +124,15 @@
  * HONEST LIMITS. (a) The collar N ln(x/N) is a log above the linear
  * saturation necessity; the corridor 1.4427 x < N < 11.6893 x is open on
  * both sides. (b) The bound consumes only (N, x); per-packet depths
- * x_n = mu_n u_n are NOT exploited (the positive-cone chain uses them; a
+ * x_n = mu_n u_n are NOT used (the positive-cone chain uses them; a
  * signed per-node refinement is possible in principle via per-node
  * h_i = e^(-d nu_i/K) but is not done here). (c) Sharpness is fenced only
  * at N = 1 (exact) and N = 2 (factor < 8); for N >= 3 the floor is the
  * confluent Gamma-tail family, checked numerically only. (d) Model-family
  * statements; no Lambda bound changes; the paper packets stay uncertified.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) An independent adversarial referee
- * run attacked every lemma and returned VERIFIED on all six components
+ * SKEPTICAL SELF-CHECK RECORD. (1) An independent independent referee
+ * run approached every lemma and returned VERIFIED on all six components
  * with NO counterexample: ~14,000 (rate-set, d, K) pencil cases (N = 2..8,
  * five rate patterns, x in [0.01, 60]) with every double-precision
  * violation flag (746, including an impossible Lambda = 1.52 > 1)

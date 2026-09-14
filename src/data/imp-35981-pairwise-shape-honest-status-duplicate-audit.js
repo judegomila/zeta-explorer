@@ -2,7 +2,7 @@
  * @module imp-35981-pairwise-shape-honest-status-duplicate-audit
  *
  * imp-35981 (content, S-frontier ticket audit): imp-35981 asked to "Add a standalone
- * honest-status MEASUREMENT-ONLY note recording the imp-35893 finding that adversarial
+ * honest-status MEASUREMENT-ONLY note recording the imp-35893 finding that skeptical
  * pairing-tree SHAPE does NOT push pairwise summation toward its ceiling (robust to BOTH
  * tree shape and term order)".
  *
@@ -10,7 +10,7 @@
  * imp-35962-w1-pairwise-tree-shape-robust-honest-status.js is exactly this standalone
  * honest-status note -- it restates the imp-35893 worst-shape result (caterpillarR, depth
  * 3817, ~4.42e-4 of the log2(N)*eps ceiling), concludes tree SHAPE does NOT push pairwise
- * toward its ceiling "exactly as adversarial term ORDER (imp-35852) did not" (i.e. robust
+ * toward its ceiling "exactly as worst-case term ORDER (imp-35852) did not" (i.e. robust
  * to BOTH levers), and carries the same measurement-only / no-bound-change / NO QED framing
  * imp-35981 requested. imp-35981 is a DUPLICATE ticket the anti-starvation frontier scout
  * re-seeded from the same imp-35893 gap description before (or concurrently with) imp-35962
@@ -37,14 +37,14 @@ export const IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT = {
   proofSection: 'S-frontier',
   question:
     'imp-35981 asked to add a standalone honest-status MEASUREMENT-ONLY note recording the ' +
-    'imp-35893 finding that adversarial pairing-tree SHAPE does not push pairwise summation ' +
+    'imp-35893 finding that skeptical pairing-tree SHAPE does not push pairwise summation ' +
     'toward its ceiling (robust to both tree shape and term order); audit whether that note ' +
     'already exists before writing a duplicate.',
   finding:
     'DUPLICATE TICKET. imp-35962-w1-pairwise-tree-shape-robust-honest-status.js already is ' +
     'exactly this standalone honest-status note: it restates the imp-35893 worst-shape result ' +
-    '(caterpillarR, depth 3817, ~4.42e-4 of the log2(N)*eps ceiling) and concludes adversarial ' +
-    'tree SHAPE does not push pairwise toward its ceiling "exactly as adversarial term ORDER ' +
+    '(caterpillarR, depth 3817, ~4.42e-4 of the log2(N)*eps ceiling) and concludes skeptical ' +
+    'tree SHAPE does not push pairwise toward its ceiling "exactly as worst-case term ORDER ' +
     '(imp-35852) did not" -- i.e. robust to BOTH levers, verbatim the imp-35981 request.',
   duplicateOf: 'imp-35962 (the ticket that authored the pre-existing pairwise-shape honest-status note)',
   deliveredVerdict: NOTE.verdict,
@@ -70,7 +70,7 @@ export const IMP35981_PAIRWISE_SHAPE_HONEST_STATUS_DUPLICATE_AUDIT_ASSERTIONS = 
   },
   {
     id: 'imp35981-note-does-not-push-toward-ceiling',
-    description: 'The delivered note states adversarial shape does NOT push toward the ceiling',
+    description: 'The delivered note states skeptical shape does NOT push toward the ceiling',
     holds: () => /does NOT push pairwise summation toward its ceiling/.test(NOTE.conclusion),
   },
   {

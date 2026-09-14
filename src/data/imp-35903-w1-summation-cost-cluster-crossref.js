@@ -4,7 +4,7 @@
  *   summation-scheme COST cluster so a reader landing on any one of its four modules
  *   sees the full throughline: imp-35812 (single-kappa baseline: naive/pairwise/Kahan
  *   measured against the imp-35761 pessimistic linear ceiling at one fixed condition
- *   number kappa ~ 1.4e3), imp-35852 (ADVERSARIAL ORDERING: same multiset, four hostile
+ *   number kappa ~ 1.4e3), imp-35852 (SKEPTICAL ORDERING: same multiset, four hostile
  *   permutations, worst case still ~4.3 orders below the coherent N*eps ceiling),
  *   imp-35854 (KAPPA SWEEP: same schemes across ~5.3 decades of condition number,
  *   sqrt(N) u kappa confirmed a valid but untracked ceiling), and imp-35865 (import-
@@ -21,7 +21,7 @@
  *   Lambda <= 0.2 remains SOTA; NO QED.
  *
  *   @see imp-35812-w1-summation-scheme-measured-cost (single-kappa baseline)
- *   @see imp-35852-w1-summation-adversarial-ordering (adversarial term ORDER stress)
+ *   @see imp-35852-w1-summation-adversarial-ordering (worst-case term ORDER stress)
  *   @see imp-35854-w1-summation-kappa-sweep (condition-number kappa sweep)
  *   @see imp-35865-summation-scheme-ladder-viz-data (import-light viz-data for the baseline)
  *   @see imp-35725-w1-effective-error-cap-budget (names the mechanical N-term certified-rounding cost)
@@ -37,7 +37,7 @@ export const IMP35903_W1_SUMMATION_COST_CLUSTER_CROSSREF = Object.freeze({
   id: 'imp-35903',
   title:
     'Cross-reference note: the W1 summation-scheme COST cluster imp-35812 (baseline) / imp-35852 ' +
-    '(adversarial ordering) / imp-35854 (kappa sweep) / imp-35865 (viz-data), so a reader landing on ' +
+    '(skeptical ordering) / imp-35854 (kappa sweep) / imp-35865 (viz-data), so a reader landing on ' +
     'any one module sees the shared throughline',
 
   cluster: Object.freeze({
@@ -47,7 +47,7 @@ export const IMP35903_W1_SUMMATION_COST_CLUSTER_CROSSREF = Object.freeze({
       precisionNotBinding: IMP35812_W1_SUMMATION_SCHEME_MEASURED_COST.conclusion.precisionNotBinding,
     }),
     imp35852_ordering: Object.freeze({
-      role: 'STRESS 1: same multiset under four adversarial term ORDERINGS (sign-aligned, magnitude, clustered)',
+      role: 'STRESS 1: same multiset under four worst-case term ORDERINGS (sign-aligned, magnitude, clustered)',
       staysGreenfield: IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.conclusion.staysGreenfield,
       precisionNotBinding: IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.conclusion.precisionNotBinding,
     }),
@@ -63,7 +63,7 @@ export const IMP35903_W1_SUMMATION_COST_CLUSTER_CROSSREF = Object.freeze({
   }),
 
   throughline:
-    'Across the fixed baseline (imp-35812), adversarial term ORDER (imp-35852), and adversarial ' +
+    'Across the fixed baseline (imp-35812), worst-case term ORDER (imp-35852), and skeptical ' +
     'condition-number kappa (imp-35854), floating-point precision stays NON-BINDING: naive summation ' +
     'never approaches the coherent O(N.u) ceiling even under hostile permutations or ~5.3 decades of ' +
     'ill-conditioning, and pairwise / Kahan-Babuska remain robust to both levers throughout. So the sole ' +
@@ -108,7 +108,7 @@ export const IMP35903_W1_SUMMATION_COST_CLUSTER_CROSSREF_ASSERTIONS = [
   },
   {
     id: 'imp35903-throughline-names-both-levers-and-mechanical-obstruction',
-    why: 'The throughline must name both adversarial levers (ordering, kappa) and the mechanical residual.',
+    why: 'The throughline must name both worst-case levers (ordering, kappa) and the mechanical residual.',
     holds: () =>
       /NON-BINDING/.test(IMP35903_W1_SUMMATION_COST_CLUSTER_CROSSREF.throughline) &&
       /order/i.test(IMP35903_W1_SUMMATION_COST_CLUSTER_CROSSREF.throughline) &&

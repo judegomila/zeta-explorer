@@ -144,9 +144,9 @@ export const ANIMATIONS_INDEX = Object.freeze([
     external: false,
     durationLabel: '1 min 32 s · 1080p60 · Manim CE',
     description:
-      'The meta-verdict of 2026-07-16: a 16-angle adversarial assault on the ' +
+      'The meta-verdict of 2026-07-16: a 16-angle skeptical push on the ' +
       'two load-bearing walls (the C_H shock modulus; wide-support Montgomery ' +
-      'pair correlation), every angle killed by ≥2 skeptics at ≥0.82 ' +
+      'pair correlation), every angle eliminated by ≥2 skeptics at ≥0.82 ' +
       'confidence. Each route splits at one seam — the provable half is ' +
       'inert (on-basin, mesoscopic, |α| ≤ 1, finite height), the sufficient ' +
       'half is RH-hard (a uniform sub-½ zero-free strip of half-width δ ' +
@@ -195,7 +195,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     ],
     relatedRoutes: [
       { to: '/theorem-b-threshold', label: 'Theorem B threshold' },
-      { to: '/spectral-attack', label: 'Spectral attack (Θ explorer)' },
+      { to: '/spectral-attack', label: 'Spectral approach (Θ explorer)' },
     ],
   }),
   Object.freeze({
@@ -336,7 +336,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
       'ht X = 3×10¹², barrier slack (corridor margin 1.23), AFE tail (margin ' +
       '≈ 1.047) — of which only the height is load-bearing. The margin table ' +
       'runs 10,880 down to 0.14 with the failing cells traced to a ~170×-loos' +
-      'er engine, not an analytic wall; six barrier-tightening attacks die ag' +
+      'er engine, not an analytic wall; six barrier-tightening approaches die ag' +
       'ainst non-binding slack; and the one real lever — Λ ≤ 0.19 needs X = 2' +
       '×10¹³ — is a computation (mesh cost logarithmic in height), not a tric' +
       'k.',
@@ -385,7 +385,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     id: 'three-attacks',
     watchOrder: 16,
     category: 'Twin ladder & twistor geometry',
-    title: 'Three Attacks on Ghost Absence (§18)',
+    title: 'Three Approaches on Ghost Absence (§18)',
     grade: 'corrected audit — I rejected as stated; II finite model; III RH-equivalent target; nothing proves RH',
     accent: '#ff6b6b',
     videoSrc: '/animations/three-attacks.mp4',
@@ -393,23 +393,23 @@ export const ANIMATIONS_INDEX = Object.freeze([
     external: false,
     durationLabel: '59 s · 1080p60 · Manim CE',
     description:
-      'Section 18 with the corrected audit on screen: Attack I (kernel passiv' +
+      'Section 18 with the corrected audit on screen: Approach I (kernel passiv' +
       'ity) is REJECTED AS STATED — the proposed Gram-sum is a sum of squares' +
       ', positive whether or not RH holds, a detector that always says yes; A' +
       'ttack II (prime-delay domination, Re X′/X > 0 on the right half-plane)' +
       ' is a FINITE MODEL, with the retracted mis-normalized surrogate pivot ' +
-      'acknowledged; Attack III (the Krein–Langer/Pontryagin index) is the RH' +
+      'acknowledged; Approach III (the Krein–Langer/Pontryagin index) is the RH' +
       '-EQUIVALENT TARGET, with index tracking that reads 0 across the grid a' +
       'nd jumps to 1 for an injected off-line zero, exactly as it must.',
     scenes: [
       'Title — the corrected scoreboard',
-      'Attack I: rejected as stated',
-      'Attack II: finite model',
-      'Attack III: the index target',
+      'Approach I: rejected as stated',
+      'Approach II: finite model',
+      'Approach III: the index target',
       'Closing — the wall still standing',
     ],
     relatedRoutes: [
-      { to: '/three-attacks', label: 'Three attacks (§18)' },
+      { to: '/three-attacks', label: 'Three approaches (§18)' },
       { to: '/blaschke-ghosts', label: 'Blaschke ghosts (§17)' },
     ],
   }),
@@ -456,7 +456,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     external: false,
     durationLabel: '56 s · 1080p60 · Manim CE',
     description:
-      'The sole survivor of a 79-agent adversarial review of 22 candidates: a' +
+      'The sole survivor of a 79-agent skeptical review of 22 candidates: a' +
       ' Dirichlet mollifier with m₂ = −0.248 rescues a failing triangle bound' +
       ' at x₀ = 2.83×10¹³ (margin −0.1547 → +0.206) — and then the one-line z' +
       'ero-gain theorem min|Mf|/max|M| ≤ min|f| shows the min-modulus channel' +
@@ -1023,7 +1023,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
       'Independence, the impostor test, and the seventh vector',
     ],
     relatedRoutes: [
-      { to: '/spectral-attack', label: 'Spectral attack' },
+      { to: '/spectral-attack', label: 'Spectral approach' },
       { to: '/theorem-b-threshold', label: 'Theorem B threshold' },
     ],
   }),
@@ -1130,7 +1130,7 @@ export const ANIMATIONS_INDEX = Object.freeze([
     external: false,
     durationLabel: '1 min 00 s · 1080p60 · Manim CE',
     description:
-      'Strike the prime ladder once and the reverb that returns is arithmetic' +
+      'Pluck the prime ladder once and the reverb that returns is arithmetic' +
       ': each stage p echoes at delays k·log p, and the cascade’s echogram is' +
       ' exactly the von Mangoldt function — computed exactly on screen, spike' +
       's of weight Λ(n)/√n at log n for every prime power, silence at every c' +

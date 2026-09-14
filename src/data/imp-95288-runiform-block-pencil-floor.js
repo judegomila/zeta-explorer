@@ -121,7 +121,7 @@
  * r = 1.05, where SPLIT-RZ was already degrading toward its r -> 1
  * divergence).
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The det/tr step needs M PD: pair
+ * SKEPTICAL SELF-CHECK RECORD. (1) The det/tr step needs M PD: pair
  * identity is strictly positive for tau in (0, 1) (the d = 1 term
  * alone), f_a > 0 -- checked. (2) FLOAT: the smaller pencil root is
  * evaluated cancellation-free as C/(Bp + sqrt(Bp^2 - A C)) with C from

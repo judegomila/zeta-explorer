@@ -97,7 +97,7 @@
  * 2^(-theta (1-beta) J) wins, so BOTH ends of the landscape are S-prime,
  * at opposite J extremes.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) witness admissibility was checked
+ * SKEPTICAL SELF-CHECK RECORD: (1) witness admissibility was checked
  * exactly (grid membership with integer h, block membership, r_1 the
  * minimum width so the common-shape packet sits under the wider envelope);
  * (2) the shift bound direction: it LOWER-bounds the correlation, which is

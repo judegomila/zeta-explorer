@@ -56,7 +56,7 @@ const SIMS = [
   ['/oscillators', 'Prime oscillators'], ['/hamiltonian', 'Hamiltonian'], ['/zeta', 'Zeta landscape'],
   ['/waves', 'Wave simulator'], ['/fourier', 'Fourier'], ['/control', 'Control theory'],
   ['/statistics', 'Zero statistics'], ['/simulator', 'Simulator'], ['/supercritical', 'Supercritical'],
-  ['/spectral-attack', 'Spectral attack'], ['/gap-closing', 'Gap closing'], ['/formal-proof', 'Formal proof'],
+  ['/spectral-attack', 'Spectral approach'], ['/gap-closing', 'Gap closing'], ['/formal-proof', 'Formal proof'],
 ];
 
 export default function HomePageEditorial() {

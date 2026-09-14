@@ -489,7 +489,7 @@ export const IMP_1180_ASSERTIONS = [
     why:
       'A research-grade-open route map must enumerate at least 6 named obstructions ' +
       'with severity labels so that closure attempts know exactly which step to ' +
-      'attack. Listing fewer would understate the route blockage.',
+      'approach. Listing fewer would understate the route blockage.',
     holds: () => {
       const obs = IMP_1180_HIGHER_ORDER_CORRELATION_ROUTE.namedObstructions;
       const requiredIds = ['O-HOC-A', 'O-HOC-B', 'O-HOC-C', 'O-HOC-D', 'O-HOC-E', 'O-HOC-F'];

@@ -149,7 +149,7 @@ export default function Imp33594EnvelopeUnderReferenceLibmViz() {
         ULP below the fp64-named ~{IMP33594_FP64_ENVELOPE_ULP.toFixed(2)} ULP --
         a double-libm round-off artifact. Since the reference envelope is
         below the fp64 one, the shipped envelope stays a valid (slightly
-        conservative) upper bound, never breached.
+        conservative) upper bound, never crossed.
       </p>
 
       <div

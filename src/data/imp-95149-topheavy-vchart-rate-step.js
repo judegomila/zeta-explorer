@@ -41,7 +41,7 @@
  * 6567724 cells, depth 70, about 100 s, recomputed by the assertions on
  * every sweep.
  *
- * ADVERSARIAL SELF-CHECK RECORD (what did NOT land, measured in-run):
+ * SKEPTICAL SELF-CHECK RECORD (what did NOT land, measured in-run):
  * (1) The next step DOWN is a genuine budget wall on BOTH remaining
  *     channels: L2 at 471/2000 = 0.2355 stalls with 29 unresolved at
  *     1.3e7 cells (and at 47/200 the imp-95148 record has 1.6e7 stalls);
@@ -191,7 +191,7 @@ function polish(M, v0, iters) {
   for (let it = 0; it < iters; it++) {
     const w = [0, 0, 0, 0, 0];
     for (let i = 0; i < 5; i++) {
-      let s = v[i]; // +I shift: kills bipartite oscillation, same Perron vector
+      let s = v[i]; // +I shift: eliminates bipartite oscillation, same Perron vector
       for (let j = 0; j < 5; j++) s += M[i][j] * v[j];
       w[i] = s;
     }
@@ -227,7 +227,7 @@ function makeCellV(T, dropA, dropB, hasMu) {
     const muAxHi = hasMu ? b.hi[p + 3] : MU_CL;
     // order-cone clamp (v1 <= v2 <= v3 <= v4 for every true config):
     // prefix-max the lower corners, suffix-min the upper corners - exact
-    // for box intersect cone, kills boundary-straddling pseudo-corners
+    // for box intersect cone, eliminates boundary-straddling pseudo-corners
     v2a = Math.max(v2a, v1a);
     v3a = Math.max(v3a, v2a);
     v4a = Math.max(v4a, v3a);
@@ -633,7 +633,7 @@ function rnd() {
   return seedState / 0x7fffffff;
 }
 
-// battery VC-T2 (seed 636363): the production L2 hybrid mode attacked
+// battery VC-T2 (seed 636363): the production L2 hybrid mode approached
 // directly at the NEW floor - seeded true in-class configurations vs their
 // enclosing finite v-cells: (i) the feasibility predicate never prunes a
 // cell containing a true point, (ii) every entry cap dominates the sampled
@@ -726,7 +726,7 @@ function kernelK(a, b, tau) {
   return (2 * (b * Math.exp(-a * tau) - a * Math.exp(-b * tau))) / (b * b - a * a);
 }
 
-// battery W (seed 727272): THEOREM VT attacked directly with the UPDATED
+// battery W (seed 727272): THEOREM VT approached directly with the UPDATED
 // position-resolved rate floors - heavy at relative position 0 or >= 3 gets
 // rates >= 47/200, position 2 gets >= 59/250 (NEW), position 1 gets >= 121/500
 function runWitnessBattery() {
@@ -845,7 +845,7 @@ export const IMP95149_TOPHEAVY_VCHART_RATE_STEP_ASSERTIONS = [
   {
     id: "imp95149-vc-t2-battery",
     description:
-      "the production L2 hybrid mode attacked directly at the NEW floor 59/250: 3000 seeded true in-class configurations vs enclosing finite v-cells - the feasibility predicate never prunes a cell containing a true point AND every entry cap dominates the sampled true bond (zero violations)",
+      "the production L2 hybrid mode approached directly at the NEW floor 59/250: 3000 seeded true in-class configurations vs enclosing finite v-cells - the feasibility predicate never prunes a cell containing a true point AND every entry cap dominates the sampled true bond (zero violations)",
     holds: () =>
       BAT_VC_T2.viol === 0 &&
       BAT_VC_T2.feasViol === 0 &&
@@ -856,7 +856,7 @@ export const IMP95149_TOPHEAVY_VCHART_RATE_STEP_ASSERTIONS = [
   {
     id: "imp95149-witness-battery",
     description:
-      "THEOREM VT attacked directly with the UPDATED position-resolved rate floors: 5000 seeded in-class witnesses (heavy block at every relative position, BOTH parities, floors 47/200 / 59/250 / 121/500 by position, pinned at the floor every third draw) - zero E > 0 draws",
+      "THEOREM VT approached directly with the UPDATED position-resolved rate floors: 5000 seeded in-class witnesses (heavy block at every relative position, BOTH parities, floors 47/200 / 59/250 / 121/500 by position, pinned at the floor every third draw) - zero E > 0 draws",
     holds: () =>
       BAT_W.viol === 0 && BAT_W.maxE < 0 && BAT_W.count > 4500 && BAT_W.posCounts[2] > 200 && BAT_W.posCounts[1] > 200,
   },

@@ -108,11 +108,11 @@
  * (d) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) The K_skew closed form was checked
+ * SKEPTICAL SELF-CHECK RECORD: (1) The K_skew closed form was checked
  * against Simpson quadrature (rel <= 1e-4 at the module resolution, and
  * to 2.7e-7 offline at 400000 panels). (2) The Lemma TK identity was
- * attacked on a 1500-cell parameter grid: worst relative error 1.1e-14
- * (it is exact). (3) The Lemma TK inequality was attacked on a dense grid
+ * approached on a 1500-cell parameter grid: worst relative error 1.1e-14
+ * (it is exact). (3) The Lemma TK inequality was stress-tested on a dense grid
  * over (a, b, tau, eta); an initial wide-range sweep flagged 9 apparent
  * violations, ALL of which sat in the subnormal-float zone
  * (a tau > 700, values near 1e-321); recomputing the worst flagged point
@@ -120,12 +120,12 @@
  * analytic form gives ratio 0.988 < 1 - the violations are denormal
  * rounding noise, and the well-conditioned grid shows zero violations
  * with worst ratio exactly 1 at the proven tau = 0 equality corner.
- * (4) The tilted-norm bound was attacked with 4000 seeded random clusters
+ * (4) The tilted-norm bound was stress-tested with 4000 seeded random clusters
  * (mixed rates, zero amplitudes included): zero violations, worst ratio
  * 0.998476609175042 - the bound is honest and near-tight. (5) The cluster
- * cap was attacked with 30000 seeded free-rate cluster pairs at four eta
+ * cap was stress-tested with 30000 seeded free-rate cluster pairs at four eta
  * fractions each: zero violations, worst ratio 0.9142811190732341.
- * (6) The theorem battery attacks THEOREM TC directly: 6000 seeded
+ * (6) The theorem battery probes THEOREM TC directly: 6000 seeded
  * parity-pure multi-packet witnesses (2-5 blocks, up to 5 packets per
  * block, mixed rates >= 9/20, amplitudes including zeros, both parities):
  * max E = -0.029371809077182887 strictly negative, zero E > 0 draws.
@@ -259,7 +259,7 @@ function mkCluster(b, mMax, rateLo, rateHi) {
   return { b, us, as, mus };
 }
 
-// battery A: Lemma TN tilted-norm attack (seed 9876, free clusters)
+// battery A: Lemma TN tilted-norm approach (seed 9876, free clusters)
 function runTiltedNormBattery() {
   seedState = 9876;
   let worst = 0;
@@ -287,7 +287,7 @@ function runTiltedNormBattery() {
   return { worst, viol };
 }
 
-// battery B: tilt cluster-cap attack (seed 4242, free rates 0.05..50)
+// battery B: tilt cluster-cap approach (seed 4242, free rates 0.05..50)
 function runCapBattery() {
   seedState = 4242;
   let worst = 0;
@@ -318,7 +318,7 @@ function runCapBattery() {
   return { worst, viol };
 }
 
-// battery C: THEOREM TC direct attack (seed 12345, rates >= 9/20)
+// battery C: THEOREM TC direct approach (seed 12345, rates >= 9/20)
 function runTheoremBattery() {
   seedState = 12345;
   let maxE = -Infinity;
@@ -498,7 +498,7 @@ export const IMP95133_TILTED_CLUSTER_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95133-tc-tilted-norm-battery",
     description:
-      "Lemma TN attack: 4000 seeded random clusters (mixed rates 1x..50x the floor, zero amplitudes included, eta up to 0.98 mu) - zero violations of the tilted-norm bound, worst ratio 0.998476609175042 (near-tight)",
+      "Lemma TN approach: 4000 seeded random clusters (mixed rates 1x..50x the floor, zero amplitudes included, eta up to 0.98 mu) - zero violations of the tilted-norm bound, worst ratio 0.998476609175042 (near-tight)",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_TN.viol === 0 && rel(BAT_TN.worst, BAT_TN_WORST_LIT, 1e-6) && BAT_TN.worst < 1 && BAT_TN.worst > 0.99;
@@ -507,7 +507,7 @@ export const IMP95133_TILTED_CLUSTER_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95133-tc-cluster-cap-battery",
     description:
-      "tilt cluster-cap attack: 30000 seeded free-rate same-parity cluster pairs at four eta fractions each - zero violations of rho <= [mu^2/(mu^2 - eta^2)] exp(-eta D), worst ratio 0.9142811190732341",
+      "tilt cluster-cap stress-test: 30000 seeded free-rate same-parity cluster pairs at four eta fractions each - zero violations of rho <= [mu^2/(mu^2 - eta^2)] exp(-eta D), worst ratio 0.9142811190732341",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_CAP.viol === 0 && rel(BAT_CAP.worst, BAT_CAP_WORST_LIT, 1e-6) && BAT_CAP.worst < 1;

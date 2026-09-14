@@ -1,7 +1,7 @@
 /**
  * @module imp-35973-w1-summation-order-shape-cross-term
  *
- * imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two adversarial
+ * imp-35973 (numerical, S-frontier): MEASURE the CROSS-TERM of the two skeptical
  * pairwise-summation stresses that imp-35852 and imp-35893 each explored on only one
  * axis -- apply BOTH stresses SIMULTANEOUSLY and compare to each single-stress worst.
  *
@@ -55,7 +55,7 @@
  * growing left accumulator. YET even the combined worst-case pairwise error stays BELOW
  * the log2(N)*eps ceiling (ratio ~0.10, i.e. still ~9.7x under it; crossCatL ~2.4x under),
  * and its own depth*eps worst-case bound (~8.5e-13 at depth 3817) is still under-realized
- * by ~5.1e-4. Pairwise does NOT attain its ceiling even when both adversarial levers are
+ * by ~5.1e-4. Pairwise does NOT attain its ceiling even when both worst-case levers are
  * pulled together. All configurations remain ~9+ orders below the O(1) barrier margin
  * |A_t + B_t| - |C_t| (imp-35760); Kahan-Babuska on the same clustered order stays at the
  * unit-roundoff floor (~2.31e-19). CONCLUSION: the order and shape stresses are NOT
@@ -247,7 +247,7 @@ export const IMP35973_W1_SUMMATION_ORDER_SHAPE_CROSS_TERM = {
   proofSection: 'S-frontier',
   question:
     'Does COMBINING the imp-35852 worst term ORDER (clustered same-sign runs) with the imp-35893 worst ' +
-    'pairing-tree SHAPE (caterpillarR) -- both adversarial stresses at once -- push pairwise summation ' +
+    'pairing-tree SHAPE (caterpillarR) -- both skeptical stresses at once -- push pairwise summation ' +
     'higher than either single-axis stress alone on the fixed imp-35812 N ~ 488602 term family? ' +
     'Measurement only; certifies no W1 bound; changes no bound; NO QED.',
   representativeSum: {
@@ -302,7 +302,7 @@ export const IMP35973_W1_SUMMATION_ORDER_SHAPE_CROSS_TERM = {
     stressesCompound:
       'the combined worst ORDER x worst SHAPE error ~4.32e-16 is HIGHER than either single-stress worst -- ' +
       '~13.7x the order-only worst (~3.15e-17) and ~233x the shape-only worst (~1.85e-18) -- so the two ' +
-      'adversarial levers COMPOUND rather than cancel or stay independent',
+      'worst-case levers COMPOUND rather than cancel or stay independent',
     superAdditive:
       'the compounding is SUPER-ADDITIVE: the combined error ~4.32e-16 is ~13x the naive SUM of the two ' +
       'single-stress errors (~3.33e-17), so the interaction is more than additive -- the hostile ordering ' +
@@ -332,12 +332,12 @@ export const IMP35973_W1_SUMMATION_ORDER_SHAPE_CROSS_TERM = {
       'to the pairwise log2(N)*eps ceiling by ~1.3 orders versus either lever alone',
     ceilingStillNotAttained:
       'the combined worst-case pairwise error still stays ~9.7x BELOW the log2(N)*eps ceiling (~10% of it) -- ' +
-      'even both adversarial levers together do not push pairwise to attain its ceiling on this data',
+      'even both worst-case levers together do not push pairwise to attain its ceiling on this data',
     precisionNotBinding:
       'achievable double precision leaves strict headroom under the COMBINED worst-case order x shape stress; ' +
       'precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures pairwise errors under the combined adversarial stress only; it evaluates no sum ' +
+      'this module measures pairwise errors under the combined skeptical stress only; it evaluates no sum ' +
       'of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD ' +
       '(imp-35681 Part A) and MECHANICAL (imp-35725)',
   },
@@ -345,7 +345,7 @@ export const IMP35973_W1_SUMMATION_ORDER_SHAPE_CROSS_TERM = {
   verdict:
     'NUMERICAL MEASUREMENT (frontier-direction, NOT a certified bound). Summing the FIXED imp-35812 length-N ' +
     '= 488602 term multiset under the imp-35852 worst term ORDER (clustered same-sign runs) evaluated on the ' +
-    'imp-35893 worst pairing-tree SHAPE (caterpillarR, depth 3817) -- both adversarial levers on at once -- ' +
+    'imp-35893 worst pairing-tree SHAPE (caterpillarR, depth 3817) -- both worst-case levers on at once -- ' +
     'against the SAME order- and association-invariant exact BigInt reference, the combined pairwise ' +
     'normalized error is ~4.32e-16: ~13.7x the order-only worst (~3.15e-17), ~233x the shape-only worst ' +
     '(~1.85e-18), and ~13x the naive SUM of the two single-stress errors. The two stresses COMPOUND ' +

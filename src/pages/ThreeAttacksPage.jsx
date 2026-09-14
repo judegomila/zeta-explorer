@@ -238,11 +238,11 @@ export default function ThreeAttacksPage() {
           <span style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.7 }}>
             {' '}the unsigned kernel is PSD by construction, finite prime-delay plots do not control
             the infinite critical-line object, and adelic self-duality does not prove Weil positivity.
-            No attack on this page currently proves <InlineMath tex="\Lambda\le0" /> or RH.
+            No approach on this page currently proves <InlineMath tex="\Lambda\le0" /> or RH.
           </span>
         </div>
 
-        <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 12 }}>The three attacks</h2>
+        <h2 className="ed-h2" style={{ marginTop: 8, marginBottom: 12 }}>The three approaches</h2>
         <div style={{ display: 'grid', gap: 14 }}>
           {ATTACKS.map((attack) => (
             <AttackCard

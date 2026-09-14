@@ -1,5 +1,5 @@
 // @module data/imp-1265-section27-identity-recheck
-// imp-1265 -- OPUS-4.8 adversarial recheck of the SINGLE load-bearing
+// imp-1265 -- OPUS-4.8 skeptical recheck of the SINGLE load-bearing
 // paper-construct identity on which the imp-1258 two-way collapse rests:
 //
 //     [[I, V_{a,Φ}], [V_{a,Φ}^*, I]] ⪰ 0    ⇔    K_a ⪰ 0
@@ -602,7 +602,7 @@ const HONEST_SCOPE = Object.freeze([
     '(π (w̄ − z)) and the standard de Branges form (B(z) A(w̄) − A(z) B(w̄)) ' +
     '/ (π (z − w̄)) agree up to the cosmetic (z − w̄) vs (w̄ − z) sign — both ' +
     'definitions are consistent.',
-  'The axis (d) bidirectionality finding is the central adversarial output ' +
+  'The axis (d) bidirectionality finding is the central skeptical output ' +
     'of this audit: the §27 paper-construct identity is asymmetric, with ' +
     'only the FORWARD direction (‖V‖ ≤ 1 ⇒ K_a ⪰ 0) explicitly argued in ' +
     '§25-27. The reverse direction relies on Arov-Nudelman 1996 passive ' +
@@ -688,7 +688,7 @@ export const IMP_1265_SECTION27_IDENTITY_RECHECK = Object.freeze({
   paperSections: Object.freeze(['§25', '§26', '§27']),
 
   question:
-    'Adversarial recheck of the §27 paper-construct identity ' +
+    'Skeptical recheck of the §27 paper-construct identity ' +
     '[[I, V_{a,Φ}], [V_{a,Φ}^*, I]] ⪰ 0 ⇔ K_a ⪰ 0 on which the imp-1258 ' +
     'two-way collapse rests. Five axes (a-e): construction / operator class ' +
     '/ boundary + Wiener-Hopf / bidirectionality / unstated regularity.',
@@ -747,7 +747,7 @@ export const IMP_1265_SECTION27_IDENTITY_RECHECK_ASSERTIONS = [
   {
     id: 'imp1265-axis-d-flags-asymmetric-bidirectionality-as-the-core-finding',
     why:
-      'The central adversarial finding is that the §27 paper-construct ' +
+      'The central skeptical finding is that the §27 paper-construct ' +
       'identity is asymmetric: the FORWARD direction (‖V‖ ≤ 1 ⇒ K_a ⪰ 0) ' +
       'is argued in §25-27 but the REVERSE direction (K_a ⪰ 0 ⇒ ‖V‖ ≤ 1) ' +
       'is asserted, not proved. Axis (d) must surface this finding ' +

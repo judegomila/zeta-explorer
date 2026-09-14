@@ -100,7 +100,7 @@
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) In-class membership attacked: grid
+ * SKEPTICAL SELF-CHECK RECORD. (1) In-class membership stress-tested: grid
  * extremality and block membership are integer arithmetic (asserted);
  * blocks 0/2/4 all even (parity-pure); amplitudes positive integers;
  * rates equal at 11603/50000 - the same conventions THEOREM WE used for
@@ -108,7 +108,7 @@
  * Collatz-Wielandt max-ratio bound is an UPPER bound on lamMax for any
  * positive test vector, so a bad baked vector can only WEAKEN the
  * corollary (make the bound exceed 1), never fake it. (3) The
- * mixed-rate reduction was attacked with a 20000-draw Lemma RC spot
+ * mixed-rate reduction was stress-tested with a 20000-draw Lemma RC spot
  * battery at the actual gap scales (worst ratio 0.9999866355395278,
  * zero violations) and a 20000-draw free-rate family battery at rates
  * >= 2901/12500 (max E = -2.74e-4 < 0, zero E > 0). (4) Pushing the
@@ -271,7 +271,7 @@ function runRcBattery() {
   return { viol, worst };
 }
 
-// battery FX (seed 515152): COROLLARY FR attack - free rates >= MU_FX and
+// battery FX (seed 515152): COROLLARY FR approach - free rates >= MU_FX and
 // free amplitudes at the FIXED grid positions, rate-pinned every third draw
 function runFxBattery() {
   seedState = 515152;
@@ -497,7 +497,7 @@ export const IMP95141_WITNESS_SATURATION_CERTIFICATE_ASSERTIONS = [
   {
     id: "imp95141-fr-family-battery",
     description:
-      "COROLLARY FR attacked directly: 19926 seeded fixed-position witnesses with free rates >= 2901/12500 and free amplitudes (rate-pinned at the floor every third draw) - max E = -0.0002742814915762471 strictly negative, zero E > 0 draws",
+      "COROLLARY FR approached directly: 19926 seeded fixed-position witnesses with free rates >= 2901/12500 and free amplitudes (rate-pinned at the floor every third draw) - max E = -0.0002742814915762471 strictly negative, zero E > 0 draws",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (

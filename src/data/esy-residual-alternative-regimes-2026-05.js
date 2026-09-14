@@ -43,7 +43,7 @@
  * tickets imp-407, imp-508, imp-1108, imp-1128, imp-1147. JSDoc header added
  * by imp-2408.
  */
-// imp-1149-sub-erdos-schlein-yau-port-residual -- attack on the imp-407 /
+// imp-1149-sub-erdos-schlein-yau-port-residual -- approach on the imp-407 /
 // imp-508 honest-partial ESY closure C_poly = 1 residual.
 //
 // CONTEXT
@@ -66,7 +66,7 @@
 // deviation of the empirical Stieltjes transform imaginary part from the
 // constant-density bulk limit -pi). Both fall flat in N -- no decay at all.
 //
-// THIS FILE attacks a different question: is there ANY natural scaling
+// THIS FILE approaches a different question: is there ANY natural scaling
 // regime, OBSERVABLE or LINEAR-STATISTIC, where the Riemann zeros DO
 // satisfy an ESY-rate-like (1/N) decay? Even a partial answer narrows the
 // imp-1149 residual: a regime where rigidity DOES hold would give a
@@ -644,7 +644,7 @@ export const ESY_RESIDUAL_ATTEMPT_ASSERTIONS = [
       'ESY-INCOMPATIBLE or INCONCLUSIVE -- none should be ESY-COMPATIBLE. This is the central ' +
       'finding that confirms imp-1108 / imp-1128 and rules out the intermediate alpha alternative. ' +
       'If any R1 alpha became ESY-COMPATIBLE, it would falsify the surveying conclusion and ' +
-      'require re-routing the residual attack.',
+      'require re-routing the residual approach.',
   },
   {
     id: 'imp1149-sub-esy-residual-named-obstructions-five-or-more',

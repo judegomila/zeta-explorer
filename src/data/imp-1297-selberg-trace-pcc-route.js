@@ -80,7 +80,7 @@
  *
  *   STATUS NOTE FOR LAMBDA-ATTACK PLANNING
  *   --------------------------------------
- *   After imp-1297, the live attack surface against gap-PCC-2pt remains
+ *   After imp-1297, the live approach map against gap-PCC-2pt remains
  *   bottlenecked at Montgomery's original 1973 conjecture. Selberg trace
  *   does NOT open a new unconditional path. Engine bandwidth for Route 1
  *   closure should remain focused on direct progress against PCC (e.g.
@@ -515,7 +515,7 @@ const VERDICT_DETAIL = Object.freeze({
   implicationForLambdaAttack:
     'PCC remains the binding obstruction for Route 1 of the ESY-closure. ' +
     'Engine bandwidth should NOT be redirected to Selberg-trace lifts; the ' +
-    'route does not deliver unconditional progress. Productive direct attack ' +
+    'route does not deliver unconditional progress. Productive direct approach ' +
     'on PCC (Goldston-Gonek 1998 second-moment refinements) remains the open ' +
     'lever.',
 });

@@ -37,7 +37,7 @@
 //   (b) 0 IS IN THE CLOSURE -- SO THE TOPOLOGICAL TEST FAILS. Because the closure
 //       is all of C, it trivially contains 0. The ticket asked: "if 0 were NOT in
 //       the closure, that would be RH on the strip." The answer is the opposite
-//       of what a naive attack hopes: 0 is always in the closure, for EVERY
+//       of what a naive approach hopes: 0 is always in the closure, for EVERY
 //       sigma in (1/2, 1), independently of RH. So a closure / topological-
 //       boundary test CANNOT distinguish RH from its negation. The obstruction is
 //       structural and is the same rigidity wall as imp-1334: denseness (closure
@@ -312,7 +312,7 @@ export const IMP_1335_SUPER_CRITICAL_STRIP_TOPOLOGY_ASSERTIONS = [
     why:
       'The measure-theoretic refinement turns on the fact that a strip zero is a ' +
       'measure-ZERO event: the limiting distribution assigns mass 0 to the point {0}. If ' +
-      'this were recorded as positive, the density-at-0 attack would look viable when it is ' +
+      'this were recorded as positive, the density-at-0 approach would look viable when it is ' +
       'not.',
     holds: () => {
       const m = IMP_1335_SUPER_CRITICAL_STRIP_TOPOLOGY.measureRefinement;

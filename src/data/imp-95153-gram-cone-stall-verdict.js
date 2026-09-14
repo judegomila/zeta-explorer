@@ -33,7 +33,7 @@
  * The runner is UNCHANGED since its imp-95150 commit (verified via git
  * history); the identical code path is bit-identity-anchored in-sweep by
  * the imp-95151/imp-95152 modules (T=2 anchor at 121/500, EXACT count
- * 552139), and the imp-95152 in-sweep witness battery already attacks
+ * 552139), and the imp-95152 in-sweep witness battery already approaches
  * the whole strip at the new floor every sweep (zero E > 0). SUPERSEDED
  * BY ITS OWN RUN: the imp-95152 "cell ladder breaks below 0.236 /
  * budget priced out" verdict - the 0.2355 stall at 4.5e8 was
@@ -716,7 +716,7 @@ export const IMP95153_GRAM_CONE_STALL_VERDICT = {
     cmd: "node scripts/imp-95150-pd2-vchart-offline-cover.mjs 1 0.235 9e8 1 0",
     result: { T: 1, floor: 0.235, budget: 900000000, pd2: true, cells: 871931041, worst: 0.9999999999983423, maxDepth: 81, unresolved: 0, pruned: 2150982, secs: 12620.807 },
     marginNote:
-      "worst certified cell bound 0.9999999999983423 - margin 1.66e-12, thin but sound: every cap stage rounds AGAINST certification and the bisection splits until the strict bound < 1 holds. Runner unchanged since its imp-95150 commit; code path bit-identity-anchored in-sweep by the imp-95151/imp-95152 modules (T=2 anchor, EXACT count 552139); the imp-95152 in-sweep witness battery attacks the whole strip at this floor every sweep (zero E > 0).",
+      "worst certified cell bound 0.9999999999983423 - margin 1.66e-12, thin but sound: every cap stage rounds AGAINST certification and the bisection splits until the strict bound < 1 holds. Runner unchanged since its imp-95150 commit; code path bit-identity-anchored in-sweep by the imp-95151/imp-95152 modules (T=2 anchor, EXACT count 552139); the imp-95152 in-sweep witness battery probes the whole strip at this floor every sweep (zero E > 0).",
     supersedes: ["THEOREM VW middle constant 59/250", "imp-95152 ladder-break / budget-priced-out verdict (its own pending run closed the strip at 2x the stalled budget)"],
     jointThreshold: 47 / 200,
   },

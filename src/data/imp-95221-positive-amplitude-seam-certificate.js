@@ -23,7 +23,7 @@
  * kept. THIS MODULE DELIVERS LEG (beta) at model level. The mechanism is
  * exactly the one the imp-95220 NOGO-P honest scope left open: a bound
  * that uses the actual amplitudes (here: only their SIGNS) instead of
- * pricing a coalescence-closed class at adversarial coefficients.
+ * pricing a coalescence-closed class at skeptical coefficients.
  *
  * SETTING (seam convention, the imp-95220 measured-contrast object).
  * Packets f_n(s) = e^(-mu_n |s - u_n|), rates mu_n > 0, centers u_n > 0;
@@ -61,7 +61,7 @@
  * < 1/(2mu_n) = G_nn/2). QED. NOTE what is ABSENT: no separation, count,
  * occupancy, ratio-floor or weight hypothesis, and the per-packet depths
  * are KEPT -- the hypothesis is amplitude POSITIVITY alone. This is
- * outside every class priced (or killed) by the imp-95211..95220 chain:
+ * outside every class priced (or eliminated) by the imp-95211..95220 chain:
  * the LEMMA R1 collapse that fed NOGO-CC absorbs depths into FREE-sign
  * coefficients, and the mediant step is exactly where free signs break.
  *
@@ -113,7 +113,7 @@
  * constants (c, v, D -- equivalently Q -- per window). (e) Model-family
  * constants throughout; nothing here touches any Lambda bound.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA PW attacked by a 50000-draw
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA PW approached by a 50000-draw
  * seeded battery on exact kernels: no violation; worst observed
  * H/(e^(-x_shallow) G) = 0.4957 -- the visible factor-2 slack is recorded
  * as one-sided coverage, and a sharpening to e^(-x_min)/2 was ATTEMPTED
@@ -130,7 +130,7 @@
  * fence tight) was REFUTED: equal amplitudes DILUTE (0.0299 < 0.0677 at
  * (997,1)) because deep packets add right-side mass; recorded as the
  * trap of this leg -- the fence witness is the singleton, not the
- * equal-amplitude point. (6) The mediant step was attacked with signed
+ * equal-amplitude point. (6) The mediant step was stress-tested with signed
  * weights: a single negative product breaks it (no theorem claimed there;
  * limit (a)). (7) x(D/2) = 1/Q and qStarFA = qModel/ln 2 tied to the
  * imported imp-95220 constants exactly.
@@ -139,7 +139,7 @@
  * OPEN, further narrowed: reroute leg (beta) EXISTS at model level (this
  * module). Remaining obligations: (1) per-window Q extraction, now the
  * O(1) test Q < 0.9088 instead of the dead O((pD)^(-1/3)) ladder --
- * Q = Theta(1) evidence no longer kills the route, it makes the test
+ * Q = Theta(1) evidence no longer eliminates the route, it makes the test
  * live; (2) per-window amplitude-sign (or modulus) certificate for the
  * true Fresnel-Airy packets; (3) the envelope-shape port and the
  * seam-to-chain-gate map; (4) paper constants per window. Leg (alpha)
@@ -220,7 +220,7 @@ function seededRand(seedInit) {
 // ── verdict object ───────────────────────────────────────────────────────────
 export const IMP95221_POSITIVE_AMPLITUDE_SEAM_CERTIFICATE = {
   ticket:
-    "imp-95221 (thirteenth leg of the seam chain: the amplitude-weighted pricing leg (beta) of the imp-95220 reroute of the open sub-gap imp-95212-subgap-fresnel-airy-envelope-port is DELIVERED at model level -- a positive-amplitude seam certificate with per-packet depths kept, no structural hypothesis of any kind, whose validity gate on the width-law alias grid is the (p, D)-uniform O(1) test Q < 2^(-2/3)/ln 2, outside the architecture killed by NOGO-CC/E/D/P)",
+    "imp-95221 (thirteenth leg of the seam chain: the amplitude-weighted pricing leg (beta) of the imp-95220 reroute of the open sub-gap imp-95212-subgap-fresnel-airy-envelope-port is DELIVERED at model level -- a positive-amplitude seam certificate with per-packet depths kept, no structural hypothesis of any kind, whose validity gate on the width-law alias grid is the (p, D)-uniform O(1) test Q < 2^(-2/3)/ln 2, outside the architecture eliminated by NOGO-CC/E/D/P)",
   lemmaPW:
     "pairwise seam inequality: for two-sided exponential packets with centers u_m >= u_n > 0, H_mn <= e^(-x_n) G_mn with x_n the depth-rate product of the SMALLER-center packet (proof: G_mn dominates its s <= u_n piece e^(-mu_m (u_m - u_n))/(mu_m + mu_n) and mu_m (u_m - u_n) <= x_m; H_mn = e^(-(x_m + x_n))/(mu_m + mu_n) exactly); the deep-exponent variant is FALSE (explicit row H about 7.8 x e^(-x_deep) G); pointwise reflection adds the unconditional H_mn <= G_mn / 2.",
   theoremFA:
@@ -239,7 +239,7 @@ export const IMP95221_POSITIVE_AMPLITUDE_SEAM_CERTIFICATE = {
     qModelCarried: Q_MODEL,
   },
   subGap:
-    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed: reroute leg (beta) EXISTS at model level (THEOREM FA + COROLLARY QG: amplitude positivity alone prices the ported family with per-packet depths kept, gate Q < 0.9088 uniform in (p, D)). Remaining obligations: (1) per-window Q extraction -- now a LIVE O(1) test Q < qStarFA instead of the dead O((pD)^(-1/3)) ladder (Q = Theta(1) evidence no longer kills the route); (2) the per-window amplitude-sign (or modulus-reduction) certificate for the true Fresnel-Airy packets -- eq (14) pins amplitudes at +1/p but the carrier phases are an extraction obligation, and positivity is load-bearing; (3) the envelope-shape port (two-sided exponential model vs true Fresnel-Airy envelope) and the seam-convention to chain-gate (gammaSL-form) map; (4) the paper constants (c, v, D -- equivalently Q -- per window). Leg (alpha) unchanged.",
+    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed: reroute leg (beta) EXISTS at model level (THEOREM FA + COROLLARY QG: amplitude positivity alone prices the ported family with per-packet depths kept, gate Q < 0.9088 uniform in (p, D)). Remaining obligations: (1) per-window Q extraction -- now a LIVE O(1) test Q < qStarFA instead of the dead O((pD)^(-1/3)) ladder (Q = Theta(1) evidence no longer eliminates the route); (2) the per-window amplitude-sign (or modulus-reduction) certificate for the true Fresnel-Airy packets -- eq (14) pins amplitudes at +1/p but the carrier phases are an extraction obligation, and positivity is load-bearing; (3) the envelope-shape port (two-sided exponential model vs true Fresnel-Airy envelope) and the seam-convention to chain-gate (gammaSL-form) map; (4) the paper constants (c, v, D -- equivalently Q -- per window). Leg (alpha) unchanged.",
   verdict:
     "RIGOROUS step: the imp-95220 reroute leg (beta) is delivered at model level. LEMMA PW (pairwise seam inequality H_mn <= e^(-x_shallower) G_mn, exact wrong-side Gram vs a one-region lower bound on the full-line Gram; the deep-exponent variant refuted by an explicit row) + THEOREM FA (mediant over nonnegative pair weights: for ANY amplitudes c_n >= 0 the wrong-side mass fraction obeys R <= min(1/2, e^(-x_min)) with x_min the minimal PER-PACKET depth-rate product -- no collar, no separation, no count, no occupancy, no weight; strictly below 1/2 always) + COROLLARY QG (width-law grid: R <= e^(-2^(-2/3)/Q) uniform in (p, D); margin positive iff Q < qStarFA = 0.908840925297475; model normalization fires all D = 1 windows p-uniformly at e^(-1); at (997,1) every imp-95220 no-go is engaged yet the certificate holds at 0.3676, measured truth 0.0299) + PROP FEN-C (cone fence e^(-2 x_min)/2 <= cone sup <= e^(-x_min), lower fence attained by the shallowest singleton). The certificate is the first in the chain whose validity domain does not shrink with pD: amplitude positivity converts the required isolation from Q = O((pD)^(-1/3)) to Q = O(1). HONEST: positivity is load-bearing (signed sups not addressed; the Fresnel-Airy phase structure is a NEW named obligation); the bound is one-sided with measured 5-12x coverage gap; the gate misses D >= 2 at model normalization (non-coverage recorded); the gammaSL-form chain-gate map, the envelope shape and the per-window Q remain OPEN; nothing here touches any Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
   rigorScope:

@@ -48,7 +48,7 @@
 // asymptotically Gaussian. Combined with the sine-kernel local-statistics
 // limit for Riemann zeros (Montgomery PCC conjecture), this would imply a
 // rigorous CLT for the linear-statistics observable used in the imp-407 /
-// imp-508 attack chain (the same observable empirically confirmed by
+// imp-508 approach chain (the same observable empirically confirmed by
 // imp-1162 / imp-1166 at slope -0.997 in [-1.029, -0.949] after Conrey-Snaith
 // correction).
 //
@@ -230,7 +230,7 @@ const CUE_SOSHNIKOV_THEOREM = Object.freeze({
 //     to compute Var via the integral identity. Selberg gives only an UPPER
 //     BOUND on rho_2 - 1 (after subtracting the diagonal), so the resulting
 //     variance estimate is ONE-SIDED.
-//   - Soshnikov needs rho_m for all m >= 3 to kill higher cumulants and get
+//   - Soshnikov needs rho_m for all m >= 3 to eliminate higher cumulants and get
 //     Gaussianity. Selberg says nothing about rho_m for m >= 3.
 
 const SELBERG_PAIR_CORRELATION = Object.freeze({

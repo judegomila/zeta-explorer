@@ -251,7 +251,7 @@ export const PAPER_ROADMAP = Object.freeze({
     Object.freeze({
       id: 's17-inverse-blaschke-ghosts',
       sectionNumber: '§17',
-      title: 'Attack on the Wall: Inverse Blaschke Ghosts and the Pontryagin Decomposition',
+      title: 'Approach on the Wall: Inverse Blaschke Ghosts and the Pontryagin Decomposition',
       paperPageRange: '34-38',
       appRoute: '/blaschke-ghosts',
       appPageStatus: 'has-page',
@@ -263,13 +263,13 @@ export const PAPER_ROADMAP = Object.freeze({
     Object.freeze({
       id: 's18-three-direct-attacks',
       sectionNumber: '§18',
-      title: 'Three Direct Attacks on Ghost Absence',
+      title: 'Three Direct Approaches on Ghost Absence',
       paperPageRange: '38-43',
       appRoute: '/three-attacks',
       appPageStatus: 'has-page',
       auditStatus: 'reference-only',
       summary:
-        'Attack I (kernel/passivity), II (prime-delay domination), ' +
+        'Approach I (kernel/passivity), II (prime-delay domination), ' +
         'III (Weil/Pontryagin index). Conj 18.2 numerical pilot imp-1203 (open).',
     }),
     Object.freeze({
@@ -321,7 +321,7 @@ export const PAPER_ROADMAP = Object.freeze({
     Object.freeze({
       id: 's23-freezing-bridge-renorm-no-ghost',
       sectionNumber: '§23',
-      title: 'Freezing, Bridge Renormalization, and a Targeted No-Ghost Attack',
+      title: 'Freezing, Bridge Renormalization, and a Targeted No-Ghost Approach',
       paperPageRange: '44-48',
       appRoute: null,
       appPageStatus: 'not-covered',

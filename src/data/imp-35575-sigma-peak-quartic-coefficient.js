@@ -25,7 +25,7 @@
  *       Unlike the imp-35451 third difference (an h^3-cancellation), the fourth difference cancels at h^4, so
  *       the dd round-off floor ~ 1e-16 / h^4 dominates BELOW h ~ 5e-3 (the stencil returns +1.1e-4 garbage at
  *       h = 1e-3). The RESOLVABLE window is therefore h in {1e-1 .. 1e-2}, where the raw stencil is stable to
- *       ~1.5e-4 relative. Richardson-extrapolated from the clean h = 4e-2 / 2e-2 pair (kills the O(h^2)
+ *       ~1.5e-4 relative. Richardson-extrapolated from the clean h = 4e-2 / 2e-2 pair (eliminates the O(h^2)
  *       stencil bias), sigma-quad-prime(u0) -> -6.370991e-4, so c4 -> -2.654580e-5 (the imp-35451-style
  *       2e-2 / 1e-2 pair gives -2.654039e-5, agreeing to ~2e-4 relative).
  *   (2) The materiality of the quartic for the arm imbalance. Solving the local root balance
@@ -117,7 +117,7 @@ const D4_REL_SPREAD = (Math.max(...D4_WINDOW) - Math.min(...D4_WINDOW)) / Math.a
 // Honest round-off blow-up: the smallest step h = 1e-3 (index 6) leaves the resolvable value entirely.
 const D4_BLOWUP_H1E3 = D4_VALUES[6]; // ~ +1.11e-4 (garbage: h^4 cancellation)
 
-// Richardson extrapolation (kills the leading O(h^2) stencil bias) from the CLEAN h = 4e-2 / 2e-2 pair.
+// Richardson extrapolation (eliminates the leading O(h^2) stencil bias) from the CLEAN h = 4e-2 / 2e-2 pair.
 const SIGMA_QUAD_PRIME = (4 * d4FD(2e-2) - d4FD(4e-2)) / 3; // ~ -6.370991e-4
 const C4 = SIGMA_QUAD_PRIME / 24; // ~ -2.654580e-5
 // imp-35451-style 2e-2 / 1e-2 Richardson pair, for cross-pair consistency (agrees to ~2e-4 relative).

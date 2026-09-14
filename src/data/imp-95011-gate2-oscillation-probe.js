@@ -15,17 +15,17 @@
  * falsify:
  *   (P1) BATCHING premise: the carrier trajectory N -> C_E,17(N) has a small
  *        per-unit-N increment L (max_N |C_E,17(N+1) - C_E,17(N)|). If L is
- *        large (kill threshold L >~ 1e-2) the moment-space batching collapses
+ *        large (cutoff threshold L >~ 1e-2) the moment-space batching collapses
  *        back to the dead pointwise 7.2e26-cell tiling.
  *   (P2) HEADROOM premise: the sampled sup of |C_E,17| stays near the measured
  *        sibling peak 0.2141 and does NOT drift toward the 0.27968... target.
- *        Drift toward the target eats the 0.0655627 reserve and kills the
+ *        Drift toward the target eats the 0.0655627 reserve and eliminates the
  *        headroom the enclosure would need.
  *
  * WHAT THIS MODULE DELIVERS (honest partial - measurement only, NO QED):
  *  1. probeVerdict(L, sampledSup): the exact FALSIFIABLE decision procedure
  *     the real offline/native scan must feed. Pure function of the two
- *     measured scalars; encodes both kill criteria against the anchored
+ *     measured scalars; encodes both failure criteria against the anchored
  *     constants. This is the concrete gate, independent of any model.
  *  2. A REGIME MAP proving the decision is decisive, not pre-settled: the same
  *     carrier evaluated under two plausible phase hypotheses gives OPPOSITE
@@ -36,7 +36,7 @@
  *       (H-raw) the carrier as an unsmoothed prime-alias comb, phase ~ N (the
  *         e(h N / p) rotation advances an O(1) angle per unit N): the increment
  *         is O(amplitude) >> 1e-2 -> batching premise DIES.
- *     Because the two regimes straddle the kill threshold, whether Gate 2 is
+ *     Because the two regimes straddle the cutoff threshold, whether Gate 2 is
  *     promotable HINGES on the moment carrier actually living in the smooth
  *     regime - which is precisely the arithmetic fact the real probe must
  *     verify and which this in-repo module CANNOT settle.
@@ -74,7 +74,7 @@ const R_NUM_BOUND = 9.671e-15;
 const MEASURED_PEAK = 0.2141255;
 // documented reserve = TARGET - MEASURED_PEAK (imp-95006/95007 "0.0655627").
 const RESERVE = 0.0655627;
-// P1 kill threshold: per-unit-N increment above which moment-space batching
+// P1 eliminate threshold: per-unit-N increment above which moment-space batching
 // collapses to the dead pointwise tiling.
 const BATCHING_L_KILL = 1e-2;
 // P2 headroom guard: sampled sup this far past the measured peak into the
@@ -82,7 +82,7 @@ const BATCHING_L_KILL = 1e-2;
 const HEADROOM_DRIFT_GUARD = MEASURED_PEAK + 0.5 * RESERVE;
 
 // ── the falsifiable decision procedure (model-independent) ──────────────────
-// Feed the two scalars the real offline scan produces; get the kill verdict.
+// Feed the two scalars the real offline scan produces; get the eliminate verdict.
 function probeVerdict(L, sampledSup) {
   const batchingSurvives = L < BATCHING_L_KILL;
   // headroom dies if the sampled sup can no longer clear the strict target
@@ -193,7 +193,7 @@ const SMOOTH_TOP3_RATIOS = SMOOTH.top3.map((s) => s.absC / s.decoupledMass);
 const SMOOTH_VERDICT = probeVerdict(SMOOTH.maxL, MEASURED_PEAK);
 const RAW_VERDICT = probeVerdict(RAW.maxL, MEASURED_PEAK);
 // headroom-kill illustration: at fixed (surviving) L, a sup that has drifted to
-// the target kills the headroom leg independently of batching.
+// the target eliminates the headroom leg independently of batching.
 const DRIFTED_VERDICT = probeVerdict(SMOOTH.maxL, TARGET - 1e-6);
 
 // ── imp-95015: the ONE real arithmetic sample fed through the gate ──────────────
@@ -250,7 +250,7 @@ export const IMP95011_GATE2_OSCILLATION_PROBE = {
       batchingSurvives: RAW_VERDICT.batchingSurvives,
     },
     decisive:
-      'the two plausible phase regimes straddle the L kill threshold, so the batching premise is NOT pre-decided: Gate-2 promotability hinges on the arithmetic carrier being in the smooth regime',
+      'the two plausible phase regimes straddle the L cutoff threshold, so the batching premise is NOT pre-decided: Gate-2 promotability hinges on the arithmetic carrier being in the smooth regime',
   },
   decoupledMassCheck: {
     note: 'ticket item (iii): correlated |C| vs decoupled shell l1 mass at the three largest smooth samples',
@@ -258,7 +258,7 @@ export const IMP95011_GATE2_OSCILLATION_PROBE = {
     correlationGains: SMOOTH_TOP3_RATIOS,
   },
   headroomDriftIllustration: {
-    note: 'at a surviving (smooth) L, a sampled sup drifted to the target still kills the headroom leg',
+    note: 'at a surviving (smooth) L, a sampled sup drifted to the target still eliminates the headroom leg',
     verdict: DRIFTED_VERDICT,
   },
   anchorRealHeadroom: {
@@ -280,7 +280,7 @@ export const IMP95011_GATE2_OSCILLATION_PROBE = {
 export const IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS = [
   {
     id: 'imp95011-decision-gate-passes-anchor',
-    description: 'at a small L and the measured peak, both kill legs survive and Gate 2 is promotable',
+    description: 'at a small L and the measured peak, both eliminate legs survive and Gate 2 is promotable',
     holds: () => {
       const v = probeVerdict(1e-4, MEASURED_PEAK);
       return v.batchingSurvives && v.headroomSurvives && v.gate2Promotable;
@@ -288,7 +288,7 @@ export const IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS = [
   },
   {
     id: 'imp95011-decision-gate-kills-on-large-L',
-    description: 'an L at/above the 1e-2 threshold kills batching regardless of headroom',
+    description: 'an L at/above the 1e-2 threshold eliminates batching regardless of headroom',
     holds: () => {
       const v = probeVerdict(2e-2, MEASURED_PEAK);
       return !v.batchingSurvives && !v.gate2Promotable;
@@ -296,7 +296,7 @@ export const IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS = [
   },
   {
     id: 'imp95011-decision-gate-kills-on-target-drift',
-    description: 'a sampled sup drifted to the target kills the headroom leg even at a surviving L',
+    description: 'a sampled sup drifted to the target eliminates the headroom leg even at a surviving L',
     holds: () => !DRIFTED_VERDICT.headroomSurvives && !DRIFTED_VERDICT.gate2Promotable,
   },
   {
@@ -306,7 +306,7 @@ export const IMP95011_GATE2_OSCILLATION_PROBE_ASSERTIONS = [
   },
   {
     id: 'imp95011-raw-regime-batching-dies',
-    description: 'the unsmoothed alias (phase ~ N) carrier has per-unit-N increment above the 1e-2 kill threshold',
+    description: 'the unsmoothed alias (phase ~ N) carrier has per-unit-N increment above the 1e-2 cutoff threshold',
     holds: () => RAW.maxL > 1e-2,
   },
   {

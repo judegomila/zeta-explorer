@@ -1,11 +1,11 @@
 // @module data/imp-2668-section27-renormalization-nogo
 //
-// imp-2668 (CRITICAL, proof, opus-4-8/subscription) -- attack on THE_REAL_GAP
+// imp-2668 (CRITICAL, proof, opus-4-8/subscription) -- approach on THE_REAL_GAP
 // named by section27-identity-refutation-2026-06-17 and reduced by imp-2664 to
 // the single open identification Theta_V = Theta_a. The ticket asks three things:
 //   (i)   does the Section-25 hidden-square factorization K_a = int Psi Psi-bar dnu
 //         exist from Phi alone (Conj 25.2 / 25.3)?
-//   (ii)  attack the Section-26 measure-domination Conj 26.3 (mu^pass >= nu) that
+//   (ii)  approach the Section-26 measure-domination Conj 26.3 (mu^pass >= nu) that
 //         pins the unit-scale comparison;
 //   (iii) THE CRUX -- show the renormalization IDENTIFIES the Schur complement
 //         I - V V^# (non-homogeneous, with a constant I term) with the de Branges
@@ -15,7 +15,7 @@
 // valuable result.
 //
 // This module does NOT modify imp-1258 / imp-1265 / imp-2664 / the refutation. It
-// is an independent operator-algebra attack; the orchestrator decides downstream
+// is an independent operator-algebra approach; the orchestrator decides downstream
 // edits. ("#" denotes the Hilbert-space adjoint, to avoid the JSDoc terminator.)
 //
 // METHOD: training-time operator theory only -- the sinh addition formula; rank
@@ -213,14 +213,14 @@ const HONEST_SCOPE = Object.freeze([
   "THE_REAL_GAP / imp-2664 THE_GAP is NOT closed here. The reframe shows it is " +
     "degree-consistent (so not 'dead by homogeneity'), but the normalization constant " +
     "(Conj 26.3) and the transform identity remain unproven.",
-  "Maximal skepticism: the module went looking to either build or kill the as-posed " +
-    "identification; it KILLED the as-posed Schur-complement form rigorously and " +
+  "Maximal skepticism: the module went looking to either build or eliminate the as-posed " +
+    "identification; it ELIMINATED the as-posed Schur-complement form rigorously and " +
     "RELOCATED the surviving content to a degree-consistent open problem. No false QED.",
 ]);
 
 const CROSS_REFERENCES = Object.freeze([
   Object.freeze({ ticket: "imp-2664", role: "Reduced LINK B to one open identification Theta_V=Theta_a; named the rank-one-defect step unverified.", path: "src/data/imp-2664-section27-identity-rederivation.js" }),
-  Object.freeze({ ticket: "section27-identity-refutation-2026-06-17", role: "Refutation + THE_REAL_GAP this module attacks; antisymmetric-Wronskian sign correction matches Im V here.", path: "src/data/section27-identity-refutation-2026-06-17.js" }),
+  Object.freeze({ ticket: "section27-identity-refutation-2026-06-17", role: "Refutation + THE_REAL_GAP this module approaches; antisymmetric-Wronskian sign correction matches Im V here.", path: "src/data/section27-identity-refutation-2026-06-17.js" }),
   Object.freeze({ ticket: "imp-1258", role: "Parent two-way collapse (LINK B steps 3/4), now CONDITIONAL.", path: "src/data/imp-1258-volterra-cdb-bridge.js" }),
   Object.freeze({ ticket: "imp-1219", role: "Section-25-27 structured record (commutator decomposition, A_a/B_a gauges).", path: "src/data/hidden-square-program-section.js" }),
   Object.freeze({ ticket: "strategic-reframe-pcc-free-volterra-2026-06-17", role: "PCC-free reframe naming GAP-1 (this identity).", path: "src/data/strategic-reframe-pcc-free-volterra-2026-06-17.js" }),

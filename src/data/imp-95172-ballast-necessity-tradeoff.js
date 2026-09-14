@@ -161,7 +161,7 @@
  *   ||nb_odd||_1 ~ 0.0205) with phi -> 1, which would prove the m_B
  *   dependence essential.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA NT attacked by a 400000-point
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA NT approached by a 400000-point
  * grid scan of h(x, s)/sqrt(x) on (0, 5s]: closed form dominates every
  * sample and matches the grid sup to 1.2e-10 with argmax at s - 1/2; the
  * per-packet transfer is verified on a 400-point (mu, r) log grid spanning

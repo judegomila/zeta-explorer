@@ -48,7 +48,7 @@
  *     1.0159) to reach the same band -- the floor "moderate depth" is
  *     N-dependent.
  *
- * ADVERSARIAL / CROSS-CHECK. The N = 2,3,4 at x = 4/8/12 cells reproduce
+ * SKEPTICAL / CROSS-CHECK. The N = 2,3,4 at x = 4/8/12 cells reproduce
  * the imp-95286 baked anchors (1.0152/1.0039/1.0017, 1.0991/1.0200/1.0082,
  * 1.4150/1.0618/1.0225) to 4 decimals; the live recompute matches the
  * baked table within 5e-4; every ceilGap > floorGap (ceiling owns).

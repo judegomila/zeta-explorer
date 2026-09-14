@@ -145,7 +145,7 @@ export default function ZetaPage() {
           <h3 style={h3('var(--brass)')}>Computing <InlineMath tex="Z(t)" />: The Riemann-Siegel Formula</h3>
           <p style={{ ...body, marginTop: 8 }}>
             Evaluating <InlineMath tex={"\\zeta(1/2 + it)"} /> directly would require summing a slowly-converging Dirichlet series.
-            The Riemann-Siegel formula exploits the functional equation to give a rapidly convergent approximation
+            The Riemann-Siegel formula uses the functional equation to give a rapidly convergent approximation
             using only <InlineMath tex={"N = \\lfloor\\sqrt{t/2\\pi}\\rfloor"} /> terms — a dramatic speedup for large <InlineMath tex="t" />.
           </p>
           <BlockMath tex={"Z(t) \\;\\approx\\; 2\\sum_{n=1}^{N} \\frac{\\cos\\bigl(\\theta(t) - t\\log n\\bigr)}{\\sqrt{n}} \\;+\\; (-1)^{N-1}\\!\\left(\\frac{t}{2\\pi}\\right)^{\\!-1/4}\\! C_0(p)"} />

@@ -1174,7 +1174,7 @@ function ShellOnsetLadderSection() {
         </div>
         <div style={{ background: "rgba(76,122,74,0.08)", border: "1px solid rgba(76,122,74,0.3)", borderRadius: 8, padding: "10px 14px" }}>
           <div style={{ color: "#4c7a4a", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
-            Adversarial multi-body scan
+            Skeptical multi-body scan
           </div>
           <div style={{ color: "#1c1814", fontSize: 13 }}>
             inf &asymp; <strong>{cc.scannedMultiBodyInf}</strong> &gt; c* (Lemma R2-T, 3e6 configs)
@@ -2381,7 +2381,7 @@ export default function SpectralAttackPage() {
     <div className="ed-root">
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
-      <h1 className="ed-h1" style={{ marginBottom: 10 }}>Spectral Attack on RH</h1>
+      <h1 className="ed-h1" style={{ marginBottom: 10 }}>Spectral Approach on RH</h1>
           <AnimationEmbed id="spectral-attack" />
       <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginBottom: 24 }}>
         A systematic multi-pronged exploration combining information theory, twistor geometry,
@@ -2409,7 +2409,7 @@ export default function SpectralAttackPage() {
 
       <div className="two-col" style={{ marginTop: 24 }}>
         <div className="card">
-          <h3 style={{ color: 'var(--blue)', fontSize: 14 }}>Six Attack Vectors</h3>
+          <h3 style={{ color: 'var(--blue)', fontSize: 14 }}>Six Approach Vectors</h3>
           <ul style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 12, lineHeight: 2 }}>
             <li><strong style={{ color: 'var(--green)' }}>Fisher-Twistor:</strong> Fisher info diverges where twistor incidence vanishes</li>
             <li><strong style={{ color: 'var(--blue)' }}>KL Lyapunov:</strong> KL divergence acts as a Lyapunov function &rarr; stability at &sigma;=&frac12;</li>
@@ -2557,14 +2557,14 @@ export default function SpectralAttackPage() {
         </div>
       </div>
 
-      {/* ─── Weil Quadratic Form Attack (Connes 2026) ─── */}
+      {/* ─── Weil Quadratic Form Approach (Connes 2026) ─── */}
       <div className="card" style={{ marginTop: 24, marginBottom: 24, borderLeft: '3px solid var(--brass-dk)' }}>
         <h3 style={{ color: 'var(--brass-dk)', fontSize: 16, marginBottom: 16 }}>
-          Weil Quadratic Form Attack (Connes 2026)
+          Weil Quadratic Form Approach (Connes 2026)
         </h3>
 
         <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.8, marginBottom: 12 }}>
-          Alain Connes' 2026 paper introduces a seventh attack vector based on the <strong style={{ color: 'var(--ink)' }}>Weil
+          Alain Connes' 2026 paper introduces a seventh approach vector based on the <strong style={{ color: 'var(--ink)' }}>Weil
           explicit formula</strong> and its associated quadratic form. The Weil positivity condition is directly
           equivalent to the Riemann Hypothesis:
         </p>
@@ -2679,10 +2679,10 @@ export default function SpectralAttackPage() {
           and entropy across the critical strip — look for the entropy maximum and free energy minimum
           coinciding at the critical line, creating a potential barrier that confines zeros.
           <strong style={{ color: 'var(--brass)' }}> Correlation Matrix</strong> shows the pairwise correlations between
-          all attack measures. Low off-diagonal values (blues) mean the measures are independent —
+          all approach measures. Low off-diagonal values (blues) mean the measures are independent —
           the more independent they are, the stronger the combined evidence. High correlations (reds)
           reveal which measures are essentially measuring the same thing.
-          <strong style={{ color: 'var(--terra-dk)' }}> Strategy Scores</strong> evaluates each attack vector's
+          <strong style={{ color: 'var(--terra-dk)' }}> Strategy Scores</strong> evaluates each approach vector's
           effectiveness, showing how confidently each measure pins zeros to the critical line. Compare
           scores at different <InlineMath tex="t" /> values to see which measures are strongest near zeros
           vs. between zeros.
@@ -2770,7 +2770,7 @@ export default function SpectralAttackPage() {
       <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.04)' }}>
         <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-          <Link to="/rh-attack" style={{ color: 'var(--blue)', fontSize: 13 }}>RH Attack</Link>
+          <Link to="/rh-attack" style={{ color: 'var(--blue)', fontSize: 13 }}>RH Approach</Link>
           <span style={{ color: 'var(--hairline)' }}>|</span>
           <Link to="/theta-seizing-margin" style={{ color: 'var(--brass)', fontSize: 13 }}>Theta Seizing Margin (R1-T3)</Link>
           <span style={{ color: 'var(--hairline)' }}>|</span>

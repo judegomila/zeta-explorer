@@ -366,7 +366,7 @@ export default function HamiltonianPage() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
             <Link to="/oscillators" style={{ color: 'var(--blue)', fontSize: 13, textDecoration: 'none' }}>→ Prime Oscillators</Link>
             <Link to="/gap-closing" style={{ color: 'var(--terra-dk)', fontSize: 13, textDecoration: 'none' }}>→ Gap Closing (S5 operator)</Link>
-            <Link to="/spectral-attack" style={{ color: 'var(--blue)', fontSize: 13, textDecoration: 'none' }}>→ Spectral Attack (unified potential)</Link>
+            <Link to="/spectral-attack" style={{ color: 'var(--blue)', fontSize: 13, textDecoration: 'none' }}>→ Spectral Approach (unified potential)</Link>
             <Link to="/formal-proof" style={{ color: 'var(--green)', fontSize: 13, textDecoration: 'none' }}>→ Formal Proof (S6 status)</Link>
             <Link to="/simulator" style={{ color: 'var(--brass-dk)', fontSize: 13, textDecoration: 'none' }}>→ Simulator (gradient descent)</Link>
             <Link to="/" style={{ color: 'var(--ink-soft)', fontSize: 13, textDecoration: 'none' }}>← the atlas</Link>

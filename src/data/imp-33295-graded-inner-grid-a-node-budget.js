@@ -10,7 +10,7 @@
  *   -------------------------------------
  *   imp-33275 (rung-uniform repeated Richardson to a few-ULP floor) and imp-33276 (R_40 inner O(h^4)
  *   drift, outer-invariant) both drive A(tau)/R_40 onto the double-precision floor using a UNIFORM inner
- *   composite Simpson grid refined by brute panel doubling (inner N = 1200,2400,...,19200) -- and the
+ *   composite Simpson grid refined by raw panel doubling (inner N = 1200,2400,...,19200) -- and the
  *   uniform grid ONLY reaches the floor through a 5-rung Richardson tableau, never at a single grid. The
  *   imp-33249/imp-33277 graded-GL work showed that GRADING the nodes toward the peak reaches &lt;1 ULP at
  *   far fewer nodes for the log-domain -ln A weight. Whether a graded inner grid buys the same node

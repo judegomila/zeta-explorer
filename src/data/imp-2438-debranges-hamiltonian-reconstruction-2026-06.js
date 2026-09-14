@@ -18,7 +18,7 @@
  * no fabricated QED, no proof of RH.
  * @see imp-2430 (proved m Nevanlinna; named non-constructive-H(x) sub-gap G1)
  * @see imp-2425 (Krein spectral-shift route to ind_-(K_a))
- * @see data/three-attacks-section.js (Attack III, Theorem 18.3 + Conjecture 18.4)
+ * @see data/three-attacks-section.js (Approach III, Theorem 18.3 + Conjecture 18.4)
  */
 // imp-2438 -- explicit numerical de Branges Hamiltonian for the twin-ladder kernel.
 //

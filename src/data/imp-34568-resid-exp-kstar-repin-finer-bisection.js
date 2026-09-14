@@ -8,7 +8,7 @@
  *   imp-34405 showed the near-pole resid_exp resolvability is capped by a POLE-LOCATION
  *   floor: because k* = 21.28095 was REPORTED to only 7 sig figs, its last-digit
  *   uncertainty dk_star = 5e-6 blows up resid_exp's relative precision as the endpoint
- *   distance d -> 0, killing the sign at d = 5e-6. But that 5e-6 floor is a pure
+ *   distance d -> 0, eliminating the sign at d = 5e-6. But that 5e-6 floor is a pure
  *   REPORTING artifact of the baked 7-figure literal 21.28095 -- the imp-34127 machinery
  *   that produced it (Part B, bisectCrossing on residAt) already runs to full double
  *   precision internally and was merely truncated by a .toFixed(4) at export. This module

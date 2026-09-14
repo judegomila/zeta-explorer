@@ -101,7 +101,7 @@
  * bound satisfies cFar >= ( E + (2 - cNear) A_curr ) / ( T(2) M ) at every
  * p - a line in the (cNear, cFar) plane complementing the Theorem F line.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) coefficient audit of the parasite
+ * SKEPTICAL SELF-CHECK RECORD: (1) coefficient audit of the parasite
  * rho_23 (enters with net -1) was done twice and is asserted against direct
  * quadrature of the full 4-packet Gram matrix at p = 997 and p = 97
  * (closed-form E matches quadrature E to ~1e-6 relative); (2) fixed-p

@@ -82,7 +82,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
     note:
       'Twin-Ladder Consolidated v52 — the canonical paper source. The ' +
       'curated visualizations together cover the geometric content of ' +
-      '§§15-18 (shift-bridge, closure routes, ghosts, attacks) plus the ' +
+      '§§15-18 (shift-bridge, closure routes, ghosts, approaches) plus the ' +
       'rigorous-numerics §§20-23 supporting material.',
   }),
 
@@ -137,7 +137,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       mathBucket: 'caustic',
       dataModule: 'src/data/viz-prime-caustic.js',
       paperSourcePath:
-        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks)',
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three approaches)',
       ticket: 'imp-1225',
       pedagogicalStep: 4,
       honestCeiling:
@@ -273,7 +273,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       mathBucket: 'caustic',
       dataModule: null,
       paperSourcePath:
-        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: arithmetic rigidity)',
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three approaches: arithmetic rigidity)',
       ticket: 'imp-2718',
       pedagogicalStep: 14,
       honestCeiling:
@@ -301,7 +301,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       mathBucket: 'crystal',
       dataModule: null,
       paperSourcePath:
-        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: caustic resonance)',
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three approaches: caustic resonance)',
       ticket: 'imp-2724',
       pedagogicalStep: 16,
       honestCeiling:
@@ -328,7 +328,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       mathBucket: 'phase-spiral',
       dataModule: null,
       paperSourcePath:
-        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: phase geometry)',
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three approaches: phase geometry)',
       ticket: 'imp-2725',
       pedagogicalStep: 17,
       honestCeiling:
@@ -342,7 +342,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       mathBucket: 'caustic',
       dataModule: null,
       paperSourcePath:
-        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three attacks: phase geometry)',
+        'research-inputs/twin_ladder_consolidated_v52.pdf §18 (three approaches: phase geometry)',
       ticket: 'imp-2914',
       pedagogicalStep: 19,
       honestCeiling:
@@ -1593,7 +1593,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
     }),
     Object.freeze({
       route: '/viz-imp35935-adversarial-ordering',
-      title: 'Summation-Scheme Error Under Adversarial Orderings',
+      title: 'Summation-Scheme Error Under Worst-case Orderings',
       oneLine:
         'Grouped log-scale bar chart of the imp-35852 exact-BigInt-referenced naive/pairwise/Kahan-Babuska normalized error under five hostile term orderings (original/signedAsc/magAsc/magDesc/clustered), showing the worst ordering climbs but never reaches the coherent N*eps ceiling.',
       mathBucket: 'measurement',

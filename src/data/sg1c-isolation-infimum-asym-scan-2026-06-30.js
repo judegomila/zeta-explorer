@@ -4,7 +4,7 @@
  * imp-3045: NUMERICAL bracket-tightening of the still-OPEN global multi-body
  * isolation constant (the infimum of the isolation ratio rho = g / d_1 among
  * margin-WORSENING configurations, d(rho_iso)/ds > 0 at rho < 1). This is a
- * higher-resolution adversarial scan ONLY -- it is NOT the closed-form closure
+ * higher-resolution skeptical scan ONLY -- it is NOT the closed-form closure
  * (that stays the separate deterministic forward-move ticket). NO false QED.
  *
  * THE FLOW (independently anchored, not posited):

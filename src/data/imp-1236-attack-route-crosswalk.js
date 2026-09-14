@@ -1,16 +1,16 @@
 /**
  * @module imp-1236-attack-route-crosswalk
- * @fileoverview Cross-walk: the 5 classical RH attacks on /rh-attack vs the
- * 4 closure routes of paper §16 (/closure-routes) and the 3 direct attacks
+ * @fileoverview Cross-walk: the 5 classical RH approaches on /rh-attack vs the
+ * 4 closure routes of paper §16 (/closure-routes) and the 3 direct approaches
  * of paper §18 (/three-attacks). The page corpus currently exposes three
- * distinct lists of "attacks / routes" with significant overlap; this
+ * distinct lists of "approaches / routes" with significant overlap; this
  * crosswalk identifies duplicates, complements, and unique entries across
  * the 5 + 4 + 3 = 12 entries.
  *
  * Source pages:
- *   - src/pages/RHAttackPage.jsx       → Paths A-E (5 classical attacks)
+ *   - src/pages/RHAttackPage.jsx       → Paths A-E (5 classical approaches)
  *   - src/pages/ClosureRoutesPage.jsx  → Routes A-D (4 §16 closure routes)
- *   - src/pages/ThreeAttacksPage.jsx   → Attacks I-III (3 §18 direct attacks)
+ *   - src/pages/ThreeAttacksPage.jsx   → Approaches I-III (3 §18 direct approaches)
  *
  * Companion data files:
  *   - src/data/closure-routes-section.js     (imp-1197 §16 reference doc)
@@ -41,7 +41,7 @@
  * @property {string} sourceList         - 'classical-5' | 'closure-4' | 'three-attacks-3'
  * @property {string} sourcePageRoute    - app route where this entry is rendered
  * @property {string} sourceLabel        - canonical name as it appears on the source page
- * @property {string} sourceKey          - source-list-local key (Path A, Route B, Attack I, ...)
+ * @property {string} sourceKey          - source-list-local key (Path A, Route B, Approach I, ...)
  * @property {string} verdict            - UNIQUE | DUPLICATE | COMPLEMENT | PARTIAL
  * @property {string[]} overlapsWith     - source keys of related entries elsewhere in the table
  * @property {string} mathematicalObject - what the entry actually asserts, in one sentence
@@ -51,9 +51,9 @@
 /**
  * The full 12-row crosswalk table.
  *
- * Row order: the 5 classical attacks first (in /rh-attack Path A-E order),
+ * Row order: the 5 classical approaches first (in /rh-attack Path A-E order),
  * then the 4 §16 closure routes (Route A-D), then the 3 §18 direct
- * attacks (Attack I-III).
+ * approaches (Approach I-III).
  *
  * @type {Readonly<AttackRouteEntry[]>}
  */
@@ -148,7 +148,7 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
       'UNIQUE among the 12 entries. Li is a coefficient-positivity ' +
       'criterion derived from the Hadamard factorization; the v52 §16 / ' +
       '§18 program does not phrase RH in Li-coefficient language. The two ' +
-      'are independent attacks.',
+      'are independent approaches.',
   }),
 
   // ── §16 four closure routes (/closure-routes, Routes A-D) ────────────────
@@ -167,8 +167,8 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
     resolution:
       'UNIQUE among the 12 entries. Route A introduces the shift ' +
       'parameter a and asks for a horizontal-monotonicity Schur bound ' +
-      'tied to that shift. None of the 5 classical attacks or the 3 §18 ' +
-      'attacks shares this shifted-bridge formulation.',
+      'tied to that shift. None of the 5 classical approaches or the 3 §18 ' +
+      'approaches shares this shifted-bridge formulation.',
   }),
 
   Object.freeze({
@@ -229,13 +229,13 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
       'this identification.',
   }),
 
-  // ── §18 three direct attacks (/three-attacks, Attacks I-III) ─────────────
+  // ── §18 three direct approaches (/three-attacks, Approaches I-III) ─────────────
 
   Object.freeze({
     sourceList: 'three-attacks-3',
     sourcePageRoute: '/three-attacks',
     sourceLabel: 'Kernel/passivity closure',
-    sourceKey: 'Attack I',
+    sourceKey: 'Approach I',
     verdict: 'PARTIAL',
     overlapsWith: ['Route B (de Branges positivity)', 'Route C (hidden-square)'],
     mathematicalObject:
@@ -244,7 +244,7 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
       'Riemann kernel Phi. Passive = bounded-real transfer function on the ' +
       'right half-plane.',
     resolution:
-      'PARTIAL overlap with Routes B and C. Attack I asserts both ' +
+      'PARTIAL overlap with Routes B and C. Approach I asserts both ' +
       'positivity (Route B) AND a concrete realization (Route C ' +
       'hidden-square) for the same K_a, packaged as a passive-system ' +
       'closure. It is a unification of Routes B + C under the additional ' +
@@ -255,7 +255,7 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
     sourceList: 'three-attacks-3',
     sourcePageRoute: '/three-attacks',
     sourceLabel: 'Prime-delay domination',
-    sourceKey: 'Attack II',
+    sourceKey: 'Approach II',
     verdict: 'PARTIAL',
     overlapsWith: ['Route D (Weil / twin-ladder)', 'Path C (Weil positivity)'],
     mathematicalObject:
@@ -264,9 +264,9 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
       'contribution to the Weil quadratic form dominates the prime side.',
     resolution:
       'PARTIAL overlap with Route D / Path C. Both target Weil-style ' +
-      'positivity, but Attack II asks for a SIGN-pointwise domination ' +
+      'positivity, but Approach II asks for a SIGN-pointwise domination ' +
       '(archimedean > prime), which is strictly stronger than overall ' +
-      'positivity of the sum. Attack II implies Route D but not ' +
+      'positivity of the sum. Approach II implies Route D but not ' +
       'conversely.',
   }),
 
@@ -274,7 +274,7 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
     sourceList: 'three-attacks-3',
     sourcePageRoute: '/three-attacks',
     sourceLabel: 'Weil/Pontryagin index closure',
-    sourceKey: 'Attack III',
+    sourceKey: 'Approach III',
     verdict: 'DUPLICATE',
     overlapsWith: ['Inverse Blaschke ghosts (§17)'],
     mathematicalObject:
@@ -282,11 +282,11 @@ export const ATTACK_ROUTE_CROSSWALK = Object.freeze([
       'bridge kernel K_a equals the count of off-critical zeros (via the ' +
       'Krein-Langer identity). RH iff this index vanishes for all a > 0.',
     resolution:
-      'DUPLICATE of the §17 inverse-Blaschke-ghosts statement. Attack III ' +
+      'DUPLICATE of the §17 inverse-Blaschke-ghosts statement. Approach III ' +
       'is the §18 restatement of the §17 obstruction: B_a^+ = 1 ⇔ ' +
       'ind_-(K_{R_a}) = 0 ⇔ RH. The two sections present the same ' +
       'mathematical content (off-critical zeros = ghost poles = ' +
-      'negative-index defects), so the §18 attack is a duplicate up to ' +
+      'negative-index defects), so the §18 approach is a duplicate up to ' +
       'rephrasing.',
   }),
 ]);
@@ -302,14 +302,14 @@ export const ATTACK_ROUTE_CROSSWALK_SUMMARY = Object.freeze({
   threeAttacks3Count: 3,
   verdictCounts: Object.freeze({
     UNIQUE: 4,      // Path D, Path E, Route A, Route C
-    DUPLICATE: 3,   // Path C ↔ Route D, Attack III ↔ §17 ghosts (counted on §18 side)
+    DUPLICATE: 3,   // Path C ↔ Route D, Approach III ↔ §17 ghosts (counted on §18 side)
     COMPLEMENT: 3,  // Path A ↔ KYP, Path B ↔ Route B, Route B ↔ Path B
-    PARTIAL: 2,     // Attack I ↔ Routes B/C, Attack II ↔ Route D / Path C
+    PARTIAL: 2,     // Approach I ↔ Routes B/C, Approach II ↔ Route D / Path C
   }),
   headlineDuplicates: [
     'Path C (Weil positivity) === Route D (Weil / twin-ladder norm square): ' +
       'identical Weil explicit formula in different coordinates.',
-    'Attack III (Weil/Pontryagin index closure) === §17 inverse Blaschke ' +
+    'Approach III (Weil/Pontryagin index closure) === §17 inverse Blaschke ' +
       'ghosts: same Pontryagin negative-index condition.',
   ],
   headlineUnique: [
@@ -320,7 +320,7 @@ export const ATTACK_ROUTE_CROSSWALK_SUMMARY = Object.freeze({
   ],
   pedagogicalNote:
     'A reader landing on /rh-attack should NOT conclude that the 5 ' +
-    'classical attacks are independent of the v52 program. Path C is ' +
+    'classical approaches are independent of the v52 program. Path C is ' +
     'literally Route D in a different language; Path B and Path A find ' +
     'their modern operator-theoretic refinements in Route B and the ' +
     'KYP/bounded-real machinery (Apps M-O). Paths D and E remain ' +
@@ -330,7 +330,7 @@ export const ATTACK_ROUTE_CROSSWALK_SUMMARY = Object.freeze({
 
 /**
  * Helper: lookup a crosswalk row by source key.
- * @param {string} key - 'Path A'..'Path E' | 'Route A'..'Route D' | 'Attack I'..'Attack III'
+ * @param {string} key - 'Path A'..'Path E' | 'Route A'..'Route D' | 'Approach I'..'Approach III'
  * @returns {AttackRouteEntry|null}
  */
 export function findAttackRouteEntry(key) {
@@ -360,8 +360,8 @@ export const ATTACK_ROUTE_CROSSWALK_ASSERTIONS = [
     id: 'imp1236-twelve-entries-total',
     holds: () => ATTACK_ROUTE_CROSSWALK.length === 12,
     why:
-      'The crosswalk must contain exactly 12 rows = 5 classical attacks + ' +
-      '4 closure routes + 3 direct attacks. Drift to 11 or 13 means an ' +
+      'The crosswalk must contain exactly 12 rows = 5 classical approaches + ' +
+      '4 closure routes + 3 direct approaches. Drift to 11 or 13 means an ' +
       'entry was silently dropped or duplicated and the page-table ' +
       'symmetry breaks.',
   },
@@ -406,7 +406,7 @@ export const ATTACK_ROUTE_CROSSWALK_ASSERTIONS = [
       return expected.every((k) => got.includes(k));
     },
     why:
-      'The five classical attacks on /rh-attack (Hilbert-Polya, Darlington, ' +
+      'The five classical approaches on /rh-attack (Hilbert-Polya, Darlington, ' +
       'Weil, Nyman-Beurling, Li) are exposed as Paths A-E in ' +
       'RHAttackPage.jsx. Drift in the labels would break the cross-page ' +
       'identification.',
@@ -428,14 +428,14 @@ export const ATTACK_ROUTE_CROSSWALK_ASSERTIONS = [
   {
     id: 'imp1236-three-attacks-I-II-III',
     holds: () => {
-      const expected = ['Attack I', 'Attack II', 'Attack III'];
+      const expected = ['Approach I', 'Approach II', 'Approach III'];
       const got = ATTACK_ROUTE_CROSSWALK
         .filter((e) => e.sourceList === 'three-attacks-3')
         .map((e) => e.sourceKey);
       return expected.every((k) => got.includes(k));
     },
     why:
-      '§18 names exactly three direct attacks (I: kernel/passivity, II: ' +
+      '§18 names exactly three direct approaches (I: kernel/passivity, II: ' +
       'prime-delay, III: Weil/Pontryagin) per three-attacks-section.js. ' +
       'Drift in this labeling would mis-cite the paper section.',
   },
@@ -497,12 +497,12 @@ export const ATTACK_ROUTE_CROSSWALK_ASSERTIONS = [
     holds: () => {
       const a = findAttackRouteEntry('Path A');
       const r = findAttackRouteEntry('Route D');
-      const t = findAttackRouteEntry('Attack III');
+      const t = findAttackRouteEntry('Approach III');
       const bogus = findAttackRouteEntry('Path Z');
       return (
         a !== null && a.sourceKey === 'Path A' &&
         r !== null && r.sourceKey === 'Route D' &&
-        t !== null && t.sourceKey === 'Attack III' &&
+        t !== null && t.sourceKey === 'Approach III' &&
         bogus === null &&
         findAttackRouteEntry('') === null &&
         findAttackRouteEntry(null) === null

@@ -8,7 +8,7 @@
  *
  * Para 16 of the paper establishes four equivalent routes to prove
  * Delta = 0 (zero bridge-thickness = RH). Connes' spectral triple
- * framework attacks RH via the Weil positivity criterion on the adele
+ * framework approaches RH via the Weil positivity criterion on the adele
  * class space C_Q = A_Q^{asterisk} / Q^{asterisk}. This file makes the
  * correspondence explicit so that readers already familiar with the Connes
  * framework can locate themselves in the four-route picture.

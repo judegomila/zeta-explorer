@@ -52,7 +52,7 @@
  *     substitution) gives nothing — degree 80 sits BELOW the Arb
  *     _arb_poly_mullow classical -> KS/FFT crossover at 128-bit; (c) a THIRD
  *     carrier level batching the reconstruction has no residual carrier
- *     structure to exploit (the reconstruction output IS the panel model
+ *     structure to use (the reconstruction output IS the panel model
  *     after the first derotation). No cheap batching lever remains.
  *   - CELL-SETUP half (the dominant half): the ONE remaining non-spent
  *     lever. The 335.2 cells/x-unit density is set by the adaptive partition

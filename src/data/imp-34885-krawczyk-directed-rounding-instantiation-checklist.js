@@ -10,7 +10,7 @@
  * effectiveHeightForN / g / g_prime chain and the two-sided-ULP primitive each needs; (b) the directed-rounding
  * primitive required for each elementary op type; (c) the [T0]-inverse as a self-validating interval-Newton /
  * Krawczyk CONTRACTION per imp-34865 (NOT forward propagation, which imp-34865 measured doubles per step and
- * breaches (H2) at step 5); and (d) which items are library-available vs must-build, and the single unmet
+ * crossings (H2) at step 5); and (d) which items are library-available vs must-build, and the single unmet
  * EXTERNAL dependency (a crlibm / MPFR directed-rounded log binding) that stays external before imp-34714a
  * could close. SCOPING / ASSESSMENT ONLY: does NOT instantiate the layer, does NOT discharge the conditional,
  * imp-34714a REMAINS OPEN, imp-34687a REMAINS OPEN, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
@@ -53,7 +53,7 @@
  * a few ULP, divided by fp), collapsing to ~2.9e-6 in T-units in a single step. This is MANDATORY, not
  * optional: imp-34865 MEASURED that naive forward propagation of the input interval through the depth-30
  * dividing chain DOUBLES the width per Newton step (interval subtraction at a fixed point matches the iterate
- * width) and BREACHES the (H2) margin at step 5 (ratio ~1.61), whereas the contraction route sits ~12.5 orders
+ * width) and Crosses the (H2) margin at step 5 (ratio ~1.61), whereas the contraction route sits ~12.5 orders
  * below it. So the flat gamma(n_op) width model of imp-34799/imp-34840 is faithful ONLY on the contraction route.
  *
  * (d) LIBRARY-AVAILABLE vs MUST-BUILD, AND THE UNMET EXTERNAL DEPENDENCY
@@ -81,7 +81,7 @@
  * operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-34867-crlibm-log-enclosure-ulp-scope (scoped the log layer; per-call <= 1 ulp, kappa_log ~ 0.05, composes; this ASSEMBLES its checklist)
- * @see imp-34865-forward-vs-contraction-width-inflation (MEASURED forward doubling / breach vs contraction floor; the (c) requirement)
+ * @see imp-34865-forward-vs-contraction-width-inflation (MEASURED forward doubling / crossing vs contraction floor; the (c) requirement)
  * @see imp-34840-krawczyk-directed-rounding-op-dag-feasibility (op DAG n_op ~ 49, depth ~ 30; localised the log blocker)
  * @see imp-34799-krawczyk-directed-rounding-width-bound (a-priori gamma(n_op) half-width bound the ops feed into)
  * @see imp-34687-crossover-interval-arithmetic-scope (f monotone+convex => interval-Newton contraction; sub-gap imp-34687a)
@@ -178,7 +178,7 @@ const T0_INVERSE_ROUTE = {
   operator: 'interval-Newton / Krawczyk operator N([T]) = m - [f](m) / [f_prime]([T]) intersected with [T], m = mid([T]) a POINT',
   contraction_justified_by: 'imp-34687: f(T) = (T/2pi)(log(T/2pi) - 1) - N monotone-increasing and convex on T > 2pi',
   contraction_width_T_units: 2.9e-6, // imp-34865 measured single-step collapse
-  forward_route_breaches_H2: true, // imp-34865: forward propagation doubles per step, breaches at step 5
+  forward_route_breaches_H2: true, // imp-34865: forward propagation doubles per step, crossings at step 5
   forward_per_step_growth: 2.0, // structural: interval subtraction at a Newton fixed point
   mandatory: true, // the flat gamma(n_op) model of imp-34799/imp-34840 is faithful ONLY on the contraction route
 };
@@ -240,7 +240,7 @@ export const IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST = {
     'need one-time outward-rounded enclosures. (c) The inner RvM inverse [T0] MUST be the interval-Newton / ' +
     'Krawczyk contraction N([T]) = m - [f](m)/[f_prime]([T]) intersect [T] (m a point), a verified contraction ' +
     'since f is monotone+convex on T > 2pi (imp-34687); this is MANDATORY because imp-34865 MEASURED that ' +
-    'forward propagation doubles the width per Newton step and breaches (H2) at step 5, while the contraction ' +
+    'forward propagation doubles the width per Newton step and crosses (H2) at step 5, while the contraction ' +
     'floor sits ~12.5 orders below the margin. (d) Every log site and every elementary op reduces to a ' +
     'buildable-in-repo primitive (EFT-based directed +,-,*,/; the contraction operator; interval max; ' +
     'constant enclosures) EXCEPT the transcendental log, which is gated on a SINGLE unmet external dependency: ' +
@@ -252,7 +252,7 @@ export const IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST = {
     'imp-34714a REMAINS OPEN; imp-34687a REMAINS OPEN. This ASSEMBLES the gap-closure checklist -- 4 log sites ' +
     '(~7 calls) each needing a two-sided [RD, RU] proven-ULP log; directed [RD, RU] for +,-,*,/ (buildable via ' +
     'error-free transformations, JS has no fesetround); the [T0]-inverse as a MANDATORY interval-Newton / ' +
-    'Krawczyk contraction (forward propagation breaches (H2), imp-34865); everything buildable in-repo EXCEPT ' +
+    'Krawczyk contraction (forward propagation crosses (H2), imp-34865); everything buildable in-repo EXCEPT ' +
     'the single unmet external dependency, a crlibm/RLIBM/MPFR directed-log binding -- but it does NOT supply ' +
     'any of them, does NOT instantiate the imp-34687a layer, and does NOT machine-check [g](m) / [F_prime]. ' +
     'A closure ROADMAP, not a certificate. Adds no RH bound.',
@@ -267,7 +267,7 @@ export const IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST = {
     'variants are exact hardware ops but need EFT emulation in JS (no fesetround); interval max is exact; ' +
     'constants need outward enclosures. (c) The [T0]-inverse MUST be the interval-Newton / Krawczyk ' +
     'contraction (verified via imp-34687 monotone+convex f), MANDATORY because imp-34865 measured forward ' +
-    'propagation doubles per step and breaches (H2) at step 5. (d) Everything is buildable in-repo EXCEPT one ' +
+    'propagation doubles per step and crosses (H2) at step 5. (d) Everything is buildable in-repo EXCEPT one ' +
     'unmet EXTERNAL dependency: a crlibm/RLIBM/MPFR directed-log binding (or a machine-checked JS-libm ULP ' +
     'proof). So imp-34714a closure is gated on a SINGLE external artifact; the rest assembles from in-repo ' +
     'primitives. This ENUMERATES the checklist; it does NOT instantiate the layer, does NOT discharge the ' +
@@ -316,9 +316,9 @@ export const IMP34885_KRAWCZYK_DIRECTED_ROUNDING_INSTANTIATION_CHECKLIST_ASSERTI
     },
   },
   {
-    // (c) The [T0]-inverse route is a MANDATORY contraction; forward propagation breaches (H2) (imp-34865).
+    // (c) The [T0]-inverse route is a MANDATORY contraction; forward propagation crosses (H2) (imp-34865).
     id: 'imp34885-T0-inverse-must-be-contraction',
-    description: 'the [T0]-inverse must be the interval-Newton / Krawczyk contraction (mandatory); forward propagation doubles per step and breaches (H2)',
+    description: 'the [T0]-inverse must be the interval-Newton / Krawczyk contraction (mandatory); forward propagation doubles per step and crosses (H2)',
     holds: () =>
       T0_INVERSE_ROUTE.mandatory === true &&
       T0_INVERSE_ROUTE.forward_route_breaches_H2 === true &&

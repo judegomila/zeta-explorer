@@ -9,7 +9,7 @@
  * shape-only, caterpillarL/caterpillarR cross), never sweeping all seven shapes to pin
  * which one is the true arg-max of the combined pairwise error.
  *
- * BACKGROUND. Floating-point summation error has two independent adversarial levers:
+ * BACKGROUND. Floating-point summation error has two independent skeptical levers:
  *   - term ORDER (imp-35852): worst = clustered same-sign runs (all negatives, then all
  *     positives), which on the balanced tree reaches ~7.5e-3 of the log2(N)*eps ceiling;
  *   - pairing-tree SHAPE (imp-35893): worst under the NATURAL order = caterpillarR
@@ -46,7 +46,7 @@
  * caterpillar spine peels the clustered all-negative prefix into a monotonically growing
  * accumulator, the one geometry that lets the per-addition roundoffs accumulate coherently.
  * YET even the arg-max stays ~2.4x BELOW the log2(N)*eps ceiling (ratio ~0.412): pulling
- * BOTH adversarial levers on the single most-favourable shape still does NOT attain the
+ * BOTH worst-case levers on the single most-favourable shape still does NOT attain the
  * pairwise ceiling. All configurations remain many orders below the O(1) barrier margin
  * |A_t + B_t| - |C_t| (imp-35760): precision stays NON-binding, and the W1 A + B - C
  * certificate at T_PT stays GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725).
@@ -252,7 +252,7 @@ export const IMP36020_W1_CLUSTERED_ORDER_SHAPE_ARGMAX = {
       'depth alone does not order the error -- the arg-max geometry is caterpillarL peeling the all-negative ' +
       'prefix into a monotonically growing left accumulator',
     ceilingStillNotAttained:
-      'even the arg-max stays ~2.4x BELOW the log2(N)*eps ceiling (ratio ~0.412): pulling BOTH adversarial ' +
+      'even the arg-max stays ~2.4x BELOW the log2(N)*eps ceiling (ratio ~0.412): pulling BOTH skeptical ' +
       'levers on the single most-favourable shape still does not attain the pairwise ceiling',
     allUnderMargin:
       'all configurations remain many orders below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760)',
@@ -265,7 +265,7 @@ export const IMP36020_W1_CLUSTERED_ORDER_SHAPE_ARGMAX = {
       'even the combined worst order-x-shape configuration leaves overwhelming strict headroom under the ceiling ' +
       'and the O(1) barrier margin; precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures pairwise errors under adversarial order-x-shape only; it evaluates no sum of H_t and ' +
+      'this module measures pairwise errors under skeptical order-x-shape only; it evaluates no sum of H_t and ' +
       'verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A) ' +
       'and MECHANICAL (imp-35725)',
   },
@@ -282,7 +282,7 @@ export const IMP36020_W1_CLUSTERED_ORDER_SHAPE_ARGMAX = {
     'makes caterpillarL the arg-max is its LEFT spine peeling the clustered all-negative prefix into a ' +
     'monotonically growing accumulator, the one geometry that lets per-addition roundoffs accumulate ' +
     'coherently. YET even the arg-max stays ~2.4x BELOW the log2(N)*eps ceiling (ratio ~0.412): pulling BOTH ' +
-    'adversarial levers on the single most-favourable shape still does NOT attain the pairwise ceiling. All ' +
+    'worst-case levers on the single most-favourable shape still does NOT attain the pairwise ceiling. All ' +
     'configurations remain many orders below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760); precision ' +
     'is NOT the binding constraint. Certifies no W1 bound; evaluates no true H_0; instantiates no interval; ' +
     'verifies no inequality; changes no bound; establishes no positivity; the W1 A + B - C certificate at T_PT ' +

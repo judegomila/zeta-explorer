@@ -6,7 +6,7 @@
  * family) + LEMMA CV (the chain hypotheses live strictly on the convergent
  * side) + LEMMA BX (exact-AP biorthogonal row products in Gamma closed
  * form) + PROP T (explicit finite-truncation caps): SEVENTH leg of the
- * seam chain, attacking the second remaining obligation of the open
+ * seam chain, approaching the second remaining obligation of the open
  * sub-gap imp-95212-subgap-fresnel-airy-envelope-port -- INTER-shell
  * lacunarity (iii), recorded by imp-95214 as "NOT supplied by the grid".
  * THIS MODULE upgrades that obligation from bookkeeping to a PROVED
@@ -160,7 +160,7 @@
  * exactly and at M = 2 against the closed-form 2x2 Cauchy generalized
  * eigenvalue (agreement to rel 1e-10).
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The wrong-side FRACTION ceiling is
+ * SKEPTICAL SELF-CHECK RECORD. (1) The wrong-side FRACTION ceiling is
  * 1/2, not 1 -- the mirror mass doubles the denominator; the statement
  * of THEOREM SZ(ii) is in the fraction currency and matches the LEMMA
  * NG ceiling exactly (an earlier draft claiming fraction -> 1 was
@@ -168,14 +168,14 @@
  * DR? No: LEMMA CV puts every DR-family strictly on the convergent
  * side. (3) Is the divergence of B just triangle-inequality loss? No:
  * Lam_M itself -> 1 (COROLLARY AP), verified numerically through 0.99999
- * at M = 24. (4) Muntz-Szasz applicability attacked: rates distinct and
+ * at M = 24. (4) Muntz-Szasz applicability stress-tested: rates distinct and
  * positive, exponents a_j = mu_j - 1/2 > -1/2, unitarity of the
  * substitution checked by Gram preservation (1/(mu_i + mu_j) both
  * pictures); the comparability ratio 2(1+mu^2)/(4mu^2+1) in [1/2, 2] is
- * asserted on a grid. (5) LEMMA BX attacked: Gamma form vs the defining
+ * asserted on a grid. (5) LEMMA BX stress-tested: Gamma form vs the defining
  * product via the exact recurrence beta_i(M)/beta_i(M-1) =
  * (2a+i+M-1)/(M-1-i), the a = 1 closed form beta_0 = M(M+1)/2, and the
- * M = 1 exactness B^2 = Lam_1. (6) The finite-M cap attacked by a
+ * M = 1 exactness B^2 = Lam_1. (6) The finite-M cap approached by a
  * 5000-draw Rayleigh battery over exact-AP configurations (a in
  * {0.5, 1, 4}, M <= 8, delta in {0.3, 1, 2.7}, random depths, signed
  * coefficients): no violation; worst ratio to the bound 0.988 -- the
@@ -201,8 +201,8 @@
  *   narrowed: obligation (iii) is now two-sidedly fenced. NECESSARY:
  *   the ported per-parity rate family must carry a Szasz-summability
  *   certificate S = sum mu/(1+mu^2) < infinity (THEOREM SZ + COROLLARY
- *   PB kill the naive all-blocks prime-reciprocal extension; COROLLARY
- *   AP kills the one-big-additive-shell relaxation). ADMISSIBLE
+ *   PB eliminate the naive all-blocks prime-reciprocal extension; COROLLARY
+ *   AP eliminates the one-big-additive-shell relaxation). ADMISSIBLE
  *   REMAINING FREEDOM: ascending shells with bounded occupancy, even
  *   touching (LEMMA CV; SZ does not close them). Remaining extraction
  *   obligations: the alias-denominator to dictionary-rate map itself,
@@ -489,7 +489,7 @@ export const IMP95215_SZASZ_BOUNDARY_NECESSITY = {
     xStar: X_STAR,
   },
   subGap:
-    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed: obligation (iii) is now two-sidedly fenced. NECESSARY: the ported per-parity rate family must carry a Szasz-summability certificate S = sum mu/(1+mu^2) < infinity (COROLLARY PB kills the naive all-blocks prime-reciprocal extension; COROLLARY AP kills the one-big-additive-shell relaxation). ADMISSIBLE remaining freedom: ascending shells with bounded occupancy, even touching (LEMMA CV -- SZ does not close them). Remaining extraction obligations: the alias-denominator to dictionary-rate map itself, the summability certificate, and the paper constants (m, d, per-shell occupancy).",
+    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed: obligation (iii) is now two-sidedly fenced. NECESSARY: the ported per-parity rate family must carry a Szasz-summability certificate S = sum mu/(1+mu^2) < infinity (COROLLARY PB eliminates the naive all-blocks prime-reciprocal extension; COROLLARY AP eliminates the one-big-additive-shell relaxation). ADMISSIBLE remaining freedom: ascending shells with bounded occupancy, even touching (LEMMA CV -- SZ does not close them). Remaining extraction obligations: the alias-denominator to dictionary-rate map itself, the summability certificate, and the paper constants (m, d, per-shell occupancy).",
   openResiduals: [
     "the packet-envelope constants (c, beta, sigma, theta, A_d) for the PAPER packets rather than the model family",
     "the curvature ceiling D retained by the window",

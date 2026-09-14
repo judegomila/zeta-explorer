@@ -145,7 +145,7 @@
  * surviving refined residual -- the named handle is this exact
  * quadratic.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) FLOAT TRAP found and resolved:
+ * SKEPTICAL SELF-CHECK RECORD. (1) FLOAT TRAP found and resolved:
  * evaluating f_a - |f_b| naively at rho = 2 shows apparent violations
  * of RZ-TWIN of ~2e-15 ABSOLUTE (the two sums are ~9.06 and cancel to
  * ~1e-11); the cancellation-free pair identity restores the bound with
@@ -397,7 +397,7 @@ function symbolBSeries(theta, lnrho, lnr, D = 220) {
   return [re, im];
 }
 // cancellation-free evaluation of lambda_min(F(theta)) = f_a - |f_b|
-// via the pair identity (ADVERSARIAL RECORD item 1)
+// via the pair identity (SKEPTICAL RECORD item 1)
 function stableSymbolGap(theta, lnrho, lnr, NN = 12) {
   const tau = lnr / lnrho;
   const Ps = [];

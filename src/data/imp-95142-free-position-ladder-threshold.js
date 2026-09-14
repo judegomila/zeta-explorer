@@ -121,7 +121,7 @@
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED;
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD (in-run refutations preserved).
+ * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) The NAIVE independent facing-edge cap matrix was tried FIRST and
  *     REFUTED: taking every pair gap at its own sup simultaneously puts
  *     u_1 at both ends of its block and gives lamMax = 1.0942 > 1 at
@@ -549,7 +549,7 @@ export const IMP95142_FREE_POSITION_LADDER_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95142-witness-battery",
     description:
-      "THEOREM FP attacked directly: 5961 seeded one-per-block witnesses over ladder blocks 0..10, BOTH parities, free positions, mixed rates >= 2901/12500 (rate-pinned at the floor every third draw), amplitude zeros allowed - max E = -0.0007081118569591425 strictly negative, zero E > 0 draws",
+      "THEOREM FP approached directly: 5961 seeded one-per-block witnesses over ladder blocks 0..10, BOTH parities, free positions, mixed rates >= 2901/12500 (rate-pinned at the floor every third draw), amplitude zeros allowed - max E = -0.0007081118569591425 strictly negative, zero E > 0 draws",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -563,7 +563,7 @@ export const IMP95142_FREE_POSITION_LADDER_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95142-domination-battery",
     description:
-      "entrywise domination attacked directly: 6000 seeded 5-block position tuples - every exact g value is dominated by its containing-cell cap (worst ratio 0.9988152535822168, zero violations, every u_1 draw found a containing cell)",
+      "entrywise domination approached directly: 6000 seeded 5-block position tuples - every exact g value is dominated by its containing-cell cap (worst ratio 0.9988152535822168, zero violations, every u_1 draw found a containing cell)",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (

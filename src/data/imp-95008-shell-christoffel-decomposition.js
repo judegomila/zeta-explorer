@@ -91,7 +91,7 @@
  * functions and their normalization are exactly the sibling IDENTIFICATION
  * residual, which this module does NOT close.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma H conjugation was re-derived both
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma H conjugation was re-derived both
  * ways (the form v^dagger G^(-1) v is real because G^(-1) is Hermitian, so
  * the convention ambiguity conjugates a real scalar); cross-checked against
  * an independent orthonormalization path in the numerics; (2) Theorem J

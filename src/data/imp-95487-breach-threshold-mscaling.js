@@ -1,6 +1,6 @@
 /**
  * imp-95487: ASYMPTOTIC SCALING LAW of the imp-95430 Finding 2 off-lattice
- * breach threshold delta*(m) -- the log-rate jitter magnitude at which the
+ * crossing threshold delta*(m) -- the log-rate jitter magnitude at which the
  * proven imp-95330 m-uniform floor A_unif4(2) = 1.9975337e-9 stops
  * lower-bounding the worst-of-400 off-lattice seam pencil floor -- extended
  * beyond the tabulated octave counts m = 4..12 to fit its decay law and
@@ -31,7 +31,7 @@
  *  32    0.008891      0.889      150
  * delta* keeps shrinking through m = 32 (0.889%); the finite-m headroom the
  * proven m-uniform floor leaves is progressively consumed, so in the m -> inf
- * limit ANY fixed jitter magnitude eventually breaches the certified floor.
+ * limit ANY fixed jitter magnitude eventually crosses the certified floor.
  *
  * FINDING 2 (decay law: asymptotically ~ c/m, c ~ 0.28). Two consistent reads:
  *   (a) The product m * delta* falls from 0.799 (m = 4) but SETTLES for large m
@@ -56,7 +56,7 @@
  * grows; the certified headroom is a fixed budget shared across those
  * boundaries, giving a per-boundary budget ~ 1/m -- exactly the c/m law of
  * FINDING 2. No isolated pinned pair is required (the smallest gap at the
- * m = 8 breach was an IN-BLOCK pair near the window floor, imp-95430 Finding 4);
+ * m = 8 crossing was an IN-BLOCK pair near the window floor, imp-95430 Finding 4);
  * the collapse is the delta-scaled cross-block base jitter collectively
  * degrading lam_min, and it deepens with the boundary count.
  *
@@ -83,7 +83,7 @@
 export const IMP95487_BREACH_THRESHOLD_MSCALING = {
   id: "imp-95487",
   title:
-    "Asymptotic scaling law of the imp-95430 off-lattice breach threshold " +
+    "Asymptotic scaling law of the imp-95430 off-lattice crossing threshold " +
     "delta*(m) beyond m = 4..12, and the single-pattern collapse mechanism",
   object:
     "extend the imp-95430 Finding 2 delta*(m) ladder to m = 14..32 with the " +
@@ -163,7 +163,7 @@ export const IMP95487_BREACH_THRESHOLD_MSCALING = {
 // ---------------------------------------------------------------------------
 // Self-contained numeric machinery (import-light: no imports; verbatim slice of
 // the imp-95430 pencil / A_unif4 machinery used only for the CHEAP m = 8
-// single-pattern breach recompute; the full m = 14..32 ladder is baked above
+// single-pattern crossing recompute; the full m = 14..32 ladder is baked above
 // because the heavy worst-of-400 large-m sweeps ran offline, imp-95487-measure)
 // ---------------------------------------------------------------------------
 
@@ -328,7 +328,7 @@ export const IMP95487_ASSERTIONS = [
   {
     id: "imp95487-m8-anchor-recompute",
     description:
-      "the m = 8 single-pattern (idx 129) breach bisects to delta* = 0.051987 " +
+      "the m = 8 single-pattern (idx 129) crossing bisects to delta* = 0.051987 " +
       "(rel 1e-3) -- the live anchor that ties the baked ladder to the " +
       "imp-95430 machinery (its floor > A_unif4 at delta = 0, < at +-6.25%)",
     holds: () => {

@@ -1,6 +1,6 @@
 /**
  * @module data/c-f-bulk-refinement-2026-05
- * @fileoverview imp-1134 -- rigorize (or honestly KILL) the 1.05x C_F refinement
+ * @fileoverview imp-1134 -- rigorize (or honestly ELIMINATE) the 1.05x C_F refinement
  *   that imp-1127 treated as engine-closable in the Polymath15 bridge hybrid.
  *
  *   imp-1127 consumed REFINEMENT_C_F_BULK_APPROX = 1.05x on E_flow as

@@ -338,7 +338,7 @@ const CONJECTURES = [
         title: 'Hilbert spaces of entire functions and Dirichlet L-functions',
         venue: 'Frontiers in Number Theory, Physics, and Geometry I, 365-377',
         relevance:
-          'Surveys de-Branges-space attacks on RH for zeta and L-functions. ' +
+          'Surveys de-Branges-space approaches on RH for zeta and L-functions. ' +
           'Notes explicitly that all known constructions of an E with H(E) ' +
           'realizing the Weil form REQUIRE RH as input. So Lagarias confirms ' +
           'that the non-circular realization Conjecture 22.3 demands is exactly ' +

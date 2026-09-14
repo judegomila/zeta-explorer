@@ -70,7 +70,7 @@ function simpson(f, a, b, n) {
 
 const NPAN = 1000;
 
-// Partial-band-averaged structure factor over |alpha| < c (exploit even symmetry;
+// Partial-band-averaged structure factor over |alpha| < c (use even symmetry;
 // the integrand is linear on [0, c] so Simpson is exact). A_band(c) = c/2.
 function aBand(c) {
   const bandIntegral = 2 * simpson((a) => a, 0, c, NPAN); // INT_{-c}^{c} |alpha| ~ c^2

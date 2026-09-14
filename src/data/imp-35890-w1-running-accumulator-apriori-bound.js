@@ -68,7 +68,7 @@
  *
  * @see imp-35761-w1-certified-rounding-cost-scope (pessimistic N * eps ceiling this refines)
  * @see imp-35812-w1-summation-scheme-measured-cost (exact-BigInt ACHIEVED naive error ~3.0e-17)
- * @see imp-35852-w1-summation-adversarial-ordering (achieved error under adversarial ordering)
+ * @see imp-35852-w1-summation-adversarial-ordering (achieved error under worst-case ordering)
  * @see imp-35854-w1-summation-kappa-sweep (achieved error vs condition number)
  * @see imp-35760-w1-margin-allocation-scope (the O(1) barrier margin the bound sits under)
  * @see Higham 2002, Accuracy and Stability of Numerical Algorithms, sec 4.2 (running error bound)
@@ -241,7 +241,7 @@ export const IMP35890_W1_RUNNING_ACCUMULATOR_APRIORI_BOUND = {
     '(imp-486) untouched; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-35761 (pessimistic N * eps ceiling this refines); imp-35812 (exact-BigInt achieved naive error); ' +
-    'imp-35852 / imp-35854 (achieved error under adversarial ordering / kappa sweep); imp-35760 ' +
+    'imp-35852 / imp-35854 (achieved error under worst-case ordering / kappa sweep); imp-35760 ' +
     '(barrier-margin allocation); imp-35725 (mechanical N-term certified cost); imp-35681 Part A (A+B-C ' +
     'interval bound greenfield); imp-35674 Part D (N(x)=floor(sqrt(x/4 pi)) retained terms); Higham 2002 ' +
     'sec 4.2 (recursive-sum running error bound); Platt-Trudgian 2021 (barrier base).',

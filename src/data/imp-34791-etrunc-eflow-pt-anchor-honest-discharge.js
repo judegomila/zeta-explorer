@@ -119,7 +119,7 @@
  *        ~58x loosening -> 1.76e-3, the SAFEST honest bound the project can
  *        ship" is REFUTED -- wrong form, wrong exponent, wrong by ~9.5e7x.
  *
- * PART 3 -- STRUCTURAL RECLASSIFICATION (the adversarial self-refutation)
+ * PART 3 -- STRUCTURAL RECLASSIFICATION (the skeptical self-refutation)
  * -----------------------------------------------------------------------------
  * The recorded E_trunc kernel prices every hypothetical off-line zero above
  * T_PT at 2/gamma <= 6.7e-13 (imp-397: "contribution of rho_j <= 2/gamma_j").

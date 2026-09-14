@@ -1,7 +1,7 @@
 /**
  * @module data/imp-1290-weil-explicit-formula-attack
  * @fileoverview imp-1290 — Weil 1952 explicit-formula INEQUALITIES as a direct
- * attack vehicle on Λ (the de Bruijn-Newman constant), not as a mere RH
+ * approach vehicle on Λ (the de Bruijn-Newman constant), not as a mere RH
  * equivalence.
  *
  * CONTEXT
@@ -12,7 +12,7 @@
  *
  *      Σ_ρ Φ(ρ) ≥ 0          (for Φ in a positive class)
  *
- * unused as a quantitative attack on Λ. This module asks whether — taking
+ * unused as a quantitative approach on Λ. This module asks whether — taking
  * Φ from the Beurling-Selberg / Vaaler 1985 band-limited PSD class and
  * applying the inequality at flow-time t = -ε under the de Bruijn semigroup
  * Θ_t — one can extract an UNCONDITIONAL upper bound on Λ that is
@@ -137,7 +137,7 @@ const WEIL_PSD_CLASS = Object.freeze({
     'minimal among band-W functions. The corresponding test function f = ' +
     '(B_W)² lies in P_W and achieves the sharpest Weil-positivity test at ' +
     'width W. Beurling-Selberg majorants are the natural extremal class for ' +
-    'this attack.',
+    'this approach.',
   isPSDForAllFInClass: true,
   bombieri2003Refinement:
     'Bombieri 2003 strengthens Weil positivity to a VARIATIONAL form: ' +
@@ -146,7 +146,7 @@ const WEIL_PSD_CLASS = Object.freeze({
     'itself yield a Λ bound — it requires plugging in an explicit g.',
 });
 
-// ── Attack on Λ via de Bruijn flow ─────────────────────────────────────────
+// ── Approach on Λ via de Bruijn flow ─────────────────────────────────────────
 
 const LAMBDA_ATTACK_DERIVATION = Object.freeze({
   setup:
@@ -190,7 +190,7 @@ const LAMBDA_ATTACK_DERIVATION = Object.freeze({
     'The bound is UNCONDITIONAL on RH: it uses Weil-positivity for f in ' +
     'P_W and the de Bruijn flow definition of Λ. No RH input is required. ' +
     'However the bound DERIVES Λ ≤ B where B is finite but possibly large; ' +
-    'it does NOT imply RH (which would require B = 0). The attack is on ' +
+    'it does NOT imply RH (which would require B = 0). The approach is on ' +
     'the SIZE of Λ, not its sign.',
   honestCaveats: Object.freeze([
     'The derivation assumes a SINGLE off-critical zero pair (rho, 1-rho-bar). ' +
@@ -227,9 +227,9 @@ const SOUND_GRANVILLE_INTEGRATION = Object.freeze({
   verdictOnIntegration:
     'NEGATIVE for tightening: a LOWER bound on |ζ|² implies a LOWER ' +
     'bound (in absolute value) on the prime side of Weil, which in the ' +
-    'attack direction LOOSENS the Λ bound. SG 1998 is the WRONG SIGN to ' +
+    'approach direction LOOSENS the Λ bound. SG 1998 is the WRONG SIGN to ' +
     'tighten the Weil-as-attack route. (It would help if we wanted to ' +
-    'tighten a Weil-positivity OBSTRUCTION rather than the attack ' +
+    'tighten a Weil-positivity OBSTRUCTION rather than the approach ' +
     'direction.)',
   alternativeSGUse:
     'A more productive use of SG 1998 is in the §16-route (Bui-Soundararajan ' +
@@ -280,7 +280,7 @@ const NUMERICAL_EVALUATION = Object.freeze({
 
   numericalSummary:
     'At Beurling-Selberg width W = 1 (untuned, no test-function ' +
-    'optimization), the Weil explicit-formula attack yields Λ ≤ ~0.80, ' +
+    'optimization), the Weil explicit-formula approach yields Λ ≤ ~0.80, ' +
     'which is approximately 26,000x LOOSER than the imp-1261 chain ' +
     '(Λ ≤ 3.06e-5). The Weil-as-attack route at W = 1 is NOT competitive ' +
     'with the imp-341 + imp-1149 + Polymath15 chain.',
@@ -296,7 +296,7 @@ const VERDICT_VOCABULARY = Object.freeze([
 ]);
 
 // The W = 1 untuned bound is ~26,000x looser than imp-1261. This is "too
-// loose as attack" — even granting Vaaler-extremal test functions at W = 1
+// loose as approach" — even granting Vaaler-extremal test functions at W = 1
 // the bound is O(1) not O(10^{-5}). The route would need test-function
 // optimization across W (and possibly prolate-spheroidal upgrades) AND
 // would need to overcome the SG 1998 wrong-sign integration issue. Per
@@ -316,10 +316,10 @@ const VERDICT_RATIONALE =
   'spheroidal optimization is a separate research program (Bombieri-Hejhal ' +
   '1995 / Conrey-Iwaniec 2000) that has not historically yielded sub-1 ' +
   'bounds on Λ. The Soundararajan-Granville 1998 lower bound on |ζ|^2 has ' +
-  'the WRONG sign to tighten this attack (it loosens the prime-side ' +
+  'the WRONG sign to tighten this approach (it loosens the prime-side ' +
   'magnitude, not the displacement bound). VERDICT: weil-too-loose-as- ' +
-  'attack at W = 1; the §18.3 Weil/Pontryagin route as a quantitative ' +
-  'attack on Λ does NOT compete with the imp-1261 chain. The verdict is ' +
+  'approach at W = 1; the §18.3 Weil/Pontryagin route as a quantitative ' +
+  'approach on Λ does NOT compete with the imp-1261 chain. The verdict is ' +
   'STILL useful: it constrains the project potential of the §18.3 route ' +
   'and tells the engine to NOT spawn further test-function-optimization ' +
   'subtickets for this route unless a fundamental insight changes (a)/(b)/(c).';
@@ -346,7 +346,7 @@ const HONEST_SCOPE = Object.freeze([
     'conclusion that 0.80 >> 3.06e-5.',
 
   'The Soundararajan-Granville 1998 integration is found to be WRONG SIGN ' +
-    'for this attack: |ζ|^2 LOWER bounds loosen the prime-side magnitude, ' +
+    'for this approach: |ζ|^2 LOWER bounds loosen the prime-side magnitude, ' +
     'which loosens the Λ bound. SG 1998 is productive in the §16 (Bui- ' +
     'Soundararajan 2008) zero-density route (imp-1123 / imp-1164 / imp-1179), ' +
     'NOT in §18.3 Weil-attack route.',
@@ -367,7 +367,7 @@ const HONEST_SCOPE = Object.freeze([
 
 const CROSS_REFERENCES = Object.freeze([
   'imp-1244 imp-1244-subsumed-rh-second-pass.js — Conj 18.4 CONFIRMED-SUBSUMED-BY-RH ' +
-    '(parent equivalence-audit; this ticket extends to the INEQUALITY attack)',
+    '(parent equivalence-audit; this ticket extends to the INEQUALITY approach)',
   'imp-1261 imp-1261-asymptotic-lambda-redirect-shipped.js — comparison anchor ' +
     '(Λ ≤ 3.06e-5 chain; Weil at W = 1 is ~26,000x LOOSER)',
   'imp-1147 asymptotic-lambda-bound-2026-05-20.js — chain that imp-1261 ships',
@@ -378,7 +378,7 @@ const CROSS_REFERENCES = Object.freeze([
   'imp-1164 imp-1164-bui-sound-rigorous-port.js — 50-point σ-sweep for ' +
     'Bui-Sound 2008 density (the productive SG 1998 use)',
   'imp-1289 imp-1289-section17-4-krein-langer-attack.js — companion §17.4 ' +
-    'audit; together with imp-1290 these cover the §17.4 + §18.3 paper attacks',
+    'audit; together with imp-1290 these cover the §17.4 + §18.3 paper approaches',
 ]);
 
 // ── Exported record ────────────────────────────────────────────────────────
@@ -386,7 +386,7 @@ const CROSS_REFERENCES = Object.freeze([
 export const IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK = Object.freeze({
   id: 'imp-1290',
   ticket: 'imp-1290',
-  title: 'OPUS-4.8: §18.3 Weil/Pontryagin explicit-formula as a PROOF attack',
+  title: 'OPUS-4.8: §18.3 Weil/Pontryagin explicit-formula as a PROOF approach',
   shippedAt: '2026-05-28T00:00:00Z',
   shippedBy: 'opus-4-8 (subagent-worktree)',
 
@@ -489,7 +489,7 @@ export const IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK_ASSERTIONS = [
     why:
       'Soundararajan-Granville 1998 must be cited (per ticket spec) with ' +
       'the lower bound |ζ(1/2+it)|² > exp(-c log T / loglog T), and the ' +
-      'integration verdict (productive or not for THIS attack) must be ' +
+      'integration verdict (productive or not for THIS approach) must be ' +
       'stated explicitly.',
     holds: () => {
       const s = IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK.soundGranvilleIntegration;
@@ -557,7 +557,7 @@ export const IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK_ASSERTIONS = [
     id: 'imp1290-cross-references-imp1244-and-imp1261',
     why:
       'imp-1244 is the parent equivalence audit that this ticket extends ' +
-      'to the inequality attack; imp-1261 is the comparison anchor. Both ' +
+      'to the inequality approach; imp-1261 is the comparison anchor. Both ' +
       'must appear in crossReferences for traceability.',
     holds: () => {
       const refs = IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK.crossReferences.join(' | ');
@@ -599,7 +599,7 @@ export const IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK_ASSERTIONS = [
       'The translation Λ ≤ β² from off-critical zero displacement under the ' +
       'de Bruijn flow must be stated explicitly (Polymath15 §3.2 / imp-447 ' +
       'flow-time identity). Without this the Weil bound on β² is not a ' +
-      'bound on Λ; the route is then a Weil-positivity check, not a Λ attack.',
+      'bound on Λ; the route is then a Weil-positivity check, not a Λ approach.',
     holds: () => {
       const d = IMP_1290_WEIL_EXPLICIT_FORMULA_ATTACK.lambdaAttackDerivation;
       return (

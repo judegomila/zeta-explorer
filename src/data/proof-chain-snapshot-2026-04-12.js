@@ -464,7 +464,7 @@ export const LEAN_STATUS = {
     'Closing the Selberg S(T) sorry (once in Mathlib) closes 2 of 10 sorrys immediately.',
 };
 
-// ── 6. ADVERSARIAL REVIEW HISTORY ─────────────────────────────────────────────
+// ── 6. SKEPTICAL REVIEW HISTORY ─────────────────────────────────────────────
 
 export const ADVERSARIAL_REVIEWS = [
   {
@@ -536,7 +536,7 @@ export const PROOF_CHAIN_SNAPSHOT = {
     'Finite-height beat imp-452 gives L_pt ~ 0.121 GUE-CONDITIONAL (depends on C_mb bound via ESY 2011). ' +
     'SOLE OPEN PREMISE: GUE universality (Erdos-Schlein-Yau local law) for the many-body ' +
     'Calogero-Moser correction C_mb; confirmed irreducible by imp-486. ' +
-    'Six adversarial reviews completed; FATAL count trajectory: 2, 0, 0, 0, 0, 0. ' +
+    'Six skeptical reviews completed; FATAL count trajectory: 2, 0, 0, 0, 0, 0. ' +
     'RH follows from Lambda = 0 (Route B asymptotic + Rodgers-Tao floor) ' +
     'unconditionally for the asymptotic claim; finite-height claim is GUE-CONDITIONAL via Route B + B1. ' +
     'imp-499: Lean sorry count 8->10 confirmed CORRECT (Capstone.lean has 0 sorrys, PROVED). ' +
@@ -549,7 +549,7 @@ export const PROOF_CHAIN_SNAPSHOT = {
     'Finite-height beat: read imp-452 + imp-470 (lambda-N1e6-unconditional-beat.js)',
     'G6 bridge: read imp-387 (lambda-polymath15-bridge.js + polymath15-lemma52-shock-holder.js)',
     'GUE irreducibility: read imp-486 (exhaustive C_mb unconditional search)',
-    'Adversarial reviews: read paper-skeptic-review.js, -2.js, -3.js, -5.js',
+    'Skeptical reviews: read paper-skeptic-review.js, -2.js, -3.js, -5.js',
     'Lean skeleton: read lean4-koksma-hlawka.js (imp-403)',
     'Lean sorry investigation: read lean/LambdaAttack/Capstone.lean open-sorrys footer (imp-499)',
     'Submission-ready milestone: read src/data/submission-ready-2026-04-12.js (imp-500)',

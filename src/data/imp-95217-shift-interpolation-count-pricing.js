@@ -8,7 +8,7 @@
  * PROP LIN (two-sided sandwich: the touching-count threshold is LINEAR in
  * the count, (2K - 1)/4 <= xTrue(K) <= xStarTouch(K) <= 4 ln(3) K + ln 2).
  *
- * Ninth leg of the seam chain, attacking the open sub-gap
+ * Ninth leg of the seam chain, approaching the open sub-gap
  * imp-95212-subgap-fresnel-airy-envelope-port at the residual left by
  * imp-95216: "bounded-occupancy touching families WITHOUT a ratio floor
  * (the LEMMA NG coalescence corner), open on both sides". Every prior
@@ -131,7 +131,7 @@
  * 0.0008970129179652026 vs bound 0.0031383802616614773 (3.5x slack).
  * (b) The count must be FINITE and known: unbounded-count touching
  * families with bounded octave occupancy (convergent Szasz sum, so
- * THEOREM SZ does not kill them; count unbounded, so THEOREM SI does not
+ * THEOREM SZ does not eliminate them; count unbounded, so THEOREM SI does not
  * price them; no ratio floor, so THEOREM GC does not price them) remain
  * the open residual of obligation (iii) -- now the ONLY unpriced corner.
  * (c) NOT instantiated for the paper packets; the distinct-rate count of
@@ -143,7 +143,7 @@
  * remains a cap, not a measurement; measured class sup phi = 0.3572
  * untouched.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Proof audit: the identity is a
+ * SKEPTICAL SELF-CHECK RECORD. (1) Proof audit: the identity is a
  * finite algebraic statement checked per rate; the contraction step is
  * integral positivity; the divided-difference bound needs phi in C^k and
  * monotone phi^(k) on (0, b] -- both hold for phi(q) = q^n, k <= n, and
@@ -439,7 +439,7 @@ export const IMP95217_SHIFT_INTERPOLATION_COUNT_PRICING = {
     boundLam26: BOUND_LAM_2_6,
   },
   subGap:
-    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed: obligation (iii) now has THREE admissible discharge certificates, (A) lacunary shells (DR family), (B) a global consecutive-ratio floor (THEOREM GC), or (C) a bounded distinct-rate COUNT with no separation at all (THEOREM SI, threshold xStarTouch(K) linear in K). A finite alias grid has a finite count, so certificate (C) may be the cheapest to extract -- no separation bookkeeping, at the price of a deeper collar (m d > 97.39 at K = 33). Residual unpriced freedom, now the ONLY corner: UNBOUNDED-count touching families with bounded octave occupancy (Szasz-convergent, so THEOREM SZ does not kill them; no floor, no shells, count unbounded, so no positive theorem prices them) -- open on both sides. Remaining extraction obligations: the alias-denominator to dictionary-rate map, the per-parity certificate in form A, B or C, and the paper constants (m, d, and shell data, ratio floor, or count).",
+    "imp-95212-subgap-fresnel-airy-envelope-port -- STILL OPEN, further narrowed: obligation (iii) now has THREE admissible discharge certificates, (A) lacunary shells (DR family), (B) a global consecutive-ratio floor (THEOREM GC), or (C) a bounded distinct-rate COUNT with no separation at all (THEOREM SI, threshold xStarTouch(K) linear in K). A finite alias grid has a finite count, so certificate (C) may be the cheapest to extract -- no separation bookkeeping, at the price of a deeper collar (m d > 97.39 at K = 33). Residual unpriced freedom, now the ONLY corner: UNBOUNDED-count touching families with bounded octave occupancy (Szasz-convergent, so THEOREM SZ does not eliminate them; no floor, no shells, count unbounded, so no positive theorem prices them) -- open on both sides. Remaining extraction obligations: the alias-denominator to dictionary-rate map, the per-parity certificate in form A, B or C, and the paper constants (m, d, and shell data, ratio floor, or count).",
   verdict:
     "COALESCENCE-CORNER COUNT PRICING DELIVERED (model level): THEOREM SI prices touching families with NO separation hypothesis -- the first positive theorem covering the LEMMA NG mechanism itself (confluent dressing included) -- by replacing the Cauchy biorthogonal route with a shift-interpolation identity; exact at K = 1; threshold ladder linear in the count with a matching linear necessity floor (PROP NEC via THEOREM SZ + PROP LIN Markov bound), and a closed-form truth floor Q(2K - 1, 2x) on every row. HONEST LIMITS: one-sided (3.5x slack at the canonical confluent row, 5.8-39x at the payoff rows); count must be finite and known; NOT instantiated for the paper packets; obligation (iii) not closed -- the unbounded-count bounded-occupancy touching class survives as the only unpriced corner; measured class sup phi = 0.3572 unchanged.",
   rigorScope:
@@ -573,7 +573,7 @@ export const IMP95217_SIC_ASSERTIONS = [
   {
     id: "imp95217-sic-coalescence-battery",
     description:
-      "adversarial cross-checks through coalescence: the cancellation-free K = 2 pair value converges to the exact confluent 2x2 value (rel 1e-6 at gap 1e-8) and never exceeds the bound down to gap 1e-6; the canonical honesty row reproduces; 800 seeded random touching-biased configs (K = 2..4, exact Cauchy Gram, power iteration) never violate the bound",
+      "skeptical cross-checks through coalescence: the cancellation-free K = 2 pair value converges to the exact confluent 2x2 value (rel 1e-6 at gap 1e-8) and never exceeds the bound down to gap 1e-6; the canonical honesty row reproduces; 800 seeded random touching-biased configs (K = 2..4, exact Cauchy Gram, power iteration) never violate the bound",
     holds: () => {
       const rel = (a, b, t) => Math.abs(a - b) <= t * Math.abs(b);
       const conf = confluent2(1, 6);

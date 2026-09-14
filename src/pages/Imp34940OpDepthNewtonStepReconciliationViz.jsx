@@ -4,7 +4,7 @@ import { IMP34909_OP_DEPTH_NEWTON_STEP_RECONCILIATION } from '../data/imp-34909-
 
 const D = IMP34909_OP_DEPTH_NEWTON_STEP_RECONCILIATION;
 
-// The shared 8-ops-per-step ladder: op-depth = Newton step * 8. Both published breach points sit
+// The shared 8-ops-per-step ladder: op-depth = Newton step * 8. Both published crossing points sit
 // on the SAME 2^(op-depth/8) forward-doubling curve, marked against their own reference-width ratio.
 const OPS_PER_STEP = D.constants.ops_per_newton_step; // 8
 const MAX_OP_DEPTH = 48;
@@ -31,7 +31,7 @@ const BREACH_POINTS = [
 ];
 
 // The shared forward width-inflation curve 2^(op-depth/8), log2-scaled, with the two published
-// breach points marked at op-depth 8 (ratio 2, exceeds its own seed) and op-depth 40 (ratio 32,
+// crossing points marked at op-depth 8 (ratio 2, exceeds its own seed) and op-depth 40 (ratio 32,
 // exceeds the (H2) margin ~19.91).
 function ForwardDoublingCurveChart() {
   const svgW = 720;
@@ -118,7 +118,7 @@ function ForwardDoublingCurveChart() {
   );
 }
 
-// The two reference-width thresholds each breach point is measured against, and the gap between
+// The two reference-width thresholds each crossing point is measured against, and the gap between
 // them (in doublings) that explains why the same doubling curve reads 8 in one axis and 40 in the
 // other.
 function ThresholdGapChart() {
@@ -164,7 +164,7 @@ function ThresholdGapChart() {
       <line x1={padL} y1={padT} x2={padL} y2={padT + cH} stroke="#334155" strokeWidth={1.5} />
       <text x={padL + cW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
         log10 scale -- {D.reconciliation.log2_threshold_gap_doublings} doublings separate the two thresholds
-        (== the {D.reconciliation.breach_step_gap}-step breach gap)
+        (== the {D.reconciliation.breach_step_gap}-step crossing gap)
       </text>
     </svg>
   );
@@ -180,18 +180,18 @@ export default function Imp34940OpDepthNewtonStepReconciliationViz() {
       </p>
 
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
-        On the shared {D.constants.ops_per_newton_step}-ops-per-step ladder, both published breach
+        On the shared {D.constants.ops_per_newton_step}-ops-per-step ladder, both published crossing
         points sit on the SAME 2^(op-depth/{D.constants.ops_per_newton_step}) forward-width-doubling
-        curve: the imp-34884 seed-bracket breach at op-depth 8{' '}
+        curve: the imp-34884 seed-bracket crossing at op-depth 8{' '}
         (Newton step {D.reconciliation.d_star_884_as_newton_step}, ratio{' '}
-        {D.reconciliation.forward_ratio_at_d_star.toFixed(2)}) and the imp-34889 (H2)-margin breach at
+        {D.reconciliation.forward_ratio_at_d_star.toFixed(2)}) and the imp-34889 (H2)-margin crossing at
         op-depth {D.reconciliation.step_889_as_op_depth} (Newton step 5, ratio{' '}
         {D.reconciliation.forward_ratio_at_step_889_depth.toFixed(2)}).
       </p>
       <ForwardDoublingCurveChart />
 
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.25rem 0 0.5rem' }}>
-        The two breaches differ only in which reference width they are measured against: the
+        The two crossings differ only in which reference width they are measured against: the
         seed-bracket threshold R_seed = {D.reconciliation.r_seed_ratio_imp34884} vs the (H2)-margin
         threshold R_margin ~ {D.reconciliation.r_margin_ratio_imp34889}, a gap of{' '}
         {D.reconciliation.log2_threshold_gap_doublings} doublings -- exactly the{' '}

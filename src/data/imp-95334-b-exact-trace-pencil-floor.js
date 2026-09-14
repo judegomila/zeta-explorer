@@ -113,11 +113,11 @@
  * (was 0.73 percent under the old floors), the largest single
  * remaining pointwise headroom and still small.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Trace-cap truth: (A/2) T8_k >=
+ * SKEPTICAL SELF-CHECK RECORD. (1) Trace-cap truth: (A/2) T8_k >=
  * B_true at 11-point in-chart grids over 9 charts x 8 (rho, r) cells
  * including both coalescence ends -- no violation; near-attained at
  * the rho = e^6 binding chart (ratio 1.0049). (2) LEMMA T-EXACT (ii)
- * attacked against dense 2001-point interval minima for intervals
+ * approached against dense 2001-point interval minima for intervals
  * straddling and avoiding odd multiples of pi: exact agreement to
  * float precision. (3) Floor validity: 2001-point exact-symbol scans
  * + 3 rounds of local refinement at 8 cells: no dip below A_pen8;

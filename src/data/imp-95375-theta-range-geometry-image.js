@@ -73,7 +73,7 @@
  * determined here; that is obligation (3) / imp-95397, left OPEN. Changes no
  * bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Closed-form Gram diagonal G_nn = 1/mu_n
+ * SKEPTICAL SELF-CHECK RECORD. (1) Closed-form Gram diagonal G_nn = 1/mu_n
  * verified against the equal-rate branch. (2) theta(all +1) = 1 exactly
  * (numerator = denominator). (3) theta(alt) at pD = 24 = 0.008176 matches
  * imp-95255 thetaPort(3, 8, [1, -1]) to 1e-6. (4) theta(sigma) >= 0 confirmed

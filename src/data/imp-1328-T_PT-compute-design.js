@@ -212,7 +212,7 @@ const HARDWARE_CANDIDATES = Object.freeze([
       'MI300 has roughly 2x the H100 FP64 peak and a large unified HBM pool, ' +
       'helpful for big OS / FFT blocks. rocFFT is less mature than cuFFT. Strong ' +
       'candidate precisely because L1/L2 are FP64-bound, not tensor-bound.',
-    rigorRisk: 'same deterministic-reduction problem; ROCm tooling less battle-tested',
+    rigorRisk: 'same deterministic-reduction problem; ROCm tooling less production-proven',
   }),
   Object.freeze({
     id: 'cpu-avx512-cluster',

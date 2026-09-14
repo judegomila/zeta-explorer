@@ -1,7 +1,7 @@
 // @module data/imp-2323-supercrit-phase-fine
 // imp-2323: Finer-grid super-critical-strip phase / arg-difference empirical survey.
 //
-// ⚠ CORRECTION (2026-07-03, novel-angles adversarial workflow): the field formerly
+// ⚠ CORRECTION (2026-07-03, novel-angles skeptical workflow): the field formerly
 // named `totalWindingNumber` is RENAMED `segmentArgDelta`. It is NOT a winding number
 // or a quantized argument-principle zero count -- it is the arg-difference of zeta along
 // ONE open vertical SEGMENT, W_seg(sigma) = (1/2pi)[arg zeta(sigma+i200) - arg zeta(sigma+i0.5)],

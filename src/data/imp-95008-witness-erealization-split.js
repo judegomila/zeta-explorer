@@ -158,7 +158,7 @@
  *   phi -> 1. The parity-balance channel is measured near-exhausted here;
  *   the tradeoff question is where the remaining 1.4032 lives.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the split identity and X_par =
+ * SKEPTICAL SELF-CHECK RECORD: (1) the split identity and X_par =
  * 2 <U, V> are checked two ways - closed-form assembly (rel 1e-11; E is a
  * 1536x cancellation so 1e-12 is not honest there) and independent
  * full-line trapezoid quadrature of ||sum w_b||^2 and sum ||w_b||^2

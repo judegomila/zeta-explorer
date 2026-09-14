@@ -130,8 +130,8 @@
  *   NO new Lambda bound. Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous
  *   SOTA. NO QED.
  *
- * Adversarially refereed (fresh-context referee over the 7-claim skeleton;
- * attack surfaces: t<0 entirety, paired-sum convergence/boundedness,
+ * Independently refereed (fresh-context referee over the 7-claim skeleton;
+ * approach surfaces: t<0 entirety, paired-sum convergence/boundedness,
  * multiplicity bookkeeping, strip-height mapping, completeness vs local-RH
  * smuggling, tail arithmetic, flow-definition circularity, window-gap-only
  * quantification of the lemma's (b)). REFEREE VERDICT: SOUND-WITH-GAPS, NO
@@ -206,7 +206,7 @@ export const SPECTATOR_REALNESS_CLOSURE = {
     { id: 'imp-34427-sub-edge-no-collision', part: 'finite check that no window-vs-omitted-zero collision (ANY omitted zero, per referee; reducible to the adjacent edge gaps after displacement control) precedes T = H^2/(8 thetaBar)', status: 'open' },
   ],
   refereeVerdict:
-    'SOUND-WITH-GAPS, no claim refuted (fresh-context adversarial referee, 7-claim skeleton); mandated fixes applied: '
+    'SOUND-WITH-GAPS, no claim refuted (fresh-context independent referee, 7-claim skeleton); mandated fixes applied: '
     + 'doubled-vs-undoubled normalization dictionary (Phi~(u) = 2 Phi(2u), claims rescaling-invariant), mirror-zero '
     + 'Re y wording, instantaneous-vs-flow scoping of the completeness step, edge residual broadened to any omitted zero.',
   rigorousBeat: false,
@@ -350,7 +350,7 @@ export const SPECTATOR_REALNESS_ASSERTIONS = [
     id: 'imp34427-honesty-gate',
     description:
       'honesty gate: verdict is a CHANNEL closure (RIGOROUS, RH-FREE) with the certificate overall PARTIAL; all '
-      + 'three named residuals OPEN (displacement, discrete sums, edge no-collision); adversarial referee verdict '
+      + 'three named residuals OPEN (displacement, discrete sums, edge no-collision); independent referee verdict '
       + 'recorded (SOUND-WITH-GAPS, no claim refuted, fixes applied); no rigorous beat; PT Lambda <= 0.2 cited as '
       + 'SOTA; NO QED present',
     holds: () => /RIGOROUS \(channel closure, RH-FREE, deterministic\)/.test(SPECTATOR_REALNESS_CLOSURE.verdict)

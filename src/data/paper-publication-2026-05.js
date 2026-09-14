@@ -590,7 +590,7 @@ export const PAPER_PUBLICATION_ASSERTIONS = [
       return false;
     },
     why:
-      'Some refresh-history entry must cite imp-1127 (the hybrid attack ' +
+      'Some refresh-history entry must cite imp-1127 (the hybrid approach ' +
       'that landed the new 0.018 figure in the headline) AND at least three ' +
       'of the four wave-3 tickets {imp-1123, imp-1125, imp-1127, imp-1128} ' +
       'to ground the Appendix D refresh log in the work record.',

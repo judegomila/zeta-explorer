@@ -252,7 +252,7 @@ export const IMP36062_KBN_KAHAN_SEPARATION_ONSET = {
       'both schemes sit at the ~1e-19 compensated floor at every rung -- the separation is a floor-level rounding ' +
       'effect and precision is NOT the binding constraint anywhere on the ladder',
     staysGreenfield:
-      'this module measures Kahan-vs-KBN separation under the combined adversarial clustered order at eleven N only; ' +
+      'this module measures Kahan-vs-KBN separation under the combined skeptical clustered order at eleven N only; ' +
       'it evaluates no sum of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays ' +
       'GREENFIELD (imp-35681 Part A) and MECHANICAL (imp-35725)',
   },

@@ -1,9 +1,9 @@
 /**
  * @module ch-wall-frontier-verdict-2026-06-26
  *
- * Deliberate adversarial frontier assault on the C_H / C_Lip wall (the #1
+ * Deliberate skeptical frontier push on the C_H / C_Lip wall (the #1
  * load-bearing object of the finite-N*=1e4 Lambda beat). Opus 4.8, ch-wall-frontier
- * workflow: 4 independent attack routes + adversarial referees + synthesis, on the
+ * workflow: 4 independent approach routes + independent referees + synthesis, on the
  * subscription channel in parallel with the polish fleet.
  *
  * VERDICT: RH-HARD-CONFIRMED. The Lipschitz route to a finite N-uniform C_Lip is
@@ -23,7 +23,7 @@
  *      not dynamics, not the Holder shock. This is the SHARPEST diagnosis of WHY
  *      C_Lip diverges -- sharper than imp-2640 (Gronwall) and imp-2839 (intrinsic
  *      Holder), which it supersedes.
- *   3. The two "dissolution" surrogates FAIL adversarial check:
+ *   3. The two "dissolution" surrogates FAIL skeptical check:
  *      - tau_c-direct: object-substitution error. tau_c (collision TIME) is
  *        degree-2 homogeneous -> Lipschitz; but C_H multiplies g_min (degree-1)
  *        -> 1/length divergent. Converting back: dg_min/dW_1 = 1.449/sqrt(W_1)
@@ -65,7 +65,7 @@
  * CONSEQUENCE: PLATT-TRUDGIAN Lambda <= 0.2 REMAINS the rigorous SOTA. The
  * finite-N*=1e4 beat stays an ESTIMATE (rigorous-modulo-C_H = O(1)); cond-CH must
  * stay in the closure. The impossibility result ACTIVELY FORECLOSES the
- * Lipschitz/Gronwall path to a rigorous Lambda<0.2. No false QED. The adversarial
+ * Lipschitz/Gronwall path to a rigorous Lambda<0.2. No false QED. The skeptical
  * referees REFUTED the over-optimistic surrogate claims (tau_c-substitution,
  * rank-1 'surrogate survives' W_1-normalization artifact) -- exactly as designed.
  *

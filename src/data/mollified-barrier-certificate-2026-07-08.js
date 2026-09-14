@@ -20,7 +20,7 @@
  *
  * Backend: python-flint acb ball arithmetic (sister repo .venv). Faithful P15
  * §8.3 pure-triangle regime, exact heat weights, TRUE incommensurate log(n)
- * frequencies (no commensuration — that is what killed the naive Fejér–Riesz
+ * frequencies (no commensuration — that is what eliminated the naive Fejér–Riesz
  * variant and is deliberately not reintroduced).
  *
  * HONEST SCOPE: no bound, no beat, no QED. Platt–Trudgian Λ ≤ 0.2 stays SOTA.
@@ -70,7 +70,7 @@ export const TRIANGLE_CHANNEL_SCAN = [
 ];
 
 export const TRIANGLE_CHANNEL_NOTE =
-  'The gain is real but small and shrinks as the low-n window widens: a degree-2/3 mollifier only kills ' +
+  'The gain is real but small and shrinks as the low-n window widens: a degree-2/3 mollifier only eliminates ' +
   'the n=2,3 terms (S1=0.313, S2=0.161; isolation (S1−S2)/S1≈0.48), and the incommensurate product ' +
   'regenerates mass at higher k=n·d. It recovers only ~12–25% of the true min-modulus (0.2–0.4 vs 1.7).';
 

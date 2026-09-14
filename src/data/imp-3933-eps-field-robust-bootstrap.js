@@ -4,7 +4,7 @@
  * imp-3933 (proof, RH-FREE, deterministic): eps'-FIELD-ROBUST plateau-domination
  * bootstrap — a finite, N-uniform, deterministic collision-time TRANSFER MODULUS
  * in the VECTOR-FIELD-ERROR channel, certified on every H_raw plateau of
- * N in [1e4, 1e6]. This is the C_Lip breach-point assault (ch-wall-frontier /
+ * N in [1e4, 1e6]. This is the C_Lip breach-point push (ch-wall-frontier /
  * econn-metric verdicts) rerouted: the W_1-channel C_Lip stays PROVABLY divergent
  * (all three impossibility proofs untouched), but the model-to-true-flow transfer
  * that the finite-N chain actually needs NEVER required a measure-space modulus.
@@ -274,7 +274,7 @@ export const EPS_FIELD_ROBUST_BOOTSTRAP = {
 //     eps_far(l) <= (2/delta^2) * (1/k) = 2/(delta^2 k),   delta = 2pi/log(gamma/2pi).
 // At the top edge (k=1, delta~0.65) this is ~4.7 (matching the module O(10)
 // window-edge estimate); it decays like 1/k into the interior (~O(1e-3) near the
-// record pair), which is exactly why the per-gap eps_l variant kills the edge
+// record pair), which is exactly why the per-gap eps_l variant eliminates the edge
 // sensitivity: only O(1/delta) top gaps carry a large eps.
 export const EPS_TRUE_DECOMPOSITION = Object.freeze({
   ticket: 'imp-33224',

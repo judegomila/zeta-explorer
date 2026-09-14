@@ -15,7 +15,7 @@
  * STRUCTURAL EVIDENCE ONLY -- no fabricated QED, no proof of RH.
  * @see imp-2425 (named this canonical-system realizability question as its sub-gap)
  * @see imp-2364 (rectangular winding-number route to ind_-(K_a))
- * @see data/three-attacks-section.js (Attack III, Theorem 18.3 + Conjecture 18.4)
+ * @see data/three-attacks-section.js (Approach III, Theorem 18.3 + Conjecture 18.4)
  */
 // imp-2430 -- de Branges / Remling canonical-system realizability of the twin
 // ladder kernel.
@@ -35,7 +35,7 @@
 // The Krein-Langer extension covers the indefinite case: a generalized
 // Nevanlinna function N_kappa (Pick kernel with exactly kappa negative squares)
 // is the m-function of a canonical system in a Pontryagin space Pi_kappa. The
-// integer kappa is precisely the Attack III negative index ind_-(K_a) studied by
+// integer kappa is precisely the Approach III negative index ind_-(K_a) studied by
 // imp-2364 (winding number) and imp-2425 (Krein spectral shift). So canonical
 // system realizability and the twin-ladder positivity index are the same datum
 // viewed through de Branges` lens.
@@ -103,7 +103,7 @@
 //       on the actual m-function -- not delivered here.
 //  (G2) SURROGATE CIRCULARITY. The finite zero-product / point-measure m is a
 //       surrogate, not the resolvent of the genuine twin-ladder operator; the
-//       true Weyl m-function presupposes the operator Attack III is trying to
+//       true Weyl m-function presupposes the operator Approach III is trying to
 //       build. A node-count-independent kappa requires that genuine m (with its
 //       Hermite-Biehler structure function E), which would also fix the off-line
 //       finite-index gap above.
@@ -265,7 +265,7 @@ export const TWIN_LADDER_CANONICAL_SYSTEM_REALIZABILITY = Object.freeze({
     'trace-normed canonical system iff it is Nevanlinna (Herglotz). Krein-Langer ' +
     'extension: a generalized Nevanlinna function N_kappa (Pick kernel with kappa ' +
     'negative squares) is realized by a canonical system in a Pontryagin space ' +
-    'Pi_kappa, and kappa equals the Attack III index ind_-(K_a).',
+    'Pi_kappa, and kappa equals the Approach III index ind_-(K_a).',
   method:
     'Build the candidate Weyl m-function m(z) = sum_n 1/(t_n - z) from the spectral ' +
     'points t_n = +/- gamma_n (first 6 Odlyzko ordinates), then decide the ' +

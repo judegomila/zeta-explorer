@@ -46,7 +46,7 @@ export default function RHAttackPage() {
       <EditorialHeader ticker={<span>proof-path map: what each RH route still requires</span>} />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="ed-h1">RH Attack Strategies</h1>
+          <h1 className="ed-h1">RH Approach Strategies</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 760, marginTop: 10 }}>
             Computational tools for testing specific conditions equivalent to or implied by the
             Riemann Hypothesis, using the Twin-Ladder Bridge framework. Each strategy identifies
@@ -69,7 +69,7 @@ export default function RHAttackPage() {
 
         <div className="two-col" style={{ marginTop: 24 }}>
           <div className="card">
-            <h3 style={{ color: BLUE, fontSize: 14 }}>Five Attack Strategies</h3>
+            <h3 style={{ color: BLUE, fontSize: 14 }}>Five Approach Strategies</h3>
             <ol style={{ marginLeft: 16, color: 'var(--ink-soft)', fontSize: 13, lineHeight: 2 }}>
               <li>
                 <strong style={{ color: GREEN }}>Li Coefficients</strong> — Compute{' '}
@@ -537,13 +537,13 @@ export default function RHAttackPage() {
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             <Link to="/closure-routes" style={{ color: CYAN, fontSize: 13 }}>Closure Routes (equivalence)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/spectral-attack" style={{ color: CYAN, fontSize: 13 }}>Spectral Attack (6 vectors)</Link>
+            <Link to="/spectral-attack" style={{ color: CYAN, fontSize: 13 }}>Spectral Approach (6 vectors)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/gap-closing" style={{ color: PURPLE, fontSize: 13 }}>Gap Closing (S4/S5/S7)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/formal-proof" style={{ color: GREEN, fontSize: 13 }}>Formal Proof (10 sections)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/proof-checker" style={{ color: RED, fontSize: 13 }}>Proof Checker (adversarial)</Link>
+            <Link to="/proof-checker" style={{ color: RED, fontSize: 13 }}>Proof Checker (skeptical)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/rigor" style={{ color: AMBER, fontSize: 13 }}>Rigor (criticisms)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>

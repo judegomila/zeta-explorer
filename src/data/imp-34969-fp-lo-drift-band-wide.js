@@ -33,7 +33,7 @@
  * FALSE across the full ladder: it holds ONLY on the narrow +-5% imp-34693 seed band. The surrogate Banach
  * map g is NON-CONTRACTIVE (|g_prime| > 1, FP_LO < 0) for all N below the contractivity onset N* ~ 1.4753e8
  * (bisection root of |g_prime(N(1-delta))| = 1); below N* the Krawczyk quotient-denominator floor FP_LO is
- * negative, R_margin = N*FP_LO/K is negative, and the nStar = floor(log2 R_margin) + 1 breach step is
+ * negative, R_margin = N*FP_LO/K is negative, and the nStar = floor(log2 R_margin) + 1 crossing step is
  * UNDEFINED. So the entire R_margin dyadic-wall / nStar structure is only meaningful for N >~ 1.5e8, i.e.
  * around and above N_cross where the map contracts.
  *

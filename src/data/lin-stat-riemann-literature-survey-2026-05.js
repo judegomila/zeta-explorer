@@ -73,7 +73,7 @@
 // 2003 transferred it to Riemann zeros under Montgomery-style sine-kernel
 // hypotheses. The Bourgade 2010 mesoscopic CLT covers the intermediate
 // regime. What IS novel in the paper is the empirical confirmation on the
-// SPECIFIC observable used to attack the imp-407 / imp-508 ESY closure --
+// SPECIFIC observable used to approach the imp-407 / imp-508 ESY closure --
 // that is, the EMPIRICAL DATA POINT (slope -0.949 on 5-point grid, slope
 // -0.849 on 9-point grid) rather than the SCALING LAW itself.
 //
@@ -81,7 +81,7 @@
 // ------------------------
 // Reframe Section 4.5 from "first empirical positive signal" to "empirical
 // confirmation of the Hughes-Rudnick / Bourgade prediction on the
-// specific observable feeding the imp-407 / imp-508 attack." Cite
+// specific observable feeding the imp-407 / imp-508 approach." Cite
 // Hughes-Rudnick 2003 and Bourgade 2010 explicitly. Conjecture 1 should
 // be re-classified as a NUMERICAL CROSS-CHECK of an established theoretical
 // prediction rather than a new conjecture.
@@ -372,13 +372,13 @@ const RECOMMENDATION_DETAIL = {
   proposed_revision:
     'Section 4.5 should be retitled and rephrased as: Empirical confirmation ' +
     'of the Hughes-Rudnick / Bourgade variance scaling on the imp-407 / ' +
-    'imp-508 attack observable. The empirical slopes (-0.949 on 5-point grid, ' +
+    'imp-508 approach observable. The empirical slopes (-0.949 on 5-point grid, ' +
     '-0.849 on 9-point grid) confirm to within 0.05 the theoretical prediction ' +
     'slope -1 from sine-kernel + Soshnikov, and the sub-leading deviation is ' +
     'consistent with the Conrey-Snaith arithmetic correction term. The novel ' +
     'contribution is the numerical demonstration that the SPECIFIC observable ' +
-    'used in the imp-407 / imp-508 attack route falls into the Hughes-Rudnick ' +
-    'universality class, validating the attack target.',
+    'used in the imp-407 / imp-508 approach route falls into the Hughes-Rudnick ' +
+    'universality class, validating the approach target.',
   citations_to_add:
     'Hughes-Rudnick 2003 (primary); Bourgade 2010 (mesoscopic); ' +
     'Soshnikov 2000 (local CLT); Costin-Lebowitz 1995 (master CLT framework); ' +
@@ -386,7 +386,7 @@ const RECOMMENDATION_DETAIL = {
     'first three are mandatory before the conjecture statement.',
   rename_proposal:
     'Rename Conjecture 1 from Linear-statistics variance candidate to ' +
-    'Empirical confirmation of Hughes-Rudnick variance on the ESY attack ' +
+    'Empirical confirmation of Hughes-Rudnick variance on the ESY approach ' +
     'observable. Change keyword conjecture to proposition or observation; ' +
     'the statement is no longer conjectural in random-matrix universality.',
 };

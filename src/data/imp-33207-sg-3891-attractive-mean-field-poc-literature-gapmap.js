@@ -14,7 +14,7 @@
  * results do not supply, and corroborates the central structural fact numerically (necessary, NOT
  * sufficient). Literature-scope / gap map only; no new theorem, no operator positivity, no RH claim, NO QED.
  *
- * THE LITERATURE, KERNEL BY KERNEL (what each theorem needs, why the attractive sign kills it)
+ * THE LITERATURE, KERNEL BY KERNEL (what each theorem needs, why the attractive sign eliminates it)
  * ------------------------------------------------------------------------------------------
  *   (L1) Sznitman classical propagation of chaos (McKean-Vlasov). Needs a GLOBALLY LIPSCHITZ interaction
  *        kernel; the coupling / empirical-measure estimate is a Gronwall on the Lipschitz constant. The
@@ -193,7 +193,7 @@ const D1_REPULSIVE_GAP_GROWS = REPULSIVE.gapEnd > REPULSIVE.gap0;
 const D2_ATTRACTIVE_LOGE_DESCENDS = ATTRACTIVE.Lend < ATTRACTIVE.L0;
 const D2_REPULSIVE_LOGE_ASCENDS = REPULSIVE.Lend > REPULSIVE.L0;
 
-// ── the literature gap map: each theorem, its repulsion-supplied ingredient, why the attractive sign kills it ──
+// ── the literature gap map: each theorem, its repulsion-supplied ingredient, why the attractive sign eliminates it ──
 const LITERATURE_GAP_MAP = [
   {
     id: 'L1',

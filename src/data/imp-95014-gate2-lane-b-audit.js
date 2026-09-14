@@ -4,14 +4,14 @@
  * the imp-95011 Gate-2 carrier |C_E,17|, run on a subsample of the Lane-A grid
  * plus a fixed anchor cell, with a pass gate that Lane A and Lane B agree to
  * better than 1e-9. Any disagreement voids the probe run until resolved
- * (the MOVE 6 kill).
+ * (the MOVE 6 eliminate).
  *
  * WHY TWO FORMS. imp-95011 supplies Lane A: the carrier is assembled as a
  * complex vector sum, re = sum_g amp_g cos(ph_g), im = sum_g amp_g sin(ph_g),
  * and its modulus taken by hypot(re, im). A rounding bug or a mis-indexed shell
  * in that single code path would pass every self-consistency check because the
  * probe verdict reads back the SAME numbers that produced it. The two-forms
- * protocol defends the probe adversarially: recompute |C| by a route that
+ * protocol defends the probe independently: recompute |C| by a route that
  * shares no intermediate quantity with Lane A, and require the two answers to
  * coincide. Here Lane B uses the Gram (pairwise-cosine) identity
  *   |C|^2 = sum_g amp_g^2 + 2 sum_{g<h} amp_g amp_h cos(ph_g - ph_h),
@@ -250,7 +250,7 @@ export const IMP95014_GATE2_LANE_B_AUDIT_ASSERTIONS = [
   },
   {
     id: 'imp95014-crosscheck-catches-a-split',
-    description: 'crossCheck fails when a lane is corrupted: injecting a 1e-6 offset into one cell trips the <1e-9 gate (the kill actually fires)',
+    description: 'crossCheck fails when a lane is corrupted: injecting a 1e-6 offset into one cell trips the <1e-9 gate (the eliminate actually fires)',
     holds: () => {
       const cells = [ANCHOR_CELL];
       const good = crossCheck(cells);

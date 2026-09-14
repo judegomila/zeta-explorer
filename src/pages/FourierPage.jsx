@@ -489,7 +489,7 @@ export default function FourierPage() {
             <span style={{ color: 'var(--faint)' }}>frequency response and Bode plots</span>
             <Link to="/waves" style={{ color: 'var(--blue)', textDecoration: 'none' }}>Wave Simulator</Link>
             <span style={{ color: 'var(--faint)' }}>spectral decomposition of signals</span>
-            <Link to="/spectral-attack" style={{ color: 'var(--blue)', textDecoration: 'none' }}>Spectral Attack</Link>
+            <Link to="/spectral-attack" style={{ color: 'var(--blue)', textDecoration: 'none' }}>Spectral Approach</Link>
             <span style={{ color: 'var(--faint)' }}>Fourier-information synthesis</span>
             <Link to="/odd-zeta" style={{ color: 'var(--brass-dk)', textDecoration: 'none' }}>Odd Zeta Values</Link>
             <span style={{ color: 'var(--faint)' }}>irrationality via explicit formula and spectral methods</span>

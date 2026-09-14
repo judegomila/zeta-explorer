@@ -3,7 +3,7 @@
  *
  * The one unpursued angle from the C_H verdict: is the global-W_1 metric in the
  * E_coll bridge FUNDAMENTAL, or re-architectable? Opus 4.8,
- * econn-metric-rearchitecture workflow (3 routes + adversarial referees +
+ * econn-metric-rearchitecture workflow (3 routes + independent referees +
  * synthesis, subscription channel, parallel to the polish fleet). The referees
  * REFUTED the routes' over-confident "global-metric-fundamental" framing AND
  * corrected a real overclaim in this project's OWN prior C_H verdict -- the
@@ -32,7 +32,7 @@
  *    deterministic only on the isolated-pair (real-zero) basin.
  *
  * THE NAMED RESIDUAL (same deterministic target the C_H frontier identified --
- * the two assaults CONVERGE): the closed-form MULTI-BODY isolation constant
+ * the two pushes CONVERGE): the closed-form MULTI-BODY isolation constant
  * c in [0.72, 1) of sg1c R2-T (sg1c-r2-isolation-persistence). imp-3005 closed
  * the SINGLE-SHELL case (c* = sqrt(2+sqrt3) - 1 ~ 0.9319); the MULTI-BODY
  * (asymmetric) case is scanned to ~0.943 but NOT closed in form. Closing it

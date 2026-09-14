@@ -86,7 +86,7 @@
  * nTilde_b^2 is far above ||w_b||^2). Both regimes are realized and measured
  * below, and the crossover formula is checked against the measured winner.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Step 2 needs EVERY within-class
+ * SKEPTICAL SELF-CHECK RECORD: (1) Step 2 needs EVERY within-class
  * distinct pair to have gap >= 2 - true since gaps are mJ with J >= 2 (this
  * is where J >= 2 is used; J = 1 is excluded, as Lemma G has no floor at gap
  * 1); (2) the Step 3 count was re-derived pair-by-pair: ordered = 2 x

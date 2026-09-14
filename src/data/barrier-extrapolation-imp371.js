@@ -238,7 +238,7 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
     'imp-463 (D-monotone analytic closure), imp-464 (NoSwap condition), and ' +
     'imp-471 (many-body correction, sole blocker on unconditional Lambda <= 0.121 beat) ' +
     'enable upgrading this partial to full. They do not. Those four closures address ' +
-    'the B1/B2 monotonicity and NoSwap conditions inside the Lambda attack route, ' +
+    'the B1/B2 monotonicity and NoSwap conditions inside the Lambda approach route, ' +
     'which is orthogonal to the barrier extrapolation cross-validation. ' +
     'The remaining blocker is purely computational: actual barrier integration at ' +
     'N > 5000 requires an offline compute engine (est. 4 s at N = 10000, ' +
@@ -275,7 +275,7 @@ export const BARRIER_EXTRAPOLATION_IMP371 = {
       'imp-527 (2026-04-13) and imp-619/630/638/640 (2026-04-14) all confirmed this ' +
       'is the sole computational blocker. The B1/B2 monotonicity and NoSwap closures ' +
       '(imp-462/463/464/471) and the Lean sorry closure (imp-639, S11-lean) are ' +
-      'orthogonal to this barrier cross-validation; they address the Lambda attack ' +
+      'orthogonal to this barrier cross-validation; they address the Lambda approach ' +
       'route and formal proofs, not the barrier OLS extrapolation. ' +
       'Estimated compute: ~4 s at N=10000, >400 s at N=100000 (plain-float64 Euler). ' +
       'Cannot run in the Vite build pipeline; requires a dedicated offline script.',

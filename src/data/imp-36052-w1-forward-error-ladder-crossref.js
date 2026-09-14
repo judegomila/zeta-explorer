@@ -3,8 +3,8 @@
  * @fileoverview imp-36052 -- standalone CROSS-REFERENCE note assembling the full W1 forward-error
  *   LADDER storyline into one measured-to-a-priori arc, so a reader landing on any single rung sees
  *   the whole chain:
- *     1. MEASURED achieved error (imp-35812 baseline order, imp-35852 four adversarial orderings)
- *        ~3.0e-17 (baseline) .. ~4.86e-15 (worst adversarial), still far below every a-priori bound;
+ *     1. MEASURED achieved error (imp-35812 baseline order, imp-35852 four worst-case orderings)
+ *        ~3.0e-17 (baseline) .. ~4.86e-15 (worst skeptical), still far below every a-priori bound;
  *     2. CERTIFIED deterministic running-accumulator run-max bound (imp-35890) ~6.41e-14 -- the
  *        tightest USABLE certified a-priori bound, recovering ~3.2 of the ~6.5 orders between the
  *        imp-35761 pessimistic N*eps ceiling and the achieved error;
@@ -56,7 +56,7 @@ export const IMP36052_W1_FORWARD_ERROR_LADDER_CROSSREF = Object.freeze({
 
   ladder: Object.freeze({
     rung1_measured: Object.freeze({
-      role: 'MEASURED: exact-BigInt achieved naive error, baseline order then four adversarial orderings',
+      role: 'MEASURED: exact-BigInt achieved naive error, baseline order then four worst-case orderings',
       achievedBaselineNormErr: IMP35812_W1_SUMMATION_SCHEME_MEASURED_COST.measuredAtTPT.naiveNormErr,
       achievedWorstAdversarialNormErr: IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.summary.naiveWorstNormErr,
       staysGreenfield: IMP35812_W1_SUMMATION_SCHEME_MEASURED_COST.conclusion.staysGreenfield,
@@ -100,7 +100,7 @@ export const IMP36052_W1_FORWARD_ERROR_LADDER_CROSSREF = Object.freeze({
 
   throughline:
     'Starting from the MEASURED achieved naive error (imp-35812 baseline order ~3.0e-17, imp-35852 worst ' +
-    'adversarial ordering ~4.86e-15), the ladder climbs through successively more conservative a-priori ' +
+    'worst-case ordering ~4.86e-15), the ladder climbs through successively more conservative a-priori ' +
     'rungs: the CERTIFIED deterministic running-accumulator bound (imp-35890, ~6.41e-14) recovers the ' +
     'magnitude-scale pessimism of the imp-35761 pessimistic N*eps ceiling; the PROBABILISTIC Wilkinson / ' +
     'Higham-Mary sqrt(N) scales (imp-35948, ~9.17e-17 / ~5.58e-17) recover most of the remaining coherent-' +

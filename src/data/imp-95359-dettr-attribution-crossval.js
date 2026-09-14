@@ -1,7 +1,7 @@
 /**
  * @module imp-95359-dettr-attribution-crossval
  * @fileoverview imp-95359 -- independent numerical cross-validation of the
- *   imp-95331 (THEOREM RZ-PEN5, LEMMA ROOT-MONO plus W-SPLIT) adversarial
+ *   imp-95331 (THEOREM RZ-PEN5, LEMMA ROOT-MONO plus W-SPLIT) skeptical
  *   REFUTATION of the imp-95330 det-over-trace attribution.
  *
  *   WHAT imp-95331 CLAIMS
@@ -229,7 +229,7 @@ export const IMP95359_DETTR_ATTRIBUTION_CROSSVAL = {
   id: 'imp-95359',
   glosses: 'imp-95331',
   scopes:
-    'THEOREM RZ-PEN5 adversarial refutation of the imp-95330 det-over-trace ' +
+    'THEOREM RZ-PEN5 skeptical refutation of the imp-95330 det-over-trace ' +
     'attribution: the exact smaller root of A lam^2 - 2 B lam + C gains at ' +
     'most 1.006x standalone and 1.025x atop the split because trace-cap and ' +
     'numerator-truncation couple through the discriminant B^2 - A C',

@@ -26,7 +26,7 @@
  * The interior peak (N_max ~ 9.219e5, sigma_max ~ 0.94942901, u0 = ln N_max) is located by
  * the same 500-iter ternary argmax. c4 = sigma-quad-prime(u0)/24 comes from the symmetric
  * 5-point fourth-difference d4FD(h) = [sig(u0+2h) - 4 sig(u0+h) + 6 sig(u0) - 4 sig(u0-h)
- * + sig(u0-2h)] / h^4, Richardson-extrapolated (4 d4FD(2e-2) - d4FD(4e-2))/3 (kills the
+ * + sig(u0-2h)] / h^4, Richardson-extrapolated (4 d4FD(2e-2) - d4FD(4e-2))/3 (eliminates the
  * O(h^2) stencil bias). The arm-skew materiality solves tol = (k/2) d^2 - c3 d^3 - c4 d^4
  * for the rising / falling half-widths with and WITHOUT the quartic.
  *
@@ -97,7 +97,7 @@ const D4_WINDOW = D4_VALUES.slice(0, 4); // resolvable window h in {1e-1 .. 1e-2
 const D4_REL_SPREAD = (Math.max(...D4_WINDOW) - Math.min(...D4_WINDOW)) / Math.abs(D4_VALUES[3]); // ~1.5e-4
 const D4_BLOWUP_H1E3 = D4_VALUES[6]; // ~ +1.11e-4 (garbage: h^4 cancellation)
 
-// Richardson extrapolation from the CLEAN h = 4e-2 / 2e-2 pair (kills the leading O(h^2) stencil bias).
+// Richardson extrapolation from the CLEAN h = 4e-2 / 2e-2 pair (eliminates the leading O(h^2) stencil bias).
 const SIGMA_QUAD_PRIME = (4 * d4FD(2e-2) - d4FD(4e-2)) / 3; // ~ -6.370991e-4
 const C4 = SIGMA_QUAD_PRIME / 24; // ~ -2.654580e-5
 const C4_ALT_PAIR = ((4 * d4FD(1e-2) - d4FD(2e-2)) / 3) / 24; // ~ -2.654039e-5

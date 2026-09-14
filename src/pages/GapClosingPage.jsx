@@ -1078,8 +1078,8 @@ export default function GapClosingPage() {
         <div style={{ marginTop: 30, fontSize: 13, color: 'var(--ink-soft)', borderTop: '1px solid var(--hairline)', paddingTop: 20 }}>
           <p>
             <strong>Related:</strong>{' '}
-            <Link to="/rh-attack" style={{ color: 'var(--brass-dk)' }}>RH Attack</Link>{' · '}
-            <Link to="/spectral-attack" style={{ color: 'var(--blue)' }}>Spectral Attack</Link>{' · '}
+            <Link to="/rh-attack" style={{ color: 'var(--brass-dk)' }}>RH Approach</Link>{' · '}
+            <Link to="/spectral-attack" style={{ color: 'var(--blue)' }}>Spectral Approach</Link>{' · '}
             <Link to="/formal-proof" style={{ color: 'var(--green)' }}>Formal Proof</Link>{' · '}
             <Link to="/proof-checker" style={{ color: 'var(--terra-dk)' }}>Proof Checker</Link>{' · '}
             <Link to="/hamiltonian" style={{ color: 'var(--blue)' }}>Hamiltonian</Link>{' · '}

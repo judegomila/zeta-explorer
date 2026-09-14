@@ -104,7 +104,7 @@
  * 14.077435 -> 14.016839; r = 1.05: 13.825182 -> 13.764502.
  * A_pen3(2, 1.3) = 5.267342209e-10 = 39.16 x A_blk.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA BCAP attacked on a dense
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA BCAP approached on a dense
  * grid (6 a-values incl. a = 11 outside the theorem scope, b up to 2a,
  * w up to 4pi): no violation; worst ratio 0.9998 -- the lemma is
  * nearly attained, so this currency is exhausted, not merely improved.

@@ -69,7 +69,7 @@
  *     feed it soundly. Lemma AY treats the numerator and denominator of
  *     the effective row JOINTLY - per-corner caps with a separately
  *     lower-bounded denominator were tried FIRST and REFUTED as a
- *     certification route (adversarial record below).
+ *     certification route (skeptical record below).
  * (3) RATE-RESOLVED CELL COVERS (adaptive bisection over positions x
  *     amplitude arc x COMMON RATE mu in [2901/12500, 3/5], warm-started
  *     Collatz-Wielandt at inherited positive vectors - any positive
@@ -139,7 +139,7 @@
  * 4.5 packets. (e) Changes no bound; does NOT promote Lambda <= 0.14;
  * NO QED on the parent; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD (in-run refutations preserved).
+ * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) Per-corner numerator caps with a separately lower-bounded
  *     denominator (the direct FP-style cell cap) FAIL as a certification
  *     route: the numerator peaks at one y-endpoint and the denominator
@@ -666,7 +666,7 @@ function kernelK(a, b, tau) {
   return (2 * (b * Math.exp(-a * tau) - a * Math.exp(-b * tau))) / (b * b - a * a);
 }
 
-// battery W (seed 626262): THEOREM DP attacked directly - seeded in-class
+// battery W (seed 626262): THEOREM DP approached directly - seeded in-class
 // witnesses (one doubled block among ladders 0..6, both parities, free
 // positions, common rate >= mu*, zeros allowed)
 function runWitnessBattery() {
@@ -787,19 +787,19 @@ export const IMP95144_DOUBLED_BLOCK_DISPLACEMENT_PRICING_ASSERTIONS = [
   {
     id: "imp95144-ay-battery",
     description:
-      "Lemma AY attacked directly: 200000 seeded (A, B, G, arc-cell) draws, 7 arc samples each - every certified cap dominates every sampled exact value (zero violations)",
+      "Lemma AY approached directly: 200000 seeded (A, B, G, arc-cell) draws, 7 arc samples each - every certified cap dominates every sampled exact value (zero violations)",
     holds: () => BAT_AY.viol === 0 && BAT_AY.worst <= 1 + 1e-9 && BAT_AY.worst > 0.99,
   },
   {
     id: "imp95144-ep-identity",
     description:
-      "Lemma EP attacked directly: 4000 seeded doubled-block configurations (both parities, mixed amplitudes) - E by the direct packet form and E by the effective-packet form agree to < 1e-9 relative (it is an identity, not a bound)",
+      "Lemma EP approached directly: 4000 seeded doubled-block configurations (both parities, mixed amplitudes) - E by the direct packet form and E by the effective-packet form agree to < 1e-9 relative (it is an identity, not a bound)",
     holds: () => BAT_EP.count === 4000 && BAT_EP.worstRel < 1e-9,
   },
   {
     id: "imp95144-witness-battery",
     description:
-      "THEOREM DP attacked directly: 5000 seeded in-class witnesses (one doubled block among ladders 0..6, BOTH parities, free positions, common rate >= 2901/12500 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
+      "THEOREM DP approached directly: 5000 seeded in-class witnesses (one doubled block among ladders 0..6, BOTH parities, free positions, common rate >= 2901/12500 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
     holds: () => BAT_W.viol === 0 && BAT_W.maxE < 0 && BAT_W.count > 4900,
   },
   {

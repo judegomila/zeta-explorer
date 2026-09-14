@@ -682,7 +682,7 @@ export const C_H_QUADRATIC_TANGENCY_UPPER_BOUND_CHECK_IMP2642 = (() => {
 //   cancellation, not a coincidence.)
 //
 // VERDICT: CONDITIONAL SHARPENING, NOT A BEAT. The discriminant route removes the
-// LOCAL 1/g^2 blowup that refuted the Gronwall attack, but it does not produce an
+// LOCAL 1/g^2 blowup that refuted the Gronwall approach, but it does not produce an
 // N-uniform C_H: the difficulty is TRANSFERRED to a uniform LOWER bound on the
 // surviving cofactor D_rest(t_c) = prod_{non-colliding} (gap)^2, a product over
 // ~N^2/2 factors whose N-uniform control is exactly the global gap-statistics

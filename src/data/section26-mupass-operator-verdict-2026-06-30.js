@@ -1,19 +1,19 @@
 /**
  * @module section26-mupass-operator-verdict-2026-06-30
  *
- * Deliberate adversarial attempt to CONSTRUCT the Section-26 endpoint-bridge
+ * Deliberate skeptical attempt to CONSTRUCT the Section-26 endpoint-bridge
  * passive-core measure mu^pass (the surviving Volterra/normalized-R target).
- * Opus 4.8, section26-mupass-construct workflow: 3 routes + adversarial referees
+ * Opus 4.8, section26-mupass-construct workflow: 3 routes + independent referees
  * + synthesis, run on the subscription channel parallel to the polish fleet, at
  * the GENUINE de Bruijn-Newman Riemann Phi (NPHI=10, a=0.5, U=6). Both surviving
- * routes returned PARTIAL; both adversarial referees CONFIRMED them with no
+ * routes returned PARTIAL; both independent referees CONFIRMED them with no
  * overclaim.
  *
  * VERDICT: RESIDUAL-SUBGAP, confirmed RH-EQUIVALENT at the OPERATOR level. This
  * SHARPENS section26-verdict-volterra-not-a-reduction-2026-06-18 from the scale/
  * homogeneity level to the operator-positivity level.
  *
- * 1. MASS-FEASIBILITY KILLS THE IMPOSSIBILITY OPTION. At the genuine Riemann Phi
+ * 1. MASS-FEASIBILITY ELIMINATES THE IMPOSSIBILITY OPTION. At the genuine Riemann Phi
  *    the deficit integral_tau (nu - mu_diag)^+ dtau is tiny and sits 3-4 ORDERS
  *    BELOW the available off-diagonal bridge budget:
  *      - degree-2 (absolute): deficit = 9.28e-9, overflow on 19.4% of tau;
@@ -83,7 +83,7 @@ import { IMP3256_VHS_CROSSVAL } from './imp-3256-vhs-crossval.js';
 export const SECTION26_MUPASS_OPERATOR_VERDICT = {
   date: '2026-06-30',
   verdict: 'RESIDUAL-SUBGAP — RH-EQUIVALENT confirmed at the operator level',
-  massFeasible: 'deficit 9.28e-9 (deg-2) sits 2400-20000x BELOW the bridge budget; impossibility option killed -- construction is mass-feasible',
+  massFeasible: 'deficit 9.28e-9 (deg-2) sits 2400-20000x BELOW the bridge budget; impossibility option eliminated -- construction is mass-feasible',
   noScalarCore: 'no scalar/diagonal mu^pass dominates Gshear (hollow+indefinite Wronskian); raw diagonal ||R||~40 growing with resolution; only Gpass=|Gshear| gives ||R||=1.0000 (tautological partial isometry)',
   residualIsKaPositive: 'the endpoint-bridge sign-positivity derived from Phi alone IS K_a>=0 / no-ghost -- RH-equivalent, untouched; mass-feasibility is necessary-but-not-binding',
   surrogateCorrection: 'genuine deg-2 deficit is 9.28e-9 (19.4% of tau), NOT the imp-2841/imp-2686 surrogate "exactly zero"; genuine deg-0 spectral overflow is ~64%',
@@ -132,7 +132,7 @@ export const SECTION26_MUPASS_OPERATOR_VERDICT = {
  *   the correct lags. The surviving requirement is exactly the operator-level
  *   sign-positivity K_a >= 0 (= ||R|| <= 1), which mass-feasibility leaves
  *   UNTOUCHED. The degree-0 budget proxy is additionally CIRCULAR: its budget IS
- *   ||V||, the RH-equivalent quantity itself. So mass-feasibility kills the
+ *   ||V||, the RH-equivalent quantity itself. So mass-feasibility eliminates the
  *   impossibility option but does NOT close the route. imp-3066 remains the lone
  *   obstruction; PT Lambda <= 0.2 stays SOTA. No reduction, no QED.
  */

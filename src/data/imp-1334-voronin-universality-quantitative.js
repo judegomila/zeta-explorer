@@ -38,7 +38,7 @@
 //   (b) NO DIRECT LAMBDA LEVER -- and a structural reason why. Universality is
 //       a STATEMENT, not a bound: it provides no inequality on a height-decaying
 //       error and hence no input to the imp-1261 E_trunc chain that yields
-//       Lambda <= 3.06e-5. Worse for naive attacks, universality is an
+//       Lambda <= 3.06e-5. Worse for naive approaches, universality is an
 //       OBSTRUCTION: any RH strategy that tries to constrain zeta by a LOCAL
 //       rigidity on sigma > 1/2 is doomed, because zeta is universal there (it
 //       locally looks like every non-vanishing holomorphic function). The
@@ -63,7 +63,7 @@
 // Voronin universality is catalogued with its quantitative state pinned
 // (qualitative positive density; doubly-exponential effective first shift;
 // strict strip (1/2,1)). It gives NO direct Lambda bound and is in fact a
-// rigidity OBSTRUCTION to local-value RH attacks. Its productive content is the
+// rigidity OBSTRUCTION to local-value RH approaches. Its productive content is the
 // Bagchi 1981 strong-recurrence RH-equivalence, which connects the
 // super-critical value distribution to the imp-1333 phase track. Named sub-gap
 // VU-EFFECTIVE-DENSITY: prove any explicit lower bound on the universality
@@ -163,7 +163,7 @@ const VERDICT_DETAIL =
   'and only doubly-exponential-in-1/eps effective first-shift bounds (Good 1981 / ' +
   'Garunkstis 2003). It gives NO direct upper bound on Lambda (no height-decaying ' +
   'inequality feeds the imp-1261 T_PT^{-0.4} chain) and is in fact a rigidity OBSTRUCTION ' +
-  'to any local-value RH attack, since zeta locally approximates every non-vanishing ' +
+  'to any local-value RH approach, since zeta locally approximates every non-vanishing ' +
   'holomorphic function on the strip. The genuine payload is the Bagchi 1981 ' +
   'RH-equivalence: RH iff zeta is strongly recurrent (universally self-approximating), ' +
   'a real super-critical-strip RH-equivalent that bridges into the imp-1333 phase ' +

@@ -669,7 +669,7 @@ function CHWallFrontierPanel() {
       }}>
         <span>SAME VERDICT APPEARS IN:</span>
         <Link to="/route-map" style={{ color: 'var(--faint)', textDecoration: 'none' }}>
-          Route Map (Frontier Assault) →
+          Route Map (Frontier Push) →
         </Link>
         <Link to="/what-we-know" style={{ color: 'var(--faint)', textDecoration: 'none' }}>
           What We Know (C_H Wall) →

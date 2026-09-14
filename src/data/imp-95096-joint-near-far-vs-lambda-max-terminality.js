@@ -12,7 +12,7 @@
  * weight attains it (Rayleigh 3.919793511380258e-5 <= lambda_max <= Lw
  * 3.9197935113802585e-5). Its scope-honesty note (8) explicitly leaves
  * OUTSIDE that sharpness claim any scheme that "bypasses the parity split or
- * exploits joint near/far structure." This module assesses exactly that
+ * uses joint near/far structure." This module assesses exactly that
  * carve-out. Assess only; NO QED; NO bound change.
  *
  * THE JOINT NEAR/FAR OBJECT. Inside one parity class the exact quantity is
@@ -86,8 +86,8 @@
  *   to imp-95018 (whether ANY of the parity factor 2 is recoverable jointly)
  *   and to imp-95008-subgap-witness-Erealization-split.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) the closed form beta(alpha) =
- * K(0, 2)(2 - alpha) is matched by an independent brute-force sup over a
+ * SKEPTICAL SELF-CHECK RECORD. (1) the closed form beta(alpha) =
+ * K(0, 2)(2 - alpha) is matched by an independent exhaustive sup over a
  * (g, d_0, d_2) grid respecting the PSD constraint d_0 d_2 >= g^2, at five
  * alpha in [1, 2] (rel 1e-9); (2) the alpha = 1 endpoint reproduces the
  * bond K(0, 2) = lambda_max - 1.49e-11, i.e. the imp-95008 far constant to
@@ -124,7 +124,7 @@ function betaClosed(alpha) {
   return (2 * BOND * (2 - alpha)) / 2;
 }
 
-// independent brute-force sup over the PSD-constrained (g, d0, d2) grid
+// independent exhaustive sup over the PSD-constrained (g, d0, d2) grid
 function betaBrute(alpha) {
   const M = 2;
   const NG = 200;
@@ -180,7 +180,7 @@ export const IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX = {
   ],
   isRigorous: true,
   rigorScope:
-    "Lemma JNF (beta = K(0,2)(2-alpha)) is an EXACT unconditional 2x2 SDP statement about the dominant (0,2) two-block kernel, matched by an independent brute-force grid sup. The load-bearing terminality conclusion needs only that beta is strictly decreasing in alpha (adding a nonnegative diagonal penalty to a sup can only lower it) - unconditional in the full section - and that alpha is pinned at 1 by the Gram-sharp parity factor (imp-95018); both hold, so 'terminal within the bracket class' is rigorous. The absolute (out-of-class) sub-lambda_max trade is exhibited but its gap payoff is un-priced (named sub-gap). Assessment only: adds no lemma to the closure chain, changes no bound.",
+    "Lemma JNF (beta = K(0,2)(2-alpha)) is an EXACT unconditional 2x2 SDP statement about the dominant (0,2) two-block kernel, matched by an independent exhaustive grid sup. The load-bearing terminality conclusion needs only that beta is strictly decreasing in alpha (adding a nonnegative diagonal penalty to a sup can only lower it) - unconditional in the full section - and that alpha is pinned at 1 by the Gram-sharp parity factor (imp-95018); both hold, so 'terminal within the bracket class' is rigorous. The absolute (out-of-class) sub-lambda_max trade is exhibited but its gap payoff is un-priced (named sub-gap). Assessment only: adds no lemma to the closure chain, changes no bound.",
   promotesBound: false,
   verdict:
     "ASSESSMENT (imp-95096): the imp-95008 Lemma SW lambda_max sandwich IS the terminal aggregation certificate FOR THE BRACKET CLASS {cNear<=2}. Lemma JNF prices the diagonal jointly and gives the exact two-block Pareto line beta(alpha)=K(0,2)(2-alpha), whose alpha=1 endpoint reproduces lambda_max; since beta strictly decreases in alpha and alpha is pinned at 1 by the Gram-sharp parity factor 2 (imp-95018), any sub-lambda_max far constant needs cNear=2 alpha>2, exiting the class. So the scope-honesty note (8) hides no in-class slack: joint near/far is a REAL but OUT-OF-CLASS lever (beta<lambda_max only for alpha>1) whose gap payoff is un-priced by the carried literals - named sub-gap imp-95096-subgap-near-currency-ratio. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.",
@@ -191,7 +191,7 @@ export const IMP95096_ASSERTIONS = [
   {
     id: "imp95096-closed-vs-brute-sup",
     description:
-      "the closed-form joint far coefficient beta(alpha)=K(0,2)(2-alpha) matches an independent brute-force PSD-constrained sup over (g,d0,d2) at five alpha in [1,2] (rel 1e-9)",
+      "the closed-form joint far coefficient beta(alpha)=K(0,2)(2-alpha) matches an independent exhaustive PSD-constrained sup over (g,d0,d2) at five alpha in [1,2] (rel 1e-9)",
     holds: () => {
       for (const a of ALPHAS) {
         const c = betaClosed(a);

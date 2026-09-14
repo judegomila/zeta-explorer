@@ -114,7 +114,7 @@
  * BLOCK structure (scalar floor vs twin-pair symbol), no longer the
  * scalar floor itself.
  *
- * ADVERSARIAL RECORD. (1) Poisson identity verified to 1e-9 rel at
+ * SKEPTICAL RECORD. (1) Poisson identity verified to 1e-9 rel at
  * delta = ln 2, 1, 1.5, 3 (doubles-limited; 3.2e-12 at ln 2). (2)
  * Random deterministic-PRNG delta-separated battery (40 sets, m <= 24,
  * gaps delta or up to 4 delta) + a defect lattice + tight paired
@@ -174,7 +174,7 @@ export const IMP95419_SEPARATED_CLASS_OPTIMAL_RIESZ_FLOOR = {
     "representation of sech (partial fractions + exit-time density, " +
     "LEMMA MIX) + Carneiro-Littmann-Vaaler extremal band-limited minorant " +
     "(cited) whose integral, by an elementary Poisson identity, equals the " +
-    "lattice Szego infimum (LEMMA QUAD kills every off-diagonal exactly)",
+    "lattice Szego infimum (LEMMA QUAD eliminates every off-diagonal exactly)",
   aOptLn2: 2.374484801080e-5,
   aOptLn13: 4.406252285191e-15,
   aSepLn2: 4.525705908e-7,

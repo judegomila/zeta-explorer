@@ -126,7 +126,7 @@
  *   bridge from entropy of zero-spacings to Fourier-transformed pair-
  *   correlation requires Pinsker/Csiszar inequality (entropy → L^1 →
  *   Cauchy-Schwarz → L^2), which RE-INTRODUCES the same Cauchy-Schwarz
- *   layer. The transfer kills the orthogonality.
+ *   layer. The transfer eliminates the orthogonality.
  *
  *   §15-27 ESY-CLOSURE POISSON-KERNEL TRANSFER: NO, the Poisson kernel
  *   at micro-window 2π / log gamma_N requires a SECOND-MOMENT statistic
@@ -561,7 +561,7 @@ const STRUCTURAL_ORTHOGONALITY_ASSESSMENT = Object.freeze({
 // =========================================================================
 //
 // All six routes (imp-1297, imp-1302, imp-1303, imp-1304, imp-1305, plus
-// this imp-1309 entropy attack) share an OUTPUT-STAGE structural pattern:
+// this imp-1309 entropy approach) share an OUTPUT-STAGE structural pattern:
 //
 //   At some point in the chain {input -> bound on F(alpha, T) at sigma > 1}
 //   there is a CAUCHY-SCHWARZ STEP at the L^1 / L^2 duality boundary that
@@ -790,7 +790,7 @@ export const IMP_1309_TAO_ENTROPY_PCC_ATTACK = Object.freeze({
 
   honestScope: Object.freeze([
     'This file is a NEW-INPUT CLASSIFICATION ticket for the candidate direct ' +
-    'attack on Montgomery PCC at 2-point via Tao 2024 (closest-known form: ' +
+    'approach on Montgomery PCC at 2-point via Tao 2024 (closest-known form: ' +
     'Bloom-Maynard-Sisask 2020 entropy bounds, Tao 2014 entropy compression, ' +
     'Tao-Vu 2011-2017 Wigner universality, plus a conjectural Tao 2024 extension ' +
     'to zero-spacing distributions). It is NOT a new closure or a new unconditional ' +

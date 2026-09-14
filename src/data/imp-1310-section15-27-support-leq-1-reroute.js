@@ -51,7 +51,7 @@
  *         the support requirement. STRUCTURAL OBSTRUCTION: Plancherel /
  *         Heisenberg uncertainty: a kernel with L^2 energy at ξ = (log N)/(2π)
  *         cannot be reproduced by a sum of L^2-bounded ξ ≤ 1 components
- *         WITHOUT an O(log N) energy amplification (which kills the bound).
+ *         WITHOUT an O(log N) energy amplification (which eliminates the bound).
  *
  *     (b) Mellin-truncation via short-interval second moments: NO. The
  *         proposed observable swap — replace the 2-point sine-kernel sum
@@ -1107,7 +1107,7 @@ export const IMP_1310_SECTION15_27_SUPPORT_LEQ_1_REROUTE_ASSERTIONS = [
       'This ticket is a direct follow-up to imp-1184 (named the binding gap), ' +
       'imp-1258 (§15-27 collapse), imp-1265 (§27 identity recheck), imp-1266 ' +
       '(Mellin diagonalization blocked), and the imp-1297 / imp-1305 PCC-' +
-      'attack series. Without explicit cross-references the classification ' +
+      'approach series. Without explicit cross-references the classification ' +
       'floats free of the parent map.',
     holds: () => {
       const r = IMP_1310_SECTION15_27_SUPPORT_LEQ_1_REROUTE;

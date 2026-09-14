@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
  *
  * These no-ghost / restricted-lift constructions feed a chain whose TERMINAL
  * reduction (the §27 Volterra-contraction target) was refuted-as-a-reduction on
- * 2026-06-18: it is KILLED AS A REDUCTION, and the residual open sub-problem is
+ * 2026-06-18: it is ELIMINATED AS A REDUCTION, and the residual open sub-problem is
  * RH-EQUIVALENT, not a shortcut. Readers of the program pages need that verdict
  * so they do not mistake a live reduction for a proven shortcut to RH.
  *
@@ -36,7 +36,7 @@ export default function DownstreamVerdictCallout() {
       </div>
       <p style={{ color: '#cbd5e1', fontSize: 13, lineHeight: 1.6, margin: 0 }}>
         The constructions on this page feed a chain whose terminal target — the §27
-        Volterra-contraction reduction — is <strong style={{ color: '#fca5a5' }}>KILLED AS A
+        Volterra-contraction reduction — is <strong style={{ color: '#fca5a5' }}>ELIMINATED AS A
         REDUCTION</strong>: it is provably impossible to revive by any scalar normalization.
         The surviving open sub-problem (<InlineCode>{'||R|| <= 1 <=> K_a >= 0'}</InlineCode>) is a
         faithful restatement of positivity — <strong style={{ color: '#e2e8f0' }}>RH-equivalent,

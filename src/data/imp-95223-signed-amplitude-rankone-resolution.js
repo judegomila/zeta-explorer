@@ -1,7 +1,7 @@
 /**
  * imp-95223: THEOREM SGN-EQ + THEOREM SGN-PAIR + THEOREM MZ (signed-amplitude
  * rank-one resolution and constructive multi-rate route no-go) -- the first
- * rigorous attack on obligation (2) of the open sub-gap
+ * rigorous approach on obligation (2) of the open sub-gap
  * imp-95212-subgap-fresnel-airy-envelope-port: the imp-95221/95222 seam
  * certificates (THEOREM FA, FA-2) assume amplitude POSITIVITY, recorded as
  * load-bearing. This leg answers, in the sector where the answer is exactly
@@ -87,7 +87,7 @@
  * [-delta, 0] by e^delta - 1 < 1 - 1/e and bounded below on [1, inf) by
  * 1 - 1/e). Instantiated as packets: the co-centered family u_n = delta,
  * mu_n = n, c_n = a_n e^(x_n) has FIXED x_min = delta while the segment
- * route certifies nothing as K grows. HONEST SCOPE: MZ kills the ROUTE
+ * route certifies nothing as K grows. HONEST SCOPE: MZ eliminates the ROUTE
  * (every count-uniform segment-comparison constant), NOT the statement --
  * whether the signed bound R <= e^(-y_min) itself ports to multi-rate
  * families is OPEN (the MZ family may still have small true R through its
@@ -106,17 +106,17 @@
  * sector does not occur on the width-law alias grid (rates there are
  * distinct); SGN-EQ is a sector resolution, not a grid certificate.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) The SGN-PAIR closed form was attacked
+ * SKEPTICAL SELF-CHECK RECORD. (1) The SGN-PAIR closed form was stress-tested
  * three independent ways: against the direct 2x2 generalized eigenproblem
  * on a 112-point (mu, delta, tau) grid (worst rel 2.4e-11), against a
- * brute-force Simpson integral of the actual optimizer function (rel
+ * exhaustive Simpson integral of the actual optimizer function (rel
  * 1.9e-9, quadrature-limited), and against 30000 seeded random signed
  * pairs (none beats the closed form). (2) The optimizer sign pattern
  * (c1 > 0, c2 < 0) held at every grid point -- the sup is genuinely
  * outside the positive cone. (3) SGN-EQ was battered on 20000 seeded
  * random equal-rate families (N up to 12, signed amplitudes): zero
  * violations, worst R/bound = 0.9225221944101588 -- near-attained,
- * consistent with sharpness. (4) The threshold was attacked from both
+ * consistent with sharpness. (4) The threshold was stress-tested from both
  * sides: x_min = 0.30 yields a signed majority witness R =
  * 0.5484460661777294 > 1/2 at w = 0.001, while at x_min = 0.36 the grid
  * sup stays below e^(-0.72) = 0.4867522559599717 < 1/2. (5) TRAP recorded:
@@ -186,7 +186,7 @@ function simpson(a, b, n, g) {
 // ── verdict object ───────────────────────────────────────────────────────────
 export const IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION = {
   ticket:
-    "imp-95223 (fifteenth leg of the seam chain: first rigorous attack on the load-bearing positivity obligation of the sub-gap -- the signed-amplitude seam problem is solved SHARPLY in the equal-rate rank-one sector, the price of dropping positivity there is pinned to exactly a factor 2 with sharp minority threshold x_min = ln(2)/2, and an explicit construction proves the mechanism cannot port to multi-rate signed families)",
+    "imp-95223 (fifteenth leg of the seam chain: first rigorous approach on the load-bearing positivity obligation of the sub-gap -- the signed-amplitude seam problem is solved SHARPLY in the equal-rate rank-one sector, the price of dropping positivity there is pinned to exactly a factor 2 with sharp minority threshold x_min = ln(2)/2, and an explicit construction proves the mechanism cannot port to multi-rate signed families)",
   theoremSGNEQ:
     "equal-rate signed certificate: any finite equal-rate family (rate mu, centers u_n >= u_min > 0) with ARBITRARY REAL amplitudes obeys R <= e^(-2 mu u_min) = e^(-y_min), strict whenever R > 0 -- because on the whole ray s < u_min the family collapses to the SINGLE exponential A e^(mu s), so the pre-peak segment carries e^(2 mu u_min) times the wrong-side mass whatever the signs; exactly DOUBLE the FA-2 positive-cone bound (1/2) e^(-y_min), and SHARP (approached by pairs as the center gap closes).",
   theoremSGNPAIR:
@@ -194,7 +194,7 @@ export const IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION = {
   corollaryNEC:
     "positivity necessity, quantified: (i) the FA-2 bound (1/2) e^(-y_min) FAILS on signed amplitudes at every depth, by the factor f(w) in (1, 2) with supremum exactly 2, the violating optimizer sitting outside the positive cone -- the FA/FA-2 positivity hypothesis cannot be dropped; (ii) sharp signed minority threshold in the equal-rate sector: wrong-side majority (R > 1/2) is achievable by signed amplitudes iff x_min < ln(2)/2 = 0.34657359027997264 -- below it a small-gap pair goes majority, at or above it SGN-EQ forces R < 1/2 unconditionally in the signs; the imp-95222 every-Q minority is a positive-cone phenomenon precisely in that shallow window.",
   theoremMZ:
-    "constructive multi-rate no-go for the segment route: phi_K(t) = e^(-t) prod_(k=1..K)(1 - e^(t_k - t)), t_k = -delta k/(K+1), is a signed exponential sum on rates {1..K+1} with integral_(-delta,0) phi^2 <= delta e^(2 delta)(e^delta - 1)^(2K) and integral_(0,inf) phi^2 >= (1 - 1/e)^(2K) e^(-2)/2, so for delta < ln(2 - 1/e) = 0.48988012564475 the wrong-side-to-segment ratio diverges geometrically in K; instantiated as the co-centered packet family (u_n = delta, mu_n = n) it has FIXED x_min = delta while the SGN-EQ segment mechanism certifies nothing -- the route, not the statement, is killed: whether R <= e^(-y_min) itself holds for signed multi-rate families stays OPEN on both sides.",
+    "constructive multi-rate no-go for the segment route: phi_K(t) = e^(-t) prod_(k=1..K)(1 - e^(t_k - t)), t_k = -delta k/(K+1), is a signed exponential sum on rates {1..K+1} with integral_(-delta,0) phi^2 <= delta e^(2 delta)(e^delta - 1)^(2K) and integral_(0,inf) phi^2 >= (1 - 1/e)^(2K) e^(-2)/2, so for delta < ln(2 - 1/e) = 0.48988012564475 the wrong-side-to-segment ratio diverges geometrically in K; instantiated as the co-centered packet family (u_n = delta, mu_n = n) it has FIXED x_min = delta while the SGN-EQ segment mechanism certifies nothing -- the route, not the statement, is refuted: whether R <= e^(-y_min) itself holds for signed multi-rate families stays OPEN on both sides.",
   constants: {
     thresholdXStar: THRESHOLD_X_STAR,
     fAt01: F_AT_01,
@@ -350,7 +350,7 @@ export const IMP95223_SIGNED_ASSERTIONS = [
   {
     id: "imp95223-nec-threshold-both-sides",
     description:
-      "COROLLARY NEC threshold ln(2)/2 attacked from both sides: at x_min = 0.30 < ln(2)/2 the pair at w = 0.001 goes signed-MAJORITY (R = 0.5484460661777294 > 1/2, rel 1e-12); at x_min = 0.36 > ln(2)/2 the closed form stays below the fence e^(-0.72) = 0.4867522559599717 < 1/2 on the whole w grid; and f(w) > 1 on the grid certifies that the signed sup exceeds the FA-2 positive-cone bound (1/2) e^(-y_min) at every sampled gap",
+      "COROLLARY NEC threshold ln(2)/2 approached from both sides: at x_min = 0.30 < ln(2)/2 the pair at w = 0.001 goes signed-MAJORITY (R = 0.5484460661777294 > 1/2, rel 1e-12); at x_min = 0.36 > ln(2)/2 the closed form stays below the fence e^(-0.72) = 0.4867522559599717 < 1/2 on the whole w grid; and f(w) > 1 on the grid certifies that the signed sup exceeds the FA-2 positive-cone bound (1/2) e^(-y_min) at every sampled gap",
     holds: () => {
       if (Math.abs(Math.log(2) / 2 - THRESHOLD_X_STAR) > 1e-15) return false;
       const rMaj = rSgnPair(0.3, 0.001);
@@ -422,7 +422,7 @@ export const IMP95223_SIGNED_ASSERTIONS = [
   {
     id: "imp95223-verdict-honesty",
     description:
-      "the verdict carries the honest scope: sub-gap named STILL OPEN, obligation (2) SHARPENED IN SCOPE not discharged, multi-rate signed bound open on both sides, MZ kills the route not the statement, equal-rate sector absent from the alias grid, and no QED",
+      "the verdict carries the honest scope: sub-gap named STILL OPEN, obligation (2) SHARPENED IN SCOPE not discharged, multi-rate signed bound open on both sides, MZ eliminates the route not the statement, equal-rate sector absent from the alias grid, and no QED",
     holds: () =>
       /STILL OPEN, further narrowed/.test(
         IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION.subGap,
@@ -434,7 +434,7 @@ export const IMP95223_SIGNED_ASSERTIONS = [
       /open on both sides/.test(
         IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION.verdict,
       ) &&
-      /the route, not the statement, is killed/.test(
+      /the route, not the statement, is refuted/.test(
         IMP95223_SIGNED_AMPLITUDE_RANKONE_RESOLUTION.theoremMZ,
       ) &&
       /stays OPEN on both sides/.test(

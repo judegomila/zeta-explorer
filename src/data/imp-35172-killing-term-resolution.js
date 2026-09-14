@@ -184,7 +184,7 @@ export const IMP35172_KILLING_TERM_RESOLUTION_ASSERTIONS = [
   {
     // Derivative invariance: the drift probe g_prime(1e12) -> 0 and never depends on the killing constant.
     id: 'imp35172-drift-invariant-to-killing-term',
-    description: 'g_prime(1e12) is tiny (drift b = 0 witness) and is computed independent of a, so the killing choice is additive-only',
+    description: 'g_prime(1e12) is tiny (drift b = 0 witness) and is computed independent of a, so the eliminating choice is additive-only',
     holds: () =>
       GPRIME_1E12 > 0 &&
       GPRIME_1E12 < 1e-2 && // g_prime -> 0: sub-linear, zero drift

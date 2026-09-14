@@ -44,7 +44,7 @@
  * @see imp-2442 (genuine N_kappa saturates; named GAP-2442-GENUINE-M-IS-N0)
  * @see imp-2438 (explicit Jacobi / 2x2 de Branges chain; N_0 baseline perturbed here)
  * @see imp-2430 (on-line canonical-system realizability; naive surrogate fails)
- * @see data/three-attacks-section.js (Attack III, Theorem 18.3 + Conjecture 18.4)
+ * @see data/three-attacks-section.js (Approach III, Theorem 18.3 + Conjecture 18.4)
  */
 // imp-2454 -- off-line zero injected into the imp-2438 N_0 de Branges chain;
 // Pick negative index jumps to exactly kappa and saturates (Pontryagin Pi_kappa).

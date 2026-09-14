@@ -1,7 +1,7 @@
 /**
  * @module imp-35696-collision-exponent-consistency-check
  *
- * imp-35696 (numerical, consistency check): imp-35652 kills the imp-35538 REQ-3
+ * imp-35696 (numerical, consistency check): imp-35652 eliminates the imp-35538 REQ-3
  * option-(a) route with TWO distinct short-range facts:
  *   (i) RESOLUTION FLOOR -- the smallest of M consecutive GUE gaps scales as
  *       s_min(M) ~ M^{-1/3} (Ben Arous-Bourgade 2013), strictly below the band-
@@ -120,7 +120,7 @@ export const IMP35696_COLLISION_EXPONENT_CONSISTENCY_CHECK = {
   id: 'imp-35696',
   proofSection: 'S-frontier',
   question:
-    'Do the two short-range facts imp-35652 uses to kill option (a) -- the resolution floor s_min ~ M^{-1/3} and the ' +
+    'Do the two short-range facts imp-35652 uses to eliminate option (a) -- the resolution floor s_min ~ M^{-1/3} and the ' +
     'constant mismatch C_C = (1/8) sqrt(3 pi) -- describe the SAME scale? Reading C_C as a small-gap density ' +
     'coefficient p(s) ~ c s^2, does the extreme-value collision scale carry the SAME M-exponent that s_min ~ M^{-1/3} does?',
   method:

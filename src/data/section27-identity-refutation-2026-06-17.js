@@ -2,7 +2,7 @@
  * @module section27-identity-refutation-2026-06-17
  *
  * THE decisive finding of the 2026-06-17 max fan-out (Opus 4.8,
- * section27-identity-verify workflow, 4 routes + adversarial synthesis,
+ * section27-identity-verify workflow, 4 routes + skeptical synthesis,
  * independently re-verified). 6th overclaim caught this session, and the most
  * consequential: the load-bearing identity of the entire Volterra/Section-15-27
  * collapse program is REFUTED as stated and UNVERIFIED for the Riemann Phi.

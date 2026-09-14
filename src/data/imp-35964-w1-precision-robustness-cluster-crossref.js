@@ -2,12 +2,12 @@
  * @module imp-35964-w1-precision-robustness-cluster-crossref
  * @fileoverview imp-35964 -- standalone CROSS-REFERENCE note tying together the W1
  *   summation PRECISION-robustness cluster so a reader landing on any one of its three
- *   modules sees the full picture: imp-35852 (robust to adversarial term ORDER),
- *   imp-35893 (robust to adversarial pairing-tree SHAPE), and imp-35890 (even the
+ *   modules sees the full picture: imp-35852 (robust to worst-case term ORDER),
+ *   imp-35893 (robust to skeptical pairing-tree SHAPE), and imp-35890 (even the
  *   tightest deterministic a-priori BOUND overshoots the achieved error). This cluster
  *   is distinct from the pending summation-COST cross-ref (imp-35812-and-siblings,
  *   a different axis): that cluster asks how EXPENSIVE the certified sum is, this one
- *   asks whether PRECISION itself can be pushed toward its ceiling by any adversarial
+ *   asks whether PRECISION itself can be pushed toward its ceiling by any skeptical
  *   lever or tightened a-priori bound -- and finds, three ways, that it cannot.
  *
  *   Read-only note: imports all three modules' recorded verdicts verbatim (no
@@ -20,8 +20,8 @@
  *   Ticket: imp-35964 (content, low). Note only; ports nothing; changes no bound;
  *   Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.
  *
- *   @see imp-35852-w1-summation-adversarial-ordering (robust to adversarial term ORDER)
- *   @see imp-35893-w1-summation-pairwise-tree-shape (robust to adversarial pairing-tree SHAPE)
+ *   @see imp-35852-w1-summation-adversarial-ordering (robust to worst-case term ORDER)
+ *   @see imp-35893-w1-summation-pairwise-tree-shape (robust to skeptical pairing-tree SHAPE)
  *   @see imp-35890-w1-running-accumulator-apriori-bound (tightest a-priori BOUND still overshoots achieved)
  *   @see imp-35774-w1-obligation-cluster-crossref (companion cross-ref note pattern this follows)
  */
@@ -38,14 +38,14 @@ export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF = Object.freeze({
 
   cluster: Object.freeze({
     imp35852_order: Object.freeze({
-      lever: 'ADVERSARIAL TERM ORDER: four hostile permutations of the fixed imp-35812 multiset',
+      lever: 'WORST-CASE TERM ORDER: four hostile permutations of the fixed imp-35812 multiset',
       verdict: IMP35852_W1_SUMMATION_ADVERSARIAL_ORDERING.conclusion.precisionNotBinding,
       finding:
         'the worst ordering (clustered same-sign runs) raises the naive error ~160x yet still stays ' +
         '>1e4x below the coherent N*eps ceiling; pairwise / Kahan are essentially ordering-invariant',
     }),
     imp35893_shape: Object.freeze({
-      lever: 'ADVERSARIAL PAIRING-TREE SHAPE: seven association trees from balanced (depth 12) to caterpillar (depth 3817)',
+      lever: 'SKEPTICAL PAIRING-TREE SHAPE: seven association trees from balanced (depth 12) to caterpillar (depth 3817)',
       verdict: IMP35893_W1_SUMMATION_PAIRWISE_TREE_SHAPE.conclusion.precisionNotBinding,
       finding:
         'a ~300x depth increase does not push pairwise toward its log2(N)*eps ceiling; the worst shape ' +
@@ -64,14 +64,14 @@ export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF = Object.freeze({
   distinctFromCostCluster:
     'The pending summation-COST cross-reference (imp-35812 and siblings) asks how EXPENSIVE the ' +
     'certified length-N interval sum is to compute. This PRECISION-robustness cluster asks a different ' +
-    'question: whether any adversarial lever (order, shape) or tightened a-priori bound can push the ' +
+    'question: whether any worst-case lever (order, shape) or tightened a-priori bound can push the ' +
     'achieved/certifiable error toward its ceiling. The two clusters probe orthogonal axes of the same ' +
     'W1 obligation and neither closes the other.',
 
   chain:
     'imp-35852 (term ORDER: robust) and imp-35893 (pairing-tree SHAPE: robust) show two independent ' +
-    'adversarial LEVERS both fail to push achieved error toward its ceiling; imp-35890 (a-priori BOUND) ' +
-    'shows that even the tightest deterministic CERTIFIED bound -- no adversarial measurement involved -- ' +
+    'worst-case LEVERS both fail to push achieved error toward its ceiling; imp-35890 (a-priori BOUND) ' +
+    'shows that even the tightest deterministic CERTIFIED bound -- no skeptical measurement involved -- ' +
     'still overshoots the achieved error by ~3.3 orders. Together the three approaches (stress the data, ' +
     'stress the algorithm, tighten the bound) converge on one conclusion from three angles: precision is ' +
     'NON-binding.',
@@ -79,7 +79,7 @@ export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF = Object.freeze({
   sharedResidual:
     'Across all three modules the interval-bounded positive-t A+B-C certificate at T_PT = 3e12 stays ' +
     'GREENFIELD and the obstruction stays MECHANICAL (imp-35725): none of the three evaluates a sum of ' +
-    'H_t, instantiates a directed-rounding interval, or verifies the strict inequality. The adversarial ' +
+    'H_t, instantiates a directed-rounding interval, or verifies the strict inequality. The skeptical ' +
     'levers and the a-priori bound narrow HOW MUCH headroom precision leaves, not whether the certificate ' +
     'is discharged.',
 
@@ -92,9 +92,9 @@ export const IMP35964_W1_PRECISION_ROBUSTNESS_CLUSTER_CROSSREF = Object.freeze({
   }),
 
   verdict:
-    'CROSS-REFERENCE NOTE (documentation only). Links imp-35852 (adversarial term ORDER), imp-35893 ' +
-    '(adversarial pairing-tree SHAPE), and imp-35890 (tightest a-priori BOUND) as a single W1 ' +
-    'precision-robustness cluster, distinct from the pending summation-COST cross-ref: both adversarial ' +
+    'CROSS-REFERENCE NOTE (documentation only). Links imp-35852 (worst-case term ORDER), imp-35893 ' +
+    '(skeptical pairing-tree SHAPE), and imp-35890 (tightest a-priori BOUND) as a single W1 ' +
+    'precision-robustness cluster, distinct from the pending summation-COST cross-ref: both skeptical ' +
     'levers and the a-priori bound leave precision NON-binding, with the interval-bounded A+B-C ' +
     'certificate at T_PT staying GREENFIELD throughout. Ports nothing; changes no bound; NO QED. ' +
     'Platt-Trudgian Lambda <= 0.2 remains SOTA.',

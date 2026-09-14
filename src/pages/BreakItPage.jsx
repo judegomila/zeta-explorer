@@ -11,7 +11,7 @@ import { directLadder, dualLadder } from '../math/oscillators.js';
 // Same interactive challenges/math as before (see src/math/rh-attack.js,
 // zeta.js, primes.js, oscillators.js); only the chrome is re-themed to the
 // warm editorial palette (src/styles/editorial.css). Every claim, number and
-// caveat below is kept verbatim — this page exists to be attacked, so it has
+// caveat below is kept verbatim — this page exists to be approached, so it has
 // to stay.
 
 // Warm-palette hex equivalents of editorial.css's --blue/--green/--brass/
@@ -263,7 +263,7 @@ export default function BreakItPage() {
           <div style={{ color: 'var(--ink-soft)', fontSize: 13 }}>
             <p>This is a mathematical identity: <InlineMath tex="|\chi(\tfrac{1}{2}+it)| = 1" /> for all real t.
             It follows from the functional equation and cannot be broken computationally — it's PROVEN.
-            The only "attack" is to question whether the bridge interpretation is physically meaningful.</p>
+            The only objection is to question whether the bridge interpretation is physically meaningful.</p>
             <div style={{ padding: '8px 12px', borderRadius: 6, background: 'rgba(76,122,74,0.08)',
               border: '1px solid rgba(76,122,74,0.25)', marginTop: 8 }}>
               <strong style={{ color: 'var(--green)' }}>✓ UNBREAKABLE — mathematical identity</strong>
@@ -298,7 +298,7 @@ export default function BreakItPage() {
             {[
               ['/proof-overview', 'Proof Overview'],
               ['/gap-closing', 'Gap Closing'],
-              ['/rh-attack', 'RH Attack'],
+              ['/rh-attack', 'RH Approach'],
               ['/proof-planner', 'Proof Planner'],
               ['/proof-checker', 'Proof Checker'],
             ].map(([to, label]) => (

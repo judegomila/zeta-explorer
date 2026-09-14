@@ -766,7 +766,7 @@ function FullReportTab({ numPrimes }) {
           borderRadius: '50%', animation: 'spin 0.8s linear infinite',
         }} />
         <p style={{ color: '#94a3b8', fontSize: 13, marginTop: 12 }}>
-          Running adversarial proof check...
+          Running skeptical proof check...
         </p>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>

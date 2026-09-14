@@ -12,7 +12,7 @@
 // imp-1238's honest-scope flagged a SYSTEMATIC ~0.85 multiplicative gap at
 // GUE-plateau points (where gueR3 = 1.0 but the empirical ratio sits at
 // ~0.78–0.87) and hypothesised that "correcting the bin-normalization
-// convention" might lift Pearson past 0.995. Two facts kill that hope:
+// convention" might lift Pearson past 0.995. Two facts eliminate that hope:
 //
 //   1. PEARSON IS SCALE-INVARIANT. Pearson(emp, c * gue) = Pearson(emp, gue)
 //      for any constant c > 0. A UNIFORM multiplicative bin factor — exactly

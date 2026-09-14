@@ -58,7 +58,7 @@ export const waves = [
     number: 5,
     title: 'Rigor + Extensions',
     range: 'imp-081 to imp-100',
-    summary: 'Interval arithmetic, adversarial testing, GRH, Connes, verifyProof()',
+    summary: 'Interval arithmetic, skeptical testing, GRH, Connes, verifyProof()',
     keyResults: ['Machine-checked Mertens', 'GRH for χ mod 3,4,5', 'Connes dictionary'],
   },
   {

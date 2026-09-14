@@ -156,7 +156,7 @@ export const CONJ_18_1_AUDIT = Object.freeze({
     {
       ref: 'Connes (1999, 2025-2026), trace formula and RH',
       overlap:
-        'The Connes noncommutative-geometric attack realizes RH as positivity ' +
+        'The Connes noncommutative-geometric approach realizes RH as positivity ' +
         'of a trace on a specific noncommutative space (adele class space). ' +
         'PARTIALLY-RELATED because Connes positivity and 18.1 passive ' +
         'realization both aim at the same target by different functional ' +
@@ -383,7 +383,7 @@ export const IMP_1233_AUDIT_SUMMARY = Object.freeze({
     'restatements. Conjectures 18.1 and 18.2 are NOT restatements -- they ' +
     'are CLOSURE PROGRAMS that would PROVE RH. The paper para 18.4 ' +
     'synthesis table makes this distinction explicit: 18.1-18.3 are the ' +
-    'three independent attack routes; 18.4 is the synthesis statement ' +
+    'three independent approach routes; 18.4 is the synthesis statement ' +
     '(ghost-absence) which is itself RH.',
 
   crossReferences: Object.freeze([

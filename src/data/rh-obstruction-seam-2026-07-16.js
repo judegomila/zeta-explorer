@@ -1,8 +1,8 @@
 /**
  * @module rh-obstruction-seam-2026-07-16
  * @fileoverview
- * The RH OBSTRUCTION SEAM: result of a deep adversarial attack (16 novel angles
- * aimed directly at the two load-bearing walls C_H + Montgomery PCC, each killed
+ * The RH OBSTRUCTION SEAM: result of a deep skeptical approach (16 novel angles
+ * aimed directly at the two load-bearing walls C_H + Montgomery PCC, each eliminated
  * by ≥2 skeptics at ≥0.82 confidence, 2024–2026 literature web-grounded).
  *
  * Verdict: CLEAN NEGATIVE — no crack — but over-determined and structurally
@@ -22,7 +22,7 @@ export const SEAM_META = {
     'overlap. Closing that gap IS the Riemann Hypothesis.',
 };
 
-// The two attacks that bracket the gap exactly — each half conceded by both referees.
+// The two approaches that bracket the gap exactly — each half conceded by both referees.
 export const SEAM_BRACKET = [
   {
     side: 'PROVABLE ⇒ INERT',
@@ -41,7 +41,7 @@ export const SEAM_BRACKET = [
 export const SEAM_PRINCIPLE =
   'PROVABLE ∩ SUFFICIENT = ∅. What is provable is inert; what would suffice is RH-hard. The gap ' +
   'between the two sides is not a missing lemma — it is the Riemann Hypothesis itself. This is why ' +
-  'no route in the framework (de Bruijn–Newman flow / Polymath15 barrier / pair-correlation) breaches.';
+  'no route in the framework (de Bruijn–Newman flow / Polymath15 barrier / pair-correlation) crossings.';
 
 // 2024–2026 imports were all REAL — and every one landed on the provable-inert side.
 export const LITERATURE_LANDS_INERT = [
@@ -52,7 +52,7 @@ export const LITERATURE_LANDS_INERT = [
   { ref: 'Romanov–Woracek — arXiv:1904.03662', fact: 'Canonical-systems / de Branges structure; its obstruction is the same PCC, not an independent weaker object.' },
 ];
 
-// Adversarial verification earned its keep by killing fabricated / misread leads.
+// Skeptical verification earned its keep by eliminating fabricated / misread leads.
 export const CAUGHT_FABRICATIONS = [
   'A phantom "CCCM" paper cited as an unconditional anti-AH source — does not exist.',
   'GLSS (2507.06823) and Baluyot (2508.10857) were misread as proving anti-AH; they ASSUME AH/PCC (+RH) and derive density-one consequences.',
@@ -60,7 +60,7 @@ export const CAUGHT_FABRICATIONS = [
 ];
 
 // Follow-up round (2026-07-16): search OUTSIDE the framework for the forbidden
-// overlap. 14 routes, all killed — the overlap is not just unreached, it is empty.
+// overlap. 14 routes, all eliminated — the overlap is not just unreached, it is empty.
 export const OUT_OF_FRAMEWORK = {
   verdict: 'NO ESCAPE — framework exhausted (in AND out). All 14 out-of-framework routes self-concede landsInOverlap:false.',
   failureModes: [
@@ -75,11 +75,11 @@ export const OUT_OF_FRAMEWORK = {
 
 export const SEAM_HONEST_CONCLUSION =
   'Within the de Bruijn–Newman / barrier / pair-correlation framework there is no crack: the ' +
-  'provable and sufficient sides are provably disjoint, bracketed explicitly (#4 vs #14). A breach ' +
+  'provable and sufficient sides are provably disjoint, bracketed explicitly (#4 vs #14). A crossing ' +
   'would require mathematics OUTSIDE everything mapped — not a re-roll of the same angles. The ' +
   'genuine remaining moves are: build verified machinery (Lean), pursue RH-adjacent frontier math ' +
   '(Guth–Maynard periphery), and monitor for genuinely new external ideas. No false QED; the honest ' +
-  'value here is the precise anatomy of why RH is hard, adversarially verified.';
+  'value here is the precise anatomy of why RH is hard, independently verified.';
 
 export const RH_OBSTRUCTION_SEAM = {
   meta: SEAM_META,

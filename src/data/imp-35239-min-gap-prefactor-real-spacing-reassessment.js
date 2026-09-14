@@ -86,7 +86,7 @@
  * @see imp-35214-min-gap-field-lipschitz-surrogate-assessment (the Q2 PRESENT rating reassessed here)
  * @see imp-35218-real-ordinate-background-field-sup (R1 real-ordinate beta NOT N-uniform; R2 front law survives)
  * @see imp-35194-background-field-sup-n-uniformity (F1 unit-spacing beta N-uniform; F2 beta ~ 1/g_min)
- * @see imp-35196-ystar-schedule-reconciliation-assessment (strip route killed; L_strip = 2N/y^2)
+ * @see imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; L_strip = 2N/y^2)
  * @see imp-35167-g-min-non-collision-certificate-scope (M2/M5/M3 min-gap certificate; the OPEN Q3)
  */
 
@@ -199,7 +199,7 @@ export const IMP35239_MIN_GAP_PREFACTOR_REAL_SPACING_REASSESSMENT = {
     'imp-35214-min-gap-field-lipschitz-surrogate-assessment (the Q2 PRESENT rating reassessed here); ' +
     'imp-35218-real-ordinate-background-field-sup (R1 real-ordinate beta NOT N-uniform; R2 front law survives); ' +
     'imp-35194-background-field-sup-n-uniformity (F1 unit-spacing beta N-uniform; F2 beta ~ 1/g_min); ' +
-    'imp-35196-ystar-schedule-reconciliation-assessment (strip route killed; L_strip = 2N/y^2); ' +
+    'imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; L_strip = 2N/y^2); ' +
     'imp-35167-g-min-non-collision-certificate-scope (M2/M5/M3 min-gap certificate; the OPEN Q3); ' +
     'imp-486 (C_mb GUE-conditional).',
 };

@@ -230,7 +230,7 @@ export const IMP1260_LARGEA_CROSSOVER_ASSERTIONS = [
   {
     id: 'imp1260-all-sample-bounds-far-below-one',
     why: 'Every rigorous bound at every sampled a (<= 10) must be << 1 -- the ' +
-         'largest sampled a=10 gives csHs ~7.2e-3. A row breaching even 1e-2 ' +
+         'largest sampled a=10 gives csHs ~7.2e-3. A row crossing even 1e-2 ' +
          'means the freeze was overwritten with a wrong sweep.',
     holds: () => IMP1260_LARGEA_CROSSOVER.rows.every(
       (r) => r.csHs < 1e-2 && r.exactHs < 1e-2 && r.schur < 1e-2,

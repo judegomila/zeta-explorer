@@ -34,7 +34,7 @@
  *     cusp exponent -- it is theta-independent for EVERY alpha, exactly as imp-33883 found the modulus
  *     C_PS to be angle-robust at the single alpha = 1/2.
  * (2) eps^0 ONSET COEFFICIENT. The tail C(alpha) = integral_{|x|>1} |x|^{-alpha}/x^2 dx = 2/(alpha+1)
- *     is regular at x = 0, so setting eps = 0 kills all angular dependence: C is theta-independent for
+ *     is regular at x = 0, so setting eps = 0 eliminates all angular dependence: C is theta-independent for
  *     every alpha, reproducing 4/3 at alpha = 1/2 and the imp-33882 rational law 2/(alpha+1) at
  *     theta = pi/2.
  * BOTH magnitude tiers therefore SEPARATE as functions of alpha alone; the 2D map is a product of a

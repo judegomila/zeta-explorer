@@ -128,7 +128,7 @@ export const GATE2_TARGETS = {
  * external larger-slab preprint [20] "is not an antecedent of Theorem 4.5 or of any
  * claimed project status" (audit target only). Therefore the 0.1399 row is
  * independent of the Gate-2 open-family question and should be tracked on its own
- * slab+tail lane, not killed with, nor blocked on, Gate-2.
+ * slab+tail lane, not eliminated with, nor blocked on, Gate-2.
  */
 export const ROW_01399_DECISION = {
   disposition: 'UNPARK-INDEPENDENT',

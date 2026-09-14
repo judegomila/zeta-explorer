@@ -165,7 +165,7 @@ const SIGMA_SWEEP = Object.freeze(buildSigmaSweep());
 //   MOST-BS-FAVORABLE scenario assuming the BS chain has no other
 //   hardness pinning sigma at 0.75.
 // SCENARIO_BOTH_AT_ARGMIN: both at sigma = 0.99. BS only marginally
-//   beats Ingham formally (ratio 9.23), so any non-trivial A_BS kills
+//   beats Ingham formally (ratio 9.23), so any non-trivial A_BS eliminates
 //   the gain.
 
 function scenarioAt(sigmaIngham, sigmaBS) {
@@ -266,7 +266,7 @@ const VERDICT_AT_UPPER = verdictAtABS(A_BS_BOUNDS.conservativeUpper);
 // Top-line verdict tag.
 //   "rigorous-conditional-on-A-leq-4" -- only the optimistic lower bound A=4 keeps BS competitive
 //   "rigorous-conditional-on-A-leq-6-AND-sigma-shift" -- A central with sigma-shift allowed
-//   "rigorous-tightening-blocked" -- A_BS upper bound 12 kills BS in all scenarios
+//   "rigorous-tightening-blocked" -- A_BS upper bound 12 eliminates BS in all scenarios
 const TOP_LINE_VERDICT = (() => {
   if (VERDICT_AT_UPPER.rigorousTighteningViable) {
     return 'rigorous-tightening-survives-even-at-upper-A';

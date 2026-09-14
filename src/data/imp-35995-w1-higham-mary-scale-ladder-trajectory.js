@@ -261,7 +261,7 @@ export const IMP35995_W1_HIGHAM_MARY_SCALE_LADDER_TRAJECTORY = {
     'imp-35948 (single-endpoint tabulation of the Higham-Mary / Wilkinson / achieved scales this sweeps down the ' +
     'ladder); imp-35890 (CERTIFIED deterministic running-accumulator bound, which DOES grow ~ sqrt(N)); imp-35990 ' +
     '(lambda calibration for the two probabilistic scales); imp-35812 (exact-BigInt achieved naive error at the ' +
-    'endpoint); imp-35852 / imp-35854 (achieved error under adversarial ordering / kappa sweep); imp-35725 ' +
+    'endpoint); imp-35852 / imp-35854 (achieved error under worst-case ordering / kappa sweep); imp-35725 ' +
     '(mechanical N-term certified cost); imp-35681 Part A (A+B-C interval bound greenfield); imp-35674 Part D ' +
     '(N(x)=floor(sqrt(x/4 pi)) retained terms); Higham and Mary 2019 (probabilistic rounding error analysis); ' +
     'Higham 2002 sec 4.2; Platt-Trudgian 2021 (barrier base).',

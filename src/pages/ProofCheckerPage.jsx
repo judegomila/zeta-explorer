@@ -19,7 +19,7 @@ export default function ProofCheckerPage() {
         </div>
 
         <div className="card" style={{ marginBottom: 24, borderLeft: '3px solid #c23a1c' }}>
-          <h3 style={{ color: '#c23a1c', fontSize: 14, marginBottom: 8 }}>Adversarial Testing Philosophy</h3>
+          <h3 style={{ color: '#c23a1c', fontSize: 14, marginBottom: 8 }}>Skeptical Testing Philosophy</h3>
           <p style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.8 }}>
             This checker is deliberately skeptical. For each Twin-Ladder Bridge claim, it asks: <em>"Does this
             hold for the Davenport-Heilbronn function?"</em> D-H has a functional equation like ζ
@@ -241,9 +241,9 @@ export default function ProofCheckerPage() {
         <div className="card" style={{ marginTop: 24, background: 'rgba(63,107,134,0.04)' }}>
           <h3 style={{ color: '#877b67', fontSize: 13, marginBottom: 10 }}>Related Pages</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-            <Link to="/rh-attack" style={{ color: '#3f6b86', fontSize: 13 }}>RH Attack</Link>
+            <Link to="/rh-attack" style={{ color: '#3f6b86', fontSize: 13 }}>RH Approach</Link>
             <span style={{ color: '#d5c9b2' }}>|</span>
-            <Link to="/spectral-attack" style={{ color: '#3f6b86', fontSize: 13 }}>Spectral Attack</Link>
+            <Link to="/spectral-attack" style={{ color: '#3f6b86', fontSize: 13 }}>Spectral Approach</Link>
             <span style={{ color: '#d5c9b2' }}>|</span>
             <Link to="/gap-closing" style={{ color: '#8c6a1d', fontSize: 13 }}>Gap Closing</Link>
             <span style={{ color: '#d5c9b2' }}>|</span>

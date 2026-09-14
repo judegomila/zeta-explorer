@@ -30,7 +30,7 @@
 //
 // where T0 = T_PT_effective(N=1e4) ~ 9878 (RvM inverse).
 //
-// THE GY ATTACK
+// THE GY APPROACH
 // -------------
 // Goldston-Yildirim 2007 (Annals of Math 170) + Maynard 2014 (Annals of Math
 // 181) bound liminf gap statistics. The Riemann-zero analog (Conrey-Iwaniec-
@@ -72,7 +72,7 @@
 // ------------
 // research-grade-hard (per imp-1107 ROUTE_GOLDSTON_YILDIRIM tractability
 // ranking). The Bui-Sound port (imp-1123) is research-grade-feasible -- the
-// GY route is the FALLBACK / SECOND-LINE attack, with smaller tightening
+// GY route is the FALLBACK / SECOND-LINE approach, with smaller tightening
 // magnitude AND larger rigor cost. The honest paper-level deliverable is
 // "we explored both BS and GY; BS gives larger tightening at lower rigor
 // cost". This file ships that comparison numerically.
@@ -329,10 +329,10 @@ const TRACTABILITY_RANKING = 'research-grade-hard';
 const TRACTABILITY_RATIONALE =
   'GY sieve + Maynard k-tuple mollifier construction is multi-hundred-page sieve machinery ' +
   'far outside the project tool inventory. Compared to the Bui-Sound 2008 port (imp-1123, ' +
-  'research-grade-feasible 15-page paper), the GY route is the FALLBACK / SECOND-LINE attack ' +
+  'research-grade-feasible 15-page paper), the GY route is the FALLBACK / SECOND-LINE approach ' +
   'with smaller tightening magnitude (zero at L_pt scale, 2.5 pct asymptotic vs Bui-Sound 5 pct ' +
   'asymptotic) AND higher rigor cost (3 month port vs 2-4 week port). The honest paper-level ' +
-  'recommendation: prefer Bui-Sound; document GY as the second-line attack with explicit ' +
+  'recommendation: prefer Bui-Sound; document GY as the second-line approach with explicit ' +
   'comparison.';
 
 // ── Sanity checks for tripwires ──────────────────────────────────────────────
@@ -356,7 +356,7 @@ const COMPARISON_VS_BUI_SOUND = {
   goldston_yildirim_lpt_n1e4_tightening_estimate: 'zero at L_pt scale (E_coll bottlenecks the chain at N=1e4; GY tightens only the asymptotic regime)',
   bui_sound_rigor_cost: 'research-grade-feasible (2-4 week port)',
   goldston_yildirim_rigor_cost: 'research-grade-hard (3+ month port; parity-barrier-blocked beyond Maynard k-tuple)',
-  recommended_paper_choice: 'Bui-Sound (imp-1123). GY documented as second-line attack with smaller gain at higher rigor cost.',
+  recommended_paper_choice: 'Bui-Sound (imp-1123). GY documented as second-line approach with smaller gain at higher rigor cost.',
 };
 
 // ── Exported record ──────────────────────────────────────────────────────────
@@ -446,7 +446,7 @@ export const GOLDSTON_YILDIRIM_PROJECTION = {
       'auditable in isolation.',
   },
 
-  // ── Honest comparison vs the Bui-Sound sister attack imp-1123 ────────────
+  // ── Honest comparison vs the Bui-Sound sister approach imp-1123 ────────────
   comparisonVsBuiSound: COMPARISON_VS_BUI_SOUND,
 
   // ── Honesty disclaimers ──────────────────────────────────────────────────
@@ -466,7 +466,7 @@ export const GOLDSTON_YILDIRIM_PROJECTION = {
     'a 9 pct lift on the K_PLATEAU_LADDER unconditional N-ceiling, and a 2.5 pct relative tightening ' +
     'of the asymptotic L_pt limit (0.2 -> 0.195). Smaller than the Bui-Sound projection (imp-1123) ' +
     'and at higher rigor cost. Four obstructions named with where / what / whyItBlocks fields. ' +
-    'Honestly recommended for the paper as a SECOND-LINE / FALLBACK attack with explicit comparison ' +
+    'Honestly recommended for the paper as a SECOND-LINE / FALLBACK approach with explicit comparison ' +
     'to Bui-Sound; not a primary research target.',
 };
 

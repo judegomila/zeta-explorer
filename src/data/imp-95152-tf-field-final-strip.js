@@ -1,5 +1,5 @@
 /**
- * imp-95152 - HONEST PARTIAL (adversarial record): LEMMA TF (piecewise
+ * imp-95152 - HONEST PARTIAL (skeptical record): LEMMA TF (piecewise
  * test-vector-FIELD fan certificate) is SOUND and flips both recorded
  * 47/200 stall cells locally, but is MEASURED NET-NEGATIVE / NIL as a
  * cover accelerant; and the 0.2355 middle-rung budget attempt STALLS at
@@ -855,7 +855,7 @@ RATE_FLOOR = 0.2355;
   MEASURED.vc = { viol, worst, count };
 }
 
-// (6) witness battery at the UNCERTIFIED middle floor 47/200 (attacks the
+// (6) witness battery at the UNCERTIFIED middle floor 47/200 (approaches the
 // whole open strip): seeded in-class witnesses, both parities, zero E > 0
 {
   function kernelK(a, b, tau) {
@@ -953,7 +953,7 @@ export const IMP95152_TF_FIELD_FINAL_STRIP_ASSERTIONS = [
   {
     id: 'imp95152-witness-battery-strip',
     description:
-      'Witness battery attacking the WHOLE open strip (middle floor 47/200, below every certified middle constant): > 2000 seeded in-class witnesses, both parities, zero E > 0',
+      'Witness battery approaching the WHOLE open strip (middle floor 47/200, below every certified middle constant): > 2000 seeded in-class witnesses, both parities, zero E > 0',
     holds: () => MEASURED.witness.wviol === 0 && MEASURED.witness.maxE <= 0 && MEASURED.witness.wcount > 2000,
   },
   {

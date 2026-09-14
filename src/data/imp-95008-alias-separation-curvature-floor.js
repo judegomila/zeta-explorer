@@ -95,7 +95,7 @@
  * "uniform over 690988 <= N <= 54799999 and both seam sides" requirement of
  * residual (b) collapses to ONE endpoint evaluation of mu.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma A needs only 0 < h < p - no
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma A needs only 0 < h < p - no
  * primality; (2) the inversion cannot be an artifact of branch choice:
  * opposite-sign denominators put u on opposite sides of 0 at distance
  * |u| + |u'| >= 2 v p / (numerator scale), handled by treating branches

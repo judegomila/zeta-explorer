@@ -1,7 +1,7 @@
 /**
  * @module imp-35933-w1-greedy-steinitz-adversarial-ordering
  *
- * imp-35933 (numerical, S-frontier): ADD a fifth, OPTIMIZED adversarial ordering -- a
+ * imp-35933 (numerical, S-frontier): ADD a fifth, OPTIMIZED worst-case ordering -- a
  * greedy / Steinitz-style worst-partial-sum permutation -- to the imp-35852 summation-
  * scheme test, and MEASURE whether the hand-designed clustered sign-run ordering is
  * genuinely the naive worst case or whether a stronger hostile permutation exceeds it.
@@ -340,7 +340,7 @@ export const IMP35933_W1_GREEDY_STEINITZ_ADVERSARIAL_ORDERING = {
       'achievable double precision leaves > 1e4x strict headroom under an OPTIMIZED worst-case ordering; precision ' +
       'is NOT the binding constraint -- the obstruction stays the ENGINEERING of the certified length-N interval sum',
     staysGreenfield:
-      'this module measures scheme errors under an optimized adversarial ordering only; it evaluates no sum of H_t ' +
+      'this module measures scheme errors under an optimized worst-case ordering only; it evaluates no sum of H_t ' +
       'and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A)',
   },
   isRigorous: false,

@@ -222,7 +222,7 @@ export const IMP95053_U4_RATE_ASYMMETRY_IRREDUCIBILITY = {
     B_rateMatchedPlacementCanFlipSign:
       "Seating the append essentially ON the u = 4 twins (u_x -> 4, tau -> 0) with a fast rate (nu >~ 5) drives cU4 and the full cTilde negative (u_x ~ 3.9999, nu = 50: cTilde ~ -1.96e-4): a rate-matched placement CAN cancel/reverse the residual.",
     C_cancellationIsSelfDefeating:
-      "But cancellation kills the lever: the Theorem Z gain driver con = cTilde m - E n_b g is clipped at zero, and with E > 0, n_b > 0, g > 0 any cTilde <= 0 forces con <= -E n_b g < 0, so the occupied-block append yields exactly zero gain there (con ~ -2.4e-3 at the cancellation corner vs +7.0e-3 at the operating placement). Cancelling the residual and harvesting the gain are mutually exclusive.",
+      "But cancellation eliminates the lever: the Theorem Z gain driver con = cTilde m - E n_b g is clipped at zero, and with E > 0, n_b > 0, g > 0 any cTilde <= 0 forces con <= -E n_b g < 0, so the occupied-block append yields exactly zero gain there (con ~ -2.4e-3 at the cancellation corner vs +7.0e-3 at the operating placement). Cancelling the residual and harvesting the gain are mutually exclusive.",
     D_rootCauseBaseRateAsymmetry:
       "The residual exists because the u = 4 twins straddle a dyadic block boundary (packet 2 block 1, packet 3 block 2: opposite signs in cTilde) yet carry unequal base rates mu_2 = 3.901, mu_3 = 2.798 (ratio 1.394); the u = 2 twins cancel precisely because their rates ARE matched (7.694 / 7.697, ratio 0.99966). A genuine placement-independent null requires equalizing mu_2 = mu_3 - a base re-optimization outside the single-append frozen-base scope, which the joint optimizer declined.",
   },

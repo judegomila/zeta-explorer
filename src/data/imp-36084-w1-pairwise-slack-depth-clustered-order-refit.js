@@ -37,7 +37,7 @@
  * still sub-linear and still below the default-order ~0.748 -- confirming the flattening is
  * caterpillarL-driven, the reverse of imp-36018 where removing caterpillarR LIFTED the
  * exponent toward 1. CONCLUSION: the imp-36018 sub-linear finding is not an artifact of the
- * default order -- the sub-linearity PERSISTS and DEEPENS under the imp-35852 adversarial
+ * default order -- the sub-linearity PERSISTS and DEEPENS under the imp-35852 skeptical
  * order; the a-priori depth bound over-predicts LESS at large depth precisely because the
  * hostile order makes the deepest caterpillar the arg-max, so the "slack widens with depth"
  * reading weakens (not strengthens) under worst-case ordering. Precision stays NON-binding:
@@ -182,14 +182,14 @@ export const IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT = {
       'the clustered worst order does NOT steepen the exponent toward d^1: it FLATTENS it from the default-order ' +
       '~0.748 to ~0.417, because the hostile order inflates the measured error precisely at the DEEPEST tree ' +
       'caterpillarL (its slack collapses ~1.2e4x, from ~5.9e6 to ~4.9e2), dragging the high-depth end of the ' +
-      'trend DOWN -- so the sub-linearity PERSISTS and DEEPENS under the adversarial order',
+      'trend DOWN -- so the sub-linearity PERSISTS and DEEPENS under the worst-case order',
   },
   reading: {
     subLinearityPersists:
       'the imp-36018 sub-linear finding is NOT a default-order artifact: the clustered-order exponent ~0.417 is ' +
       'even further below the strict linear-in-d value 1 than the default-order ~0.748',
     flattensNotSteepens:
-      'the adversarial order FLATTENS the slope (0.748 -> 0.417) rather than steepening it: the deepest caterpillarL ' +
+      'the worst-case order FLATTENS the slope (0.748 -> 0.417) rather than steepening it: the deepest caterpillarL ' +
       'becomes the arg-max error shape (imp-36020), so its a-priori over-prediction slack collapses at the largest ' +
       'depth, pulling the high-depth end of the log-log trend down',
     caterpillarLIsTheFlattener:
@@ -224,7 +224,7 @@ export const IMP36084_W1_PAIRWISE_SLACK_DEPTH_CLUSTERED_ORDER_REFIT = {
     '~5.9e6 to ~4.9e2), dragging the high-depth end of the trend DOWN. Removing that same-depth flip driver lifts ' +
     'the exponent only to ~0.617 -- still sub-linear, still below the default-order value -- the mirror of ' +
     'imp-36018, where removing the high-floor caterpillarR LIFTED the exponent toward 1. So the imp-36018 ' +
-    'sub-linearity is NOT a default-order artifact: it PERSISTS and DEEPENS under the adversarial order, and the ' +
+    'sub-linearity is NOT a default-order artifact: it PERSISTS and DEEPENS under the worst-case order, and the ' +
     '"slack widens with depth" reading weakens rather than strengthens under worst-case ordering. Precision stays ' +
     'NON-binding (the a-priori bound still over-predicts by ~2.7 orders even at the tightened caterpillarL, and ' +
     'imp-36020 kept every clustered configuration below the log2(N)*eps ceiling). Certifies no W1 bound; evaluates ' +

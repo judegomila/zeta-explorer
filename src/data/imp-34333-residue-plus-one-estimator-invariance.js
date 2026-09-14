@@ -23,7 +23,7 @@
  *   channel is EXACTLY the multiplicity m of the zero -- the classical argument-principle fact that
  *   the residue of f_prime/f at a zero equals its order. Three consequences:
  *     (i)  AMPLITUDE-INVARIANT. The zero amplitude c = resid_exp derivative at k* enters ln(resid_exp)
- *          only as the additive constant ln|c|, which the derivative kills. The residue does NOT depend
+ *          only as the additive constant ln|c|, which the derivative eliminates. The residue does NOT depend
  *          on how steeply the estimator drives resid_exp through zero.
  *     (ii) LOCATION-INVARIANT. Shifting the zero k* moves the pole LOCATION but not its coefficient m;
  *          the residue is unchanged.

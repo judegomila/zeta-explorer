@@ -5,7 +5,7 @@
  * imp-95008-block-isolation-constant.js) is REMOVED and replaced by a
  * polynomial-tail majorant, at the price of one explicit, closed-form tail
  * constant. This discharges the named residual (5) of that module (the
- * adversarial self-check record there states: if packets are merely
+ * skeptical self-check record there states: if packets are merely
  * MAJORIZED by bumps with tails, disjointness fails and Theorem N needs an
  * almost-orthogonality Schur variant with explicit tail decay - NOT
  * provided) AT THE MODEL-FAMILY LEVEL. The remaining residuals of the
@@ -113,7 +113,7 @@
  *    theta -> infinity the far term -> 0 and Theorem S recovers Theorem N
  *    up to the factor-2 near-band loss - the support limit is consistent.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) attempted refutation of Lemma T at
+ * SKEPTICAL SELF-CHECK RECORD: (1) attempted refutation of Lemma T at
  * Delta = 0, r_1 = r_2 = r: exact value 2r/(2 sigma + 2 theta - 1) vs bound
  * 2r/(2 sigma - 1) - holds strictly, no equality case hides a gap; (2) the
  * exponent split needs both factors of [(1+x_1)(1+x_2)] >= 1, true

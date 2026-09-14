@@ -182,7 +182,7 @@ disproof). The G3 lane is launched 2026-09-09.
   the paper's anchor literal remains unreplayable (provenance gap unchanged).
 - T-P1: the 0.1399 tail lane K2-KILLED (N1* = 220,495,706, 4.01x the economic
   line; Arb 320/512-bit, exact integer boundary). SPLIT-COLLAR: 0.139981915
-  KILLED twice over (sealed minima live on the 0.1787854 face; at the 0.14
+  ELIMINATED twice over (sealed minima live on the 0.1787854 face; at the 0.14
   row's own t* the lemma fails O(1)); SALVAGE found — a days-scale
   delivered-face y-thaw to 0.17759432 (shadow-positive across the stretch,
   ~12 CPU-hr sharp-weight re-sweep). FRAMING (audit-session): under the freeze

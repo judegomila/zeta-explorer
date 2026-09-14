@@ -8,7 +8,7 @@
  * was read at a SINGLE point, N = N_cross ~ 3.2803e9. This module reuses the imp-34930 constituent recompute
  * R_margin(N) = N*FP_LO/K VERBATIM (published K ~ 1.5727e8 and FP_LO ~ 0.954568 held fixed at their published
  * values; delta cancels, so it never enters) and MEASURES R_margin(N) and its distance to the nearest 2^n wall
- * across a broad N-band 1e6..1e13, to assess whether the breach step nStar(R_margin) stays pinned at 5 band-wide
+ * across a broad N-band 1e6..1e13, to assess whether the crossing step nStar(R_margin) stays pinned at 5 band-wide
  * or crosses a dyadic wall as N varies. VERIFICATION / MEASUREMENT ONLY; reuses the imp-34884/34889/34909
  * literals via imp-34930 VERBATIM; does NOT instantiate the imp-34687a directed-rounding layer; imp-34714a
  * REMAINS OPEN; NO QED.
@@ -30,7 +30,7 @@
  *   1e13       6.070e+4      15.889     16        0.111
  * Over the full 1e6..1e13 sweep R_margin ranges over ~7 orders of magnitude and log2(R_margin) climbs by
  * log2(1e13/1e6) ~ 23.25, so nStar climbs from -7 (at 1e6) to 16 (at 1e13) -- it crosses ~23 dyadic 2^n walls.
- * So the breach step is DEFINITELY NOT pinned at 5 across the full 1e6..1e13 band; because R_margin is linear
+ * So the crossing step is DEFINITELY NOT pinned at 5 across the full 1e6..1e13 band; because R_margin is linear
  * in N (FP_LO essentially constant), nStar(R_margin) ~ floor(log2 N) - 22.7 grows one step per doubling of N.
  *
  * THE nStar = 5 PINNING WINDOW CONTAINS THE IMP-34693 ADMISSIBLE SEED BAND
@@ -56,7 +56,7 @@
  * WHAT STAYS OPEN
  * --------------
  * VERIFICATION / MEASUREMENT only on the inherited imp-3220/imp-3406 surrogate crossover map, reusing the
- * imp-34884/imp-34889/imp-34909 literals via imp-34930 VERBATIM. It measures how the breach step nStar(R_margin)
+ * imp-34884/imp-34889/imp-34909 literals via imp-34930 VERBATIM. It measures how the crossing step nStar(R_margin)
  * moves with N, but does NOT instantiate the imp-34687a directed-rounding transcendental layer (the surrogate is
  * a first-order outward-rounding proxy) and does NOT discharge the conditional. imp-34714a REMAINS OPEN. C_C =
  * (1/8) sqrt(3 pi) ansatz (imp-2642/imp-2643) UNTOUCHED; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066
@@ -64,7 +64,7 @@
  * Lambda <= 0.2 remains SOTA.
  *
  * @see imp-34930-breach-step-law-verification (recomputes R_margin = N*FP_LO/K from constituents; reused verbatim)
- * @see imp-34909-op-depth-newton-step-reconciliation (states the unified nStar breach law)
+ * @see imp-34909-op-depth-newton-step-reconciliation (states the unified nStar crossing law)
  * @see imp-34889-forward-breach-band-uniformity (band-invariance over the +-5% imp-34693 seed band)
  * @see imp-34693-crossover-contraction-seed-band (the admissible seed band; k=10 half-width ~1.7e8 around N_cross)
  * @see imp-34714-krawczyk-existence-uniqueness-lemma (the exact lemma; named sub-gap imp-34714a)
@@ -128,7 +128,7 @@ export const IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N = {
   question:
     'Reuse the imp-34930 constituent recompute R_margin(N) = N*FP_LO/K (published K, FP_LO held fixed; delta ' +
     'cancels) VERBATIM and MEASURE R_margin(N) and its distance to the nearest 2^n wall across the broad ' +
-    'N-band 1e6..1e13, to assess whether the breach step nStar(R_margin) = floor(log2 R_margin) + 1 stays ' +
+    'N-band 1e6..1e13, to assess whether the crossing step nStar(R_margin) = floor(log2 R_margin) + 1 stays ' +
     'pinned at 5 (op-depth 40) band-wide or crosses a dyadic wall as N varies. Verification / measurement ' +
     'only; reuses the imp-34884/34889/34909 literals via imp-34930; does NOT instantiate the imp-34687a ' +
     'layer; imp-34714a REMAINS OPEN; no QED.',
@@ -171,7 +171,7 @@ export const IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N = {
     'delta cancels) across 1e6..1e13. Because K is the N-INDEPENDENT PT-anchor amplitude and FP_LO drifts only ' +
     '~0.5% band-wide, R_margin is LINEAR in N: over 1e6..1e13 it ranges ~7 orders of magnitude, log2(R_margin) ' +
     'climbs by ~23.25, and nStar = floor(log2 R_margin) + 1 climbs from -7 (at 1e6) to 16 (at 1e13), crossing ' +
-    '~23 dyadic 2^n walls -- so the breach step is DEFINITELY NOT pinned at 5 across the full 1e6..1e13 band; ' +
+    '~23 dyadic 2^n walls -- so the crossing step is DEFINITELY NOT pinned at 5 across the full 1e6..1e13 band; ' +
     'nStar(R_margin) ~ floor(log2 N) - 22.7 grows one step per doubling of N. HOWEVER, the nStar = 5 pinning ' +
     'window (R_margin in (16, 32], i.e. N in (2.6361e9, 5.2722e9]) is ~2.636e9 wide and straddles N_cross ~ ' +
     '3.2803e9, and it STRICTLY CONTAINS the imp-34693 admissible seed band (k=10 half-width ~1.7e8, i.e. ' +
@@ -182,7 +182,7 @@ export const IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N = {
     'N_cross -- which the far-tail sweep does but the seed band never does. Measurement EVIDENCE, NOT a machine ' +
     'certificate; imp-34714a REMAINS OPEN.',
   subGap:
-    'imp-34714a REMAINS OPEN. That the breach step nStar(R_margin) stays pinned at 5 within the imp-34693 ' +
+    'imp-34714a REMAINS OPEN. That the crossing step nStar(R_margin) stays pinned at 5 within the imp-34693 ' +
     'admissible seed band (which sits strictly inside the nStar=5 window (2.6361e9, 5.2722e9]) but crosses ~23 ' +
     'dyadic walls across the broad 1e6..1e13 band -- measured here by reusing the imp-34930 R_margin = ' +
     'N*FP_LO/K recompute verbatim -- is MEASUREMENT EVIDENCE on the imp-34884/imp-34889 first-order ' +
@@ -204,7 +204,7 @@ export const IMP34953_R_MARGIN_DYADIC_WALL_ACROSS_N = {
     'bound; establishes no operator positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-34930 (recomputes R_margin = N*FP_LO/K from constituents; reused verbatim); imp-34909 (states the ' +
-    'unified nStar(R) = floor(log2 R) + 1 breach law); imp-34889 (band-invariance over the +-5% imp-34693 seed ' +
+    'unified nStar(R) = floor(log2 R) + 1 crossing law); imp-34889 (band-invariance over the +-5% imp-34693 seed ' +
     'band); imp-34693 (admissible seed band; k=10 half-width ~1.7e8 around N_cross); imp-34901 (closed-form ' +
     'n_star = ceil(log2(N*FP_LO/K))); imp-34714 (Krawczyk existence-uniqueness lemma; sub-gap imp-34714a); ' +
     'imp-2642 (C_C 1/8 ansatz). Dyadic wall = power-of-two threshold: floor(log2 R) + 1 counts doublings.',

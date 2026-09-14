@@ -71,7 +71,7 @@
  *   - Slab: O(1) window ([X, X+1], fixed width; the time extent [0, t*]
  *     even shrinks as t falls). Cost is prism count, driven by the BOTTOM
  *     MARGIN at y: 883 prisms at y = 0.1809 (v3), estimated 1e3-1e4 at
- *     y = 0.165 (imp-95201 T1), K3 kill line ~1e6 prisms. The slab is the
+ *     y = 0.165 (imp-95201 T1), K3 cutoff line ~1e6 prisms. The slab is the
  *     y-axis wall, not the t-axis wall; y = 0 is inadmissible (eq. 49-50).
  *   - Finite lane, landmark-row technology (lemma_sweep, what v3 used):
  *     Theta(N1*) rows at 1.1432 CPU-s/row (v3: 3,149,013 rows ~ 1e3
@@ -234,7 +234,7 @@ export const LANE_VOLUME = Object.freeze({
     prismCountByBottomEdge: Object.freeze([
       Object.freeze({ y: 0.1809, prisms: 883, status: 'v3 sealed' }),
       Object.freeze({ y: 0.165, prisms: '1e3-1e4 (imp-95201 T1 estimate)', status: 'unpriced' }),
-      Object.freeze({ y: 'K3 kill', prisms: '~1e6 adaptive-march trend', status: 'kill line' }),
+      Object.freeze({ y: 'K3 eliminate', prisms: '~1e6 adaptive-march trend', status: 'eliminate line' }),
     ]),
     axis: 'the slab is the y-axis wall (bottom-edge margin), not the t-axis wall; y = 0 inadmissible (paper eq. 49-50)',
   }),

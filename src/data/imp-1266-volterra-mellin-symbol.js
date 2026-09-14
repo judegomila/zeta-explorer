@@ -33,7 +33,7 @@
  *   HEADLINE VERDICT: MELLIN ROUTE STRUCTURALLY BLOCKED.
  *   ════════════════════════════════════════════════════════════════════════
  *   V_{a,Phi} is NOT a multiplicative convolution on (0, ∞), so the Mellin
- *   transform does NOT diagonalize it. Three independent obstructions kill
+ *   transform does NOT diagonalize it. Three independent obstructions eliminate
  *   the route at step 0:
  *
  *   OBSTRUCTION A. The kernel is k(t,s) = Phi(t) Phi(s) sinh(a(t-s)) 1_{s<t}.
@@ -73,7 +73,7 @@
  *   3. Computes the closed-form Laplace transform of k_a (the additive-route
  *      replacement for the failed Mellin route): L[k_a](z) = a / (z² - a²)
  *      for Re(z) > a. This is the correct diagonalizer on the Hardy space
- *      H²(C_+), pointing toward the route-4 (Wiener-Hopf) attack.
+ *      H²(C_+), pointing toward the route-4 (Wiener-Hopf) approach.
  *   4. Provides a rigorous upper bound on ||V_{a,Phi}||_op via the
  *      M_Phi · K_a · M_Phi factorization combined with an explicit kernel
  *      majorant:
@@ -132,7 +132,7 @@
  *   ------------
  *   - The Mellin route fails. The negative result is itself useful: it
  *     eliminates one of the four imp-1260 routes, channelling effort to
- *     imp-1267 (HS) and the Wiener-Hopf attack.
+ *     imp-1267 (HS) and the Wiener-Hopf approach.
  *   - The HS-norm empirical computation here (1.90e-4 at a=0.5) is the
  *     primary input to imp-1267 — that route is shown to be live.
  *   - The Phi Mellin transform identification with ξ is sketched up to
@@ -248,7 +248,7 @@ function hilbertSchmidtNorm(a, T = 5, N = 1000) {
  * HS bound is essentially TIGHT for V_{a,Phi} — the operator is rank-1ish.
  *
  * Critical: since HS-norm = op-norm to 2%, the route 1 bound (imp-1267) IS
- * the productive analytical attack — NOT the Mellin route attempted here.
+ * the productive analytical approach — NOT the Mellin route attempted here.
  */
 const A_GRID = Object.freeze([0.001, 0.01, 0.05, 0.2, 0.5]);
 
@@ -496,11 +496,11 @@ export const IMP1266_VOLTERRA_MELLIN_SYMBOL = Object.freeze({
     'V_{a,Phi}. The route is STRUCTURALLY BLOCKED. V is NOT a multiplicative ' +
     'convolution on (0, ∞): the kernel Phi(t) Phi(s) sinh(a(t-s)) 1_{s<t} ' +
     'is not a function of t/s (it has two separate Phi factors and a ' +
-    'DIFFERENCE term). Three independent obstructions kill the route at ' +
+    'DIFFERENCE term). Three independent obstructions eliminate the route at ' +
     'step 0. SALVAGE: the Laplace symbol L[k_a](z) = a/(z²-a²) is closed-' +
     'form and opens route 4 (Wiener-Hopf). The HS bound (route 1) is ' +
     'EMPIRICALLY TIGHT (HS ≈ op within 2%), so imp-1267 is the productive ' +
-    'attack. NEGATIVE RESULT — eliminates 1 of 4 imp-1260 routes.',
+    'approach. NEGATIVE RESULT — eliminates 1 of 4 imp-1260 routes.',
 
   conjectureTarget: Object.freeze({
     label: 'Conjecture 27.2 (Endpoint-Hankel Volterra contraction)',
@@ -579,7 +579,7 @@ export const IMP1266_VOLTERRA_MELLIN_SYMBOL = Object.freeze({
       'On all 5 rows of the grid, ||V||_HS ≈ ||V||_op to within 2%. The ' +
       'kernel-pointwise majorant (HS) is essentially TIGHT for V_{a,Phi} — ' +
       'meaning V is rank-1ish (one dominant singular value). This points ' +
-      'imp-1267 (HS route) as the productive analytical attack on imp-1260.',
+      'imp-1267 (HS route) as the productive analytical approach on imp-1260.',
     maxRatioHsOverOp: Math.max(...HS_ROWS.map((r) => r.ratioHsOverOp)),
     productiveRoute: 'imp-1267',
   }),
@@ -590,7 +590,7 @@ export const IMP1266_VOLTERRA_MELLIN_SYMBOL = Object.freeze({
     'However, the rigorous HS-style bound shipped here PROVES ||V|| ≤ 1 for ' +
     'all a ≤ ~12.6, far exceeding the App-S range a ≤ 0.5. The remaining ' +
     'analytical work for imp-1260 closure across ALL a > 0 falls to ' +
-    'imp-1267 (HS) and the route-4 Wiener-Hopf attack (which the closed-' +
+    'imp-1267 (HS) and the route-4 Wiener-Hopf approach (which the closed-' +
     'form Laplace symbol shipped here enables).',
 
   honestScope: Object.freeze({
@@ -622,7 +622,7 @@ export const IMP1266_VOLTERRA_MELLIN_SYMBOL = Object.freeze({
     imp1240: 'src/data/imp-1240-volterra-norm-pilot.js',
     imp1248: 'src/data/imp-1248-volterra-norm-rescan.js',
     imp1258: 'src/data/imp-1258-volterra-cdb-bridge.js',
-    imp1267: 'pending: HS route, the productive attack',
+    imp1267: 'pending: HS route, the productive approach',
     titchmarsh: 'Titchmarsh, The Theory of the Riemann Zeta-function (Mellin of theta)',
     halmosVolterra: 'Halmos, Hilbert Space Problem Book — Volterra operators',
     paley_wiener: 'Paley-Wiener: Fourier transform on half-line / Hardy space H²(C_+)',
@@ -709,7 +709,7 @@ export const IMP1266_VOLTERRA_MELLIN_SYMBOL_ASSERTIONS = [
     id: 'imp1266-rigorous-bound-rows-all-below-one',
     why:
       'On the 5-row a-grid, the rigorous bound must be ≤ 1 for every row. ' +
-      'This is the rigorous-scope tripwire: even a single row breaching 1 ' +
+      'This is the rigorous-scope tripwire: even a single row crossing 1 ' +
       'invalidates the partial closure for imp-1260.',
     holds: () =>
       IMP1266_VOLTERRA_MELLIN_SYMBOL.numericalGrid.rigorousBoundRows.every(

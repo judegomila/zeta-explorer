@@ -52,7 +52,7 @@
  * 4.99839582 -> 6.42613287. Any additive-in-octave-weight accumulation of a
  * valid per-octave factor therefore diverges FURTHER from truth as octaves
  * accumulate -- and it worsens with exactly the octave-depth ladder the
- * weight W is meant to exploit. The W-additive route is refuted structurally,
+ * weight W is meant to use. The W-additive route is refuted structurally,
  * not merely found vacuous.
  *
  * THE CONE OBSTRUCTION (mechanism, quantified). The isolated octave product
@@ -165,7 +165,7 @@ export const IMP95290_SIGNED_WEIGHT_COMPOSITION_ASSESSMENT = {
   findingA:
     "THE FAILURE IS THE COMPOSITION RULE, NOT THE PER-OCTAVE PRICING (sharpening over imp-95133 WP-A). At one rate per octave the per-octave signed constant is EXACT with no within-octave coalescence: Lam_j = e^(-2 d nu_j), so the sharpest per-octave factor s_j = e^(-d nu_j) is the exact single-rate SGN-EQ value and SGN-C at N_j = 1 COINCIDES with it. Yet the isolated composition still UNDERSHOOTS: for rates 1.5, 3, 6 at d = 6, sqrt(Lambda_union) = 6.16927184e-4 exceeds the octave product 1.23425036e-4 by 4.99839582 > 1. Since the per-octave factor is already exact, the deficit is attributable ENTIRELY to the composition rule -- no per-octave sharpening can rescue an isolated-block composition, so neither SGN-C nor W composes across octaves in the signed regime.",
   findingB:
-    "THE DEFICIT COMPOUNDS WITH OCTAVE COUNT. The octave product stays PINNED at 1.23425036e-4 (dominated by the shallowest octave e^(-9)) as octaves are added, while the true signed constant GROWS: sqrt(Lambda_union) = 3.70188800e-4 / 6.16927184e-4 / 7.93145681e-4 at 2 / 3 / 4 octaves, so the undershoot ratio RISES 2.99930072 -> 4.99839582 -> 6.42613287. Any additive-in-octave-weight accumulation diverges FURTHER from truth as octaves accumulate -- worsening with exactly the octave-depth ladder W is meant to exploit; the W-additive route is refuted structurally, not merely vacuous.",
+    "THE DEFICIT COMPOUNDS WITH OCTAVE COUNT. The octave product stays PINNED at 1.23425036e-4 (dominated by the shallowest octave e^(-9)) as octaves are added, while the true signed constant GROWS: sqrt(Lambda_union) = 3.70188800e-4 / 6.16927184e-4 / 7.93145681e-4 at 2 / 3 / 4 octaves, so the undershoot ratio RISES 2.99930072 -> 4.99839582 -> 6.42613287. Any additive-in-octave-weight accumulation diverges FURTHER from truth as octaves accumulate -- worsening with exactly the octave-depth ladder W is meant to use; the W-additive route is refuted structurally, not merely vacuous.",
   coneObstruction:
     "the isolated octave product equals the BLOCK-DIAGONAL value of the pencil -- it discards the cross-octave Gram mass 1/(nu_i + nu_j) between rates in different octaves. The Cauchy / Szego kernel is LONG-RANGE, so those off-diagonal blocks carry positive mass that Lambda = lambda_max(D G D, G) accumulates; dropping them undershoots and the deficit grows with the number of coupled blocks. This is the precise sense in which TVC composition is positive-cone: R factorizes across disjoint blocks for nonnegative amplitudes, but the signed pencil eigenvalue does not -- no weight/count currency accumulated octave-by-octave can price it.",
   subGap:

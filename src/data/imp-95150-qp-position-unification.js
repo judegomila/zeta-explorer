@@ -65,7 +65,7 @@
  *     the sweep-recomputed anchor exercises the IDENTICAL machinery, mode
  *     and code path at a floor where the cover is sweep-affordable.
  *
- * ADVERSARIAL SELF-CHECK RECORD (measured in-run; the honest part):
+ * SKEPTICAL SELF-CHECK RECORD (measured in-run; the honest part):
  * (1) LEMMA PD2 measured effect at the recorded walls is NIL: A/B at
  *     T=2 floor 47/200 budget 1.4e7 gives 26 unresolved (PD2 on) vs 25
  *     (off); at T=1 floor 121/500 budget 9e6: 41 (on) vs 38 (off). The
@@ -232,7 +232,7 @@ function polish(M, v0, iters) {
   for (let it = 0; it < iters; it++) {
     const w = [0, 0, 0, 0, 0];
     for (let i = 0; i < 5; i++) {
-      let s = v[i]; // +I shift: kills bipartite oscillation, same Perron vector
+      let s = v[i]; // +I shift: eliminates bipartite oscillation, same Perron vector
       for (let j = 0; j < 5; j++) s += M[i][j] * v[j];
       w[i] = s;
     }
@@ -666,7 +666,7 @@ function rnd() {
   return seedState / 0x7fffffff;
 }
 
-// battery PD2 (seed 424242): attack LEMMA PD2 directly - seeded true
+// battery PD2 (seed 424242): approach LEMMA PD2 directly - seeded true
 // 4-packet configs with enclosing cell corners: (i) the three baked norm
 // floors never exceed the true renormalized deleted-config norms, (ii) the
 // sequential deletion inequality holds with the floor substituted
@@ -764,7 +764,7 @@ function runPd2Battery() {
   return { viol, worstFloor, worstIneq, count };
 }
 
-// battery VC-VU (seeds 636363 + T): BOTH production modes attacked directly
+// battery VC-VU (seeds 636363 + T): BOTH production modes approached directly
 // at their NEW floors - seeded true in-class configurations vs enclosing
 // finite v-cells: the feasibility predicate never prunes a cell containing
 // a true point AND every PD2-refined entry cap dominates the sampled bond
@@ -854,7 +854,7 @@ function kernelK(a, b, tau) {
   return (2 * (b * Math.exp(-a * tau) - a * Math.exp(-b * tau))) / (b * b - a * a);
 }
 
-// battery W (seed 727272): THEOREM VU attacked directly with the UPDATED
+// battery W (seed 727272): THEOREM VU approached directly with the UPDATED
 // position-resolved rate floors - heavy at relative position 1 gets rates
 // >= 239/1000 (NEW), every other position gets >= 47/200 (position 2 NEW at
 // the ladder floor)
@@ -1001,7 +1001,7 @@ export const IMP95150_QP_POSITION_UNIFICATION_ASSERTIONS = [
   {
     id: "imp95150-pd2-battery",
     description:
-      "LEMMA PD2 attacked directly: 20000 seeded true 4-packet configs with enclosing cell corners - the three norm floors never exceed the true renormalized deleted-config norms and the sequential deletion inequality holds with the floor substituted (zero violations; the floor is nearly sharp at coincidence, worst ratio > 0.999)",
+      "LEMMA PD2 approached directly: 20000 seeded true 4-packet configs with enclosing cell corners - the three norm floors never exceed the true renormalized deleted-config norms and the sequential deletion inequality holds with the floor substituted (zero violations; the floor is nearly sharp at coincidence, worst ratio > 0.999)",
     holds: () =>
       BAT_PD2.viol === 0 &&
       BAT_PD2.count === 20000 &&
@@ -1012,7 +1012,7 @@ export const IMP95150_QP_POSITION_UNIFICATION_ASSERTIONS = [
   {
     id: "imp95150-vc-batteries",
     description:
-      "BOTH production modes attacked directly at their NEW floors (top 47/200, middle 239/1000): 3000 seeded true in-class configurations each vs enclosing finite v-cells - the feasibility predicate never prunes a cell containing a true point AND every PD2-refined entry cap dominates the sampled true bond (zero violations)",
+      "BOTH production modes approached directly at their NEW floors (top 47/200, middle 239/1000): 3000 seeded true in-class configurations each vs enclosing finite v-cells - the feasibility predicate never prunes a cell containing a true point AND every PD2-refined entry cap dominates the sampled true bond (zero violations)",
     holds: () =>
       BAT_VC_TOP.viol === 0 &&
       BAT_VC_TOP.feasViol === 0 &&
@@ -1028,7 +1028,7 @@ export const IMP95150_QP_POSITION_UNIFICATION_ASSERTIONS = [
   {
     id: "imp95150-witness-battery",
     description:
-      "THEOREM VU attacked directly with the UPDATED position-resolved rate floors: 5000 seeded in-class witnesses (heavy block at every relative position, BOTH parities, floors 47/200 everywhere except 239/1000 at the middle position, pinned at the floor every third draw) - zero E > 0 draws",
+      "THEOREM VU approached directly with the UPDATED position-resolved rate floors: 5000 seeded in-class witnesses (heavy block at every relative position, BOTH parities, floors 47/200 everywhere except 239/1000 at the middle position, pinned at the floor every third draw) - zero E > 0 draws",
     holds: () =>
       BAT_W.viol === 0 && BAT_W.maxE < 0 && BAT_W.count > 4500 && BAT_W.posCounts[1] > 200 && BAT_W.posCounts[2] > 200,
   },

@@ -18,7 +18,7 @@
  *   for every rho below the worsening-onset threshold, so the pair self-isolates
  *   and Theta stays trapped at Theta(0) << 1/4 (Lemma R1-T4 zero-excursion).
  *   imp-3005 pins the symmetric onset in CLOSED FORM at c* ~ 0.93185, and the
- *   adversarial scans bracket the still-OPEN global constant in [0.927, 0.943].
+ *   skeptical scans bracket the still-OPEN global constant in [0.927, 0.943].
  *   The decisive fact: 0.72 sits BELOW the entire bracket with margin >= 0.207,
  *   so d(rho)/ds < 0 holds on the basin REGARDLESS of where the open global
  *   constant lands. The basin-conditional cap therefore does NOT wait on closing
@@ -52,7 +52,7 @@
 const C_STAR = Math.sqrt(2 + Math.sqrt(3)) - 1;   // 0.93185165... (imp-3005 closed form)
 const BASIN_RHO = 0.72;                            // Theorem-C isolated-pair isolation ratio cap
 const ASYM_SCAN_INF = 0.927;                       // imp-3005 2e6-config asymmetric minimal-pair scan (open lower bracket)
-const MULTIBODY_SCAN_INF = 0.943;                  // Lemma R2-T 3e6-config adversarial multi-body scan (open upper bracket)
+const MULTIBODY_SCAN_INF = 0.943;                  // Lemma R2-T 3e6-config skeptical multi-body scan (open upper bracket)
 const THETA_TRAP = 0.25;                           // unconditional Theorem-A trap Theta <= 1/4
 const G_MIN_N1E4 = 0.0376985;                      // certified Lehmer pair raw gap (idx 6708, gamma ~ 7005)
 
@@ -252,7 +252,7 @@ for (const a of GAP_CHANNEL_SWEEP_ASSERTIONS) {
 // (1) Theta channel 1/(1-Theta): REMOVED by the basin. The h = g^2 reconditioning
 //     traps Theta on the isolated-pair basin (Lemma R1-T4 zero-excursion) at
 //     Theta <= 1/4, so 1/(1-Theta) is bounded by 4/3. OFF-basin this same factor
-//     blows up via the adversarial dTheta/W_1 ~ 1/g0 growth the verdict exhibits
+//     blows up via the skeptical dTheta/W_1 ~ 1/g0 growth the verdict exhibits
 //     (11.97 -> 95.78 as g0 halves); the basin restriction is exactly what caps it.
 // (2) Linear-N dilution N: UNTOUCHED by the basin. This factor is a metric-
 //     architectural norm-mismatch -- W_1 = (1/N) Sum|Dx| averages a single 1-pair
@@ -296,7 +296,7 @@ export const CH_LIP_DIVERGENCE_DECOMPOSITION = {
 export const CH_LIP_DIVERGENCE_ASSERTIONS = [
   {
     id: 'ch-lip-decomp-theta-channel-bounded-on-basin',
-    description: 'on the basin the Theta channel 1/(1-Theta) is 1 at nominal and bounded by 4/3 at the Theta=1/4 trap, strictly below the off-basin adversarial values',
+    description: 'on the basin the Theta channel 1/(1-Theta) is 1 at nominal and bounded by 4/3 at the Theta=1/4 trap, strictly below the off-basin skeptical values',
     holds: () => THETA_FACTOR_BASIN_NOMINAL === 1
       && Math.abs(THETA_FACTOR_BASIN_CEILING - 4 / 3) < 1e-12
       && THETA_FACTOR_BASIN_CEILING < THETA_FACTOR_OFFBASIN_LO

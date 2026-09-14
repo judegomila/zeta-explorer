@@ -161,19 +161,19 @@
  * honestly above). (e) Changes no bound; does NOT promote
  * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Lemma DG attacked termwise on
+ * SKEPTICAL SELF-CHECK RECORD. (1) Lemma DG approached termwise on
  * 200000 seeded Gram pairs (rates to 26x the floor, depths to 20, gaps
  * to 20.2): zero violations; the zero-depth rate-floor equality
- * reproduces ratio 1 exactly. (2) Corollary DM attacked on 20000 seeded
+ * reproduces ratio 1 exactly. (2) Corollary DM approached on 20000 seeded
  * clusters with random split depths: zero violations. (3) Lemma MS
- * attacked on 12000 seeded split cluster pairs: zero violations of the
- * 4-term bound or the norm inequality. (4) End-to-end reduction attack:
+ * approached on 12000 seeded split cluster pairs: zero violations of the
+ * 4-term bound or the norm inequality. (4) End-to-end reduction approach:
  * 1500 full-head witnesses in BOTH parities at actual parameters: zero
  * feasibility violations, zero entry-bound violations (odd draws checked
  * against BOTH the odd forms and the covering even forms). (5) THEOREM
- * DS attacked directly: 6000 seeded parity-pure multi-packet witnesses
+ * DS approached directly: 6000 seeded parity-pure multi-packet witnesses
  * at rates >= 123/500: max E strictly negative, zero E > 0. (6) The
- * certificate evaluator was attacked against the float frame on 30000
+ * certificate evaluator was stress-tested against the float frame on 30000
  * random cell/interior-point pairs offline: zero domination violations.
  * (7) IN-RUN REFUTATIONS (recorded so successors do not repeat them):
  * (7a) the first split frame CROSS-ASSIGNED the C12 piece gaps (the
@@ -462,7 +462,7 @@ function tiltExcess(c, edge, side, mu, D) {
   return s;
 }
 
-// battery G (seed 987654): termwise Lemma DG attack
+// battery G (seed 987654): termwise Lemma DG approach
 function runDGBattery() {
   seedState = 987654;
   let worst = -Infinity;
@@ -484,7 +484,7 @@ function runDGBattery() {
   return { worst, viol };
 }
 
-// battery M (seed 246813): Corollary DM cluster attack
+// battery M (seed 246813): Corollary DM cluster approach
 function runDMBattery() {
   seedState = 246813;
   let worst = -Infinity;
@@ -508,7 +508,7 @@ function runDMBattery() {
   return { worst, viol };
 }
 
-// battery S (seed 135797): Lemma MS split-pair attack
+// battery S (seed 135797): Lemma MS split-pair approach
 function runMSBattery() {
   seedState = 135797;
   let worst = -Infinity;
@@ -551,7 +551,7 @@ function runMSBattery() {
   return { worst, viol, violNorm };
 }
 
-// battery R (seed 424245): end-to-end head reduction attack, BOTH parities
+// battery R (seed 424245): end-to-end head reduction approach, BOTH parities
 function runReductionBattery() {
   seedState = 424245;
   let violFeas = 0;
@@ -628,7 +628,7 @@ function runReductionBattery() {
   return { violFeas, violEntry, violCover, maxAlpha, maxZ2, count };
 }
 
-// battery W (seed 555779): THEOREM DS direct attack at rates >= 123/500
+// battery W (seed 555779): THEOREM DS direct approach at rates >= 123/500
 function runTheoremBattery() {
   seedState = 555779;
   let maxE = -Infinity;
@@ -791,7 +791,7 @@ export const IMP95138_MASS_SPLIT_DEPTH_CAP_ASSERTIONS = [
   {
     id: "imp95138-ds-dg-battery",
     description:
-      "Lemma DG attacked termwise on 200000 seeded Gram pairs (rates to 26x the floor, depths to 20, gaps to 20.2): worst ratio 0.5650889171317487 < 1, zero violations; the zero-depth rate-floor pair attains the bound exactly (ratio 1 within 1e-12)",
+      "Lemma DG approached termwise on 200000 seeded Gram pairs (rates to 26x the floor, depths to 20, gaps to 20.2): worst ratio 0.5650889171317487 < 1, zero violations; the zero-depth rate-floor pair attains the bound exactly (ratio 1 within 1e-12)",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       const X = excessPair(MU_DS, MU_DS, 0, 0, MU_DS, 7);
@@ -807,7 +807,7 @@ export const IMP95138_MASS_SPLIT_DEPTH_CAP_ASSERTIONS = [
   {
     id: "imp95138-ds-dm-battery",
     description:
-      "Corollary DM attacked on 20000 seeded clusters with random split depths (lo/hi/split/none bias cycle): worst ratio 0.9959226305889346 < 1, zero violations",
+      "Corollary DM approached on 20000 seeded clusters with random split depths (lo/hi/split/none bias cycle): worst ratio 0.9959226305889346 < 1, zero violations",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_M.viol === 0 && BAT_M.worst < 1 && rel(BAT_M.worst, BAT_M_WORST_LIT, 1e-6);
@@ -816,7 +816,7 @@ export const IMP95138_MASS_SPLIT_DEPTH_CAP_ASSERTIONS = [
   {
     id: "imp95138-ds-ms-battery",
     description:
-      "Lemma MS attacked on 12000 seeded split cluster pairs (both clusters split at random interior points): worst 4-term ratio 0.9836501393317837 < 1, zero bound violations, zero norm-inequality violations",
+      "Lemma MS approached on 12000 seeded split cluster pairs (both clusters split at random interior points): worst 4-term ratio 0.9836501393317837 < 1, zero bound violations, zero norm-inequality violations",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -830,7 +830,7 @@ export const IMP95138_MASS_SPLIT_DEPTH_CAP_ASSERTIONS = [
   {
     id: "imp95138-ds-reduction-battery",
     description:
-      "end-to-end head reduction attacked on 1500 full-head witnesses in BOTH parities (1384 evaluable) at the witnesses' ACTUAL parameters and piece fractions: zero Corollary DM feasibility violations, zero entry-bound violations, and zero violations of the covering EVEN forms on odd draws; max attained alpha 0.9288023301310495 and z2 reaching 1 confirm the parametrization is exercised",
+      "end-to-end head reduction approached on 1500 full-head witnesses in BOTH parities (1384 evaluable) at the witnesses' ACTUAL parameters and piece fractions: zero Corollary DM feasibility violations, zero entry-bound violations, and zero violations of the covering EVEN forms on odd draws; max attained alpha 0.9288023301310495 and z2 reaching 1 confirm the parametrization is exercised",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -846,7 +846,7 @@ export const IMP95138_MASS_SPLIT_DEPTH_CAP_ASSERTIONS = [
   {
     id: "imp95138-ds-theorem-battery",
     description:
-      "THEOREM DS attacked directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 123/500 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.03602359088506517 strictly negative, zero E > 0 draws",
+      "THEOREM DS approached directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 123/500 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.03602359088506517 strictly negative, zero E > 0 draws",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_W.viol === 0 && BAT_W.maxE < 0 && rel(BAT_W.maxE, BAT_W_MAX_E_LIT, 1e-6);

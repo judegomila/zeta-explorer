@@ -94,10 +94,10 @@
  * [0.025882, 8] (gap 309.09); at theta = 2 (fixed-97) from gap 50.8 to
  * gap 38.199. Both endpoints remain rigorous within the sharpened class.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the width-order premise rMax = r_{d2}
+ * SKEPTICAL SELF-CHECK RECORD: (1) the width-order premise rMax = r_{d2}
  * was checked on every cross-block pair of all three built alias families
  * (zero violations) and is forced analytically by d2 < d, beta > 0; (2) the
- * corner claim was attacked by direct two-variable grid minimization of R
+ * corner claim was stress-tested by direct two-variable grid minimization of R
  * over the block rectangles at nine (b, j) configurations: the numeric
  * minimum sits at the corner value V(b, j) within the grid resolution and
  * NEVER below it (asserted); (3) the sharpness witness was checked for grid

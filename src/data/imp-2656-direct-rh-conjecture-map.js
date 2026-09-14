@@ -8,7 +8,7 @@
 // into a fixed verdict vocabulary. The audit is correct but SCATTERED across
 // ~30 per-conjecture files. This module is the single CURRENT orientation map
 // for the direct-RH stream: it states (1) which conjectures are merely RH in
-// disguise (SUBSUMED-BY-RH, dead ends for a direct attack), (2) which are
+// disguise (SUBSUMED-BY-RH, dead ends for a direct approach), (2) which are
 // genuinely open theorem-targets (INDEPENDENT-NOVEL, PARTIALLY-RELATED),
 // (3) the Montgomery pair-correlation (PCC) obstruction stated precisely and
 // WHICH stream it blocks, and (4) a ranking of the INDEPENDENT-NOVEL
@@ -36,7 +36,7 @@
 // The strategic upshot for the direct-RH stream: the genuinely-novel,
 // closest-to-rigorous target is Conjecture 27.2, NOT any of the seven
 // SUBSUMED-BY-RH reformulations (which are RH in another language and so
-// cannot be a direct attack), and NOT the Lambda-bound stream (PCC-blocked).
+// cannot be a direct approach), and NOT the Lambda-bound stream (PCC-blocked).
 //
 // SYNTAX NOTE: no apostrophes inside single-quoted JS strings; no "*/" in
 // comments.
@@ -58,11 +58,11 @@ const VERDICT_VOCABULARY = Object.freeze([
 //
 // Each row carries: id, short name, audit verdict, the audit ticket that
 // established it, and (crucially for steering) directRouteStatus: whether the
-// conjecture is a LIVE DIRECT-RH ROUTE (something an attack could plausibly
+// conjecture is a LIVE DIRECT-RH ROUTE (something an approach could plausibly
 // close) or a DEAD END (RH in disguise, or subsumed by literature).
 
 const CONJECTURE_MAP = Object.freeze([
-  // -- The seven SUBSUMED-BY-RH reformulations (DEAD ENDS for a direct attack)
+  // -- The seven SUBSUMED-BY-RH reformulations (DEAD ENDS for a direct approach)
   Object.freeze({
     id: '15.2', shortName: 'Shift contractivity of X in RHP',
     verdict: 'SUBSUMED-BY-RH', auditTicket: 'imp-1229',
@@ -261,7 +261,7 @@ const INDEPENDENT_NOVEL_RANKING = Object.freeze([
     whyFar:
       'The imp-1210 audit classified 22.1 as INDEPENDENT-NOVEL but ' +
       'QUALITATIVE: it asserts the twin-ladder framework is useful as a ' +
-      'benchmark without a sharp quantitative inequality that an attack ' +
+      'benchmark without a sharp quantitative inequality that an approach ' +
       'could discharge. There is no established analytic handle reducing it ' +
       'to a checkable bound, and no numerics comparable to the 27.2 sweeps.',
     residualGap:
@@ -296,12 +296,12 @@ const STRATEGIC_RECOMMENDATION = Object.freeze({
     'stream.',
   doNotAttackDirectly:
     'The seven SUBSUMED-BY-RH conjectures (15.2, 15.3, 15.4, 17.3, 18.2, ' +
-    '18.4, 22.4) are RH in another language; attacking any of them directly ' +
-    'is attacking RH itself with no leverage gained.',
+    '18.4, 22.4) are RH in another language; approaching any of them directly ' +
+    'is approaching RH itself with no leverage gained.',
   intermediateLever:
     'The five PARTIALLY-RELATED conjectures (16.4, 16.6, 18.1, 22.2, 22.3) ' +
     'unify under CDB-Exist, which imp-1258 shows is implied by 27.2. So they ' +
-    'come for free once 27.2 closes; they are not separate attack fronts.',
+    'come for free once 27.2 closes; they are not separate approach fronts.',
   streamSeparation:
     'Track Stream A (Lambda-bound, PCC-blocked) and Stream B (direct-RH via ' +
     '27.2, PCC-independent) as DISTINCT efforts. Progress on Montgomery PCC ' +
@@ -348,7 +348,7 @@ export const IMP_2656_DIRECT_RH_CONJECTURE_MAP = Object.freeze({
     'imp-1247-shared-pcc-obstruction-recheck.js — PCC scope across ESY routes',
     'imp-1258-volterra-cdb-bridge.js — 15-27 program collapses to 27.2',
     'imp-1248 / imp-1262 — Volterra-norm numerical sweeps (||V|| <= 7.45e-5)',
-    'imp-1265 — adversarial recheck of the §27 block-positivity identity',
+    'imp-1265 — skeptical recheck of the §27 block-positivity identity',
   ]),
 });
 

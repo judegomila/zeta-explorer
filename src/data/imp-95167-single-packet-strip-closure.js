@@ -88,7 +88,7 @@
  * recorded rigorous statement are EVEN-parity witnesses that OCCUPY
  * BLOCK 0 and carry AT LEAST TWO packets in at least one of blocks 0..4.
  *
- * ADVERSARIAL RECORD (what this step does NOT do). (1) It does NOT close
+ * SKEPTICAL RECORD (what this step does NOT do). (1) It does NOT close
  * the strip: multi-packet hull profiles are exactly the objects for
  * which imp-95163 FINDING CB recorded the endpoint-pair bulge (attainable
  * bonds exceed the k = 1 curve by 5.43e-2), so no single-packet statement

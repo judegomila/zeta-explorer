@@ -13,7 +13,7 @@
  *   Both landmarks are E_coll level sets of the SAME curve E_coll(N) = C_C sqrt(L(N)/N):
  *       crossover: E_coll(N_cross) = E_trunc,
  *       halving:   E_coll(N_half)  = E_trunc + E_flow = E_trunc (1 + x),   x = E_flow/E_trunc.
- *   Squaring E_coll and taking the ratio kills C_C exactly:
+ *   Squaring E_coll and taking the ratio eliminates C_C exactly:
  *       L(N_cross)/N_cross   E_trunc^2
  *       ------------------ = ------------- = 1/(1+x)^2
  *       L(N_half)/N_half     (E_trunc(1+x))^2

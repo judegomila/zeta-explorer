@@ -3921,7 +3921,7 @@ function CoshMonomialConditioningViz() {
         loses all significant digits and the de-homogenized &#x2016;R_orth&#x2016; breaks through
         its analytic ceiling tanh(aU)={ceiling.toFixed(5)}. The largest DEG whose
         &#x2016;R_orth&#x2016; still respects the ceiling is trustworthyMaxDegree={trustMax};
-        the first that breaches it is firstUntrustworthyDegree={firstUntrst}. The entire
+        the first that crosses it is firstUntrustworthyDegree={firstUntrst}. The entire
         imp-3125 sweep &#123;2,4,6,8,10&#125; sits inside the trustworthy range.
       </p>
       <div style={{ overflowX: "auto", marginTop: 10 }}>
@@ -4002,7 +4002,7 @@ function CoshMonomialConditioningViz() {
         <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(194,58,28,0.07)", border: "1px solid rgba(194,58,28,0.25)", fontSize: 12, color: "#877b67", lineHeight: 1.65 }}>
           <div style={{ color: "#c23a1c", fontWeight: 700, marginBottom: 3 }}>firstUntrustworthyDegree</div>
           <span style={{ fontFamily: mono, color: "#c23a1c", fontSize: 14 }}>{firstUntrst}</span>
-          <div style={{ marginTop: 4, fontSize: 11 }}>First DEG where ceiling is breached</div>
+          <div style={{ marginTop: 4, fontSize: 11 }}>First DEG where ceiling is crossed</div>
         </div>
         <div style={{ padding: "8px 12px", borderRadius: 6, background: "rgba(181,138,46,0.07)", border: "1px solid rgba(181,138,46,0.25)", fontSize: 12, color: "#877b67", lineHeight: 1.65 }}>
           <div style={{ color: "#b58a2e", fontWeight: 700, marginBottom: 3 }}>analytic ceiling tanh(aU)</div>
@@ -7920,7 +7920,7 @@ export default function ClosureRoutesPage() {
             <strong style={{ color: '#3f6b86' }}>~64%</strong>{' '}
             is the <em>degree-0 (scale-invariant) scalar measure</em>: the fraction of tau in [0,&thinsp;U]
             where sinh(a&tau;) &gt; 0, i.e. tau &gt; 0.  It counts raw positivity of the cosh-sinh gap before
-            any occupation-density weighting.  The cosh-completion exactly kills this at degree-0 (residual = 0).
+            any occupation-density weighting.  The cosh-completion exactly eliminates this at degree-0 (residual = 0).
           </li>
           <li>
             <strong style={{ color: '#3f6b86' }}>~0.209</strong>{' '}
@@ -8714,7 +8714,7 @@ export default function ClosureRoutesPage() {
           </Link>
           <span style={{ color: '#4a4238' }}>|</span>
           <Link to="/rh-attack" style={{ color: '#b58a2e', fontSize: 13 }}>
-            RH Attack
+            RH Approach
           </Link>
           <span style={{ color: '#4a4238' }}>|</span>
           <Link to="/proof-overview" style={{ color: '#4c7a4a', fontSize: 13 }}>

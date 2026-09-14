@@ -1,6 +1,6 @@
 /**
  * @module imp-1312-beurling-nyman-attack
- * @fileoverview imp-1312 — NOVEL direct attack on RH via the Beurling 1955 /
+ * @fileoverview imp-1312 — NOVEL direct approach on RH via the Beurling 1955 /
  *   Nyman 1950 / Bercovici-Foias 1984 functional-analytic RH equivalent.
  *
  *       (Beurling 1955 / Nyman 1950)   RH  <=>  the closure in L²(0,1) of
@@ -634,7 +634,7 @@ export const IMP_1312_BEURLING_NYMAN_ATTACK = Object.freeze({
   }),
 
   honestScope: Object.freeze([
-    'This file is a CLASSIFICATION ticket for the candidate direct attack on RH ' +
+    'This file is a CLASSIFICATION ticket for the candidate direct approach on RH ' +
     '(and a numerical Lambda bound) via the Beurling 1955 / Nyman 1950 / Bercovici-' +
     'Foias 1984 functional-analytic RH-equivalent criterion and its BBLS-05 ' +
     'quantitative form. It is NOT a new closure or a new numerical Lambda bound.',

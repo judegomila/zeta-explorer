@@ -62,7 +62,7 @@
  * family-scale window): the spec bakes 7.2e26 without recording whether the atlas
  * is 1D or family-quadratic, so the exact exponent (19 vs 26) is
  * spec-underdetermined. Named sub-gap: imp-95049-sub-per-N-x-extent. This does not
- * affect the conclusion (both readings kill raw tiling) but does mean the precise
+ * affect the conclusion (both readings eliminate raw tiling) but does mean the precise
  * 7.2e26 rests on an unrecorded per-index x-extent choice.
  *
  * Cross-check / measurement only; changes no bound; promotes nothing; NO QED;

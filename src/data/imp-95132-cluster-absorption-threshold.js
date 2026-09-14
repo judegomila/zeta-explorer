@@ -127,22 +127,22 @@
  * handles X_par by its own channel). (d) Changes no bound; does NOT promote
  * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) Lemma HH was attacked on a 216000-cell
+ * SKEPTICAL SELF-CHECK RECORD: (1) Lemma HH was stress-tested on a 216000-cell
  * log grid (both rates 1e-3..1e3, separation 1e-4..1e4): zero violations,
  * worst ratio exactly 1 at the tau -> 0 boundary (the lemma is tight, the
  * constant 1/2 cannot be improved per-pair). (2) The Lemma CT per-pair tail
- * inequality was attacked on a 160000-cell grid over (two rates, two
+ * inequality was stress-tested on a 160000-cell grid over (two rates, two
  * offsets): zero violations, worst ratio 1 at the equal-offset boundary.
- * (3) Lemma CA was attacked with 20000 free-rate random cluster pairs
+ * (3) Lemma CA was stress-tested with 20000 free-rate random cluster pairs
  * (max ratio 0.7632874191356109) plus a 90000-draw EDGE-PILED stress family
  * (packets piled at the facing block edges, the geometry that maximizes the
  * cap ratio; worst 0.8569038198287232) - no violations, and the measured
  * headroom is the honest slack of the midpoint split. (4) The theorem
- * battery attacks THEOREM MA directly: 6000 seeded parity-pure multi-packet
+ * battery probes THEOREM MA directly: 6000 seeded parity-pure multi-packet
  * witnesses (2-5 blocks, up to 5 packets per block, mixed rates >= 11/20,
  * amplitudes including zeros, both parities): max E = -0.02403148015405872
  * strictly negative, max measured cluster row 0.0916820041742966 well below
- * T(11/20). (5) A 20000-draw free-rate two-block battery attacks Corollary
+ * T(11/20). (5) A 20000-draw free-rate two-block battery probes Corollary
  * TB (mixed parities included): zero violations. (6) Consistency with the
  * siblings: THEOREM PX has E > 0 at rate 0.127 < 11/20 (as MA requires) and
  * E(11/20) = -4.2951492884408315 < 0; THEOREM RT (2/5, one-per-block) is
@@ -234,7 +234,7 @@ function makeCluster(b, mMax, rateLo, rateHi) {
   return { b, us, as, mus };
 }
 
-// battery A: THEOREM MA direct attack (seed 12345, rates >= 11/20)
+// battery A: THEOREM MA direct approach (seed 12345, rates >= 11/20)
 function runTheoremBattery() {
   seedState = 12345;
   let maxE = -Infinity;
@@ -272,7 +272,7 @@ function runTheoremBattery() {
   return { maxE, maxRow, eViol };
 }
 
-// battery B: Lemma CA cap attack (seed 777, free rates 1e-3..1e2)
+// battery B: Lemma CA cap approach (seed 777, free rates 1e-3..1e2)
 function runCapBattery() {
   seedState = 777;
   let maxRatio = 0;
@@ -301,7 +301,7 @@ function runCapBattery() {
   return { maxRatio, viol };
 }
 
-// battery C: Corollary TB attack (seed 31337, free rates, mixed parities)
+// battery C: Corollary TB approach (seed 31337, free rates, mixed parities)
 function runTwoBlockBattery() {
   seedState = 31337;
   let maxE = -Infinity;
@@ -581,7 +581,7 @@ export const IMP95132_CLUSTER_ABSORPTION_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95132-ma-cap-batteries",
     description:
-      "Lemma CA cap attack: 20000 free-rate random cluster pairs (max ratio 0.7632874191356109) and a 90000-draw edge-piled stress family (worst 0.8569038198287232) - zero violations of the sqrt(2)-split cluster cap in either battery",
+      "Lemma CA cap approach: 20000 free-rate random cluster pairs (max ratio 0.7632874191356109) and a 90000-draw edge-piled stress family (worst 0.8569038198287232) - zero violations of the sqrt(2)-split cluster cap in either battery",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (

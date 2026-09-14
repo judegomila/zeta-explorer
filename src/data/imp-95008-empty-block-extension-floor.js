@@ -88,7 +88,7 @@
  *     theta = 10 bracket stays [0.025882, 4] (gap 154.55) to six
  *     significant figures. The multi-boundary lever is quantitatively a
  *     theta = 2 lever: the antenna packet at u = 8 couples through
- *     f(mu tau) with tau ~ 4, and mu_opt(theta = 10) ~ 4.5 kills it
+ *     f(mu tau) with tau ~ 4, and mu_opt(theta = 10) ~ 4.5 eliminates it
  *     exponentially while mu_opt(theta = 2) ~ 1.1 does not.
  *
  * COROLLARY N3 (mechanism identification). The optimizer, offered the
@@ -103,7 +103,7 @@
  * boundary-chain class supremum at theta = 2 - the multi-boundary lever
  * is now QUANTIFIED, not open-ended.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the strict positivity of c is NOT
+ * SKEPTICAL SELF-CHECK RECORD: (1) the strict positivity of c is NOT
  * numerical - it is structural (empty block => all signs +1, f > 0); the
  * slope formula is cross-checked against a finite difference below;
  * (2) epsStar is verified BOTH by plugging into the quadratic (residual

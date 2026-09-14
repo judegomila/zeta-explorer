@@ -92,7 +92,7 @@
  * slack. (4) MAX CERTIFYING HALF-WIDTH at mu = 0.235: bisection brackets
  * 0.035076 (vs 0.0438 for the jet certifier at its own anchor 0.245).
  *
- * ADVERSARIAL RECORD (what does NOT survive). The imp-95156 LEMMA NC
+ * SKEPTICAL RECORD (what does NOT survive). The imp-95156 LEMMA NC
  * closed-form nesting argument does NOT transport: under same-midpoint
  * cell widening the norm-majorant term g(mulo (R - L)) moves BOTH ways
  * (mulo decreases it, R - L increases it), so certified-bound
@@ -403,7 +403,7 @@ const PC_LADDER = [
 // --------------------------------------------------------------------------
 // (F) max certifying position half-width at mu = 0.235 (measured bracket;
 // each bisection evaluation is individually sound -- NO nesting lemma is
-// claimed, see the adversarial record) + measured 4-rung nest
+// claimed, see the skeptical record) + measured 4-rung nest
 // --------------------------------------------------------------------------
 {
   const nest = [0.005, 0.01, 0.02, 0.04].map((w) => certifyCell(cellAt(deg(0.235), w), 33, 8001).worst);

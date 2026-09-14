@@ -326,7 +326,7 @@ export const IMP35955_W1_KBN_COMPENSATED_WORST_TREE = {
       'even the uncompensated worst error sat >2000x below its ceiling (imp-35893); compensation makes ' +
       'tree shape irrelevant, so achievable precision is NOT the binding constraint',
     staysGreenfield:
-      'this module measures compensated pairwise errors under adversarial tree shapes only; it evaluates ' +
+      'this module measures compensated pairwise errors under worst-case tree shapes only; it evaluates ' +
       'no sum of H_t and verifies no inequality, so the W1 A + B - C certificate at T_PT stays GREENFIELD ' +
       '(imp-35681 Part A) and MECHANICAL (imp-35725)',
   },

@@ -1,7 +1,7 @@
 /**
  * @module sg1-theta-contraction
  *
- * Direct attack on SG1 (imp-2520-sub-local-virial-shock): the Theta-form
+ * Direct approach on SG1 (imp-2520-sub-local-virial-shock): the Theta-form
  * minimal-gap contraction lemma. Replaces the unproved SG1 shock inequality
  * with a SHARP exact-identity package plus two strictly narrower named
  * residuals (SG1c, SG1d below). Fable-5 interactive session, 2026-06-10.
@@ -54,10 +54,10 @@
  * digits by direct integration below (ratio_to_bound = 1.000). The bound
  * is therefore not improvable without strengthening the hypothesis.
  *
- * MEASURED: the Theta-trap (9 / 9 runs, real zeros + adversarial)
+ * MEASURED: the Theta-trap (9 / 9 runs, real zeros + skeptical)
  * ----------------------------------------------------------------
  * In every integrated run -- real Riemann zeros at N in {100, 300, 870}
- * and five engineered adversarial configurations (lattice with one short
+ * and five engineered worst-case configurations (lattice with one short
  * gap at theta in {0.5, 0.8, 0.95}, symmetric triplet, uniform finite
  * lattice, two competing short gaps) -- the minimal-pair Theta was
  * NON-INCREASING along the flow: ThetaMax = Theta(0) exactly, decaying to
@@ -109,7 +109,7 @@
  * which feeds the BRIDGE CONSTANTS E(N) in the canonical bracket
  * |Lambda - (-t_c(N))| <= E(N), not the headline Lambda inequality itself.
  * Per imp-2564 direction audit, the per-N collision bound is fidelity control
- * for the connection: it controls E(N) precision, while the headline attack
+ * for the connection: it controls E(N) precision, while the headline approach
  * needs only t_c >= 0 (trivial) plus the bridge to drive E(N) -> 0.
  * The asymptotic consequence (per-N handle) decays like 1/(log gamma_N)^2 -> 0,
  * which tightens E(N) but does not establish the inequality Lambda <= E(N)
@@ -157,7 +157,7 @@ export const SG1_THETA_REDUCTION = {
   openSubGaps: [
     {
       id: 'sg1c-theta-trap-persistence',
-      statement: 'Prove the minimal-pair Theta process cannot cross an absolute Theta* < 1 upward along the attractive CM flow, under an explicit environment-speed bound. Empirics: Theta was non-increasing in 9/9 integrated runs (real zeros N in {100,300,870} + 5 adversarial lattice configs). Proof skeleton: dTheta/ds = -8 Theta (1-Theta)/g^2 + (g^2/2) dE/ds with restoring term ~ 1/g^2 vs drift ~ g^2 x environment speeds; quantify the speed bound.',
+      statement: 'Prove the minimal-pair Theta process cannot cross an absolute Theta* < 1 upward along the attractive CM flow, under an explicit environment-speed bound. Empirics: Theta was non-increasing in 9/9 integrated runs (real zeros N in {100,300,870} + 5 skeptical lattice configs). Proof skeleton: dTheta/ds = -8 Theta (1-Theta)/g^2 + (g^2/2) dE/ds with restoring term ~ 1/g^2 vs drift ~ g^2 x environment speeds; quantify the speed bound.',
       status: 'open',
       partialClosure: {
         impId: 'imp-2558',
@@ -209,8 +209,8 @@ export const SG1_THETA_REDUCTION = {
   ],
 };
 
-// ── Adversarial stress-test addendum (independent agent, 2026-06-10) ───────
-// An adversarial stress test (25+ integrated runs, convergence-checked at
+// ── Stress-test addendum (independent agent, 2026-06-10) ───────
+// An stress-test (25+ integrated runs, convergence-checked at
 // dt/4) independently confirmed the Theta form and added three results:
 //
 // 1. EXTREMAL FAMILY (sharpness of the Theta threshold for rate -2/g):
@@ -554,7 +554,7 @@ export const SG1_THETA_ASSERTIONS = [
   },
   {
     id: 'sg1theta-stress-test-trap-25-of-25',
-    description: 'Independent adversarial stress test: 0 trap violations in 25+ runs; crude inverse-square surrogate correctly recorded as refuted',
+    description: 'Independent skeptical stress test: 0 trap violations in 25+ runs; crude inverse-square surrogate correctly recorded as refuted',
     holds: () => STRESS_TEST_ADDENDUM.trapViolations === 0 && STRESS_TEST_ADDENDUM.trapRunsTotal >= 25 && STRESS_TEST_ADDENDUM.crudeSurrogateRefuted === true,
   },
   {

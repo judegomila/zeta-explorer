@@ -53,13 +53,13 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
   },
   {
     id: 'imp-95003',
-    title: 'Aristotle-formalize the exact five-shell identity E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0) with mutually orthogonal killed shells (Fourier-disjoint supports)',
+    title: 'Aristotle-formalize the exact five-shell identity E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0) with mutually orthogonal annihilated shells (Fourier-disjoint supports)',
     category: 'formalization',
     priority: 'medium',
     status: 'pending',
     proofSection: 'permutation-architecture',
     description:
-      "Submit the exact five-shell recursion/identity to Aristotle (paper Sections 4.3-4.4, eqs. (11)/(12)): the 25 primes <= 97 grouped by the cuts (0,5,10,17,25) into four blocks of sizes 5,5,7,8; the projections Pi_p = I - A_p are commuting self-adjoint orthogonals retaining Fourier modes not divisible by p; the FIVE SHELLS are the killed states Z_1..Z_4 plus the live state Y_4 (disjoint Fourier supports), giving the exact cocycle E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0). E-status finite linear-algebra/Fourier identity. Verifies that 'bridge packets' are five orthogonal correlated sectors, not independent balls. Target v4.28. NO QED.",
+      "Submit the exact five-shell recursion/identity to Aristotle (paper Sections 4.3-4.4, eqs. (11)/(12)): the 25 primes <= 97 grouped by the cuts (0,5,10,17,25) into four blocks of sizes 5,5,7,8; the projections Pi_p = I - A_p are commuting self-adjoint orthogonals retaining Fourier modes not divisible by p; the FIVE SHELLS are the annihilated states Z_1..Z_4 plus the live state Y_4 (disjoint Fourier supports), giving the exact cocycle E97 = (1-A97)Y4(0) - A97 sum_{g=1..4} Z_g(0). E-status finite linear-algebra/Fourier identity. Verifies that 'bridge packets' are five orthogonal correlated sectors, not independent balls. Target v4.28. NO QED.",
     rationale: 'Permuting the Zeta Twin Ladder Section 4.4: the exact P97 five-shell identity is a finite, self-contained orthogonality fact — a clean Aristotle target that pins the modulus-barrier ordering constraint.',
     estimatedComplexity: 'medium',
     dependsOn: [],
@@ -97,7 +97,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
   // ── C · The one open family + the five gates + the weld ─────────────────────
   {
     id: 'imp-95006',
-    title: 'Attack the one open family of the Lambda<=0.14 completion contract: a uniform correlated enclosure |C_E,17| < 0.27968819555261474 on 690988 <= N <= 54799999, for every window parameter and both seam sides',
+    title: 'Approach the one open family of the Lambda<=0.14 completion contract: a uniform correlated enclosure |C_E,17| < 0.27968819555261474 on 690988 <= N <= 54799999, for every window parameter and both seam sides',
     category: 'proof',
     priority: 'critical',
     status: 'pending',
@@ -142,7 +142,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
   // ── Possible-gain permutation families (atlas §9/§10.1, added 2026-08-28) ──
   {
     id: 'imp-95009',
-    title: 'Attack the graph-compression possible-gain family: a correlated direct/dual graph isometry W_U with anti-Hermitian cancellation, gated on characteristic invariance and a Schur complement gap',
+    title: 'Approach the graph-compression possible-gain family: a correlated direct/dual graph isometry W_U with anti-Hermitian cancellation, gated on characteristic invariance and a Schur complement gap',
     category: 'proof',
     priority: 'critical',
     status: 'pending',
@@ -156,7 +156,7 @@ export const PERMUTATION_FREEZE_RESEARCH_TICKETS = [
   },
   {
     id: 'imp-95010',
-    title: 'Attack the moving-reference Rouche gluing permutation: replace the fixed rough center by a moving analytic reference Q with winding computed by |F-Q|<|Q| chart-gluing (eq. 44), where cancellation makes the constant-center budget too rigid',
+    title: 'Approach the moving-reference Rouche gluing permutation: replace the fixed rough center by a moving analytic reference Q with winding computed by |F-Q|<|Q| chart-gluing (eq. 44), where cancellation makes the constant-center budget too rigid',
     category: 'proof',
     priority: 'critical',
     status: 'pending',

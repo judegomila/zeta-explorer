@@ -40,7 +40,7 @@
  *       overshoot ranges [0.334%, 0.443%]. Holding H = 0.03 fixed (so c* is
  *       always resolved) and sweeping U in {6..10} pins the overshoot at a
  *       nearly-constant ~0.444% -- it does NOT grow with a or U and never
- *       breaches 0.5%. The lower [0.334%] end is the under-resolved U = 10 cell.
+ *       crosses 0.5%. The lower [0.334%] end is the under-resolved U = 10 cell.
  *   (D) imp-3219 UNDER-CONVERGENCE CORRECTION. At the headline cell the overshoot
  *       is 0.3925% at ITERS = 220 (imp-3219 headline) but 0.4433% converged
  *       (ITERS &gt;= 600). The band-truncated T_c has a slower-converging top
@@ -55,7 +55,7 @@
  *   (ii) is located at a fixed Phi-autocorrelation lag c* ~ 0.24 invariant in a
  *   and U, and (iii) has a converged magnitude of ~0.444% that STAYS bounded well
  *   under the 0.5% margin across the a x U grid and does NOT grow -- once the grid
- *   resolves c* and the spectral norm is converged, the earlier apparent breaches
+ *   resolves c* and the spectral norm is converged, the earlier apparent crossings
  *   (up to ~0.76% at ITERS = 220) are pure power-iteration under-convergence and
  *   vanish. SUB-GAP (named, still open): no closed form is derived for the exact
  *   ~0.444% margin or for c* ~ 0.24 in terms of a, U -- both are read as empirical
@@ -280,7 +280,7 @@ export const IMP3328_MUPASS_BRIDGE_OVERSHOOT_AU_GRID = Object.freeze({
     gridMinOvershootPct, // 0.3336: under-resolved U = 10 cell
     maxAspread, // < 0.01: overshoot is a-independent
     fixedHSweep: FIXED_H_SWEEP, // U-sweep at fixed H: overshoot pinned ~0.444%
-    fixedHMaxOvershootPct, // 0.4454: never breaches 0.5 with c* resolved and norms converged
+    fixedHMaxOvershootPct, // 0.4454: never crosses 0.5 with c* resolved and norms converged
     convergenceTable: CONVERGENCE_TABLE, // 220 -> 600 -> 2000 iters at the headline cell
     convergedHeadlinePct: CONVERGED_HEADLINE_PCT, // 0.44326: corrects imp-3219 0.392%
     selfOvershootPercent220: selfOvershootPercent220, // self-computed reproduction of imp-3219
@@ -298,7 +298,7 @@ export const IMP3328_MUPASS_BRIDGE_OVERSHOOT_AU_GRID = Object.freeze({
       'is a Phi-autocorrelation-support constant, not a function of a or U.',
     magnitudeStaysBounded:
       'The converged overshoot is a nearly-constant ~0.444% (fixed-H sweep: 0.443%-0.445% over U in 6..10) ' +
-      'and never breaches the 0.5% margin. It does NOT grow with a or U. The lower [0.334%] grid entry is ' +
+      'and never crosses the 0.5% margin. It does NOT grow with a or U. The lower [0.334%] grid entry is ' +
       'the under-resolved U = 10 cell, not a genuine decrease.',
     imp3219WasUnderConverged:
       'imp-3219 headline overshoot 0.392% was power-iteration under-converged at 220 iters; the band ' +

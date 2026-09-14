@@ -1,5 +1,5 @@
 // @module esy-small-wedge-attempt-2026-05
-// imp-1106: SOTA attack 1 -- ESY rigidity SMALL-WEDGE attempt.
+// imp-1106: SOTA approach 1 -- ESY rigidity SMALL-WEDGE attempt.
 //
 // Goal of the wedge
 // -----------------
@@ -286,7 +286,7 @@ const T_PT = 3.06e12;             // Platt-Trudgian computational height.
 
 export const ESY_SMALL_WEDGE_ATTEMPT = {
   id: 'imp-1106',
-  title: 'SOTA attack 1: ESY rigidity SMALL-WEDGE attempt -- psi_N at s = (log N)^(-c)',
+  title: 'SOTA approach 1: ESY rigidity SMALL-WEDGE attempt -- psi_N at s = (log N)^(-c)',
   status: 'wedge-failed-cleanly',
   proofSection: 'S7',
   attemptedAt: '2026-05-18',

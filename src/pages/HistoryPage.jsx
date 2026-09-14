@@ -122,7 +122,7 @@ const PEOPLE = [
     initials: 'EL',
     color: '#7c3aed',
     wiki: 'https://en.wikipedia.org/wiki/Edmund_Landau',
-    bio: 'Posed Landau\'s four "unattackable" problems at the 1912 ICM. Made fundamental contributions to the distribution of primes and the theory of the zeta function, establishing many classical estimates.',
+    bio: 'Posed his four problems, described as out of reach, at the 1912 ICM. Made fundamental contributions to the distribution of primes and the theory of the zeta function, establishing many classical estimates.',
   },
   {
     name: 'J.E. Littlewood',
@@ -729,7 +729,7 @@ const TIMELINE = [
     year: 2025,
     era: 'recent',
     title: 'zetaexplorer — a computer-assisted RH engine room',
-    content: "Jude Gomila launches the mathexplorer / zetaexplorer project: an open engine room for the Riemann Hypothesis via the de Bruijn-Newman constant. It combines the twin-ladder operator model, interactive simulators, and an autonomous fleet of AI engines that map attack routes and push barrier bounds on Lambda, with a live ledger of results, no-go theorems, and open problems.",
+    content: "Jude Gomila launches the mathexplorer / zetaexplorer project: an open engine room for the Riemann Hypothesis via the de Bruijn-Newman constant. It combines the twin-ladder operator model, interactive simulators, and an autonomous fleet of AI engines that map approach routes and push barrier bounds on Lambda, with a live ledger of results, no-go theorems, and open problems.",
   },
   {
     year: 2026,
@@ -1174,7 +1174,7 @@ export default function HistoryPage() {
             color="#ec4899"
             tldr="ζ(½ + it) has infinitely many real zeros. That is, the Z-function Z(t) changes sign infinitely often."
             math={"\\#\\{t \\in [0, T] : \\zeta(\\tfrac{1}{2} + it) = 0\\} \\to \\infty \\text{ as } T \\to \\infty"}
-            explanation="Hardy used the integral ∫₀ᵀ Z(t)² dt and showed it grows like T log T, while if Z(t) had only finitely many sign changes, the integral would grow differently. The argument exploits the self-dual property of ζ on the critical line."
+            explanation="Hardy used the integral ∫₀ᵀ Z(t)² dt and showed it grows like T log T, while if Z(t) had only finitely many sign changes, the integral would grow differently. The argument uses the self-dual property of ζ on the critical line."
             whyItMatters="This was the first evidence that the critical line is special. It was later strengthened by Selberg (positive proportion, 1942), Levinson (≥ 1/3, 1974), and Conrey (≥ 2/5, 1989)."
             zpoConnection="In the oscillator model, zeros on the critical line correspond to perfect destructive interference between direct and dual ladder signals — the bridge-balanced null."
           />

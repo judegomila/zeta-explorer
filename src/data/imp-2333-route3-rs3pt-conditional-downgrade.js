@@ -9,7 +9,7 @@
  * ----------------------------------------
  * Either (A) establish an UNCONDITIONAL bound on the three-point
  * correlation rho_3 for GENERAL test functions (the ticket suggested a
- * restriction-method attack, e.g. Maynard / Lewko-Radziwill restriction
+ * restriction-method approach, e.g. Maynard / Lewko-Radziwill restriction
  * estimates), OR (B) formally restate Route 3 status as conditional on the
  * Rudnick-Sarnak three-point conjecture, so the roadmap reflects that the
  * REAL Route 3 bottleneck is rho_3, not Montgomery PCC (the imp-1247
@@ -123,7 +123,7 @@ const ROUTE3_DEPENDENCY = Object.freeze({
 // SECTION C — RESTRICTION-METHOD CANDIDATE SURVEY (alternative A attempt).
 // =========================================================================
 //
-// The ticket proposed attacking the general-test-function rho_3 via
+// The ticket proposed approaching the general-test-function rho_3 via
 // restriction estimates (named "Maynard-Lewko restrictions"). We do NOT
 // assert any specific published three-point theorem of that name; we assess
 // the STRUCTURAL viability of any such restriction / band-limited / sieve

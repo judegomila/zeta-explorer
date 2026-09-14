@@ -635,7 +635,7 @@ export const KOKSMA_HLAWKA_2ND_MOMENT_ASSERTIONS = [
     why:
       'Three upstream imports must be live: LAMBDA_INTERCEPT_BURGERS_UNIFORMITY ' +
       '(imp-341, the 1st-moment source), ASYMPTOTIC_LAMBDA_BOUND_2026_05_20 ' +
-      '(imp-1147, the conditional being attacked), and ESY_O1_CLOSURE (imp-508, ' +
+      '(imp-1147, the conditional being approached), and ESY_O1_CLOSURE (imp-508, ' +
       'the ESY obstruction route). If any import goes stale, the file silently ' +
       'detaches from the rigor chain and the partial-closure citation network ' +
       'breaks.',
@@ -657,7 +657,7 @@ export const KOKSMA_HLAWKA_2ND_MOMENT_ASSERTIONS = [
       'The references manifest must include imp-341 (1st-moment KH source), ' +
       'imp-338 (Burgers identity), imp-407 (ESY taxonomy), imp-508 (ESY obstacle ' +
       'O1 partial closure), and imp-1147 (conditional asymptotic bound being ' +
-      'attacked). Removal of any of these breaks the citation chain and the ' +
+      'approached). Removal of any of these breaks the citation chain and the ' +
       'partial-closure rigor argument becomes orphan.',
   },
   {

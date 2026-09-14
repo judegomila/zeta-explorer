@@ -87,7 +87,7 @@
  * needed. (f) the imp-95397 / obligation (3) actual seam sign pattern is NOT
  * addressed. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) 1^T G 1 rebuilds from the exact Gram to the
+ * SKEPTICAL SELF-CHECK RECORD. (1) 1^T G 1 rebuilds from the exact Gram to the
  * baked literal at every grid (round-trip). (2) the ideal spectral bound
  * N * lambda_min / (1^T G 1) rebuilds from the baked lambda_min and den to the
  * baked spectral-LB literal. (3) the dual necessary inequality holds: both the

@@ -512,11 +512,11 @@ const TWO_POINT_TRANSFER_EVALUATION = Object.freeze({
 //
 //   The load-bearing input for the Maynard sieve is admissible-tuple
 //   structure {h_1, ..., h_k}: integer translates n + h_j have the
-//   simultaneous-prime structure that the sieve weights w_n exploit.
+//   simultaneous-prime structure that the sieve weights w_n use.
 //   Zeros gamma_n have NO ADMISSIBLE-TUPLE ANALOGUE — the conjectural GUE
 //   spacing density (Wigner surmise: P(s) ~ s^2 e^{-c s^2}) is LOCALLY
 //   REPULSIVE: small spacings are SUPPRESSED, the OPPOSITE of the
-//   admissible-tuple "near-coincidence" pattern that sieve methods exploit
+//   admissible-tuple "near-coincidence" pattern that sieve methods use
 //   on primes. STRUCTURALLY MISSING input, identical to imp-1309 (R2)
 //   ADDITIVE-STRUCTURE-ABSENT obstruction.
 //
@@ -566,9 +566,9 @@ const STRUCTURAL_ORTHOGONALITY_ASSESSMENT = Object.freeze({
   obstruction_S2_admissible_tuple_structure_absent:
     'Load-bearing input for Maynard sieve is admissible-tuple structure {h_1, ..., ' +
     'h_k} for which {n + h_j} has the simultaneous-prime structure that w_n ' +
-    'exploits. Zeros gamma_n have NO admissible-tuple analogue — conjectural GUE ' +
+    'uses. Zeros gamma_n have NO admissible-tuple analogue — conjectural GUE ' +
     'is LOCALLY REPULSIVE (small spacings suppressed), the OPPOSITE of the ' +
-    'admissible-tuple "near-coincidence" structure that sieve methods exploit on ' +
+    'admissible-tuple "near-coincidence" structure that sieve methods use on ' +
     'primes. Structurally missing input, identical to imp-1309 (R2) additive-' +
     'structure-absent obstruction',
 
@@ -866,7 +866,7 @@ export const IMP_1318_MAYNARD_SIEVE_PCC = Object.freeze({
 
   honestScope: Object.freeze([
     'This file is a NEW-INPUT CLASSIFICATION ticket for the candidate direct ' +
-    'attack on Montgomery PCC at 2-point via Maynard 2024 (closest-known form: ' +
+    'approach on Montgomery PCC at 2-point via Maynard 2024 (closest-known form: ' +
     'Guth-Maynard 2024 zero-density arXiv:2405.20552, Maynard 2013/2015 GPY-style ' +
     'small-gap sieve, Maynard 2019 primes-in-arithmetic-progressions sieve, ' +
     'FGKMT 2014/2018 long-gap sieve, plus a conjectural Maynard 2024 sieve ' +
@@ -884,7 +884,7 @@ export const IMP_1318_MAYNARD_SIEVE_PCC = Object.freeze({
     'hits Cauchy-Schwarz at off-diagonal prime-power sum); (S2) absence of admissible-' +
     'tuple structure on zeros (conjectural GUE distribution is locally repulsive, ' +
     'the OPPOSITE of admissible-tuple near-coincidence pattern that sieve methods ' +
-    'exploit on primes); (S3) sieve-weight L^1 / first-moment output vs PCC L^2 / ' +
+    'use on primes); (S3) sieve-weight L^1 / first-moment output vs PCC L^2 / ' +
     'second-moment input mismatch (sieve gives weighted counts; PCC needs Fourier-L^2 ' +
     'on second-moment statistic; translation via Cauchy-Schwarz from L^1 / total-' +
     'variation re-introduces the layer we are trying to bypass).',
@@ -978,7 +978,7 @@ export const IMP_1318_MAYNARD_SIEVE_PCC = Object.freeze({
       'nombres premiers", Acta Arithmetica 4 (1958), 185-208; Hardy, G. H. and ' +
       'Littlewood, J. E., "Some problems of partitio numerorum III", Acta Math. 44 ' +
       '(1923), 1-70. Admissible-tuple conjectures for primes; the load-bearing ' +
-      'admissible-tuple structure that sieve methods exploit',
+      'admissible-tuple structure that sieve methods use',
     bombieriVinogradov:
       'Bombieri, E., "On the large sieve", Mathematika 12 (1965), 201-225; ' +
       'Vinogradov, A. I., "The density hypothesis for Dirichlet L-series", Izv. ' +

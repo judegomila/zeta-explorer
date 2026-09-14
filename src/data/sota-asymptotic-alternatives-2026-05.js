@@ -1,6 +1,6 @@
 /**
  * @module data/sota-asymptotic-alternatives-2026-05
- * @fileoverview imp-1107 SOTA attack #2 -- SCOPING survey of three alternative
+ * @fileoverview imp-1107 SOTA approach #2 -- SCOPING survey of three alternative
  *   asymptotic routes for tightening the Platt-Trudgian (2021) Lambda <= 0.2
  *   bound BEYOND the ESY rigidity port (imp-370 / imp-1106). Produces a
  *   single ROUTES_COMPARISON table at the top plus three named route records
@@ -138,7 +138,7 @@ const ROUTE_GOLDSTON_YILDIRIM = Object.freeze({
     'Park this route. The mollifier construction is not portable to the ' +
     'projects tool inventory in any reasonable timeframe. Track upstream ' +
     'literature (any Bui-Milinovich-Pratt followup) but do not allocate ' +
-    'engine attack budget here.',
+    'engine approach budget here.',
 });
 
 // ── ROUTE 2: Soundararajan-Bui zero density estimates near sigma=1 ────────
@@ -276,9 +276,9 @@ const ROUTE_CONREY_SNAITH_MOMENTS = Object.freeze({
   tractabilityRanking: TRACTABILITY_VOCAB.REQUIRES_NEW_MATH,
   tractabilityRationale:
     'Conrey-Snaith at k = 3 is open since 2000 and has resisted multiple ' +
-    'attacks (Diaconu-Goldfeld-Hoffstein moment-method 2003, Soundararajan ' +
+    'approaches (Diaconu-Goldfeld-Hoffstein moment-method 2003, Soundararajan ' +
     'sharp upper bounds 2009, Harper sharp upper bounds 2013). Engine ' +
-    'cannot make progress; even research-grade attack would need a new ' +
+    'cannot make progress; even research-grade approach would need a new ' +
     'idea on the arithmetic factor a_3 = 42 / 9!. The k = 4 case is ' +
     'farther still. Only the rigorous k = 1 and k = 2 cases are usable ' +
     'today, and both are already implicitly consumed in the imp-447 / ' +
@@ -303,7 +303,7 @@ const ROUTE_CONREY_SNAITH_MOMENTS = Object.freeze({
   recommendedNextStep:
     'Park indefinitely. Of the three routes, this is the hardest and ' +
     'delivers the smallest numeric gain. Track the literature but do not ' +
-    'allocate engine attack budget. If a Conrey-Snaith k = 3 closure ' +
+    'allocate engine approach budget. If a Conrey-Snaith k = 3 closure ' +
     'appears in print, revisit. Until then the rigorous k = 2 case is ' +
     'already consumed and the conjectural part is not safely usable.',
 });
@@ -389,7 +389,7 @@ const HONEST_SCOPE = Object.freeze({
 
 export const SOTA_ASYMPTOTIC_ALTERNATIVES = Object.freeze({
   id: 'imp-1107',
-  title: 'SOTA attack 2 -- survey 3 alternative asymptotic routes (Goldston-Yildirim, Soundararajan-Bui density, Conrey-Snaith moments)',
+  title: 'SOTA approach 2 -- survey 3 alternative asymptotic routes (Goldston-Yildirim, Soundararajan-Bui density, Conrey-Snaith moments)',
   status: 'shipped-survey',
   surveyDate: '2026-05-18',
   ptBound: 0.2,
@@ -406,7 +406,7 @@ export const SOTA_ASYMPTOTIC_ALTERNATIVES = Object.freeze({
   notes: Object.freeze([
     'Three named alternatives to the ESY rigidity port (imp-370 / imp-1106). The ESY route remains the broadest in scope but research-grade hard.',
     'Soundararajan-Bui 2008 density is the engines best-leverage candidate; the route is research-grade-feasible (2-4 weeks) and produces the largest numeric gain (~5pct absolute on PT).',
-    'The estimated improvements are stated as honest scoping numbers, not theorems. The survey is a decision aid for where to commit attack budget, not a closure claim.',
+    'The estimated improvements are stated as honest scoping numbers, not theorems. The survey is a decision aid for where to commit approach budget, not a closure claim.',
   ]),
 });
 

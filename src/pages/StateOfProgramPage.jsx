@@ -34,7 +34,7 @@ export default function StateOfProgramPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>State of the Program</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55 }}>
-            One, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ attack actually stands.
+            One, plain-language summary of where this RH / de&nbsp;Bruijn-Newman Λ approach actually stands.
             The truth is otherwise scattered across the route map, dashboards and self-correction notes — this page
             exists so a reader cannot over-read any single partial page. The summary was reconciled on{' '}
             <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}

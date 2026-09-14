@@ -19,7 +19,7 @@
  *   per-N form") but did NOT pin down (a) what the gap object concretely IS, nor
  *   (b) what that GUE scale actually IMPLIES. This module supplies both -- and finds
  *   the imp-36151 one-liner is, read literally, BACKWARDS: a GROWING max-gap scale
- *   does not hand Route-C a per-N form, it KILLS the density squeeze (matching the
+ *   does not hand Route-C a per-N form, it ELIMINATES the density squeeze (matching the
  *   imp-451 diagnostic obstruction).
  *
  *   THE GAP OBJECT G3a_max_gap, ENUMERATED
@@ -118,7 +118,7 @@ export const IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE = Object.freeze({
     'sqrt(log N) max-gap scale: R_N ~ sqrt(log N) -> infinity EXCEEDS R_critical for every N >= 5, so ' +
     'c_total -> c_tail ~ 1.29 < 2, the squeeze FAILS, and the conditional r_C(N) is VACUOUS (no per-N rate ' +
     'exists). This CORRECTS the imp-36151 one-liner ("GUE sqrt(log N) => Route-C acquires a per-N form"), which ' +
-    'is the wrong sign: a GROWING max-gap kills the squeeze (matching the imp-451 c_total -> 0 diagnostic). A ' +
+    'is the wrong sign: a GROWING max-gap eliminates the squeeze (matching the imp-451 c_total -> 0 diagnostic). A ' +
     'per-N form would need a max-gap BOUNDED below R_critical uniformly, which no known extremal input supplies ' +
     '(S-B ~ 2.51 under RH, GUE grows). ILLUSTRATION ONLY; closes NOTHING; discharges no gap; per-N translation ' +
     'and G3a_max_gap stay OPEN; respects the imp-2519 no-overclaim guard; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
@@ -167,7 +167,7 @@ export const IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE = Object.freeze({
       'min-gap diagnostic (c_total -> 0), now on the max-gap axis.',
     correctsImp36151:
       'The imp-36151 one-liner "GUE sqrt(log N) => Route-C acquires a per-N form" is, read literally, the WRONG ' +
-      'SIGN: a growing max-gap scale kills the squeeze rather than pinning a rate. A per-N form would require a ' +
+      'SIGN: a growing max-gap scale eliminates the squeeze rather than pinning a rate. A per-N form would require a ' +
       'max-gap BOUNDED below R_critical uniformly, which no known extremal input (S-B ~ 2.51 under RH, GUE grows) ' +
       'supplies.',
   }),
@@ -235,7 +235,7 @@ export const IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE_ASSERTIONS = [
   },
   {
     id: 'imp36259-corrects-imp36151-sign',
-    why: 'The scoping must record that the imp-36151 conditional is the WRONG SIGN (a growing max-gap kills the ' +
+    why: 'The scoping must record that the imp-36151 conditional is the WRONG SIGN (a growing max-gap eliminates the ' +
          'squeeze) and that a per-N form needs a max-gap BOUNDED below R_critical, which no extremal input gives.',
     holds: () => {
       const c = IMP36259_ROUTEC_G3A_MAXGAP_RESIDUAL_SCOPE.conditionalGueIllustration;

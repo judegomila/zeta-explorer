@@ -111,10 +111,10 @@
  * narrows by another 1.17x while the exact near constant 2 (attained by
  * this very parity split) is untouched.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) omega_0 = Tx_even is an exact identity
+ * SKEPTICAL SELF-CHECK RECORD: (1) omega_0 = Tx_even is an exact identity
  * (V(0, j) = Gx(j)), asserted against the tenth-continuation baked
  * literals through an independent code path; (2) the blockwise
- * never-worse claim omega_b <= 2 Tx_even was attacked termwise (row:
+ * never-worse claim omega_b <= 2 Tx_even was stress-tested termwise (row:
  * V(b, j) >= V(0, j); col: V(b - j, j) >= V(0, j)) and verified on b <= 60,
  * both parities, both theta, reference and counter-case - zero violations;
  * (3) the sup location b = 2 is NOT assumed: it is scanned over b <= 60 in

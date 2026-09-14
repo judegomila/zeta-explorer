@@ -20,7 +20,7 @@
  *   Branges canonical-system existence statement CDB-Exist: for every a > 0
  *   build the structure function E_a(z) = X(a - iz) (equivalently the
  *   Hamiltonian dm_a, equivalently the passive realization) directly from Phi,
- *   NON-CIRCULARLY (without the zero set of X). imp-1245 adversarially
+ *   NON-CIRCULARLY (without the zero set of X). imp-1245 independently
  *   stress-tested that unification and found CDB-Exist FAILS axis (c): it
  *   INHERITS the same Phi-non-circularity obstruction as the three corollaries
  *   it unifies, and the axis-(b) rigidity gap (E_a has no inner factor) is

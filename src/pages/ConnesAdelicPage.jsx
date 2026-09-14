@@ -382,7 +382,7 @@ export default function ConnesAdelicPage() {
         </div>
 
         <RelatedLinks links={[
-          { to: '/spectral-attack', label: 'Spectral Attack', color: 'var(--terra-dk)' },
+          { to: '/spectral-attack', label: 'Spectral Approach', color: 'var(--terra-dk)' },
           { to: '/rh-equivalents', label: 'RH Equivalents', color: 'var(--blue)' },
           { to: '/route-map', label: 'Route Map', color: 'var(--brass)' },
           { to: '/state-of-program', label: 'State of Program', color: 'var(--brass-dk)' },

@@ -4,7 +4,7 @@
  * carrier g(z) = exp(-z)(1+z)): the ENTIRE remaining occupancy ladder
  * (the k >= 5 and mixed-heavy-pair channels of
  * imp-95144-subgap-k-packet-ladder) collapses, UNIFORMLY IN k, to hull
- * boundary 2-jets. The named obstruction that killed the channels --
+ * boundary 2-jets. The named obstruction that eliminated the channels --
  * "Lemma EP generalizes to a (k-1)-sphere amplitude arc with a pairwise
  * penalty matrix, Lemma AY needs the k-dimensional cone-copositivity
  * version" -- is REMOVED at cap level: no k-dimensional object is needed
@@ -480,7 +480,7 @@ export const IMP95154_KUNIFORM_HULL_JET_REDUCTION_ASSERTIONS = [
   {
     id: "imp95154-kn2-dj-battery",
     description:
-      "COROLLARY KN2 battery: 4000 seeded heavy-heavy pairs never exceed g(gap); LEMMA DJ aggregate closed form matches the brute-force double sum to 1e-11 relative",
+      "COROLLARY KN2 battery: 4000 seeded heavy-heavy pairs never exceed g(gap); LEMMA DJ aggregate closed form matches the exhaustive double sum to 1e-11 relative",
     holds: () =>
       MEASURED.kn2Battery.nPair === 4000 &&
       MEASURED.kn2Battery.worstKN2 <= 1 + 1e-12 &&

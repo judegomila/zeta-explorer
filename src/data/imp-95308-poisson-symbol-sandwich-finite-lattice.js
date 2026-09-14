@@ -44,7 +44,7 @@
  * constant with finite-m slack that closes at the same polynomial rate.
  * The tiny rho = 2 constants (A_twin ~ 2.7e-11) are below eig noise, so
  * the resolvable measurements are taken at rho in {4, 8} as imp-95252
- * ADVERSARIAL SELF-CHECK RECORD item (3) prescribes.
+ * SKEPTICAL SELF-CHECK RECORD item (3) prescribes.
  *
  * HONEST LIMITS. (a) Measurement of the m-dependence of an ALREADY-PROVEN
  * sandwich; it changes no constant and closes no residual. The m^(-2)

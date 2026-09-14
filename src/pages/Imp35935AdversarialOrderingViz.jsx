@@ -35,7 +35,7 @@ function OrderingBarChart() {
   return (
     <svg width={w} height={h} style={{ display: 'block', maxWidth: '100%' }}>
       <text x={padL} y={padT - 8} fill="#94a3b8" fontSize={11} fontWeight={700}>
-        normalized summation error by adversarial ordering (log scale)
+        normalized summation error by worst-case ordering (log scale)
       </text>
 
       {yTicks.map((v) => (
@@ -139,7 +139,7 @@ function OrderingTable() {
 export default function Imp35935AdversarialOrderingViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
-      <PageHeader title="Summation-Scheme Error Under Adversarial Orderings (imp-35935 / imp-35852)" />
+      <PageHeader title="Summation-Scheme Error Under Worst-case Orderings (imp-35935 / imp-35852)" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>
         imp-35852 re-summed the imp-35812 fixed N&nbsp;~&nbsp;4.886e5-term oscillatory sum under
@@ -156,7 +156,7 @@ export default function Imp35935AdversarialOrderingViz() {
       </div>
 
       <p style={{ color: '#94a3b8', fontSize: '0.8rem', marginTop: '1rem' }}>
-        The worst adversarial ordering ({IMP35935_SUMMARY.worstOrdering}, two long same-sign runs)
+        The worst worst-case ordering ({IMP35935_SUMMARY.worstOrdering}, two long same-sign runs)
         raises the naive error ~{IMP35935_SUMMARY.naiveWorstOverOriginal.toFixed(0)}x above the
         oscillatory baseline -- yet it still stays &gt;1e4x
         (~{IMP35935_SUMMARY.naiveWorstOrdersBelowCoherentCeiling.toFixed(1)}&nbsp;orders) BELOW the

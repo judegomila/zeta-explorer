@@ -105,16 +105,16 @@
  * (e) Changes no bound; does NOT promote Lambda <= 0.14; NO QED on any
  * open leg; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the series bounds were attacked at
+ * SKEPTICAL SELF-CHECK RECORD: (1) the series bounds were stress-tested at
  * all six z values used: BOTH truncations were caught rounding past
  * Math.exp by ~1 ulp at z = 0.46-0.47 (the true truncation error there
  * is ~1e-27, far below double epsilon), hence the explicit 1e-12 slack
  * on BOTH certificates - the witness margin 4093 and the bracket margin
  * 0.0116 dwarf it. (2) The
- * F3-vs-lamMax dichotomy was attacked on 2000 seeded (P12, P13, P23)
+ * F3-vs-lamMax dichotomy was stress-tested on 2000 seeded (P12, P13, P23)
  * triples: sign(F3 - 1) agrees with sign(lamMax - 1) in every case and
  * the characteristic identity char(1) = 1 - F3 reproduces to 1e-12.
- * (3) Rate mixing was attacked on a 3^6-point grid of rate multipliers
+ * (3) Rate mixing was stress-tested on a 3^6-point grid of rate multipliers
  * over three floors: lamMax(G_mixed) <= lamMax(G_floor) with zero
  * violations (Lemma RC domination re-verified on the same grid).
  * (4) Grid extremality is integer arithmetic: k1 2^0 <= p < k1 2^1,
@@ -368,7 +368,7 @@ function runDichotomyBattery() {
 }
 const BAT_DICH = runDichotomyBattery();
 
-// battery B: rate-mixing attack (Corollary RM step i)
+// battery B: rate-mixing approach (Corollary RM step i)
 function runMixingBattery() {
   const mults = [1, 1.2, 5];
   let viol = 0;
@@ -409,7 +409,7 @@ function runMixingBattery() {
 }
 const BAT_MIX = runMixingBattery();
 
-// battery C: class attack at rates >= 47/200 (multi-packet, multi-block)
+// battery C: class approach at rates >= 47/200 (multi-packet, multi-block)
 function runClassBattery() {
   seedState = 77777;
   let maxE = -Infinity;
@@ -643,7 +643,7 @@ export const IMP95135_EDGE_WITNESS_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95135-we-class-battery",
     description:
-      "class attack at rates >= 47/200: 6000 seeded parity-pure multi-packet witnesses (2-5 blocks, up to 4 packets per block, edge-piled every third draw, both parities) - max E = -0.026646294899386594 < 0, zero E > 0 draws (cross-check, NOT a class certificate)",
+      "class approach at rates >= 47/200: 6000 seeded parity-pure multi-packet witnesses (2-5 blocks, up to 4 packets per block, edge-piled every third draw, both parities) - max E = -0.026646294899386594 < 0, zero E > 0 draws (cross-check, NOT a class certificate)",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_CLASS.maxE < 0 && rel(BAT_CLASS.maxE, BAT_CLASS_MAX_E_LIT, 1e-6) && BAT_CLASS.eViol === 0;

@@ -93,7 +93,7 @@ export default function EngineRoomPage() {
           </div>
         </div>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760, marginTop: 10, marginBottom: 20 }}>
-          Live ops view of the autonomous engine fleet attacking the improvement queue.
+          Live ops view of the autonomous engine fleet approaching the improvement queue.
           Refreshes every 25s; the snapshot is committed whenever a ticket completes.
         </p>
 

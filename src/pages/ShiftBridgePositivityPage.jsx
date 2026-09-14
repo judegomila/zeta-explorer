@@ -84,7 +84,7 @@ export default function ShiftBridgePositivityPage() {
       footer={<>
         Related: <Link to="/closure-routes">§16 Closure routes</Link>
         {' · '}<Link to="/blaschke-ghosts">§17 Blaschke ghosts</Link>
-        {' · '}<Link to="/three-attacks">§18 Three attacks</Link>
+        {' · '}<Link to="/three-attacks">§18 Three approaches</Link>
         {' · '}<Link to="/selberg-trace">Selberg trace</Link>
         {' · '}<Link to="/rh-equivalents">RH equivalents</Link>
         {' · '}<Link to="/literature">Literature</Link>

@@ -1,6 +1,6 @@
 /**
  * @module imp-1311-robin-lagarias-combinatorial-attack
- * @fileoverview imp-1311 — NOVEL direct attack on RH via the Robin 1984 /
+ * @fileoverview imp-1311 — NOVEL direct approach on RH via the Robin 1984 /
  *   Lagarias 2002 combinatorial RH-equivalent statements
  *
  *       (Robin 1984)   RH  <=>  sigma(n) < e^gamma * n * log log n
@@ -11,7 +11,7 @@
  *
  *   where sigma(n) = sum_{d | n} d is the classical divisor sum and H_n is the
  *   n-th harmonic number. These are RH-EQUIVALENT but structurally orthogonal
- *   to spectral / moment / explicit-formula attacks: the LHS is an elementary
+ *   to spectral / moment / explicit-formula approaches: the LHS is an elementary
  *   arithmetic function with no obvious analytic-number-theory entry point,
  *   and the RHS is a slow-growing transcendental.
  *
@@ -639,7 +639,7 @@ export const IMP_1311_ROBIN_LAGARIAS_COMBINATORIAL_ATTACK = Object.freeze({
   }),
 
   honestScope: Object.freeze([
-    'This file is a CLASSIFICATION ticket for the candidate direct attack on RH (and a ' +
+    'This file is a CLASSIFICATION ticket for the candidate direct approach on RH (and a ' +
     'numerical Lambda bound) via the Robin 1984 / Lagarias 2002 σ(n)/n elementary RH-' +
     'equivalent criteria. It is NOT a new closure or a new numerical Lambda bound.',
 

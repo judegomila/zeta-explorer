@@ -7,7 +7,7 @@
  * directed-rounding image half-width r_image(n_op) = gamma(n_op) N_cross / (1 - |g_prime|) for a genuine
  * n_op-operation directed-rounding evaluation. The two have NEVER been compared. This module measures the
  * ratio delta* / (a-priori directed-rounding floor) at the fixed few-ULP budget, to assess whether the
- * imp-34794 tightest surrogate bracket sits AT the directed-rounding-predicted floor (no exploitable
+ * imp-34794 tightest surrogate bracket sits AT the directed-rounding-predicted floor (no usable
  * head-room) or retains head-room a genuine directed-rounding certificate could tighten into. Assessment
  * only; imp-34714a REMAINS OPEN; changes no bound; NO QED.
  *
@@ -34,7 +34,7 @@
  *  (3) the RATIO delta* / floor = (delta_min / eps) / (2 k) = (2 k + ~0.5) / (2 k) = 1 + 1/(4 k) ~ 1.0625
  *      at k = 4 -- i.e. the surrogate half-width sits ~6% ABOVE the directed-rounding floor, the excess
  *      being exactly the imp-34794 ~0.5 eps endpoint-quantization (0.5 ULP(m)) additive, NOT an order of
- *      magnitude of exploitable slack.
+ *      magnitude of usable slack.
  *  (4) the same ratio across the imp-34794 k-ladder {1,2,4,8,16}: it EQUALS the imp-34794 ratio_over_2keps
  *      column (1.375, 1.125, 1.0625, 1.0313, 0.9922) and converges to 1 as k grows -- confirming the
  *      surrogate tightens ONTO the directed-rounding floor with no residual head-room at large budget.
@@ -51,12 +51,12 @@
  *   delta* in per-op units:              ~8.1 (delta_min / eps) FP_LO
  * The imp-34794 tightest surrogate certified bracket sits ESSENTIALLY AT the imp-34799 a-priori
  * directed-rounding floor: only ~6% above it at the few-ULP budget, the excess being the fixed
- * endpoint-quantization additive rather than exploitable head-room, and the gap vanishes (ratio -> 1) as
+ * endpoint-quantization additive rather than usable head-room, and the gap vanishes (ratio -> 1) as
  * the budget grows. So a genuine directed-rounding certificate could NOT tighten the enclosure below the
  * surrogate by more than a fixed small constant factor 1 + 1/(4 k); the surrogate delta* is already a
  * faithful stand-in for the directed-rounding floor.
  *
- * INTERPRETATION -- NO EXPLOITABLE HEAD-ROOM; CERTIFICATE STILL OPEN
+ * INTERPRETATION -- NO USABLE HEAD-ROOM; CERTIFICATE STILL OPEN
  * ----------------------------------------------------------------
  * That delta* and the a-priori floor agree to a fixed small constant factor is EVIDENCE the imp-34794
  * surrogate is a tight proxy for what a directed-rounding certificate would achieve, NOT a proof that the
@@ -150,7 +150,7 @@ export const IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR = {
     'directed-rounding image half-width r_image(n_op) = gamma(n_op) N_cross / (1 - |g_prime|), but the two ' +
     'were never compared. Measure the ratio delta* / (a-priori directed-rounding floor) at the fixed ' +
     'few-ULP budget to assess whether the located surrogate bracket sits AT the directed-rounding floor ' +
-    'or retains head-room a genuine directed-rounding certificate could exploit. Assessment only; does NOT ' +
+    'or retains head-room a genuine directed-rounding certificate could use. Assessment only; does NOT ' +
     'close the imp-34714a machine certificate; imp-34714a REMAINS OPEN, no QED.',
   model: {
     bridge:
@@ -202,7 +202,7 @@ export const IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR = {
     'surrogate half-width delta*_halfwidth ~ 8.5 eps N_cross ~ 6.19e-6, so the RATIO delta* / floor = ' +
     '(delta_min/eps)/(2 k) = 1 + 1/(4 k) ~ 1.0625 at k = 4 -- the surrogate sits only ~6% ABOVE the ' +
     'directed-rounding floor, the excess being exactly the imp-34794 ~0.5 eps endpoint-quantization ' +
-    '(0.5 ULP(m)) additive, NOT an order of magnitude of exploitable slack. Across the imp-34794 k-ladder ' +
+    '(0.5 ULP(m)) additive, NOT an order of magnitude of usable slack. Across the imp-34794 k-ladder ' +
     'the ratio EQUALS the ratio_over_2keps column (1.375, 1.125, 1.0625, 1.0313, 0.9922) and converges to ' +
     '1, so the surrogate tightens ONTO the directed-rounding floor with no residual head-room at large ' +
     'budget; delta* equals ~8.1 directed-rounding per-op widenings. So a genuine directed-rounding ' +
@@ -225,7 +225,7 @@ export const IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR = {
     'op count n_op = 2 FP_LO k is r_image = 2 k eps N_cross ~ 5.83e-6 (the FP_LO amplification CANCELS) -- ' +
     'identically the leading break term of the surrogate. The RATIO delta* / floor = (delta_min/eps)/(2 k) ' +
     '= 1 + 1/(4 k) ~ 1.0625 at k = 4: the surrogate sits only ~6% ABOVE the directed-rounding floor, the ' +
-    'excess being exactly the ~0.5 eps endpoint-quantization (0.5 ULP(m)) additive, NOT exploitable ' +
+    'excess being exactly the ~0.5 eps endpoint-quantization (0.5 ULP(m)) additive, NOT usable ' +
     'head-room. Across the imp-34794 k-ladder the ratio equals the ratio_over_2keps column (1.375, 1.125, ' +
     '1.0625, 1.0313, 0.9922) and converges to 1; delta* equals ~8.1 directed-rounding per-op widenings. ' +
     'INTERPRETATION: the imp-34794 tightest surrogate bracket sits ESSENTIALLY AT the imp-34799 a-priori ' +
@@ -275,7 +275,7 @@ export const IMP34818_KRAWCZYK_DELTASTAR_VS_DIRECTED_ROUNDING_FLOOR_ASSERTIONS =
   {
     // The head-room is a few percent (a fixed endpoint-quantization additive), NOT an order of magnitude.
     id: 'imp34818-headroom-is-a-few-percent-not-orders',
-    description: 'head-room = ratio - 1 ~ 0.06 (the ~0.5 eps 0.5-ULP(m) additive over 2 k), not exploitable orders',
+    description: 'head-room = ratio - 1 ~ 0.06 (the ~0.5 eps 0.5-ULP(m) additive over 2 k), not usable orders',
     holds: () =>
       HEADROOM_FRACTION > 0 &&
       HEADROOM_FRACTION < 0.1 &&

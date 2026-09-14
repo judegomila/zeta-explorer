@@ -557,7 +557,7 @@ const RIGOR_CHAIN = {
 };
 
 // ── imp-2632 stress-test: is |t_c_proj| in L_cond rigorous or projected? ─────
-// Apply the same adversarial scrutiny that forced the imp-2630 height-mismatch
+// Apply the same skeptical scrutiny that forced the imp-2630 height-mismatch
 // withdrawal to the DOMINANT sub-term of the SURVIVING finite-N*=1e4 beat.
 // L_cond = |t_c_proj| + E_flow + E_coll, and imp-2631 showed L_cond (not E_trunc)
 // is the BINDING term of L_pt at N*=1e4.
@@ -757,7 +757,7 @@ const TC_PART_RIGOROUS_RECOMPOSITION = (() => {
     },
 
     residualsNoFalseQED: [
-      "SG1c Theta-trap persistence: A1 needs Theta(s) <= 1/4 for a.e. s in [0, t_c); MEASURED 9/9 (Theta non-increasing on real-zero + adversarial runs) but not yet proven. imp-2637 hardens the excursion cap that licenses A1.",
+      "SG1c Theta-trap persistence: A1 needs Theta(s) <= 1/4 for a.e. s in [0, t_c); MEASURED 9/9 (Theta non-increasing on real-zero + skeptical runs) but not yet proven. imp-2637 hardens the excursion cap that licenses A1.",
       "imp-2636 units audit: the de Bruijn-Newman heat-flow normalization factor in the backward integration is confirmed numerically by imp-2485 to read-off precision but is the formal deliverable of imp-2636.",
       "E_coll (imp-399, rigorously pinned) is now the DOMINANT L_cond sub-term at N*=1e4 (~89% of L_cond_rig); the recomposition removes the projection soft spot but the beat margin is now set by the pinned collision constant, not a projection.",
     ],

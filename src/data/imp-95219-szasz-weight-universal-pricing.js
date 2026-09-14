@@ -13,7 +13,7 @@
  * hypothesis AND better constants at every rung) + PROP FEN-W (linear
  * necessity floor, and the honest not-necessary caveat).
  *
- * Eleventh leg of the seam chain, attacking the open sub-gap
+ * Eleventh leg of the seam chain, approaching the open sub-gap
  * imp-95212-subgap-fresnel-airy-envelope-port at the residual left by
  * imp-95218: "families with UNBOUNDED octave occupancy but convergent
  * Szasz sum (occupancy growing with the octave index) -- open on both
@@ -126,7 +126,7 @@
  * weight is sufficient, not necessary -- weight in octave j meets the seam
  * at effective depth 2^j d, so families with unbounded W concentrated at
  * high octaves can still be tame; a depth-discounted weight could refine
- * E. What IS matched: the imp-95215 THEOREM SZ kills exactly the
+ * E. What IS matched: the imp-95215 THEOREM SZ eliminates exactly the
  * W = infinity families (divergent Szasz sum), and E prices every finite-W
  * family, so the pointwise corner "unbounded occupancy + convergent Szasz
  * sum" is now EMPTY -- no rate family remains unpriced on both sides.
@@ -152,7 +152,7 @@
  * (e) Model-family constants (sigma = 1, theta = 10); gammaSL remains a
  * cap, not a measurement; measured class sup phi = 0.3572 untouched.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA EXP audited symbolically (the
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA EXP audited symbolically (the
  * lambda-tilt requires only lambda >= 1 and nonnegative terms; the exact
  * identity uStar(1 + uStar) = 1/4 anchors the corollary) and on a
  * 40 x 54 grid (worst B_2K/cap = 0.284, no violation); the corollary was
@@ -431,7 +431,7 @@ export const IMP95219_SZASZ_WEIGHT_UNIVERSAL_PRICING = {
   propDOM:
     "certificate D strictly dominated: xStarSz(2) = 14.27 < xStarOcc(1) = 29.89, xStarSz(4) = 25.19 < xStarOcc(2) = 138.50, xStarSz(6) = 37.79 < xStarOcc(3) = 321.98 -- weaker hypothesis AND better constants at every rung; the imp-95218 cluster route is subsumed outright. HONEST: A, B, C keep their turf (dyadic 2.6510 < xStarSz(2); xStarGeo(1.5) = 5.0660 < xStarSz(6); xStarTouch(K) < xStarSz(K)); the menu shrinks to {A, B, C, E}.",
   propFENW:
-    "fencing: the octave-0 confluent witness s^(W-1) e^(-m s) is in-class, so xTrueSz(W) >= (2W-1)/4 (imp-95217 Markov floor): weight-uniform thresholds grow at least linearly in W, vs the proved upper slope 2 aStar (factor ~12.6). NOT NECESSARY: bounded weight is sufficient, not necessary -- high-octave-concentrated weight meets the seam at effective depth 2^j d, so a depth-discounted weight could refine E. Matched boundary: THEOREM SZ kills exactly the divergent (W = infinity) families, SZ-P prices every finite-W family -- the pointwise corner is EMPTY.",
+    "fencing: the octave-0 confluent witness s^(W-1) e^(-m s) is in-class, so xTrueSz(W) >= (2W-1)/4 (imp-95217 Markov floor): weight-uniform thresholds grow at least linearly in W, vs the proved upper slope 2 aStar (factor ~12.6). NOT NECESSARY: bounded weight is sufficient, not necessary -- high-octave-concentrated weight meets the seam at effective depth 2^j d, so a depth-discounted weight could refine E. Matched boundary: THEOREM SZ eliminates exactly the divergent (W = infinity) families, SZ-P prices every finite-W family -- the pointwise corner is EMPTY.",
   constants: {
     aStarExp: A_STAR_EXP,
     uStarExp: U_STAR_EXP,
@@ -596,7 +596,7 @@ export const IMP95219_SZP_ASSERTIONS = [
   {
     id: "imp95219-szp-truth-battery",
     description:
-      "adversarial truth battery on exact Cauchy Gram pairs (power iteration): 200 unbounded-occupancy Szasz-convergent draws in the three growth laws M_j = j+1, round(2^(j/2)), round(2^j/(j^2+1)) with touching in-octave rates -- the exact families of the imp-95218 open corner -- never violate the SZ-P bound at x = (8W + 8)(1 + jitter); the battery certifies it exercised occupancy >= 6 and distinct-rate count >= 25 (outside every prior certificate at small parameters)",
+      "skeptical truth battery on exact Cauchy Gram pairs (power iteration): 200 unbounded-occupancy Szasz-convergent draws in the three growth laws M_j = j+1, round(2^(j/2)), round(2^j/(j^2+1)) with touching in-octave rates -- the exact families of the imp-95218 open corner -- never violate the SZ-P bound at x = (8W + 8)(1 + jitter); the battery certifies it exercised occupancy >= 6 and distinct-rate count >= 25 (outside every prior certificate at small parameters)",
     holds: () => {
       let seed = 95219;
       const rand = () => {

@@ -88,7 +88,7 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     title: 'The finite-N*=1e4 beat is an ESTIMATE, gated on the undischargeable C_H',
     body:
       'The headline finite-N* = 1e4 "beat" is numerical, not a rigorous bound. It rests on a collision-energy ' +
-      'constant C_H whose discharge is open: the obvious Gronwall attack is REFUTED (imp-2640, the integral ' +
+      'constant C_H whose discharge is open: the obvious Gronwall approach is REFUTED (imp-2640, the integral ' +
       'diverges at the collision), and the projected t_c is OLS, not rigorous (imp-2632). Read it as ' +
       'rigorous-modulo-C_H, never as an unconditional finite-N beat.',
   },
@@ -120,7 +120,7 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     body:
       'The established Dyson/collision compositions funnel into the C_H / G6a Hölder-½ shock modulus ' +
       '(Step-4 bridge / Polymath15). The wall is RH-HARD-CONFIRMED and the known discharge routes are closed: the ' +
-      'Gronwall attack diverges at the collision (imp-2640), C_H is equivalent to a uniform all-height minimal-gap ' +
+      'Gronwall approach diverges at the collision (imp-2640), C_H is equivalent to a uniform all-height minimal-gap ' +
       'lower bound (imp-35147), and re-architecting the metric relocates but does not remove the multi-body isolation ' +
       'term. An N-uniform C_H bound is therefore graded RH-hard — consistent with the no-shortcut finding above, it is ' +
       'not a pending upgrade path, and the finite-N* figure stays an estimate. ' +

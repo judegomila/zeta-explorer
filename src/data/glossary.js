@@ -1,7 +1,7 @@
 /**
  * @module glossary
  * @fileoverview Internal glossary and wiki of every term and concept used
- * across the ZPO / RH attack project. Exports {@link glossary} (entries),
+ * across the ZPO / RH approach project. Exports {@link glossary} (entries),
  * {@link glossaryStats}, {@link findByTerm}, and {@link findByCategory}.
  * Reference dictionary for the Glossary page; NOT part of the formal
  * proof chain. Module-doc added by imp-935.
@@ -289,7 +289,7 @@ export const glossary = [
     relatedTerms: ['IEEE 754', 'certificate', 'Mertens bound'],
   },
   {
-    term: 'Adversarial Testing',
+    term: 'Skeptical Testing',
     category: 'method',
     definition:
       'Running the proof chain on functions known to VIOLATE RH (Davenport-Heilbronn, ' +
@@ -1214,7 +1214,7 @@ export const glossary = [
       "entirely different epistemic weight.\n\n" +
       "MASS-FEASIBILITY (NECESSARY, NOT SUFFICIENT): The section26-mupass verdict finds that " +
       "the deg-2 occupation deficit (~9.28e-9) sits 3-4 orders of magnitude below the " +
-      "off-diagonal bridge budget. This kills only one specific IMPOSSIBILITY route -- it rules " +
+      "off-diagonal bridge budget. This eliminates only one specific IMPOSSIBILITY route -- it rules " +
       "out the scenario where the deficit alone is too large for any passive-core construction " +
       "to absorb. It does NOT construct a passive core, does NOT establish K_a >= 0 in the " +
       "Loewner order, and does NOT close the bridge argument.\n\n" +
@@ -1856,7 +1856,7 @@ export const glossary = [
       "shared 1/a prefactor by k exactly while sinh s - s and cosh s - s + arcsinh(1) - sqrt2 " +
       "are untouched." +
       "\n\nHONEST SCOPE: numerical certification of the scaling-law structure only. " +
-      "Mass-feasibility B > D_0 kills the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT " +
+      "Mass-feasibility B > D_0 eliminates the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT " +
       "-- the degree-0 budget proxy is circular (its budget IS ||V||). The operator-level " +
       "K_a >= 0 off-diagonal endpoint-Hankel positivity (imp-3066) remains the lone RH obstruction, " +
       "UNTOUCHED. No RH verdict, no QED; Platt-Trudgian Lambda <= 0.2 stays SOTA.",
@@ -1986,7 +1986,7 @@ export const glossary = [
     definition:
       "imp-3400 gave the capture-ratio numerator norm the closed form ||Ttilde|| = a * sup_xi " +
       "|d/dxi |Phihat(xi)|^2|, but left the maximizing frequency xi* as a coarse grid estimate ~12.05. " +
-      "imp-3470 LOCATES xi* to machine precision by exploiting that the peak slope is attained where " +
+      "imp-3470 LOCATES xi* to machine precision by using that the peak slope is attained where " +
       "the slope itself is stationary -- the PSD inflection P''(xi*) = 0, with P = C^2 + S^2 the power " +
       "spectral density built from the Fourier cos/sin parts C, S of the truncated de Bruijn-Newman " +
       "kernel Phi. Bracketing the coarse imp-3400 peak and bisecting P''(xi) = 0 pins xi* = 12.0870439, " +
@@ -2041,7 +2041,7 @@ export const glossary = [
       "imp-3465 found that the imp-3406 interior MAXIMUM of the GUE-conditional share " +
       "sigma(N) -- equivalently the interior MINIMUM of g(N) = (E_trunc+E_flow)/E_coll -- " +
       "survives only when the imp-2631 truncation floor E_trunc(T0;k) = 3.06e-5*(T_PT/T0)^k " +
-      "decays slowly enough, and stated 'any k > 0 kills it' from a coarse grid whose smallest " +
+      "decays slowly enough, and stated 'any k > 0 eliminates it' from a coarse grid whose smallest " +
       "positive sample was k = 0.2. imp-3486 LOCATES the exact threshold: two structurally " +
       "independent locators (bisecting the imp-3465 scan-grid classifyShape INTERIOR-to-BOUNDARY-LO " +
       "transition, and bisecting the smooth condition that the interior stationary min value of " +
@@ -4472,7 +4472,7 @@ export const glossary = [
     link: "/closure-routes",
   },
   {
-    term: "imp-3933 eps'-field-robust plateau-domination bootstrap: a deterministic N-uniform collision-time transfer modulus in the vector-FIELD-error channel, rerouting the C_Lip breach point around the still-divergent W_1-channel",
+    term: "imp-3933 eps'-field-robust plateau-domination bootstrap: a deterministic N-uniform collision-time transfer modulus in the vector-FIELD-error channel, rerouting the C_Lip crossing point around the still-divergent W_1-channel",
     category: "proof",
     definition:
       "The C_Lip wall (C_H = C_shock*C_Lip/4) is PROVABLY closed in the W_1 channel " +
@@ -4516,7 +4516,7 @@ export const glossary = [
       "C_Lip verdicts (RH-HARD-CONFIRMED) are NOT overturned, weakened, or bypassed " +
       "IN THAT CHANNEL, and Platt-Trudgian Lambda <= 0.2 REMAINS the rigorous SOTA. " +
       "NO false QED.",
-    firstUsed: "imp-3933 (eps'-field-robust plateau-domination bootstrap: a deterministic N-uniform collision-time transfer modulus in the vector-field-error channel, certified on all 10 plateaus of [1e4,1e6], rerouting the C_Lip breach point around the still-divergent W_1-channel), 2026",
+    firstUsed: "imp-3933 (eps'-field-robust plateau-domination bootstrap: a deterministic N-uniform collision-time transfer modulus in the vector-field-error channel, certified on all 10 plateaus of [1e4,1e6], rerouting the C_Lip crossing point around the still-divergent W_1-channel), 2026",
     relatedTerms: [
       "imp-3725 F_mb plateau-domination bootstrap lemma this bootstrap is the eps'-perturbed generalisation of (imp-3725)",
       "imp-33225 per-gap eps'_l refinement: removes the window-top-edge O(10) eps' sensitivity from the binding constraint (imp-33225)",
@@ -5196,7 +5196,7 @@ export const glossary = [
       "small fixed heights the conjecture reduces to open constant-chasing. NO " +
       "Lambda bound is claimed; Platt-Trudgian Lambda <= 0.2 remains SOTA; imp-3066 " +
       "is untouched; NO false QED on Conjecture 22.1 in full generality.",
-    firstUsed: "imp-3932 (coefficient-dimension obstruction to Conjecture 22.1, the sole never-pushed INDEPENDENT-NOVEL v52 conjecture per the imp-1210 audit, adversarially refereed with the comparison-form repair), 2026",
+    firstUsed: "imp-3932 (coefficient-dimension obstruction to Conjecture 22.1, the sole never-pushed INDEPENDENT-NOVEL v52 conjecture per the imp-1210 audit, independently refereed with the comparison-form repair), 2026",
     relatedTerms: [
       "imp-33233 modulation-band-limit assessment: shows the windowed/MODULATED escape hatch does not clear an equal-runtime advantage (imp-33233)",
       "imp-33251 independent Nyquist-floor re-derivation from the raw Platt-Trudgian inputs (imp-33251)",
@@ -7460,7 +7460,7 @@ export const glossary = [
       'the binding height stays tau=8, but the constant itself shifts DOWN to E_ref ~= 10.212 ULP, ~0.567 ULP ' +
       '(~5.3%) below the fp64-named ~10.779 ULP. The ~10.78 figure is therefore a double-libm round-off ' +
       'artifact inflating the genuine quadrature-jitter ceiling; since E_ref < E the shipped fp64 envelope ' +
-      'remains a valid, slightly conservative (~5% loose) upper bound, never breached by the reference-' +
+      'remains a valid, slightly conservative (~5% loose) upper bound, never crossed by the reference-' +
       'precision recomputation.',
     firstUsed: 'imp-33559 (reconciling the imp-33538 envelope constant against the imp-33534 reference-precision libm), 2026',
     relatedTerms: [
@@ -7994,7 +7994,7 @@ export const glossary = [
       'claim is confirmed and now QUANTIFIED per decade rather than a bare boolean; (F2) the max ' +
       'residual is 4.84e-5 at the [1e11,1e12] far-tail decade, sitting at ~0.97 of tolerance -- the ' +
       'tightest decade, yet still inside it, rounding least favorably (0.4310484 -> 0.4310) without ' +
-      'breaching the 4th decimal; (F3) NO DECADE DRIFTS -- all six residuals are pure rounding ' +
+      'crossing the 4th decimal; (F3) NO DECADE DRIFTS -- all six residuals are pure rounding ' +
       'artifacts, confirming the sigma model, the E_trunc/E_flow/E_coll split, and the 4-pts/decade ' +
       'OLS window are byte-identical between imp-33582 and imp-33701.\n\n' +
       'HONEST SCOPE: measurement/cross-check only, a reproduction audit inheriting the ' +
@@ -10740,7 +10740,7 @@ export const glossary = [
       'k=6.00..11.00 of the imp-33810 quarter-decade ladder, but never quantified how contingent that ' +
       '0.9225 is on the endpoint choice. imp-34009 shrinks the window symmetrically inward (dropping m ' +
       'rungs each end, m=0..9, spanning 5.0 down to 0.5 decades) and recomputes the aggregate normaliser ' +
-      'magnitude share |ln F2|/(|ln F2|+|ln F3|+|ln F4|) on each of the 10 nested windows, exploiting the ' +
+      'magnitude share |ln F2|/(|ln F2|+|ln F3|+|ln F4|) on each of the 10 nested windows, using the ' +
       'imp-33962 R1 telescoping identity that the aggregate factors over any sub-window are exactly its ' +
       'endpoint ratios.\n\n' +
       'RESULT: the 0.9225 headline is ENDPOINT-CONTINGENT, falling to 0.7458 on the innermost 0.5-decade ' +
@@ -11827,7 +11827,7 @@ export const glossary = [
       'peaks at ratio ~0.9072 (kEnd = 15.25, w = 9.25), then turns down. The turnaround is a REGIME CHANGE, ' +
       'not decay: the OLS argmax peak migrates off the receding right endpoint to the near-left rung ' +
       'k = 6.5 once w exceeds ~9.25, after which the ratio recedes to ~0.618 by kEnd = 20. So the ratio ' +
-      'neither converges to a fixed interior value nor breaches the amplitude ceiling of 1 -- it rises ' +
+      'neither converges to a fixed interior value nor crosses the amplitude ceiling of 1 -- it rises ' +
       'under one regime and recedes under another, a shape NEITHER of imp-34214 s two saturating forms was ' +
       'built to express.\n\n' +
       'VERDICT: no discrepancy. imp-34214 correctly REFUTED convergence-to-a-fixed-limit on the w <= 7 ' +
@@ -14407,7 +14407,7 @@ export const glossary = [
     category: 'numerical',
     definition:
       'A headword distinguishing two apparently contradictory forward-breach counts -- imp-34884 reported a ' +
-      'breach at op-DAG DEPTH d*=8 while imp-34889 reported a breach at Newton STEP 5 -- which imp-34909 shows ' +
+      'crossing at op-DAG DEPTH d*=8 while imp-34889 reported a crossing at Newton STEP 5 -- which imp-34909 shows ' +
       'are NOT contradictory but the same doubling law read on two different axes against two different ' +
       'reference widths.\n\n' +
       'imp-34884 unrolled each Newton step of the forward interval-Newton recurrence into OPS_PER_STEP=8 ' +
@@ -14416,17 +14416,17 @@ export const glossary = [
       'that ladder d*=8 op is Newton step 1 (the first [T]-dT subtraction), and step 5 is op-depth 40 (the ' +
       'fifth subtraction) -- so comparing the integers 8 and 5 directly mixed an op-depth with a Newton step.\n\n' +
       'The forward width-inflation is identical in both measurements: the iterate doubles per Newton step, ' +
-      'forward_ratio(n)=2^n. The two breach points differ only in the REFERENCE WIDTH each is measured ' +
+      'forward_ratio(n)=2^n. The two crossing points differ only in the REFERENCE WIDTH each is measured ' +
       'against. imp-34884 measures against the forward route own seed bracket half-width delta*T0 (T-space): ' +
-      'the breach ratio is R_seed=1 (the iterate first exceeds the width it started from), giving breach step ' +
+      'the crossing ratio is R_seed=1 (the iterate first exceeds the width it started from), giving crossing step ' +
       'n=1, i.e. op-depth 8. imp-34889 measures against the (H2) margin delta*N reached through the linear ' +
       'image map toImageHalfWidth(w)=K(w/2)/T0/FP_LO: the seed image half-width K*delta/FP_LO is T0-independent ' +
-      '(T0 cancels), so the breach ratio is R_margin=N*FP_LO/K ~19.91, giving breach step n=5, i.e. op-depth 40.\n\n' +
+      '(T0 cancels), so the crossing ratio is R_margin=N*FP_LO/K ~19.91, giving crossing step n=5, i.e. op-depth 40.\n\n' +
       'A single unified breach-step law nStar(R)=floor(log2(R))+1 (the smallest integer n with 2^n>R) ' +
-      'reproduces BOTH published breach points: nStar(1)=1 gives op-depth 8 (imp-34884 d*), and ' +
-      'nStar(19.91)=5 gives op-depth 40 (imp-34889 step 5). The two breach steps differ by exactly 4, matching ' +
+      'reproduces BOTH published crossing points: nStar(1)=1 gives op-depth 8 (imp-34884 d*), and ' +
+      'nStar(19.91)=5 gives op-depth 40 (imp-34889 step 5). The two crossing steps differ by exactly 4, matching ' +
       'log2(R_margin/R_seed) ~4.3154 doublings between the seed-bracket threshold and the (H2)-margin threshold.\n\n' +
-      'HOW TO APPLY: when a surrogate reports two breach counts on what look like the same forward-propagation ' +
+      'HOW TO APPLY: when a surrogate reports two crossing counts on what look like the same forward-propagation ' +
       'phenomenon, check whether they share an op-DAG (op-depth vs coarser-grained step) and whether they are ' +
       'measured against the SAME reference width before concluding disagreement -- an axis mismatch or a ' +
       'reference-width mismatch can produce different integers from one underlying doubling law.\n\n' +
@@ -14434,12 +14434,12 @@ export const glossary = [
       'reconciliation/measurement only on the inherited imp-3220/imp-3406 surrogate crossover map; does NOT ' +
       'instantiate the imp-34687a directed-rounding layer; imp-34714a REMAINS OPEN; no operator positivity; ' +
       'no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
-    firstUsed: 'imp-34942 (glossary headword distinguishing op-DAG depth from Newton step as two breach axes reconciled by imp-34909), 2026',
+    firstUsed: 'imp-34942 (glossary headword distinguishing op-DAG depth from Newton step as two crossing axes reconciled by imp-34909), 2026',
     relatedTerms: [
-      'imp-34884 op-DAG DEPTH forward breach at d*=8, the first [T]-dT subtraction (imp-34884)',
-      'imp-34889 Newton STEP 5 (H2)-margin forward breach, band-wide (imp-34889)',
-      'imp-34909 reconciles both breach points on a shared 8-ops-per-step ladder via nStar(R)=floor(log2 R)+1 (imp-34909)',
-      'imp-34901 closed-form breach step n_star=ceil(log2(N*FP_LO/K)) for the (H2)-margin breach (imp-34901)',
+      'imp-34884 op-DAG DEPTH forward crossing at d*=8, the first [T]-dT subtraction (imp-34884)',
+      'imp-34889 Newton STEP 5 (H2)-margin forward crossing, band-wide (imp-34889)',
+      'imp-34909 reconciles both crossing points on a shared 8-ops-per-step ladder via nStar(R)=floor(log2 R)+1 (imp-34909)',
+      'imp-34901 closed-form crossing step n_star=ceil(log2(N*FP_LO/K)) for the (H2)-margin crossing (imp-34901)',
       'imp-34714a the still-OPEN sub-gap for a full machine-checked directed-rounding certificate (imp-34714a)',
     ],
   },
@@ -16512,7 +16512,7 @@ export const glossary = [
     ],
   },
   {
-    term: 'imp-35313 odd-p branch-cancellation MECHANISM behind the empty eps^{5/2} slot: (i-t^2)^{-3}+(i+t^2)^{-3} = -6 i t^{-8} + O(t^{-12}) kills the leading t^{-6} term, pushing the |F_3| curvature correction from t^{-6}->L^{-5}->eps^{5/2} out to t^{-8}->L^{-7}->eps^{7/2}',
+    term: 'imp-35313 odd-p branch-cancellation MECHANISM behind the empty eps^{5/2} slot: (i-t^2)^{-3}+(i+t^2)^{-3} = -6 i t^{-8} + O(t^{-12}) eliminates the leading t^{-6} term, pushing the |F_3| curvature correction from t^{-6}->L^{-5}->eps^{5/2} out to t^{-8}->L^{-7}->eps^{7/2}',
     category: 'numerical',
     definition:
       'A headword isolating WHY the imp-35244 eps^{5/2} slot is empty, distinct from the RESULT-only ' +
@@ -19271,7 +19271,7 @@ export const glossary = [
     term: 'imp-35696 exponent/coefficient consistency check: the imp-35652 resolution floor (M^{-1/3}) and constant mismatch (C_C) are the SAME cubic-repulsion structure',
     category: 'proof-frontier',
     definition:
-      'A headword recording the imp-35696 result that the two short-range facts imp-35652 uses to kill the ' +
+      'A headword recording the imp-35696 result that the two short-range facts imp-35652 uses to eliminate the ' +
       'imp-35538 REQ-3 option-(a) route -- the resolution floor s_min ~ M^{-1/3} (Ben Arous-Bourgade) and the ' +
       'constant mismatch C_C = (1/8) sqrt(3 pi) (imp-35680) -- are NOT independent obstructions, but the ' +
       'EXPONENT and the COEFFICIENT of one shared cubic-repulsion structure.\n\n' +
@@ -19415,7 +19415,7 @@ export const glossary = [
     ],
   },
   {
-    term: 'imp-35652 route taxonomy for the OPEN imp-35337a: option (a) killed, option (b) still forced, route (ii) sole partial',
+    term: 'imp-35652 route taxonomy for the OPEN imp-35337a: option (a) eliminated, option (b) still forced, route (ii) sole partial',
     category: 'proof-status',
     definition:
       'A headword recording the three-way route taxonomy that governs how the OPEN imp-35337a ' +
@@ -19432,7 +19432,7 @@ export const glossary = [
       'OPTION (b) -- full-support law: since option (a) does not dissolve it, imp-35538 REQ-2/REQ-3 still ' +
       'FORCES the conjectural full-support Montgomery pair-correlation law as the only route-(i) input; the ' +
       'route-(i) literature obstruction (imp-35493/imp-35538) stands untouched.\n\n' +
-      'ROUTE (ii) -- data-anchored spot-check: with option (a) killed, the imp-35488 two-height g_true ' +
+      'ROUTE (ii) -- data-anchored spot-check: with option (a) eliminated, the imp-35488 two-height g_true ' +
       'spot-check (imp-35672 scopes what it can/cannot certify) is left as the SOLE remaining viable partial ' +
       'for imp-35337a -- a bounded, small distributional consistency check at one in-repo-reachable height, ' +
       'not a certification and not a closure.\n\n' +
@@ -20293,11 +20293,11 @@ export const glossary = [
       'imp-35854 sweeps kappa across ~5.3 decades and finds the naive relative error grows sublinearly, not linearly (imp-35854)',
       'imp-35761 supplies the pessimistic linear-in-N normalized ceiling that kappa converts to a relative-error ceiling (imp-35761)',
       'imp-35812 W1 summation-scheme cost hierarchy names the naive/pairwise/Kahan measured hierarchy this kappa scaling applies to',
-      'imp-35852 stresses adversarial term ORDER at this same fixed kappa ~1.4e3, the companion adversarial lever to imp-35854 kappa sweep (imp-35852)',
+      'imp-35852 stresses worst-case term ORDER at this same fixed kappa ~1.4e3, the companion worst-case lever to imp-35854 kappa sweep (imp-35852)',
     ],
   },
   {
-    term: 'Clustered Sign-Run Adversarial Ordering',
+    term: 'Clustered Sign-Run Worst-case Ordering',
     category: 'numerical',
     definition:
       'A headword for the imp-35852 hostile permutation that re-orders a FIXED multiset of ' +
@@ -20326,9 +20326,9 @@ export const glossary = [
       'ordering can narrow the gap to a coherent-accumulation ceiling without closing it.\n\n' +
       'HONEST SCOPE: MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no bound; ' +
       'establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
-    firstUsed: 'imp-35938 (glossary headword for the imp-35852 clustered sign-run adversarial ordering), 2026',
+    firstUsed: 'imp-35938 (glossary headword for the imp-35852 clustered sign-run worst-case ordering), 2026',
     relatedTerms: [
-      'imp-35852 introduces the clustered ordering alongside four other adversarial permutations and measures the ~160x naive degradation (imp-35852)',
+      'imp-35852 introduces the clustered ordering alongside four other skeptical permutations and measures the ~160x naive degradation (imp-35852)',
       'imp-35812 supplies the oscillatory-order random-walk O(sqrt(N) . u) baseline this ordering stresses (imp-35812)',
       'imp-35761 supplies the pessimistic coherent N . eps ceiling the clustered ordering narrows the gap to but does not close (imp-35761)',
       'Summation-Cost Condition Number kappa = Sum|t_k| / |Sum t_k| names the companion cancellation-scale headword used across the same W1 summation-scheme cohort',
@@ -20491,11 +20491,11 @@ export const glossary = [
     ],
   },
   {
-    term: 'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Adversarial Levers',
+    term: 'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Worst-case Levers',
     category: 'numerical',
     definition:
       'A headword distinguishing the two independent ways a fixed multiset of double-precision ' +
-      'summands can be adversarially rearranged without changing the mathematically exact sum: ' +
+      'summands can be independently rearranged without changing the mathematically exact sum: ' +
       'the term ORDER (the sequence in which summands are visited) and the pairing-tree SHAPE ' +
       '(the association -- i.e. which partial sums combine with which -- for a divide-and-conquer ' +
       'scheme). Floating-point addition is commutative but NOT associative, so both levers can, in ' +
@@ -20520,19 +20520,19 @@ export const glossary = [
       'neither ORDER nor SHAPE alone is sufficient to make achieved precision approach its ' +
       'worst-case bound on this benign cancellation-heavy data.\n\n' +
       'HOW TO APPLY: cite this headword whenever a repo module needs to state precisely which ' +
-      'summation lever (order vs association) an adversarial stress test varies, or needs to ' +
+      'summation lever (order vs association) an stress-test varies, or needs to ' +
       'explain why floating-point non-associativity makes tree SHAPE a distinct axis from term ' +
       'ORDER even though both preserve the exact mathematical sum.\n\n' +
       'HONEST SCOPE: DEFINITIONAL / MEASUREMENT-SUPPORT ONLY. Certifies no W1 bound; changes no ' +
       'bound; establishes no positivity; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 ' +
       'remains SOTA.',
-    firstUsed: 'imp-35960 (glossary headword distinguishing term-ORDER and pairing-tree-SHAPE as independent adversarial levers), 2026',
+    firstUsed: 'imp-35960 (glossary headword distinguishing term-ORDER and pairing-tree-SHAPE as independent worst-case levers), 2026',
     relatedTerms: [
-      'imp-35852 varies term ORDER at fixed pairing-tree shape, the companion adversarial lever to imp-35893 (imp-35852)',
-      'imp-35893 varies pairing-tree SHAPE at fixed term order, the companion adversarial lever to imp-35852 (imp-35893)',
+      'imp-35852 varies term ORDER at fixed pairing-tree shape, the companion worst-case lever to imp-35893 (imp-35852)',
+      'imp-35893 varies pairing-tree SHAPE at fixed term order, the companion worst-case lever to imp-35852 (imp-35893)',
       'imp-35812 supplies the shared fixed term multiset and balanced-tree, original-order baseline both levers stress (imp-35812)',
       'imp-35761 supplies the log2(N) . eps pairwise and N . eps naive ceilings neither lever closes the gap to',
-      'Clustered Sign-Run Adversarial Ordering names the worst ORDER-lever permutation imp-35852 measures',
+      'Clustered Sign-Run Worst-case Ordering names the worst ORDER-lever permutation imp-35852 measures',
     ],
   },
   {
@@ -20623,7 +20623,7 @@ export const glossary = [
       'coherent N*eps ceiling.\n\n' +
       'The log2(N)*eps figure quoted for pairwise summation (imp-35761) is therefore a property ' +
       'of the BALANCED tree specifically, not of the pairwise scheme in the abstract: an ' +
-      'adversarially unbalanced pairing tree has a larger worst-case depth*eps bound, so citing ' +
+      'independently unbalanced pairing tree has a larger worst-case depth*eps bound, so citing ' +
       'log2(N)*eps without specifying tree shape silently assumes balance.\n\n' +
       'MEASUREMENT (imp-35893, N ~ 488602, fixed imp-35812 term multiset and order): sweeping ' +
       'the pairing-tree shape from balanced(0.5) (depth 12) through four skewed splits to two ' +
@@ -20643,7 +20643,7 @@ export const glossary = [
     relatedTerms: [
       'imp-35893 measures the pairwise error across balanced-to-caterpillar tree shapes and finds neither ceiling attained (imp-35893)',
       'imp-35761 supplies the log2(N)*eps pairwise and N*eps naive ceilings this headword distinguishes by tree shape (imp-35761)',
-      'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Adversarial Levers names the companion order/shape distinction (imp-35960)',
+      'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Worst-case Levers names the companion order/shape distinction (imp-35960)',
       'imp-35812 supplies the fixed term multiset and balanced-tree baseline the shape sweep varies (imp-35812)',
     ],
   },
@@ -20764,7 +20764,7 @@ export const glossary = [
     category: 'numerical',
     definition:
       'A headword for the improved compensated-summation variant (Neumaier 1974) used to floor the ' +
-      'imp-35973 combined worst-case (adversarial term ORDER x adversarial pairing-tree SHAPE) W1 ' +
+      'imp-35973 combined worst-case (worst-case term ORDER x skeptical pairing-tree SHAPE) W1 ' +
       'summation stress. KBN differs from classic Kahan summation by choosing which operand feeds the ' +
       'correction term based on relative magnitude -- c += (s - t) + x when |s| >= |x|, else ' +
       'c += (x - t) + s -- so the compensation stays correct even when the running sum s is smaller in ' +
@@ -20797,7 +20797,7 @@ export const glossary = [
     term: 'super-additive compounding of summation rounding stresses',
     category: 'numerical',
     definition:
-      'A headword for the imp-35973 finding that pulling two adversarial W1 pairwise-summation levers ' +
+      'A headword for the imp-35973 finding that pulling two skeptical W1 pairwise-summation levers ' +
       'at once -- the term ORDER (imp-35852) and the pairing-tree SHAPE (imp-35893) -- does not merely ' +
       'ADD their individual worst-case errors, but MULTIPLIES the interaction beyond that sum. At ' +
       'N ~ 488602: order-only worst (clustered order, balanced tree) is ~3.15e-17 normalized error; ' +
@@ -20805,7 +20805,7 @@ export const glossary = [
       'single-stress errors is ~3.33e-17. But the COMBINED worst case (clustered order AND caterpillarR ' +
       'tree together) reaches ~4.32e-16 -- about 13x the naive sum, ~13.7x the order-only worst alone, ' +
       'and ~233x the shape-only worst alone. A mirror configuration (clustered order with caterpillarL, ' +
-      'the opposite-handed worst shape once order is also adversarial) climbs further, to ~41% of the ' +
+      'the opposite-handed worst shape once order is also skeptical) climbs further, to ~41% of the ' +
       'log2(N)*eps ceiling, versus ~10% for the caterpillarR combination.\n\n' +
       'WHY SUPER-ADDITIVE, NOT ADDITIVE: the two levers are not independent perturbations that merely ' +
       'stack. The clustered order feeds a long run of same-sign partial sums into the deep caterpillar ' +
@@ -20813,7 +20813,7 @@ export const glossary = [
       'each lever contributing its own error in isolation. This is why the interaction term dwarfs ' +
       'either single-stress figure -- the mechanisms reinforce rather than merely coexist.\n\n' +
       'HOW TO APPLY: cite this headword whenever a repo module reasons about combining independently-' +
-      'measured worst-case perturbations (order stress, shape stress, or any other pair of adversarial ' +
+      'measured worst-case perturbations (order stress, shape stress, or any other pair of skeptical ' +
       'summation levers) -- do not assume the combined worst case is bounded by the sum of the single-' +
       'lever worst cases; imp-35973 shows the combined figure can be an order of magnitude larger. Even ' +
       'so, the compensated (Kahan-Babuska-Neumaier) channel stays at its unaffected floor (~2.31e-19) ' +
@@ -20824,9 +20824,9 @@ export const glossary = [
     firstUsed: 'imp-36029 (glossary headword for the imp-35973 super-additive order-x-shape compounding finding), 2026',
     relatedTerms: [
       'imp-35973 measured the combined order-x-shape worst case (~4.32e-16) recorded here and its ~13x super-additive gap over the naive sum (imp-35973)',
-      'imp-35852 supplies the clustered adversarial term ORDER that is one half of the compounding pair (imp-35852)',
+      'imp-35852 supplies the clustered worst-case term ORDER that is one half of the compounding pair (imp-35852)',
       'imp-35893 supplies the caterpillar pairing-tree SHAPE that is the other half of the compounding pair (imp-35893)',
-      'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Adversarial Levers frames the two levers singly (imp-35960); this headword extends it to the combined case',
+      'Summation Associativity: Term ORDER vs Pairing-Tree SHAPE as Independent Worst-case Levers frames the two levers singly (imp-35960); this headword extends it to the combined case',
       'Kahan-Babuska-Neumaier (KBN) compensated summation and its N-FLAT error floor stays unaffected by this combined stress (imp-36023)',
     ],
   },

@@ -1,11 +1,11 @@
 // @module data/imp-1288-section23-freezing-bridge
-// imp-1288 -- §23 freezing-bridge direct attack.
+// imp-1288 -- §23 freezing-bridge direct approach.
 //
 // MOTIVATION
 // ----------
 // Paper §23 (twin_ladder_consolidated_v52.pdf, freezing-bridge-section.js,
 // imp-1221) is titled "Freezing, Bridge Renormalization, and a Targeted
-// No-Ghost Attack". The 13-conjecture audit (waves 12-15) covered §15-22
+// No-Ghost Approach". The 13-conjecture audit (waves 12-15) covered §15-22
 // and §25-27 explicitly; §23 was rendered as a reference doc (imp-1221) but
 // never directly opened as an INDEPENDENT closure route.
 //
@@ -172,7 +172,7 @@ const PAPER_REF = 'research-inputs/twin_ladder_consolidated_v52.pdf';
 // ── Precise §23 statement (quoted from imp-1221) ─────────────────────────
 const SECTION_23_PRECISE_STATEMENT = Object.freeze({
   paperSection: '23',
-  paperTitle: 'Freezing, Bridge Renormalization, and a Targeted No-Ghost Attack',
+  paperTitle: 'Freezing, Bridge Renormalization, and a Targeted No-Ghost Approach',
   paperPageRange: [32, 36],
   paperSource: PAPER_REF,
 
@@ -506,7 +506,7 @@ export const IMP_1288_SECTION23_FREEZING_BRIDGE = Object.freeze({
 
   question:
     'Is the §23 freezing-bridge equivalent to Polymath15 G6a (imp-1264), or ' +
-    'strictly stronger/weaker, or independent? What does a direct attack on ' +
+    'strictly stronger/weaker, or independent? What does a direct approach on ' +
     '§23 deliver via (a) the paper argument, (b) HJB regularity (Bourgain-' +
     'Sinai 2009 / Caffarelli-Vasseur 2010), and (c) numerical bracket from ' +
     'scripts/compute-*.mjs?',

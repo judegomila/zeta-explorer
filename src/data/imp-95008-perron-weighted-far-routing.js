@@ -102,7 +102,7 @@
  *   Needs the witness internals E_cross and sum ||w_b||^2 separately;
  *   the chain bakes only the assembled floor F = E / (Tx(2) M).
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the kernel row-sum identity
+ * SKEPTICAL SELF-CHECK RECORD: (1) the kernel row-sum identity
  * rowSum(b) = OmegaE_b is checked exactly (rel 1e-12) on both parities,
  * b <= 60 - the kernel and the nineteenth roll-up are the same object;
  * (2) the sandwich Rayleigh <= Lw is asserted along with its 2.3e-16
@@ -124,7 +124,7 @@
  * imp-95032), so baked literals understate and an upward round of the new
  * ceiling (0.27150555) stays a valid upper bound; (8) SCOPE HONESTY: the
  * sharpness claim is about the AGGREGATION step only (per-pair caps in,
- * constant times M out) - schemes that bypass the parity split or exploit
+ * constant times M out) - schemes that bypass the parity split or use
  * joint near/far structure are outside it, and packet-level realizability
  * of the Rayleigh profile is exactly the E-realization sub-gap, not
  * claimed here.
@@ -453,7 +453,7 @@ export const IMP95008_PERRON_WEIGHTED_FAR_ROUTING = {
   ],
   isRigorous: true,
   rigorScope:
-    "Lemma SW is elementary weighted AM-GM plus symmetry, unconditional, and reduces to the Theorem Y-EXACT aggregation at x = 1; Theorem Y-PERRON changes only the aggregation step of the carried roll-up (per-pair envelope chain, parity split and currencies untouched), so it is CONDITIONAL exactly on MAJ(sigma, theta) like its predecessor. The new ceiling is an ACHIEVED upper bound in the Theorem K bracket class {cNear <= 2, Tstar <= Tx(2)}. The sharpness claim is scoped to the AGGREGATION step (per-pair caps in, constant times M out): schemes bypassing the parity split or exploiting joint near/far structure are outside it, and packet-level realizability of the Rayleigh profile is the open E-realization sub-gap, not claimed. The weight is a deterministic 500-step shifted power iterate on the 61-block even section with a geometric tail; ANY positive weight yields a valid constant by Lemma SW, so the weight itself needs no certification - only the ratio scan does, and it is recomputed from scratch by the assertions (b <= 400, gap <= 800, the nineteenth scan convention). Float evaluation carries the nineteenth ~1e-8 relative rounding, five orders below the priced 8.67e-4 improvement. The numerics cross-check the statements; they are not the claim.",
+    "Lemma SW is elementary weighted AM-GM plus symmetry, unconditional, and reduces to the Theorem Y-EXACT aggregation at x = 1; Theorem Y-PERRON changes only the aggregation step of the carried roll-up (per-pair envelope chain, parity split and currencies untouched), so it is CONDITIONAL exactly on MAJ(sigma, theta) like its predecessor. The new ceiling is an ACHIEVED upper bound in the Theorem K bracket class {cNear <= 2, Tstar <= Tx(2)}. The sharpness claim is scoped to the AGGREGATION step (per-pair caps in, constant times M out): schemes bypassing the parity split or using joint near/far structure are outside it, and packet-level realizability of the Rayleigh profile is the open E-realization sub-gap, not claimed. The weight is a deterministic 500-step shifted power iterate on the 61-block even section with a geometric tail; ANY positive weight yields a valid constant by Lemma SW, so the weight itself needs no certification - only the ratio scan does, and it is recomputed from scratch by the assertions (b <= 400, gap <= 800, the nineteenth scan convention). Float evaluation carries the nineteenth ~1e-8 relative rounding, five orders below the priced 8.67e-4 improvement. The numerics cross-check the statements; they are not the claim.",
   promotesBound: false,
   verdict:
     "RIGOROUS step (twenty-second continuation): NEW Lemma SW (weighted Schur aggregation, unconditional, x = 1 recovers Theorem Y-EXACT) and Theorem Y-PERRON re-run the parity roll-up with a near-Perron weight, replacing the unweighted sup-row-sum pullout sup_b OmegaE_b = 3.9231900742006723e-5 by the certified constant Lw = 3.9197935113802585e-5 with a machine-precision Rayleigh sandwich (width 2.3e-16) - the aggregation step is now lambda_max-SHARP, so the joint ceiling-side lever (b2) block-mass AM-GM + (b3) sup_b routing is executed and CONSUMED, measured at 1.0008665157515448 (0.0866 percent). Reference theta = 10: far ceiling 0.2717408057586117 -> 0.27150554192989773, headline gap 2.8088338309749887 -> 2.8064020394026787, fixed-97 gap 225.42360917596611 -> 225.22844518052122, floors untouched. Routing consequence for imp-95074: block-mass re-weighting in ANY family recovers at most 0.087 percent; the surviving residual 1.4032010197013394 is pinned to the E-realization step (attainment x norm subtraction), named as sub-gap imp-95008-subgap-witness-Erealization-split. Changes no bound; does NOT promote Lambda<=0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",

@@ -38,7 +38,7 @@ const FAMILIES = {
   },
   'rh-equivalent': {
     name: 'Family 3: Classical RH-Equivalent Reformulations',
-    desc: 'Ancient-to-modern RH reformulations (combinatorial, functional-analytic) never directly attacked.',
+    desc: 'Ancient-to-modern RH reformulations (combinatorial, functional-analytic) never directly approached.',
   },
   'sieve': {
     name: 'Family 4: Contemporary Breakthrough Sieves',

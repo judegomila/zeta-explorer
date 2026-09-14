@@ -33,7 +33,7 @@
  *                   -- a fixed-strip scaling that decays only LOGARITHMICALLY in height
  *                   (quasi-constant), the slow-decay counterpoint to the power family.
  *
- * THE MECHANISM (why a power floor kills the turnover)
+ * THE MECHANISM (why a power floor eliminates the turnover)
  * ----------------------------------------------------
  * sigma = 1/(1 + g), g(N) = (E_trunc + E_flow)/E_coll. The imp-3406 interior MAX is the
  * interior MIN of g. It exists only because the CONSTANT floor makes E_trunc/E_coll ~
@@ -53,7 +53,7 @@
  *   (F2) The PHYSICALLY-MOTIVATED power floor k = 0.4 (E_trunc = 3 * T0^{-0.4}, Ingham
  *        sigma = 3/4) DISSOLVES the turnover: sigma(N) is MONOTONE DECREASING for all
  *        N >= 1e2 -- there is NO interior maximum. The N-shape peak is gone.
- *   (F3) EVERY positive power exponent kills it. k in {0.2, 0.4, 0.5} give monotone
+ *   (F3) EVERY positive power exponent eliminates it. k in {0.2, 0.4, 0.5} give monotone
  *        DECREASING sigma (no interior max); k = 0.6 gives monotone INCREASING sigma
  *        toward 1 (no interior max). The large-N limit flips across k* ~ 1/2, the
  *        E_coll decay rate; the interior max is already absent for any k > 0.
@@ -223,7 +223,7 @@ export const IMP3465_NMAX_HEIGHT_DEPENDENT_FLOOR = {
     'constant control (k=0) reproduces the interior MAX at N_max ~ 9.22e5, but the ' +
     'physically-motivated fixed-strip Ingham sigma=3/4 floor E_trunc = 3 * T0^{-0.4} ' +
     'DISSOLVES it -- sigma(N) is monotone decreasing with NO interior maximum. Across the ' +
-    'power sweep every positive exponent kills the turnover (monotone decreasing for k in ' +
+    'power sweep every positive exponent eliminates the turnover (monotone decreasing for k in ' +
     '{0.2,0.4,0.5}, monotone increasing toward 1 for k=0.6; large-N limit flips at k* ~ ' +
     '1/2, the E_coll decay rate). Only quasi-constant LOG floors (q=1,2) preserve an ' +
     'interior MAX, landing modestly lower (~3.6e5, ~1.2e5). The imp-3406 turnover is a ' +

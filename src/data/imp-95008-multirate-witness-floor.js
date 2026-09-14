@@ -53,7 +53,7 @@
  * the cross-coupling decays at the SLOWER rate, not the faster one and
  * not the mean. Part (ii) is the mechanism of every gain below - a slow
  * packet keeps long-range bridge coupling alive that a locked fast rate
- * kills exponentially - and it REVERSES the rate-locked saturation
+ * eliminates exponentially - and it REVERSES the rate-locked saturation
  * verdicts: what looked like dead coupling at mu_opt(theta = 10) ~ 4.5
  * was an artifact of forcing the coupling to decay at the fast rate.
  *
@@ -107,7 +107,7 @@
  * Lemma S(ii) decays at the slower partner rate) - the three roles of
  * the locked rate are decoupled exactly as the gradient predicted.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) the kernel K is NOT trusted from
+ * SKEPTICAL SELF-CHECK RECORD: (1) the kernel K is NOT trusted from
  * the derivation alone - it is cross-checked below against direct
  * Simpson quadrature at generic unequal-rate triples (rel < 1e-6) and
  * against the equal-rate limit across the diagonal switch; (2) the full

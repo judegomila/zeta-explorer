@@ -81,7 +81,7 @@
  * (x + sqrt(1+x^2))^2 <= (2x+1)^2 above SGN-EQ, quadratic collar 4x^2 + 2
  * + O(1/x^2) at large x as recorded in COAL-2.
  *
- * ADVERSARIAL RECORD. (a) Dominance verified on the full (x, s) grid
+ * SKEPTICAL RECORD. (a) Dominance verified on the full (x, s) grid
  * x in [1e-4, 20], s in [1e-9, 1e5]: zero violations, max ratio < 1,
  * approached only as s -> 0. (b) The delicate regime is SMALL x, where
  * h(s) EXCEEDS h_0 for moderate s (h is not monotone in s there) -- the
@@ -269,7 +269,7 @@ export const IMP95227_COAL_DOM_ASSERTIONS = [
   {
     id: "imp95227-refuted-route-h-not-monotone",
     description:
-      "adversarial record: joint (h, P)-monotonicity really is FALSE at " +
+      "skeptical record: joint (h, P)-monotonicity really is FALSE at " +
       "small x -- h(s) exceeds the coalescent h_0 = 2 x e^(-x) at x = 0.1, " +
       "s = 10 (so the naive route cannot close the theorem)",
     holds: () => {

@@ -35,7 +35,7 @@
  *   -------------------------------------------
  *   cond(P) climbs geometrically: each +2 in DEG multiplies cond(P) by roughly two orders of
  *   magnitude. The largest DEG whose ||R_orth|| still respects the analytic ceiling tanh(a*U)
- *   is reported as trustworthyMaxDegree, and the first DEG that breaches it as
+ *   is reported as trustworthyMaxDegree, and the first DEG that crosses it as
  *   firstUntrustworthyDegree -- the EXACT, NUMERIC boundary. The reported trustworthyMaxDegree
  *   is >= 10, confirming the whole imp-3125 sweep {2,4,6,8,10} sits inside the trustworthy
  *   range, and firstUntrustworthyDegree pins where DEG >= 11 was rightly excluded.
@@ -215,7 +215,7 @@ function measureAtDegree(deg) {
   const operatorNormFinite = Number.isFinite(operatorNorm);
   const ceilingResidual = operatorNormFinite ? operatorNorm - TANH_AU : NaN;
   // Trustworthy <=> Cholesky stayed finite AND the de-homogenized norm respected its ceiling
-  // (a tiny positive tolerance absorbs quadrature/Jacobi round-off without masking a real breach).
+  // (a tiny positive tolerance absorbs quadrature/Jacobi round-off without masking a real crossing).
   const respectsCeiling = operatorNormFinite && ceilingResidual <= 1e-9;
 
   return {
@@ -308,7 +308,7 @@ export const IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING = Object.freeze({
     trustworthyDegrees: Object.freeze(trustworthyDegrees.slice()),
     untrustworthyDegrees: Object.freeze(untrustworthyDegrees.slice()),
     trustworthyMaxDegree,                                 // THE BOUNDARY: largest DEG whose ||R_orth|| respects tanh(a*U)
-    firstUntrustworthyDegree,                             // first DEG that breaches the ceiling (DEG >= 11 exclusion, pinned)
+    firstUntrustworthyDegree,                             // first DEG that crosses the ceiling (DEG >= 11 exclusion, pinned)
     condPAtTrustworthyMax,                                // cond(P) at the boundary degree
     condPReciprocalEpsCrossingDegree,                     // first DEG where cond(P) crosses ~1/eps
     analyticCeiling: TANH_AU,                             // tanh(a*U) the operator norm must stay below
@@ -324,14 +324,14 @@ export const IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING = Object.freeze({
     exactTrustBoundary:
       'The de-homogenized operator norm ||R_orth|| must stay strictly below its analytic ceiling tanh(a*U) ' +
       'at every DEG (imp-3104). The largest DEG where the computed ||R_orth|| still respects that ceiling is ' +
-      'trustworthyMaxDegree; the first DEG that breaches it (or produces a non-finite ||R_orth||) is ' +
-      'firstUntrustworthyDegree. That breach is the EXACT, NUMERIC location of the imp-3125 trustworthy-range ' +
+      'trustworthyMaxDegree; the first DEG that crosses it (or produces a non-finite ||R_orth||) is ' +
+      'firstUntrustworthyDegree. That crossing is the EXACT, NUMERIC location of the imp-3125 trustworthy-range ' +
       'boundary, which imp-3125 stated only qualitatively as DEG <= 10.',
     confirmsImp3125Caveat:
       'trustworthyMaxDegree >= 10 confirms the entire imp-3125 gap sweep {2,4,6,8,10} sits inside the ' +
       'trustworthy range, and firstUntrustworthyDegree pins where DEG >= 11 was rightly excluded -- so the ' +
       'imp-3125 caveat about catastrophic ill-conditioning is now backed by a tabulated cond(P) and a ' +
-      'measured ceiling breach, not a qualitative assertion.',
+      'measured ceiling crossing, not a qualitative assertion.',
   }),
 
   honestCaveat: Object.freeze({
@@ -392,7 +392,7 @@ export const IMP3153_COSH_MONOMIAL_CONDITIONING_CEILING_ASSERTIONS = [
   {
     id: 'imp3153-breakdown-exists-beyond-the-boundary',
     why: 'The point of the sweep is to EXPOSE the breakdown: at least one swept DEG must lose trust ' +
-         '(ceiling breach or non-finite ||R_orth||), and the first such DEG must lie strictly above the ' +
+         '(ceiling crossing or non-finite ||R_orth||), and the first such DEG must lie strictly above the ' +
          'trustworthy maximum -- pinning exactly where DEG >= 11 was rightly excluded.',
     holds: () =>
       firstUntrustworthyDegree !== null &&

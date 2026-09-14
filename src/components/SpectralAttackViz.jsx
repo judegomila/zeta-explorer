@@ -1021,7 +1021,7 @@ function StrategyScoresTab({ t, numPrimes }) {
   return (
     <div>
       <div className="tab-explainer accent-red">
-        Each "attack strategy" combines multiple confinement diagnostics into a single score (0–10) reflecting
+        Each "approach strategy" combines multiple confinement diagnostics into a single score (0–10) reflecting
         how strongly that approach constrains zeros to the critical line. Bars are colored green ({'\u2265'}8),
         yellow ({'\u2265'}5), or red ({'<'}5). The overall score aggregates all strategies.
         <strong> Look for:</strong> which strategies score highest and whether weaknesses reveal potential gaps

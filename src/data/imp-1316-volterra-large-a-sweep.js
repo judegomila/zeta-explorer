@@ -45,7 +45,7 @@
  *   The SS15-27 program is only needed for a in the range of physical interest
  *   (a <= 0.2 or a close to 0). For a <= 37.66 the HS bound (imp-1267) proves
  *   ||V|| <= 1; this MORE THAN covers the physically relevant range.
- *   The large-a failure of Conj 27.2 does not affect the RH attack for Lambda
+ *   The large-a failure of Conj 27.2 does not affect the RH approach for Lambda
  *   upper bounds in the range Lambda <= 37.66.
  *
  *   SCALING PATTERN (a <= 10)

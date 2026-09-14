@@ -133,7 +133,7 @@
  *   the same negative classification family, the engine's productive
  *   surface for §15-27 → RH via Montgomery PCC at 2-point for support > 1
  *   via the moment-method family is EMPTY. imp-1304 (Iwaniec-Sarnak 2000
- *   INDEPENDENT explicit-formula attack) remains the last named candidate
+ *   INDEPENDENT explicit-formula approach) remains the last named candidate
  *   inside the moment-method family but is independently likely to land
  *   in the same pattern (its structural mechanism is family-averaging
  *   cancellation in 1-level density of low-lying zeros, which does not
@@ -604,7 +604,7 @@ export const IMP_1305_GOLDSTON_YILDIRIM_MEAN_SQUARE = Object.freeze({
   }),
 
   honestScope: Object.freeze([
-    'This file is a CLASSIFICATION ticket for the candidate direct attack on Montgomery ' +
+    'This file is a CLASSIFICATION ticket for the candidate direct approach on Montgomery ' +
     'PCC at 2-point via Goldston-Yildirim 2003 (Acta Math 192, 95-148) conditional-on-GRH ' +
     'triple-correlation of divisor sums, absolutized via a Selberg 1944 / Heath-Brown 1979 / ' +
     'Hooley 1965 mean-square substitute for the GRH input. It is NOT a new closure or a new ' +

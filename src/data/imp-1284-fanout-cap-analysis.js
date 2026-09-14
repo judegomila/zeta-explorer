@@ -167,7 +167,7 @@ const SATURATING_RESOURCE_TABLE = Object.freeze([
       'vm_stat reports 56 GB free on reference machine',
       'ramCap = floor(56 / 3) = 18 -- 10 above current HARD_CEILING',
       'No OOM events grep-able in scripts/logs/ (zero hits for ' +
-        '"out of memory", "ENOMEM", "OOM killed")',
+        '"out of memory", "ENOMEM", "OOM eliminated")',
       'A worktree checkout is ~600 MB (the repo working tree); 61 active ' +
         'worktrees at the moment of analysis (38 GB resident) and the ' +
         'machine reports 56 GB free -- so RAM is comfortable',
@@ -299,7 +299,7 @@ const PATCH_TEXT = `--- a/scripts/dispatch-subagent-worktree.mjs
 +++ b/scripts/dispatch-subagent-worktree.mjs
 @@ -85,10 +85,15 @@
   * Replaces a hardcoded MAX_PARALLEL=5 in downstream fanout callers so the
-  * same script bursts higher on a beefy laptop / cloud instance without
+  * same script scales higher on a beefy laptop / cloud instance without
   * code changes.
   *
 - * Formula: min(floor(ncpu / 2), floor(free_ram_gb / 3), 8)

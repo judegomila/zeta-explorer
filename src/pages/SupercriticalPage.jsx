@@ -422,7 +422,7 @@ export default function SupercriticalPage() {
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/waves" style={{ color: 'var(--blue)', fontSize: 13 }}>Wave Simulator (phase behavior)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
-            <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Spectral Attack (phase barriers)</Link>
+            <Link to="/spectral-attack" style={{ color: 'var(--brass-dk)', fontSize: 13 }}>Spectral Approach (phase barriers)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>
             <Link to="/statistics" style={{ color: 'var(--brass)', fontSize: 13 }}>Statistics (de Bruijn-Newman)</Link>
             <span style={{ color: 'var(--hairline)' }}>|</span>

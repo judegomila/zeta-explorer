@@ -11,7 +11,7 @@
  * Historical values are retained solely for reproducibility.
  * @see imp-2424
  * @see imp-2363
- * @see data/three-attacks-section.js (Attack I)
+ * @see data/three-attacks-section.js (Approach I)
  * @see scripts/compute-imp-2456-Ka-minor-extrapolation.mjs
  */
 // imp-2456 -- historical surrogate minor fit; invalid for exact K_a / T3.
@@ -42,7 +42,7 @@
 // imp-2456 extends that sweep: n in {8,16,24,32,48,64,80,96} and a 12-point
 // a-grid {0.05 .. 6.0}. For each a it fits log|margin| against log n by OLS and
 // extrapolates the SIGNED margin to the continuum. Three outcomes were
-// distinguished a priori: a strictly-positive floor (Attack I achievable), a
+// distinguished a priori: a strictly-positive floor (Approach I achievable), a
 // signed limit of 0 reached from below (MARGINAL, on the cone boundary), or a
 // bounded-away negative value (positivity structurally blocked).
 //

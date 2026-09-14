@@ -42,7 +42,7 @@
  *
  * CONCLUSION: the imp-35893 tree-shape penalty does NOT grow with problem size. Across N from
  * ~488602 to 1e8 the worst pairing-tree shape stays >1700x below the log2(N)*eps ceiling and
- * >10 orders below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760). Adversarial tree
+ * >10 orders below the O(1) barrier margin |A_t + B_t| - |C_t| (imp-35760). Worst-case tree
  * SHAPE is non-binding on precision at every measured N, so the obstruction remains the
  * ENGINEERING of the certified length-N interval sum (MECHANICAL, imp-35725); the W1
  * A + B - C certificate at T_PT stays GREENFIELD (imp-35681 Part A).

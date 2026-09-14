@@ -85,7 +85,7 @@
  * evaluated here; A_{k,h} is named, not computed. Changes no bound; NO QED;
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) Ramanujan identity sum_{h=1}^{p-1}
+ * SKEPTICAL SELF-CHECK RECORD. (1) Ramanujan identity sum_{h=1}^{p-1}
  * e(hn/p) = -1 (p not | n) and = p-1 (p | n) verified for several (p, n).
  * (2) |a_h(n)| = 1/p exact. (3) {e(hn/p) : h=1..p-1} is a permutation of the
  * p-1 nontrivial p-th roots of unity when p not | n (verified as a set).

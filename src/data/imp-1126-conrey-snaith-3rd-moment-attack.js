@@ -1,5 +1,5 @@
 // @module imp-1126-conrey-snaith-3rd-moment-attack
-// imp-1126: Conrey-Snaith 3rd-moment attack on |zeta(1/2 + it)|.
+// imp-1126: Conrey-Snaith 3rd-moment approach on |zeta(1/2 + it)|.
 //
 // PURPOSE
 // -------

@@ -106,7 +106,7 @@
  * Lambda_conf is now dominated by the CEILING side, which relocates any
  * future sharpening effort to COAL-N itself, not the floor.
  *
- * ADVERSARIAL RECORD. (1) LEMMA LT checked by direct quadrature over the
+ * SKEPTICAL RECORD. (1) LEMMA LT checked by direct quadrature over the
  * full grid j, m <= 6, y in {0.7, 2, 5} including all m < j zero cases:
  * worst deviation 7.1e-12. (2) The Parseval identity T(N,x) =
  * e^(-2x) sum DL_k(2x)^2 checked against direct quadrature of the tail

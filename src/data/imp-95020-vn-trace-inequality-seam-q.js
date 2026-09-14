@@ -18,7 +18,7 @@
  * only be smaller (potential future gain)". THIS TICKET asks to substitute the
  * von Neumann trace inequality for Cauchy-Schwarz at exactly that step and to
  * measure the resulting residual product Q at the seam evaluation points on a
- * log-spaced N sample, KILLING the move if the spectral Q exceeds 1.4326672 by
+ * log-spaced N sample, ELIMINATING the move if the spectral Q exceeds 1.4326672 by
  * more than 2x at the worst N.
  *
  * LEMMA H (von Neumann trace-inequality refinement - UNCONDITIONAL). Cauchy-
@@ -50,7 +50,7 @@
  * the arithmetic Lane-A evaluator - compute_exact_N (the N -> x* map), the
  * exponent sB(x), the carrier c_n(x), and the window/seam family - which is
  * ABSENT from the repo (imp-95013 BLOCKED-ON-SPEC, sub-gap imp-95013-sub-native-
- * evaluator-spec). So the ticket KILL rule (spectral Q > 2 * 1.4326672 =
+ * evaluator-spec). So the ticket Stop rule (spectral Q > 2 * 1.4326672 =
  * 2.8653344 at the worst N) can only be honestly applied to the ARITHMETIC
  * measurement, which is not runnable in-repo. Emitting an arithmetic Q here would
  * be the surrogate substitution the Gate-2 anchor gate forbids. What this module
@@ -59,10 +59,10 @@
  * power-moment surrogate imp-95008 uses (carrier-dimension-matched, NON-
  * equimodular), measuring lambda_max(rho), the Christoffel diagonal at the
  * endpoints (the seam-analog concentration locus) and a log-spaced interior
- * sample, and confirming the surrogate Q stays below the 2x kill line; (iii) name
+ * sample, and confirming the surrogate Q stays below the 2x cutoff line; (iii) name
  * the sub-gap the blocked evaluator must feed.
  *
- * ADVERSARIAL SELF-CHECK. (1) Lemma H is not a strengthening of the BOUND: it
+ * SKEPTICAL SELF-CHECK. (1) Lemma H is not a strengthening of the BOUND: it
  * cannot make Q larger, so it can never spuriously CLOSE the budget - the payoff
  * is bounded by the true lambda_max(rho) which is unmeasured. (2) The trap
  * "mixed residual, so lambda_max < 1, so the move closes it" is NOT claimed:
@@ -76,7 +76,7 @@
  * paper scale; the surrogate Q is labeled SURROGATE and is not compared to the
  * arithmetic anchor.
  *
- * Changes no bound; does NOT promote Lambda <= 0.14; the KILL rule is not
+ * Changes no bound; does NOT promote Lambda <= 0.14; the Stop rule is not
  * arithmetically triggerable in-repo (blocked); NO QED; Platt-Trudgian
  * Lambda <= 0.2 remains SOTA.
  */
@@ -84,9 +84,9 @@
 import IMP95008_EVALUATION_CHRISTOFFEL_DUALITY from './imp-95008-evaluation-christoffel-duality.js';
 import { ANCHOR_GATE } from './imp-95013-gate2-lane-a-blocked-on-spec.js';
 
-// ── the ticket allowance and KILL line (carried from imp-95008 Theorem G) ────
+// ── the ticket allowance and Cutoff line (carried from imp-95008 Theorem G) ────
 const Q_ALLOWANCE = 1.4326672; // closure iff Q < this (target / sqrt(S_bar), p = 97)
-const KILL_LINE = 2 * Q_ALLOWANCE; // 2.8653344 - KILL if worst-N spectral Q exceeds this
+const KILL_LINE = 2 * Q_ALLOWANCE; // 2.8653344 - ELIMINATE if worst-N spectral Q exceeds this
 
 // ── 18-mode power-moment surrogate (carrier-dimension-matched; NON-equimodular)
 // Orthonormalize {1, x, ..., x^17} on L equispaced points of [-1, 1] by two-pass
@@ -296,7 +296,7 @@ export const IMP95020_VN_TRACE_INEQUALITY_SEAM_Q = {
   killLine: KILL_LINE,
   killRuleArithmeticallyTriggerable: false,
   arithmeticStatus:
-    'BLOCKED: the real lambda_max(rho) and real K_17(x,x) at the real seam points need the Lane-A evaluator (compute_exact_N, sB(x), the carrier c_n(x), the window/seam family), absent in-repo (imp-95013 BLOCKED-ON-SPEC). The KILL rule (Q > 2.8653344 at worst N) can only be applied to the arithmetic measurement, which is not runnable here; no surrogate is substituted for the arithmetic Q.',
+    'BLOCKED: the real lambda_max(rho) and real K_17(x,x) at the real seam points need the Lane-A evaluator (compute_exact_N, sB(x), the carrier c_n(x), the window/seam family), absent in-repo (imp-95013 BLOCKED-ON-SPEC). The Stop rule (Q > 2.8653344 at worst N) can only be applied to the arithmetic measurement, which is not runnable here; no surrogate is substituted for the arithmetic Q.',
   surrogate: {
     kind: 'SURROGATE (mechanism cross-check, NOT an arithmetic measurement) - 18-mode power-moment system, counting measure, carrier-dimension-matched to imp-95008',
     modes: M_MODES,
@@ -328,13 +328,13 @@ export const IMP95020_VN_TRACE_INEQUALITY_SEAM_Q = {
     IMP95008_EVALUATION_CHRISTOFFEL_DUALITY.numbersAtP97.allowanceQ < 1.4328,
   namedSubGap: 'imp-95020-sub-arithmetic-seam-Q',
   subGapStatement:
-    'the arithmetic seam-point measurement - the real Christoffel diagonal K_17(x,x) of the paper 18-mode carrier and the real weld-output mode density rho (hence lambda_max(rho) and the refined Q) at the true seam evaluation points on the log-spaced 690988 <= N <= 54799999 sample - requires the Lane-A evaluator (imp-95013-sub-native-evaluator-spec). Until it is committed, Lemma H reduces the move to that one measurable number lambda_max(rho) but cannot evaluate it or trigger the KILL rule in-repo.',
+    'the arithmetic seam-point measurement - the real Christoffel diagonal K_17(x,x) of the paper 18-mode carrier and the real weld-output mode density rho (hence lambda_max(rho) and the refined Q) at the true seam evaluation points on the log-spaced 690988 <= N <= 54799999 sample - requires the Lane-A evaluator (imp-95013-sub-native-evaluator-spec). Until it is committed, Lemma H reduces the move to that one measurable number lambda_max(rho) but cannot evaluate it or trigger the Stop rule in-repo.',
   isRigorous: true,
   rigorScope:
     'Lemma H (the von Neumann trace-inequality substitution and its monotone-safety) is unconditional exact linear algebra; the surrogate numbers are a mechanism cross-check on a NON-equimodular carrier-dimension-matched system, NOT the arithmetic Q. No arithmetic C_E,17 / K_17 measurement is emitted or synthesized.',
   promotesBound: false,
   verdict:
-    'HONEST PARTIAL. Lemma H substitutes the von Neumann trace inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage: the pointwise constant sharpens from sqrt(K_W(x,x)) to sqrt(lambda_max(rho) K_W(x,x)) over the weld ensemble, so the move is monotone-safe (refined Q = sqrt(lambda_max(rho)) * Cauchy-Schwarz Q, never larger) and its entire payoff is the one unmeasured number lambda_max(rho) of the seam mode density. The 18-mode surrogate confirms the mechanism (trace = 18, endpoint concentration ~3.3x, lambda_max(rho) ~0.49 -> gain ~0.70, von Neumann bound holds and refined <= Cauchy-Schwarz at every sampled point, pure state recovers Cauchy-Schwarz, worst surrogate Q well below the 2.8653344 kill line). The ARITHMETIC seam-point Q and the KILL rule are BLOCKED on the Lane-A evaluator (imp-95013 BLOCKED-ON-SPEC); sub-gap imp-95020-sub-arithmetic-seam-Q. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'HONEST PARTIAL. Lemma H substitutes the von Neumann trace inequality for Cauchy-Schwarz in the residual-(c) l2-to-pointwise passage: the pointwise constant sharpens from sqrt(K_W(x,x)) to sqrt(lambda_max(rho) K_W(x,x)) over the weld ensemble, so the move is monotone-safe (refined Q = sqrt(lambda_max(rho)) * Cauchy-Schwarz Q, never larger) and its entire payoff is the one unmeasured number lambda_max(rho) of the seam mode density. The 18-mode surrogate confirms the mechanism (trace = 18, endpoint concentration ~3.3x, lambda_max(rho) ~0.49 -> gain ~0.70, von Neumann bound holds and refined <= Cauchy-Schwarz at every sampled point, pure state recovers Cauchy-Schwarz, worst surrogate Q well below the 2.8653344 cutoff line). The ARITHMETIC seam-point Q and the Stop rule are BLOCKED on the Lane-A evaluator (imp-95013 BLOCKED-ON-SPEC); sub-gap imp-95020-sub-arithmetic-seam-Q. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
 };
 
 // ── assertions (self-executing; import-light; throw on violation) ────────────
@@ -394,7 +394,7 @@ export const IMP95020_VN_TRACE_INEQUALITY_SEAM_Q_ASSERTIONS = [
   },
   {
     id: 'imp95020-surrogate-below-kill-line',
-    description: 'the worst-sample surrogate refined Q stays below the 2x kill line 2.8653344 (KILL_LINE = 2 * 1.4326672)',
+    description: 'the worst-sample surrogate refined Q stays below the 2x cutoff line 2.8653344 (KILL_LINE = 2 * 1.4326672)',
     holds: () =>
       Math.abs(KILL_LINE - 2.8653344) < 1e-7 &&
       SURROGATE.worstRefined < KILL_LINE &&
@@ -402,7 +402,7 @@ export const IMP95020_VN_TRACE_INEQUALITY_SEAM_Q_ASSERTIONS = [
   },
   {
     id: 'imp95020-arithmetic-blocked-no-surrogate-substitution',
-    description: 'the arithmetic seam-point Q is BLOCKED on the Lane-A evaluator and the KILL rule is not arithmetically triggerable in-repo (no surrogate substituted for the arithmetic Q)',
+    description: 'the arithmetic seam-point Q is BLOCKED on the Lane-A evaluator and the Stop rule is not arithmetically triggerable in-repo (no surrogate substituted for the arithmetic Q)',
     holds: () =>
       IMP95020_VN_TRACE_INEQUALITY_SEAM_Q.killRuleArithmeticallyTriggerable === false &&
       IMP95020_VN_TRACE_INEQUALITY_SEAM_Q.anchorGateRef.N === 690988 &&

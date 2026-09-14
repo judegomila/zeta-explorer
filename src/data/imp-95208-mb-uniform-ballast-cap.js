@@ -138,7 +138,7 @@
  *   parity-pure 1/2; the m_B-removal of THIS module is orthogonal to and
  *   composes with any such sharpening.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA GS attacked by a 60-draw
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA GS approached by a 60-draw
  * deterministic LCG battery (4..11 packets, blocks 0..7, rates [0.3, 8],
  * amplitudes (0, 1.5], centers [1, 9], r in [0.5, 2.5], m_B up to 4):
  * blockwise ||w_b|| <= c nb_b, the exact Gram identity B^2 = N_o + X_o

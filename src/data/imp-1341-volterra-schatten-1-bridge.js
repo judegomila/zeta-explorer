@@ -34,7 +34,7 @@
  *   is TRACE CLASS, and its trace is ∫_0^U k(x, x) dx. Equivalently, by the
  *   Sobolev kernel criterion the kernel lies in H^{3/2−ε}(R²) with compact
  *   support (the only non-smoothness is the first-derivative kink across the
- *   diagonal, the Heaviside jump being killed by the linearly-vanishing
+ *   diagonal, the Heaviside jump being eliminated by the linearly-vanishing
  *   sinh(a(x−y))), and H^s with s > d/2 = 1 implies trace class. The
  *   super-exponential Phi tail past U is fp-zero, so V on L²([0, ∞)) is trace
  *   class with the same trace norm to any finite precision.

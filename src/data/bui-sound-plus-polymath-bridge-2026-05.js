@@ -1,13 +1,13 @@
 /**
  * @module data/bui-sound-plus-polymath-bridge-2026-05
- * @fileoverview imp-1127 HYBRID attack -- combine the Bui-Soundararajan 2008
+ * @fileoverview imp-1127 HYBRID approach -- combine the Bui-Soundararajan 2008
  *   zero-density exponent (the imp-1123 RIGOROUS PORT, shipping
  *   partial-with-obstructions) with refinable constants inside the Polymath15
  *   bridge (C_T, C_F, C_C, imp-397 / imp-398 / imp-399) to project a
  *   DOUBLE-TIGHTENING factor on the three error terms E_trunc, E_flow, E_coll
  *   that compose L_pt = L_cond + E_trunc.
  *
- *   The two attacks are INDEPENDENT and the per-term effects multiply:
+ *   The two approaches are INDEPENDENT and the per-term effects multiply:
  *     E_trunc^new = E_trunc^old / (bsFactor       *  polymathFactor_E_trunc)
  *     E_flow^new  = E_flow^old  / (polymathFactor_E_flow)
  *     E_coll^new  = E_coll^old  / (polymathFactor_E_coll)
@@ -143,7 +143,7 @@ const REFINEMENT_C_T_FACTOR_2_SYMMETRY = Object.freeze({
   obstruction:
     'imp-397 openWork explicitly states "No tightening expected here" -- the ' +
     'factor-of-2 from the conjugate-pair sum is sharp up to lower-order terms. ' +
-    'This is the obvious target a naive reader would attack first; honest ' +
+    'This is the obvious target a naive reader would approach first; honest ' +
     'survey says no, leave it alone.',
 });
 
@@ -204,7 +204,7 @@ const REFINEMENT_C_F_LOG_BOUND = Object.freeze({
     'The logarithmic growth of C_F is a feature of the RvM density formula, ' +
     'not slack in the derivation. There is no tightening available without ' +
     'replacing RvM by a finer density (e.g. local-law from imp-348), which ' +
-    'is a different attack path. Factor 1.0; not improvable.',
+    'is a different approach path. Factor 1.0; not improvable.',
 });
 
 const REFINEMENT_C_C_SELBERG = Object.freeze({
@@ -299,7 +299,7 @@ const L_ASYMPTOTIC_HYBRID_RIGOROUS   = 0.199;
 export const BS_PLUS_POLYMATH_HYBRID = Object.freeze({
   id: 'imp-1127',
   title:
-    'Hybrid attack: combine the Bui-Sound rigorous-port (imp-1123, ' +
+    'Hybrid approach: combine the Bui-Sound rigorous-port (imp-1123, ' +
     'partial-with-obstructions) with refinable Polymath15 bridge constants ' +
     '(imp-397 / imp-398 / imp-399) for double-tightening on ' +
     'E_trunc / E_flow / E_coll.',
@@ -346,7 +346,7 @@ export const BS_PLUS_POLYMATH_HYBRID = Object.freeze({
       : Object.freeze([]),
   }),
 
-  // Per-refinable-constant factors -- the polymath15 bridge attack.
+  // Per-refinable-constant factors -- the polymath15 bridge approach.
   polymathBridgeAlone: Object.freeze({
     factorOnE_trunc: +POLYMATH_BRIDGE_FACTOR_ON_E_TRUNC.toFixed(4),
     factorOnE_flow:  +POLYMATH_BRIDGE_FACTOR_ON_E_FLOW.toFixed(4),
@@ -371,7 +371,7 @@ export const BS_PLUS_POLYMATH_HYBRID = Object.freeze({
       'on E_coll). Two are RESEARCH_GRADE_HARD and named as obstructions ' +
       '(C_T RvM/derivative 1.20x on E_trunc; C_C local-law W_1 rate). Two ' +
       'are ALREADY_NEAR_OPTIMAL and explicitly listed to head off naive ' +
-      'subsequent attacks (C_T factor-of-2 conjugate-pair; C_F logarithmic ' +
+      'subsequent approaches (C_T factor-of-2 conjugate-pair; C_F logarithmic ' +
       'growth).',
   }),
 
@@ -473,7 +473,7 @@ export const BS_PLUS_POLYMATH_HYBRID = Object.freeze({
       'combined hybrid (C_F bulk approx engine-closable, C_C Selberg ' +
       'research-grade-feasible). Two are research-grade-hard and named as ' +
       'paper open-problem entries (C_T RvM/derivative; C_C local-law W_1 ' +
-      'upgrade). Two are already near-optimal and would be wasted attack ' +
+      'upgrade). Two are already near-optimal and would be wasted approach ' +
       'budget if pursued (C_T conjugate-pair factor-of-2; C_F logarithmic ' +
       'growth). UPSTREAM: BS itself ships with four research-grade ' +
       'obstructions from imp-1123, so the formal hybrid factor ~2e6x on ' +
@@ -532,7 +532,7 @@ export const BS_PLUS_POLYMATH_HYBRID = Object.freeze({
     'imp-397 (polymath15-constant-C-T.js): C_T = (3L-6)/(2L), bounded by 3/2; refinement candidate openWork = RvM/derivative subgap',
     'imp-398 (polymath15-constant-C-F.js): C_F = (log(T_0/2pi)+1)/(2pi); refinement candidate openWork = bulk approximation T^2 vs (T-gamma_{k*})^2',
     'imp-399 (polymath15-constant-C-C.js): C_C = (1/8)*sqrt(3*pi); refinement candidate openWork = Selberg sieve constant C_Selberg = 3',
-    'imp-1107 (sota-asymptotic-alternatives-2026-05.js): SOTA survey naming Bui-Sound as primary asymptotic attack route',
+    'imp-1107 (sota-asymptotic-alternatives-2026-05.js): SOTA survey naming Bui-Sound as primary asymptotic approach route',
     'imp-1123 (bui-soundararajan-rigorous-port-2026-05.js): partial-with-obstructions Bui-Sound rigorous port consumed here for the formal vs rigorous bsAlone factor split',
   ]),
 });

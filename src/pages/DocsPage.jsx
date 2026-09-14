@@ -166,10 +166,10 @@ export default function DocsPage() {
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">twistor.js</span> <span className="comment">— Twistor duality, Penrose transform, incidence relation</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">weil-connes.js</span> <span className="comment">— Weil quadratic form, Connes zero approx, Selberg trace</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">gap-closing.js</span> <span className="comment">— Regularization, Berry-Keating, Darlington convergence</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">spectral-attack.js</span> <span className="comment">— 6 attack vectors, D-H cross-validation, bootstrap</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">spectral-attack.js</span> <span className="comment">— 6 approach vectors, D-H cross-validation, bootstrap</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">proof-checker.js</span> <span className="comment">— Logic gap detection, Euler product discriminator</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">formal-proof.js</span> <span className="comment">— 10-section proof attempt with status tracking</span></div>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">rh-attack.js</span> <span className="comment">— Direct RH attack strategies</span></div>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">rh-attack.js</span> <span className="comment">— Direct RH approach strategies</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">information-theory.js</span> <span className="comment">— Shannon entropy, channel capacity, Fisher info</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">odd-zeta.js</span> <span className="comment">— Odd zeta value irrationality via Chaitin/Kolmogorov</span></div>
           <div>&nbsp;&nbsp;&nbsp;&nbsp;<span className="file">pascal.js</span> <span className="comment">— Pascal triangle and prime oscillator coupling</span></div>
@@ -208,13 +208,13 @@ export default function DocsPage() {
             { route: '/info-theory', name: 'Information Theory', desc: 'InformationTheoryViz + InfoTheoryExperimentsViz — Shannon entropy, channel capacity, experiments' },
             { route: '/pascal', name: 'Pascal', desc: 'PascalZetaViz — Pascal triangle mod p connections to prime oscillator harmonics' },
             { route: '/odd-zeta', name: 'Odd Zeta', desc: 'OddZetaViz — Irrationality of ζ(2n+1) via Chaitin/Kolmogorov complexity' },
-            { route: '/rh-attack', name: 'RH Attack', desc: 'RHAttackViz — Direct assault strategies with adversarial testing' },
-            { route: '/spectral-attack', name: 'Spectral Attack', desc: 'SpectralAttackViz — 6 attack vectors, Weil quadratic form, D-H cross-validation' },
+            { route: '/rh-attack', name: 'RH Approach', desc: 'RHAttackViz — Direct push strategies with skeptical testing' },
+            { route: '/spectral-attack', name: 'Spectral Approach', desc: 'SpectralAttackViz — 6 approach vectors, Weil quadratic form, D-H cross-validation' },
             { route: '/gap-closing', name: 'Gap Closing', desc: 'GapClosingViz — S4 regularization, S5 Hilbert-Polya, S7 Darlington, Berry-Keating, Selberg trace' },
             { route: '/twistor', name: 'Twistor', desc: 'TwistorViz — 4-tab (correspondence, Penrose transform, incidence relation, dual pair animation)' },
             { route: '/zx-calculus', name: 'ZX-Calculus', desc: 'ZXCalculusViz — ZX diagram representation of twin ladder duality' },
             { route: '/formal-proof', name: 'Formal Proof', desc: 'FormalProofViz — 10-section proof attempt with 3 paths (Hilbert-Polya, Darlington, Weil), scorecard' },
-            { route: '/proof-checker', name: 'Proof Checker', desc: 'ProofCheckerViz — adversarial logic gap detection, Euler product discriminator' },
+            { route: '/proof-checker', name: 'Proof Checker', desc: 'ProofCheckerViz — skeptical logic gap detection, Euler product discriminator' },
             { route: '/rigor', name: 'Rigor', desc: 'RHRigorViz — 12 criticisms (9 patched, 1 disputed, 2 open), numerical stress tests' },
             { route: '/concepts', name: 'Concepts', desc: '60+ key mathematical concepts organized by category with LaTeX definitions' },
             { route: '/history', name: 'History', desc: '38 historical figures across 4 eras with TLDR explainers' },
@@ -227,7 +227,7 @@ export default function DocsPage() {
             { route: '/papers', name: 'Papers', desc: 'Uploaded LaTeX papers list with parsed rendering and management' },
             { route: '/paper-upload', name: 'Paper Upload', desc: 'LaTeX paper upload and parsing tool with live preview' },
             { route: '/twin-ladder', name: 'Twin Ladder', desc: 'TwinLadderViz — 5-tab (anatomy, pressure/temperature, freezing, collapse, phase diagram)' },
-            { route: '/calabi-yau', name: 'Calabi-Yau', desc: 'CalabiYauViz — Calabi-Yau manifold attack on RH via Weil conjecture cohomological machinery' },
+            { route: '/calabi-yau', name: 'Calabi-Yau', desc: 'CalabiYauViz — Calabi-Yau manifold approach on RH via Weil conjecture cohomological machinery' },
             { route: '/vortex-field', name: 'Vortex Field', desc: 'Domain-colored phase portrait of V(s) = xi\'(s)/xi(s): zeros appear as phase vortices with winding ±1 (argument principle). Interactive off-axis vortex slider shows what an RH violation would look like. Ceiling: exact exploratory visualization, not a new rigorous Lambda bound.' },
             { route: '/visual-geometries', name: 'Visual Geometries', desc: 'Master gallery of 13 visualization panels — log-phase interference spiral, prime caustic geometry, phase crystal, hyperbolic prime spiral, vortex/defect map, near-zero rings, twin-ladder tomography, and more. Framing: exploratory pedagogy; twin-ladder geometry is a dead-end as a rigorous proof route.' },
             { route: '/mills-theorem', name: 'Mills Theorem', desc: 'Mills constant A ≈ 1.3064 where the floor of A^(3^n) is prime for all n ≥ 1. Live primality recurrence table with precomputed continuation.' },
@@ -237,7 +237,7 @@ export default function DocsPage() {
             { route: '/gram-points', name: 'Gram Points', desc: 'Points where the Riemann-Siegel theta function equals nπ; Gram law, Gram block exceptions, and Backlund counting.' },
             { route: '/selberg-trace', name: 'Selberg Trace', desc: 'Selberg trace formula analog — geometric vs spectral side comparison with prime geodesics mapped to zeta zeros.' },
             { route: '/rh-equivalents', name: 'RH Equivalents', desc: 'Compendium of conditions equivalent to the Riemann Hypothesis: Li criterion, Mertens bound, Robin inequality, and more.' },
-            { route: '/three-attacks', name: 'Three Attacks', desc: 'Three independent proof strategies: Theta-trap, discriminant ladder, and Volterra norm bound, with status per attack.' },
+            { route: '/three-attacks', name: 'Three Approaches', desc: 'Three independent proof strategies: Theta-trap, discriminant ladder, and Volterra norm bound, with status per approach.' },
             { route: '/blaschke-ghosts', name: 'Blaschke Ghosts', desc: 'Blaschke product construction probing off-critical zero hypotheses; §27 refutation result and §27-refuted verdict.' },
             { route: '/closure-routes', name: 'Closure Routes', desc: 'Systematic map of routes to closing the RH proof — RH-equivalent candidates, refuted routes, and open paths with freshness badges.' },
             { route: '/volterra-bound', name: 'Volterra Bound', desc: 'Volterra operator norm bound ||V|| ≤ 1 — the central RH-equivalent target (Conjecture 26.3), with rigorous vs estimated status.' },
@@ -262,7 +262,7 @@ export default function DocsPage() {
             { route: '/lmfdb-cross-reference', name: 'LMFDB Cross-Reference', desc: 'Cross-reference of computed zero data against LMFDB tables; integrity check and citation freshness badge.' },
             { route: '/edge-rigidity', name: 'Edge Rigidity', desc: 'ESY-style edge rigidity analysis for the Dyson gas model of zeta zeros — concentration inequalities at band edges.' },
             { route: '/esy-rigidity-empirical', name: 'ESY Rigidity Empirical', desc: 'Empirical tests of the Erdos-Schlein-Yau rigidity estimate for zeta zero spacings at finite N.' },
-            { route: '/cross-attack', name: 'Cross-Attack', desc: 'Cross-attack efficiency dashboard — cross-validates multiple RH attack strategies against each other to surface consistent results.' },
+            { route: '/cross-attack', name: 'Cross-Approach', desc: 'Cross-approach efficiency dashboard — cross-validates multiple RH approach strategies against each other to surface consistent results.' },
             { route: '/proof-planner', name: 'Proof Planner', desc: 'Interactive proof planning tool — organise and sequence proof steps with dependency tracking and milestone markers.' },
             { route: '/improvement-queue', name: 'Improvement Queue', desc: 'Live view of the auto-improvement engine queue — pending, in-progress, and completed tickets with priority and model routing.' },
             { route: '/proof-overview', name: 'Proof Overview', desc: 'High-level 8-step proof outline: Euler product transfer function, bridge unitarity, Hamiltonian minimisation, Darlington synthesis, and spectral confinement paths.' },
@@ -271,7 +271,7 @@ export default function DocsPage() {
             { route: '/blog', name: 'Blog', desc: 'Article-style posts on Twin-Ladder Bridge research progress, key results, and mathematical commentary.' },
             { route: '/wiki', name: 'Wiki', desc: 'Project knowledge-base wiki — definitions, conventions, and narrative explanations supplementing the formal docs.' },
             { route: '/index', name: 'Project Index', desc: 'Master sitemap / project index — flat list of all pages organised by category for quick navigation.' },
-            { route: '/break-it', name: 'Break It', desc: 'Adversarial stress-test suite — deliberately exercises model edge cases and invariant violations to surface hidden failure modes.' },
+            { route: '/break-it', name: 'Break It', desc: 'Stress-test suite — deliberately exercises model edge cases and invariant violations to surface hidden failure modes.' },
             { route: '/research-journal', name: 'Research Journal', desc: 'Chronological research journal — dated entries recording hypotheses tested, numerical experiments run, and conclusions drawn.' },
             { route: '/meta-acceleration', name: 'Meta Acceleration', desc: 'Meta-acceleration strategy dashboard — tracks harness throughput, routing accuracy, and auto-improvement velocity over time.' },
             { route: '/rh-dag', name: 'RH DAG', desc: 'RH dependency DAG — directed acyclic graph of all theorems, lemmas, and conjectures with status and proof-route provenance.' },
@@ -449,21 +449,21 @@ export default function DocsPage() {
 
         <details>
           <summary>
-            <span style={{ color: 'var(--accent-red)' }}>spectral-attack.js</span> — 6 attack vectors + D-H validation (10+ functions)
+            <span style={{ color: 'var(--accent-red)' }}>spectral-attack.js</span> — 6 approach vectors + D-H validation (10+ functions)
           </summary>
           <div>
             <Fn name="klLyapunov" params="s, numPrimes" desc="KL divergence Lyapunov function V(σ)" />
             <Fn name="fisherInformation" params="s, numPrimes" desc="Fisher information metric on σ" />
             <Fn name="confinementPotential" params="s, numPrimes" desc="Unified confinement potential combining 5 metrics" />
-            <Fn name="spectralAttackScan" params="t, sigmaRange, steps, numPrimes" desc="Scan all 6 attack vectors across σ" />
-            <Fn name="crossValidateWithDH" params="t, numPrimes" desc="Test attacks against Davenport-Heilbronn function" />
-            <Fn name="bootstrapAttackConfidence" params="numBootstrap" desc="Bootstrap robustness estimation for each attack" />
+            <Fn name="spectralAttackScan" params="t, sigmaRange, steps, numPrimes" desc="Scan all 6 approach vectors across σ" />
+            <Fn name="crossValidateWithDH" params="t, numPrimes" desc="Test approaches against Davenport-Heilbronn function" />
+            <Fn name="bootstrapAttackConfidence" params="numBootstrap" desc="Bootstrap robustness estimation for each approach" />
           </div>
         </details>
 
         <details>
           <summary>
-            <span style={{ color: 'var(--accent-cyan)' }}>proof-checker.js</span> — Adversarial testing (5+ functions)
+            <span style={{ color: 'var(--accent-cyan)' }}>proof-checker.js</span> — Skeptical testing (5+ functions)
           </summary>
           <div>
             <Fn name="checkProofSection" params="sectionId" desc="Run all checks on a formal proof section" />
@@ -523,11 +523,11 @@ export default function DocsPage() {
               ['FourierDomainViz', 'Fourier', 'SVG', '4-tab: von Mangoldt spectrum, frequency response, spectral energy, harmonics'],
               ['InformationTheoryViz', 'Info Theory', 'Canvas', 'Shannon entropy, channel capacity, Fisher information'],
               ['InfoTheoryExperimentsViz', 'Info Theory', 'Canvas', '4-tab experiments: efficiency, prime contribution, landscape, compression'],
-              ['RHAttackViz', 'RH Attack', 'Canvas', 'Direct attack strategies with adversarial testing'],
-              ['SpectralAttackViz', 'Spectral Attack', 'Canvas', '6 attack vectors with Weil quadratic form'],
+              ['RHAttackViz', 'RH Approach', 'Canvas', 'Direct approach strategies with skeptical testing'],
+              ['SpectralAttackViz', 'Spectral Approach', 'Canvas', '6 approach vectors with Weil quadratic form'],
               ['GapClosingViz', 'Gap Closing', 'Canvas+SVG', 'S4/S5/S7 gap analysis with Berry-Keating, Selberg trace tests'],
               ['FormalProofViz', 'Formal Proof', 'SVG', '10-section proof tracker with 3 paths and scorecard'],
-              ['ProofCheckerViz', 'Proof Checker', 'Canvas', 'Adversarial logic gaps, Euler product discriminator'],
+              ['ProofCheckerViz', 'Proof Checker', 'Canvas', 'Skeptical logic gaps, Euler product discriminator'],
               ['RHRigorViz', 'Rigor', 'Canvas', 'Numerical stress tests: Hamiltonian minimization, bridge unitarity'],
               ['TwistorViz', 'Twistor', 'Canvas+SVG', '4-tab: correspondence, Penrose transform, incidence, dual pair'],
               ['TwistorDiagram3D', 'Twistor', 'Canvas', '3D twistor space visualization'],

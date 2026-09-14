@@ -8,7 +8,7 @@
  * principal-angle route (cos2Direct) is ill-conditioned and returns cos^2 > 1.
  * imp-95479 supplied the missing ground truth by REPLACING the direct route with
  * a stable whitening / SVD route and a double-double closed form, confirming the
- * fence. This module attacks the remaining half of the imp-95460 ask -- an
+ * fence. This module approaches the remaining half of the imp-95460 ask -- an
  * EXTENDED-PRECISION solve of THE DIRECT ROUTE ITSELF, and a RECORD of the
  * residual conditioning limit that actually caused the float64 breakdown.
  * MEASUREMENT only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2

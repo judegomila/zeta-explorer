@@ -274,7 +274,7 @@ export default function DysonVerifierPage() {
           In-browser RK4 integration of the backward Dyson ODE — explores the finite-N Dyson collision
           mechanism related to the Polymath 15 / PT 2021 Lambda bound (the collision-time diagnostic used
           in the older Dyson lane, not the bound's proof). Runs entirely in your browser (pure JavaScript).
-          &nbsp;<Link to="/rh-attack" style={{ color: '#c23a1c' }}>RH Attack page</Link> has context.
+          &nbsp;<Link to="/rh-attack" style={{ color: '#c23a1c' }}>RH Approach page</Link> has context.
         </p>
 
         <AnimationEmbed id="colliding-zeros" />
@@ -476,7 +476,7 @@ export default function DysonVerifierPage() {
           </div>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center' }}>
             <Link to="/rh-attack" style={{ fontSize: 12, color: '#c23a1c', textDecoration: 'none' }}>
-              → RH Attack
+              → RH Approach
             </Link>
             <Link to="/lambda-bounds" style={{ fontSize: 12, color: '#b58a2e', textDecoration: 'none' }}>
               → Λ Bounds &amp; RH Roadmap

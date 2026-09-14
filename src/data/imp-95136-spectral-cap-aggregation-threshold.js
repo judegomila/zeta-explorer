@@ -132,18 +132,18 @@
  * only). (c) Parity-pure only. (d) Changes no bound; does NOT promote
  * Lambda <= 0.14; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * ADVERSARIAL SELF-CHECK RECORD: (1) The reduction chain was attacked
+ * SKEPTICAL SELF-CHECK RECORD: (1) The reduction chain was stress-tested
  * with 3000 seeded free-floor multi-packet parity-pure witnesses
  * (2-5 blocks, up to 4 packets per block, edge-piled every third draw,
  * floors 0.05..0.55, rate spreads to 30x): zero violations of the
  * entrywise cap R <= C, zero violations of E <= (lamMax(R) - 1)|v|^2,
  * zero violations of lamMax(R) <= lamMax(C_occupied); max E / |v|^2
  * = -0.34476426497437523. (2) The Sylvester dichotomy itself was
- * attacked on 2000 seeded random symmetric nonnegative matrices
+ * approached on 2000 seeded random symmetric nonnegative matrices
  * (n = 2..5, thresholds s in 0.3..1.8): sign(all leading minors of
  * sI - B positive) agrees with sign(lamMax(B) < s) in every non-boundary
  * case. (3) LEMMA OG is exact integer arithmetic, checked for all
- * j < k <= 20. (4) The theorem battery attacks THEOREM SA directly:
+ * j < k <= 20. (4) The theorem battery probes THEOREM SA directly:
  * 6000 seeded parity-pure multi-packet witnesses at rates >= 69/250:
  * max E = -0.0002949516522176497, zero E > 0 draws. (5) The certificate
  * entries dominate the exact caps at all six head pairs, and the
@@ -362,7 +362,7 @@ function runReductionBattery() {
   return { worstCapViol, redViol, chainViol, maxRatio, count };
 }
 
-// battery B (seed 777001): THEOREM SA direct attack at rates >= 69/250
+// battery B (seed 777001): THEOREM SA direct approach at rates >= 69/250
 function runTheoremBattery() {
   seedState = 777001;
   let maxE = -Infinity;
@@ -390,7 +390,7 @@ function runTheoremBattery() {
   return { maxE, viol };
 }
 
-// battery C (seed 313131): Sylvester dichotomy attack - minors of sI - B
+// battery C (seed 313131): Sylvester dichotomy approach - minors of sI - B
 // all positive iff lamMax(B) < s, on random symmetric nonnegative B
 function runSylvesterBattery() {
   seedState = 313131;
@@ -576,7 +576,7 @@ export const IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95136-sa-reduction-battery",
     description:
-      "the reduction chain attacked on 3000 seeded free-floor multi-packet parity-pure witnesses (2931 evaluable): zero entrywise cap violations R <= C, zero violations of E <= (lamMax(R) - 1)|v|^2, zero violations of lamMax(R) <= lamMax(C_occupied); max E/|v|^2 = -0.34476426497437523",
+      "the reduction chain approached on 3000 seeded free-floor multi-packet parity-pure witnesses (2931 evaluable): zero entrywise cap violations R <= C, zero violations of E <= (lamMax(R) - 1)|v|^2, zero violations of lamMax(R) <= lamMax(C_occupied); max E/|v|^2 = -0.34476426497437523",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return (
@@ -591,7 +591,7 @@ export const IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95136-sa-theorem-battery",
     description:
-      "THEOREM SA attacked directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 69/250 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.0002949516522176497 strictly negative, zero E > 0 draws",
+      "THEOREM SA approached directly: 6000 seeded parity-pure multi-packet witnesses at rates >= 69/250 (2-5 blocks, up to 5 packets per block, edge-piled every third draw, both parities) - max E = -0.0002949516522176497 strictly negative, zero E > 0 draws",
     holds: () => {
       const rel = (x, lit, t) => Math.abs(x - lit) <= t * Math.abs(lit);
       return BAT_SA.viol === 0 && BAT_SA.maxE < 0 && rel(BAT_SA.maxE, BAT_SA_MAX_E_LIT, 1e-6);
@@ -600,7 +600,7 @@ export const IMP95136_SPECTRAL_CAP_AGGREGATION_THRESHOLD_ASSERTIONS = [
   {
     id: "imp95136-sa-sylvester-dichotomy",
     description:
-      "the Sylvester criterion itself attacked on 2000 seeded random symmetric nonnegative matrices (n = 2..5, thresholds s in 0.3..1.8): all-leading-minors-positive agrees with lamMax < s in every non-boundary case",
+      "the Sylvester criterion itself approached on 2000 seeded random symmetric nonnegative matrices (n = 2..5, thresholds s in 0.3..1.8): all-leading-minors-positive agrees with lamMax < s in every non-boundary case",
     holds: () => BAT_SYL.disagree === 0,
   },
   {

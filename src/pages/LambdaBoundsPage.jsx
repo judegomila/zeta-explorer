@@ -199,7 +199,7 @@ export default function LambdaBoundsPage() {
             The de Bruijn-Newman constant Λ is the essential bridge between
             a numerical Λ upper bound and the Riemann Hypothesis itself.
             RH ⟺ Λ = 0 (de Bruijn 1950 + Rodgers-Tao 2020). This page is the
-            plan, the status, and the verification efforts of our attack.
+            plan, the status, and the verification efforts of our approach.
           </p>
       <AnimationEmbed id="lambda-history" />
 

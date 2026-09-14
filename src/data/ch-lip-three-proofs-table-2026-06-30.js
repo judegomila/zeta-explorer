@@ -9,7 +9,7 @@
  *
  *   1. IMPOSSIBILITY (Holder-1/2 lower bound)  -- airtight, no loophole
  *   2. NORM-MISMATCH (linear-N dilution)       -- exact closed form, sharpest WHY
- *   3. REFUTED SURROGATES (tau_c, squared-gap) -- both fail adversarial check
+ *   3. REFUTED SURROGATES (tau_c, squared-gap) -- both fail skeptical check
  *
  * Grounded in CH_WALL_FRONTIER: the assertions below cross-check that the table
  * stays faithful to the verdict and that NO false QED is implied (PT Lambda<=0.2
@@ -51,10 +51,10 @@ export const CH_LIP_THREE_PROOFS = {
       key: 'refuted-surrogates',
       n: 3,
       name: 'REFUTED SURROGATES (tau_c, squared-gap)',
-      rigor: 'both fail adversarial check',
+      rigor: 'both fail skeptical check',
       mechanism: 'tau_c-direct: object-substitution error -- tau_c (collision TIME) is degree-2 homogeneous (Lipschitz), but C_H multiplies g_min (degree-1) -> 1/length divergent; converting back dg_min/dW_1 = 1.449/sqrt(W_1) -> infinity (identical to imp-2839). squared-gap (h=g^2): the bounded C_shock^2/8 holds ONLY along the 1-parameter cusp family; breaks under the consistent-W_1 rank-1 move (gN/4 ~ sqrt(N)) and any multiplicative fluctuation (1/W reacquired).',
       result: 'Neither surrogate yields a finite C_Lip; both recover the same divergence.',
-      witness: 'Refuted by adversarial referees in the ch-wall-frontier workflow.',
+      witness: 'Refuted by independent referees in the ch-wall-frontier workflow.',
       escape: 'None -- the surrogates were the last non-RH-hard reframings.',
     },
   ],

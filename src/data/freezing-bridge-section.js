@@ -2,7 +2,7 @@
  * @module freezing-bridge-section
  * @fileoverview Structured rendering of §23 of
  *   research-inputs/twin_ladder_consolidated_v52.pdf
- *   "Freezing, Bridge Renormalization, and a Targeted No-Ghost Attack"
+ *   "Freezing, Bridge Renormalization, and a Targeted No-Ghost Approach"
  *
  * §23 isolates the question "can the older freezing tools remove or rule out
  * the inverse-Blaschke ghost factor in the shifted bridge R_a?" The answer is
@@ -26,7 +26,7 @@
  *   23.6 A practical next experiment
  *        — 5-step protocol: shifted bridge Gram on dense mesh, frozen
  *          approximation, interval-arithmetic certification of negative index.
- *   23.7 Conclusion of the freeze attack
+ *   23.7 Conclusion of the freeze approach
  *        — Freezing is an INERTIA-PRESERVING REDUCTION TOOL + finite-window
  *          CERTIFICATION ENGINE, not a proof shortcut. The real analytic step
  *          is a passive frozen-bridge closure surviving the limits
@@ -51,13 +51,13 @@
 export const FREEZING_BRIDGE_SECTION = Object.freeze({
   id: 'freezing-bridge-section',
   ticketId: 'imp-1221',
-  title: 'Freezing, Bridge Renormalization, and a Targeted No-Ghost Attack',
+  title: 'Freezing, Bridge Renormalization, and a Targeted No-Ghost Approach',
   shortName: 'freezing bridge',
   paperSource: 'research-inputs/twin_ladder_consolidated_v52.pdf',
   paperSection: '23',
   paperPageRange: [32, 36],
   paperSectionTitle:
-    'Freezing, Bridge Renormalization, and a Targeted No-Ghost Attack',
+    'Freezing, Bridge Renormalization, and a Targeted No-Ghost Approach',
   generatedAt: '2026-05-26T00:00:00Z',
 
   intro:
@@ -269,7 +269,7 @@ export const FREEZING_BRIDGE_SECTION = Object.freeze({
   // ── §23.7 ──────────────────────────────────────────────────────────────
   s23_7: Object.freeze({
     id: '23.7',
-    name: 'Conclusion of the freeze attack',
+    name: 'Conclusion of the freeze approach',
     paperContent:
       'Freezing is NOT a way to wish away the inverse-Blaschke obstruction. Properly ' +
       'used, it is an INERTIA-PRESERVING REDUCTION TOOL and a FINITE-WINDOW CERTIFICATION ' +
@@ -403,11 +403,11 @@ export const FREEZING_BRIDGE_SECTION = Object.freeze({
       paperSection: '18',
       ticket: 'imp-1199',
       route: '/three-attacks',
-      label: 'Three Concrete Attack Programs (§18)',
+      label: 'Three Concrete Approach Programs (§18)',
       description:
-        'Three concrete attack programs for the no-ghost target. The §23 ' +
-        'verdict says freezing is a TOOL inside these attacks, not a ' +
-        'standalone attack.',
+        'Three concrete approach programs for the no-ghost target. The §23 ' +
+        'verdict says freezing is a TOOL inside these approaches, not a ' +
+        'standalone approach.',
     },
   ]),
 

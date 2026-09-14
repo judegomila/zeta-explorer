@@ -129,7 +129,7 @@
  *     and is coalescence-uniform, but its firing threshold, not the
  *     twin-free floor, governs where it becomes useful.
  *
- * ADVERSARIAL RECORD. (1) End-to-end chain exact Lambda <=
+ * SKEPTICAL RECORD. (1) End-to-end chain exact Lambda <=
  * exact-ingredient SPLIT-LOO <= EV-OCT-N closed occupied-set form:
  * verified with ZERO violations on random configurations at spread
  * octave sets {0,2}, {0,3}, {0,2,4} (N = 3..4, R in {1.1, 1.3}, x up

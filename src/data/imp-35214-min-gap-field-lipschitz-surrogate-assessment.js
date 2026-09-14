@@ -21,7 +21,7 @@
  *   STRIP picture (imp-2520 / imp-35127 / imp-35196). Evaluate on a horizontal
  *   strip Im z >= y_star. At height y all N poles contribute comparably, so
  *          L_strip(N, y) = 2N / y^2      -- prefactor is N-LINEAR.
- *   imp-35196 killed this: N-uniformity forces y_star ~ sqrt(N), off the front.
+ *   imp-35196 eliminated this: N-uniformity forces y_star ~ sqrt(N), off the front.
  *
  *   MIN-GAP picture (imp-35167 / imp-35194, THIS ticket). Evaluate ON the real
  *   axis at the intrinsic separation scale of the collapsing adjacent pair. The
@@ -74,7 +74,7 @@
  * establishes no operator positivity; changes no bound; C_mb GUE-conditional per
  * imp-486 UNTOUCHED; no RH verdict, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
- * @see imp-35196-ystar-schedule-reconciliation-assessment (strip route killed; names this lever)
+ * @see imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; names this lever)
  * @see imp-35167-g-min-non-collision-certificate-scope (M2/M5 min-gap certificate; the OPEN Q3)
  * @see imp-35194-background-field-sup-n-uniformity (F1 N-uniform beta; F2 beta ~ 1/g_min)
  * @see imp-35127-g-step-error-certified-bound-scope (I3 ingredient; I2 coupling)
@@ -157,7 +157,7 @@ export const IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT = {
       'FAILS: the background beta driving both the gap ODE and the surrogate is itself ~ 1/g_min (imp-35194 F2 beta . g_min in (1, 1.4), decreasing 1.33 -> 1.04 toward the front) -- the same self-referential coupling imp-35167 M2 flagged',
   },
   stripVsMinGap: {
-    stripPrefactor: 'L_strip = 2N / y^2 -- N-LINEAR (all N poles seen at height y); killed by imp-35196',
+    stripPrefactor: 'L_strip = 2N / y^2 -- N-LINEAR (all N poles seen at height y); eliminated by imp-35196',
     minGapPrefactor: 'L_gap ~ c_pair / g^2 -- N-UNIFORM prefactor (adjacent pair dominates; background beta N-uniform per imp-35194 F1)',
     ratioIsPoleCount: 'L_strip / L_gap = 2N at a fixed separation: the min-gap route sheds a factor proportional to the pole count the strip route could not',
   },
@@ -193,7 +193,7 @@ export const IMP35214_MIN_GAP_FIELD_LIPSCHITZ_SURROGATE_ASSESSMENT = {
     'positivity; changes no bound; C_mb GUE-conditional per imp-486 UNTOUCHED; no RH verdict, NO QED. ' +
     'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
-    'imp-35196-ystar-schedule-reconciliation-assessment (strip route killed; names this lever); ' +
+    'imp-35196-ystar-schedule-reconciliation-assessment (strip route eliminated; names this lever); ' +
     'imp-35167-g-min-non-collision-certificate-scope (M2/M5 min-gap certificate; the OPEN Q3); ' +
     'imp-35194-background-field-sup-n-uniformity (F1 N-uniform beta; F2 beta ~ 1/g_min); ' +
     'imp-35127-g-step-error-certified-bound-scope (I3 ingredient; I2 coupling); ' +

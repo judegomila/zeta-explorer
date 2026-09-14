@@ -787,7 +787,7 @@ const literature = [
     category: 'computational',
     tags: ['fast algorithm', 'zeta evaluation', 'FFT', 'computational'],
     summary: 'Developed the fast algorithm reducing zeta evaluation complexity from O(T) to O(T^{1/2+ε}), enabling large-scale computation of zeros. Uses FFT-based techniques.',
-    keyInsight: 'The fast algorithm exploits the same multiplicative structure that makes the oscillator chain decomposable — the FFT mirrors the Euler product factorization.',
+    keyInsight: 'The fast algorithm uses the same multiplicative structure that makes the oscillator chain decomposable — the FFT mirrors the Euler product factorization.',
     relevanceToModel: 'The algorithmic efficiency comes from the same cascade decomposition used in our ladder network model.',
   },
   {
@@ -2266,7 +2266,7 @@ const literature = [
     tags: ['Kolmogorov complexity', 'algorithmic randomness', 'Omega', 'halting probability', 'information theory'],
     summary: 'Establishes the theory of algorithmic information content, defining Chaitin\'s constant Omega as the halting probability. Shows K(x) (Kolmogorov complexity) is incomputable but bounds can separate rational from irrational numbers: rationals have K = O(log N) for N digits.',
     keyInsight: 'Rational numbers are algorithmically compressible (low Kolmogorov complexity). If ζ(2n+1) resists compression beyond O(log N), it must be irrational.',
-    relevanceToModel: 'Applied to the odd zeta irrationality attack: the Euler product for ζ(2n+1) forces a specific digit structure that may be provably incompressible, establishing irrationality via information-theoretic methods.',
+    relevanceToModel: 'Applied to the odd zeta irrationality approach: the Euler product for ζ(2n+1) forces a specific digit structure that may be provably incompressible, establishing irrationality via information-theoretic methods.',
   },
 
   // === Weil Explicit Formula ===

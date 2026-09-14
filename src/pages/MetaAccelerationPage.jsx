@@ -9,7 +9,7 @@ import { RANKED_OPPORTUNITIES } from '../data/full-route-map-2026-06-19.js';
 // download. Both files are also dynamic-imported by their primary pages
 // (ImprovementQueuePage, ImprovementsPage), so no static import remains.
 
-// Meta Acceleration — engine status dashboard + Λ attack progress snapshot.
+// Meta Acceleration — engine status dashboard + Λ approach progress snapshot.
 // This page is the read interface over:
 //   - src/data/improvement-queue.js  (live task list)
 //   - src/data/improvements.js       (per-commit log)
@@ -66,7 +66,7 @@ function metaTickets(queue) {
   return metas;
 }
 
-// ── Static config: phase narrative of the Λ attack ─────────────────────────
+// ── Static config: phase narrative of the Λ approach ─────────────────────────
 
 const PHASES = [
   {
@@ -85,7 +85,7 @@ const PHASES = [
   },
   {
     id: 'phase-7',
-    title: 'Phase 7 — Attack B1-B4',
+    title: 'Phase 7 — Approach B1-B4',
     ids: ['imp-323', 'imp-324', 'imp-325', 'imp-326', 'imp-327'],
     result:
       'B2(a) statistical angle exhausted (â ≈ 0.0029 but 95% UCL > 0). imp-327 height-mapping theorem + N ↔ T* table shipped.',
@@ -230,7 +230,7 @@ export default function MetaAccelerationPage() {
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Meta Acceleration</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
             Status dashboard for the auto-improvement engine, plus the archived
-            phase record of the early Λ attack (imp-314..344 era). The current
+            phase record of the early Λ approach (imp-314..344 era). The current
             Λ frontier is summarized in the card below; the live technical
             state is on <Link to="/state-of-program" style={{ color: 'var(--blue)' }}>/state-of-program</Link>{' '}
             and <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>/permutation-architecture</Link>.
@@ -450,7 +450,7 @@ git log --oneline -10                    # engine commits`}
         <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>Historical phase record — three routes (imp-344 era)</h2>
         <p style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 12, maxWidth: 760, lineHeight: 1.55 }}>
           The three-route decomposition below was the gap structure of the Λ
-          attack as of the imp-344 capstone. It was superseded by the C_H
+          approach as of the imp-344 capstone. It was superseded by the C_H
           reclassification, the candidate bounds, and the one-open-family 0.14
           contract — see <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>/permutation-architecture</Link>.
           Status chips reflect the state at the time, not the current program.
@@ -751,7 +751,7 @@ git log --oneline -10                    # engine commits`}
                   { name: 'Parser bug fixes', status: 'shipped', detail: 'Fixed balanced-brace parser for string literals (66 hidden tickets recovered)' },
                   { name: 'Prompt refinement', status: 'active', detail: 'Token budget discipline, syntax gotchas, category routing rules' },
                   { name: 'Ticket-id collision prevention', status: 'shipped', detail: 'Claim protocol for concurrent agents (imp-446)' },
-                  { name: 'Adversarial review loop', status: 'shipped', detail: '7 reviews, FATAL trajectory 2->0->0->0->0->0->TBD' },
+                  { name: 'Skeptical review loop', status: 'shipped', detail: '7 reviews, FATAL trajectory 2->0->0->0->0->0->TBD' },
                 ],
               },
               {

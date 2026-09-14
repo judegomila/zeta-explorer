@@ -54,7 +54,7 @@
  * WINDOW-PINCH limit R^(N-1): rho(N,1.3,2000) = 1.693447 / 2.206650 /
  * 2.877926 vs R^(N-1) = 1.690000 / 2.197000 / 2.856100 (N = 3/4/5).
  *
- * ADVERSARIAL RECORD. (1) The baked caps are reproduced live at the corner
+ * SKEPTICAL RECORD. (1) The baked caps are reproduced live at the corner
  * within 1e-5 relative. (2) Monotonicity in R and in depth (x >= onset) is
  * verified on fine scans, not asserted. (3) The firing-onset identity
  * coalN(N,1.3,x0)=1 is checked to 1e-5. (4) The deep-x limit rho->R^(N-1) is

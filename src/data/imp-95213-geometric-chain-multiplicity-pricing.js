@@ -143,9 +143,9 @@
  *   separation pricing), since separation, not multiplicity, is the
  *   binding quantity.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) K = 1 reduction attacked: LamRefBar
+ * SKEPTICAL SELF-CHECK RECORD. (1) K = 1 reduction stress-tested: LamRefBar
  * at K = 1 must reproduce the imp-95211 payoff rows and xStar EXACTLY
- * (asserted rel 1e-12). (2) THEOREM DR-R attacked by a 3000-draw
+ * (asserted rel 1e-12). (2) THEOREM DR-R approached by a 3000-draw
  * Rayleigh battery over random H-DYA-M configurations (1..3 shells, up
  * to K = 2..4 rates per shell at in-shell ratios >= rho in {1.5, 1.2},
  * shell jumps >= 2, random depths, signed coefficients) against the

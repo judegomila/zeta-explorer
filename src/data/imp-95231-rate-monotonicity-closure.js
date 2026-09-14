@@ -70,7 +70,7 @@
  * and every intermediate value is attained exactly once: the second rate
  * interpolates monotonically between the confluent double rate and the
  * single-rate seam constant. No conflict with imp-95224 DC-NOGO, which
- * kills only count-UNIFORM depth-only bounds; this is N = 2 specific.
+ * eliminates only count-UNIFORM depth-only bounds; this is N = 2 specific.
  *
  * HONEST SCOPE. This closes the imp-95231 residual sub-gap (N = 2 ratio
  * monotonicity) only. It does NOT extend to N >= 3 (the fully-confluent-

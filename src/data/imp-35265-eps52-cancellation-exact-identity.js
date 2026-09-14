@@ -235,7 +235,7 @@ export const IMP35265_EPS52_CANCELLATION_EXACT_IDENTITY = {
     'G6a_shock_lipschitz STAYS OPEN. The imp-35244 odd-p cancellation is now an EXACT algebraic identity: ' +
     '(i - t^2)^{-3} + (i + t^2)^{-3} = -2 i(3 t^4 - 1)/(1 + t^4)^3 = -6 i t^{-8} + 20 i t^{-12} + O(t^{-16}), ' +
     'with the leading t^{-6} provably cancelled between the conjugate branches (each single branch carries ' +
-    't^{-6}, but the sum kills it). Hence the |F_3| curvature tail enters at t^{-8} -> L^{-7} -> eps^{7/2} ' +
+    't^{-6}, but the sum eliminates it). Hence the |F_3| curvature tail enters at t^{-8} -> L^{-7} -> eps^{7/2} ' +
     '(L = eps^{-1/2}, so L^{-7} = eps^{7/2} exactly), the eps^{5/2} slot is PROVABLY empty, and the ' +
     'imp-35216-implied -32 sqrt(2)/(45 pi) belongs to the SYMMETRIC integrand (t^2 - i)^{-3} + (t^2 + i)^{-3} ' +
     '= 2 t^{-6} + ..., whose 2/5 L^{-5} -> eps^{5/2} tail never reaches rho. K_{7/2} assembles analytically ' +

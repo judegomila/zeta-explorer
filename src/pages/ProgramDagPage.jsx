@@ -74,8 +74,8 @@ const LAYOUT = {
   'weld-referee': { x: X(6), y: 682, lines: ['Referee pass 20–52:', 'all sound-with-caveats'] },
   // 0.1399 lane & collar
   'campaign-01399': { x: X(0), y: 878, lines: ['0.1399 campaign design', '(T-P1 ranked first)'] },
-  'tp1-tail-repricing': { x: X(1), y: 878, lines: ['T-P1 tail lane: K1 clear,', 'K2 kills (N1* = 220.5M)'] },
-  'collar-split': { x: X(2), y: 878, lines: ['Prop-4.3 collar:', 'killed twice over'] },
+  'tp1-tail-repricing': { x: X(1), y: 878, lines: ['T-P1 tail lane: K1 clear,', 'K2 eliminates (N1* = 220.5M)'] },
+  'collar-split': { x: X(2), y: 878, lines: ['Prop-4.3 collar:', 'eliminated twice over'] },
   'ythaw-salvage': { x: X(3), y: 878, lines: ['y-thaw salvage found', '(0.17759432)'] },
   // y-thaw package
   'ythaw-stage12': { x: X(4), y: 990, lines: ['Stages 1+2: S0 note', '+ re-sweep clean'] },

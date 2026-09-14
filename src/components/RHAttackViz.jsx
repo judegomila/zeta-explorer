@@ -1091,10 +1091,10 @@ function ProofMapTab() {
   return (
     <div>
       <div className="tab-explainer accent-purple">
-        A structured overview of the logical status of each RH attack vector. <strong>Established</strong> results
+        A structured overview of the logical status of each RH approach vector. <strong>Established</strong> results
         are rigorously proven theorems or verified identities. <strong>Critical Gaps</strong> highlight where
         each proof strategy breaks down &mdash; including known-false claims (flagged red) that would, if true,
-        over-prove RH. The <strong>Most Promising Attack</strong> section identifies the strategy with the
+        over-prove RH. The <strong>Most Promising Approach</strong> section identifies the strategy with the
         fewest remaining gaps and strongest supporting evidence.
         <strong> Look for:</strong> which claims are rigorous vs. which have critical gaps; any "KNOWN FALSE" flags.
       </div>
@@ -1142,10 +1142,10 @@ function ProofMapTab() {
         </div>
       ))}
 
-      {/* Most promising attack */}
+      {/* Most promising approach */}
       <div className="card" style={{ marginTop: 24, borderColor: '#8b5cf6', borderWidth: 2 }}>
         <h4 style={{ color: '#8b5cf6', fontSize: 14, marginBottom: 8 }}>
-          Most Promising Attack Vector: {gaps.mostPromisingAttack.name}
+          Most Promising Approach Vector: {gaps.mostPromisingAttack.name}
         </h4>
         <p style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.7 }}>
           {gaps.mostPromisingAttack.reason}

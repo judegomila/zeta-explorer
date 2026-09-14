@@ -80,7 +80,7 @@ export const TC_PART_VS_MF_LINCHPIN = {
   },
   pictureA: 'Lehmer-pair/CSV: Lambda pinned by closest pair -> bridge wants t_c^part -> A1 gives a rigorous 30x-tighter binding term',
   pictureB: 'imp-2564/Polymath15 Thm3: bridge wants the mean-field shock t_c^MF -> A1 bounds the wrong object, E_pp re-enters',
-  status: 'RESOLVED 2026-06-17 (tc-linchpin-resolve workflow, 3 routes + adversarial synthesis): PICTURE A on route-selection, NEGATIVE on the rigorous beat. See resolution below.',
+  status: 'RESOLVED 2026-06-17 (tc-linchpin-resolve workflow, 3 routes + skeptical synthesis): PICTURE A on route-selection, NEGATIVE on the rigorous beat. See resolution below.',
   resolution: {
     routeSelection: 'PICTURE A — the bridge consumes t_c^part, the truncated-flow FIRST-collision time. There is only ONE truncated-flow object: imp-341 tau_c = 1/(2 sup Im m_N) and imp-2563 discriminant smallest-root are the SAME first-collision time, and the OLS ladder measures it. A1 (t_c^part(1e4) <= g_min^2/6 = 2.37e-4) bounds the RIGHT object.',
     theOLSartifact: 'The 0.0071 "t_c_proj" is NOT a distinct mean-field object: it is the y-intercept of a linear-in-1/N fit to small-N rows whose true decay is sub-linear, and the deep gamma~7005 Lehmer pair only enters the first-N list at N>=6710, so small-N rows have large g_min and manufacture a spurious positive intercept. imp-2621 proves the true object is O(1/sqrt N) -> 0, not 0.0066. imp-2564 said B only because imp-1149 Theorem 3 bounds a SEPARATE mean-field proxy 1/(2 M_inf), not the bridge.',

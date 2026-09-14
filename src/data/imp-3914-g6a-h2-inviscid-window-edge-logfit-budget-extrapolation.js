@@ -36,7 +36,7 @@
  * So merely pushing the clean window from its measured best (13 d at M = 1281) to 20 d costs a ~21x
  * particle blow-up, and any FIXED microscopic separation of scales is unreachable: because the edge
  * grows only ~2.31 ln M, the budget to reach edge E scales as exp(E / 2.31), i.e. e^(0.432 E). This is
- * the quantitative form of the imp-3896 "brute particle-count growth cannot reach the microscopic
+ * the quantitative form of the imp-3896 "raw particle-count growth cannot reach the microscopic
  * y -> 0 continuum" claim: the finite block edge recedes logarithmically, so the continuum is an
  * exponential-cost limit in M, never an attainable one.
  *
@@ -171,7 +171,7 @@ export const IMP3914_G6A_H2_INVISCID_WINDOW_EDGE_LOGFIT_BUDGET_EXTRAPOLATION = {
     '50 d / 100 d costs M ~ 1.2e10 / 2.8e19 -- the budget grows as exp(edge / b) ~ e^(0.43 edge). This ' +
     'is the explicit ~log M scaling law behind the imp-3896 caveat: because the clean edge grows only ' +
     'logarithmically in the particle count, any fixed microscopic separation of scales carries an ' +
-    'exponentially large block-size cost, so brute particle-count growth cannot reach the microscopic ' +
+    'exponentially large block-size cost, so raw particle-count growth cannot reach the microscopic ' +
     'y -> 0 continuum. This is a curve-fit / budget-extrapolation MEASUREMENT on top of imp-3896, NOT a ' +
     'certificate: it does not widen the window to y -> 0, does not certify the m_zz -> 0 vanishing ' +
     'viscosity, and does not write H2, so H2 stays UNWRITTEN as a certificate, the K4 route stays WHOLLY ' +

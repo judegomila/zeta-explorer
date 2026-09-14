@@ -5,7 +5,7 @@
  *   density-squeeze argmin site that sets the magnitude and N-scaling of the
  *   imp-337/imp-342/imp-343 integrated per-N bound, and why its closure via a
  *   GUE-type sqrt(log N) max-gap scale risks importing extremal statistics beyond
- *   pure Weyl (and, per imp-36259, actually KILLS the squeeze rather than pinning it).
+ *   pure Weyl (and, per imp-36259, actually ELIMINATES the squeeze rather than pinning it).
  *
  *   WHY A GLOSSARY HEADWORD (not a re-derivation)
  *   -----------------------------------------------
@@ -104,7 +104,7 @@ export const IMP36289_G3A_MAX_GAP_GLOSSARY_HEADWORD = Object.freeze({
     'the open gap of pinning the normalised argmin-site max nearest-neighbour gap ' +
     'R_N below R_critical ~ 1.2512 uniformly in N, and restates the imp-36259 ' +
     'finding that a GUE-type sqrt(log N) closure EXCEEDS R_critical for all N >= 5 ' +
-    'and kills the squeeze rather than pinning a per-N exponent. Establishes ' +
+    'and eliminates the squeeze rather than pinning a per-N exponent. Establishes ' +
     'nothing; instantiates no interval; closes no sub-gap; G3a_max_gap and the ' +
     'Route-C per-N translation stay OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 ' +
     'remains SOTA.',

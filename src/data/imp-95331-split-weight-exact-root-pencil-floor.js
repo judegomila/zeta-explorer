@@ -18,7 +18,7 @@
  * looseness against the exact symbol-pencil infimum at rho = e^6:
  * 9.32x -> 6.09x (r = 2), 6.00x -> 3.92x (r = e^3), 5.43x -> 3.61x
  * (r = e^5.9); rho <= 4 unchanged (the RZ-PEN4 charts still bind there;
- * activation crossover rho ~ 6.5). ADVERSARIAL REFUTATION recorded: the
+ * activation crossover rho ~ 6.5). SKEPTICAL REFUTATION recorded: the
  * exact-root step STANDALONE (without the split) gains at most 1.006x,
  * and ON TOP of the split at most 1.025x -- the imp-95330 attribution
  * "det/tr would remove up to 1.66x" is only visible at the TRUE (B, C)
@@ -108,7 +108,7 @@
  * k = 255 (far corner) -> k = 114 (interior): the far corner is no
  * longer binding, i.e. the side-weight overweight WAS the corner slack.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) REFUTATION OF THE PLANNED STEP
+ * SKEPTICAL SELF-CHECK RECORD. (1) REFUTATION OF THE PLANNED STEP
  * (recorded as the run finding): the exact-root substitution executed
  * FIRST, without the split (two-sided bounds on the unsplit RZ-PEN4
  * cap), gains at most 1.006x anywhere sampled -- with the truncated

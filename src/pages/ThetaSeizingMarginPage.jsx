@@ -230,7 +230,7 @@ export default function ThetaSeizingMarginPage() {
             comparison.
           </p>
           <p style={{ color: 'var(--faint)', fontSize: 12, marginTop: 8 }}>
-            See also: <Link to="/spectral-attack" style={{ color: 'var(--blue)' }}>Spectral Attack</Link> for the
+            See also: <Link to="/spectral-attack" style={{ color: 'var(--blue)' }}>Spectral Approach</Link> for the
             full Theta-trap threshold ladder and the Theorem-A / B / C context.
           </p>
         </div>
@@ -240,7 +240,7 @@ export default function ThetaSeizingMarginPage() {
           <div style={{ fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5, color: 'var(--faint)', marginBottom: 6 }}>Related pages</div>
           <div style={{ display: 'flex', gap: 12, marginTop: 8, flexWrap: 'wrap' }}>
             <Link to="/spectral-attack" style={{ fontSize: 12, color: 'var(--brass-dk)', textDecoration: 'none' }}>
-              → Spectral Attack
+              → Spectral Approach
             </Link>
             <Link to="/lambda-bounds" style={{ fontSize: 12, color: 'var(--brass)', textDecoration: 'none' }}>
               → Λ Bounds &amp; RH Roadmap

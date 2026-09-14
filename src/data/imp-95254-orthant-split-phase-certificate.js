@@ -111,7 +111,7 @@
  * contradiction with (iii) above; PHASE-AM evaluates to 1.9663 there and
  * holds.
  *
- * ADVERSARIAL SELF-CHECK RECORD. (1) LEMMA ENT swept over 20,000 random
+ * SKEPTICAL SELF-CHECK RECORD. (1) LEMMA ENT swept over 20,000 random
  * pairs (worst signed margin ~1e-17, i.e. zero to float) plus exact
  * equality at the diagonal and at co-centered pairs. (2) PHASE-AM swept
  * over 5,000 random signed families of 2..5 packets (worst margin

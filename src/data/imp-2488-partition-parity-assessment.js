@@ -27,7 +27,7 @@
  * --------------------------------------------------------------
  * All three candidate bridges FAIL, each for a structurally different and
  * explicitly-argued reason. The failures share one root cause: every project
- * tool exploits a special structure (a reduced unit-vector row / a
+ * tool uses a special structure (a reduced unit-vector row / a
  * multiplicative Euler grading / a normed-space contraction) that the additive
  * F_2 pentagonal recurrence for p(n) provably does NOT possess. The toolkit
  * does not reach the parity problem. The negative result, with reasons, IS the
@@ -224,7 +224,7 @@ export const IMP_2488_PARTITION_PARITY_ASSESSMENT = {
   rootCause:
     'Equidistribution of p(n) mod 2 is an ADDITIVE-combinatorial problem ' +
     '(governed by the F_2 pentagonal recurrence). All three project tools ' +
-    'exploit structure the recurrence lacks: Gilbreath needs a reduced ' +
+    'use structure the recurrence lacks: Gilbreath needs a reduced ' +
     'unit-vector row (no partition analog), the twin-ladder needs a ' +
     'multiplicative Euler grading (the parity is additive), and Volterra needs ' +
     'a normed-space contraction (F_2 has no norm and the operator is a ' +

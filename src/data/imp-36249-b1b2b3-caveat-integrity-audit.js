@@ -117,8 +117,8 @@ export const IMP36249_B1B2B3_CAVEAT_INTEGRITY_AUDIT_ASSERTIONS = [
         h.countsAsProof === false &&
         h.countsAsEstablishedLambdaUpperBound === false &&
         /^WITHDRAWN/.test(h.statement) &&
-        h.historicalStatus === 'rigorous-asymptotic (adversarially reviewed)' &&
-        h.historicalRigorLevel === 'rigorous-asymptotic (adversarially reviewed)'
+        h.historicalStatus === 'rigorous-asymptotic (independently reviewed)' &&
+        h.historicalRigorLevel === 'rigorous-asymptotic (independently reviewed)'
       );
     },
   },

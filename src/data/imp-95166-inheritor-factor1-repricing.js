@@ -98,7 +98,7 @@
  * imp-95162 left open -- is covered by the new window (the charts are
  * k-uniform).
  *
- * ADVERSARIAL RECORD (what binds / what does not move). (1) The floor
+ * SKEPTICAL RECORD (what binds / what does not move). (1) The floor
  * 0.23209 is certificate-sharp, not intrinsic: the binding corner is the
  * same chart corner as imp-95163/95165, and the 3.3e-6 gap to the direct
  * floor 0.232086 is the exact cost of pricing (2,3)/(2,4) at the

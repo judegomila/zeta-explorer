@@ -52,7 +52,7 @@
  * lattices the certificate is built for ({0,1,2}, {0,1,2,3}), the exact
  * 1 - sigma_k^2 is ~1e-13..1e-22 -- BELOW float64 generalized-eig
  * resolution (the direct eig returns small NEGATIVE noise), exactly as the
- * imp-95285 adversarial record states. There the fence looseness can only
+ * imp-95285 skeptical record states. There the fence looseness can only
  * be lower-bounded by the closed-form padRatio, which reaches 3.52e4
  * ({0,1,2} k=0) and 7.41e7 ({0,1,2,3} k=1). The exact-angle over-pricing on
  * true adjacent octaves is therefore UNRESOLVABLE at float64 and is left as

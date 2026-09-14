@@ -15,7 +15,7 @@ export default function ZeroDensityScopingPage() {
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1">Can Zero-Density Estimates Move Λ? — No (Λ-Inert)</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>
-          A 7-lens, web-grounded, adversarially-verified scoping of whether zero-density / large-values
+          A 7-lens, web-grounded, independently-verified scoping of whether zero-density / large-values
           estimates (Guth–Maynard, Halász–Montgomery, moments) can tighten the <em>rigorous</em> Λ ≤ 0.2
           bound. Verdict: <strong style={{ color: 'var(--terra-dk)' }}>no</strong> — genuine RH-adjacent progress,
           but Λ-inert.

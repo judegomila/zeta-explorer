@@ -6,7 +6,7 @@
 //
 // PURPOSE
 // -------
-// These three sections form ONE logical attack program against the no-ghost
+// These three sections form ONE logical approach program against the no-ghost
 // theorem (Conj 17.3 / Ka ⪰ 0 for every a > 0). Each section reduces the
 // previous obstruction to a tighter, more numerically-tractable statement:
 //

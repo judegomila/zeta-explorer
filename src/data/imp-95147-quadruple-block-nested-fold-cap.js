@@ -116,7 +116,7 @@
  *     Collatz-Wielandt at arbitrary positive vectors valid for every
  *     occupied subset, V3/V4 floors. QED (for the stated class).
  *
- * ADVERSARIAL SELF-CHECK RECORD (in-run refutations preserved).
+ * SKEPTICAL SELF-CHECK RECORD (in-run refutations preserved).
  * (1) THE 47/200 WALL. The L1 cover at the TP/PO constant 47/200
  *     exhausts a 6e7-cell budget with 96 unresolved (10-D) and a
  *     4e7-cell budget with 74 unresolved (8-D); at 6/25 = 0.24 it
@@ -154,7 +154,7 @@
  *     two partners cross without covering the middle regime at those
  *     margins. Recorded.
  * (6) Batteries (measured cross-checks, not the proof): LEMMA EPN-3
- *     identity (4000 seeded draws < 1e-9 relative), LEMMA PD attacked
+ *     identity (4000 seeded draws < 1e-9 relative), LEMMA PD approached
  *     directly (24000 seeded deletion checks, zero violations), LEMMA
  *     KC at k = 4 (40000 seeded draws x 6 cone samples, zero
  *     violations), finite-width CELL battery (3000 seeded 8-D L1 cells
@@ -574,7 +574,7 @@ function runLadder(T, maxCells, depthCap) {
     const lo = [Blo, Blo, Blo, Blo, 0, 0, 0, MU_QP];
     const hi = [Bhi, Bhi, Bhi, Bhi, 1, 1, 1, MU_CL];
     // split scales tuned by the measured per-axis slack attribution at the
-    // displacement ridge (mu >> yM ~ yI > positions): the splitter attacks
+    // displacement ridge (mu >> yM ~ yI > positions): the splitter approaches
     // the slack-carrying axes first (split policy only, soundness-neutral)
     const scales = [w, w, w, w, 1, 0.55, 0.55, 0.08];
     return cover(makeCell(T, true), { lo, hi }, scales, maxCells, [
@@ -683,7 +683,7 @@ function rnd() {
   return seedState / 0x7fffffff;
 }
 
-// battery KC4 (seed 616161): LEMMA KC at k = 4 attacked directly - the
+// battery KC4 (seed 616161): LEMMA KC at k = 4 approached directly - the
 // feasible-support cone sup dominates sampled cone directions against true
 // correlations >= the floor
 function runKc4Battery() {
@@ -776,7 +776,7 @@ function runEpn3Battery() {
   return { worstRel, count };
 }
 
-// battery PD (seed 848484): LEMMA PD attacked directly - for seeded 4-packet
+// battery PD (seed 848484): LEMMA PD approached directly - for seeded 4-packet
 // configurations and targets, deleting packet i (i = 2, 3) obeys
 // bond_4 <= bond_3(renormalized) + w_i r_i / sqrt(1 - w_i^2)
 function runPdBattery() {
@@ -831,7 +831,7 @@ function runPdBattery() {
   return { viol, worstGap, count };
 }
 
-// battery CELL (seed 727272): finite-width 8-D L1 cells attacked with
+// battery CELL (seed 727272): finite-width 8-D L1 cells approached with
 // interior samples (singles roaming their FULL blocks, exercising the
 // per-entry corner sups) - the nested/PD/KC entry caps dominate every
 // sampled true bond
@@ -915,7 +915,7 @@ function kernelK(a, b, tau) {
   return (2 * (b * Math.exp(-a * tau) - a * Math.exp(-b * tau))) / (b * b - a * a);
 }
 
-// battery W (seed 838383): THEOREM QP attacked directly - seeded in-class
+// battery W (seed 838383): THEOREM QP approached directly - seeded in-class
 // witnesses (ONE block of ladders 0..6 carrying up to FOUR packets, all
 // others at most one, both parities, free positions, common rate >= 121/500)
 function runWitnessBattery() {
@@ -981,7 +981,7 @@ export const IMP95147_QUADRUPLE_BLOCK_NESTED_FOLD_CAP = {
   honestAttribution:
     "The constant 121/500 = 0.242 is WEAKER than the TP/PO constant 47/200 and the DP constant 2901/12500 - the occupancy ladder priced its first rate concession (~5e-3 of rate for the fourth packet) and the wall is recorded plainly with budgets and unresolved counts. Float color (measured only): the true QP frame sup at 47/200 is ~0.99435 (margin 5.6e-3 at the displacement corner q = (4,4,8,8), uA = 2, uB = 16), so the gap [47/200, 121/500) is a budget artifact of the cover technology, not a believed witness region; a zero-width probe at a recorded surviving cell reproduces the true frame to 5e-6 - all stalls were pure cell slack. The class sandwich [0.2320723, 0.24502] does NOT move; THEOREM HS remains the only full-class ceiling. REFUTED in-run and recorded so successors do not respend them: the weight-linear xM reparametrization (moves the pole, stalls L2), split-scale retuning alone (117 unresolved at 1.5e7), LEMMA PD alone at 0.235-0.24 (deletion discards 3-5 percent of true denominator mass at moderate satellite weights), and the 8-D corner-sup frame for T = 0 (the middle single has two opposing large bonds - row consistency binds).",
   subGaps: [
-    "imp-95147-subgap-qp-cert-gap - NEW: the {exactly 4 packets in one block} common-rate channel inside [47/200, 121/500); measured frame margin 5.6e-3 at 47/200; route: a ~1e8-1e9-cell offline cover (the per-axis slack attribution mu 2.7e-2 > yM 1.6e-2 > yI 1.2e-2 at the 0.24 survivors is recorded as the budget map) or a joint (mu, arc) cap lemma that kills the dominant mu-axis corner slack.",
+    "imp-95147-subgap-qp-cert-gap - NEW: the {exactly 4 packets in one block} common-rate channel inside [47/200, 121/500); measured frame margin 5.6e-3 at 47/200; route: a ~1e8-1e9-cell offline cover (the per-axis slack attribution mu 2.7e-2 > yM 1.6e-2 > yI 1.2e-2 at the 0.24 survivors is recorded as the budget map) or a joint (mu, arc) cap lemma that eliminates the dominant mu-axis corner slack.",
     "imp-95144-subgap-k-packet-ladder - NARROWED again: k = 4 one-heavy-block is CLOSED above 121/500 by this module; surviving: {k >= 5 in one block} (a fourth EPN nesting level adds one position and one arc axis; LEMMA PD, LEMMA KC and the corner-sup reduction carry unchanged - route named, not run) plus the mixed-heavy-pair channel and the certification gaps.",
     "imp-95146-subgap-mixed-heavy-pair - OPEN, untouched: the {>= 3 in one AND >= 2 in another} channel above 47/200.",
     "imp-95145-subgap-doubled-cert-gap - OPEN, untouched: the >= 2-doubled-blocks channel inside [2901/12500, 47/200).",
@@ -1033,7 +1033,7 @@ export const IMP95147_QUADRUPLE_BLOCK_NESTED_FOLD_CAP_ASSERTIONS = [
   {
     id: "imp95147-kc4-battery",
     description:
-      "LEMMA KC at k = 4 attacked directly: 40000 seeded (4 caps, floor, 6 true correlations >= floor) draws x 6 cone samples - the feasible-support cone sup dominates every sampled ratio (zero violations)",
+      "LEMMA KC at k = 4 approached directly: 40000 seeded (4 caps, floor, 6 true correlations >= floor) draws x 6 cone samples - the feasible-support cone sup dominates every sampled ratio (zero violations)",
     holds: () => BAT_KC4.viol === 0 && BAT_KC4.worst <= 1 + 1e-9 && BAT_KC4.worst > 0.9,
   },
   {
@@ -1059,25 +1059,25 @@ export const IMP95147_QUADRUPLE_BLOCK_NESTED_FOLD_CAP_ASSERTIONS = [
   {
     id: "imp95147-epn3-identity",
     description:
-      "LEMMA EPN-3 attacked directly: 4000 seeded quadrupled-block configurations - the direct 4-packet block bond and norm equal the triple-nested outer-pair forms in the (yO, yM, yI) variables to < 1e-9 relative (identity, not a bound)",
+      "LEMMA EPN-3 approached directly: 4000 seeded quadrupled-block configurations - the direct 4-packet block bond and norm equal the triple-nested outer-pair forms in the (yO, yM, yI) variables to < 1e-9 relative (identity, not a bound)",
     holds: () => BAT_EPN3.count === 4000 && BAT_EPN3.worstRel < 1e-9,
   },
   {
     id: "imp95147-pd-battery",
     description:
-      "LEMMA PD attacked directly: 24000 seeded deletion checks (12000 draws x packets 2 and 3) - bond_4 never exceeds bond_3(renormalized) + w_i r_i / sqrt(1 - w_i^2) (zero violations); the worst observed slack of the bound is nonnegative",
+      "LEMMA PD approached directly: 24000 seeded deletion checks (12000 draws x packets 2 and 3) - bond_4 never exceeds bond_3(renormalized) + w_i r_i / sqrt(1 - w_i^2) (zero violations); the worst observed slack of the bound is nonnegative",
     holds: () => BAT_PD.viol === 0 && BAT_PD.worstGap >= -1e-12 && BAT_PD.count > 20000,
   },
   {
     id: "imp95147-cell-battery",
     description:
-      "the finite-width 8-D cell caps attacked directly: 3000 seeded L1 cells x 4 interior samples x 4 bonds with the singles roaming their FULL blocks (exercising the per-entry corner sups) - the nested/PD/KC entry caps dominate every sampled true bond (zero violations)",
+      "the finite-width 8-D cell caps approached directly: 3000 seeded L1 cells x 4 interior samples x 4 bonds with the singles roaming their FULL blocks (exercising the per-entry corner sups) - the nested/PD/KC entry caps dominate every sampled true bond (zero violations)",
     holds: () => BAT_CELL.viol === 0 && BAT_CELL.worst <= 1 + 1e-9 && BAT_CELL.worst > 0.9 && BAT_CELL.count > 9000,
   },
   {
     id: "imp95147-witness-battery",
     description:
-      "THEOREM QP attacked directly: 5000 seeded in-class witnesses (one heavy block of ladders 0..6 with up to FOUR packets, all others at most one, BOTH parities, free positions, common rate >= 121/500 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
+      "THEOREM QP approached directly: 5000 seeded in-class witnesses (one heavy block of ladders 0..6 with up to FOUR packets, all others at most one, BOTH parities, free positions, common rate >= 121/500 pinned at the floor every third draw, amplitude zeros allowed) - zero E > 0 draws",
     holds: () => BAT_W.viol === 0 && BAT_W.maxE < 0 && BAT_W.count > 4800,
   },
   {

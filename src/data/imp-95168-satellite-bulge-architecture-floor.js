@@ -99,7 +99,7 @@
  * even-parity block-0-occupied witnesses with at least TWO doubled blocks
  * among 1..3 or at least THREE packets in some block of 1..3.
  *
- * ADVERSARIAL RECORD. (1) FINDING SB corrects two recorded readings: the
+ * SKEPTICAL RECORD. (1) FINDING SB corrects two recorded readings: the
  * imp-95167 successorFrontier spectral-decrease hope is FALSE (spreading
  * strictly increases lambda at the corner), and imp-95163 FINDING RA
  * ("multi-packet ascent collapses to the k = 1 corner value to 7 digits")
@@ -110,7 +110,7 @@
  * the binding slack is cross-entry ratio decoupling, which an entrywise
  * majorant cannot avoid) -- a successor needs a center-form/Lipschitz
  * enclosure or a new reduction. (3) The refuted sub-strip statement is
- * architecture-scoped: it kills hollow-lambda certificates of the 5-block
+ * architecture-scoped: it eliminates hollow-lambda certificates of the 5-block
  * aggregation, not the E <= 0 truth (batteries again found no E > 0
  * witness). (4) Float scope: chain-standard positive-pivot Cholesky on
  * 1e-12-inflated majorants, margins >= 2e-7, Rayleigh margins >= 1.7e-8

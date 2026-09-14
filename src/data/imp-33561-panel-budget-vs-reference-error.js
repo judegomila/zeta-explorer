@@ -48,7 +48,7 @@
  *         <=0.059 ULP at every larger budget, and the count of over-headroom taus falls from 2/12 to
  *         at most 1/12. The AVERAGE contamination shrinks; the WORST-CASE peak stays jitter-bound.
  *     (4) ALL BUDGETS STAY SUB-BAR: every peak (max 0.9471 at the 171p baseline) is < 1 ULP, so no
- *         budget breaches the strict 1-ULP bar.
+ *         budget crosses the strict 1-ULP bar.
  *   NET: the ~0.947 ULP reading is lattice jitter, not a panel-insensitive floor; adding panels does
  *   not deterministically restore headroom, which REINFORCES the imp-33534 recommendation to quote
  *   the imp-33296 BAND (which averages over the lattice) rather than any single panel count.

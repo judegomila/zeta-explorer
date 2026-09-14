@@ -73,7 +73,7 @@
  *   -------------------------
  *   DIAGNOSTIC at the genuine Phi cell (a = 0.5, U = 6). The degree-0 mass-
  *   feasibility comparison B &gt; D_0 is the RH-EQUIVALENT scale-class restatement:
- *   it kills the impossibility option (there IS enough bridge mass) but is
+ *   it eliminates the impossibility option (there IS enough bridge mass) but is
  *   NECESSARY-BUT-NOT-SUFFICIENT -- the surviving operator-level K_a &gt;= 0 sign-
  *   positivity (the off-diagonal endpoint-Hankel step, imp-3066) is UNTOUCHED, and
  *   the degree-0 budget proxy is itself circular (its budget IS ||V||, the RH-
@@ -230,7 +230,7 @@ export const IMP3251_BRIDGE_MARGIN_RESOLUTION_STABILITY = Object.freeze({
     isStructuralDiagnostic: true,
     addressesMarginStabilityOnlyNotOperatorPositivity:
       'This module measures the resolution stability of the degree-0 mass-feasibility margin B/D only. Mass- ' +
-      'feasibility (B > D_0) kills the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT; the degree-0 ' +
+      'feasibility (B > D_0) eliminates the impossibility option but is NECESSARY-BUT-NOT-SUFFICIENT; the degree-0 ' +
       'budget proxy is additionally circular (its budget IS ||V||, the RH-equivalent quantity).',
     necessaryNotSufficient:
       'B > D_0 does NOT close the route: the surviving operator-level K_a >= 0 sign-positivity (the off-diagonal ' +

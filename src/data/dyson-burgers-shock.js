@@ -320,7 +320,7 @@ const G1_SUB_EXTREMAL = {
       'Dyson flow.',
     'Find a purely analytic bulk-confinement argument using only the ' +
       'Riemann-von Mangoldt density rho_inf(gamma) = (1/2pi)*log(gamma/2pi): ' +
-      'avoid GUE universality by exploiting the specific analytic form of the ' +
+      'avoid GUE universality by using the specific analytic form of the ' +
       'smoothed zero density to confine k*_N to the bulk without pair-correlation ' +
       'input.',
   ],

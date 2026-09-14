@@ -1,6 +1,6 @@
 /**
  * @module data/c-c-selberg-refinement-2026-05
- * @fileoverview imp-1135 attack survey + derivation attempt for refining the
+ * @fileoverview imp-1135 approach survey + derivation attempt for refining the
  * Selberg-sieve constant C_Selberg = 3 that pins C_C = (1/8)*sqrt(3*pi) in
  * the Polymath15 collision-error chain (parent imp-399, imp-1127 ceiling).
  * Proof-chain role: ceiling-tightening candidate for the C_C constant feeding
@@ -30,7 +30,7 @@
 // Selberg sieve or from Montgomery-Odlyzko level statistics would reduce
 // C_KH and hence C_C proportionally." This ticket attempts the derivation.
 //
-// ATTACK SURVEY (six candidate routes from the openWork item)
+// APPROACH SURVEY (six candidate routes from the openWork item)
 // -----------------------------------------------------------
 // ROUTE 1 (Tsang 1986 port). Tsang showed |S(T)| <= 2.27 * log T / log log T
 //   for T sufficiently large, IMPROVING on the conservative C_Selberg = 3

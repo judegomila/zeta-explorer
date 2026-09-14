@@ -16,7 +16,7 @@
  *   - block survival S_g retains modes coprime to every prime in block g;
  *   - the LIVE state after all four blocks,  Y_4 = S_4 S_3 S_2 S_1 v, supported
  *     on modes coprime to ALL 25 primes;
- *   - the four KILLED states  Z_g = (I - S_g) Y_{g-1}  (Y_0 = v), supported on
+ *   - the four Annihilated states  Z_g = (I - S_g) Y_{g-1}  (Y_0 = v), supported on
  *     modes divisible by some prime in block g but coprime to every prime in
  *     blocks 1..g-1.
  * Because block h > g demands coprimality to block g while Z_g demands
@@ -32,7 +32,7 @@
  *
  * and, writing A97 for the full-kill projection onto modes divisible by at
  * least one of the 25 primes (so 1 - A97 = full survival), A97 annihilates the
- * live state and fixes each killed state:  (1 - A97) Y_4 = Y_4,  A97 Z_g = Z_g.
+ * live state and fixes each eliminated state:  (1 - A97) Y_4 = Y_4,  A97 Z_g = Z_g.
  * Evaluating at the point 0 (value f(0) = sum of Fourier coefficients) gives the
  * EXACT five-shell identity of the ticket,
  *
@@ -63,7 +63,7 @@ const BLOCK_SIZES = BLOCKS.map((b) => b.length); // [5, 5, 7, 8]
 
 // ── the finite Fourier window: mode index k = 0 .. N-1 ──────────────────────
 // N > 97 so the coprime (live) sector is non-empty; A_p acts diagonally as the
-// 0/1 mask [p divides k]. Mode 0 is divisible by every p (killed at block 1).
+// 0/1 mask [p divides k]. Mode 0 is divisible by every p (eliminated at block 1).
 const N = 300;
 const MODES = Array.from({ length: N }, (_, k) => k);
 
@@ -102,10 +102,10 @@ const applyS = (f, block) => f.map((x, k) => (survivesBlock(k, block) ? x : 0));
 
 // ── build the five shells by block-by-block sieving ─────────────────────────
 const Y = [startVector.slice()]; // Y[0] = v
-const Z = []; // Z[g-1] = killed state at block g
+const Z = []; // Z[g-1] = eliminated state at block g
 for (let g = 0; g < BLOCKS.length; g++) {
   const Yg = applyS(Y[g], BLOCKS[g]);
-  const Zg = Y[g].map((x, k) => x - Yg[k]); // killed part at this block
+  const Zg = Y[g].map((x, k) => x - Yg[k]); // eliminated part at this block
   Y.push(Yg);
   Z.push(Zg);
 }
@@ -237,7 +237,7 @@ export const IMP_95003_ASSERTIONS = [
   {
     id: 'imp-95003-five-shells-orthogonal',
     holds: () => allSupportsDisjoint && maxCross === 0,
-    why: 'The live shell Y_4 and the four killed shells Z_1..Z_4 have mutually disjoint Fourier supports, so the five shells are pairwise orthogonal (max pairwise inner product = 0).',
+    why: 'The live shell Y_4 and the four annihilated shells Z_1..Z_4 have mutually disjoint Fourier supports, so the five shells are pairwise orthogonal (max pairwise inner product = 0).',
   },
   {
     id: 'imp-95003-telescoping-exact',
@@ -247,7 +247,7 @@ export const IMP_95003_ASSERTIONS = [
   {
     id: 'imp-95003-a97-splits-live-killed',
     holds: () => liveAnnihilated === 0 && oneMinusA97OnKilled === 0,
-    why: 'A97 (kill by some prime <= 97) annihilates the live state Y_4 and fixes every killed state Z_g: (1-A97) Y_4 = Y_4 and A97 Z_g = Z_g.',
+    why: 'A97 (eliminate by some prime <= 97) annihilates the live state Y_4 and fixes every eliminated state Z_g: (1-A97) Y_4 = Y_4 and A97 Z_g = Z_g.',
   },
   {
     id: 'imp-95003-cocycle-closed-form',

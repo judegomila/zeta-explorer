@@ -15,6 +15,7 @@ import { IMP3066_OFFDIAGONAL_HANKEL_OBSTRUCTION } from '../data/imp-3066-offdiag
 import { SG1C_ASYM_ISOLATION_CLOSED_FORM } from '../data/sg1c-asym-isolation-closed-form-2026-06-30.js';
 import { CH_LIP_THREE_PROOFS } from '../data/ch-lip-three-proofs-table-2026-06-30.js';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 
 const CLUSTER_TITLES = {
   lambdaUpper: 'Λ Upper-Bound Routes',
@@ -118,6 +119,9 @@ export default function RouteMapPage() {
       <div className="ed-full" style={{ padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24, borderBottom: '1px solid var(--hairline)', paddingBottom: 18 }}>
           <h1 style={{ margin: '0 0 10px', color: 'var(--ink)', fontFamily: 'var(--ed-display, Georgia, serif)', fontSize: 34, fontWeight: 600 }}>RH / Λ Route Map</h1>
+          <div style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '0 0 14px', background: 'var(--paper)' }}>
+            <WireframeAnim kind="no-go-wall" />
+          </div>
           <p style={{ margin: 0, color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.6, maxWidth: 'none' }}>
             The map of every route the project has tried —{' '}
             <strong>{FULL_ROUTE_MAP.totalRoutes} routes</strong> across {Object.keys(clusters).length} clusters

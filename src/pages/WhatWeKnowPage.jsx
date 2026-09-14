@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
+import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
 import { CH_WALL_FRONTIER } from '../data/ch-wall-frontier-verdict-2026-06-26.js';
 import { ZETAEXPLORER_NO_GOS, FIELD_NO_GOS } from '../data/rh-no-go-theorems.js';
@@ -79,6 +80,9 @@ export default function WhatWeKnowPage() {
         Newman bound to RH is still open, RH-equivalent, or dead.
       </p>
 
+      <figure style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '18px auto', background: 'var(--paper)' }}>
+        <WireframeAnim kind="no-go-wall" />
+      </figure>
 
       <h2>① Established results and the separately graded candidates</h2>
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>

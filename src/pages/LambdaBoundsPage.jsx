@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import AnimationEmbed from '../components/AnimationEmbed.jsx';
 import {
   LAMBDA_ROADMAP,
@@ -201,6 +202,9 @@ export default function LambdaBoundsPage() {
             RH ⟺ Λ = 0 (de Bruijn 1950 + Rodgers-Tao 2020). This page is the
             plan, the status, and the verification efforts of our approach.
           </p>
+          <div style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '14px 0 4px', background: 'var(--paper)' }}>
+            <WireframeAnim kind="de-bruijn-track" />
+          </div>
       <AnimationEmbed id="lambda-history" />
 
           <div style={{ marginTop: 10, display: 'flex', flexWrap: 'wrap', gap: 8 }}>

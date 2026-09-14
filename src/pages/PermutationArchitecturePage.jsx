@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader, InlineMath, BlockMath } from '../components/editorial/PostLayout.jsx';
+import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { IMP95077_FAR_LEDGER_DEGRADE_TABLE } from '../data/imp-95077-far-ledger-degrade-table.js';
 import { IMP95026_PAPER_PACKET_CEILING_TRANSFER } from '../data/imp-95026-paper-packet-ceiling-transfer.js';
 import {
@@ -579,6 +580,10 @@ export default function PermutationArchitecturePage() {
           <strong>it proves neither RH nor a new bound on the de Bruijn–Newman constant Λ.</strong>{' '}
           Platt–Trudgian <InlineMath tex="\Lambda \le 0.2" /> remains the rigorous benchmark.
         </p>
+
+        <div style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '16px 0 4px', background: 'var(--paper)' }}>
+          <WireframeAnim kind="gram-matrix" />
+        </div>
 
         {/* Typed component calculus */}
         <h2 style={{ fontFamily: 'var(--ed-display)', fontWeight: 560, fontSize: 24, margin: '32px 0 6px', color: 'var(--ink)' }}>The typed component calculus</h2>

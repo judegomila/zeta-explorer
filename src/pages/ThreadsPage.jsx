@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
+import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { THREADS, THREADS_META } from '../data/research-threads.js';
 
 /* /threads — the research-thread narrative layer: a curated index of the
@@ -131,6 +132,10 @@ export default function ThreadsPage() {
           (compiled {THREADS_META.compiled}; master ledger formalization/ARISTOTLE_TARGETS.md).
           Nothing on this page establishes a bound; the peer-reviewed benchmark is Platt–Trudgian Λ ≤ 0.2.
         </p>
+
+        <div style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '16px 0 4px', background: 'var(--paper)' }}>
+          <WireframeAnim kind="de-bruijn-track" />
+        </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 12, marginTop: 18 }}>
           {THREADS.map((t) => <ThreadCard key={t.slug} t={t} />)}

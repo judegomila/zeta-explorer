@@ -159,6 +159,31 @@ export const IMP95341_BINDING_CHART_MIGRATION = {
     "concentrated at that interior far-rho window. Recomputes only " +
     "imp-95330/95331/95332 quantities; changes no bound; NO QED; " +
     "Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+  residualReconciliationSupersededByRzPen7Pen8:
+    "RECONCILIATION (imp-95467): the actionableReading / verdict above " +
+    "point at the imp-95332 open {0, +-1} pair-identity truncation as " +
+    "where next work should concentrate (at the interior chart-114 " +
+    "far-rho window). That pointwise pair leg is now SUPERSEDED, not " +
+    "live. imp-95333 THEOREM RZ-PEN7 (thirty-sixth seam-chain leg) " +
+    "executed exactly that leg -- extending the kept-pair floor from " +
+    "{0, +-1} to all distance-1 and distance-2 unordered pairs among " +
+    "shells n in {-2, ..., 2}, carrying (-1, +1) and (0, +-2) at the " +
+    "exact sin^2(2 pi tau) weight -- and found the FULL imp-95288 pair " +
+    "identity already acts at the binding chart (k = 114, rho = e^6, " +
+    "r = 2): 1.2788x floor gain and PAIR CURRENCY NEAR-EXHAUSTED, so " +
+    "no further kept-pair extension can move the large-rho floor " +
+    "(~2.8 percent pointwise kept-pair headroom, capped). imp-95334 " +
+    "THEOREM RZ-PEN8 (thirty-seventh leg) then decided the last named " +
+    "leg (b-uniform t3) and recorded the RZ-PEN POINTWISE pencil-floor " +
+    "program EFFECTIVELY TERMINAL -- do NOT re-attempt pointwise trace " +
+    "or numerator (incl. kept-pair) legs. Corrected residual status: " +
+    "the imp-95341-flagged pointwise pair leg is CLOSED/near-exhausted; " +
+    "the surviving live residuals are the r-uniform / large-a " +
+    "uniform-side branch (imp-95334, ~10 percent open at a = 6), " +
+    "off-lattice rates and the dyadic-skeleton model restriction " +
+    "(imp-95232), and the gammaSL mapping / imp-95212 Fresnel-Airy " +
+    "envelope-port sub-gap -- NOT the interior far-rho pair window. " +
+    "Accuracy reconciliation only; changes no bound; NO QED.",
 };
 
 // ---------------------------------------------------------------------------

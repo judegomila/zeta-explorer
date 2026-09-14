@@ -15922,6 +15922,23 @@ const DATA_MODULES = [
   // six self-executing assertions. Measurement only; changes no bound;
   // NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95339-crossover-r-independence.js',
+  // imp-95340 (opus-4-8, api-pool, frontier): MEASUREMENT -- the gap between
+  // the imp-95332 COROLLARY PEN-UNIF6 r-uniform floor A_unif6(rho) and the
+  // EXACT r-uniform symbol-pencil infimum G_unif(rho) = inf over r in
+  // (1, sqrt(rho)] of the exact block-symbol min, across rho. FINDING (1): the
+  // b = ln r minimizer of the exact symbol infimum is ALWAYS the separation
+  // endpoint b = a/2 (r = sqrt(rho)), NOT the coalescent end -- the exact
+  // infimum is monotone decreasing in ln r, so the r-uniform infimum is the
+  // well-separated-twin symbol min. FINDING (2): the r-uniform looseness
+  // G_unif / A_unif6 rises monotonically 1.050 (rho = 2) -> 9.138 (rho = e^6)
+  // -> 32.58 (rho = e^10), strictly above the fixed-r looseness ledger
+  // (5.060 at r = 2, imp-95368) at every rho since the uniform floor must also
+  // cover r = sqrt(rho). This tabulates a previously-untabulated quantity
+  // distinct from the fixed-r looseness; the residual is the same two open
+  // legs as imp-95368 (pair-identity truncation + b-uniform t3). Import-light,
+  // four self-executing assertions. Measurement only; changes no bound; no
+  // certificate onset moves; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95340-runif6-exact-infimum-gap.js',
   // imp-95342: independent numerical cross-validation of the imp-95332
   // LEMMA TAIL-CHART per-chart tail cap c3nChart(t0, t1). Recomputes the
   // cap from the verbatim OBJECT normalization and compares against DIRECT
@@ -16096,6 +16113,29 @@ const DATA_MODULES = [
   // octave count). Import-light, six self-executing assertions.
   // Verification only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95297-evoctn-confluent-pencil-crossval.js',
+  // imp-95419 (fable-5, frontier): LEMMA MIX + LEMMA QUAD + THEOREM
+  // SEP-OPT + COROLLARY SPLIT-OPT -- the CLASS-OPTIMAL m-uniform
+  // off-lattice Riesz floor: the imp-95335 sharpness bracket
+  // [A_sep, ~A_lat] (52.47x at delta = ln 2) collapses at the top.
+  // For every delta-log-separated rate set and every count m,
+  // lambda_min(Gtilde) >= A_opt(delta) = sum (-1)^n sech(n delta/2)
+  // = (4 pi/delta) sum sech(pi^2(2n+1)/delta) -- EXACTLY the lattice
+  // Szego infimum, so the lattice is the extremal separated
+  // configuration and the class constant is pinned. Route: spectral
+  // representation + Gaussian-mixture rep of sech (partial fractions,
+  // exit-time density) + Carneiro-Littmann-Vaaler extremal band-limited
+  // minorant (cited classical input) whose integral equals the Szego
+  // value by an elementary Poisson identity. Supersedes A_sep 52.47x
+  // (ln 2) / 133.54x (ln 1.3); off-lattice every-octave onset
+  // 23.157604 -> 20.593144 (COROLLARY SPLIT-OPT). Float trap: the
+  // alternating form of A_opt cancels catastrophically at small delta;
+  // theta-dual form mandatory. Conditional on two cited classical
+  // inputs (numerically cross-checked); class-level only; NOT
+  // r-uniform; RZ-PEN charts stay lattice-pinned; envelope port and
+  // signed WEIGHT legs stay OPEN. Import-light, nine self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
+  // SOTA.
+  '/src/data/imp-95419-separated-class-optimal-riesz-floor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

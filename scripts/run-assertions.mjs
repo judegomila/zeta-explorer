@@ -16500,6 +16500,23 @@ const DATA_MODULES = [
   // status. Import-light, six self-executing assertions. Assessment only;
   // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95443-legb-domination-establishment-routes.js',
+  // imp-95483 (opus-4-8, api-pool, S-frontier): DERIVATION + ASSESSMENT of the
+  // imp-95443 route (R1) diagonal-dominance sufficient criterion for the LEG B
+  // Loewner sandwich. Derives the exact two-sided-exponential overlap kernel and
+  // an explicit summable decay majorant r_ij <= (1 + M s) e^(-m s) (the missing
+  // off-diagonal bound imp-95443 named), then MEASURES the Gershgorin scalar race
+  // (diagonal margin vs off-diagonal row-sum) directly on the imp-95220 width-law
+  // ported grid. Finding: adjacent large-denominator packets are near-degenerate
+  // (m s ~ (v/c) d^(-5/3) -> 0, so correlation -> 1); only endpoint rows d in
+  // {1,2} are diagonally dominant, every interior/tail row (d >= 3) FAILS. R1 is
+  // NOT viable standalone -- its near-degenerate failure is generic, not a corner;
+  // sharpens imp-95443 and gives the grid-level content of the imp-95460 near-
+  // degenerate-thinness residual. Model-side (B_m) only; DELTA cancellation stays
+  // OPEN (imp-95212); does NOT refute LEG B, refutes R1-standalone. 3x3 equi-
+  // correlation witness confirms sufficient-not-necessary. Import-light, six
+  // self-executing assertions. Assessment only; changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95483-r1-diagonal-dominance-grid-assessment.js',
   // imp-95424 (opus-4-8, api-pool): OBLIGATION LEDGER -- enumerates and
   // assesses the analytic obligations of the imp-95376 LEG B envelope-
   // domination inequality LamBar_paper(d) <= Lambda(E_V,d) for the imp-95212

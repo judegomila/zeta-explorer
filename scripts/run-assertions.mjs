@@ -15397,6 +15397,23 @@ const DATA_MODULES = [
   // never exceeds 1. Import-light, five self-executing assertions. Validation
   // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95312-lemma-ent-grid-crossvalidation.js',
+  // imp-95327 (opus-4-8, api-pool): CROSS-VALIDATION of the imp-95251 LEMMA DD
+  // contour-pivot divided-difference identity I_k = [nu_0..nu_k] phi_k. Evaluates
+  // the divided difference three independent ways -- (A) BN partial sums I_k (no
+  // separation denominators, the form COAL-N actually uses), (B) the residue/
+  // contour form (imp-95251 divDiffPhi), (C) the classical recursive Neville
+  // divided-difference table -- across separated, clustered and confluent rate
+  // sets. SEPARATED (minSep >= 0.2): all three agree to <= 1.3e-13. CLUSTERED
+  // (minSep 1e-2..5e-3): degrades to ~1e-7 as the (B),(C) cancellation grows
+  // while (A) tracks. CONFLUENT: residue-vs-I_k rel error climbs a conditioning
+  // ladder 3.4e-11 -> 5.5e-2 as eps shrinks 1e-3 -> 1e-8 (~2 digits/decade,
+  // ~eps_machine/minSep^(N-1)), precision floor at minSep ~ 1e-8. RANDOM sweep
+  // (5000 configs, minSep > 0.02, seed 31675): worst 3.15e-9 < 1e-8. Confirms
+  // LEMMA DD where well-conditioned and localizes the numerical floor where the
+  // direct forms are not -- the reason COAL-N routes through form (A).
+  // Import-light, five self-executing assertions. Validation of a proof STEP;
+  // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95327-dd-pivot-crossvalidation.js',
   // imp-95314 (opus-4-8, api-pool): MEASUREMENT of the imp-95254 THEOREM
   // PHASE-AM certified theta-window widening. PHASE-AM lowers the vacuity
   // frontier from thetaCERT = e^(-y_min) to thetaAM = e^(-y_min)/(2 - e^(-y_min)).

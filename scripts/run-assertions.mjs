@@ -16518,6 +16518,20 @@ const DATA_MODULES = [
   // imp-95449 margin. Import-light, four self-executing assertions.
   // Cross-validation only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95486-ratio-device-hp-crossval.js',
+  // imp-95464 (opus-4-8, api-pool, S-frontier): DERIVATION + MEASUREMENT --
+  // a tighter cancellation-free UPPER enclosure up' = c_0 - c_1 + c_2 (third
+  // alternating partial sum) of the theta density p(t), symmetrizing the
+  // asymmetric imp-95420 P-POS bracket (imp-95449 RESULT 3: up/p = 1.6492 vs
+  // lo/p = 0.9796). Rigorous majorant by Leibniz partial-sum nesting: the
+  // R-normalized coefficients strictly decrease, a_(n+1)/a_n <= 3 e^(-2) =
+  // 0.406 < 1 across both regimes (theta t >= 1/pi^2, dual t <= 1). Findings:
+  // at the boundary the upper overestimate drops 1.6492 -> 1.0000709 (factor
+  // ~9160), the enclosure relative width 0.406006 -> 0.020439 (19.86x), and
+  // pairing up' = S_2 with lo' = S_3 gives a balanced bracket within 7.1e-5 of
+  // p. Import-light, seven self-executing assertions. Derivation + measurement
+  // only; the imp-95420 positivity margin is already O(1) so this changes NO
+  // bound and the P-POS proof is UNTOUCHED; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95464-ppos-upper-symmetrize.js',
   // imp-95441 (opus-4-8, api-pool): ASSESSMENT -- does the SPECIFIC CLV
   // extremal-minorant instance SEP-OPT consumes (a type-delta minorant
   // ATTAINING A_lat), now the SOLE cited non-elementary input after

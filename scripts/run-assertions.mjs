@@ -17096,6 +17096,26 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; Platt-Trudgian
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95499-tilt-determinant-perp-majorant.js',
+  // imp-95500 (fable-5, frontier): LEMMA K0 + LEMMA TMEAN + LEMMA EIG-FLOOR +
+  // THEOREM TILT-EIG (depth credit) -- executes imp-95499 HONEST LIMITS (b):
+  // the first closed-form floor strictly above 1 on every sub-leading
+  // generalized eigenvalue of the tilted Cauchy pencil. Chain: the Cauchy-Gram
+  // evaluation identity 1^T G^(-1) 1 = 2 Sp (polynomial coefficient proof)
+  // gives |h(t)|^2 <= 2 Sp int_t^inf h^2 by shift-invariance, hence the
+  // mean-time floor int t h^2 >= ||h||^2/(4 Sp), hence by Jensen every pencil
+  // eigenvalue >= e^(s/(2 Sp)). Dividing the det-ratio product by the K-1
+  // sub-leading floors sharpens TILT-DET by e^((K-1)s/(2 Sp)) -- exactly a
+  // depth credit d -> d + (K-1)/(4 Sp), preserving closed form, coalescence
+  // uniformity, m-uniformity, off-lattice validity. Measured: onset shifts
+  // equal the credit exactly (twins m=8: 0.0070028; K=8 cluster: 0.2083333;
+  // coalesced all-ones K=8: 7/32); cluster gains 1.02-1.24x, wide-lattice
+  // gains <0.05 percent (Sp top-octave dominated -- honest). LEMMA MOM
+  // (eigenvalue-sum floor K + 2s tau, separation-free trace identity) proven
+  // and parked; uniform floor recovers 1.35 of the 3.22e15 available
+  // sub-leading product at the K=5 sample -- graded sorted-eigenvalue floors
+  // are the named successor. Import-light, ten self-executing assertions.
+  // Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95500-tilt-eigenfloor-depth-credit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

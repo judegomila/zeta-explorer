@@ -439,8 +439,8 @@ export default function FullStoryPage() {
           Rodgers-Tao Λ ≥ 0 is the lower side. A public unrefereed package claims Λ ≤ 0.1875 and is
           listed in the Optimization Problems ledger; a local audit repaired an omitted finite sweep.
           The standalone repository presents Λ ≤ 0.1787854 as a computer-assisted candidate for an
-          unconditional proof; the bound is not established, has been reviewed by Dan Romik, is being
-          prepared for public release, and is not RH.{' '}
+          unconditional proof; the bound is not established, has been reviewed by Dan Romik, is
+          publicly posted, and is not RH.{' '}
           <Link to="/state-of-program" style={{ color: 'var(--green)', fontWeight: 600 }}>
             See the State of the Program
           </Link>{' '}

@@ -16551,6 +16551,21 @@ const DATA_MODULES = [
   // self-executing assertions. Assessment only; changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95483-r1-diagonal-dominance-grid-assessment.js',
+  // imp-95461 (opus-4-8, api-pool): WALL-CLOCK micro-benchmark of GMP
+  // mpn_mul_n (the Arb/FLINT arf_mul primitive) across 2-40 limbs, best-of-9,
+  // to validate the imp-95277 L^2 schoolbook replay factors and the imp-95380
+  // Karatsuba anchor L_c=10. CONFIRMS the schoolbook L^2 ladder is a
+  // conservative UPPER budget every rung (meas/school 1.00 -> ~0.30 at 40
+  // limbs). CORRECTS two points: (a) the small-limb regime is overhead-
+  // flattened sub-quadratic (2-10 slope ~1.46, not 2), and every imp-95277
+  // replay rung (2-6 limbs) lives there; (b) no Karatsuba slope-break at L=10 --
+  // the effective exponent peaks (~1.88) over 10-20 limbs and only declines
+  // toward log2(3) beyond ~26 limbs, so the true MUL_TOOM22_THRESHOLD is above
+  // 20 limbs and L_c=10 is a conservative early anchor. Shared-multiply rescale
+  // keeps the 17.9x dominance margin invariant. Import-light, four self-
+  // executing assertions. Measurement only; changes no bound; NO QED; PT
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95461-mul-bench.js',
   // imp-95424 (opus-4-8, api-pool): OBLIGATION LEDGER -- enumerates and
   // assesses the analytic obligations of the imp-95376 LEG B envelope-
   // domination inequality LamBar_paper(d) <= Lambda(E_V,d) for the imp-95212
@@ -16771,6 +16786,22 @@ const DATA_MODULES = [
   // self-executing assertions. MEASUREMENT only; direction already PROVEN in
   // imp-95249; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95479-u2-corner-highprec-angle-crosscheck.js',
+  // imp-95460 (opus-4-8, api-pool): MEASUREMENT -- attacks the remaining half of
+  // the imp-95451 (U2) / imp-95425 direct-route sub-gap that imp-95479 left open
+  // by avoiding the direct route. Runs the imp-95425 DIRECT double-inversion
+  // route ITSELF at the 3 near-coalescent corners: the EXPLICIT-INVERSE variant
+  // (invSym + Jacobi pencil, verbatim imp-95425 path) at float64 REPRODUCES the
+  // cos^2 > 1 artifact (excess +1.7e-6/+2.7e-5/+2.7e-6), while the SAME direct
+  // formulation M = G12 G2^-1 G12^T realised by a Cholesky SOLVE (no explicit
+  // inverse) returns a valid cos^2 < 1 already at float64 and, in double-double,
+  // matches the imp-95479 ground-truth 1 - cos^2 (3.519489e-7 / 3.165007e-6 /
+  // 3.525863e-7) to <= 1e-10. Records the residual conditioning limit: the
+  // failure is the explicit inversion of the near-singular joint-rest Gram G2
+  // (kappa ~ 1e10..1e12, squared past the float64 ~1e16 limit), NOT the
+  // principal-angle problem itself. Fence Phi_k <= 1 - sigma_k^2 CONFIRMED on the
+  // direct route. Seven self-executing assertions. MEASUREMENT only; direction
+  // PROVEN in imp-95249; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95460-u2-corner-direct-route-extprec-recovery.js',
   // imp-95420 (fable-5, frontier): LEMMA P-SYM + LEMMA P-JAC + LEMMA
   // P-MONO + THEOREM P-POS -- self-contained elementary positivity of
   // the imp-95419 LEMMA MIX theta density p(t) on all of (0, inf),
@@ -16952,6 +16983,41 @@ const DATA_MODULES = [
   // uniform closed form stays open. Import-light, six self-executing assertions;
   // changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95482-rstar-uniform-closedform.js',
+  // imp-95485 (opus-4-8, api-pool, S-frontier): MEASUREMENT + ASSESSMENT of the
+  // imp-95426 THEOREM DIRECT-2 vs exact-joint-pencil residual wedge as sigma -> 1
+  // and whether a genuine N-block (>=3) direct seam reduction closes the
+  // collar-limited nearby-cluster residual. (1) The DIRECT-2 wedge is exactly the
+  // shared collar 1/(1-sigma^2) with a bounded ~0.012 prefactor on the imp-95378
+  // twin-cluster family, unbounded as sigma -> 1. (2) The N-block (>=3)
+  // generalization of DIRECT-2 is VACUOUS: its worst-case angle Gram M = I - Sigma
+  // is generically indefinite for N >= 3 (lambda_min -> 2 - N in the all-equal
+  // limit M = 2I - J; already negative for octave-separated {1,4,16,64}), so a
+  // nonnegative norm vector drives the denominator lower bound nonpositive and no
+  // finite bound exists. N = 2 is the unique finite direct reduction and it keeps
+  // the collar. The wedge closes only with the full joint pencil (keeps the true
+  // correlation Gram exactly, NOT block-decomposable), confirming and sharpening
+  // the imp-95426 carried-forward residual. Import-light, six self-executing
+  // assertions; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95485-nblock-direct-collar-vacuity.js',
+  // imp-95498 (fable-5, frontier): THEOREM DEFL-ORTH-N + THEOREM SPLIT-DEFL-N --
+  // the deflated MULTI-BLOCK composition, executing the imp-95446 named residual.
+  // The two-block orthogonal deflation iterates: E_(V_1 u ... u V_m) =
+  // (+perp)_k B_(U_k) E_(V_k) (U_k = union of later blocks; inner-function
+  // multiplication is a Gram isometry), giving the collar-free sandwich
+  // max_k LambdaPerp_k <= Lambda <= sum_k LambdaPerp_k with each LambdaPerp_k
+  // the imp-95446 two-block deflated pencil (<= 1 unconditionally -- NO angular
+  // collar at any m). Pairs with the sibling imp-95485 module, which proved the
+  // COLLARED N-block direct reduction VACUOUS for N >= 3: the deflated route is
+  // the escape. Measured: m-UNIFORM every-octave firing on the dyadic twin
+  // lattice (onsets 1.7040/3.4394/3.5586 at m = 2/6/16, converging, vs
+  // exact-ingredient SPLIT-LOO 8.8747 at m = 6); 3-block nearby-cluster wedge
+  // sum/exact = 1.0065 where SPLIT-LOO is 1.7e5x loose; wide separation exact to
+  // rel 7.6e-9. Residual: closed-form coalescence-uniform LambdaPerp majorant
+  // (inherited from imp-95446 (b)); closed-form uniform chains (EV-OCT/RZ-PEN)
+  // keep the m-and-r-uniform currency. Import-light, eight self-executing
+  // assertions. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
+  // SOTA.
+  '/src/data/imp-95498-deflated-multiblock-composition.js',
 ];
 
 let ALL_MODULES = FAST_MODE

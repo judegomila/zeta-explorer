@@ -16951,6 +16951,19 @@ const DATA_MODULES = [
   // ~7.4e-3 << 0.2). Import-light, three self-executing assertions. Assessment
   // only; runs no recompute; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95481-highn-exact-tc-offline-route-scope.js',
+  // imp-95463 (opus-4-8, api-pool, S-frontier): WIDEN the imp-95448 Q(a3)
+  // exact-heat vs RK4 backward-Dyson t_c cross-check beyond its single N=8
+  // witness. Measures the two independent t_c methods (imp-2563 Theorem S4-3
+  // heat-semigroup discriminant vs the dynamical RK4 collision) across ALL five
+  // exact-ladder rungs {4,6,8,10,12}: agreement <= 2.92e-4 (relative <= 3.8e-4,
+  // inside the RK4 step/threshold floor) with RK4 consistently above heat at
+  // every rung. Records that the Path C empirical rungs {50,100,200,500} are
+  // float64-blocked (above the N~12 conditioning cap; heat overshoots the
+  // isolated-pair scalar ~367x at N=50) and need the imp-95481 Arb/FLINT route.
+  // Import-light, four self-executing assertions. Measurement only; moves no
+  // bound; closes no leg (R_A stays open, imp-2621/imp-35164 stand); NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95463-heat-vs-rk4-tc-crosscheck-widened.js',
   // imp-95480 (opus-4-8, api-pool, S-frontier): EXTENDED-PRECISION cross-check
   // of the imp-95419 SEP-OPT Szego floor at the delta = ln 1.3 float trap that
   // imp-95450 declined to retest (A_opt ~ 4.4e-15, cond(Gtilde) ~ 2.3e14). An

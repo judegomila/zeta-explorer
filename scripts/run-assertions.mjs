@@ -16858,6 +16858,34 @@ const DATA_MODULES = [
   // imp-2621 stays refuted, imp-35164 stands, R_A ladder stays INERT (imp-95448);
   // NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95465-sigma-decay-no-escape-from-en-nonvanishing.js',
+  // imp-95481: COSTED OFFLINE-ROUTE SCOPE for the imp-2563-sub-pathc-ladder-
+  // replace-highN residual -- the exact heat-semigroup t_c(N=2458) recompute
+  // (degree-2458 discriminant) that is too heavy for a build module. Delivers a
+  // native Arb/FLINT route on the existing gate2 toolchain, a ~3.0e4-bit
+  // precision budget (coefficient span ~7.9e3 decimal digits >> float64),
+  // an order-of-magnitude wall-clock bracket, a checkpoint/parallel plan, and a
+  // re-pointing analysis (would pin the imp-2605 kappa band to a single certified
+  // value but does NOT move Lambda -- the rung is non-binding, imp-2626 ceiling
+  // ~7.4e-3 << 0.2). Import-light, three self-executing assertions. Assessment
+  // only; runs no recompute; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95481-highn-exact-tc-offline-route-scope.js',
+  // imp-95480 (opus-4-8, api-pool, S-frontier): EXTENDED-PRECISION cross-check
+  // of the imp-95419 SEP-OPT Szego floor at the delta = ln 1.3 float trap that
+  // imp-95450 declined to retest (A_opt ~ 4.4e-15, cond(Gtilde) ~ 2.3e14). An
+  // inline double-double arithmetic evaluates A_opt(ln 1.3) three ways: the
+  // plain-double primal alternating sum returns 4.4849e-15 (wrong by ~1.78%,
+  // one significant figure -- the float trap), while the double-double primal
+  // (4.406252285191381e-15) and the all-positive Poisson/theta dual
+  // (4.406252285191383e-15) agree to 3.6e-16 rel, fixing the true floor. It
+  // then recomputes lambda_min(Gtilde_m) by BOTH a plain-double and a double-
+  // double LU inverse iteration: the two agree to ~1e-4 rel while cond < ~6e12
+  // (m <= 20), and past there the plain-double ratio SATURATES near 1.07 while
+  // the double-double route keeps closing onto A_opt (ratio 1.064/1.034/1.021
+  // at m = 120/160/200). Neither method ever dips below A_opt -- the trap is a
+  // resolution floor, not a floor violation; SEP-OPT holds at delta = ln 1.3.
+  // Cross-validation/measurement only; import-light, six self-executing
+  // assertions; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95480-sep-opt-aopt-lambda-min-delta-ln13-extended-precision.js',
 ];
 
 let ALL_MODULES = FAST_MODE

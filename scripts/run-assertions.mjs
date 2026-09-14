@@ -16774,6 +16774,41 @@ const DATA_MODULES = [
   // Import-light, seven self-executing assertions. MEASUREMENT ONLY; changes
   // no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95259-phiunif-crude-tail-tightness.js',
+  // imp-95460 (fable-5, frontier): THEOREM G-INV + G-SANDWICH + G-STRICT +
+  // COROLLARY G-RACE -- rigorous strengthening of the imp-95424 LEG B route.
+  // The LEG B Rayleigh sups are invariant under per-packet diagonal congruence
+  // (G-INV, exact), but the imp-95424 Loewner sandwich (O1)+(O2) is NOT: an
+  // exact 2x2 witness (pure renormalization r=(1,1/2)) keeps both sups EQUAL
+  // yet breaks BOTH ungauged obligations (A_m - A_p indefinite, B_p - B_m
+  // negative diagonal). G-SANDWICH: it suffices that SOME positive diagonal
+  // gauge D gives D B_p D >= B_m and D A_p D <= A_m -- strictly contains the
+  // imp-95424 route (D = I) and is itself renormalization-invariant.
+  // COROLLARY G-RACE re-scopes the imp-95443 R1 decay-vs-margin race into
+  // normalization-free currency: kappa-window [1, 1/max q_i] funded by the
+  // intrinsic FA-2 diagonal ratio margin, both gauged differences reducing
+  // (uniform q) to (1 - sqrt(q)) G + sqrt(q) (s o correlation-deviation), so
+  // the imp-95212 port needs ONE deliverable: a |beta - gamma| / |gamma -
+  // alpha| correlation-deviation decay bound vs (1 - sqrt(q)) lambda_min(G).
+  // N=3 mechanics witness: gauged route fires where both ungauged obligations
+  // provably fail; race lost past deviation ~8.4e-4; independent power-
+  // iteration confirms the certified ordering. Closes nothing analytic: the
+  // deviation bound stays OPEN (imp-95212); gauge removes the normalization
+  // obstruction, not near-degenerate-rate thinness. Import-light, ten
+  // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95460-legb-gauge-invariant-sandwich.js',
+  // imp-95431: closed-form LOGISTIC fit of the imp-33701/imp-33721 sigma(N)
+  // exponent-ramp sigmoid. imp-33701/imp-33721 found the local-decay-exponent
+  // ladder is S-shaped with a single D2 sign change (knee log10 N*~9.529) but
+  // never fitted a sigmoid. Via logit linearization the ladder DOES admit a
+  // logistic: ceiling pinned to the imp-3463 asymptote 1/2 fits to R^2~0.9927
+  // (RMS~9.5e-3, midpoint 9.703); freeing the finite-N ceiling to ~0.4695
+  // tightens to R^2~0.9974 (RMS~5.0e-3) and lands the midpoint 9.490 on the
+  // imp-33721 knee. Fitted logistic carries exactly ONE D2 sign change; the
+  // shape is the derivative-image p=A(1-sigma) of the imp-36197 sigma-logistic.
+  // Measurement/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; changes
+  // no bound; imp-3066 K_a>=0 untouched; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95431-sigma-exponent-ladder-logistic-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

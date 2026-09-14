@@ -15282,6 +15282,26 @@ const DATA_MODULES = [
   // self-executing assertions. Derivation only; changes no bound; NO QED;
   // Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-95377-rstar-boundary-closed-form.js',
+  // imp-95427 (numerical, S-frontier): accuracy of the imp-95377 Lambert-W_{-1}
+  // leading form for r_star(x) and a matched surrogate past its x <= 2/e^2
+  // ceiling. Leading-form rel err rises monotonically on (0, 2/e^2] (sub-percent
+  // only for x <~ 0.05, ~0.319 at the ceiling); the quartic series-inversion
+  // form r_q(x) = 1 + (-2+sqrt(12/x-8))/x is the matched mid-range surrogate,
+  // EXACT as x -> 1-, refined to <= 3.8% by two Newton steps. Extension identity
+  // sqrt(x_eff/2) = (y/2)e^{-y/2} in (0,1/e] explains why raw-x Lambert breaks.
+  // Import-light, seven self-executing assertions. Measurement only; changes no
+  // bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-95427-rstar-lambert-surrogate.js',
+  // imp-95428 (numerical, S-frontier): quintic (next-positive-term) sharpening
+  // of the imp-95377 r_star(x) upper bound. R(y) = 1 + y/3 + y^2/12 + y^3/60 +
+  // ... has all-positive coeffs, so the truncated root upper-bounds y_star; the
+  // next term gives r_star(x) <= 1 + y5(x)/x with y5 the unique positive root of
+  // y^3 + 5y^2 + 20y + 60(1 - 1/x) = 0 (Cardano closed form). Measured: worst
+  // small-x upper factor halves 4.013 -> 2.006 and the two-sided bracket 7.050
+  // -> 3.524; the lower bound is unimprovable by any finite series term (named
+  // residual). Import-light, five self-executing assertions. Measurement only;
+  // changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-95428-rstar-quintic-bracket.js',
   // imp-95381 (numerical, S-frontier): contour of the imp-95271 RI
   // tightness-ratio slack across the full bump wedge, refining finding (3).
   // The per-x max of ratio = h h_r Lambda_2 / (x P (Lambda_2 - P)) is ALWAYS
@@ -16233,20 +16253,20 @@ const DATA_MODULES = [
   // Import-light, nine self-executing assertions. Changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95398-split-tightness-vs-exact-pencil.js',
-  // imp-95426 (fable-5, frontier): LEMMA DEFL-ORTH + THEOREM SPLIT-DEFL +
+  // imp-95446 (fable-5, frontier): LEMMA DEFL-ORTH + THEOREM SPLIT-DEFL +
   // LEMMA DEFL-CAP + THEOREM SPLIT-Q -- exact orthogonal deflation of the
   // two-block seam pencil via the V2 Blaschke product (E_(V1 u V2) = E_V2
   // (+perp) B2 E_V1, from the imp-95249 ANG-PENCIL projection formula).
   // Collar-free sandwich max(L2, LambdaPerp) <= Lambda <= L2 + LambdaPerp
-  // (LambdaPerp = closed-form deflated pencil, <= 1 unconditionally) plus
-  // the sharp quadratic collar SPLIT-Q = (L1+L2+2 sigma sqrt(L1 L2))/
-  // (1-sigma^2) that pointwise dominates BOTH SPLIT-2 and SPLIT-LOO. The
-  // imp-95378 nearby-cluster collar wedge is closed at the TWO-BLOCK level
-  // (measured MIN/exact 5.57e10 vs SPLIT-DEFL/exact 1.0003 at gap 1e-3);
-  // multi-block composition = named residual. Import-light, seven
-  // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
-  // remains SOTA.
-  '/src/data/imp-95426-deflated-collarfree-two-block-split.js',
+  // (LambdaPerp = closed-form deflated pencil, <= 1 unconditionally); the
+  // quadratic collar SPLIT-Q = (L1+L2+2 sigma sqrt(L1 L2))/(1-sigma^2)
+  // coincides with the sibling imp-95426 THEOREM DIRECT-2 and dominates
+  // BOTH SPLIT-2 and SPLIT-LOO. The imp-95378 nearby-cluster collar wedge
+  // is closed at the TWO-BLOCK level (measured MIN/exact 5.57e10 vs
+  // SPLIT-DEFL/exact 1.0003 at gap 1e-3); multi-block composition = named
+  // residual. Import-light, seven self-executing assertions. Changes no
+  // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95446-deflated-collarfree-two-block-split.js',
   // imp-95274 (opus-4-8, api-pool): MEASUREMENT -- widens the imp-95249
   // THEOREM ANG-PENCIL entrywise identity + LEMMA ANG-DET fence check from 4
   // configurations to a 54-partition disjoint multi-block family plus a depth

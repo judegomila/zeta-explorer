@@ -15851,6 +15851,58 @@ const DATA_MODULES = [
   // ten self-executing assertions. Changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95335-ingham-offlattice-riesz-floor.js',
+  // imp-95336 (opus-4-8, api-pool, frontier): ASSESSMENT of the sub-gap
+  // imp-95212-subgap-fresnel-airy-envelope-port -- whether the Fresnel-Airy
+  // transition-packet envelope of the paper Section 4.5 packets can be
+  // ported into the RZ-PEN seam pencil model family. Scopes the four
+  // machinery pieces any port must reproduce (M1 R1 same-rate collapse,
+  // M2 BI Cauchy-Gram biorthogonal bound, M3 dyadic beta products, M4
+  // diagonal shift) and the four candidate envelope-to-pencil maps:
+  // pointwise exponential domination, effective-rate substitution, and
+  // Fresnel superposition all hit HARD obstructions (non-L2 algebraically
+  // decaying pre-caustic oscillatory side; non-Cauchy Airy Gram); only
+  // MAP 4 (collar-past-caustic restriction) survives as CONDITIONAL on the
+  // still-open Section 4.5 turning-point geometry and still inherits the
+  // MAP-2 Cauchy-Gram question. Import-light, six self-executing assertions
+  // (Airy envelope-shape cross-checks via a self-contained series on
+  // |x| <= 4). Assessment/scoping only; no bound derived, no certificate
+  // fires, sub-gap remains OPEN; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95336-fresnel-airy-envelope-port-assessment.js',
+  // imp-95337 (opus-4-8, api-pool): LEG ATTRIBUTION -- order-symmetric
+  // (Shapley) split of the imp-95332 surviving large-rho pencil
+  // looseness (RZ-PEN6 floor 3.0-5.1x vs the exact symbol-pencil
+  // infimum) between the pair-truncation leg (X -> X7, imp-95333) and
+  // the b-uniform t3-weight leg (T6 -> T8, imp-95334). Isolates each
+  // leg from the shared V4/Psi5/Psi6 baseline (pair floor = RZ-PEN7,
+  // t3 floor = exact root at (B_up = (A/2) T8, base X), joint =
+  // RZ-PEN8) and attributes ln L6 - ln L_both by averaging the two
+  // tightening orders. FINDING: the t3-weight leg carries 75-100
+  // percent of the log-looseness reduction at every sampled large-rho
+  // cell (77.4 percent at rho = e^6 r = 2), the pair leg at most ~25
+  // percent and identically inert at the twin-symmetric end
+  // r = sqrt(rho) -- quantifies the imp-95333/95334 qualitative claim.
+  // Convention-locked: isolated pair floor = imp-95333 A_pen7, joint =
+  // imp-95334 A_pen8. Import-light, seven self-executing assertions.
+  // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95337-pencil-leg-attribution.js',
+  // imp-95338 (opus-4-8, api-pool, frontier): CHART-ADEQUACY MEASUREMENT --
+  // whether the imp-95332 K = 256 chart cover (k4096OverK256RhoE6 =
+  // 1.0085, "CHART currency EXHAUSTED") stays adequate once the {0, +-1}
+  // pair-identity numerator truncation is relaxed to the distance-2 pairs
+  // ({0, +-2}, {-1, +1}), i.e. whether the imp-95333 pair sharpening would
+  // re-open chart sensitivity. Per-chart floor = smaller pencil root with
+  // carried trace cap B_up and a nonnegative-subset numerator lower bound
+  // Clow (LEMMA ROOT-MONO, exact-tau). FINDING: the truncated K = 4096/256
+  // ratio reproduces the imp-95332 literal to ~15 digits; the RELAXED
+  // ratio shifts by at most +0.024 percentage point (1.008526 -> 1.008767
+  // at r = 2) while the floor LEVEL rises ~1.27-1.30x -- the binding chart
+  // does not migrate (k = 1836 of 4096 for both). K = 256 stays ADEQUATE;
+  // the pair leg is a numerator-currency lever orthogonal to chart
+  // resolution, so finer charts are NOT needed before it. At r = e^3
+  // (tau = 1/2) the distance-2 weight sin^2(pi) vanishes so relaxed =
+  // truncated bitwise. Import-light, seven self-executing assertions.
+  // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-95338-chart-adequacy-pair-truncation.js',
   // imp-95272 (fable-5, frontier): LEMMA BASE-SIDE + THEOREM BL-JIT --
   // base-anchored, jitter-robust replacement of the imp-95226 BL-LAT
   // count-uniform lattice collar. The lowest rate has every other rate

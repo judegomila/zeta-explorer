@@ -15447,6 +15447,33 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only; changes no bound; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95294-coaln-overpricing-window-pinch-measurement.js',
+  // imp-95296 (opus-4-8, S-frontier): VERIFICATION -- independent numerical
+  // cross-check of the imp-95286 LEMMA LT Laguerre translation identity
+  // int_0^inf L_j(u) L_m(u+y) e^(-u) du = L_(m-j)(y) - L_(m-j-1)(y) (0 for
+  // m<j). Two methods disjoint from imp-95286: explicit-sum Laguerre L_n(u) =
+  // sum C(n,k)(-u)^k/k! plus a 14-node Golub-Welsch Gauss-Laguerre rule (EXACT
+  // for the degree j+m<=12 polynomial integrand). Over the 392-cell grid
+  // (j,m<=6, y in {0.3,0.7,1.5,2,3.5,5,8,12}, all 168 m<j zero cases) the
+  // worst relative deviation from the closed form is 2.95e-12; the quadrature
+  // self-validates on int u^p e^(-u)=p! (p<=12) to 1.24e-15. No (j,m,y) cell
+  // violates the identity as transcribed. Verification only; four
+  // self-executing assertions; changes no bound; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95296-lemma-lt-crosscheck.js',
+  // imp-95295 (opus-4-8, S-frontier): MEASUREMENT -- the r-uniformity failure
+  // of the imp-95252 THEOREM RZ-TWIN Szegoe ceiling A_twin as octave count m
+  // grows. Findings: A_twin(rho,r) = C(rho) sin^2(pi tau) EXACTLY with C(rho)
+  // r-independent (C(2)=3.109952932684e-11), so the whole r-dependence is the
+  // sin^2(pi tau) prefactor collapsing to 0 quadratically as r -> 1 -- NO
+  // r-uniform floor on the ceiling VALUE; the finite-m looseness ratio
+  // Q(m,r)=lambda_min/A_twin is near r-UNIFORM at fixed m (m=24 spread < 0.11
+  // percent over r in [1.05,1.5]) and descends to 1 from above as m grows
+  // (2051.67/14.945/3.2914/1.8739/1.2826/1.13873/1.08235 at m=4..40, r=1.3);
+  // the SPLIT-RZ onset degrades only LOGARITHMICALLY as r -> 1 (15.98 -> 21.61
+  // at r=1.3 -> 1.001), reproducing the baked literals and non-monotone near
+  // r=sqrt2. Import-light, nine self-executing assertions. Measurement only;
+  // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95295-runiformity-atwin-szego-ceiling-measurement.js',
   // imp-95135 (opus-4-8, S-frontier): MEASURE sup R inside the imp-95225 open
   // corridor 1.4427 x < N < 11.6893 x to record which frontier can be
   // tightened. R(phi_K, x) for the SGN-SAT achievability family
@@ -15843,6 +15870,15 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; PT Lambda <= 0.2
   // remains SOTA.
   '/src/data/imp-95218-route7-cost-curve.js',
+  // imp-95293: CEIL-X exceedance region map -- tabulates where the
+  // non-co-centered signed seam ratio R exceeds the co-centered 1/2 ceiling.
+  // The 1/2 ceiling breaks to the trivial R <= 1 (sup R -> 1 as y_min -> 0);
+  // the exceedance wedge is bounded above by a rising boundary theta_max(y_min)
+  // climbing 0.111 -> 0.969 as y_min falls, and confined to y_min < ~1.62.
+  // Six per-band sup R / boundary witnesses reproduced from raw geometry.
+  // Import-light, six self-executing assertions. Changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95293-ceilx-exceedance-region-map.js',
 ];
 
 let ALL_MODULES = FAST_MODE

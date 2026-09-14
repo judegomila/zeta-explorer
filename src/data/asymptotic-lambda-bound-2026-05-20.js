@@ -323,6 +323,21 @@ export const ASYMPTOTIC_LAMBDA_BOUND_2026_05_20 = Object.freeze({
   numericalStatus: {
     headlineValue: E_TRUNC_PT_INGHAM,        // 3.06e-5 (as historically stated)
     honestValueEstimate: 5.1e-5,             // imp-34791 corrected prefactor
+    // imp-95361 consistency audit: the corrected E_trunc was recorded as a
+    // STANDALONE constant (honestValueEstimate) but was never propagated through
+    // the composition. composition.lambdaAsymptoticUpper (= 0 + 3.06e-5 + 0 + 0)
+    // still carries the RETRACTED prefactor, kept only as the arithmetic-on-record
+    // value. Propagating the imp-34791-corrected E_trunc through the identical
+    // formula (limsup |t_c| + E_trunc + E_flow + E_coll = 0 + ~5.1e-5 + 0 + 0)
+    // gives an honest COMPOSED value ~= 5.1e-5 -- still conditional and NOT a
+    // rigorous Lambda bound. No bound changes; 3.06e-5 stays reachable for the
+    // paper trail.
+    honestComposedValue: 5.1e-5,             // imp-95361: honest E_trunc propagated through the composition
+    honestComposedNote:
+      'imp-95361 audit: the honest composed conditional value (limsup |t_c| + ' +
+      'corrected E_trunc + E_flow + E_coll = 0 + ~5.1e-5 + 0 + 0) is ~= 5.1e-5, ' +
+      'NOT the arithmetic-on-record 3.06e-5 that composition.lambdaAsymptoticUpper ' +
+      'still carries. Both remain non-rigorous and conditional on the same open gates.',
     isRigorousLambdaBound: false,
     prefactorBug: 'imp-34791: prefactor 3->5 correction; honest E_trunc ~= 5.1e-5, not 3.06e-5',
     ramareLineWrong: 'imp-1324 Ramaré line wrong by ~9.5e7',

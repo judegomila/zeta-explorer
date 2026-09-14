@@ -17,6 +17,8 @@ const DirectoryPage = lazy(() => import('./pages/DirectoryPage.jsx'));
 const AtlasPage = lazy(() => import('./pages/AtlasPage.jsx'));
 const SimulatorsPage = lazy(() => import('./pages/SimulatorsPage.jsx'));
 const NoGosPage = lazy(() => import('./pages/NoGosPage.jsx'));
+const ResultsPage = lazy(() => import('./pages/ResultsPage.jsx'));
+const ThreadsPage = lazy(() => import('./pages/ThreadsPage.jsx'));
 const StateOfFieldPage = lazy(() => import('./pages/StateOfFieldPage.jsx'));
 const PermutationArchitecturePage = lazy(() => import('./pages/PermutationArchitecturePage.jsx'));
 const LambdaCandidate01758354Page = lazy(() => import('./pages/LambdaCandidate01758354Page.jsx'));
@@ -85,6 +87,7 @@ const LambdaBoundsPage = lazy(() => import('./pages/LambdaBoundsPage.jsx'));
 const NewmanLambda01787854CandidatePage = lazy(() => import('./pages/NewmanLambda01787854CandidatePage.jsx'));
 const LambdaTimelinePage = lazy(() => import('./pages/LambdaTimelinePage.jsx'));
 const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
+const FrontierDagPage = lazy(() => import('./pages/FrontierDagPage.jsx'));
 const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
 const DysonVerifierPage = lazy(() => import('./pages/DysonVerifierPage.jsx'));
 const HealthPage = lazy(() => import('./pages/HealthPage.jsx'));
@@ -1626,6 +1629,8 @@ function AppShell() {
           <Route path="/atlas" element={<AtlasPage />} />
           <Route path="/simulators" element={<SimulatorsPage />} />
           <Route path="/no-gos" element={<NoGosPage />} />
+          <Route path="/results" element={<ResultsPage />} />
+          <Route path="/threads" element={<ThreadsPage />} />
           <Route path="/state-of-field" element={<StateOfFieldPage />} />
           <Route path="/permutation-architecture" element={<PermutationArchitecturePage />} />
           <Route path="/lambda-01758354-candidate" element={<LambdaCandidate01758354Page />} />
@@ -1821,6 +1826,7 @@ function AppShell() {
           <Route path="/newman-lambda-01787854-candidate" element={<NewmanLambda01787854CandidatePage />} />
           <Route path="/lambda-timeline" element={<LambdaTimelinePage />} />
           <Route path="/rh-dag" element={<RhDagPage />} />
+          <Route path="/frontier-dag" element={<FrontierDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/what-we-know" element={<WhatWeKnowPage />} />

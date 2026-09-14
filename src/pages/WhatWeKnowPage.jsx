@@ -60,7 +60,8 @@ export default function WhatWeKnowPage() {
       byline={['mathexplorer', 'no RH proof · no beat of the Λ record']}
       ticker={<span>no-go theorems · the breach point, located</span>}
       footer={<>
-        Related: <Link to="/route-map">The wall map</Link>
+        Related: <Link to="/frontier-dag">The frontier DAG</Link>
+        {' · '}<Link to="/route-map">The wall map</Link>
         {' · '}<Link to="/rigor-dashboard">Rigor Dashboard</Link>
         {' · '}<Link to="/prime-rigidity">Prime rigidity</Link>
         {' · '}<Link to="/vortex-field">Vortex field</Link>

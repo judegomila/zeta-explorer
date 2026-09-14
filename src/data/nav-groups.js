@@ -1,5 +1,17 @@
 export const NAV_GROUPS = [
   {
+    label: 'Research',
+    items: [
+      { to: '/results', label: 'Results (graded)' },
+      { to: '/frontier-dag', label: 'Frontier DAG' },
+      { to: '/route-map', label: 'The Wall Map' },
+      { to: '/what-we-know', label: 'What We Know' },
+      { to: '/state-of-field', label: 'State of the Field' },
+      { to: '/no-gos', label: 'No-Go Theorems' },
+      { to: '/permutation-architecture', label: 'Permutation Architecture' },
+    ],
+  },
+  {
     label: 'Model',
     items: [
       { to: '/', label: 'Introduction (Home)' },
@@ -147,6 +159,7 @@ export const NAV_GROUPS = [
   {
     label: 'Progress',
     items: [
+      { to: '/threads', label: 'Research Threads' },
       { to: '/engine-room', label: 'Engine Room (live)' },
       { to: '/meta-acceleration', label: 'Meta Acceleration' },
       { to: '/research-journal', label: 'Research Journal' },

@@ -188,6 +188,8 @@ export default function AtlasPage() {
             The wall map → all {FULL_ROUTE_MAP.totalRoutes} routes as the dense table (split points, sub-gaps, provenance)
           </Link>
           <span style={{ color: 'var(--faint)' }}> · </span>
+          <Link to="/frontier-dag">The frontier DAG →</Link>
+          <span style={{ color: 'var(--faint)' }}> · </span>
           <Link to="/no-gos">No-go index →</Link>
           <span style={{ color: 'var(--faint)' }}> · </span>
           <Link to="/state-of-field">State of the field →</Link>

@@ -4,6 +4,7 @@ import { EditorialHeader, GradeChip, InlineMath } from '../components/editorial/
 import WireframeAnim from '../components/editorial/WireframeAnim.jsx';
 import { ZETAEXPLORER_NO_GOS } from '../data/rh-no-go-theorems.js';
 import { FULL_ROUTE_MAP } from '../data/full-route-map-2026-06-19.js';
+import { RESULTS_COUNT } from '../data/graded-results.js';
 
 // The real interactive explorers, lazy-loaded so the landing stays light.
 const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
@@ -89,6 +90,7 @@ export default function HomePageEditorial() {
         <div className="ed-kpi"><b style={{ color: 'var(--brass-dk)' }}>0.1758354</b><span>Λ candidate</span></div>
         <Link className="ed-kpi ed-kpi-link" to="/route-map"><b>{FULL_ROUTE_MAP.totalRoutes}</b><span>routes mapped</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/no-gos"><b style={{ color: 'var(--terra-dk)' }}>{ZETAEXPLORER_NO_GOS.length}</b><span>no-go theorems</span></Link>
+        <Link className="ed-kpi ed-kpi-link" to="/results"><b>{RESULTS_COUNT}</b><span>graded results</span></Link>
         <Link className="ed-kpi ed-kpi-link" to="/simulators"><b style={{ color: 'var(--green)' }}>12</b><span>interactive simulators</span></Link>
       </div></div>
 
@@ -115,6 +117,25 @@ export default function HomePageEditorial() {
             <div className="eq"><InlineMath tex="T3(a)\ \forall a>0 \iff \mathrm{RH}" /></div>
             <p>Shrink the shift a→0 and the strip closes to the line. E_a = A_a − iB_a = Ξ(z+ia), verified.</p>
             <Link to="/shift-bridge-positivity">/shift-bridge-positivity →</Link></div>
+        </div>
+      </section></div>
+
+      {/* START HERE — three audience doors (reorg #5) */}
+      <div className="ed-full"><section className="ed-sec" style={{ paddingTop: 26, paddingBottom: 6 }}>
+        <div className="ed-lbl" style={{ marginBottom: 10 }}>start here</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="ed-map">
+          <Link className="ed-tile" to="/results">
+            <h3>I want the mathematics</h3>
+            <p>Every result, graded by verification level — kernel-verified Lean theorems, refereed proofs, certified computations, candidates, and the honest kills.</p>
+          </Link>
+          <Link className="ed-tile" to="/threads">
+            <h3>I want the story</h3>
+            <p>Nine research threads as dated narratives — each claim, verdict, and pivot from the weld ladder to the y-thaw to the program's derived floor.</p>
+          </Link>
+          <Link className="ed-tile" to="/frontier-dag">
+            <h3>Show me the frontier</h3>
+            <p>The live dependency graph: every named open object, what gates what, and exactly what closes if each one lands.</p>
+          </Link>
         </div>
       </section></div>
 
@@ -150,7 +171,7 @@ export default function HomePageEditorial() {
       {/* findings atlas */}
       <div className="ed-full"><section className="ed-sec">
         <div className="ed-shead"><div><div className="ed-lbl">the ledger · • = new</div><h2>Findings</h2></div>
-          <p>Bounds, models, walls, and no-gos. Each opens its own page.</p></div>
+          <p>Bounds, models, walls, and no-gos. Each opens its own page. <Link to="/threads">Research threads →</Link></p></div>
         <div className="ed-map">
           {FINDINGS.map((f) => (
             <Link key={f.to} className="ed-tile" to={f.to}>
@@ -185,6 +206,9 @@ export default function HomePageEditorial() {
           contract, not a bound. RH remains open: it requires Λ ≤ 0. The only
           lever that moves the floor is verified zero height — derived twice, from Sylvester inertia and de
           Bruijn–Newman flow rigidity.</div>
+        <div style={{ marginTop: 10, fontSize: 14 }}>
+          <Link to="/frontier-dag">The frontier DAG — the open objects and what each one closes →</Link>
+        </div>
       </section></div>
 
       {/* cta */}

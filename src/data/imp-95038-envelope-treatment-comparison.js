@@ -197,3 +197,115 @@ function assertMonotoneDecreasing() {
 
 assertReproducesCorner();
 assertMonotoneDecreasing();
+
+// ── imp-95275: sub-corner extension via cancellation-free quadrature ─────────
+// The Lemma PF closed form (iExact above) is float-valid only for T >= the
+// dominant corner V(0,2); below it the FAR piece (farFolded) carries a
+// pole-confluence singularity at T = 1 - rho, where a = rho + T -> 1 so the
+// (a-1)^-(2s-k) and (1-a)^-(2s-k) partial-fraction terms diverge and the
+// alternating sum loses all significant digits. Assessment for imp-95275: a
+// rearranged partial-fraction (folded vs unfolded) evaluation CANNOT cross
+// that confluence without a separate confluent closed form / series in (a-1);
+// but the normalized pair correlation is a manifestly cancellation-free
+// integral of a POSITIVE integrand, so a refined midpoint quadrature extends
+// the EXACT curve below the corner - it reproduces iExact above the corner and
+// continues smoothly and monotonically down to small T, staying below both
+// envelope treatments (which upper-bound it). So the three-treatment envelope
+// comparison CAN be sampled below the corner, using quadrature as the exact
+// surrogate. Measurement/viz only; floors untouched; changes no bound; NO QED.
+
+export const IMP95275_T_CONFLUENCE = 1 - IMP95038_RHO; // far-piece pole coincidence a = rho + T = 1
+
+// cancellation-free reference: midpoint quadrature of the positive integrand
+// (1 + |u|/rho)^-s (1 + |u - T|)^-s, normalized by rho^-1/2. N and pad chosen
+// so the sub-corner relative accuracy is ~1e-5 at trivial module-load cost.
+function iQuadRef(T, rho, s, N, pad) {
+  const lo = -pad;
+  const hi = T + pad;
+  const h = (hi - lo) / N;
+  let acc = 0;
+  for (let i = 0; i < N; i++) {
+    const u = lo + (i + 0.5) * h;
+    acc += Math.pow(1 + Math.abs(u) / rho, -s) * Math.pow(1 + Math.abs(u - T), -s);
+  }
+  return (acc * h) / Math.sqrt(rho);
+}
+
+const SUB_N = 100000;
+const SUB_PAD = 40;
+const N_SUB_SAMPLES = 18;
+const SUB_T_MIN = 0.05;
+const SUB_T_MAX = IMP95038_V02 * 0.98; // just below the dominant corner
+
+// sub-corner sample grid (log-spaced in T, strictly below the corner), with the
+// exact curve carried by cancellation-free quadrature instead of the ill-
+// conditioned closed form. Same twoWindow / threeWindow envelope treatments.
+export const IMP95275_SUBCORNER_CURVE = Array.from({ length: N_SUB_SAMPLES }, (_, i) => {
+  const t = SUB_T_MIN * Math.pow(SUB_T_MAX / SUB_T_MIN, i / (N_SUB_SAMPLES - 1));
+  return {
+    T: t,
+    twoWindow: psiEnv(t, SS),
+    threeWindow: threeWindowMin(t, IMP95038_RHO, SS),
+    exactQuad: iQuadRef(t, IMP95038_RHO, SS, SUB_N, SUB_PAD),
+  };
+});
+
+// measured float-validity boundary: relative gap between the closed form and
+// the cancellation-free quadrature at three separations spanning the corner.
+export const IMP95275_CLOSED_FORM_CONDITIONING = [IMP95038_V02, 0.5, 0.3].map((T) => {
+  const q = iQuadRef(T, IMP95038_RHO, SS, SUB_N, SUB_PAD);
+  const e = iExact(T, IMP95038_RHO, SS);
+  return { T, exactClosedForm: e, exactQuad: q, relGap: Math.abs(e - q) / Math.abs(q) };
+});
+
+// ── imp-95275 assertions (self-executing) ────────────────────────────────────
+function assertQuadReproducesCornerExact() {
+  const q = iQuadRef(IMP95038_V02, IMP95038_RHO, SS, SUB_N, SUB_PAD);
+  const e = iExact(IMP95038_V02, IMP95038_RHO, SS);
+  if (Math.abs(q - e) > 1e-3 * Math.abs(e)) {
+    throw new Error('imp-95275: quadrature does not reproduce the closed form at the dominant corner');
+  }
+}
+
+function assertClosedFormDivergesBelowCorner() {
+  // at T = 0.3 (below the corner, past the far-piece confluence onset) the
+  // closed form has lost all digits vs the cancellation-free quadrature.
+  const rec = IMP95275_CLOSED_FORM_CONDITIONING.find((r) => r.T === 0.3);
+  if (!rec || !(rec.relGap > 1e3)) {
+    throw new Error('imp-95275: expected catastrophic closed-form conditioning breakdown below the corner');
+  }
+}
+
+function assertSubcornerQuadValidAndBounded() {
+  let prev = -Infinity; // grid is increasing in T, so exactQuad must be decreasing
+  for (const p of IMP95275_SUBCORNER_CURVE) {
+    if (!Number.isFinite(p.exactQuad) || p.exactQuad <= 0) {
+      throw new Error('imp-95275: sub-corner quadrature value not finite-positive');
+    }
+    const env = Math.min(p.twoWindow, p.threeWindow);
+    if (p.exactQuad > env * (1 + 1e-4)) {
+      throw new Error('imp-95275: sub-corner exact curve exceeds its envelope upper bound');
+    }
+  }
+  for (let i = IMP95275_SUBCORNER_CURVE.length - 1; i >= 0; i--) {
+    const v = IMP95275_SUBCORNER_CURVE[i].exactQuad;
+    if (v < prev * (1 - 1e-6)) {
+      throw new Error('imp-95275: sub-corner exact curve not monotone as separation shrinks');
+    }
+    prev = v;
+  }
+}
+
+function assertQuadConvergesUnderRefinement() {
+  const T = 0.3;
+  const coarse = iQuadRef(T, IMP95038_RHO, SS, SUB_N / 4, SUB_PAD);
+  const fine = iQuadRef(T, IMP95038_RHO, SS, SUB_N, SUB_PAD);
+  if (Math.abs(coarse - fine) > 1e-3 * Math.abs(fine)) {
+    throw new Error('imp-95275: cancellation-free quadrature does not converge under refinement');
+  }
+}
+
+assertQuadReproducesCornerExact();
+assertClosedFormDivergesBelowCorner();
+assertSubcornerQuadValidAndBounded();
+assertQuadConvergesUnderRefinement();

@@ -15313,6 +15313,16 @@ const DATA_MODULES = [
   // neither leading form (named sub-gap). Import-light, six self-executing
   // assertions. Derivation only; changes no bound; NO QED; Lambda <= 0.2 SOTA.
   '/src/data/imp-95447-rstar-edge-asymptotic.js',
+  // imp-95402 (numerical, S-frontier): exact ELEMENTARY PARAMETRIC closed form
+  // for the imp-95271 wedge boundary r_star(x). With u = (r-1)x, the h_r = 0
+  // root equation 2 e^u = 2u + u^2/x + 2 inverts to x(u) = u^2/(2(e^u-1-u)),
+  // r_star(u) = 1 + 2(e^u-1-u)/u on u in (0, inf) -- a strictly monotone
+  // bijection onto x in (0,1) that reproduces the eight tabulated r_star to full
+  // precision, solves dh/dr = 0 and the imp-95377 implicit equation, and gives
+  // the 1 + 3(1-x) edge term. Elementary in u though r_star(x) is not elementary
+  // in x. Import-light, six self-executing assertions. Derivation only; changes
+  // no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
+  '/src/data/imp-95402-rstar-parametric.js',
   // imp-95381 (numerical, S-frontier): contour of the imp-95271 RI
   // tightness-ratio slack across the full bump wedge, refining finding (3).
   // The per-x max of ratio = h h_r Lambda_2 / (x P (Lambda_2 - P)) is ALWAYS

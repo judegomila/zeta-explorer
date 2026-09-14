@@ -69,8 +69,8 @@ const collapseChain = [
     step: 2,
     title: 'Block Positivity ⇔ K_a ⪰ 0',
     statement: String.raw`K_a \succeq 0`,
-    reference: '§27 Paper Construct (LOAD-BEARING)',
-    description: 'The unique load-bearing step internal to the paper. Block positivity is equivalent to the kernel operator K_a being positive semidefinite.',
+    reference: '§27 Paper Construct (ESSENTIAL)',
+    description: 'The unique essential step internal to the paper. Block positivity is equivalent to the kernel operator K_a being positive semidefinite.',
     color: WARM.loadBearing,
     isLoadBearing: true
   },
@@ -160,8 +160,8 @@ const collapseChain = [
     step: 4,
     title: 'E_a Hermite-Biehler ⇔ K_a ⪰ 0',
     statement: String.raw`K_a \succeq 0`,
-    reference: '§27 Paper Construct (LOAD-BEARING)',
-    description: 'Reverse direction: if E_a is Hermite-Biehler, the kernel K_a is positive semidefinite. This is the same load-bearing §27 identity.',
+    reference: '§27 Paper Construct (ESSENTIAL)',
+    description: 'Reverse direction: if E_a is Hermite-Biehler, the kernel K_a is positive semidefinite. This is the same essential §27 identity.',
     color: WARM.loadBearing,
     isLoadBearing: true
   },
@@ -239,7 +239,7 @@ function ChainNode({ node, isExpanded, onToggle }) {
           </div>
           <p style={{ margin: '8px 0', fontSize: '13px', color: 'var(--ink-soft)' }}>
             <strong style={{ color: node.color }}>Reference:</strong> {node.reference}
-            {node.isLoadBearing && <span style={{ color: 'var(--terra-dk)', fontWeight: 'bold' }}> ★ LOAD-BEARING</span>}
+            {node.isLoadBearing && <span style={{ color: 'var(--terra-dk)', fontWeight: 'bold' }}> ★ ESSENTIAL</span>}
           </p>
           <p style={{ margin: '8px 0', fontSize: '13px', color: 'var(--faint)', fontStyle: 'italic' }}>
             {node.description}
@@ -373,7 +373,7 @@ export default function CollapseChainPage() {
         </div>
 
         <div style={{ marginTop: '40px', padding: '20px', backgroundColor: alpha(WARM.reverse, 0.08), borderRadius: '8px', border: '1px solid var(--brass)' }}>
-          <h3 style={{ fontSize: '14px', marginTop: '0', color: 'var(--brass-dk)' }}>§26 Verdict ({SECTION26_VERDICT.date}): Route Killed as a Reduction</h3>
+          <h3 style={{ fontSize: '14px', marginTop: '0', color: 'var(--brass-dk)' }}>§26 Verdict ({SECTION26_VERDICT.date}): Route Ruled Out as a Reduction</h3>
           <p style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '4px 0' }}>
             <strong>{SECTION26_VERDICT.verdict}</strong>
           </p>
@@ -387,7 +387,7 @@ export default function CollapseChainPage() {
           <h3 style={{ fontSize: '14px', marginTop: '0', color: 'var(--ink)' }}>Scope &amp; Risk</h3>
           <ul style={{ fontSize: '13px', color: 'var(--ink-soft)', margin: '8px 0' }}>
             <li>
-              <strong>§27 construct identity is load-bearing.</strong> If §25-26-27 has a gap in the identity
+              <strong>§27 construct identity is essential.</strong> If §25-26-27 has a gap in the identity
               {' '}<InlineMath math="\text{block positivity} \Leftrightarrow K_a \succeq 0" />, one direction loses.
             </li>
             <li>

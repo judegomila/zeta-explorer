@@ -211,7 +211,7 @@ export default function Imp35121EcollEtruncEflowDecompositionViz() {
         this chart's own E_trunc curve is the flat purple line, not a decaying one: E(N) = E_coll
         + E_trunc + E_flow FLOORS at the constant E_trunc = 3.06e-5 (imp-35100) instead of tending
         to 0, so the fixed-strip surrogate as written provably CANNOT supply the LAMBDA_CHAIN_STEPS
-        Step-4 rate E(N) &rarr; 0. The only lever that vanishes E_trunc is Knob A -- growing the
+        Step-4 rate E(N) &rarr; 0. The only knob that vanishes E_trunc is Knob A -- growing the
         VERIFIED height T_v(N) &rarr; &infin; at a fixed abscissa (imp-35149); the thin-moving-strip
         Knob B makes E_trunc GROW instead (imp-2622). Knob A's own supply of T_v(N) beyond
         T_PT = 3e12 is unresolved (imp-35149 R3), so this remains a scoped-but-open route, not a

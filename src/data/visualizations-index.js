@@ -2096,6 +2096,48 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted onset is copied verbatim from the imp-95328 / imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the per-leg drops are a plain subtraction of already-baked onsets; proves nothing beyond what those five modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-cost-floor',
+      title: 'The Geometry of the Program Floor',
+      oneLine:
+        'Filled (t, y) contour map of the Route-VII complete-row cost law ln N1* = (2c0 − y)/t + L0 with iso-U parabolas, budget frontiers, the frozen rows, and the derived U ≈ 0.145–0.150 floor band.',
+      mathBucket: 'bound',
+      dataModule: 'src/data/imp-95218-route7-cost-curve.js',
+      paperSourcePath:
+        'src/data/imp-95218-route7-cost-curve.js (calibrated law + SC3 floor; paper section 10.7 / Theorem 11.1); verify_tail_arb.c contraction structure',
+      ticket: 'imp-95470',
+      pedagogicalStep: 144,
+      honestCeiling:
+        'Derived ANALYSIS rendered exactly: every pixel is the imp-95218 two-point-calibrated law (Arb points A/B), every overlay an exact level set; the law is calibrated at y in [0.165, 0.19] and UNDERSTATES cost at small y (G ~ N^{-y} wall omitted). Derives no bound, certifies nothing, changes no frontier; no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
+      route: '/viz-window-landscape',
+      title: 'The First-Window Landscape',
+      oneLine:
+        'The real window-1 dd landscape: max-preserving downsample of the 600,002-evaluation pilotg3 grid — Σ|D_j|(w) and |E97|(w) vs Rex, both seam charts, exact sup witnesses, the certified tier slice, and a phase-scale zoom.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/viz-window1-landscape-data.js',
+      paperSourcePath:
+        'native/gate2-lane-a/pilotg3-300001-result.json (imp-95205 G3 pilot) + deterministic grid re-evaluation for the curve; certified slice literals from src/data/imp-95213-tier-certifier-build.js',
+      ticket: 'imp-95471',
+      pedagogicalStep: 145,
+      honestCeiling:
+        'Sampled dd MEASUREMENT (grade: measured), not a certificate: the curves are a max-preserving downsample of the deterministic 300001-point pilotg3 grid, sups verified against the recorded pilot literals; only the shaded u in [73222.5, 74022.5] slice is interval-certified (0.058% of window 1); the window-1 full continuum run is in progress and 54,109,011 windows lie beyond it. Proves no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
+      route: '/viz-freeze-flow',
+      title: 'The Normal Form as Flow Geometry',
+      oneLine:
+        'The eq-42 modulus-last normal form animated with the 25 REAL defect packets D_j at the window-1 pilot sup witness: recombine-first vs modulus-first, ratio 1.3430187 computed from the literals.',
+      mathBucket: 'flow-field',
+      dataModule: 'src/data/viz-freeze-flow-phasors.js',
+      paperSourcePath:
+        'Permuting the Zeta Twin Ladder (eq. 7 ordering rule, eq. 42 normal form, eq. 13 telescope); packets from native/gate2-lane-a point mode at the imp-95205 supPilot witness',
+      ticket: 'imp-95472',
+      pedagogicalStep: 146,
+      honestCeiling:
+        'Renders one ordering lemma (|Σz| ≤ Σ|z|, modulus-last) with one real dd evaluation (telescope identity 2.6e-14); the two bars and the 1.3430187 ratio are computed, the pipeline layout is the only schematic element. Proves no bound, does not certify the window, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

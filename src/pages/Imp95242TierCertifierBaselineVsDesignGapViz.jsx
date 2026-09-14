@@ -85,7 +85,7 @@ export default function Imp95242TierCertifierBaselineVsDesignGapViz() {
         past the required ~{TIER_PRICE.baselines.requiredBeat}x line. In ball-ops it sits{' '}
         {TIER_PRICE.baselines.ballOpsRatioVsDesign.toFixed(1)}x ABOVE the two-level design budget,
         because that second level (a frequency-bin/chirp amortization of the per-panel pass) is an
-        identified residual lever that was not built here.
+        identified residual optimization that was not built here.
       </p>
 
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
@@ -114,8 +114,8 @@ export default function Imp95242TierCertifierBaselineVsDesignGapViz() {
         (CPU-days) against a slow direct-evaluation dry run; the bottom panel is an analytic
         arb-op count against a design target for a two-level architecture that amortizes the
         per-panel O(N) pass via a frequency-bin/chirp recurrence. The single level built here
-        clears the CPU-day bar comfortably while still being honestly priced above the
-        finer-grained ball-op design budget &mdash; the second level is the residual lever, not
+        clears the CPU-day bar comfortably while still being priced above the
+        finer-grained ball-op design budget &mdash; the second level is the residual optimization, not
         built.
       </div>
 

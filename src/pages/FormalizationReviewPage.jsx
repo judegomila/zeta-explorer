@@ -12,6 +12,24 @@ export default function FormalizationReviewPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <h1 className="ed-h1" style={{ marginBottom: 10 }}>Formalization — Pre-Submission Review Dashboard</h1>
+        <div
+          style={{
+            margin: '0 0 12px',
+            padding: '8px 12px',
+            border: '1px solid var(--brass-dk)',
+            borderRadius: 6,
+            maxWidth: 820,
+            fontSize: 13,
+            lineHeight: 1.55,
+            color: 'var(--brass-dk)',
+            fontFamily: 'var(--ed-mono)',
+          }}
+        >
+          REVIEW SNAPSHOT 2026-07-20 — this dashboard's data is frozen at that date. The
+          formalization effort has since grown (20+ Lean projects; the O1 obligation is at Aristotle).
+          Live status: <Link to="/formalization-status" style={{ color: 'var(--brass-dk)' }}>/formalization-status</Link>
+          {' · '}the formalization thread on <Link to="/threads" style={{ color: 'var(--brass-dk)' }}>/threads</Link>.
+        </div>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>
           A shareable review page for the machine-checked <strong>backward-heat real-rootedness
           theorem</strong> (Hermite–Poulain; the polynomial mechanism behind de Bruijn 1950), packaged

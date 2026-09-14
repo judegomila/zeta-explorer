@@ -30,6 +30,27 @@ export const ZETAEXPLORER_NO_GOS = Object.freeze([
     route: '/frozen-rung-pt-equivalence',
   },
   {
+    title: 'Route VII reachable floor: U ≈ 0.150 (stretch 0.145)',
+    kind: 'barrier',
+    by: 'zetaexplorer (2026-09)',
+    statement:
+      'The Route VII reachable-floor analysis derives a compute floor for the program: the ' +
+      'certification architecture can reach U ≈ 0.150 (stretch estimate 0.145), and going below ' +
+      'that requires arithmetic input, not more compute. A derived floor for this route family, ' +
+      'not a bound on Λ.',
+    route: '/frontier-dag',
+  },
+  {
+    title: 'Inertia-PCC verdict: the same pair-correlation wall',
+    kind: 'barrier',
+    by: 'zetaexplorer (2026-09)',
+    statement:
+      'The inertia route meets the same Montgomery pair-correlation wall as the other closure ' +
+      'routes: the measured obstruction is λ_max(ρ) = 0.6231344958476320. It does not open a ' +
+      'path below RH; detail on the inertia-pcc research thread.',
+    route: '/threads',
+  },
+  {
     title: 'The no-gain rule (isometry cannot sharpen a margin)',
     kind: 'theorem',
     by: 'zetaexplorer',

@@ -258,15 +258,33 @@ export default function RhDagPage() {
       <EditorialHeader />
       <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="ed-h1" style={{ marginBottom: 10 }}>RH Dependency DAG</h1>
+          <h1 className="ed-h1" style={{ marginBottom: 10 }}>RH Dependency DAG — historical planner (frozen at the imp-356 era)</h1>
+          <div
+            className="card"
+            style={{
+              borderLeft: '4px solid var(--terra-dk)',
+              padding: '10px 14px',
+              marginBottom: 14,
+              maxWidth: 760,
+            }}
+          >
+            <p style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.55, margin: 0 }}>
+              This is a historical planning artifact: its capstone and critical
+              path target <code>imp-356</code>, from an earlier phase of the
+              program (live tickets are now in the imp-95xxx range). It is kept
+              as a record of how that phase was planned. The live frontier is{' '}
+              <Link to="/frontier-dag"><strong>/frontier-dag</strong></Link>{' '}
+              (asOf-stamped, one node per open object).
+            </p>
+          </div>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            Every ticket that matters for the Λ-attack, wired up by dependency.
-            The DAG is the plan: each layer is a set of tickets that can run in
-            parallel, the critical path to <code>imp-356</code> is the minimum
-            sequence that has to happen in order. Use{' '}
+            Every ticket that mattered for the Λ-attack in that era, wired up by
+            dependency. The DAG was the plan: each layer is a set of tickets that
+            could run in parallel, the critical path to <code>imp-356</code> is the
+            minimum sequence that had to happen in order. Use{' '}
             <Link to="/improvement-queue">/improvement-queue</Link> for the live
             status table, and <Link to="/lambda-bounds">/lambda-bounds</Link> for
-            the 5-step chain overview.
+            the bounds ledger.
           </p>
         </div>
 

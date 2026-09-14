@@ -20,7 +20,7 @@ import { IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE } from '../data/imp-95
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
    verbatim-in-scope from "Permuting the Zeta Twin Ladder" (Gomila, 2026-08-24).
-   Honest framing: Λ ≤ 0.14 is a fail-closed CONTRACT, not a proved bound; this
+   Honest framing: Λ ≤ 0.14 is a conditional CONTRACT, not a proved bound; this
    page proves neither RH nor a new de Bruijn–Newman bound. Editorial theme. */
 
 // The typed component calculus (E/A/C/O), from the paper's §3 table.
@@ -194,7 +194,7 @@ function OscillationRegimeMapChart() {
         width="100%"
         style={{ maxWidth: W, display: 'block', margin: '0 auto' }}
         role="img"
-        aria-label="Gate-2 oscillation-probe regime map: surrogate per-unit-N increment L for the smooth and raw phase hypotheses on a log scale, against the batching-kill threshold 1e-2"
+        aria-label="Gate-2 oscillation-probe regime map: surrogate per-unit-N increment L for the smooth and raw phase hypotheses on a log scale, against the batching failure threshold 1e-2"
       >
         <rect x={padL} y={padT} width={cW} height={cH} fill="none" stroke="var(--hairline)" strokeWidth={1} />
         <line x1={xS(BATCHING_L_KILL)} y1={padT} x2={xS(BATCHING_L_KILL)} y2={padT + cH} stroke="var(--faint)" strokeWidth={1} strokeDasharray="3,3" />
@@ -207,7 +207,7 @@ function OscillationRegimeMapChart() {
               <rect x={padL} y={y + rowH * 0.22} width={barW} height={rowH * 0.56} fill={r.color} opacity={0.75} />
               <text x={4} y={y + rowH * 0.55} fontFamily="var(--ed-mono)" fontSize="10.5" fill="var(--ink-soft)">{r.label}</text>
               <text x={xS(r.L) + 5} y={y + rowH * 0.55} fontFamily="var(--ed-mono)" fontSize="10" fill={r.color}>
-                L={r.L.toExponential(2)} ({r.survives ? 'survives' : 'kills batching'})
+                L={r.L.toExponential(2)} ({r.survives ? 'survives' : 'rules out batching'})
               </text>
             </g>
           );
@@ -573,7 +573,7 @@ export default function PermutationArchitecturePage() {
         <p style={{ fontSize: 17, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
           The twin-ladder program organised as a <strong>typed calculus of components</strong> and admissible
           compositions: which rearrangements are equivalent, which create commutator defects, and which destroy
-          useful cancellation by taking a modulus too early. It fixes a <strong>fail-closed contract</strong> for
+          useful cancellation by taking a modulus too early. It fixes a <strong>conditional contract</strong> for
           the strict sub-0.14 route — reducing the whole route to <em>one</em> explicit open family — and records
           five alternative sufficient gates. This is an architecture and a contract:{' '}
           <strong>it proves neither RH nor a new bound on the de Bruijn–Newman constant Λ.</strong>{' '}
@@ -662,8 +662,19 @@ export default function PermutationArchitecturePage() {
             anchor reproduction. Full diagnosis: <span className="ed-mono" style={{ fontSize: 12 }}>native/gate2-lane-a/README.md</span>.
           </p>
         </div>
+        <div style={{ borderLeft: '3px solid var(--green)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '12px 16px', margin: '10px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>status after 2026-09 (contract lane)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.55, margin: 0 }}>
+            Since the provenance note above: the archive-free G3 first-window pilot <strong>passed</strong>;
+            the window-1 pilot certificate covers 800 of 1,381,977 q-units with 0 failures (window-1
+            certification in progress); and the tier-2 certification pricing stands at 21.1 CPU-days
+            (a 17.9× reduction over tier-1). Status only — no bound is promoted. Detail:{' '}
+            <Link to="/threads" style={{ color: 'var(--brass-dk)' }}>the gate2-contract thread</Link>
+            {' · '}<Link to="/frontier-dag" style={{ color: 'var(--brass-dk)' }}>/frontier-dag</Link>.
+          </p>
+        </div>
         <div style={{ borderLeft: '3px solid var(--brass)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
-          <div className="ed-lbl" style={{ marginBottom: 4 }}>the one open family — the breach point</div>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>the one open family — the remaining gap</div>
           <p style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             A single correlated lower-edge scalar inequality on the range{' '}
             <strong><InlineMath tex="690988 \le N \le 54799999" /></strong>: the global statement{' '}
@@ -737,7 +748,7 @@ export default function PermutationArchitecturePage() {
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '0 0 8px' }}>
             The 18-moment carrier's batching premise hinges on which phase regime it lives in: a stationary-phase
             (smooth, phase <InlineMath tex="\sim\sqrt{N}" />) carrier keeps the per-unit-N increment decades below the
-            kill threshold, while an unsmoothed prime-alias comb (raw, phase <InlineMath tex="\sim N" />) blows through
+            failure threshold, while an unsmoothed prime-alias comb (raw, phase <InlineMath tex="\sim N" />) blows through
             it. The surrogate scan below shows the two hypotheses straddle the threshold — the decision is genuinely
             open, not pre-settled.
           </p>
@@ -957,7 +968,7 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
-          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — far-bracket ceiling (imp-95008)</div>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>status — far-bracket ceiling (imp-95008)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             Within the MAJ(σ, θ) envelope class, the per-pair correlation bound at the substituted point is now
             exact (zero inequality slack survives Lemmas CC/RM/PF) — but that is sharpness of one envelope
@@ -1089,7 +1100,7 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
-          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — surviving residual after (b2)+(b3) closure (imp-95008)</div>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>status — surviving residual after (b2)+(b3) closure (imp-95008)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             Of the three non-parity slacks named after the nineteenth continuation, (b1) CLOSED at the twentieth move
             (Theorem CA + Lemma EQ, zero slack) and (b2)+(b3) CLOSED together at the twenty-second move (Lemma SW +
@@ -1103,7 +1114,7 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
-          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — E-realization split refines the residual into two coupled channels (imp-95008, twenty-third continuation)</div>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>status — E-realization split refines the residual into two coupled channels (imp-95008, twenty-third continuation)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             The twenty-third continuation (Lemmas ES + PB, Theorem ER) executes the E-realization sub-gap and
             factors the surviving residual 1.4032010197013394 exactly by parity channel:
@@ -1123,7 +1134,7 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
-          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — paper-packet transfer of the far-ceiling ledger (imp-95026)</div>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>status — paper-packet transfer of the far-ceiling ledger (imp-95026)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             imp-95026 derives how the far coefficient depends on the packet constants (σ, θ, β, and the
             isolation constant Q) and scans a neighborhood of the model point — it does <strong>not</strong> instantiate
@@ -1290,7 +1301,7 @@ export default function PermutationArchitecturePage() {
         </div>
 
         <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '12px 0' }}>
-          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — the joint near/far lever is out-of-class and un-priced (imp-95096)</div>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>status — the joint near/far lever is out-of-class and un-priced (imp-95096)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             imp-95096 asks whether pricing the diagonal norms jointly with the far mass can certify a far
             coefficient below λ<sub>max</sub>. It can: the exact two-block Pareto line
@@ -1346,7 +1357,9 @@ export default function PermutationArchitecturePage() {
         <p style={{ fontSize: 14.5, color: 'var(--ink-soft)', lineHeight: 1.6 }}>
           Every admissible word has the correlation-preserving, modulus-last <strong>normal form</strong>:
           complete → direct/dual correlate → heat + prime masks → exact transform → shell or graph
-          recombination → Schur closure (if used) → one scalar bound. Against that normal form, every
+          recombination → Schur closure (if used) → one scalar bound (rendered as accurate flow geometry —
+          with the 25 real defect packets of a window-1 evaluation — at{' '}
+          <Link to="/viz-freeze-flow">the freeze-flow visualization</Link>). Against that normal form, every
           rearrangement family is classified by its exact invariant — so "try every permutation" is closed,
           not combinatorial:
         </p>
@@ -1456,7 +1469,7 @@ export default function PermutationArchitecturePage() {
           <li><strong>Permutation-defect lemma</strong> (Lemma 3.1): <code className="ed-mono" style={{ fontSize: 12 }}>norm_permProd_sub_one_le_sum</code> — for contractions and any permutation π, ‖T_π − T_id‖ ≤ Σ over inversions of the commutator norms; plus the weighted noncontractive form and the bubble-chain combinatorial core. Unconditional.</li>
           <li><strong>Anti-Hermitian strip bound</strong> (Prop 2.1): <code className="ed-mono" style={{ fontSize: 12 }}>abs_im_le_of_represented</code> (|Im x| ≤ η) and <code className="ed-mono" style={{ fontSize: 12 }}>deBruijnNewman_le_of_global_representation</code> (Λ ≤ t + η²/2) — the latter is by design a conditional wrapper: (G) global representation and (S) the de Bruijn strip contraction enter as explicit named hypotheses, exactly as in the paper.</li>
           <li><strong>Five-shell identity</strong> (eqs. 11–12): <code className="ed-mono" style={{ fontSize: 12 }}>five_shell_identity</code> — E₉₇ = (1−A)Y₄(0) − A·ΣZ_g(0), <em>unconditional</em>, with the disjoint-Fourier-support orthogonality proved, not assumed.</li>
-          <li><strong>The §4.7 implication chain</strong>: <code className="ed-mono" style={{ fontSize: 12 }}>theorem4_chain</code> — from hypotheses (H0)–(H6), including the load-bearing (H3) R_ex ≤ m₉₇ − |A₉₇|ε_tr and the strict open weld (H4) ‖E₉₇‖ &lt; R_ex, derives winding 0 (a continuous-logarithm predicate, derived not assumed) and concludes Theorem 4.1(ii) at the exact row constants. The (H6) argument-principle packaging is dischargeable against a separately kernel-verified general argument principle on rectangles.</li>
+          <li><strong>The §4.7 implication chain</strong>: <code className="ed-mono" style={{ fontSize: 12 }}>theorem4_chain</code> — from hypotheses (H0)–(H6), including the essential (H3) R_ex ≤ m₉₇ − |A₉₇|ε_tr and the strict open weld (H4) ‖E₉₇‖ &lt; R_ex, derives winding 0 (a continuous-logarithm predicate, derived not assumed) and concludes Theorem 4.1(ii) at the exact row constants. The (H6) argument-principle packaging is dischargeable against a separately kernel-verified general argument principle on rectangles.</li>
           <li><strong>Twistor heat compatibility</strong> (Lemma 6.1): <code className="ed-mono" style={{ fontSize: 12 }}>heat_compat_on_range</code> — I_K Â₊ = Â₋ I_K on ran F₊ from the paper's three intertwining relations.</li>
         </ul>
         <p style={{ fontSize: 13, color: 'var(--faint)', lineHeight: 1.6 }}>
@@ -1472,7 +1485,7 @@ export default function PermutationArchitecturePage() {
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             The prime telescope, five-shell identity, gamma atlas, carrier remainder and one source cell are closed in
             their declared scopes. The global correlated inequality on <InlineMath tex="690988 \le N \le 54799999" /> is
-            open on every window parameter and both seam sides. Therefore Λ ≤ 0.14 is not promoted; it is a fail-closed
+            open on every window parameter and both seam sides. Therefore Λ ≤ 0.14 is not promoted; it is a conditional
             contract for the sharpest route currently mapped. Not a proof of RH, which requires <InlineMath tex="\Lambda \le 0" />.
           </p>
         </div>

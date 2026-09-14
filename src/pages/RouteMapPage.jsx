@@ -125,7 +125,9 @@ export default function RouteMapPage() {
             The five core clusters were frozen 2026-06-19 (full-route-map workflow); the sixth cluster
             records the post-freeze frontier — the{' '}
             <Link to="/permutation-architecture" style={{ color: 'var(--brass-dk)' }}>permutation architecture</Link>{' '}
-            with its fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound).
+            with its conditional Λ ≤ 0.14 completion contract (a contract, not a bound);
+            for the frontier after 2026-08 (y-thaw package, Route VII floor) see{' '}
+            <Link to="/frontier-dag" style={{ color: 'var(--brass-dk)' }}>/frontier-dag</Link>.
             The one-line truth of the frozen core: <strong>there is no shortcut below RH anywhere in it</strong> —
             the inherited Dyson/collision routes seeking to drive Λ to zero funnel into the{' '}
             <strong style={{ color: 'var(--brass)' }}>C_H Hölder-½ shock modulus</strong> (RH-hard at the

@@ -477,7 +477,7 @@ export default function HealthPage() {
             BOUNDS NOT ESTABLISHED · NOT PEER REVIEWED · NOT RH
           </div>
           <div style={{ color: '#4a4238', fontSize: 11, flexBasis: '100%' }}>
-            Separately, a fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound; one open
+            Separately, a conditional Λ ≤ 0.14 completion contract (a contract, not a bound; one open
             family) is documented at <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>/permutation-architecture</Link>.
           </div>
         </div>

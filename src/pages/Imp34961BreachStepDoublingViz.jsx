@@ -123,7 +123,7 @@ export default function Imp34961BreachStepDoublingViz() {
 
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', marginBottom: '0.5rem' }}>
         The same 2^n forward-width doubling curve, read against two independently recomputed
-        reference widths, reproduces both published breach points: R_seed = {R_SEED} crosses at
+        reference widths, reproduces both published crossing points: R_seed = {R_SEED} crosses at
         step n = {NSTAR_SEED} (op-depth {DEPTH_SEED}, the imp-34884 seed-bracket breach), and
         R_margin &asymp; {R_MARGIN.toFixed(4)} crosses at step n = {NSTAR_MARGIN} (op-depth{' '}
         {DEPTH_MARGIN}, the imp-34889 (H2)-margin breach). The two crossings are separated by{' '}

@@ -456,6 +456,16 @@ export default function FullStoryPage() {
       <RepositoryCandidateEvidence />
       <CandidateInterfaces />
       <BottomLine />
+
+      <h2>Where the story is now (2026-09)</h2>
+      <p>
+        The candidate ladder above ends at 0.1758354; the program has since assembled a{' '}
+        <strong>Λ ≤ 0.17759432 y-thaw package</strong> (candidate-unrefereed; 4/8 obligations
+        closed, O1 at Aristotle; a package value, not a bound) and derived a{' '}
+        <strong>Route VII compute floor U ≈ 0.145–0.150</strong> — below it requires arithmetic
+        input. The dated narrative continues on <Link to="/threads">/threads</Link>; the live
+        frontier is <Link to="/frontier-dag">/frontier-dag</Link>.
+      </p>
     </PostLayout>
   );
 }

@@ -13,7 +13,7 @@ export default function AutonomousFleetPage() {
       title={<>The autonomous fleet</>}
       dek={<>The attack is run continuously by a fleet of AI engines against a self-refilling queue of tickets, with adversarial referees and hard no-false-QED gates. This page describes how the machine works — not a claim about the mathematics.</>}
       byline={['Infrastructure · mathexplorer', 'method, not result']}
-      ticker={<span><b>engine live</b> · fleet grinding the frontier</span>}
+      ticker={<span><b>engine live</b> · fleet working the frontier</span>}
       footer={<>Related: <Link to="/route-map">the wall map</Link> · <Link to="/lambda-bounds">the bounds ledger</Link><br /><br />← <Link to="/">the atlas</Link></>}
     >
       <p className="lead">Most of the findings in this atlas were produced by an autonomous pipeline, not a single interactive session. A fleet of engines pulls tickets from a queue, works each one in isolation, and commits results back — with referees and gates in between. This note describes that machine so the results can be read with the right caveats.</p>

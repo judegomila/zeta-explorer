@@ -219,10 +219,16 @@ export default function FrontierDagPage() {
           The live dependency graph of the named open objects on the current frontier: which open object
           closes, gates, or promotes which downstream statement. Grades are verbatim from the source
           modules; nothing on this page promotes a bound. Λ ≤ 0.2 (Platt–Trudgian 2021) is the
-          peer-reviewed benchmark, and its only unconditional lever is verified zero height. For how the
+          peer-reviewed benchmark, and its only unconditional input is verified zero height. For how the
           program's <em>ideas</em> depend on each other historically, see{' '}
           <Link to="/rh-dag">the historical insight DAG</Link> — this page tracks the open objects, not
           the insights.
+        </p>
+        <p style={{ fontSize: 14.5, margin: '2px 0 14px' }}>
+          <Link to="/program-dag"><strong>The complete history →</strong></Link>
+          <span style={{ color: 'var(--ink-soft)' }}>
+            {' '}the full retrospective program DAG: every attempt, refutation, merge and pivot behind these open objects.
+          </span>
         </p>
 
         <DagSvg />
@@ -236,6 +242,10 @@ export default function FrontierDagPage() {
         </div>
 
         <div style={{ marginTop: 26, fontSize: 13.5 }}>
+          <Link to="/viz-cost-floor">The cost-floor geometry (route vii) →</Link>
+          <span style={{ color: 'var(--faint)' }}> · </span>
+          <Link to="/program-dag">The Program DAG (complete history) →</Link>
+          <span style={{ color: 'var(--faint)' }}> · </span>
           <Link to="/rh-dag">The historical insight DAG →</Link>
           <span style={{ color: 'var(--faint)' }}> · </span>
           <Link to="/atlas">The Atlas →</Link>

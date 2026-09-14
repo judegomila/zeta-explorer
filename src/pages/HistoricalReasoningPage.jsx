@@ -240,7 +240,7 @@ In Twin-Ladder Bridge terms:
     category: 'gap-analysis',
     status: 'superseded',
     auditNote:
-      'The candidate constructions do not reduce to one convergence problem. Domain/self-adjointness, resolvent convergence, and identification of the complete zeta divisor remain separate load-bearing interfaces.',
+      'The candidate constructions do not reduce to one convergence problem. Domain/self-adjointness, resolvent convergence, and identification of the complete zeta divisor remain separate essential interfaces.',
     content: `Three candidate operators now exist for the Hilbert-Pólya conjecture. Comparing them reveals the essential difficulty:
 
 **Candidate 1: Berry-Keating H = xp (1999)**
@@ -497,7 +497,7 @@ export default function HistoricalReasoningPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16, marginBottom: 16 }}>
             <div style={{ padding: 12, background: 'rgba(194,58,28,0.05)', borderRadius: 8, border: '1px solid rgba(194,58,28,0.15)' }}>
               <div style={{ fontSize: 11, fontWeight: 700, color: RED, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: 6 }}>
-                Current Load-Bearing Target
+                Current Primary Target
               </div>
               <div style={{ fontSize: 13, color: INK, lineHeight: 1.7 }}>
                 <strong>All-shifts bridge positivity:</strong>{' '}
@@ -506,7 +506,7 @@ export default function HistoricalReasoningPage() {
                 <InlineMath tex="\Lambda\le0.1787854" /> as a computer-assisted
                 candidate (reviewed by Dan Romik, being prepared for public release, unrefereed).
                 A sharper candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates,
-                Lean-checked reduction, unrefereed) and a fail-closed{' '}
+                Lean-checked reduction, unrefereed) and a conditional{' '}
                 <Link to="/permutation-architecture"><InlineMath tex="\Lambda\le0.14" /> completion
                 contract</Link> (a contract, not a bound) mark the current frontier. None of these
                 bounds is established or peer reviewed, and none is RH.

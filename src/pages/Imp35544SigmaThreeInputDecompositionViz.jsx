@@ -154,7 +154,7 @@ export default function Imp35544SigmaThreeInputDecompositionViz() {
         asymptotic (C_C = (1/8)&nbsp;sqrt(3&nbsp;pi) ansatz, imp-2642/imp-2643) inheriting imp-486; only
         E_flow is unconditionally rigorous (imp-398). imp-35337a (surrogate-vs-true fidelity) stays
         OPEN; E_trunc = 3.06e-5 (imp-2631) is a separate barrier artifact (imp-35459), UNTOUCHED here.
-        sigma is a diagnostic share, not a Lambda lever: this chart discharges nothing, changes no
+        sigma is a diagnostic share, not a way to move Lambda: this chart discharges nothing, changes no
         bound, establishes no operator positivity, no RH verdict, NO QED.
       </div>
     </div>

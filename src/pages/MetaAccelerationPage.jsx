@@ -293,7 +293,7 @@ export default function MetaAccelerationPage() {
             <Link to="/permutation-architecture" style={{ color: 'var(--blue)' }}>
               Λ ≤ 0.14 completion contract
             </Link>{' '}
-            is a fail-closed contract, not a bound: one enclosure family
+            is a conditional contract, not a bound: one enclosure family
             remains open, |C_E,17| &lt; 0.2796881955526147 on
             690988 ≤ N ≤ 54799999.
           </div>
@@ -722,7 +722,7 @@ git log --oneline -10                    # engine commits`}
                 color: 'var(--brass)',
                 desc: 'The engine monitors its own health and detects failures without human intervention.',
                 features: [
-                  { name: 'Heartbeat stall detection', status: 'active', detail: 'Kills wedged claude --print after 120s (imp-420)' },
+                  { name: 'Heartbeat stall detection', status: 'active', detail: 'Terminates wedged claude --print after 120s (imp-420)' },
                   { name: 'Status-flip verification', status: 'active', detail: 'Post-commit check that queue status was actually flipped (imp-419)' },
                   { name: 'Rate-limit backoff', status: 'active', detail: 'Sentinel file + exponential backoff on 429 errors' },
                   { name: 'Dev server health check', status: 'active', detail: 'HTTP 200 check on localhost:3002 each run (imp-313)' },

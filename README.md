@@ -9,7 +9,7 @@ The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman co
 > **Current honest status (2026-09-08):** This project does not prove RH, and no bound below the peer-reviewed benchmark is established. **Platt–Trudgian `Λ ≤ 0.2` remains the peer-reviewed benchmark.** The program's own frontier, graded:
 > - `Λ ≤ 0.1787854` — computer-assisted candidate for an unconditional proof (compact slab + final-time half-strip + 3,149,013-row interval replay + exact Polymath weld). Reviewed by Dan Romik; publicly posted (judegomila.com/posts/riemann-lambda-0.1787854); **unrefereed; not established; not RH.** Package: [`dbn-lambda-01787854-candidate-audit`](https://github.com/judegomila/dbn-lambda-01787854-candidate-audit), tag `review-01787854-v3`.
 > - `Λ ≤ 0.1758354` — sharper four-gate candidate (revised mollifier + extended finite lane; each gate Arb-checked, the reduction Lean-checked). **Unrefereed; not established.**
-> - `Λ ≤ 0.14` — a **fail-closed completion contract, not a bound**: the permutation-architecture paper reduces the strict sub-0.14 route to exactly one open family (`|C_E,17| < 0.2797` on `690988 ≤ N ≤ 54799999`). One provenance gap in its numerical anchor is recorded openly on `/permutation-architecture`.
+> - `Λ ≤ 0.14` — a **conditional completion contract, not a bound**: the permutation-architecture paper reduces the strict sub-0.14 route to exactly one open family (`|C_E,17| < 0.2797` on `690988 ≤ N ≤ 54799999`). One provenance gap in its numerical anchor is recorded openly on `/permutation-architecture`.
 > - The public `Λ ≤ 0.1875` certificate package (Mosaic Intelligence, Zenodo) remains an external unrefereed claim, locally repaired and reproducible.
 
 **Author:** Jude Gomila, with an AI fleet (Claude, Codex, ChatGPT) under human direction · **Live app:** `npm run dev` · **Papers:** `research-inputs/` (the consolidated twin-ladder paper, the permutation-architecture paper, the twistor framework note)
@@ -27,11 +27,11 @@ The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman co
 | Θ-trap flow invariants, heat-discriminant t_c, Route-B lim-sup (PCC/GUE-free), isolation-onset closed forms incl. `c* = √(2+√3)−1`, `c_glob = c_half` | Theorems, most Lean-verified |
 | Ramanujan-reversal identity + row sum `R_n(1) = n^{n−1}` proved from scratch (Abel's binomial theorem + tree-function ODE built en route — theory mathlib lacks) | **Kernel-verified**, upgraded two open conjectures to theorems |
 | The `[B_v,Π_p]` weld bracket driven 41× → the class sandwich `[0.2320723, 0.24502]`, now one copositivity certificate from its floor | Rigorous chain (refereed through continuation 19; newest stretch pending referee) |
-| PT-floor audit: verified zero height is what binds `Λ ≤ 0.2`; the barrier-tightening class refuted as a lever | Audit, confirmed three ways |
+| PT-floor audit: verified zero height is what binds `Λ ≤ 0.2`; the barrier-tightening class refuted as an approach | Audit, confirmed three ways |
 
 **Machine verification:** 20 kernel-verified Lean 4 projects under `formalization/lean-aristotle/` (Harmonic Aristotle pipeline; every theorem on the three standard axioms; independent statement-faithfulness reviews). The verified general argument principle on rectangles, Abel's binomial theorem, tree-function ODE theory, and an IVT interlacing induction are PR-ready theory mathlib currently lacks.
 
-**The discipline is the differentiator:** a corrections ledger of caught overclaims, paper-wins drafting passes that have caught 14+ spec errors before anything was quoted (including a load-bearing hypothesis the paper's prose omitted, and a provenance gap in its numerical anchor), evidence grades on every claim, and `DEAD-END-FORNOW` rather than silent deletion. No false QED.
+**The discipline is the differentiator:** a corrections ledger of caught overclaims, paper-wins drafting passes that have caught 14+ spec errors before anything was quoted (including an essential hypothesis the paper's prose omitted, and a provenance gap in its numerical anchor), evidence grades on every claim, and `DEAD-END-FORNOW` rather than silent deletion. No false QED.
 
 ## The autonomous research fleet
 
@@ -39,7 +39,7 @@ A 24/7 multi-engine loop works a live improvement queue (5,737 tickets to date):
 
 - **API pool** (parallel workers) + **Fable-5 frontier engine** (deep single-target runs; produced the 40+-theorem weld ladder) + **frontier scout** (ticket generation from sub-gaps)
 - **Aristotle formalization pipeline** — 31+ jobs across 5 waves; drafting passes re-read the source before every submission; deliveries are files-only with provenance
-- Adversarial referee panels on every engine-produced "rigorous" chain; honest-partial and BLOCKED verdicts are first-class outcomes
+- Adversarial referee panels on every engine-produced "rigorous" chain; partial-result and BLOCKED verdicts are first-class outcomes, reported as such
 - Crash-checkpointing, orphan-commit salvage, worktree-isolated fanout, interval-arithmetic (Arb/FLINT, Rust `inari`) compute lanes
 
 ## The web explorer
@@ -50,7 +50,7 @@ npm run dev        # local
 npm run build      # → dist/ (regenerates the live fleet-status snapshot)
 ```
 
-570 routes in a warm editorial theme. The load-bearing pages:
+570 routes in a warm editorial theme. The main pages:
 
 | Route | What it is |
 |---|---|

@@ -11,17 +11,23 @@ const TwinLadderViz = lazy(() => import('../components/TwinLadderViz.jsx'));
 const ZetaStripLive = lazy(() => import('../components/ZetaStripLive.jsx'));
 const WaveSimViz = lazy(() => import('../components/WaveSimViz.jsx'));
 
-/* Battle-station front page — full-width cockpit, editorial (warm) theme,
+/* Full-width front page — editorial (warm) theme,
    functional language, real project content. Rendered under .ed-root so the
    scoped editorial.css applies. Old dark home preserved at /classic. */
 
 const FINDINGS = [
+  { to: '/threads', grade: 'CANDIDATE', date: '2026-09', isNew: true,
+    title: 'Λ ≤ 0.17759432 y-thaw package', desc: 'Candidate-unrefereed; 4/8 obligations closed, O1 at Aristotle. A package value, not a bound.' },
+  { to: '/frontier-dag', grade: 'NO-GO', date: '2026-09', isNew: true,
+    title: 'Route VII derived floor U ≈ 0.145–0.150', desc: 'Reachable-floor analysis: below it requires arithmetic input, not more compute.' },
+  { to: '/threads', grade: 'NO-GO', date: '2026-09', isNew: true,
+    title: 'Inertia-PCC: same wall', desc: 'The inertia route meets the pair-correlation wall (λ_max(ρ) = 0.6231344958476320).' },
   { to: '/flow-blindness-no-go', grade: 'NO-GO', date: '2026-08', isNew: true,
     title: 'Flow-blindness: soft ⇏ RH', desc: 'Backward heat flow stays soft yet breaks RH; a proof needs arithmetic input.' },
   { to: '/lambda-01758354-candidate', grade: 'CANDIDATE', date: '2026-08', isNew: true,
     title: 'Λ ≤ 0.1758354', desc: 'Four gates certified in Arb, Lean-checked. Below the 0.1787854 candidate.' },
   { to: '/permutation-architecture', grade: 'CONTRACT', date: '2026-08', isNew: true,
-    title: 'Λ ≤ 0.14 completion contract', desc: 'Fail-closed contract reduced to one open family — the freeze calculus route. A contract, not a bound.' },
+    title: 'Λ ≤ 0.14 completion contract', desc: 'Conditional contract reduced to one open family — the freeze calculus route. A contract, not a bound.' },
   { to: '/frozen-rung-pt-equivalence', grade: 'THEOREM', date: '2026-07', isNew: true,
     title: 'Freezing rungs = Platt–Trudgian', desc: 'Inertia locks the frozen-ladder route to verified height.' },
   { to: '/newman-lambda-01787854-candidate', grade: 'CANDIDATE', date: '2026',
@@ -33,7 +39,7 @@ const FINDINGS = [
   { to: '/critical-line-proportion', grade: 'MAP', date: '2026-08', isNew: true,
     title: 'Zeros on the line · ≥ 2/3', desc: 'The other axis: peer-reviewed record 5/12 (PRZZ 2020); external ≥ 2/3 result (Claude/Anthropic 2026, Lean-checked, reviewed by Conrey and Goldston, not peer-reviewed, not this project’s).' },
   { to: '/what-we-know', grade: 'NO-GO', date: '2026',
-    title: 'Negative results', desc: 'Theorems ruling out route families — the breach point, located.' },
+    title: 'Negative results', desc: 'Theorems ruling out route families — the remaining gap, located.' },
   { to: '/pt-floor-audit', grade: 'AUDIT', date: '2026',
     title: 'Verified height binds the floor', desc: 'The Λ ≤ 0.2 floor is set by verified zero height, not slack.' },
   { to: '/theorem-b-threshold', grade: 'RESULT', date: '2026',
@@ -43,7 +49,7 @@ const FINDINGS = [
   { to: '/collapse-chain', grade: 'COLLAPSE', date: '2026',
     title: '‖V‖ ≤ 1 collapse chain', desc: 'Seven §15–27 conjectures restate as one Volterra-norm bound — RH-equivalent, not a shortcut.' },
   { to: '/autonomous-fleet', grade: 'ENGINE', date: 'live',
-    title: 'The autonomous fleet', desc: 'Multi-engine + Fable-5 grinding the frontier, live.' },
+    title: 'The autonomous fleet', desc: 'Multi-engine + Fable-5 working the frontier, live.' },
 ];
 
 const SIMS = [
@@ -126,7 +132,7 @@ export default function HomePageEditorial() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="ed-map">
           <Link className="ed-tile" to="/results">
             <h3>I want the mathematics</h3>
-            <p>Every result, graded by verification level — kernel-verified Lean theorems, refereed proofs, certified computations, candidates, and the honest kills.</p>
+            <p>Every result, graded by verification level — kernel-verified Lean theorems, refereed proofs, certified computations, candidates, and the negative results.</p>
           </Link>
           <Link className="ed-tile" to="/threads">
             <h3>I want the story</h3>
@@ -202,9 +208,9 @@ export default function HomePageEditorial() {
       <div className="ed-full"><section className="ed-sec">
         <div className="ed-lbl" style={{ marginBottom: 12 }}>status</div>
         <div className="ed-verdict">Λ ≤ 0.2 (Platt–Trudgian) is the peer-reviewed benchmark. The 0.1758354 and
-          0.1787854 candidates are computer-assisted and unrefereed; the 0.14 value is a fail-closed completion
+          0.1787854 candidates are computer-assisted and unrefereed; the 0.14 value is a conditional completion
           contract, not a bound. RH remains open: it requires Λ ≤ 0. The only
-          lever that moves the floor is verified zero height — derived twice, from Sylvester inertia and de
+          input that moves the floor is verified zero height — derived twice, from Sylvester inertia and de
           Bruijn–Newman flow rigidity.</div>
         <div style={{ marginTop: 10, fontSize: 14 }}>
           <Link to="/frontier-dag">The frontier DAG — the open objects and what each one closes →</Link>

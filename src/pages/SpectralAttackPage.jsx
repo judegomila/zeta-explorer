@@ -1616,7 +1616,7 @@ function VerifiedAnalyticIdentitiesCard() {
         <InlineMath tex={"E^2"} />, <InlineMath tex={"\\sum T^2"} />, or <InlineMath tex={"\\sum T^3"} />{' '}
         &mdash; agrees to <strong style={{ color: 'var(--ink)' }}>machine precision</strong>, certifying the
         identity is EXACT rather than merely fit to finite-difference noise; the finite-difference legs
-        sit at the step-roundoff floor (~1e-8). Numerical re-verification of load-bearing algebra; no new claim.
+        sit at the step-roundoff floor (~1e-8). Numerical re-verification of essential algebra; no new claim.
       </p>
     </div>
   );
@@ -1872,7 +1872,7 @@ function AsymIsolationOnsetLadderViz() {
   );
 }
 
-// imp-3248 banner, updated 2026-08-28: c_glob closed at c_half; basin 0.72 remains the load-bearing constant
+// imp-3248 banner, updated 2026-08-28: c_glob closed at c_half; basin 0.72 remains the essential constant
 function CglobInfimumHonestBanner() {
   const ledger = SG1C_ASYM_ONSET_BRACKET_LEDGER;
   return (
@@ -1892,7 +1892,7 @@ function CglobInfimumHonestBanner() {
         pre-closure bracket was ~({ledger.openBracket[0].toFixed(4)},&#8202;
         {ledger.openBracket[1].toFixed(4)}), consistent with the closed value.{" "}
         The Theorem-C basin cap &rho;&#8201;=&#8201;{ledger.basinConstant} remains the only
-        load-bearing constant for the &Lambda;&#8201;&le;&#8201;0.2 rigorous result; the
+        essential constant for the &Lambda;&#8201;&le;&#8201;0.2 rigorous result; the
         closure improves no &Lambda; bound.
       </div>
     </div>

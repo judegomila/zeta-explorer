@@ -274,7 +274,7 @@ export default function PaperPage() {
             <StatusRow
               label="contract — not a bound"
               value="Λ ≤ 0.14 (conditional)"
-              status={<>Fail-closed completion contract, not a bound: one open family |C_E,17| &lt; 0.2796881955526147 on 690988 ≤ N ≤ 54799999 remains. See the <Link to="/permutation-architecture" style={{ color: 'var(--brass-dk)' }}>permutation architecture</Link>.</>}
+              status={<>Conditional completion contract, not a bound: one open family |C_E,17| &lt; 0.2796881955526147 on 690988 ≤ N ≤ 54799999 remains. See the <Link to="/permutation-architecture" style={{ color: 'var(--brass-dk)' }}>permutation architecture</Link>.</>}
               color="var(--brass-dk)"
             />
           </div>
@@ -293,7 +293,7 @@ export default function PaperPage() {
             unconditional proof of <InlineMath tex="\Lambda\le0.1787854" />. That candidate bound is not
             established, has been reviewed by Dan Romik, and is not RH. A sharper candidate{' '}
             <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked reduction, unrefereed)
-            and the fail-closed <InlineMath tex="\Lambda\le0.14" /> completion contract — a contract,
+            and the conditional <InlineMath tex="\Lambda\le0.14" /> completion contract — a contract,
             not a bound, with one open family — extend the same ledger. The program has
             not supplied the non-circular all-shifts positivity theorem or the complete
             global residual inequality needed for RH; the surviving frontier is equivalent to RH.

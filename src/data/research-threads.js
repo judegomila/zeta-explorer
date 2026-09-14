@@ -131,6 +131,13 @@ export const THREADS = [
         verdict: 'in progress',
         module: 'native/gate2-interval/run_w1cert_95216.sh',
       },
+      {
+        date: '2026-09-14',
+        event:
+          'The measured first-window landscape rendered as data geometry: Σ|D_j|(w) and |E97|(w) over the full window (max-preserving downsample of the deterministic pilotg3 grid, sups pinned to the recorded literals), the certified tier slice shaded, and a phase-scale zoom at the sup witness. Sampled measurement; only the slice is certified.',
+        verdict: 'presentation (measured)',
+        route: '/viz-window-landscape',
+      },
     ],
     openObjects: [
       'window-1 continuum certificate (run in progress)',
@@ -376,6 +383,13 @@ export const THREADS = [
           'imp-95218: the complete-row cost curve derived from verify_tail_arb.c’s contraction structure — t multiplies ln N in the ladder exponents, so N1*(t) = exp(Θ(1/t)); calibrated on (t = 129/800 → N1 = 3.84e6) and (t = 10103/80000 → N1* = 220,495,706); complete rows priced along the §10.7 diagonal family and the verified-height wall located. Derives no bound, closes no gap.',
         verdict: 'analysis',
         module: 'src/data/imp-95218-route7-cost-curve.js',
+      },
+      {
+        date: '2026-09-14',
+        event:
+          'The cost law rendered as accurate idea geometry: the (t, y) plane colored by the calibrated law log10 N1*(t, y), with iso-U parabolas, the row-budget frontiers, the four frozen rows, and the derived U ≈ 0.145–0.150 floor band — every pixel from the imp-95218 formulas (derived analysis, 2-point calibration, NO QED).',
+        verdict: 'presentation (derived analysis)',
+        route: '/viz-cost-floor',
       },
     ],
     openObjects: [

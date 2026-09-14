@@ -71,6 +71,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/lambda-timeline',
   '/rh-dag',
   '/frontier-dag',
+  '/program-dag',
   '/volterra-bound',
   '/berry-keating-xp',
   '/connes-adelic',
@@ -158,6 +159,10 @@ export const EDITORIAL_ROUTES = new Set([
   '/viz-euler-product',
   '/riemann-siegel-z',
   '/gue-comparison',
+  // Idea-geometry wave (accurate-geometry visualizations)
+  '/viz-cost-floor',
+  '/viz-window-landscape',
+  '/viz-freeze-flow',
 ]);
 
 export function isEditorialRoute(pathname) {

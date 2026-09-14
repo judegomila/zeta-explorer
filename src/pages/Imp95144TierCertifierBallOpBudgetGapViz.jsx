@@ -95,10 +95,10 @@ export default function Imp95144TierCertifierBallOpBudgetGapViz() {
         scale, so each visible gap is a large multiplicative jump, not an additive one. Level 1
         was panel-pass-dominated (97% of cost was the per-panel O(N) Arb evaluation); level 2
         amortizes that pass via chirp recurrences, buying the {TIER2_PRICE.baselines.ballOpsVsLevel1.toFixed(2)}x
-        drop. The residual gap to the design budget is now honestly recorded as
-        cell/reconstruction-dominated rather than panel-dominated — the panel-amortization lever
+        drop. The residual gap to the design budget is now recorded as
+        cell/reconstruction-dominated rather than panel-dominated — the panel-amortization optimization
         is spent, and the remaining {TIER2_PRICE.baselines.ballOpsRatioVsDesign.toFixed(1)}x is an
-        open, unbuilt lever. The full-window run itself (378 CPU-days as built at level 1, 21.1 at
+        open, unbuilt optimization. The full-window run itself (378 CPU-days as built at level 1, 21.1 at
         level 2) was NOT launched at either level; both are sub-range price measurements
         extrapolated from hardest-stretch slices.
       </div>

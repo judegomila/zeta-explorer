@@ -203,7 +203,7 @@ export default function TheoremBThresholdPage() {
             { label: 'Θ_b', val: THETA_B.toFixed(6), note: '(√73−5)/8', color: 'var(--brass)' },
             { label: 'r_b', val: R_B.toFixed(6), note: '(√73−7)/4', color: 'var(--blue)' },
             { label: 'Theorem A floor', val: '0.250000', note: '1/4, unconditional', color: 'var(--terra-dk)' },
-            { label: 'gain over 1/4', val: (THETA_B - 0.25).toFixed(6), note: '+77% headroom', color: 'var(--green)' },
+            { label: 'gain over 1/4', val: (THETA_B - 0.25).toFixed(6), note: '+77% margin', color: 'var(--green)' },
           ].map(({ label, val, note, color }) => (
             <div key={label} style={{ flex: '1 1 130px', padding: '8px 12px', background: 'var(--paper2)', borderRadius: 6, borderTop: `2px solid ${color}` }}>
               <div style={{ color, fontSize: 11, fontWeight: 700 }}>{label}</div>

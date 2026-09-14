@@ -111,7 +111,7 @@ function displayTLDR(tldr) {
       'candidate for an unconditional bound — reviewed by Dan Romik and being prepared for public ' +
       'release, but unrefereed and not established. A sharper four-gate candidate reaches ' +
       'Lambda <= 0.1758354 (four Arb-checked gates, Lean-checked reduction; unrefereed, not ' +
-      'established). The strict Lambda <= 0.14 statement is a fail-closed completion contract ' +
+      'established). The strict Lambda <= 0.14 statement is a conditional completion contract ' +
       'reduced to one open family, not a bound. RH still requires Lambda <= 0.',
     );
 }
@@ -196,7 +196,7 @@ export default function LambdaBoundsPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="ed-h1" style={{ marginBottom: 10 }}>Λ Bounds &amp; RH Roadmap</h1>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.55, maxWidth: 760 }}>
-            The de Bruijn-Newman constant Λ is the load-bearing bridge between
+            The de Bruijn-Newman constant Λ is the essential bridge between
             a numerical Λ upper bound and the Riemann Hypothesis itself.
             RH ⟺ Λ = 0 (de Bruijn 1950 + Rodgers-Tao 2020). This page is the
             plan, the status, and the verification efforts of our attack.
@@ -321,7 +321,52 @@ export default function LambdaBoundsPage() {
               )}
             </div>
           ))}
+          {/* y-thaw package card (2026-09 currency pass; rendered here — the
+              pinned data module lambda-roadmap.js is not edited). */}
+          <div className="card" style={cardBaseLeft('var(--brass)')}>
+            <div style={cardLabel}>upper package candidate</div>
+            <div
+              style={{
+                fontFamily: 'var(--ed-mono, var(--font-mono))',
+                fontSize: 22,
+                fontWeight: 700,
+                marginBottom: 8,
+                color: 'var(--brass)',
+              }}
+            >
+              y-thaw package: Λ ≤ 0.17759432
+            </div>
+            <div style={{ marginBottom: 8 }}>
+              <span style={statusChip('unverified')}>candidate-unrefereed</span>
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--faint)', marginBottom: 6 }}>
+              this program (y-thaw stages 1+2, 2026-09)
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)' }}>
+              4/8 obligations closed; O1 at Aristotle; a package value, not a bound.
+              Status per obligation on the frontier DAG and the y-thaw research thread.
+            </div>
+            <Link
+              to="/frontier-dag"
+              style={{
+                display: 'inline-block',
+                marginTop: 10,
+                color: 'var(--brass)',
+                fontFamily: 'var(--ed-mono, var(--font-mono))',
+                fontSize: 11,
+                textDecoration: 'none',
+              }}
+            >
+              Open frontier DAG →
+            </Link>
+          </div>
         </div>
+
+        <p style={{ fontSize: 12, color: 'var(--ink-soft)', marginTop: -12, marginBottom: 24, maxWidth: 760 }}>
+          Route VII reachable-floor analysis: the program-derived compute floor is
+          U ≈ 0.145–0.150; going below it requires arithmetic input. Detail:{' '}
+          <Link to="/frontier-dag" style={{ color: 'var(--brass-dk)' }}>/frontier-dag</Link>.
+        </p>
 
         {/* ── Strategy summary ─────────────────────────────────────────── */}
         <div

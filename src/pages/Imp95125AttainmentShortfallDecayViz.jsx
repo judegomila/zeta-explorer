@@ -151,7 +151,7 @@ export default function Imp95125AttainmentShortfallDecayViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page reusing the imp-95090
         continuousLimitLadder and gridRefinementLadder literals verbatim (no new computation). The
-        shortfall names a conservative, unapplied grid-corner ceiling lever; it moves no bound.
+        shortfall names a conservative, unapplied grid-corner ceiling adjustment; it moves no bound.
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. No QED.
       </div>
     </div>

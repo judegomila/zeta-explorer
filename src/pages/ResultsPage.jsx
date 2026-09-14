@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 import { RESULTS, GRADE_META, GRADE_ORDER } from '../data/graded-results.js';
 
-/* /results — the graded results browser. One row per load-bearing result,
+/* /results — the graded results browser. One row per principal result,
    grade badges verbatim (nothing promotes a bound), verification artifacts
    listed per row, filterable by grade facet. Import-light. */
 
@@ -68,7 +68,7 @@ export default function ResultsPage() {
           Results
         </h1>
         <p style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.6, maxWidth: '54rem' }}>
-          The load-bearing results of this program, one row per result, each with its verbatim grade and the
+          The principal results of this program, one row per result, each with its verbatim grade and the
           verification artifacts behind it. Grades never promote: a kernel-verified lemma is a lemma, a candidate
           is not a bound, a contract is not a bound. Λ ≤ 0.2 (Platt–Trudgian 2021) is the peer-reviewed benchmark;
           RH remains open.

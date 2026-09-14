@@ -142,6 +142,8 @@ export default function ThreadsPage() {
         {THREADS.map((t) => <ThreadSection key={t.slug} t={t} />)}
 
         <div style={{ marginTop: 26, fontSize: 13.5 }}>
+          <Link to="/program-dag">The Program DAG — the complete history →</Link>
+          <span style={{ color: 'var(--faint)' }}> · </span>
           <Link to="/what-we-know">What We Know →</Link>
           <span style={{ color: 'var(--faint)' }}> · </span>
           <Link to="/no-gos">No-Go Theorems →</Link>

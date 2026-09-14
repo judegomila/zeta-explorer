@@ -96,7 +96,7 @@ const ATTACKS = [
       'class and with the completion, sign convention, convergence, and archimedean contribution intact.',
       'Pontryagin self-duality of the adele group supplies a Fourier transform and an identity; it does ' +
       'not turn each local prime contribution positive and does not imply a de Bruijn-Newman bound. ' +
-      'The earlier chain "local positivity ⇔ Λ ≤ 0" skipped the load-bearing Weil criterion.',
+      'The earlier chain "local positivity ⇔ Λ ≤ 0" skipped the essential Weil criterion.',
       'This remains a valuable target: derive the exact completed Weil form from a twin-ladder operator ' +
       'without dropping terms, and prove its positivity on the full test class. Doing so would be an ' +
       'RH-strength achievement, not a short consequence of duality.',

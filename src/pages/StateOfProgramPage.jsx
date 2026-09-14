@@ -40,7 +40,11 @@ export default function StateOfProgramPage() {
             <strong>{STATE_OF_PROGRAM_SUMMARY_DATE}</strong> against the{' '}
             <strong>full route map ({FULL_ROUTE_MAP.date}, {FULL_ROUTE_MAP.totalRoutes} routes)</strong>,
             the public fixed-height package, and the standalone private candidate package. The one-line truth:{' '}
-            <strong>Λ ≤ 0.1787854 is a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik, publicly posted (judegomila.com/posts/riemann-lambda-0.1787854)), and a sharper four-gate candidate reaches Λ ≤ 0.1758354; neither bound is established or refereed, and neither is RH. A further Λ ≤ 0.14 statement is a fail-closed completion contract with one open family, not a bound.</strong>
+            <strong>Λ ≤ 0.1787854 is a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik, publicly posted (judegomila.com/posts/riemann-lambda-0.1787854)), and a sharper four-gate candidate reaches Λ ≤ 0.1758354; neither bound is established or refereed, and neither is RH. A further Λ ≤ 0.14 statement is a conditional completion contract with one open family, not a bound.</strong>{' '}
+            Since 2026-09 the frontier has moved past this summary's reconciliation date: a
+            Λ ≤ 0.17759432 y-thaw package (candidate-unrefereed; 4/8 obligations closed, O1 at Aristotle;
+            a package value, not a bound) and a Route VII derived compute floor U ≈ 0.145–0.150 — current
+            status at <Link to="/frontier-dag" style={{ color: 'var(--brass-dk)' }}>/frontier-dag</Link>.
           </p>
         </div>
 

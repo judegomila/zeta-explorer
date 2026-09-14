@@ -127,7 +127,7 @@ export default function Imp35208DegLadderViz() {
       <PageHeader title="Discrete DEG Ladder: ||R||(DEG) Monotone Inflation (imp-35208 / imp-35148)" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
-        imp-35075 exhausted the two continuous off-orbit levers (decoupled pass rate, shear
+        imp-35075 exhausted the two continuous off-orbit parameters (decoupled pass rate, shear
         coefficient) at the imp-3066 admissible anchor, leaving the discrete truncation-size DEG
         axis as the last un-probed direction. imp-35148 stepped DEG&nbsp;=&nbsp;1..12 at the anchor
         (s_pass,&nbsp;s_shear,&nbsp;c)&nbsp;=&nbsp;(3,&nbsp;3,&nbsp;1) and measured the Perron norm
@@ -194,7 +194,7 @@ export default function Imp35208DegLadderViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Viz-only page rendering the
         imp-35148 ||R||(DEG) ladder and forward-difference literals verbatim (no new computation).
-        Confirms the discrete truncation-size DEG axis does NOT act as a softening lever on the
+        Confirms the discrete truncation-size DEG axis does NOT act as a softening mechanism on the
         imp-3066 exponential-shear metric-pair family; this is scoped to that family, not other
         kernel classes; imp-3066 K_a&nbsp;&ge;&nbsp;0 and G7 stay OPEN and untouched; establishes no
         operator positivity; changes no bound; no RH verdict, NO QED.

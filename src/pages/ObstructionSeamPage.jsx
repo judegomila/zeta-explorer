@@ -25,7 +25,7 @@ export default function ObstructionSeamPage() {
         <h1 className="ed-h1">The RH Obstruction Seam</h1>
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820, marginTop: 14 }}>
           The sharpest result of the whole attack: a deep, adversarially-verified assault on the two
-          load-bearing walls (C_H shock modulus + Montgomery pair-correlation) — 16 novel angles, each killed
+          essential walls (C_H shock modulus + Montgomery pair-correlation) — 16 novel angles, each ruled out
           by ≥2 skeptics at ≥0.82 confidence — reveals not just that the walls stand, but the precise
           <em> structural reason</em> they must.
         </p>

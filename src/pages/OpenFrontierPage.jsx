@@ -137,7 +137,7 @@ const MARKOV_NORMALIZATION = {
   thetaFeatures:
     'T56: Kₐ is an exact difference of two Laplace-feature Gram kernels. On every tail and for every finite C, a finite evaluation test satisfies ⟨f,(Kₐ−H)f⟩ > C⟨f,Hf⟩. Even the signed upper relative bound fails; the positive witness does not decide Kₐ ⪰ 0',
   phaseSpace:
-    'T57: the homogeneous feature quotient is ξ(2s−1/2−a)/ξ(2s−1/2+a), unimodular on the unitary Mellin line. The Wigner/Weyl relay is the exact shifted completed-ξ modulus difference; endpoint compression is load-bearing',
+    'T57: the homogeneous feature quotient is ξ(2s−1/2−a)/ξ(2s−1/2+a), unimodular on the unitary Mellin line. The Wigner/Weyl relay is the exact shifted completed-ξ modulus difference; endpoint compression is essential',
   finiteHeight:
     'T58: critical-line verification through height H gives |Vθ(x)| ≪ x¹⁵ᐟ⁸ only for x ≤ [H/(log H+2)]⁸. The imported height reaches about 8.25×10⁸⁷, but this is finite-range only',
   finiteHeightSchur:
@@ -389,9 +389,9 @@ const MARKOV_NORMALIZATION = {
   lowerEdgeTail:
     'T178: atomless x^(ν−1)g(x) shift mass has normalized tail [2 cosh(s−r)]^(−ν)≻0; a lower-edge atom restores the negative 2×2 minor whenever 0<a<ν/2',
   twoBranchHalfSech:
-    'T179: Bₐ=(1−e^(−2a(t+b)))/[2cosh(t−b)] is entrywise positive and fixed-order tail positive, but indefinite on every tail; the exact endpoint and theta corrections are load-bearing',
+    'T179: Bₐ=(1−e^(−2a(t+b)))/[2cosh(t−b)] is entrywise positive and fixed-order tail positive, but indefinite on every tail; the exact endpoint and theta corrections are essential',
   endpointOnlyNoGo:
-    'T180: restoring the complete endpoint y/S integral still leaves every tail indefinite for 0<a<1/2 when R≡1; the nontrivial theta-R cross-scale factor is load-bearing',
+    'T180: restoring the complete endpoint y/S integral still leaves every tail indefinite for 0<a<1/2 when R≡1; the nontrivial theta-R cross-scale factor is essential',
   exactBoundaryRescue:
     'T181: a 384-bit Arb replay proves ∂t∂b A₁⧸₄(0,0)=0.04453353300039674694…>0; the exact theta-R factor reverses the endpoint-only local obstruction',
   exactBoundaryJet:
@@ -614,7 +614,7 @@ const MARKOV_NORMALIZATION = {
   structureT178:
     'T178 classifies that lower-edge mechanism. Atomless power-law mass produces a strict fractional half-sech Gram limit, while any atom at the lower edge restores the discrete negative minor below the dimension threshold a=ν/2. Continuity helps locally in the tail but still supplies no global PSD theorem.',
   structureT179:
-    'T179 closes the canonical two-branch promotion of that limit. Its boundary 2×2 minor is strictly negative, and real-analytic Gram continuation rules out PSD on every tail even though every fixed order eventually becomes positive. The exact endpoint, theta, and cross-scale corrections are therefore load-bearing.',
+    'T179 closes the canonical two-branch promotion of that limit. Its boundary 2×2 minor is strictly negative, and real-analytic Gram continuation rules out PSD on every tail even though every fixed order eventually becomes positive. The exact endpoint, theta, and cross-scale corrections are therefore essential.',
   structureT180:
     'T180 keeps the exact endpoint integral and closes that refinement too. A pointwise incomplete-gamma monotonicity makes the boundary mixed curvature negative throughout 0<a<1/2, so only the nontrivial theta-R factor and its cross-scale products remain as the exact continuum mechanism.',
   structureT181:
@@ -674,7 +674,7 @@ const MARKOV_NORMALIZATION = {
     'principal positivity uniformly on the whole tail but no order-uniform threshold; ' +
     'far-separated cross minors refute total positivity. Positive all-integer scale completion ' +
     'erases the zero divisor, exact deaveraging requires fixed-power Mertens cancellation, ' +
-    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the load-bearing main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole, its exact sequence has no eventual monotonicity or log-convexity, its squarefree carry-row factors have no coordinatewise sign, and uniform local or primewise block estimates do not repair that sign. ' +
+    'square-scale averaging preserves but does not attenuate the poles, and its exact Jacobi heat trace is positive only before the essential main term is subtracted; its causal smoother has no bounded or tempered inverse, exact prime-power renewal is lower order, fixed-Cᵐ half-sech asymptotics have no all-order spectral gap, every finite signed upper half-sech relative bound fails, every tight positive adaptive majorant remains at the centered T47 scale, the natural sinh-to-linear multiplier for the finite-height Schur window has a negative real 2×2 minor, strip-Schur positivity can still leave the original endpoint kernel indefinite, fixed bands lose high residual poles, and one zero-adaptive common-domain family yields finite exponential witnesses only with zero-dependent support and approximation complexity; the first-radix Mellin kernel retains every zeta-zero pole, its exact sequence has no eventual monotonicity or log-convexity, its squarefree carry-row factors have no coordinatewise sign, and uniform local or primewise block estimates do not repair that sign. ' +
     'The exact repeated-prime ballot is the already-accounted higher-radix correction, while its algebraically disjoint high-prime first-layer complement remains zero-strip complete. Signed mass-zero Haar smoothing loses absolute zero-sum convergence, and reconstructing its additive level restores the attenuated half-power; no converse drift theorem is known. ' +
     'The fixed-filter prime-square variance persists for arbitrary signed weights, but its natural-density limit does not restrict the sparse nonuniform adaptive starts. A fixed multiplicative dilation escapes that local obstruction only by becoming macroscopic; its surviving prime kernel is again an RH-equivalent weighted-PNT remainder. Translation-invariant tempered-lag compensation cannot ' +
     'carry a nonzero pole share, and an unrestricted Hilbert factorization ' +
@@ -782,7 +782,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     title: 'Center frequency returns to the completed-ξ modulus',
     formula: '∫e²ᵛᵀΣₐ(T,ω)dT = (|X(v+a+iω)|²−|X(v−a+iω)|²)/v',
     detail:
-      'The homogeneous feature quotient is the unimodular completed-ξ phase, while the finite endpoint compression is load-bearing. ' +
+      'The homogeneous feature quotient is the unimodular completed-ξ phase, while the finite endpoint compression is essential. ' +
       'Signed divisor shells and Gaussian smoothing do not supply a smaller positivity theorem.',
   },
   {
@@ -1776,7 +1776,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'Let a_v be iid Bernoulli with fixed density δ, chosen independently of the arithmetic data, and let it select one fixed nonzero summable depth profile. The centered selector error R_a(X)=Σ_(v≤X)(a_v−δ)𝒞_c(v) is a sum of independent mean-zero variables. ' +
       'On RH the pointwise bound 𝒞_c(v)=O_c(√v log²v) gives Var R_a(X)=O_c(X²log⁴X). Kolmogorov maximal inequality at dyadic cutoffs has summable failure probability at the X³ᐟ² scale; Borel–Cantelli and dyadic interpolation therefore give R_a(X)=o(X³ᐟ²) almost surely. The density-scaled T139 cumulative survives, so both row signs recur on the selected state. ' +
-      'Applied state by state, the result holds simultaneously for every active nonzero profile in any finite or countable iid state law, including exact factorial/lcm products. This reaches random schedules whose typical √X discrepancy lies outside T143. Independence is load-bearing: a selector that reads the sign of 𝒞_c(v) can retain one sign and is exactly T141’s circular feedback. Dependent or nonstationary scheduling, zero-density selection, changing/non-summable profiles, and nonlinear arithmetic input remain open; RH remains unresolved.',
+      'Applied state by state, the result holds simultaneously for every active nonzero profile in any finite or countable iid state law, including exact factorial/lcm products. This reaches random schedules whose typical √X discrepancy lies outside T143. Independence is essential: a selector that reads the sign of 𝒞_c(v) can retain one sign and is exactly T141’s circular feedback. Dependent or nonstationary scheduling, zero-density selection, changing/non-summable profiles, and nonlinear arithmetic input remain open; RH remains unresolved.',
     certificate:
       'proof/certificates/twin_ladder_first_radix/verify_first_radix.py',
   },
@@ -2301,7 +2301,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'The simplest attempted promotion of the fractional half-sech tail is symmetric, real analytic, and entrywise positive. Its relative Cᵐ error from H(t,b)=1/[2cosh(t−b)] is O(e^(−4aL)) on (L,∞)², so the fixed-order divided-difference argument makes every fixed distinct-node matrix order positive sufficiently far out. ' +
       'Global positivity still fails. At the continuous boundary pair 0,h, the top-left entry vanishes while the off-diagonal entry is positive, giving the displayed strictly negative determinant. If the kernel were PSD on any tail, real-analytic Gram continuation would extend PSD across the connected positive quadrant and contradict that boundary minor. Therefore Bₐ is indefinite on every tail, with the least negative witness order escaping to infinity. ' +
-      'This rules out the half-sech limit plus only its leading negative-sinh branch as the missing global Gram kernel. The exact endpoint y/S dependence, theta-R remainder, and cross-scale corrections are load-bearing. It is a model obstruction, not an obstruction to the exact continuum kernel and not a proof or disproof of RH.',
+      'This rules out the half-sech limit plus only its leading negative-sinh branch as the missing global Gram kernel. The exact endpoint y/S dependence, theta-R remainder, and cross-scale corrections are essential. It is a model obstruction, not an obstruction to the exact continuum kernel and not a proof or disproof of RH.',
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.4',
   },
@@ -2316,7 +2316,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     detail:
       'Set only R≡1 in the exact endpoint identity, retaining both hyperbolic branches and the complete y/S dependence. Equivalently use the pure leading carrier φ₀(v)=exp(9v/2−πe^(2v)). At the boundary the kernel is positive on the diagonal and has zero first derivative, while its mixed derivative is [I(9/2+a)−I(9/2−a)]/2 with I(λ)=∫₀∞[(exp(λx−πe^(2x)))′]²dx. ' +
       'A substitution q=e^(2x) and one exact incomplete-gamma recurrence give the displayed derivative formula. Its final factor is negative at q=1 when λ<2π−1 and decreases thereafter because λ/q−2π<0. Thus I is strictly decreasing on 4<λ<5. For every 0<a<1/2 the boundary mixed derivative is negative, producing a negative 2×2 determinant at sufficiently close nodes; continuity moves it inside the positive quadrant and real-analytic Gram continuation rules out PSD on every tail. ' +
-      'The model still approaches the half-sech kernel in every fixed Cᵐ tail norm, so each fixed matrix order eventually becomes positive and the negative witness order escapes. Exact endpoint scaling is not the rescue: the nontrivial theta-R factor and its cross-scale products are now load-bearing. This does not decide the exact theta kernel, T3, or RH.',
+      'The model still approaches the half-sech kernel in every fixed Cᵐ tail norm, so each fixed matrix order eventually becomes positive and the negative witness order escapes. Exact endpoint scaling is not the rescue: the nontrivial theta-R factor and its cross-scale products are now essential. This does not decide the exact theta kernel, T3, or RH.',
     certificate:
       'proof/TWIN_LADDER_MODULAR_REGROUPING.md §6.5',
   },
@@ -2509,7 +2509,7 @@ const LATEST_TWIN_LADDER_CHECKPOINT = [
     formula:
       'P(z)=z(1+z²/8), zeros(P)={0,±2√2i}, but ℓf(P)=−1/216 in the strict-concavity T189 model',
     detail:
-      'Exploratory theta minimizers through degree 24 have negative y=z² roots close to the half-integer cosh and integer sinh Euler-product lattices. That geometry is real but not sign-stable: at degree 24 the best one-parameter canonical product has derivative-energy overlap 0.99806 with the true even minimizer, yet its Rayleigh value is about 62.85 times larger. The small root deformations are load-bearing at the collapsing T186 margin. ' +
+      'Exploratory theta minimizers through degree 24 have negative y=z² roots close to the half-integer cosh and integer sinh Euler-product lattices. That geometry is real but not sign-stable: at degree 24 the best one-parameter canonical product has derivative-energy overlap 0.99806 with the true even minimizer, yet its Rayleigh value is about 62.85 times larger. The small root deformations are essential at the collapsing T186 margin. ' +
       'The generic shortcut fails exactly. For f(x)=e^(−x²)−½e^(−2x²), strict square-radius concavity makes every complete translated parity packet positive. Nevertheless the first sine factor at T=π/(2√2), P(z)=z+z³/8, has only pure-imaginary zeros and normalized odd block [[1/9,−25/162],[−25/162,50/243]], giving ℓf(P)=−1/216 by rational arithmetic. ' +
       'This does not produce a negative theta polynomial. It proves that T187, imaginary-root geometry, and ordinary canonical-product convergence cannot control the finite theta minimizers; a successful proof must sign their finite root deformations directly at the vanishing eigenvalue scale. RH remains open.',
     certificate:
@@ -2681,7 +2681,7 @@ const DYSON_LANE_RESIDUALS = [
       'is NOT independently dischargeable -- the Holder-modulus back-conversion couples it to ' +
       'H3 (the curvature coefficient m_double_prime) through the same quadratic fold expansion, ' +
       'and H3 dominates H4 a fortiori. H4 and H3 therefore collapse into ONE coupled ' +
-      'strip-height-uniformity object, load-bearing at the H3 rung; this is scoping only and ' +
+      'strip-height-uniformity object, essential at the H3 rung; this is scoping only and ' +
       'discharges nothing, so G6a_shock_lipschitz stays OPEN (PARTIAL) exactly as above.',
       'Status note (imp-33794): the measured finite-band C_ren(N) window (the renormalized ' +
       'fold-reading amplitude across the eps = y_N^sharp ladder) is CONSISTENT-WITH the H4 ' +
@@ -2713,9 +2713,41 @@ export default function OpenFrontierPage() {
   return (
     <div className="page">
       <PageHeader
-        title="Open Frontier"
-        subtitle="One exact global RH-equivalent frontier, with separate subsidiary research lanes"
+        title="Open Frontier (archive)"
+        subtitle="Archive of the T3 / Dyson / collision-flow lane and the R1, R2, G6a questions — the live frontier is tracked on /frontier-dag"
       />
+
+      <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid #c23a1c' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              letterSpacing: 0.45,
+              color: '#c23a1c',
+              border: '1px solid #c23a1c',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            ARCHIVE PAGE — NOT THE LIVE FRONTIER
+          </span>
+        </div>
+        <p style={{ fontSize: 13, color: '#877b67', margin: 0, lineHeight: 1.65 }}>
+          The live frontier is{' '}
+          <Link
+            to="/frontier-dag"
+            style={{ fontSize: 13, color: '#c23a1c', textDecoration: 'none', borderBottom: '1px solid #c23a1c' }}
+          >
+            /frontier-dag
+          </Link>{' '}
+          (asOf-stamped, one node per open object). This page is the archive of the
+          Dyson / collision-flow lane and the R1 / R2 / G6a questions; its newest
+          entries date from 2026-08. Nothing here is updated with the current
+          frontier objects.
+        </p>
+      </div>
 
       <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid #b58a2e' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
@@ -2736,7 +2768,7 @@ export default function OpenFrontierPage() {
           <code style={{ fontSize: 11, color: '#877b67' }}>Λ ≤ 0.14 completion contract</code>
         </div>
         <p style={{ fontSize: 13, color: '#877b67', margin: 0, lineHeight: 1.65 }}>
-          The strict Λ ≤ 0.14 statement is a fail-closed completion contract, not a
+          The strict Λ ≤ 0.14 statement is a conditional completion contract, not a
           proved bound: through the [B_v, Π_p] weld it is reduced to exactly one open
           correlated-enclosure family,{' '}
           <code style={{ fontSize: 12, color: '#b58a2e' }}>
@@ -3533,7 +3565,7 @@ export default function OpenFrontierPage() {
           N<sup>κ</sup> forces Re ρ≤max(1/2, δ, κ−3/2). In particular,
           RH is equivalent to one nonnegative centered checkpoint in every
           sufficiently late outer interval [N,N+√N]. Exact failures at starts
-          125 and 126 keep the qualifier “eventually” load-bearing.
+          125 and 126 keep the qualifier “eventually” essential.
           T79 identifies the local arithmetic behind those samples:
           D<sub>n</sub>/n=𝔮−log(n/rad n)+o(1), so a density 7/π² of
           sufficiently late steps is positive. Their N<sup>3/2</sup>

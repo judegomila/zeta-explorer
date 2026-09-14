@@ -168,7 +168,7 @@ export default function BlogPage() {
         {/* ── How 870 became 1,000,000 (imp-876, 2026-04-19) ───── */}
         <Section title="How we went from 870 zeros to 1,000,000 unconditionally in one session" color="var(--green)">
           <p>
-            One of the load-bearing parts of the proof is a monotonicity claim
+            One of the essential parts of the proof is a monotonicity claim
             about something called "collision times." For technical reasons, we could
             verify the claim <em>directly from data</em> at N = 870 zeros, but for any
             N bigger than that we needed an analytical bound that was only known to hold

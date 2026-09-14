@@ -88,7 +88,7 @@ export default function RHEquivalentsPage() {
             step, and the <Link to="/flow-blindness-no-go">flow-blindness no-go</Link> rules out
             reaching Λ ≤ 0 by soft (arithmetic-free) methods. What the program produces are finite
             upper-bound candidates — Λ ≤ 0.1787854 and Λ ≤ 0.1758354 (computer-assisted,
-            unrefereed) — and a fail-closed{' '}
+            unrefereed) — and a conditional{' '}
             <Link to="/permutation-architecture">Λ ≤ 0.14 completion contract</Link> (a contract,
             not a bound).
           </p>

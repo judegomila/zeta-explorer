@@ -127,13 +127,13 @@ export default function PtFloorSensitivityAuditPage() {
         <code className="ed-terra">{burgersCrossCheck.gatingConstant}</code>. {burgersCrossCheck.finding}
       </p>
 
-      <h2>§4 · What this refutes, and the one real lever</h2>
+      <h2>§4 · What this refutes, and the one remaining input</h2>
       <p>{refutedAttackClass.why}</p>
       <ul style={{ paddingLeft: 20 }}>
         {refutedAttackClass.members.map((m) => <li key={m} style={{ marginBottom: 6 }}>{m}</li>)}
       </ul>
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
-        <div className="tlab">The one real lever</div>
+        <div className="tlab">The one remaining input</div>
         <p style={{ margin: 0 }}>{theLever.statement}</p>
         <p style={{ margin: '6px 0 0', fontSize: 13.5, color: 'var(--faint)' }}>
           {theLever.nature} {theLever.gap}

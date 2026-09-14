@@ -194,7 +194,7 @@ export default function Imp95304PhaseAmVsPhaseCertCeilXViz() {
         (PHASE-AM halves PHASE-CERT's loss in the deep-cancellation regime). The amber CEIL-X
         witness sits well to the left of both vacuity thresholds (theta = 0.1099 &lt;
         theta_0' = 0.6377 &lt; theta_0 = 0.7788): in that region both certificates exceed 1/2
-        and are honestly non-informative as sub-1/2 certificates, yet they still correctly
+        and are non-informative as sub-1/2 certificates, yet they still correctly
         bound the actual R = 0.6962 from above &mdash; there is no contradiction, only a region
         where phase currency alone cannot certify below the DC-NOGO ceiling.
       </div>

@@ -6,6 +6,41 @@ import { NAV_GROUPS } from '../../data/nav-groups.js';
 // Drop the version/parenthetical suffix for the compact top-bar button label.
 const shortLabel = (s) => s.replace(/\s*\(.*\)\s*$/, '');
 
+
+// Minimal line icons for the top-bar groups — thin geometric strokes matching
+// the wireframe aesthetic; currentColor so they follow link/hover colors.
+function NavIcon({ name }) {
+  const P = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round' };
+  const paths = {
+    atlas: <g {...P}><circle cx="12" cy="12" r="9" /><path d="M12 3v18M3 12h18M5.5 6.5c3.5 2.5 9.5 2.5 13 0M5.5 17.5c3.5-2.5 9.5-2.5 13 0" /></g>,
+    directory: <g {...P}><path d="M5 6h14M5 12h14M5 18h9" /></g>,
+    research: <g {...P}><circle cx="10.5" cy="10.5" r="6" /><path d="M15 15l5 5" /></g>,
+    model: <g {...P}><path d="M4 15c2-6 4-6 6 0s4 6 6 0 3-4 4-3" /></g>,
+    analysis: <g {...P}><path d="M4 19V5M4 19h16" /><path d="M6.5 15l4-6 3.5 4 4.5-7" /></g>,
+    ladder: <g {...P}><path d="M8 3v18M16 3v18M8 7h8M8 12h8M8 17h8" /></g>,
+    viz: <g {...P}><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z" /><circle cx="12" cy="12" r="2.6" /></g>,
+    attack: <g {...P}><circle cx="12" cy="12" r="8.5" /><circle cx="12" cy="12" r="4.5" /><path d="M12 12h.01" /></g>,
+    proof: <g {...P}><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" /><path d="M9 12l2.2 2.2L15.5 9.5" /></g>,
+    progress: <g {...P}><path d="M4 19V5M4 19h16" /><path d="M7 15l3.5-4 3 2.5L18 8" /><path d="M18 11V8h-3" /></g>,
+    reference: <g {...P}><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3V4z" /><path d="M5 17a3 3 0 013-3h11" /></g>,
+  };
+  const el = paths[name];
+  if (!el) return null;
+  return (
+    <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"
+      style={{ marginRight: 5, verticalAlign: '-2px', opacity: 0.75 }}>
+      {el}
+    </svg>
+  );
+}
+
+// Map group labels (post-shortLabel) to icons.
+const GROUP_ICON = {
+  Research: 'research', Model: 'model', Analysis: 'analysis',
+  'Twin-Ladder Program': 'ladder', Visualizations: 'viz', Attack: 'attack',
+  'Proof Tools': 'proof', Progress: 'progress', Reference: 'reference',
+};
+
 function NavDropdown({ label, items }) {
   const [open, setOpen] = useState(false);
   const timer = useRef();
@@ -16,7 +51,7 @@ function NavDropdown({ label, items }) {
   return (
     <div className="ed-ddwrap" onMouseEnter={show} onMouseLeave={hide}>
       <button type="button" className="ed-ddbtn" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
-        {shortLabel(label)} <span className="ed-ddcaret">▾</span>
+        <NavIcon name={GROUP_ICON[shortLabel(label)]} />{shortLabel(label)} <span className="ed-ddcaret">▾</span>
       </button>
       {open && (
         <div className="ed-ddpanel" onMouseEnter={show} onMouseLeave={hide}>
@@ -62,8 +97,8 @@ export function EditorialHeader({ ticker }) {
         </button>
         <div className={menuOpen ? 'ed-headcollapse open' : 'ed-headcollapse'}>
           <nav className="ed-headnav">
-            <Link to="/atlas">Atlas</Link>
-            <Link to="/directory">Directory</Link>
+            <Link to="/atlas"><NavIcon name="atlas" />Atlas</Link>
+            <Link to="/directory"><NavIcon name="directory" />Directory</Link>
             {NAV_GROUPS.map((g) => <NavDropdown key={g.label} label={g.label} items={g.items} />)}
           </nav>
           <div className="ed-headright">

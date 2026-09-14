@@ -125,7 +125,7 @@ export default function Imp35582ReentryBandDataUnreachabilityViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> Presentation only of the
         imp-35537 Part D / imp-35243 D2 data-unreachability figures (no fresh derivation, no
         heavy data-module import); the reentry band is a diagnostic of a surrogate
-        iterate-COUNT, not a Lambda lever, so even a perfect R1t closure would move no bound;
+        iterate-COUNT, not a Lambda input, so even a perfect R1t closure would move no bound;
         R1t and the imp-35243a certificate stay OPEN; C_mb GUE-conditional per imp-486
         UNTOUCHED; this page derives no remainder, discharges nothing, changes no bound,
         establishes no operator positivity; no RH verdict, NO QED.

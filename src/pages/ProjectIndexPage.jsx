@@ -73,7 +73,7 @@ export default function ProjectIndexPage() {
             <div style={{ color: 'var(--brass-dk)', fontSize: 12, fontWeight: 600, marginBottom: 4 }}>Where the program actually stands</div>
             <div style={{ color: 'var(--ink-soft)', fontSize: 12, lineHeight: 1.6 }}>
               RH is open. The program's frontier: computer-assisted candidates Λ ≤ 0.1787854 (reviewed by Dan
-              Romik) and Λ ≤ 0.1758354, plus a fail-closed Λ ≤ 0.14 completion contract reduced to one open
+              Romik) and Λ ≤ 0.1758354, plus a conditional Λ ≤ 0.14 completion contract reduced to one open
               family. Across the mapped routes, every shortcut below RH is either not rigorous or RH-equivalent —
               see the <Link to="/state-of-program">State of the Program</Link> and{' '}
               <Link to="/what-we-know">the no-go landscape</Link>. (An earlier "~80% Bayesian confidence,

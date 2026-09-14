@@ -62,7 +62,7 @@ export default function SupercriticalPage() {
             The <strong style={{ color: 'var(--terra-dk)' }}>bulk order-parameter route</strong> — seeking a
             spontaneous symmetry-breaking transition inside{' '}
             <InlineMath tex={"(\\tfrac{1}{2}, 1)"} /> as a route to RH — is{' '}
-            <strong style={{ color: 'var(--terra-dk)' }}>empirically killed</strong>: systematic numerics found
+            <strong style={{ color: 'var(--terra-dk)' }}>empirically ruled out</strong>: systematic numerics found
             no such transition anywhere in the strip. The thermodynamic framework on this page remains
             a valid interpretive lens (primon gas, Bost-Connes), but it does not supply a proof route.
             The topological-winding thread that once succeeded this route is also closed: the winding /

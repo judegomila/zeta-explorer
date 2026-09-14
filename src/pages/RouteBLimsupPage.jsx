@@ -46,7 +46,7 @@ export default function RouteBLimsupPage() {
             <InlineMath tex={"N{=}2"} /> has exact <InlineMath tex={"t_c=g^2/8"} /> violating the bound for{' '}
             <InlineMath tex={"g>2.66"} />), and (2) a <InlineMath tex={"1/N"} /> <strong>normalization inconsistency</strong>{' '}
             that, under either consistent convention, makes the surviving divergence a trivial pole self-term — demoting
-            the advertised RvM/Trudgian input from load-bearing to decorative.
+            the advertised RvM/Trudgian input from essential to decorative.
           </p>
           <p style={{ color: 'var(--faint)', fontSize: 12.5, lineHeight: 1.8, marginTop: 6 }}>
             <strong style={{ color: 'var(--ink)' }}>No false pessimism:</strong> the statement is very likely <em>true</em> and is{' '}

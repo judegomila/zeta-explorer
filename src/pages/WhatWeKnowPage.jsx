@@ -58,7 +58,7 @@ export default function WhatWeKnowPage() {
         ζ, the Riemann Hypothesis, and the primes — where the walls are and why.</>
       }
       byline={['mathexplorer', 'no RH proof · no beat of the Λ record']}
-      ticker={<span>no-go theorems · the breach point, located</span>}
+      ticker={<span>no-go theorems · the remaining gap, located</span>}
       footer={<>
         Related: <Link to="/frontier-dag">The frontier DAG</Link>
         {' · '}<Link to="/route-map">The wall map</Link>
@@ -84,12 +84,21 @@ export default function WhatWeKnowPage() {
       <ul style={{ paddingLeft: 20, lineHeight: 1.75 }}>
         <li><strong>Standalone private-review Newman candidate:</strong> <strong>Λ ≤ 0.1787854</strong> is a computer-assisted candidate for an unconditional proof. Its package claims a compact-slab and final-time-half-strip closure, full material replay, corrected errors, and exact Polymath weld. The bound is not established, has been reviewed by Dan Romik, and is not RH.</li>
         <li><strong>Sharper Newman candidate:</strong> <strong>Λ ≤ 0.1758354</strong> — a computer-assisted candidate with four gates certified in Arb and a Lean-checked reduction. Unrefereed; not established. <Link to="/lambda-01758354-candidate">detail →</Link></li>
-        <li><strong>Λ ≤ 0.14 completion contract:</strong> a fail-closed contract, <em>not a bound</em> — the freeze-calculus / [B_v, Π_p]-weld route reduces the strict value to exactly one open family: the enclosure |C_E,17| {'<'} 0.2796881955526147 on 690988 ≤ N ≤ 54799999. Nothing is claimed unless that family closes. <Link to="/permutation-architecture">detail →</Link></li>
+        <li><strong>Λ ≤ 0.14 completion contract:</strong> a conditional contract, <em>not a bound</em> — the freeze-calculus / [B_v, Π_p]-weld route reduces the strict value to exactly one open family: the enclosure |C_E,17| {'<'} 0.2796881955526147 on 690988 ≤ N ≤ 54799999. Nothing is claimed unless that family closes. <Link to="/permutation-architecture">detail →</Link></li>
         <li><strong>Literature grades:</strong> <strong>Λ ≥ 0</strong> (Rodgers–Tao 2020) and the peer-reviewed upper benchmark <strong>Λ ≤ 0.2</strong> (Platt–Trudgian 2021). RH ⟺ Λ = 0.</li>
         <li><strong>Route B (Burgers / Koksma–Hlawka lim-sup):</strong> an unconditional, GUE-free, pair-correlation-free proof that lim supₙ |t_c(N)| = 0 for the N-particle Calogero–Moser/Dyson flow that models the zeros. This subsidiary theorem does not close the bridge to RH.</li>
         <li><strong>The Θ-trap theorems:</strong> Θ ≤ 1/4 as an unconditional flow invariant; the exact identity dg/ds = −(4/g)(1−Θ); Corollary A1 (t_c^part ≤ g_min²/6). Rigorous CM-flow algebra.</li>
         <li><strong>The R2-T isolation constants</strong> closed in closed form: c* = √(2+√3) − 1 ≈ 0.9319 (single-shell) and, since 2026-08-28, the global asymmetric constant c_glob = c_half = 0.8980208880762339 (unique root of the half-lattice rate bound) — the deterministic frontier residual, resolved. Improves no Λ bound.</li>
       </ul>
+
+      <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
+        <div className="tlab">CURRENT FRONTIER (2026-09)</div>
+        <ul style={{ paddingLeft: 20, lineHeight: 1.75, margin: 0 }}>
+          <li><strong>Λ ≤ 0.17759432 y-thaw package</strong> — candidate-unrefereed; 4 of 8 obligations closed, O1 at Aristotle; a package value, not a bound. Detail: <Link to="/threads">Research Threads</Link>.</li>
+          <li><strong>Route VII derived floor:</strong> the reachable-floor analysis puts the compute-derived floor at U ≈ 0.145–0.150; below it requires arithmetic input. Detail: <Link to="/frontier-dag">Frontier DAG</Link>.</li>
+          <li><strong>Inertia-PCC verdict:</strong> the inertia route meets the same pair-correlation wall (λ_max(ρ) = 0.6231344958476320). Detail: <Link to="/threads">Research Threads</Link>.</li>
+        </ul>
+      </div>
 
       <h2>② The two frontier walls — fully characterized</h2>
       <p>
@@ -148,6 +157,7 @@ export default function WhatWeKnowPage() {
         known <em>not</em> to be reachable by a given method. This program's own findings first, then the
         established results and recognized barriers from the wider field. A curated list of the principal
         results, not a claim of exhaustiveness; none proves or disproves RH.
+        The same data module renders the standalone index at <Link to="/no-gos">/no-gos</Link>.
       </p>
       <h3 style={{ fontSize: 15, color: 'var(--ink)', marginTop: 16, marginBottom: 2 }}>Found by this program (zetaexplorer)</h3>
       <NoGoList items={ZETAEXPLORER_NO_GOS} />
@@ -184,7 +194,7 @@ export default function WhatWeKnowPage() {
           A sharper candidate, <Link to="/lambda-01758354-candidate"><strong>Λ ≤ 0.1758354</strong></Link> (four
           Arb-certified gates + a Lean-checked reduction), is likewise unrefereed. The{' '}
           <Link to="/permutation-architecture"><strong>Λ ≤ 0.14</strong> completion contract</Link> is a
-          fail-closed contract, not a bound — reduced to one open family. The exact global Twin Ladder
+          conditional contract, not a bound — reduced to one open family. The exact global Twin Ladder
           residual inequality remains equivalent to RH, and RH itself remains open.
         </p>
       </TheoremBox>

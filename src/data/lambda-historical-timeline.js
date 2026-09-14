@@ -255,6 +255,18 @@ export const LAMBDA_TIMELINE = [
     citation: 'mathexplorer / zetaexplorer four-gate barrier certificate (2026).',
     notes: 'Candidate, unrefereed. Platt–Trudgian Λ ≤ 0.2 remains SOTA; RH remains open.',
   },
+  {
+    year: 2026,
+    authors: ['Jude Gomila', 'AI fleet — Claude, Codex, ChatGPT — with human work'],
+    bound: 0.17759432,
+    direction: 'upper',
+    relation: '≤',
+    status: 'computer-assisted candidate',
+    accepted: false,
+    method: 'y-thaw package (stages 1+2, 2026-09): candidate-unrefereed. 4 of 8 obligations closed (O3, O5 certified); O1 at Aristotle; O2, O4, O6 open. A package value, not a bound — nothing is claimed unless all obligations close. Status per obligation on /frontier-dag and the y-thaw research thread.',
+    citation: 'mathexplorer / zetaexplorer y-thaw obligation package (2026-09).',
+    notes: 'Candidate, unrefereed; obligations 4/8 closed. Platt–Trudgian Λ ≤ 0.2 remains SOTA; RH remains open.',
+  },
 ];
 
 export const LAMBDA_TIMELINE_ASSERTIONS = [

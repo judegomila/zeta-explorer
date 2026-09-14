@@ -15,7 +15,7 @@ export default function GuthMaynardScopingPage() {
         <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.7, maxWidth: 820 }}>
           Scoping the sharpest live frontier in the Guth–Maynard program: the α=1/2 large-value case for
           Dirichlet polynomials — the named bottleneck to the Density Hypothesis <code>A(σ)≤2</code> near
-          σ=3/4. Genuine, hard, unconditional number theory — and explicitly <em>not</em> a Λ lever.
+          σ=3/4. Genuine, hard, unconditional number theory — and explicitly <em>not</em> a way to move Λ.
         </p>
 
         <HonestCeilingBanner
@@ -51,7 +51,7 @@ export default function GuthMaynardScopingPage() {
           <li>{currentState.montgomeryConjecture}</li>
         </ul>
 
-        <h2 style={{ color: 'var(--ink)' }}>The lever — and why it's stuck</h2>
+        <h2 style={{ color: 'var(--ink)' }}>The inequality to improve — and why it's stuck</h2>
         <p style={{ color: 'var(--ink-soft)', lineHeight: 1.7, maxWidth: 840 }}>
           <strong>Improve:</strong> {lever.inequalityToImprove}
         </p>
@@ -102,7 +102,7 @@ export default function GuthMaynardScopingPage() {
             fontSize: 12, fontFamily: 'var(--ed-mono)',
           }}>
             <Link to="/zero-density-scoping" style={{ color: 'var(--brass)', textDecoration: 'none' }}>← Why density is Λ-inert</Link>
-            <Link to="/verified-height-lever" style={{ color: 'var(--brass)', textDecoration: 'none' }}>→ The only Λ lever (verified height)</Link>
+            <Link to="/verified-height-lever" style={{ color: 'var(--brass)', textDecoration: 'none' }}>→ The Verified-Height Lever (the only Λ input)</Link>
             <Link to="/" style={{ color: 'var(--faint)', textDecoration: 'none', marginLeft: 'auto' }}>← the atlas</Link>
           </div>
         </div>

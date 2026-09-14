@@ -716,8 +716,8 @@ function ConditionalShareUShapePanel() {
         unconditionally rigorous. No positivity, no bridge closure, no RH claim, NO QED.
       </div>
       <div style={{ marginTop: 6, padding: '6px 10px', borderRadius: 4, background: 'rgba(109,85,184,0.05)', border: '1px solid rgba(109,85,184,0.18)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
-        <strong style={{ color: '#6d55b8' }}>C<sub>H</sub> load-bearing note (imp-3324/imp-3392):</strong>{' '}
-        C<sub>H</sub> = 1/8 is load-bearing for the <em>absolute</em> collision budget E<sub>coll</sub> (linear in
+        <strong style={{ color: '#6d55b8' }}>C<sub>H</sub> dependence note (imp-3324/imp-3392):</strong>{' '}
+        C<sub>H</sub> = 1/8 is essential for the <em>absolute</em> collision budget E<sub>coll</sub> (linear in
         C<sub>H</sub>, so a 16&times; bracket [0.0625,&thinsp;1.0] swings E<sub>coll</sub> 16&times;) but NOT for the
         <em> conditional share</em> &sigma;(N) plotted above, which saturates toward 1 and stays within
         [0.904,&thinsp;0.993] over that same bracket. The two roles must not be conflated.
@@ -2008,7 +2008,7 @@ function SigmaCHSaturationPanel() {
       </div>
       <div style={{ padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11, color: '#877b67', lineHeight: 1.65 }}>
         <strong style={{ color: '#c23a1c' }}>Scope (imp-3324):</strong>{' '}
-        ASSESSMENT ONLY: C<sub>H</sub> is load-bearing for the absolute E<sub>coll</sub> budget (linear) but NOT for the
+        ASSESSMENT ONLY: C<sub>H</sub> is essential for the absolute E<sub>coll</sub> budget (linear) but NOT for the
         conditional share &sigma;, which saturates toward 1. No positivity, no bridge closure, no RH claim, NO QED.
       </div>
       <p style={{ marginTop: 8, color: '#877b67', fontSize: 11, fontFamily: mono }}>
@@ -3207,7 +3207,7 @@ function BridgeMarginRatioCurvePanel() {
           DEGREE-0 SCALAR MASS-FEASIBILITY ONLY &mdash; RH-EQUIVALENT &mdash; NO RH VERDICT
         </div>
         <p style={{ color: "#877b67", fontSize: 12, lineHeight: 1.65, margin: 0 }}>
-          B/D &gt; 1 kills the impossibility option but is necessary-but-not-sufficient; the operator-level
+          B/D &gt; 1 rules out the impossibility option but is necessary-but-not-sufficient; the operator-level
           K&#x2090;&thinsp;&#x2265;&thinsp;0 endpoint-Hankel obstruction (imp-3066) is untouched.
         </p>
       </div>
@@ -7806,7 +7806,7 @@ export default function ClosureRoutesPage() {
           </table>
           <div style={{ marginTop: 7, padding: '6px 10px', borderRadius: 4, background: 'rgba(194,58,28,0.07)', border: '1px solid rgba(194,58,28,0.22)', fontSize: 11.5, color: '#877b67', lineHeight: 1.65 }}>
             <strong style={{ color: '#c23a1c' }}>Note:</strong>{' '}
-            Mass-feasibility kills the impossibility option but does <strong>not</strong> close the
+            Mass-feasibility rules out the impossibility option but does <strong>not</strong> close the
             operator-level K&#x2090;&thinsp;&#x2265;&thinsp;0 residual. The budget proxy &#x2016;V&#x2016;<sub>HS</sub> is
             itself the RH-equivalent quantity; the deg-0 B/D comparison is additionally circular.
             Construction is mass-feasible, NOT independently constructible. Per imp-3256, the

@@ -37,7 +37,7 @@ export default function ZeroDensityScopingPage() {
           <p style={{ margin: 0, color: 'var(--ink)', fontSize: 14, lineHeight: 1.7 }}>{meta.bottomLine}</p>
         </div>
 
-        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>The levers, classified</h2>
+        <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>The candidate approaches, classified</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {levers.map((l) => (
             <div key={l.title} className="card" style={{ border: `1px solid ${feedColor(l.feedsLambda)}`, background: 'var(--paper2)', borderRadius: 8, padding: '12px 16px' }}>

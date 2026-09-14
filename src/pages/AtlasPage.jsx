@@ -15,7 +15,7 @@ const AREAS = [
   {
     key: 'lambdaUpper', wireframe: 'wave',
     title: 'Λ Upper-Bound Routes',
-    blurb: 'Every route that tries to push the de Bruijn–Newman bound Λ below the Platt–Trudgian 0.2 — the barrier method, the finite-N beat, the Burgers lim-sup, and where each one funnels into the C_H wall. Newest: the permutation architecture, a fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound) with one open coefficient family.',
+    blurb: 'Every route that tries to push the de Bruijn–Newman bound Λ below the Platt–Trudgian 0.2 — the barrier method, the finite-N beat, the Burgers lim-sup, and where each one funnels into the C_H wall. Newest: the permutation architecture, a conditional Λ ≤ 0.14 completion contract (a contract, not a bound) with one open coefficient family.',
     entryPoints: [
       { to: '/lambda-bounds', label: 'The bounds ledger' },
       { to: '/verified-height-lever', label: 'The one lever below 0.2' },
@@ -69,10 +69,12 @@ const AREAS = [
   {
     key: 'permutationFreeze', wireframe: 'wave',
     title: 'Post-Freeze Frontier (permutation architecture)',
-    blurb: 'The routes opened after the 2026-06-19 freeze by the permutation-architecture campaign: the fail-closed Λ ≤ 0.14 completion contract (a contract, not a bound) reduced to one open coefficient family |C_E,17| < 0.2797, the imp-95008 weld alias bracket, and the gate-ranked producer/probe lanes around it.',
+    blurb: 'The routes opened after the 2026-06-19 freeze by the permutation-architecture campaign: the conditional Λ ≤ 0.14 completion contract (a contract, not a bound) reduced to one open coefficient family |C_E,17| < 0.2797, the imp-95008 weld alias bracket, and the gate-ranked producer/probe lanes around it. The frontier after 2026-08 (y-thaw package, Route VII floor) is tracked on the frontier DAG and the research threads.',
     entryPoints: [
       { to: '/permutation-architecture', label: 'The freeze calculus & the 0.14 contract' },
       { to: '/lambda-bounds', label: 'The bounds ledger' },
+      { to: '/frontier-dag', label: 'The live frontier DAG' },
+      { to: '/threads', label: 'Research threads' },
     ],
   },
 ];

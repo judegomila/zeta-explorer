@@ -166,7 +166,7 @@ export default function VisualGeometriesPage() {
         </div>
 
         <div className="card" style={{ marginTop: 22, background: 'var(--paper2)', border: '1px solid var(--hairline)', borderLeft: '3px solid var(--brass)' }}>
-          <h3 style={{ marginTop: 0, color: 'var(--ink)' }}>What the geometries actually show — honestly</h3>
+          <h3 style={{ marginTop: 0, color: 'var(--ink)' }}>What the geometries actually show</h3>
           <ul style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.7 }}>
             <li><strong style={{ color: 'var(--ink)' }}>Caustics = multiplicative resonances.</strong> Bright bands form where <InlineMath tex={'\\log(p_i/p_j)\\approx 2\\pi k/t'} /> — the same oscillatory structure as the explicit formula's <InlineMath tex={'x^{\\rho}'} /> kernel.</li>
             <li><strong style={{ color: 'var(--ink)' }}>Vortices = zeros.</strong> <InlineMath tex={'\\tfrac1{2\\pi}\\oint V_t\\cdot dz = \\pm 1'} /> is the argument principle; off-axis vortices would be off-axis zeros (RH false).</li>

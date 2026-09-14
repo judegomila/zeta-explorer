@@ -165,7 +165,7 @@ export default function ProofOverviewPage() {
               <ul style={{ color: '#4a4238', fontSize: 13, lineHeight: 1.75, paddingLeft: 18 }}>
                 <li>Computer-assisted candidate <InlineMath tex="\Lambda\le0.1787854" /> (reviewed by Dan Romik; unrefereed; bound not established).</li>
                 <li>Computer-assisted candidate <InlineMath tex="\Lambda\le0.1758354" /> (four Arb gates, Lean-checked reduction; unrefereed) — <Link to="/lambda-01758354-candidate" style={{ color: '#3f6b86' }}>candidate page</Link>.</li>
-                <li>The <InlineMath tex="\Lambda\le0.14" /> completion contract — a fail-closed contract, not a bound; one open family remains — <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>permutation architecture</Link>.</li>
+                <li>The <InlineMath tex="\Lambda\le0.14" /> completion contract — a conditional contract, not a bound; one open family remains — <Link to="/permutation-architecture" style={{ color: '#3f6b86' }}>permutation architecture</Link>.</li>
                 <li>Finite energy and curvature plots.</li>
                 <li>GUE-like numerical statistics for computed zeros.</li>
                 <li>Li coefficients checked over finite ranges.</li>
@@ -201,7 +201,7 @@ export default function ProofOverviewPage() {
             a computer-assisted candidate for an unconditional proof (reviewed by Dan Romik; unrefereed;
             bound not established). A sharper candidate <InlineMath tex="\Lambda\le0.1758354" /> (four
             Arb gates, Lean-checked reduction, unrefereed) and the <InlineMath tex="\Lambda\le0.14" />{' '}
-            completion contract — a fail-closed contract, not a bound — sit alongside it. None of these is RH.
+            completion contract — a conditional contract, not a bound — sit alongside it. None of these is RH.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
             <Link to="/full-story" style={{ color: '#3f6b86' }}>Corrected full story</Link>

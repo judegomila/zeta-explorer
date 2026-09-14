@@ -202,10 +202,29 @@ export default function RHProofStateDashboardPage() {
 
         <div style={{ marginTop: 16, marginBottom: 24 }}>
           <h1 className="ed-h1">RH Proof State Dashboard</h1>
+          <div
+            style={{
+              marginTop: 10,
+              padding: '8px 12px',
+              border: '1px solid var(--terra-dk)',
+              borderRadius: 6,
+              maxWidth: 760,
+              fontSize: 13,
+              lineHeight: 1.55,
+              color: 'var(--terra-dk)',
+              fontFamily: 'var(--ed-mono, var(--font-mono))',
+            }}
+          >
+            SNAPSHOT 2026-06-18 — this dashboard's data modules are frozen at
+            2026-06-17/18; superseded by{' '}
+            <Link to="/results" style={{ color: 'var(--terra-dk)' }}>/results</Link> (graded ledger)
+            {' + '}
+            <Link to="/frontier-dag" style={{ color: 'var(--terra-dk)' }}>/frontier-dag</Link> (live frontier).
+          </div>
           <p style={{ color: INK_SOFT, fontSize: 15, lineHeight: 1.6, maxWidth: 760, marginTop: 10 }}>
-            Current status of all attack vectors and proof strategies. This is a single-page summary
-            of the Riemann Hypothesis proof landscape through {dashboardDate}, tracking the new
-            subsidiary Newman theorem separately from the still-open RH frontier.
+            Status of all attack vectors and proof strategies as recorded in this snapshot:
+            a single-page summary of the Riemann Hypothesis proof landscape through {dashboardDate},
+            tracking the subsidiary Newman theorem separately from the still-open RH frontier.
           </p>
         </div>
 
@@ -258,7 +277,7 @@ export default function RHProofStateDashboardPage() {
               <div style={{ fontSize: 20, fontWeight: 700, color: AMBER, fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
                 <Link to="/permutation-architecture" style={{ color: 'inherit', textDecoration: 'none' }}>&#923; &le; 0.14</Link>
               </div>
-              <div style={{ fontSize: 11, color: INK_SOFT }}>Fail-closed contract, NOT a bound &#8212; one open family |C_E,17| &lt; 0.2796881955526147 on 690988 &le; N &le; 54799999; [B_v,&#928;_p] weld</div>
+              <div style={{ fontSize: 11, color: INK_SOFT }}>Conditional contract, NOT a bound &#8212; one open family |C_E,17| &lt; 0.2796881955526147 on 690988 &le; N &le; 54799999; [B_v,&#928;_p] weld</div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>

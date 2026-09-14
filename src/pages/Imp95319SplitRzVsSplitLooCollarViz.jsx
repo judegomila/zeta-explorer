@@ -175,7 +175,7 @@ export default function Imp95319SplitRzVsSplitLooCollarViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Reading the chart:</strong> at small octave counts
         (m &le; 4) SPLIT-LOO's naive per-block constant actually beats the flat SPLIT-RZ constant
-        &mdash; consistent with imp-95252's own honest scope note that "small-m regimes stay with
+        &mdash; consistent with imp-95252's own scope note that "small-m regimes stay with
         SPLIT-LOO / SPLIT-2." But the naive constant keeps shrinking as blocks are added (it has no
         floor), while A_blk is a single number that works for EVERY m, including m &rarr; infinity.
         This is exactly the gap imp-95252's Toeplitz/Fourier symbol analysis (THEOREM RZ-TWIN)

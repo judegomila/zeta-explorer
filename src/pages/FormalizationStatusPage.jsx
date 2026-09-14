@@ -32,7 +32,7 @@ export default function FormalizationStatusPage() {
           variant="ESTIMATE"
           title="A verifiable scaffold — not a proof of anything new"
           body={
-            'Four order-lemmas are genuinely proved (axiom-audited); the three load-bearing theorems ' +
+            'Four order-lemmas are genuinely proved (axiom-audited); the three essential theorems ' +
             '(existence of Λ, de Bruijn monotonicity, Rodgers–Tao Λ≥0) are stated as `sorry`. Platt–Trudgian ' +
             'Λ ≤ 0.2 and Rodgers–Tao Λ ≥ 0 remain the cited rigorous results — neither is re-derived here. NO QED.'
           }
@@ -49,6 +49,9 @@ export default function FormalizationStatusPage() {
           <code>formalization/lean-aristotle/</code>: the five permutation-calculus projects plus the
           waves-2–3 15-target ledger (closed 15/15), alongside the frozen-rung file set. Autoformalization
           caveat applies throughout: proofs are kernel-verified; statement faithfulness warrants referee review.
+          Live Aristotle jobs (2026-09): the y-thaw package's O1 obligation is at Aristotle (job38,
+          in progress) — status on the formalization thread at <code>/threads</code> and{' '}
+          <code>/frontier-dag</code>.
         </p>
 
         <h2 className="ed-h2" style={{ marginTop: 24, marginBottom: 12 }}>✓ Proved (sorry-free, axiom-audited)</h2>

@@ -1155,14 +1155,14 @@ export default function HomePage() {
           { color: '#10b981', to: '/lambda-bounds', title: 'Verified: RH-free F_mb enclosure (imp-3725)',
             body: 'A rigorous two-sided true-flow collision-time enclosure 0 ≤ F_mb(N) ≤ (H²/8)(1/θ_N−1), uniform on N ∈ [10⁴,10⁶] — confirmed 4/4 by independent adversarial referees. Retires the old 2.15 heuristic (certified K_paper ≤ 2.42×10⁻⁶). Deterministic; not a Λ beat.' },
           { color: '#38bdf8', to: '/route-map', title: 'The complete wall map (44 routes)',
-            body: 'Every route that could touch Λ reduces to one of three RH-hard walls — C_H / GUE–Montgomery pair correlation, the S1 mesoscopic-density strand, or the S(T) sup-norm exponent. The single breach point is a finite N-uniform C_Lip.' },
+            body: 'Every route that could touch Λ reduces to one of three RH-hard walls — C_H / GUE–Montgomery pair correlation, the S1 mesoscopic-density strand, or the S(T) sup-norm exponent. The single remaining gap is a finite N-uniform C_Lip.' },
           { color: '#f59e0b', to: '/theorem-b-threshold', title: 'Closed-form constants',
             body: 'C_shock < 1/3; single-shell isolation c* = √(2+√3)−1 ≈ 0.9319; half-lattice onset c_half = 0.898020… (closed form); Theorem-B minimal-gap threshold Θ_b = (√73−5)/8 = 0.443.' },
           { color: '#ef4444', to: '/what-we-know', title: 'Negative results (theorems with teeth)',
             body: 'The ‖V‖≤1 collapse was a false theorem the project caught itself; the LINK-B cone-vs-sublevel no-go; scalar-domination impossibility (imp-3066); the Darlington poles-vs-zeros correction; sup-norm re-architecture proven futile (the wall is metric-invariant).' },
           { color: '#8b5cf6', to: '/shift-bridge-positivity', title: 'The a-dial geometry',
             body: 'The twin-ladder shift parameter a is simultaneously the positivity-threshold index (sharp at Δ) and the de Bruijn–Newman heat-flow coordinate — giving RH a margin structure with an integer-valued failure observable (ghost count).' },
-          { color: '#06b6d4', to: '/lambda-bounds', title: 'Status grades & the breach point',
+          { color: '#06b6d4', to: '/lambda-bounds', title: 'Status grades & the remaining gap',
             body: 'PT Λ ≤ 0.2 is the peer-reviewed benchmark; 0.1875 is a public unrefereed package; 0.1787854 is a computer-assisted candidate for an unconditional proof, not an established bound and not RH. The older Dyson route still hits the N-uniform C_Lip / multi-body isolation wall.' },
         ].map(({ color, to, title, body }) => (
           <Link key={title} to={to} style={{ textDecoration: 'none' }}>

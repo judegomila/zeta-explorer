@@ -425,7 +425,7 @@ const SOTA_TIERS = [
     items: [
       <React.Fragment key="contract-014">
         <Link to="/permutation-architecture" style={{ color: 'inherit' }}>Λ ≤ 0.14 completion
-        contract</Link>{' '}— a fail-closed contract, NOT a bound: Λ ≤ 0.14 would follow if its
+        contract</Link>{' '}— a conditional contract, NOT a bound: Λ ≤ 0.14 would follow if its
         zero-free statements hold. ONE open family remains — |C_E,17| &lt; 0.2796881955526147 on
         690988 ≤ N ≤ 54799999 — with the [B_v,Π_p] weld as the decisive object.
       </React.Fragment>,
@@ -582,7 +582,7 @@ function CHWallCallout() {
           border: `1px solid ${RED_A(0.4)}`,
           borderRadius: 4, padding: '2px 8px', flexShrink: 0,
         }}>
-          {'#' + opp.rank + ' OPPORTUNITY — LOAD-BEARING WALL'}
+          {'#' + opp.rank + ' OPPORTUNITY — CRITICAL WALL'}
         </span>
         <Link to="/route-map" style={{
           fontSize: 11, fontFamily: MONO, color: 'var(--faint)',
@@ -751,7 +751,7 @@ function CHLipThreeProofsPanel() {
         fontFamily: MONO,
       }}>
         {/* Strip the appended "remains the rigorous SOTA" refrain; PT is stated once in the banner. */}
-        HONEST: {t.honest.replace(CH_WALL_FRONTIER.sota, '').trim()}
+        CAVEAT: {t.honest.replace(CH_WALL_FRONTIER.sota, '').trim()}
       </div>
     </div>
   );
@@ -838,7 +838,7 @@ function CLipDivergenceDecompositionPanel() {
         padding: '8px 12px', fontSize: 11, color: RED_LIGHT, lineHeight: 1.6,
         fontFamily: MONO,
       }}>
-        HONEST: {d.honest}
+        CAVEAT: {d.honest}
       </div>
     </div>
   );
@@ -985,6 +985,8 @@ export default function RigorDashboardPage() {
             Every step is either unconditionally proved (green), conditional on a named
             hypothesis (yellow), analytic+numeric (orange), or still open (red).
             Click any step to expand the full claim.
+            The proof-chain data is a <strong>snapshot (2026-06-23)</strong>; the live graded
+            ledger is <Link to="/results" style={{ color: 'var(--brass-dk)' }}>/results</Link>.
           </p>
         </div>
 
@@ -1061,7 +1063,7 @@ export default function RigorDashboardPage() {
               </Link>
             </div>
             <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 6 }}>
-              Fail-closed: Λ ≤ 0.14 would follow if its zero-free statements hold. ONE open family
+              Conditional: Λ ≤ 0.14 would follow if its zero-free statements hold. ONE open family
               remains — |C_E,17| &lt; 0.2796881955526147 on 690988 ≤ N ≤ 54799999 — with the
               [B_v,Π_p] weld as the decisive object.
             </div>

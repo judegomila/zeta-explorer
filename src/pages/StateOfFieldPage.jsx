@@ -50,7 +50,7 @@ const PROGRAMS = [
     idea:
       'Heat-flow the ξ-function: H_t has only real zeros iff t ≥ Λ, and H₀ = ξ, so RH ⟺ Λ ≤ 0. Rodgers–Tao (2020) proved Λ ≥ 0; Polymath 15 + Platt–Trudgian’s verified height give Λ ≤ 0.2. This is the program’s home lane.',
     obstruction:
-      'Rodgers–Tao’s Λ ≥ 0 means RH, if true, is “barely true” (Λ = 0 exactly). The upper bound’s only lever is more verified zero height — compute-bound, and it can never reach Λ ≤ 0 in finite computation (that would be proving RH).',
+      'Rodgers–Tao’s Λ ≥ 0 means RH, if true, is “barely true” (Λ = 0 exactly). The only input that lowers the upper bound is more verified zero height — compute-bound, and it can never reach Λ ≤ 0 in finite computation (that would be proving RH).',
     refs: 'Rodgers–Tao arXiv:1801.05914 (Forum Math Pi 2020); Polymath 15 arXiv:1904.12438',
     engages: [
       { to: '/lambda-bounds', label: 'The bounds ledger (this program)' },

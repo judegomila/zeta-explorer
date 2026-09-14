@@ -15903,6 +15903,36 @@ const DATA_MODULES = [
   // truncated bitwise. Import-light, seven self-executing assertions.
   // Measurement only; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-95338-chart-adequacy-pair-truncation.js',
+  // imp-95339 (opus-4-8, api-pool, frontier): MEASURED LEDGER -- the
+  // imp-95331 exact-root-branch activation crossover a* (rho* = exp a*)
+  // across the intra-pair ratio r in (1, sqrt(rho)]. FINDING: the crossover
+  // is EXACTLY r-independent, a* = 1.8621513047 / rho* = 6.4375710624
+  // (spread 0.0 across r in 1.001..2.5), sharpening the imp-95331 record
+  // a ~ 1.875 / rho ~ 6.5 to six figures. Mechanism (rigorous, mu-free):
+  // the crossover is a pure V4-chart-geometry event -- the global V4 argmin
+  // flips from interior chart k = 24 to far-corner k = 255; the split-root
+  // branch lifts the far corner (Psi_255 > V4_255) but not chart 24
+  // (Psi_24 < V4_24), so W5 stays pinned to V4_24 while W4 follows the
+  // falling V4_255, and W5 > W4 begins exactly at V4_255 = V4_24, a
+  // condition on the mu-free floor alone. For r >= e^(a* / 2) = 2.5372368
+  // the r <= sqrt(rho) window lies entirely above a*, so the branch is
+  // active throughout (edge gains 1.52 - 2.12 at tau = 1/2). The crossover
+  // NEVER descends toward the rho = 2 anchor (min rho* = 6.4376 > 3 x 2),
+  // confirming the imp-95331/95332 HONEST LIMITS r-uniformly. Import-light,
+  // six self-executing assertions. Measurement only; changes no bound;
+  // NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95339-crossover-r-independence.js',
+  // imp-95342: independent numerical cross-validation of the imp-95332
+  // LEMMA TAIL-CHART per-chart tail cap c3nChart(t0, t1). Recomputes the
+  // cap from the verbatim OBJECT normalization and compares against DIRECT
+  // summation of the true |n| >= 2 trace-tail sum t3(|w_n|) P(|w_n|) to
+  // |n| = 400 at 130 theta per chart, over the K = 256 chart cover and
+  // a in {ln 2, ln 4, ln 10, 5, 6}. RESULT: zero cap violations (cap is a
+  // valid upper bound) and global max truth/cap = 0.9978842 (binding at
+  // a = ln 2, chart k = 73), reproducing the imp-95332 literal 0.9978.
+  // Import-light, four self-executing assertions. Cross-validation only;
+  // changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95342-tail-chart-cap-crossval.js',
   // imp-95272 (fable-5, frontier): LEMMA BASE-SIDE + THEOREM BL-JIT --
   // base-anchored, jitter-robust replacement of the imp-95226 BL-LAT
   // count-uniform lattice collar. The lowest rate has every other rate

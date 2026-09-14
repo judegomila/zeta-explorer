@@ -16410,6 +16410,23 @@ const DATA_MODULES = [
   // assertions. Measurement only; changes no bound; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95422-hp-form-enclosure-verification.js',
+  // imp-95449 (opus-4-8, api-pool): MEASUREMENT -- tightness of the
+  // imp-95420 THEOREM P-POS two-sided enclosures of the theta density
+  // p(t), plus the strict-positivity margin. Device: p/up is an
+  // alternating series with leading term 1 and no exponentially small
+  // prefactor (p/up_th = sum (-1)^n (2n+1) e^(-n(n+1) pi^2 t)), so it
+  // evaluates to full precision where the raw forms lose ~90 digits --
+  // the HP reference without a BigInt kernel. Findings: enclosure
+  // relative width (up-lo)/up = 3 e^(-2 pi^2 t) / 3 e^(-2/t) = 0.406006
+  // at both regime boundaries, double-exponentially small away (below
+  // double roundoff past t ~ 1.8816 theta / 0.0538 dual); strict-
+  // positivity margin min p/up = 0.606344920236 attained at the two
+  // boundaries (p >= 0.60634 up > 0 uniformly); enclosure asymmetric
+  // (up/p = 1.6492 vs lo/p = 0.9796, p near the lower bound); ratio
+  // device escapes the small-t float trap. Import-light, seven self-
+  // executing assertions. Measurement only; changes no bound; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95449-ppos-enclosure-tightness.js',
   // imp-95441 (opus-4-8, api-pool): ASSESSMENT -- does the SPECIFIC CLV
   // extremal-minorant instance SEP-OPT consumes (a type-delta minorant
   // ATTAINING A_lat), now the SOLE cited non-elementary input after
@@ -16547,6 +16564,22 @@ const DATA_MODULES = [
   // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains
   // SOTA.
   '/src/data/imp-95419-separated-class-optimal-riesz-floor.js',
+  // imp-95450 (opus-4-8, api-pool): INDEPENDENT spectral cross-validation
+  // of the imp-95419 THEOREM SEP-OPT extremality claim. Recomputes
+  // lambda_min(Gtilde), Gtilde_ij = sech((x_i-x_j)/2), by LU-factored
+  // inverse iteration (Rayleigh quotient) -- a route numerically
+  // independent of the imp-95419 cyclic-Jacobi sweep. Reproduces the
+  // Jacobi lattice sharpness ratios to 1e-5 at m = 10/20/40/80, extends
+  // the closing-onto-A_opt trend to m = 120/160, and DIRECTLY confirms
+  // extremality: at matched large m the equally-spaced lattice ratio sits
+  // strictly below every random delta-separated config (log-gaps in
+  // [delta, 4 delta], m in [60, 120)) and no config dips below A_opt, so
+  // the lattice attains the class minimum. Tight-gap stress stays above
+  // the floor too. Cross-validation only; numerically clean deltas
+  // (>= ln 2); introduces no bound and no theorem; the delta = ln 1.3
+  // float trap is not retested. Import-light, five self-executing
+  // assertions. Changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95450-sep-opt-lambda-min-cross-validation.js',
   // imp-95372 (opus-4-8, api-pool, frontier): ASSESSMENT of the imp-2563
   // residual R_A (the proxy-vs-true identification gap) in the |t_c(N)| -> 0
   // leg of the imp-1261 conditional asymptotic redirect. R_A(N) :=

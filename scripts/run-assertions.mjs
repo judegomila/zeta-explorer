@@ -16566,6 +16566,21 @@ const DATA_MODULES = [
   // cross-checks). Assessment only; no bound, leg remains OPEN; NO QED; PT
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95372-ra-proxy-true-gap-assessment.js',
+  // imp-95448 (opus-4-8, api-pool, S-frontier): DATA AUDIT of part (a) of the
+  // imp-95372 three-part R_A residual -- the ZETA_ZEROS/Odlyzko provenance and
+  // numerical stability of the ladder inputs (M_infty(N) and the t_c(N)
+  // reconstruction) feeding limsup |t_c^proxy| = 0 -> |t_c(N)|. Finds part (a)
+  // was ALREADY delivered (detection + repair) by imp-2563: ZETA_ZEROS was
+  // corrupt from index 650 and REPAIRED 2026-06-11 (imp-2563-sub-data-audit-fix,
+  // closed, tripwire-pinned); the four low-N Path C rungs (N <= 500) read only
+  // the clean prefix (indices < 650), only N = 2458 crossed the corrupt block,
+  // leaving the NARROWER residual imp-2563-sub-pathc-ladder-replace-highN.
+  // M_infty audit-relevant bound sqrt(N/(2 pi)) has no data-table exposure;
+  // t_c RK4 discretization error is removed by the exact heat-semigroup ladder
+  // (imp-2605 neighbour factor in [1.06, 1.19]). Import-light, six self-
+  // executing assertions. Audit only; moves no bound, leg remains OPEN; NO QED;
+  // PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95448-ra-ladder-input-data-audit.js',
   // imp-95376 (opus-4-8, api-pool, frontier): ASSESSMENT (SPLIT VERDICT) --
   // does the imp-95212 Fresnel-Airy envelope port ALONE (with already-mapped
   // Q) discharge gate-side admissibility of a signed R for the paper packet

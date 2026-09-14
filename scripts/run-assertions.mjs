@@ -16012,6 +16012,24 @@ const DATA_MODULES = [
   // assertions (~200 pencil-floor bisections). Measurement only; changes no
   // bound; NO QED; PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95444-breach-threshold-nconvergence.js',
+  // imp-95487 (opus-4-8, api-pool, frontier): ASYMPTOTIC SCALING LAW of the
+  // imp-95430 Finding 2 off-lattice breach threshold delta*(m) -- the log-rate
+  // jitter at which the proven imp-95330 A_unif4(2) stops lower-bounding the
+  // worst-of-400 seam pencil floor -- extended past the tabulated m = 4..12 to
+  // m = 14, 16, 20, 24, 32 with the same consistently scaled seed-0xc0ffee
+  // pool. FINDINGS: delta*(m) does NOT level off -- it keeps decreasing to
+  // 0.889% at m = 32 (VANISHES); the decay is asymptotically inverse-linear
+  // delta*(m) ~ c/m with c ~ 0.28 (m * delta* settles to ~0.28-0.29 at
+  // m = 20..32, large-m power exponent -1.07), while the fuller m >= 8 range
+  // fits a steeper m^(-1.31) driven by small-m excess headroom; the single
+  // binding pattern is a FRESH worst-of-400 draw at each m (binder index
+  // migrates, not one tracked configuration) -- the collective (imp-95430
+  // Finding 4) collapse amplified by the 2(m-1) internal boundaries, a
+  // per-boundary headroom budget ~1/m. Import-light, seven self-executing
+  // assertions (the only live pencil recompute is the cheap m = 8
+  // single-pattern anchor; the heavy large-m sweeps are baked). Measurement
+  // only; changes no bound; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95487-breach-threshold-mscaling.js',
   // imp-95445 (opus-4-8, api-pool, frontier): MEASUREMENT of the TRUE combined
   // off-lattice every-octave onset -- composes the imp-95374 RZ-PEN symbol-
   // pencil FLOOR degradation with the ACTUAL imp-95253 SPLIT-LOO numerator/

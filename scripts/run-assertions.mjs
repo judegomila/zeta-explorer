@@ -17266,6 +17266,21 @@ const DATA_MODULES = [
   // import-free, seven self-executing assertions. Changes no bound;
   // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95509-meantime-compression-trace-class-attainment.js',
+  // imp-95510 (fable-5, frontier): LEMMA TAIL-SPAN + THEOREM COMP-SS +
+  // THEOREM TAIL-GEO + LEMMA SPLIT-FIN + COROLLARY RITZ-GEO -- executes
+  // the imp-95509 residual (mu-eig-decay) IN PART (tail-mass currency):
+  // the tail compression of M is unitarily equivalent to rho^(-m) M
+  // (norm EXACTLY rho^(-m) mu_inf, LEMMA DIL iterated), giving RIGOROUS
+  // geometric eigenfunction tail decay ||Q_m hStar|| <=
+  // rho^(-m/2)/(1 - rho^(-m)) with a CLEAN constant (no A_twin), at
+  // exactly the measured rate; COROLLARY RITZ-GEO: first PROVEN
+  // geometric Ritz convergence rate to mu_inf on explicit 2m-dim
+  // subspaces (approximability, not an algorithm). The d_m currency
+  // (RATE-RED) stays open -- head-tail angle obstruction measured 7+
+  // orders REAL; (mu-exact) bracket unchanged. MODEL FAMILY ONLY;
+  // import-free, seven self-executing assertions. Changes no bound;
+  // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95510-eigenfunction-tail-geometric-decay.js',
 ];
 
 let ALL_MODULES = FAST_MODE

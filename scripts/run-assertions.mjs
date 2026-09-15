@@ -17172,6 +17172,23 @@ const DATA_MODULES = [
   // route recorded). Import-free, eight self-executing assertions. Changes
   // no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95503-blaschke-phase-split-harmonic-cap.js',
+  // imp-95504 (fable-5, frontier): LEMMA SCALE + LEMMA CAYLEY-PENCIL +
+  // THEOREM CONF-DOM-2 -- executes the imp-95503 residual (ii-next4) AT
+  // K = 2. The Cayley map theta = (2p - 1)/(2p + 1) turns the mean-time
+  // pencil into the exact finite pencil (D(GoG)D, G) with G_ij =
+  // 1/(1 - theta_i theta_j) (the Hadamard square is the Stein solution of
+  // X - Dth X Dth = G; in the Laguerre ONB the span is the Cauchy-kernel
+  // Vandermonde span, corner = coordinate block = x_max(L_K)). At K = 2 the
+  // characteristic polynomial at xStar = 2 + sqrt2 factors over a positive
+  // prefactor as u^2 [(xStar(1+u) - (2-u^2))^2 - (2-u^2)], strictly
+  // positive on (0,1) by a monotone derivative; with the Rayleigh witness
+  // mu_min <= 1 both roots lie below xStar. CONJECTURE CONF-DOM is TRUE
+  // and STRICT at K = 2: mu_max({p_1, p_2}) < (2 + sqrt2)/(2 p_1), sharp
+  // only in the coalescent limit. K >= 3 stays OPEN, re-scoped (ii-next5)
+  // to the PSD-slice reformulation xStar(K) G - D(GoG)D >= 0 at theta_1 =
+  // 0. Import-free, ten self-executing assertions. Changes no bound;
+  // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95504-cayley-pencil-confdom-k2.js',
 ];
 
 let ALL_MODULES = FAST_MODE

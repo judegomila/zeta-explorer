@@ -17292,6 +17292,20 @@ const DATA_MODULES = [
   // import-free, seven self-executing assertions. Changes no bound;
   // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95510-eigenfunction-tail-geometric-decay.js',
+  // imp-95511 (fable-5, frontier): LEMMA REG + LEMMA LCP + THEOREM SPEC-INT
+  // + THEOREM OSC-INF + COROLLARY MT-NODES + COROLLARY NO-PF -- the
+  // spectrum of the trace-class mean-time compression M is EXACTLY the
+  // solvability set of a lattice log-derivative interpolation problem
+  // (H-prime + mu H = 0 on the whole twin lattice, both directions), and
+  // EVERY eigenfunction takes both signs in every neighborhood of t = 0
+  // (zeros accumulate at 0+, the infinite-lattice extension of imp-95506
+  // LEMMA OSC via a transform-concentration route) -- so positive-cone
+  // (Perron / Krein-Rutman) value certificates for mu_inf are REFUTED.
+  // (mu-exact) re-scoped to (mu-exact-interp) with bracket UNCHANGED;
+  // (mu-eig-decay) d_m untouched. MODEL FAMILY ONLY; import-free, seven
+  // self-executing assertions. Changes no bound; NO QED; Platt-Trudgian
+  // Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95511-spectral-interpolation-oscillation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

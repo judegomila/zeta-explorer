@@ -17252,6 +17252,20 @@ const DATA_MODULES = [
   // eight self-executing assertions. Changes no bound; NO QED;
   // Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95508-geometric-lattice-musat-cap.js',
+  // imp-95509 (fable-5, frontier): THEOREM SPAN-EQ + THEOREM M-TC +
+  // COROLLARY ATTAIN + COROLLARY RITZ + LEMMA RATE-RED + LEMMA DIL --
+  // executes the imp-95508 residual (mu-exact) IN PART: the mean-time
+  // compression M to the CLOSED twin-lattice span is TRACE-CLASS
+  // (tr M <= (21/11)/A_twin, consuming imp-95252 THEOREM RZ-TWIN), hence
+  // compact, hence mu_inf is an ATTAINED largest eigenvalue with purely
+  // discrete spectrum; the closed-span sup EQUALS the finite-section
+  // limit (settling the equality imp-95508 self-check (4) left open);
+  // LEMMA RATE-RED reduces (mu-rate) second-order to eigenfunction tail
+  // decay, measured increasingly tight. Exact VALUE of mu_inf stays open
+  // (bracket unchanged); NEW residual (mu-eig-decay). MODEL FAMILY ONLY;
+  // import-free, seven self-executing assertions. Changes no bound;
+  // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95509-meantime-compression-trace-class-attainment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

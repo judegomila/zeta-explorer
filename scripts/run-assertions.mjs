@@ -13481,6 +13481,17 @@ const DATA_MODULES = [
   // imp-95008-subgap-attainment-occupancy-tradeoff. Floors/ceilings
   // untouched. NO QED.
   '/src/data/imp-95008-witness-erealization-split.js',
+  // imp-95008 continuation twenty-four (fable-5): LEMMA CB (per-coloring
+  // exact identity E = 2 X_chi - ||U_chi - V_chi||^2, generalizing Lemma
+  // ES/PB) + LEMMA UC (universal near cap 2/(2s-1)) + THEOREM CC (coloring
+  // cap E <= 2 min_chi capSum_chi) + LEMMA MB (boundary-mirror witnesses:
+  // balance factor sup = 1, no gamma from balance) + THEOREM MIR (exact
+  // balance doubly priced: mirror-family ceiling phi <= 0.07236) +
+  // PROPOSITION WD (coloring caps alone cannot certify a macroscopic
+  // global gamma - currency wedge profile). Executes the twenty-third
+  // sub-gap imp-95008-subgap-attainment-occupancy-tradeoff IN PART; new
+  // sub-gap imp-95008-subgap-partial-balance-currency-crossing. NO QED.
+  '/src/data/imp-95008-coloring-balance-mirror-cap.js',
   // imp-95096 (opus-4-8): ASSESSMENT of whether the imp-95008 Lemma SW
   // lambda_max sandwich (Rayleigh <= Lw, width 2.3e-16) is the TERMINAL
   // aggregation certificate or a joint near/far scheme can certify below

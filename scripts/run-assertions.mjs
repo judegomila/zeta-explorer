@@ -17238,6 +17238,20 @@ const DATA_MODULES = [
   // ONLY; import-free, nine self-executing assertions. Changes no bound;
   // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95507-meantime-bracket-repriced-onsets.js',
+  // imp-95508 (fable-5, frontier): LEMMA NEST + THEOREM MU-SAT + COROLLARY
+  // MU-LIM + COROLLARY OCT-CAP -- executes the imp-95507 NEW residual
+  // (mu-sat): the imp-95503 HARM-CAP harmonic sum (K-linear over the
+  // general family) CONVERGES m-uniformly on geometric lattices, giving
+  // mu_max(P) < (rho/(rho-1)) sum_i 2/nu_i for every finite lattice subset
+  // (twin lattice: 84/11), Fatou-extended to the closed infinite span.
+  // With strict span-nesting monotonicity (LEMMA OSC strictness) the
+  // observed twin saturation ~5.09 becomes a PROVEN convergent limit,
+  // bracketed 5.09361535799 < mu_inf <= 84/11 (gap factor 1.4992); MU-SAT
+  // supersedes the exact per-K cap x_max(L_2m)/2 from m = 3 onward. NEW
+  // residuals (mu-exact), (mu-rate). MODEL FAMILY ONLY; import-free,
+  // eight self-executing assertions. Changes no bound; NO QED;
+  // Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95508-geometric-lattice-musat-cap.js',
 ];
 
 let ALL_MODULES = FAST_MODE

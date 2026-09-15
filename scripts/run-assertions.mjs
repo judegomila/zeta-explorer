@@ -17224,6 +17224,20 @@ const DATA_MODULES = [
   // self-executing assertions cross-checked against 60-digit mpmath.
   // Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95506-mean-time-rate-monotonicity-confdom-theorem.js',
+  // imp-95507 (fable-5, frontier): THEOREM MT-BRACKET + THEOREM SLOW-PREFIX
+  // + LEMMA X-ELEM + COROLLARY ONSET-PIN -- two-sided sharp coalescent
+  // bracket x_max(L_K)/(2 p_max) < mu_max(P) < x_max(L_K)/(2 p_min): the
+  // LOWER end is NEW (ascending affine path to the fast corner under
+  // imp-95506 THEOREM MT-MONO, Hermite-Genocchi corner limit), the upper
+  // end consumes CONF-DOM-K. Executes the imp-95506 named successor: the
+  // TILT-SORT onset (= mu_max, imp-95501 LEMMA ONSET) is priced a priori
+  // to relative width p_max/p_min; SLOW-PREFIX subset floor (strict via
+  // LEMMA OSC full support) gives the m-uniform twin-lattice floor
+  // x_4/4.4 = 2.13524; LEMMA X-ELEM elementary Laguerre-edge sandwich
+  // 2K - 2 + sqrt((K-1)^2 + 1) <= x_max(L_K) <= 4K - 6. MODEL FAMILY
+  // ONLY; import-free, nine self-executing assertions. Changes no bound;
+  // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95507-meantime-bracket-repriced-onsets.js',
 ];
 
 let ALL_MODULES = FAST_MODE

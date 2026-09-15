@@ -88,6 +88,7 @@ const NewmanLambda01787854CandidatePage = lazy(() => import('./pages/NewmanLambd
 const LambdaTimelinePage = lazy(() => import('./pages/LambdaTimelinePage.jsx'));
 const RhDagPage = lazy(() => import('./pages/RhDagPage.jsx'));
 const FrontierDagPage = lazy(() => import('./pages/FrontierDagPage.jsx'));
+const ProgramDagPage = lazy(() => import('./pages/ProgramDagPage.jsx'));
 const RigorDashboardPage = lazy(() => import('./pages/RigorDashboardPage.jsx'));
 const DysonVerifierPage = lazy(() => import('./pages/DysonVerifierPage.jsx'));
 const HealthPage = lazy(() => import('./pages/HealthPage.jsx'));
@@ -129,6 +130,7 @@ const RHProofStateDashboardPage = lazy(() => import('./pages/RHProofStateDashboa
 const WhatWeKnowPage = lazy(() => import('./pages/WhatWeKnowPage.jsx'));
 const RouteBLimsupPage = lazy(() => import('./pages/RouteBLimsupPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
+const DiagramGalleryPage = lazy(() => import('./pages/DiagramGalleryPage.jsx'));
 const StateOfProgramPage = lazy(() => import('./pages/StateOfProgramPage.jsx'));
 const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
@@ -137,6 +139,9 @@ const VizNearZeroPage = lazy(() => import('./pages/VizNearZeroPage.jsx'));
 const VisualGeometriesPage = lazy(() => import('./pages/VisualGeometriesPage.jsx'));
 const PrimeRigidityPage = lazy(() => import('./pages/PrimeRigidityPage.jsx'));
 const VizEulerProductPage = lazy(() => import('./pages/VizEulerProductPage.jsx'));
+const VizCostFloorPage = lazy(() => import('./pages/VizCostFloorPage.jsx'));
+const VizWindowLandscapePage = lazy(() => import('./pages/VizWindowLandscapePage.jsx'));
+const VizFreezeFlowPage = lazy(() => import('./pages/VizFreezeFlowPage.jsx'));
 const VizCausticResonancePage = lazy(() => import('./pages/VizCausticResonancePage.jsx'));
 const VizPhaseCylinderPage = lazy(() => import('./pages/VizPhaseCylinderPage.jsx'));
 const VizTwistorDualIntertwinerPage = lazy(() => import('./pages/VizTwistorDualIntertwinerPage.jsx'));
@@ -1827,11 +1832,13 @@ function AppShell() {
           <Route path="/lambda-timeline" element={<LambdaTimelinePage />} />
           <Route path="/rh-dag" element={<RhDagPage />} />
           <Route path="/frontier-dag" element={<FrontierDagPage />} />
+          <Route path="/program-dag" element={<ProgramDagPage />} />
           <Route path="/rigor-dashboard" element={<RigorDashboardPage />} />
           <Route path="/rh-proof-state" element={<RHProofStateDashboardPage />} />
           <Route path="/what-we-know" element={<WhatWeKnowPage />} />
           <Route path="/route-b-limsup" element={<RouteBLimsupPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
+          <Route path="/diagrams" element={<DiagramGalleryPage />} />
           <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
@@ -1840,6 +1847,9 @@ function AppShell() {
           <Route path="/visual-geometries" element={<VisualGeometriesPage />} />
           <Route path="/prime-rigidity" element={<PrimeRigidityPage />} />
           <Route path="/viz-euler-product" element={<VizEulerProductPage />} />
+          <Route path="/viz-cost-floor" element={<VizCostFloorPage />} />
+          <Route path="/viz-window-landscape" element={<VizWindowLandscapePage />} />
+          <Route path="/viz-freeze-flow" element={<VizFreezeFlowPage />} />
           <Route path="/dyson-verifier" element={<DysonVerifierPage />} />
           <Route path="/health" element={<HealthPage />} />
           <Route path="/full-story" element={<FullStoryPage />} />

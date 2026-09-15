@@ -183,6 +183,7 @@ export default function AtlasPage() {
             { to: '/route-map', label: `the complete ${FULL_ROUTE_MAP.totalRoutes}-route wall map →` },
             { to: '/program-dag', label: 'the complete history (program DAG) →' },
             { to: '/frontier-dag', label: `the live frontier (${FRONTIER_DAG.nodes.length} open objects) →` },
+            { to: '/diagrams', label: 'the section-geometry diagrams →' },
           ].map((l) => (
             <Link key={l.to} to={l.to} style={{
               fontSize: 13, fontWeight: 600, padding: '6px 12px', borderRadius: 6,

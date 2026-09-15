@@ -23,6 +23,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/shift-bridge-positivity',
   '/theorem-b-threshold',
   '/route-map',
+  '/diagrams',
   '/lambda-bounds',
   // Model group
   '/full-story',

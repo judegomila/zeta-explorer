@@ -17189,6 +17189,23 @@ const DATA_MODULES = [
   // 0. Import-free, ten self-executing assertions. Changes no bound;
   // NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95504-cayley-pencil-confdom-k2.js',
+  // imp-95505 (fable-5, frontier): LEMMA X-STRICT + LEMMA DET-FORM + LEMMA
+  // SUB-SLICE + THEOREM DET-EQ + LEMMA ANDREIEF -- executes the imp-95504
+  // residual (ii-next5) as an exact RE-SCOPE: given the level-(K-1)
+  // statement, mu_max < x_max(L_K) at a slice configuration IF AND ONLY IF
+  // det(x_max(L_K) G - M) > 0 (Courant-Fischer sub-pencil interlacing pins
+  // mu_{K-1} below x_max(L_{K-1}) < x_max(L_K), so the determinant sign
+  // decides the top root alone); by induction from the proven K = 2 base,
+  // CONF-DOM at all K is EQUIVALENT to the determinant-positivity family at
+  // K >= 3 -- one scalar per configuration instead of K eigenvalue
+  // conditions. The Andreief identity rewrites the criterion as positivity
+  // of the one-sign-change weight prod(x_K - t_k) against a squared
+  // generalized-Vandermonde density. Coalescence boundaries are second-order
+  // degenerate (corner ray exponent ~7 at K = 3): no margin-based
+  // certificate exists. CONF-DOM for K >= 3 stays OPEN (re-scoped
+  // (ii-next6)). Import-free, ten self-executing assertions. Changes no
+  // bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95505-det-slice-reduction-confdom.js',
 ];
 
 let ALL_MODULES = FAST_MODE

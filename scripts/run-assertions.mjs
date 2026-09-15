@@ -17206,6 +17206,24 @@ const DATA_MODULES = [
   // (ii-next6)). Import-free, ten self-executing assertions. Changes no
   // bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95505-det-slice-reduction-confdom.js',
+  // imp-95506 (fable-5, frontier): LEMMA D + LEMMA T + LEMMA OSC + THEOREM
+  // N-ROOTS + THEOREM MT-MONO + THEOREM CONF-DOM-K -- CONJECTURE CONF-DOM
+  // DECIDED AFFIRMATIVE AND STRICT AT EVERY K: mu_max(P) <
+  // x_max(L_K)/(2 min P) for distinct positive rates. Every eigenfunction
+  // of the mean-time pencil oscillates maximally (interpolation against a
+  // prescribed-crossing exponential sum contradicts eigen-orthogonality
+  // otherwise), the degree-(2K-1) Laplace numerator has all K-1 non-eigen
+  // roots pinned in (-p_K, -p_1) by residue-sign alternation, so every
+  // eigenvalue is strictly decreasing in every rate (THEOREM MT-MONO);
+  // the affine path onto the coalescent corner then converges to the
+  // Laguerre value x_max(L_K) (Hermite-Genocchi divided-difference Gram
+  // continuity + Gauss quadrature). Closes imp-95505 residual (ii-next6):
+  // det(x_max(L_K) G - M) > 0 at every slice configuration (COROLLARY
+  // DET-POS via LEMMA DET-FORM); retro-subsumes imp-95503 leading-order
+  // and imp-95504 K = 2. MODEL FAMILY ONLY; import-free, nine
+  // self-executing assertions cross-checked against 60-digit mpmath.
+  // Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-95506-mean-time-rate-monotonicity-confdom-theorem.js',
 ];
 
 let ALL_MODULES = FAST_MODE

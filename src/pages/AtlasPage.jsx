@@ -137,6 +137,12 @@ const FRONTIER_CARDS = [
     body: 'The 0.1399 tail lane K2-killed (N₁* = 220,495,706, 4.01× the economic line); the split-collar 0.139981915 lever eliminated twice (sign reversal on the certified face); the envelope pivot refuted. Closed on explicit failure criteria — the y-thaw was the salvage.',
     links: [{ to: '/results', label: 'Graded results' }, { to: '/lambda-bounds', label: 'Bounds ledger' }],
   },
+  {
+    title: 'Signed twin ladder ↔ Catalan’s constant',
+    grade: 'prose-proof',
+    body: 'The twin ladder’s χ₄-signed sibling has value G = β(2) = L(2,χ₄) (verified: Σχ₄(n)/n²=G, signed Euler product, "sign flip at p=2" = rung deletion). The same P̃₁ device that isolates ζ(2)/ζ(3) into a 2-period space lands G in a 5-period space ⟨1,G,π,π²,ln2⟩ — the π-column forced by the χ₄ functional equation. G irrationality remains OPEN; the Λ-core gives no lever.',
+    links: [{ to: '/catalan-signed-ladder', label: 'The signed ladder & the period wall' }, { to: '/diagrams', label: 'Section geometry' }],
+  },
 ];
 
 // Warm status-chip colors, mirroring the route map / status legend.

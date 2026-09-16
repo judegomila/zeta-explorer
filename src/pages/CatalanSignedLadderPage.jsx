@@ -88,6 +88,19 @@ export default function CatalanSignedLadderPage() {
       </TheoremBox>
       <p><strong>The frontier.</strong> {D.target.frontier}</p>
 
+      <h2>{D.piColumn.heading}</h2>
+      <p>{D.piColumn.intro}</p>
+      <div style={{ margin: '1rem 0' }}>
+        {D.piColumn.mechanisms.map((m) => (
+          <div key={m.name} style={{ borderLeft: '3px solid var(--hairline)', paddingLeft: 12, marginBottom: 12 }}>
+            <div className="ed-mono" style={{ fontWeight: 700, fontSize: 13.5 }}>{m.name}</div>
+            <div style={{ fontSize: 13.5, color: '#4c7a4a' }}>gets: {m.gets}</div>
+            <div style={{ fontSize: 13.5, color: '#c23a1c' }}>stalls: {m.stall}</div>
+          </div>
+        ))}
+      </div>
+      <Pull>{D.piColumn.upshot}</Pull>
+
       <h2>{D.triage.heading}</h2>
       <p>{D.triage.principle}</p>
       <table className="ed-table" style={{ width: '100%', fontSize: 14, margin: '1rem 0' }}>

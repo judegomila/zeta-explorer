@@ -90,10 +90,44 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
       + 'costs an extra d_n (plus powers of 2 from the χ₄ Gauss sum), inflating β just past α '
       + '— net ≳ 0, LOSES. That single flipped exponent is the whole open problem.',
     frontier:
-      'Calegari–Dimitrov–Tang (2024) crossed exactly this capacity threshold for the mod-3 '
-      + 'sibling L(2,χ₋₃) (proving it irrational) but land on the wrong side of the constant '
-      + 'for mod-4 = Catalan. A single-author, AI-checked preprint (Sun, Sep 2026, arXiv:2609.04176) '
-      + 'claims G irrational via signed "weighted tails"; UNVERIFIED — treated as a claim, not a theorem.',
+      'Calegari–Dimitrov–Tang (2024) proved 1, ζ(2), L(2,χ₋₃) linearly independent via an '
+      + 'arithmetic holonomy bound — a tug-of-war between an archimedean capacity (log-energy) '
+      + 'numerator and a denominator penalty, with a clean rationality threshold (4β>1 on the slit '
+      + 'model). Their Bost–Charles sharpening (the crude e≈2.718 → 2) clears CONDUCTOR 3 by a hair; '
+      + 'CONDUCTOR 4 = Catalan lands on the wrong side of the same computed inequality by a real, '
+      + 'bounded margin. No 2024–26 work has moved that archimedean margin — the genuine advances '
+      + '(Lai–Sprang–Zudilin ζ₂(5)) are all in the p-adic direction. A single-author, AI-checked '
+      + 'preprint (Sun, Sep 2026, arXiv:2609.04176) claims G irrational via signed "weighted tails" '
+      + 'with winning margin δ₀≈0.0097 (a ~5% error budget), "verified" only by a chatbot, and an '
+      + 'independent Lean effort pointedly declines to certify the main theorem; UNVERIFIED — a claim, not a theorem.',
+  },
+
+  // 4b — the π-column: every known removal mechanism, and where each stalls (the "elegant proof" attempt)
+  piColumn: {
+    heading: 'Why the π-column will not leave cheaply',
+    intro:
+      'The π and π² columns are forced by the χ₄ functional equation: the completed L carries '
+      + '(π/4)^{−(s+1)/2}Γ(…), and the Gauss sum τ(χ₋₄)=2i injects π structurally. To reach ⟨1,G⟩ '
+      + 'you must delete that column. Every known mechanism was surveyed; each provably stalls:',
+    mechanisms: [
+      { name: 'Well-poised symmetry (Ball–Rivoal)',
+        gets: 'the ONLY device that provably cancels π-powers — kills the even zetas / π^{2k}',
+        stall: 'cancels the WRONG block for χ₄: the parity that removes π also removes access to β(2)=G.' },
+      { name: 'Rhin–Viola birational group',
+        gets: 'sharpens the α-vs-β margin (better irrationality measures for ζ(2),ζ(3))',
+        stall: 'acts WITHIN a fixed period space — improves the denominator, never deletes a column.' },
+      { name: 'Zudilin conjugate-contour π-elimination',
+        gets: 'genuinely removes one spurious π by pairing with a conjugate contour (real-part extraction)',
+        stall: 'the extraction DOUBLES arithmetic content → inflates the denominator → flips α>β to β>α. The π leaves but the inequality inverts. This is the exact tax.' },
+      { name: 'Beilinson regulator / motivic',
+        gets: 'expresses L(2,χ₄) as a regulator period of a mixed motive with Tate twist ℚ(2)',
+        stall: 'the π IS the twist (ℚ(1)=2πi) — motivically MANDATORY, not an artifact. A near-no-go: it explains why the column cannot be an accident.' },
+    ],
+    upshot:
+      'No published route deletes the χ₄ π-column AND keeps α>β. The one live idea that could reach '
+      + 'the real G is a 2-adic/valuation sidestep (where the archimedean capacity is not the binding '
+      + 'constraint) — exactly what Sun claims and exactly where a real proof would have to live, and '
+      + 'also exactly where a subtle denominator miscount would hide.',
   },
 
   // 4 — the organizing principle + triage of other targets
@@ -107,11 +141,12 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
     rows: [
       { target: 'ζ(2) = π²/6', dim: '2 (closed)', status: 'rational×π² — trivially irrational' },
       { target: 'ζ(3)', dim: '2', status: 'Apéry 1978: ⟨1,ζ(3)⟩, net −0.53 — IRRATIONAL' },
-      { target: 'L(2,χ₋₃)', dim: '≤3', status: 'CDT 2024: capacity bound crosses — IRRATIONAL (mod-3)' },
-      { target: 'G = β(2)', dim: '5', status: 'OPEN: ⟨1,G,π,π²,ln2⟩, π-column forced by χ₄' },
-      { target: 'β(4), β(6)', dim: '≥5', status: 'OPEN: RZ 2003 — one of β(2)…β(12) irrational' },
-      { target: 'ζ(5), ζ(7)', dim: '≥2', status: 'OPEN: Zudilin — one of ζ(5)…ζ(21); not isolated' },
-      { target: 'γ (Euler–Mascheroni)', dim: '—', status: 'OPEN, HARDER: not an L-value/period of this type; no good linear forms' },
+      { target: 'L(2,χ₋₃)', dim: '≤3', status: 'CDT 2024: conductor-3 capacity clears 4β>1 — IRRATIONAL' },
+      { target: 'G = β(2)', dim: '5', status: 'OPEN: ⟨1,G,π,π²,ln2⟩; conductor-4 capacity misses by a bounded margin' },
+      { target: 'β(4), β(6)', dim: '≥5', status: 'OPEN: RZ 2003 — one of β(2)…β(12) irrational (block, not isolated)' },
+      { target: 'ζ(5), ζ(7)', dim: '≥2', status: 'OPEN: well-poised kills π but couples the odd block; two of ζ(5)…ζ(35) irrational' },
+      { target: '2-adic L(2,χ₋₄)', dim: 'p-adic', status: 'nearest attackable neighbor (Lai–Sprang–Zudilin route) — NOT the real G' },
+      { target: 'γ (Euler–Mascheroni)', dim: '—', status: 'OPEN, HARDER: not a Kontsevich–Zagier period; no good linear forms — outside this category' },
     ],
   },
 
@@ -125,7 +160,11 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
       + 'the irrationality of the VALUE L(2,χ₄). It provides no lever. The one type-match is the '
       + '[B_v,Π_p] weld, which emits signed linear forms, but there is no evidence its aliases cancel '
       + 'the π-column. Speculative, low probability — stated as such.',
-    open: 'G’s irrationality remains OPEN. This note proves no bound; it locates the wall precisely.',
+    open:
+      'G’s irrationality remains OPEN. This note proves no bound; it locates the wall precisely. '
+      + 'The single quantity a proof must improve: the conductor-4 capacity-vs-denominator balance — '
+      + 'either raise the archimedean capacity in the CDT holonomy bound past conductor 4, or make '
+      + 'rigorous a 2-adic saturation letting the denominator growth dominate with real margin.',
     caveat:
       'Methodology caveat (demonstrated): a double-precision integer-relation search returned a '
       + 'G-FREE relation "12·I₁ = −68 + 11π + 4π² − 9ln2" at the 1e-7 noise floor — a '

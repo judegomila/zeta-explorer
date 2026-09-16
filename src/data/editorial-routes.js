@@ -24,6 +24,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/theorem-b-threshold',
   '/route-map',
   '/diagrams',
+  '/catalan-signed-ladder',
   '/lambda-bounds',
   // Model group
   '/full-story',

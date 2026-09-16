@@ -131,6 +131,7 @@ const WhatWeKnowPage = lazy(() => import('./pages/WhatWeKnowPage.jsx'));
 const RouteBLimsupPage = lazy(() => import('./pages/RouteBLimsupPage.jsx'));
 const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
 const DiagramGalleryPage = lazy(() => import('./pages/DiagramGalleryPage.jsx'));
+const CatalanSignedLadderPage = lazy(() => import('./pages/CatalanSignedLadderPage.jsx'));
 const StateOfProgramPage = lazy(() => import('./pages/StateOfProgramPage.jsx'));
 const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
@@ -1839,6 +1840,7 @@ function AppShell() {
           <Route path="/route-b-limsup" element={<RouteBLimsupPage />} />
           <Route path="/route-map" element={<RouteMapPage />} />
           <Route path="/diagrams" element={<DiagramGalleryPage />} />
+          <Route path="/catalan-signed-ladder" element={<CatalanSignedLadderPage />} />
           <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />

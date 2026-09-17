@@ -2244,6 +2244,39 @@ export const LAMBDA_ROADMAP_MILESTONES = [
       'improvement to the SOTA upper bound (audit 2026-07); the SOTA unconditional ' +
       'Λ upper bound remains Platt-Trudgian Λ ≤ 0.2.',
   },
+  {
+    id: 'irrationality-workstream',
+    label: 'Irrationality workstream opened (signed ladder → pipeline)',
+    date: '2026-09-16',
+    kind: 'workstream',
+    summary:
+      'A new research workstream, spun off from the twin-ladder machinery: attacking ' +
+      'the irrationality of special L-values. The seed result is the verified '
+      + 'correspondence G = β(2) = L(2,χ₄) = the twin ladder\'s signed (χ₄) value, and ' +
+      'the exact period-dimension obstruction (same shifted-Legendre device gives ' +
+      'ζ(2) → 5ζ(2)−8 in a 2-dim period space, but Catalan → G−π+2ln2+π²/12 in a ' +
+      '5-dim one; the π-column is forced by the χ₄ functional equation). Generalized ' +
+      'into a reusable 6-stage irrationality pipeline (encode → predict → generate → ' +
+      'measure → cancel → test), with a period-dimension triage of ζ(5), β(4), γ, and ' +
+      'the 2-adic Catalan neighbor.',
+    newAppRoutes: [
+      '/catalan-signed-ladder',
+      '/irrationality-pipeline',
+      '/diagrams',
+    ],
+    tickets: ['imp-95512', 'imp-95513', 'imp-95514', 'imp-95515', 'imp-95516'],
+    ticketRange: 'imp-95512..95516 (irrationality objectives)',
+    relationToLambdaAttack:
+      'A THIRD research track, distinct from both RH-attack tracks (Λ / twin-ladder). ' +
+      'It shares the twin-ladder machinery (character-twisted ladders, the σ↔1−σ ' +
+      'mirror as functional equation) but targets a different question — irrationality ' +
+      'of special VALUES, not zero location. The de Bruijn / Λ core gives NO lever ' +
+      'here (zero-location ≠ value-irrationality); the levers are Diophantine ' +
+      '(period dimension, Nesterenko/Ball–Rivoal, CDT capacity). Live sub-thread: ' +
+      'an independent-replication check of whether Sun\'s (unverified) Catalan ' +
+      'preprint margin can be hardened by re-optimizing its S/B ratio. Proves no ' +
+      'constant irrational; maps and attacks the obstructions. NO QED.',
+  },
 ];
 
 // Patch the master record to expose milestones now that the array exists.

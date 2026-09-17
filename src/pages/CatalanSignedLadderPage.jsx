@@ -30,7 +30,8 @@ export default function CatalanSignedLadderPage() {
       byline={['signed twin ladder · mathexplorer', 'G irrationality open']}
       ticker={<span>χ₄ = the signed flip · G = β(2) = L(2,χ₄) · irrationality OPEN</span>}
       footer={<>
-        Related: <Link to="/flow-blindness-no-go">Flow-blindness no-go</Link>
+        Related: <Link to="/irrationality-pipeline">The irrationality pipeline</Link>
+        {' · '}<Link to="/flow-blindness-no-go">Flow-blindness no-go</Link>
         {' · '}<Link to="/permutation-architecture">The freeze calculus &amp; the weld</Link>
         {' · '}<Link to="/diagrams">Section geometry</Link><br /><br />
         ← <Link to="/atlas">the atlas</Link>

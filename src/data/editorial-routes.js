@@ -25,6 +25,7 @@ export const EDITORIAL_ROUTES = new Set([
   '/route-map',
   '/diagrams',
   '/catalan-signed-ladder',
+  '/irrationality-pipeline',
   '/lambda-bounds',
   // Model group
   '/full-story',

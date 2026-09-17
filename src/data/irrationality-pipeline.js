@@ -110,13 +110,16 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
     heading: 'Stage 6 in action: Sun’s Catalan preprint',
     body:
       'Sun (arXiv:2609.04176, UNVERIFIED) claims α>β for G via a p-adic "weighted '
-      + 'tails" construction with decisive margin δ₀ = Λ_mid + 83/2400 − c_odd − '
+      + 'tails" construction with decisive margin δ₀ = Λ_mid + Δ_{>B} − c_odd − '
       + '(4ρ−2ρ²) ≈ 0.00966 at ρ=S/B=1/20. The pipeline’s stage-6 sensitivity view '
-      + 'exposes that ρ is a free parameter Sun never optimized: δ₀(ρ) is un-maximized, '
-      + 'and the §5 saturation permits ρ far below 1/20. Whether re-optimizing ρ '
-      + 'hardens the margin is under independent replication; it does not certify the '
-      + 'proof, whose §2–§5 determinant core is separate.',
-    status: 'under independent replication — not asserted',
+      + 'exposes that ρ is a free parameter Sun never optimized. Two independent '
+      + 'from-scratch reconstructions of the §7 integrand (each reproducing Sun’s exact '
+      + '235-cell Λ_mid(1/20) fraction — the validation gate) agree that re-optimizing ρ '
+      + 'to 1/50 raises δ₀ to ≈0.03872, a 4.01× hardening, with δ₀>0 across ρ∈(0,0.05548). '
+      + 'This optimizes the §6–§9 ledger only; it takes the §2–§5 determinant core and the '
+      + '(9.4) baseline as Sun states them, so it does NOT certify the proof or settle G. '
+      + 'A note for the author is drafted (research-inputs/sun-catalan-rho-optimization-note.md).',
+    status: 'ρ-optimization independently replicated (4.01× within the §6–§9 ledger); Sun’s proof itself remains unverified',
   },
 
   caveat:
@@ -153,8 +156,9 @@ export const IRRATIONALITY_PIPELINE_ASSERTIONS = Object.freeze([
     check: () => /proves no constant irrational|proves nothing/i.test(IRRATIONALITY_PIPELINE.caveat),
   },
   {
-    name: 'Sun ρ-optimization marked under replication, not asserted',
-    check: () => /under independent replication|not asserted/i.test(IRRATIONALITY_PIPELINE.sunCase.status),
+    name: 'Sun case: ρ-optimization replicated but proof itself not certified',
+    check: () => /replicated/i.test(IRRATIONALITY_PIPELINE.sunCase.status)
+      && /remains unverified|does NOT certify/i.test(IRRATIONALITY_PIPELINE.sunCase.status + IRRATIONALITY_PIPELINE.sunCase.body),
   },
 ]);
 

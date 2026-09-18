@@ -314,8 +314,9 @@ choice is the real remaining hard work (it needs the Hadamard/Laguerre–Pólya 
 bricks B2–B8 with genuine order/type control — NOT the impossible uniform majorant), and is
 isolated below as the single precise `sorry`. -/
 
-/-- **[RETIRED AS FALSE IN ITS INTENDED READING — the literal tsum-junk-semantics form is held
-OPEN pending the order-≤1 restatement (job40)].**  Stated at the approximation level: for `t ≥ 0`
+/-- **[RETIRED BY REPLACEMENT — intended reading kernel-refuted; true restricted theorem proved &
+composed at v4.28; the literal tsum-junk-semantics form of THIS v4.22 statement is explicitly OPEN].**
+Stated at the approximation level: for `t ≥ 0`
 and `f ∈ LP`, a sequence `P n` of real-rooted real polynomials with `toEntire (P n) → f` locally
 uniformly AND the heat images `toEntire (heatOp t (P n)) → heatFlow t f` locally uniformly.
 
@@ -331,12 +332,18 @@ conjunct diffs mechanically to exactly the statement below), plus
 `Probe.not_forall_exists_LP_approx_heatMajorized(_of_pos)` and
 `Probe.not_exists_heatMajorized_gaussianScaled`.
 
+RESOLVED (2026-09-18): the order-≤1 (finite-type) restatement is PROVED and composed to the
+consumer, kernel-verified at v4.28 in `formalization/lean-aristotle/entirelp_splice428/` as
+`EntireLP.heat_preserves_LP_entire_of_growth` (this file's `heat_preserves_LP_entire` with exactly
+one added `hgrowth` hypothesis — which `ξ`/`H_t` satisfy: order 1, finite type — byte-identical
+vocabulary; build green, referee VERIFIED-FAITHFUL, discharge chain unconditional). That is the
+correct carrier of the de Bruijn content.
+
 Only the LITERAL statement below — read under mathlib's tsum-junk semantics for `heatFlow`
-(where `heatFlow t f` may be junk `0` at order 2) — is not refuted by that route, and is recorded
-OPEN. The `sorry` (not an axiom) is retained ONLY to keep `heat_preserves_LP_entire` building
-until it is re-based on the order-≤1 restatement (`job40`); it is NOT evidence the statement is
-true. The genuine de Bruijn content survives for the order-≤1 (finite-type) class — all `ξ`/`H_t`
-need — and that restatement, not this gap, is the correct carrier. -/
+(where `heatFlow t f` may be junk `0` at order 2) — is not refuted by that route, and remains
+explicitly OPEN. The `sorry` (not an axiom) stays in THIS v4.22 tree only because it cannot import
+the v4.28 proof (cross-toolchain); it is NOT evidence the statement is true, and the resolved
+content lives in the splice above. -/
 theorem exists_heatOp_approx_tendsto {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
     (hf : IsLaguerrePolya f) :
     ∃ P : ℕ → ℝ[X], (∀ n, MathlibBridge.HasOnlyRealRoots (P n)) ∧
@@ -355,9 +362,12 @@ The reduction to `exists_heatOp_approx_tendsto` is sorry-free: the chosen `heatO
 real-rooted (`MathlibBridge.heat_preserves_LP`), their images converge loc-uniformly to
 `heatFlow t f`, and real-on-`ℝ` is inherited via `real_symm_of_tendsto`.  The ONLY remaining
 `sorry` (hence the only `sorryAx` in `#print axioms` below) is `exists_heatOp_approx_tendsto`,
-whose INTENDED reading is now kernel-verified FALSE (see its retirement note above); the `sorry`
-holds only the literal tsum-junk variant open, and this consumer is pending re-basing on the
-order-≤1 restatement (`job40`). It replaced the previous, FALSE, `heatFlow_continuous` axiom. -/
+whose INTENDED reading is kernel-verified FALSE (see its retirement note above); the `sorry` holds
+only the explicitly-open literal tsum-junk variant. The restricted (order-≤1 / finite-type, i.e.
+`+ hgrowth`) version — all `ξ`/`H_t` need — is PROVED and composed to this consumer, kernel-verified
+at v4.28 as `EntireLP.heat_preserves_LP_entire_of_growth` in `entirelp_splice428/`. This v4.22
+`sorry` cannot be removed here only because the tree cannot import the v4.28 proof. It replaced the
+previous, FALSE, `heatFlow_continuous` axiom. -/
 theorem heat_preserves_LP_entire {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
     (hf : IsLaguerrePolya f) : IsLaguerrePolya (heatFlow t f) := by
   obtain ⟨P, hPrr, _hPf, hQconv⟩ := exists_heatOp_approx_tendsto ht hf

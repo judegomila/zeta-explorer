@@ -1,0 +1,107 @@
+import RequestProject.Main
+
+-- HeatTransfer.lean
+#print axioms EntireLP.differentiable_toEntire
+#print axioms EntireLP.iteratedDeriv_toEntire
+#print axioms EntireLP.differentiable_iteratedDeriv_toEntire
+#print axioms EntireLP.heatFlow_poly
+#print axioms EntireLP.tendstoLocallyUniformly_iteratedDeriv
+#print axioms EntireLP.tendstoUniformlyOn_const_smul
+#print axioms EntireLP.tendstoUniformlyOn_tsum_of_majorant
+#print axioms EntireLP.heatFlow_tendsto_of_heatMajorized
+#print axioms EntireLP.exists_heatOp_approx_tendsto
+-- Stage1MB.lean
+#print axioms Stage1MB.hasOnlyRealRoots_iff_splits
+#print axioms Stage1MB.hasOnlyRealRoots_zero
+#print axioms Stage1MB.splits_multiset_prod
+#print axioms Stage1MB.hasOnlyRealRoots_C_mul_prod
+#print axioms Stage1MB.HasOnlyRealRoots.exists_prod
+#print axioms Stage1MB.HasOnlyRealRoots.C_mul
+#print axioms Stage1MB.HasOnlyRealRoots.derivative
+#print axioms Stage1MB.HasOnlyRealRoots.iterate_derivative
+#print axioms Stage1MB.reflect_C
+#print axioms Stage1MB.splits_reflect_prod
+#print axioms Stage1MB.HasOnlyRealRoots.reflect
+#print axioms Stage1MB.comp_C_mul_X_prod
+#print axioms Stage1MB.HasOnlyRealRoots.comp_scale
+-- Truncation.lean
+#print axioms Stage1LP.wgtRaw_self
+#print axioms Stage1LP.wgtRaw_nonneg
+#print axioms Stage1LP.wgtRaw_succ
+#print axioms Stage1LP.step_le_one
+#print axioms Stage1LP.step_ge
+#print axioms Stage1LP.wgtRaw_bounds
+#print axioms Stage1LP.wgt_nonneg
+#print axioms Stage1LP.wgt_le_one
+#print axioms Stage1LP.one_sub_wgt_le
+#print axioms Stage1LP.coeff_comp_C_mul_X
+#print axioms Stage1LP.natDegree_iterate_reflect_le
+#print axioms Stage1LP.coeff_truncScale
+#print axioms Stage1LP.coeff_truncScale_eq_zero
+#print axioms Stage1LP.hasOnlyRealRoots_truncScale
+-- Stage1LP.lean
+#print axioms Stage1LP.differentiable_toEntire
+#print axioms Stage1LP.iteratedDeriv_toEntire
+#print axioms Stage1LP.hasSum_toEntire
+#print axioms Stage1LP.toEntire_coeff_eq
+#print axioms Stage1LP.norm_taylorCoeff_le
+#print axioms Stage1LP.exists_normalized_growth
+#print axioms Stage1LP.norm_taylorCoeff_le_of_growth_on
+#print axioms Stage1LP.taylorCoeff_sub
+#print axioms Stage1LP.norm_coeff_le_of_bound_on_sphere
+#print axioms Stage1LP.norm_toEntire_le
+#print axioms Stage1LP.heatMajorized_of_coeff_bounds
+#print axioms Stage1LP.tendstoLocallyUniformly_of_coeff
+#print axioms Stage1LP.exists_approx
+#print axioms Stage1LP.isLaguerrePolya_id
+#print axioms Stage1LP.growth_id
+#print axioms Stage1LP.exists_LP_approx_heatMajorized_order_le_one
+-- ProbeStatements.lean
+#print axioms Probe.hasOnlyRealRoots_iff
+#print axioms Probe.toEntire_eq
+#print axioms Probe.heatMajorized_iff
+#print axioms Probe.stage1_isLaguerrePolya_of_base
+#print axioms Probe.exists_LP_approx_heatMajorized_order_le_one
+-- RealRootedPreservation.lean
+#print axioms Polynomial.derivative_hasRoot_between
+#print axioms Polynomial.exists_derivative_root_of_two_roots
+#print axioms Polynomial.hasOnlyRealRoots_derivative
+#print axioms Polynomial.hasOnlyRealRoots_iterate_derivative
+#print axioms Polynomial.exists_shifted_root_between
+#print axioms Polynomial.exists_shifted_root_atBot
+#print axioms Polynomial.exists_shifted_root_atTop
+#print axioms Polynomial.hermitePoulain_card_lower
+#print axioms Polynomial.hermitePoulain_shift
+#print axioms Polynomial.hasOnlyRealRoots_smul
+#print axioms Polynomial.oneMinusCD2_realRooted
+#print axioms Polynomial.oneMinusCD2_iterate_realRooted
+#print axioms Polynomial.oneMinusCD2_natDegree
+#print axioms Polynomial.oneMinusCD2_iterate_natDegree
+#print axioms Polynomial.oneMinusCD2_leadingCoeff
+#print axioms Polynomial.oneMinusCD2_iterate_leadingCoeff
+#print axioms Polynomial.iterate_derivative_add
+#print axioms Polynomial.heatPartial_add
+#print axioms Polynomial.heatPartial_smul
+#print axioms Polynomial.heatPartial_stable
+#print axioms Polynomial.heatOp_zero
+#print axioms Polynomial.heatOp_add
+#print axioms Polynomial.heatOp_smul
+#print axioms Polynomial.heatOp_natDegree
+#print axioms Polynomial.oneMinusCD2_iterate_eq_sum
+#print axioms Polynomial.choose_mul_pow_tendsto
+#print axioms Polynomial.oneMinusCD2_iterate_tendsto_heatOp
+#print axioms Polynomial.continuous_prod_X_sub_C_coeff
+#print axioms Polynomial.hasOnlyRealRoots_of_tendsto_coeff
+#print axioms Polynomial.heat_preserves_LP
+-- Splice.lean
+#print axioms MathlibBridge.heatPartial_eq
+#print axioms MathlibBridge.heatOp_eq
+#print axioms MathlibBridge.hasOnlyRealRoots_iff_ported
+#print axioms MathlibBridge.heat_preserves_LP
+#print axioms EntireLP.toEntire_conj
+#print axioms EntireLP.real_symm_of_tendsto
+#print axioms EntireLP.heat_preserves_LP_entire_of_growth
+#print axioms EntireLP.tendstoLocallyUniformly_const
+#print axioms EntireLP.isLaguerrePolya_id
+#print axioms EntireLP.growth_id
+#print axioms EntireLP.heatFlow_id_isLaguerrePolya

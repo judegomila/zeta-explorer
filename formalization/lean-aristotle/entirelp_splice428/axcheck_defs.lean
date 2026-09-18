@@ -1,0 +1,20 @@
+import RequestProject.Main
+#print axioms MathlibBridge.HasOnlyRealRoots
+#print axioms MathlibBridge.heatPartial
+#print axioms MathlibBridge.heatOp
+#print axioms EntireLP.toEntire
+#print axioms EntireLP.IsLaguerrePolya
+#print axioms EntireLP.heatFlow
+#print axioms EntireLP.HeatMajorized
+#print axioms Stage1MB.HasOnlyRealRoots
+#print axioms Stage1LP.wgtRaw
+#print axioms Stage1LP.wgt
+#print axioms Stage1LP.truncScale
+#print axioms Stage1LP.toEntire
+#print axioms Stage1LP.HeatMajorized
+#print axioms Stage1LP.IsLaguerrePolya
+#print axioms Stage1LP.taylorCoeff
+#print axioms Polynomial.HasOnlyRealRoots
+#print axioms Polynomial.oneMinusCD2
+#print axioms Polynomial.heatPartial
+#print axioms Polynomial.heatOp

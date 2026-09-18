@@ -265,3 +265,30 @@ the first time the pipeline found a *target statement itself* defective.
   theorems from an earlier audit, caught only by a 31-vs-33 count regression).
 
 No Λ / RH consequence. Platt–Trudgian Λ ≤ 0.2 stands; RH open. NO QED.
+
+### Arc closed (2026-09-18) — the order-≤1 replacement, composed and kernel-verified
+
+The defective target is now fully resolved, housed at v4.28 (the in-repo probe is v4.22
+and cannot import the v4.28 proof; the consumer `heat_preserves_LP_entire` lives only there).
+
+- **job40 (order-≤1 stage-1), VERIFIED-FAITHFUL:** `Probe.exists_LP_approx_heatMajorized_order_le_one`
+  — for `f ∈ LP` with `‖f z‖ ≤ A·exp(B‖z‖)` (order ≤ 1, finite type), real-rooted heat-majorized
+  approximants exist for ALL `t ≥ 0`. Proved from scratch (truncation operator: reverse →
+  iterate-derivative → reverse → rescale; coefficient weights in [0,1] with `1−wgt ≤ j²/m`; Cauchy
+  estimates give the summable majorant `u_k = C_r(t(eB)²)^k/k!`), sidestepping both flagged mathlib
+  gaps (no Hadamard, no Pólya–Schur).
+- **Composition (entirelp_splice428/), VERIFIED-FAITHFUL, build green:**
+  `EntireLP.heat_preserves_LP_entire_of_growth` = the probe's `heat_preserves_LP_entire`
+  (EntireLP.lean) with EXACTLY one added `hgrowth` hypothesis, byte-identical vocabulary,
+  discharge chain fully unconditional. 8034 build jobs; 98 thms + 19 defs on the three standard
+  axioms; non-vacuity witnessed at `f = id`. Consolidates job34's base + job40's construction +
+  an upward port of RealRootedPreservation.lean (byte-identical statements, 4 API-rename deltas,
+  diff-verified) + the probe's `real_symm_of_tendsto`/`toEntire_conj`.
+- **Final probe-tree state:** every statement is kernel-PROVED, kernel-REFUTED, or explicitly OPEN.
+  The v4.22 probe retains one `sorryAx` — the explicitly-open literal tsum-junk variant — which
+  cannot be removed there only because the tree cannot import the v4.28 proof; the resolved content
+  (refutation of the intended reading + the true restricted theorem) is kernel-verified at v4.28.
+
+Two-gate discipline (kernel + faithfulness) held throughout: it caught the defective target, a
+silent axcheck-masking bug, and THREE rounds of definition vocabulary drift before anything was
+quoted. No Λ / RH consequence — Platt–Trudgian Λ ≤ 0.2 stands; RH open. NO QED.

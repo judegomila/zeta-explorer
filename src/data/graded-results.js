@@ -52,6 +52,18 @@ export const RESULTS = [
     route: '/permutation-architecture',
     date: '2026-09',
   },
+  {
+    statement: 'Heat semigroup preserves the entire Laguerre–Pólya class (order-≤1 / finite-type): for t ≥ 0, if f is Laguerre–Pólya with ‖f(z)‖ ≤ A·exp(B‖z‖) then heatFlow t f is Laguerre–Pólya — the correct (finite-type-restricted) form of the defective target, which ξ and H_t satisfy. Proved unconditionally via a from-scratch truncation operator (sidestepping the finite Pólya–Schur and real-rootedness-closure mathlib gaps) + the heat-majorized transfer lemma, composed to the consumer. Closes the EntireLP arc: every statement in the probe tree is now kernel-proved, kernel-refuted, or explicitly open.',
+    grade: 'kernel-verified',
+    verification: [
+      'Lean: EntireLP.heat_preserves_LP_entire_of_growth (entirelp_splice428, mathlib v4.28; build green 8034 jobs; 98 thms + 19 defs on [propext, Classical.choice, Quot.sound]; non-vacuity witnessed at f = id)',
+      'second-round faithfulness review: VERIFIED-FAITHFUL on six checks — capstone = the probe’s heat_preserves_LP_entire with EXACTLY one added hgrowth hypothesis, byte-identical vocabulary; discharge chain fully unconditional',
+      'cross-toolchain note: probe (v4.22) hosts the consumer; the verified composition lives at v4.28 (RealRootedPreservation port byte-identical, 4 API-rename deltas, diff-verified)',
+    ],
+    thread: 'aristotle-formalization',
+    route: '/permutation-architecture',
+    date: '2026-09',
+  },
   // ── kernel-verified (Lean 4, sorry-free, standard axioms) ──────────────────
   {
     statement: 'Five-shell identity: unconditionally, E₉₇ = (1−A₉₇)·L(Y₄) − A₉₇·Σ_{g=1..4} L(Z_g) with the 25 primes ≤ 97 cut at (0,5,10,17,25) and the annihilated shells mutually orthogonal (disjoint Fourier supports).',

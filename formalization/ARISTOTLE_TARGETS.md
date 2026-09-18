@@ -230,3 +230,38 @@ K3 slab risk. Below that requires a NEW TAIL MECHANISM breaking the
 with flow-blindness and the T3⟺strip dictionary. Falsifiable side-prediction:
 the 0.14-row tail repriced through THIS architecture gives N1* ≈ 2.85e8
 (the paper's own contract shell, closed in its separate scope, is unaffected).
+
+---
+
+## Defective-target discovery (2026-09-18) — a pipeline first
+
+The parked `entirelp` sorry (`formalization/lean-mathlib-probe/EntireLP.lean`,
+`exists_heatOp_approx_tendsto`) was found FALSE AS STATED, not merely unproven —
+the first time the pipeline found a *target statement itself* defective.
+
+- **Refutation (kernel-verified, wave 5 / jobs 33+39):** for the full Laguerre–Pólya
+  class the intended (everywhere-`Summable`) reading is false — the Gaussian
+  `f = exp(−(c z)²) ∈ LP` has heat coefficients `~c^{2k}(2k)!/k!` admitting no summable
+  majorant for any `t > 0` (`c = √(1/t)`). Package `lp_retirement/`:
+  `Probe.not_exists_heatOp_approx_tendsto_full_LP` (capstone),
+  `Probe.not_forall_exists_LP_approx_heatMajorized(_of_pos)`,
+  `Probe.not_exists_heatMajorized_gaussianScaled`.
+- **Faithfulness (two rounds):** round 1 caught MATERIAL vocabulary drift in two
+  reconstructed defs (HasOnlyRealRoots complex-root definiens ≠ probe root-count form
+  at P=0; IsLaguerrePolya dropped the conjugation clause) → a refutation in drifted
+  vocabulary is non-quotable. Round 2 on the repaired probe-vocabulary package:
+  VERIFIED-FAITHFUL (Probe defs byte/character-identical; capstone diffs mechanically
+  to the sorried statement; non-vacuity confirmed; 40 decls on 3 standard axioms).
+- **Scope (locked wording):** RETIRED AS FALSE in its intended reading; the literal
+  mathlib-tsum-junk-semantics variant is vacuously degenerate and left OPEN; both
+  superseded by the order-≤1 (finite-type) restatement — all `ξ` / `H_t` need
+  (job40, pending). The probe `sorry` is retained ONLY to keep the leaf consumer
+  `heat_preserves_LP_entire` building until it is re-based on the restatement.
+- **Pipeline rules banked:** (a) never let Aristotle reconstruct a definition from
+  prose — supply external vocabulary verbatim in the brief (heatFlow, quoted verbatim,
+  came back character-exact; the two paraphrased defs drifted); (b) axcheck generation
+  needs wrap-proof parsing + comment-aware name extraction + a theorem-count invariant
+  vs the source grep (a suffix-anchor bug had silently dropped the two refutation
+  theorems from an earlier audit, caught only by a 31-vs-33 count regression).
+
+No Λ / RH consequence. Platt–Trudgian Λ ≤ 0.2 stands; RH open. NO QED.

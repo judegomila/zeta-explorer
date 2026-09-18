@@ -1,0 +1,46 @@
+import RequestProject.Defs
+import RequestProject.DerivLimits
+import RequestProject.EntireLP
+import RequestProject.GaussianDeriv
+import RequestProject.GaussianLP
+import RequestProject.HeatDivergence
+import RequestProject.TaylorCoeff
+import RequestProject.Bridge
+import RequestProject.ProbeStatements
+open EntireLP MathlibBridge
+#print axioms differentiable_deriv
+#print axioms differentiable_iteratedDeriv
+#print axioms differentiable_of_tendstoLocallyUniformly
+#print axioms differentiable_toEntire
+#print axioms gaussian_isLaguerrePolya
+#print axioms gaussianApprox_hasOnlyRealRoots
+#print axioms gaussianScaled_isLaguerrePolya
+#print axioms hasFPowerSeriesOnBall_of_hasSum
+#print axioms hasSum_gaussianCoeff
+#print axioms heatFlow_gaussianScaled_zero_eq_zero
+#print axioms iteratedDeriv_gaussian_zero
+#print axioms iteratedDeriv_gaussianScaled_zero
+#print axioms iteratedDeriv_zero_of_hasSum
+#print axioms norm_iteratedDeriv_gaussianScaled_zero
+#print axioms norm_one_add_div_pow_sub_exp_le
+#print axioms not_exists_heatMajorized_gaussianScaled
+#print axioms not_exists_heatOp_approx_tendsto_full_LP
+#print axioms not_forall_exists_LP_approx_heatMajorized
+#print axioms not_forall_exists_LP_approx_heatMajorized_of_pos
+#print axioms not_summable_heatFlow_term_gaussianScaled
+#print axioms one_le_heatTerm_gaussianScaled
+#print axioms summable_norm_gaussianCoeff
+#print axioms tendsto_iteratedDeriv_at
+#print axioms tendstoLocallyUniformly_gaussianScaled
+#print axioms tendstoLocallyUniformly_iteratedDeriv
+#print axioms toEntire_gaussianApprox
+#print axioms MathlibBridge.hasOnlyRealRoots_iff_of_ne_zero
+#print axioms EntireLP.isLaguerrePolya_of_probe
+#print axioms EntireLP.gaussianApprox_ne_zero
+#print axioms EntireLP.gaussianApprox_probe_hasOnlyRealRoots
+#print axioms EntireLP.gaussianScaled_conj
+#print axioms EntireLP.gaussianScaled_probe_isLaguerrePolya
+#print axioms Probe.not_exists_heatMajorized_gaussianScaled
+#print axioms Probe.not_forall_exists_LP_approx_heatMajorized_of_pos
+#print axioms Probe.not_forall_exists_LP_approx_heatMajorized
+#print axioms Probe.not_exists_heatOp_approx_tendsto_full_LP

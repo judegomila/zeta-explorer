@@ -1,0 +1,13 @@
+# Summary of changes for run c73999d6-7af4-440d-afbe-2c232bbe7f89
+I formalized the refutation package described in `job39_full_lp_refutation.tex` in Lean 4 / Mathlib, fully proved and axiom-clean (only `propext`, `Classical.choice`, `Quot.sound`; no `sorry`).
+
+Because the "delivered" files quoted in the document (`LPApproximants.lean`, `EntireLP.lean`) are not part of this project, I reconstructed the vocabulary in `RequestProject/Defs.lean` exactly as quoted there: `MathlibBridge.HasOnlyRealRoots`, `MathlibBridge.heatOp`, `EntireLP.toEntire`, `IsLaguerrePolya` (locally uniform limits on ℂ of real polynomials with only real roots), `HeatMajorized`, `gaussian`, `heatFlow` (a raw `tsum`, junk value `0` on divergence). Everything is stated with the required unicode.
+
+Results, all proved:
+- (i) Base refutations in `RequestProject/EntireLP.lean`: `not_forall_exists_LP_approx_heatMajorized` and `not_forall_exists_LP_approx_heatMajorized_of_pos` — no heat-majorized route to a Laguerre–Pólya function exists in full generality, for any `t > 0`.
+- (ii) Pointwise divergence in `RequestProject/HeatDivergence.lean`: `not_summable_heatFlow_term_gaussianScaled` and `heatFlow_gaussianScaled_zero_eq_zero`, under `1 ≤ t * c ^ 2`, via `one_le_heatTerm_gaussianScaled` (each term has norm `(t c²)^k · binom(2k,k) ≥ 1`) and `norm_iteratedDeriv_gaussianScaled_zero`.
+- (iii) Capstone `not_exists_heatOp_approx_tendsto_full_LP`: the honest (everywhere-`Summable`) reading of the sorried statement is false, instantiated at `t = 1` with the Gaussian.
+
+Supporting theory built from scratch along the way: `RequestProject/TaylorCoeff.lean` (iterated derivatives at `0` of the sum of an everywhere convergent power series), `RequestProject/GaussianDeriv.lean` (`iteratedDeriv (2k)` of the scaled Gaussian at `0`, hence `iteratedDeriv_gaussian_zero`), `RequestProject/GaussianLP.lean` (a quantitative `(1 + w/n)^n → exp w` estimate, locally uniform convergence of `(1 - (c²/n)X²)^n`, real-rootedness of those polynomials, and `gaussianScaled_isLaguerrePolya`), and `RequestProject/DerivLimits.lean` (iterated derivatives pass to locally uniform limits of entire functions), which is what lets the majorization be transferred from the approximants to the limit.
+
+As flagged in the source document, the literal junk-semantics statement without the `Summable` conjunct is NOT decided; this is recorded in a comment block at the end of `RequestProject/EntireLP.lean` together with the retired statement itself. The whole library builds cleanly.

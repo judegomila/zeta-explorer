@@ -305,26 +305,38 @@ be discharged — it is not a missing lemma, it is a false statement — and the
 correct, sorry-free, axiom-clean theorem (a *conditional*: any poly-compatible operator that
 IS loc-unif continuous preserves LP).  It simply cannot be instantiated at `Φ = heatFlow t`,
 because `heatFlow t` is not loc-unif continuous.  The genuine de Bruijn content that survives
-is the following TRUE statement: for `f ∈ LP` one can choose a *specific, type-controlled*
-sequence of real-rooted approximants whose heat images converge to `heatFlow t f` (a general
-approximating sequence does NOT work — that is exactly what the counterexample shows).  This
+is the following statement — TRUE for the order-≤1 (finite-type) class, but FALSE for full `LP`
+in the intended reading (see the retirement note on `exists_heatOp_approx_tendsto` below): for
+`f ∈ LP` one can choose a *specific, type-controlled* sequence of real-rooted approximants whose
+heat images converge to `heatFlow t f` (a general approximating sequence does NOT work — that is
+exactly what the counterexample shows).  This
 choice is the real remaining hard work (it needs the Hadamard/Laguerre–Pólya structure theory,
 bricks B2–B8 with genuine order/type control — NOT the impossible uniform majorant), and is
 isolated below as the single precise `sorry`. -/
 
-/-- **[THE SINGLE REMAINING GAP — a precise `sorry`, and a TRUE statement].**  The genuine
-de Bruijn content of `heat_preserves_LP_entire`, stated at the approximation level.
+/-- **[RETIRED AS FALSE IN ITS INTENDED READING — the literal tsum-junk-semantics form is held
+OPEN pending the order-≤1 restatement (job40)].**  Stated at the approximation level: for `t ≥ 0`
+and `f ∈ LP`, a sequence `P n` of real-rooted real polynomials with `toEntire (P n) → f` locally
+uniformly AND the heat images `toEntire (heatOp t (P n)) → heatFlow t f` locally uniformly.
 
-For `t ≥ 0` and `f ∈ LP`, there is a sequence `P n` of real-rooted real polynomials such that
-`toEntire (P n) → f` locally uniformly AND the heat images `toEntire (heatOp t (P n))` converge
-locally uniformly to `heatFlow t f`.  (The second convergence is the content: by the
-counterexample above it FAILS for a generic `f`-approximating sequence, so `P n` must be chosen
-with uniform order/type control — the Hadamard/LP structure theory, bricks B2–B8.)
+STATUS (2026-09-18 — kernel-verified refutation + independent faithfulness review): this
+statement is FALSE in its intended (everywhere-`Summable`) reading — the reading its own proof
+and the consumer `heat_preserves_LP_entire` require. The Gaussian `f = exp(−(c z)²) ∈ LP` has
+heat coefficients admitting no summable majorant for any `t > 0` (take `c = √(1/t)`), so no such
+type-controlled sequence exists in full `LP` generality. Kernel-verified, in THIS file's own
+vocabulary (`Probe.IsLaguerrePolya` / `Probe.HasOnlyRealRoots` byte-identical to ours), at
+`formalization/lean-aristotle/lp_retirement/RequestProject/ProbeStatements.lean`:
+`Probe.not_exists_heatOp_approx_tendsto_full_LP` (capstone; its statement minus the `Summable`
+conjunct diffs mechanically to exactly the statement below), plus
+`Probe.not_forall_exists_LP_approx_heatMajorized(_of_pos)` and
+`Probe.not_exists_heatMajorized_gaussianScaled`.
 
-This is TRUE (de Bruijn) and precisely names the remaining analytic work.  It replaces the
-previous, FALSE, `axiom heatFlow_continuous`.  Left as ONE `sorry` (not an axiom) so the audit
-shows a single `sorryAx` for a *true* statement, rather than propping the theorem on a false
-premise. -/
+Only the LITERAL statement below — read under mathlib's tsum-junk semantics for `heatFlow`
+(where `heatFlow t f` may be junk `0` at order 2) — is not refuted by that route, and is recorded
+OPEN. The `sorry` (not an axiom) is retained ONLY to keep `heat_preserves_LP_entire` building
+until it is re-based on the order-≤1 restatement (`job40`); it is NOT evidence the statement is
+true. The genuine de Bruijn content survives for the order-≤1 (finite-type) class — all `ξ`/`H_t`
+need — and that restatement, not this gap, is the correct carrier. -/
 theorem exists_heatOp_approx_tendsto {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
     (hf : IsLaguerrePolya f) :
     ∃ P : ℕ → ℝ[X], (∀ n, MathlibBridge.HasOnlyRealRoots (P n)) ∧
@@ -343,7 +355,9 @@ The reduction to `exists_heatOp_approx_tendsto` is sorry-free: the chosen `heatO
 real-rooted (`MathlibBridge.heat_preserves_LP`), their images converge loc-uniformly to
 `heatFlow t f`, and real-on-`ℝ` is inherited via `real_symm_of_tendsto`.  The ONLY remaining
 `sorry` (hence the only `sorryAx` in `#print axioms` below) is `exists_heatOp_approx_tendsto`,
-a TRUE statement — this replaces the previous, FALSE, `heatFlow_continuous` axiom. -/
+whose INTENDED reading is now kernel-verified FALSE (see its retirement note above); the `sorry`
+holds only the literal tsum-junk variant open, and this consumer is pending re-basing on the
+order-≤1 restatement (`job40`). It replaced the previous, FALSE, `heatFlow_continuous` axiom. -/
 theorem heat_preserves_LP_entire {f : ℂ → ℂ} {t : ℝ} (ht : 0 ≤ t)
     (hf : IsLaguerrePolya f) : IsLaguerrePolya (heatFlow t f) := by
   obtain ⟨P, hPrr, _hPf, hQconv⟩ := exists_heatOp_approx_tendsto ht hf

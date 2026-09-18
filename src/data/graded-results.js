@@ -39,6 +39,19 @@ export const GRADE_ORDER = GRADE_META.map((g) => g.grade);
  * }
  */
 export const RESULTS = [
+  // ── defective-target discovery (a first: a formal target found FALSE, not merely unproven) ──
+  {
+    statement: 'Defective-target discovery: the sorried probe statement exists_heatOp_approx_tendsto is FALSE in its intended (everywhere-Summable) reading — no heat-majorized real-rooted approximant sequence exists for the full Laguerre–Pólya class at any t > 0 (Gaussian witness f = exp(−(c z)²), c = √(1/t), whose even derivatives ~c^{2k}(2k)!/k! admit no summable majorant). The literal mathlib-tsum-junk-semantics variant is recorded OPEN; both are superseded by the order-≤1 (finite-type) restatement, which is all ξ / H_t require. NOT a discharge — the pipeline’s first target found defective rather than unproven.',
+    grade: 'refuted',
+    verification: [
+      'Lean: Probe.not_exists_heatOp_approx_tendsto_full_LP (capstone) + not_forall_exists_LP_approx_heatMajorized(_of_pos) + not_exists_heatMajorized_gaussianScaled (lp_retirement, mathlib v4.28, 0 sorry, standard axioms)',
+      'second-round faithfulness review: VERIFIED-FAITHFUL — Probe.IsLaguerrePolya / Probe.HasOnlyRealRoots byte/character-identical to the probe; capstone minus its Summable conjunct diffs mechanically to the sorried statement',
+      'non-vacuity verified: polynomials satisfy the Summable conjunct, so the refutation routes through the Gaussian inside the class',
+    ],
+    thread: 'aristotle-formalization',
+    route: '/permutation-architecture',
+    date: '2026-09',
+  },
   // ── kernel-verified (Lean 4, sorry-free, standard axioms) ──────────────────
   {
     statement: 'Five-shell identity: unconditionally, E₉₇ = (1−A₉₇)·L(Y₄) − A₉₇·Σ_{g=1..4} L(Z_g) with the 25 primes ≤ 97 cut at (0,5,10,17,25) and the annihilated shells mutually orthogonal (disjoint Fourier supports).',

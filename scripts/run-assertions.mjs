@@ -182,6 +182,13 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  // imp-95518-displacement-leg-discharge: double-verified (attack + independent from-scratch
+  // replication at all 10 re-anchors + RK4 cross-check) discharge of the LAST ANALYTIC
+  // obstruction of the C_Lip→D_rest E_field transfer leg — the displacement lemma. Gap-cancellation
+  // reduction (premise ⇔ K_l ≤ eps′) + max-principle confinement + −8 floor + algebraic closure;
+  // no Grönwall/W_1/PCC/height. "Certified computation + proof architecture", 3 routine real-variable
+  // steps still to be WRITTEN as lemmas. NO Λ movement (E_trunc/E_flow bind on height); PT Λ≤0.2 stands.
+  '/src/data/imp-95518-displacement-leg-discharge.js',
   // imp-33228-anchor-invalidation-correction: double-verified correction — the C_Lip→D_rest
   // field-channel EPS_FIELD_ROWS were baked at invalid anchors N=endN (boundary pair collides
   // before the horizon, survival 0.43-0.87<1); fix = re-anchor at max-boundary-gap N′ (survival

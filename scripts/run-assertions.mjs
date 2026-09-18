@@ -182,6 +182,12 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  // imp-33228-anchor-invalidation-correction: double-verified correction — the C_Lip→D_rest
+  // field-channel EPS_FIELD_ROWS were baked at invalid anchors N=endN (boundary pair collides
+  // before the horizon, survival 0.43-0.87<1); fix = re-anchor at max-boundary-gap N′ (survival
+  // 3.3e3-9.8e4×, all 10 re-certify θ≥0.9971). Anchor-choice only; imp-3933 lemma/arithmetic
+  // reproduce to ≤1e-9; NO Λ consequence, PT Λ≤0.2 stands, RH untouched. NO QED.
+  '/src/data/imp-33228-anchor-invalidation-correction.js',
   // imp-95034: DIRECT assessment of the R1 node (terminal ceil count vs the EPS_FP floor) the imp-35259 two-rate
   // off-by-one WHETHER-question routes back onto. Q1 (does it certify which rate model is faithful at ~10^37?): NO --
   // the terminal ceil count is rate-BLIND in-band (imp-35572: n_two = n_single at all 202 seeds, both 13 vs measured

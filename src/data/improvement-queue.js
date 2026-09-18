@@ -90471,6 +90471,30 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     dependsOn: [],
   },
+  {
+    id: 'imp-95517',
+    title: 'Regenerate imp-3933 EPS_FIELD_ROWS at the corrected max-boundary-gap anchors N′ (retire the invalid N=endN anchors)',
+    category: 'correctness',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'field-channel',
+    description: "Double-verified correction (imp-33228-anchor-invalidation-correction.js): the baked EPS_FIELD_ROWS in imp-3933-eps-field-robust-bootstrap.js sit at anchors N=endN_p where the boundary pair (= the next plateau's record pair) collides before the horizon (survival ratio 0.43–0.87 < 1), making the rows invalid as a true-flow E_field certificate. Regenerate the rows at the corrected anchors N′ = {15323,19187,46589,77672,83454,87831,185013,393295,420290,516200} (per-plateau, argmax boundary gap; survival 3.3e3–9.8e4×, θ≥0.9971). Recompute the full Psi/theta/W(eps′) rows at these N′, update the in-module assertions, and update imp-33228's summary numbers (the 6.73 continuum-proxy figure is a W* artifact). Anchor-choice fix only — the lemma and arithmetic are correct (reproduced to ≤1e-9). NO Λ consequence; PT Λ≤0.2 stands; changes no bound; NO QED.",
+    rationale: 'Two independent Fable-5 reconstructions from the raw zero table confirm the N=endN anchors are invalid; the fix (re-anchor) is verified. Correctness debt — the live rows are wrong.',
+    estimatedComplexity: 'medium',
+    dependsOn: [],
+  },
+  {
+    id: 'imp-95518',
+    title: 'OBJECTIVE — Prove the displacement leg of the C_Lip→D_rest field-channel discharge (the single surviving obstruction)',
+    category: 'research',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'field-channel',
+    description: "After the anchor correction (imp-95517) and the discharged t=0 leg, the ONLY surviving analytic obstruction to the finite-N-uniform C_Lip→D_rest breach is the DISPLACEMENT leg: extend the field-Lipschitz bound |e_{l+1}−e_l| ≤ eps′·g_l from t=0 to t ∈ [0, min(t_c,T)]. OBJECTIVE: prove it (or reach the precise obstruction). It is finite, real-variable, and margin-rich — at the re-anchors the t=0 boundary distances are ≥1.58 and a colliding pair's displacement is ≤ ½ its gap ≤ 0.02 over T ≤ 1.8e-4, so a continuity/bootstrap argument has generous budget. NOT RH-shaped, NOT PCC-shaped, NOT height-shaped. Verify it does not re-introduce C_Lip/Gronwall/W_1/PCC by the back door. Deliverable reports the actual outcome — proof, or the exact obstruction. Even if proven, this discharges only the transfer leg; E(N)<0.2 still bottlenecks on E_trunc/E_flow (height-bound); no sub-0.2 claim, no QED.",
+    rationale: 'The C_Lip breach is reduced to this one finite lemma; it is the genuinely height-free, non-RH-shaped residual — worth a focused attack.',
+    estimatedComplexity: 'high',
+    dependsOn: ['imp-95517'],
+  },
 ];
 
 // ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────

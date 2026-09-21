@@ -189,6 +189,12 @@ const DATA_MODULES = [
   // no Grönwall/W_1/PCC/height. "Certified computation + proof architecture", 3 routine real-variable
   // steps still to be WRITTEN as lemmas. NO Λ movement (E_trunc/E_flow bind on height); PT Λ≤0.2 stands.
   '/src/data/imp-95518-displacement-leg-discharge.js',
+  // imp-95518-displacement-leg-lemmas: the imp-95518 RESIDUAL discharged — the three routine
+  // real-variable steps (open–closed bootstrap; locally-finite min-of-AC front; Re-distance
+  // termwise bound through complexifications) now WRITTEN as Lemmas A/B/C (prose, rigorous
+  // modulo cited classical inputs), moving E_field from "bounded-by-table" to a written proof.
+  // NO Λ movement (E_trunc/E_flow bind on height); PT Λ≤0.2 stands; RH open; NO QED.
+  '/src/data/imp-95518-displacement-leg-lemmas.js',
   // imp-33228-anchor-invalidation-correction: double-verified correction — the C_Lip→D_rest
   // field-channel EPS_FIELD_ROWS were baked at invalid anchors N=endN (boundary pair collides
   // before the horizon, survival 0.43-0.87<1); fix = re-anchor at max-boundary-gap N′ (survival

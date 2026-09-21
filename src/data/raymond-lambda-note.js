@@ -19,7 +19,17 @@
 export const RAYMOND_LAMBDA_NOTE = Object.freeze({
   id: 'raymond-lambda-note',
   title: 'A parameter optimization that strengthens Raymond’s Λ < 0.149396 margin',
-  status: 'CONTRIBUTION to an UNREFEREED preprint; hardens the margin ~4× + independent end-to-end soundness check; does NOT lower the accepted bound; PT Λ≤0.2 stands',
+  reviewHold:
+    '⚠ HOLD — DO NOT SEND (2026-09-21). The δ₀ = Λ_mid + 83/2400 − c_odd − (4ρ−2ρ²) ledger this note '
+    + 'optimizes shares the IDENTICAL c_odd (0.006277), 235-cell Λ_mid (0.176356), and ρ=1/20 with '
+    + 'Zhi-Wei Sun’s Catalan-irrationality preprint (arXiv:2609.04176) — which an independent re-analysis '
+    + 'found LIKELY-FLAWED (wrong-sign B² coefficient: the decisive quantity measures ≈+1.86B² where the '
+    + 'proof needs ≤−0.0097B², independently replicated + matching the community Lean project). Two '
+    + 'verification agents placed this same ledger in DIFFERENT papers (Raymond=sound vs Sun=flawed) — an '
+    + 'unresolved contradiction. Until a decisive side-by-side cross-check settles whether the ρ-optimization '
+    + 'rests on Raymond’s sound base or Sun’s flawed one, treat the "4× hardening" as UNDER REVIEW, not '
+    + 'established, and do not send this note. PT Λ≤0.2 stands; RH open; NO QED.',
+  status: '⚠ UNDER REVIEW / HOLD — δ₀ base overlaps a likely-flawed Sun ledger; CONTRIBUTION to an UNREFEREED preprint; does NOT lower the accepted bound; PT Λ≤0.2 stands',
   oneLine:
     'Dale James Raymond’s preprint (Zenodo 22867547) proves the de Bruijn–Newman '
     + 'bound Λ < 0.149396. Its decisive margin δ₀ can be hardened ~4× by re-optimizing '

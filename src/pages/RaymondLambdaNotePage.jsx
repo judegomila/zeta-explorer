@@ -26,6 +26,12 @@ export default function RaymondLambdaNotePage() {
         ← <Link to="/atlas">the atlas</Link>
       </>}
     >
+      {D.reviewHold && (
+        <div className="ed-thm" style={{ borderLeftColor: '#c23a1c', background: 'rgba(194,58,28,0.05)' }}>
+          <div className="tlab" style={{ color: '#c23a1c' }}>Under review — hold</div>
+          <p style={{ margin: 0, fontSize: 14 }}>{D.reviewHold}</p>
+        </div>
+      )}
       <div className="ed-thm" style={{ borderLeftColor: 'var(--brass)' }}>
         <div className="tlab">Scope</div>
         <p style={{ margin: 0, fontSize: 14 }}>{D.scope}</p>

@@ -1845,8 +1845,6 @@ function AppShell() {
           <Route path="/catalan-signed-ladder" element={<CatalanSignedLadderPage />} />
           <Route path="/irrationality-pipeline" element={<IrrationalityPipelinePage />} />
           <Route path="/raymond-lambda-note" element={<RaymondLambdaNotePage />} />
-          {/* old mislabeled URL kept as a redirect to the corrected page (2026-09-21) */}
-          <Route path="/sun-catalan-note" element={<RaymondLambdaNotePage />} />
           <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />

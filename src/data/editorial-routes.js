@@ -27,7 +27,6 @@ export const EDITORIAL_ROUTES = new Set([
   '/catalan-signed-ladder',
   '/irrationality-pipeline',
   '/raymond-lambda-note',
-  '/sun-catalan-note',
   '/lambda-bounds',
   // Model group
   '/full-story',

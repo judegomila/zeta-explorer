@@ -1,24 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostLayout, { TheoremBox, Pull } from '../components/editorial/PostLayout.jsx';
-import { SUN_CATALAN_NOTE as D } from '../data/sun-catalan-note.js';
+import { RAYMOND_LAMBDA_NOTE as D } from '../data/raymond-lambda-note.js';
 
-/* Public presentation of the note to Zhi-Wei Sun. Content sourced from
-   src/data/sun-catalan-note.js (build tripwires enforce the honesty framing:
-   unrefereed preprint, does not certify the proof, G irrationality open). */
+/* Public presentation of the note to Dale James Raymond on his de Bruijn–Newman
+   bound Λ < 0.149396 (Zenodo 22867547). Content sourced from
+   src/data/raymond-lambda-note.js (build tripwires enforce the honesty framing:
+   unrefereed preprint, not peer review, does not lower the accepted bound, PT Λ≤0.2
+   stands). NOTE: this is NOT Sun's Catalan-irrationality paper — different author,
+   different problem; the χ₄ Catalan work is at /catalan-signed-ladder. */
 
-export default function SunCatalanNotePage() {
+export default function RaymondLambdaNotePage() {
   return (
     <PostLayout
       grade="NOTE TO AUTHOR"
       meta={[D.status]}
       title={D.title}
       dek={D.oneLine}
-      byline={['irrationality workstream · mathexplorer', D.preprint]}
-      ticker={<span>hardens Sun’s margin ~4× · does not certify the proof · G open</span>}
+      byline={['Λ workstream · mathexplorer', D.preprint]}
+      ticker={<span>hardens Raymond’s Λ&lt;0.149396 margin ~4× · not peer review · PT Λ≤0.2 stands</span>}
       footer={<>
-        Related: <Link to="/catalan-signed-ladder">The signed ladder &amp; Catalan</Link>
-        {' · '}<Link to="/irrationality-pipeline">The irrationality pipeline</Link><br /><br />
+        Related: <Link to="/lambda-bounds">The Λ ladder</Link>
+        {' · '}<Link to="/frontier-dag">Route VII floor (external corroboration)</Link>
+        {' · '}<Link to="/catalan-signed-ladder">Catalan (separate: χ₄)</Link><br /><br />
         ← <Link to="/atlas">the atlas</Link>
       </>}
     >
@@ -29,7 +33,7 @@ export default function SunCatalanNotePage() {
 
       <h2>The remark</h2>
       <p className="lead">
-        Sun fixes the ratio ρ = S/B = 1/20 and proves the decisive coefficient
+        Raymond fixes the ratio ρ = S/B = 1/20 and proves the decisive coefficient
         δ₀ &gt; 0.00966. Re-optimizing ρ alone — with no change to the construction —
         raises it ~4×.
       </p>

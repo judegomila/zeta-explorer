@@ -1,6 +1,18 @@
 /**
- * @fileoverview imp-95516 — OBJECTIVE verdict: settle Sun's Catalan-irrationality
- * preprint (arXiv:2609.04176) and, if sound, harden its razor-thin margin.
+ * ⚠ ATTRIBUTION CORRECTION (2026-09-21): the objective and verdict below were
+ * MISLABELED "Sun's Catalan-irrationality preprint (arXiv:2609.04176)". They are
+ * actually about DALE JAMES RAYMOND's de Bruijn–Newman bound Λ<0.149396 (Zenodo
+ * 22867547) — the δ₀ = Λ_mid + Δ_{>B} − c_odd − (4ρ−2ρ²) machinery, the 235-cell
+ * Λ_mid, the ρ-optimization, and the 0.149395073827688 endpoint are all Raymond's
+ * Λ paper (confirmed by a local-clone verification: Polymath heat-flow inputs, the
+ * endpoint IS the Λ value). Sun's arXiv:2609.04176 is a DIFFERENT paper (Catalan
+ * irrationality, "weighted tails") that this project has NOT analyzed. The verified
+ * work here (c_odd/Λ_mid, ρ*=1/50 4× hardening, §4–§12 + replay sound) belongs to
+ * Raymond and is presented at /raymond-lambda-note. Read "Sun→Raymond",
+ * "Catalan irrationality→Λ<0.149396", "arXiv:2609.04176→Zenodo 22867547" throughout.
+ *
+ * @fileoverview imp-95516 — OBJECTIVE verdict [see correction above]: settle
+ * Raymond's Λ<0.149396 preprint (Zenodo 22867547) and, if sound, harden its margin.
  *
  * This records the OUTCOME of the imp-95516 objective and reconciles it with the
  * already-committed src/data/sun-catalan-note.js work, which delivered the

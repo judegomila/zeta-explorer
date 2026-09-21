@@ -17348,7 +17348,7 @@ const DATA_MODULES = [
   // No Λ movement; PT Λ≤0.2 stands; NO QED.
   '/src/data/catalan-signed-ladder.js',
   '/src/data/irrationality-pipeline.js',
-  '/src/data/sun-catalan-note.js',
+  '/src/data/raymond-lambda-note.js',
   '/src/data/imp-95516-sun-catalan-objective-verdict.js',
   // imp-95520 (opus-4-7, frontier): verdict on the OBJECTIVE — aim the
   // signed-coalescence pencil (imp-95511 SPEC-INT/NO-PF, imp-95509 mean-time

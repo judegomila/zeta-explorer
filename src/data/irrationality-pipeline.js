@@ -105,21 +105,20 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
     { target: 'ζ(5), ζ(7)', enc: 'trivial χ, k=5,7', predDim: '≥2', verdict: 'OPEN: odd block coupled' },
   ],
 
-  // The pipeline in action on Sun's Catalan preprint (stage-6 sensitivity).
+  // Sun's Catalan-irrationality preprint (arXiv:2609.04176) — a live external claim.
   sunCase: {
-    heading: 'Stage 6 in action: Sun’s Catalan preprint',
+    heading: 'External claim: Sun’s Catalan preprint',
     body:
-      'Sun (arXiv:2609.04176, UNVERIFIED) claims α>β for G via a p-adic "weighted '
-      + 'tails" construction with decisive margin δ₀ = Λ_mid + Δ_{>B} − c_odd − '
-      + '(4ρ−2ρ²) ≈ 0.00966 at ρ=S/B=1/20. The pipeline’s stage-6 sensitivity view '
-      + 'exposes that ρ is a free parameter Sun never optimized. Two independent '
-      + 'from-scratch reconstructions of the §7 integrand (each reproducing Sun’s exact '
-      + '235-cell Λ_mid(1/20) fraction — the validation gate) agree that re-optimizing ρ '
-      + 'to 1/50 raises δ₀ to ≈0.03872, a 4.01× hardening, with δ₀>0 across ρ∈(0,0.05548). '
-      + 'This optimizes the §6–§9 ledger only; it takes the §2–§5 determinant core and the '
-      + '(9.4) baseline as Sun states them, so it does NOT certify the proof or settle G. '
-      + 'A note for the author is drafted (research-inputs/sun-catalan-rho-optimization-note.md).',
-    status: 'ρ-optimization independently replicated (4.01× within the §6–§9 ledger); Sun’s proof itself remains unverified',
+      'Zhi-Wei Sun (arXiv:2609.04176, "Catalan’s constant is irrational") claims G '
+      + 'irrational via a "weighted tails" construction u_m = T_m/(2m+1) (T_m the tail of '
+      + 'the Catalan series). It is single-author and AI-checked ("passed ChatGPT '
+      + 'verification"), and an independent community Lean effort declines to certify the '
+      + 'main theorem — so treat it as an UNVERIFIED claim, not a theorem. This project has '
+      + 'NOT analyzed its internals. (Do not confuse it with Dale James Raymond’s de '
+      + 'Bruijn–Newman bound Λ<0.149396, Zenodo 22867547 — a different author and a '
+      + 'different problem; that paper’s δ₀ ρ-optimization + soundness check is at '
+      + '/raymond-lambda-note, and Λ is zero-location, not value-irrationality.)',
+    status: 'external, UNVERIFIED, not analyzed by this project; distinct from Raymond’s Λ<0.149396 paper',
   },
 
   caveat:
@@ -156,9 +155,9 @@ export const IRRATIONALITY_PIPELINE_ASSERTIONS = Object.freeze([
     check: () => /proves no constant irrational|proves nothing/i.test(IRRATIONALITY_PIPELINE.caveat),
   },
   {
-    name: 'Sun case: ρ-optimization replicated but proof itself not certified',
-    check: () => /replicated/i.test(IRRATIONALITY_PIPELINE.sunCase.status)
-      && /remains unverified|does NOT certify/i.test(IRRATIONALITY_PIPELINE.sunCase.status + IRRATIONALITY_PIPELINE.sunCase.body),
+    name: 'Sun case: flagged UNVERIFIED + distinguished from Raymond’s Λ paper',
+    check: () => /UNVERIFIED/i.test(IRRATIONALITY_PIPELINE.sunCase.status + IRRATIONALITY_PIPELINE.sunCase.body)
+      && /Raymond/.test(IRRATIONALITY_PIPELINE.sunCase.body),
   },
 ]);
 

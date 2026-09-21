@@ -90533,6 +90533,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95521',
+    outcome: "WALLED / STRIKE AS A LEVER (next-round 2026-09-21): the ¼ is TAUTOLOGICAL — π·ρ_x = ½·ln N_RS = ¼·ln(X/4π) by definition (= the Riemann–von-Mangoldt zero-density coefficient, unconditional, zero slack in either direction). The earlier '≈4' impression was a 2-params-through-2-points fit artifact (ln X vs ln(X/4π); ≈3 in the density's own variable). Not a reducible constant; do NOT re-attempt transfer-constant sharpening.",
     title: 'OBJECTIVE — Sharpen the height→Λ transfer constant ¼ (ℓ~¼·ln(X/4π)): a zero-compute, RH-free, unconditional Λ reduction',
     category: 'research',
     priority: 'high',
@@ -90593,6 +90594,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95526',
+    outcome: "DECIDED FALSE / WALLED (next-round 2026-09-21): NC(κ>0) unconditional is FALSE — T1 (phase-blind min_φ F_p = 0, verified ≤1e-16) and T2 (continuum-uniform sup = ΣM by Kronecker density) are theorems, no margin. The gate reduces to a POINTWISE lower bound on the Hilbert transform of the H_t zero-counting measure at an arithmetically-fixed abscissa above verified height 3×10¹² = Montgomery-PCC / flow-blindness (unconditional only via more verified height). Porting fix: log|D_B| = Σ u_n cos(θ ln n) (log-modulus of the PRODUCT), not log of a complex sum.",
     title: 'OBJECTIVE — Decide NC(κ): the exact minimal missing inequality for sub-0.145 (upper bound on an explicit short Dirichlet polynomial at hypothetical-zero abscissae)',
     category: 'research',
     priority: 'critical',
@@ -90605,6 +90607,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95527',
+    outcome: "ADVANCED — one GENUINE interval-verifiable survivor (next-round 2026-09-21): d(y_j²)/dτ ≤ −2 for the TOPMOST complex zero ⇒ unconditional finite collision time τ≤y_top²/2 and linger budget Δτ≤(y_top²−y_floor²)/2, NON-PCC (self-pair −1/y dominates; real zeros only add negative terms). Covers only the thin y-band (y_top ≲ 0.141); thick band (y up to ~0.39 over t∈[0,0.152]) uncovered. CAVEAT to discharge: needs 'topmost complex zero', not merely 'extremal' — a complex pair above injects net +ẏ. ALSO a certified REFUTATION: the pinning theorem κ=2π²/δ² proves NO pointwise |ẋ|≥c>0 bound can exist (drift = Hilbert transform of the zero measure, vanishing AND stable/attracting at collision midpoints) — kills the horizontal no-linger route permanently. NEXT STEP: discharge the topmost-zero hypothesis (or carry the higher-pair +ẏ terms) and ship the vertical budget as a standalone unconditional lemma — the ONLY remaining finite, non-PCC, interval-verifiable path.",
     title: 'OBJECTIVE — Prove the no-linger lemma: an extremal H_t zero cannot co-travel with the bad-phase set for time ≳ 0.01 (the one unconditional road to NC(κ))',
     category: 'research',
     priority: 'high',
@@ -90617,6 +90620,7 @@ export const IMPROVEMENT_QUEUE = [
   },
   {
     id: 'imp-95528',
+    outcome: "DOWNGRADED to model-level (next-round 2026-09-21): SOR is sound but is the one-line min-of-sum ≥ sum-of-mins triviality; the Fejér–Riesz LDLᵀ + Lipschitz-sweep certification scaffold IS interval-verifiable, but the claimed +1.148e-4 gain is UNCOMPUTED and self-inconsistent with its own demo (demo yields 8.98e-2, ~18× off) and hangs on two unverified premises about Raymond's unread deposit. To make it real: (a) confirm block phases are integer multiples of a single θ·log p in his actual deposit, (b) confirm he credits per-block-separately M−Σ|C_d| and isn't ALREADY joint (the title 'Correlated Translated Probes' makes g_p=0 plausible), then (c) run the two legs on his intervals. Not a bound; a model-level in-architecture note.",
     title: 'Ship LEMMA SOR (single-orbit rigidity) against Raymond\'s actual deposit — the first verified joint-orbit-crediting gain (small, unconditional, replicable)',
     category: 'research',
     priority: 'medium',

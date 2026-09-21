@@ -17364,6 +17364,21 @@ const DATA_MODULES = [
   // form comparison carrying the archimedean majorant. Import-free, 7
   // assertions verified green before wiring. RH OPEN; PT Λ≤0.2 stands; NO QED.
   '/src/data/imp-95520-weil-positivity-pencil-port-verdict.js',
+  // imp-95520 deepening (fable-5-1, frontier): the actual Weil-form matrices on
+  // the pencil test classes. THEOREM PICK-WEIL: on the native span
+  // E_V = span{e^{-nu t}1_{t>0}}, nu > 1/2, the Weil form is EXACTLY the
+  // Caratheodory-class Nevanlinna-Pick matrix [(xi'/xi(s_i)+xi'/xi(s_j))/
+  // (s_i+s_j-1)] (LEMMA ARCH-NATIVE via contour), so the port collapses to
+  // Lagarias' criterion in Pick form; the explicit formula there is the
+  // log-derivative of the xi factorization (no zero information). Class II
+  // (compact support hats): W_T PSD, lam_min 1e-2 -> 6e-9 over T = 0.3..3 with
+  // a one-signed extremal probing the central zero gap (Szegoe ceiling -> 0);
+  // every piece (pole/arch/prime) indefinite; one-sided sup bounds have the
+  // wrong sign by 3-16 orders of magnitude on every configuration. Class III
+  // (Hardy/Mellin): zero side 6.5e-17. Verdict: no new finite-truncation
+  // positivity estimate; flow-blindness pattern quantified in the Weil
+  // currency. Import-free, 8 assertions (~1 s). RH OPEN; PT stands; NO QED.
+  '/src/data/imp-95520-weil-pick-identity-finite-truncation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

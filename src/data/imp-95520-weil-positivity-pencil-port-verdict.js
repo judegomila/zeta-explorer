@@ -178,6 +178,13 @@ export const WEIL_POSITIVITY_PENCIL_PORT_VERDICT = Object.freeze({
     + 'signed-coalescence chain supplies neither the cone coupling nor the archimedean term, so the port is inert for W and the '
     + 'finite -> infinite step (= full RH) is not reached. Distinct from, but parallel to, the NO-PF positive-cone kill.',
 
+  deepening:
+    'imp-95520-weil-pick-identity-finite-truncation.js computes the actual truncated Weil matrices on three test classes. '
+    + 'It SUPERSEDES the port reading above: on the machinery\'s native span the prime side is not a free signed lattice sum but '
+    + '(Z_i+Z_j)G_ij with Z = −ζ\'/ζ(1/2+ν), and the whole form is the Carathéodory Pick matrix of ξ\'/ξ (Lagarias\' criterion); '
+    + 'the hollow prime-only indefiniteness recorded here is trivial (trace 0) and irrelevant to W, which is PSD at every '
+    + 'truncation computed; the one-sided SGN-C/COAL-N estimate is not merely inert but has the wrong sign by 3–16 orders.',
+
   summary:
     'The port is real, exact, and in-repo — the Weil prime side is genuinely the machinery’s native signed-geometric-lattice '
     + 'object — but at finite truncation the one-sided signed-coalescence certificates are inert against the Weil quadratic form '

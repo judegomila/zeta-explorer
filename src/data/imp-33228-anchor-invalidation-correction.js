@@ -71,10 +71,11 @@ export const EPS_FIELD_ANCHOR_CORRECTION = Object.freeze({
 
   reCertification: {
     thetaUniformRange: [0.99666, 0.99988],
-    thetaPerGapRange: [0.997158, 0.999896],
+    thetaPerGapRange: [0.997162, 0.999896], // imp-95517 regenerated eps′=0 θ range at the N′ anchors
     thetaBar: 0.99,
     envelopeEpsMax: 2.83, // realised window-max eps′ at the new anchors (claim's looser 3.07 also holds)
-    note: 'All 10 plateaus (incl. p9) re-certify at the re-anchors; imp-33225 per-gap route.',
+    note: 'All 10 plateaus (incl. p9) re-certify at the re-anchors; imp-33225 per-gap route. '
+      + 'EPS_FIELD_ROWS regenerated at the N′ anchors by imp-95517 (minEpsMax 22.9163, θ_eps0 ∈ [0.997162, 0.999896]).',
   },
 
   survivingObstruction:
@@ -89,7 +90,8 @@ export const EPS_FIELD_ANCHOR_CORRECTION = Object.freeze({
     + 'plateau structure, and Psi/theta arithmetic are correct (reproduced to ≤1e-9 by '
     + 'two independent reconstructions from src/data/zeros-to-1e6.js). No Λ consequence: '
     + 'E_trunc/E_flow are the binding legs and bind on verified height; PT Λ≤0.2 stands; '
-    + 'RH untouched. Follow-up: regenerate imp-3933 EPS_FIELD_ROWS at the N′ anchors.',
+    + 'RH untouched. Follow-up DONE (imp-95517): imp-3933 EPS_FIELD_ROWS regenerated at the '
+    + 'N′ anchors (anchorN field; Psi upper-sum truncated at N′; all 10 plateaus re-certify).',
 });
 
 export const EPS_FIELD_ANCHOR_CORRECTION_ASSERTIONS = Object.freeze([

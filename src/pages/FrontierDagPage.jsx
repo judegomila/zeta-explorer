@@ -195,6 +195,12 @@ function ClosesIfCard({ n }) {
           {n.closesIf}
         </div>
       )}
+      {n.externalCorroboration && (
+        <div style={{ marginTop: 8, fontSize: 13, color: 'var(--ink)', lineHeight: 1.55, borderLeft: '3px solid #3f6f8a', paddingLeft: 10 }}>
+          <span className="ed-mono" style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: 0.8, color: '#3f6f8a' }}>EXTERNAL CORROBORATION </span>
+          {n.externalCorroboration}
+        </div>
+      )}
       {downstream.length > 0 && (
         <div className="ed-mono" style={{ marginTop: 8, fontSize: 10.5, color: 'var(--faint)' }}>
           {downstream.map((d) => `${d.meaning} → ${d.node.name}${d.note ? ` (${d.note})` : ''}`).join(' · ')}

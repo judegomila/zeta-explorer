@@ -191,6 +191,21 @@ export const NODES = [
     statusKind: 'nogo',
     route: '/flow-blindness-no-go',
     source: 'imp-95218 / flow-blindness + T3⟺strip dictionary',
+    externalCorroboration:
+      'INDEPENDENT EXTERNAL CORROBORATION (2026-09-21): a third-party unrefereed preprint by ' +
+      'Dale James Raymond (Λ ≤ 0.149396, Zenodo 22867547 — different route, no connection to this ' +
+      'program, cites Gomila only for context) lands its computer-assisted bound at 0.149395, ' +
+      'squarely INSIDE this predicted floor band [0.145, 0.150]. More tellingly, its own structure ' +
+      'confirms the floor rather than breaching it: its Part II Theorem 2 proves the ' +
+      'kernel/averaging lever is EXHAUSTED in its class, its ODE-substep lever is converged, and it ' +
+      'explicitly names the only remaining in-architecture lever as a JOINT TWO-POINT SOURCE ESTIMATE ' +
+      'which it declares an OPEN research problem ("a possibility, not a proven gain"). That is exactly ' +
+      'this node’s "a new mechanism is needed below ≈0.145–0.150" shape, reached independently. Its ' +
+      'height-binding is logarithmic (floor ℓ ~ ¼·ln(X/4π)), consistent with the PT-floor audit ' +
+      '(verified height binds). A hand-check (Fable-5, adversarial) found the novel layer sound and ' +
+      'the residual risk confined to an unrefereed ~8pp Polymath-grade re-derivation (AF §§4–5); the ' +
+      'preprint is a plausible-but-unverified candidate, NOT peer-reviewed, and does not move Λ. ' +
+      'PT Λ ≤ 0.2 remains the benchmark. See the /lambda-bounds ladder entry.',
   },
 
   // ── the unconditional floor ────────────────────────────────────────────

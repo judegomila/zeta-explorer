@@ -176,7 +176,11 @@ export const LAMBDA_BOUNDS = [
       'has NOT undergone external peer review, is "not a formalisation of the analytic proof", and ' +
       'verification "does not mechanically prove every analytic argument" (AI-assisted); not a proof ' +
       'of RH. Numerically below this project\'s own unreviewed candidates, but at the same ' +
-      '(unrefereed) epistemic grade. Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
+      '(unrefereed) epistemic grade. Notably it lands INSIDE this program’s independently-derived ' +
+      'Route VII floor [0.145, 0.150], and its own Part II Theorem 2 (kernel lever exhausted; only ' +
+      'remaining in-architecture lever = a joint two-point source estimate, declared OPEN) corroborates ' +
+      'the "new mechanism needed below ≈0.145" prediction (see /frontier-dag · t↓0 program floor). ' +
+      'Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
   },
   {
     id: 'permutation-completion-contract-014',

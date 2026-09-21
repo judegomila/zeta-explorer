@@ -1,0 +1,56 @@
+{
+  "mode": "tiercert2", "prec": 128, "degree": 80, "bins": 64, "edeg": 33, "threads": 14,
+  "threshold": 0.27968819555261474, "rexExact": 0.2796881955526244146123,
+  "metric": "both", "uRange": [801546.66000000003, 829186.19999999995],
+  "setupSeconds": 2.5,
+  "ledger": {
+    "side0": {"chartM": 690988, "lipAlias": 44.476492698, "lip2Derot": 39.811544553, "staticOverhang": 0.676493918,
+      "lipPilotOld": 84.769080, "lipE97": 91.492276, "panelHalfWidthX": 3.139212110, "panelWidthU": 0.499621125, "degree": 80},
+    "side1": {"chartM": 690989, "lipAlias": 44.476477312, "lip2Derot": 39.811524713, "staticOverhang": 0.676494499,
+      "lipPilotOld": 84.769033, "lipE97": 91.492222, "panelHalfWidthX": 3.139211792, "panelWidthU": 0.499621074, "degree": 80}
+  },
+  "tier2Ledger": {"bins": 64, "envelopeDegree": 33, "envBudget": 5.000e-15,
+    "side0": {"chartM": 690988, "HXsolved": 97.5636, "HXused": 97.3156, "panelsPerSuper": 31, "superWidthU": 15.488255,
+      "deltaMax": 0.049868, "pairsNonempty": 920, "rEnvTotal": 4.585e-15, "kTailTotal": 2.722e-12, "maxClassRem2": 1.364e-12, "level1RemTarget": 1e-14},
+    "side1": {"chartM": 690989, "HXsolved": 97.5636, "HXused": 97.3156, "panelsPerSuper": 31, "superWidthU": 15.488253,
+      "deltaMax": 0.049868, "pairsNonempty": 920, "rEnvTotal": 4.585e-15, "kTailTotal": 2.722e-12, "maxClassRem2": 1.363e-12, "level1RemTarget": 1e-14}
+  },
+  "sides": [
+    {"side": 0, "chartM": 690988, "supers": 1785, "panels": 55321, "cellsTaylor": 116027397, "cellsTierP": 0,
+     "tierB0": 64352081, "tierBsub": 34403253, "tierP": 0, "tierSseamCells": 0,
+     "failPilot": 0, "failE97": 0, "pilotGapCells": 0, "unprocessedPanels": 0,
+     "certifiedSupUbPilot": 0.27968819071121043, "certifiedSupUbE97": 0.27968819478761181,
+     "maxBallRad": 6.371e-12, "maxTelescopeRad": 1.212e-11,
+     "C1_pilot_certified": true, "C2_e97_certified": true,
+     "superCpuSeconds": 7131.2, "reconCpuSeconds": 6852.6, "cellCpuSeconds": 8306.4, "wallSeconds": 1718.0,
+     "uncertifiedCells": []},
+    {"side": 1, "chartM": 690989, "supers": 1785, "panels": 55322, "cellsTaylor": 116028223, "cellsTierP": 0,
+     "tierB0": 64350554, "tierBsub": 34404865, "tierP": 0, "tierSseamCells": 0,
+     "failPilot": 0, "failE97": 0, "pilotGapCells": 0, "unprocessedPanels": 0,
+     "certifiedSupUbPilot": 0.27968819481758761, "certifiedSupUbE97": 0.27968819469782957,
+     "maxBallRad": 6.371e-12, "maxTelescopeRad": 1.212e-11,
+     "C1_pilot_certified": true, "C2_e97_certified": true,
+     "superCpuSeconds": 7019.4, "reconCpuSeconds": 6785.6, "cellCpuSeconds": 8183.4, "wallSeconds": 1704.6,
+     "uncertifiedCells": []}
+  ],
+  "measured": {
+    "sliceXUnits": 6.946574e+05, "cpuSeconds": 44278.6, "cpuSecondsPerXUnit": 0.0637,
+    "superSecondsPerXUnit": 0.0204, "reconSecondsPerXUnit": 0.0196, "cellSecondsPerXUnit": 0.0237,
+    "cellsPerXUnit": 334.06, "ballOpsEstimate": 3.0835e+12, "ballOpsPerXUnit": 4.4389e+06,
+    "secondsPerBallOp": 1.436e-08
+  },
+  "fullWindowExtrapolation": {
+    "fullXUnitsBothSides": 3.473287e+07,
+    "cpuDaysAtSliceRate": 25.6,
+    "superPlusReconFloorCpuDays": 16.1,
+    "ballOpsFullWindowAtSliceRate": 1.5418e+14,
+    "level1MeasuredCpuSecondsPerXUnit": 0.9408, "level1FullWindowCpuDays": 378.2,
+    "directBaselineCpuDays": 1.64e5, "designTierBudgetBallOps": 1.1e13,
+    "speedupVsLevel1": 14.76, "speedupVsDirect": 6400.2
+  },
+  "fullWindowBothSides": false,
+  "promotionFlag": false,
+  "certifiedSubRange": true,
+  "wallSeconds": 3425.1,
+  "honesty": "tier-2 chirp-level slice: certified continuum sup bounds hold only on the covered uRange and sides; identical cell criterion, ledgers, telescope gate and Tier-P fallback as level 1 (shared code); sub-range runs can never set the promotion flag; promotes no Lambda bound; NO QED; PT Lambda<=0.2 benchmark"
+}

@@ -2318,6 +2318,32 @@ export const LAMBDA_ROADMAP_MILESTONES = [
       'preprint margin can be hardened by re-optimizing its S/B ratio. Proves no ' +
       'constant irrational; maps and attacks the obstructions. NO QED.',
   },
+  {
+    id: 'sub-014-objective',
+    label: 'PRIMARY OBJECTIVE: a Λ ≤ 0.14 (or below) upper bound — barrier localized',
+    date: '2026-09-21',
+    kind: 'objective',
+    summary:
+      'The program\'s standing primary target: an unconditional Λ upper bound at 0.14 or below ' +
+      '(toward Λ→0 / RH). Status after the multi-round assault: NOT achieved, but the barrier is ' +
+      'now LOCALIZED to a single object. Every route (the six-mechanism assault, the permutation ' +
+      'architecture\'s five levers, the joint two-point estimate) collapses to a POINTWISE lower ' +
+      'bound on the Hilbert transform of the H_t zero-counting measure at an arithmetically-fixed ' +
+      'abscissa above verified height 3×10¹² = Montgomery-PCC / flow-blindness. Phase-blind, energy, ' +
+      'and continuum-uniform methods provably give 0 (proved no-gos). ONE genuinely-open non-PCC crack ' +
+      'survives: the vertical linger budget d(y²)/dτ ≤ −2 for the topmost complex zero (unconditional, ' +
+      'covers the thin y-band y_top ≲ 0.141) — under active work to discharge the topmost-zero ' +
+      'hypothesis. Independent external corroboration of the floor: Raymond\'s Λ<0.149396 lands at ' +
+      '[0.145,0.150] and its exhaustion theorem matches the "new arithmetic input needed below ≈0.145".',
+    tickets: ['imp-95519', 'imp-95525', 'imp-95526', 'imp-95527', 'imp-95528'],
+    ticketRange: 'imp-95519 (A_{k,h} localized sum) · 95525 (anchor/seam-phase) · 95526 (NC(κ) gate) · 95527 (vertical linger — LIVE) · 95528 (SOR)',
+    relationToLambdaAttack:
+      'This IS the Λ attack\'s current quantitative frontier. PT Λ≤0.2 remains the peer-reviewed SOTA; ' +
+      'the program\'s unreviewed candidates (0.1758354, 0.1787854) and the 0.14 completion contract sit ' +
+      'above/at this line. Closing sub-0.14 unconditionally requires either the one non-PCC lemma ' +
+      '(thin band only) or genuinely new arithmetic input against the localized Hilbert-transform ' +
+      'object. NO false QED; RH open.',
+  },
 ];
 
 // Patch the master record to expose milestones now that the array exists.

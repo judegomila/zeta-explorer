@@ -17350,6 +17350,20 @@ const DATA_MODULES = [
   '/src/data/irrationality-pipeline.js',
   '/src/data/sun-catalan-note.js',
   '/src/data/imp-95516-sun-catalan-objective-verdict.js',
+  // imp-95520 (opus-4-7, frontier): verdict on the OBJECTIVE — aim the
+  // signed-coalescence pencil (imp-95511 SPEC-INT/NO-PF, imp-95509 mean-time
+  // pencil) at the Weil/Guinand explicit-formula quadratic form on the
+  // Weil-positivity axis. HONEST PARTIAL: the structural port is exact (the
+  // prime side is a signed sum over the union of geometric lattices {p^k}
+  // with fixed arithmetic weights (log p)p^(-k/2)), and the finite-truncation
+  // verdict is (a) NO-PF is DISTINCT from the truncated-Weil indefiniteness
+  // and (b) the SGN-C/COAL-N one-sided bound is INERT against W. The hollow
+  // (zero-trace) prime-only form is necessarily indefinite (2-node ±w,
+  // 4-node star ±√(w2²+w3²+w5²)), so the archimedean positive-definite term
+  // is structurally essential. Named sub-gap = the missing positive-type-cone
+  // form comparison carrying the archimedean majorant. Import-free, 7
+  // assertions verified green before wiring. RH OPEN; PT Λ≤0.2 stands; NO QED.
+  '/src/data/imp-95520-weil-positivity-pencil-port-verdict.js',
 ];
 
 let ALL_MODULES = FAST_MODE

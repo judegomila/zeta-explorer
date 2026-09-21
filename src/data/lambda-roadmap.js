@@ -2330,11 +2330,18 @@ export const LAMBDA_ROADMAP_MILESTONES = [
       'architecture\'s five levers, the joint two-point estimate) collapses to a POINTWISE lower ' +
       'bound on the Hilbert transform of the H_t zero-counting measure at an arithmetically-fixed ' +
       'abscissa above verified height 3×10¹² = Montgomery-PCC / flow-blindness. Phase-blind, energy, ' +
-      'and continuum-uniform methods provably give 0 (proved no-gos). ONE genuinely-open non-PCC crack ' +
-      'survives: the vertical linger budget d(y²)/dτ ≤ −2 for the topmost complex zero (unconditional, ' +
-      'covers the thin y-band y_top ≲ 0.141) — under active work to discharge the topmost-zero ' +
-      'hypothesis. Independent external corroboration of the floor: Raymond\'s Λ<0.149396 lands at ' +
-      '[0.145,0.150] and its exhaustion theorem matches the "new arithmetic input needed below ≈0.145".',
+      'and continuum-uniform methods provably give 0 (proved no-gos). The last candidate non-PCC crack ' +
+      'is now CLOSED (imp-95527, 2026-09-21): the vertical linger budget d(y²)/dτ ≤ −2 has an exact ' +
+      'pair-interaction formula (verified 8.5e-14) in which a nearly-STACKED pair above (Δ² < y_k²−y_j²) ' +
+      'contributes POSITIVE — so the PER-TRAJECTORY budget with a zero\'s own height is REFUTED (a lower ' +
+      'zero can rise, e.g. +16.2 at y_j=0.1 under y_k=0.12, Δ=0), and "first-contact = topmost" is FALSE. ' +
+      'Only the ENVELOPE form Y(t)=max y_j², D⁺Y ≤ −2 survives — but that IS de Bruijn 1950 Thm 13 = ' +
+      'Polymath15 Thm 3.2 (the propagation step already inside the PT Λ≤t₀+y₀²/2 argument), adds NO ' +
+      'exclusion power to NC(κ), and its thick band reduces to NC(κ)=PCC. So sub-0.14 is now fully ' +
+      'characterized as PCC-walled: every route needs new arithmetic input against the Hilbert-transform ' +
+      'object, or more verified height (out of reach). Independent external corroboration of the floor: ' +
+      'Raymond\'s Λ<0.149396 lands at [0.145,0.150] and its exhaustion theorem matches "new arithmetic ' +
+      'input needed below ≈0.145".',
     tickets: ['imp-95519', 'imp-95525', 'imp-95526', 'imp-95527', 'imp-95528'],
     ticketRange: 'imp-95519 (A_{k,h} localized sum) · 95525 (anchor/seam-phase) · 95526 (NC(κ) gate) · 95527 (vertical linger — LIVE) · 95528 (SOR)',
     relationToLambdaAttack:

@@ -151,6 +151,34 @@ export const LAMBDA_BOUNDS = [
       'Platt–Trudgian Λ ≤ 0.2 remains the benchmark.',
   },
   {
+    id: 'external-preprint-raymond-0149396',
+    label: 'Third-party public preprint claim: Λ ≤ 0.149396 (Raymond)',
+    kind: 'upper-public-preprint',
+    value: 0.149396,
+    exactRational: '18674384228461/125000000000000 = 0.149395073827688',
+    claimedUnconditional: true,
+    established: false,
+    countsAsEstablishedUpperBound: false,
+    accepted: false,
+    published: true,
+    peerReviewed: false,
+    status: 'public-preprint-review-open',
+    href: 'https://doi.org/10.5281/zenodo.22867547',
+    source: 'Dale James Raymond, "Correlated translated probes and the bound Λ < 0.149396 for the de Bruijn–Newman constant", Zenodo 22867547 (2026-09-21)',
+    note:
+      'EXTERNAL, THIRD-PARTY, UNREFEREED computer-assisted preprint (not this project). ' +
+      'Method: a finite-head localisation wall + uniform logarithmic-derivative estimates + a ' +
+      'decreasing zero-height barrier, with the key refinement that nonnegative surplus terms in a ' +
+      'one-point value–derivative inequality cannot realise their separate worst cases at two ' +
+      'prescribed translations simultaneously (the "correlated translated probes"), plus the finite ' +
+      'Euler logarithmic derivative. It CITES Gomila\'s Λ ≤ 0.1787854 (Aug 2026) FOR CONTEXT — not ' +
+      'as a proof input; the 0.149396 bound is its own independent construction. Author states it ' +
+      'has NOT undergone external peer review, is "not a formalisation of the analytic proof", and ' +
+      'verification "does not mechanically prove every analytic argument" (AI-assisted); not a proof ' +
+      'of RH. Numerically below this project\'s own unreviewed candidates, but at the same ' +
+      '(unrefereed) epistemic grade. Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
+  },
+  {
     id: 'permutation-completion-contract-014',
     label: 'Strict Λ ≤ 0.14 completion contract (fail-closed — a contract, not a bound)',
     kind: 'completion-contract',

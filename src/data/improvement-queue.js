@@ -90504,6 +90504,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'high',
     dependsOn: ['imp-95517'],
   },
+  {
+    id: 'imp-95519',
+    title: 'OBJECTIVE — Prove an unconditional √-cancellation bound for the localized barrier sum A_{k,h} = Σ_n Λ(n)·K_k(n)·e(hn/p) (the single object all six 0.14-assault mechanisms collapse to)',
+    category: 'research',
+    priority: 'high',
+    status: 'pending',
+    proofSection: 'sub-0.14',
+    description: "The 2026-09-21 six-mechanism Λ<0.14 assault (contract, joint-two-point, twin-ladder, weld, frozen-perm, hybrid) found NO break but LOCALIZED the entire barrier onto ONE named object: the von Mangoldt–weighted, Fresnel–Airy-twisted Kloosterman/Ramanujan sum A_{k,h} = Σ_n Λ(n)·K_k(n)·e(hn/p) (the weld [B_v,Π_p]'s one cancellation-bearing scalar; a_h(n)=−(1/p)e(hn/p), Ramanujan sum −1 verified). The SAME object appears as Lever B's off-diagonal Σ_{j≠k}c_jc_k cos((ν_j−ν_k)a). OBJECTIVE: prove an unconditional square-root-cancellation estimate for A_{k,h}, uniform over the seam window 690988≤N≤54799999 and both charts — the analytic ingredient that would close the 0.14 contract's one open family (conditional sub-0.14). Do the math (analyst work, NO HPC; do NOT use the dead O(N²) atlas or more finite-N sweeps). HONEST framing: over zeros this is Montgomery-PCC (RH-hard); over PRIMES it is a genuine explicit-formula exponential-sum estimate but re-binds on verified height via Vinogradov–Korobov — so decide which side is attackable and whether the prime-side bound is unconditional or height-bound. SECOND obligation flagged: even a proven A_{k,h} bound needs a CHANNEL BRIDGE from the seam/ν-strip channel to the t↓0 tail channel (verify_tail_arb N1* ladder) — two obligations, not one. Deliverable: a proved bound + certification spec, or the exact failing inequality. NO false QED; PT Λ≤0.2 stands.",
+    rationale: 'The six-mechanism assault localized the whole sub-0.14 barrier (and the sub-0.145 wall in Raymond\'s architecture) onto this single exponential sum — the highest-value concrete open target the program has toward 0.14.',
+    estimatedComplexity: 'high',
+    dependsOn: [],
+  },
 ];
 
 // ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────

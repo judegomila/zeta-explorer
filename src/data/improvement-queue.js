@@ -90576,6 +90576,18 @@ export const IMPROVEMENT_QUEUE = [
     estimatedComplexity: 'low',
     dependsOn: [],
   },
+  {
+    id: 'imp-95525',
+    title: 'OBJECTIVE — Recover the anchor cell |E₉₇|(690988)=0.2141254901198318 (double-double) + the 3 missing evaluator inputs → forces the seam-phase ψ_j(N) that unlocks Lever 4 (the only live route to a conditional sub-0.14)',
+    category: 'research',
+    priority: 'critical',
+    status: 'pending',
+    proofSection: 'sub-0.14',
+    description: "CONVERGENT next step from BOTH 0.14 assaults (2026-09-21). The perm-arch assault reduced the whole open family to one scalar contract |C_E,17| ≤ Q·√S̄ (√S̄=0.19522203; close ⟺ Q_sup < R_ex/√S̄ = 1.39930; anchor forces Q ≥ 1.09683; 30.6% headroom window) AND proved a NO-GO (imp-95053-rss-floor-phase-blind-nogo): every phase-blind/energy majorant on the five shells is ≥ m/√5 = 0.41099 > R_ex = 0.27969, overshooting by ≥1.47× — so levers 1/2/3 and ALL their combinations structurally cannot fit the 0.0655627 reserve (achievable only via inter-shell phase cancellation). The ONLY live route is Lever 4 (sampled-sup ⊕ Lipschitz-in-N — the sole PHASE-AWARE route), blocked on ONE thing: the paper's explicit seam-phase ψ_j(N)/v(N), currently unrecoverable (native gate2-lane-a misses the anchor by 49–96% under every tested convention; the producing archive strict_sub014_extension_v1/ is absent). OBJECTIVE: recover the 3 evaluator inputs (compute_exact_N, sB(x), the carrier normalization) and reproduce the anchor cell to double-double precision. Reproducing it FORCES ψ_j(N), converting Lever 4's crux (a phase-velocity bound ω(N) ≤ κ/(2√N) distinguishing smooth/stationary-phase → closes vs raw prime-alias comb → fails) from 'needs new math' to 'needs one incremental sweep (~5e8 ops)'. Recovery task, cheap compute. Deliverable: the replayed anchor + ψ_j(N), then the Lever-4 phase-velocity verdict (smooth ⇒ conditional sub-0.14 certificate spec; comb ⇒ soft route provably fails). Even full closure = an unrefereed, provenance-tainted CONDITIONAL sub-0.14, NOT a peer-reviewed bound. PT Λ≤0.2 stands; NO QED. Note: this is the SAME phase object as imp-95519's A_{k,h} and Raymond's open joint-two-point lever — three architectures, one missing arithmetic-phase input.",
+    rationale: 'Both the broad six-mechanism assault (→ A_{k,h}) and the perm-arch five-lever assault (→ phase-blind no-go + Lever-4-only) converge on this single gate: recover the anchor/seam-phase. It is the highest-leverage concrete unblock toward a conditional sub-0.14 and it de-taints the provenance gap simultaneously.',
+    estimatedComplexity: 'high',
+    dependsOn: [],
+  },
 ];
 
 // ── imp-2538: queue-side sub-gap sync tripwires ──────────────────────────────

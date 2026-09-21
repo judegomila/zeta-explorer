@@ -202,9 +202,11 @@ export const NODES = [
       'which it declares an OPEN research problem ("a possibility, not a proven gain"). That is exactly ' +
       'this node’s "a new mechanism is needed below ≈0.145–0.150" shape, reached independently. Its ' +
       'height-binding is logarithmic (floor ℓ ~ ¼·ln(X/4π)), consistent with the PT-floor audit ' +
-      '(verified height binds). A hand-check (Fable-5, adversarial) found the novel layer sound and ' +
-      'the residual risk confined to an unrefereed ~8pp Polymath-grade re-derivation (AF §§4–5); the ' +
-      'preprint is a plausible-but-unverified candidate, NOT peer-reviewed, and does not move Λ. ' +
+      '(verified height binds). Two adversarial Fable-5 checks: the novel layer (correlated probes) is ' +
+      'sound, AND the residual-risk ~8pp Polymath-grade re-derivation (AF §4.1, −1≤σ≤2 extension) was ' +
+      'independently verified SOUND line-by-line vs Polymath15 §6 — so the corroborating bound is a ' +
+      'strong, analytic-core-verified candidate (remaining unverified: AF §§6–12 + the 2.7M-row replay), ' +
+      'NOT peer-reviewed, and does not move Λ. ' +
       'PT Λ ≤ 0.2 remains the benchmark. See the /lambda-bounds ladder entry.',
   },
 

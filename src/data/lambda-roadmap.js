@@ -180,7 +180,16 @@ export const LAMBDA_BOUNDS = [
       'Route VII floor [0.145, 0.150], and its own Part II Theorem 2 (kernel lever exhausted; only ' +
       'remaining in-architecture lever = a joint two-point source estimate, declared OPEN) corroborates ' +
       'the "new mechanism needed below ≈0.145" prediction (see /frontier-dag · t↓0 program floor). ' +
-      'Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
+      'DE-RISKED (2026-09-21): the single load-bearing unchecked step — the AI-assisted re-derivation ' +
+      'of Polymath15 effective-approximation theory (AF §4.1 eqs 4.2–4.5, extended to −1≤σ≤2) — was ' +
+      'independently verified SOUND by a line-by-line check against Polymath15 (arXiv:1904.12438 §6, ' +
+      'eqs 62–64) + numerical replay at 6×10¹²: the one genuine σ≥0 step (the δ₃ remainder) is ' +
+      'correctly repaired (valid since his t≤0.164<1/5), the caps R₀/R₁ feed a sound inequality, and ' +
+      'the "wrong re-derivation passes every finite replay" failure mode is excluded. Remaining ' +
+      'unverified trust surfaces: AF §§6–12 (time-variation, kernel catalogue, coupling), the ' +
+      '0.1511→0.149395 rung ladder, and execution of the 2.7M-row replay — so it is a strong, ' +
+      'analytic-core-verified candidate, still NOT peer-reviewed and still pinned to verified height ' +
+      '≈3×10¹². Platt–Trudgian Λ ≤ 0.2 remains the accepted peer-reviewed benchmark.',
   },
   {
     id: 'permutation-completion-contract-014',

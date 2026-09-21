@@ -12754,6 +12754,21 @@ const DATA_MODULES = [
   // smooth is a NECESSARY non-generic condition (leaning raw / burden-on-smooth).
   // Assessment only; changes no bound; NO QED; PT Lambda<=0.2 remains SOTA.
   '/src/data/imp-95052-carrier-phase-regime-assessment.js',
+  // imp-95053 (proof/no-go, opus-4-8, api-pool): phase-blind no-go sharpening
+  // imp-95006. The strongest bound the five-shell orthogonality + reproducing-
+  // kernel lever can yield is the orthogonal RSS majorant rho_RSS =
+  // sqrt(sum_g |z_g|^2); by Cauchy-Schwarz rho_RSS >= m/sqrt(n) for the total
+  // shell mass m, and at the documented m = 0.919 that floor is 0.41099 > R_ex =
+  // 0.27969 for EVERY mass distribution (documented shape 0.43592, factor 1.56;
+  // l1 tiling 0.919, factor 3.29). So no phase-blind (magnitude-only) majorant
+  // fits the 0.0655627 reserve; the value sits a factor ~2.04 below rho_RSS by
+  // pure phase coherence. The all-ones quadratic form z*Jz (spectrum {5,0,0,0,0})
+  // shows the enclosure needs z pinned to the bottom (destructive) eigenspace,
+  // NOT enforced by the anti-Hermitian complement (imp-95009: spec(A_+) not
+  // symmetric). The exact obstruction reduces to the arithmetic stationary-phase
+  // question of imp-95052 (smooth sqrt-N vs raw N comb). Proved OBSTRUCTION,
+  // refutes the phase-blind route class; changes no bound; NO QED; PT <= 0.2 SOTA.
+  '/src/data/imp-95053-rss-floor-phase-blind-nogo.js',
   // imp-95049 (numerical, opus-4-8, api-pool): independent cross-check of the
   // Gate-2 raw-tiling cell-count lower bound rawTilingCellLowerBound = 7.2e26
   // baked in the imp-95012 spec. Re-derives it from the four stated ingredients
@@ -17325,6 +17340,16 @@ const DATA_MODULES = [
   // self-executing assertions. Changes no bound; NO QED; Platt-Trudgian
   // Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95511-spectral-interpolation-oscillation.js',
+  // App-robustness sweep (registration): four self-contained (import-free) data
+  // modules that export a *_ASSERTIONS array ({name, check} shape) but were never
+  // wired into DATA_MODULES, so their build-time tripwires never ran in node CI.
+  // All verified green (6/6, 5/5, 4/4, 5/5) before wiring. Each backs a page
+  // (CatalanSignedLadderPage / IrrationalityPipelinePage / SunCatalanNotePage).
+  // No Λ movement; PT Λ≤0.2 stands; NO QED.
+  '/src/data/catalan-signed-ladder.js',
+  '/src/data/irrationality-pipeline.js',
+  '/src/data/sun-catalan-note.js',
+  '/src/data/imp-95516-sun-catalan-objective-verdict.js',
 ];
 
 let ALL_MODULES = FAST_MODE

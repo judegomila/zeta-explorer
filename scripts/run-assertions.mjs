@@ -17710,6 +17710,15 @@ const DATA_MODULES = [
   // citation). Documentation only; no bound change; import-light, 8
   // self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95457-off-lattice-riesz-floor-status-note.js',
+  // imp-95473 (sonnet-4-6, content): honest-status note recording the
+  // imp-95451 SPLIT-LOO S1 pipeline link-by-link direction verdict for a
+  // reader who has not read imp-95451 in full: LINK1/2/3 safe within the
+  // model family, and the U2 numeric sub-gap it left open has since been
+  // closed by imp-95479; the only surviving unverified boundary is U1, which
+  // IS the pre-existing imp-95376 LEG B cross-family obligation, not a new
+  // gap. Documentation only; no bound change; PT Lambda <= 0.2 stands;
+  // NO QED.
+  '/src/data/imp-95473-splitloo-s1-pipeline-verdict-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

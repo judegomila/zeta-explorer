@@ -112,8 +112,12 @@ const raThm3UB = (N) => 1 / Math.pow(N, 1.5);
 const THREE_PART_RESIDUAL = Object.freeze([
   Object.freeze({
     key: 'ra-a-zeta-zeros-data-audit',
-    what: 'ZETA_ZEROS / Odlyzko data audit of the recorded ladder inputs.',
-    status: 'open',
+    what:
+      'ZETA_ZEROS / Odlyzko data audit of the recorded ladder inputs -- ' +
+      'DELIVERED (detection + repair) by imp-2563; narrowed to the single ' +
+      'unexecuted high-N exact recompute (imp-2563-sub-pathc-ladder-' +
+      'replace-highN), per the imp-95448 audit.',
+    status: 'delivered-except-high-n',
   }),
   Object.freeze({
     key: 'ra-b-pathc-ladder-replacement',
@@ -217,7 +221,10 @@ export const IMP95372_RA_PROXY_TRUE_GAP_ASSESSMENT_ASSERTIONS = [
       return (
         /1\/\(2 M_infty/.test(a.raDefinition) &&
         a.threePartResidual.length === 3 &&
-        a.threePartResidual.every((p) => p.status === 'open')
+        a.threePartResidual.find((p) => p.key === 'ra-a-zeta-zeros-data-audit')?.status ===
+          'delivered-except-high-n' &&
+        a.threePartResidual.find((p) => p.key === 'ra-b-pathc-ladder-replacement')?.status === 'open' &&
+        a.threePartResidual.find((p) => p.key === 'ra-c-imp1149-theorem3-regrade')?.status === 'open'
       );
     },
   },

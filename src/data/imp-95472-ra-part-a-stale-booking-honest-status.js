@@ -53,9 +53,9 @@ export const IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS = {
   statements: {
     S1_booking_is_stale: {
       claim:
-        'imp-95372 books R_A part (a) -- the ZETA_ZEROS/Odlyzko data audit of the ladder inputs -- with ' +
-        'status "open", but imp-95448 found it was already DELIVERED (detection + repair) by imp-2563, ' +
-        'making the bare "open" booking stale.',
+        'imp-95372 booked R_A part (a) -- the ZETA_ZEROS/Odlyzko data audit of the ladder inputs -- with ' +
+        'bare status "open", but imp-95448 found it was already DELIVERED (detection + repair) by imp-2563; ' +
+        'the parent booking has since been reconciled to record status "delivered-except-high-n".',
       parentPartAStatus: IMP95372_RA_PROXY_TRUE_GAP_ASSESSMENT.threePartResidual.find(
         (p) => p.key === 'ra-a-zeta-zeros-data-audit',
       )?.status,
@@ -99,10 +99,13 @@ export const IMP95472_HONEST_STATUS_NOTE_ASSERTIONS = [
       /HIGH-N/.test(IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.headline),
   },
   {
-    id: 'imp95472-parent-booking-still-says-open-audit-says-stale',
-    description: 'The parent module still books part (a) as "open" while the audit records that booking as stale',
+    id: 'imp95472-parent-booking-reconciled-audit-says-stale',
+    description:
+      'The parent module now records the reconciled "delivered-except-high-n" status while the audit ' +
+      'that motivated the reconciliation still records the original booking as having been stale',
     holds: () =>
-      IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.statements.S1_booking_is_stale.parentPartAStatus === 'open' &&
+      IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.statements.S1_booking_is_stale.parentPartAStatus ===
+        'delivered-except-high-n' &&
       IMP95472_RA_PART_A_STALE_BOOKING_HONEST_STATUS.statements.S1_booking_is_stale.auditFoundStale === true,
   },
   {

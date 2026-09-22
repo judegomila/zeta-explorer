@@ -17727,6 +17727,15 @@ const DATA_MODULES = [
   // onset. Documentation only; no bound change; PT Lambda <= 0.2 stands;
   // NO QED.
   '/src/data/imp-95475-xstar-unif-onset-robust-honest-status.js',
+  // imp-95490 (sonnet-4-6, sonnet, content): honest-status note recording
+  // the imp-95426 verdict that THEOREM DIRECT-2 is uniformly the tightest
+  // of the three closed-form two-block seam bounds (never worse than
+  // min(SPLIT-2, SPLIT-LOO), up to ~12% tighter for asymmetric blocks) but
+  // still leaves the sigma -> 1 collar residual wedge against the exact
+  // joint pencil open (same 1/(1-sigma^2) collar; collapses to SPLIT-2 at
+  // L1=L2). Documentation only; no bound change; PT Lambda <= 0.2 stands;
+  // NO QED.
+  '/src/data/imp-95490-direct2-collar-residual-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -492,6 +492,20 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
     zeroFreeLo: ZF_LO,
     zeroFreeHi: ZF_HI,
     vkCrossoverLogT: VK_CROSSOVER_LOGT,
+    // imp-95563: measure the VK-vs-classical crossover and locate it relative to the window heights.
+    zeroFreeCrossoverAudit: {
+      ticket: 'imp-95563',
+      crossoverLogT: VK_CROSSOVER_LOGT, // ~1.0242e4: log t at which Ford (VK) width overtakes MTY classical
+      windowLogT: [Math.log(heightT(N_LO)), Math.log(heightT(N_HI))], // [28.7296, 37.4763] for T in [3.0e12, 1.89e16]
+      crossoverOverWindowTop: VK_CROSSOVER_LOGT / Math.log(heightT(N_HI)), // ~273x above the window top
+      classicalWidth: [ZF_LO.classical, ZF_HI.classical], // 6.2618e-3 / 4.8003e-3
+      vkWidth: [ZF_LO.vk, ZF_HI.vk], // 1.2372e-3 / 1.0104e-3 (VK narrower = weaker at both ends)
+      classicalOverVkRatio: [ZF_LO.classical / ZF_LO.vk, ZF_HI.classical / ZF_HI.vk], // 5.06 / 4.75
+      perZeroFactor: [ZF_LO.perZeroFactor, ZF_HI.perZeroFactor], // 0.8450 / 0.8428 (unconditional classical saving, near-flat)
+      classicalStrongerThroughout: true,
+      verdict:
+        'CONFIRMED: the classical Mossinghoff-Trudgian-Yang region 1/(5.558691 log t) is the operative (wider = stronger) unconditional zero-free region across the ENTIRE window. The window heights carry log t in [28.73, 37.48], while the Ford (Vinogradov-Korobov) width 1/(57.54 (log t)^{2/3}(loglog t)^{1/3}) overtakes it only at log t ~ 1.0242e4 (t ~ exp(1.02e4), ~273x above the window top) -- utterly beyond reach. Classical is 5.06x/4.75x wider than VK at N_lo/N_hi. The unconditional per-zero saving exp(-cl log u) is ~0.845 (near-flat across the window), so an RH-strength half-strip would buy a per-zero factor already ~0.845 unconditionally; RH remains inert at the operative Fresnel width (rhBarrierRatio > 1, prime side). Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+    },
     heightDeficitQ97: HEIGHT_DEFICIT_Q97,
     gaussPlancherelResiduals: [GP_RESID_P7, GP_RESID_P13, GP_RESID_P97],
     gaussPlancherelResidualsAllPrimes: {

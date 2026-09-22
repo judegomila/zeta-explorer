@@ -17416,6 +17416,19 @@ const DATA_MODULES = [
   // imp-95212 port stays open). Restatement only, no new derivation, 4
   // assertions. No bound; PT stands; NO QED.
   '/src/data/imp-95436-seam-port-split-verdict-writeup.js',
+  // Registered late -- were git-tracked with exported *_ASSERTIONS arrays but
+  // missing from DATA_MODULES, so their assertions were silently never run
+  // (imp-95437 audit of the imp-95374..imp-95420 finding-module batch).
+  '/src/data/imp-95379-precision-replay-multiply-mix.js',
+  '/src/data/imp-95380-karatsuba-crossover.js',
+  '/src/data/imp-95383-ymin-xmin-collapse-extension.js',
+  '/src/data/imp-95385-theta-dichotomy-crossval.js',
+  '/src/data/imp-95388-seam-chain-obligation-ledger.js',
+  '/src/data/imp-95391-split2-splitloo-crossover-viz-data.js',
+  '/src/data/imp-95395-seam-gate-nonmonotone-branch-admissibility.js',
+  '/src/data/imp-95400-precision-replay-karatsuba-band.js',
+  '/src/data/imp-95401-tier2-multiply-mix-localization.js',
+  '/src/data/imp-95403-evoct-onset-joint-pencil-crossval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

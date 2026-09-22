@@ -17531,6 +17531,19 @@ const DATA_MODULES = [
   // height only for T < T_X (3.882 at 3e12). Import-free, 5 self-executing
   // assertions. No bound change; PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95533-res-t-standalone-lemma.js',
+  // imp-95557 (opus-4-8, api-pool): measures the DECAY SCALING of the imp-95531
+  // PD-persistence window W(S) = mu_S(0)/M1 vs node count n for structured
+  // families. Finding: the exponent tracks node SPREAD, not count. Densely
+  // spaced nodes (arithmetic, geometric r=1.5) collapse near-exponentially
+  // W ~ exp(-c n), c = 4.19 / 4.52, R^2 = 0.999 / 0.997; exponentially spread
+  // nodes (dyadic r=2, geometric r=3) DECELERATE (per-step 21 -> 1.4, slope
+  // -1.74, R^2 0.87 = curving), far more persistent. mu_S(0) sinks below the
+  // ~1e-10 float64 noise floor by n ~ 5-8 (Cauchy-Gram condition super-exp), so
+  // W cannot be resolved to 1.15e-11 in double precision — the tightest dyadic
+  // family is still 2.4e5 x the collision threshold at its last resolvable n=8.
+  // New sub-gap W-DECAY-PRECISION (needs double-double/Arb). Import-light
+  // (eps0Window), 6 self-executing assertions. No bound; PT Lambda <= 0.2; NO QED.
+  '/src/data/imp-95557-w-decay-scaling.js',
   // imp-95534 (opus-4-8, sub-0.14 frontier): can the imp-95519 zero-side
   // alpha_{k,h} > 1 PCC-gating (59.26 percent of the p = 97 majorant mass out of
   // Montgomery range) be pulled in-range by a different Fresnel width or

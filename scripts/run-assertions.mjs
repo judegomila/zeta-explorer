@@ -17719,6 +17719,14 @@ const DATA_MODULES = [
   // gap. Documentation only; no bound change; PT Lambda <= 0.2 stands;
   // NO QED.
   '/src/data/imp-95473-splitloo-s1-pipeline-verdict-honest-status.js',
+  // imp-95475 (sonnet-4-6, content): honest-status note recording the
+  // imp-95259 verdict that the imp-95250 XSTAR_UNIF = 27.035582
+  // unbounded-count firing onset is robust to PhiUnif tightening -- the
+  // crude tail bound sits within one ulp of the exact infinite
+  // cross-Blaschke product, so a tighter closed form does not move the
+  // onset. Documentation only; no bound change; PT Lambda <= 0.2 stands;
+  // NO QED.
+  '/src/data/imp-95475-xstar-unif-onset-robust-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

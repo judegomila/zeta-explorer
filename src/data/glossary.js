@@ -21489,6 +21489,29 @@ export const glossary = [
       'imp-95332 THEOREM RZ-PEN6 caps the per-chart tail leg (imp-95332)',
     ],
   },
+  {
+    term: 'Gaussian subordination / the Carneiro-Littmann-Vaaler extremal minorant',
+    category: 'framework',
+    definition:
+      'A function f is a Gaussian-subordination class member if it is a nonnegative mixture of ' +
+      'Gaussians, f(w) = int_0^inf e^(-w^2 t) p(t) dt for some probability density p on (0, inf). ' +
+      'The seam-Gram kernel sech(pi w) is such a mixture (imp-95419 LEMMA MIX): the classical ' +
+      'partial-fraction expansion of sech, expanded termwise via 1/(a^2+x^2) = ' +
+      'int_0^inf e^(-x^2 t) e^(-a^2 t) dt, gives sech(pi w) = int_0^inf e^(-pi^2 w^2 t) p(t) dt ' +
+      'with p the theta density p(t) = pi sum_(n>=0) (-1)^n (2n+1) e^(-(n+1/2)^2 pi^2 t) -- the ' +
+      'classical Brownian first-exit-time density from a symmetric interval. Carneiro-Littmann-' +
+      'Vaaler (Trans. AMS 365, 2013) prove that every member of this class admits an EXTREMAL ' +
+      'band-limited minorant of any prescribed exponential type that interpolates f at the ' +
+      'half-integers and whose integral equals the Poisson sum sum_(n in Z) f(n+1/2); this is the ' +
+      'CLV extremal minorant used as the one remaining classical (band-limited approximation ' +
+      'theory) input of the imp-95419 THEOREM SEP-OPT class-optimal off-lattice Riesz-floor proof.',
+    firstUsed: 'imp-95419 (LEMMA MIX / THEOREM SEP-OPT, SEP-OPT chain), 2026',
+    relatedTerms: [
+      'imp-95419 THEOREM SEP-OPT is the class-optimal off-lattice Riesz floor built on this minorant (imp-95419)',
+      'imp-95420 THEOREM P-POS gives a self-contained elementary proof of the mixture density p(t) > 0, dissolving the exit-time citation while leaving CLV as the sole classical input (imp-95420)',
+      'imp-95335 COROLLARY SPLIT-SEP is the prior (non-class-optimal) separated-rate bound this chain supersedes (imp-95335)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

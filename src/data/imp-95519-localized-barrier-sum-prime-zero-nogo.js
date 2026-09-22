@@ -205,6 +205,67 @@ function floorAliasAccounting(N, p) {
 const FLOOR_LO = floorAliasAccounting(N_LO, 97);
 const FLOOR_HI = floorAliasAccounting(N_HI, 97);
 
+// ── imp-95580: RH short-interval-barrier ratio rho over the FULL (k,h) alias grid and N window ──
+// The RH short-interval barrier controls psi(x+H)-psi(x) only for H > sqrt(u) log^2 u.
+// The Fresnel packet has width H_{k,h} = u/sqrt(v), so the barrier ratio is exactly
+//     rho(k,h,N) = sqrt(u) log^2 u / H_{k,h} = sqrt(v/u) log^2 u = sqrt(k - h/p) * log^2(u),
+// with u = v/(k - h/p), v = T(N)/(2 pi). rho > 1 <=> the Fresnel width sits BELOW the
+// barrier and GRH is inert; rho < 1 would be where GRH begins to save. Since
+// f(xi) = sqrt(xi) (log v - log xi)^2 has f-prime(xi) = (log u)/(2 sqrt xi) (log u - 4) > 0
+// for log u > 4 (always: log u >= 27 here), rho is INCREASING in xi = k - h/p and in v.
+// Over the k = 1 aliases xi = 1 - h/p is smallest at h = p - 1 (the floor alias 1/p), and
+// k >= 2 gives xi > 1; so the grid minimum is the k = 1, h = p - 1 alias at the smallest N.
+// Map it: the minimum, the below-1 region (empty), and the alias denominator that WOULD
+// bring the Fresnel width up to the barrier.
+function barrierRatioRho(k, h, N, p) {
+  const v = stationaryV(N);
+  const xi = k - h / p;
+  return Math.sqrt(xi) * Math.log(v / xi) ** 2; // = sqrt(u) log^2 u / H_{k,h}
+}
+// critical xi at fixed N where rho = 1 (geometric bisection; f increasing, xi spans decades)
+function criticalXiForRho1(N) {
+  const v = stationaryV(N);
+  const f = (xi) => Math.sqrt(xi) * Math.log(v / xi) ** 2 - 1;
+  let lo = 1e-14;
+  let hi = 1;
+  for (let i = 0; i < 200; i++) {
+    const mid = Math.sqrt(lo * hi);
+    if (f(mid) < 0) lo = mid;
+    else hi = mid;
+  }
+  return Math.sqrt(lo * hi);
+}
+function barrierRatioGrid(p, points = 12) {
+  const rows = [];
+  for (let i = 0; i < points; i++) {
+    const t = points === 1 ? 0 : i / (points - 1);
+    const N = Math.round(N_LO * Math.pow(N_HI / N_LO, t)); // log-spaced N grid
+    const rhoFloor = barrierRatioRho(1, p - 1, N, p); // k = 1, h = p - 1: row minimum (smallest xi = 1/p)
+    const rhoUnitAlias = barrierRatioRho(1, 1, N, p); // k = 1, h = 1: largest k = 1 alias (xi near 1)
+    const xiCrit = criticalXiForRho1(N);
+    rows.push({
+      N,
+      rhoFloor,
+      rhoUnitAlias,
+      xiCritForRho1: xiCrit, // xi at which rho would drop to 1 at this N
+      equivDenomForRho1: 1 / xiCrit, // alias denom (= p when k = 1, h = p - 1) needed to reach the barrier
+    });
+  }
+  const floors = rows.map((r) => r.rhoFloor);
+  const gridMinRho = Math.min(...floors);
+  const argMinN = rows[floors.indexOf(gridMinRho)].N;
+  return {
+    p,
+    rows,
+    gridMinRho, // global minimum of rho over the whole (k, h, N) grid
+    gridMinAt: { k: 1, h: p - 1, N: argMinN },
+    anyAliasBelowOne: rows.some((r) => r.rhoFloor < 1), // false everywhere => GRH never saves at Fresnel width
+    marginFactorBelowBarrier: gridMinRho, // the Fresnel width sits at least this factor below the RH barrier
+    equivDenomAtFloorLo: 1 / criticalXiForRho1(N_LO), // alias denominator that would reach the barrier at N_lo
+  };
+}
+const BARRIER_RATIO_GRID_P97 = barrierRatioGrid(97, 12);
+
 // ── unconditional zero-free regions at the window heights ────────────────────
 const classicalOneMinusBeta = (t) => 1 / (5.558691 * Math.log(t)); // Mossinghoff-Trudgian-Yang
 const vkOneMinusBeta = (t) => 1 / (57.54 * Math.pow(Math.log(t), 2 / 3) * Math.pow(Math.log(Math.log(t)), 1 / 3)); // Ford
@@ -527,6 +588,19 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       verdict:
         'CONFIRMED N-INDEPENDENT: Q_target and the 1.306 headroom factor are flat to machine eps across the whole RS window (spread 0); the majorant mass Sbar = 2 p^{-4/3} sum j^{-2/3} carries no N. The only N-motion is alpha_floor (1.0953 at N = 690988 -> 1.0730 at N = 54799999) and the Fresnel width exponent, which reclassify aliases across the Montgomery alpha = 1 line but leave Sbar unchanged. The 1.306 is a uniform FLOOR set by the worst cell |E_97|(690988); over the window headroom(N) = R_ex/|E_97|(N) >= 1.306 with equality only at the anchor. RS-cell |E_97|(N) is the sole N-varying input (not in this import-light module) and is anchor-capped. No bound change; NO QED.',
     },
+    // imp-95580: map the RH short-interval-barrier ratio rho = sqrt(u) log^2 u / H over the
+    // FULL (k, h) alias grid and the N in [690988, 54799999] window (imp-95519 sec 3 stated it
+    // at ONE alias, 100.5). rho = sqrt(k - h/p) log^2(v/(k - h/p)) is increasing in xi = k - h/p
+    // and in v, so the grid minimum is the k = 1, h = p - 1 floor alias (xi = 1/p) at the smallest N.
+    barrierRatioGridScan: {
+      ticket: 'imp-95580',
+      formula: 'rho(k,h,N) = sqrt(u) log^2 u / H_{k,h} = sqrt(k - h/p) log^2(v/(k - h/p)), u = v/(k - h/p), v = T/(2 pi)',
+      window: [N_LO, N_HI],
+      alias: { k: 1, h: 96, p: 97 }, // floor alias reproducing the sec-3 value
+      ...BARRIER_RATIO_GRID_P97,
+      verdict:
+        'CONFIRMED rho > 1 EVERYWHERE on the (k, h, N) grid: no alias at any window height reaches the RH short-interval barrier. The global minimum is rho = 100.5 at the floor alias (k = 1, h = 96, N = 690988) -- exactly the imp-95519 sec-3 value -- so the Fresnel width H = u/sqrt(v) sits a factor >= 100.5 BELOW the barrier sqrt(u) log^2 u throughout. rho is monotone increasing in xi = k - h/p (f-prime > 0 since log u >= 27 > 4) and in the height v(N): over the k = 1 aliases it rises from 100.5 at h = 96 (xi = 1/97) to ~720 at h = 1 (xi = 96/97), and k >= 2 aliases (xi > 1) are larger still; raising N only increases log^2 u, so the corner (smallest xi, smallest N) is the unique grid minimum. To bring rho down to 1 at N = 690988 the alias denominator k - h/p would have to shrink to ~3.2e-7 (an effective sieving prime ~3.1e6, vs p = 97), i.e. the Fresnel width reaches the barrier only ~3.2e4x below the smallest architecture-available xi = 1/97. GRH therefore gives no cancellation at Fresnel width anywhere in the program window. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+    },
   },
   secondMomentLever: {
     ticket: 'imp-95535',
@@ -657,6 +731,18 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       ZF_HI.vk < ZF_HI.classical &&
       VK_CROSSOVER_LOGT > 1.0e4 &&
       VK_CROSSOVER_LOGT < 1.1e4,
+  },
+  {
+    id: 'imp95580-barrier-ratio-grid-never-below-one',
+    description:
+      'rho = sqrt(u) log^2 u / H > 1 across the entire (k, h) alias grid and N window; grid min 100.5 at (k = 1, h = 96, N = 690988); effective denom ~3.1e6 needed to reach the barrier',
+    holds: () =>
+      BARRIER_RATIO_GRID_P97.anyAliasBelowOne === false &&
+      Math.abs(BARRIER_RATIO_GRID_P97.gridMinRho - 100.5) < 0.5 &&
+      BARRIER_RATIO_GRID_P97.gridMinAt.N === N_LO &&
+      Math.abs(BARRIER_RATIO_GRID_P97.gridMinRho - FLOOR_LO.rhBarrierRatio) < 1e-9 &&
+      BARRIER_RATIO_GRID_P97.equivDenomAtFloorLo > 1e6 &&
+      BARRIER_RATIO_GRID_P97.equivDenomAtFloorLo < 1e7,
   },
   {
     id: 'imp95519-height-deficit-dirichlet',

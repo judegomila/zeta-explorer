@@ -17356,7 +17356,6 @@ const DATA_MODULES = [
   // No Λ movement; PT Λ≤0.2 stands; NO QED.
   '/src/data/catalan-signed-ladder.js',
   '/src/data/irrationality-pipeline.js',
-  '/src/data/raymond-lambda-note.js',
   '/src/data/imp-95516-sun-catalan-objective-verdict.js',
   // imp-95520 (opus-4-7, frontier): verdict on the OBJECTIVE — aim the
   // signed-coalescence pencil (imp-95511 SPEC-INT/NO-PF, imp-95509 mean-time
@@ -17429,6 +17428,11 @@ const DATA_MODULES = [
   '/src/data/imp-95400-precision-replay-karatsuba-band.js',
   '/src/data/imp-95401-tier2-multiply-mix-localization.js',
   '/src/data/imp-95403-evoct-onset-joint-pencil-crossval.js',
+  // imp-95458 (sonnet-4-6, bug): audit that imp-95419 (SEP-OPT) and imp-95420
+  // (P-POS) are git-tracked, registered in DATA_MODULES, and import-light.
+  // All three checks pass for both -- no gap found. Import-light, 5
+  // self-executing assertions. AUDIT-ONLY: no bound change; NO QED.
+  '/src/data/imp-95458-sepopt-ppos-tracking-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

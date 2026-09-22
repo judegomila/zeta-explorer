@@ -21512,6 +21512,33 @@ export const glossary = [
       'imp-95335 COROLLARY SPLIT-SEP is the prior (non-class-optimal) separated-rate bound this chain supersedes (imp-95335)',
     ],
   },
+  {
+    term: 'Brownian first-exit density p(t) (theta density)',
+    category: 'framework',
+    definition:
+      'The probability density p(t) on (0, infinity) that makes sech(pi w) = ' +
+      'int_0^inf e^(-pi^2 w^2 t) p(t) dt a Gaussian-subordination mixture (imp-95419 LEMMA MIX). ' +
+      'It has two equal closed forms: the theta form p(t) = pi sum_(n>=0) (-1)^n (2n+1) ' +
+      'e^(-(n+1/2)^2 pi^2 t), and the modular dual form p(t) = (1/(t sqrt(pi t))) ' +
+      'sum_(k>=1) (-1)^(k+1) (2k-1) e^(-(2k-1)^2/(4t)) -- proved equal by Poisson summation on a ' +
+      'shifted Gaussian (imp-95420 LEMMA P-JAC), after being only numerically cross-checked in ' +
+      'imp-95419. Strict positivity p(t) > 0 for all t > 0 is what makes sech(pi w) a genuine ' +
+      'probability mixture, i.e. the Gaussian-subordination hypothesis Carneiro-Littmann-Vaaler ' +
+      'require; imp-95420 THEOREM P-POS proves it elementarily via alternating-series bracketing ' +
+      'over two overlapping regimes ([1/pi^2, inf) in the theta form, (0, 1] in the dual form), ' +
+      'replacing a citation to the Brownian first-exit-time literature (Karatzas-Shreve; ' +
+      'Biane-Pitman-Yor). FLOAT TRAP: the direct theta form is catastrophically ' +
+      'cancellation-limited for small t (t = 1e-3 gives a ~1e90 relative error in doubles against ' +
+      'the true p(t) ~ 5e-105), so small-t evaluation must use the dual form instead; the two ' +
+      'forms are only doubles-verified against each other on a band down to t ~ 0.02, below which ' +
+      'the dual identity is asserted analytically but not numerically cross-checked.',
+    firstUsed: 'imp-95419 (LEMMA MIX, naming p(t)); imp-95420 (LEMMA P-JAC / THEOREM P-POS, dual identity and positivity), 2026',
+    relatedTerms: [
+      'imp-95419 LEMMA MIX defines p(t) as the mixing density making sech a Gaussian-subordination class member (imp-95419)',
+      'Gaussian subordination / the Carneiro-Littmann-Vaaler extremal minorant is the framework headword for the mixture class p(t) certifies membership in',
+      'imp-95420 THEOREM P-POS proves p(t) > 0 for all t > 0 with explicit two-sided enclosures, dissolving the exit-time citation (imp-95420)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

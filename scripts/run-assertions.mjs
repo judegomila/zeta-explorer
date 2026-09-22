@@ -18002,7 +18002,8 @@ async function main() {
       let modPass = 0, modFail = 0;
       for (const a of arr) {
         let ok;
-        try { ok = a.holds(); } catch (e) {
+        // Accept either the canonical holds() or the legacy check() assertion shape.
+        try { ok = (typeof a.holds === 'function' ? a.holds() : a.check()); } catch (e) {
           ok = false;
           a._err = e.message;
         }

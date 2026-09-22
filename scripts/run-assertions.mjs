@@ -17447,6 +17447,14 @@ const DATA_MODULES = [
   // registry -- the other seven were already present. Import-light (Math
   // only), six self-executing assertions. AUDIT-ONLY: no bound change; NO QED.
   '/src/data/imp-95038-envelope-treatment-comparison.js',
+  // imp-95488 (sonnet-4-6, bug): audit of the imp-95421..imp-95451
+  // finding-module batch found imp-95421 (CLV subordination citation
+  // boundary) and imp-95423 (theta-floor combinatorial minimum) git-tracked
+  // but MISSING from this registry -- the other 19 files in the range were
+  // already present. Import-light (Math only), five self-executing
+  // assertions each. AUDIT-ONLY: no bound change; NO QED.
+  '/src/data/imp-95421-clv-subordination-citation-boundary.js',
+  '/src/data/imp-95423-theta-floor-combinatorial-minimum.js',
 ];
 
 let ALL_MODULES = FAST_MODE

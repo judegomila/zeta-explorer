@@ -132,6 +132,10 @@ const MIDPOINT_BRIDGE = [6, 7, 8, 9, 10, 11].map((k) => {
     relDiff: +Math.abs(p_mid / p_ols - 1).toFixed(4),
   };
 });
+// (F1, imp-95597) full-ladder confirmation of the <=6% midpoint-sampling claim: the worst per-decade
+// relative gap and where it lands. Verified: max ~5.45% at the flattest decade [1e6,1e7], falling
+// monotonely to ~0.03% at [1e9,1e10] as the ramp steepens -- the whole ladder satisfies the <=6% claim.
+const MIDPOINT_BRIDGE_WORST = MIDPOINT_BRIDGE.reduce((w, r) => (r.relDiff > w.relDiff ? r : w));
 
 // (F2) E_trunc = E_coll transition (r = 1) by bisection; pointwise exponent VALUE carried there.
 function eCollMinusETrunc(N) {
@@ -169,6 +173,12 @@ export const IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP = {
     'pointwise exponent value there',
   fineGrid: FINE_GRID,
   midpointBridge: MIDPOINT_BRIDGE,
+  midpointBridgeWorst: {
+    // (imp-95597) worst-decade relative gap across the FULL six-decade ladder (k=6..11).
+    decade: MIDPOINT_BRIDGE_WORST.decade, // 1e6->1e7 (flattest decade)
+    relDiffPct: +(MIDPOINT_BRIDGE_WORST.relDiff * 100).toFixed(3), // ~5.449
+    claimHoldsAcrossLadder: MIDPOINT_BRIDGE.every((r) => r.relDiff <= 0.06), // <=6% on every decade
+  },
   farTailExponent: HALF, // imp-3463 asymptote the fine ramp climbs toward
   transition: {
     N_transition: +N_TRANSITION.toExponential(4), // ~3.2803e9
@@ -182,10 +192,13 @@ export const IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP = {
   finding: {
     F1_coarse_ladder_is_midpoint_sampling:
       'The pointwise exponent at each decade midpoint 10^(k+0.5) reproduces the imp-33582 whole-decade ' +
-      'OLS exponent over [10^k,10^(k+1)] to within ~6% (decade [1e9,1e10]: pointwise-at-1e9.5 = 0.2359 ' +
-      'vs OLS 0.2360). The coarse six-number ladder is an unbiased midpoint sampling of a smooth ' +
-      'continuous ramp; the half-decade grid fills in the between-decade shape from p ~ 0.0006 at 1e6 ' +
-      'up to ~0.4526 at 1e12, climbing monotonely toward the imp-3463 far-tail 1/2.',
+      'OLS exponent over [10^k,10^(k+1)] to within ~6% ACROSS THE FULL k=6..11 LADDER (imp-95597), not ' +
+      'just the one decade [1e9,1e10] the original text cited: the per-decade relative gap is 5.45%, ' +
+      '3.11%, 1.60%, 0.03%, 0.53%, 0.35%, so the worst gap ~5.45% lands at the FLATTEST decade ' +
+      '[1e6,1e7] and falls monotonely as the ramp steepens (bottoming at ~0.03% on [1e9,1e10]). Every ' +
+      'decade satisfies the <=6% claim. The coarse six-number ladder is thus an unbiased midpoint ' +
+      'sampling of a smooth continuous ramp; the half-decade grid fills in the between-decade shape ' +
+      'from p ~ 0.0006 at 1e6 up to ~0.4526 at 1e12, climbing monotonely toward the imp-3463 far-tail 1/2.',
     F2_transition_carries_exponent_0_24:
       'The E_coll = E_trunc transition (r = 1, sigma = 1/2) sits at N ~ 3.2803e9 (log10 ~ 9.5159), ' +
       'matching the imp-3444 crossover exactly, and the pointwise local exponent there is p ~ 0.238 -- ' +
@@ -234,10 +247,13 @@ export const IMP95582_SIGMA_POSTPEAK_FINE_EXPONENT_RAMP_ASSERTIONS = [
     },
   },
   {
-    // (F1) the coarse imp-33582 OLS decade exponents = pointwise value at the decade midpoint (~6%).
+    // (F1, imp-95597) the coarse imp-33582 OLS decade exponents = pointwise value at the decade
+    // midpoint to within the CLAIMED <=6% on EVERY decade k=6..11 (worst ~5.45% at flattest [1e6,1e7]).
     id: 'imp95582-coarse-ladder-is-midpoint-sampling',
-    description: 'pointwise-at-midpoint matches the whole-decade OLS exponent to within 8%',
-    holds: () => MIDPOINT_BRIDGE.every((r) => r.relDiff < 0.08),
+    description: 'pointwise-at-midpoint matches the whole-decade OLS exponent to within 6% on all six decades',
+    holds: () =>
+      MIDPOINT_BRIDGE.every((r) => r.relDiff <= 0.06) &&
+      MIDPOINT_BRIDGE_WORST.decade === '1e6->1e7',
   },
   {
     // (F2) the E_coll = E_trunc transition: r = 1, sigma ~ 1/2, exponent ~ 0.238, matches imp-3444.

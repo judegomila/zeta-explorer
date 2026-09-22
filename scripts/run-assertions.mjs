@@ -17410,6 +17410,12 @@ const DATA_MODULES = [
   // recompute path. Registered late -- was git-tracked but missing from
   // DATA_MODULES (imp-95418 audit).
   '/src/data/imp-95277-precision-replay-ladder.js',
+  // imp-95436 (sonnet-4-6, content): plain-language consolidated writeup of the
+  // imp-95376 SPLIT VERDICT (LEG A count/depth-currency closes via the
+  // Rayleigh-sup argument; LEG B envelope-domination inequality inside the
+  // imp-95212 port stays open). Restatement only, no new derivation, 4
+  // assertions. No bound; PT stands; NO QED.
+  '/src/data/imp-95436-seam-port-split-verdict-writeup.js',
 ];
 
 let ALL_MODULES = FAST_MODE

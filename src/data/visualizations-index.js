@@ -2139,6 +2139,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the ladder rungs already computed by imp-95277 verbatim (no re-derivation, no native FLINT/Arb replay launched); the 3-limb rung reproduces the imp-95257 headline exactly; proves nothing beyond what imp-95277 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95393-ymin-maps-theta-obstructed',
+      title: 'Currency Split Verdict: y_min MAPS, theta OBSTRUCTED',
+      oneLine:
+        'Two-card status view of the imp-95255 split verdict on the imp-95233 model-family currencies: y_min (per-window depth) MAPS onto the imp-95220/imp-95222 geometry transcription with its measured y_min/x_min ratio ladder, while theta (per-window phase) is OBSTRUCTED, a sign functional with no image under the geometry-only map.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95255-currency-per-window-map-assessment.js',
+      paperSourcePath:
+        'src/data/imp-95255-currency-per-window-map-assessment.js (record IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT; imp-95393 viz page)',
+      ticket: 'imp-95393',
+      pedagogicalStep: 144,
+      honestCeiling:
+        'Presentation only: renders the imp-95255 split-verdict record verbatim (no re-derivation); the ratio table and theta trivial/signed rows reproduce imp-95255 baked literals and assertions exactly; proves nothing beyond what imp-95255 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-cost-floor',
       title: 'The Geometry of the Program Floor',
       oneLine:

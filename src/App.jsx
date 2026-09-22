@@ -1080,6 +1080,9 @@ const Imp95391Split2SplitLooCrossoverViz = lazy(() =>
 const Imp95392PrecisionReplayCostLadderViz = lazy(() =>
   import('./pages/Imp95392PrecisionReplayCostLadderViz.jsx')
 );
+const Imp95393YminMapsThetaObstructedViz = lazy(() =>
+  import('./pages/Imp95393YminMapsThetaObstructedViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2943,6 +2946,10 @@ function AppShell() {
           <Route
             path="/viz-imp95392-precision-replay-cost-ladder"
             element={<Imp95392PrecisionReplayCostLadderViz />}
+          />
+          <Route
+            path="/viz-imp95393-ymin-maps-theta-obstructed"
+            element={<Imp95393YminMapsThetaObstructedViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -1,0 +1,162 @@
+import React from 'react';
+import PageHeader from '../components/PageHeader.jsx';
+import { IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT } from '../data/imp-95255-currency-per-window-map-assessment.js';
+
+const DATA = IMP95255_CURRENCY_PER_WINDOW_MAP_ASSESSMENT;
+const RATIOS = DATA.constants.yminOverXmin;
+
+function VerdictBadge({ maps }) {
+  return (
+    <span
+      style={{
+        display: 'inline-block',
+        padding: '0.15rem 0.6rem',
+        borderRadius: 999,
+        fontSize: '0.72rem',
+        fontWeight: 700,
+        letterSpacing: '0.03em',
+        color: maps ? '#052e16' : '#450a0a',
+        background: maps ? '#4ade80' : '#f87171',
+      }}
+    >
+      {maps ? 'MAPS' : 'OBSTRUCTED'}
+    </span>
+  );
+}
+
+function CurrencyCard({ symbol, name, maps, reason, evidence }) {
+  return (
+    <div
+      style={{
+        flex: '1 1 300px',
+        minWidth: 280,
+        padding: '1rem 1.1rem',
+        borderRadius: 8,
+        background: 'rgba(148,163,184,0.05)',
+        border: `1px solid ${maps ? 'rgba(74,222,128,0.35)' : 'rgba(248,113,113,0.35)'}`,
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+        <span style={{ color: '#e2e8f0', fontSize: '1.05rem', fontWeight: 600 }}>
+          {symbol} <span style={{ color: '#94a3b8', fontWeight: 400, fontSize: '0.85rem' }}>({name})</span>
+        </span>
+        <VerdictBadge maps={maps} />
+      </div>
+      <p style={{ color: '#94a3b8', fontSize: '0.82rem', margin: '0 0 0.6rem 0' }}>{reason}</p>
+      {evidence}
+    </div>
+  );
+}
+
+export default function Imp95393YminMapsThetaObstructedViz() {
+  return (
+    <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
+      <PageHeader title="Currency Split Verdict: y_min MAPS, theta OBSTRUCTED (imp-95255)" />
+
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Honest status:</strong> an assessment, not a new
+        theorem or bound. It classifies two model-family currencies (imp-95233) against the
+        existing imp-95220/imp-95222 transcription; it moves no Lambda bound and adds no
+        certificate. Platt&ndash;Trudgian &Lambda; &le; 0.2 remains state of the art. NO QED.
+      </div>
+
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+        imp-95233 HONEST LIMITS (c) lumped y_min and theta together as "not yet mapped to the
+        paper per-window quantities." imp-95255 assesses that claim leg by leg and finds the two
+        currencies split: one currency rides the existing geometry map for free, the other has no
+        image under it at all.
+      </p>
+
+      <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+        <CurrencyCard
+          symbol="y_min"
+          name="per-window depth"
+          maps
+          reason="Built only from rates and centers (mu, u), exactly the data the imp-95220 width-law port supplies. Inherits the same isolation group Q that imp-95222 QG-2 already carries for x_min."
+          evidence={
+            <table style={{ width: '100%', fontSize: '0.75rem', color: '#cbd5e1', borderCollapse: 'collapse' }}>
+              <thead>
+                <tr style={{ color: '#64748b' }}>
+                  <th style={{ textAlign: 'left', paddingBottom: 2 }}>pD</th>
+                  <th style={{ textAlign: 'right', paddingBottom: 2 }}>y_min / x_min</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(RATIOS).map(([key, ratio]) => {
+                  const [p, D] = key.split(',').map(Number);
+                  return (
+                    <tr key={key} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+                      <td style={{ padding: '2px 0' }}>{p * D}</td>
+                      <td style={{ textAlign: 'right' }}>{ratio.toFixed(6)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          }
+        />
+        <CurrencyCard
+          symbol="theta"
+          name="per-window phase"
+          maps={false}
+          reason="A scale-invariant amplitude-SIGN functional. The transcription is geometry + modulus only (mu(d), u(d), |c| = 1/p) and carries no per-window sign pattern, so theta has no preimage under it."
+          evidence={
+            <div style={{ fontSize: '0.75rem', color: '#cbd5e1' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2px 0', borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+                <span>fixed-amplitude family (paper spec, all 1/p)</span>
+                <span>theta = 1 exactly</span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', padding: '2px 0', borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+                <span>signed amplitudes, same geometry</span>
+                <span>theta &lt; 1</span>
+              </div>
+            </div>
+          }
+        />
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.5rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>The wall:</strong> {DATA.wall}
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page reading the existing
+        imp-95255 assessment module (import-light, no zeros bundle). Sub-gap
+        imp-95212-subgap-fresnel-airy-envelope-port remains STILL OPEN. Changes no bound,
+        establishes no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2
+        remains SOTA. NO QED.
+      </div>
+    </div>
+  );
+}

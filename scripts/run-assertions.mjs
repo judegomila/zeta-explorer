@@ -16804,6 +16804,14 @@ const DATA_MODULES = [
   // executing assertions. Audit only; moves no bound, leg remains OPEN; NO QED;
   // PT Lambda <= 0.2 remains SOTA.
   '/src/data/imp-95448-ra-ladder-input-data-audit.js',
+  // imp-95472 (sonnet-4-6, sonnet, meta, S-frontier): HONEST-STATUS NOTE
+  // recording the imp-95448 verdict that the imp-95372 R_A part-(a) booking
+  // (bare "open") is STALE relative to the imp-2563 ZETA_ZEROS repair; the
+  // genuinely-remaining data-side item narrows to the single high-N exact
+  // recompute (imp-2563-sub-pathc-ladder-replace-highN). Documentation only;
+  // no new bound; R_A stays open via parts b/c; NO QED; PT Lambda <= 0.2
+  // remains SOTA.
+  '/src/data/imp-95472-ra-part-a-stale-booking-honest-status.js',
   // imp-95376 (opus-4-8, api-pool, frontier): ASSESSMENT (SPLIT VERDICT) --
   // does the imp-95212 Fresnel-Airy envelope port ALONE (with already-mapped
   // Q) discharge gate-side admissibility of a signed R for the paper packet

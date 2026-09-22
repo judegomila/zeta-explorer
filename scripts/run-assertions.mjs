@@ -17505,6 +17505,29 @@ const DATA_MODULES = [
   // Import-free, 6 self-executing assertions. Assessment only; no bound
   // change; PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95542-sigmab-sensitivity-zero-side-assessment.js',
+  // imp-95533 (opus-4-8, api-pool): extracts imp-95530 THEOREM RES-T (fixed-
+  // support Weil-positivity resolution law) as a STANDALONE LEMMA independent of
+  // the NS-RIGID dichotomy -- its objects (compact-support Weil form W_T, Fejer
+  // packet, off-line quadruple) are disjoint from P_S(eps)/Xi_eps and its proof
+  // uses none of A1/A2/A4/A6, only the shared explicit formula. Re-verifies the
+  // imp-95520 Class II correction: dZ = -2 delta^2 S^4 is INDEPENDENT of the zero
+  // height H, so the "O(e^T/H^4) / consequence of verified height for all fixed T"
+  // reading is a delta_grid = 0.05 Nyquist artifact; W_T >= 0 follows from verified
+  // height only for T < T_X (3.882 at 3e12). Import-free, 5 self-executing
+  // assertions. No bound change; PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95533-res-t-standalone-lemma.js',
+  // imp-95534 (opus-4-8, sub-0.14 frontier): can the imp-95519 zero-side
+  // alpha_{k,h} > 1 PCC-gating (59.26 percent of the p = 97 majorant mass out of
+  // Montgomery range) be pulled in-range by a different Fresnel width or
+  // normalization? Width: RIGID (alpha depends on the stationary point, not the
+  // width). Normalization: MOVABLE as a relabeling -- under the analytic-conductor
+  // scale log(pT/2pi) that the section-3 L(s, chi mod p) import warrants, all 15
+  // alpha > 1 aliases fall to alpha_C in [0.914, 1.000] (floor alias exactly 1,
+  // since u_{1,p-1} = pT/2pi exactly). Removal only relocates the wall to
+  // mean-square-vs-pointwise plus GRH height-boundedness; verdict STANDS.
+  // Import-free, 6 self-executing assertions. Assessment only; no bound change;
+  // PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95534-alpha-gating-fresnel-width-normalization-rigidity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

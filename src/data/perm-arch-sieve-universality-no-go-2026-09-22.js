@@ -59,6 +59,46 @@ export const PERM_ARCH_SIEVE_UNIVERSALITY = Object.freeze({
     caveatP2: 'the page closed form 2p^{-4/3}Σ_{j≤(p-1)/2}j^{-2/3} returns 0 at p=2 (assumes odd p); the true p=2 term is (1/4)(1/2)^{-2/3} = 0.397.',
   },
 
+  // §5(i)+ (imp-95536): the full-25-prime ℓ²-collapse budget stated as a SINGLE
+  // unconditional, arithmetic-free over-budget statement, plus an explicit
+  // assessment of whether it subsumes the imp-95519 prime-side no-go (it does not).
+  fullPrimeL2Closure: {
+    statement:
+      'ℓ²-collapse (MAJ) contract, best case: R_ex ≥ Q·√(Σ_{p≤97} S̄_p) with Q ≥ 1 '
+      + '(each weld must at least meet its own per-weld budget) and cross-prime overlap '
+      + 'K = 1 (perfect orthogonality — the most favourable geometry the route can '
+      + 'assume). The aggregate √(Σ_{p≤97} S̄_p) = 1.867 is a PURE GEOMETRIC CONSTANT of '
+      + 'the page normalization w(h) = 1/p, λ = dist(h/p, Z): it contains no A_{k,h} '
+      + 'value, no zero-location, no character sum. Hence the best achievable target is '
+      + 'Q_target = R_ex/1.867 = 0.150 < 1, so the ℓ²-collapse route is UNCONDITIONALLY '
+      + 'over budget by 1/0.150 ≈ 6.67× at Q = 1 (≈7.3× against the anchor requirement '
+      + 'Q ≥ 1.09683, ≈9.6× against the single-weld allowance Q_sup < 1.4327) — before '
+      + 'any arithmetic input enters.',
+    threePrimeFloor:
+      'The three smallest welds alone already certify it: √(S̄_2+S̄_3+S̄_5) = √1.240 = '
+      + '1.114 > R_ex = 0.2797, an overshoot of ≈4× at Q = 1 on {2,3,5} by themselves; '
+      + 'the remaining 22 primes only widen the gap.',
+    rmsFull: 1.867,
+    Q_target: 0.150,
+    overBudgetFactorAtQ1: 6.675,
+    subsumesImp95519PrimeSide: false,
+    subsumptionAssessment:
+      'NO. The §5(i) full-prime statement closes exactly ONE lever — the ℓ²-collapse / '
+      + 'MAJ aggregation that sums S̄_p across the 25 primes to try to beat the '
+      + 'single-weld budget — and it does so arithmetic-free. The imp-95519 prime side '
+      + 'concerns a DIFFERENT object: the achievable square-root-cancellation exponent '
+      + 'for the actual barrier sum A_{k,h} = Σ_n Λ(n) K_k(n) e(hn/p) (exponent 0 vs '
+      + 'target 1/2, GRH-inert below the RH short-interval barrier, importing L(s,χ mod '
+      + 'p≤97)). That no-go is arithmetic (zero-free regions / explicit formula) and '
+      + 'sits on the p = 97 single-weld contract |C_{E,17}| ≤ Q√(S̄), which the §5(i) '
+      + 'aggregate budget count never touches. The two are COMPLEMENTARY closures of '
+      + 'distinct attack surfaces, not nested: §5(i) is stronger in being unconditional '
+      + 'but narrower (MAJ architecture only); imp-95519 is broader on A_{k,h} but '
+      + 'conditional on the reach of arithmetic technology. Neither subsumes the other; '
+      + 'jointly they close both the aggregation lever and the single-weld '
+      + 'sqrt-cancellation lever. Not a bound; PT Λ≤0.2 stands; RH open; NO QED.',
+  },
+
   imp95519Caveat:
     'imp-95519’s zero-side σ_B = (1+y0)/2 = 0.59045 is an ASSUMPTION: sB_of_x is a missing '
     + 'evaluator input (imp-95013). Under Polymath A/B-effective normalization s_B carries a '

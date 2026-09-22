@@ -115,6 +115,17 @@ export const PRECISION_REPLAY_LADDER = Object.freeze({
   dominancePreservedEveryRung: PRECISION_REPLAY_MULTIPLIER.dominancePreserved, // true
   isWallClockMeasurement: false,
   movesBound: false,
+  // imp-95416 asked to "add a viz page for the imp-95277 precision-replay CPU-day
+  // ladder (limb bands vs CPU-days, f_lo/f_up bracket)" -- that page already exists
+  // as imp-95392 (Imp95392PrecisionReplayCostLadderViz.jsx, wired at
+  // /viz-imp95392-precision-replay-cost-ladder), so imp-95416 is a duplicate of
+  // already-delivered work, not a gap.
+  queueReconciliation: {
+    ticket: 'imp-95416',
+    request: 'viz page for the imp-95277 ladder (limb bands vs CPU-days, f_lo/f_up bracket)',
+    deliveredBy: 'imp-95392 (Imp95392PrecisionReplayCostLadderViz.jsx)',
+    verdict: 'already delivered, no new page added',
+  },
   verdict:
     'LADDER of the tier-2 full-window window-1 W1-CERT price beyond 128 bits, from the FLINT/Arb ' +
     'limb-quantized schoolbook model. The 21.1-CPU-day (128-bit, 2-limb) baseline grows by the ' +
@@ -244,6 +255,20 @@ export const IMP95277_ASSERTIONS = [
       /LADDER/.test(PRECISION_REPLAY_LADDER.verdict) &&
       /NO QED/.test(PRECISION_REPLAY_LADDER.verdict) &&
       /remains SOTA/.test(PRECISION_REPLAY_LADDER.verdict),
+  },
+  {
+    id: 'imp95277-imp95416-reconciliation-recorded',
+    description:
+      'imp-95416 (viz page for the imp-95277 ladder) is recorded as already delivered by imp-95392, so no duplicate page is built',
+    holds: () => {
+      const r = PRECISION_REPLAY_LADDER.queueReconciliation;
+      return (
+        !!r &&
+        r.ticket === 'imp-95416' &&
+        /imp-95392/.test(r.deliveredBy) &&
+        /already delivered/.test(r.verdict)
+      );
+    },
   },
 ];
 

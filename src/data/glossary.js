@@ -21539,6 +21539,32 @@ export const glossary = [
       'imp-95420 THEOREM P-POS proves p(t) > 0 for all t > 0 with explicit two-sided enclosures, dissolving the exit-time citation (imp-95420)',
     ],
   },
+  {
+    term: 'Schoolbook-Karatsuba crossover (precision-replay CPU-day ladder)',
+    category: 'numerical',
+    definition:
+      'The mantissa-limb count L_c above which the imp-95277 tier-2 precision-replay CPU-day ' +
+      'ladder must switch its multiply-cost model from schoolbook (M(L) = L^2, cost quadruples ' +
+      'per size-doubling) to Karatsuba/Toom-2 (M(L) = L_c^2 (L/L_c)^log2(3), cost only triples ' +
+      'per size-doubling), matching the GMP MUL_TOOM22_THRESHOLD that Arb mantissa multiplies ' +
+      'hit in practice. imp-95277 anchors this at "~10+ limbs" (~640 bits) and states it only in ' +
+      'prose since every one of its rungs (128-384 bits, 2-6 limbs) stays below it; imp-95380 ' +
+      'takes L_c = 10 limbs as the anchor, builds the continuous two-piece cost model, and extends ' +
+      'the ladder past 384 bits to 1280 bits (20 limbs). Below L_c the crossover-aware factor ' +
+      'reproduces the pure-schoolbook L^2/4 factor exactly (continuity at L_c); above it the ' +
+      'schoolbook slope OVERSTATES the true far-precision budget, e.g. karat/school ~ 0.927 at ' +
+      '768 bits and ~0.823 at 1024 bits, with an exact 3/4 ratio at 1280 bits (twice L_c, where ' +
+      'tripling-per-doubling vs quadrupling-per-doubling gives 75 vs 100). Because the crossover ' +
+      'is a property of the shared Arb mantissa multiply, it rescales the level-1 and tier-2 ' +
+      'routes by the same M(L), so the 17.9x tier-2 dominance margin is invariant across it -- ' +
+      'only the absolute far-precision CPU-day budget drops below the schoolbook extrapolation.',
+    firstUsed: 'imp-95277 (prose note, "~10+ limbs"); imp-95380 (anchored model, extended ladder), 2026',
+    relatedTerms: [
+      'imp-95277 precision-replay ladder is the pure-schoolbook base ladder this crossover extends past 384 bits (imp-95277)',
+      'imp-95380 builds the two-piece continuous cost model and the 6-20 limb extended ladder (imp-95380)',
+      'imp-95400 uses this crossover band directly in the precision-replay Karatsuba-band analysis (imp-95400)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

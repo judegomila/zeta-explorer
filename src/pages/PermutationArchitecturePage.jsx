@@ -17,6 +17,7 @@ import { SLAB_HYPOTHESIS } from '../data/imp-95046-slab-44-conditional-target.js
 import { ANCHOR_GATE, MISSING_EVALUATOR_INPUTS } from '../data/imp-95013-gate2-lane-a-blocked-on-spec.js';
 import { IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX } from '../data/imp-95096-joint-near-far-vs-lambda-max-terminality.js';
 import { IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE } from '../data/imp-95092-four-lever-far-ceiling-elasticity-table.js';
+import { PERM_ARCH_SIEVE_UNIVERSALITY } from '../data/perm-arch-sieve-universality-no-go-2026-09-22.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -580,6 +581,13 @@ export default function PermutationArchitecturePage() {
           <strong>it proves neither RH nor a new bound on the de Bruijn–Newman constant Λ.</strong>{' '}
           Platt–Trudgian <InlineMath tex="\Lambda \le 0.2" /> remains the rigorous benchmark.
         </p>
+
+        <div style={{ borderLeft: '3px solid var(--terra-dk)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '16px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — sieve-algebra universality, Theorem U (2026-09-22)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            {PERM_ARCH_SIEVE_UNIVERSALITY.verdict}
+          </p>
+        </div>
 
         <div style={{ maxWidth: 460, border: '1px solid var(--hairline)', borderRadius: 8, overflow: 'hidden', margin: '16px 0 4px', background: 'var(--paper)' }}>
           <WireframeAnim kind="gram-matrix" />

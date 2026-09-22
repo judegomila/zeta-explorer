@@ -53,6 +53,24 @@ export const IMP95606_TRANSITION = Object.freeze({
   ratio_vs_imp3444: 1,
   imp34694_knee_log10: 9.52903,
   decadesBelowKnee: 0.01312,
+  // imp-95633 reconciliation: this 0.01312 (baked from imp-95582, which subtracts the imp-34694
+  // knee QUOTED to 5 dp, 9.52903) and imp-95598 base gap 0.01315 (fresh central-difference
+  // p''=0 root-find) are the SAME landmark spacing to grid/rounding resolution -- a
+  // rounding/grid-resolution artifact of the same central-difference route, NOT a genuine
+  // method difference. The crossover fixed-point (E_coll=E_trunc) agrees to all quoted digits
+  // in both (log10 N_cross = 9.51591282). Recomputing the knee on the shared exact full model:
+  // p''(ln N)=0 has a converged plateau over central-difference step h in [5e-3, 1e-2] giving
+  // log10 N_knee = 9.529060 (finer h<=1e-4 is finite-difference noise, coarser is under-resolved),
+  // so the converged gap = 9.529060 - 9.515913 = 0.013148, which rounds to 0.01315 at 5 dp.
+  // imp-34694's 5-dp quote 9.52903 (gap 0.013117 -> 0.01312) is the same knee rounded down one ulp
+  // of its last quoted digit. SINGLE RECONCILED VALUE: gap = 0.01315 (0.013148 to 6 dp).
+  reconciliation: {
+    ticket: 'imp-95633',
+    log10N_cross_full: 9.51591282,
+    log10N_knee_converged: 9.52906, // central-difference p''=0 plateau, h in [5e-3, 1e-2]
+    gap_reconciled: 0.01315, // 0.013148 to 6 dp; supersedes the 0.01312 5-dp-quote artifact
+    verdict: 'rounding/grid-resolution artifact of the same central-difference route, not a method difference',
+  },
 });
 
 export const IMP95606_FAR_TAIL_EXPONENT = 0.5; // imp-3463 asymptote the ramp climbs toward

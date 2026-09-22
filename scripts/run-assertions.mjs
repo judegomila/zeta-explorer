@@ -17528,6 +17528,17 @@ const DATA_MODULES = [
   // Import-free, 6 self-executing assertions. Assessment only; no bound change;
   // PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95534-alpha-gating-fresnel-width-normalization-rigidity.js',
+  // imp-95537: DECIDABILITY-AT-A-FIXED-WINDOW assessment of the imp-95436 LEG B
+  // envelope-domination inequality LamBar_paper(d) <= Lambda(E_V, d). At a single
+  // fixed seam window both sides are largest generalized eigenvalues of definite
+  // pencils, so the inequality is DECIDABLE by finite linear algebra (direct
+  // lambda_max comparison, sharper than the imp-95424/imp-95443 Loewner sandwich,
+  // which the witness shows can be inconclusive while the inequality holds). The
+  // isolated missing ingredient is DATA/TRANSCRIPTION (the port must emit numeric
+  // paper-window Gram entries A_p, B_p), NOT analysis; the analytic difficulty is
+  // uniformity over d (imp-95443). Import-free, 5 self-executing assertions.
+  // Assessment only; no bound change; PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95537-legb-single-window-decidability.js',
 ];
 
 let ALL_MODULES = FAST_MODE

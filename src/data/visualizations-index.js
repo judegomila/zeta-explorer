@@ -2083,6 +2083,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every plotted value is copied verbatim from the imp-95333 / imp-95334 records (no re-derivation, no re-execution of the underlying chart-scan numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those two modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95547-alpha-kh-heat-scatter',
+      title: 'alpha_{k,h} Across the (k, h) Alias Grid: the imp-95519 PCC-Gated Region',
+      oneLine:
+        'Heatmap of the imp-95519 section-4 Montgomery frequency alpha_{k,h} = 1 + log(1/(2 pi (k - h/p)))/log T over k = 1..6, h = 1..96 at p = 97, at the window-bottom endpoint N = 690988, marking the alpha = 1 boundary h* = 81.562 (k = 1 only) and the PCC-gated aliases h in {82..96} that carry 59.26% of the named-scalar majorant mass, plus an illustrative per-alias weight bar.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95547-alpha-kh-heat-scatter-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95519-localized-barrier-sum-prime-zero-nogo.js (section 4 ZERO SIDE, alphaFormula, alphaOverOneAliasesP97, alphaOverOneMajorantShareP97; imp-95547 viz page)',
+      ticket: 'imp-95547',
+      pedagogicalStep: 142,
+      honestCeiling:
+        'Presentation only: alpha_{k,h} and the gated-share figure are recomputed here with the same closed-form formula imp-95519 already states, cross-checked against its baked figures (alpha_max = 1.0953/1.0730, count = 15, share = 59.26%) to rel 5e-4; proves nothing beyond what imp-95519 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio',
       title: 'LEMMA BCAP Two-Branch Cap vs the Exact Ratio',
       oneLine:

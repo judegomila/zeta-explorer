@@ -1071,6 +1071,9 @@ const Imp95351Unif6VsUnif5AcrossRhoViz = lazy(() =>
 const Imp95546RzPen78GainLadderViz = lazy(() =>
   import('./pages/Imp95546RzPen78GainLadderViz.jsx')
 );
+const Imp95547AlphaKhHeatScatterViz = lazy(() =>
+  import('./pages/Imp95547AlphaKhHeatScatterViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -2946,6 +2949,10 @@ function AppShell() {
           <Route
             path="/viz-imp95546-rzpen78-gain-ladder"
             element={<Imp95546RzPen78GainLadderViz />}
+          />
+          <Route
+            path="/viz-imp95547-alpha-kh-heat-scatter"
+            element={<Imp95547AlphaKhHeatScatterViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

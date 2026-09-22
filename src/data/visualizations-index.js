@@ -2322,6 +2322,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Measures the closed-form COROLLARY EV-OCT certificate only (the same object imp-95250 bisected), not the exact pencil Lambda; the cert-vs-exact collar is unchanged and not re-measured; twin-pair blocks only. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95469-binding-chart-migration',
+      title: 'imp-95341 Binding-Chart Migration k*(a, mu) Across rho',
+      oneLine:
+        'Line chart of the imp-95341 binding chart k*(a, mu) (uniform certificate mu=16/a^2, K=256 charts) migrating from a V4-carried edge chart at small rho, crossing to the Psi6 branch at a~2.28 (rho~9.83), peaking at k*=144 near a~3.34, and retreating to k*=114 at rho=e^6; plus a bar chart of the r-invariance spread (0 charts of 256 for a>=3, up to 5 near the crossover).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95469-binding-chart-migration-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95341-binding-chart-migration.js (record IMP95341_BINDING_CHART_MIGRATION; imp-95469 viz page)',
+      ticket: 'imp-95469',
+      pedagogicalStep: 150,
+      honestCeiling:
+        'Presentation only: every plotted point is copied verbatim from the imp-95341 record (no re-derivation, no re-execution of the underlying 256-chart numerics beyond what imp-95341 already computes at import); proves nothing beyond what imp-95341 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

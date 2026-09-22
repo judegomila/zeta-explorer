@@ -1111,6 +1111,9 @@ const Imp95393YminMapsThetaObstructedViz = lazy(() =>
 const Imp95413EvOctOnsetSensitivityViz = lazy(() =>
   import('./pages/Imp95413EvOctOnsetSensitivityViz.jsx')
 );
+const Imp95469BindingChartMigrationViz = lazy(() =>
+  import('./pages/Imp95469BindingChartMigrationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3015,6 +3018,10 @@ function AppShell() {
           <Route
             path="/viz-imp95413-evoct-onset-sensitivity"
             element={<Imp95413EvOctOnsetSensitivityViz />}
+          />
+          <Route
+            path="/viz-imp95469-binding-chart-migration"
+            element={<Imp95469BindingChartMigrationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

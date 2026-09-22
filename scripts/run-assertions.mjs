@@ -16399,6 +16399,10 @@ const DATA_MODULES = [
   // refinement, kept-pair endpoint headroom, uniform-only BCAP branch,
   // off-lattice rates. AUDIT/RECONCILIATION ONLY. No bound change; NO QED.
   '/src/data/imp-95406-rzpen6-floor-gap-note-staleness-reconciliation.js',
+  // imp-95407 (sonnet-4-6, sonnet): AUDIT -- extends the imp-95367 RZ-PEN3..6
+  // surfacing audit to RZ-PEN7/8 (imp-95333/imp-95334): both import-light but
+  // ORPHAN (no routed page, no viz-index row). AUDIT-ONLY. No bound change; NO QED.
+  '/src/data/imp-95407-rzpen7-8-surfacing-audit.js',
   // imp-95256 (opus-4-8, api-pool): MEASUREMENT -- maps the imp-95250
   // THEOREM SPLIT-LOO "neither of the two multi-block splits dominates"
   // claim (asserted from one config) onto a two-parameter (scale-separation

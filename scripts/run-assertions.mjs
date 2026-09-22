@@ -17496,6 +17496,15 @@ const DATA_MODULES = [
   // nodes -- Hruscev-Nikolskii-Pavlov). Import-free (normalized Cauchy Gram +
   // Jacobi), 4 self-executing assertions. No bound; NO QED.
   '/src/data/imp-95532-muntz-complete-riesz-obstruction.js',
+  // imp-95542 (sonnet-4-6, registration audit): sigma_B sensitivity of the
+  // imp-95519 zero-side no-go. sigma_B = 0.59045 is flagged (perm-arch
+  // imp95519Caveat) as an ASSUMPTION; under the Polymath A/B-effective
+  // normalization Re s_B ~ 1.4 the pointwise obstruction is unconditionally
+  // zero-free (Euler region) and the PCC-gated framing dissolves, while the
+  // abscissa-invariant prime-side and section 5(i) closures are untouched.
+  // Import-free, 6 self-executing assertions. Assessment only; no bound
+  // change; PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95542-sigmab-sensitivity-zero-side-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

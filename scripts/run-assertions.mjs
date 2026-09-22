@@ -17579,6 +17579,18 @@ const DATA_MODULES = [
   // literals. Spot-check only; no uniform bound (that is the imp-95443 race);
   // import-light, 5 self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95560-legb-fixed-window-gram-comparison.js',
+  // imp-95561 (opus-4-8, api-pool): COMPLETES the imp-95537 D2 witness. imp-95560
+  // reported only eigMin(DELTA_A) < 0 at the real port (3,1) window, which
+  // certifies not-PSD but not a genuine STRADDLE. This module emits the FULL
+  // DELTA_A eigenpair { -0.01627011, +0.09509972 } (det < 0, opposite signs) so
+  // DELTA_A is INDEFINITE proper, isolates the structural reason (the collar
+  // packet at dbar forces DELTA_A[1][1] = 0, hence det = -(off-diagonal)^2 < 0),
+  // and re-exhibits the straddle on an independent hand-built window -- with the
+  // direct ratio inequality lambda_max(A_p,B_p) <= lambda_max(A_m,B_m) holding in
+  // both, so the Loewner sandwich is inconclusive while the inequality is TRUE.
+  // Witness-completeness only; no uniform bound (that is the imp-95443 race);
+  // import-light, 5 self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95561-legb-d2-indefinite-straddle-witness.js',
 ];
 
 let ALL_MODULES = FAST_MODE

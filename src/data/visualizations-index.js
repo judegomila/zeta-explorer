@@ -2125,6 +2125,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) over a coarser configuration set chosen for a renderable scatter; proves nothing beyond what imp-95256 already states (the g-vs-sigma criterion is an algebraic identity of two already-proven bounds, not a new one); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95392-precision-replay-cost-ladder',
+      title: 'Tier-2 Precision-Replay Cost Ladder, CPU-Days vs Bit-Band',
+      oneLine:
+        'Bar chart of the imp-95277 tier-2 full-window W1-CERT CPU-day price at each 64-bit mantissa-limb band (128 through 384 bits), upper (schoolbook, L^2/4) and lower (linear-in-limbs, L/2) brackets side by side, showing the price is flat within a band and jumps only at limb boundaries.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95277-precision-replay-ladder.js',
+      paperSourcePath:
+        'src/data/imp-95277-precision-replay-ladder.js (record PRECISION_REPLAY_LADDER, derived from imp-95214 TIER2_PRICE and imp-95257 PRECISION_REPLAY_MULTIPLIER; imp-95392 viz page)',
+      ticket: 'imp-95392',
+      pedagogicalStep: 144,
+      honestCeiling:
+        'Presentation only: renders the ladder rungs already computed by imp-95277 verbatim (no re-derivation, no native FLINT/Arb replay launched); the 3-limb rung reproduces the imp-95257 headline exactly; proves nothing beyond what imp-95277 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-cost-floor',
       title: 'The Geometry of the Program Floor',
       oneLine:

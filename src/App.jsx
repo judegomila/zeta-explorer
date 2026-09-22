@@ -133,7 +133,6 @@ const RouteMapPage = lazy(() => import('./pages/RouteMapPage.jsx'));
 const DiagramGalleryPage = lazy(() => import('./pages/DiagramGalleryPage.jsx'));
 const CatalanSignedLadderPage = lazy(() => import('./pages/CatalanSignedLadderPage.jsx'));
 const IrrationalityPipelinePage = lazy(() => import('./pages/IrrationalityPipelinePage.jsx'));
-const RaymondLambdaNotePage = lazy(() => import('./pages/RaymondLambdaNotePage.jsx'));
 const StateOfProgramPage = lazy(() => import('./pages/StateOfProgramPage.jsx'));
 const EngineRoomPage = lazy(() => import('./pages/EngineRoomPage.jsx'));
 const VortexFieldPage = lazy(() => import('./pages/VortexFieldPage.jsx'));
@@ -1078,6 +1077,9 @@ const Imp95390RiMarginHeatmapViz = lazy(() =>
 const Imp95391Split2SplitLooCrossoverViz = lazy(() =>
   import('./pages/Imp95391Split2SplitLooCrossoverViz.jsx')
 );
+const Imp95392PrecisionReplayCostLadderViz = lazy(() =>
+  import('./pages/Imp95392PrecisionReplayCostLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -1850,7 +1852,10 @@ function AppShell() {
           <Route path="/diagrams" element={<DiagramGalleryPage />} />
           <Route path="/catalan-signed-ladder" element={<CatalanSignedLadderPage />} />
           <Route path="/irrationality-pipeline" element={<IrrationalityPipelinePage />} />
-          <Route path="/raymond-lambda-note" element={<RaymondLambdaNotePage />} />
+          {/* /raymond-lambda-note RETRACTED 2026-09-22 (no redirect): the δ₀ ρ-optimization
+              it presented is Sun's Catalan ledger (arXiv:2609.04176 §6–9), NOT Raymond's Λ
+              paper — verified by primary-source grep of both deposits. Premise void. See
+              src/data/raymond-lambda-note.js (kept as a retraction record). */}
           <Route path="/state-of-program" element={<StateOfProgramPage />} />
           <Route path="/engine-room" element={<EngineRoomPage />} />
           <Route path="/vortex-field" element={<VortexFieldPage />} />
@@ -2934,6 +2939,10 @@ function AppShell() {
           <Route
             path="/viz-imp95391-split2-splitloo-crossover"
             element={<Imp95391Split2SplitLooCrossoverViz />}
+          />
+          <Route
+            path="/viz-imp95392-precision-replay-cost-ladder"
+            element={<Imp95392PrecisionReplayCostLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

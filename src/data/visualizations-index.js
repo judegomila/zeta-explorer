@@ -2336,6 +2336,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted point is copied verbatim from the imp-95341 record (no re-derivation, no re-execution of the underlying 256-chart numerics beyond what imp-95341 already computes at import); proves nothing beyond what imp-95341 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95449-ppos-enclosure-tightness',
+      title: 'imp-95449 P-POS Enclosure Tightness',
+      oneLine:
+        'Log-scale width curves of the imp-95420 THEOREM P-POS two-sided enclosure (theta 3e^(-2pi^2 t), dual 3e^(-2/t), both 0.406006 at their regime boundary), plus a bar chart of the strict-positivity margin min p/up=0.606345 and the boundary asymmetry up/p=1.649 vs lo/p=0.980.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95449-ppos-enclosure-tightness.js',
+      paperSourcePath:
+        'src/data/imp-95449-ppos-enclosure-tightness.js (record IMP95449_PPOS_ENCLOSURE_TIGHTNESS; imp-95470 viz page)',
+      ticket: 'imp-95470',
+      pedagogicalStep: 151,
+      honestCeiling:
+        'Presentation only: the width curves are plotted from the exact closed-form formulas documented in the imp-95449 record (no re-derivation) and the margin/asymmetry bars are the baked scalars verbatim; proves nothing beyond what imp-95449 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

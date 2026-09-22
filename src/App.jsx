@@ -1114,6 +1114,9 @@ const Imp95413EvOctOnsetSensitivityViz = lazy(() =>
 const Imp95469BindingChartMigrationViz = lazy(() =>
   import('./pages/Imp95469BindingChartMigrationViz.jsx')
 );
+const Imp95449PposEnclosureTightnessViz = lazy(() =>
+  import('./pages/Imp95449PposEnclosureTightnessViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3022,6 +3025,10 @@ function AppShell() {
           <Route
             path="/viz-imp95469-binding-chart-migration"
             element={<Imp95469BindingChartMigrationViz />}
+          />
+          <Route
+            path="/viz-imp95449-ppos-enclosure-tightness"
+            element={<Imp95449PposEnclosureTightnessViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

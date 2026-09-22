@@ -2378,6 +2378,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the imp-95583 baked (T_c, nWindows, gumbelZ) triples verbatim (no re-derivation of the Gumbel EVT formulas); proves nothing beyond what imp-95583 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95448-ra-ladder-input-provenance',
+      title: 'imp-95448 R_A Ladder Input Provenance',
+      oneLine:
+        'Horizontal-bar chart of the imp-95372 R_A Path C ladder rungs {50,100,200,500,2458} against the ZETA_ZEROS corruption boundary (index 650, repaired), plus a band chart of the imp-2605 neighbour-perturbation factor [1.06, 1.19] and the N=8 exact-heat-vs-RK4 witness point.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95448-ra-ladder-input-data-audit.js',
+      paperSourcePath:
+        'src/data/imp-95448-ra-ladder-input-data-audit.js (record IMP95448_RA_LADDER_INPUT_DATA_AUDIT; imp-95478 viz page)',
+      ticket: 'imp-95478',
+      pedagogicalStep: 153,
+      honestCeiling:
+        'Presentation only: renders the imp-95448 baked rung set, corruption boundary, and neighbour-factor range verbatim (no re-derivation); proves nothing beyond what imp-95448 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1123,6 +1123,9 @@ const Imp95469BindingChartMigrationViz = lazy(() =>
 const Imp95449PposEnclosureTightnessViz = lazy(() =>
   import('./pages/Imp95449PposEnclosureTightnessViz.jsx')
 );
+const Imp95478RaLadderInputProvenanceViz = lazy(() =>
+  import('./pages/Imp95478RaLadderInputProvenanceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3043,6 +3046,10 @@ function AppShell() {
           <Route
             path="/viz-imp95449-ppos-enclosure-tightness"
             element={<Imp95449PposEnclosureTightnessViz />}
+          />
+          <Route
+            path="/viz-imp95448-ra-ladder-input-provenance"
+            element={<Imp95478RaLadderInputProvenanceViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

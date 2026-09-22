@@ -2125,6 +2125,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) over a coarser configuration set chosen for a renderable scatter; proves nothing beyond what imp-95256 already states (the g-vs-sigma criterion is an algebraic identity of two already-proven bounds, not a new one); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95409-rhostar-depthflip',
+      title: 'SPLIT-2 vs SPLIT-LOO Crossover: rhoStar(sigma) Locus and the Depth Flip',
+      oneLine:
+        'The imp-95256 crossover in its rho-vs-rhoStar(sigma) form (rho = max sqrt(L1/L2), sqrt(L2/L1)), plus the concrete depth-flip witness V1={1,1.05}, V2={50,52} where sigma stays fixed but rho crosses the threshold between x=0.05 and x=0.1.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95409-rhostar-depthflip-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95256-split2-splitloo-crossover.js (function compareSplits, record IMP95256_SPLIT2_SPLITLOO_CROSSOVER; imp-95409 viz page)',
+      ticket: 'imp-95409',
+      pedagogicalStep: 147,
+      honestCeiling:
+        'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) to plot the equivalent rho-vs-rhoStar(sigma) form of the identity already rendered by imp-95391 in g-vs-sigma form; proves nothing beyond what imp-95256 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95392-precision-replay-cost-ladder',
       title: 'Tier-2 Precision-Replay Cost Ladder, CPU-Days vs Bit-Band',
       oneLine:

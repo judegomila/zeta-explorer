@@ -1084,6 +1084,9 @@ const Imp95607GumbelZBandViz = lazy(() =>
 const Imp95435RzpenOfflatticeDegradationLadderViz = lazy(() =>
   import('./pages/Imp95435RzpenOfflatticeDegradationLadderViz.jsx')
 );
+const Imp95491CombinedOfflatticeOnsetLadderViz = lazy(() =>
+  import('./pages/Imp95491CombinedOfflatticeOnsetLadderViz.jsx')
+);
 const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
   import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
 );
@@ -2994,6 +2997,10 @@ function AppShell() {
           <Route
             path="/viz-imp95435-rzpen-offlattice-degradation-ladder"
             element={<Imp95435RzpenOfflatticeDegradationLadderViz />}
+          />
+          <Route
+            path="/viz-imp95491-combined-offlattice-onset-ladder"
+            element={<Imp95491CombinedOfflatticeOnsetLadderViz />}
           />
           <Route
             path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"

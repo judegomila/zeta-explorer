@@ -2392,6 +2392,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the imp-95448 baked rung set, corruption boundary, and neighbour-factor range verbatim (no re-derivation); proves nothing beyond what imp-95448 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95491-combined-offlattice-onset-ladder',
+      title: 'Combined Off-Lattice Onset: SPLIT-LOO vs RZ-PEN Total',
+      oneLine:
+        'Line chart of the imp-95445 combined off-lattice every-octave onset -- imp-95253 SPLIT-LOO Blaschke leg vs imp-95429 RZ-PEN total vs their min -- across jitter magnitude delta = 2^-6..2^-2, plus a bar chart of the RZ-PEN over-estimate widening from 0.25 to 7.48 depth units.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95445-total-offlattice-onset-blaschke-composition.js',
+      paperSourcePath:
+        'src/data/imp-95445-total-offlattice-onset-blaschke-composition.js (record IMP95445_TOTAL_OFFLATTICE_ONSET_BLASCHKE_COMPOSITION; imp-95491 viz page)',
+      ticket: 'imp-95491',
+      pedagogicalStep: 154,
+      honestCeiling:
+        'Presentation only: renders the imp-95445 baked SPLIT-LOO/RZ-PEN/combined onset columns verbatim (SPLIT-LOO recomputed pure arithmetic, RZ-PEN column baked; no re-derivation); the two legs use different model Gram conventions so the combined min is a firing-depth comparison of two independent valid upper bounds, not a unified single certificate; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -15374,6 +15374,15 @@ const DATA_MODULES = [
   // in x. Import-light, six self-executing assertions. Derivation only; changes
   // no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
   '/src/data/imp-95402-rstar-parametric.js',
+  // imp-95432 (meta, S-frontier): reconciles imp-95402 (elementary
+  // PARAMETRIC r_star form) against imp-95377 THEOREM RSTAR-EQ (implicit
+  // transcendental form). Finding: COMPLEMENTARY, not subsumed -- imp-95402
+  // is elementary in the parameter u = (r-1)x while imp-95377 is implicit in
+  // x; the two cross-check exactly. imp-95402 was already completed by the
+  // time this ran. Import-light, four self-executing assertions. Meta
+  // reconciliation only; changes no bound; NO QED; Platt-Trudgian
+  // Lambda <= 0.2 SOTA.
+  '/src/data/imp-95432-rstar-parametric-vs-implicit-reconciliation.js',
   // imp-95381 (numerical, S-frontier): contour of the imp-95271 RI
   // tightness-ratio slack across the full bump wedge, refining finding (3).
   // The per-x max of ratio = h h_r Lambda_2 / (x P (Lambda_2 - P)) is ALWAYS

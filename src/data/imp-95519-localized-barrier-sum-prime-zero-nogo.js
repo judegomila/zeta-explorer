@@ -296,6 +296,38 @@ const VK_CROSSOVER_LOGT = vkCrossoverLogT(); // ~1.03e4
 const PLATT_GRH_HEIGHT_Q97 = 1e8 / 97;
 const HEIGHT_DEFICIT_Q97 = heightT(N_LO) / PLATT_GRH_HEIGHT_Q97; // 2.9e6
 
+// ── imp-95584: per-prime GRH-verification height gap across all 25 sieving primes p <= 97 ──
+// Platt verified GRH for L(s, chi mod q) up to height ~ 10^8/q (Platt, Math. Comp. 85 (2016)
+// 3009-3027), so the verified zero-location height DECREASES with conductor (10^8 zeros of the
+// combined product are checked, split across the phi(q) characters, giving height ~ 10^8/q per
+// modulus). Against the window bottom T = heightT(N_LO) ~ 3.0e12 the per-prime multiplicative
+// gap is  gap(p) = T / (10^8/p) = T p / 10^8, i.e. LINEAR in p -- the deficit is NOT uniform
+// across the sieving primes, it grows in direct proportion to the conductor, so p = 97 is the
+// binding (largest-gap) modulus and p = 2 the smallest-gap one. Tabulate verified height,
+// required T and gap for every sieving prime; report only, changes no bound, NO QED.
+function grhHeightGapPerPrime() {
+  const T = heightT(N_LO); // window bottom ~ 3.0e12 (= zeta verified height, x0 = X + 1)
+  const rows = SIEVING_PRIMES_LE_97.map((p) => {
+    const verifiedHeight = 1e8 / p; // Platt GRH verification height for modulus p
+    return { p, verifiedHeight, requiredT: T, gap: T / verifiedHeight };
+  });
+  const gaps = rows.map((r) => r.gap);
+  const minGap = Math.min(...gaps);
+  const maxGap = Math.max(...gaps);
+  return {
+    requiredT: T,
+    rows,
+    minGap, // at p = 2 (smallest conductor, largest verified height)
+    maxGap, // at p = 97 (largest conductor, smallest verified height) = the binding deficit
+    minGapAt: rows[gaps.indexOf(minGap)].p,
+    maxGapAt: rows[gaps.indexOf(maxGap)].p,
+    gapRatioMaxOverMin: maxGap / minGap, // = 97/2 = 48.5: linear-in-p, so NOT uniform
+    uniformAcrossP: false, // gap(p) = T p / 10^8 scales with the conductor
+    worseForLargerConductor: true,
+  };
+}
+const GRH_HEIGHT_GAP_PER_PRIME = grhHeightGapPerPrime();
+
 // ── LEMMA GAUSS-PLANCHEREL numerical verification ────────────────────────────
 function isPrime(n) {
   if (n < 2) return false;
@@ -568,6 +600,14 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
         'CONFIRMED: the classical Mossinghoff-Trudgian-Yang region 1/(5.558691 log t) is the operative (wider = stronger) unconditional zero-free region across the ENTIRE window. The window heights carry log t in [28.73, 37.48], while the Ford (Vinogradov-Korobov) width 1/(57.54 (log t)^{2/3}(loglog t)^{1/3}) overtakes it only at log t ~ 1.0242e4 (t ~ exp(1.02e4), ~273x above the window top) -- utterly beyond reach. Classical is 5.06x/4.75x wider than VK at N_lo/N_hi. The unconditional per-zero saving exp(-cl log u) is ~0.845 (near-flat across the window), so an RH-strength half-strip would buy a per-zero factor already ~0.845 unconditionally; RH remains inert at the operative Fresnel width (rhBarrierRatio > 1, prime side). Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
     },
     heightDeficitQ97: HEIGHT_DEFICIT_Q97,
+    grhHeightGapPerPrime: {
+      ticket: 'imp-95584',
+      convention:
+        'Platt (Math. Comp. 85 (2016) 3009-3027) verified GRH for L(s, chi mod q) up to height ~ 10^8/q; required height = window bottom T = heightT(N_lo) ~ 3.0e12 (zeta verified edge, x0 = X + 1).',
+      ...GRH_HEIGHT_GAP_PER_PRIME,
+      verdict:
+        'CONFIRMED per-prime and NON-UNIFORM: the GRH-verification height gap is gap(p) = T / (10^8/p) = T p / 10^8, LINEAR in the conductor. It runs from 6.0e4 at p = 2 (verified height 5.0e7) to 2.91e6 at p = 97 (verified height 1.03e6, matching heightDeficitQ97), a factor 48.5 = 97/2 spread, so the deficit is NOT uniform across the 25 sieving primes -- it is worse for larger conductor, and p = 97 is the binding modulus. Every sieving prime is height-bound (gap >= 6.0e4); verified GRH would in any case be inert at the operative Fresnel width (rho > 1, prime side). Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+    },
     gaussPlancherelResiduals: [GP_RESID_P7, GP_RESID_P13, GP_RESID_P97],
     gaussPlancherelResidualsAllPrimes: {
       ticket: 'imp-95554',
@@ -748,6 +788,19 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
     id: 'imp95519-height-deficit-dirichlet',
     description: 'Platt GRH verified height for q = 97 (~1.03e6) is a factor ~2.9e6 below the window bottom T',
     holds: () => Math.abs(HEIGHT_DEFICIT_Q97 / 2.91e6 - 1) < 5e-3,
+  },
+  {
+    id: 'imp95584-grh-height-gap-per-prime-linear-in-conductor',
+    description:
+      'GRH-verification height gap gap(p) = T p / 10^8 is linear in the conductor (non-uniform): 25 primes, min at p = 2 (~6.0e4), max at p = 97 (~2.91e6 = heightDeficitQ97), spread factor 48.5 = 97/2',
+    holds: () =>
+      GRH_HEIGHT_GAP_PER_PRIME.rows.length === 25 &&
+      GRH_HEIGHT_GAP_PER_PRIME.minGapAt === 2 &&
+      GRH_HEIGHT_GAP_PER_PRIME.maxGapAt === 97 &&
+      Math.abs(GRH_HEIGHT_GAP_PER_PRIME.maxGap - HEIGHT_DEFICIT_Q97) < 1e-6 &&
+      Math.abs(GRH_HEIGHT_GAP_PER_PRIME.gapRatioMaxOverMin - 48.5) < 1e-6 &&
+      GRH_HEIGHT_GAP_PER_PRIME.uniformAcrossP === false &&
+      GRH_HEIGHT_GAP_PER_PRIME.worseForLargerConductor === true,
   },
   {
     id: 'imp95535-second-moment-lever-direction-neutral',

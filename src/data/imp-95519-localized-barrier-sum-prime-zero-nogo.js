@@ -266,6 +266,63 @@ function barrierRatioGrid(p, points = 12) {
 }
 const BARRIER_RATIO_GRID_P97 = barrierRatioGrid(97, 12);
 
+// ── imp-95596: GRH saving-exponent curve s(beta) vs the packet-width exponent ──
+// beta = log H / log u across [1/2, 2/3]. imp-95519 sec 3(a) records only the two width
+// endpoints -- the Fresnel width (beta ~ 0.573: GRH saves nothing, rho ~ 100.5 > 1) and the
+// Airy-type width u^{2/3} (leading-order saving H^{-1/4}) -- but never derives the continuous
+// curve between them. From the sec-3 accounting the leading-order GRH saving factor over the
+// trivial bound H^1 at width H = u^beta is u^{1/2}/H = u^{1/2 - beta}, i.e. H^{-s} with
+// s_H(beta) = 1 - 1/(2 beta) = (2 beta - 1)/(2 beta) (equivalently the saving in u is
+// s_u = beta - 1/2). s_H(1/2) = 0 (no saving), s_H(2/3) = 1/4 (the Airy point), and the
+// square-root-cancellation target s_H = 1/2 needs beta = 1 -- OUTSIDE [1/2, 2/3]. In the
+// log-free regime the minimal 1.306 headroom is met already at beta = 1/2 + log(1.306)/log u
+// ~ 0.5085, inside the range; BUT the operative RH short-interval barrier sqrt(u) log^2 u adds
+// a log correction, moving the true break-even (rho = 1) to beta_barrier = 1/2 + 2 loglog(u)/log(u)
+// ~ 0.719 at the anchor floor alias and ~0.684 at the window top -- ABOVE the Airy width 2/3
+// across the WHOLE program window, so no admissible beta in [1/2, 2/3] actually delivers a GRH
+// saving at the accessible window heights.
+function grhSavingExponentCurve(N, p, points = 13) {
+  const u = p * stationaryV(N); // floor-alias stationary point u_{1,p-1} = v / (1/p)
+  const logU = Math.log(u);
+  const sH = (beta) => (2 * beta - 1) / (2 * beta); // saving exponent in H: factor H^{-s_H}
+  const sU = (beta) => beta - 0.5; // saving exponent in u: factor u^{-s_U}
+  const rhoAtBeta = (beta) => Math.pow(u, 0.5 - beta) * logU * logU; // sqrt(u) log^2 u / u^beta
+  const rows = [];
+  for (let i = 0; i < points; i++) {
+    const beta = 0.5 + (2 / 3 - 0.5) * (i / (points - 1));
+    rows.push({
+      beta,
+      sH: sH(beta), // GRH saving exponent in H (factor H^{-sH})
+      sU: sU(beta), // GRH saving exponent in u (factor u^{-sU})
+      savingFactorLog10: (sU(beta) * logU) / Math.LN10, // log10 of the leading-order reduction u^{sU}
+      barrierRatioRho: rhoAtBeta(beta), // > 1 <=> width below the RH short-interval barrier => GRH inert
+      grhOperative: rhoAtBeta(beta) < 1, // does GRH actually save at this width and height
+    });
+  }
+  const widthExponentFloor = floorAliasAccounting(N, p).widthExponent; // ~0.573 (Fresnel)
+  const betaBarrier = 0.5 + (2 * Math.log(logU)) / logU; // rho = 1 threshold (finite-height break-even)
+  const betaHeadroom = 0.5 + Math.log(HEADROOM_FACTOR) / logU; // leading-order beta where the saving factor = 1.306
+  return {
+    N,
+    u,
+    logU,
+    rows,
+    betaFirstSavesLeading: 0.5, // leading order: s_H > 0 for any beta > 1/2
+    betaBarrierOperative: betaBarrier, // finite-height break-even including the log^2 barrier
+    betaBarrierAboveAiry: betaBarrier > 2 / 3, // true => GRH inert across the whole [1/2, 2/3] range at this height
+    betaHeadroomLeading: betaHeadroom, // where the 1.306 factor is met in the log-free regime
+    headroomReachableLeadingOrder: betaHeadroom < 2 / 3, // true (~0.5085 inside range)
+    headroomReachableAtWidth: betaBarrier <= 2 / 3, // false: barrier threshold exceeds the Airy width
+    sHAtFresnel: sH(widthExponentFloor), // ~0.127 leading-order at the Fresnel width
+    sHAtAiry: sH(2 / 3), // 0.25 (the Airy point recorded in sec 3(a))
+    betaReachesHalfLeading: 1, // s_H = 1/2 requires beta = 1
+    reachesHalfInRange: false, // 1 > 2/3
+    rhoAtAiry: rhoAtBeta(2 / 3), // barrier ratio still > 1 at the Airy width => GRH inert even at Airy
+  };
+}
+const GRH_SAVING_CURVE_LO = grhSavingExponentCurve(N_LO, 97, 13);
+const GRH_SAVING_CURVE_HI = grhSavingExponentCurve(N_HI, 97, 13);
+
 // ── unconditional zero-free regions at the window heights ────────────────────
 const classicalOneMinusBeta = (t) => 1 / (5.558691 * Math.log(t)); // Mossinghoff-Trudgian-Yang
 const vkOneMinusBeta = (t) => 1 / (57.54 * Math.pow(Math.log(t), 2 / 3) * Math.pow(Math.log(Math.log(t)), 1 / 3)); // Ford
@@ -641,6 +698,26 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       verdict:
         'CONFIRMED rho > 1 EVERYWHERE on the (k, h, N) grid: no alias at any window height reaches the RH short-interval barrier. The global minimum is rho = 100.5 at the floor alias (k = 1, h = 96, N = 690988) -- exactly the imp-95519 sec-3 value -- so the Fresnel width H = u/sqrt(v) sits a factor >= 100.5 BELOW the barrier sqrt(u) log^2 u throughout. rho is monotone increasing in xi = k - h/p (f-prime > 0 since log u >= 27 > 4) and in the height v(N): over the k = 1 aliases it rises from 100.5 at h = 96 (xi = 1/97) to ~720 at h = 1 (xi = 96/97), and k >= 2 aliases (xi > 1) are larger still; raising N only increases log^2 u, so the corner (smallest xi, smallest N) is the unique grid minimum. To bring rho down to 1 at N = 690988 the alias denominator k - h/p would have to shrink to ~3.2e-7 (an effective sieving prime ~3.1e6, vs p = 97), i.e. the Fresnel width reaches the barrier only ~3.2e4x below the smallest architecture-available xi = 1/97. GRH therefore gives no cancellation at Fresnel width anywhere in the program window. Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
     },
+    // imp-95596: derive the continuous GRH saving-exponent curve s(beta) vs the packet-width
+    // exponent beta = log H / log u across [1/2, 2/3]. imp-95519 sec 3(a) records only the two
+    // endpoints (Fresnel beta ~ 0.573 -> exponent 0; Airy beta = 2/3 -> H^{-1/4}); this fills in
+    // the curve and pins the landmark betas (first-saves, reaches-1/2, minimal-headroom).
+    grhSavingExponentCurve: {
+      ticket: 'imp-95596',
+      formula:
+        's_H(beta) = 1 - 1/(2 beta) = (2 beta - 1)/(2 beta) (saving factor H^{-s_H}); s_u(beta) = beta - 1/2 (factor u^{-s_u}); leading order from the GRH saving u^{1/2}/H at width H = u^beta.',
+      windowFloorAliasLo: GRH_SAVING_CURVE_LO,
+      windowFloorAliasHi: GRH_SAVING_CURVE_HI,
+      betaFirstSavesLeading: 0.5, // s_H > 0 for any beta > 1/2 (log-free regime)
+      betaBarrierOperativeLo: GRH_SAVING_CURVE_LO.betaBarrierOperative, // ~0.719 (finite-height break-even)
+      betaBarrierOperativeHi: GRH_SAVING_CURVE_HI.betaBarrierOperative, // ~0.684 (still > 2/3)
+      betaReachesHalf: 1, // square-root cancellation s_H = 1/2 needs beta = 1
+      reachesHalfInAdmissibleRange: false, // 1 > 2/3
+      sHAtAiry: 0.25, // s_H(2/3), the Airy point recorded in sec 3(a)
+      minimalHeadroomReachableAtAnyAdmissibleBeta: false,
+      verdict:
+        'DERIVED: the leading-order GRH saving exponent at packet width u^beta is s_H(beta) = (2 beta - 1)/(2 beta) (saving factor H^{-s_H}), so s_H(1/2) = 0 (no saving), s_H(2/3) = 1/4 (the Airy point), and the square-root target s_H = 1/2 is reached only at beta = 1 -- OUTSIDE the admissible [1/2, 2/3]. In the log-free regime the minimal 1.306 headroom would be met already at beta ~ 0.5085 (= 1/2 + log 1.306 / log u), comfortably inside the range. BUT the operative RH short-interval barrier sqrt(u) log^2 u shifts the true break-even (rho = 1) to beta_barrier = 1/2 + 2 loglog(u)/log(u) ~ 0.719 at the anchor and ~0.684 at the window top -- ABOVE the Airy width 2/3 across the ENTIRE program window (rho ~ 5.2 / 2.0 even at 2/3). Hence NO admissible beta in [1/2, 2/3] delivers any GRH saving at the accessible heights, and the minimal 1.306 headroom is NOT reachable at any admissible Fresnel/Airy width: the width would have to exceed the barrier (beta > ~0.72), which the stationary-phase packet geometry does not provide. Consistent with the sec-3 exponent-0 verdict. Derivation/measurement only; changes no bound; C_mb GUE-conditional (imp-486); NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    },
   },
   secondMomentLever: {
     ticket: 'imp-95535',
@@ -823,6 +900,23 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       Math.abs(WINDOW_HEADROOM_SCAN.headroomMin - 1.306) < 2e-3 &&
       Math.abs(WINDOW_HEADROOM_SCAN.alphaFloorMax - 1.0953) < 5e-4 &&
       Math.abs(WINDOW_HEADROOM_SCAN.alphaFloorMin - 1.0730) < 5e-4,
+  },
+  {
+    id: 'imp95596-grh-saving-exponent-curve',
+    description:
+      's_H(beta) = (2 beta - 1)/(2 beta): 0 at beta = 1/2, 1/4 at the Airy width 2/3, reaches 1/2 only at beta = 1; operative barrier break-even beta ~0.719 (lo) / ~0.684 (hi) both > 2/3, so GRH saves nothing in [1/2, 2/3] and the 1.306 headroom is not reachable at any admissible width',
+    holds: () =>
+      Math.abs(GRH_SAVING_CURVE_LO.rows[0].sH) < 1e-12 &&
+      Math.abs(GRH_SAVING_CURVE_LO.rows[GRH_SAVING_CURVE_LO.rows.length - 1].sH - 0.25) < 1e-9 &&
+      Math.abs(GRH_SAVING_CURVE_LO.sHAtAiry - 0.25) < 1e-9 &&
+      GRH_SAVING_CURVE_LO.betaReachesHalfLeading === 1 &&
+      GRH_SAVING_CURVE_LO.reachesHalfInRange === false &&
+      GRH_SAVING_CURVE_LO.betaBarrierOperative > 2 / 3 &&
+      GRH_SAVING_CURVE_HI.betaBarrierOperative > 2 / 3 &&
+      GRH_SAVING_CURVE_LO.betaBarrierAboveAiry === true &&
+      GRH_SAVING_CURVE_LO.headroomReachableAtWidth === false &&
+      GRH_SAVING_CURVE_LO.rhoAtAiry > 1 &&
+      Math.abs(GRH_SAVING_CURVE_LO.betaBarrierOperative - 0.7192) < 5e-3,
   },
   {
     id: 'imp95519-honesty-gate-no-qed',

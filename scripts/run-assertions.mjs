@@ -16409,6 +16409,12 @@ const DATA_MODULES = [
   // surfacing audit to RZ-PEN7/8 (imp-95333/imp-95334): both import-light but
   // ORPHAN (no routed page, no viz-index row). AUDIT-ONLY. No bound change; NO QED.
   '/src/data/imp-95407-rzpen7-8-surfacing-audit.js',
+  // imp-95417 (sonnet-4-6, sonnet): AUDIT -- checks the routed viz pages
+  // downstream of imp-95255/95256/95271/95276/95277 for an honest-status
+  // banner matching the source module verdict. FINDING: all four pages
+  // with a dedicated viz already carry a consistent banner; imp-95276 has
+  // no dedicated page. AUDIT-ONLY, no banner added. No bound change; NO QED.
+  '/src/data/imp-95417-seam-viz-banner-audit.js',
   // imp-95256 (opus-4-8, api-pool): MEASUREMENT -- maps the imp-95250
   // THEOREM SPLIT-LOO "neither of the two multi-block splits dominates"
   // claim (asserted from one config) onto a two-parameter (scale-separation

@@ -17544,6 +17544,18 @@ const DATA_MODULES = [
   // New sub-gap W-DECAY-PRECISION (needs double-double/Arb). Import-light
   // (eps0Window), 6 self-executing assertions. No bound; PT Lambda <= 0.2; NO QED.
   '/src/data/imp-95557-w-decay-scaling.js',
+  // imp-95558 (opus-4-8, api-pool): provenance audit of the 1.15e-11 threshold
+  // the imp-95531 windows W(S) are measured against. (1) SOURCE: it is the
+  // magnitude of the Saouter-Gourdon-Demichel 2011 (Math. Comp. 80) lower bound
+  // Lambda >= -1.15e-11 -- attribution as cited is correct. (2) UNITS: a de
+  // Bruijn-Newman FLOW TIME (eps-axis), the SAME units as eps_0(S), NOT a
+  // normalized zero gap and NOT a displacement -- so the 5-8 order margins are
+  // dimensionally sound. (3) The "Lehmer-pair collision" name describes the
+  // mechanism: the bound comes from a tightest close pair that would collide
+  // under the backward flow. Residual sub-gap PROV-RECON (reconcile the imp-1120
+  // timeline author/year split). Import-free, 5 self-executing assertions.
+  // Accuracy audit only; no bound change; PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95558-lehmer-threshold-provenance.js',
   // imp-95534 (opus-4-8, sub-0.14 frontier): can the imp-95519 zero-side
   // alpha_{k,h} > 1 PCC-gating (59.26 percent of the p = 97 majorant mass out of
   // Montgomery range) be pulled in-range by a different Fresnel width or

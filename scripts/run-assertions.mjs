@@ -201,6 +201,12 @@ const DATA_MODULES = [
   // 3.3e3-9.8e4×, all 10 re-certify θ≥0.9971). Anchor-choice only; imp-3933 lemma/arithmetic
   // reproduce to ≤1e-9; NO Λ consequence, PT Λ≤0.2 stands, RH untouched. NO QED.
   '/src/data/imp-33228-anchor-invalidation-correction.js',
+  // perm-arch-sieve-universality-no-go (2026-09-22): Theorem U — the permutation architecture is
+  // A_{k,h}-universal (every configuration = a basis choice in the 2^25-dim commuting sieve/Ramanujan
+  // algebra acting on one number; no config yields a different scalar). Plus §5(i): the ℓ²-collapse
+  // route is over budget at the small-prime welds {2,3,5} (√(ΣS̄)=1.114 ≫ R_ex=0.2797) independent of
+  // any A_{k,h} bound. Import-light literals; NOT a bound; PT Λ≤0.2 stands; RH open; NO QED.
+  '/src/data/perm-arch-sieve-universality-no-go-2026-09-22.js',
   // imp-95034: DIRECT assessment of the R1 node (terminal ceil count vs the EPS_FP floor) the imp-35259 two-rate
   // off-by-one WHETHER-question routes back onto. Q1 (does it certify which rate model is faithful at ~10^37?): NO --
   // the terminal ceil count is rate-BLIND in-band (imp-35572: n_two = n_single at all 202 seeds, both 13 vs measured
@@ -17464,6 +17470,32 @@ const DATA_MODULES = [
   // assertions each. AUDIT-ONLY: no bound change; NO QED.
   '/src/data/imp-95421-clv-subordination-citation-boundary.js',
   '/src/data/imp-95423-theta-floor-combinatorial-minimum.js',
+  // imp-95530 (fable-5-1, RH frontier): is there a NON-circular arithmetic
+  // input for the flow-blindness no-go? THEOREM NS-RIGID (every finite
+  // native-span Pick statement survives the backward flow -> soft; only the
+  // all-S family = RH is flow-critical; Blaschke lattices don't reach RH) +
+  // THEOREM RES-T (fixed-support Weil positivity resolution law
+  // delta^2 S^4 T^3 > log(H/2pi); corrects imp-95520 Class II: consequence of
+  // verified height only for T < 3.88). Import-free (Phi-integral, Jacobi,
+  // Cholesky pencil), 4 self-executing assertions (~0.5 s). No bound; NO QED.
+  '/src/data/imp-95530-native-span-arithmetic-input-rigidity.js',
+  // imp-95531 (opus-4-8, api-pool): makes the imp-95530 NS-RIGID (A4)(i)
+  // PD-persistence window eps_0(S) EXPLICIT. Weyl in the fixed G-metric gives
+  // eps_0(S) >= mu_S(0) / sup_t ||G^{-1/2}(dP_S/deps) G^{-1/2}||_2; with the
+  // derivative norm measured maximal at t=0, the leading-order window
+  // W(S) = lambda_min(P_S(0);G) / ||G^{-1/2}(dP_S/deps at 0) G^{-1/2}||_2 is
+  // exact and 5-8 orders above the Lehmer collision 1.15e-11 on every tested S
+  // (per-finite-S; inf_S W = 0 = the A5 all-S criticality). Import-free, 5
+  // self-executing assertions. Residual sub-gap EPS0-DECAY. No bound; NO QED.
+  '/src/data/imp-95531-eps0-pd-persistence-window.js',
+  // imp-95532 (opus-4-8, RH frontier): assessment of imp-95530 (A6) -- do any
+  // Muntz-complete (sum 1/s_k = inf) native-span node sets admit the Riesz /
+  // trace-class pencil structure? VERDICT: HARD OBSTRUCTION (Carleson /
+  // Shapiro-Shields completeness-vs-Riesz-sequence dichotomy; both sides governed
+  // by the single Blaschke sum sum 1/s_k, mutually exclusive for real boundary
+  // nodes -- Hruscev-Nikolskii-Pavlov). Import-free (normalized Cauchy Gram +
+  // Jacobi), 4 self-executing assertions. No bound; NO QED.
+  '/src/data/imp-95532-muntz-complete-riesz-obstruction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

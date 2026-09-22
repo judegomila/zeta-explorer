@@ -17387,6 +17387,29 @@ const DATA_MODULES = [
   // positivity estimate; flow-blindness pattern quantified in the Weil
   // currency. Import-free, 8 assertions (~1 s). RH OPEN; PT stands; NO QED.
   '/src/data/imp-95520-weil-pick-identity-finite-truncation.js',
+  // imp-95519 (fable-5-1, sub-0.14 frontier): the localized barrier sum
+  // A_{k,h} = sum Lambda(n) K_k(n) e(hn/p) stated exactly from the paper
+  // (eqs 8-10, 14-15) and closed as a precise no-go on BOTH sides. LEMMA
+  // GAUSS-PLANCHEREL (exact, 1e-12): sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 +
+  // p sum_{chi != 0} |S_chi|^2], so alias-wise weld bounds import L(s, chi
+  // mod p <= 97). Prime side: Fresnel width u/sqrt(v) is below the RH
+  // short-interval barrier (ratio 100.5), classical zero-free region gives
+  // per-zero factor 0.84, VK inert until log t > 1.03e4; exponent 0 vs 1/2.
+  // Zero side: alpha_{k,h} > 1 iff k - h/p < 1/(2 pi); 15 of 96 aliases /
+  // 59% of the p = 97 majorant mass sit at alpha in (1, 1.0953] beyond
+  // Montgomery's range, the rest mean-square only. Import-free, 11
+  // assertions (~1 s). No bound; PT stands; NO QED.
+  '/src/data/imp-95519-localized-barrier-sum-prime-zero-nogo.js',
+  // imp-95276 (sonnet-4-6, sub-0.14 frontier): reduces the seam-to-chain-gate
+  // obligation to LEG A (count/depth, closed) and LEG B (envelope-domination
+  // inside the imp-95212 Fresnel-Airy port, open). Registered late -- was
+  // git-tracked but missing from DATA_MODULES (imp-95418 audit).
+  '/src/data/imp-95276-seam-to-chain-gate-map.js',
+  // imp-95277 (sonnet-4-6, sub-0.14 frontier): tier-2 precision-replay CPU-day
+  // cost ladder (schoolbook L^2 budget) for the extended-precision zero
+  // recompute path. Registered late -- was git-tracked but missing from
+  // DATA_MODULES (imp-95418 audit).
+  '/src/data/imp-95277-precision-replay-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

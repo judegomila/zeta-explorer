@@ -17565,6 +17565,20 @@ const DATA_MODULES = [
   // and re-checked at dps=100 (10 sig figs). Import-light (eps0Window overlap
   // cross-check), 7 self-executing assertions. No bound; PT Lambda <= 0.2; NO QED.
   '/src/data/imp-95576-arb-eps0-window.js',
+  // imp-95577 (opus-4-8, api-pool): PREDICTS the imp-95557 W(S) decay exponent
+  // from a node-SPREAD metric instead of measuring it per family. Replaces the
+  // ill-defined per-family global c (which decelerates for spread families) with
+  // the local per-step exponent c_step(m)=ln(W(m-1)/W(m)) and fits it against the
+  // newest-node log-position x=ln(s_m). A single power law c_step ~ 12.1*s_new^
+  // (-0.71) fits all three families (arithmetic, geometric r=1.5, dyadic) with
+  // pooled R^2 ~ 0.99 (12 points). Recovers the imp-95557 4.19/4.52/1.74 split as
+  // the average of c_step over each family visited-node range, and predicts the
+  // imp-95576 crossing-vs-plateau dichotomy via summability (polynomial spread ->
+  // divergent -> crosses; geometric spread -> convergent -> plateau; extrapolated
+  // dyadic W_inf ~ 1.5e-6 vs the Arb ~2.03e-6). Import-free (baked imp-95557 float64
+  // rows), 8 self-executing assertions. New sub-gap SPREAD-LAW-FORM. Report only;
+  // no bound; RH OPEN; PT Lambda <= 0.2; NO QED.
+  '/src/data/imp-95577-w-decay-spread-law.js',
   // imp-95558 (opus-4-8, api-pool): provenance audit of the 1.15e-11 threshold
   // the imp-95531 windows W(S) are measured against. (1) SOURCE: it is the
   // magnitude of the Saouter-Gourdon-Demichel 2011 (Math. Comp. 80) lower bound
@@ -17687,6 +17701,15 @@ const DATA_MODULES = [
   // measured bad-set fraction. Import-light, 6 self-executing assertions.
   // Assessment only; no bound change; PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95581-for-most-t-relaxation-assessment.js',
+  // imp-95457 (sonnet-4-6, content): plain WHAT-REMAINS status note recording
+  // that imp-95419 THEOREM SEP-OPT collapses the imp-95335 [A_sep, A_lat]
+  // off-lattice Riesz-floor bracket at the top (lattice = class-optimal
+  // separated configuration); settled scalar floor vs. relocated onset gap
+  // (SPLIT-OPT 20.593144) vs. still-open legs (RZ-PEN lattice-pinned,
+  // r-uniformity, signed WEIGHT, modulus/phase, imp-95212 envelope port, CLV
+  // citation). Documentation only; no bound change; import-light, 8
+  // self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95457-off-lattice-riesz-floor-status-note.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -182,6 +182,14 @@ const MATH_MODULES = [
 // (Kept local to the change in case the top-level list becomes stale.)
 
 const DATA_MODULES = [
+  // levinson-mollifier-frontier-audit-2026-09: literature-verified SOTA of the Levinson/mollifier
+  // critical-line-proportion program (PRZZ 2020 κ≥0.417293962 = lineage record) vs the mollifier-free
+  // 2026 pair-correlation record (Alpöge–Furman arXiv:2608.13637 Lean-verified 2/3, MT-window 0.6725;
+  // Lamzouri arXiv:2609.02882 independent). Executed joint (P,Q,R) optimisation of Conrey's functional:
+  // reproduces Levinson 0.3474 / Conrey 0.36581 / 0.4088; shape SATURATED at θ=4/7 (Δκ<1e-5 across
+  // degrees); dκ/dθ≈0.57; even θ=1 gives 0.588<0.6725, matching needs θ≈1.339 (conjectural rows
+  // flagged). Binding barrier = mollifier length θ (Kloosterman/DI input); import-free. NO QED.
+  '/src/data/levinson-mollifier-frontier-audit-2026-09.js',
   // imp-95518-displacement-leg-discharge: double-verified (attack + independent from-scratch
   // replication at all 10 re-anchors + RK4 cross-check) discharge of the LAST ANALYTIC
   // obstruction of the C_Lip→D_rest E_field transfer leg — the displacement lemma. Gap-cancellation
@@ -17544,6 +17552,19 @@ const DATA_MODULES = [
   // New sub-gap W-DECAY-PRECISION (needs double-double/Arb). Import-light
   // (eps0Window), 6 self-executing assertions. No bound; PT Lambda <= 0.2; NO QED.
   '/src/data/imp-95557-w-decay-scaling.js',
+  // imp-95576 (opus-4-8, api-pool): closes the imp-95557 W-DECAY-PRECISION sub-gap
+  // on the numeric side. Ports the imp-95531 Cauchy-Gram pencil VERBATIM to mpmath
+  // at dps=60 (arbitrary precision / Arb-class), so the super-exponentially
+  // ill-conditioned metric no longer floors mu_S(0) at ~1e-10. Resolves W(S) far
+  // below the ~1e-6 float64 ceiling (down to W ~ 1e-17). DENSE families cross the
+  // Lehmer collision threshold 1.15e-11 at a small certified count: ARITHMETIC at
+  // n=8 (W=9.74e-12), GEOMETRIC r=1.5 at n=9 (W=7.73e-12), monotone with no floor.
+  // The NESTED DYADIC family does NOT cross -- W PLATEAUS at W_inf ~ 2.03e-6 (a
+  // far-out node barely perturbs the pencil), correcting imp-95557 extrapolated
+  // dyadic crossing n~14-45. Validated vs the imp-95557 float64 rows (rel ~1e-5)
+  // and re-checked at dps=100 (10 sig figs). Import-light (eps0Window overlap
+  // cross-check), 7 self-executing assertions. No bound; PT Lambda <= 0.2; NO QED.
+  '/src/data/imp-95576-arb-eps0-window.js',
   // imp-95558 (opus-4-8, api-pool): provenance audit of the 1.15e-11 threshold
   // the imp-95531 windows W(S) are measured against. (1) SOURCE: it is the
   // magnitude of the Saouter-Gourdon-Demichel 2011 (Math. Comp. 80) lower bound
@@ -17603,12 +17624,69 @@ const DATA_MODULES = [
   // Witness-completeness only; no uniform bound (that is the imp-95443 race);
   // import-light, 5 self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95561-legb-d2-indefinite-straddle-witness.js',
+  // imp-95575 (opus-4-8, api-pool): SWEEPS the imp-95537 D2 direct-pencil decider
+  // over a port-window grid (p in primes {2,3,5,7,11,13}, D in {1..4}). imp-95561
+  // exhibited the D2 straddle -- DELTA_A = A_m - A_p indefinite yet the direct
+  // ratio lambda_max(A_p,B_p) <= lambda_max(A_m,B_m) holds -- at only the single
+  // (3,1) window. This measures 24 windows and finds the straddle is UNIVERSAL on
+  // every K = D*(p-1) >= 2 window: the collar-at-shallowest-depth convention forces
+  // the collar DELTA_A diagonal to vanish, so the 2x2 collar minor [[0,b],[b,d]] has
+  // det = -b^2 < 0 and DELTA_A is indefinite generically, not just at (3,1). Every
+  // float64-resolvable ratio HOLDS (0 ratio-fails); large-K windows degrade to
+  // "ratio-unresolved" at the imp-95557 Cauchy-Gram conditioning ceiling (a numeric
+  // artifact, not a counterexample). Prevalence measurement only; no uniform bound
+  // (that is the imp-95443 race); import-light, 5 self-executing assertions incl a
+  // (3,1) cross-check against the imp-95561 numbers. PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95575-legb-d2-portgrid-sweep.js',
+  // imp-95585 (opus-4-8, api-pool): DERIVES the general-K generalization of the
+  // imp-95561 structural straddle. imp-95561 stated the collar-zero-diagonal
+  // forcing (DELTA_A[c][c] = 0 => 2x2 minor det = -(off-diag)^2 < 0 => straddle)
+  // for K = 2 only; this proves the lemma for arbitrary K -- a symmetric matrix
+  // with a zero diagonal entry and a nonzero off-diagonal in that row is
+  // indefinite (the negative 2x2 collar minor plus Cauchy interlacing gives
+  // lambda_min(full) <= mu_-(2x2) < 0 < mu_+(2x2) <= lambda_max(full)) -- and
+  // DEMONSTRATES it on genuine multi-packet width-law port windows: (2,3) K = 3
+  // spectrum { -0.07071133, -0.00008573, +0.45818910 } (inertia 1 pos / 2 neg),
+  // (3,2) and (5,1) both K = 4 (inertia 2 pos / 2 neg), all with the collar
+  // diagonal exactly 0, a negative 2x2 collar minor, and interlacing holding. So
+  // the imp-95537 D2 straddle is a multi-packet phenomenon, not a two-packet
+  // artifact. Derivation + finite demonstration only; no uniform bound (that is the
+  // imp-95443 race); import-light, 6 self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95585-legb-d2-multipacket-straddle-generalization.js',
   // imp-95438 (sonnet-4-6, content): plain ledger documenting how the
   // imp-95419 SEP-OPT chain classical-input inventory shrinks from
   // {CLV, Brownian exit-time} to {CLV} alone after imp-95420 THEOREM P-POS.
   // Documentation only; no bound change; import-light, 5 self-executing
   // assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95438-sep-opt-input-reduction-ledger.js',
+  // proportion-to-all-bridge (fable-5-1, RH frontier, 2026-09-22): the
+  // "positive proportion -> every zero" gap that NS-RIGID (imp-95530) names the
+  // pointwise wall (b), interrogated against the literature. One-sentence gap
+  // (mean value known to error >= T^{1-delta} vs one-zero quantum ~ 1/log T);
+  // pairing-by-pairing (density+Deuring-Heilbronn / CGG-Montgomery-Lamzouri /
+  // gaps) all fail to reach "none"; META-OBSTRUCTION MV-CAP with exact
+  // hypotheses (fixed-length mean values are proportion-capped: Radziwill
+  // I >= c/theta, Bettin-Gonek blind strip beta <= 1/2 + 1/(2 theta)); the
+  // PRECISE open loophole = Bettin-Gonek theta = inf (mollifier longer than the
+  // height, I_N(0,T) << T^{1+eps} for theta > 1 => quasi-RH), same wall as (b)
+  // by Montgomery-Vaughan T + N. Import-free, 7 holds() assertions. No bound
+  // change; PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/proportion-to-all-bridge-2026-09-22.js',
+  // imp-95581 (opus-4-8, api-pool): can the imp-95519 section-4 zero-side
+  // "for all T uniformly" requirement be weakened to a "for most T" (a.e. /
+  // exceptional-set) pair-correlation statement without breaking the
+  // /permutation-architecture contract? FORECLOSED, two reasons. (A) The contract
+  // is a SUP: it reads the single worst RS anchor cell |E_97|(690988) where the
+  // 1.306 headroom is attained with equality (imp-95538), so it tolerates
+  // exceptional measure ZERO, and pair correlation controls the bad set MEASURE
+  // never its LOCATION. (B) Kronecker/Weyl saturation (imp-95526 T2): the continuum
+  // sup approaches the triangle bound and the bad set is POSITIVE-measure order one
+  // (witness supRatio ~1, badFraction ~0.39), so an a.e.-T bound discards exactly
+  // the saturating heights. Even the most generous window-averaged reformulation
+  // absorbs at most (1.306^2-1)/G^2 ~ 0.7% (G = trivial/budget = 10), ~50x below the
+  // measured bad-set fraction. Import-light, 6 self-executing assertions.
+  // Assessment only; no bound change; PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95581-for-most-t-relaxation-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

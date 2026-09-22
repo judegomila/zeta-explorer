@@ -2364,6 +2364,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the width curves are plotted from the exact closed-form formulas documented in the imp-95449 record (no re-derivation) and the margin/asymmetry bars are the baked scalars verbatim; proves nothing beyond what imp-95449 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95607-gumbelz-band',
+      title: 'imp-95583 Gumbel-Z Per-Height Band Check',
+      oneLine:
+        'Bar chart of the imp-95583 per-height gumbelZ = (observed worst discrepancy window max(D) minus the Gumbel-predicted E[max]) / sd[max] against the |gumbelZ| < 2 no-outlier band, across the six sample heights T_c = 1e4..5e5 (nWindows = 75..443).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95583-discrepancy-tail-evt.js',
+      paperSourcePath:
+        'src/data/imp-95583-discrepancy-tail-evt.js (record IMP95583_DISCREPANCY_TAIL_EVT; imp-95607 viz page)',
+      ticket: 'imp-95607',
+      pedagogicalStep: 152,
+      honestCeiling:
+        'Presentation only: renders the imp-95583 baked (T_c, nWindows, gumbelZ) triples verbatim (no re-derivation of the Gumbel EVT formulas); proves nothing beyond what imp-95583 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

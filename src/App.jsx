@@ -1078,6 +1078,9 @@ const Imp95547AlphaKhHeatScatterViz = lazy(() =>
 const Imp95434ThetaRangeDescentOverlapGrowthViz = lazy(() =>
   import('./pages/Imp95434ThetaRangeDescentOverlapGrowthViz.jsx')
 );
+const Imp95607GumbelZBandViz = lazy(() =>
+  import('./pages/Imp95607GumbelZBandViz.jsx')
+);
 const Imp95435RzpenOfflatticeDegradationLadderViz = lazy(() =>
   import('./pages/Imp95435RzpenOfflatticeDegradationLadderViz.jsx')
 );
@@ -2980,6 +2983,10 @@ function AppShell() {
           <Route
             path="/viz-imp95434-theta-range-descent-overlap-growth"
             element={<Imp95434ThetaRangeDescentOverlapGrowthViz />}
+          />
+          <Route
+            path="/viz-imp95607-gumbelz-band"
+            element={<Imp95607GumbelZBandViz />}
           />
           <Route
             path="/viz-imp95435-rzpen-offlattice-degradation-ladder"

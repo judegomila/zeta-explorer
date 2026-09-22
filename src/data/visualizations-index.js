@@ -2030,7 +2030,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       route: '/viz-imp95349-rzpen-gain-ladder',
       title: 'RZ-PEN Symbol-Pencil Floor Gain Ladder at rho = e^6',
       oneLine:
-        'Bar chart of the per-leg floor gain factor A_pen_k/A_pen_{k-1} at rho = e^6 across the imp-95329/95330/95331/95332 RZ-PEN3..RZ-PEN6 chain legs, plus a line chart of the cumulative floor gain relative to RZ-PEN2 (12.877x by RZ-PEN6) and the residual looseness against the exact symbol-pencil infimum, dropping 9.318x -> 6.085x -> 5.060x over the last three legs.',
+        'Bar chart of the per-leg floor gain factor A_pen_k/A_pen_{k-1} at rho = e^6 across the imp-95329/95330/95331/95332 RZ-PEN3..RZ-PEN6 chain legs, plus a line chart of the cumulative floor gain relative to RZ-PEN2 (12.877x by RZ-PEN6) and the residual looseness against the exact symbol-pencil infimum, dropping 9.318x -> 6.085x -> 5.060x over the last three legs. Companion page: /viz-imp95366-rzpen-onset-drop-ladder plots the every-octave onset x* for the same RZ-PEN2..RZ-PEN6 chain legs -- the two pages are complementary axes (floor gain vs onset drop) of one chain.',
       mathBucket: 'measurement',
       dataModule: 'src/data/imp-95349-rz-pen-gain-ladder-viz-data.js',
       paperSourcePath:
@@ -2086,7 +2086,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       route: '/viz-imp95366-rzpen-onset-drop-ladder',
       title: 'RZ-PEN Every-Octave Onset-Drop Ladder Across the Chain Legs',
       oneLine:
-        'Line chart of the every-octave firing onset x* (m-and-r-uniform, r=1.3, r=1.05 tracks) across the imp-95328/95329/95330/95331/95332 RZ-PEN2..RZ-PEN6 chain legs, plus a bar chart of the per-leg onset drop showing the K=256 chart-cover leg (imp-95330) supplies the bulk of the total drop (~0.94 of ~1.00) while the beta-trace-cap leg contributes only ~0.06 and the last two legs contribute exactly zero at rho = 2.',
+        'Line chart of the every-octave firing onset x* (m-and-r-uniform, r=1.3, r=1.05 tracks) across the imp-95328/95329/95330/95331/95332 RZ-PEN2..RZ-PEN6 chain legs, plus a bar chart of the per-leg onset drop showing the K=256 chart-cover leg (imp-95330) supplies the bulk of the total drop (~0.94 of ~1.00) while the beta-trace-cap leg contributes only ~0.06 and the last two legs contribute exactly zero at rho = 2. Companion page: /viz-imp95349-rzpen-gain-ladder plots the per-leg symbol-pencil floor gain for the same RZ-PEN2..RZ-PEN6 chain legs -- the two pages are complementary axes (onset drop vs floor gain) of one chain.',
       mathBucket: 'measurement',
       dataModule: 'src/data/imp-95366-rzpen-onset-drop-ladder-viz-data.js',
       paperSourcePath:

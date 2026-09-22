@@ -2,6 +2,7 @@ export const NAV_GROUPS = [
   {
     label: 'Research',
     items: [
+      { to: '/guide', label: 'Guide to RH (start here)' },
       { to: '/results', label: 'Results (graded)' },
       { to: '/frontier-dag', label: 'Frontier DAG' },
       { to: '/program-dag', label: 'Program DAG (full history)' },

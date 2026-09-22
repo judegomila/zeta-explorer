@@ -15,6 +15,7 @@ import { EditorialHeader } from './components/editorial/PostLayout.jsx';
 const HomePage = lazy(() => import('./pages/HomePage.jsx')); // legacy dark home, now /classic
 const DirectoryPage = lazy(() => import('./pages/DirectoryPage.jsx'));
 const AtlasPage = lazy(() => import('./pages/AtlasPage.jsx'));
+const GuidePage = lazy(() => import('./pages/GuidePage.jsx'));
 const SimulatorsPage = lazy(() => import('./pages/SimulatorsPage.jsx'));
 const NoGosPage = lazy(() => import('./pages/NoGosPage.jsx'));
 const ResultsPage = lazy(() => import('./pages/ResultsPage.jsx'));
@@ -1673,6 +1674,7 @@ function AppShell() {
           <Route path="/classic" element={<HomePage />} />
           <Route path="/directory" element={<DirectoryPage />} />
           <Route path="/atlas" element={<AtlasPage />} />
+          <Route path="/guide" element={<GuidePage />} />
           <Route path="/simulators" element={<SimulatorsPage />} />
           <Route path="/no-gos" element={<NoGosPage />} />
           <Route path="/results" element={<ResultsPage />} />

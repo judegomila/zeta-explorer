@@ -129,7 +129,11 @@ export default function HomePageEditorial() {
       {/* START HERE — three audience doors (reorg #5) */}
       <div className="ed-full"><section className="ed-sec" style={{ paddingTop: 26, paddingBottom: 6 }}>
         <div className="ed-lbl" style={{ marginBottom: 10 }}>start here</div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }} className="ed-map">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }} className="ed-map">
+          <Link className="ed-tile" to="/guide">
+            <h3>I&rsquo;m new &mdash; what is RH?</h3>
+            <p>A plain-language on-ramp: what the hypothesis says, why it matters, why it is hard, every line of attack, and exactly where each one stops.</p>
+          </Link>
           <Link className="ed-tile" to="/results">
             <h3>I want the mathematics</h3>
             <p>Every result, graded by verification level — kernel-verified Lean theorems, refereed proofs, certified computations, candidates, and the negative results.</p>

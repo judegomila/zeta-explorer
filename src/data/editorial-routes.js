@@ -4,6 +4,7 @@
 // editorial style. Everything NOT listed keeps the legacy dark app untouched.
 export const EDITORIAL_ROUTES = new Set([
   '/',
+  '/guide',
   '/atlas',
   '/simulators',
   '/no-gos',
@@ -26,7 +27,6 @@ export const EDITORIAL_ROUTES = new Set([
   '/diagrams',
   '/catalan-signed-ladder',
   '/irrationality-pipeline',
-  '/raymond-lambda-note',
   '/lambda-bounds',
   // Model group
   '/full-story',

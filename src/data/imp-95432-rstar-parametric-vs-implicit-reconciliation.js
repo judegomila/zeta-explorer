@@ -32,6 +32,13 @@
  * only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains
  * SOTA.
  *
+ * TICKET CROSS-REFERENCE. imp-95452 asks for exactly this reconciliation
+ * ("reconcile pending imp-95402 against its delivery by imp-95377 ...,
+ * and re-scope or retire the queue row") -- it is a later duplicate of
+ * this same imp-95432 scout ticket, phrased against the same two source
+ * tickets. This module already IS that reconciliation, so no second
+ * module is added; imp-95452 is recorded as closed here instead.
+ *
  * Import-light (no imports, no zeros bundle). Numerics below re-check
  * the cross-consistency claim directly rather than re-citing it.
  */
@@ -79,6 +86,7 @@ export const IMP95432_RSTAR_PARAMETRIC_VS_IMPLICIT_RECONCILIATION = {
     'completed, complementary records. Meta reconciliation only; ' +
     'changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
     'SOTA.',
+  closesTickets: ['imp-95452'],
 };
 
 const REC = IMP95432_RSTAR_PARAMETRIC_VS_IMPLICIT_RECONCILIATION;
@@ -126,6 +134,14 @@ export const IMP95432_ASSERTIONS = [
       /changes no bound/.test(REC.verdict) &&
       /NO QED/.test(REC.verdict) &&
       /remains SOTA/.test(REC.verdict),
+  },
+  {
+    id: 'imp95432-closes-imp95452',
+    description:
+      'imp-95452 duplicates this same reconciliation ask against the ' +
+      'same two source tickets; recorded as closed here rather than ' +
+      'duplicated in a second module',
+    holds: () => REC.closesTickets.includes('imp-95452'),
   },
 ];
 

@@ -59,6 +59,38 @@ export const PERM_ARCH_SIEVE_UNIVERSALITY = Object.freeze({
     caveatP2: 'the page closed form 2p^{-4/3}Σ_{j≤(p-1)/2}j^{-2/3} returns 0 at p=2 (assumes odd p); the true p=2 term is (1/4)(1/2)^{-2/3} = 0.397.',
   },
 
+  // imp-95541: full 25-prime S̄_p table from the closed form
+  // S̄_p = 2 p^{-4/3} Σ_{j≤(p-1)/2} j^{-2/3} (p=2 via caveatP2), measured against
+  // the ~4.8/p asymptotic and the R_ex=0.2797 cumulative budget at Q=1.
+  // (literals reproduced by tmp/imp-95541-sbar-per-prime.mjs; the 5 listed
+  // sBarByPrime values match to their printed precision.) Not a bound; NO QED.
+  perPrimeMeasurement: {
+    sBarByPrimeFull: {
+      2: 0.396850, 3: 0.462241, 5: 0.381283, 7: 0.315254, 11: 0.232961,
+      13: 0.206260, 17: 0.168178, 19: 0.154116, 23: 0.132227, 29: 0.109279,
+      31: 0.103358, 37: 0.089008, 41: 0.081529, 43: 0.078257, 47: 0.072465,
+      53: 0.065266, 59: 0.059404, 61: 0.057684, 67: 0.053090, 71: 0.050423,
+      73: 0.049191, 79: 0.045840, 83: 0.043856, 89: 0.041189, 97: 0.038112,
+    },
+    asymptotic:
+      'S̄_p/(4.8/p) is monotone increasing 0.165 (p=2) → 0.770 (p=97): 4.8/p is a '
+      + 'loose UPPER envelope, not tight at finite p. The exact limit prefactor is '
+      + '6·2^{-1/3} = 4.762 (from Σ_{j≤(p-1)/2} j^{-2/3} ~ 3·(p/2)^{1/3}), i.e. the '
+      + '"~4.8/p" is the p→∞ constant, approached from below; at p=97 the effective '
+      + 'prefactor is only ≈3.70/p.',
+    crossover:
+      'At Q=1 the budget test is √(Σ_{p∈S} S̄_p) > R_ex = 0.2797, i.e. Σ S̄_p > '
+      + 'R_ex² = 0.078225. The single p=2 weld alone gives √S̄_2 = 0.630 > R_ex, so '
+      + 'EVERY cumulative subset {2,…,p} crosses — the crossover is at the FIRST prime. '
+      + 'Individually, p=43 is the last single weld still above budget (S̄_43 = 0.07826 '
+      + '≳ 0.078225); p≥47 single welds fall below R_ex on their own, but the cumulative '
+      + 'RMS keeps rising to the full aggregate √(Σ_{p≤97} S̄_p) = 1.867.',
+    fullAggregate: 3.487321,
+    rmsFull: 1.8674,
+    firstCumulativeCrossPrime: 2,
+    lastSingleWeldAboveBudgetPrime: 43,
+  },
+
   // §5(i)+ (imp-95536): the full-25-prime ℓ²-collapse budget stated as a SINGLE
   // unconditional, arithmetic-free over-budget statement, plus an explicit
   // assessment of whether it subsumes the imp-95519 prime-side no-go (it does not).

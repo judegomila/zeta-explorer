@@ -2197,6 +2197,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the imp-95255 split-verdict record verbatim (no re-derivation); the ratio table and theta trivial/signed rows reproduce imp-95255 baked literals and assertions exactly; proves nothing beyond what imp-95255 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95434-theta-range-descent-overlap-growth',
+      title: 'Theta Sign-Pattern Range: Alternating-Witness Descent vs Overlap Growth',
+      oneLine:
+        'Dual-axis line chart of the imp-95375 ported-grid measurements: theta(alternating) falling from 0.1115 to 2.4e-5 (left axis) against the packet Gram off-/on-diagonal mass ratio B/A climbing from 1.79 to 542.73 (right axis) across pD = 8..704, showing heavier center overlap drives deeper achievable sign cancellation.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95375-theta-range-geometry-image.js',
+      paperSourcePath:
+        'src/data/imp-95375-theta-range-geometry-image.js (record IMP95375_THETA_RANGE_GEOMETRY_IMAGE; imp-95434 viz page)',
+      ticket: 'imp-95434',
+      pedagogicalStep: 144,
+      honestCeiling:
+        'Presentation only: renders the imp-95375 baked alternating-witness and B/A literals verbatim (exact closed-form Gram, no quadrature, no re-derivation); does not determine the actual seam sign pattern (imp-95397, still open); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95273-theta-vacuity-distribution',
       title: 'Theta Phase-Currency Vacuity Distribution',
       oneLine:

@@ -2097,6 +2097,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every plotted onset is copied verbatim from the imp-95328 / imp-95329 / imp-95330 / imp-95331 / imp-95332 records (no re-derivation, no re-execution of the underlying 256-chart / pair-identity numerics beyond what those modules already compute at import); the per-leg drops are a plain subtraction of already-baked onsets; proves nothing beyond what those five modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95390-ri-margin-heatmap',
+      title: 'RI-Margin Tightness Map with the r_star(x) Bump-Wedge Boundary',
+      oneLine:
+        'Heatmap of the imp-95271 dense (x, r) sweep of the imp-95231 LEMMA RI reduced-inequality tightness ratio LHS/RHS, re-rendered on a coarse render-friendly grid, with the r_star(x) bump-wedge boundary (root of h_r = 0) overlaid and the (x -> 0, r -> 1) corner extremum circled.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95390-ri-margin-heatmap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95271-ri-margin-map.js (functions hOf / lam2 / hprime / riMargin / rStar, record IMP95271_RI_MARGIN_MAP; imp-95390 viz page)',
+      ticket: 'imp-95390',
+      pedagogicalStep: 143,
+      honestCeiling:
+        'Presentation only: re-implements the same import-light kernel imp-95271 already used (no re-derivation) at a coarser grid chosen for SVG render size; the imp-95271 record itself reports the full 171,600-cell sweep with zero counterexamples; proves nothing beyond what imp-95271 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-cost-floor',
       title: 'The Geometry of the Program Floor',
       oneLine:

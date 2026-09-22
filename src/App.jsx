@@ -1072,6 +1072,9 @@ const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
 const Imp95371BcapTwoBranchCapVsExactRatioViz = lazy(() =>
   import('./pages/Imp95371BcapTwoBranchCapVsExactRatioViz.jsx')
 );
+const Imp95390RiMarginHeatmapViz = lazy(() =>
+  import('./pages/Imp95390RiMarginHeatmapViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2920,6 +2923,10 @@ function AppShell() {
           <Route
             path="/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio"
             element={<Imp95371BcapTwoBranchCapVsExactRatioViz />}
+          />
+          <Route
+            path="/viz-imp95390-ri-margin-heatmap"
+            element={<Imp95390RiMarginHeatmapViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -17441,6 +17441,12 @@ const DATA_MODULES = [
   // All three checks pass for both -- no gap found. Import-light, 5
   // self-executing assertions. AUDIT-ONLY: no bound change; NO QED.
   '/src/data/imp-95458-sepopt-ppos-tracking-audit.js',
+  // imp-95474 (sonnet-4-6, bug): audit of the imp-95341/95277/95380/95448/
+  // 95449/95451/95259/95038 finding-module batch found imp-95038 (envelope
+  // treatment comparison viz data) git-tracked but MISSING from this
+  // registry -- the other seven were already present. Import-light (Math
+  // only), six self-executing assertions. AUDIT-ONLY: no bound change; NO QED.
+  '/src/data/imp-95038-envelope-treatment-comparison.js',
 ];
 
 let ALL_MODULES = FAST_MODE

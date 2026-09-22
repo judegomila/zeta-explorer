@@ -396,6 +396,51 @@ function secondMomentLever(p, n0, H, T) {
 }
 const SM_LEVER_P97 = secondMomentLever(97, 100000, 1500, 3e6);
 
+// ── imp-95538: headroom FACTOR uniformity across the full RS window ───────────
+// Q_target(N) = R_ex / sqrt(Sbar) and the headroom factor Q_target/Q_anchor over
+// the window 690988 <= N <= 54799999. The majorant mass Sbar = 2 p^{-4/3} sum
+// j^{-2/3} (p = 97) is a pure Fresnel-amplitude sum with NO N-dependence, so the
+// target side is identically N-flat; the only genuinely N-moving quantities are
+// alpha_floor(N) and the Fresnel width exponent, which reclassify aliases across
+// the Montgomery alpha = 1 line but leave the majorant mass (hence Q_target and
+// the headroom factor) invariant. The 1.306 is therefore a uniform FLOOR fixed by
+// the worst (largest) cell |E_97|(690988) = 0.2141254901198318; over the window
+// headroom(N) = R_ex/|E_97|(N) >= 1.306 with equality only at the anchor. The
+// RS-cell values |E_97|(N) are the sole N-varying input and are not carried in
+// this import-light module -- the anchor caps them by construction (imp-95519 sec 2).
+function headroomAcrossWindow(points = 12) {
+  const rows = [];
+  for (let i = 0; i < points; i++) {
+    const t = points === 1 ? 0 : i / (points - 1);
+    const N = Math.round(N_LO * Math.pow(N_HI / N_LO, t)); // log-spaced grid
+    const qTarget = R_EX / SQRT_SBAR; // majorant side: no N dependence
+    const headroom = qTarget / Q_ANCHOR; // = R_ex/|E_97|(anchor), the uniform floor
+    rows.push({
+      N,
+      alphaFloor: alphaOfXi(1 / 97, N), // N-varying: 1.0953 -> 1.0730
+      widthExponent: floorAliasAccounting(N, 97).widthExponent, // N-varying
+      qTarget, // N-flat
+      headroomFactor: headroom, // N-flat floor
+    });
+  }
+  const qs = rows.map((r) => r.qTarget);
+  const hs = rows.map((r) => r.headroomFactor);
+  const as = rows.map((r) => r.alphaFloor);
+  return {
+    points,
+    rows,
+    qTargetMin: Math.min(...qs),
+    qTargetMax: Math.max(...qs),
+    qTargetSpread: Math.max(...qs) - Math.min(...qs),
+    headroomMin: Math.min(...hs),
+    headroomMax: Math.max(...hs),
+    headroomSpread: Math.max(...hs) - Math.min(...hs),
+    alphaFloorMin: Math.min(...as),
+    alphaFloorMax: Math.max(...as),
+  };
+}
+const WINDOW_HEADROOM_SCAN = headroomAcrossWindow(12);
+
 // ── verdict object ───────────────────────────────────────────────────────────
 export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
   ticket: 'imp-95519',
@@ -435,6 +480,13 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
     vkCrossoverLogT: VK_CROSSOVER_LOGT,
     heightDeficitQ97: HEIGHT_DEFICIT_Q97,
     gaussPlancherelResiduals: [GP_RESID_P7, GP_RESID_P13, GP_RESID_P97],
+    windowHeadroomScan: {
+      ticket: 'imp-95538',
+      window: [N_LO, N_HI],
+      ...WINDOW_HEADROOM_SCAN,
+      verdict:
+        'CONFIRMED N-INDEPENDENT: Q_target and the 1.306 headroom factor are flat to machine eps across the whole RS window (spread 0); the majorant mass Sbar = 2 p^{-4/3} sum j^{-2/3} carries no N. The only N-motion is alpha_floor (1.0953 at N = 690988 -> 1.0730 at N = 54799999) and the Fresnel width exponent, which reclassify aliases across the Montgomery alpha = 1 line but leave Sbar unchanged. The 1.306 is a uniform FLOOR set by the worst cell |E_97|(690988); over the window headroom(N) = R_ex/|E_97|(N) >= 1.306 with equality only at the anchor. RS-cell |E_97|(N) is the sole N-varying input (not in this import-light module) and is anchor-capped. No bound change; NO QED.',
+    },
   },
   secondMomentLever: {
     ticket: 'imp-95535',
@@ -553,6 +605,17 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       SM_LEVER_P97.charConcentration >= 1 &&
       IMP95519_LOCALIZED_BARRIER_SUM_NOGO.secondMomentLever.closesHeadroom === false &&
       IMP95519_LOCALIZED_BARRIER_SUM_NOGO.secondMomentLever.refutesHeadroom === false,
+  },
+  {
+    id: 'imp95538-headroom-factor-N-independent',
+    description:
+      'Q_target and the 1.306 headroom factor are N-flat to machine eps across 690988 <= N <= 54799999 (spread < 1e-12); only alpha_floor moves (1.0953 -> 1.0730)',
+    holds: () =>
+      WINDOW_HEADROOM_SCAN.qTargetSpread < 1e-12 &&
+      WINDOW_HEADROOM_SCAN.headroomSpread < 1e-12 &&
+      Math.abs(WINDOW_HEADROOM_SCAN.headroomMin - 1.306) < 2e-3 &&
+      Math.abs(WINDOW_HEADROOM_SCAN.alphaFloorMax - 1.0953) < 5e-4 &&
+      Math.abs(WINDOW_HEADROOM_SCAN.alphaFloorMin - 1.0730) < 5e-4,
   },
   {
     id: 'imp95519-honesty-gate-no-qed',

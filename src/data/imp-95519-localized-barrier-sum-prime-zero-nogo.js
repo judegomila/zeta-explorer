@@ -544,6 +544,17 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
     holds: () => Math.abs(HEIGHT_DEFICIT_Q97 / 2.91e6 - 1) < 5e-3,
   },
   {
+    id: 'imp95535-second-moment-lever-direction-neutral',
+    description:
+      'the L^2 identity yields a concentration factor in [1, p-1], so it neither upper-bounds max_h |A_h| nor refutes the 1.306 factor (direction-neutral)',
+    holds: () =>
+      SM_LEVER_P97.aliasConcentration >= 1 &&
+      SM_LEVER_P97.aliasConcentration <= SM_LEVER_P97.concentrationCeiling &&
+      SM_LEVER_P97.charConcentration >= 1 &&
+      IMP95519_LOCALIZED_BARRIER_SUM_NOGO.secondMomentLever.closesHeadroom === false &&
+      IMP95519_LOCALIZED_BARRIER_SUM_NOGO.secondMomentLever.refutesHeadroom === false,
+  },
+  {
     id: 'imp95519-honesty-gate-no-qed',
     description: 'no-go only: promotes no bound, exponent achievable 0 < target 1/2, NO QED, PT stays SOTA',
     holds: () =>

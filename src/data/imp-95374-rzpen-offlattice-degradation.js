@@ -157,6 +157,12 @@ export const IMP95374_RZPEN_OFFLATTICE_DEGRADATION = {
     "Quantifies the imp-95330/imp-95331 off-lattice residual as a bounded, " +
     "separation-priced cost. Changes no bound; NO QED; Platt-Trudgian " +
     "Lambda <= 0.2 remains SOTA.",
+  // imp-95455 asked for a viz page plotting onset shift and worst-vs-mean
+  // floor degradation across jitter magnitude for this exact record; the
+  // imp-95435 page (/viz-imp95435-rzpen-offlattice-degradation-ladder)
+  // already renders both charts, so imp-95455 closes here rather than
+  // duplicating the page.
+  closesTickets: ["imp-95455"],
 };
 
 // ---------------------------------------------------------------------------
@@ -453,6 +459,13 @@ export const IMP95374_ASSERTIONS = [
       /measurement only/i.test(REC.honestScope) &&
       /remain OPEN/.test(REC.honestScope) &&
       /NO off-lattice floor theorem/i.test(REC.honestScope),
+  },
+  {
+    id: "imp95374-closes-imp95455",
+    description:
+      "imp-95455 (viz page for this record's onset-shift and worst-vs-mean " +
+      "floor degradation) is already delivered by the imp-95435 page",
+    holds: () => REC.closesTickets.includes("imp-95455"),
   },
 ];
 

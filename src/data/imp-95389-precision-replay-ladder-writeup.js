@@ -92,6 +92,11 @@ export const IMP95389_PRECISION_REPLAY_LADDER_WRITEUP = {
     'DERIVATION restated from a frozen limb-quantized cost model, not a wall-clock measurement -- no native '
     + 'FLINT/Arb run at any of these precisions has been launched. Changes no bound; NO QED; Platt-Trudgian '
     + 'Lambda <= 0.2 remains SOTA; RH open.',
+  queueReconciliation:
+    'imp-95415 (queue: "add a content/glossary note tabulating the imp-95277 ladder and cross-linking it to '
+    + 'the imp-95238 tier-2 budget and imp-95257 3-limb rung") requests exactly this note; reconciled as '
+    + 'already-delivered by this module (relatedTickets already names imp-95238/imp-95257, ladder/brackets/'
+    + 'launch-defer decision already tabulated above), not a separate write-up.',
 };
 
 export const IMP95389_PRECISION_REPLAY_LADDER_WRITEUP_ASSERTIONS = [
@@ -151,6 +156,13 @@ export const IMP95389_PRECISION_REPLAY_LADDER_WRITEUP_ASSERTIONS = [
       && /NO QED/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest)
       && /remains SOTA/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest)
       && /RH open/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.honest),
+  },
+  {
+    id: 'imp-95389-reconciles-imp-95415-duplicate-request',
+    description: 'the queueReconciliation field names imp-95415 as reconciled against this already-delivered writeup',
+    holds: () =>
+      /imp-95415/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.queueReconciliation)
+      && /already-delivered/.test(IMP95389_PRECISION_REPLAY_LADDER_WRITEUP.queueReconciliation),
   },
 ];
 

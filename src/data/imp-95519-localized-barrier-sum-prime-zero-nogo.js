@@ -530,6 +530,25 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
   },
   ticketDiscrepancy:
     'imp-95519 text quotes Q_sup < R_ex/sqrt(Sbar) = 1.39930 with sqrt(Sbar) = 0.19522203; the ratio at those values is 1.4327 (page figure). The headroom factor used here is the page-consistent 1.306.',
+  // imp-95556: accuracy audit reconciling the 1.39930 (ticket text) vs 1.4327 (module/page)
+  // contract-closing threshold Q_target = R_ex/sqrt(Sbar).
+  imp95556TicketReconciliation: {
+    inputs: {
+      R_ex: 0.27968819555261474,
+      Sbar: 0.03811163970959593, // = 2 * 97^(-4/3) * sum_{j<=48} j^(-2/3)
+      sqrtSbar: 0.19522202670189637,
+    },
+    // Exact recomputation at the module inputs.
+    QtargetExact: 1.4326671818370846, // R_ex / sqrt(Sbar)
+    authoritativeValue: 1.4327,
+    ticketTextValue: 1.39930,
+    // What the ticket-text 1.39930 would require (neither matches the module convention):
+    impliedSqrtSbarFor139930: 0.19987722, // R_ex / 1.39930, i.e. Sbar = 0.039951 (not 0.038112)
+    impliedRexFor139930: 0.27317419, // 1.39930 * sqrtSbar, a different target R_ex
+    nearestTruncationRatio: 1.39743, // sum extended to j<=54 (still != 1.39930): not a truncation-length convention either
+    verdict:
+      'AUTHORITATIVE = 1.4327. R_ex/sqrt(Sbar) = 1.43267 to machine precision at the stated inputs (R_ex = 0.27968819555261474, Sbar = 2*97^(-4/3)*sum_{j<=48} j^(-2/3) = 0.038112, sqrt = 0.19522203), rounding to the page figure 1.4327. The ticket-text 1.39930 is NOT reproducible from these inputs: it would require Sbar = 0.039951 (sqrt 0.19988) or a different target R_ex = 0.27317, and the nearest clean sum-truncation (j<=54) gives 1.39743, so 1.39930 is not a Sbar-convention or truncation-length variant but a stale/erroneous figure. Downstream consumers should cite Q_target = 1.4327 (headroom factor 1.306 unchanged). Accuracy audit only; no bound change; NO QED; PT Lambda <= 0.2 stands.',
+  },
   isRigorous: true,
   rigorScope:
     'Lemma Gauss-Plancherel is an exact identity (verified 1e-12). The explicit-formula accounting, alpha-range, zero-free-region and RH-barrier statements are standard theorems applied at the window parameters; the verdict is a no-go on the two named routes, not a theorem that no bound exists.',

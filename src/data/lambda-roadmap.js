@@ -1953,8 +1953,8 @@ export const LAMBDA_ROADMAP = {
     'computer-assisted proof candidate for an unconditional bound; it is not established, published, ' +
     'peer-reviewed, or accepted, and RH still ' +
     'requires Lambda <= 0. In the inherited Dyson/collision family, ' +
-    'Steps 1 and 3 supply an unconditional lim-sup skeleton, while the quantitative Step-4 ' +
-    'G6/G6a/C_H bridge remains open; Route A also carries a GUE conditional. Step 5 is ' +
+    'Steps 1 and 3 supply an unconditional lim-sup skeleton, Step 2 is numerical, and the ' +
+    'quantitative Step-4 G6/G6a/C_H bridge remains open; Route A also carries a GUE conditional. Step 5 is ' +
     'unverified, and RH does not follow. Everything after the opening paragraph of ' +
     'currentStatus below is a ' +
     'measurement-only refinement appendix (imp-33xxx/imp-35xxx landmark quantifications) -- ' +

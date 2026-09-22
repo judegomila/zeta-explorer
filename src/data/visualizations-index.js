@@ -2406,6 +2406,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the imp-95445 baked SPLIT-LOO/RZ-PEN/combined onset columns verbatim (SPLIT-LOO recomputed pure arithmetic, RZ-PEN column baked; no re-derivation); the two legs use different model Gram conventions so the combined min is a firing-depth comparison of two independent valid upper bounds, not a unified single certificate; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95492-breach-threshold-surface',
+      title: 'Off-Lattice Breach-Threshold delta*(m, rho) Surface',
+      oneLine:
+        'Line charts of the imp-95430 worst-of-400 crossing threshold delta*(m, rho) -- shrinking from 19.97% to 3.10% as the octave count m grows (rho=2), growing from 5.20% to 28.86% as the lattice ratio rho widens (m=8) -- with the single binding pattern (index 129) annotated at the m=8/rho=2 crossing.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95430-breach-threshold-bound.js',
+      paperSourcePath:
+        'src/data/imp-95430-breach-threshold-bound.js (record IMP95430_BREACH_THRESHOLD_BOUND; imp-95492 viz page)',
+      ticket: 'imp-95492',
+      pedagogicalStep: 155,
+      honestCeiling:
+        'Presentation only: renders the imp-95430 baked mDependence/rhoDependence/bindingGapM8 columns verbatim (no re-derivation); the crossing threshold is a worst-of-400 estimate, not an infimum; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

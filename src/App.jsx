@@ -1087,6 +1087,9 @@ const Imp95435RzpenOfflatticeDegradationLadderViz = lazy(() =>
 const Imp95491CombinedOfflatticeOnsetLadderViz = lazy(() =>
   import('./pages/Imp95491CombinedOfflatticeOnsetLadderViz.jsx')
 );
+const Imp95492BreachThresholdSurfaceViz = lazy(() =>
+  import('./pages/Imp95492BreachThresholdSurfaceViz.jsx')
+);
 const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
   import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
 );
@@ -3001,6 +3004,10 @@ function AppShell() {
           <Route
             path="/viz-imp95491-combined-offlattice-onset-ladder"
             element={<Imp95491CombinedOfflatticeOnsetLadderViz />}
+          />
+          <Route
+            path="/viz-imp95492-breach-threshold-surface"
+            element={<Imp95492BreachThresholdSurfaceViz />}
           />
           <Route
             path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"

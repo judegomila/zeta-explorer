@@ -18,6 +18,7 @@ import { ANCHOR_GATE, MISSING_EVALUATOR_INPUTS } from '../data/imp-95013-gate2-l
 import { IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX } from '../data/imp-95096-joint-near-far-vs-lambda-max-terminality.js';
 import { IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE } from '../data/imp-95092-four-lever-far-ceiling-elasticity-table.js';
 import { PERM_ARCH_SIEVE_UNIVERSALITY } from '../data/perm-arch-sieve-universality-no-go-2026-09-22.js';
+import { IMP95519_LOCALIZED_BARRIER_SUM_NOGO } from '../data/imp-95519-localized-barrier-sum-prime-zero-nogo.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -586,6 +587,18 @@ export default function PermutationArchitecturePage() {
           <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — sieve-algebra universality, Theorem U (2026-09-22)</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             {PERM_ARCH_SIEVE_UNIVERSALITY.verdict}
+          </p>
+        </div>
+        <div style={{ borderLeft: '3px solid var(--terra)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '16px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — imp-95519 localized barrier sum, precise no-go (2026-09-19)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            {IMP95519_LOCALIZED_BARRIER_SUM_NOGO.verdict}
+          </p>
+        </div>
+        <div style={{ borderLeft: '3px solid var(--terra)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '16px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — imp-95519 zero-side σ_B abscissa dichotomy</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            {PERM_ARCH_SIEVE_UNIVERSALITY.imp95519Caveat}
           </p>
         </div>
 

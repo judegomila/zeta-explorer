@@ -1362,7 +1362,8 @@ int main(int argc, char **argv) {
                 i++;
             }
         }
-        if (nth > 7) nth = 7;   /* CPU etiquette: shared machine */
+        if (nth > 14) nth = 14; /* imp-95216 full-window run: user-authorized
+                                   14 threads under nice -n 10 (was 7) */
         init_globals();
         mode_t2_slice(uLo, uHi, sideSel, metricSel, nth, budget, out);
         return 0;

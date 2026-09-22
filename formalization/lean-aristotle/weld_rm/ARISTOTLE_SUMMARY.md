@@ -1,0 +1,12 @@
+# Summary of changes for run c0462683-0d2d-4108-aec1-7280b4e45575
+I formalized Lemma RM from `job37_weld_rm.tex` in Lean 4 / Mathlib, over ℝ with the Lebesgue integral, in the new file `RequestProject/WeldRM.lean` (610 lines, builds cleanly with no `sorry` and no added axioms; `#print axioms` for the main theorem reports only `propext`, `Classical.choice`, `Quot.sound`).
+
+Definitions follow the displays of the source: `Ipc s T ρ = ρ^(-1/2) ∫_ℝ (1+|u|/ρ)^(-s) (1+|u-T|)^(-s) du`, `phiK s y = (1+y)^(-s-1)((s-1/2)y - 1/2)`, `PhiK s Y = 1/(2(s-1)) - (1+Y)^(-s)((s-1/2)(1+Y)-(s-1))/(s-1)`, `Ystar s = (2s-1)^(1/(s-1)) - 1`, `gk`/`Gk` for g and the folded kernel G, and `dfk` for ∂_ρ f_ρ (all powers are real `rpow`).
+
+Proved results:
+(i) `WeldRM.Ipc_monotoneOn`: for `1 < s` and `Ystar s ≤ T`, `ρ ↦ I(T,ρ)` is `MonotoneOn` (nondecreasing, non-strict, as specified) on `Ioc 0 1`.
+(ii) `WeldRM.hasDerivAt_Ipc`: differentiation under the integral sign at every `ρ > 0`, justified by the explicit named domination step `WeldRM.dom_majorant`, `|∂_ρ f_ρ(u) g(u)| ≤ s·a^(-3/2)·(max 1 b)^s·(1+|u|)^(-s)` for `0 < a ≤ ρ ≤ b`, whose majorant is integrable exactly because `s > 1` (`integrable_dom_majorant`, from `integrable_one_add_abs_rpow`). This is a two-sided-neighbourhood variant of the majorant suggested in the source, since a derivative at a point requires a full neighbourhood; it is proved, never assumed.
+(iii) `WeldRM.hasDerivAt_PhiK` (Φ' = φ_K on (-1,∞)) together with `WeldRM.PhiK_zero` (Φ(0)=0), and `WeldRM.integral_phiK_eq` (∫_0^Y φ_K = Φ(Y)) via the fundamental theorem of calculus.
+(iv) `WeldRM.threshold_criterion`: for `s > 1`, `Y ≥ 0`, `(s-1/2)(1+Y)^(1-s) ≤ 1/2 ↔ Ystar s ≤ Y`, and `WeldRM.PhiK_nonneg` (Φ(Y) ≥ 0 above the threshold).
+
+The folding of ℝ onto [0,∞) is proved, not assumed: `WeldRM.integral_fold` (∫_ℝ h = ∫_{(0,∞)} (h y + h(−y)) for integrable h) and `WeldRM.dIpc_eq_fold`, which combines the substitution `u = ρy` with the folding to give `dI/dρ = ρ^(-1/2) ∫_0^∞ φ_K(y) G(ρy) dy`. The sign argument is `WeldRM.core_nonneg`: splitting at `Y = T/ρ ≥ T ≥ Y*(s)`, using that φ_K changes sign exactly at `y₀ = 1/(2s-1)`, that G is nondecreasing on [0,T] (`Gk_monotoneOn`, via its derivative), and the auxiliary inequality `y0_le_Ystar` (`1/(2s-1) ≤ Y*(s)`, proved from log/exp estimates), which is what makes the tail term nonnegative. As instructed by the source, the numerical value of Y*(11) is not part of the formal statement.

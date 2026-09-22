@@ -50,6 +50,7 @@ export default function LambdaCandidate01758354Page() {
 
       <h2>Status</h2>
       <p>This is a candidate: the reduction is formalized, the numerics are interval-rigorous, but the pipeline has not been independently audited end to end. It is the lowest value the barrier method currently reaches, below <Link to="/newman-lambda-01787854-candidate">the 0.1787854 package</Link>, and consistent with the finding that the <Link to="/pt-floor-audit">verified height binds the floor</Link>.</p>
+      <p>The y-transfer gate — the hardest of the four — has an Arb PASS certificate: <code>verify_ydini_genmoll.c</code> at 256-bit over all 20,546 profiles gives a certified excision budget <InlineMath tex="B = 2.4957\times10^{-4}" />, a factor 7.5 inside the finite-lane margin <InlineMath tex="1.872\times10^{-3}" /> (run 2026-08-02, partials reproduced bit-identical 2026-09-22). That discharges the y-Dini/excision <em>computation</em>; the composition audit (deriving ε_cap at these parameters) and independent referee review remain outstanding. It is not a bound; Platt–Trudgian Λ ≤ 0.2 remains the accepted benchmark.</p>
     </PostLayout>
   );
 }

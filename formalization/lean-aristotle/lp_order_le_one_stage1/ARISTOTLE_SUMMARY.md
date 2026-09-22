@@ -1,0 +1,13 @@
+# Summary of changes for run d23a5351-6367-4cad-a9be-8a90b0524c6f
+I formalized the target of `job40_order_le_one_stage1.tex` in Lean 4 / Mathlib and **proved it in full, with no `sorry` and only the standard axioms** (`propext`, `Classical.choice`, `Quot.sound`).
+
+**Main result** — `EntireLP.exists_LP_approx_heatMajorized_order_le_one` in `RequestProject/EntireLP.lean`, stated exactly as mandated (namespace `EntireLP`, binder names `ht`, `hf`, `hgrowth`, and the conclusion conjunction unchanged): a Laguerre–Pólya function `f` satisfying `‖f z‖ ≤ A * Real.exp (B * ‖z‖)` admits real polynomials `P n` with only real roots that converge to `f` locally uniformly and are `HeatMajorized t P` for every `t ≥ 0`. `HeatMajorized` is transcribed verbatim from the task.
+
+**Reconstructed auxiliary definitions.** The referenced job33/job34 sources were not part of the project, so `toEntire`, `IsLaguerrePolya` and `MathlibBridge.HasOnlyRealRoots` are defined here with their standard meanings: `toEntire P z = (P.map (algebraMap ℝ ℂ)).eval z`; `HasOnlyRealRoots P ↔ card P.roots = P.natDegree` (the stated convention); `IsLaguerrePolya f` = real on the real axis together with a locally uniformly convergent sequence of real-rooted real polynomials. This is documented in the file header. To rule out vacuity, `EntireLP.isLaguerrePolya_id` and `EntireLP.growth_id` exhibit a function satisfying all hypotheses.
+
+**Proof route (no Hadamard factorization, no Pólya–Schur needed).**
+- `RequestProject/MathlibBridge.lean`: closure of real-rootedness under multiplication by a constant, differentiation (via Rolle, `Polynomial.card_roots_le_derivative`), coefficient reversal (`Polynomial.reflect`), and rescaling of the variable.
+- `RequestProject/Truncation.lean`: the operator `EntireLP.truncScale m P` (reverse, differentiate `deg P - m` times, reverse back, rescale). It preserves real-rootedness, produces degree `≤ m`, and multiplies the `j`-th coefficient by an explicit weight `wgt m (deg P) j`, proved to lie in `[0,1]` and to satisfy `1 - wgt ≤ j² / m` (an induction on the degree using Bernoulli's inequality).
+- `RequestProject/EntireLP.lean`: Cauchy estimates at radius `j / B`, combined with `j ! ≤ j ^ j`, give the uniform coefficient bound `2 * A * (e*B)^j / j !` for the truncated approximants; this yields both locally uniform convergence (dominated convergence on the coefficient series against the entire function's Taylor expansion) and the heat majorant `u k = C_r * (t * (e*B)²)^k / k !`, summable for every `t ≥ 0` — so no restriction on `t` is needed, as the task asserted.
+
+The optional job34 splice corollary was not added, since the job34 transfer file is not present in this project. The whole project builds cleanly with no warnings.

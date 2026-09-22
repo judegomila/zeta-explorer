@@ -70,23 +70,26 @@ export const CRITICAL_LINE_PROPORTION = Object.freeze([
   },
   {
     year: 2026,
-    authors: ['Claude (Anthropic)'],
+    authors: ['L. Alpöge', 'R. Furman', '(proof discovered by Claude, Anthropic)'],
     proportion: 2 / 3,
-    label: '≥ 2/3 (66.67%); optimised 0.6725',
+    label: '≥ 2/3 (66.67%); Montgomery–Taylor window 0.6725',
     method:
       'A different lineage from the Levinson mollifier: an unconditional linear-algebraic reading ' +
-      '(Sylvester’s law of inertia + a von Neumann trace inequality on a finite compression of Weil’s ' +
+      '(Sylvester’s law of inertia + a rank–trace inequality on a finite compression of Weil’s ' +
       'Hermitian form) of Montgomery’s pair-correlation second moment makes the previously RH-conditional ' +
-      '2/3 simple-zeros bound unconditional — at least 2/3 (optimised 0.6725) of the zeros are simple AND ' +
-      'on the critical line. Produced by an unreleased research Claude model; internally validated, reviewed ' +
-      'by Conrey and Goldston, with a Lean formal check — but not yet peer-reviewed.',
+      '2/3 simple-zeros bound unconditional — at least 2/3 (0.6725 with the Montgomery–Taylor window) of the ' +
+      'zeros are simple AND on the critical line; at least 5/6 (0.8362) are distinct. Analytic input: the ' +
+      'unconditional form factor on Fourier support [−1,1] (Aryan 2022; Baluyot–Goldston–Suriajaya–' +
+      'Turnage-Butterbaugh arXiv:2501.14545). Formally verified in Lean 4. Independently reproved by ' +
+      'Y. Lamzouri (arXiv:2609.02882, Sep 2026) via a single Hilbert-space inequality, who also shows ' +
+      '≥ 88.76% are simple or on the line. Not yet peer-reviewed.',
     citation:
-      'CLAUDE, “More than two thirds of the zeros of the Riemann zeta function lie on the critical line” (Anthropic, Aug 2026).',
-    href: 'https://www.anthropic.com/research/riemann-zeta',
-    status: 'AI-produced · unconditional · unrefereed',
+      'L. Alpöge, R. Furman, “More than two thirds of the zeros of the Riemann zeta function are simple and on the critical line”, arXiv:2608.13637 (v2, 19 Aug 2026); Y. Lamzouri, arXiv:2609.02882 (v2, 8 Sep 2026).',
+    href: 'https://arxiv.org/abs/2608.13637',
+    status: 'AI-discovered · unconditional · Lean-verified · independently reproved · unrefereed',
     accepted: false,
     aiResult: true,
-    note: 'Exceeds the 5/12 peer-reviewed record but via a separate method and pending refereeing; tracked as an external AI result, not this project’s.',
+    note: 'Exceeds the 5/12 peer-reviewed record via a separate (mollifier-free) method; pending refereeing; tracked as an external result, not this project’s. See src/data/levinson-mollifier-frontier-audit-2026-09.js for the Levinson-vs-pair-correlation audit.',
   },
 ]);
 

@@ -1,0 +1,52 @@
+import RequestProject.EntireLP
+import RequestProject.MathlibBridge
+import RequestProject.Truncation
+import RequestProject.ProbeStatements
+open EntireLP MathlibBridge
+#print axioms coeff_comp_C_mul_X
+#print axioms coeff_truncScale
+#print axioms coeff_truncScale_eq_zero
+#print axioms comp_C_mul_X_prod
+#print axioms differentiable_toEntire
+#print axioms exists_approx
+#print axioms exists_LP_approx_heatMajorized_order_le_one
+#print axioms exists_normalized_growth
+#print axioms growth_id
+#print axioms hasOnlyRealRoots_C_mul_prod
+#print axioms hasOnlyRealRoots_iff_splits
+#print axioms hasOnlyRealRoots_truncScale
+#print axioms hasOnlyRealRoots_zero
+#print axioms HasOnlyRealRoots.C_mul
+#print axioms HasOnlyRealRoots.comp_scale
+#print axioms HasOnlyRealRoots.derivative
+#print axioms HasOnlyRealRoots.exists_prod
+#print axioms HasOnlyRealRoots.iterate_derivative
+#print axioms HasOnlyRealRoots.reflect
+#print axioms hasSum_toEntire
+#print axioms heatMajorized_of_coeff_bounds
+#print axioms isLaguerrePolya_id
+#print axioms iteratedDeriv_toEntire
+#print axioms natDegree_iterate_reflect_le
+#print axioms norm_coeff_le_of_bound_on_sphere
+#print axioms norm_taylorCoeff_le
+#print axioms norm_taylorCoeff_le_of_growth_on
+#print axioms norm_toEntire_le
+#print axioms one_sub_wgt_le
+#print axioms reflect_C
+#print axioms splits_multiset_prod
+#print axioms splits_reflect_prod
+#print axioms step_ge
+#print axioms step_le_one
+#print axioms taylorCoeff_sub
+#print axioms tendstoLocallyUniformly_of_coeff
+#print axioms toEntire_coeff_eq
+#print axioms wgt_le_one
+#print axioms wgt_nonneg
+#print axioms wgtRaw_bounds
+#print axioms wgtRaw_nonneg
+#print axioms wgtRaw_self
+#print axioms wgtRaw_succ
+#print axioms Probe.toEntire_eq
+#print axioms Probe.heatMajorized_iff
+#print axioms Probe.isLaguerrePolya_of_probe
+#print axioms Probe.exists_LP_approx_heatMajorized_order_le_one

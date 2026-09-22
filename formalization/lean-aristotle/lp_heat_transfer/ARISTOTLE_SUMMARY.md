@@ -1,0 +1,11 @@
+# Summary of changes for run 13e381c1-1ca6-4fe5-9d52-7cd491b254a6
+Formalized `job34_lp_heat_transfer.tex` in `RequestProject/HeatTransfer.lean` (imported by `RequestProject/Main.lean`). The build is clean and contains no `sorry`; `EntireLP.exists_heatOp_approx_tendsto` depends only on the standard axioms `propext`, `Classical.choice`, `Quot.sound`.
+
+What is in the file:
+
+- The definitions the target depends on, reproduced as specified: `MathlibBridge.HasOnlyRealRoots`, `MathlibBridge.heatPartial`, `MathlibBridge.heatOp`, `EntireLP.toEntire`, `EntireLP.IsLaguerrePolya`, `EntireLP.heatFlow` (raw `tsum`, unchanged), and the stage-1 predicate `EntireLP.HeatMajorized`.
+- Supporting results, all proved: `iteratedDeriv_toEntire` (iterated complex derivatives of a polynomial are the polynomial derivatives), `heatFlow_poly` (`heatFlow t (toEntire p) = toEntire (heatOp t p)`, the defining series being a finite sum), `tendstoLocallyUniformly_iteratedDeriv` (Weierstrass: all iterated derivatives converge locally uniformly), `tendstoUniformlyOn_const_smul`, and `tendstoUniformlyOn_tsum_of_majorant` (uniform convergence of series under a uniform summable majorant — this also yields convergence of the limit series, so no junk value arises).
+- The transfer `EntireLP.heatFlow_tendsto_of_heatMajorized`: for `t ≥ 0`, locally uniform convergence `toEntire (P n) → f` together with `HeatMajorized t P` gives `heatFlow t (toEntire (P n)) → heatFlow t f` locally uniformly.
+- The mandated target `EntireLP.exists_heatOp_approx_tendsto`, stated character-for-character as required (unicode `ℂ`, `ℝ[X]`, `ℕ`, `≤`, `∃`, `∀`, `∧`, `→`), in namespace `EntireLP`, with the stage-1 statement carried as the named hypothesis `stage1` exactly as quoted in the document. No hypothesis beyond `stage1` was needed, so the seam contract with stage 1 is unchanged, and the statement was not weakened in any way.
+
+Since the referenced repository files were not part of this project, the quoted definitions and the previously available lemmas (`heatFlow_poly`, `iteratedDeriv_toEntire`) were reconstructed here and proved from scratch rather than assumed.

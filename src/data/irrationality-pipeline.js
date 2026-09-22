@@ -113,12 +113,40 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
       + 'irrational via a "weighted tails" construction u_m = T_m/(2m+1) (T_m the tail of '
       + 'the Catalan series). It is single-author and AI-checked ("passed ChatGPT '
       + 'verification"), and an independent community Lean effort declines to certify the '
-      + 'main theorem — so treat it as an UNVERIFIED claim, not a theorem. This project has '
-      + 'NOT analyzed its internals. (Do not confuse it with Dale James Raymond’s de '
-      + 'Bruijn–Newman bound Λ<0.149396, Zenodo 22867547 — a different author and a '
-      + 'different problem; that paper’s δ₀ ρ-optimization + soundness check is at '
-      + '/raymond-lambda-note, and Λ is zero-location, not value-irrationality.)',
-    status: 'external, UNVERIFIED, not analyzed by this project; distinct from Raymond’s Λ<0.149396 paper',
+      + 'main theorem. This project HAS analyzed its internals: the §6–9 asymptotic ledger '
+      + '(δ₀ = Λ_mid + 83/2400 − c_odd − (4ρ−2ρ²), ρ=S/B) was reconstructed twice and a §9 '
+      + 'sign re-analysis found it FLAWED — the decisive quantity measures ≈ +1.86 B² (or '
+      + '+0.474 B² after removing a 2-adic waste factor) where the proof needs ≤ −0.0097 B² '
+      + '(wrong-sign B²; three distinct §9 errors; no construction-class variant reaches a '
+      + 'negative coefficient). So: treat it as REFUTED-as-a-proof, Catalan G still OPEN. '
+      + '(Do not confuse it with Dale James Raymond’s de Bruijn–Newman bound Λ<0.149396, '
+      + 'Zenodo 22867547 — a different author and problem; Raymond’s paper shares NONE of '
+      + 'Sun’s δ₀ ledger, and Λ is zero-location, not value-irrationality.)',
+    status: 'external, UNVERIFIED — §9 analyzed and found flawed (wrong-sign B²); Catalan G open; distinct from Raymond’s Λ<0.149396 paper',
+  },
+
+  // Fauzan's ζ(5)-irrationality preprint (Zenodo 22826419) — a live external claim.
+  fauzanCase: {
+    heading: 'External claim: Fauzan’s ζ(5) preprint',
+    body:
+      'Aabir Fauzan (Aalto University), "ζ(5) is irrational" (Zenodo 22826419, DOI '
+      + '10.5281/zenodo.22826419, 17 Sep 2026), claims ζ(5) ∉ Q with irrationality '
+      + 'exponent ≤ 260. ζ(5) irrationality is a famous open problem — only ζ(3) is '
+      + 'known irrational (Apéry 1979). Method: Hankel determinants of a positive moment '
+      + 'matrix, a per-prime p-adic Gauss-valuation ledger, and a logarithmic-energy '
+      + 'bound; the theorem reduces to one K²-scale inequality A_M < −U (denominator '
+      + 'growth below real decay), with A_200 = 1.3496 vs U = −1.3670, margin ~1.3%. This '
+      + 'project mechanism-verified it and found NO FLAW: exact Hankel reconstructions at '
+      + 'K=40..200 (Δ_K > 0 at ζ(5)), per-prime valuation bounds hold with zero violations '
+      + '(outer range often exactly tight), all rational constants reproduce, and the '
+      + 'real-side energy bound holds on a 224k-point grid with margin. What was NOT '
+      + 'proof-checked: Lemmas 3.1–3.2 and Prop 4.1 in the p>200M regime (verified only '
+      + 'through their consequences), and Appendix A’s rational-enclosure certificate. So: '
+      + 'CREDIBLE but UNREFEREED — no wrong sign/constant/soft-hypothesis gap found, yet a '
+      + 'proof of a famous open problem cannot be certified from computation. Higher '
+      + 'standing than Sun’s Catalan claim (where a wrong-sign B² was found). Unrelated to '
+      + 'RH/Λ (zero-location) and to Raymond/Sun; cites Brown–Zudilin as background.',
+    status: 'external, CREDIBLE-UNREFEREED — mechanism-verified, no flaw found; core Lemmas 3.1–3.2 not proof-checked; NOT a certified theorem; ζ(5) still officially open',
   },
 
   caveat:
@@ -138,26 +166,31 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
 export const IRRATIONALITY_PIPELINE_ASSERTIONS = Object.freeze([
   {
     name: 'pipeline has exactly 6 stages, numbered 1..6',
-    check: () => IRRATIONALITY_PIPELINE.stages.length === 6
+    holds: () => IRRATIONALITY_PIPELINE.stages.length === 6
       && IRRATIONALITY_PIPELINE.stages.every((s, i) => s.n === i + 1),
   },
   {
     name: 'stage 4 forbids low-precision PSLQ (hallucination discipline)',
-    check: () => /NEVER low-precision PSLQ|hallucinat/i.test(IRRATIONALITY_PIPELINE.stages[3].what),
+    holds: () => /NEVER low-precision PSLQ|hallucinat/i.test(IRRATIONALITY_PIPELINE.stages[3].what),
   },
   {
     name: 'stage 6 verdict is proven / one-of-a-block / open with gap',
-    check: () => /proven/.test(IRRATIONALITY_PIPELINE.stages[5].output)
+    holds: () => /proven/.test(IRRATIONALITY_PIPELINE.stages[5].output)
       && /β\s*−\s*α|gap/.test(IRRATIONALITY_PIPELINE.stages[5].output),
   },
   {
     name: 'honest: method proves nothing on its own',
-    check: () => /proves no constant irrational|proves nothing/i.test(IRRATIONALITY_PIPELINE.caveat),
+    holds: () => /proves no constant irrational|proves nothing/i.test(IRRATIONALITY_PIPELINE.caveat),
   },
   {
     name: 'Sun case: flagged UNVERIFIED + distinguished from Raymond’s Λ paper',
-    check: () => /UNVERIFIED/i.test(IRRATIONALITY_PIPELINE.sunCase.status + IRRATIONALITY_PIPELINE.sunCase.body)
+    holds: () => /UNVERIFIED/i.test(IRRATIONALITY_PIPELINE.sunCase.status + IRRATIONALITY_PIPELINE.sunCase.body)
       && /Raymond/.test(IRRATIONALITY_PIPELINE.sunCase.body),
+  },
+  {
+    name: 'Fauzan ζ(5) case: credible-unrefereed, NOT certified (no false QED)',
+    holds: () => /CREDIBLE-UNREFEREED/i.test(IRRATIONALITY_PIPELINE.fauzanCase.status)
+      && /NOT a certified theorem|cannot be certified/i.test(IRRATIONALITY_PIPELINE.fauzanCase.status + IRRATIONALITY_PIPELINE.fauzanCase.body),
   },
 ]);
 

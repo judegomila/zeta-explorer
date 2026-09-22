@@ -1,15 +1,16 @@
 /**
- * ⚠ ATTRIBUTION CORRECTION (2026-09-21): the objective and verdict below were
- * MISLABELED "Sun's Catalan-irrationality preprint (arXiv:2609.04176)". They are
- * actually about DALE JAMES RAYMOND's de Bruijn–Newman bound Λ<0.149396 (Zenodo
- * 22867547) — the δ₀ = Λ_mid + Δ_{>B} − c_odd − (4ρ−2ρ²) machinery, the 235-cell
- * Λ_mid, the ρ-optimization, and the 0.149395073827688 endpoint are all Raymond's
- * Λ paper (confirmed by a local-clone verification: Polymath heat-flow inputs, the
- * endpoint IS the Λ value). Sun's arXiv:2609.04176 is a DIFFERENT paper (Catalan
- * irrationality, "weighted tails") that this project has NOT analyzed. The verified
- * work here (c_odd/Λ_mid, ρ*=1/50 4× hardening, §4–§12 + replay sound) belongs to
- * Raymond and is presented at /raymond-lambda-note. Read "Sun→Raymond",
- * "Catalan irrationality→Λ<0.149396", "arXiv:2609.04176→Zenodo 22867547" throughout.
+ * ⚠ ATTRIBUTION RE-CORRECTED (2026-09-22): a prior 2026-09-21 note here claimed the
+ * δ₀ ledger below was "actually Raymond's Λ paper, not Sun's Catalan". That flip was
+ * WRONG. Primary-source grep of both real deposits settles it: the δ₀ = Λ_mid +
+ * 83/2400 − c_odd − (4ρ−2ρ²) machinery, the 235-cell Λ_mid, c_odd, and the
+ * ρ-optimization are ALL in ZHI-WEI SUN's arXiv:2609.04176 "Catalan's constant is
+ * irrational" (Prop 6.3, Prop 7.4, Theorem 9.1), verbatim in source + PDF. Dale
+ * James Raymond's Zenodo 22867547 (Λ<0.149396) contains NONE of it — no S/B ratio,
+ * no δ₀ ledger (grep exit 1). So the objective/verdict below ARE about Sun's Catalan
+ * proof; the ORIGINAL label was correct, commit 59a189f30 was the error. CAVEAT:
+ * Sun's §9 is flawed (wrong-sign B²), so the ρ-optimization hardens a broken ledger —
+ * see raymond-lambda-note.js (RETRACTED) + project_catalan_signed_ladder memory.
+ * Catalan G irrationality OPEN; PT Λ≤0.2 SOTA; RH open.
  *
  * @fileoverview imp-95516 — OBJECTIVE verdict [see correction above]: settle
  * Raymond's Λ<0.149396 preprint (Zenodo 22867547) and, if sound, harden its margin.
@@ -99,7 +100,7 @@ export const SUN_CATALAN_OBJECTIVE_VERDICT = Object.freeze({
 export const SUN_CATALAN_OBJECTIVE_VERDICT_ASSERTIONS = Object.freeze([
   {
     name: 'δ₀(1/20) reconstructs to 0.00966243 from the baked components',
-    check: () => {
+    holds: () => {
       const v = SUN_CATALAN_OBJECTIVE_VERDICT;
       const rho = 1 / 20;
       const d0 = v.lambdaMidAt_1over20 + v.deltaBAt_1over20 - v.kappa * rho * rho - (4 * rho - 2 * rho * rho);
@@ -108,26 +109,26 @@ export const SUN_CATALAN_OBJECTIVE_VERDICT_ASSERTIONS = Object.freeze([
   },
   {
     name: 'Δ_{>B}(1/20) equals the paper constant 83/2400',
-    check: () => {
+    holds: () => {
       const rho = 1 / 20;
       return Math.abs(((2 / 3) * rho + (1 / 2) * rho * rho) - SUN_CATALAN_OBJECTIVE_VERDICT.deltaBAt_1over20) < 1e-15;
     },
   },
   {
     name: 'margin hardening is ~4× (0.038723 / 0.00966243)',
-    check: () => Math.abs(
+    holds: () => Math.abs(
       SUN_CATALAN_OBJECTIVE_VERDICT.margins.d0_at_optimum / SUN_CATALAN_OBJECTIVE_VERDICT.margins.d0_at_1over20 - 4.0,
     ) < 0.05,
   },
   {
     name: 'honest: proof NOT settled, G irrationality OPEN, PT Λ≤0.2 stands',
-    check: () => /proof NOT settled/.test(SUN_CATALAN_OBJECTIVE_VERDICT.status)
+    holds: () => /proof NOT settled/.test(SUN_CATALAN_OBJECTIVE_VERDICT.status)
       && /G irrationality OPEN/.test(SUN_CATALAN_OBJECTIVE_VERDICT.status)
       && /PT Λ≤0.2 stands/.test(SUN_CATALAN_OBJECTIVE_VERDICT.status),
   },
   {
     name: 'named sub-gap = §2–§5 core certification',
-    check: () => /§2–§5 determinant\/rank/.test(SUN_CATALAN_OBJECTIVE_VERDICT.subGap),
+    holds: () => /§2–§5 determinant\/rank/.test(SUN_CATALAN_OBJECTIVE_VERDICT.subGap),
   },
 ]);
 

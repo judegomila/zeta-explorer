@@ -16391,6 +16391,14 @@ const DATA_MODULES = [
   // four remain import-light. AUDIT-ONLY, no page fabricated. No bound
   // change; NO QED.
   '/src/data/imp-95367-rzpen3-6-surfacing-audit.js',
+  // imp-95406: reconciles the imp-95368 honest-status note against the
+  // subsequent imp-95333 (RZ-PEN7, pair leg) and imp-95334 (RZ-PEN8,
+  // b-uniform t3 leg) modules. FINDING: the imp-95368 note is STALE --
+  // both legs it named as untouched were EXECUTED, dropping the rho = e^6
+  // looseness from 3.0-5.1x to 1.01-1.08x. Corrected residual scope: chart
+  // refinement, kept-pair endpoint headroom, uniform-only BCAP branch,
+  // off-lattice rates. AUDIT/RECONCILIATION ONLY. No bound change; NO QED.
+  '/src/data/imp-95406-rzpen6-floor-gap-note-staleness-reconciliation.js',
   // imp-95256 (opus-4-8, api-pool): MEASUREMENT -- maps the imp-95250
   // THEOREM SPLIT-LOO "neither of the two multi-block splits dominates"
   // claim (asserted from one config) onto a two-parameter (scale-separation

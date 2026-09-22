@@ -19,6 +19,7 @@ import { IMP95096_JOINT_NEAR_FAR_VS_LAMBDA_MAX } from '../data/imp-95096-joint-n
 import { IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE } from '../data/imp-95092-four-lever-far-ceiling-elasticity-table.js';
 import { PERM_ARCH_SIEVE_UNIVERSALITY } from '../data/perm-arch-sieve-universality-no-go-2026-09-22.js';
 import { IMP95519_LOCALIZED_BARRIER_SUM_NOGO } from '../data/imp-95519-localized-barrier-sum-prime-zero-nogo.js';
+import { IMP95564_EFFECTIVE_ABSCISSA_AUDIT } from '../data/imp-95564-effective-abscissa-provenance-audit.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -599,6 +600,9 @@ export default function PermutationArchitecturePage() {
           <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — imp-95519 zero-side σ_B abscissa dichotomy</div>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
             {PERM_ARCH_SIEVE_UNIVERSALITY.imp95519Caveat}
+          </p>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '10px 0 0' }}>
+            <strong>Update (imp-95564):</strong> {IMP95564_EFFECTIVE_ABSCISSA_AUDIT.netVerdict}
           </p>
         </div>
 

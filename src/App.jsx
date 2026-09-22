@@ -1080,6 +1080,9 @@ const Imp95434ThetaRangeDescentOverlapGrowthViz = lazy(() =>
 const Imp95435RzpenOfflatticeDegradationLadderViz = lazy(() =>
   import('./pages/Imp95435RzpenOfflatticeDegradationLadderViz.jsx')
 );
+const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
+  import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -2967,6 +2970,10 @@ function AppShell() {
           <Route
             path="/viz-imp95435-rzpen-offlattice-degradation-ladder"
             element={<Imp95435RzpenOfflatticeDegradationLadderViz />}
+          />
+          <Route
+            path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"
+            element={<Imp95565AlphaOverOneMajorantMassFractionViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

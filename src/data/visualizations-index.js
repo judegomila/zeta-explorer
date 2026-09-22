@@ -2225,6 +2225,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the imp-95374 baked worst/mean floor, degrade, and onset-shift literals verbatim (finite-m Jacobi-eigenvalue pencil measurement, no re-derivation); supplies no off-lattice floor theorem (the separate, looser imp-95335 Ingham route does); onset shift isolates the floor degradation only, holding the numerator fixed; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95565-alpha-over-one-majorant-mass-fraction',
+      title: 'alpha > 1 Majorant-Mass Fraction Across All 25 Sieving Primes',
+      oneLine:
+        'Bar chart of the imp-95540 alpha > 1 weld-majorant-mass share at every sieving prime p <= 97 (0% for p <= 5, 35.09%-59.49% for p >= 7), plus a line chart of the alpha_max(p) window endpoints (N = 690988, N = 54799999) staying strictly above the alpha = 1 line.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95540-alpha-over-one-fraction-table.js',
+      paperSourcePath:
+        'src/data/imp-95540-alpha-over-one-fraction-table.js (record IMP95540_ALPHA_OVER_ONE_FRACTION_TABLE, extending imp-95519 section 4 spot sample; imp-95565 viz page)',
+      ticket: 'imp-95565',
+      pedagogicalStep: 146,
+      honestCeiling:
+        'Presentation only: renders the imp-95540 baked over-one-share and alpha_max literals verbatim (import-light re-derivation of the imp-95519 section 4 construction, no new bound); the alpha > 1 fraction is N-independent combinatorics, not a measurement of the actual zero-side sign or an operator positivity result; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95273-theta-vacuity-distribution',
       title: 'Theta Phase-Currency Vacuity Distribution',
       oneLine:

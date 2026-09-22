@@ -42,7 +42,13 @@
  * TICKET CROSS-REFERENCE. This ledger IS the honest-status note requested
  * by imp-95440 ("record that imp-95420 eliminated the Brownian exit-time
  * input, leaving CLV + Poisson"); no separate module is added to avoid
- * duplicating the same {input, status, note} content twice.
+ * duplicating the same {input, status, note} content twice. It is ALSO
+ * the honest-status note requested by imp-95453 (record the single-cited-
+ * input state, that no bound moves, and that CLV self-containment is the
+ * open assessment): imp-95441 already tested the two natural lighter
+ * substitutes for the CLV input and found neither works, but proved no
+ * FORMAL irreducibility theorem, so whether CLV admits a self-contained
+ * elementary derivation stays an OPEN assessment, not a closed one.
  */
 
 export const SEP_OPT_INPUT_REDUCTION_LEDGER = [
@@ -51,7 +57,10 @@ export const SEP_OPT_INPUT_REDUCTION_LEDGER = [
     status: 'STILL CITED',
     note:
       'the one non-elementary input THEOREM SEP-OPT rests on; unaffected ' +
-      'by imp-95420 and remains a named residual',
+      'by imp-95420 and remains a named residual; whether it admits a ' +
+      'self-contained elementary derivation is the OPEN assessment of ' +
+      'imp-95441 (negative for the two natural lighter substitutes tested, ' +
+      'but no formal irreducibility theorem is proved)',
   },
   {
     input: 'Brownian first-exit-time density positivity (Karatzas-Shreve Ch. 2 / Biane-Pitman-Yor, Bull. AMS 38 (2001))',
@@ -94,7 +103,7 @@ export const IMP_95438_SEP_OPT_INPUT_REDUCTION_LEDGER = {
     'documentation only, citing imp-95419 (LEMMA MIX / THEOREM SEP-OPT) and ' +
     'imp-95420 (LEMMA P-SYM / LEMMA P-JAC / LEMMA P-MONO / THEOREM P-POS); ' +
     'no Lambda bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA',
-  closesTickets: ['imp-95440'],
+  closesTickets: ['imp-95440', 'imp-95453'],
 };
 
 // -- assertions (import-light; exact-literal consistency only) -------------
@@ -138,5 +147,18 @@ export const IMP_95438_ASSERTIONS = [
     id: 'imp-95438-closes-imp-95440',
     holds: () => IMP_95438_SEP_OPT_INPUT_REDUCTION_LEDGER.closesTickets.includes('imp-95440'),
     why: 'imp-95440 asked for exactly this honest-status note (Brownian exit-time eliminated, CLV + Poisson remain); this ledger already delivers it, so it is recorded as closed here rather than duplicated.',
+  },
+  {
+    id: 'imp-95438-closes-imp-95453',
+    holds: () => IMP_95438_SEP_OPT_INPUT_REDUCTION_LEDGER.closesTickets.includes('imp-95453'),
+    why: 'imp-95453 asked for the single-cited-input state plus a record that CLV self-containment is the open imp-95441 assessment; the CLV row note now carries that cross-reference.',
+  },
+  {
+    id: 'imp-95438-clv-open-assessment-noted',
+    holds: () =>
+      SEP_OPT_INPUT_REDUCTION_LEDGER.find((row) => row.input.includes('CLV extremal-minorant')).note.includes(
+        'imp-95441',
+      ),
+    why: 'the CLV row must point to imp-95441 as the open assessment of whether the input is self-contained, so the status surface does not overclaim closure.',
   },
 ];

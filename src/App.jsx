@@ -1083,6 +1083,9 @@ const Imp95435RzpenOfflatticeDegradationLadderViz = lazy(() =>
 const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
   import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
 );
+const Imp95566AliasEnergyInAlgebraViz = lazy(() =>
+  import('./pages/Imp95566AliasEnergyInAlgebraViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -2974,6 +2977,10 @@ function AppShell() {
           <Route
             path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"
             element={<Imp95565AlphaOverOneMajorantMassFractionViz />}
+          />
+          <Route
+            path="/viz-imp95566-alias-energy-in-algebra"
+            element={<Imp95566AliasEnergyInAlgebraViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

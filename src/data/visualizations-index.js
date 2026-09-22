@@ -2239,6 +2239,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the imp-95540 baked over-one-share and alpha_max literals verbatim (import-light re-derivation of the imp-95519 section 4 construction, no new bound); the alpha > 1 fraction is N-independent combinatorics, not a measurement of the actual zero-side sign or an operator positivity result; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95566-alias-energy-in-algebra',
+      title: 'Alias Energy In-Algebra vs Leak-Outside',
+      oneLine:
+        'Stacked bar chart of the imp-95539 Theorem U alias-energy split -- the 1/phi(q) fraction inside the sieve algebra vs the 1 - 1/phi(q) fraction leaking outside -- across eight aliases a | P = 30030 ordered by gcd(a,P), from 1.736e-4 in / 99.98% out (a coprime to P) up to 1.0 in (q = 2).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95539-alias-energy-in-algebra-table.js',
+      paperSourcePath:
+        'src/data/imp-95539-alias-energy-in-algebra-table.js (record IMP_95539_ALIAS_ENERGY_IN_ALGEBRA; imp-95566 viz page)',
+      ticket: 'imp-95566',
+      pedagogicalStep: 149,
+      honestCeiling:
+        'Presentation only: renders the imp-95539 baked in-algebra/leak-outside literals verbatim (genuine numeric Ramanujan-sum projection, matching 1/phi(q) to < 1e-9, no re-derivation on this page); confirms perm-arch Theorem U (line 44) numerically across gcd(a,P) from 1 to 15015; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95273-theta-vacuity-distribution',
       title: 'Theta Phase-Currency Vacuity Distribution',
       oneLine:

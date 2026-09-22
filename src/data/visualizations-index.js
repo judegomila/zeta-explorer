@@ -2069,6 +2069,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: both curves are recomputed here with the same closed-form arithmetic imp-95332 / imp-95331 already proved (COROLLARY PEN-UNIF6 / PEN-UNIF5), cross-checked at both grid endpoints (rho = 2, rho = e^6) against the imp-95332 baked record to rel 1e-12/1e-9; proves nothing beyond what those modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95546-rzpen78-gain-ladder',
+      title: 'RZ-PEN Symbol-Pencil Floor Gain Ladder, RZ-PEN6 to RZ-PEN8',
+      oneLine:
+        'Bar chart of the per-leg floor gain factor A_pen_k/A_pen_{k-1} at (rho, r) = (e^6, 2) across the imp-95333/imp-95334 RZ-PEN7/RZ-PEN8 chain legs, plus a line chart of the cumulative floor gain relative to RZ-PEN6 (the imp-95349 endpoint) and the residual looseness against the exact symbol-pencil infimum, dropping 5.060x -> 3.957x -> 1.084x over the two legs. Surfaces the imp-95333/imp-95334 modules that the imp-95407 audit flagged as ORPHAN (import-light but unrouted). Companion page: /viz-imp95349-rzpen-gain-ladder covers the preceding RZ-PEN2..RZ-PEN6 legs.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95546-rzpen7-8-gain-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95333-pair-extended-pencil-floor.js (THEOREM RZ-PEN7 gainRhoE6R2, loosenessRhoE6R2, loosenessRhoE6R2Pen6Ref); src/data/imp-95334-b-exact-trace-pencil-floor.js (THEOREM RZ-PEN8 gainRhoE6R2, loosenessRhoE6R2; imp-95546 viz page)',
+      ticket: 'imp-95546',
+      pedagogicalStep: 142,
+      honestCeiling:
+        'Presentation only: every plotted value is copied verbatim from the imp-95333 / imp-95334 records (no re-derivation, no re-execution of the underlying chart-scan numerics beyond what those modules already compute at import); the cumulative gain is a plain product of already-baked per-leg gains; proves nothing beyond what those two modules already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio',
       title: 'LEMMA BCAP Two-Branch Cap vs the Exact Ratio',
       oneLine:

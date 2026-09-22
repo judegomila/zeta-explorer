@@ -1068,6 +1068,9 @@ const Imp95350ChartTailCapVsUniformC3nViz = lazy(() =>
 const Imp95351Unif6VsUnif5AcrossRhoViz = lazy(() =>
   import('./pages/Imp95351Unif6VsUnif5AcrossRhoViz.jsx')
 );
+const Imp95546RzPen78GainLadderViz = lazy(() =>
+  import('./pages/Imp95546RzPen78GainLadderViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -2939,6 +2942,10 @@ function AppShell() {
           <Route
             path="/viz-imp95351-unif6-vs-unif5-across-rho"
             element={<Imp95351Unif6VsUnif5AcrossRhoViz />}
+          />
+          <Route
+            path="/viz-imp95546-rzpen78-gain-ladder"
+            element={<Imp95546RzPen78GainLadderViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

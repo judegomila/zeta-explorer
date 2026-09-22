@@ -17554,6 +17554,18 @@ const DATA_MODULES = [
   // uniformity over d (imp-95443). Import-free, 5 self-executing assertions.
   // Assessment only; no bound change; PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95537-legb-single-window-decidability.js',
+  // imp-95560 (opus-4-8, api-pool): CLOSES the imp-95537 fixed-window DATA gap at
+  // two concrete seam windows. Derives the numeric paper-window Gram matrices
+  // A_p, B_p (restricted s<0 / full-line) directly from the imp-95220 width-law
+  // port (rate mu = (n/p)^(1/3), center u = p/n), emits them, builds the model
+  // pencil (A_m, B_m) at the common collar dbar = min u_i, and RUNS the
+  // generalized-eigenvalue comparison lambda_max(A_p,B_p) <= lambda_max(A_m,B_m).
+  // At (3,1): paper 0.03933 <= model 0.70768 => HOLDS (and the Loewner sandwich
+  // is inconclusive there -- a real port-derived imp-95537 D2 witness); at (5,2):
+  // paper 0.18134 <= model 0.93969 => HOLDS, reproducing the imp-95220 baked
+  // literals. Spot-check only; no uniform bound (that is the imp-95443 race);
+  // import-light, 5 self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95560-legb-fixed-window-gram-comparison.js',
 ];
 
 let ALL_MODULES = FAST_MODE

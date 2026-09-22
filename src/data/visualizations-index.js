@@ -2448,6 +2448,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the frozen imp-95582/imp-95606 baked pointwise ramp record verbatim (no re-derivation); a measurement/fit of an existing decay quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95624-mty-vs-vk-crossover',
+      title: 'Classical MTY vs Ford VK Zero-Free Width, T in [3e12, 1.9e16]',
+      oneLine:
+        'Log-log curves comparing the imp-95605 classical Mossinghoff-Trudgian-Yang and Ford Vinogradov-Korobov unconditional zero-free widths across the imp-95519 window T in [3e12, 1.9e16], marking the window endpoints, the log t ~ 1.0242e4 (t ~ e^{10000}) crossover, and the pinned 0.8354 per-zero factor floor.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95624-mty-vs-vk-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95605-zero-free-region-verify.js (IMP_95605_ZERO_FREE_VERIFY closed forms and figures; imp-95624 viz page)',
+      ticket: 'imp-95624',
+      pedagogicalStep: 157,
+      honestCeiling:
+        'Descriptive curves recomputing classicalWidth/vkWidth independently from the imp-95605 documented closed forms (no new derivation, no heavy import); illustrates the window-wide classical dominance and the far-outside-window crossover numerically, proves nothing beyond what imp-95605 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

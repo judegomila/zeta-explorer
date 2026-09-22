@@ -38,6 +38,11 @@
  * citedInputs.length === 2 assertion are a correct HISTORICAL record and
  * are deliberately left unedited -- imp-95420 is the supersession record.
  * NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
+ *
+ * TICKET CROSS-REFERENCE. This ledger IS the honest-status note requested
+ * by imp-95440 ("record that imp-95420 eliminated the Brownian exit-time
+ * input, leaving CLV + Poisson"); no separate module is added to avoid
+ * duplicating the same {input, status, note} content twice.
  */
 
 export const SEP_OPT_INPUT_REDUCTION_LEDGER = [
@@ -89,6 +94,7 @@ export const IMP_95438_SEP_OPT_INPUT_REDUCTION_LEDGER = {
     'documentation only, citing imp-95419 (LEMMA MIX / THEOREM SEP-OPT) and ' +
     'imp-95420 (LEMMA P-SYM / LEMMA P-JAC / LEMMA P-MONO / THEOREM P-POS); ' +
     'no Lambda bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA',
+  closesTickets: ['imp-95440'],
 };
 
 // -- assertions (import-light; exact-literal consistency only) -------------
@@ -127,5 +133,10 @@ export const IMP_95438_ASSERTIONS = [
     holds: () =>
       SEP_OPT_INPUT_REDUCTION_SUMMARY.boundChange === false && SEP_OPT_INPUT_REDUCTION_SUMMARY.qed === false,
     why: 'this is a documentation ledger of a citation-count reduction; it moves no Lambda bound and proves no QED.',
+  },
+  {
+    id: 'imp-95438-closes-imp-95440',
+    holds: () => IMP_95438_SEP_OPT_INPUT_REDUCTION_LEDGER.closesTickets.includes('imp-95440'),
+    why: 'imp-95440 asked for exactly this honest-status note (Brownian exit-time eliminated, CLV + Poisson remain); this ledger already delivers it, so it is recorded as closed here rather than duplicated.',
   },
 ];

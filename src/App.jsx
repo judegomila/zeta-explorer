@@ -1093,6 +1093,9 @@ const Imp95492BreachThresholdSurfaceViz = lazy(() =>
 const Imp95622SigmaExponentRampViz = lazy(() =>
   import('./pages/Imp95622SigmaExponentRampViz.jsx')
 );
+const Imp95623SeamGramOnsetLadderViz = lazy(() =>
+  import('./pages/Imp95623SeamGramOnsetLadderViz.jsx')
+);
 const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
   import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
 );
@@ -3015,6 +3018,10 @@ function AppShell() {
           <Route
             path="/viz-imp95622-sigma-exponent-ramp"
             element={<Imp95622SigmaExponentRampViz />}
+          />
+          <Route
+            path="/viz-imp95623-seam-gram-onset-ladder"
+            element={<Imp95623SeamGramOnsetLadderViz />}
           />
           <Route
             path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"

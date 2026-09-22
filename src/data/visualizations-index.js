@@ -1999,6 +1999,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Descriptive curves recomputing certSplitRz and certUnif independently from the imp-95252 / imp-95250 documented closed forms (no new derivation, no heavy import); illustrates the m-uniform onset drop numerically, proves nothing beyond what imp-95252 / imp-95250 already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95623-seam-gram-onset-ladder',
+      title: 'Five-Rung Seam-Gram Every-Octave Onset Ladder (SPLIT-RZ 15.98 -> XSTAR_UNIF 27.04)',
+      oneLine:
+        'Bar chart of the imp-95609 five-rung seam-Gram every-octave onset ladder (SPLIT-RZ < SPLIT-OPT < SPLIT-SEP < SPLIT-LOO = XSTAR_UNIF), with the imp-95419 SEP-OPT supersession and the BLOCK-vs-scalar residual-gap attribution.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95609-seam-gram-onset-ladder-table.js',
+      paperSourcePath:
+        'src/data/imp-95609-seam-gram-onset-ladder-table.js (five-rung table + attribution; consolidates imp-95457, imp-95335, imp-95419, imp-95475; imp-95623 viz page)',
+      ticket: 'imp-95623',
+      pedagogicalStep: 140,
+      honestCeiling:
+        'Descriptive bar chart consuming the imp-95609 reader-facing table verbatim (no new derivation, no heavy import); illustrates the five named / four distinct onset values and the SEP-OPT supersession numerically, proves nothing beyond what imp-95609 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95317-confluent-bracket-across-r',
       title: 'Confluent Bracket Across Window Ratio R at Fixed N = 3',
       oneLine:

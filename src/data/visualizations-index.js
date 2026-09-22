@@ -2109,6 +2109,8 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       pedagogicalStep: 143,
       honestCeiling:
         'Presentation only: re-implements the same import-light kernel imp-95271 already used (no re-derivation) at a coarser grid chosen for SVG render size; the imp-95271 record itself reports the full 171,600-cell sweep with zero counterexamples; proves nothing beyond what imp-95271 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+      queueReconciliation:
+        'imp-95410 (queue: "add a viz page for the imp-95271 RI-margin wedge, M(x,r) >= 0 heatmap, h_r>0 bump wedge, r_star(x) boundary") requests exactly this page; reconciled as already-delivered by imp-95390, not a separate build.',
     }),
     Object.freeze({
       route: '/viz-imp95391-split2-splitloo-crossover',

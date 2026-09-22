@@ -2224,6 +2224,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Renders one ordering lemma (|Σz| ≤ Σ|z|, modulus-last) with one real dd evaluation (telescope identity 2.6e-14); the two bars and the 1.3430187 ratio are computed, the pipeline layout is the only schematic element. Proves no bound, does not certify the window, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95413-evoct-onset-sensitivity',
+      title: 'EV-OCT Firing-Onset Sensitivity: m, rho, r',
+      oneLine:
+        'Three sweeps of the imp-95250 every-octave firing onset xStarEvOct = 11.32: rising and saturating in octave count m (11.599 limit), steeply falling in lattice ratio rho (dominant axis, 19.05 at rho=1.5 to 5.03 at rho=4), and nearly flat in intra-pair ratio r (spread < 0.27).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95258-evoct-onset-sensitivity.js',
+      paperSourcePath:
+        'src/data/imp-95258-evoct-onset-sensitivity.js (function certEvOct/onset, record IMP95258_EVOCT_ONSET_SENSITIVITY; generalizes the imp-95250 COROLLARY EV-OCT certificate)',
+      ticket: 'imp-95413',
+      pedagogicalStep: 148,
+      honestCeiling:
+        'Measures the closed-form COROLLARY EV-OCT certificate only (the same object imp-95250 bisected), not the exact pencil Lambda; the cert-vs-exact collar is unchanged and not re-measured; twin-pair blocks only. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1089,6 +1089,9 @@ const Imp95409RhoStarDepthFlipViz = lazy(() =>
 const Imp95393YminMapsThetaObstructedViz = lazy(() =>
   import('./pages/Imp95393YminMapsThetaObstructedViz.jsx')
 );
+const Imp95413EvOctOnsetSensitivityViz = lazy(() =>
+  import('./pages/Imp95413EvOctOnsetSensitivityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2964,6 +2967,10 @@ function AppShell() {
           <Route
             path="/viz-imp95393-ymin-maps-theta-obstructed"
             element={<Imp95393YminMapsThetaObstructedViz />}
+          />
+          <Route
+            path="/viz-imp95413-evoct-onset-sensitivity"
+            element={<Imp95413EvOctOnsetSensitivityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

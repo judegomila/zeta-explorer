@@ -1011,6 +1011,9 @@ const Imp95141YthawObligationMeterViz = lazy(() =>
 const Imp95266ThetaVsKPhaseCollapseViz = lazy(() =>
   import('./pages/Imp95266ThetaVsKPhaseCollapseViz.jsx')
 );
+const Imp95273ThetaVacuityDistributionViz = lazy(() =>
+  import('./pages/Imp95273ThetaVacuityDistributionViz.jsx')
+);
 const Imp95265EvOctFiringCurveViz = lazy(() =>
   import('./pages/Imp95265EvOctFiringCurveViz.jsx')
 );
@@ -2858,6 +2861,10 @@ function AppShell() {
           <Route
             path="/viz-imp95266-theta-vs-k-phase-collapse"
             element={<Imp95266ThetaVsKPhaseCollapseViz />}
+          />
+          <Route
+            path="/viz-imp95273-theta-vacuity-distribution"
+            element={<Imp95273ThetaVacuityDistributionViz />}
           />
           <Route
             path="/viz-imp95267-offlattice-robustness"

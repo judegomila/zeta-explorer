@@ -2153,6 +2153,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the imp-95255 split-verdict record verbatim (no re-derivation); the ratio table and theta trivial/signed rows reproduce imp-95255 baked literals and assertions exactly; proves nothing beyond what imp-95255 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95273-theta-vacuity-distribution',
+      title: 'Theta Phase-Currency Vacuity Distribution',
+      oneLine:
+        'Horizontal bar chart of r = theta/e^(-y_min) across ten representative signed seam families, split at the imp-95233 PHASE-CERT vacuity boundary r = 1: co-centered deep-cancellation witnesses sit left (vacuous) while mild-sign / well-separated families sit right (active).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95273-theta-vacuity-distribution.js',
+      paperSourcePath:
+        'src/data/imp-95273-theta-vacuity-distribution.js (record IMP95273_THETA_VACUITY_DISTRIBUTION, derived from imp-95233 PHASE-CERT and the imp-95224 witness family; imp-95273 viz page)',
+      ticket: 'imp-95273',
+      pedagogicalStep: 144,
+      honestCeiling:
+        'Presentation only: renders the imp-95273 baked distribution verbatim (Simpson quadrature recomputed and cross-checked against the imp-95233 exact closed forms to 2e-3 relative); proves nothing beyond what imp-95273 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-cost-floor',
       title: 'The Geometry of the Program Floor',
       oneLine:

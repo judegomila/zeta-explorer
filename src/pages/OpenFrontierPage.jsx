@@ -683,6 +683,33 @@ const MARKOV_NORMALIZATION = {
     'fiber mixing, and non-majorant nontranslation-invariant global transforms remain unexcluded. T3 and RH remain open.',
 };
 
+const SEAM_CHAIN_STATUS = {
+  status: 'THREE OPEN OBLIGATIONS, NO BOUND CHANGE',
+  title: 'Seam-chain / signed-certificate program (imp-95210..95420)',
+  body: [
+    'This is a separate program from T3, tracking whether a signed (as opposed to ' +
+    'absolute-value) per-window certificate can transcribe the Lambda <= 0.14 completion ' +
+    'contract data. It reduces to three obligations, most recently restated by ' +
+    'imp-95255 and imp-95276.',
+    '(1) Per-window Q extraction: UNCHANGED. y_min rides the same isolation-group Q ' +
+    'that already carries x_min (x_min <= y_min <= 2 x_min exact, imp-95222; measured ' +
+    'y_min/x_min ratios decrease toward 1 on the ported grids). This leg maps cleanly.',
+    '(2) Signed weight / modulus-phase certificate: BLOCKED. The depth argument (y_min) ' +
+    'is portable, but its phase content theta is a scale-invariant per-window sign ' +
+    'functional with no image under the current geometry+modulus transcription -- it is ' +
+    'trivially 1 on the fixed-amplitude family the paper specifies (imp-95255). The block ' +
+    'is at the transcription, not the certificate.',
+    '(3) Envelope-shape / gammaSL seam-to-chain-gate map, including the imp-95212 ' +
+    'Fresnel-Airy envelope port: REDUCED. The gate-side pipeline (gFromLam -> gammaSL) ' +
+    'is closed by identity and monotonicity, so this obligation now reduces entirely to ' +
+    'obligations (1) and the still-open imp-95212 port -- it is not an independent map ' +
+    'to build (imp-95276).',
+    'Net: obligation (1) closed, obligation (2) open at the transcription layer, ' +
+    'obligation (3) reduced to (1) + the imp-95212 port. Nothing here derives or moves a ' +
+    'bound; Platt-Trudgian Lambda <= 0.2 remains the peer-reviewed benchmark.',
+  ],
+};
+
 const LATEST_TWIN_LADDER_CHECKPOINT = [
   {
     id: 'T47',
@@ -2794,6 +2821,33 @@ export default function OpenFrontierPage() {
             Flow-Blindness No-Go →
           </Link>
         </p>
+      </div>
+
+      <div className="card" style={{ marginBottom: 20, borderLeft: '4px solid #6d55b8' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-mono, monospace)',
+              fontSize: 10.5,
+              fontWeight: 700,
+              letterSpacing: 0.45,
+              color: '#6d55b8',
+              border: '1px solid #6d55b8',
+              borderRadius: 4,
+              padding: '2px 7px',
+            }}
+          >
+            {SEAM_CHAIN_STATUS.status}
+          </span>
+        </div>
+        <strong style={{ color: '#1c1814', fontSize: 14, display: 'block', marginBottom: 10 }}>
+          {SEAM_CHAIN_STATUS.title}
+        </strong>
+        {SEAM_CHAIN_STATUS.body.map((para, i) => (
+          <p key={i} style={{ fontSize: 13, color: '#877b67', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+            {para}
+          </p>
+        ))}
       </div>
 
       <div className="card" style={{ marginBottom: 20, borderLeft: '3px solid #877b67' }}>

@@ -2211,6 +2211,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the imp-95375 baked alternating-witness and B/A literals verbatim (exact closed-form Gram, no quadrature, no re-derivation); does not determine the actual seam sign pattern (imp-95397, still open); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95435-rzpen-offlattice-degradation-ladder',
+      title: 'RZ-PEN Off-Lattice Degradation Ladder',
+      oneLine:
+        'Log-scale floor chart plotting the imp-95374 worst-of-400 and mean-of-400 seam-pencil floor against the proven A_unif4 line, plus a bar chart of the worst-of-400 onset shift, across log-rate jitter delta = 2^-6..2^-2 off the dyadic 2^k lattice.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95374-rzpen-offlattice-degradation.js',
+      paperSourcePath:
+        'src/data/imp-95374-rzpen-offlattice-degradation.js (record IMP95374_RZPEN_OFFLATTICE_DEGRADATION; imp-95435 viz page)',
+      ticket: 'imp-95435',
+      pedagogicalStep: 145,
+      honestCeiling:
+        'Presentation only: renders the imp-95374 baked worst/mean floor, degrade, and onset-shift literals verbatim (finite-m Jacobi-eigenvalue pencil measurement, no re-derivation); supplies no off-lattice floor theorem (the separate, looser imp-95335 Ingham route does); onset shift isolates the floor degradation only, holding the numerator fixed; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95273-theta-vacuity-distribution',
       title: 'Theta Phase-Currency Vacuity Distribution',
       oneLine:

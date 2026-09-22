@@ -21565,6 +21565,36 @@ export const glossary = [
       'imp-95400 uses this crossover band directly in the precision-replay Karatsuba-band analysis (imp-95400)',
     ],
   },
+  {
+    term: 'imp-95448 R_A ladder input-data audit: part (a) of the imp-95372 residual was already DELIVERED by imp-2563, but a fully audited ladder is still INERT for Lambda while imp-2621 and imp-35164 stand',
+    category: 'proof-status',
+    definition:
+      'A headword recording the imp-95448 audit verdict on part (a) of the ' +
+      'imp-95372 R_A residual (the ZETA_ZEROS/Odlyzko provenance and numerical ' +
+      'stability of the ladder inputs M_infty(N) and t_c(N)). imp-95372 booked ' +
+      'part (a) as simply "open"; imp-95448 finds that booking STALE -- the ' +
+      'ZETA_ZEROS corruption from index 650 onward was already detected and ' +
+      'REPAIRED by imp-2563 (2026-06-11), and the four low-N Path C rungs ' +
+      '(N <= 500) never touched the corrupt block at all. The genuinely ' +
+      'remaining data-side item narrows to a single unexecuted high-N exact ' +
+      'recompute at N = 2458 (imp-2563-sub-pathc-ladder-replace-highN); the ' +
+      'M_infty audit-relevant bound sqrt(N/(2 pi)) has no data-table exposure ' +
+      'at all and is stable by construction.\n\n' +
+      'HONEST SCOPE: this is a provenance/stability audit only -- it moves NO ' +
+      'bound and closes NO leg (R_A stays open via parts b/c and the high-N ' +
+      'residual). Even a FULLY audited ladder is INERT for Lambda while ' +
+      'imp-2621 (refuted the continuum-amplified rate step, leaving only the ' +
+      'bare limit standing) and imp-35164 (found E(N) does NOT vanish on the ' +
+      'current surrogate, flooring at E_trunc instead) both stand unresolved. ' +
+      'NO QED. Platt-Trudgian Lambda <= 0.2 remains the rigorous SOTA.',
+    firstUsed: 'imp-95476 (glossary headword recording the imp-95448 R_A ladder input-data audit verdict), 2026',
+    relatedTerms: [
+      'imp-95372 books part (a) of the R_A residual as the Odlyzko data audit that imp-95448 finds already delivered (imp-95372)',
+      'imp-2563 repaired the ZETA_ZEROS corruption from index 650 onward, delivering the provenance audit imp-95372 booked as open (imp-2563)',
+      'imp-2621 refuted the continuum-amplified rate step feeding the asymptotic Lambda route (imp-2621)',
+      'imp-35164 found E(N) does not vanish on the current surrogate, flooring at E_trunc instead (imp-35164)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -2420,6 +2420,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the imp-95430 baked mDependence/rhoDependence/bindingGapM8 columns verbatim (no re-derivation); the crossing threshold is a worst-of-400 estimate, not an infimum; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95622-sigma-exponent-ramp',
+      title: 'sigma(N) Half-Decade Exponent Ramp p(N)',
+      oneLine:
+        'Line chart of the imp-95582/imp-95606 pointwise decay-exponent ramp p(N) = -d ln sigma / d ln N across log10 N = 6..12, marking the E_coll = E_trunc transition at log10 N = 9.51591 (matching imp-3444) and the imp-3463 far-tail asymptote p = 0.5, plus the whole-decade OLS midpoint-sampling cross-check.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95606-sigma-postpeak-fine-exponent-ramp-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95606-sigma-postpeak-fine-exponent-ramp-viz-data.js (records IMP95606_FINE_GRID/IMP95606_MIDPOINT_BRIDGE/IMP95606_TRANSITION; imp-95622 viz page)',
+      ticket: 'imp-95622',
+      pedagogicalStep: 156,
+      honestCeiling:
+        'Presentation only: renders the frozen imp-95582/imp-95606 baked pointwise ramp record verbatim (no re-derivation); a measurement/fit of an existing decay quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

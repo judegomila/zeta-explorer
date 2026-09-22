@@ -17603,6 +17603,12 @@ const DATA_MODULES = [
   // Witness-completeness only; no uniform bound (that is the imp-95443 race);
   // import-light, 5 self-executing assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/imp-95561-legb-d2-indefinite-straddle-witness.js',
+  // imp-95438 (sonnet-4-6, content): plain ledger documenting how the
+  // imp-95419 SEP-OPT chain classical-input inventory shrinks from
+  // {CLV, Brownian exit-time} to {CLV} alone after imp-95420 THEOREM P-POS.
+  // Documentation only; no bound change; import-light, 5 self-executing
+  // assertions. PT Lambda <= 0.2 stands; RH open; NO QED.
+  '/src/data/imp-95438-sep-opt-input-reduction-ledger.js',
 ];
 
 let ALL_MODULES = FAST_MODE

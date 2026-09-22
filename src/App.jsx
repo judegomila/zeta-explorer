@@ -1075,6 +1075,9 @@ const Imp95371BcapTwoBranchCapVsExactRatioViz = lazy(() =>
 const Imp95390RiMarginHeatmapViz = lazy(() =>
   import('./pages/Imp95390RiMarginHeatmapViz.jsx')
 );
+const Imp95391Split2SplitLooCrossoverViz = lazy(() =>
+  import('./pages/Imp95391Split2SplitLooCrossoverViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -2927,6 +2930,10 @@ function AppShell() {
           <Route
             path="/viz-imp95390-ri-margin-heatmap"
             element={<Imp95390RiMarginHeatmapViz />}
+          />
+          <Route
+            path="/viz-imp95391-split2-splitloo-crossover"
+            element={<Imp95391Split2SplitLooCrossoverViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -2111,6 +2111,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-implements the same import-light kernel imp-95271 already used (no re-derivation) at a coarser grid chosen for SVG render size; the imp-95271 record itself reports the full 171,600-cell sweep with zero counterexamples; proves nothing beyond what imp-95271 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95391-split2-splitloo-crossover',
+      title: 'SPLIT-2 vs SPLIT-LOO Crossover: g-vs-sigma Locus',
+      oneLine:
+        'Scatter of realized two-block configurations from the imp-95256 SPLIT-2 vs SPLIT-LOO non-dominance surface, plotted as balance ratio g against principal-angle cosine sigma against the exact diagonal crossover locus g = sigma, with the imp-95250 anchor and the concrete SPLIT-2-win witness circled.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95391-split2-splitloo-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95256-split2-splitloo-crossover.js (function compareSplits, record IMP95256_SPLIT2_SPLITLOO_CROSSOVER; imp-95391 viz page)',
+      ticket: 'imp-95391',
+      pedagogicalStep: 144,
+      honestCeiling:
+        'Presentation only: re-implements the same import-light kernel imp-95256 already used (no re-derivation) over a coarser configuration set chosen for a renderable scatter; proves nothing beyond what imp-95256 already states (the g-vs-sigma criterion is an algebraic identity of two already-proven bounds, not a new one); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-cost-floor',
       title: 'The Geometry of the Program Floor',
       oneLine:

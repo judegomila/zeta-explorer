@@ -1105,6 +1105,9 @@ const Imp95392PrecisionReplayCostLadderViz = lazy(() =>
 const Imp95409RhoStarDepthFlipViz = lazy(() =>
   import('./pages/Imp95409RhoStarDepthFlipViz.jsx')
 );
+const Imp95477KaratsubaCrossoverLadderViz = lazy(() =>
+  import('./pages/Imp95477KaratsubaCrossoverLadderViz.jsx')
+);
 const Imp95393YminMapsThetaObstructedViz = lazy(() =>
   import('./pages/Imp95393YminMapsThetaObstructedViz.jsx')
 );
@@ -3013,6 +3016,10 @@ function AppShell() {
           <Route
             path="/viz-imp95409-rhostar-depthflip"
             element={<Imp95409RhoStarDepthFlipViz />}
+          />
+          <Route
+            path="/viz-imp95477-karatsuba-crossover-ladder"
+            element={<Imp95477KaratsubaCrossoverLadderViz />}
           />
           <Route
             path="/viz-imp95393-ymin-maps-theta-obstructed"

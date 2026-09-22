@@ -2183,6 +2183,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the ladder rungs already computed by imp-95277 verbatim (no re-derivation, no native FLINT/Arb replay launched); the 3-limb rung reproduces the imp-95257 headline exactly; proves nothing beyond what imp-95277 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95477-karatsuba-crossover-ladder',
+      title: 'Karatsuba-Aware Precision-Replay Ladder, Schoolbook vs f_karat CPU-Days',
+      oneLine:
+        'Bar chart extending the imp-95277 tier-2 CPU-day ladder past 384 bits (imp-95380 rungs, 6 through 20 mantissa limbs), schoolbook L^2/4 against the Karatsuba-aware f_karat that breaks below it past the ~10-limb (640-bit) crossover, up to a 25% shortfall at the 20-limb top rung.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95380-karatsuba-crossover.js',
+      paperSourcePath:
+        'src/data/imp-95380-karatsuba-crossover.js (record KARATSUBA_CROSSOVER_LADDER, derived from imp-95214 TIER2_PRICE and imp-95277 PRECISION_REPLAY_LADDER via the GMP schoolbook-to-Karatsuba cost law; imp-95477 viz page)',
+      ticket: 'imp-95477',
+      pedagogicalStep: 145,
+      honestCeiling:
+        'Presentation only: renders the ladder rungs already computed by imp-95380 verbatim (no re-derivation, no native FLINT/Arb replay launched, no per-platform MUL_TOOM22_THRESHOLD probe); proves nothing beyond what imp-95380 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95393-ymin-maps-theta-obstructed',
       title: 'Currency Split Verdict: y_min MAPS, theta OBSTRUCTED',
       oneLine:

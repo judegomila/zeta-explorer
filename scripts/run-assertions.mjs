@@ -17423,6 +17423,11 @@ const DATA_MODULES = [
   // imp-95212 port stays open). Restatement only, no new derivation, 4
   // assertions. No bound; PT stands; NO QED.
   '/src/data/imp-95436-seam-port-split-verdict-writeup.js',
+  // imp-95389 (sonnet-4-6, content): plain-language ledger writeup of the
+  // imp-95277 tier-2 precision-replay CPU-day cost ladder and its
+  // precision-invariant launch/defer decision (tier-2 dominates level-1 at
+  // every rung). Restatement only, no new derivation, 5 assertions.
+  '/src/data/imp-95389-precision-replay-ladder-writeup.js',
   // Registered late -- were git-tracked with exported *_ASSERTIONS arrays but
   // missing from DATA_MODULES, so their assertions were silently never run
   // (imp-95437 audit of the imp-95374..imp-95420 finding-module batch).

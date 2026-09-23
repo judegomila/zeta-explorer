@@ -322,6 +322,53 @@ export const PENCIL_HIGHRES_LITERALS = Object.freeze({
     a056: { mus: [0.9975734, 0.9757949, 0.5093823, 0.2464063], mu3: [0.998196, 0.955983, 0.579853, 0.228450] },
     a0575: { mus: [1.0332876, 1.0332876, 0.5820234, 0.2772932], mu3: [0.999141, 0.976096, 0.727177, 0.235680], lamW0: 2.785e-4 },
   },
+  /** imp-96111: FULL zero-crossing / negativity-window structure of the three Toeplitz line symbols out to t ~ 200
+   *  (w = 2theta prime - m_2 = symbol of Arch - P_2 = L_S - D_S; deltahat_S = symbol of D_S; Lhat_S = w + deltahat_S =
+   *  symbol of L_S). Derived in the import-light leaf (tmp/imp-96111-scratch.mjs): w and Lhat_S from the closed-form
+   *  weilSymbol + a graded delta_S(e^u) cosine transform on all-spikes meshes umax = 24 (J = 30) vs umax = 32 (J = 34),
+   *  which agree to <= 2.5e-5 at every t_k. Extends symbol.resonanceWindows (k <= 6) and symbol.deltaHatSignChanges
+   *  (t <= 31) to the full range. FINDINGS. (1) w has 39 zero-crossings on [0, 200]; the archimedean window [0, 3.597)
+   *  and 19 p = 2 resonance windows I_1..I_19 around t_k = 2 pi k/ln2 (k = 1..19) are ALL of its negativity: widths
+   *  fall monotonically 1.730 -> 0.095 and depths |min w| = |w(t_k)| fall monotonically 2.981 -> 0.036. The windows
+   *  CLOSE at k = 20 (t_20 = 181.294): w(t_20) = +0.015 > 0 (2theta prime overtakes m_2 = 3.3468). (2) deltahat_S has
+   *  201 sign changes on (0.5, 200] (negative lobes between the resonances; global min ~ -0.455 at t = 46.28 = baked
+   *  deltaHatMin). (3) Lhat_S = w + deltahat_S is STRICTLY POSITIVE pointwise on [0, 200] (global min 0.06565 at t = 0),
+   *  so its only sign structure is the positivity margin; its local minima sit at the t_k (where w dips) and rise
+   *  monotonically Lhat_S(t_1) = 0.3675 -> 1.08 (t = 199) as the resonance depths decay. Measurement only; the pencil
+   *  eigenvalues / margin are unchanged (D_S never uses this symbol tabulation, cf. truncationAudit); RH open; NO QED. */
+  symbolFullToT200: {
+    deltahat0: 8.784644, Lhat0: 0.065650, meshCheck: 'umax=24/J=30 vs umax=32/J=34 agree <= 2.5e-5 at every t_k',
+    lhatGlobalMin: { t: 0, value: 0.06565, positiveEverywhere: true },
+    windowsCloseAt: { k: 20, tk: 181.2944, wAtTk: 0.0154, note: '2theta prime overtakes max m_2 = 3.3468; last negative resonance window is I_19 (t_19 = 172.230)' },
+    deltahatSignChangeCountTo200: 201, deltahatFirstSignChanges: [4.04, 7.83, 10.20, 13.24, 15.05],
+    /** [k, t_k, lo, hi, width, min w (= w(t_k)), int_window w] for every p = 2 resonance negativity window of w */
+    wResonanceWindows: [
+      [1, 9.0647, 8.144, 9.874, 1.730, -2.981, -2.432], [2, 18.1294, 17.542, 18.698, 1.157, -2.287, -1.451],
+      [3, 27.1942, 26.719, 27.661, 0.943, -1.882, -1.027], [4, 36.2589, 35.849, 36.664, 0.814, -1.594, -0.775],
+      [5, 45.3236, 44.961, 45.683, 0.722, -1.371, -0.603], [6, 54.3883, 54.062, 54.712, 0.650, -1.189, -0.478],
+      [7, 63.4530, 63.157, 63.747, 0.591, -1.034, -0.382], [8, 72.5178, 72.247, 72.787, 0.539, -0.901, -0.307],
+      [9, 81.5825, 81.335, 81.829, 0.493, -0.783, -0.246], [10, 90.6472, 90.421, 90.873, 0.452, -0.678, -0.196],
+      [11, 99.7119, 99.505, 99.918, 0.413, -0.582, -0.155], [12, 108.7766, 108.588, 108.964, 0.376, -0.495, -0.121],
+      [13, 117.8414, 117.671, 118.011, 0.340, -0.415, -0.092], [14, 126.9061, 126.753, 127.058, 0.305, -0.341, -0.068],
+      [15, 135.9708, 135.835, 136.106, 0.270, -0.272, -0.048], [16, 145.0355, 144.918, 145.152, 0.234, -0.208, -0.032],
+      [17, 154.1002, 154.002, 154.198, 0.195, -0.147, -0.019], [18, 163.1650, 163.089, 163.241, 0.152, -0.090, -0.009],
+      [19, 172.2297, 172.182, 172.277, 0.095, -0.036, -0.002],
+    ],
+    /** [k, t_k, w(t_k), deltahat_S(t_k), Lhat_S(t_k), ratio deltahat/Lhat] — Lhat_S(t_k) is the local positivity min */
+    lhatAtTk: [
+      [1, 9.0647, -2.9808, 3.3483, 0.3675, 9.111], [2, 18.1294, -2.2873, 2.6595, 0.3722, 7.145],
+      [3, 27.1942, -1.8817, 2.2819, 0.4002, 5.702], [4, 36.2589, -1.5940, 2.0381, 0.4441, 4.589],
+      [5, 45.3236, -1.3709, 1.8523, 0.4814, 3.848], [6, 54.3883, -1.1886, 1.7122, 0.5236, 3.270],
+      [7, 63.4530, -1.0344, 1.6065, 0.5721, 2.808], [8, 72.5178, -0.9009, 1.5240, 0.6231, 2.446],
+      [9, 81.5825, -0.7831, 1.4400, 0.6569, 2.192], [10, 90.6472, -0.6777, 1.3691, 0.6914, 1.980],
+      [11, 99.7119, -0.5824, 1.3106, 0.7282, 1.800], [12, 108.7766, -0.4954, 1.2608, 0.7654, 1.647],
+      [13, 117.8414, -0.4154, 1.2178, 0.8025, 1.518], [14, 126.9061, -0.3412, 1.1829, 0.8417, 1.405],
+      [15, 135.9708, -0.2722, 1.1468, 0.8746, 1.311], [16, 145.0355, -0.2077, 1.1147, 0.9070, 1.229],
+      [17, 154.1002, -0.1471, 1.0820, 0.9349, 1.157], [18, 163.1650, -0.0899, 1.0579, 0.9679, 1.093],
+      [19, 172.2297, -0.0359, 1.0216, 0.9857, 1.036], [20, 181.2944, 0.0154, 0.9939, 1.0093, 0.985],
+      [21, 190.3591, 0.0642, 0.9767, 1.0409, 0.938], [22, 199.4238, 0.1107, 0.9693, 1.0801, 0.897],
+    ],
+  },
 });
 
 export const RH_ROUTE_I_PENCIL_HIGHRES_MAP = Object.freeze({
@@ -334,6 +381,7 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP = Object.freeze({
   crossing: 'a*(pole-free) = 0.565818 (N=64) / 0.565792 (N=96) -> 0.56578, identical for k = 0 and k = 1 (crossing vector odd, |hhat|^2 peak t = 8.85, 52% energy below t_1); Arch(h) = 0.36370 = P_2(h) + 3e-5; the Weil form there is W = 0.02038 > 0 because P_3(h) = -0.02035 (g_h(ln 3) ~ h(a)h(-a) < 0 for odd h): pencil with D_S + P_3 has mu = 0.99866 at a*, 0.99979 at 0.60; even (Slepian) sector crosses near 0.59; below (ln 3)/2 there is NO crossing for any constraint set',
   constraintLever: 'sup_{a <= (ln3)/2} mu_max(a; k) = value at (ln 3)/2: 0.99716 (k=0), 0.93162 (1), 0.46061 (2), 0.22802 (3), 0.19039 (4), 0.19039 (5), 0.17320 (6), 0.12253 (7), 0.09604 (8); two moments buy a uniform margin 0.539, one moment 0.068; unchanged steps = added moment has the wrong parity for the current extremal; second pencil eigenvalue at k = 0 equals mu_max at k = 1 (runner-up is odd); moments vs Slepian(|t| < gamma_1) vs optimal at k = 2: 0.4605 / 0.3243 / 0.2674, k = 4: 0.1904 / 0.2337 / 0.1188, k = 8: 0.0960 / 0.1019 / 0.0664',
   symbolAnatomy: 'w = 2theta\' - m_2 (symbol of L_S - D_S) is negative on [0, 3.597) (min -8.719, int -6.997) and on the p = 2 resonance windows (8.145, 9.875), (17.542, 18.699), (26.719, 27.662), (35.850, 36.664), (44.961, 45.684), (54.063, 54.713): widths 1.730 -> 0.650, depths -2.981 -> -1.188, int w -2.432 -> -0.478; deltahat_S/Lhat_S > 1 exactly there: 134.0 at t = 0, 9.13 / 7.15 / 5.70 / 4.59 / 3.85 / 3.27 at t_1..t_6; windows close at t ~ 181',
+  symbolAnatomyFull: 'imp-96111: full zero-crossing structure of the three line symbols to t ~ 200. w = 2theta prime - m_2 (symbol of L_S - D_S) has 39 zero-crossings on [0, 200]; its negativity is the archimedean window [0, 3.597) plus 19 p = 2 resonance windows I_1..I_19 at t_k = 2pi k/ln2 (widths 1.730 -> 0.095 monotone, depths 2.981 -> 0.036 monotone), which CLOSE at k = 20 (t = 181.29, w = +0.015 > 0 once 2theta prime overtakes m_2 = 3.3468). deltahat_S (symbol of D_S) has 201 sign changes on (0.5, 200] with global min ~ -0.455 at t = 46.28. Lhat_S = w + deltahat_S (symbol of L_S) is STRICTLY POSITIVE pointwise on [0, 200] (global min 0.0656 at t = 0); its local minima sit at the t_k and rise monotonically 0.3675 (t_1) -> ~1.08 (t = 199) as the resonance depths decay — the symbol-level positivity margin, explicit rather than only via the Rayleigh-Ritz eigenvalues. Two-mesh cross-check (umax 24 vs 32) agrees to <= 2.5e-5 at every t_k. Measurement only; the pencil margin is untouched (D_S never uses this symbol tabulation); RH open; NO QED',
   extremalAnatomy: '(ln 3)/2, k = 0: even, |hhat|^2 peak t = 7.55, 74% energy below t_1, 98% below gamma_1; W = (1/2pi) int w |hhat|^2 splits as [0,3.6) -0.0092, [3.6,8.15) +0.226, I_1 -0.341, [9.9,17.5) +0.126, I_2 -0.005 (W = 0.00095, L_S = 0.3329): the negativity is the first p = 2 resonance window (102% of L_S), the archimedean window is 2.8%; k = 1 extremal odd on I_1 (-0.408); k = 2 even, I_1 -0.224 and I_2 -0.125; k = 3 odd on I_2 (-0.173): extremals migrate outward as moments are added',
   DSform: 'lambda(D_S) in [-0.07136, 2.14499] (a = 0.5), [-0.08670, 2.31368] ((ln 3)/2), N-stable to 1e-5; negative eigenvalue count 7/11/15/22/30 at N = 32..128 = Szego samples of the negative lobes of deltahat_S (sign changes 4.05, 7.83, 10.19, 13.25, ...); negative eigenvectors peak at t = 13.7 (even), 22.7 (odd), 31.9, 40.9 in those lobes; top eigenvector 2.145 is the t ~ 0 direction, next two (0.423 odd, 0.365 even) sit on the first resonance; lambda_min(L_S) = 0.0992 / 0.0934, lambda_min(L_S|pf) = 0.3565 / 0.3081',
   forTheProof: '(a) D_S <= L_S on pole-free h is true with margin >= 2.8e-3 for 2a <= ln 3 and FALSE for 2a > 1.1316 (odd sector; Weil positivity needs -P_3 there): a proof must use the support bound and cannot be a support-free operator inequality; (b) the object to control is the resonance window I_1 = (8.145, 9.875) (then I_2), not the t ~ 0 archimedean window; (c) vanishing moments act via the uncertainty principle (bandwidth pi/a ~ 5.7 vs window widths <= 1.73), two of them give a uniform margin 0.54 — a finite constraint count suffices numerically for a large margin; the unconstrained margin 2.8e-3 at (ln 3)/2 is what an unconditional statement must reproduce',
@@ -452,6 +500,21 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP_ASSERTIONS = Object.freeze([
       const matchAnat = Math.abs(rowA05[5] - E.a05[0].parts[2]) < 2e-3 && Math.abs(rowA05[4] - E.a05[0].parts[0]) < 2e-3
         && Math.abs(rowLn3[5] - E.aLn3Half[0].parts[2]) < 2e-3 && Math.abs(rowLn3[4] - E.aLn3Half[0].parts[0]) < 2e-3;
       return Math.abs(first[0] - iA) < 1e-9 && monoI1overLS && crossesMinusOne && archUniform && nonUniformShare && peakInward && i1Dominant && matchAnat;
+    },
+  },
+  {
+    id: 'PH9-symbol-full-to-t200',
+    description: 'imp-96111: w = 2theta prime - m_2 has its full negativity on the archimedean window [0, 3.597) and 19 p = 2 resonance windows I_1..I_19 (t_k = 2pi k/ln2, k <= 19) recomputed live from weilSymbol (widths and depths both monotone decreasing); the windows CLOSE at k = 20 (w(t_20) > 0); the baked Lhat_S = w + deltahat_S table is internally consistent (Lhat = w + deltahat, ratio = deltahat/Lhat), STRICTLY POSITIVE at every t_k with minima rising 0.3675 -> ~1.08, and Lhat_S(0) = w(0) + deltahat0 = 0.0656 > 0',
+    holds: () => {
+      const S = L.symbolFullToT200; const tk = (k) => 2 * PI * k / LN2;
+      const zc = signChanges(weilSymbol, 0, 200);
+      const closeOK = weilSymbol(tk(19)) < 0 && weilSymbol(tk(20)) > 0 && Math.abs(tk(20) - S.windowsCloseAt.tk) < 1e-2 && S.windowsCloseAt.wAtTk > 0;
+      const winLive = S.wResonanceWindows.every((r) => Math.abs(weilSymbol(tk(r[0])) - r[5]) < 3e-3 && r[5] < 0);
+      const winMono = S.wResonanceWindows.every((r, i) => i === 0 || (r[4] <= S.wResonanceWindows[i - 1][4] + 1e-9 && Math.abs(r[5]) <= Math.abs(S.wResonanceWindows[i - 1][5]) + 1e-9));
+      const lhatCons = S.lhatAtTk.every((r) => r[4] > 0 && Math.abs(r[2] + r[3] - r[4]) < 1e-3 && Math.abs(r[3] / r[4] - r[5]) < 1e-2 && Math.abs(weilSymbol(tk(r[0])) - r[2]) < 3e-3);
+      const lhatRise = S.lhatAtTk[0][4] > 0.36 && S.lhatAtTk[0][4] < 0.38 && S.lhatAtTk.slice(0, 19).every((r, i) => i === 0 || r[4] >= S.lhatAtTk[i - 1][4] - 1e-3);
+      const gmin = S.lhatGlobalMin.value > 0 && S.lhatGlobalMin.t === 0 && Math.abs(weilSymbol(0) + S.deltahat0 - S.Lhat0) < 1e-3 && Math.abs(S.Lhat0 - S.lhatGlobalMin.value) < 1e-3;
+      return zc.length >= 37 && closeOK && winLive && winMono && lhatCons && lhatRise && gmin && S.deltahatSignChangeCountTo200 > 190;
     },
   },
   {

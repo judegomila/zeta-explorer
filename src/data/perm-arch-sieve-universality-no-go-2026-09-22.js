@@ -137,7 +137,9 @@ export const PERM_ARCH_SIEVE_UNIVERSALITY = Object.freeze({
     + 'real shift ≈ +0.8, giving Re s_B ≈ 1.4, which would change the α_{k,h}/PCC framing and '
     + 'the "zero-free half-strip σ>0.59045" statement. The prime-side (height/width-bound) and '
     + 'the §5(i) small-prime closure do NOT depend on σ_B, so the no-go stands — but pin '
-    + 'sB_of_x before any further zero-side α/PCC claim.',
+    + 'sB_of_x before any further zero-side α/PCC claim. (imp-95552: cross-linked back from '
+    + 'imp-95519 itself via its own sigmaBProvenanceCaveat field, so the assumption is visible '
+    + 'from both sides.)',
 
   verdict:
     'Permutation architecture is A_{k,h}-universal (Theorem U): every configuration is a basis '

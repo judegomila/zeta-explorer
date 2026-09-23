@@ -639,6 +639,10 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
     verdict:
       '59% of the p = 97 majorant mass sits at alpha in (1, 1.0953], outside Montgomery\'s RH range |alpha| <= 1 (needs the pair-correlation conjecture proper); the remaining 41% is in range only on RH and mean-square only; the contract needs the local zero sum pointwise in T over the continuous window = |L\'/L(sigma_B + iT, chi)| bounded = zero-free half-strip sigma > 0.59045 at height T for zeta and L(s, chi mod p <= 97). PCC-gated.',
   },
+  // imp-95552: reciprocal cross-link to perm-arch's imp95519Caveat, so the
+  // sigma_B provenance gap is visible from this module's own consumers too.
+  sigmaBProvenanceCaveat:
+    'sigma_B = (1 + y0)/2 = 0.59045 is used above as a fact throughout the zero-side analysis, but it is an ASSUMPTION pending the missing evaluator input sB_of_x (imp-95013): src/data/perm-arch-sieve-universality-no-go-2026-09-22.js (imp95519Caveat) flags that under Polymath A/B-effective normalization s_B carries a real shift ~ +0.8, giving Re s_B ~ 1.4, which would change the alpha_{k,h}/PCC framing and the "zero-free half-strip sigma > 0.59045" statement above. The prime-side (height/width-bound) verdict does NOT depend on sigma_B, so the no-go stands regardless -- but pin sB_of_x before citing sigma_B = 0.59045 as settled. Documentation only; changes no bound; NO QED.',
   numbers: {
     sigmaB: SIGMA_B,
     sqrtSbar: SQRT_SBAR,
@@ -790,6 +794,14 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
     id: 'imp95519-ramanujan-principal-term',
     description: 'tau(chi_0-bar) = sum_{a=1}^{p-1} e(ha/p) = -1 at p = 97, h = 5',
     holds: () => Math.abs(RAM_P97_H5.re + 1) < 1e-10 && Math.abs(RAM_P97_H5.im) < 1e-10,
+  },
+  {
+    id: 'imp95552-sigmab-provenance-cross-link',
+    description: 'sigmaBProvenanceCaveat names imp-95013 (sB_of_x) and the perm-arch honest-status flag on sigma_B',
+    holds: () =>
+      /imp-95013/.test(IMP95519_LOCALIZED_BARRIER_SUM_NOGO.sigmaBProvenanceCaveat) &&
+      /perm-arch/.test(IMP95519_LOCALIZED_BARRIER_SUM_NOGO.sigmaBProvenanceCaveat) &&
+      /ASSUMPTION/.test(IMP95519_LOCALIZED_BARRIER_SUM_NOGO.sigmaBProvenanceCaveat),
   },
   {
     id: 'imp95519-active-row',

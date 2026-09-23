@@ -17946,6 +17946,13 @@ const DATA_MODULES = [
   // * 2 sin^2(pi k delta/L), all-positive, no subtraction; double-double confirmed).
   // Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95744-twin-pair-block-floor-belowprec-dd-resolve.js',
+  // imp-95762: ports the finite-80 double-double SYMMETRIC eigensolver imp-95744 named
+  // as its OPEN sub-gap (finite-80-dd-eigensolver) and cross-checks the dual floor F_inf.
+  // DD sech entries + DD LDL^T; lambda_min via DD inverse iteration + Rayleigh, inertia-
+  // bracketed. Reproduces the float64-resolvable bias to < 0.3 pts and newly pins the two
+  // deepest ln1.2 cells (rho=1.5: 1.945435841e-17, rho=1: 6.464515655e-22). Import-light,
+  // no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95762-twin-pair-block-floor-finite80-dd-eigensolver.js',
   // imp-95747: GUE pair-correlation reweighting of the imp-95721 flat-RvM r_eff. Repulsion g(x) ~
   // (pi^2/3)x^2 regularizes the 1/(1-alpha) flip-reach divergence (r_eff saturates at 9.583x) but does
   // not lower it below the 8.6x one-spacing value; box-min band barely moves. Import-light, no zeros bundle.
@@ -17971,6 +17978,12 @@ const DATA_MODULES = [
   // 40%-of-J rho-carrying term MOVES, conditionally refuting the constant-J null; fractional
   // dI variation 2.484x that of J. Import-light, no zeros bundle, no bound, no QED.
   '/src/data/imp-95749-di-variation-against-constant-J-null.js',
+  // imp-95765: extends the imp-95749 single conditional dI point to FOUR moduli -- feeds the
+  // imp-95746 J_raw at m=18,19,20,21 through the imp-95724 exact J=3/2+dI split (under the +4
+  // offset). dI moves at all four (spread 4.15e-5, ~4.15e4x the floor) but the consecutive
+  // differences are NOT sign-stable (signs -,+,-), a zigzag inherited from the non-monotone
+  // Q_0 m-signal (dI = 1 - Q_0). Conditional on the +4 offset, only m=20 certified. NO QED.
+  '/src/data/imp-95765-di-variation-four-moduli.js',
 ];
 
 let ALL_MODULES = FAST_MODE

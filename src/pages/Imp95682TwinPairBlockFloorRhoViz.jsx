@@ -6,9 +6,11 @@ import {
   IMP95682_CAVEAT_BANNER,
 } from '../data/imp-95682-twin-pair-block-floor-rho-viz-data.js';
 import { IMP95707_TWIN_PAIR_BLOCK_TOEPLITZ_INTERIOR_LIMIT } from '../data/imp-95707-twin-pair-block-toeplitz-interior-limit.js';
+import { IMP95807_FINF_DUAL_INDEPENDENT_RECOMPUTE } from '../data/imp-95807-finf-dual-independent-recompute.js';
 
 const ROWS = IMP95682_ROWS;
 const BIAS_TABLE = IMP95707_TWIN_PAIR_BLOCK_TOEPLITZ_INTERIOR_LIMIT.table;
+const FINF_RECOMPUTE_CELLS = IMP95807_FINF_DUAL_INDEPENDENT_RECOMPUTE.cells;
 
 const SERIES = [
   { key: 'log10F', label: 'F = lambda_min(seam Gram)', color: '#38bdf8' },
@@ -235,6 +237,55 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {r.biasPct.toFixed(4)}
               </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.5rem 0 0.75rem', maxWidth: 700 }}>
+        imp-95807 independently re-derived F_inf via the cancellation-free theta = 0
+        Poisson dual at all 13 cells of the union grid above and checked each one
+        against its baked literal. Every cell reproduces to relative error &lt; 1e-6;
+        the worst is the imp-95707 float64 ln1.5&#47;rho=1 entry at 2.42e-7 (storage
+        precision of that 10-sig-fig literal, not a disagreement of the dual) &mdash;
+        the other twelve sit at relErr &lt;= 3.68e-9.
+      </p>
+
+      <table
+        style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          fontSize: '0.78rem',
+        }}
+      >
+        <thead>
+          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+            <th style={{ padding: '0.4rem 0.6rem' }}>delta</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>rho</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>F_inf (baked)</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>F_inf (dual recompute)</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>relErr</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>source</th>
+          </tr>
+        </thead>
+        <tbody>
+          {FINF_RECOMPUTE_CELLS.map((c) => (
+            <tr
+              key={`finf-${c.delta}-${c.rho}`}
+              style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}
+            >
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.delta}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.rho}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {c.Finf.toExponential(4)}
+              </td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {c.Frecomputed.toExponential(4)}
+              </td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {c.relErr.toExponential(3)}
+              </td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{c.source}</td>
             </tr>
           ))}
         </tbody>

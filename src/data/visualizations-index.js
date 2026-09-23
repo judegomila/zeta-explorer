@@ -3023,6 +3023,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation plus light recomputation of the already-verified imp-95825/imp-95846 Rayleigh-quotient method (no new cited input); every n=160 row cross-checked against those frozen certified endpoints; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95914-ufit-comparison-panel',
+      title: 'Per-Delta u_fit Comparison Panel',
+      oneLine:
+        'Renders the imp-95885 three-delta u_fit comparison (A_fit vs dual A_opt, u_fit_rel, u_fit/u_opt, reach, conditioning across ln1.2/ln1.25/ln1.3) as a bar chart and table -- never assembled visually before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95914-ufit-comparison-panel-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95885-per-delta-ufit-comparison-table.js (imp-95914 viz panel)',
+      ticket: 'imp-95914',
+      pedagogicalStep: 194,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95885 per-delta comparison verbatim (no re-derivation, no fresh extrapolation run); ln 1.25 carries no u_fit interval (recorded N/A); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

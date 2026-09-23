@@ -88,6 +88,7 @@
  * here (bias converges to zero, F_inf reliably pinned) -- only the specific
  * decay-rate number in FINDING 3 is superseded.
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (converged ladder to N=500; p drifts toward ~2, not 2.4-2.7)
+ * @see Imp95809DeepCornerBiasConvergenceLadderViz (routed log-log viz of this ladder at /viz-imp95809-deep-corner-bias-ladder)
  */
 
 // ---------------------------------------------------------------------------

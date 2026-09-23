@@ -17863,6 +17863,10 @@ const DATA_MODULES = [
   // +/-50%) as import-light reference literals for a future robustness chart, no live quadrature
   // at import. Content bake only; no bound, no QED.
   '/src/data/imp-95630-transition-knee-gap-baked-viz-data.js',
+  // imp-95739: META registration audit confirming imp-95710 and imp-95630 (both above) are
+  // present in this DATA_MODULES array, closing the untracked/unregistered full-sweep trap.
+  // Read-only roll-up; no bound, no QED.
+  '/src/data/imp-95739-95710-95630-data-modules-registration-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

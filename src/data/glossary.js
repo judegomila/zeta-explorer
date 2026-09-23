@@ -21807,6 +21807,29 @@ export const glossary = [
       'imp-95519 localized barrier sum prime/zero no-go is the result whose zero-side framing this rescaling sharpens without closing',
     ],
   },
+  {
+    term: 'Gauss-Plancherel alias lemma',
+    category: 'concept',
+    definition:
+      'imp-95519 (lemmaGaussPlancherel field). Expands each alias A_h of the localized barrier sum ' +
+      'A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p) in terms of the Dirichlet characters mod p: ' +
+      'A_h = (1/(p-1))[-S_{chi_0} + sum_{chi != chi_0} chi(h) tau(chi-bar) S_chi], where S_chi is the ' +
+      'chi-twisted sum, tau is the Gauss sum, and -1 = tau(chi_0-bar) is the Ramanujan-sum principal ' +
+      'term. Summing |A_h|^2 over the p-1 aliases gives the exact L^2 isometry (Plancherel on (Z/p)^x) ' +
+      'sum_h |A_h|^2 = (1/(p-1))[|S_{chi_0}|^2 + p sum_{chi != chi_0} |S_chi|^2]: the alias second moment ' +
+      'equals a weighted second moment of the character sums, i.e. character L-function content. imp-95535 ' +
+      'verified the identity is float64-exact (residual 2.612e-12 worst case) across all 25 sieving primes ' +
+      'p <= 97 (imp-95554), but showed it is direction-neutral: it fixes only the alias TOTAL sum_h |A_h|^2, ' +
+      'not the worst weld cell max_h |A_h|, so it neither closes nor refutes the 1.306 headroom factor ' +
+      '(converting the L^2 total to the L^infty max costs an unbounded concentration factor kappa, whose ' +
+      'boundedness is equivalent to the already-closed per-character |S_chi| upper bounds).',
+    firstUsed: 'imp-95519 (localized barrier sum prime/zero no-go, second-moment lever), 2026',
+    relatedTerms: [
+      'Montgomery packet frequency alpha_{k,h} is the sibling zero-side quantity computed in the same imp-95519 module',
+      'imp-95535 is the second-moment-lever analysis showing the identity is a NO USABLE LEVER (direction-neutral)',
+      'imp-95519 localized barrier sum prime/zero no-go is the source result this lemma is an ingredient of',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

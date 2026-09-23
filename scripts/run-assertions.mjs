@@ -17905,6 +17905,13 @@ const DATA_MODULES = [
   // is offset-sensitive (~+/-7.5%) but the conservatism r_cap < 1 is robust (whole interval far below 1).
   // Import-light, sensitivity assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
   '/src/data/imp-95748-number-variance-ratio-c0-sensitivity.js',
+  // imp-95787: ESTIMATOR-CHOICE bias of the same offset C0 (complementary to imp-95748 measurement noise).
+  // Compares the max-based C0 = 0.3337 against mean-based (0.2618) and min-based (0.2106) over the six
+  // per-height offsets (spread 0.1231, argmax at the noisy T=1.5e5 bump): the max OVER-estimates the central
+  // offset by +27.5% (upper envelope by construction, errs conservative), and r_cap(3e12) across the three
+  // estimators sits in [0.196, 0.260] -- all far below 1, so the conservatism is invariant to the choice.
+  // Import-light, assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
+  '/src/data/imp-95787-number-variance-c0-estimator-bias.js',
   // imp-95750: ASSESSES how far up the ~6.78-decade dead zone the direct sd(C - E) measurement can
   // reach with in-repo zero data. The largest verified ordinate is gamma_1e6 = 6.003e5 (last entry
   // of ZEROS_EXTENDED), a hard ceiling only ~0.079 decade (~2.4%) into the 3.36-decade gap from the

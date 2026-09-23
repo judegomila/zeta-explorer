@@ -18546,6 +18546,13 @@ const DATA_MODULES = [
   // + "NO QED" guardrail phrase. No missing banner found. Audit-only, no bound,
   // NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95811-banner-audit-imp95790-imp95697.js',
+  // imp-95910: extends the imp-95811 spot-check to all 22 page-rendered
+  // caveat-banner constants cohort-wide. Every one carries the mandatory
+  // "NO QED" + "Platt-Trudgian Lambda <= 0.2 remains SOTA" guardrail; two
+  // banner constants (imp-33801, imp-95812) are orphaned (no page renders
+  // them), which is a wiring gap not a missing-guardrail gap. Audit-only,
+  // no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95910-full-caveat-banner-audit.js',
   // imp-95880: verifies the imp-95862 LOWER companion lambda_min(G_n) >= A_opt(delta) at
   // delta=ln1.2 and ln1.3 in double-double with the imp-95820/imp-95841 shift-invert DD
   // Toeplitz solver, where float64 lost reachability (float64 lambda_min at ln1.2 read

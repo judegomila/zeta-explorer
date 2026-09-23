@@ -62,7 +62,16 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'VERDICT fixed-point-yes / stability-open: σ=½ is an EXACT fixed point of the '
         + 'arithmetic flow (Re Ψ even in δ), but the confining curvature 2Σ_p(log p)³p^{−½}cos(γ ln p) '
         + 'has a non-convergent finite-prime truncation (sign flips with cutoff) — sub-gap '
-        + 'B-STABILITY-SIGN needs the Coulomb-regularized −ζ′/ζ. No bound; NO QED.',
+        + 'B-STABILITY-SIGN needs the Coulomb-regularized −ζ′/ζ. No bound; NO QED. '
+        + 'SECOND PASS (rh-route-b-arithmetic-freeze-flow-2026-09-23.js): VERDICT NEGATIVE. Lemma M: every '
+        + 'MULTIPLICATIVE prime coupling (Euler/Beurling factor, RG octave freeze, Λ-field −ζ′/ζ) has force 0 '
+        + 'or a rigid translation (Euler shift 8e-31; Λ-field rate 1; FE-even Λ-coupling force 0 — this closes '
+        + 'B-STABILITY-SIGN by reformulation). Lemma A: the FE-preserving ADDITIVE coefficient freeze has '
+        + 'dγ_k/dτ = Z_S(γ_k)/(2Z′(γ_k)) (Riemann–Siegel partial sum, identity to 1.6e-27), REAL, so "σ=½ exact '
+        + 'fixed point" is the open-condition triviality of every real pencil. On 17 GENUINE off-line zeros '
+        + '(H_t, t<0) the heat force confines 17/17 while no coefficient set has a universal sign. HKO: pencil '
+        + 'confinement ⟺ interlacing ⟺ RH-encoding; the n=1 pencil fails interlacing at the first pair. The '
+        + 'one majority tendency (damp n≥2 ⇒ separate) confines AWAY from ζ — the de Bruijn trap. RH open.',
     },
     {
       key: 'C',
@@ -166,7 +175,12 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         'Define the octave-freezing RG step precisely; compute zero motion under one step '
         + 'on truncated ζ; test for a monotone drift or an RG fixed point with real zeros.',
       payoff: 'An arithmetic real-rootedness-preserving flow (RG complement to heat flow)',
-      status: 'to-test',
+      status: 'tested — NO-GO for a real-rootedness-preserving lever (rh-route-g-block-spin-rg-freezing-2026-09-23.js): '
+        + 'the octave-freezing step zeta -> zeta·∏_{p≤P}(1−p^{−s}) is the P-rough Dirichlet series; the frozen factor '
+        + 'is zero-free in the strip (|1−p^{−s}| ≥ 1−2^{−σ} > 0), so nontrivial zeros are EXACT RG fixed points — '
+        + 'trivial reality-preservation with zero restoring force. Making the flow move zeros needs truncation, but '
+        + 'partial sums have zeros with σ>½ whose rightmost climbs monotonically toward 1 (0.829..0.984, N=8..256; '
+        + 'Turán/Montgomery), which the frozen factor cannot repair. RG analogue of the flow-blindness no-go; NO QED',
     },
   ],
 

@@ -282,6 +282,16 @@ const DATA_MODULES = [
   // below ½ at t≳3000); worst-case budget → 4e^{1/8σ²} = exactly the trivial strip. RH ⟺ R_σ(t) bounded
   // as σ→0 (Weil on Gaussian probes) = REFORMULATION, no lever. Import-light literals; NO QED.
   '/src/data/rh-route-d-peierls-defect-confinement-2026-09-23.js',
+  // rh-route-g-block-spin-rg-freezing (2026-09-23): Route G first test EXECUTED. The octave-freezing
+  // block-spin RG step = zeta(s) |-> zeta(s) prod_{p<=P}(1-p^{-s}) = the P-rough Dirichlet series
+  // (coefficient identity verified to N=1000). The frozen factor is zero-free in the strip
+  // (|1-p^{-s}| >= 1-2^{-sigma} > 0), so the nontrivial zeros are EXACT FIXED POINTS of the exact
+  // flow -- zero displacement per step, trivial reality-preservation with no restoring force. The only
+  // way to make the flow move zeros is to truncate to zeta_N, but partial sums have zeros with sigma>1/2
+  // whose rightmost climbs monotonically toward 1 (0.829..0.984 for N=8..256; Turan/Montgomery), which the
+  // zero-free factor cannot pull back to 1/2. NO-GO for a real-rootedness-preserving lever = RG analogue of
+  // the flow-blindness no-go. Import-free; live Newton + baked ladder; NOT a bound; PT Lambda<=0.2; NO QED.
+  '/src/data/rh-route-g-block-spin-rg-freezing-2026-09-23.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

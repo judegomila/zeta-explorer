@@ -8,6 +8,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { RH_NOVEL_ROUTES } from '../data/rh-novel-routes-roadmap-2026-09-23.js';
 import { RH_ROUTE_H_CONNES_SCALING_SITE as ROUTE_H } from '../data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js';
+import { RH_ROUTE_H_SEMILOCAL_SONINE as ROUTE_H_SONINE } from '../data/rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
@@ -107,6 +108,16 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}>{ROUTE_H.verdict}</p>
           <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
             data: src/data/{ROUTE_H.id}.js · Test 2: {ROUTE_H.test2.aStar} · Test 1: {ROUTE_H.test1.compactCap}
+          </p>
+        </div>
+
+        <div className="card" style={{ marginTop: 24 }}>
+          <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 8 }}>Route H — next step attempted: the semilocal S = &#123;∞, 2&#125; Sonine trace identity (g-support &lt; ln 3)</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{ROUTE_H_SONINE.status}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}>{ROUTE_H_SONINE.obstruction}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Sub-gap:</strong> {ROUTE_H_SONINE.subGap}</p>
+          <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
+            data: src/data/{ROUTE_H_SONINE.id}.js · p=2 structure: {ROUTE_H_SONINE.p2Structure}
           </p>
         </div>
 

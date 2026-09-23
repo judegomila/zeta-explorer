@@ -146,33 +146,58 @@ export const IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH = {
 };
 
 // --- self-executing internal-consistency assertions (decade re-derivation only) ---
-(() => {
-  const approx = (a, b, tol) => Math.abs(a - b) <= tol;
-  // The gap to the crossover is the imp-95729 ~3.36-decade figure.
-  if (!approx(gapToCrossoverDecades, 3.36, 0.02))
-    throw new Error('imp-95750: gap-to-crossover decades drifted from the imp-95729 ~3.36 figure');
-  // The direct-measurement ceiling adds well under a tenth of a decade above 5e5.
-  if (!(ceilingGainDecades > 0 && ceilingGainDecades < 0.1))
-    throw new Error('imp-95750: ceiling gain outside the expected sub-0.1-decade range');
-  // The attainable fraction of the gap is a few percent, not a meaningful dent.
-  if (!(fractionOfGapAttainable > 0 && fractionOfGapAttainable < 0.05))
-    throw new Error('imp-95750: attainable fraction of the gap outside the expected few-percent range');
-  // The ceiling is the largest ordinate and it sits above the measured top but below the crossover.
-  if (!(GAMMA_1E6 > MEASURED_TOP_T && GAMMA_1E6 < CROSSOVER_T0))
-    throw new Error('imp-95750: ceiling not strictly between the measured top and the crossover');
-  // Most of the gap to the crossover remains unreached.
-  if (!(remainingToCrossoverDecades > 3))
-    throw new Error('imp-95750: remaining-to-crossover decades unexpectedly small');
-  // The full dead zone matches the imp-95710/imp-95729 ~6.78-decade figure.
-  if (!approx(fullDeadZoneDecades, 6.78, 0.05))
-    throw new Error('imp-95750: full dead-zone decades drifted from the ~6.78 figure');
-  // honesty gate: assessment only, no QED, PT stays SOTA.
-  if (IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.isRigorous !== false)
-    throw new Error('imp-95750: isRigorous must be false');
-  if (!/NO QED/.test(IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.verdict))
-    throw new Error('imp-95750: verdict dropped the NO QED banner');
-  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.verdict))
-    throw new Error('imp-95750: verdict dropped the PT Lambda <= 0.2 SOTA banner');
-})();
+const approx = (a, b, tol) => Math.abs(a - b) <= tol;
+
+// imp-95889: exported as a *_ASSERTIONS array (holds() shape) so the
+// scripts/run-assertions.mjs sweep auto-discovers and runs these tripwires --
+// the imp-95778 audit flagged this module as exporting no such array, so its
+// checks silently never ran under the build-time gate despite being present.
+export const IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH_ASSERTIONS = [
+  {
+    id: 'imp95750-gap-to-crossover-decades',
+    description: 'the gap to the crossover matches the imp-95729 ~3.36-decade figure',
+    holds: () => approx(gapToCrossoverDecades, 3.36, 0.02),
+  },
+  {
+    id: 'imp95750-ceiling-gain-sub-tenth-decade',
+    description: 'the direct-measurement ceiling adds well under a tenth of a decade above 5e5',
+    holds: () => ceilingGainDecades > 0 && ceilingGainDecades < 0.1,
+  },
+  {
+    id: 'imp95750-attainable-fraction-few-percent',
+    description: 'the attainable fraction of the gap is a few percent, not a meaningful dent',
+    holds: () => fractionOfGapAttainable > 0 && fractionOfGapAttainable < 0.05,
+  },
+  {
+    id: 'imp95750-ceiling-between-top-and-crossover',
+    description: 'the ceiling is the largest ordinate and sits above the measured top but below the crossover',
+    holds: () => GAMMA_1E6 > MEASURED_TOP_T && GAMMA_1E6 < CROSSOVER_T0,
+  },
+  {
+    id: 'imp95750-remaining-to-crossover-exceeds-three',
+    description: 'most of the gap to the crossover remains unreached',
+    holds: () => remainingToCrossoverDecades > 3,
+  },
+  {
+    id: 'imp95750-full-dead-zone-decades',
+    description: 'the full dead zone matches the imp-95710/imp-95729 ~6.78-decade figure',
+    holds: () => approx(fullDeadZoneDecades, 6.78, 0.05),
+  },
+  {
+    id: 'imp95750-is-rigorous-false',
+    description: 'honesty gate: this is an assessment, not a rigorous result',
+    holds: () => IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.isRigorous === false,
+  },
+  {
+    id: 'imp95750-verdict-no-qed-banner',
+    description: 'the verdict retains the NO QED banner',
+    holds: () => /NO QED/.test(IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.verdict),
+  },
+  {
+    id: 'imp95750-verdict-pt-sota-banner',
+    description: 'the verdict retains the PT Lambda <= 0.2 SOTA banner',
+    holds: () => /Lambda <= 0\.2 remains SOTA/.test(IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH.verdict),
+  },
+];
 
 export default IMP95750_NUMBER_VARIANCE_DEADZONE_MEASUREMENT_REACH;

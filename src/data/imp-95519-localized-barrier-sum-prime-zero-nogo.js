@@ -331,6 +331,44 @@ function grhSavingExponentCurve(N, p, points = 13) {
 const GRH_SAVING_CURVE_LO = grhSavingExponentCurve(N_LO, 97, 13);
 const GRH_SAVING_CURVE_HI = grhSavingExponentCurve(N_HI, 97, 13);
 
+// ── imp-95675: intermediate-regime saving budget between full square-root cancellation and 1.306 ──
+// imp-95519 sec 2 pins only the two extremes: full square-root cancellation saves H^{-1/2} ~ 1e-4
+// (over-closes the p = 97 contract by ~3 orders) while the MINIMAL requirement is only the uniform
+// headroom FACTOR 1.306. This maps the continuum between them. A partial saving |A_{k,h}| <= trivial *
+// H^{-theta} (0 < theta < 1/2) clears the headroom iff H^{-theta} <= 1/1.306, i.e. theta >= theta_min(N)
+// = log(1.306)/log H_{k,h}(N); a single-log-power saving (log u)^{-c} clears it iff c >= c_min(N) =
+// log(1.306)/log(log u). Evaluated at the floor alias (k = 1, h = p - 1) where H is smallest, so
+// theta_min is LARGEST -- the uniform (worst-cell) requirement over the window is theta_min(N_lo).
+// The achievable exponent (sec 3, unconditionally AND under GRH at the Fresnel width) is exactly
+// 0 < theta_min, so even this minuscule sub-square-root saving is NOT delivered; the honest residual
+// gap is theta_min - 0 = theta_min itself. Assessment only; both sides stay closed; changes no bound.
+function partialSavingBudget(N, p) {
+  const fa = floorAliasAccounting(N, p);
+  const H = fa.H;
+  const logH = Math.log(H);
+  const logU = Math.log(fa.u);
+  const thetaMin = Math.log(HEADROOM_FACTOR) / logH; // H^{-theta} = 1/1.306 at this N
+  const cMin = Math.log(HEADROOM_FACTOR) / Math.log(logU); // (log u)^{-c} = 1/1.306 at this N
+  const fullFactor = Math.pow(H, -0.5); // square-root-cancellation saving factor H^{-1/2}
+  const minimalFactor = 1 / HEADROOM_FACTOR; // the only reduction the contract needs (0.766)
+  return {
+    N,
+    H,
+    thetaMin, // minimal exponent theta in H^{-theta} that clears 1.306 at this N
+    cMin, // minimal single-log-power exponent c in (log u)^{-c} that clears 1.306
+    thetaFull: 0.5, // full square-root cancellation
+    exponentBudget: 0.5 - thetaMin, // gap between over-close (1/2) and minimal (theta_min)
+    overCloseExponentRatio: 0.5 / thetaMin, // times more exponent square-root buys than the contract needs
+    overCloseOrders: Math.log10(minimalFactor / fullFactor), // log10 by which H^{-1/2} over-closes the factor 1/1.306
+    fullFactor,
+    minimalFactor,
+    achievableExponent: 0, // sec 3: trivial H^1, unconditionally and under GRH at the Fresnel width
+    minimalAboveAchievable: thetaMin > 0, // true => no available sub-square-root saving clears 1.306
+  };
+}
+const PARTIAL_SAVING_LO = partialSavingBudget(N_LO, 97);
+const PARTIAL_SAVING_HI = partialSavingBudget(N_HI, 97);
+
 // ── unconditional zero-free regions at the window heights ────────────────────
 const classicalOneMinusBeta = (t) => 1 / (5.558691 * Math.log(t)); // Mossinghoff-Trudgian-Yang
 const vkOneMinusBeta = (t) => 1 / (57.54 * Math.pow(Math.log(t), 2 / 3) * Math.pow(Math.log(Math.log(t)), 1 / 3)); // Ford
@@ -730,6 +768,25 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       verdict:
         'DERIVED: the leading-order GRH saving exponent at packet width u^beta is s_H(beta) = (2 beta - 1)/(2 beta) (saving factor H^{-s_H}), so s_H(1/2) = 0 (no saving), s_H(2/3) = 1/4 (the Airy point), and the square-root target s_H = 1/2 is reached only at beta = 1 -- OUTSIDE the admissible [1/2, 2/3]. In the log-free regime the minimal 1.306 headroom would be met already at beta ~ 0.5085 (= 1/2 + log 1.306 / log u), comfortably inside the range. BUT the operative RH short-interval barrier sqrt(u) log^2 u shifts the true break-even (rho = 1) to beta_barrier = 1/2 + 2 loglog(u)/log(u) ~ 0.719 at the anchor and ~0.684 at the window top -- ABOVE the Airy width 2/3 across the ENTIRE program window (rho ~ 5.2 / 2.0 even at 2/3). Hence NO admissible beta in [1/2, 2/3] delivers any GRH saving at the accessible heights, and the minimal 1.306 headroom is NOT reachable at any admissible Fresnel/Airy width: the width would have to exceed the barrier (beta > ~0.72), which the stationary-phase packet geometry does not provide. Consistent with the sec-3 exponent-0 verdict. Derivation/measurement only; changes no bound; C_mb GUE-conditional (imp-486); NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
     },
+    // imp-95675: characterize the intermediate regime between full square-root cancellation
+    // (H^{-1/2}, over-closes by ~3 orders) and the minimal 1.306 headroom factor, as an exponent budget.
+    partialSavingBudget: {
+      ticket: 'imp-95675',
+      formula:
+        'partial saving |A_{k,h}| <= trivial * H^{-theta} clears 1.306 iff theta >= theta_min = log(1.306)/log H; single-log-power (log u)^{-c} clears it iff c >= c_min = log(1.306)/log(log u); evaluated at the floor alias k = 1, h = p - 1 (smallest H, largest theta_min).',
+      window: [N_LO, N_HI],
+      floorAliasLo: PARTIAL_SAVING_LO,
+      floorAliasHi: PARTIAL_SAVING_HI,
+      thetaMinUniform: PARTIAL_SAVING_LO.thetaMin, // worst-cell (largest) theta_min over the window, at N_lo ~ 0.01482
+      cMinUniform: PARTIAL_SAVING_LO.cMin, // ~0.0774 (under a tenth of one log-power)
+      exponentBudget: PARTIAL_SAVING_LO.exponentBudget, // 1/2 - theta_min ~ 0.485
+      overCloseExponentRatio: PARTIAL_SAVING_LO.overCloseExponentRatio, // ~33.7x (square-root buys this much more exponent than needed)
+      overCloseOrders: PARTIAL_SAVING_LO.overCloseOrders, // ~3.80 (log10 H^{-1/2} over-closes the required 1/1.306)
+      achievableExponent: 0,
+      anySubSqrtSavingClears1306: false, // achievable exponent 0 < theta_min ~ 0.0148 => none does
+      verdict:
+        'CHARACTERIZED, both sides stay closed. The minimal reduction the p = 97 contract needs is minuscule: a partial saving H^{-theta} clears the 1.306 headroom already at theta_min = log(1.306)/log H ~ 0.01482 at the floor alias (N_lo, H ~ 6.70e7) -- ~3% of a square-root -- and a single-log-power saving clears it at c_min = log(1.306)/log(log u) ~ 0.0774, under a tenth of one log. theta_min is LARGEST at the smallest H (N_lo) and shrinks to ~0.01193 at N_hi (H ~ 5.32e9), so the uniform worst-cell requirement over the whole RS window is theta_min ~ 0.01482. The exponent budget between over-close and minimal is 1/2 - theta_min ~ 0.485 (square-root buys ~33.7x more exponent than needed; H^{-1/2} = 1.22e-4 over-closes the required factor 1/1.306 = 0.766 by ~3.80 orders of magnitude). BUT the achievable saving exponent (sec 3, unconditionally AND under GRH at the Fresnel width) is exactly 0 < theta_min, so NO available sub-square-root saving -- not even this ~1.5% one, nor a fractional log-power -- clears 1.306: the honest residual gap is theta_min - 0 = theta_min itself. Both sides remain closed: the over-close route (square-root) is unreachable, and the minimal route (theta ~ 0.0148) sits strictly above the exponent-0 wall. Assessment only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    },
   },
   secondMomentLever: {
     ticket: 'imp-95535',
@@ -950,6 +1007,20 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       Math.abs(FLOOR_LO.rhBarrierRatio - 100.5) < 0.5 &&
       FLOOR_LO.rhBarrierRatio > 1 &&
       FLOOR_HI.rhBarrierRatio > 1,
+  },
+  {
+    id: 'imp95675-partial-saving-budget',
+    description:
+      'intermediate regime: theta_min = log(1.306)/log H ~ 0.01482 (floor alias N_lo, H ~ 6.7e7), largest at the smallest H so uniform over the window; c_min ~ 0.0774 (single log-power); exponent budget 1/2 - theta_min ~ 0.485 (~33.7x over-close), H^{-1/2} over-closes the required 1/1.306 by ~3.80 orders; achievable exponent 0 < theta_min so no available sub-square-root saving clears 1.306',
+    holds: () =>
+      Math.abs(PARTIAL_SAVING_LO.thetaMin - 0.01482) < 5e-4 &&
+      PARTIAL_SAVING_LO.thetaMin > PARTIAL_SAVING_HI.thetaMin &&
+      Math.abs(PARTIAL_SAVING_LO.cMin - 0.0774) < 2e-3 &&
+      Math.abs(PARTIAL_SAVING_LO.exponentBudget - 0.485) < 2e-3 &&
+      Math.abs(PARTIAL_SAVING_LO.overCloseOrders - 3.80) < 0.2 &&
+      PARTIAL_SAVING_LO.achievableExponent === 0 &&
+      PARTIAL_SAVING_LO.minimalAboveAchievable === true &&
+      IMP95519_LOCALIZED_BARRIER_SUM_NOGO.numbers.partialSavingBudget.anySubSqrtSavingClears1306 === false,
   },
   {
     id: 'imp95519-honesty-gate-no-qed',

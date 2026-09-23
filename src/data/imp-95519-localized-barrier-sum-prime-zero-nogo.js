@@ -1038,6 +1038,22 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       Math.abs(HEADROOM_FACTOR - 1.306) < 2e-3,
   },
   {
+    id: 'imp95592-contract-ratio-recompute-guard',
+    description:
+      'imp95556TicketReconciliation.inputs (R_ex = 0.27968819555261474, sqrt(Sbar) = 0.19522202670189637) recompute to the authoritative Q_target = 1.4327, guarding against the two literals drifting apart independently',
+    holds: () => {
+      const r = IMP95519_LOCALIZED_BARRIER_SUM_NOGO.imp95556TicketReconciliation;
+      const recomputed = r.inputs.R_ex / r.inputs.sqrtSbar;
+      return (
+        Math.abs(r.inputs.R_ex - 0.27968819555261474) < 1e-15 &&
+        Math.abs(r.inputs.sqrtSbar - 0.19522) < 5e-5 &&
+        Math.abs(recomputed - r.QtargetExact) < 1e-9 &&
+        Math.abs(recomputed - 1.4327) < 1e-3 &&
+        r.authoritativeValue === 1.4327
+      );
+    },
+  },
+  {
     id: 'imp95519-fresnel-width-below-rh-barrier',
     description: 'floor alias: sqrt(u) log^2 u / H = 100.5 > 1 (RH short-interval barrier), width exponent 0.573 < 5/8',
     holds: () =>

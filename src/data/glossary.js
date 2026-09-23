@@ -21976,6 +21976,31 @@ export const glossary = [
       'The W1 A-Priori Forward-Error Trichotomy: COHERENT vs WILKINSON vs MEAN-SQUARE is an unrelated numerical-analysis use of "mean-square" from a different cohort -- do not conflate',
     ],
   },
+  {
+    term: 'Max-over-N EVT Yardstick (why a 2.9-3.3 sigma worst window is expected, not anomalous)',
+    category: 'concept',
+    definition:
+      'imp-95583, auditing imp-95562. imp-95562 reported the worst single hard-box window of the ' +
+      'discrepancy tail D = C - E at ~2.9-3.3 sd(D) above the mean-square envelope and called this ' +
+      '"Gaussian-tailed, no anomalous spikes" -- but that judgment compared the observed max to the raw ' +
+      'per-window sd, not to the EXPECTED MAXIMUM of the N = nWindows (N = 75..443 across the six imp-95562 ' +
+      'heights) draws actually taken. For N iid N(0,sd) draws the sample maximum follows the classical ' +
+      'Gumbel limit: E[max]/sd = b_N + gamma_E a_N with a_N = 1/sqrt(2 ln N) and b_N = sqrt(2 ln N) - ' +
+      '(ln ln N + ln 4pi)/(2 sqrt(2 ln N)); this ratio itself runs from ~2.46 sigma at N=75 up to ~3.04 sigma ' +
+      'at N=443 -- i.e. a few-sigma worst window is exactly what taking the max over 10^2-10^3 windows must ' +
+      'produce from a plain Gaussian tail, with no outlier required. Comparing each observed worst excess to ' +
+      'its EVT-predicted mean via gumbelZ = (obs - E[max])/sd[max] (sd[max] = sd*a_N*pi/sqrt(6)) puts every ' +
+      'one of the six heights within |gumbelZ| < 2 (range -1.10 .. +1.85, mean ~ -0.07): no height-persistent ' +
+      'positive bias, no arithmetic anomaly. The cruder leading-order estimate sd*sqrt(2 ln N) over-predicts ' +
+      'the observed maxima (obs/crude ~ 0.8-1.1) because it drops the negative subleading correction that the ' +
+      'refined b_N carries. Report only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95562 (discrepancy-tail measurement reporting the raw 2.9-3.3 sigma worst window), 2026; the max-over-N EVT yardstick applied by imp-95583, 2026',
+    relatedTerms: [
+      'imp-95583 discrepancy-tail EVT assessment is the module computing the Gumbel comparison for all six imp-95562 heights',
+      'Mean-Square vs Pointwise Gap (number variance over [0,T] vs local zero count near T) is the companion headword for the wall imp-95562 measures the discrepancy tail of',
+      'imp-95562 mean-square-vs-pointwise gap measurement is the source of the (nWindows, sd(D), maxPosExcess) triples the EVT comparison is built from',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

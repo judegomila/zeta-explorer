@@ -18940,6 +18940,11 @@ const DATA_MODULES = [
   // so I_F stays unconstrained within the bracket; narrowing (2/3, 2) to {1} IS the Montgomery
   // conjecture. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96025-if-bracket-narrow-attempt-obstruction.js',
+  // imp-95950: glossary headword recording the imp-95918 finding that the residue-averaged sign
+  // image <theta_C> decays as 1/(p-1)^2, an algebraic consequence of the diagonal fraction
+  // tr(G)/S decaying as 1/(p-1), sharpening the imp-95898 STEP 3 qualitative statement.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95950-sign-image-inverse-p-minus-one-squared-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

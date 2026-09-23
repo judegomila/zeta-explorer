@@ -18087,6 +18087,18 @@ const DATA_MODULES = [
   // eigensolver. Import-light (DD numbers baked, only cheap linear fit runs live), no zeros
   // bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95799-rstar-delta-drift-linear-fit.js',
+  // imp-95820: assesses a shift-invert / RQI double-double variant to cure the imp-95799 large-N
+  // under-convergence. CORRECTS imp-95779: T - sigma I stays symmetric Toeplitz (constant diagonal
+  // shifts to 1-sigma), so shift-invert IS O(N^2)-compatible via Levinson (normalized by d=1-sigma);
+  // the real constraint is positive-definiteness (beta>0), not structure -- a naive RQI shift
+  // sigma=RQ>=lambda_min makes Levinson break down (indefinite). A PD-preserving two-stage shift-
+  // invert restores monotone convergence in ~80-115 solves (vs ~5000): ln1.45 N=699 -> 1.9707983301e-10
+  // (exactly imp-95799's converged value). The ln1.45 control now PASSES (relErr -1.553%/-0.869% vs
+  // float64 truth -1.503%/-0.878%, was -6.90%/-1.30%) and the fully-DD side crosses sub-1% (ln1.35
+  // -0.673% at reach 320; ln1.25 -0.736% at reach 340). Resolves imp-95799-dd-crossing-needs-converged-
+  // eigensolver; new sub-gap imp-95820-ln125-shift-budget-scaling. Import-light (one live N=80 shift-
+  // invert solve + baked grids), no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95820-shift-invert-dd-toeplitz-crossing.js',
   // imp-95788: assesses whether the imp-95762 51.63pct finite-80 biasPct at the deepest
   // twin-pair cell (delta=ln1.2, rho=1) signals the finite-80 truncation is too small to
   // pin F_inf, by re-running the imp-95762 DD eigensolver at N=80,120,160,200. biasPct

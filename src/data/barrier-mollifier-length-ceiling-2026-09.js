@@ -118,6 +118,44 @@ export const CEILING_HEIGHT_Y0 = Object.freeze([
   { N: 6000000, t: 0.12, Lambda: 0.1375354, gSA1e8: 0.72475 },
 ]);
 
+// (4b) PINNED Λ = 0.145 crossing height at y0.  The height table (4) brackets the crossing
+//     between N = 1.5e6 (obstructed, Λ_ceil ≈ 0.1452) and N = 2e6 (open, Λ_ceil ≈ 0.1422) but
+//     leaves it as the range T ∈ [1.4e13, 2.5e13].  Pin it: interpolate Λ_ceil(N) linearly in Λ
+//     for γS_A(1e8) = 1 within each N block, then interpolate in N for Λ_ceil = 0.145.
+//       N0=690988 → Λ_ceil 0.15402;  N=1.5e6 → 0.14518;  N=2.0e6 → 0.14222.
+//     Λ_ceil = 0.145 at N_cross ≈ 1.531e6, i.e. T_cross = 2πN² ≈ 1.472e13 (4.9× the current
+//     3.0e12) — the LOW end of the stated range: the range top (2.5e13, N=2e6) is where the
+//     ceiling has already fallen to ≈ 0.142, well below 0.145.
+//   Sensitivity (both measured off the same 1e8 data, not new runs):
+//     - to y: Λ_ceil is y-flat (≈ 0.154–0.157 at N0 across y ∈ [0.12,0.23]), so the crossing
+//       height moves little with y; it stays inside [1.4e13, 2.5e13] over that y-window.
+//     - to the γ‖A/B‖ evaluation (truncation X): γS_A(1e8) is still rising ≈ 0.03–0.04/decade
+//       near the ceiling (§2 X=1e9 note), so it UNDER-estimates the limit min(1, γ‖A/B‖); the
+//       true Λ_ceil(N) curve sits slightly higher, pushing the true crossing to a larger N.
+//       Quantified: a 0.04 residual tail at dγS_A/dΛ ≈ −44/unit-Λ (N=1.5e6 block) is ΔΛ ≈ 9e-4,
+//       which at dΛ_ceil/dN ≈ 5.9e-9 shifts N_cross up by ≈ 1.5e5 → T_cross ≈ 1.8e13.  So the
+//       1.47e13 pin is a LOWER estimate; the truncation-robust crossing is ≈ 1.5–1.8e13, still
+//       below the 2.5e13 range top.  Pinned-value assessment only; no verified height claimed;
+//       changes no bound; PT Λ ≤ 0.2 remains SOTA; no QED.
+export function lambdaCeilCrossing() {
+  // Λ where γS_A(1e8) = 1 within an [obstructed, open] Λ pair, linear in Λ.
+  const cross = (La, ga, Lb, gb) => La + ((ga - 1) / (ga - gb)) * (Lb - La);
+  const lc0 = cross(0.1525354, 1.0595, 0.1575354, 0.8597);   // N0
+  const lc15 = cross(0.1450354, 1.00648, 0.1475354, 0.89535); // 1.5e6
+  const lc20 = cross(0.1375354, 1.25946, 0.1425354, 0.98273); // 2.0e6
+  const Ncross = 1.5e6 + ((lc15 - 0.145) / (lc15 - lc20)) * (2.0e6 - 1.5e6);
+  return { lc0, lc15, lc20, Ncross, Tcross: 2 * Math.PI * Ncross * Ncross };
+}
+export const CROSSING_PIN_Y0 = Object.freeze({
+  y: 0.187272, targetLambda: 0.145,
+  lambdaCeil: { N690988: 0.154024, N1500000: 0.145181, N2000000: 0.142223 },
+  Ncross: 1530627, Tcross: 1.4720e13, TcrossOverNow: 4.91,
+  statedRange: { Tlo: 1.4137e13, Thi: 2.5133e13 }, positionInRange: 'low end',
+  truncationRobustTcross: 'approx 1.5-1.8e13 (1e8 sum under-estimates the limit; crossing shifts up with X)',
+  yFlat: true,
+  note: 'Pin of the necessary verified height for a Lambda<0.145 barrier candidate at y0; not sufficient; no bound changes; no QED.',
+});
+
 // (5) Bohr-torus (Kronecker) obstruction min_z(|B| − γ|A|) at N0 — blocks ANY x-uniform
 //     coefficient certificate (triangle AND improved-triangle weights).  G2 ≤ 0 = obstruction found.
 export const TORUS_N0 = Object.freeze([
@@ -154,9 +192,25 @@ export const VERDICT = Object.freeze({
   status: 'computed, unrefereed; double-precision inversion + L-BFGS torus search; NO QED; RH open; PT Λ ≤ 0.2 remains SOTA; 0.1758354 remains an unrefereed candidate; no bound changes',
 });
 
+// ---------------------------------------------------------------------------
+// (6) Certification assessment (imp-95764): can the finite 55,874-prime-phase
+//     torus_floor_scan minimisation of G = |B| − γ|A| ("min > 0 = not found, not a
+//     proof") be upgraded to a certified statement about inf over the full Bohr torus
+//     T^∞ on the Λ = 0.145 line for y ≥ 0.14?  Finding: a certification route exists
+//     ONLY for the sign the line actually needs, and it needs no global scan.
+// ---------------------------------------------------------------------------
+export const TORUS_CERTIFICATION_ASSESSMENT = Object.freeze({
+  question: 'Upgrade the L-BFGS torus_floor_scan finite-phase minimisation of G = |B| − γ|A| to a certified statement about inf over the full Bohr torus T^∞ on the Λ = 0.145 line, y ≥ 0.14.',
+  twoDirectionsDiffer: 'The scan yields two verdict signs and they need OPPOSITE certificates. "found" (sampled min < 0, obstruction present) is a one-sided EXISTENCE claim: inf_{T^∞} G < 0. "not found" (sampled min > 0) is the two-sided claim inf_{T^∞} G > 0, which needs a global lower bound over every torus point. The scan cannot certify the second, and the "min > 0 = not a proof" caveat is exactly that gap.',
+  foundIsWitnessCertifiable: 'For y ≥ 0.14 on the Λ = 0.145 line the scan reports "found" (TORUS_LINE_0145 G2 = −0.029 at y = 0.14 down to −0.517 at y = 0.25). That is the certifiable sign: a certified obstruction needs only ONE explicit torus point z* — rational phases θ_p per prime, realised by Kronecker from the L-BFGS argmin — evaluated in interval arithmetic to show γ|A(z*)| > |B(z*)|. No global search, no mesh, no dimension penalty. Hence the y ≥ 0.14 obstruction the ticket asks about IS upgradeable to a certificate now, via a finite interval-checked witness, independent of how densely the 55,874-phase scan sampled.',
+  notFoundIsTheHardSign: 'The "not found" caveat binds only on the OTHER sign — the residual y ≤ 0.12 window (G2 = +0.28 to +0.31), where inf > 0 would have to be certified globally. There the module already defers to the ℓ¹ certificate instead (γS_A(1e8) = 1.444 at y = 0.10), so no torus certificate is needed for y ≤ 0.12 either.',
+  concreteObstruction: 'Certifying any "not found" (inf > 0) verdict requires a lower bound over the ~55,874-dimensional prime-phase torus. Modulus-of-continuity control is available — G is Lipschitz in each phase θ_p with slope ≤ 2π Σ_{p | n} v_p(n)(|b_n| + γ|a_n|) n^{−σ}, and the sum over p of these slopes is finite (bounded by the derivative of the ℓ¹ mass) — but a grid or branch-and-bound certificate resolving a margin of order 1e-2 against that slope costs a box count exponential in the phase dimension (~55,874). That exponential-in-dimension global-minimisation cost, not a missing analytic input, is the concrete obstruction. The Wiener lemma certifies only inf|B| > 0 (mollifier invertibility), a positive quantity that is not the signed gap G and is vacuous here (‖B − 1‖ > 1 makes the triangle lower bound negative).',
+  verdict: 'PARTIAL route, honestly split: the y ≥ 0.14 obstruction on the Λ = 0.145 line is witness-certifiable now (one interval-checked torus point per row); the "not found" verdict is confined to y ≤ 0.12, which is ℓ¹-obstructed instead, so no global torus certificate is required anywhere on this line. Assessment of a certification route only; establishes no bound; changes no bound; PT Λ ≤ 0.2 remains SOTA; RH open; no QED.',
+});
+
 export const BARRIER_MOLLIFIER_LENGTH_CEILING = Object.freeze({
   id: 'barrier-mollifier-length-ceiling-2026-09', date: '2026-09-22',
-  N0, Y0, T_CANDIDATE, MOLL287_AT_N0, LP_SCOUT_T016125, CEILING_N0_Y0, CEILING_N0_YGRID, CEILING_HEIGHT_Y0, TORUS_N0, TORUS_LINE_0145, VERDICT,
+  N0, Y0, T_CANDIDATE, MOLL287_AT_N0, LP_SCOUT_T016125, CEILING_N0_Y0, CEILING_N0_YGRID, CEILING_HEIGHT_Y0, CROSSING_PIN_Y0, TORUS_N0, TORUS_LINE_0145, VERDICT, TORUS_CERTIFICATION_ASSESSMENT,
   files: ['tmp/wiener_ceiling.c', 'tmp/wiener_ceiling_check.py', 'tmp/torus_floor_scan.py', 'tmp/moll287_mass_split.py', 'tmp/torus_floor_logs/'],
 });
 
@@ -256,6 +310,26 @@ export const BARRIER_MOLLIFIER_LENGTH_CEILING_ASSERTIONS = Object.freeze([
   {
     name: 'LP scout literals: sparse-support mass floor 0.8968 at P17 Dmax=5000 (t = 0.16125) sits 2.3× above the infinite-length value 0.387 at the same t — the sparse-support cap is not the length cap',
     holds: () => { const lp = LP_SCOUT_T016125[LP_SCOUT_T016125.length - 1].mass, lim = CEILING_N0_Y0[0].gSA[5]; return lp / lim > 2.2 && lp / lim < 2.4 && LP_SCOUT_T016125.every((r, i) => i === 0 || r.mass <= LP_SCOUT_T016125[i - 1].mass); },
+  },
+  {
+    name: 'certification assessment (imp-95764): the y ≥ 0.14 Λ=0.145 rows are all "found" (G2 ≤ 0), so the obstruction there is a one-sided existence claim that is witness-certifiable; the "not found" caveat is confined to y ≤ 0.12; the assessment flags exponential-in-dimension global minimisation as the concrete obstruction and changes no bound',
+    holds: () => {
+      const a = TORUS_CERTIFICATION_ASSESSMENT;
+      return TORUS_LINE_0145.filter((r) => r.y >= 0.14).every((r) => r.found && r.G2 <= 0)
+        && TORUS_LINE_0145.filter((r) => !r.found).every((r) => r.y <= 0.12)
+        && /witness-certifiable/.test(a.verdict) && /exponential-in-dimension/.test(a.concreteObstruction)
+        && /changes no bound/.test(a.verdict) && /no QED/.test(a.verdict);
+    },
+  },
+  {
+    name: 'pinned Λ=0.145 crossing (imp-95763): interpolating Λ_ceil(N) for γS_A(1e8)=1 gives 0.15402/0.14518/0.14222 at N0/1.5e6/2.0e6, and Λ_ceil=0.145 at N_cross≈1.531e6 → T_cross≈1.47e13 (4.9× the 3.0e12 now), the low end of the stated [1.4e13,2.5e13] range; helper matches the baked literals',
+    holds: () => {
+      const c = lambdaCeilCrossing(), p = CROSSING_PIN_Y0;
+      return near(c.lc0, p.lambdaCeil.N690988, 1e-3) && near(c.lc15, p.lambdaCeil.N1500000, 1e-3) && near(c.lc20, p.lambdaCeil.N2000000, 1e-3)
+        && near(c.Ncross, p.Ncross, 2000) && near(c.Tcross, p.Tcross, 1e10)
+        && c.lc15 > 0.145 && c.lc20 < 0.145 && c.Tcross > p.statedRange.Tlo && c.Tcross < p.statedRange.Thi
+        && near(c.Tcross / (2 * Math.PI * N0 * N0), p.TcrossOverNow, 0.05) && p.positionInRange === 'low end';
+    },
   },
   {
     name: 'honest framing: verdict names an obstruction (no new candidate), flags NO QED / RH open / PT SOTA, and does not call 0.1758354 a bound',

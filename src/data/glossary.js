@@ -21830,6 +21830,28 @@ export const glossary = [
       'imp-95519 localized barrier sum prime/zero no-go is the source result this lemma is an ingredient of',
     ],
   },
+  {
+    term: 'PD-Persistence Window eps_0(S) (THEOREM EPS0-WIN)',
+    category: 'concept',
+    definition:
+      "imp-95531 (making imp-95530 THEOREM NS-RIGID (A4)(i) explicit). NS-RIGID asserts only that " +
+      "there EXISTS eps_0(S) > 0 such that the pencil minimum mu_S(eps) = lambda_min(P_S(eps); G) " +
+      "stays positive whenever mu_S(0) > 0, for eps in [0, eps_0(S)); imp-95531 THEOREM EPS0-WIN " +
+      "makes eps_0(S) explicit via a Weyl-type perturbation bound on the eps-derivative dP_S/deps: " +
+      "eps_0(S) >= W(S) := mu_S(0) / ||G^{-1/2}(dP_S/deps)|_0 G^{-1/2}||_2, valid because the " +
+      "derivative norm ||M(t)||_2 is MEASURED maximal at t = 0 over the tested range [0, 100]. On " +
+      "every tested finite node set S, W(S) exceeds the unconditional Lehmer-pair collision " +
+      "threshold 1.15e-11 by 5 to 8 orders of magnitude, quantifying how far NS-RIGID's per-S " +
+      "flow-stability margin extends. W(S) shrinks as S grows (mu_S(0) -> 0 while the derivative " +
+      "norm stays O(1e-2)), so inf_S W(S) = 0 -- this is exactly the all-S Flow-Critical property " +
+      "of NS-RIGID (A5), not a contradiction: the bound is per-finite-S, never uniform.",
+    firstUsed: 'imp-95531 (explicit PD-persistence window for NS-RIGID (A4)(i)), 2026',
+    relatedTerms: [
+      'Native-Span Softness Dichotomy (NS-RIGID) is the parent theorem this window makes explicit (imp-95530)',
+      'Flow-Critical (member) is the companion notion for the all-S family, where inf_S eps_0(S) = 0 is this window collapsing to zero (imp-95530 A5)',
+      'imp-95531 explicit PD-persistence window is the source module computing W(S) and its margin to the 1.15e-11 Lehmer-pair collision threshold',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

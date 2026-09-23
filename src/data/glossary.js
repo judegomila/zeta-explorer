@@ -21763,6 +21763,50 @@ export const glossary = [
       'flow-blindness no-go (SL2) is the broader result NS-RIGID shows cannot be evaded on the native span',
     ],
   },
+  {
+    term: 'Montgomery packet frequency alpha_{k,h}',
+    category: 'concept',
+    definition:
+      'imp-95519 section 4. For the localized barrier sum A_{k,h} the explicit formula places the zero ' +
+      'phase of the (k, h) alias at frequency a = log u_{k,h}, and Montgomery normalisation rescales this ' +
+      'by log T (the zeta scale): alpha_{k,h} = log u_{k,h} / log T = 1 + log(1/(2 pi (k - h/p))) / log T. ' +
+      'This alpha is the argument at which Montgomery pair-correlation / Ozluk individual-L results evaluate ' +
+      'F(alpha); alpha_{k,h} > 1 iff k = 1 and h > p(1 - 1/(2 pi)) = 0.8408 p. At p = 97 this puts 15 of the ' +
+      '96 aliases (h in {82..96}), carrying 59.26% of the named-scalar majorant mass, at alpha > 1 -- outside ' +
+      'the |alpha| <= 1 range where Montgomery pair correlation applies, so those aliases need the full pair- ' +
+      'correlation CONJECTURE rather than a proved theorem. The remaining mass sits at alpha in [0.47, 1), in ' +
+      'range only conditionally on RH.',
+    firstUsed: 'imp-95519 (localized barrier sum prime/zero no-go, Montgomery frequency of the alias packet), 2026',
+    relatedTerms: [
+      'analytic-conductor rescaling alpha_C is the alternative normalisation that relocates this frequency (imp-95534, imp-95553)',
+      'imp-95519 localized barrier sum prime/zero no-go is the source result this frequency is computed inside',
+      'Montgomery pair correlation is the conjecture that would be needed for the alpha > 1 aliases',
+    ],
+  },
+  {
+    term: 'Analytic-conductor rescaling alpha_C',
+    category: 'concept',
+    definition:
+      'imp-95534 / imp-95553. An alternative normalisation of the Montgomery packet frequency that divides ' +
+      'by the analytic-conductor density log(p T / 2 pi) instead of the zeta scale log T used by alpha_{k,h}: ' +
+      'alpha_C = log u_{k,h} / log(p T / 2 pi). Since u_{1,p-1} = p T / 2 pi is exactly the analytic conductor ' +
+      'of L(s, chi mod p), alpha_C(floor) = 1 exactly at the largest alias frequency, and all 15 alpha_{k,h} > 1 ' +
+      'aliases for p = 97 move into alpha_C in [0.914, 1.000] -- back inside the |alpha_C| <= 1 range where ' +
+      'Ozluk individual-L pair correlation is the operative (GRH-conditional, not PCC-conjectural) statement. ' +
+      'imp-95553 confirms this for all 25 sieving primes: every alias moves to alpha_C <= 1, with each prime\'s ' +
+      'floor alias landing at alpha_C = 1 to machine precision. The alpha > 1 appearance under alpha_{k,h} is a ' +
+      'REMOVABLE ARTIFACT of the zeta-scale normalisation, but removing it only relocates the obstruction: the ' +
+      'floor alias sits exactly at the alpha_C = 1 diagonal/off-diagonal boundary of F(alpha) (the least- ' +
+      'controlled edge), and Ozluk pair correlation there is still GRH-conditional at heights (Platt verifies ' +
+      'GRH for L(s, chi mod 97) only to ~1.03e6, a factor 2.9e6 below T = 3e12) -- so the imp-95519 zero-side ' +
+      'no-go stands under either normalisation.',
+    firstUsed: 'imp-95534 (alpha-gating Fresnel-width normalization rigidity), 2026',
+    relatedTerms: [
+      'Montgomery packet frequency alpha_{k,h} is the zeta-scale normalisation this rescaling replaces',
+      'imp-95553 tabulates alpha_C across all 25 sieving primes, confirming the floor-alias = 1 identity generally',
+      'imp-95519 localized barrier sum prime/zero no-go is the result whose zero-side framing this rescaling sharpens without closing',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

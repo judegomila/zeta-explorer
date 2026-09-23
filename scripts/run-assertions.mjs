@@ -18076,6 +18076,15 @@ const DATA_MODULES = [
   // convergence-rate artifact, not a defect of F_inf. Import-light, no zeros bundle, no
   // bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95788-twin-pair-deep-corner-finite-n-bias-convergence.js',
+  // imp-95803: extends the imp-95788 deep-corner finite-N bias ladder beyond N=200. A naive
+  // re-run at the fixed imp-95788 iteration budget goes spuriously non-monotone (an inverse-
+  // iteration under-convergence artifact); converged to relative change < 1e-12 per rung
+  // (iters grow 16..356), biasPct descends monotonically 51.63 -> ... -> 0.65 over N=80..500
+  // and the local log-log exponent does NOT lock at the small-N 2.4-2.7 band -- it drifts
+  // smoothly -2.79 -> ... -> -2.12 toward a limiting power p ~ 2 (a 1/N^2 finite-size law,
+  // p_inf ~ 1.98, approached from above). Exact limit unpinned (SUB-GAP, needs larger N /
+  // quad-double). Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95803-twin-pair-deep-corner-bias-exponent-limit.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.
@@ -18100,6 +18109,15 @@ const DATA_MODULES = [
   // ceiling is closeable in-repo; the obstruction stands as the verified-height bottleneck.
   // Import-light, no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95801-ordinate-source-reach-audit.js',
+  // imp-95804: assesses whether a single univariate function of the reach
+  // L = delta*(1+rho) fits all 13 cells of the imp-95785 union twin-pair biasPct
+  // grid. biasPct IS monotone-decreasing in L and a cubic-in-ln(L) model fits the
+  // 12 nonzero cells to RMS log-residual 0.0296 (~3 pct), BUT the three deltas
+  // occupy disjoint non-overlapping L-intervals (max ln1.2 < ln1.3 < min ln1.5),
+  // so the grid cannot separate reach-collapse from a two-variable law -- the good
+  // fit is forced by monotone L-segregation. Consistent but UNDETERMINED; sub-gap =
+  // L-matched cross-delta cells. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95804-twin-pair-bias-reach-collapse-test.js',
 ];
 
 let ALL_MODULES = FAST_MODE

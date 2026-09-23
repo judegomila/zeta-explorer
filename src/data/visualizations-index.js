@@ -2772,6 +2772,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-plots the frozen imp-95766 dead-zone measurement verbatim (no re-derivation, no fresh term); r_cap(T) is a derived upper envelope, not the true pointwise ratio r(T); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95886-decade-reach-ledger',
+      title: 'Intermediate-Ordinate-Table Decade Reach Ledger',
+      oneLine:
+        'Log10-N chart of the imp-95863 RvM-asymptotic decade ledger: decades bought (rising) vs decades still remaining (falling) to the imp-95519 window bottom T=3.0e12, from the in-repo N=1e6 ceiling (0.0 decades bought) up to N~1.2362e13 (window bottom reached).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95886-decade-reach-ledger-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95863-intermediate-ordinate-table-reach-ledger.js (LEDGER rows; imp-95886 viz page)',
+      ticket: 'imp-95886',
+      pedagogicalStep: 178.5,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95863 decade ledger verbatim (no re-derivation, no fresh RvM inversion); rows above N=1e6 are asymptotic estimates, not verified ordinates, and no cataloged in-repo source buys any decades; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95791-biaspct-vs-rho',
       title: 'Twin-Pair Finite-Size biasPct vs rho at delta=ln1.2',
       oneLine:

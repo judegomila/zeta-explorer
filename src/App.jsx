@@ -1249,6 +1249,9 @@ const Imp95589WDecayCurvesViz = lazy(() =>
 const Imp95737HalfRetentionScaleViz = lazy(() =>
   import('./pages/Imp95737HalfRetentionScaleViz.jsx')
 );
+const Imp95886DecadeReachLedgerViz = lazy(() =>
+  import('./pages/Imp95886DecadeReachLedgerViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3337,6 +3340,10 @@ function AppShell() {
           <Route
             path="/viz-imp95737-half-retention-scale"
             element={<Imp95737HalfRetentionScaleViz />}
+          />
+          <Route
+            path="/viz-imp95886-decade-reach-ledger"
+            element={<Imp95886DecadeReachLedgerViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

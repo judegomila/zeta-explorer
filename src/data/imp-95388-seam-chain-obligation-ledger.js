@@ -32,6 +32,17 @@
  * imp-95212 Fresnel-Airy envelope port / signed WEIGHT / modulus-phase
  * status is still open" can cite this one note by id instead of
  * restating the prose per module.
+ *
+ * imp-95954 adds IMP95917_SIGN_CROSSLINK_NOTE below: imp-95917 sharpens
+ * the imp-95212 sub-gap that obligations (2) and (3) both cite -- from
+ * full evaluation of the kernel-weighted residue bias down to a single
+ * open question, the SIGN (nonnegativity) of the Fresnel-Airy envelope
+ * K_k. The sub-gap id is unchanged and STILL OPEN; this only tells
+ * readers which single hypothesis it now reduces to.
+ *
+ * @see imp-95917-vonmangoldt-weighted-sign-image.js (the sharpened SIGN-only obstruction)
+ * @see imp-95212-multiplicity-priced-shift-damping.js (the sub-gap source)
+ * @see imp-95336-fresnel-airy-envelope-port-assessment.js (the envelope-SHAPE port; SIGN is a separate open question on the same envelope)
  */
 
 export const SEAM_CHAIN_OBLIGATION_LEDGER = [
@@ -102,6 +113,35 @@ export const OPEN_LEGS_NOTE = {
     'signed WEIGHT / modulus-phase status in each new module',
 };
 
+// imp-95954: cross-link note tying imp-95917 into this ledger. Obligations
+// (2) and (3) above both cite the imp-95212 Fresnel-Airy envelope port as
+// their subGap; imp-95917 shows the physical per-window sign image has a
+// DETERMINED value strictly below 1 whenever that envelope is nonnegative,
+// so the surviving open question for both legs is now specifically the
+// envelope SIGN, not the full kernel-sum evaluation the ledger prose above
+// still describes.
+export const IMP95917_SIGN_CROSSLINK_NOTE = {
+  id: 'imp-95954-imp95917-sign-crosslink',
+  title:
+    'obligations (2) and (3) now hinge on the Fresnel-Airy envelope SIGN, ' +
+    'not the full kernel-sum evaluation',
+  detail:
+    'imp-95917 derives the physical von-Mangoldt x Fresnel-Airy WEIGHTED ' +
+    'per-window sign image theta_phys and shows it is a DETERMINED image ' +
+    'strictly below 1 whenever the envelope K_k is nonnegative (Gram ' +
+    'positivity makes theta_phys a convex average with a strict ' +
+    'off-diagonal deficit below the diagonal ceiling 1). This sharpens the ' +
+    'obligation (2)/(3) subGap imp-95212-subgap-fresnel-airy-envelope-port ' +
+    'from full evaluation of the kernel-weighted residue bias down to one ' +
+    'open hypothesis: the SIGN (nonnegativity) of K_k. The sub-gap itself ' +
+    'is unchanged -- STILL OPEN; no bound moves; NO QED.',
+  subGap: 'imp-95212-subgap-fresnel-airy-envelope-port',
+  seeAlso: [
+    'imp-95917-vonmangoldt-weighted-sign-image.js',
+    'imp-95336-fresnel-airy-envelope-port-assessment.js',
+  ],
+};
+
 export const IMP_95388_SEAM_CHAIN_OBLIGATION_LEDGER = {
   id: 'imp-95388-seam-chain-obligation-ledger',
   title:
@@ -169,5 +209,13 @@ export const IMP_95388_ASSERTIONS = [
       OPEN_LEGS_NOTE.legs.every((o) => o.status !== 'CLOSED') &&
       OPEN_LEGS_NOTE.legs.some((o) => o.subGap === 'imp-95212-subgap-fresnel-airy-envelope-port'),
     why: 'imp-95798: the single open-legs note must track exactly the non-closed legs of the ledger above (obligations (2) and (3)), both still gated on the imp-95212 Fresnel-Airy envelope port sub-gap.',
+  },
+  {
+    id: 'imp-95954-crosslink-matches-open-legs-subgap',
+    holds: () =>
+      OPEN_LEGS_NOTE.legs.every((o) => o.subGap === IMP95917_SIGN_CROSSLINK_NOTE.subGap) &&
+      /envelope SIGN/.test(IMP95917_SIGN_CROSSLINK_NOTE.title) &&
+      /STILL OPEN/.test(IMP95917_SIGN_CROSSLINK_NOTE.detail),
+    why: 'imp-95954: the imp-95917 sign-crosslink note must cite the exact same subGap id as the open legs it annotates, and must state honestly that the sub-gap remains open (imp-95917 sharpens the hypothesis, it does not close it).',
   },
 ];

@@ -17815,6 +17815,11 @@ const DATA_MODULES = [
   // varies (spread ~4.15e-5); only m=20 has a certified kappa (offset = 4.0000000001). Internal-
   // consistency witness supporting imp-95745, not an independent +4 proof at m=18/19/21. NO QED.
   '/src/data/imp-95746-sun-prop63-plus4-offset-four-moduli.js',
+  // imp-95771: import-light viz-data reshaping the imp-95746 PER_MODULUS / mFreeSector literals
+  // into two plottable per-modulus series -- the genuinely varying Q_0 sector (spread ~4.15e-5)
+  // and the m-free const sector (flat at exactly 3/2) -- for the Q0-vs-const-sector viz page.
+  // No new computation, no re-derivation. NO QED.
+  '/src/data/imp-95771-q0-signal-vs-const-sector-viz-data.js',
   // imp-95780: wide-modulus (m=18..41) port of the (6.17)->(6.21) const-sector telescoping constant --
   // re-runs the imp-95720 faithful (6.21) machinery and decomposes the raw integrand as
   // (5/2 - zeta(2,1+v)) + Q_0(m,v) zeta(3,1+v) at seven moduli out to twice the anchor (m=41); the

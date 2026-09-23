@@ -2646,6 +2646,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation/measurement only: reuses the baked CEILING_HEIGHT_Y0 literals from barrier-mollifier-length-ceiling-2026-09.js and re-runs its own bracket-crossing interpolation across four height rungs (no re-derivation, no fresh term); illustrates that a longer mollifier cannot beat the fixed-height Wiener-algebra ceiling, proves nothing beyond what that module already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; the 0.1758354 candidate remains unrefereed; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95771-q0-signal-vs-const-sector',
+      title: 'Q0 m-Signal vs. m-Free Const Sector',
+      oneLine:
+        'Two-panel chart contrasting the imp-95746 Q_0 zeta(3) sector (a genuine ~4.15e-5 m-signal across m=18..21) against the m-free const sector (pinned at exactly 3/2, zero spread) that alone carries the imp-95745 pure-rational +4 offset.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95771-q0-signal-vs-const-sector-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95746-sun-prop63-plus4-offset-four-moduli.js (PER_MODULUS / mFreeSector literals; imp-95771 viz page)',
+      ticket: 'imp-95771',
+      pedagogicalStep: 185,
+      honestCeiling:
+        'Presentation/measurement only: reuses the baked PER_MODULUS / mFreeSector literals from imp-95746 and reshapes them into two plottable per-modulus series (no re-derivation, no fresh term); illustrates the sector split visually, proves nothing beyond what imp-95746/imp-95745 already state; changes no bound, establishes no operator positivity, no RH claim; Catalan G irrationality OPEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; Sun arXiv:2609.04176 remains single-author, unrefereed; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95587-legb-straddle-vs-ratio',
       title: 'LEG B DELTA_A Straddle vs. the Direct Ratio Inequality',
       oneLine:

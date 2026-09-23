@@ -1174,6 +1174,9 @@ const Imp95567DoublyExponentialHeightCeilingViz = lazy(() =>
 const Imp95770BarrierMollifierLengthCeilingViz = lazy(() =>
   import('./pages/Imp95770BarrierMollifierLengthCeilingViz.jsx')
 );
+const Imp95771Q0SignalVsConstSectorViz = lazy(() =>
+  import('./pages/Imp95771Q0SignalVsConstSectorViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -3210,6 +3213,10 @@ function AppShell() {
           <Route
             path="/viz-imp95770-barrier-mollifier-length-ceiling"
             element={<Imp95770BarrierMollifierLengthCeilingViz />}
+          />
+          <Route
+            path="/viz-imp95771-q0-signal-vs-const-sector"
+            element={<Imp95771Q0SignalVsConstSectorViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

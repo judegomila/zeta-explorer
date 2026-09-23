@@ -22052,7 +22052,12 @@ export const glossary = [
       'rho2 (rebuilt moduli, breakpoints, merged-cell partition, and interval certificate), not a free ' +
       're-evaluation of a fixed integral. This REFUTES the rho-independence annotation as written; it ' +
       'does not prove J(rho) actually varies -- a hidden identity forcing J constant is logically ' +
-      'possible but unproven and unasserted by the paper. Assessment only; Catalan G irrationality ' +
+      'possible but unproven and unasserted by the paper. HONEST STATUS: the kappa*rho^2 shape rests ' +
+      'on a SINGLE verified anchor c_odd(1/20); a genuine second anchor c_odd(1/19) requires the ' +
+      'faithful 178-merged-cell Q_0 partition plus the B24 Euler-Maclaurin interval certificate ' +
+      '(imp-95702 named sub-gap) and has not been unconditionally computed -- so off-anchor use of ' +
+      'kappa as a curvature stays shape-uncertified; never treat the second anchor as computed. ' +
+      'Assessment only; Catalan G irrationality ' +
       'stays OPEN; Sun preprint single-author, unrefereed; changes no bound; NO QED; Platt-Trudgian ' +
       'Lambda <= 0.2 remains SOTA.',
     firstUsed: 'imp-95653 (c_odd second-anchor shape test, reducing the shape question to the single rho-independence claim), 2026; decided by imp-95690, 2026',

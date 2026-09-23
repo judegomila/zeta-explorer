@@ -18357,6 +18357,19 @@ const DATA_MODULES = [
   // regime -- high blocks confirm the falling trend but cannot tighten r_cap(3e12). Import-light,
   // no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95884-odlyzko-high-block-calibration-assessment.js',
+  // imp-95921: analytic BRACKET on the imp-95897 finite-height offset C0 approach DIRECTION
+  // near T=3e12 (imp-95897 left it UNDECIDED: noise-dominated, R^2 0.0007, interior max at 1.5e5).
+  // Via the Berry/Bogomolny-Keating number-variance SATURATION law the box variance saturates to
+  // TWICE Selberg Var S(T) (a 1/pi^2 log log coeff) while offset subtracts only the single-endpoint
+  // (1/2pi^2) log log, so offset drifts UPWARD near 3e12 with analytic slope d offset/d loglog =
+  // 1/2pi^2 -- REVERSING the imp-95884 downward-drift hazard. Deep saturation (L/L_max ~1.38e6 at
+  // 3e12), the imp-95562 windowing slack is ~3e-7 at 3e12, and the +0.044 rise over [5e5,3e12] fits
+  // inside the +0.087 max-anchor cushion, so C0 stays a valid upper envelope through 3e12 for a
+  // bounded-upward-drift reason (not the conservative no-monotonicity assumption). NOT infinite:
+  // offset grows unboundedly and crosses C0 at T_x in [~5.8e17, ~1.36e28], the range set by the
+  // unpinned O(1) arithmetic intercept -- named sub-gap imp-95921-subgap-arithmetic-intercept.
+  // Import-light, assessment only, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95921-c0-offset-approach-analytic-bracket.js',
   // imp-95804: assesses whether a single univariate function of the reach
   // L = delta*(1+rho) fits all 13 cells of the imp-95785 union twin-pair biasPct
   // grid. biasPct IS monotone-decreasing in L and a cubic-in-ln(L) model fits the

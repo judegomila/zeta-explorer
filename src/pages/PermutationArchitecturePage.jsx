@@ -20,6 +20,7 @@ import { IMP95092_FOUR_LEVER_FAR_CEILING_ELASTICITY_TABLE } from '../data/imp-95
 import { PERM_ARCH_SIEVE_UNIVERSALITY } from '../data/perm-arch-sieve-universality-no-go-2026-09-22.js';
 import { IMP95519_LOCALIZED_BARRIER_SUM_NOGO } from '../data/imp-95519-localized-barrier-sum-prime-zero-nogo.js';
 import { IMP95564_EFFECTIVE_ABSCISSA_AUDIT } from '../data/imp-95564-effective-abscissa-provenance-audit.js';
+import { IMP95604_MEANSQUARE_POINTWISE_UPGRADE } from '../data/imp-95604-meansquare-pointwise-upgrade-foreclosure.js';
 
 /* Permutation Architecture — the typed freeze calculus for the zeta twin ladder,
    the strict Λ ≤ 0.14 completion contract, and the one open family. Sourced
@@ -603,6 +604,12 @@ export default function PermutationArchitecturePage() {
           </p>
           <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: '10px 0 0' }}>
             <strong>Update (imp-95564):</strong> {IMP95564_EFFECTIVE_ABSCISSA_AUDIT.netVerdict}
+          </p>
+        </div>
+        <div style={{ borderLeft: '3px solid var(--terra)', background: 'var(--paper2)', borderRadius: '0 6px 6px 0', padding: '14px 18px', margin: '16px 0' }}>
+          <div className="ed-lbl" style={{ marginBottom: 4 }}>honest status — imp-95604 mean-square-to-pointwise transfer, closed vs undecided (2026-09-22)</div>
+          <p style={{ fontSize: 13.5, color: 'var(--ink-soft)', lineHeight: 1.6, margin: 0 }}>
+            {IMP95604_MEANSQUARE_POINTWISE_UPGRADE.netVerdict}
           </p>
         </div>
 

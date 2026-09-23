@@ -21465,6 +21465,44 @@ export const glossary = [
     ],
   },
   {
+    term: 'Per-block Blaschke cross-factor fence Phi_k (LEMMA ANG-DET instantiated) and the SPLIT-LOO collar price',
+    category: 'concept',
+    definition:
+      'The closed-form lower bound LEMMA ANG-DET supplies for each block-k leave-one-out ' +
+      'denominator in THEOREM SPLIT-LOO: 1 - sigma_k^2 >= Phi_k := prod_(i in V_k, j notin V_k) ' +
+      'beta_ij^2, beta_ij = (nu_i - nu_j)/(nu_i + nu_j), i.e. one squared Blaschke cross-factor ' +
+      'per (in-block, out-of-block) rate pair. Phi_k never touches the intra-block separations ' +
+      '(only cross-block distances), so it is COALESCENCE-UNIFORM: it stays bounded away from 0 ' +
+      'as an in-block twin pair merges, even though the raw Blaschke-Lagrange bound BL(V)^2 ' +
+      'diverges there like (r-1)^(-2) per octave (imp-95232 FINDING 3). This is what makes the ' +
+      'SPLIT-LOO "collar" -- the per-block factor 1/sqrt(Phi_k) that THEOREM SPLIT-LOO pays, ' +
+      'once per block, in sqrt(Lambda(V,d)) <= sum_k sqrt(Lambda_k / Phi_k) -- finite and ' +
+      'computable rather than vacuous.\n\n' +
+      'On the dyadic skeleton (COROLLARY EV-OCT: octaves V_k = {2^k, r 2^k}, k = 0..m-1, ' +
+      '1 < r <= 1.3), the coalescent limit r -> 1 gives Phi_k -> prod_(l != k) beta_(|k-l|)^8 ' +
+      'with beta_n = (2^n-1)/(2^n+1) (four cross Blaschke factors per octave distance, each ' +
+      'squared, from the two rates in V_k against the two in each V_l). LEMMA TAIL bounds every ' +
+      'cross factor at octave-distance n by b_n = (2^n - 1.3)/(2^n + 1.3) uniformly for r <= 1.3, ' +
+      'giving a block-and-r-independent floor PhiUnif := [prod_(n>=1) b_n^8]^2 > 0 (COROLLARY ' +
+      'EV-OCT-UNIF): with the geometric tail estimate 1 - b_n^8 <= 20.8 x 2^(-n) truncated at ' +
+      'n = 30, PhiUnif >= 9.977927681809e-21, positive uniformly in block count m and ratio r. ' +
+      'This collar is what pushes the every-octave certificate onset from xStarBL = 4.24 (twin-free) ' +
+      'and xStarSplit = 7.10 (single pair, imp-95249) out to xStarEvOct = 11.31664319 (m = 6, ' +
+      'coalescent) and xStarUnif = 27.035582 (m-and-r-uniform) -- orders above the exact pencil ' +
+      '(0.286 vs 1.82e-5 at m=6, r=1.05, x=12), since LEMMA LOO discards all cross-block ' +
+      'cancellation to buy the fence.\n\n' +
+      'HONEST SCOPE: Phi_k and PhiUnif are lattice tools -- they need the geometric octave ' +
+      'separation and degrade off-lattice (imp-95226 residual unchanged); blocks of >= 3 rates ' +
+      'per octave still need coalLaw per pair (no N-fold law yet, imp-95227 is pair-only). ' +
+      'Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95249 (LEMMA ANG-DET, the closed-form angle fence); imp-95250 (Phi_k instantiation, PhiUnif tail bound, and the SPLIT-LOO collar pricing), 2026',
+    relatedTerms: [
+      'imp-95249 LEMMA ANG-DET proves the general fence 1 - sigma^2 >= prod beta_ij^2 this specializes to Phi_k (imp-95249)',
+      'imp-95250 SPLIT-LOO is the multi-block theorem this fence prices per block (imp-95250)',
+      'imp-95232 FINDING 3 is the raw Blaschke-Lagrange every-octave divergence this fence stays finite against (imp-95232)',
+    ],
+  },
+  {
     term: 'Symbol-pencil floor lam_min(F, G0)',
     category: 'framework',
     definition:

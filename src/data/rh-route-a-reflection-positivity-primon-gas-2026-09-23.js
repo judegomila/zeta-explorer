@@ -251,6 +251,24 @@ export function primonGaussianGram(M, { t = ROUTE_A_T, pmax = Infinity, beta = n
 }
 const numRank = (G) => { const e = jacobiVals(G); const mx = e[e.length - 1]; return e.filter((v) => v > 1e-12 * mx).length; };
 
+// ---- imp-96018: height sweep of the off-line detector (nextTest[0]) — does its
+// sensitivity extend past the 1/sqrt(t) verified-height cap? Generalise the fixed
+// first-zero perturbation to a hypothetical off-line quadruple beta +- i gamma,
+// 1-beta +- i gamma placed at ARBITRARY height gamma, and measure lambda_min vs gamma.
+export const ROUTE_A_HEIGHT_LADDER = Object.freeze([14.134725142, 20, 25, 30, 35, 40, 50]);
+function offLinePerturbationAtHeight(beta, gamma, u, t) {
+  const d = beta - 0.5; let s = -2 * Math.cos(gamma * u) * Math.exp(-t * gamma * gamma);
+  for (const gi of [d, -d]) s += 2 * Math.exp(-gi * u) * Math.exp(-t * (gamma * gamma - gi * gi)) * Math.cos(gamma * u - 2 * t * gamma * gi);
+  return s;
+}
+/** off-line detection signal lambda_min for a hypothetical off-line quadruple at HEIGHT gamma (Gaussian class, first M primes). */
+export function offLineDetectionAtHeight(gamma, M = 20, { t = ROUTE_A_T, beta = 0.9 } = {}) {
+  const cache = new Map();
+  const D = (u) => { const key = u.toFixed(12); if (!cache.has(key)) cache.set(key, heatSpectralFunction(u, t) + offLinePerturbationAtHeight(beta, gamma, u, t)); return cache.get(key); };
+  const G = Array.from({ length: M }, (_, i) => Array.from({ length: M }, (_, j) => D(Math.abs(Math.log(PR[i]) - Math.log(PR[j]))) / Math.sqrt(PR[i] * PR[j])));
+  return lamMin(G);
+}
+
 // ---- baked literals (scratch tmp/route-a-rp-scratch*.mjs; zero side = first 5000 Odlyzko ordinates)
 export const ROUTE_A_LITERALS = Object.freeze({
   xiAtHalf: 0.4971207781883,
@@ -261,6 +279,16 @@ export const ROUTE_A_LITERALS = Object.freeze({
   finiteGasSupOnStrip: { N0: -2.6898, N1: -4.3585, N10: -10.0414, N100: -17.2510, N1229: -25.0611 },
   zeroFreeCompletionCrossoverSigma: 5.4962,
   gaussianClass: { t: 0.02, fullLamMinFloor: -3e-15, numRank: 12, truncatedLamMin: { N10: -9.016e-5, N20: -1.314e-4, N250: -3.806e-4 }, offLine: { b055_N10: -1.158e-4, b06_N20: -9.725e-4, b09_N20: -1.871e-2 } },
+});
+
+// imp-96018: off-line detector sensitivity vs HEIGHT (beta = 0.9, N = 20, t = 0.02).
+// lamMin(gamma) at the ROUTE_A_HEIGHT_LADDER heights; noiseFloor = eps x lamMax = the
+// beta = 1/2 baseline lamMin. Confirms the 1/sqrt(t) cap: signal ~ -e^{-t gamma^2}.
+export const ROUTE_A_HEIGHT_SWEEP = Object.freeze({
+  t: 0.02, beta: 0.9, M: 20, cap: 7.0711, noiseFloor: -6.29e-16,
+  lamMin: [-1.8706e-2, -1.3498e-4, -3.4811e-6, -7.8924e-9, -6.7903e-12, -4.2653e-15, -6.2852e-16],
+  law: 'lamMin(gamma) = -Theta(1) e^{-t gamma^2}: the off-line signal is Gaussian-damped in HEIGHT; -lamMin/e^{-t gamma^2} stays O(1) (0.3..1.0) until it reaches the double-precision noise floor ~ -6.3e-16 (= eps x lamMax) near gamma ~ 40 (= 5.6/sqrt(t)); by gamma = 50 lamMin is indistinguishable from the beta = 1/2 baseline',
+  verdict: 'DOES NOT extend past the cap. Detection sensitivity decays as e^{-t gamma^2} -- the exact Gaussian regulator weight of the observable class p^{-s} e^{(t/2)(s-1/2)^2}, NOT a prime-truncation effect. The effective ceiling gamma_max ~ sqrt(ln(1/eps)/t) is a fixed multiple of 1/sqrt(t) set by that weight; lowering t to reach higher zeros reopens the O(1)/sqrt(p) truncation boundary layer (the finite-N gas failure). So off-line detection is confined to verified height; changes no bound; RH open; NO QED',
 });
 
 export const RH_ROUTE_A_REFLECTION_POSITIVITY = Object.freeze({
@@ -296,6 +324,7 @@ export const RH_ROUTE_A_REFLECTION_POSITIVITY = Object.freeze({
   weilRelation: 'RP in the zero pairing IS Weil positivity on the cone spanned by the chosen observables; the Cauchy class gives Lagarias\' criterion in Pick form (imp-95520 THEOREM PICK-WEIL); the p^{-s} Gaussian class gives Bochner positivity of D_t on the log-prime lattice. Equivalent to RH, not stronger; OS reconstruction = GNS of the Weil form (the known spectral realisation).',
   unconditionalAnchor: 'Weil positivity is a theorem for u-support inside the prime-free window |u| < (ln 2)/2 (Yoshida 1992; Connes-Consani 2021, archimedean place; in-repo imp-95520 class II T=0.3) — conditionality begins at the first prime shift ln 2',
   nextTest: 'no numerical test in these classes exceeds verified-height content; structural opening only via a Euclidean geometry with a second direction (adelic / scaling site) where archimedean-vs-prime comparison acquires transfer/Markov structure — not available from the primon gas',
+  heightSweep: 'imp-96018 (nextTest[0] MEASURED): sweeping a hypothetical off-line quadruple over height gamma, the Gaussian-class detector lambda_min(gamma) decays as -Theta(1) e^{-t gamma^2} (ratio 0.3..1.0), reaching the double-precision noise floor -6.3e-16 (= eps x lamMax = the beta=1/2 baseline) near gamma ~ 40 = 5.6/sqrt(t); gamma=50 is undetectable. The detector does NOT extend past the cap: the ceiling gamma_max ~ sqrt(ln(1/eps)/t) is a fixed multiple of 1/sqrt(t) set by the observable Gaussian weight e^{-t gamma^2} itself, not by prime truncation; smaller t reopens the truncation boundary layer. Off-line detection is confined to verified height (ROUTE_A_HEIGHT_SWEEP)',
   honestLimits: 'double-precision finite configurations; explicit-formula constants cross-checked to 5e-12 against 5000 zeros; the finite-N refutation is exact in mechanism (divergent Euler product on the strip) and measured in rate; nothing here moves any Lambda bound or verified height',
 });
 
@@ -403,6 +432,20 @@ export const RH_ROUTE_A_REFLECTION_POSITIVITY_ASSERTIONS = Object.freeze([
         && rel(lamMin(primonGaussianGram(10, { beta: 0.55 })), l.b055_N10, 2e-2)
         && rel(lamMin(primonGaussianGram(20, { beta: 0.6 })), l.b06_N20, 2e-2)
         && rel(lamMin(primonGaussianGram(20, { beta: 0.9 })), l.b09_N20, 2e-2);
+    },
+  },
+  {
+    id: 'A5-off-line-detection-height-decay',
+    description: 'imp-96018: the off-line detector signal lamMin(gamma) is Gaussian-damped in height (-lamMin/e^{-t gamma^2} = O(1)) and reaches the noise floor by gamma ~ 40, confirming the 1/sqrt(t) cap; above-noise entries match the baked ladder to 5%',
+    // near-noise entries (gamma >= 35) are NOT asserted tightly (memory: browser-only sub-noise float divergence); only the O(1)-signal entries carry literal checks
+    holds: () => {
+      const L = ROUTE_A_HEIGHT_SWEEP; const t = L.t;
+      const lam = ROUTE_A_HEIGHT_LADDER.map((g) => offLineDetectionAtHeight(g, L.M, { t, beta: L.beta }));
+      const negOrNoise = lam.every((v) => v < 1e-13);                                   // never spuriously positive above noise
+      const ratioOK = [0, 1, 2, 3].every((i) => { const g = ROUTE_A_HEIGHT_LADDER[i]; const r = -lam[i] / Math.exp(-t * g * g); return r > 0.2 && r < 1.2; });
+      const baked = [0, 1, 2, 3].every((i) => rel(lam[i], L.lamMin[i], 5e-2));           // above-noise ladder entries
+      const decaysToFloor = lam[0] < lam[3] && Math.abs(lam[6]) < 1e-14 && Math.abs(lam[6]) <= Math.abs(lam[0]); // |lamMin| shrinks; buried by gamma=50
+      return negOrNoise && ratioOK && baked && decaysToFloor;
     },
   },
   {

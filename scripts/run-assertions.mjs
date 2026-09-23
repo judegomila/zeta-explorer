@@ -18582,6 +18582,19 @@ const DATA_MODULES = [
   // cond<1e11, DD-required all cond>1e14, blown boundary ln1.35 at cond~2.29e12.
   // Cross-delta assembly; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95902-conditioning-vs-reach-cross-delta.js',
+  // imp-95922: BUILDS and TESTS a two-factor log-linear predictor ln(u_fit_rel)=c0+
+  // a*ln(cond)+b*ln(reach) for the per-delta u_fit_rel, formalizing the imp-95902
+  // reach-to-conditioning INTERPLAY. Fit to the three DD u_fit points (ln1.2/1.25/1.3,
+  // cond=1/A_opt) gives c0=-3.8892, a=+0.2328, b=-2.1242 -- the exponents carry the
+  // interplay SIGNS a>0 (loosens with conditioning) and b<0 (tightens with reach), and
+  // those signs are METRIC-INDEPENDENT (hold under the 1/lambda_min proxy too). The
+  // joint model orders all 3 pairs (3/3) while each single factor gets 2/3. HONEST:
+  // three points/three params is an EXACT solve, so the ordering is a DOF fact and the
+  // genuine content is the over-determined SIGN test; ln1.5 carries no u_fit_rel (C-fit
+  // crossing, not a u_fit extraction) so the out-of-sample fourth-point test stays OPEN
+  // (sub-gap imp-95922-fourth-ufit-point-for-out-of-sample). Fit of reported values; no
+  // interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95922-ufit-reach-conditioning-two-factor.js',
   // imp-95835: consumer/orphan audit of the imp-95682 twin-pair block-floor rho log-y
   // viz-data module (IMP95682_ROWS). FINDING: NOT orphaned -- fully wired end to end
   // (Imp95682TwinPairBlockFloorRhoViz.jsx imports it directly, App.jsx routes it at

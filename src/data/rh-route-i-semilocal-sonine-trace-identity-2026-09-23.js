@@ -280,7 +280,7 @@ export const ROUTE_I_LITERALS = Object.freeze({
     [LN3 / 2, 5.63409e-8, 9.51978e-4, 0.0334254, 0.0825163, 0.093416, -0.0866, 2.31372, 0.332791, 0.331839, 9.51978e-4, 0.149342, 0.14839],
   ],
   galerkinN24: { a030: { lamWpf: 0.691999, lamWpf0: 0.987883, lamLS: 0.154128, DSh0: 0.1853, LSh0: 0.877299, DAh0: -0.0186206 }, aLn2Half: { lamWpf: 0.547061, lamLS: 0.134588, DAh0: -0.0162064 }, a037: { lamWpf: 0.410917, DAh0: -0.00667033 }, a040: { DAh0: 0.00879125 }, a045: { lamWpf: 0.0664115, lamLS: 0.107482 }, a060: { lamW: 1.80676e-9, lamWpf: 6.82636e-5, lamArchPf: -0.00709274, lamLSminusP3: 0.0335115 }, a065: { lamW: 4.30575e-11, lamWpf: 2.60545e-6, lamLSminusP3: -0.191421 } },
-  pencil: { a040: 0.602395, a050: 0.966974, a050N16: 0.966334, aLn3Half: 0.997099, aLn3HalfN16: 0.997043, lamLSpf: { a040: 0.56599, a050: 0.35673, aLn3Half: 0.30830 } },
+  pencil: { a040: 0.602395, a050: 0.966974, a050N16: 0.966334, aLn3Half: 0.997099, aLn3HalfN16: 0.997043, lamLSpf: { a040: 0.56599, a050: 0.35673, aLn3Half: 0.30830 }, a050HiRes: 0.96730, a050Note: 'imp-96074: a050 = 0.966974 is the N=32 GL-8/J=30/panel-0.25 quadrature-limited mu_max(0.5;0), ~1.4e-4 below the hi-res N=32 value 0.9671131 of rh-route-i-pencil-highres-map (same N, GL-12/J=34 graded, cross-check < 2e-7); that hi-res sequence N=32..128 then N^-2-extrapolates to 0.96730 (a050HiRes). All three agree mu_max(0.5) < 1, so no bound or verdict changes; use a050HiRes for the converged pencil eigenvalue' },
   s23: { threeHalves: [1.2862, 5.4464, 13.3924], fourThirds: [1.1915, 4.8840, 12.1533], nineEighths: [1.0988, 3.9632, 10.0632], three: [2.4867, 9.9398, 22.7899], sqrt2: [0.7894, 0.7752, 0.7749], eps: [1e-2, 1e-4, 1e-6], s2AtThreeHalves: 1.5495 },
 });
 

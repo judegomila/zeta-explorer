@@ -17799,6 +17799,11 @@ const DATA_MODULES = [
   // ln1.2 left endpoint is below precision), but the ~1/2-retention crossover is delta-SPECIFIC in rho
   // (drifts ~15 -> ~9.4) while nearly FIXED in the absolute gap D_cross ~ 3.6-4.0. Import-light, no bound, no QED.
   '/src/data/imp-95693-twin-pair-block-floor-second-delta.js',
+  // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
+  // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
+  // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no
+  // new bound; PT Lambda<=0.2 SOTA; no QED.
+  '/src/data/imp-95611-95456-95475-honest-status-banner-rollup.js',
 ];
 
 let ALL_MODULES = FAST_MODE

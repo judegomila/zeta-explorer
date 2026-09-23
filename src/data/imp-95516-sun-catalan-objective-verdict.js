@@ -95,6 +95,20 @@ export const SUN_CATALAN_OBJECTIVE_VERDICT = Object.freeze({
     + 'Λ_mid at the gate) are independently verified, and the decisive margin is hardened ~4.01× '
     + 'by re-optimizing ρ to 1/50 — a genuine, robust improvement of Sun’s argument IF the §2–§5 '
     + 'core is sound. It does not decide whether the core is sound. Catalan irrationality remains open.',
+
+  // HONEST STATUS (imp-95634 re-point audit of imp-95600): the 4.01×, δ₀=0.038723 and
+  // ρ*=1/50 figures above are the UNCORRECTED ledger. Under Sun's own flagged §9 WRONG-SIGN
+  // B² correction (−2ρ² → +2ρ²) the ρ=1/20 baseline margin flips NEGATIVE, so the ratio framing
+  // does not survive as stated — see signCorrectionCaveat.
+  signCorrectionCaveat:
+    "imp-95600 (2026-09-22): under Sun's own flagged §9 WRONG-SIGN B² correction "
+    + "(−2ρ² → +2ρ²), the ρ=1/20 baseline margin flips NEGATIVE (δ₀_corr(1/20) ≈ −0.00033757), "
+    + "so the '4.01× hardening' is DESTROYED AS A RATIO — there is no positive baseline left to "
+    + "harden ~4× over. The interior positive-margin optimum survives but only conditionally, "
+    + "shifting to ρ* ≈ 1/56 with δ₀_corr ≈ 0.0373; the ρ-optimization becomes LOAD-BEARING (the "
+    + "only thing rescuing a positive margin), not a cosmetic hardening. The 4.01× / δ₀=0.038723 / "
+    + "ρ*=1/50 figures above are the pre-correction ledger; downstream sensitivity/placement checks "
+    + "are imp-95615 / imp-95618. Catalan G irrationality OPEN; Sun arXiv:2609.04176 unrefereed; NO QED.",
 });
 
 export const SUN_CATALAN_OBJECTIVE_VERDICT_ASSERTIONS = Object.freeze([

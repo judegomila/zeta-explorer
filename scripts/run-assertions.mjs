@@ -17919,6 +17919,15 @@ const DATA_MODULES = [
   // survives every re-anchoring; removing the anomalous point only tightens the cap.
   // Import-light, assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
   '/src/data/imp-95800-number-variance-c0-leave-one-out.js',
+  // imp-95818: measures how much the imp-95766 derived cap r_cap(T) tightens when C0 is taken as the
+  // six-height MEAN (0.2618, imp-95787) instead of the artifact-pinned MAX (0.3337, imp-95722, pinned by
+  // the T=1.5e5 windowing artifact per imp-95806). Recomputes r_cap at the six imp-95562 measured heights
+  // under both anchors: the mean anchor tightens r_cap by 15.7%-16.5% (absolute drop 0.069-0.089), the
+  // fractional tightening shrinking with height (~14.9% at the crossover, ~14.4% at the window bottom where
+  // r_cap_mean = 0.2225 reproduces imp-95787), and every mean-anchored cap (max 0.4505) stays below 1 --
+  // the mean anchor only sharpens the envelope and cannot weaken r_cap < 1 (imp-95787 F2).
+  // Import-light, assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
+  '/src/data/imp-95818-number-variance-cap-mean-c0-tightening.js',
   // imp-95750: ASSESSES how far up the ~6.78-decade dead zone the direct sd(C - E) measurement can
   // reach with in-repo zero data. The largest verified ordinate is gamma_1e6 = 6.003e5 (last entry
   // of ZEROS_EXTENDED), a hard ceiling only ~0.079 decade (~2.4%) into the 3.36-decade gap from the
@@ -18145,6 +18154,14 @@ const DATA_MODULES = [
   // other twelve at relErr <= 3.68e-9. The two sources are delta-disjoint so no
   // shared cell can disagree. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95807-finf-dual-independent-recompute.js',
+  // imp-95817: re-bakes the imp-95807 worst cell (delta=ln1.5, rho=1) from the
+  // theta=0 dual at double-double precision. The DD value 1.6631580146085314e-9
+  // is reproduced by the float64 dual to 6.22e-16, so re-baking collapses the
+  // 2.42e-7 worst-cell margin into the ~1e-9 band. It also refines imp-95807:
+  // the 2.42e-7 was NOT 10-sig-fig storage (a correct 10-sig rounding sits at
+  // relErr 2.35e-10) but a 7th-digit stale-value error in the imp-95707 baked
+  // literal. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95817-finf-ln15-rho1-dd-rebake.js',
 ];
 
 let ALL_MODULES = FAST_MODE

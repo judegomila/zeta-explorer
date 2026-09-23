@@ -18957,6 +18957,15 @@ const DATA_MODULES = [
   // true physical per-window theta -- the imp-95212 envelope port stays open.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95957-sign-image-scope-note-glossary-headword.js',
+  // imp-95972: live-scan regression guard (frozen-baseline pattern, mirrors
+  // phantom-citation-guard.js) protecting the imp-95769/imp-95894 verdict that
+  // no src/data/*.js consumer cites the superseded imp-95691 CF_BAND_HI_PINNED
+  // = 1.29615 pin (or the imp-95705 1.914x / imp-95721 6.1-8.6x intermediates)
+  // as the current honest CF_BAND_HI representative -- the converged honest
+  // value is imp-95747 r_eff = 9.583x. Fails the build only on a NEW,
+  // un-baselined stale citation. Meta/regression-guard only; changes no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95972-cf-band-hi-pin-regression-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

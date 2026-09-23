@@ -3135,6 +3135,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted value is copied verbatim from the rh-route-m NB_DISTANCE_LADDER and RECIPROCITY_STRUCTURAL_TEST.mellinResidual records (no re-derivation, no re-execution of the underlying Gram/Cholesky or quadrature numerics); only the three baked summary points are plotted for the residual, not a fabricated continuous curve; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96080-route-i-symbol-anatomy',
+      title: 'Route I: Toeplitz Symbol Anatomy and the mu_max(a) Crossing',
+      oneLine:
+        'Plots the RH Route I high-resolution pencil map Toeplitz symbol w(t) = 2 theta_prime(t) - m_2(t), sampled directly from the exact closed-form function over t in [0,60] with the archimedean negative window [0,3.597) and six shrinking p=2 resonance windows shaded, plus the mu_max(a; k=0) column of the baked N=128 grid showing the crossing of 1 at a* = 0.56578 past the (ln3)/2 boundary.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96080-route-i-symbol-anatomy-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-pencil-highres-map-2026-09-23.js (weilSymbol, PENCIL_HIGHRES_LITERALS.symbol, .gridN128, .crossing; imp-96080 viz page)',
+      ticket: 'imp-96080',
+      pedagogicalStep: 201,
+      honestCeiling:
+        'Presentation only: the w(t) curve is a direct evaluation of the source module\'s own exact closed-form weilSymbol (no re-derivation of the underlying Toeplitz forms, no fresh pencil solve); the resonance windows and mu_max(a) grid are copied verbatim from PENCIL_HIGHRES_LITERALS; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

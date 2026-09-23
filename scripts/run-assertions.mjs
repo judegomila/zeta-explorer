@@ -17820,6 +17820,14 @@ const DATA_MODULES = [
   // conservative in the measured window. Named sub-gap: the window is ~6.8 decades below the
   // imp-95519 bottom T = 3e12, so extending the conservatism there is unmeasured. No bound, no QED.
   '/src/data/imp-95710-number-variance-ratio-vs-height.js',
+  // imp-95722: DERIVES an analytic envelope for the imp-95710 number-variance ratio r(T) toward the
+  // imp-95519 window bottom T = 3e12, replacing the noise-dominated six-point log-linear extrapolation.
+  // The numerator (pointwise counting-fluctuation variance) grows at most like (1/2pi^2) log log(T/2pi)
+  // (Selberg, unconditional; shortest-prime saturation), the GUE envelope Sigma^2(L(T)) like (1/2pi^2)
+  // log T, so r(T) <= r_cap(T), a monotone-decreasing envelope with r_cap(3e12) ~ 0.26 < 1 -- the
+  // conservatism is provably retained at the window bottom. Open: the sharp value (O(1)/windowing slack).
+  // Import-light, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side stays PCC/GRH-gated.
+  '/src/data/imp-95722-number-variance-ratio-window-bottom-bound.js',
   // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
   // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
   // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no

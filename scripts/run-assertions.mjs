@@ -18560,6 +18560,16 @@ const DATA_MODULES = [
   // solve reproduces the imp-95837 baked coarsest point (<1e-6 rel).
   // Measurement extending an audit grid; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95896-ln12-past2800-ufit-tightening.js',
+  // imp-95919: EXTENDS the imp-95896 ln1.2 DD shift-invert grid PAST N=5200 (two new
+  // points N=6400/8000, reach ~1167/~1459, imp-95820 solver). DECISION: the A_opt~4.26e-22
+  // deep corner (cond ~5.6e22) FINALLY hits the DD ~32-digit floor -- N=6400 lambda_min
+  // REVERSES upward (4.26369e-22->4.26377e-22, breaking the monotone sweep) and N=8000
+  // breaks down (NaN). So u_fit_rel does NOT cross below the ln1.3 direct 0.23% -- it
+  // PLATEAUS at the imp-95896 N<=5200 value 0.247% (1.07x looser); the double-double reach
+  // lever is exhausted at N~5200. r_interval=[-2.30e-3,+2.64e-3] still CONTAINS ZERO. A live
+  // N=120 DD solve reproduces the imp-95837 baked coarsest point (<1e-6 rel).
+  // Measurement extending an audit grid to the DD floor; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95919-ln12-past5200-dd-floor.js',
   // imp-95902: tabulates conditioning cond=1/A_opt against reach across all seven
   // measured deltas (DD-side ln1.2/1.25/1.3 with u_fit intervals + float64-clean
   // ln1.4/1.45/1.5/1.6) and RE-TESTS imp-95885 FINDING A. cond=1/A_opt is an exact,

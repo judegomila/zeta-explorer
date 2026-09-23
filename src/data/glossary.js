@@ -22202,6 +22202,28 @@ export const glossary = [
       'imp-95692-conductor-normalization-warranted-decision is the module first establishing the floor-alias identity at p = 97',
     ],
   },
+  {
+    term: 'Twin-Pair Half-Retention Infinite-Lattice Limit (imp-95703 closed form, verified imp-95726)',
+    category: 'concept',
+    definition:
+      'A quick-lookup headword for the imp-95726 verification that the imp-95703 derived closed ' +
+      'form for the twin-pair half-retention crossover gap, S(delta, D_cross) = blockIso/2 with ' +
+      'blockIso = 1 - sech(delta/2), IS the INFINITE-lattice (thermodynamic) limit of the ' +
+      'imp-95693 block floor, not merely a first-order perturbation-theory approximation. ' +
+      'imp-95703 matched the finite nPairs = 40 tabulated D_cross to within a residual ' +
+      'D_closed - D_true(40) ~ +3.5e-3 at every delta and only ATTRIBUTED (did not verify) that ' +
+      'gap to a chain-end band-edge effect. imp-95726 recomputed the true crossover at nPairs = ' +
+      '40, 80, 160 with the identical exact Jacobi lambda_min machinery: the residual falls by a ' +
+      'clean ~4x per lattice doubling (quadratic, 1/nPairs^2 decay) with D_true rising ' +
+      'monotonically toward D_closed, and an h^2 Richardson extrapolation (4 D_true(160) - ' +
+      'D_true(80))/3 lands on the closed form to ~1.6e-6 at every delta.',
+    firstUsed: 'imp-95703 (derived closed form, finite-40 match), 2026; verified as the infinite-lattice limit by imp-95726, 2026',
+    relatedTerms: [
+      'imp-95703-twin-pair-half-retention-scale-derivation is the module deriving the closed form S(delta,D_cross)=blockIso/2',
+      'imp-95693-twin-pair-block-floor-second-delta is the module tabulating the finite-40 D_cross this closed form matched',
+      'imp-95726-twin-pair-half-retention-finite-size-limit is the module confirming the residual is finite-size (1/nPairs^2), not a perturbation-theory model error',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

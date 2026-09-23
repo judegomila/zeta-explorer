@@ -18129,6 +18129,14 @@ const DATA_MODULES = [
   // fit is forced by monotone L-segregation. Consistent but UNDETERMINED; sub-gap =
   // L-matched cross-delta cells. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95804-twin-pair-bias-reach-collapse-test.js',
+  // imp-95805: assesses whether EXCLUDING the C0-artifact T=1.5e5 touch from the
+  // imp-95783 measured-regime slack s(T)=r/r_cap leaves a monotone five-height
+  // sub-family that could bracket the true ratio r(T) from below as well as above.
+  // It does NOT: the five remaining slacks step down, down, UP, down (U-shape, min at
+  // T=7e4, reversal up at T=3e5, still << the imp-95750 ceiling gamma_1e6=6.003e5), so
+  // the non-monotonicity is not an artifact of the single anchor and no two-sided
+  // bracket can be formed. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95805-slack-exclude-c0-artifact-monotonicity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

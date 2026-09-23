@@ -18718,6 +18718,18 @@ const DATA_MODULES = [
   // imp-95925 clean-cancellation finding is offset-certain, NOT per-m Prop-6.3-certified. Import-light,
   // no bound, NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95966-q0-recon-largem-certification-obstruction.js',
+  // imp-95967: CHARACTERIZE the imp-95925 Q0_RECON "dip near m~50-60" on a fine integer grid m=41..70
+  // (faithful 238-cell machinery verbatim, Nsub=120000/240000). FINDING: the dip is a PARITY-SAMPLING
+  // ARTIFACT, not a genuine reconstruction dip. Q0_RECON splits by parity of m into two
+  // strictly-monotone-increasing branches (odd 41,43,..,69 sitting ~7.26e-6 above even 42,44,..,70 at
+  // m~42, the gap shrinking to ~2.78e-6 at m~68 as both converge to the asymptote ~-0.010653), neither
+  // with an interior minimum. The minimizing modulus is m*=42 (deepest even endpoint), ~6.90e-6 below
+  // the m=41 anchor; grid-converged to ~1e-11 (Nsub=240000 shift ~1000x below the ~7e-8 wobble), so NOT
+  // Nsub quadrature noise. The imp-95925 41->60 sign wobble is the sole-odd modulus m=41 (elevated odd
+  // branch) minus the even-branch m=60 -- a parity mismatch; the even branch alone (30,60,80,110,150)
+  // is strictly monotone. imp-95925 macro-trend + midM^-3 tail unaffected. Import-light, no bound, NO
+  // QED; certified only at m=20 (imp-95966); PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95967-q0-dip-parity-sampling-artifact.js',
 ];
 
 let ALL_MODULES = FAST_MODE

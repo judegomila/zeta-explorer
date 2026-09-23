@@ -3065,6 +3065,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots three frozen ln1.2 u_fit_rel measurements verbatim against the frozen ln1.3 target (no re-derivation, no fresh extrapolation run); the final rung (0.247%) is 1.07x looser than the ln1.3 target and has NOT crossed it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95975-tier13-imbalance-loglog',
+      title: 'TIER-1/TIER-3 Imbalance dQ/dm vs midM, Log-Log',
+      oneLine:
+        'Plots the imp-95925 TIER-1/TIER-3 imbalance |dQ/dm| against midM on log-log axes (tail slope ~-2.95, ~m^-3 decay), flagging the single 41->60 sign wobble as an isolated dip rather than hiding it -- never plotted before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95975-tier3-imbalance-loglog-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95925-tier3-imbalance-largem-sweep.js (imp-95975 viz panel)',
+      ticket: 'imp-95975',
+      pedagogicalStep: 197,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95925 seven-interval imbalance sweep verbatim (no re-derivation, no fresh quadrature); the tail fit slope (~-2.95) is a prior offline fit over three points, not a rigorous asymptotic law; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -318,6 +318,19 @@ const DATA_MODULES = [
   // (2a_det = 0.9 ln(gamma/2pi), Class-II cap sqrt(ln(1/eps)/t)). No new lever; next step named (semilocal
   // Sonine identity). Import-light (imports Route A's D_t only; no zeros bundle); NOT a bound; RH open; NO QED.
   '/src/data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js',
+  // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
+  // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
+  // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284
+  // (classical 34.82 reproduced); engines (i),(iii) need the missing self-product → Weil positivity / Kurokawa.
+  // K (moments): Littlewood I(T)=∫log|ζ(½+it)| is O(1) while Jensen-from-M_1 is ~T (loss 141× at T=200);
+  // negative moments RH-equivalent → mollifier lineage; KS (log af)′(0)=0 to 3e-8. L (explicit operator):
+  // zero-free Li–Herglotz–CMV unitary truncation from ξ′/ξ Taylor data at s=20.5, Toeplitz PD through order 400
+  // (min 1−|α| = 0.031), 400×400 CMV reproduces 39 of the first 40 zeros to 1e-12; detector reach = quadrature
+  // resolution γ_{N/10} (nearly δ-independent), NOT the |z|^n drift → verified-height-dominated; completeness =
+  // Weil positivity. Exact Keiper λ_n to 16 digits for n ≤ 400 (closes imp-2426 sub-gap). M proposed (NB/Vasyunin
+  // + Bettin–Conrey), NOT run. Wall map: Landau pole / Jensen integration / Herglotz-Weil. Import-light (imports
+  // only imp-2426); NOT a bound; no external input found; RH open; NO QED.
+  '/src/data/rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js',
   // imp-96019 (2026-09-23): ASSESSMENT of sweep opening.nextTests[1] — can the Connes–Consani scaling
   // site extend the proven archimedean Weil positivity past the first prime shift u = ln 2? Verdict:
   // NO candidate extension; precise obstruction. The proven partial (|u| < ln 2) is prime-EMPTY (smallest

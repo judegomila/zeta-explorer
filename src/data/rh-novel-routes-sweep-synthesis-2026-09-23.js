@@ -60,6 +60,17 @@ export const RH_SWEEP_SYNTHESIS = Object.freeze({
     },
   },
 
+  // 2026-09-23 second batch from NON-stat-mech paradigms (rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js):
+  // the single-terminus picture is REFINED — J (Weil–Deligne import) lands on Weil positivity (missing self-product)
+  // AND the Landau-pole c/log t form (Fejér floor R ≥ 5.83) AND PCC; K (moments) on Jensen/integration (Littlewood
+  // lemma, loss 141× at T=200), not Weil positivity; L (zero-free Li–Herglotz–CMV operator) on Weil positivity via
+  // the Schur filtration with a measured resolution-limited reach γ_{N/10}. No external arithmetic input found.
+  nonStatMechBatch: {
+    module: 'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js',
+    routes: 'J (function-field import), K (moments/ratios), L (Li–Herglotz–CMV explicit operator), M (Nyman–Beurling/Vasyunin, proposed)',
+    verdict: 'none escapes the convergence; wall map = Landau pole / Jensen integration / Herglotz-Weil; Route L = best finite-certificate infrastructure (400×400 unitary truncation reproduces 39 zeros to 1e-12 from Taylor data of ξ alone; reach linear in N; completeness = Weil positivity). RH open; NO QED.',
+  },
+
   honest:
     'The creative sweep did its job: seven distinct framings triangulated the exact '
     + 'target (Weil positivity) and one opening with new structure (the scaling site). '

@@ -1270,6 +1270,9 @@ const Imp95930C0OffsetEnvelopeViz = lazy(() =>
 const Imp95931Ln12DescentLadderViz = lazy(() =>
   import('./pages/Imp95931Ln12DescentLadderViz.jsx')
 );
+const Imp95975TierImbalanceLogLogViz = lazy(() =>
+  import('./pages/Imp95975TierImbalanceLogLogViz.jsx')
+);
 const RhNovelRoutesRoadmapPage = lazy(() => import('./pages/RhNovelRoutesRoadmapPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
@@ -3387,6 +3390,10 @@ function AppShell() {
           <Route
             path="/viz-imp95931-ln12-descent-ladder"
             element={<Imp95931Ln12DescentLadderViz />}
+          />
+          <Route
+            path="/viz-imp95975-tier13-imbalance-loglog"
+            element={<Imp95975TierImbalanceLogLogViz />}
           />
           <Route path="/rh-novel-routes-roadmap" element={<RhNovelRoutesRoadmapPage />} />
           <Route path="*" element={<NotFoundPage />} />

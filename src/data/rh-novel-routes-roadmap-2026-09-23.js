@@ -189,6 +189,73 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'variants push zeros off the line; the k=0 end (RS main sum) is already off-line at Lehmer close pairs. '
         + 'No arithmetic real-rootedness-preserving flow found; NOT-A-LEVER',
     },
+    // ---- 2026-09-23 second batch: NON-stat-mech paradigms (rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js).
+    // Route H (Connes–Consani scaling site) is recorded in the sweep synthesis; keys J–M continue the list.
+    {
+      key: 'J',
+      name: 'Arithmetic-geometry import: Weil–Deligne template (Hodge index / tensor power / Künneth) to ℤ',
+      idea:
+        'RH is proven over function fields (Weil via Castelnuovo on X×X; Deligne via even tensor powers + Landau '
+        + 'positivity + rationality; Künneth on X^m to kill the +½ excess). Identify the SHARPEST obstruction to '
+        + 'each engine over ℤ and look for a computable finite analog that is a genuine partial.',
+      firstTest:
+        'Run engine (ii) over ℚ in its k=1 form: the nonnegative-trigonometric-polynomial zero-free region '
+        + 'c = 2(√a₁−√a₀)²/S and its Fejér ceiling a₁/a₀ ≤ 2cos(π/(n+2)); identify the k=2 form (prime pairs / PCC) '
+        + 'and the self-product needed by engines (i),(iii).',
+      payoff: 'A ℤ-analog of Deligne’s weight argument (would give RH outright)',
+      status: 'tested — NO external input: engine (ii) = de la Vallée Poussin (classical R = 34.82 reproduced; pure-scheme '
+        + 'Fejér floor R ≥ 5.8284; Mossinghoff–Trudgian 5.573 via Stechkin weighting, still c/log t); k=2 = PCC '
+        + '(Goldston–Montgomery); engines (i),(iii) need Spec Z ×_{F_1} Spec Z (Kurokawa ζ⊗ζ double Euler product '
+        + 'converges only for Re s > 2; closed points are 2-tori since Frobenius = ℝ-flow; infinite-rank H^1 kills the '
+        + 'Riemann–Roch count) = Route H. Local-RH import (Ramanujan) moves no archimedean zero-free region.',
+    },
+    {
+      key: 'K',
+      name: 'RMT / moments / ratios: pointwise zero constraints from moment identities',
+      idea:
+        'CFKRS ratios and Keating–Snaith moments are predictive, not provative. Is there a moment/ratio identity '
+        + 'that, if proven, gives a zero-free region (pointwise) rather than statistics (on average)?',
+      firstTest:
+        'Compute Littlewood’s I(T) = ∫₀ᵀ log|ζ(½+it)|dt (RH ⟺ O(log T)) and the Jensen bounds (T/2k)log(M_k/T) from '
+        + 'the proven 2nd/4th moments on [0,200]; check the k→0 limit and Keating–Snaith’s (log af)′(0).',
+      payoff: 'A moment-provable zero-free region',
+      status: 'tested — NO: moments reach zeros only through Littlewood’s INTEGRATED lemma; measured |I(200)| = 0.92 vs '
+        + 'Jensen 130.4 (loss 141×, growing ~T/log T); k→0 moment IS Littlewood’s criterion; KS consistent ((log af)′(0)=0 '
+        + 'to 3e-8) but not informative. Negative moments are the pointwise channel and are RH-EQUIVALENT (finite forms = '
+        + 'mollifiers, Levinson κ lineage); ratios conjecture presupposes quasi-RH in its shift range. Ceiling = Lindelöf ⇒ '
+        + 'Density Hypothesis. Wall = Jensen/integration, not Weil positivity.',
+    },
+    {
+      key: 'L',
+      name: 'Explicit operator: Li–Herglotz–CMV unitary truncation from Taylor data of ξ (no zeros)',
+      idea:
+        'Not "does a Hilbert–Pólya operator exist" but a CONCRETE finite candidate: the CMV (unitary five-diagonal) '
+        + 'matrix of the Herglotz measure ν_a = Σ_ρ 4a²/(a²+γ²) δ_{θ_ρ} whose moments are second differences of the '
+        + 'generalized Li coefficients λ_n(a) = Σ_ρ[1−((ρ−½−a)/(ρ−½+a))ⁿ], computable from ξ′/ξ at Re s ≥ 1.55 alone. '
+        + 'Toeplitz PD ∀N ⟺ RH (Herglotz + Bombieri–Lagarias).',
+      firstTest:
+        'Compute λ_n(a) to 200 digits from ξ′/ξ (Cauchy on |z|=0.9), run Szegő/Levinson for the Verblunsky parameters, '
+        + 'build the N×N CMV matrix, compare eigen-angles with θ_k = π−2atan(γ_k/a); splice a synthetic off-line '
+        + 'quadruple into the exact moments and measure the detection order N_det(γ₀, δ).',
+      payoff: 'A finite unitary operator whose spectrum tracks the zeros for a non-circular reason; a finite RH certificate',
+      status: 'tested — reality forced NON-circularly, RH-content = resolved zeros only: at a=20 the form is PD through '
+        + 'order 400 (min 1−|α| = 0.031), the 400×400 unitary matrix reproduces 39 of the first 40 zeros to 1e-12 in angle '
+        + 'with exact weights; N_det ≈ N_res(γ₀) + O(log 1/δ) (γ₁: 9–14, γ₂₀: 96–115, γ₄₀ undetected at 400) — reach '
+        + 'γ_{N/10}, linear in N, verified-height-dominated; completeness = Weil positivity (finer Schur filtration of Li). '
+        + 'Exact Keiper λ_n (n ≤ 400) closes the imp-2426 sub-gap. NOT-A-LEVER; best finite-certificate infrastructure so far.',
+    },
+    {
+      key: 'M',
+      name: 'Nyman–Beurling Gram matrix via Vasyunin cotangent sums + Bettin–Conrey reciprocity',
+      idea:
+        'd_N² = 1 − bᵀG⁻¹b with Vasyunin’s exact cotangent-sum Gram entries; Bettin–Conrey’s period-function '
+        + 'reciprocity is modular input absent from every soft route. RH ⟺ d_N → 0.',
+      firstTest:
+        'Compute G_N exactly to N ≤ 500, d_N² against (Σ_ρ|ρ|⁻²)/log N = 0.0462/log N; test whether the reciprocity '
+        + 'bounds the Gram inverse non-perturbatively (the Möbius-coefficient version is the mollifier lineage).',
+      payoff: 'A non-mollifier NB bound',
+      status: 'proposed — not first-tested (2026-09-23)',
+    },
   ],
 
   honestNote:
@@ -202,9 +269,10 @@ export const RH_NOVEL_ROUTES = Object.freeze({
 export const RH_NOVEL_ROUTES_ASSERTIONS = Object.freeze([
   {
     id: 'roadmap-has-seven-routes',
-    holds: () => RH_NOVEL_ROUTES.routes.length === 7
-      && RH_NOVEL_ROUTES.routes.every((r) => /^[A-G]$/.test(r.key)),
-    why: 'Seven novel routes A–G, each with a key, first test, and payoff.',
+    holds: () => RH_NOVEL_ROUTES.routes.length === 11
+      && RH_NOVEL_ROUTES.routes.slice(0, 7).every((r) => /^[A-G]$/.test(r.key))
+      && RH_NOVEL_ROUTES.routes.slice(7).map((r) => r.key).join('') === 'JKLM',
+    why: 'Seven stat-mech routes A–G (first batch) plus the 2026-09-23 non-stat-mech batch J, K, L (first-tested) and M (proposed); Route H lives in the sweep synthesis.',
   },
   {
     id: 'every-route-has-a-concrete-first-test',

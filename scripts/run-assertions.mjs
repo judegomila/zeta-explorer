@@ -18184,6 +18184,12 @@ const DATA_MODULES = [
   // (ladder points, C_Widom asymptote, well-conditioned fit-family band). Presentation only, no
   // re-derivation, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95868-biasn2-widom-fit-viz-data.js',
+  // imp-95869: import-light viz-data combining the imp-95825 lower companion and imp-95846 upper
+  // companion into a two-sided finite-section envelope chart (lambda_min descending to ess-inf f,
+  // lambda_max ascending to ess-sup f, versus section size n). Light recomputation of the already-
+  // verified method, cross-checked against frozen n=160 endpoints. No new bound, NO QED, PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-95869-two-sided-envelope-viz-data.js',
   // imp-95856: MEASURES the exact O(N^-3) remainder constant of the imp-95803 deep-corner biasPct
   // ladder (delta=ln1.2, rho=1) and assesses whether anchoring the intercept at the imp-95839
   // C_Widom tightens the imp-95845 P0-vs-C_Widom agreement below 0.44%. The P3/N^3 term splits into
@@ -18297,6 +18303,19 @@ const DATA_MODULES = [
   // sharpens to the kernel-weighted residue bias against uniform (the imp-95212 Fresnel-Airy port,
   // OPEN). Import-light, closed form matches the direct n-loop to 1e-16. No bound, NO QED.
   '/src/data/imp-95898-single-window-sign-image-residue-average.js',
+  // imp-95917: derives the physical von-Mangoldt x Fresnel-Airy WEIGHTED per-window sign image
+  // replacing the imp-95898 residue-UNIFORM mean. STEP 1 (exact): folding the single-n numerator
+  // against w(n) = Lambda(n) K_k(n) over the n-free denominator S gives theta_phys = (sum_ml G_ml
+  // <cos>_w(h_m-h_l))/S -- the STEP 2 image with the uniform cosine mean replaced by the physical
+  // kernel-weighted mean <cos>_w(D). STEP 2/3: all Gram entries are strictly positive (min ~0.89),
+  // so theta_phys is a convex average of values <= 1; if K_k >= 0 then <cos>_w(D) < 1 strictly
+  // off-diagonal, forcing theta_phys < 1 STRICTLY at every window -- a determined image below 1
+  // needing only the envelope SIGN, not the full kernel sum. STEP 4: a nonneg Gaussian proxy
+  // reproduces the uniform image to ~1e-3 (0.0635/0.0286/0.0102/0.2509); a signed proxy deviates
+  // up to ~7 percent. STEP 5 (obstruction, PARTIAL not QED): sharpens imp-95898 STEP 5 from full
+  // kernel-sum evaluation to the SIGN (nonnegativity) of the imp-95212 Fresnel-Airy envelope, OPEN.
+  // Import-light. No bound, NO QED.
+  '/src/data/imp-95917-vonmangoldt-weighted-sign-image.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

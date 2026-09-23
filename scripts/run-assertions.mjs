@@ -18442,6 +18442,14 @@ const DATA_MODULES = [
   // essInf: its forward-sum float64 read 5.87e-16 was cancellation noise; the true theta-dual
   // A_opt(ln1.2)=4.263426e-22. Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95880-dd-lower-companion-ln12-ln13.js',
+  // imp-95881: extends the imp-95860 ln1.2 DD extrapolation reach PAST N=1000 (three new
+  // points N=1400/2000/2800, reach ~255/~365/~511) with the imp-95820 shift-invert DD
+  // Toeplitz solver. Extending past N=1000 KEEPS tightening the per-delta u_fit_rel from
+  // 0.54% to 0.34% (1.588x) with no deep-corner DD-floor flattening (sweep monotone,
+  // every N converged in 240 solves); now closer to but still looser than the ln1.3 direct
+  // interval 0.23%. r_point tightens +4.88e-4 -> +2.57e-4, u_fit/u_opt drops to 1.92e12
+  // (still >> 1e10). Measurement; no bound; no QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95881-ln12-past1000-ufit-tightening.js',
 ];
 
 let ALL_MODULES = FAST_MODE

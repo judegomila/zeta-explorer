@@ -1114,6 +1114,9 @@ const Imp95646TransitionKnee2DHeatmapViz = lazy(() =>
 const Imp95647ConditionNumberViz = lazy(() =>
   import('./pages/Imp95647ConditionNumberViz.jsx')
 );
+const Imp95549NsRigidPencilEigenvalueViz = lazy(() =>
+  import('./pages/Imp95549NsRigidPencilEigenvalueViz.jsx')
+);
 const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
   import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
 );
@@ -3064,6 +3067,10 @@ function AppShell() {
           <Route
             path="/viz-imp95647-condition-number"
             element={<Imp95647ConditionNumberViz />}
+          />
+          <Route
+            path="/viz-imp95549-ns-rigid-pencil-eigenvalue"
+            element={<Imp95549NsRigidPencilEigenvalueViz />}
           />
           <Route
             path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"

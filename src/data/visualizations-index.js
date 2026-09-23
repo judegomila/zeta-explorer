@@ -2532,6 +2532,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: re-plots the perm-arch smallPrimeClosure/perPrimeMeasurement literals verbatim (no re-derivation, no fresh term); illustrates the section 5(i) l2-collapse over-budget picture, proves nothing beyond what perm-arch-sieve-universality-no-go-2026-09-22 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95549-ns-rigid-pencil-eigenvalue',
+      title: 'NS-RIGID Dichotomy: P_S(eps) Smallest Eigenvalue vs Backward-Flow eps',
+      oneLine:
+        'Log-log chart of lam_min(P_S(eps); G) for the imp-95530 THEOREM NS-RIGID (A4)(i) Caratheodory-Pick pencil on node set S={1.5,2.5,4.5}, staying strictly positive from eps=1e-12 to eps=100, against the dashed 1.15e-11 Lehmer-pair collision threshold.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95549-ns-rigid-pencil-eigenvalue-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95530-native-span-arithmetic-input-rigidity.js (flowedPickPencilMin; THEOREM NS-RIGID A4(i); imp-95549 viz page)',
+      ticket: 'imp-95549',
+      pedagogicalStep: 163,
+      honestCeiling:
+        'Presentation/measurement only: recomputes flowedPickPencilMin from imp-95530 on a log-spaced eps grid and bakes the result as literals (no re-derivation, no fresh term); illustrates the A4(i) flow-stable-witness dichotomy, proves nothing beyond what imp-95530 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

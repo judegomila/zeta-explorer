@@ -17799,11 +17799,24 @@ const DATA_MODULES = [
   // ln1.2 left endpoint is below precision), but the ~1/2-retention crossover is delta-SPECIFIC in rho
   // (drifts ~15 -> ~9.4) while nearly FIXED in the absolute gap D_cross ~ 3.6-4.0. Import-light, no bound, no QED.
   '/src/data/imp-95693-twin-pair-block-floor-second-delta.js',
+  // imp-95703: DERIVES the imp-95693 delta-stable half-retention gap D_cross ~ 3.6-4.0 from the sech
+  // seam symbol. The crossover F/blockIso=1/2 is the root of the single-sum equation S(delta,D)=
+  // (1-sech(delta/2))/2, S = sum_{m>=1} discrete-2nd-diff of sech (first-order uniform-mode Rayleigh
+  // depression of the antisymmetric block floor). Reproduces the four tabulated D_cross to <0.004 abs;
+  // leading-log closed form D_cross ~ 2 ln[4(1-e^-d/2)^2/(1-sech(d/2))] shows D_cross is logarithmic in
+  // delta, deriving the stability. Import-light, finite-size proxy carried, no bound, no QED, PT Lambda<=0.2.
+  '/src/data/imp-95703-twin-pair-half-retention-scale-derivation.js',
   // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
   // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
   // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no
   // new bound; PT Lambda<=0.2 SOTA; no QED.
   '/src/data/imp-95611-95456-95475-honest-status-banner-rollup.js',
+  // imp-95706: survey of published post-Ford Vinogradov-Korobov zero-free-region constants and a
+  // re-run of the imp-95694/imp-95632 crossover at the best published pair -- best located is
+  // Bellotti 2024 (arXiv:2306.13574) A~=55.241 (~1.042x over Ford), crossover log t = 8928.20 vs
+  // Ford 10242.24, still ~238x the window top and bracketed by the imp-95694 stress envelope; the
+  // zero-VK-saving verdict STANDS under the best published constants. Import-light, no bound, no QED.
+  '/src/data/imp-95706-vk-crossover-best-published-constant.js',
 ];
 
 let ALL_MODULES = FAST_MODE

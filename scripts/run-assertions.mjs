@@ -18951,6 +18951,12 @@ const DATA_MODULES = [
   // 3.358-decade gap to the imp-95729 crossover. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95951-number-variance-ceiling-glossary-headword.js',
+  // imp-95957: Concepts scope note recording that the imp-95917 theta_phys (evaluated under
+  // a nonnegative proxy for |K_k|, conditional on K_k >= 0) and the imp-95918 <theta_C>
+  // (residue-uniform mean) are BOTH images of the residue-mean/kernel-sign object, NOT the
+  // true physical per-window theta -- the imp-95212 envelope port stays open.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95957-sign-image-scope-note-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

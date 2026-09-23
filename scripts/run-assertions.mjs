@@ -18236,6 +18236,16 @@ const DATA_MODULES = [
   // residual conditionality is a SINGLE integrand-faithfulness hypothesis attached identically to
   // m=22,30,41, verified only at m=20; not a quadrature caveat. Import-light, no bound, NO QED.
   '/src/data/imp-95861-per-m-kappa-certification-requirement-assessment.js',
+  // imp-95877: assesses/attempts the imp-95861 TRANSPORT identity (reconstructed 238-cell integrand
+  // equals Sun Prop-6.3 Q_0(m,v) identically in m). Reduces it (via imp-95745, which quarantines all
+  // m-dependence in the Q_0 sector) to a per-cell coefficient law with three tiers: TIER 1 leading
+  // curvature -(4m-1)/2 (m-linear, already symbolic), TIER 2 const sector 3/2 + offset 4 (proven
+  // m-free), TIER 3 sub-leading per-cell K_v coefficients (numeric only). ATTEMPTS the shortcut that
+  // TIER 1+2 alone suffice and REFUTES it: dQ/dm across m=20,22,30,41 is non-constant (spread ~2.44)
+  // whereas a curvature-only model forces it constant, so TIER 3 carries the binding residual
+  // m-dependence. Also refines imp-95861: the raw cell count is O(m), not m-free. Import-light, no
+  // bound, NO QED.
+  '/src/data/imp-95877-transport-identity-tractability-assessment.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.
@@ -18390,6 +18400,14 @@ const DATA_MODULES = [
   // completeness gap: imp-95750 exports no *_ASSERTIONS array. No bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-95778-catalan-szego-orphan-consumer-audit.js',
+  // imp-95876: FORMALIZES the off-line (rho!=1) block-Toeplitz two-sided finite-section
+  // envelope that imp-95862 left only sketched. The two-scale twin-pair seam Gram is
+  // 2x2-block Toeplitz with Hermitian symbol Phi(theta) (imp-95707), branches d+-|off|;
+  // a vector Rayleigh squeeze gives min_theta lambda_min(Phi) <= lambda(T_n) <= max_theta
+  // lambda_max(Phi) for every n. Both edges attained at theta=0. The lower edge reproduces
+  // the imp-95693 rho-monotone floor A_opt(delta) -> 1-sech(delta/2); the upper mirrors it
+  // f(0) -> 1+sech(delta/2). Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95876-offline-block-toeplitz-two-sided-envelope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

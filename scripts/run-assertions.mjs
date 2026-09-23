@@ -17780,6 +17780,12 @@ const DATA_MODULES = [
   // c_odd(1/20) to 3.5e-13 and upgrades c_odd(1/19)=0.006954762801 from conditional to
   // offset-certain (still not interval-certified). No bound, no Lambda movement, NO QED.
   '/src/data/imp-95745-sun-prop63-plus4-offset-derivation.js',
+  // imp-95746: empirical m-independence witness for the imp-95720 +4 Prop-6.3 offset -- re-runs the
+  // faithful 238-cell machinery at m=18 and m=21 (plus m=19/20) and holds the const sector fixed at
+  // 3/2 and the offset at 4 across four consecutive moduli while the Q_0 zeta(3) sector genuinely
+  // varies (spread ~4.15e-5); only m=20 has a certified kappa (offset = 4.0000000001). Internal-
+  // consistency witness supporting imp-95745, not an independent +4 proof at m=18/19/21. NO QED.
+  '/src/data/imp-95746-sun-prop63-plus4-offset-four-moduli.js',
   // imp-95658: import-light baked-literal viz-data for a future E_flow-attribution chart -- the
   // imp-95639 (includeFlow on/off) gap surfaces + gap = 0 contours over the [0.5x, 1.5x]^2 box.
   // Carries cheap self-check assertions (baked grid min ~ -0.00468 vs +0.01708) with no quadrature.

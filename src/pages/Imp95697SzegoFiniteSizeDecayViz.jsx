@@ -182,6 +182,11 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
         consistent with exact agreement -- and its half-width is dominated by
         the primal finite-grid extrapolation uncertainty (u_fit&#47;u_opt
         &#126; 1.3e12), so the dual quadrature side contributes nothing.
+        imp-95784 measured that the underlying finite-N grid approaches A_opt
+        strictly from one side (above) and monotonically, so the remaining
+        +1.68e-2% point gap is a one-signed finite-grid remnant: the drive
+        tightens onto agreement as N grows, it does not separate the two
+        routes. No dual-vs-primal separation is established or claimed.
         Cross-validation tightening only; changes no Lambda bound; NO QED.
       </div>
 

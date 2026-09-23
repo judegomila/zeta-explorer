@@ -18050,6 +18050,11 @@ const DATA_MODULES = [
   // consumers PASS (none surfaces a superseded multiplier as final); one completeness gap flagged
   // (imp-95754 viz omits the 9.583x endpoint). Import-light, no zeros bundle, no bound, no QED.
   '/src/data/imp-95769-cf-band-hi-pinned-consumer-audit.js',
+  // imp-95894: follow-up citation audit re-checking the imp-95769 flagged imp-95754 viz gap (now
+  // CLOSED -- the curve carries the imp-95747 9.5831x endpoint) plus the two post-imp-95769 glossary
+  // headwords (imp-95713, imp-95797), both of which correctly cite 9.583x as current. No stale
+  // citation found anywhere. Import-light, no zeros bundle, no bound, no QED.
+  '/src/data/imp-95894-cf-band-hi-pin-citation-audit.js',
   // imp-95767: turns the imp-95743 single-run dual-vs-primal agreement 1.7e-2% at
   // delta=ln1.3 into a certified interval |A_fit-A_opt|/A_opt <= 2.46e-3 (0.246%) by
   // propagating the DD Jacobi finite-grid extrapolation (dominant, model+leave-one-out

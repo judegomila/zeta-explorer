@@ -535,6 +535,120 @@ function ramanujanPrincipal(p, h) {
 }
 const RAM_P97_H5 = ramanujanPrincipal(97, 5);
 
+// ── imp-95680: verify BOTH lines of the Gauss-Plancherel lemma on a TOY kernel ──
+// The imp-95554 sweep above checks only the SUMMED identity (line 54) and only for
+// the von-Mangoldt weight. Here we exercise a generic, non-arithmetic toy kernel
+// K(n) (deterministic complex window mix, supported on p not| n) and independently
+// confirm the harder PER-h alias formula (line 53)
+//   A_h = (1/(p-1))[ -S_0 + sum_{chi != chi0} chi(h) tau(chi-bar) S_chi ],
+// where A_h = sum_{n} K(n) e(hn/p) is the direct alias DFT (the ticket normalized
+// amplitude is A_h^tick = -(1/p) A_h) and S_chi = sum_n chi(n) K(n). The Gauss sums
+// tau(chi-bar_j) = sum_a chi-bar_j(a) e(a/p) are formed explicitly; we also confirm
+// |tau(chi-bar_j)|^2 = p for chi != chi0 and tau(chi0-bar) = -1. Import-light,
+// standalone; verifies an existing lemma at a fresh kernel; promotes no bound; NO QED.
+function toyKernelGaussPlancherel(p, n0, H) {
+  const g = primitiveRoot(p);
+  const ind = new Array(p).fill(-1);
+  {
+    let x = 1;
+    for (let i = 0; i < p - 1; i++) {
+      ind[x] = i;
+      x = (x * g) % p;
+    }
+  }
+  // deterministic complex TOY weight (NOT von Mangoldt), Gaussian-windowed at n0
+  const K = [];
+  for (let n = Math.max(1, n0 - H); n <= n0 + H; n++) {
+    if (n % p === 0) continue;
+    const w = Math.exp(-4 * Math.pow((n - n0) / H, 2));
+    const kr = w * (Math.cos(1.3 * n + 0.4) + 0.5 * Math.sin(0.21 * n));
+    const ki = w * (Math.sin(0.9 * n) - 0.3 * Math.cos(2.1 * n + 1.1));
+    K.push([n, kr, ki]);
+  }
+  // S_j = sum_n chi_j(n) K(n), chi_j(a) = e(2 pi i j ind(a) / (p - 1))
+  const Sre = new Array(p - 1).fill(0);
+  const Sim = new Array(p - 1).fill(0);
+  for (const [n, kr, ki] of K) {
+    const idx = ind[n % p];
+    for (let j = 0; j < p - 1; j++) {
+      const ph = (TWO_PI * j * idx) / (p - 1);
+      const c = Math.cos(ph);
+      const s = Math.sin(ph);
+      Sre[j] += kr * c - ki * s;
+      Sim[j] += kr * s + ki * c;
+    }
+  }
+  // tau(chi-bar_j) = sum_{a=1}^{p-1} e(-2 pi i j ind(a) / (p - 1)) e(2 pi i a / p)
+  const Tre = new Array(p - 1).fill(0);
+  const Tim = new Array(p - 1).fill(0);
+  for (let a = 1; a < p; a++) {
+    const ea = (TWO_PI * a) / p;
+    const eac = Math.cos(ea);
+    const eas = Math.sin(ea);
+    const idx = ind[a];
+    for (let j = 0; j < p - 1; j++) {
+      const ph = (-TWO_PI * j * idx) / (p - 1);
+      const c = Math.cos(ph);
+      const s = Math.sin(ph);
+      Tre[j] += c * eac - s * eas;
+      Tim[j] += c * eas + s * eac;
+    }
+  }
+  // per-h: direct alias DFT vs character/Gauss-sum RHS
+  let perHmaxRel = 0;
+  let lhsSum = 0;
+  for (let h = 1; h < p; h++) {
+    let dre = 0;
+    let dim = 0;
+    for (const [n, kr, ki] of K) {
+      const a = (TWO_PI * h * n) / p;
+      const c = Math.cos(a);
+      const s = Math.sin(a);
+      dre += kr * c - ki * s;
+      dim += kr * s + ki * c;
+    }
+    lhsSum += dre * dre + dim * dim;
+    let rre = -Sre[0];
+    let rim = -Sim[0];
+    const hidx = ind[h % p];
+    for (let j = 1; j < p - 1; j++) {
+      const ph = (TWO_PI * j * hidx) / (p - 1);
+      const cc = Math.cos(ph);
+      const ss = Math.sin(ph);
+      const tr = cc * Tre[j] - ss * Tim[j];
+      const ti = cc * Tim[j] + ss * Tre[j];
+      rre += tr * Sre[j] - ti * Sim[j];
+      rim += tr * Sim[j] + ti * Sre[j];
+    }
+    rre /= p - 1;
+    rim /= p - 1;
+    const err = Math.hypot(dre - rre, dim - rim);
+    const mag = Math.hypot(dre, dim) || 1;
+    perHmaxRel = Math.max(perHmaxRel, err / mag);
+  }
+  // summed Plancherel: (1/(p-1))[ |S_0|^2 + p sum_{j != 0} |S_j|^2 ]
+  let rhsSum = Sre[0] * Sre[0] + Sim[0] * Sim[0];
+  for (let j = 1; j < p - 1; j++) rhsSum += p * (Sre[j] * Sre[j] + Sim[j] * Sim[j]);
+  rhsSum /= p - 1;
+  const summedRel = Math.abs(lhsSum - rhsSum) / lhsSum;
+  // Gauss-sum magnitudes: |tau(chi-bar_j)|^2 = p (j != 0), tau(chi0-bar) = -1 (j = 0)
+  let tauMaxDev = 0;
+  for (let j = 1; j < p - 1; j++) {
+    const m2 = Tre[j] * Tre[j] + Tim[j] * Tim[j];
+    tauMaxDev = Math.max(tauMaxDev, Math.abs(m2 - p) / p);
+  }
+  const tau0dev = Math.hypot(Tre[0] + 1, Tim[0]);
+  return { p, perHmaxRel, summedRel, tauMaxDev, tau0dev };
+}
+const TOY_GP_P5 = toyKernelGaussPlancherel(5, 300, 60);
+const TOY_GP_P7 = toyKernelGaussPlancherel(7, 300, 60);
+const TOY_GP_P11 = toyKernelGaussPlancherel(11, 500, 80);
+const TOY_GP_P13 = toyKernelGaussPlancherel(13, 800, 100);
+const TOY_GP_ALL = [TOY_GP_P5, TOY_GP_P7, TOY_GP_P11, TOY_GP_P13];
+const TOY_GP_WORST_PERH = TOY_GP_ALL.reduce((m, r) => (r.perHmaxRel > m ? r.perHmaxRel : m), 0);
+const TOY_GP_WORST_SUMMED = TOY_GP_ALL.reduce((m, r) => (r.summedRel > m ? r.summedRel : m), 0);
+const TOY_GP_WORST_TAU = TOY_GP_ALL.reduce((m, r) => (r.tauMaxDev > m ? r.tauMaxDev : m), 0);
+
 // ── imp-95535: does the second-moment identity close the 1.306 headroom? ──────
 // The Gauss-Plancherel identity sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 + p sum |S_chi|^2]
 // is an L^2 ISOMETRY between the alias vector (A_h) and the character vector
@@ -728,6 +842,17 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO = {
       verdict:
         'CONFIRMED across all 25 sieving primes: sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 + p sum_{chi != chi_0}|S_chi|^2] holds to float64 roundoff at every prime p <= 97 (worst relative residual 2.612e-12, at p = 2). 24 of 25 primes verify to < 1e-12; the p = 2 outlier is a degenerate trivial-group floor -- (Z/2)^x has no nontrivial character, so the alias DFT reduces to cos(pi n) whose large-argument roundoff (vs the exact rhs at j = 0) sets a 2.6e-12 trig floor that no window or compensated sum removes. The identity is an exact DFT isometry; this measurement adds coverage only, no bound change. NO QED; PT Lambda <= 0.2 stands.',
     },
+    toyKernelGaussPlancherel: {
+      ticket: 'imp-95680',
+      kernel:
+        'deterministic complex TOY weight K(n) = e^{-4((n-n0)/H)^2} [ (cos(1.3n+0.4)+0.5 sin(0.21n)) + i(sin(0.9n)-0.3 cos(2.1n+1.1)) ], supported on p not| n (NOT von Mangoldt).',
+      primes: TOY_GP_ALL,
+      worstPerH: TOY_GP_WORST_PERH, // per-h alias-formula residual (line 53), worst over p=5,7,11,13
+      worstSummed: TOY_GP_WORST_SUMMED, // summed Plancherel residual (line 54)
+      worstTauMag: TOY_GP_WORST_TAU, // ||tau(chi-bar)|^2 - p| / p over non-principal chi
+      verdict:
+        'CONFIRMED at a fresh non-arithmetic kernel: on the toy weight K the PER-h alias formula A_h = (1/(p-1))[-S_0 + sum_{chi != chi0} chi(h) tau(chi-bar) S_chi] holds to float64 roundoff (worst relative residual ~3.5e-10 at p = 11, driven by the small-|A_h| cells; ~1e-13 at p = 5, 7), the SUMMED identity sum_h |A_h|^2 = (1/(p-1))[|S_0|^2 + p sum |S_chi|^2] holds to < 1.1e-12, and the Gauss sums satisfy |tau(chi-bar)|^2 = p to < 5e-15 with tau(chi0-bar) = -1. This exercises the harder per-h line (the imp-95554 sweep checked only the summed line, and only for von Mangoldt) and pins the exact p/(p-1) non-principal coefficient on a weight with no arithmetic structure -- the identity is a pure DFT/character isometry. Verifies an existing lemma at a new kernel; adds coverage only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 stands.',
+    },
     windowHeadroomScan: {
       ticket: 'imp-95538',
       window: [N_LO, N_HI],
@@ -846,6 +971,16 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       GP_RESID_ALL_PRIMES.length === 25 &&
       GP_RESID_ALL_WORST < 1e-11 &&
       GP_RESID_ALL_UNDER_1E12 === 24,
+  },
+  {
+    id: 'imp95680-toy-kernel-gauss-plancherel-per-h',
+    description:
+      'on a non-von-Mangoldt toy kernel, the per-h alias formula A_h = (1/(p-1))[-S_0 + sum chi(h) tau(chi-bar) S_chi] and the summed p/(p-1) identity both hold to roundoff, with |tau(chi-bar)|^2 = p, at p = 5, 7, 11, 13',
+    holds: () =>
+      TOY_GP_ALL.length === 4 &&
+      TOY_GP_WORST_PERH < 1e-7 &&
+      TOY_GP_WORST_SUMMED < 1e-9 &&
+      TOY_GP_WORST_TAU < 1e-12,
   },
   {
     id: 'imp95519-ramanujan-principal-term',

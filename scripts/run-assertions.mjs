@@ -17863,6 +17863,12 @@ const DATA_MODULES = [
   // conservatism is provably retained at the window bottom. Open: the sharp value (O(1)/windowing slack).
   // Import-light, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side stays PCC/GRH-gated.
   '/src/data/imp-95722-number-variance-ratio-window-bottom-bound.js',
+  // imp-95748: SENSITIVITY of the imp-95722 r_cap(3e12) ~ 0.26 to the heuristically-pinned offset C0.
+  // Puts a Gaussian sampling band SE(s^2) = s^2 sqrt(2/(nWindows-1)) on the six imp-95562 windowed
+  // variances, giving C0 in [0.296, 0.371] and r_cap(3e12) in [0.240, 0.279] about 0.260 -- the VALUE
+  // is offset-sensitive (~+/-7.5%) but the conservatism r_cap < 1 is robust (whole interval far below 1).
+  // Import-light, sensitivity assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
+  '/src/data/imp-95748-number-variance-ratio-c0-sensitivity.js',
   // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
   // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
   // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no
@@ -17903,6 +17909,14 @@ const DATA_MODULES = [
   // * 2 sin^2(pi k delta/L), all-positive, no subtraction; double-double confirmed).
   // Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95744-twin-pair-block-floor-belowprec-dd-resolve.js',
+  // imp-95747: GUE pair-correlation reweighting of the imp-95721 flat-RvM r_eff. Repulsion g(x) ~
+  // (pi^2/3)x^2 regularizes the 1/(1-alpha) flip-reach divergence (r_eff saturates at 9.583x) but does
+  // not lower it below the 8.6x one-spacing value; box-min band barely moves. Import-light, no zeros bundle.
+  '/src/data/imp-95747-cf-reff-gue-repulsion-regularization.js',
+  // imp-95752: reshapes the imp-95723 full (delta,rho) finite-80 bias grid into a
+  // heatmap-ready viz-data module (axis labels + bias%/resolved/D matrices), no
+  // re-derivation. Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95752-finite80-bias-heatmap-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

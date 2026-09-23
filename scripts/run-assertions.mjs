@@ -17793,6 +17793,12 @@ const DATA_MODULES = [
   // floor is ~0.995 (C_F is a LOWER bound), so the ~16pct cut the wedge needs is ~32x the largest
   // honest downward lane -- the imp-95617 E_flow inversion wedge is physically FORECLOSED. No bound, no QED.
   '/src/data/imp-95674-cf-provenance-band-wedge-reachability.js',
+  // imp-95693: delta-robustness test of the imp-95659 twin-pair block floor F(delta,rho) -- recomputes
+  // the rho grid at a SECOND in-pair gap delta=ln1.5 (plus ln1.2/ln2.0). Strict rho-monotonicity and
+  // endpoint bracketing are delta-ROBUST (bracketing holds where A_opt is above the ~1e-16 Jacobi floor;
+  // ln1.2 left endpoint is below precision), but the ~1/2-retention crossover is delta-SPECIFIC in rho
+  // (drifts ~15 -> ~9.4) while nearly FIXED in the absolute gap D_cross ~ 3.6-4.0. Import-light, no bound, no QED.
+  '/src/data/imp-95693-twin-pair-block-floor-second-delta.js',
 ];
 
 let ALL_MODULES = FAST_MODE

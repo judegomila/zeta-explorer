@@ -18255,6 +18255,17 @@ const DATA_MODULES = [
   // closed-form c_odd(1/m) at m>20 exists and PIECE A stays the binding shortfall. Import-light
   // (imp-95861 anchor + Q0_RECON literals), no bound, NO QED.
   '/src/data/imp-95878-c-odd-null-vs-reconstruction-wide-modulus.js',
+  // imp-95879: answers the imp-95388 obligation-(2) question -- does a NON-FIXED-AMPLITUDE window
+  // family or an alternative modulus normalization give the sign functional theta = int f^2 / int g^2
+  // a nontrivial image? NO. Positive-cone triviality theorem (exact, strictly-positive packet model):
+  // g = sum |c_n| f_n >= |f| pointwise so theta in (0,1], and theta = 1 <=> all nonzero c_n share one
+  // sign. Corollary: a variable-modulus POSITIVE family is a positive cone so theta = 1 identically
+  // (non-fixed amplitude does not help), and theta is degree-0 so any modulus normalization is a no-op
+  // on a positive cone and only moves theta WITHIN the signed regime -- the departure theta < 1 is
+  // governed solely by the sign-orthant, the direction both moves leave invariant. The triviality is
+  // intrinsic to positivity; obligation (2) stays gated on the sign-specification (imp-95375/95397,
+  // imp-95212 port). Import-light, numerical witness cross-checks the lemma. No bound, NO QED.
+  '/src/data/imp-95879-theta-positive-cone-triviality-intrinsic.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

@@ -22370,6 +22370,44 @@ export const glossary = [
       'imp-95839 evaluates the closed-form Widom leading prefactor C_Widom = 50 pi^4/delta^2 used as the fit target',
     ],
   },
+  {
+    term: 'imp-95923 NO-FINITE-RANGE-HANDLE: the sigma(N) peak/decay gives no unconditional lever on C_mb<=1 (domain non-overlap + category mismatch)',
+    category: 'proof',
+    definition:
+      'ASSESSMENT (frontier-direction, NOT rigorous). Ticket imp-95923 asks whether the ' +
+      'imp-3220/imp-3406 interior peak-and-decay structure of the conditional share ' +
+      'sigma(N) = E_coll(N)/E(N) admits any FINITE-RANGE unconditional handle on the ' +
+      'GUE-conditional C_mb <= 1 (imp-486) -- specifically a sub-range where the ' +
+      'unconditionally-rigorous E_trunc dominates the GUE-conditional E_coll, so the ' +
+      'unconditional empirical E1/E2 floor (PATH 1) could bound C_mb there. Verdict: it ' +
+      'does NOT, and the obstruction is TWOFOLD and precise.\n\n' +
+      '(1) DOMAIN NON-OVERLAP. imp-3220 established E_coll carries >= 84% of E(N) at EVERY ' +
+      'N in the assembly range {2..1e6}, so E_trunc (~3e-5, N-independent) NEVER dominates ' +
+      'E_coll anywhere the unconditional empirical E1/E2 floor actually reaches (top of ' +
+      'PATH 1 coverage: N = 1e6). E_trunc only overtakes E_coll far in the tail: the ' +
+      'sigma = 0.5 halving landmark sits at N ~ 3.267e9 (imp-33582/imp-3444) and sigma < 0.1 ' +
+      'at N ~ 3.213e11 (imp-33708), i.e. the E_trunc-dominant regime begins THREE-PLUS ' +
+      'decades ABOVE the N = 1e6 ceiling of the unconditional empirical coverage. No single N ' +
+      'is both empirically-covered AND E_trunc-dominant; the two regions never intersect.\n\n' +
+      '(2) CATEGORY MISMATCH. Even inside the tail regime where E_trunc DOES dominate, ' +
+      'sigma(N) is a budget-SHARE diagnostic (what fraction of E(N) rests on the conditional ' +
+      'constant), not a bound on the conditional CONSTANT C_H = C_mb itself. A vanishing ' +
+      'conditional share does not upper-bound C_mb; the E1/E2 predicates constrain the ' +
+      'leading-order bridge behaviour, not the Holder-1/2 modulus constant C_H (imp-2642). ' +
+      'So sigma(N) small does NOT convert the empirical floor into an unconditional C_mb ' +
+      'bound even where E_coll is negligible. The sole irreducible conditional stays C_H via ' +
+      'the Erdos-Schlein-Yau local law (imp-486); the sigma(N) peak/decay geometry is a ' +
+      'fidelity map, not a lever on it.\n\n' +
+      'HONEST SCOPE: assessment only, NOT rigorous. ' + SIGMA_3220_3406_HONEST_SCOPE_CORE,
+    firstUsed: 'imp-95923 (assessing whether the imp-3220/imp-3406 sigma(N) peak/decay admits a finite-range unconditional handle on C_mb <= 1, finding the twofold domain-non-overlap + category-mismatch obstruction), 2026',
+    relatedTerms: [
+      'imp-3220-en-bridge-fidelity-frontier established E_coll >= 84% of E(N) at every N in {2..1e6}, the domain-non-overlap input (imp-3220)',
+      'imp-486 proved C_mb <= 1 has no unconditional bound without GUE universality (Erdos-Schlein-Yau local law), the sole irreducible conditional (imp-486)',
+      'imp-33582 accelerating sigma(N) post-peak decay and the sigma = 0.5 halving landmark N ~ 3.267e9, the tail crossover point (imp-33582)',
+      'imp-33708 far-tail sigma = 0.5 / sigma < 0.1 landmarks at N ~ 3.27e9 / 3.21e11, quantifying where E_trunc overtakes E_coll (imp-33708)',
+      'imp-2642 C_H = 1/8 ansatz, the conditional constant sigma(N) share-geometry cannot bound (imp-2642)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

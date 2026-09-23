@@ -90,7 +90,38 @@ export const RH_SWEEP_SYNTHESIS = Object.freeze({
     + 'SOTA; RH open; NO QED.',
 });
 
+// imp-96076: cross-route wall map for all thirteen 2026-09-23 novel routes A-M
+// (the seven-route sweep above, Route H/I follow-ons, and the J/K/L/M non-stat-mech
+// batch). Each entry names the ONE wall the route's verdict lands on, so the full
+// program's convergence structure -- mostly Weil positivity, with a few distinct
+// walls (zero-density, circularity, Jensen/integration, PCC, the mollifier lineage)
+// -- reads at a glance without opening thirteen data modules. Derived from the
+// verdict/wallMap strings already recorded in this file and in
+// rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js; no new claims.
+export const RH_CROSS_ROUTE_WALL_MAP = Object.freeze([
+  { route: 'A', name: 'reflection positivity (OS)', wall: 'Weil positivity', note: 'infinite-N reflection positivity = Weil positivity = RH; finite-N version refuted' },
+  { route: 'B', name: 'arithmetic freeze-flow', wall: 'Weil positivity', note: 'global confinement ⟺ interlacing (Hermite–Kakeya–Obreschkoff), RH-strength' },
+  { route: 'C', name: 'signed interferometer', wall: 'Weil positivity', note: 'FE-compatible sign choice reconstructs a Davenport–Heilbronn off-line zero set (Voronin universality)' },
+  { route: 'D', name: 'Peierls confinement', wall: 'Weil positivity', note: 'only the arithmetic phase-cancellation confines; the log-gas free energy alone is anti-confining' },
+  { route: 'E', name: 'supercritical Widom line', wall: 'zero-density', note: 'σ=½ peak is Parseval/FE-forced and RH-blind; sharpest unconditional statement is Bohr–Landau/Littlewood zero-density' },
+  { route: 'F', name: 'Kramers–Wannier uniqueness', wall: 'circularity', note: 'every local-uniqueness formulation is equivalent to RH in the window (Turing/Hardy/Levinson/Alpöge–Furman); duality alone gives no spectral input' },
+  { route: 'G', name: 'log-gas RG freeze', wall: 'Weil positivity', note: 'RG coarse-graining is inert on the zeros unless it breaks self-duality, and destroys exactly the close-pair correlations RH is about' },
+  { route: 'H', name: 'Connes–Consani scaling site', wall: 'Weil positivity', note: 'proven archimedean partial (u-support < ln2); the second adelic direction is spectrally inert (2-power-character family)' },
+  { route: 'I', name: 'semilocal S={∞,2} Sonine trace identity', wall: 'Weil positivity', note: 'exact identity holds; the open step is the inequality D_S ≤ L_S on g-support < ln 3, saturated to 3 digits at (ln3)/2' },
+  { route: 'J', name: 'Weil–Deligne function-field import', wall: 'Weil positivity + Landau pole + PCC', note: 'all three Weil–Deligne engines (Riemann–Weil, de la Vallée Poussin, Rankin–Selberg) land on a distinct known wall' },
+  { route: 'K', name: 'moments / ratios conjecture', wall: 'Jensen/integration', note: "Littlewood's integrated lemma is the only moment→zero bridge; the one pointwise-sensitive channel is RH-equivalent (mollifier lineage)" },
+  { route: 'L', name: 'Li–Herglotz–CMV explicit operator', wall: 'Weil positivity', note: 'reality forced by Herglotz/Schur filtration with no zero input; completeness of the finite certificate IS Weil positivity' },
+  { route: 'M', name: 'Nyman–Beurling / Vasyunin reciprocity', wall: 'mollifier lineage (Estermann FE)', note: 'the Bettin–Conrey reciprocity is the Estermann functional equation and cannot bound the Gram inverse; collapses to the standard mollifier' },
+]);
+
 export const RH_SWEEP_SYNTHESIS_ASSERTIONS = Object.freeze([
+  {
+    id: 'cross-route-wall-map-covers-a-to-m',
+    holds: () => RH_CROSS_ROUTE_WALL_MAP.length === 13
+      && 'ABCDEFGHIJKLM'.split('').every((r) => RH_CROSS_ROUTE_WALL_MAP.some((e) => e.route === r))
+      && RH_CROSS_ROUTE_WALL_MAP.every((e) => e.wall.length > 3 && e.note.length > 10),
+    why: 'imp-96076: the cross-route wall map tabulates all thirteen 2026-09-23 novel routes A-M, each with a named wall.',
+  },
   {
     id: 'all-seven-routes-worked',
     holds: () => RH_SWEEP_SYNTHESIS.verdicts.length === 7

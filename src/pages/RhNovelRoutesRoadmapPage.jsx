@@ -10,6 +10,7 @@ import { RH_NOVEL_ROUTES } from '../data/rh-novel-routes-roadmap-2026-09-23.js';
 import { RH_ROUTE_H_CONNES_SCALING_SITE as ROUTE_H } from '../data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js';
 import { RH_ROUTE_H_SEMILOCAL_SONINE as ROUTE_H_SONINE } from '../data/rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js';
 import { RH_ROUTE_I_SEMILOCAL_SONINE_TRACE as ROUTE_I } from '../data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';
+import { RH_CROSS_ROUTE_WALL_MAP } from '../data/rh-novel-routes-sweep-synthesis-2026-09-23.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
@@ -121,6 +122,40 @@ function RouteStatusDashboard({ routes }) {
   );
 }
 
+function CrossRouteWallMap({ entries }) {
+  return (
+    <div className="card" style={{ marginTop: 20 }}>
+      <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Cross-route wall map (routes A–M)</h3>
+      <p style={{ fontFamily: mono, fontSize: 12, color: 'var(--faint)', marginBottom: 10, lineHeight: 1.6 }}>
+        The single wall each of the thirteen 2026-09-23 routes lands on. Most reduce to Weil positivity;
+        a few land on a distinct wall (zero-density, circularity, Jensen/integration, PCC, the mollifier lineage).
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+          <thead>
+            <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--hairline)' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Route</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Name</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Wall</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            {entries.map((e) => (
+              <tr key={e.route} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{e.route}</td>
+                <td style={{ padding: '6px 8px', color: 'var(--ink-soft)' }}>{e.name}</td>
+                <td style={{ padding: '6px 8px', color: 'var(--blue)', fontFamily: mono, fontSize: 12 }}>{e.wall}</td>
+                <td style={{ padding: '6px 8px', color: 'var(--ink-soft)', fontSize: 12 }}>{e.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 function RouteCard({ route }) {
   return (
     <div className="card" style={{ marginTop: 16 }}>
@@ -210,6 +245,8 @@ export default function RhNovelRoutesRoadmapPage() {
             data: src/data/{ROUTE_I.id}.js · limits: {ROUTE_I.honestLimits}
           </p>
         </div>
+
+        <CrossRouteWallMap entries={RH_CROSS_ROUTE_WALL_MAP} />
 
         <div className="card" style={{ marginTop: 24, background: 'var(--paper2)' }}>
           <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 8 }}>Honest note</h3>

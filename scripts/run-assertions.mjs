@@ -17758,6 +17758,10 @@ const DATA_MODULES = [
   // most-adverse-physical-corner transition-vs-knee gap (~+0.00353 > 0) and asserts it stays
   // strictly positive, so the imp-95617 inversion wedge never enters the provenance-grounded band.
   '/src/data/imp-95655-physical-corner-gap-positive.js',
+  // imp-95653: shape test for the Sun-Catalan c_odd(rho)=kappa rho^2 form off the single
+  // 1/20 anchor -- records that no second independent numeric anchor exists (two-point test
+  // not executable, sub-gap OPEN) and guards the kappa-insensitive downstream margin band.
+  '/src/data/imp-95653-c-odd-second-anchor-shape-test.js',
 ];
 
 let ALL_MODULES = FAST_MODE

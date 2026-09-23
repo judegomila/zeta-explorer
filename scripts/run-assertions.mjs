@@ -18316,6 +18316,15 @@ const DATA_MODULES = [
   // kernel-sum evaluation to the SIGN (nonnegativity) of the imp-95212 Fresnel-Airy envelope, OPEN.
   // Import-light. No bound, NO QED.
   '/src/data/imp-95917-vonmangoldt-weighted-sign-image.js',
+  // imp-95918: extends the imp-95898 STEP 2 exact residue-mean sign image <theta_C> = (p tr(G) - S)/
+  // ((p-1) S) from 4 windows to a wider (p,k) grid (p in {3,5,7,11,13,17,19,23}, k in {4,5,6,7}) and
+  // MEASURES the decay-in-p. Two clean near-exact laws: (A) diagonal fraction tr(G)/S ~ 1/(p-1)
+  // (diagFrac*(p-1) within 0.06% of 1) and hence (B) <theta_C> ~ 1/(p-1)^2 (theta*(p-1)^2 within 1.4%
+  // over p=3..23) -- sharpening the imp-95898 STEP 3 qualitative "roughly the diagonal fraction of S"
+  // to a two-line power law. The four original windows reproduce to 1e-5. Import-light. Measurement
+  // only; changes no bound; the imp-95212 kernel-weighted residue-bias port is untouched, STILL OPEN;
+  // NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
+  '/src/data/imp-95918-residue-avg-sign-image-pk-grid.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

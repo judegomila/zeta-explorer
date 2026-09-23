@@ -22508,6 +22508,36 @@ export const glossary = [
       'imp-95917-vonmangoldt-weighted-sign-image.js the physical von-Mangoldt-weighted sign image whose gap from the residue-uniform mean is the object of the obstruction (imp-95917)',
     ],
   },
+  {
+    term: 'imp-95897 honest-status verdict: finite-height offset C0 monotonicity UNDECIDED, because the six accessible-height offsets are noise-dominated with an interior maximum',
+    category: 'proof-status',
+    definition:
+      'An honest-status verdict note for imp-95897, which asks whether the imp-95722 finite-height ' +
+      'offset C0 (offset(T) = measured Var S(T) minus the Selberg (1/2pi^2) log log(T/2pi) term) is ' +
+      'monotone in T over [3e12, infinity). Regressing offset(T) on log T across the six accessible ' +
+      'imp-95710 heights gives slope 7.64e-4 and R^2 = 0.0007 -- statistically indistinguishable from ' +
+      'zero -- and the maximum (C0 = 0.3337) is attained at an INTERIOR height (T = 1.5e5), not an ' +
+      'endpoint, a shape structurally incompatible with monotonicity. Selberg fixes only the finite ' +
+      'asymptote, not the finite-height approach direction near 3e12, so the module\'s own decision ' +
+      'field reads verbatim "MONOTONICITY UNDECIDED." Substituting a lower, near-asymptotic offset ' +
+      'for C0 would drop r_cap(3e12) from 0.260 to as low as 0.196 (~25 pct) and could break the ' +
+      'upper-envelope property r_cap >= r, so the max-over-accessible-heights anchor is retained as ' +
+      'the envelope-safe construction.\n\n' +
+      'HOW TO APPLY: cite this verdict as the reason the C0 envelope anchor is the max over accessible ' +
+      'heights rather than a lower or extrapolated offset. For the CURRENT monotonicity status, do not ' +
+      'stop at UNDECIDED -- imp-95921 later decided the question analytically (the saturated box number ' +
+      'variance shows offset(T) rises in log log T with exact slope 1/2pi^2, an UPWARD approach inside ' +
+      'the max-anchor cushion, though only a safe envelope over a finite super-window); route downstream ' +
+      'readers to imp-95921, not to this UNDECIDED verdict alone.\n\n' +
+      'HONEST SCOPE: verdict-only assessment; no numeric bound changes; NO QED; the zero-side route ' +
+      'stays PCC / GRH-gated; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95929 (surfacing the imp-95897 MONOTONICITY UNDECIDED verdict as its own honest-status headword), 2026',
+    relatedTerms: [
+      'imp-95897-c0-offset-monotonicity-envelope-safety.js the noise-dominated regression (slope 7.64e-4, R^2 = 0.0007) and interior-max (1.5e5) evidence behind the UNDECIDED verdict (imp-95897)',
+      'imp-95722-number-variance-ratio-window-bottom-bound the r_cap envelope this verdict protects, where C0 = max offset over accessible heights (imp-95722)',
+      'imp-95921-c0-offset-approach-analytic-bracket the analytic decision (upward drift, slope 1/2pi^2) that SUPERSEDES this UNDECIDED verdict for current status (imp-95921)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

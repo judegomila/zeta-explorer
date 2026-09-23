@@ -17834,6 +17834,14 @@ const DATA_MODULES = [
   // finite-size chain-end band-edge effect, not a first-order perturbation-theory model error.
   // Import-light (baked literals + cheap re-derivation), no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95726-twin-pair-half-retention-finite-size-limit.js',
+  // imp-95741: EXTENDS the imp-95726 exact twin-pair D_cross finite-size ladder past its nPairs=160
+  // cap to nPairs=320 (n=640) and 640 (n=1280) with a shift-invert / inertia (Sturm) eigensolver in
+  // place of the reorthogonalized Lanczos that under-converged at 640 (HONEST SCOPE (b)). The residual
+  // D_closed - D_true keeps its 1/nPairs^2 (~1/4-per-octave) band-edge decay into the next octave
+  // (octave ratios 3.989 then 3.994) and a single-octave h^2 Richardson (4 d640-d320)/3 lands on the
+  // closed form S(delta,D_cross)=blockIso/2 to ~2.5e-8. Import-light (baked literals + cheap
+  // closed-form re-derivation), assess only, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95741-twin-pair-dcross-640-shift-invert.js',
   // imp-95710: TABULATES the imp-95562 finding-4 finite-height number-variance ratio r(T) =
   // measured pointwise variance / GUE Sigma^2(L) vs height. The per-height ratio does NOT trend
   // toward the GUE asymptote 1 -- it sits in [0.35, 0.48] (mean 0.40) across T = 1e4..5e5 with a
@@ -17884,6 +17892,11 @@ const DATA_MODULES = [
   '/src/data/imp-95724-c-odd-J-variation-magnitude-assessment.js',
   '/src/data/imp-95725-szego-ratio-monotonicity-endpoint.js',
   '/src/data/imp-95727-szego-coefficient-eigensolver-crosscheck.js',
+  // imp-95744: resolves the five imp-95723 below-precision (delta,rho) cells via a
+  // cancellation-free theta=0 Poisson dual (F_inf = (2pi/L) sum_k sech(2pi^2 k/L)
+  // * 2 sin^2(pi k delta/L), all-positive, no subtraction; double-double confirmed).
+  // Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95744-twin-pair-block-floor-belowprec-dd-resolve.js',
 ];
 
 let ALL_MODULES = FAST_MODE

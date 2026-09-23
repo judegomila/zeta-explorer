@@ -684,7 +684,7 @@ const MARKOV_NORMALIZATION = {
 };
 
 const SEAM_CHAIN_STATUS = {
-  status: 'THREE OPEN OBLIGATIONS, NO BOUND CHANGE',
+  status: '(1) CLOSED · (2) OPEN · (3) REDUCED, NO BOUND CHANGE',
   title: 'Seam-chain / signed-certificate program (imp-95210..95420)',
   body: [
     'This is a separate program from T3, tracking whether a signed (as opposed to ' +

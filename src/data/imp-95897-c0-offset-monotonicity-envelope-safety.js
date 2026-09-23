@@ -78,6 +78,10 @@
  * @see imp-95722-number-variance-ratio-window-bottom-bound (r_cap envelope; C0 = max offset)
  * @see imp-95884-odlyzko-high-block-calibration-assessment (raised the (C) envelope-safety hazard)
  * @see imp-95710 / imp-95562 (six measured sd(C - E) literals; noise-dominated finite-height data)
+ * @see imp-95921-c0-offset-approach-analytic-bracket -- SUPERSEDES the UNDECIDED verdict below:
+ *   the saturated box number variance decides the approach direction analytically (UPWARD near
+ *   3e12, slope 1/2pi^2), inside the max-anchor cushion but crossing C0 at a finite T_x. Readers
+ *   citing this module's "monotonicity UNDECIDED" finding should cite imp-95921 instead.
  */
 
 const TWO_PI = 2 * Math.PI;
@@ -226,6 +230,14 @@ export const IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY = {
     'imp-95722 (r_cap envelope, C0 = max finite-height offset, r_cap(3e12) ~ 0.26); imp-95884 ' +
     '(raised the (C) envelope-safety hazard); imp-95710 / imp-95562 (six measured sd(C - E) ' +
     'literals, noise-dominated); imp-95519 (window bottom T = 3.0e12).',
+  supersededBy:
+    'imp-95921-c0-offset-approach-analytic-bracket DECIDED what this module left UNDECIDED: via ' +
+    'the saturated box number variance, offset(T) rises in log log T with exact analytic slope ' +
+    '1/2pi^2, so the approach to C0 near 3e12 is UPWARD (not the downward drift this module could ' +
+    'not rule out) and sits inside the max-anchor cushion -- but because offset grows without ' +
+    'bound, C0 is only a safe envelope over a FINITE super-window, crossing at a finite T_x. ' +
+    'Downstream consumers should cite imp-95921, not this module’s UNDECIDED verdict, for the ' +
+    'current monotonicity status.',
 };
 
 // --- self-executing internal-consistency assertions (baked-literal re-derivation only) ---
@@ -254,6 +266,9 @@ export const IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY = {
     throw new Error('imp-95897: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY.verdict))
     throw new Error('imp-95897: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  // consumer re-point (imp-95952): the UNDECIDED verdict above must forward-cite imp-95921.
+  if (!/imp-95921/.test(IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY.supersededBy))
+    throw new Error('imp-95897: supersededBy must cite imp-95921');
 })();
 
 export default IMP95897_C0_OFFSET_MONOTONICITY_ENVELOPE_SAFETY;

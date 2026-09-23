@@ -18336,6 +18336,13 @@ const DATA_MODULES = [
   // five baked crossings; no DD eigensolve). Sub-gap
   // imp-95858-intermediate-delta-dd-eigensolve-crossing. No bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95858-dd-crossing-reach-loo-cross-validation.js',
+  // imp-95857: extend the delta=ln1.3 direct-DD shift-invert eigensolve past the
+  // imp-95841 window (nPts=1920) with a heavy budget to nPts=3200; the direct-DD
+  // local log-log slope keeps tightening toward -2 FROM BELOW (-2.0133 -> -2.0102),
+  // so the deep-corner A_opt underflow does NOT flatten the exponent -- the imp-95841
+  // residual is shift-budget under-convergence, not a pre-asymptotic wall. One live
+  // N=320 solve re-validates the solver. No bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95857-ln13-extended-reach-exponent.js',
   // imp-95871: registry audit found imp-95837, imp-95844 and imp-95846 committed
   // as tracked files but absent from this DATA_MODULES sweep, so their
   // throw-on-failure assertions never ran under npm run-assertions. Wiring them

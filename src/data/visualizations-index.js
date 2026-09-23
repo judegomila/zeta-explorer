@@ -2435,6 +2435,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: renders the imp-95430 baked mDependence/rhoDependence/bindingGapM8 columns verbatim (no re-derivation); the crossing threshold is a worst-of-400 estimate, not an infimum; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95493-rstar-two-end-accuracy',
+      title: 'r_star(x) Two-End Asymptotic Accuracy: Lambert-W vs Edge Series',
+      oneLine:
+        'Log-scale relative-error curves for the imp-95377 small-x Lambert-W form and the imp-95447 x->1 edge series against the exact RSTAR-EQ root of r_star(x), shading the mid-band x in (0.0742, 0.7579) where neither closed form is within 1%.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95493-rstar-two-end-accuracy-data.js',
+      paperSourcePath:
+        'src/data/imp-95493-rstar-two-end-accuracy-data.js (record IMP95493_SUMMARY; imp-95493 viz page)',
+      ticket: 'imp-95493',
+      pedagogicalStep: 158,
+      honestCeiling:
+        'Derivation/measurement only: both accuracy curves are computed fresh from the imp-95377/imp-95447 closed forms against a bisection root of THEOREM RSTAR-EQ (no re-derivation of either asymptotic); the shaded gap is wider than the imp-95447 informal ~[0.3, 0.6] window but contains it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95622-sigma-exponent-ramp',
       title: 'sigma(N) Half-Decade Exponent Ramp p(N)',
       oneLine:

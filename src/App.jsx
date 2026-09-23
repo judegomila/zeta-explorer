@@ -1090,6 +1090,9 @@ const Imp95491CombinedOfflatticeOnsetLadderViz = lazy(() =>
 const Imp95492BreachThresholdSurfaceViz = lazy(() =>
   import('./pages/Imp95492BreachThresholdSurfaceViz.jsx')
 );
+const Imp95493RstarTwoEndAccuracyViz = lazy(() =>
+  import('./pages/Imp95493RstarTwoEndAccuracyViz.jsx')
+);
 const Imp95622SigmaExponentRampViz = lazy(() =>
   import('./pages/Imp95622SigmaExponentRampViz.jsx')
 );
@@ -3017,6 +3020,10 @@ function AppShell() {
           <Route
             path="/viz-imp95492-breach-threshold-surface"
             element={<Imp95492BreachThresholdSurfaceViz />}
+          />
+          <Route
+            path="/viz-imp95493-rstar-two-end-accuracy"
+            element={<Imp95493RstarTwoEndAccuracyViz />}
           />
           <Route
             path="/viz-imp95622-sigma-exponent-ramp"

@@ -43,14 +43,20 @@
  *   WHAT THIS IS AND IS NOT
  *   ------------------------
  *   A glossary-style lookup restating the imp-95677 float64-floor obstruction for quick reference. It
- *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound. Resolving the
- *   exact convergence rate and confirming the limit is exactly 1 (not an O(1) constant near 1) needs
- *   extended precision -- OPEN. Catalan constant G irrationality remains OPEN; NO QED. Platt-Trudgian
+ *   establishes nothing, instantiates no interval, closes no sub-gap, moves no bound. At the time this
+ *   headword was written, resolving the exact convergence rate and confirming the limit is exactly 1
+ *   needed extended precision. That extended-precision confirmation has since landed: imp-95825 supplies
+ *   the finite-section positivity certificate (lambda_min(G_n) >= A_opt for every section size), and
+ *   imp-95823 reproduces this same rho=1 sequence via a direct double-double eigensolve with no sub-1
+ *   undershoot at any section, so the 0.909 reading recorded here is settled as roundoff, not a new
+ *   phenomenon. Catalan constant G irrationality remains OPEN; NO QED. Platt-Trudgian
  *   Lambda <= 0.2 remains SOTA.
  *
  * @see imp-95677-rho1-szego-finite-size-convergence (source: the measurement and float64-floor obstruction this glosses)
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (the rho=1 endpoint this refines)
  * @see imp-95419-separated-class-optimal-riesz-floor (A_opt scalar class floor / symbol infimum)
+ * @see imp-95825-finite-section-positivity-certificate (lambda_min(G_n) >= ess-inf f = A_opt for every section size -- confirms the sub-1 reading here is impossible as an exact value)
+ * @see imp-95823-rho1-szego-direct-dd-eigensolve (direct double-double eigensolve confirming the roundoff diagnosis: no sub-1 undershoot away from the float64 floor)
  *
  * Ticket: imp-95700 (content, low). Documentation only; establishes nothing; NO QED; Platt-Trudgian
  * Lambda <= 0.2 SOTA.
@@ -99,7 +105,9 @@ export const IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD = Object.freeze({
     'no bound; G irrationality OPEN; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-95677 (the measurement and float64-floor obstruction this headword glosses); imp-95659 ' +
-    '(the rho=1 endpoint this refines); imp-95419 (A_opt scalar class floor / symbol infimum).',
+    '(the rho=1 endpoint this refines); imp-95419 (A_opt scalar class floor / symbol infimum); ' +
+    'imp-95825 (finite-section positivity certificate) and imp-95823 (direct double-double ' +
+    'eigensolve) -- the roundoff correction confirming the 0.909 reading as noise, not a real value.',
 });
 
 export default IMP95700_CANCELLATION_FLOOR_GLOSSARY_HEADWORD;

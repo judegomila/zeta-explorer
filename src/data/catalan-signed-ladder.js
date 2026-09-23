@@ -170,6 +170,13 @@ export const CATALAN_SIGNED_LADDER = Object.freeze({
       + 'G-FREE relation "12·I₁ = −68 + 11π + 4π² − 9ln2" at the 1e-7 noise floor — a '
       + 'HALLUCINATION (a dense lattice fakes a hit). Every period-dimension claim here rests on '
       + 'EXACT hand derivation, never on low-precision PSLQ.',
+    secondAnchorCaveat:
+      'Pre-emptive honest-status note: a candidate second Sun-Catalan anchor at ρ=1/19 '
+      + '(c_odd(1/19)=0.006954762801) is CONDITIONAL, not certified — it rests on an unproven '
+      + 'm-independence of the +4 additive offset in the Sun Prop-6.3 telescoping constant '
+      + '(verified only at m=20). This surface does not currently display that anchor; if it '
+      + 'ever does, it must carry this caveat until the regularized-telescoping-constant '
+      + 'derivation certifies m-independence.',
   },
 
   references: [

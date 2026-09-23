@@ -131,6 +131,9 @@ export default function CatalanSignedLadderPage() {
       <p style={{ fontSize: 13.5, color: 'var(--faint)', borderTop: '1px solid var(--hairline)', paddingTop: 10 }}>
         {D.verdict.caveat}
       </p>
+      <p style={{ fontSize: 13.5, color: 'var(--faint)', paddingTop: 4 }}>
+        {D.verdict.secondAnchorCaveat}
+      </p>
 
       <h2>References</h2>
       <ol className="ed-mono" style={{ paddingLeft: 20, fontSize: 13, color: 'var(--ink-soft)' }}>

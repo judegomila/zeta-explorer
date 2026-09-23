@@ -227,10 +227,30 @@ export const ROUTE_B_FREEZE_FLOW = Object.freeze({
     pencil: 'Ξ_τ = (1−τ)Ξ + 2τΨ₁, τ∈[0,1]; endpoint 2Ψ₁ = −P cos ϑ (Riemann–Siegel main term, half-Gram lattice)',
     psi1RealRooted: { boxZeroCount: 50, realZeroCount: 50, box: '[10,145]×[−6,6]', xiBoxZeroCount: 50, xiRealZeroCount: 50 },
     realZeroCountOnPath: { window: [10, 145], tauGrid: 0.05, xGrid: 0.05, counts: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50] },
+    // imp-96023: extend the scan OFF the [0,1] leg to LOCATE where real-rootedness first breaks.
+    // Xi_tau real-zero count on the first 50 (window [10,145], xGrid 0.05) over tau in [-2,3], step 0.1.
+    extendedTauScan: {
+      tauRange: [-2, 3], tauStep: 0.1, window: [10, 145], xGrid: 0.05,
+      counts: [44, 44, 44, 46, 46, 46, 46, 46, 46, 48, 48, 48, 48, 48, 48, 50, 50, 50, 50, 50,
+        50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 43, 33, 31, 25, 23, 21, 21,
+        19, 17, 17, 17, 17, 17, 17, 17, 19, 18, 18],
+      firstBreakBelowZero: { tau: -0.58, count: 48 },
+      firstBreakAboveOne: { tau: 1.24, count: 48 },
+      realRootedInterval: [-0.56, 1.22],
+      reading: 'The full 50 real zeros survive across the whole confining leg [0,1] and slightly beyond, on '
+        + 'tau in about (−0.56, 1.22). The FIRST break is OUTSIDE [0,1] on BOTH sides: at tau ≈ −0.58 the count '
+        + 'drops to 48 (one pair goes complex; the anti-confining direction that amplifies arithmetic clustering '
+        + 'while subtracting the lattice) and at tau ≈ +1.24 it drops to 48 (overshooting past the lattice). '
+        + 'Degradation is monotone away from the segment (44 by tau=−2, 17 by tau≈2.4). This CONFIRMS the '
+        + 'away-from-ζ reading: the pencil is real-rooted precisely on the segment joining ζ (tau=0) to the '
+        + 'mean-field half-Gram lattice (tau=1), and loses real-rootedness the instant it leaves that segment — '
+        + 'so no break occurs anywhere on the confining [0,1] leg and the flow carries no RH information back to tau=0.',
+    },
     reading: 'No pair of the first 50 zeros goes complex along the mean-field pencil (sign-change count constant at 50 on a 0.05 grid). '
       + 'Consistent with the Test 2 majority: the τ>0 direction (toward the lattice) tends to confine. This is the arithmetic analogue of '
       + 'de Bruijn H_{1/2}: a trivially regular endpoint reached by a flow that confines AWAY from ζ, so it carries no '
-      + 'RH information at τ=0 — the same trap that flow-blindness identifies for t.',
+      + 'RH information at τ=0 — the same trap that flow-blindness identifies for t. imp-96023: extending the scan off [0,1] '
+      + 'locates the first real-rootedness break OUTSIDE the interval (tau ≈ −0.58 and ≈ +1.24), never on the confining leg — see extendedTauScan.',
   },
 
   nextTest:

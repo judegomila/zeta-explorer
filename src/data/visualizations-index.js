@@ -2786,6 +2786,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-plots the frozen imp-95863 decade ledger verbatim (no re-derivation, no fresh RvM inversion); rows above N=1e6 are asymptotic estimates, not verified ordinates, and no cataloged in-repo source buys any decades; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95887-szego-dd-toeplitz-chain',
+      title: 'Szego / DD-Toeplitz Chain: C(delta) Crosscheck and Per-Delta Reach',
+      oneLine:
+        'Renders the imp-95743 double-double Szego edge-coefficient C(delta)=pi^2/(2 delta^2) crosscheck (DD fit tracks the law where the float64 fit breaks at ln 1.3) alongside the imp-95885 per-delta reach/conditioning comparison across ln1.2/ln1.25/ln1.3, closing the imp-95778 page-reachability residual.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95887-szego-dd-toeplitz-chain-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95743-szego-coefficient-double-double-crosscheck.js, src/data/imp-95885-per-delta-ufit-comparison-table.js (imp-95887 viz page)',
+      ticket: 'imp-95887',
+      pedagogicalStep: 178.6,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95743 and imp-95885 modules verbatim (no re-derivation, no fresh eigensolve); both certified DD-vs-dual intervals contain zero (consistent with agreement, not a separation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95791-biaspct-vs-rho',
       title: 'Twin-Pair Finite-Size biasPct vs rho at delta=ln1.2',
       oneLine:

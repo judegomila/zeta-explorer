@@ -92822,7 +92822,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Build a viz of the imp-95638 far-tail deficit invariant D(N)=(1/2-p)ln N approaching its exact limit 1/2, with the closed-form excess curve 1/2+(ln(u/2pi)-1)/(2u) overlaid on the measured 0.5094..0.5027 plateau (N=1e24..1e300)',
     category: 'ux',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-95638 derived that the far-tail deficit invariant D(N)=(1/2-p(N))ln N tends to exactly 1/2, with finite-N excess D(N)=1/2+(ln(u/2pi)-1)/(2u)+O((ln u/u)^2) matching the measured drift 0.5094(1e24)->0.5085(1e44)->0.5056(1e100)->0.5027(1e300). Build an import-light routed viz page (no 16.7MB zeros bundle) plotting the measured plateau, the closed-form excess curve, and the 1/2 asymptote across log10 N, with an honest-status banner. Add its visualizations-index.js row. Presentation only, no bound, NO QED, PT Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-95638-deficit-invariant-fartail-limit closed-form D(N)->1/2 + excess, no viz page yet',
@@ -92830,6 +92830,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-95669',

@@ -2672,6 +2672,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the imp-95557 baked mu_S(0)/M1/W(S) tables verbatim (no re-derivation); illustrates the imp-95531 A5 all-S flow-criticality decay-law measurement, proves nothing beyond what imp-95557 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95668-deficit-fartail-limit',
+      title: 'Far-Tail Deficit Invariant: Excess Toward the 1/2 Limit',
+      oneLine:
+        'Overlays the imp-95638 closed-form finite-N excess D(N) = 1/2 + (ln(u/2pi)-1)/(2u) against the imp-95614 X4 measured plateau (0.5094/0.5085/0.5056/0.5027 at log10 N = 24/44/100/300) and the exact 1/2 asymptote, showing the plateau is the slowly-decaying head of the limit, not a distinct constant.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95668-deficit-fartail-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95638-deficit-invariant-fartail-limit.js (IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT samples; imp-95668 viz page)',
+      ticket: 'imp-95668',
+      pedagogicalStep: 173,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95638 closed-form excess and imp-95614 measured samples verbatim (no re-derivation, no fresh term); does not establish rigour for the inherited imp-3220/imp-3406 component model, only visualizes its far-tail limit; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

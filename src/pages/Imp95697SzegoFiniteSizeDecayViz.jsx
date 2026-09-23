@@ -132,6 +132,28 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
 
       <FiniteSizeDecayChart />
 
+      <div
+        style={{
+          margin: '0.75rem 0 1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(245,158,11,0.08)',
+          border: '1px solid rgba(245,158,11,0.35)',
+          borderRadius: '4px',
+          fontSize: '0.82rem',
+          color: '#fbbf24',
+        }}
+      >
+        <strong>Not a real dip below the symbol infimum:</strong>{' '}
+        <span style={{ color: '#fcd34d' }}>{IMP95697_CAVEAT_BANNER}</span>{' '}
+        <span style={{ color: '#fcd34d' }}>
+          Confirmed by the imp-95825 finite-section positivity certificate
+          (lambda_min(G_n) &#8805; ess-inf f = A_opt for every section size, a
+          standard Grenander-Szego bound) and the imp-95823 direct double-double
+          eigensolve, which reproduces this same section in extended precision
+          away from the float64 cancellation floor.
+        </span>
+      </div>
+
       <table
         style={{
           width: '100%',
@@ -167,20 +189,6 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
           ))}
         </tbody>
       </table>
-
-      <div
-        style={{
-          marginTop: '1.25rem',
-          padding: '0.75rem 1rem',
-          background: 'rgba(148,163,184,0.04)',
-          borderLeft: '3px solid #334155',
-          borderRadius: '0 4px 4px 0',
-          fontSize: '0.8rem',
-          color: '#64748b',
-        }}
-      >
-        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95697_CAVEAT_BANNER}
-      </div>
     </div>
   );
 }

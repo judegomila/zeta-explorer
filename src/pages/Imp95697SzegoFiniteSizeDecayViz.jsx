@@ -1,0 +1,186 @@
+import React from 'react';
+import PageHeader from '../components/PageHeader.jsx';
+import {
+  IMP95697_ROWS,
+  IMP95697_CROSSES_UNITY_NEAR_NPAIRS,
+  IMP95697_CAVEAT_BANNER,
+} from '../data/imp-95697-szego-finite-size-decay-viz-data.js';
+
+const ROWS = IMP95697_ROWS;
+
+// Semilog-x (log2 point count), linear-y chart of F/A_opt vs point count, with
+// a unity reference line and a shaded float64 cancellation-noise band
+// (lmin / (lmax*eps)) so the sub-1 undershoot at the largest section reads as
+// numerical noise, not a physical dip below the symbol infimum.
+function FiniteSizeDecayChart() {
+  const svgW = 620;
+  const padL = 56;
+  const padR = 24;
+  const padT = 20;
+  const padB = 44;
+  const plotW = svgW - padL - padR;
+  const plotH = 280;
+  const svgH = padT + plotH + padB;
+
+  const xMin = ROWS[0].log2NPts;
+  const xMax = ROWS[ROWS.length - 1].log2NPts;
+  const xOf = (log2NPts) => padL + ((log2NPts - xMin) / (xMax - xMin)) * plotW;
+
+  const yMax = 1.25;
+  const yMin = 0.85;
+  const yOf = (v) => padT + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+
+  const yTicks = [0.85, 0.9, 0.95, 1.0, 1.05, 1.1, 1.15, 1.2, 1.25];
+
+  const unityY = yOf(1.0);
+
+  return (
+    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+      {yTicks.map((t) => (
+        <g key={`yt-${t}`}>
+          <line
+            x1={padL}
+            x2={padL + plotW}
+            y1={yOf(t)}
+            y2={yOf(t)}
+            stroke="#1e293b"
+            strokeWidth={1}
+          />
+          <text x={padL - 8} y={yOf(t) + 3} textAnchor="end" fill="#64748b" fontSize={9.5}>
+            {t.toFixed(2)}
+          </text>
+        </g>
+      ))}
+
+      {ROWS.map((r) => (
+        <text
+          key={`xt-${r.nPts}`}
+          x={xOf(r.log2NPts)}
+          y={padT + plotH + 16}
+          textAnchor="middle"
+          fill="#64748b"
+          fontSize={9}
+        >
+          {r.nPts}
+        </text>
+      ))}
+      <text x={padL + plotW / 2} y={svgH - 4} textAnchor="middle" fill="#64748b" fontSize={10}>
+        point count nPts (log2 scale)
+      </text>
+
+      {/* float64 cancellation-noise band: lmin/(lmax*eps) per section, shaded
+          around unity since that ratio is O(1) at every section */}
+      {ROWS.map((r) => {
+        const bandHalfWidth = Math.abs(r.lminOverFloor - 1) + 0.06;
+        const x = xOf(r.log2NPts);
+        return (
+          <rect
+            key={`band-${r.nPts}`}
+            x={x - 14}
+            y={yOf(1 + bandHalfWidth)}
+            width={28}
+            height={yOf(1 - bandHalfWidth) - yOf(1 + bandHalfWidth)}
+            fill="#f59e0b"
+            opacity={0.12}
+          />
+        );
+      })}
+
+      {/* unity reference line: the infinite-lattice value F / A_opt -> 1 */}
+      <line
+        x1={padL}
+        x2={padL + plotW}
+        y1={unityY}
+        y2={unityY}
+        stroke="#38bdf8"
+        strokeWidth={1.5}
+        strokeDasharray="4,3"
+      />
+      <text x={padL + plotW - 4} y={unityY - 6} textAnchor="end" fill="#38bdf8" fontSize={9}>
+        infinite-lattice limit F/A_opt = 1
+      </text>
+
+      <polyline
+        fill="none"
+        stroke="#a78bfa"
+        strokeWidth={2}
+        points={ROWS.map((r) => `${xOf(r.log2NPts)},${yOf(r.ratio)}`).join(' ')}
+      />
+      {ROWS.map((r) => (
+        <circle key={`pt-${r.nPts}`} cx={xOf(r.log2NPts)} cy={yOf(r.ratio)} r={3.5} fill="#a78bfa" />
+      ))}
+    </svg>
+  );
+}
+
+export default function Imp95697SzegoFiniteSizeDecayViz() {
+  return (
+    <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
+      <PageHeader title="Rho=1 Finite-Size Szego Decay: F/A_opt vs Point Count (imp-95677 / imp-95697)" />
+
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
+        imp-95677 measured the rho = 1 uniform-lattice ratio F&#47;A_opt = lambda_min
+        &#47; symbol-infimum across growing section sizes. The ratio falls
+        monotonically 1.143 -&gt; 1.101 -&gt; 1.010 -&gt; 0.909 as the point count
+        doubles, crossing the infinite-lattice value 1 near nPairs = {IMP95697_CROSSES_UNITY_NEAR_NPAIRS}
+        . The shaded band around each point marks the float64 cancellation-noise
+        floor lmin&#47;(lmax&#42;eps) &#8776; O(1) at every section, so the apparent
+        undershoot below 1 at the largest section is numerical noise, not a
+        physical drop below the symbol infimum (a finite section of a positive
+        Toeplitz operator cannot go below its symbol infimum).
+      </p>
+
+      <FiniteSizeDecayChart />
+
+      <table
+        style={{
+          width: '100%',
+          marginTop: '1.5rem',
+          borderCollapse: 'collapse',
+          fontSize: '0.78rem',
+        }}
+      >
+        <thead>
+          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+            <th style={{ padding: '0.4rem 0.6rem' }}>nPairs</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>nPts</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>F</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>F / A_opt</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>lmin / (lmax&#42;eps)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ROWS.map((r) => (
+            <tr key={r.nPairs} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.nPairs}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.nPts}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {r.F.toExponential(4)}
+              </td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {r.ratio.toFixed(6)}
+              </td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {r.lminOverFloor.toFixed(2)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div
+        style={{
+          marginTop: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95697_CAVEAT_BANNER}
+      </div>
+    </div>
+  );
+}

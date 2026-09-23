@@ -2784,6 +2784,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: reshapes the frozen imp-95632 gap verbatim (no re-derivation, no fresh term); the raw crossover height overflows IEEE-754 double and is carried in log space only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95697-szego-finite-size-decay',
+      title: 'Rho=1 Finite-Size Szego Decay: F/A_opt vs Point Count',
+      oneLine:
+        'Chart of the imp-95677 rho=1 tabulation: F/A_opt falling monotonically 1.143->1.101->1.010->0.909 as the uniform-lattice point count doubles (80/160/320/640), crossing the infinite-lattice value 1 near nPairs=160, with the float64 cancellation-noise band lmin/(lmax*eps) shaded around each point.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95697-szego-finite-size-decay-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95677-rho1-szego-finite-size-convergence.js (IMP95677_RHO1_SZEGO_FINITE_SIZE_CONVERGENCE table; imp-95697 viz page)',
+      ticket: 'imp-95697',
+      pedagogicalStep: 181,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95677 tabulation verbatim (no re-derivation, no fresh quadrature); the sub-1 undershoot at 320 pairs is float64 cancellation noise, not a physical drop below the symbol infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

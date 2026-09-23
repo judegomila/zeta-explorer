@@ -1153,6 +1153,9 @@ const Imp95681EflowInversionContourSurfaceViz = lazy(() =>
 const Imp95682TwinPairBlockFloorRhoViz = lazy(() =>
   import('./pages/Imp95682TwinPairBlockFloorRhoViz.jsx')
 );
+const Imp95697SzegoFiniteSizeDecayViz = lazy(() =>
+  import('./pages/Imp95697SzegoFiniteSizeDecayViz.jsx')
+);
 const Imp95549NsRigidPencilEigenvalueViz = lazy(() =>
   import('./pages/Imp95549NsRigidPencilEigenvalueViz.jsx')
 );
@@ -3170,6 +3173,10 @@ function AppShell() {
           <Route
             path="/viz-imp95682-twin-pair-block-floor-rho"
             element={<Imp95682TwinPairBlockFloorRhoViz />}
+          />
+          <Route
+            path="/viz-imp95697-szego-finite-size-decay"
+            element={<Imp95697SzegoFiniteSizeDecayViz />}
           />
           <Route
             path="/viz-imp95549-ns-rigid-pencil-eigenvalue"

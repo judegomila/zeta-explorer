@@ -92806,7 +92806,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add a Concepts glossary headword for the imp-95519 prime-side DOUBLE BIND: the Fresnel packet is both height-bound (Platt GRH q=97 reaches ~1.03e6 vs T=3e12) and width-bound (below the RH short-interval barrier, sqrt(u)log^2 u/H=100.5>1), so even verified GRH gives no cancellation',
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-95519 section 3 shows the prime-side square-root cancellation fails for two independent reasons: HEIGHT-BOUND (Platt's GRH verification for q=97 reaches only ~1.03e6, a factor 2.9e6 below T=3e12) and WIDTH-BOUND (the Fresnel width sits below the RH short-interval barrier -- at the floor alias k=1,h=96,p=97 the ratio sqrt(u)log^2 u/H=100.5>1 -- so GRH gives NO cancellation for any Fresnel packet). Add a Concepts glossary headword recording that the prime side is doubly obstructed and that even fully verified GRH to height T would not help, citing imp-95519. No bound, NO QED, PT Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-95519 section 3 prime-side (a)/(b) double bind (height 1.03e6 vs 3e12; width 100.5>1), no glossary headword captures the WIDTH barrier',
@@ -92814,6 +92814,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-95668',

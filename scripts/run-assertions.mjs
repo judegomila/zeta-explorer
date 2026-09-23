@@ -18246,6 +18246,15 @@ const DATA_MODULES = [
   // m-dependence. Also refines imp-95861: the raw cell count is O(m), not m-free. Import-light, no
   // bound, NO QED.
   '/src/data/imp-95877-transport-identity-tractability-assessment.js',
+  // imp-95878: derives the imp-95861 INDEPENDENT-route PIECE A candidate -- the only closed-form
+  // c_odd(1/m) generalizing Sun (6.23) without a fresh v-integral is the pure-rho^2-shape null
+  // kappa/m^2 (prefactor forced by 6.19-6.21). Evaluated at m=22,30,41 and compared to the baked
+  // Q0_RECON, it is REFUTED as an independent PIECE-A target: the departure is exactly the
+  // imp-95653/95690/95702 fractional J-variation dI(m) (nonzero, growing with m, not a clean
+  // linear-in-rho law), which a pure-rho^2 form forces to zero. So no reconstruction-independent
+  // closed-form c_odd(1/m) at m>20 exists and PIECE A stays the binding shortfall. Import-light
+  // (imp-95861 anchor + Q0_RECON literals), no bound, NO QED.
+  '/src/data/imp-95878-c-odd-null-vs-reconstruction-wide-modulus.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

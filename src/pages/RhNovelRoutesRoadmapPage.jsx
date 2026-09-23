@@ -11,6 +11,7 @@ import { RH_ROUTE_H_CONNES_SCALING_SITE as ROUTE_H } from '../data/rh-route-h-co
 import { RH_ROUTE_H_SEMILOCAL_SONINE as ROUTE_H_SONINE } from '../data/rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js';
 import { RH_ROUTE_I_SEMILOCAL_SONINE_TRACE as ROUTE_I } from '../data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';
 import { RH_ROUTE_I_PENCIL_HIGHRES_MAP as ROUTE_I_HIGHRES } from '../data/rh-route-i-pencil-highres-map-2026-09-23.js';
+import { RH_ROUTE_I_SONINE_EXCESS_PORT as ROUTE_I_SONINE_PORT } from '../data/rh-route-i-sonine-excess-semilocal-port-2026-09-23.js';
 import { RH_CROSS_ROUTE_WALL_MAP } from '../data/rh-novel-routes-sweep-synthesis-2026-09-23.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
@@ -244,6 +245,20 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}>{ROUTE_I.verdict}</p>
           <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
             data: src/data/{ROUTE_I.id}.js · limits: {ROUTE_I.honestLimits}
+          </p>
+        </div>
+
+        <div className="card" style={{ marginTop: 24 }}>
+          <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 8 }}>Route I — the Connes–Consani Sonine refinement ported to S = &#123;∞, 2&#125;: excess computed exactly, obstruction located</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{ROUTE_I_SONINE_PORT.status}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Decomposition:</strong> {ROUTE_I_SONINE_PORT.decomposition}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Semilocal prolate spectrum:</strong> {ROUTE_I_SONINE_PORT.spectrum}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Cusp allocation:</strong> {ROUTE_I_SONINE_PORT.cuspTheorem}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Obstruction:</strong> {ROUTE_I_SONINE_PORT.obstruction}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>The Weil form on the window:</strong> {ROUTE_I_SONINE_PORT.weilWindow}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}>{ROUTE_I_SONINE_PORT.verdict}</p>
+          <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
+            data: src/data/{ROUTE_I_SONINE_PORT.id}.js · limits: {ROUTE_I_SONINE_PORT.honestLimits}
           </p>
         </div>
 

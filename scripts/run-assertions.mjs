@@ -317,6 +317,17 @@ const DATA_MODULES = [
   // has no local positivity channel. Named sub-gap = a finite-place Sonin/reflection structure (geometric
   // refinement of imp-95520). Import-light lattice/weight witnesses only; NOT a bound; PT Λ≤0.2 SOTA; NO QED.
   '/src/data/imp-96019-scaling-site-weil-past-ln2-assessment.js',
+  // imp-96020 (2026-09-23): Route B/D handoff -- LP-feasibility of a bounded-support signed coefficient
+  // field with Z_w*Z'' > 0 at every near-collision (the arithmetic Gram-law surrogate), at FIXED T, and
+  // how it degrades as T grows. Strict system g_k.w>0 (g_k = sign(Z'') a(x*)); feasible iff 0 not in
+  // conv{ghat_k} (Gordan); margin rho(N,T)=dist(0,hull) via Gilbert min-norm-point (no LP library).
+  // Result on-line: UNIFORMLY FEASIBLE up to gamma_200 (~396) for every support N in {1..32}; the n=1 RS
+  // main term alone saturates it (rho(1,T)=1, since sign(Z'')=-sign(cos theta) at every extremum, 23/23);
+  // higher modes only lower the margin monotonically and gently (N=32: 0.761->0.559), L1 norm bounded ~2.3.
+  // So the surrogate does NOT collapse on the line -- it is trivially satisfiable there. Sub-gap: the
+  // uniform-in-T obstruction is OFF the line (Route B Test 2 no-universal-sign = Weil-strength). Import-light
+  // literals; reproduction tmp/imp-96020-lp-signed-force-feasibility.py. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-96020-lp-signed-force-feasibility.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

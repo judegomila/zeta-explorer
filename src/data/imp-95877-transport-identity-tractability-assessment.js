@@ -154,6 +154,13 @@ export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT = Object.freeze({
       id: 'imp-95878',
       relation: 'attempts the INDEPENDENT route -- the other way to supply PIECE A at m>20',
     }),
+    // imp-95936: chain the TIER-3 binding obstruction named here to its sharpening (imp-95900) and the
+    // still-open per-family attribution (imp-95916), so the reading path does not dead-end at "residual".
+    followUp: Object.freeze({
+      id: 'imp-95900',
+      relation: 'sharpens the TIER-3 obstruction named here: shows it is an O(1) cancellation against the '
+        + 'TIER-1 curvature drift (D_3(m) = -C_1), not a small residual, then imp-95916 attributes it per-family',
+    }),
   }),
 
   // three coefficient tiers, classified by how far each is symbolic in m:
@@ -285,6 +292,13 @@ export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT_ASSERTIONS = Object.free
       return rp.position === '2 of 3'
         && rp.previous.id === 'imp-95861'
         && rp.sibling.id === 'imp-95878';
+    },
+  },
+  {
+    name: 'reading path follow-up chains to imp-95900 (TIER-3 cancellation sharpening)',
+    holds: () => {
+      const fu = TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT.readingPath.followUp;
+      return fu.id === 'imp-95900' && /cancellation/.test(fu.relation) && /imp-95916/.test(fu.relation);
     },
   },
   {

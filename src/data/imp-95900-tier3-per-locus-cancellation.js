@@ -136,6 +136,28 @@ export const TIER3_PER_LOCUS_CANCELLATION = Object.freeze({
     + 'obstruction and dQ/dm as non-constant), imp-95745 (quarantined all m-dependence in the Q_0 sector; '
     + 'TIER 2 m-free), imp-95720 (TIER-1 curvature -(4m-1)/2), imp-95822/95861 (grid-converged Q0_RECON)',
 
+  // imp-95936: chain this module into the imp-95915 per-m kappa reading path -- follows imp-95877 (which
+  // named the TIER-3 obstruction) and imp-95745 (whose Q_0-sector m-quarantine underlies the C_1/D_3
+  // split), leads on to imp-95916 (the still-open per-family attribution of the cancellation).
+  readingPath: Object.freeze({
+    position: 'follow-up to the imp-95915 3-module chain (imp-95861/95877/95878)',
+    previous: Object.freeze({
+      id: 'imp-95877',
+      relation: 'named TIER 3 as the binding obstruction and dQ/dm(m) as non-constant; this module '
+        + 'derives the exact C_1 + D_3(m) split sharpening that framing',
+    }),
+    quarantineFoundation: Object.freeze({
+      id: 'imp-95745',
+      relation: 'proved the Q_0 sector is the ONLY m-dependent sector (const sector + offset m-free); '
+        + 'this module differentiates that quarantined Q_0 sector in m to isolate D_3(m)',
+    }),
+    next: Object.freeze({
+      id: 'imp-95916',
+      relation: 'attributes the +0.2006346034029 aggregate TIER-3 cancellation pinned here to individual '
+        + 'fractional-part families (the still-OPEN per-locus split)',
+    }),
+  }),
+
   // the correct target shape for the law: per fractional-part locus, not per fixed cell.
   perLocusIndexing: Object.freeze({
     families: Object.freeze([
@@ -249,6 +271,15 @@ export const TIER3_PER_LOCUS_CANCELLATION_ASSERTIONS = Object.freeze([
       return /0.2006346034029/.test(ci.statement)
         && /rules out/.test(ci.use)
         && /aggregate TIER-3 m-slope/.test(ci.use);
+    },
+  },
+  {
+    name: 'reading path chains imp-95877 (previous) and imp-95745 (quarantine foundation) to imp-95916 (next)',
+    holds: () => {
+      const rp = TIER3_PER_LOCUS_CANCELLATION.readingPath;
+      return rp.previous.id === 'imp-95877'
+        && rp.quarantineFoundation.id === 'imp-95745'
+        && rp.next.id === 'imp-95916';
     },
   },
   {

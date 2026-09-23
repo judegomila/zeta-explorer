@@ -1127,6 +1127,62 @@ export const LAMBDA_CHAIN_STEPS = [
               'NO QED. This confirms (does not weaken) the irreducible grade.',
             by: 'imp-36079',
           },
+          // imp-96093 (assessment/scoping ONLY; changes NO bound, closes NOTHING,
+          // establishes no operator positivity, respects the imp-2519 no-overclaim
+          // guard, NO QED): does the post-peak sigma(N) = E_coll/E(N) decay -- E_coll
+          // becoming negligible relative to the constant E_trunc floor in the far tail
+          // -- open any unconditional foothold on E_coll that removes or weakens the
+          // C_mb GUE conditionality over some N range? Verdict: NO, for two compounding
+          // reasons plus a disjoint-window structure, detailed below.
+          farTailAssessment: {
+            question:
+              'Does the post-peak sigma(N) = E_coll/E(N) decay (imp-33582: peak ~9.22e5, ' +
+              'above 0.9 until N ~ 2.57e7, halved at N ~ 3.27e9, below 0.1 only at ' +
+              'N ~ 3.21e11) open an unconditional foothold on E_coll that removes or ' +
+              'weakens the C_mb GUE conditionality (imp-486) over some N range, or is ' +
+              'the conditionality irreducible even in the far tail?',
+            circularity:
+              'The sigma(N) decay curve is itself COMPUTED with the GUE-conditional ' +
+              'C_mb <= 1. The far-tail smallness of E_coll (E_trunc floor overtaking the ' +
+              'vanishing E_coll) is a CONCLUSION OF that conditional bound, not an ' +
+              'independent fact. Stripping the conditionality removes the only bound that ' +
+              'makes E_coll finite, so one cannot even assert E_coll decays -- the premise ' +
+              '"E_coll is negligible in the far tail" presupposes the very conditionality ' +
+              'the foothold would remove. The argument is circular.',
+            noCrudeBound:
+              'The afford-crudeness idea (inflate C_mb <= 1 to some unconditional ' +
+              'C_mb <= M and note M * E_coll stays dominated by E_trunc as sigma -> 0) ' +
+              'fails at the root: imp-486 exhaustive search found NO unconditional finite ' +
+              'bound C_mb <= M at all (GGM + Huxley fail identically). The boundedness of ' +
+              'the many-body Calogero-Moser correction itself requires the ESY local law ' +
+              '(GUE universality); there is no crude unconditional E_coll bound of any ' +
+              'constant to carry through the far tail.',
+            disjointWindows:
+              'The one genuine GUE-free unconditional E_coll ingredient (imp-3725 ' +
+              'true-flow enclosure K_paper <= 2.4238e-6) holds only on the CLOSED window ' +
+              '[1e4, 1e6] below the computed ceiling N_hi -- precisely where sigma is near ' +
+              'its peak and E_coll DOMINATES. The far-tail regime where E_coll is ' +
+              'negligible (N > 3.21e11) sits ABOVE any N_hi, exactly where the surrogate ' +
+              'supplies nothing. Unconditional control and E_coll-negligibility are ' +
+              'anti-aligned in N and DISJOINT: the foothold one would want (an ' +
+              'unconditional bound in the window where E_coll is negligible) is ' +
+              'structurally unavailable.',
+            residualSubGap:
+              'SG-96093-cmb-boundedness: whether some non-GUE route proves merely that ' +
+              'C_mb is BOUNDED (a finite, possibly non-numeric, N-uniform M) -- which ' +
+              'would let the far-tail decay carry through with a finite inflation -- ' +
+              'remains the same OPEN imp-486 question. No such route is known; this ' +
+              'assessment neither supplies nor refutes one.',
+            verdict:
+              'NO unconditional foothold. The far-tail sigma(N) decay does NOT remove or ' +
+              'weaken the C_mb GUE conditionality over ANY N range: the decay curve is ' +
+              'circular on the conditional bound, no unconditional finite C_mb bound ' +
+              'exists to inflate, and the only unconditional window is disjoint from the ' +
+              'E_coll-negligible regime. Confirms (does not weaken) the imp-486 ' +
+              'irreducible grade. Changes NO bound; C_mb stays GUE-conditional; ' +
+              'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+            by: 'imp-96093',
+          },
         },
       ],
       caveat:

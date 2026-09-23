@@ -17799,6 +17799,13 @@ const DATA_MODULES = [
   // ln1.2 left endpoint is below precision), but the ~1/2-retention crossover is delta-SPECIFIC in rho
   // (drifts ~15 -> ~9.4) while nearly FIXED in the absolute gap D_cross ~ 3.6-4.0. Import-light, no bound, no QED.
   '/src/data/imp-95693-twin-pair-block-floor-second-delta.js',
+  // imp-95707: DERIVES the infinite-lattice limit of the interior rho>1 twin-pair block floor via
+  // block-Toeplitz Szego theory -- the seam Gram is a 2x2-block Toeplitz matrix whose Hermitian symbol
+  // has lambda_min(theta) = d(theta) - |off(theta)|, and lambda_min(finite section) -> ess inf over theta.
+  // Computed cancellation-free (Poisson dual), the infimum sits at theta=0 across the imp-95693 rho grid;
+  // the finite-80 F OVERESTIMATES it by a strictly positive bias decaying 5.65pct (rho=1) -> 0.017pct
+  // (rho=20), so imp-95693 caveat (b) is quantified. Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95707-twin-pair-block-toeplitz-interior-limit.js',
   // imp-95703: DERIVES the imp-95693 delta-stable half-retention gap D_cross ~ 3.6-4.0 from the sech
   // seam symbol. The crossover F/blockIso=1/2 is the root of the single-sum equation S(delta,D)=
   // (1-sech(delta/2))/2, S = sum_{m>=1} discrete-2nd-diff of sech (first-order uniform-mode Rayleigh

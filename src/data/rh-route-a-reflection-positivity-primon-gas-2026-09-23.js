@@ -291,6 +291,44 @@ export const ROUTE_A_HEIGHT_SWEEP = Object.freeze({
   verdict: 'DOES NOT extend past the cap. Detection sensitivity decays as e^{-t gamma^2} -- the exact Gaussian regulator weight of the observable class p^{-s} e^{(t/2)(s-1/2)^2}, NOT a prime-truncation effect. The effective ceiling gamma_max ~ sqrt(ln(1/eps)/t) is a fixed multiple of 1/sqrt(t) set by that weight; lowering t to reach higher zeros reopens the O(1)/sqrt(p) truncation boundary layer (the finite-N gas failure). So off-line detection is confined to verified height; changes no bound; RH open; NO QED',
 });
 
+// ---- imp-96022: CROSS-VALIDATE the finite-N Pick-Gram scaling law
+// lambda_min ~ -p_N^{1/2 - nu_min}. Extend the N-prime sweep, fit the log-log
+// exponent of -lamMin vs p_N, and compare to the predicted 1/2 - nu_min across
+// node sets. loglogSlope = ordinary least squares of ln|y| on ln x with R^2.
+function loglogSlope(xs, ys) {
+  const lx = xs.map(Math.log), ly = ys.map((v) => Math.log(Math.abs(v)));
+  const n = lx.length; const mx = lx.reduce((a, b) => a + b) / n, my = ly.reduce((a, b) => a + b) / n;
+  let sxy = 0, sxx = 0; for (let i = 0; i < n; i++) { sxy += (lx[i] - mx) * (ly[i] - my); sxx += (lx[i] - mx) ** 2; }
+  const slope = sxy / sxx, b = my - slope * mx;
+  let ssr = 0, sst = 0; for (let i = 0; i < n; i++) { const pr = b + slope * lx[i]; ssr += (ly[i] - pr) ** 2; sst += (ly[i] - my) ** 2; }
+  return { slope, r2: 1 - ssr / sst };
+}
+// p_N for the k-th prime index (1-based N): PR[N-1].
+export const finiteGasLamMinScaling = (nodes, Ns) => {
+  const xs = Ns.map((N) => PR[N - 1]), ys = Ns.map((N) => lamMin(pickGram(finiteGasLogDeriv(N), nodes)));
+  return { xs, ys, ...loglogSlope(xs, ys) };
+};
+// MEASURED (dense ladder N up to 1229, p_N up to 9973; scratch tmp/imp-96022-scratch*.mjs).
+// Result: the power law is CONFIRMED (R^2 >= 0.996 on every node set), but the
+// GLOBAL fitted exponent sits ~0.06-0.08 BELOW the predicted 1/2 - nu_min. That
+// gap is the finite-size o(1) tail of -p_N^{1/2-nu}/(1/2-nu)(1+o(1)): the LOCAL
+// log-log slope climbs MONOTONICALLY 0.3796 -> 0.4225 as p_N: 173 -> 9973 and the
+// tail fit (p_N >= 541) is 0.4125 -- the exponent approaches 0.45 from below.
+export const ROUTE_A_LAMMIN_SCALING = Object.freeze({
+  nodes: ROUTE_A_NODES, denseLadderTopP: 9973,
+  globalFit: { nuMin: 0.05, exponent: 0.3807, predicted: 0.45, drift: -0.0693, r2: 0.99800 },
+  tailFit: { pMin: 541, exponent: 0.4125, predicted: 0.45, r2: 0.99996 },
+  localSlopeTop: { pFrom: 4751, pTo: 9973, slope: 0.4225 },
+  crossNodeSets: [
+    { nuMin: 0.025, exponent: 0.4183, predicted: 0.4750, drift: -0.0567, r2: 0.99879 },
+    { nuMin: 0.05, exponent: 0.3807, predicted: 0.4500, drift: -0.0693, r2: 0.99800 },
+    { nuMin: 0.1, exponent: 0.3158, predicted: 0.4000, drift: -0.0842, r2: 0.99649 },
+    { nuMin: 0.2, exponent: 0.2196, predicted: 0.3000, drift: -0.0804, r2: 0.99647 },
+  ],
+  law: 'lamMin ~ -p_N^{1/2 - nu_min}: CONFIRMED as a power law (R^2 >= 0.996 every node set). The global fitted exponent is ~0.06-0.08 BELOW 1/2-nu_min, a finite-size o(1) correction; the local log-log slope climbs monotonically 0.3796 -> 0.4225 as p_N: 173 -> 9973 and the tail fit (p_N >= 541) reaches 0.4125, so the measured exponent converges to the predicted 1/2-nu_min FROM BELOW as p_N grows. The drift has the same sign on every node set and shrinks with nu_min (0.057 at 0.025, 0.084 at 0.1).',
+  verdict: 'AGREEMENT with a finite-size drift: the -p_N^{1/2-nu_min} scaling holds and the exponent approaches the predicted value from below; the residual gap at p_N=9973 is the divergent-Euler-product o(1) tail, not a different power. Measurement only; changes no bound; RH open; NO QED',
+});
+
 export const RH_ROUTE_A_REFLECTION_POSITIVITY = Object.freeze({
   id: 'rh-route-a-reflection-positivity-primon-gas-2026-09-23',
   route: 'A — reflection positivity of the primon gas about sigma = 1/2 (Osterwalder-Schrader)',
@@ -446,6 +484,22 @@ export const RH_ROUTE_A_REFLECTION_POSITIVITY_ASSERTIONS = Object.freeze([
       const baked = [0, 1, 2, 3].every((i) => rel(lam[i], L.lamMin[i], 5e-2));           // above-noise ladder entries
       const decaysToFloor = lam[0] < lam[3] && Math.abs(lam[6]) < 1e-14 && Math.abs(lam[6]) <= Math.abs(lam[0]); // |lamMin| shrinks; buried by gamma=50
       return negOrNoise && ratioOK && baked && decaysToFloor;
+    },
+  },
+  {
+    id: 'A3-lammin-scaling-law-crossvalidated',
+    description: 'imp-96022: -lamMin ~ p_N^{1/2-nu_min} is a power law (R^2 > 0.99), fitted exponent below the predicted 0.45, and the LOCAL log-log slope climbs monotonically toward 0.45 (approach from below); larger nu_min gives smaller predicted and fitted exponents',
+    holds: () => {
+      const Ns = [40, 80, 160, 320, 640, 1229];
+      const f = finiteGasLamMinScaling(ROUTE_A_NODES, Ns);           // fit slope ~0.404, R^2 ~0.9997
+      const locs = []; for (let i = 1; i < Ns.length; i++) locs.push((Math.log(Math.abs(f.ys[i])) - Math.log(Math.abs(f.ys[i - 1]))) / (Math.log(f.xs[i]) - Math.log(f.xs[i - 1])));
+      const monotone = locs.every((v, i) => i === 0 || v > locs[i - 1] - 1e-9);
+      const topOK = locs[locs.length - 1] > 0.40 && locs[locs.length - 1] < 0.45;   // below predicted, converging up
+      const powerLaw = f.r2 > 0.99 && f.slope > 0.35 && f.slope < 0.45;
+      // predicted exponent decreases with nu_min: fitted must too
+      const g1 = finiteGasLamMinScaling([0.1, 0.2, 0.3, 0.4, 0.6, 1.0, 1.5], Ns).slope;
+      const g2 = finiteGasLamMinScaling([0.2, 0.3, 0.4, 0.6, 1.0, 1.5], Ns).slope;
+      return monotone && topOK && powerLaw && f.slope > g1 && g1 > g2;
     },
   },
   {

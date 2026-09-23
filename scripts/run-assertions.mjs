@@ -335,6 +335,14 @@ const DATA_MODULES = [
   // Cor 2.3 positivity 0.0491). No gap-free identity, no extension past ln2; corrects imp-96044's framing.
   // Import-light (Route H assembly only; no zeros bundle). Assertions ~10 s (coarse-mesh multiplier + N=16 Galerkin).
   '/src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js',
+  // rh-route-i-pencil-highres-map (2026-09-23): high-resolution numerics for the Route I pencil D_S c = mu L_S c on
+  // pole-free L^2(-a,a), Legendre Galerkin N = 64/96/128 (~N^-2 convergence, 5 decimals). mu_max < 1 on all of
+  // 2a <= ln 3 (margin 2.84e-3 at (ln3)/2); crosses 1 at a* = 0.56578 (2a* = ln3 + 0.033) through an ODD vector
+  // that the true Weil form rescues via -P_3; two vanishing moments give 1 - mu_max >= 0.539 uniformly; the
+  // extremal's negativity is ~100% from the first p=2 resonance window (8.145, 9.875) of the Weil symbol
+  // 2theta' - m_2, < 3% from the archimedean window [0, 3.6). Companion to Route I (does not edit it).
+  // Import-light (Route I / H exports only). Assertions ~6 s (N = 24 pencils at four a + analytic symbol windows).
+  '/src/data/rh-route-i-pencil-highres-map-2026-09-23.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284

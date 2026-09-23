@@ -19092,6 +19092,15 @@ const DATA_MODULES = [
   // is significant (z = 1.92 sigma, n_w 291 >> crossover 79), T = 1e4 and T = 3e5 are noise.
   // Meta/regression-guard only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96089-mean-anchor-window-count-significance-verdict.js',
+  // imp-96042: live-scan regression guard (frozen-baseline pattern, mirrors
+  // imp-95972-cf-band-hi-pin-regression-guard.js) protecting the
+  // imp-95987/imp-96006 no-collapse discipline -- no src/data/*.js consumer
+  // may cite the imp-95984 conjectural a_0 = -0.176248 (Chan Thm 1.1, Montgomery
+  // I_F = 1) or the imp-96006 conditional T_x = 8.539689e19 as a PINNED
+  // crossing intercept rather than a flagged-conditional point-in-range. Fails
+  // the build only on a NEW, un-baselined unqualified citation. Meta/
+  // regression-guard only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96042-a0-tx-pinned-citation-regression-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

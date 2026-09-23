@@ -17984,6 +17984,9 @@ const DATA_MODULES = [
   // differences are NOT sign-stable (signs -,+,-), a zigzag inherited from the non-monotone
   // Q_0 m-signal (dI = 1 - Q_0). Conditional on the +4 offset, only m=20 certified. NO QED.
   '/src/data/imp-95765-di-variation-four-moduli.js',
+  // imp-95688: viz-data reshaping the imp-95632 VK-vs-window height gap onto a two-landmark
+  // log10(T) axis (window top vs crossover), ~4431.87 decades apart. Presentation only. NO QED.
+  '/src/data/imp-95688-vk-crossover-height-gap-viz-data.js',
   // imp-95768: offset-error budget for the imp-95749 conditional constant-J refutation and the
   // imp-95720 c_odd(1/19). Both qualitative conclusions survive an offset error of 2.852e-5
   // (~2.03e5x the measured m=20 residual 1.404e-10); only c_odd(1/19)'s trailing displayed
@@ -18006,6 +18009,14 @@ const DATA_MODULES = [
   // module, no re-derivation. Import-light, no zeros bundle, no bound, no QED, PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-95790-rcap-deadzone-viz-data.js',
+  // imp-95779: implements the O(N^2) double-double Toeplitz lambda_min (Levinson-Durbin
+  // inverse iteration) imp-95761 named as its residual, and measures the Szego edge
+  // coefficient fit C(delta)=pi^2/(2 delta^2) at delta=ln1.2. The solver is validated
+  // (reproduces the baked DD lambda_min to ~1e-8..1e-10, N=1370 in ~83s, removing the
+  // per-solve O(N^3) wall) but C is NOT driven sub-1% (C_fit=-16.3% at reach 250): the
+  // sigma=0 inverse iteration forced by the Toeplitz structure has a vanishing bottom
+  // gap. Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95779-on2-dd-toeplitz-lambda-min-ln12.js',
 ];
 
 let ALL_MODULES = FAST_MODE

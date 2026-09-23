@@ -2770,6 +2770,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95765 four-point dI table verbatim (no new quadrature); conditional on the +4 offset hypothesis (verified only at m=20); four conditional points, not four certified anchors; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95688-vk-crossover-height-gap',
+      title: 'VK-vs-Window Height Gap: Barrier Window Top vs the Ford VK Crossover',
+      oneLine:
+        'Log10(T) axis placing the imp-95519 barrier window top (T=1.9e16) against the Ford Vinogradov-Korobov / classical zero-free-region crossover (log t~10242.24), showing a ~4431.87-decade separation -- VK offers zero unconditional saving anywhere in the window.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95688-vk-crossover-height-gap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95632-vk-crossover-height-gap.js (IMP_95632_VK_CROSSOVER_HEIGHT_GAP; imp-95688 viz page)',
+      ticket: 'imp-95688',
+      pedagogicalStep: 180,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95632 gap verbatim (no re-derivation, no fresh term); the raw crossover height overflows IEEE-754 double and is carried in log space only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1141,6 +1141,9 @@ const Imp95791BiasPctVsRhoViz = lazy(() =>
 const Imp95792DiZigzagViz = lazy(() =>
   import('./pages/Imp95792DiZigzagViz.jsx')
 );
+const Imp95688VkCrossoverHeightGapViz = lazy(() =>
+  import('./pages/Imp95688VkCrossoverHeightGapViz.jsx')
+);
 const Imp95668DeficitFartailLimitViz = lazy(() =>
   import('./pages/Imp95668DeficitFartailLimitViz.jsx')
 );
@@ -3151,6 +3154,10 @@ function AppShell() {
           <Route
             path="/viz-imp95792-di-zigzag"
             element={<Imp95792DiZigzagViz />}
+          />
+          <Route
+            path="/viz-imp95688-vk-crossover-height-gap"
+            element={<Imp95688VkCrossoverHeightGapViz />}
           />
           <Route
             path="/viz-imp95668-deficit-fartail-limit"

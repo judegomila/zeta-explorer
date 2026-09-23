@@ -1264,6 +1264,7 @@ const Imp95971CrossingHeightMapViz = lazy(() =>
 const Imp95914UfitComparisonViz = lazy(() =>
   import('./pages/Imp95914UfitComparisonViz.jsx')
 );
+const RhNovelRoutesRoadmapPage = lazy(() => import('./pages/RhNovelRoutesRoadmapPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3373,6 +3374,7 @@ function AppShell() {
             path="/viz-imp95914-ufit-comparison-panel"
             element={<Imp95914UfitComparisonViz />}
           />
+          <Route path="/rh-novel-routes-roadmap" element={<RhNovelRoutesRoadmapPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

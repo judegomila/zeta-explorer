@@ -50,6 +50,16 @@
  * single-author and unrefereed; changes no bound; NO Lambda movement; PT Lambda<=0.2
  * SOTA; NO QED.
  *
+ * HONEST-STATUS UPDATE (imp-95690, later primary-source check): the "OPEN sub-gap"
+ * verdict on kappa-as-curvature below is now SUPERSEDED by a REFUTATION, not just left
+ * open. imp-95690 read Sun Prop 6.3 (eqs 6.1-6.25) directly and found the rho^2 PREFACTOR
+ * structurally FORCED, but the v-integral factor J(rho) is NOT rho-independent as written
+ * -- its Q_0(v) piece is built from moduli (1/rho, 2/rho, 2/rho+1) and a leading
+ * -(4/rho-1)/2 coefficient that all rescale off rho = 1/20. So kappa*rho^2 is not a
+ * structurally forced shape; it stays a one-point fit, now with a NAMED mechanism for why
+ * it need not hold off-anchor. The sensitivity conclusion below (kappa-insensitive,
+ * bound by kappa-free placement A) is unaffected, since it never assumed the shape held.
+ *
  * NO heavy imports. All figures baked as literals / recomputed from the ledger.
  */
 
@@ -142,6 +152,18 @@ export const KAPPA_PROVENANCE_ASSESSMENT = Object.freeze({
     'Assessment of a carried literal, not a primary-source re-derivation of Sun Section 6. '
     + 'Local parabolic model of an unpublished Lambda_mid(rho) inherited from imp-95618. '
     + 'Catalan G irrationality OPEN; NO Lambda movement.',
+
+  honestStatusUpdate: {
+    supersededBy: 'imp-95690-sun-s6-integrand-rho-independence-verdict',
+    change:
+      'the "OPEN sub-gap" verdict on kappa-as-curvature above is SUPERSEDED by a REFUTATION: '
+      + 'imp-95690 read Sun Prop 6.3 directly and found the rho^2 prefactor FORCED but the '
+      + 'v-integral factor J(rho) NOT rho-independent as written (its Q_0(v) moduli rescale '
+      + 'off rho=1/20), so kappa*rho^2 is not structurally forced off the single anchor.',
+    unaffected:
+      'the kappa-insensitivity sensitivity result above (bound by kappa-free placement A) '
+      + 'still holds -- it never assumed the rho^2 shape was structurally forced.',
+  },
 });
 
 export const KAPPA_PROVENANCE_ASSESSMENT_ASSERTIONS = Object.freeze([
@@ -166,6 +188,13 @@ export const KAPPA_PROVENANCE_ASSESSMENT_ASSERTIONS = Object.freeze([
       /G irrationality OPEN/.test(KAPPA_PROVENANCE_ASSESSMENT.status)
       && /PT Lambda<=0.2 SOTA/.test(KAPPA_PROVENANCE_ASSESSMENT.status)
       && /NO QED/.test(KAPPA_PROVENANCE_ASSESSMENT.status),
+  },
+  {
+    name: 'honest-status update flags the imp-95690 refutation of the rho^2 shape',
+    holds: () =>
+      KAPPA_PROVENANCE_ASSESSMENT.honestStatusUpdate.supersededBy
+      === 'imp-95690-sun-s6-integrand-rho-independence-verdict'
+      && /REFUTATION/.test(KAPPA_PROVENANCE_ASSESSMENT.honestStatusUpdate.change),
   },
 ]);
 

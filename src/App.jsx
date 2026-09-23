@@ -1273,6 +1273,9 @@ const Imp95931Ln12DescentLadderViz = lazy(() =>
 const Imp95975TierImbalanceLogLogViz = lazy(() =>
   import('./pages/Imp95975TierImbalanceLogLogViz.jsx')
 );
+const Imp95995VarsConstantDecompositionViz = lazy(() =>
+  import('./pages/Imp95995VarsConstantDecompositionViz.jsx')
+);
 const Imp95993WorstAliasMarginViz = lazy(() =>
   import('./pages/Imp95993WorstAliasMarginViz.jsx')
 );
@@ -3401,6 +3404,10 @@ function AppShell() {
           <Route
             path="/viz-imp95993-worst-alias-margin"
             element={<Imp95993WorstAliasMarginViz />}
+          />
+          <Route
+            path="/viz-imp95995-vars-constant-decomposition"
+            element={<Imp95995VarsConstantDecompositionViz />}
           />
           <Route path="/rh-novel-routes-roadmap" element={<RhNovelRoutesRoadmapPage />} />
           <Route path="*" element={<NotFoundPage />} />

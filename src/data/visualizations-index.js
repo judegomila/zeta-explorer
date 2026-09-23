@@ -3093,6 +3093,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95962 four-window threshold table verbatim (no re-derivation); dSeam stands in for the true Section 4.5 turning-point depth, which is imp-95961 leg (i) and STILL OPEN -- if that depth is shallower than dSeam the margins shrink; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95995-vars-constant-decomposition',
+      title: 'Var S(T) Constant Decomposition b = M + P2 + K',
+      oneLine:
+        'Plots the imp-95964 Var S(T) additive-constant decomposition b = M + P2 + K as a stacked bar, contrasting the pinned Mertens M and prime-power sum P2 (O(1e-12), solid) against the unresolved O(1) boundary constant K (hatched, ~100x the O(0.01) tolerance) -- never plotted before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95995-varS-constant-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95964-fujii-varS-constant-locate-obstruction.js (imp-95995 viz panel)',
+      ticket: 'imp-95995',
+      pedagogicalStep: 199,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95964 decomposition verbatim (no re-derivation, no fresh prime-sieve run); K is backed out from the imp-95940 empirical six-height mean, not derived from a rigorous smoothed explicit-formula computation, so its plotted size is illustrative of the obstruction, not a pinned value; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

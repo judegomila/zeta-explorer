@@ -410,6 +410,11 @@ const DATA_MODULES = [
   // input collapses to the mollifier lineage (cot sum = Estermann D(0,x) = off-diagonal of the twisted 2nd moment;
   // reciprocity = Estermann FE = FE of ζ). Import-free; NOT a bound; RH open; NO QED.
   '/src/data/rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js',
+  // imp-96041 coverage audit (2026-09-23): re-verified all 17 rh-route-*/rh-novel-routes-*
+  // 2026-09-23 modules (the A-M stat-mech + JKL batches above) are present in this array and
+  // carry self-executing *_ASSERTIONS exports; `--since-ref` sweep from the pre-batch commit
+  // shows every one OK (no LOAD_ERR/DORMANT), so the --since-changed untracked/unregistered
+  // trap did NOT occur for this batch.
   // imp-96019 (2026-09-23): ASSESSMENT of sweep opening.nextTests[1] — can the Connes–Consani scaling
   // site extend the proven archimedean Weil positivity past the first prime shift u = ln 2? Verdict:
   // NO candidate extension; precise obstruction. The proven partial (|u| < ln 2) is prime-EMPTY (smallest

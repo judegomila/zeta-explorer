@@ -18515,6 +18515,18 @@ const DATA_MODULES = [
   // solve reproduces the imp-95837 baked coarsest point (<1e-6 rel).
   // Measurement extending an audit grid; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95896-ln12-past2800-ufit-tightening.js',
+  // imp-95902: tabulates conditioning cond=1/A_opt against reach across all seven
+  // measured deltas (DD-side ln1.2/1.25/1.3 with u_fit intervals + float64-clean
+  // ln1.4/1.45/1.5/1.6) and RE-TESTS imp-95885 FINDING A. cond=1/A_opt is an exact,
+  // float64-clean, strictly-monotone ladder spanning ~14 orders (2.46e7..2.35e21). With
+  // the ln1.25 u_fit point (imp-95895, 0.085% the TIGHTEST) now in hand NEITHER reach
+  // nor conditioning ALONE orders the three intervals (both monotonicity tests fail at
+  // ln1.25), so the original two-delta FINDING A (ln1.2 vs ln1.3) is a special case and
+  // the general ordering is a reach-conditioning interplay. Separately the imp-95786
+  // float64 wall at delta~ln1.4 IS a conditioning threshold: float64-usable deltas all
+  // cond<1e11, DD-required all cond>1e14, blown boundary ln1.35 at cond~2.29e12.
+  // Cross-delta assembly; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95902-conditioning-vs-reach-cross-delta.js',
   // imp-95835: consumer/orphan audit of the imp-95682 twin-pair block-floor rho log-y
   // viz-data module (IMP95682_ROWS). FINDING: NOT orphaned -- fully wired end to end
   // (Imp95682TwinPairBlockFloorRhoViz.jsx imports it directly, App.jsx routes it at

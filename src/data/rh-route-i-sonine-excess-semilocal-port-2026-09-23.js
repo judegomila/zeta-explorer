@@ -238,6 +238,16 @@ export const SONINE_EXCESS_LITERALS = Object.freeze({
   momentLadderN32: { a040: [0.2255, 0.7795, 0.8830, 1.0289, 1.2740], a050: [0.01193, 0.19036, 0.74562, 0.84507, 0.84507], aLn3Half: [9.52e-4, 0.03343, 0.41414, 0.79885, 0.81441] },
   qTrickN32: { a030: [6.5584, 0.69199], a040: [0.27723, 0.2255], a050: [0.0030955, 0.011931], aLn3Half: [2.3239e-4, 9.5198e-4] },
   oneprimeReach: { a2: 0.565920, twoA2: 1.131840, minusLn3: 0.0332, siblingAStar: 0.56578, N: 32 },
+  positivityOnset: { // imp-96107: E_S o Q resonance-positivity onset MEASURED across (ln2)/2 < a < (ln3)/2 (plateauAutocorr, reproduces baked R exactly)
+    note: 'res_k = E_S o Q(res)/||k||^2 = C(k) + half-split_k; C(k) ~ -32..-34 slow log divergence, a-independent (from a030 where R = 0); half-split_k = 2 pi c_2 R_phi(a)(t_k + pi/ln2) grows LINEARLY in k. So the first-positive resonance k decreases as a grows (baked firstPositiveK 6 at a = 0.5 -> 4 at (ln3)/2) and diverges as a -> (ln2)/2+ where R_phi -> 0. Since R_phi(a) > 0 for EVERY a > (ln2)/2, half-split_k -> +oo, E_S o Q is unbounded above, so the CC sufficient condition E o Q <= c|ghat(0)|^2 FAILS for every a > (ln2)/2. Measurement only; RH open; NO QED.',
+    thresholdA: 0.346574, // (ln2)/2, R_phi = 0
+    grid: [ // [a, 2a - ln2, R_phi(a), half-split slope per k = 2 pi c_2 R_phi (2 pi/ln2)]
+      [0.36, 0.0269, 0.00007, 0.002], [0.38, 0.0669, 0.00410, 0.119], [0.40, 0.1069, 0.02402, 0.698],
+      [0.43, 0.1669, 0.08229, 2.391], [0.46, 0.2269, 0.14409, 4.186], [0.50, 0.3069, 0.21553, 6.261],
+      [0.52, 0.3469, 0.24713, 7.179], [0.549306, 0.4055, 0.28927, 8.404],
+    ],
+    centerMagFromA030: 33.5, firstPositiveMonotone: 'k = 6 at a = 0.5 -> k = 4 at (ln3)/2 (decreasing in a; -> oo at (ln2)/2)', c2: 0.51007,
+  },
 });
 
 export const RH_ROUTE_I_SONINE_EXCESS_PORT = Object.freeze({
@@ -317,6 +327,24 @@ export const RH_ROUTE_I_SONINE_EXCESS_PORT_ASSERTIONS = Object.freeze([
       const chk = (key, a) => { const R = plateauAutocorr(a); if (Math.abs(R / rs[key].R - 1) > 0.03) return false; let prevSplit = -Infinity; return rs[key].rows.every(([k, t, res, anti, split, pred]) => { const p = 2 * PI * c2 * (t + PI / LN2) * R; const ok = Math.abs(split / p - 1) < 0.10 && Math.abs(pred / p - 1) < 0.03 && split > prevSplit && Math.abs((res - anti) / 2 - split) < 0.02; prevSplit = split; return ok; }); };
       return chk('a040', 0.4) && chk('a050', 0.5) && chk('aLn3Half', LN3 / 2) && rs.a030.rows.every((r) => Math.abs(r[4]) < 1.5) && [...rs.archControl.k8, ...rs.archControl.k32].every((v) => Math.abs(v + 45.99) < 0.6)
         && rs.a050.rows.every((r) => r[2] > 0) && rs.aLn3Half.rows.every((r) => r[2] > 0);
+    },
+  },
+  {
+    id: 'X8-positivity-onset-across-a',
+    description: 'across (ln2)/2 < a < (ln3)/2 the resonance autocorrelation R_phi(a) = plateauAutocorr(a) is 0 at the threshold, strictly positive and strictly increasing on the grid, and the half-split slope 2 pi c_2 R_phi (2 pi/ln 2) grows monotonically 0 -> 8.4/k; since R_phi(a) > 0 for every a past (ln2)/2 the half-split is unbounded in k, so E_S o Q is unbounded above (CC condition fails for every a > (ln2)/2) and the first-positive resonance k decreases in a (baked 6 at a = 0.5 to 4 at (ln3)/2)',
+    holds: () => {
+      const po = L.positivityOnset; const c2 = C2_CUSP;
+      if (!(plateauAutocorr(po.thresholdA) < 1e-4)) return false;
+      let prevR = -1, prevSlope = -1, ok = true;
+      for (const [a, , Rb, slb] of po.grid) {
+        const R = plateauAutocorr(a); const sl = 2 * PI * c2 * R * (2 * PI / LN2);
+        if (Math.abs(R - Rb) > 1e-4) ok = false;
+        if (Math.abs(sl - slb) > 0.02 + 0.02 * Math.abs(slb)) ok = false;
+        if (a > 0.37 && !(R > 0)) ok = false;
+        if (!(R > prevR) || !(sl >= prevSlope)) ok = false;
+        prevR = R; prevSlope = sl;
+      }
+      return ok && L.resonanceSplit.firstPositiveK.a050 > L.resonanceSplit.firstPositiveK.aLn3Half;
     },
   },
   {

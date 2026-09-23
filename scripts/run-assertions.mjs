@@ -18843,6 +18843,17 @@ const DATA_MODULES = [
   // of the reconstruction (m=20-only certified, imp-95966 PIECE-A unchanged); import-light; changes no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96007-c-odd-departure-odd-branch-crossvalidation.js',
+  // imp-96008: ASSESS whether the imp-95878 J-variation departure dI(m) = (Q0_RECON(20)-Q0_RECON(m))/kappa
+  // admits a two-term closed form, now that the full imp-95925/95982 grid pins dI at 8 moduli (m=20..150)
+  // instead of the three (m=22,30,41) imp-95878 had. FINDING: no clean low-order two-term law. On the 7
+  // m>20 points the LINEAR through-origin dI=a.drho has dI/drho spread ~46% (4x the imp-95878 3-point 11%;
+  // the narrow window masked a large slope fall). dI=a.drho+b.drho^2 fits best (RSS ~6x below linear) but
+  // b>0 makes dI DIVERGE, contradicting the imp-95982 saturation. dI=a+b/m saturates but fits worse and
+  // its ceiling -2.19e-5 overshoots the imp-95982/96007 parity-clean power-law ceiling -1.83e-5 by ~20%.
+  // So dI is reconstruction-borne (imp-95982/96007 parity-split power law Q0_RECON=L-c.m^-p, p~1.96),
+  // confirming the imp-95878 sub-gap. Fits the reconstruction (m=20-only certified); import-light;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96008-c-odd-departure-two-term-closed-form-assessment.js',
   // imp-95981: DERIVE why the imp-95944 equal-rate residual bound (log-log slope ~-3.70) cannot match
   // the imp-95960 measured eps_inf(k) slope ~-3.19. FINDING: the exact p->infinity residual splits
   // additively (new RKHS identity eps_inf = 0.5 E[||f_d-f_d'||^2]/gall, verified 1e-6) into a CENTRE-

@@ -18137,6 +18137,14 @@ const DATA_MODULES = [
   // the non-monotonicity is not an artifact of the single anchor and no two-sided
   // bracket can be formed. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95805-slack-exclude-c0-artifact-monotonicity.js',
+  // imp-95807: independently recomputes F_inf via the cancellation-free theta=0
+  // Poisson dual at all 13 cells of the imp-95785 union twin-pair grid (fresh
+  // overflow-safe sech path) and records the previously-undocumented per-cell
+  // margin. The < 1e-6 claim holds at every cell; worst is the imp-95707 float64
+  // ln1.5/rho=1 entry at relErr 2.42e-7 (limited by its 10-sig-fig storage), the
+  // other twelve at relErr <= 3.68e-9. The two sources are delta-disjoint so no
+  // shared cell can disagree. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95807-finf-dual-independent-recompute.js',
 ];
 
 let ALL_MODULES = FAST_MODE

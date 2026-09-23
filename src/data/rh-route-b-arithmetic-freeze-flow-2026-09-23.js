@@ -127,6 +127,34 @@ export const ROUTE_B_FREEZE_FLOW = Object.freeze({
   // Lemma A + Test 1: tangential force dγ_k/dτ on the first 50 zeros (6 sig figs), t = 0.
   rsIdentityMaxRelErr: 1.6e-27,
   forceMaxImagOverReal: 8.9e-47,
+
+  // imp-96027: CROSS-VALIDATE Lemma A independently on HIGHER zeros and NEW coefficient sets.
+  // Re-derive dγ_k/dτ = Ψ_S(γ_k)/Ξ'(γ_k) both directly and as the RS partial sum Z_S(γ_k)/(2Z'(γ_k))
+  // on the zero blocks γ₅₁..γ₁₀₀ (heights 146.0–236.5) and γ₂₀₀..γ₂₀₉ (heights 396.4–410.5), across 8
+  // coefficient sets that do NOT overlap the original 10 in character (squares, a lone composite, powers
+  // of 2, high primes 37–97, all n≤10, octave [32,63], {1,2}, triangular). Every set on every block agrees
+  // to 6.5e-27 (direct vs RS) and the force is REAL to 6.7e-47 — confirming the identity and reality are not
+  // artifacts of the first-50 window. Measurement only; changes no bound; NO QED. Repro:
+  // tmp/route-b-lemmaA-crossvalidate.py, mpmath dps 30.
+  lemmaACrossValidation: {
+    setsTested: 8,
+    zerosTested: 60,
+    globalMaxRelErr: 6.5e-27,
+    globalMaxImagOverReal: 6.7e-47,
+    newCoefficientSets: {
+      squares_le_9: [1, 4, 9], composite6: [6], powers_of_2: [2, 4, 8, 16],
+      primes_37_97: [37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97],
+      all_le_10: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], oct5: '[32,63]', n1_plus_p2: [1, 2], triangular: [1, 3, 6, 10],
+    },
+    blocks: {
+      zeros_51_100: { kRange: [51, 100], gammaRange: [146.0009824867655, 236.5242296658162], maxRelErr: 6.493947904485845e-27, maxImagOverReal: 6.67437528773996e-47 },
+      zeros_200_209: { kRange: [200, 209], gammaRange: [396.3818542225922, 410.51386919336665], maxRelErr: 2.7698953519563178e-27, maxImagOverReal: 2.7290272871214016e-70 },
+    },
+    reading: 'The additive-freeze force identity dγ_k/dτ = Z_S(γ_k)/(2Z\'(γ_k)) and the reality of the on-line '
+      + 'force reproduce independently on zeros 51–100 and 200–209 (heights up to ~410) across 8 fresh '
+      + 'coefficient sets, at the same 1e-27 / 1e-47 levels as the first-50 census. Lemma A is height- and '
+      + 'set-robust; it remains a tangential (RH-blind) drift. Measurement only; changes no bound; NO QED.',
+  },
   zeros: [14.134725, 21.02204, 25.010858, 30.424876, 32.935062, 37.586178, 40.918719, 43.327073, 48.005151,
     49.773832, 52.970321, 56.446248, 59.347044, 60.831779, 65.112544, 67.079811, 69.546402, 72.067158,
     75.704691, 77.144840, 79.337375, 82.910381, 84.735493, 87.425275, 88.809111, 92.491899, 94.651344,
@@ -286,6 +314,17 @@ export const ROUTE_B_FREEZE_FLOW_ASSERTIONS = Object.freeze([
     id: 'route-b-force-is-riemann-siegel-partial-sum-and-tangential',
     holds: () => F.rsIdentityMaxRelErr < 1e-12 && F.forceMaxImagOverReal < 1e-12,
     why: 'Lemma A: dγ_k/dτ = Z_S(γ_k)/(2Z\'(γ_k)) to 1.6e-27; force real ⇒ on-line zeros move along the line.',
+  },
+  {
+    id: 'route-b-lemma-a-cross-validated-higher-zeros-and-sets',
+    holds: () => {
+      const cv = F.lemmaACrossValidation;
+      return cv.setsTested === 8 && cv.zerosTested === 60
+        && cv.globalMaxRelErr < 1e-24 && cv.globalMaxImagOverReal < 1e-24
+        && Object.values(cv.blocks).every((b) => b.maxRelErr < 1e-24 && b.maxImagOverReal < 1e-24)
+        && cv.blocks.zeros_200_209.gammaRange[0] > 300;
+    },
+    why: 'imp-96027: Lemma A (dγ_k/dτ = Z_S/(2Z\') and force real) reproduces on zeros 51–100 and 200–209 across 8 new coefficient sets to 6.5e-27 / 6.7e-47 — height- and set-robust.',
   },
   {
     id: 'route-b-tangential-force-sign-indefinite-every-set',

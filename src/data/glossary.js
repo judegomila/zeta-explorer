@@ -22408,6 +22408,43 @@ export const glossary = [
       'imp-2642 C_H = 1/8 ansatz, the conditional constant sigma(N) share-geometry cannot bound (imp-2642)',
     ],
   },
+  {
+    term: 'imp-95944 Large-p Sign-Image Crossover: <theta_C>*(p-1)^2 = 1 + p*eps_p (1/(p-1)^2 -> eps_inf/p, deterministic not noise)',
+    category: 'proof',
+    definition:
+      'DERIVATION (honest; changes no bound; NO QED). Ticket imp-95944 upgrades the two ' +
+      'imp-95918 EMPIRICAL fits -- (A) diagFrac := tr(G)/S ~ 1/(p-1), (B) <theta_C> ~ ' +
+      '1/(p-1)^2 -- to STATED asymptotics with an explicit, PROVED, p-independent bounded ' +
+      'error term, from the imp-95898 exact two-sided-exponential Gram closed form.\n\n' +
+      'Two exact algebra identities (verified to 1e-12): (I1) with eps_p := diagFrac*(p-1)-1, ' +
+      'diagFrac*(p-1) = gd/gall = 1 + eps_p (gd = tr/(p-1) mean diagonal, gall = S/(p-1)^2 ' +
+      'mean of all entries), so diagFrac = (1+eps_p)/(p-1) EXACTLY. (I2) <theta_C>*(p-1)^2 = ' +
+      '1 + p*eps_p EXACTLY, so the measured ~1.4% "upward drift" of <theta_C>*(p-1)^2 across ' +
+      'p=3..23 (1.000664 -> 1.013914) is EXACTLY p*eps_p term for term -- NOT off-diagonal noise.\n\n' +
+      'Law (A) residual bound: all p-1 packets at fixed k share nearly-equal decay rate and ' +
+      'centres confined to a p-independent-width interval, so the mean relative off-diagonal ' +
+      'deficit rho_p obeys rho_p <= (a*D)_max^2/2, a p-INDEPENDENT constant depending only on ' +
+      'k (= 3.358e-3 at k=6), and eps_p < rho_p is bounded by the same constant for ALL p. As ' +
+      'p -> infinity, eps_p SATURATES to eps_inf(k) > 0 (measured eps_inf(6) ~ 6.62e-4).\n\n' +
+      'CONSEQUENCE for law (B): since eps_p -> eps_inf > 0, the scaled sign image ' +
+      '<theta_C>*(p-1)^2 = 1 + p*eps_p does NOT saturate -- it GROWS ~linearly in p (measured ' +
+      '1.0007 at p=3 -> 1.667 at p=1009). So <theta_C> ~ 1/(p-1)^2 is only the SMALL-p leading ' +
+      'law, valid while p*eps_p << 1 (p << 1/eps_inf ~ 1.5e3); the TRUE large-p asymptotic ' +
+      'crosses over to <theta_C> = (1+p eps_p)/(p-1)^2 ~ eps_inf/p for p >> 1/eps_inf. This ' +
+      'corrects the imp-95918 reading of the drift as bounded off-diagonal "noise": it is the ' +
+      'deterministic image of eps_p, not noise.\n\n' +
+      'HONEST LIMITS. Derivation of the residue-mean object only; the residue mean is STILL ' +
+      'NOT the physical per-window theta -- the kernel-weighted von-Mangoldt x Fresnel-Airy ' +
+      'residue bias A_{k,h} (the imp-95212 port) is untouched and STILL OPEN. Changes NO ' +
+      'numeric bound; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+    firstUsed: 'imp-95944 (upgrading the imp-95918 empirical diagFrac ~ 1/(p-1) and <theta_C> ~ 1/(p-1)^2 fits to stated asymptotics with a proved p-independent bounded error term, and sharpening law (B) to the 1/(p-1)^2 -> eps_inf/p large-p crossover), 2026',
+    relatedTerms: [
+      'imp-95918 the two empirical fits (diagFrac ~ 1/(p-1), <theta_C> ~ 1/(p-1)^2) upgraded here to stated asymptotics (imp-95918)',
+      'imp-95898 the exact two-sided-exponential Gram closed form and <theta_C> = (p tr - S)/((p-1) S) algebraic link this derivation is built on (imp-95898)',
+      'imp-95375 the exact Gram closed form of two-sided exponentials underlying the residue-averaged sign image (imp-95375)',
+      'imp-95212 the kernel-weighted von-Mangoldt x Fresnel-Airy residue-bias envelope port, untouched and STILL OPEN -- the residue mean is not the physical theta (imp-95212)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

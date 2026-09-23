@@ -1258,6 +1258,9 @@ const Imp95887SzegoDdToeplitzChainViz = lazy(() =>
 const Imp95888RcapWindowBottomViz = lazy(() =>
   import('./pages/Imp95888RcapWindowBottomViz.jsx')
 );
+const Imp95971CrossingHeightMapViz = lazy(() =>
+  import('./pages/Imp95971CrossingHeightMapViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3358,6 +3361,10 @@ function AppShell() {
           <Route
             path="/viz-imp95888-rcap-window-bottom"
             element={<Imp95888RcapWindowBottomViz />}
+          />
+          <Route
+            path="/viz-imp95971-crossing-height-map"
+            element={<Imp95971CrossingHeightMapViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

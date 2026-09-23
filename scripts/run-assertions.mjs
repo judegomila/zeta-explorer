@@ -18640,6 +18640,21 @@ const DATA_MODULES = [
   // plateaus stays OPEN (sub-gap imp-95924-sub-ln125-floor-past-reach-759). Measurement
   // extending a grid; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95924-ln125-ufit-past1523.js',
+  // imp-95963: RE-TABULATES the per-delta u_fit comparison with the imp-95939 ln1.25
+  // crossing-constant u_fit_rel=-0.7363% row (C_fit=98.376562 vs C_pred=pi^2/(2 delta^2)=
+  // 99.106256, reach 340, Nmax 1523, worst window budget ~950) added, and RE-RUNS the
+  // imp-95885 FINDING A ordering cross-check. CORRECTS a stale premise: the ln1.25 cell is
+  // NOT empty (imp-95895 filled it with the A_opt scalar-floor u_fit_rel=+0.0846%); the
+  // imp-95939 value is a DIFFERENT observable (crossing constant, O(1e2) scale, vs the
+  // A_opt floor, O(1e-18); ratio ~1.4e19). FINDING A on the common A-floor observable is
+  // UNCHANGED (ln1.25 tightest 0.0846% < ln1.3 0.23% < ln1.2 0.247%, reach-conditioning
+  // interplay, neither reach nor cond alone orders). The crossing row is LOOSEST at
+  // intermediate conditioning: read as an A-floor point it would falsely look like a
+  // conditioning counterexample -- flagged as an observable-conflation artifact and
+  // excluded from the ordering axis. 6 self-executing assertions re-derive each dual A_opt
+  // live, C_pred + crossing u_fit_rel live, and the ordering cross-check. Cross-validation
+  // only; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95963-ln125-crossing-vs-floor-ufit-retabulation.js',
   // imp-95835: consumer/orphan audit of the imp-95682 twin-pair block-floor rho log-y
   // viz-data module (IMP95682_ROWS). FINDING: NOT orphaned -- fully wired end to end
   // (Imp95682TwinPairBlockFloorRhoViz.jsx imports it directly, App.jsx routes it at

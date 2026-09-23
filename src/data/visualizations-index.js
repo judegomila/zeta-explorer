@@ -2814,6 +2814,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-plots the frozen imp-95722 envelope verbatim (no re-derivation, no fresh measurement); the fine grid above the measured ceiling is the closed form evaluated for chart resolution, not new data; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95971-crossing-height-map',
+      title: 'Crossing-Height Map T_x(a_0): Double-Exponential Sensitivity',
+      oneLine:
+        'Log10(T_x) vs a_0 chart of the imp-95940 closed form T_x(a_0) = 2pi exp(exp(2pi^2 C0 - 2(gamma+1+a_0))), showing why the empirical a_0 spread ~1.18 sweeps the imp-95921 crossing height across ~40 orders of magnitude (d ln T_x/d a_0 ~ -78).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95971-crossing-height-map-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95940-arithmetic-intercept-a0-obstruction.js (crossingSensitivity, a0Empirical; imp-95971 viz page)',
+      ticket: 'imp-95971',
+      pedagogicalStep: 178.8,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95940 closed form verbatim over its own empirical a_0 range (no re-derivation, no new bound); a_0 is NOT pinned to a point; establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95791-biaspct-vs-rho',
       title: 'Twin-Pair Finite-Size biasPct vs rho at delta=ln1.2',
       oneLine:

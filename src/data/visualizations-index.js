@@ -2897,6 +2897,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95785 union table verbatim (no re-derivation, no fresh term); biasPct is an interior model-seam quantity, not an RH bound; the two sources are delta-disjoint so most of the display grid is blank, not zero; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95809-deep-corner-bias-ladder',
+      title: 'Deep-Corner Finite-N Bias Convergence Ladder',
+      oneLine:
+        'Log-log line chart of the imp-95788 N=80,120,160,200 finite-size bias ladder at the deepest twin-pair cell (delta=ln1.2, rho=1), showing biasPct collapsing monotonically 51.63% -> 4.82% toward the fixed imp-95744 dual F_inf.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95809-deep-corner-bias-convergence-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95788-twin-pair-deep-corner-finite-n-bias-convergence.js (ladder; imp-95809 viz page)',
+      ticket: 'imp-95809',
+      pedagogicalStep: 189,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95788 N=80..200 bias ladder verbatim (no re-derivation, no fresh DD solve); biasPct is an interior model-seam finite-size diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

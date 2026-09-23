@@ -3051,6 +3051,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95897 six-offset table and envelope band verbatim (no re-derivation, no fresh measurement); the offset is noise-dominated with an interior max, so monotonicity over [3e12, infinity) is UNDECIDED by this table alone (see imp-95921); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95931-ln12-descent-ladder',
+      title: 'ln 1.2 u_fit_rel Descent Ladder vs the ln 1.3 Target',
+      oneLine:
+        'Renders the three-rung ln1.2 u_fit_rel descent (imp-95860/imp-95881/imp-95896: 0.54% -> 0.34% -> 0.247% across reach ~182/~511/~948) against the frozen ln1.3 direct target (0.23%) -- never assembled visually before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95931-ln12-descent-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95896-ln12-past2800-ufit-tightening.js (imp-95931 viz panel)',
+      ticket: 'imp-95931',
+      pedagogicalStep: 196,
+      honestCeiling:
+        'Presentation only: re-plots three frozen ln1.2 u_fit_rel measurements verbatim against the frozen ln1.3 target (no re-derivation, no fresh extrapolation run); the final rung (0.247%) is 1.07x looser than the ln1.3 target and has NOT crossed it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

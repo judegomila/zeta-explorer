@@ -18833,6 +18833,16 @@ const DATA_MODULES = [
   // does NOT diverge. Measurement of the reconstruction (m=20-only certified, imp-95966 PIECE-A unchanged);
   // import-light; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95982-c-odd-departure-growth-law-saturation.js',
+  // imp-96007: CROSS-VALIDATE the imp-95982 saturating fracBelowNull ceiling (-1.83e-5, p~2) on the ODD
+  // parity branch. The imp-95925 sweep grid has m=41 as its SOLE odd modulus (imp-95967), so the
+  // two-parameter power law Q0_RECON(m) = L - c.m^-p is fit instead on the imp-95967 fine-grid odd members
+  // m=41,43,...,69 (15 points): L=-0.010651861, p=1.8961, ceiling (Q0_RECON(20)-L)/kappa = -1.8334e-5. This
+  // matches the imp-95982 wide-even ceiling -1.8320e-5 to ~1e-8 (~0.06%) with the same exponent ~2 -- a
+  // GENUINE parity-independent saturation, not an artifact of the four even-branch points. Combined-branch
+  // extrapolation: ceiling -1.8332e-5 +/- ~2.4e-8, p mean 1.93 spread 0.065 (~2, NOT proven 2). Measurement
+  // of the reconstruction (m=20-only certified, imp-95966 PIECE-A unchanged); import-light; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96007-c-odd-departure-odd-branch-crossvalidation.js',
   // imp-95981: DERIVE why the imp-95944 equal-rate residual bound (log-log slope ~-3.70) cannot match
   // the imp-95960 measured eps_inf(k) slope ~-3.19. FINDING: the exact p->infinity residual splits
   // additively (new RKHS identity eps_inf = 0.5 E[||f_d-f_d'||^2]/gall, verified 1e-6) into a CENTRE-

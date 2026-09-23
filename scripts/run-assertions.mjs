@@ -18313,6 +18313,13 @@ const DATA_MODULES = [
   // correction term from baked literals; no DD eigensolve). Sub-gap
   // imp-95840-dd-crossing-reach-needs-denser-sweep. No bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95840-dd-corrected-crossing-reach.js',
+  // imp-95871: registry audit found imp-95837, imp-95844 and imp-95846 committed
+  // as tracked files but absent from this DATA_MODULES sweep, so their
+  // throw-on-failure assertions never ran under npm run-assertions. Wiring them
+  // in directly.
+  '/src/data/imp-95837-ln12-dd-extrapolation-grid.js',
+  '/src/data/imp-95844-rho1-szego-direct-vs-dual-crossval-table.js',
+  '/src/data/imp-95846-finite-section-upper-companion-bound.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1204,6 +1204,9 @@ const Imp95776CfReffGueViz = lazy(() =>
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
+const Imp96075RouteMVasyuninDnLadderViz = lazy(() =>
+  import('./pages/Imp96075RouteMVasyuninDnLadderViz.jsx')
+);
 const Imp95371BcapTwoBranchCapVsExactRatioViz = lazy(() =>
   import('./pages/Imp95371BcapTwoBranchCapVsExactRatioViz.jsx')
 );
@@ -3311,6 +3314,10 @@ function AppShell() {
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"
             element={<Imp95366RzPenOnsetDropLadderViz />}
+          />
+          <Route
+            path="/viz-imp96075-route-m-vasyunin-dn-ladder"
+            element={<Imp96075RouteMVasyuninDnLadderViz />}
           />
           <Route
             path="/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio"

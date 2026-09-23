@@ -3121,6 +3121,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95964 decomposition verbatim (no re-derivation, no fresh prime-sieve run); K is backed out from the imp-95940 empirical six-height mean, not derived from a rigorous smoothed explicit-formula computation, so its plotted size is illustrative of the obstruction, not a pinned value; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96075-route-m-vasyunin-dn-ladder',
+      title: 'Route M: Vasyunin-Gram NB Distance Ladder and the Zero-Pinned Mellin Residual',
+      oneLine:
+        'Line chart of the RH Route M exact Vasyunin-Gram Nyman-Beurling distance ratio d_N^2 log N / Sum_rho 1/|rho|^2 across N = 5..500, converging from 1.258 to 0.998 onto the Burnol floor, plus a bar chart of the three baked |1+zeta D_N|^2/(1/4+t^2) residual points (forced to 1 at a zero, median 0.079 and max 0.692 between zeros, normalized by 1/|rho|^2) showing each zero contributes its own 1/|rho|^2 times the 1/log N mollifier resolution width.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96075-route-m-vasyunin-dn-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js (NB_DISTANCE_LADDER.rows, RECIPROCITY_STRUCTURAL_TEST.mellinResidual; imp-96075 viz page)',
+      ticket: 'imp-96075',
+      pedagogicalStep: 200,
+      honestCeiling:
+        'Presentation only: every plotted value is copied verbatim from the rh-route-m NB_DISTANCE_LADDER and RECIPROCITY_STRUCTURAL_TEST.mellinResidual records (no re-derivation, no re-execution of the underlying Gram/Cholesky or quadrature numerics); only the three baked summary points are plotted for the residual, not a fabricated continuous curve; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

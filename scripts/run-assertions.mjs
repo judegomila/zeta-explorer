@@ -18482,6 +18482,13 @@ const DATA_MODULES = [
   // A live N=150 DD shift-invert solve reproduces the baked coarsest point (~5e-11 rel).
   // Measurement/cross-validation; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95895-ln125-ufit-interval.js',
+  // imp-95835: consumer/orphan audit of the imp-95682 twin-pair block-floor rho log-y
+  // viz-data module (IMP95682_ROWS). FINDING: NOT orphaned -- fully wired end to end
+  // (Imp95682TwinPairBlockFloorRhoViz.jsx imports it directly, App.jsx routes it at
+  // /viz-imp95682-twin-pair-block-floor-rho, visualizations-index.js carries a complete
+  // row at pedagogicalStep 176, browsable via VisualizationsIndexPage.jsx). No new
+  // wiring needed. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95835-imp95682-consumer-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

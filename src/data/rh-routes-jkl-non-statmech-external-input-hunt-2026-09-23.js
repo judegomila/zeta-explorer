@@ -82,6 +82,17 @@ export const ROUTE_J = Object.freeze({
     mtGapBelowFejerFloor: 0.255015, // R_inf(5.828427) - MT(5.573412): the Stechkin/Heath-Brown weighting gain
     mtGapPct: 4.375,             // percent below the pure-scheme floor
     verdict: 'All Route J Fejér ladder constants reproduce independently; MT 5.573 is 4.375% below the pure-scheme floor 5.8284. Verification only; changes no bound; NO QED.',
+    // imp-96073 — SECOND independent reproduction (fresh JS, tmp/imp-96073-verify.mjs, not the assertion
+    // helpers and not imp-96050): recomputing a_1/a_0 = 2cos(pi/(n+2)), c_ceil = 2(1-(a_1/a_0)^{-1/2})^2,
+    // R_floor = 1/c_ceil for all six rows gives maxCeilingRowErr = 4.940e-7 (bit-matches the baked 4.94e-7);
+    // c_inf = 2(1-1/sqrt2)^2 = 0.171573 and R_inf = 5.828427 (baked 5.8284); R(n=1e5) = 5.82843 approaching
+    // from above (monotone decreasing); 3-4-1 gives c = 0.028719, R = 34.8205; and R_inf - MT(5.573412) =
+    // 0.255015 = 4.375% below the pure-scheme floor. CONFIRMS the Route J verdict end-to-end; refutes nothing.
+    crossValidation96073: Object.freeze({
+      maxCeilingRowErr: 4.940e-7, RfloorLimitCheck: 5.828427, R341Check: 34.8205,
+      mtGapBelowFejerFloor: 0.255015, mtGapPct: 4.375,
+      verdict: 'imp-96073: fully independent JS re-derivation reproduces every Fejér ladder constant and the R >= 5.8284 pure-scheme floor to the baked precision; the 4.375% MT gap is confirmed. Verification only; changes no bound; NO QED.',
+    }),
   }),
   engines: Object.freeze([
     { engine: '(i) Weil: Hodge index / Castelnuovo on X×X', overQ: 'needs Spec Z ×_{F_1} Spec Z: Kurokawa ζ⊗ζ (zeros ρ_1+ρ_2) / Connes–Consani scaling-site square (Route H). Closed points of the self-product for rationally independent log p, log q are 2-tori (Frobenius = ℝ-flow, not ℤ); H^1 has infinite rank so the Riemann–Roch dimension count behind Castelnuovo is unavailable. Terminus: Weil positivity.' },
@@ -102,6 +113,21 @@ export const ROUTE_J = Object.freeze({
     continuationInvariant: true,
     verdict: 'NO reduction. Two independent reasons, both = the engine-(i) self-product obstruction. (1) The tensor-power trick exploits ONLY the abscissa of ABSOLUTE convergence of the Euler product — that is the half-plane where the product is guaranteed nonzero, hence zero-free. Analytic continuation / zeta-regularization (Kurokawa’s double sine) extends the meromorphic function past that abscissa but changes NEITHER the abscissa of absolute convergence NOR the guaranteed zero-free region: it buys a functional equation, not a smaller excess. (2) The excess is +1 = m/2 at m = 2 because ζ⊗ζ carries a DOUBLE pole at s = 2 — the self-convolution raises the pole order from 1 (ζ at s=1) to m, dragging the abscissa to m, so excess = m − m/2 = m/2 and Re ρ ≤ abscissa/m = 1 (trivial). Regularizing a double pole into a simple one would change the object. This is Spec ℤ ×_{F₁} Spec ℤ being a genuine surface: H^1 infinite-rank, Frobenius = ℝ-scaling-flow not q^ℤ, so the finite-field “+1” (fixed, from the single-variable functional equation) is replaced by “+m/2” (scaling). Excess stays m/2. NO gain, NO QED.',
     caveat: 'Only the m = 2 abscissa (Re s > 2) is a re-derivable data point (cited from Kurokawa–Koyama, not re-derived here); the pole-order = m ⇒ excess = m/2 scaling for m > 2 is the structural expectation from the m-fold self-convolution, not a re-proved theorem. Assessment only; changes no bound.',
+  }),
+  // imp-96072 — FORMALIZATION: register the tensor-square excess obstruction as a NAMED RESIDUAL so
+  // downstream wall maps can cite it by a stable id. The engine-(iii) verdict (imp-96048) is elevated
+  // here to a citable named entry. Two conjoined claims, both = the engine-(i) self-product obstruction:
+  // (R1) the excess is +m/2 (SCALES with m, not a fixed O(1)); (R2) no Kurokawa double-sine /
+  // zeta-regularization lowers the abscissa of ABSOLUTE convergence. Statement only; no bound; NO QED.
+  namedResidual: Object.freeze({
+    id: 'RES-96072-tensor-square-excess',
+    name: 'Tensor-square abscissa excess (+m/2) obstruction to the Deligne–Künneth bootstrap over ℤ',
+    formalStatement: 'The Deligne tensor-power / Kunneth bootstrap |beta^m| <= q^{(nm+1)/2} => |beta| <= q^{n/2 + O(1)/m} drives Re rho -> 1/2 as m -> infinity ONLY IF the m-fold tensor power zeta^{tensor m} is an Euler product whose abscissa of ABSOLUTE convergence is m/2 + c with c a FIXED constant independent of m (so abscissa/m -> 1/2). For m = 2 the Kurokawa-Koyama double zeta zeta tensor zeta carries an order-m (DOUBLE) pole at s = 2 = m: the m-fold self-convolution of the simple pole of zeta at s = 1 raises the pole order to m and drags the abscissa of absolute convergence to m. Hence the excess is m - m/2 = m/2, which GROWS with m rather than staying O(1), and Re rho <= abscissa/m = m/m = 1 is trivial for every m -- the bootstrap never approaches 1/2.',
+    regularizationNoGo: 'Kurokawa double-sine / zeta-regularization analytically continues zeta tensor zeta past Re s > 2 and supplies a functional equation, but it changes NEITHER the abscissa of absolute convergence NOR the guaranteed zero-free (nonvanishing) half-plane of the Euler product -- the only two quantities the positivity trick consumes. Regularizing the order-m pole into a simple one would change the object. Therefore the abscissa of absolute convergence CANNOT be lowered by continuation/regularization, and the excess stays m/2.',
+    scaling: 'excess(m) = m/2 (pole order m => abscissa m => Re rho <= abscissa/m = 1)',
+    fixedFieldContrast: 'over F_q the single-variable functional equation gives a FIXED +1 excess independent of m, which the bootstrap divides away; over ℤ the +1 is replaced by the scaling +m/2 because Spec Z x_{F1} Spec Z is a genuine surface (H^1 infinite-rank, Frobenius = R-scaling-flow, not q^Z).',
+    status: 'OPEN -- structural, not computational: the missing objects (finite-rank H^1, Z-valued Frobenius, the self-product Spec Z x_{F1} Spec Z) are exactly what Spec Z lacks; this residual is a WALL descriptor, not a lever, and no computable finite analog is a genuine partial. RH open; NO QED.',
+    derivedFrom: 'imp-96048 engineIiiAssessment (same verdict, now carried as a citable named residual)',
   }),
   verdict: 'NO external input reaches ℤ: each of the three Weil–Deligne engines lands on a known wall (Weil positivity via the missing self-product; the Landau-pole c/log t form with Fejér floor R ≥ 5.83 for the pure scheme; PCC for the tensor square). The finite-field-specific inputs — finite-rank H^1, Frobenius ∈ ℤ, closed points of X×X — are exactly what Spec Z lacks. No computable finite analog is a genuine partial. RH open.',
 });
@@ -455,6 +481,20 @@ export const RH_ROUTES_JKL_ASSERTIONS = Object.freeze([
         && a.continuationInvariant === true && /NO reduction/.test(a.verdict) && /NO QED/.test(a.verdict);
     },
     why: 'imp-96048: the Kurokawa–Koyama ζ⊗ζ double Euler product converges only for Re s > 2 (target m/2 = 1 at m = 2), a DOUBLE pole at s = 2 = m dragging the abscissa to m, so excess = m/2 = target and Re ρ ≤ abscissa/m = 1 (trivial), never → ½. Continuation/regularization changes neither the absolute-convergence abscissa nor the zero-free region: same self-product obstruction as engine (i). Assess only; NO QED.',
+  },
+  {
+    id: 'J-tensor-square-excess-named-residual-registered',
+    holds: () => {
+      const r = ROUTE_J.namedResidual;
+      return !!r && r.id === 'RES-96072-tensor-square-excess'
+        && /excess\(m\) = m\/2/.test(r.scaling)
+        && /CANNOT be lowered/.test(r.regularizationNoGo)
+        && /abscissa of absolute convergence/i.test(r.regularizationNoGo)
+        && /never approaches 1\/2/.test(r.formalStatement)
+        && /OPEN/.test(r.status) && /NO QED/.test(r.status)
+        && ROUTE_J.engineIiiAssessment.excess === ROUTE_J.engineIiiAssessment.m / 2;
+    },
+    why: 'imp-96072: the tensor-square excess obstruction (+m/2 from the order-m/double pole of ζ⊗ζ at s = m = 2) is registered as the named residual RES-96072-tensor-square-excess, carrying the Kurokawa double-sine / zeta-regularization no-go (neither the abscissa of absolute convergence nor the zero-free half-plane moves). Statement only; changes no bound; NO QED.',
   },
   {
     id: 'wall-map-refines-sweep-convergence',

@@ -21852,6 +21852,34 @@ export const glossary = [
       'imp-95531 explicit PD-persistence window is the source module computing W(S) and its margin to the 1.15e-11 Lehmer-pair collision threshold',
     ],
   },
+  {
+    term: 'LEG B Fixed-Window Decider: Direct Pencil vs Loewner Sandwich (D2)',
+    category: 'concept',
+    definition:
+      'imp-95537 (D2), witnessed complete by imp-95561. At a single fixed seam window the LEG B envelope-' +
+      'domination inequality LamBar_paper(d) <= Lambda(E_V, d) reduces to comparing two largest generalized ' +
+      'eigenvalues of definite matrix pencils: lambda_max(A_p, B_p) <= lambda_max(A_m, B_m). Two ways to decide ' +
+      'this exist. The DIRECT pencil comparison computes both lambda_max values exactly (roots of ' +
+      'det(A - lambda B) = 0) and compares the two real numbers -- always conclusive when B_p, B_m are positive ' +
+      'definite. The two-sided LOEWNER SANDWICH (imp-95424/imp-95443) instead asks for DELTA_A = A_m - A_p >= 0 ' +
+      'and DELTA_B = B_p - B_m >= 0, which is only SUFFICIENT for the inequality, not necessary, and can be ' +
+      'INCONCLUSIVE. imp-95561 exhibits a real port-derived window (p, D) = (3, 1) where DELTA_A is genuinely ' +
+      'INDEFINITE -- full eigenpair of opposite sign, det(DELTA_A) = -0.001547 < 0, eig = {-0.01627, +0.09510} -- ' +
+      'while the direct ratio inequality still HOLDS (0.03933 <= 0.70768); an independent hand-built window shows ' +
+      'the same pattern. The straddle is STRUCTURAL, not a numerical accident: the common collar dbar is placed ' +
+      'at the shallowest packet depth, forcing that packet\'s DELTA_A diagonal entry to vanish, which forces a ' +
+      '2x2 symmetric matrix with a zero diagonal and nonzero off-diagonal to have negative determinant. ' +
+      'Consequence: at a fixed window the sandwich is never required, and the sharp decider is the direct ' +
+      'lambda_max comparison; the sandwich route can fail even where the inequality it is meant to certify is ' +
+      'true. This decides only per-fixed-window; LEG B substance remains the UNIFORM statement over depth d and ' +
+      'matrix size N (imp-95443 decay-vs-margin race), which this distinction does not touch.',
+    firstUsed: 'imp-95537 (LEG B single-window decidability assessment, naming D2), 2026',
+    relatedTerms: [
+      'SPLIT Verdict / LEG A vs LEG B is the parent split this fixed-window analysis lives inside (imp-95436)',
+      'imp-95561 completes the D2 witness with the full DELTA_A eigenpair at a real port window and a second hand-built window',
+      'imp-95443 decay-vs-margin race is the separate UNIFORM question this fixed-window decidability does not resolve',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

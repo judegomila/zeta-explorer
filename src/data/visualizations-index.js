@@ -2714,6 +2714,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: renders the frozen imp-95658 baked literals verbatim (no re-derivation, no fresh term); an attribution diagnostic on the imp-95617 wedge, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95682-twin-pair-block-floor-rho',
+      title: 'Twin-Pair Block Floor F(delta, rho) Monotone Interpolation',
+      oneLine:
+        'Log10-y chart of the imp-95659 interior tabulation: F, F/A_opt (block advantage) and F/blockIso (retained fraction) vs rho on a shared ~12-order-of-magnitude axis, marking the rho=1 scalar endpoint (1.09x advantage only) and the ~1/2-retention crossing near rho~15.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95682-twin-pair-block-floor-rho-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95659-twin-pair-block-floor-rho-tabulation.js (IMP95659_TWIN_PAIR_BLOCK_FLOOR_RHO_TABULATION table; imp-95682 viz page)',
+      ticket: 'imp-95682',
+      pedagogicalStep: 176,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95659 tabulation verbatim (no re-derivation, no fresh term); the rho=1 value carries the same finite-size Szego factor as imp-95642 and is not the infinite-lattice infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

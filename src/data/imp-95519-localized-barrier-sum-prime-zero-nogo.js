@@ -927,6 +927,19 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       Math.abs(GRH_SAVING_CURVE_LO.betaBarrierOperative - 0.7192) < 5e-3,
   },
   {
+    id: 'imp95657-two-sided-nogo-named-constants',
+    description:
+      'STANDING two-sided no-go constants pinned together: achievable A_{k,h} exponent 0 (trivial H^1) vs target 1/2 both UNCONDITIONALLY and under GRH at the Fresnel width; square-root-cancellation saving factor H^{-1/2} = 1.22e-4 ~ 1e-4 at the floor alias (over-closes the minimal 1.306 headroom by ~4 orders); RH short-interval barrier ratio sqrt(u) log^2 u / H = 100.5 > 1 at N_lo and > 1 at N_hi, so the width sits below the barrier throughout and GRH is inert',
+    holds: () =>
+      IMP95519_LOCALIZED_BARRIER_SUM_NOGO.primeSide.exponentAchievable === 0 &&
+      IMP95519_LOCALIZED_BARRIER_SUM_NOGO.primeSide.exponentTarget === 0.5 &&
+      Math.abs(Math.pow(FLOOR_LO.H, -0.5) - 1.22e-4) < 1e-5 &&
+      Math.pow(FLOOR_LO.H, -0.5) < HEADROOM_FACTOR / 1e3 &&
+      Math.abs(FLOOR_LO.rhBarrierRatio - 100.5) < 0.5 &&
+      FLOOR_LO.rhBarrierRatio > 1 &&
+      FLOOR_HI.rhBarrierRatio > 1,
+  },
+  {
     id: 'imp95519-honesty-gate-no-qed',
     description: 'no-go only: promotes no bound, exponent achievable 0 < target 1/2, NO QED, PT stays SOTA',
     holds: () =>

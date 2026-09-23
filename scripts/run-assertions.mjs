@@ -352,6 +352,16 @@ const DATA_MODULES = [
   // gain. Sub-gap SG-96066: an unconditionally-positive multiplier for S superset {2,3} still forces delta_S23.
   // Import-light (Route I/H exports only). Assertions ~1.5 s (one N=20 pencil + delta_S23/delta_S spot checks).
   '/src/data/imp-96066-route-i-p3-adjoin-vs-dense-resonance-assessment.js',
+  // imp-96084 (2026-09-23): ASSESSMENT of the unconditional semilocal multiplier Lhat_S23 >= 0 for S superset
+  // {2,3} (SG-96066-unconditional-multiplier). Answer: OBSTRUCTED for the CC-Sonine construction by a RANK /
+  // density mismatch. The S-units +-2^Z 3^Z have Dirichlet rank |S| - 1 = 2 while the archimedean flow is
+  // 1-dimensional, so log(Z_S^*) = {n ln2 + m ln3} is DENSE in R (ln2/ln3 irrational); delta_S23 has dense
+  // log^2 singular support, deltahat_S23 is not a bounded/continuous multiplier, and no compact-Toeplitz
+  // foothold exists. The one-prime lever L_S >= 0 is usable precisely because rank = 1 makes {k ln2} a DISCRETE
+  // lattice. Lhat_S23 >= 0 survives only as an abstract HS-operator positivity, not a usable multiplier. OPEN
+  // only: whether a non-CC construction could evade the rank obstruction. Import-light (Route I exports only).
+  // Assertions < 0.1 s (S-unit log-gap dichotomy + one L=18 delta_S23 spot check).
+  '/src/data/imp-96084-route-i-unconditional-multiplier-rank-obstruction-assessment.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284
@@ -19020,6 +19030,17 @@ const DATA_MODULES = [
   // is the unconstrained 2.8e-3, not the comfortable 0.539; more moments provably cannot reduce it.
   // Assessment only; import-light (baked literals, no zeros bundle); no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96063-route-i-constraint-count-margin-certificate-assessment.js',
+  // imp-96085: CLOSE-OR-OBSTRUCTION verdict for the imp-96063-corner sub-gap (the fixed k-dimensional
+  // low-moment corner positivity + cross-term bound carrying the unconstrained 2.8e-3 residual of D_S <= L_S).
+  // RESULT: NOT closed with positive slack; a PRECISE OBSTRUCTION is established in three parts -- (1) the
+  // reduction is hardness-PRESERVING (the global minimizer lives in the corner, so min of the Rayleigh
+  // quotient over the corner = the global m(0) = 2.8e-3 exactly; closing the corner IS the endpoint
+  // inequality, no easier), (2) the cross term vanishes at the corner-resident minimizer so the corner block
+  // ALONE sets the margin, and (3) the corner margin is boundary-degenerate (m(0) -> 0 as 2a -> ln 3,
+  // negative past ln 3 in the odd sector, -P_3 rescue), so no positive-slack / support-free certificate can
+  // exist -- the honest ceiling is a boundary-sharp non-strict W_S >= 0. The explicit few-parameter object is
+  // the 2-dimensional even corner span{cosh(u/2), 1}. Assessment only; import-light; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96085-route-i-corner-positivity-obstruction-assessment.js',
   // imp-95950: glossary headword recording the imp-95918 finding that the residue-averaged sign
   // image <theta_C> decays as 1/(p-1)^2, an algebraic consequence of the diagonal fraction
   // tr(G)/S decaying as 1/(p-1), sharpening the imp-95898 STEP 3 qualitative statement.

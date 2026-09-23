@@ -18633,6 +18633,17 @@ const DATA_MODULES = [
   // in a_0 (d ln T_x/d a_0 ~ -78), so a_0 must be pinned to O(0.01) to fix T_x within a decade --
   // sharpened sub-gap imp-95940-subgap-fujii-varS-constant. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95940-arithmetic-intercept-a0-obstruction.js',
+  // imp-95941: CROSS-VALIDATES the imp-95921 saturated-box-variance loglog offset bracket
+  // (analytic slope d offset/d loglog = 1/2pi^2 = 0.05066) against the six imp-95710/imp-95562
+  // directly-measured offsets (T=1e4..5e5). OLS regression of offset vs loglog(T/2pi) gives a
+  // fitted slope 3.68e-3 with R^2 1.8e-4 and slope SE 0.137 (~2.7x the analytic slope), so the
+  // analytic slope sits 0.34 SE inside the fitted band (NOT rejected) while slope=0 is equally
+  // admissible; pinning the slope to 1/2pi^2 fits the six points essentially as well (RMSE 0.0405
+  // vs free 0.0399), and the offset scatter (0.123) is ~5.7x the predicted drift across the span
+  // (0.0216) -- so the six noise-dominated heights neither confirm nor refute the bracket, which
+  // rests on the analytic saturation law not the accessible data. Import-light, measurement only,
+  // no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95941-offset-loglog-bracket-crossval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -3177,6 +3177,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every bar and marker is copied verbatim from the imp-95984 baked literature-located literals (Chan Thm 1.1 bracket, Mertens/P2 sums, imp-95940 empirical mean); no re-derivation of the pair-correlation integral, no fresh quadrature; I_F=1 stays conjectural (Montgomery pair correlation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96115-below-envelope-dip-significance-table',
+      title: 'imp-96089: Below-Envelope Dip Significance Verdict (T = 1e4 / 1.5e5 / 3e5)',
+      oneLine:
+        'Table of the imp-96089 significance verdict for the three imp-96049 below-envelope mean-anchor dips: recovered window count n_w (75/291/411), chi-square crossover (537/79/73194), z-score (0.37/1.92/0.08 sigma), and the resulting SIGNIFICANT (T=1.5e5) vs NOISE (T=1e4, T=3e5) verdict.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96089-mean-anchor-window-count-significance-verdict.js',
+      paperSourcePath:
+        'src/data/imp-96089-mean-anchor-window-count-significance-verdict.js (rows, belowEnvelopeVerdict, significantHeights; imp-96115 viz page)',
+      ticket: 'imp-96115',
+      pedagogicalStep: 204,
+      honestCeiling:
+        'Presentation only: every table cell is copied verbatim from the imp-96089 baked verdict (n_w recovered from the imp-95562 deterministic tiling geometry, crossover and z-score re-derived there); no new measurement or re-derivation here; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

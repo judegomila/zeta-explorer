@@ -17837,6 +17837,10 @@ const DATA_MODULES = [
   // every live site must stay KEEP, correct owner stays Sun arXiv:2609.04176 (not Raymond), and
   // the summary keeps the G-irrationality-OPEN / PT-Lambda<=0.2-SOTA honesty banner. No bound, no QED.
   '/src/data/imp-95603-sun-catalan-reattribution-audit.js',
+  // imp-95630: bakes the imp-95598 transition-vs-knee gap sweeps (E_trunc and C_C_PINNED, both
+  // +/-50%) as import-light reference literals for a future robustness chart, no live quadrature
+  // at import. Content bake only; no bound, no QED.
+  '/src/data/imp-95630-transition-knee-gap-baked-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

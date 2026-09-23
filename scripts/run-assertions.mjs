@@ -18153,6 +18153,18 @@ const DATA_MODULES = [
   // imp-95803 drift is O(N^{-3})-subleading convergence to the exact Widom constant -- not a power
   // change. Import-light, no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95839-sech-widom-prefactor-eval.js',
+  // imp-95845: FITS the imp-95803 deep-corner biasPct*N^2 drift (330414 -> 162500 over N=80..500)
+  // to P0 + P1/N (+P2/N^2, +P3/N^3) and tests whether the extrapolated P0 matches the imp-95839
+  // Widom leading prefactor C_Widom = 50 pi^4/delta^2 = 146518.83. Since biasPct*N^2 =
+  // biasPct*(N+1)^2*(N/(N+1))^2 the constant P0 is convention-independent and must equal C_Widom.
+  // The naive 2-param fit (P0=121013, 0.826x) and small-N-contaminated 3-param all-rung fit
+  // (P0=153369, 1.047x) are pre-asymptotic biases; dropping small-N (3-param N>=200: P0=147164,
+  // +0.44%) or adding P3/N^3 (4-param all: P0=145019, -0.99%) drives P0 onto C_Widom, which sits
+  // inside the well-conditioned fit family spread [145019, 147643]. So the drift IS the O(N^{-3})
+  // subleading tail on a fixed p=2 and the exact constant is 50 pi^4/delta^2 -- closing the
+  // imp-95824 residual (b) quantitatively in the N^2 convention. Import-light 8-point OLS, no zeros
+  // bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95845-deep-corner-biasN2-widom-fit.js',
   // imp-95838: MEASURES the ln1.25 PD-preserving shift-invert iteration-budget scaling law
   // (imp-95820 sub-gap). Robust shift-invert DD Toeplitz solver at N=150..1523: shiftIts ~
   // 5.670e-3 N^1.577 (8 points, retries=0), vs the sigma=0 plain inverse-iteration plainIts ~

@@ -22176,6 +22176,32 @@ export const glossary = [
       'imp-95694-vk-crossover-constant-sensitivity is the module deriving the A/B-ratio structural reduction and the stress-corner robustness bound',
     ],
   },
+  {
+    term: 'Floor-Alias Conductor Pinning (alpha_C = 1, uniform over the sieving prime set)',
+    category: 'concept',
+    definition:
+      'A quick-lookup headword for the imp-95519 alias frequency u_{k,h}(N) = v/(k - h/p) (v = T/2 pi, ' +
+      'the p-independent stationary frequency) evaluated at its floor alias (k = 1, h = p - 1), the ' +
+      'unique argmin of k - h/p (= 1/p) over k >= 1, 0 <= h <= p - 1. At that alias u_{1,p-1} = p v = ' +
+      'the analytic conductor of L(s, chi mod p) EXACTLY, so under the warranted conductor scale ' +
+      'log(p T/2 pi) (see Conductor-Normalization Warranted-Relabeling Decision) alpha_C := ' +
+      'log u_{k,h}/log(p v) equals 1 exactly and is the MAXIMUM over every (k, h) alias, for every prime ' +
+      '-- the single largest majorant contributor always lands precisely on the F(alpha) diagonal/' +
+      'off-diagonal crossover |alpha| = 1. imp-95692 first established this at p = 97; imp-95709 ' +
+      'VERIFIED it is not a p = 97 coincidence but a uniform structural fact by sweeping all 25 imp-95519 ' +
+      'sieving primes (p <= 97) at both window ends: the floor alias matches the conductor to relative ' +
+      'error < 4e-15 (floating-point exact), alpha_C = 1 to < 1e-12, argmax = (k = 1, h = p - 1) for every ' +
+      'prime, no alias exceeds alpha_C = 1 + 1e-9, and no prime deviates. Verification/report only; ' +
+      'sharpens the boundary-degeneracy framing without reopening it -- the mean-square-vs-pointwise gap ' +
+      'and the GRH-height deficit (the two scale-invariant walls imp-95692/imp-95519 identify) are left ' +
+      'untouched. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open.',
+    firstUsed: 'imp-95692 (floor-alias identity, checked at p = 97), 2026; generalized to the full sieving prime set by imp-95709, 2026',
+    relatedTerms: [
+      'Conductor-Normalization Warranted-Relabeling Decision (analytic-conductor scale is honest AND still a relabel) is the companion headword for the decision this pinning is the exact boundary identity inside',
+      'imp-95709-conductor-pinning-prime-set-verification is the module sweeping all 25 sieving primes at both window ends and confirming the pinning is N-independent and prime-independent',
+      'imp-95692-conductor-normalization-warranted-decision is the module first establishing the floor-alias identity at p = 97',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

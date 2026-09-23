@@ -349,6 +349,17 @@ export const RH_ROUTES_JKL_ASSERTIONS = Object.freeze([
     why: 'No false QED: three first-tested routes, none escapes the convergence; L is ranked first as infrastructure only; M is explicitly untested.',
   },
   {
+    id: 'J-engine-iii-kurokawa-excess-does-not-shrink',
+    holds: () => {
+      const a = ROUTE_J.engineIiiAssessment;
+      return a.m === 2 && a.targetAbscissa === a.m / 2 && a.kurokawaAbscissa === a.m
+        && a.excess === a.kurokawaAbscissa - a.targetAbscissa && a.excess === a.m / 2
+        && a.poleOrderAtSm === a.m && a.excessOverTarget === a.excess / a.targetAbscissa && a.excessOverTarget === 1
+        && a.continuationInvariant === true && /NO reduction/.test(a.verdict) && /NO QED/.test(a.verdict);
+    },
+    why: 'imp-96048: the Kurokawa–Koyama ζ⊗ζ double Euler product converges only for Re s > 2 (target m/2 = 1 at m = 2), a DOUBLE pole at s = 2 = m dragging the abscissa to m, so excess = m/2 = target and Re ρ ≤ abscissa/m = 1 (trivial), never → ½. Continuation/regularization changes neither the absolute-convergence abscissa nor the zero-free region: same self-product obstruction as engine (i). Assess only; NO QED.',
+  },
+  {
     id: 'wall-map-refines-sweep-convergence',
     holds: () => /Landau/.test(RH_ROUTES_JKL.wallMap.J) && /Jensen/.test(RH_ROUTES_JKL.wallMap.K) && /Weil positivity/.test(RH_ROUTES_JKL.wallMap.L)
       && !/Weil positivity/.test(RH_ROUTES_JKL.wallMap.K),

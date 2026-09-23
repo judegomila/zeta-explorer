@@ -36,7 +36,12 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'self-dual point; test whether G ⪰ 0 (PSD) on N-prime truncations. PSD that '
         + 'persists as N→∞ is the go/no-go signal.',
       payoff: 'RH + the Hilbert–Pólya operator (highest ceiling)',
-      status: 'to-test',
+      status: 'first-test-done (rh-route-a-reflection-positivity-primon-gas-2026-09-23.js): finite-N '
+        + 'gas RP REFUTED — the Pick reflection Gram of the completed N-prime gas is indefinite at every N '
+        + 'with λ_min → −∞ like −p_N^{½−ν} (Euler product diverges on the strip; reflected Matsubara '
+        + 'poles on σ=0); the infinite-N RP holds numerically but equals Weil positivity = RH '
+        + '(Lagarias–Pick), not a stronger statement; RP transcriptions provable from gas structure '
+        + '(Fock, Pólya Φ>0, KMS) have spectrum {log n} or ℝ, not the zeros. Route closed as stated.',
     },
     {
       key: 'B',
@@ -73,7 +78,9 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'condition; optimize {ε_χ} to minimize |combination| off-line vs on-line; test '
         + 'numerically whether a sign pattern gives a nonvanishing off-line lower bound.',
       payoff: 'A constructive off-line-nonvanishing certificate (would give a zero-free region → RH if uniform)',
-      status: 'to-test',
+      status: 'tested — REFUTED (rh-route-c-signed-interferometer-2026-09-23.js): pair phases are pinned by the root number, '
+        + 'every ≥2-arm design has ≫T off-line zeros (joint universality; DH zeros reproduced), orthogonality is mean-square only, '
+        + 'and Φ_ε is blind to individual arm zeros',
     },
     {
       key: 'D',
@@ -90,7 +97,11 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'heights; check the sign of F′′(0) and monotonicity of F(δ). A confining shape '
         + 'is the signal.',
       payoff: 'RH via defect confinement; opens statistical-mechanics tooling on Weil positivity',
-      status: 'to-test',
+      status: 'tested — REFORMULATION, no lever (rh-route-d-peierls-defect-confinement-2026-09-23.js): the pure '
+        + 'Coulomb self-energy of the mirror quadruple is exactly ANTI-confining (F_C″(0)=−4S<0, Earnshaw); probe '
+        + 'convexity F_h″(0)=−4h″(t) is test-function geometry, not Weil positivity; the prime budget R_σ(t) confines '
+        + 'a lone defect only non-uniformly in height (σ=1 fails below ½ at t≳3000) and its phase-free worst case is '
+        + 'exactly the trivial strip; RH ⟺ R_σ(t) bounded as σ→0 = Weil’s criterion on Gaussian probes',
     },
     {
       key: 'E',
@@ -106,7 +117,23 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'the Euler product and locate their maxima; test whether the maximum-locus is σ=½. '
         + 'Then formulate the large-deviation rate function for an off-line zero.',
       payoff: 'RH as a concentration-of-measure statement (new proof paradigm)',
-      status: 'to-test',
+      status: 'first-test-done (imp-96002): primon-gas response functions from the Euler product '
+        + '— U=−ζ′/ζ, susceptibility VarE=(ln ζ)″, heat capacity Cv=σ²VarE, ξ=√VarE — are all '
+        + 'strictly monotone decreasing on σ>1, so their maximum-locus is the CONDENSATION EDGE '
+        + 'σ=1 (Hagedorn), NOT σ=½. VERDICT widom-line-at-condensation / strip-inaccessible: the '
+        + 'σ=½ Widom line / |ζ|-moment peak lives in the continued strip ½<σ<1 where the primon '
+        + 'gas is undefined, and the large-deviation rate function positivity is RH-equivalent (a '
+        + 'restatement) — sub-gap E-CONTINUATION-GAP. No bound; NO QED. '
+        + 'E-CONTINUATION-GAP CLOSED, route ABSORBED (rh-route-e-widom-line-large-deviations-2026-09-23.js): '
+        + 'the continuation IS available and RH-blind — the FLUCTUATION susceptibility V(σ)=Var_t log|ζ(σ+it)| '
+        + '= ½Σ_k P(2kσ)/k² is finite for σ>½ (Bohr–Jessen, unconditional), diverges ~½ log log T only at σ=½ '
+        + '(Selberg), reflection-symmetric, so σ=½ IS the Widom line by Parseval (mean-square at 2σ halves '
+        + 'the Hagedorn point) plus the functional equation; (log ξ)″ has a symmetry-forced max at ½ '
+        + '(=Σ_ρ γ⁻² = 0.0462100). Raw |ζ|² moments are monotone in σ (not peaked at ½); Var log|ζ| is. '
+        + 'Finite-N gas has NO Fisher zeros (|Z_N| ≥ Π(1+p^{-σ})⁻¹, rate +∞); Cramér near-zero cost is '
+        + 'monotone in σ, not minimised at ½. The concentration statement is Bohr–Landau 1914 via '
+        + 'Littlewood’s lemma; the rate function is the zero-density exponent (Ingham / Guth–Maynard 30/13 / '
+        + 'DH σ≥25/32); RH ⟺ Littlewood’s O(log T) criterion. No new lever.',
     },
     {
       key: 'F',

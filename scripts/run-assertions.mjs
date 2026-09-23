@@ -227,6 +227,24 @@ const DATA_MODULES = [
   // G log-gas RG freeze) from the primon-gas / log-gas / self-duality reframing. Roadmap,
   // not results; PT Λ≤0.2 SOTA; RH open.
   '/src/data/rh-novel-routes-roadmap-2026-09-23.js',
+  // rh-route-c-signed-interferometer (2026-09-23): Route C Φ_ε=Σ ε_χ L(s,χ) tested on q=5,7 — REFUTED as an
+  // off-line-nonvanishing lever: P1 linear blindness (Φ≠0 at arm zeros, Φ=0 where all arms ≥0.42), P2 orthogonality
+  // is mean-square only (Σ|f(n)|²n^{-2σ} reproduced, cross terms net constructive off-line), P3 joint universality ⇒
+  // ≫T off-line zeros for every ≥2-arm design (DH/Spira four pairs reproduced to 10 digits; q=7 mixing scan 11→0 only
+  // at the single arm). Pair phases pinned by root number (arg W = 2·atan κ, 1e-15). Import-light; in-module Hurwitz
+  // EM recomputation; no bound moves; PT Λ≤0.2 SOTA; RH open; NO QED.
+  '/src/data/rh-route-c-signed-interferometer-2026-09-23.js',
+  // rh-route-b-arithmetic-freeze-flow (2026-09-23): Route B first test. Two-parameter deformation
+  // H_{t,tau} = H_t[Phi - tau psi_S] (heat time t + arithmetic coefficient-freeze tau). Lemmas: every
+  // MULTIPLICATIVE prime coupling (Euler factor / Beurling lambda_p / log-derivative Lambda-field) has
+  // Hellmann-Feynman force 0 or a rigid translation (numerics: shift 8e-31; force 1; FE-even 0; FE-odd 2);
+  // the FE-preserving ADDITIVE freeze has force dgamma_k/dtau = Z_S(gamma_k)/(2 Z'(gamma_k)) (Riemann-Siegel
+  // partial sum over Z', identity to 1.6e-27), tangential on the line; on genuine off-line zeros (H_t, t<0)
+  // the arithmetic normal force is sign-indefinite while the heat force is confining at every sample;
+  // n=1 pencil real-rooted-for-all-tau <=> half-Gram interlacing, which FAILS at the first zero pair
+  // (HKO). Verdict: no confining arithmetic drift in this class; the pencil route encodes RH rather than
+  // bypassing it. Import-light literals; NOT a bound; PT Lambda<=0.2 stands; RH open; NO QED.
+  '/src/data/rh-route-b-arithmetic-freeze-flow-2026-09-23.js',
   // rh-route-f-kramers-wannier-local-uniqueness (2026-09-23): Route F worked. Precise KW dictionary
   // (D: s↦1−s̄ ↔ KW∘conj whose fixed set is exactly Fisher's circle |v+1|=√2; ξ has no real transition,
   // its zeros are Fisher-type). Three per-window uniqueness statements U^(1) (count=1), U^(odd)

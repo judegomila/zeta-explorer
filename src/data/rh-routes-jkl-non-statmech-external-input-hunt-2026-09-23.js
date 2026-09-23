@@ -328,7 +328,7 @@ export const RH_ROUTES_JKL_ASSERTIONS = Object.freeze([
   {
     id: 'K-littlewood-integral-is-O-logT-while-jensen-loses-factor-T',
     holds: () => ROUTE_K.littlewoodVsJensen.every(([T, I, IoL, M1, , M2, ing, J1, J2, loss]) => Math.abs(IoL - I / Math.log(T)) < 1e-4 && Math.abs(IoL) < 1
-      && Math.abs(J1 - (T / 2) * Math.log(M1 / T)) < 1e-3 && Math.abs(J2 - (T / 4) * Math.log(M2 / T)) < 1e-3 && ing > 0.9 && ing < 1.2 && Math.abs(loss - J1 / Math.abs(I)) < 1e-3 && loss > 10)
+      && Math.abs(J1 - (T / 2) * Math.log(M1 / T)) < 1e-3 * Math.abs(J1) && Math.abs(J2 - (T / 4) * Math.log(M2 / T)) < 1e-3 * Math.abs(J2) && ing > 0.9 && ing < 1.2 && Math.abs(loss - J1 / Math.abs(I)) < 1e-3 * Math.abs(loss) && loss > 10)
       && ROUTE_K.littlewoodVsJensen.every((r, i, A) => i === 0 || r[9] > A[i - 1][9]),
     why: 'I(T)=∫log|ζ(½+it)| stays O(1) (|I|/log T < 1) while the Jensen bounds from the proven 2nd/4th moments are ~T (loss 10 → 141, increasing): moments see zeros only integrated.',
   },

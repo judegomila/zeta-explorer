@@ -1111,6 +1111,9 @@ const Imp95645KroneckerTransferConstantViz = lazy(() =>
 const Imp95646TransitionKnee2DHeatmapViz = lazy(() =>
   import('./pages/Imp95646TransitionKnee2DHeatmapViz.jsx')
 );
+const Imp95670PhysicalBandVsWedgeViz = lazy(() =>
+  import('./pages/Imp95670PhysicalBandVsWedgeViz.jsx')
+);
 const Imp95647ConditionNumberViz = lazy(() =>
   import('./pages/Imp95647ConditionNumberViz.jsx')
 );
@@ -3093,6 +3096,10 @@ function AppShell() {
           <Route
             path="/viz-imp95646-transition-knee-2d-heatmap"
             element={<Imp95646TransitionKnee2DHeatmapViz />}
+          />
+          <Route
+            path="/viz-imp95670-physical-band-vs-wedge"
+            element={<Imp95670PhysicalBandVsWedgeViz />}
           />
           <Route
             path="/viz-imp95647-condition-number"

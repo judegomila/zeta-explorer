@@ -2686,6 +2686,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: reshapes the frozen imp-95638 closed-form excess and imp-95614 measured samples verbatim (no re-derivation, no fresh term); does not establish rigour for the inherited imp-3220/imp-3406 component model, only visualizes its far-tail limit; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95670-physical-band-vs-wedge',
+      title: 'Physical Band vs. the Arbitrary-Box Inversion Wedge',
+      oneLine:
+        'Overlays the arbitrary [0.5x,1.5x]^2 C_C/E_trunc box gap heatmap and gap=0 inversion contour (imp-95646) with the imp-95635 provenance-grounded physical band ([0.577,1.016]x[0.458,1.1]), showing the physical band stays clear of the contour and the imp-95617 wedge is confined to the physically wrong-signed, unreachable corner.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95646-transition-knee-2d-heatmap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95635-physical-bands-vs-inversion-wedge.js (IMP95635_PHYSICAL_BANDS_VS_INVERSION_WEDGE physicalBands/physicalCorner/contourShortfall; imp-95670 viz page)',
+      ticket: 'imp-95670',
+      pedagogicalStep: 174,
+      honestCeiling:
+        'Presentation/measurement only: overlays the frozen imp-95646 heatmap/contour and imp-95635 physical-band computations verbatim (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

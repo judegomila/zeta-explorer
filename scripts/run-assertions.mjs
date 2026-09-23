@@ -18271,6 +18271,18 @@ const DATA_MODULES = [
   // intrinsic to positivity; obligation (2) stays gated on the sign-specification (imp-95375/95397,
   // imp-95212 port). Import-light, numerical witness cross-checks the lemma. No bound, NO QED.
   '/src/data/imp-95879-theta-positive-cone-triviality-intrinsic.js',
+  // imp-95898: attempts the sign-specification leg (imp-95375/95397/95212 port) at a SINGLE seam
+  // window -- the only lever after imp-95879. STEP 1: the modulus |a_h|=1/p is uniform so the
+  // denominator D = sum_ml G_ml is n-invariant; all sign/n dependence of theta_C = N(n)/D lives in
+  // the numerator. STEP 2 (exact): averaging over the coprime residues n=1..p-1, additive-character
+  // orthogonality (avg_n cos(2 pi D n/p) = 1 if D=0 else -1/(p-1)) gives the closed form
+  // <theta_C> = (p tr(G) - S)/((p-1) S) in (0,1), strictly nontrivial (0.0627 at p=5, deepening with
+  // p) -- a determined transcribable sign image the fixed-amplitude family hid. STEP 4: p|n collapses
+  // to theta_C=1 (positive cone), matching imp-95879. STEP 5 (obstruction, PARTIAL not QED): the
+  // residue-UNIFORM mean is not the physical sum A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p); the gap
+  // sharpens to the kernel-weighted residue bias against uniform (the imp-95212 Fresnel-Airy port,
+  // OPEN). Import-light, closed form matches the direct n-loop to 1e-16. No bound, NO QED.
+  '/src/data/imp-95898-single-window-sign-image-residue-average.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

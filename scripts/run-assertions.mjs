@@ -18345,6 +18345,12 @@ const DATA_MODULES = [
   '/src/data/imp-95846-finite-section-upper-companion-bound.js',
   // imp-95874: heavy-import audit of imp-95845/imp-95846 (extends imp-95854).
   '/src/data/imp-95874-seam-gram-heavy-import-audit.js',
+  // imp-95778: consumer/orphan audit of imp-95743/95744/95745/95746/95749/95750. All six
+  // are DATA_MODULES-registered (not orphaned); five of six are directly page-reachable;
+  // none has any import statement, so none can pull the 16.7MB zeros bundle. One flagged
+  // completeness gap: imp-95750 exports no *_ASSERTIONS array. No bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-95778-catalan-szego-orphan-consumer-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

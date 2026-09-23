@@ -17917,6 +17917,11 @@ const DATA_MODULES = [
   // heatmap-ready viz-data module (axis labels + bias%/resolved/D matrices), no
   // re-derivation. Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95752-finite80-bias-heatmap-viz-data.js',
+  // imp-95749: combines the imp-95720 conditional J(1/19) with the imp-95724 exact split
+  // J=3/2+dI to measure the dI variation (-2.852e-5, ~2.85e4x the quadrature floor): the
+  // 40%-of-J rho-carrying term MOVES, conditionally refuting the constant-J null; fractional
+  // dI variation 2.484x that of J. Import-light, no zeros bundle, no bound, no QED.
+  '/src/data/imp-95749-di-variation-against-constant-J-null.js',
 ];
 
 let ALL_MODULES = FAST_MODE

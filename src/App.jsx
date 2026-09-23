@@ -1273,6 +1273,9 @@ const Imp95931Ln12DescentLadderViz = lazy(() =>
 const Imp95975TierImbalanceLogLogViz = lazy(() =>
   import('./pages/Imp95975TierImbalanceLogLogViz.jsx')
 );
+const Imp95993WorstAliasMarginViz = lazy(() =>
+  import('./pages/Imp95993WorstAliasMarginViz.jsx')
+);
 const RhNovelRoutesRoadmapPage = lazy(() => import('./pages/RhNovelRoutesRoadmapPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
@@ -3394,6 +3397,10 @@ function AppShell() {
           <Route
             path="/viz-imp95975-tier13-imbalance-loglog"
             element={<Imp95975TierImbalanceLogLogViz />}
+          />
+          <Route
+            path="/viz-imp95993-worst-alias-margin"
+            element={<Imp95993WorstAliasMarginViz />}
           />
           <Route path="/rh-novel-routes-roadmap" element={<RhNovelRoutesRoadmapPage />} />
           <Route path="*" element={<NotFoundPage />} />

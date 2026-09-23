@@ -3079,6 +3079,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95925 seven-interval imbalance sweep verbatim (no re-derivation, no fresh quadrature); the tail fit slope (~-2.95) is a prior offline fit over three points, not a rigorous asymptotic law; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95993-worst-alias-margin',
+      title: 'Worst-Alias Collar-Depth Margin vs k',
+      oneLine:
+        'Plots the imp-95962 worst-alias collar-depth threshold dMin=a_1/mu_ctrl (descending) against the alias seam depth dSeam (ascending) across the four imp-95917 witness windows (3,4)..(11,7), making the growing clearance margin visible -- never plotted before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95993-worst-alias-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95962-worst-alias-collar-depth-threshold.js (imp-95993 viz panel)',
+      ticket: 'imp-95993',
+      pedagogicalStep: 198,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95962 four-window threshold table verbatim (no re-derivation); dSeam stands in for the true Section 4.5 turning-point depth, which is imp-95961 leg (i) and STILL OPEN -- if that depth is shallower than dSeam the margins shrink; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -228,6 +228,18 @@ export const IMP95638_DEFICIT_INVARIANT_FARTAIL_LIMIT_ASSERTIONS = [
     },
   },
   {
+    // imp-95654: the EXCESS closed form reproduces the imp-95614 measured plateau
+    // (0.5094/0.5085/0.5056/0.5027 at 1e24/1e44/1e100/1e300) within 1.5e-3.
+    // Measurement cross-check only; the discrepancy is largest (~1.32e-3) at 1e24 and
+    // shrinks to ~3e-6 by 1e300 as the O((ln u/u)^2) tail decays. No bound, no QED.
+    id: 'imp95638-excess-matches-measured-plateau',
+    description: 'excess D(N) = 1/2 + (ln(u/2pi)-1)/(2u) matches the imp-95614 measured plateau 0.5094/0.5085/0.5056/0.5027 to within 1.5e-3 over 1e24..1e300',
+    holds: () => {
+      const measured = { 24: 0.5094, 44: 0.5085, 100: 0.5056, 300: 0.5027 };
+      return [24, 44, 100, 300].every((d) => Math.abs(deficitExcess(d) - measured[d]) < 1.5e-3);
+    },
+  },
+  {
     // Honesty gate: derivation/measurement only, limit = 1/2 (imp-3463), no QED, PT SOTA.
     id: 'imp95638-honesty-gate-no-qed',
     description: 'derivation only: far-tail limit = 1/2 (imp-3463), no QED, PT stays SOTA',

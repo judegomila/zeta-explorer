@@ -18135,6 +18135,13 @@ const DATA_MODULES = [
   // Verified away from the cancellation floor at delta=3,5,8. No imports, no bound, NO QED, PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-95825-finite-section-positivity-certificate.js',
+  // imp-95823: DIRECT double-double eigensolve of the rho=1 sech seam Gram (DD Jacobi, not the
+  // imp-95689 symbol dual). Confirms F/A_opt strictly above 1 at nPts=80/160/320/640 (no sub-1
+  // undershoot) and monotone to 1; the same DD Jacobi on the delta=3 control locks to exponent 2
+  // and matches the imp-95689 leading dual term. Sub-gap: the ln1.3 direct window is pre-asymptotic
+  // (slope drifts -2.13 -> -0.78), so the exponent stays a dual + control result. One small live DD
+  // solve, no heavy import, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95823-rho1-szego-direct-dd-eigensolve.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

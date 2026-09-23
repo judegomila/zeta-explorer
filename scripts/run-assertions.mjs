@@ -18067,6 +18067,17 @@ const DATA_MODULES = [
   // sub-ln1.4 needs the imp-95779 DD Toeplitz solver). Import-light, no zeros bundle, no
   // bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95786-reach-universality-crossval.js',
+  // imp-95799: fits the imp-95786 R*-delta drift residual. RESULT 1: the crossing reach
+  // R*(delta) is a clean FIRST-ORDER linear drift R* = 325.393 - 218.342*delta (R^2=0.99715),
+  // refuting the guessed 250-intercept form (the 250 is the imp-95761 reach-envelope constant,
+  // not the R* intercept). RESULT 2: the fully-DD side (ln1.35/ln1.25) does NOT cross sub-1% at
+  // the extrapolated R* -- the imp-95779 O(N^2) DD Levinson inverse-iteration solver is
+  // under-converged at the required N_max~865-1240 (lambda_min non-monotone, C-fit collapses to
+  // -94% at ln1.35 R*=260; control on float64-clean ln1.45 shows DD -6.90% vs float64 -1.50%),
+  // the same wall imp-95779 hit at ln1.2. New sub-gap imp-95799-dd-crossing-needs-converged-
+  // eigensolver. Import-light (DD numbers baked, only cheap linear fit runs live), no zeros
+  // bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95799-rstar-delta-drift-linear-fit.js',
   // imp-95788: assesses whether the imp-95762 51.63pct finite-80 biasPct at the deepest
   // twin-pair cell (delta=ln1.2, rho=1) signals the finite-80 truncation is too small to
   // pin F_inf, by re-running the imp-95762 DD eigensolver at N=80,120,160,200. biasPct

@@ -18280,6 +18280,17 @@ const DATA_MODULES = [
   // was already registered above, imp-95737 has no self-executing assertions so
   // registration does not apply. No gap found. NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95854-two-viz-cohort-heavy-import-audit.js',
+  // imp-95840: derives a corrected crossing-reach R*(delta) for the fully-DD deltas.
+  // The imp-95799 linear line R*=325.393-218.342*delta UNDER-predicts the sub-1%
+  // crossing on the ln1.35/ln1.25 side: power-law interpolating the imp-95820 RESULT-4
+  // sweeps (|relErr|~reach^-2.17, R^2>0.9999) puts the crossings at R*_meas=266.18/295.43
+  // vs the linear R*_pred 259.87/276.67 -- a positive offset +6.31/+18.76 that grows as
+  // delta shrinks. A quadratic R*=412.881-637.512*delta+497.084*delta^2 (R^2 0.999987,
+  // RMS 0.091) captures it; equivalently a DD-side term 558.85*(0.40636-delta)^2.
+  // Import-light (6 assertions re-derive the power crossings, offsets, quadratic and
+  // correction term from baked literals; no DD eigensolve). Sub-gap
+  // imp-95840-dd-crossing-reach-needs-denser-sweep. No bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95840-dd-corrected-crossing-reach.js',
 ];
 
 let ALL_MODULES = FAST_MODE

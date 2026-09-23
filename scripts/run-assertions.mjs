@@ -18467,6 +18467,14 @@ const DATA_MODULES = [
   // residual is shift-budget under-convergence, not a pre-asymptotic wall. One live
   // N=320 solve re-validates the solver. No bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95857-ln13-extended-reach-exponent.js',
+  // imp-95882: extend the delta=ln1.3 direct-DD shift-invert eigensolve past the
+  // imp-95857 window (nPts=3200) with a HEAVIER budget to nPts=4096; the direct-DD
+  // local log-log slope keeps tightening toward -2 FROM BELOW (-2.0080, tighter than
+  // the imp-95857 -2.0102) with direct/dual -> 1 and F strictly above A_opt, so the
+  // deep-corner underflow still does NOT flatten the exponent nor add a new feature --
+  // ratio-1 falls 6.97e-5 -> 4.25e-5 toward the 1e-5 float64 floor. One live N=320 solve
+  // re-validates the solver. No bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95882-ln13-past3200-float64-floor-reach.js',
   // imp-95871: registry audit found imp-95837, imp-95844 and imp-95846 committed
   // as tracked files but absent from this DATA_MODULES sweep, so their
   // throw-on-failure assertions never ran under npm run-assertions. Wiring them

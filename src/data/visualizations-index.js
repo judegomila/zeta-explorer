@@ -2742,6 +2742,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95766 dead-zone measurement verbatim (no re-derivation, no fresh term); r_cap(T) is a derived upper envelope, not the true pointwise ratio r(T); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95791-biaspct-vs-rho',
+      title: 'Twin-Pair Finite-Size biasPct vs rho at delta=ln1.2',
+      oneLine:
+        'Bar chart + table of the imp-95762 DD-primal vs imp-95744 dual F_inf finite-size bias at delta=ln1.2 across rho in {2, 1.5, 1}: 15.12% -> 25.26% -> 51.63% at the deep corner rho=1.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95762-twin-pair-block-floor-finite80-dd-eigensolver.js',
+      paperSourcePath:
+        'src/data/imp-95762-twin-pair-block-floor-finite80-dd-eigensolver.js (cells); src/data/imp-95744-twin-pair-block-floor-belowprec-dd-resolve.js (F_inf dual floor); imp-95791 viz page',
+      ticket: 'imp-95791',
+      pedagogicalStep: 178,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95762 / imp-95744 literals verbatim (no re-derivation, no fresh term); an independent numerical cross-check of an established interior quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

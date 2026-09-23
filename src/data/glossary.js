@@ -22032,6 +22032,36 @@ export const glossary = [
       'Catalan Signed Ladder is the companion project memory tracking the broader G-irrationality obstruction landscape this verdict sits inside',
     ],
   },
+  {
+    term: 'Sun Section-6 rho-Independence Refutation (kappa*rho^2 shape not structurally forced)',
+    category: 'concept',
+    definition:
+      'imp-95690, deciding the single structural claim (imp-95516 line 64, reduced to this by ' +
+      'imp-95653) that the Sun Section-6 Proposition 6.3 integrand is rho-independent -- the ' +
+      'premise needed for c_odd(rho) = kappa*rho^2 to hold at any rho other than the anchor ' +
+      'rho = 1/20 at which kappa = 2.51069789 was back-solved. Direct inspection of Prop 6.3 ' +
+      '(eqs 6.1-6.25) splits the claim in two: (A) the rho^2 PREFACTOR is structurally FORCED and ' +
+      'CERTIFIED -- eq (6.21) pulls I_odd = rho^2 * INT_0^1 (5/2 - zeta(2,1+v) + Q_0(v) zeta(3,1+v)) dv ' +
+      'out cleanly via t = rho/u, so c_odd(rho) = rho^2 * J(rho) exactly. (B) The remaining v-integral ' +
+      'factor J(rho) is NOT rho-independent as written: its only rho-dependence lives in Q_0(v) (6.18), ' +
+      'built from fractional-part moduli hardwired to rho = 1/20 -- alpha modulus 1/rho = 20, gamma ' +
+      'modulus 2/rho = 40, beta modulus 2/rho+1 = 41, and the per-cell leading coefficient ' +
+      '-(4/rho-1)/2 = -79/2 (6.25) -- plus the breakpoint set B (6.24) and its 238-raw/178-merged ' +
+      'cell partition, all of which rescale for rho != 1/20. So kappa*rho^2 is judged NOT structurally ' +
+      'forced: a genuine second numeric anchor requires a FULL re-execution of Prop 6.3 at a second ' +
+      'rho2 (rebuilt moduli, breakpoints, merged-cell partition, and interval certificate), not a free ' +
+      're-evaluation of a fixed integral. This REFUTES the rho-independence annotation as written; it ' +
+      'does not prove J(rho) actually varies -- a hidden identity forcing J constant is logically ' +
+      'possible but unproven and unasserted by the paper. Assessment only; Catalan G irrationality ' +
+      'stays OPEN; Sun preprint single-author, unrefereed; changes no bound; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95653 (c_odd second-anchor shape test, reducing the shape question to the single rho-independence claim), 2026; decided by imp-95690, 2026',
+    relatedTerms: [
+      'imp-95690-sun-s6-integrand-rho-independence-verdict is the module reading Prop 6.3 eqs (6.1)-(6.25) and splitting the forced-prefactor / rho-dependent-integrand verdict',
+      'imp-95653 is the module that reduced the whole c_odd(rho)=kappa*rho^2 shape test to this single rho-independence claim, leaving it undecided',
+      'Sun Catalan-Irrationality Verdict (partial settlement: ledger verified, margin hardened, core open) is the companion headword for the broader imp-95516 audit this shape question sits inside',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

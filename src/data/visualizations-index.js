@@ -2560,6 +2560,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: re-implements the imp-95533/imp-95559 ceiling kernel standalone at a denser render-friendly (T, delta) grid (no re-derivation, no fresh term); illustrates the (L4) doubly-exponential detectable-height law, proves nothing beyond what imp-95533/imp-95559 already state; supplies no T > T_X existence proof; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95587-legb-straddle-vs-ratio',
+      title: 'LEG B DELTA_A Straddle vs. the Direct Ratio Inequality',
+      oneLine:
+        'Number-line panels comparing the imp-95561 real port-window (3,1) DELTA_A = A_m - A_p eigenpair {-0.01627, +0.09510} straddling zero (Loewner sandwich inconclusive) against the two direct generalized-pencil eigenvalues lambda_max(A_p,B_p) = 0.03933 <= lambda_max(A_m,B_m) = 0.70768 (ratio inequality holds).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95587-legb-straddle-vs-ratio-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95561-legb-d2-indefinite-straddle-witness.js (record IMP95561_LEGB_D2_INDEFINITE_STRADDLE_WITNESS.portWindow_3_1; imp-95587 viz page)',
+      ticket: 'imp-95587',
+      pedagogicalStep: 165,
+      honestCeiling:
+        'Presentation only: renders the imp-95561 baked port-window (3,1) DELTA_A eigenpair and direct-pencil eigenvalues verbatim (no re-derivation); illustrates imp-95537 D2 witness-completeness at a single fixed window, proves nothing beyond what imp-95561 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

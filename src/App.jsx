@@ -1162,6 +1162,9 @@ const Imp95449PposEnclosureTightnessViz = lazy(() =>
 const Imp95478RaLadderInputProvenanceViz = lazy(() =>
   import('./pages/Imp95478RaLadderInputProvenanceViz.jsx')
 );
+const Imp95587LegBStraddleVsRatioViz = lazy(() =>
+  import('./pages/Imp95587LegBStraddleVsRatioViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3134,6 +3137,10 @@ function AppShell() {
           <Route
             path="/viz-imp95448-ra-ladder-input-provenance"
             element={<Imp95478RaLadderInputProvenanceViz />}
+          />
+          <Route
+            path="/viz-imp95587-legb-straddle-vs-ratio"
+            element={<Imp95587LegBStraddleVsRatioViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -22342,6 +22342,34 @@ export const glossary = [
       'imp-95519 supplies the verified-height window bottom T = 3.0e12 that the ratio ladder is trying to reach',
     ],
   },
+  {
+    term: 'O(N^-3) KMS/Widom Subleading Remainder (keeps the deep-corner bias exponent fixed at p = 2)',
+    category: 'concept',
+    definition:
+      'A quick-lookup headword for why the imp-95803 deep-corner (delta = ln 1.2, rho = 1) ' +
+      'finite-N bias ladder biasPct*N^2 keeps DRIFTING (330414 -> 162500 over N = 80..500) ' +
+      'without that drift meaning the limiting power p is anything other than 2. Kac-Murdock-' +
+      'Szego / Widom / Parter finite-section edge theory for a positive continuous Toeplitz ' +
+      'symbol with a single non-degenerate quadratic minimum gives lambda_min(T_N[f]) - m = ' +
+      '(f″(theta_star)/2)*(pi/(N+1))^2 + O(N^-3): a FIXED N^-2 leading term with prefactor set ' +
+      'by the symbol curvature, plus a genuine O(N^-3) subleading correction that is largest at ' +
+      'small N and shrinks relative to the leading term as N grows (imp-95824). The observed ' +
+      'biasPct*N^2 drift is exactly that O(N^-3) remainder riding on the fixed leading constant, ' +
+      'not a slowly-varying prefactor or a non-integer exponent. imp-95845 confirms this ' +
+      'quantitatively: fitting the eight converged rungs to P0 + P1/N (+ P2/N^2, + P3/N^3) drives ' +
+      'the convention-independent intercept P0 onto the closed-form Widom leading prefactor ' +
+      'C_Widom = 50 pi^4/delta^2 = 146518.83 (best well-conditioned fit within 0.44%), with the ' +
+      'naive 2-param and small-N-contaminated 3-param fits showing the expected pre-asymptotic ' +
+      'bias rather than evidence against p = 2. Documentation only; establishes nothing new; NO ' +
+      'QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95803 (converged the drifting biasPct ladder), 2026; the N^-3 remainder derived by imp-95824, 2026; fitted and the exact constant read off by imp-95845, 2026',
+    relatedTerms: [
+      'imp-95803-twin-pair-deep-corner-bias-exponent-limit is the module converging the biasPct ladder and naming the drift',
+      'imp-95824-deep-corner-bias-exponent-szego-theory is the module deriving the fixed-p=2 KMS/Widom edge law and its O(N^-3) remainder',
+      'imp-95845-deep-corner-biasN2-widom-fit is the module fitting the remainder and confirming P0 = C_Widom to within fit uncertainty',
+      'imp-95839 evaluates the closed-form Widom leading prefactor C_Widom = 50 pi^4/delta^2 used as the fit target',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

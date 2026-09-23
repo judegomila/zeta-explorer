@@ -48,6 +48,14 @@
  * bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched; no RH verdict, NO QED.
  * Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * SUPERSEDED (honest-status note, imp-95733): imp-95705 subsequently MEASURED the integrated
+ *   direction-flip reach directly (rather than the geometric-mean estimate used here) and found
+ *   1.914x at the bulk-midpoint representative alpha=0.5 (uniform bulk average 2.632x) -- both
+ *   ABOVE this module's CF_BAND_HI_PINNED = 1.29615. The 1.29615 geometric-mean pin below is KEPT
+ *   UNCHANGED (other modules depend on its exact value), but downstream readers should treat the
+ *   imp-95705 measured 1.914x as the current honest CF_BAND_HI representative, not this pin; see
+ *   also imp-95721, which derives a still-higher density-weighted band (6.1x-8.6x).
+ *
  * @reproduce tmp/imp-95691-scratch.mjs reproduces the box-min gaps by importing effectiveHeightForN
  *   and C_C_PINNED and replicating the imp-95660 boxStats/minGapRaw over BAND; literals baked here to
  *   keep this data module import-light (imp-95660 already runs the bisections at load).
@@ -55,6 +63,7 @@
  * @see imp-95660-cf-multiplier-wedge-closure (exact box-min gap model; cf* ~ 0.839; slope ~ -0.029)
  * @see imp-95617-transition-knee-ordering-joint-2d (nominal box-min gap -0.00468 at cf=1)
  * @see c-f-bulk-refinement-2026-05 (imp-1134: C_F is a LOWER bound; integrated reach ~1.2-1.4x)
+ * @see imp-95705-cf-integrated-reach-measured (SUPERSEDES this pin with a measured 1.914x reach)
  */
 
 import { IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY } from './imp-95674-cf-provenance-band-wedge-reachability.js';
@@ -99,6 +108,17 @@ export const IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING = {
     'expressed as the wedge opening (dex) and the deepening factor vs the nominal cf=1 depth',
   integratedReach: { lo: CF_INTEGRATED_LO, hi: CF_INTEGRATED_HI },
   cfBandHiPinned: CF_BAND_HI_PINNED, // ~1.29615 -- the single defensible upper multiplier
+  honestStatus: {
+    supersededBy: 'imp-95705',
+    note:
+      'This geometric-mean pin (' + CF_BAND_HI_PINNED + ') is an ESTIMATE, not a measurement. imp-95705 ' +
+      'directly measured the integrated direction-flip reach and found 1.914x at the bulk-midpoint ' +
+      'representative (uniform bulk average 2.632x), both above this pin; imp-95721 then derived a ' +
+      'still-higher density-weighted band (6.1x-8.6x). CF_BAND_HI_PINNED is kept unchanged here because ' +
+      'other modules depend on its exact value -- downstream readers should treat the imp-95705 measured ' +
+      'reach as the current honest CF_BAND_HI representative.',
+    supersedingValue: 1.914,
+  },
   boxMinGap: {
     at_cf1_nominal: MINGAP_AT_CF1, // -0.004682 (imp-95617)
     at_cf_1p2_floor: MINGAP_AT_LO, // -0.010441
@@ -204,6 +224,16 @@ export const IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING_ASSERTIONS = [
       DEEPEN_FACTOR_LO < DEEPEN_FACTOR_PIN &&
       DEEPEN_FACTOR_PIN < DEEPEN_FACTOR_HI &&
       Math.abs(DEEPEN_FACTOR_PIN - 2.817) < 0.05,
+  },
+  {
+    // Honest-status annotation (imp-95733): the pin is flagged as superseded by the imp-95705 measurement,
+    // and the pinned constant CF_BAND_HI_PINNED remains unchanged so other consumers are not silently broken.
+    id: 'imp95691-honest-status-supersession-annotated',
+    description: 'honestStatus.supersededBy = imp-95705 (measured 1.914x); pinned constant left unchanged',
+    holds: () =>
+      IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.honestStatus.supersededBy === 'imp-95705' &&
+      IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.honestStatus.supersedingValue > CF_BAND_HI_PINNED &&
+      IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING.cfBandHiPinned === CF_BAND_HI_PINNED,
   },
   {
     // Honesty gate: sensitivity/measurement only, no bound moved, no QED, PT SOTA.

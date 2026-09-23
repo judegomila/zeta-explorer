@@ -22062,6 +22062,39 @@ export const glossary = [
       'Sun Catalan-Irrationality Verdict (partial settlement: ledger verified, margin hardened, core open) is the companion headword for the broader imp-95516 audit this shape question sits inside',
     ],
   },
+  {
+    term: 'Conductor-Normalization Warranted-Relabeling Decision (analytic-conductor scale is honest AND still a relabel)',
+    category: 'concept',
+    definition:
+      'imp-95692, deciding the open question imp-95534 lever 2 left ambivalent ("MOVABLE-but-only-a-' +
+      'RELABELING") and imp-95572 flagged but never resolved: is the analytic-conductor scale ' +
+      'log(p T / 2 pi) the mathematically-WARRANTED normalization for the imp-95519 section-4 zero-side ' +
+      'F(alpha), so the alpha_{k,h} > 1 gating (59.26% of the weld majorant mass at p=97) legitimately ' +
+      'moves inside |alpha| <= 1, or does the rescale merely relabel a quantity whose pair-correlation ' +
+      'content is scale-invariant? DECISION PRINCIPLE: the warranted scale for a Montgomery/Ozluk F(alpha) ' +
+      'is fixed by measuring alpha against the MEAN ZERO DENSITY of the zeros the probed frequency actually ' +
+      'resolves. Sub-question A (WARRANTED): the imp-95519 section-3 Gauss-Plancherel lemma attaches the ' +
+      'aliases to zeros of L(s, chi mod p), not zeta, so measuring them against the zeta density log T is a ' +
+      'CATEGORY ERROR; the analytic-conductor density log(p T/2 pi) -- the scale Ozluk (1982) proved pair ' +
+      'correlation under -- is the correct one. Sub-question B (PCC content persists, in the only binding ' +
+      'sense): the rescale is a fixed contraction with no free parameter (p/2 pi = 15.438 exactly), and the ' +
+      'floor alias satisfies the exact identity u_{1,p-1} = p T/2 pi, so alpha_C = 1 exactly and is the ' +
+      'MAXIMUM over all 15 rescaled aliases at both window ends (N-independent boundary pinning) -- the ' +
+      'single largest majorant contributor lands precisely on the F(alpha) diagonal/off-diagonal crossover, ' +
+      'the least-controlled edge, so being "in range" there is circular under the very scale that defines it. ' +
+      'NET VERDICT (both, compatibly): WARRANTED AND STILL A RELABELING -- the scale is correct, and its ' +
+      'correctness is exactly why it does not reopen the program. imp-95534 lever 2 is thereby upgraded from ' +
+      'ambivalent to decided. The imp-95519 zero-side no-go STANDS (surviving scale-invariant walls: the ' +
+      'mean-square-vs-pointwise gap and the GRH-height deficit for q=97, ~2.9e6 below the window); only its ' +
+      'framing sharpens. Assess/derive only. No bound changes; NO QED; Platt-Trudgian Lambda <= 0.2 remains ' +
+      'SOTA; RH open.',
+    firstUsed: 'imp-95534 (analytic-conductor rescaling alpha_C, left MOVABLE-but-only-a-relabeling), 2026; decided by imp-95692, 2026',
+    relatedTerms: [
+      'Analytic-conductor rescaling alpha_C is the companion headword for the rescale itself, whose warranted-ness this decision resolves',
+      'imp-95692-conductor-normalization-warranted-decision is the module splitting the sub-question-A/sub-question-B verdicts and the exact floor-alias boundary identity',
+      'imp-95519 localized barrier sum prime/zero no-go is the result whose zero-side normalization this decision sharpens without closing',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -2883,6 +2883,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: reshapes the frozen imp-95724 / imp-95749 literals verbatim (no re-derivation, no new quadrature); the dI variation is CONDITIONAL on the +4 offset hypothesis, verified only at m=20, not a certified second anchor; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95808-bias-union-heatmap',
+      title: 'Twin-Pair Bias Union Heatmap Across Three Deltas',
+      oneLine:
+        'Heatmap of the imp-95785 13-cell union biasPct table (delta in {ln1.2, ln1.3, ln1.5} x rho) marking the double-double (imp-95762) vs float64 (imp-95707) source of each cell, jointly monotone from 51.63% at the deep corner toward 0%.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95808-twin-pair-bias-union-heatmap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95785-twin-pair-block-bias-union-grid.js (unionTable; imp-95808 viz page)',
+      ticket: 'imp-95808',
+      pedagogicalStep: 188,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95785 union table verbatim (no re-derivation, no fresh term); biasPct is an interior model-seam quantity, not an RH bound; the two sources are delta-disjoint so most of the display grid is blank, not zero; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

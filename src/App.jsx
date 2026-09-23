@@ -1138,6 +1138,9 @@ const Imp95790RCapDeadZoneViz = lazy(() =>
 const Imp95791BiasPctVsRhoViz = lazy(() =>
   import('./pages/Imp95791BiasPctVsRhoViz.jsx')
 );
+const Imp95808TwinPairBiasUnionHeatmapViz = lazy(() =>
+  import('./pages/Imp95808TwinPairBiasUnionHeatmapViz.jsx')
+);
 const Imp95792DiZigzagViz = lazy(() =>
   import('./pages/Imp95792DiZigzagViz.jsx')
 );
@@ -3171,6 +3174,10 @@ function AppShell() {
           <Route
             path="/viz-imp95791-biaspct-vs-rho"
             element={<Imp95791BiasPctVsRhoViz />}
+          />
+          <Route
+            path="/viz-imp95808-bias-union-heatmap"
+            element={<Imp95808TwinPairBiasUnionHeatmapViz />}
           />
           <Route
             path="/viz-imp95792-di-zigzag"

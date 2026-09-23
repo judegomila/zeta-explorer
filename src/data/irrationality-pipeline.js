@@ -124,6 +124,15 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
       + 'fixed-ratio hardening framing, while a robust interior optimum survives near '
       + 'ρ*≈1/56 with δ₀_corr(ρ*)≈+0.0373 — so under this one interpretation of the sign '
       + 'error, the ρ-optimization is load-bearing, not cosmetic. '
+      + 'CAVEAT (placement-dependence): ρ²=S²/B² appears in THREE ledger terms, and Sun’s '
+      + 'note only flags a wrong-sign B² term without pinning which one. The "goes '
+      + 'negative at ρ=1/20" / "optimum near ρ*≈1/56" pair is specific to placing the sign '
+      + 'flip on the (9.4) quadratic; placing it on Δ_gtB instead keeps the ρ=1/20 margin '
+      + 'POSITIVE (+0.007162, optimum ρ*≈1/51.5), and placing it on c_odd keeps it POSITIVE '
+      + 'and larger (+0.022216, optimum ρ*≈1/42.2). What IS robust across all three '
+      + 'placements: an interior positive-margin optimum exists in (0,1/20) with '
+      + 'δ₀_corr(ρ*)>0.037 — only the sharp "negative" / "≈1/56" figures are '
+      + 'placement-A-specific. '
       + '(Do not confuse it with Dale James Raymond’s de Bruijn–Newman bound Λ<0.149396, '
       + 'Zenodo 22867547 — a different author and problem; Raymond’s paper shares NONE of '
       + 'Sun’s δ₀ ledger, and Λ is zero-location, not value-irrationality.)',
@@ -201,6 +210,12 @@ export const IRRATIONALITY_PIPELINE_ASSERTIONS = Object.freeze([
     name: 'Fauzan ζ(5) case: credible-unrefereed, NOT certified (no false QED)',
     holds: () => /CREDIBLE-UNREFEREED/i.test(IRRATIONALITY_PIPELINE.fauzanCase.status)
       && /NOT a certified theorem|cannot be certified/i.test(IRRATIONALITY_PIPELINE.fauzanCase.status + IRRATIONALITY_PIPELINE.fauzanCase.body),
+  },
+  {
+    name: 'Sun case: negative-margin/1-56 claim flagged placement-A-specific, robust optimum stated',
+    holds: () => /placement-A-specific/.test(IRRATIONALITY_PIPELINE.sunCase.body)
+      && /POSITIVE/.test(IRRATIONALITY_PIPELINE.sunCase.body)
+      && /0\.037/.test(IRRATIONALITY_PIPELINE.sunCase.body),
   },
 ]);
 

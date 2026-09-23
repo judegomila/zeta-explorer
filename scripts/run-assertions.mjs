@@ -18756,6 +18756,16 @@ const DATA_MODULES = [
   // p-independent majorant of this Gram class can have that slope (true asymptote is -2). Two-term law is
   // an asymptotic ESTIMATE, not a proved majorant; changes no bound; imp-95212 port STILL OPEN; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95981-eps-inf-k-rate-variation-slope.js',
+  // imp-95986: AUDIT every ln 1.25 u_fit consumer (imp-95885/95895/95902/95922/95939/95963 and the
+  // imp-95905/imp-95976 glossary headwords) to confirm none places the imp-95895 A-floor observable
+  // (+0.0846%, O(1e-18)) and the imp-95939 crossing-constant observable (-0.7363%, O(1e2)) on a single
+  // ordering axis or conflates them as one quantity measured twice. VERDICT: AUDIT CLEAN -- no consumer
+  // conflates; the A-floor-ordering consumers keep only the A-floor value on the u_fit axis (crossing
+  // deltas recorded N/A/null), imp-95939 reports -0.7363% strictly as the crossing companion, and
+  // imp-95963/imp-95976 separate the two explicitly. The only staleness (imp-95885 N/A cell, since
+  // filled by imp-95895) is already glossed, so no corrective edit is warranted. Import-light, 4 self-
+  // executing assertions (all PASS); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95986-ln125-ufit-observable-conflation-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

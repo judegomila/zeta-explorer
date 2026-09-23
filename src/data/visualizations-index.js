@@ -2547,6 +2547,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation/measurement only: reshapes the frozen imp-95723 grid verbatim (no re-derivation, no fresh term); derivation + numerical witness of an already-established interior mechanism; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95753-crossover-height-window',
+      title: 'Common-RvM-Height Dead Zone: Crossover vs Conservatism Window',
+      oneLine:
+        'Log-T axis placing the imp-95710 measured conservatism top (T=5e5), the imp-3444 E_coll=E_trunc crossover (T0~1.14e9), and the imp-95519 verified-height window bottom (T=3.0e12), showing the crossover landing near the log-midpoint of the ~6.78-decade unmeasured gap between them.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95753-crossover-height-window-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95729-crossover-height-vs-variance-window.js (IMP95729_CROSSOVER_HEIGHT_VS_VARIANCE_WINDOW placement; imp-95753 viz page)',
+      ticket: 'imp-95753',
+      pedagogicalStep: 170,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95729 placement verbatim (no re-derivation, no fresh term); the crossover-vs-conservatism overlap AT the crossover height remains unmeasured (frontier dead zone); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95548-per-prime-sbar-budget',
       title: 'Per-Prime S-bar Budget: the l2-Collapse Route vs R_ex = 0.2797',
       oneLine:

@@ -3191,6 +3191,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every table cell is copied verbatim from the imp-96089 baked verdict (n_w recovered from the imp-95562 deterministic tiling geometry, crossover and z-score re-derived there); no new measurement or re-derivation here; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96038-route-a-lammin-descent',
+      title: 'Route A: Finite-N Reflection-Gram lambda_min(N) Descent',
+      oneLine:
+        'Plots the rh-route-a-reflection-positivity-primon-gas Pick reflection Gram lambda_min(N) descent (-142.669 at N=0 to -4213.156 at N=1229, p_N=9973) on a log-log axis against a p_N^0.45 reference curve anchored at the final rung, showing the truncated primon gas is never PSD at any finite N.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96038-route-a-reflection-gram-lammin-descent-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-a-reflection-positivity-primon-gas-2026-09-23.js (ROUTE_A_N_LADDER, ROUTE_A_LITERALS.finiteGasLamMin, ROUTE_A_LAMMIN_SCALING; imp-96038 viz page)',
+      ticket: 'imp-96038',
+      pedagogicalStep: 205,
+      honestCeiling:
+        'Presentation only: every plotted lambda_min point and the p_N^0.45 reference exponent are copied verbatim from the rh-route-a-reflection-positivity-primon-gas-2026-09-23 baked records (no re-derivation, no fresh Gram solve); the finite-N test REFUTES reflection positivity for the truncated gas, but the infinite-N statement RP<=>Weil positivity<=>RH is an exact equivalence (Lagarias-Pick), not a stronger route; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

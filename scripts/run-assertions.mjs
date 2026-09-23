@@ -17736,6 +17736,20 @@ const DATA_MODULES = [
   // L1=L2). Documentation only; no bound change; PT Lambda <= 0.2 stands;
   // NO QED.
   '/src/data/imp-95490-direct2-collar-residual-honest-status.js',
+  // imp-95650 registration-reachability audit: the following six imp-9561x-9563x
+  // frontier-cluster modules carry self-executing throw-on-import assertions (imp-3715
+  // convention) that were dead code from `npm run assert`'s perspective -- no direct entry
+  // here and not imported by anything else that is registered. Adding direct entries so
+  // their assertions run. See imp-95650-frontier-cluster-reachability-audit.js for the
+  // full audit (also covers imp-95618/95619/95632, which have no self-executing throw and
+  // are read-only orphans left for a future ticket).
+  '/src/data/imp-95614-sigma-exponent-ramp-crosscheck.js',
+  '/src/data/imp-95616-kronecker-suprms-crosscheck.js',
+  '/src/data/imp-95617-transition-knee-ordering-joint-2d.js',
+  '/src/data/imp-95621-alt-form-precision-threshold.js',
+  '/src/data/imp-95625-sigma-exponent-crossing-ladder-table.js',
+  '/src/data/imp-95631-sigma-logspace-vs-direct-overlap-band.js',
+  '/src/data/imp-95650-frontier-cluster-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

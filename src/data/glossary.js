@@ -21948,6 +21948,34 @@ export const glossary = [
       'imp-95604 mean-square-to-pointwise upgrade foreclosure is the audit module distinguishing FORECLOSED (upgrade mechanism) from UNDECIDED (anchor contract)',
     ],
   },
+  {
+    term: 'Mean-Square vs Pointwise Gap (number variance over [0,T] vs local zero count near T)',
+    category: 'concept',
+    definition:
+      'imp-95534 wall (i) / imp-95562 measurement. Montgomery/Ozluk-style pair-correlation quantities ' +
+      'F(alpha) are MEAN-SQUARE statistics: they control the number VARIANCE of the zero count over the ' +
+      'whole range gamma in [0,T] (equivalently, an average over many windows). The imp-95519 anchor ' +
+      'contract instead needs POINTWISE control of the LOCAL zero count C = #{gamma : |gamma-T| <= Delta} ' +
+      'in a single window of half-width Delta = sqrt(T/2pi) at the specific height T, uniformly in T -- a ' +
+      'strictly stronger requirement, since a mean-square bound can be calibrated on average while still ' +
+      'permitting a single window to sit well above the mean-square envelope E(T) = 2*Delta*delta(T), ' +
+      'delta(T) = (1/2pi)log(T/2pi). This mean-square-to-pointwise gap was asserted as a standing wall but ' +
+      'never quantified until imp-95562 measured it directly over the 10^6 Odlyzko ordinates: the envelope ' +
+      'is calibrated on average (|mean(C-E)| < 0.04 zeros at every sampled height), the pointwise fluctuation ' +
+      'is real but modest (sd ~ 0.57-0.67 zeros, worst window ~1.5-2.0 zeros above envelope, ~2.9-3.3 sigma), ' +
+      'and the gap is ADDITIVE and height-DECAYING in relative size (worstExcess/L falls from 2.18e-2 at ' +
+      'T=1e4 to 1.79e-3 at T=5e5) with the measured variance running only ~40% of the GUE asymptote at these ' +
+      'heights. So wall (i) is genuine in principle -- mean-square control never implies pointwise control -- ' +
+      'but numerically small and shrinking in the accessible regime; it changes no bound and is not by itself ' +
+      'a route past the barrier.',
+    firstUsed: 'imp-95534 (alpha-gating Fresnel-width normalization rigidity, wall (i) statement), 2026; quantified by imp-95562 (mean-square-vs-pointwise gap measurement on actual zeta zeros), 2026',
+    relatedTerms: [
+      'imp-95562 mean-square-vs-pointwise gap measurement is the module that quantifies this wall over 10^6 Odlyzko ordinates',
+      'imp-95534 alpha-gating Fresnel-width normalization rigidity is the source ticket that first states wall (i)',
+      'Closed-as-Stated vs Undecided-at-Anchor (localized barrier sum) is the companion headword for the Section 4/5 upgrade-mechanism foreclosure this gap feeds into',
+      'The W1 A-Priori Forward-Error Trichotomy: COHERENT vs WILKINSON vs MEAN-SQUARE is an unrelated numerical-analysis use of "mean-square" from a different cohort -- do not conflate',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -17813,6 +17813,13 @@ const DATA_MODULES = [
   // leading-log closed form D_cross ~ 2 ln[4(1-e^-d/2)^2/(1-sech(d/2))] shows D_cross is logarithmic in
   // delta, deriving the stability. Import-light, finite-size proxy carried, no bound, no QED, PT Lambda<=0.2.
   '/src/data/imp-95703-twin-pair-half-retention-scale-derivation.js',
+  // imp-95710: TABULATES the imp-95562 finding-4 finite-height number-variance ratio r(T) =
+  // measured pointwise variance / GUE Sigma^2(L) vs height. The per-height ratio does NOT trend
+  // toward the GUE asymptote 1 -- it sits in [0.35, 0.48] (mean 0.40) across T = 1e4..5e5 with a
+  // weak negative log-linear slope (R^2 ~ 0.30, noise-dominated), so the mean-square envelope stays
+  // conservative in the measured window. Named sub-gap: the window is ~6.8 decades below the
+  // imp-95519 bottom T = 3e12, so extending the conservatism there is unmeasured. No bound, no QED.
+  '/src/data/imp-95710-number-variance-ratio-vs-height.js',
   // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
   // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
   // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no

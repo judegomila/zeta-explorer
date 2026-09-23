@@ -18051,6 +18051,15 @@ const DATA_MODULES = [
   // but the zigzag SHAPE is a per-modulus artifact, NOT rho-structure. Conditional on the +4
   // offset; sub-gap = the tightened-Nsub re-run. Import-light, no zeros bundle, no bound, no QED.
   '/src/data/imp-95782-di-zigzag-artifact-vs-structure.js',
+  // imp-95786: cross-validates the imp-95761 reach-universality law (C_fit finite-grid
+  // bias ~ a function of reach R=delta(N_max+1) alone, crossing sub-1% at N_max ~ 250/delta)
+  // across additional deltas. It CONFIRMS the law on a fourth float64-clean delta (ln1.6:
+  // same monotone reach-decay, R* = 223), measures the crossing reaches (R* = 223/236/245
+  // for ln1.6/1.5/1.45, each ~10-13% below the 250/delta upper envelope), and PINS the
+  // float64 precision wall at delta ~ ln1.4 (ln1.35 goes non-monotone, ln1.25 fully blown --
+  // sub-ln1.4 needs the imp-95779 DD Toeplitz solver). Import-light, no zeros bundle, no
+  // bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95786-reach-universality-crossval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

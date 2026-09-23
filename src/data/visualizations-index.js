@@ -2504,6 +2504,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: re-implements the imp-95617 kernel standalone at a denser render-friendly grid resolution (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95647-condition-number',
+      title: 'Alternating-Form Condition Number kappa(delta) vs the delta* Float Trap',
+      oneLine:
+        'Semilog chart of the imp-95621 summation condition number kappa(delta) ~ (1/2) exp(pi^2/delta) and the measured alternating-form relative error vs delta, crossing the 1 percent line at delta* ~ 0.307 (ratio ~1.36), with the ln 1.3 (trapped) and ln 2 (clean) sampled points marked.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95647-condition-number-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95621-alt-form-precision-threshold.js (IMP95621_ALT_FORM_PRECISION_THRESHOLD derivation; imp-95647 viz page)',
+      ticket: 'imp-95647',
+      pedagogicalStep: 161,
+      honestCeiling:
+        'Presentation/measurement only: re-implements the imp-95621 condition-number kernel standalone at a denser render-friendly delta grid (no re-derivation, no fresh term); a numerical precision diagnostic for the theta-dual mandate, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

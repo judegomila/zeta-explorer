@@ -2575,6 +2575,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation/measurement only: reshapes the frozen imp-95617/imp-95691/imp-95721 box-min gap values verbatim (no re-derivation, no fresh term); does not tame or bound the wedge, only visualizes its monotone deepening; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95759-msq-pointwise-wall',
+      title: 'Mean-Square-vs-Pointwise Wall: Two Faces of One Object',
+      oneLine:
+        'Two panels reshaping the imp-95728 wall assembly: the variance ratio r(T) flat near 0.402 in band [0.349,0.480] across T=1e4..5e5 (no trend toward the GUE value 1), and the additive worst-window excess maxExcess/L decaying like 1/L (2.18e-2 -> 1.79e-3, log-log slope near -1) -- the scale-invariant wall shown as a single visual object.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95759-msq-pointwise-wall-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95728-meansquare-pointwise-gap-wall.js (IMP95728_MEANSQUARE_POINTWISE_GAP_WALL rows; imp-95759 viz page)',
+      ticket: 'imp-95759',
+      pedagogicalStep: 172,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95728 rows verbatim (no re-derivation, no fresh term); does not close the mean-square-vs-pointwise gap, only visualizes its two measured faces; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95548-per-prime-sbar-budget',
       title: 'Per-Prime S-bar Budget: the l2-Collapse Route vs R_ex = 0.2797',
       oneLine:

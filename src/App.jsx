@@ -1126,6 +1126,9 @@ const Imp95753CrossoverHeightWindowViz = lazy(() =>
 const Imp95754CfWedgeDepthVsMultiplierViz = lazy(() =>
   import('./pages/Imp95754CfWedgeDepthVsMultiplierViz.jsx')
 );
+const Imp95759MsqPointwiseWallViz = lazy(() =>
+  import('./pages/Imp95759MsqPointwiseWallViz.jsx')
+);
 const Imp95549NsRigidPencilEigenvalueViz = lazy(() =>
   import('./pages/Imp95549NsRigidPencilEigenvalueViz.jsx')
 );
@@ -3107,6 +3110,10 @@ function AppShell() {
           <Route
             path="/viz-imp95754-cf-wedge-depth-vs-multiplier"
             element={<Imp95754CfWedgeDepthVsMultiplierViz />}
+          />
+          <Route
+            path="/viz-imp95759-msq-pointwise-wall"
+            element={<Imp95759MsqPointwiseWallViz />}
           />
           <Route
             path="/viz-imp95549-ns-rigid-pencil-eigenvalue"

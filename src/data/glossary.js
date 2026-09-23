@@ -22328,6 +22328,20 @@ export const glossary = [
       'imp-95419-separated-class-optimal-riesz-floor is the module supplying the theta-dual identity ess-inf f = A_opt',
     ],
   },
+  {
+    term: 'imp-95843 number-variance ratio data-ceiling sub-gap: r(T) stays conservative to the edge of the 10^6-ordinate table, but the ~6.8-decade reach gap to T=3e12 is DATA-CEILING-LIMITED, not a modeling choice',
+    category: 'proof-status',
+    definition:
+      'An honest-status headword recording the imp-95843 verdict on the imp-95710 pointwise number-variance ratio r(T) = sd(C - E)^2 / Sigma^2(L) (measured discrepancy variance over the GUE Dyson-Mehta asymptote). imp-95710 tabulated six heights T = 1e4..5e5 (ratio band [0.349, 0.480], mean 0.40) and named a window-reach sub-gap: ~6.8 decades below the imp-95519 verified-height bottom T = 3.0e12. imp-95843 tried to push past 5e5 using the same in-repo 10^6-ordinate Odlyzko table and found the push DATA-CEILING-LIMITED: because the tiled +/-30% windows truncate at the table\'s top ordinate gamma ~ 6.00e5, the two new nominal centers (5.5e5, 5.8e5) raise the EFFECTIVE sampled height by only ~0.025 decades (4.75e5 -> 5.03e5), so the eight-point refit (slope ~ -1.96e-2, R^2 ~ 0.34, mean ~0.39) is statistically indistinguishable from the six-point fit and still shows no rise toward the GUE asymptote 1.\n\n' +
+      'HONEST SUB-GAP (isolated bump noted, not smoothed over): the r(1.5e5) = 0.4627 row sits above its neighbors inside the measured band, an isolated data point rather than a trend; the eight-point log-linear extrapolation toward 3e12 (r -> 0.06) remains UNWARRANTED extrapolation, not a forecast. Closing the ~6.8-decade gap needs either a larger verified-zero table (numeric, not in-repo) or the imp-95722 analytic r_cap(3e12) ~ 0.26 envelope, which is the only route that actually reaches the window bottom. Changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    firstUsed: 'imp-95710 (six-height ratio ladder, named the window-reach sub-gap), 2026; extended and reclassified DATA-CEILING-LIMITED by imp-95843, 2026',
+    relatedTerms: [
+      'imp-95710-number-variance-ratio-vs-height is the module tabulating the six-height r(T) band and naming the window-reach sub-gap',
+      'imp-95843-number-variance-ratio-extend-data-ceiling is the module attempting the push past 5e5 and finding it data-ceiling-limited',
+      'imp-95722-number-variance-ratio-window-bottom-bound is the module supplying the analytic r_cap(3e12) ~ 0.26 route that actually reaches the window bottom',
+      'imp-95519 supplies the verified-height window bottom T = 3.0e12 that the ratio ladder is trying to reach',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

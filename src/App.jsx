@@ -1150,6 +1150,9 @@ const Imp95668DeficitFartailLimitViz = lazy(() =>
 const Imp95681EflowInversionContourSurfaceViz = lazy(() =>
   import('./pages/Imp95681EflowInversionContourSurfaceViz.jsx')
 );
+const Imp95699CfBandReachabilityViz = lazy(() =>
+  import('./pages/Imp95699CfBandReachabilityViz.jsx')
+);
 const Imp95682TwinPairBlockFloorRhoViz = lazy(() =>
   import('./pages/Imp95682TwinPairBlockFloorRhoViz.jsx')
 );
@@ -3169,6 +3172,10 @@ function AppShell() {
           <Route
             path="/viz-imp95681-eflow-inversion-contour-surface"
             element={<Imp95681EflowInversionContourSurfaceViz />}
+          />
+          <Route
+            path="/viz-imp95699-cf-band-reachability"
+            element={<Imp95699CfBandReachabilityViz />}
           />
           <Route
             path="/viz-imp95682-twin-pair-block-floor-rho"

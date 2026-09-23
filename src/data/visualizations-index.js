@@ -2798,6 +2798,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95677 tabulation verbatim (no re-derivation, no fresh quadrature); the sub-1 undershoot at 320 pairs is float64 cancellation noise, not a physical drop below the symbol infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95699-cf-band-reachability',
+      title: 'C_F Provenance-Band Reachability: cf* vs the Honest Multiplier Band',
+      oneLine:
+        'Places the honest imp-398 C_F provenance band [~0.995,1.40] (nominal cf=1.0, downward-rigid floor, imp-1134 upward 1.2-1.4x reach) on a multiplier axis against the imp-95660 wedge-closure multiplier cf*=0.839, showing cf* strictly outside (below) the band -- the imp-95617 E_flow inversion wedge is FORECLOSED.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95699-cf-band-reachability-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95674-cf-provenance-band-wedge-reachability.js (IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY honestBand/cfStar/foreclosure; imp-95699 viz page)',
+      ticket: 'imp-95699',
+      pedagogicalStep: 182,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95674 provenance-band decision and imp-95660 cf* verbatim (no re-derivation, no fresh term); the component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

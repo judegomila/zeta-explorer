@@ -17825,6 +17825,11 @@ const DATA_MODULES = [
   // four-point box-min gap depth series, for the cf-reff-gue-repulsion viz page. No new
   // computation, no re-derivation. NO QED.
   '/src/data/imp-95776-cf-reff-gue-viz-data.js',
+  // imp-95777: import-light viz-data reshaping the imp-95724 exact J=3/2+dI split and the
+  // imp-95749 conditional dI-variation measurement into a J-share split (rho-free bulk vs
+  // rho-carrying dI, ~40% of J) and a fractional-variation comparison (dI amplified 2.484x
+  // over J), for the di-share-amplification viz page. No new computation, no re-derivation. NO QED.
+  '/src/data/imp-95777-di-share-amplification-viz-data.js',
   // imp-95780: wide-modulus (m=18..41) port of the (6.17)->(6.21) const-sector telescoping constant --
   // re-runs the imp-95720 faithful (6.21) machinery and decomposes the raw integrand as
   // (5/2 - zeta(2,1+v)) + Q_0(m,v) zeta(3,1+v) at seven moduli out to twice the anchor (m=41); the

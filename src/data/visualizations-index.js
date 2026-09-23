@@ -2869,6 +2869,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: reshapes the frozen imp-95747 r_eff and box-min values verbatim (no re-derivation, no fresh term); the imp-486 C_mb GUE-conditional assumption is reweighted within, not established; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95777-di-share-amplification',
+      title: "dI's 40% Share, 100% Drift, 2.484x Amplification",
+      oneLine:
+        'Stacked-share bar + grouped bar chart from the imp-95724 exact J=3/2+dI split and imp-95749 conditional variation: dI holds ~40% of J but carries 100% of the rho-drift, amplifying its fractional variation 2.484x over J.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95777-di-share-amplification-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95724-c-odd-J-variation-magnitude-assessment.js (anchorMagnitude/exactSplit); src/data/imp-95749-di-variation-against-constant-J-null.js (variation); imp-95777 viz page',
+      ticket: 'imp-95777',
+      pedagogicalStep: 187,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95724 / imp-95749 literals verbatim (no re-derivation, no new quadrature); the dI variation is CONDITIONAL on the +4 offset hypothesis, verified only at m=20, not a certified second anchor; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

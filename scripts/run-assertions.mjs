@@ -227,6 +227,25 @@ const DATA_MODULES = [
   // G log-gas RG freeze) from the primon-gas / log-gas / self-duality reframing. Roadmap,
   // not results; PT Λ≤0.2 SOTA; RH open.
   '/src/data/rh-novel-routes-roadmap-2026-09-23.js',
+  // rh-route-a-reflection-positivity-primon-gas (2026-09-23): FIRST TEST of roadmap Route A. Reflection
+  // Gram <theta f_i, f_j> in the Weil zero pairing = Caratheodory Pick matrix of xi'/xi (RP <=> Weil
+  // positivity <=> RH, Lagarias-Pick; not stronger). Finite-N gas: Pick Gram of the completed N-prime
+  // gas indefinite at EVERY N, lambda_min -143 -> -4213 (N=0..1229), law F_N - xi'/xi = -p_N^{1/2-nu}/(1/2-nu)
+  // (Euler product diverges on the strip; reflected Matsubara poles). Gaussian p^{-s} class: full Gram PSD
+  // to noise (rank 12 = verified low zeros), detects an off-line first zero, gas-truncated version fails
+  // in a boundary layer. Fock/Polya RPs true but spectrum {log n}/R. Import-free; explicit formula
+  // cross-checked to 5e-12 vs 5000 zeros (literals baked). Changes no bound; RH open; NO QED.
+  '/src/data/rh-route-a-reflection-positivity-primon-gas-2026-09-23.js',
+  // rh-route-e-widom-line-large-deviations (2026-09-23): Route E first test executed. Primon-gas
+  // response functions (Cv_N, Var(Omega)_N, continued Cv_cont) are monotone with the only critical
+  // point at sigma=1 -- no Widom locus at 1/2; the completed (log xi)'' has a symmetry-forced,
+  // RH-blind max at 1/2 (= sum_rho gamma^-2 = 0.0462100); the FLUCTUATION variance Var_t log|zeta|
+  // diverges only at 1/2 (Selberg/Bohr-Jessen/Parseval 2sigma) = the Widom line, also RH-blind.
+  // Finite-N Bohr floor exp(-L_N): no Fisher zeros at any N (rate +inf); Cramer near-zero cost is
+  // monotone in sigma, not minimised at 1/2. Concentration statement = Bohr-Landau 1914 via
+  // Littlewood's lemma; rate function = zero-density exponent (Ingham/Huxley/Guth-Maynard 30/13/DH);
+  // RH <=> Littlewood criterion. Route ABSORBED, no lever. Import-free sieve to 1e5; NO QED.
+  '/src/data/rh-route-e-widom-line-large-deviations-2026-09-23.js',
   // rh-route-c-signed-interferometer (2026-09-23): Route C Φ_ε=Σ ε_χ L(s,χ) tested on q=5,7 — REFUTED as an
   // off-line-nonvanishing lever: P1 linear blindness (Φ≠0 at arm zeros, Φ=0 where all arms ≥0.42), P2 orthogonality
   // is mean-square only (Σ|f(n)|²n^{-2σ} reproduced, cross terms net constructive off-line), P3 joint universality ⇒
@@ -255,6 +274,14 @@ const DATA_MODULES = [
   // analog) absent for complex weights n^{−it}. Euler–Maclaurin ζ + argument-principle counts verify
   // U^(1) on the first 25 windows. Import-free; REFUTED-AS-LEVER; no bound changes; NO QED.
   '/src/data/rh-route-f-kramers-wannier-local-uniqueness-2026-09-23.js',
+  // rh-route-d-peierls-defect-confinement (2026-09-23): Route D first test EXECUTED. Mirror-quadruple
+  // defect free energy written three ways: pure 2D-Coulomb F_C(δ)=E_perp−E_along is termwise NEGATIVE
+  // (|u²−δ²|<u²+δ²; F_C''(0)=−4S<0 at 7 heights; Earnshaw), the Weil-probe F_h''(0)=−4h''(t) is probe
+  // geometry not Weil positivity, and the explicit-formula budget R_σ(t)=½(A+P) from primes (validated
+  // to 1e-14 vs 260 zeros) confines a lone defect to δ≤σ√(2log(R/2)) — non-uniform in height (σ=1 fails
+  // below ½ at t≳3000); worst-case budget → 4e^{1/8σ²} = exactly the trivial strip. RH ⟺ R_σ(t) bounded
+  // as σ→0 (Weil on Gaussian probes) = REFORMULATION, no lever. Import-light literals; NO QED.
+  '/src/data/rh-route-d-peierls-defect-confinement-2026-09-23.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

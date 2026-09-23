@@ -98018,7 +98018,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add a Concepts glossary headword for the imp-95983 exact closed form K = 11/2 - 2*gamma - 3*pi^2/8 of the accumulated-slope subleading constant',
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-95983 replaced the imp-95965 coarse literal K ~ 0.6452 with the EXACT closed form K = 2*J0 + (5/2)*Iv = 11/2 - 2*gamma - 3*pi^2/8 = 0.6444670198 (no zeta(3) survives; it cancels), Richardson-confirmed to ~1e-8. Add an import-light Concepts/Wiki glossary headword recording this exact value, its derivation-in-brief (Euler-Maclaurin per family, shared -Iv/2 endpoint plus the beta +1/2 and delta -1 offsets), and that it resolves the subleading constant of the ATTRIBUTABLE accumulated-slope part while the imp-95965 residual obstruction (two under-determined base scalars) still stands. Functional non-marketing copy; documentation only; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-95983 exact closed form K = 11/2 - 2 gamma - 3 pi^2/8 has no glossary headword',
@@ -98026,6 +98026,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-96014',

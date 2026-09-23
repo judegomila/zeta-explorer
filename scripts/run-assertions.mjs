@@ -18090,6 +18090,16 @@ const DATA_MODULES = [
   // imp-95658 baked gap surfaces via a linear blend. Import-light (imp-95658 literals only),
   // no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95679-cf-star-crosscheck-baked-surfaces.js',
+  // imp-95801: audits every verified-ordinate source in the repo (ZEROS_EXTENDED,
+  // zeros-first-25, the imp-360 / imp-962 ladders, plus a repo-wide numeric sweep) to
+  // measure the true reach ceiling behind the imp-95783 F4 dead-zone obstruction. The
+  // ceiling is gamma_1e6 = 6.003e5 (last of the 1e6 Odlyzko ordinates in zeros-to-1e6.js);
+  // no other source reaches higher (gamma_25 < 100; the ladders are derived N-indexed
+  // summaries; no other Odlyzko bundle exists -- million-scale literals elsewhere are
+  // non-ordinate margins / rho-ratios / gate probes). So 0 pct of the dead zone above the
+  // ceiling is closeable in-repo; the obstruction stands as the verified-height bottleneck.
+  // Import-light, no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95801-ordinate-source-reach-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

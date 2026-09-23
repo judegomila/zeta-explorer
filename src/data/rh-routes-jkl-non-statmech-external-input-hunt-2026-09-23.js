@@ -77,6 +77,20 @@ export const ROUTE_J = Object.freeze({
     { engine: '(iii) Künneth on X^m: |β^m| ≤ q^{(nm+1)/2} ⇒ |β| ≤ q^{n/2+1/2m}', overQ: 'needs ζ^{⊗m} with Euler-product abscissa m/2 + O(1); the Kurokawa–Koyama double zeta ζ⊗ζ has a double-sine Euler product convergent only for Re s > 2 (cited, not re-derived): naive excess m/2, no gain. Terminus: same self-product obstruction as (i).' },
     { engine: 'local-RH import (Deligne ⇒ Ramanujan for GL(2) forms)', overQ: 'moves no archimedean zero-free region: the c/log t region for L(s,f) follows from Rankin–Selberg without Ramanujan; the imported positivity is local, zeros are global.' },
   ]),
+  // imp-96048 — engine (iii) focused assessment: can regularization / analytic continuation of the
+  // Kurokawa–Koyama double Euler product ζ⊗ζ reduce the Künneth excess below the naive m/2 abscissa?
+  engineIiiAssessment: Object.freeze({
+    question: 'Deligne’s tensor-power/Künneth bootstrap |β^m| ≤ q^{(nm+1)/2} ⇒ |β| ≤ q^{n/2+1/(2m)} needs ζ^{⊗m} as an Euler product whose abscissa of ABSOLUTE convergence is m/2 + O(1) with the O(1) excess FIXED (independent of m), so that Re ρ ≤ abscissa/m → ½ as m → ∞. Does any regularization / analytic continuation of the Kurokawa–Koyama double zeta reduce that excess below m/2?',
+    m: 2,
+    targetAbscissa: 1,        // m/2: the absolute-convergence abscissa the bootstrap needs at m = 2
+    kurokawaAbscissa: 2,      // Kurokawa–Koyama ζ⊗ζ double-sine Euler product converges only for Re s > 2 (cited)
+    excess: 1,                // kurokawaAbscissa − targetAbscissa = m/2 at m = 2 (scales with m, not O(1))
+    poleOrderAtSm: 2,         // ζ⊗ζ has a DOUBLE pole at s = 2 = m (self-convolution of the simple pole of ζ at s = 1): pole order = m
+    excessOverTarget: 1,      // excess/target = 1 ⇒ Re ρ ≤ abscissa/m = m/m = 1 (trivial), no approach to ½
+    continuationInvariant: true,
+    verdict: 'NO reduction. Two independent reasons, both = the engine-(i) self-product obstruction. (1) The tensor-power trick exploits ONLY the abscissa of ABSOLUTE convergence of the Euler product — that is the half-plane where the product is guaranteed nonzero, hence zero-free. Analytic continuation / zeta-regularization (Kurokawa’s double sine) extends the meromorphic function past that abscissa but changes NEITHER the abscissa of absolute convergence NOR the guaranteed zero-free region: it buys a functional equation, not a smaller excess. (2) The excess is +1 = m/2 at m = 2 because ζ⊗ζ carries a DOUBLE pole at s = 2 — the self-convolution raises the pole order from 1 (ζ at s=1) to m, dragging the abscissa to m, so excess = m − m/2 = m/2 and Re ρ ≤ abscissa/m = 1 (trivial). Regularizing a double pole into a simple one would change the object. This is Spec ℤ ×_{F₁} Spec ℤ being a genuine surface: H^1 infinite-rank, Frobenius = ℝ-scaling-flow not q^ℤ, so the finite-field “+1” (fixed, from the single-variable functional equation) is replaced by “+m/2” (scaling). Excess stays m/2. NO gain, NO QED.',
+    caveat: 'Only the m = 2 abscissa (Re s > 2) is a re-derivable data point (cited from Kurokawa–Koyama, not re-derived here); the pole-order = m ⇒ excess = m/2 scaling for m > 2 is the structural expectation from the m-fold self-convolution, not a re-proved theorem. Assessment only; changes no bound.',
+  }),
   verdict: 'NO external input reaches ℤ: each of the three Weil–Deligne engines lands on a known wall (Weil positivity via the missing self-product; the Landau-pole c/log t form with Fejér floor R ≥ 5.83 for the pure scheme; PCC for the tensor square). The finite-field-specific inputs — finite-rank H^1, Frobenius ∈ ℤ, closed points of X×X — are exactly what Spec Z lacks. No computable finite analog is a genuine partial. RH open.',
 });
 
@@ -166,6 +180,25 @@ export const ROUTE_L = Object.freeze({
       [12, 56.4462476970, 0.681035266049, 0.681035266048, -7.093215e-13, 0.44615733, 0.44615733],
     ]),
     maxAngleErrResolved400: 4.9e-5, maxRelWeightErrResolved400: 0.033,
+    // EXTENSION (imp-96045): truncation order pushed 400 -> 800 at a = 20, dps = 200
+    // (route-l2-generalized-li-cmv.py 20 200 800, 45.9 s). The Toeplitz form does NOT lose PD:
+    // min 1-|alpha_k| = 0.0308849 is UNCHANGED (attained at k = 68, not at the frontier),
+    // e_799/e_0 = 3.9e-79 is still >> the 190-digit floor 1e-185, and the running block max|alpha_k|
+    // RECEDES from the unit circle for k > 100 (0.969 -> 0.227). So the "400" ceiling was the NMAX
+    // cap of the earlier run, NOT a float64/PD-breakdown obstruction (that obstruction is not reached
+    // at 200 digits through order 800). The claimed linear reach gamma_{N/10} is REFUTED beyond 400:
+    // the reproduced-zero set is a clean prefix whose length grows SUBLINEARLY.
+    reachExtended: Object.freeze({
+      ticket: 'imp-96045', a: 20, dps: 200, NMAX: 800,
+      ordersReached: 799, minOneMinusAbsAlpha: 0.0308849, maxAbsAlpha: 0.9691151161,
+      eOverE0At799: 3.88e-79, precisionFloor: 1e-185, pdBreaks: false,
+      // [order block k, max|alpha_k| over the previous 100 orders] — recedes from |alpha| = 1
+      alphaBlockMax: Object.freeze([[100, 0.96911512], [200, 0.71897451], [300, 0.43849659], [400, 0.34054012], [500, 0.27220962], [600, 0.25337605], [700, 0.22690415]]),
+      // [N, last resolved zero index (clean prefix), gamma_reach, linear prediction index N/10]
+      reachPrefix: Object.freeze([[50, 11, 52.97, 5], [100, 21, 79.34, 10], [200, 29, 98.83, 20], [400, 39, 121.37, 40], [800, 55, 153.03, 80]]),
+      linearRefuted: 'gamma_{N/10} (linear) predicts reach index 80 at N = 800 but MEASURED 55; doubling N 400 -> 800 raises the reach index only 39 -> 55 (x1.41) and gamma_reach 121 -> 153 (x1.26). Measured scaling ~ N^0.5 in index / ~N^0.4 in height: SUBLINEAR. The finite certificate is even more verified-height-dominated than the linear law implied.',
+      note: 'Measure only; no bound changed; NO QED. Sub-gap remaining: (i) the analytic reach law N_res(gamma) (Christoffel function of nu_a) is still unproven, and (ii) the actual PD-breakdown order at fixed dps = 200 is not reached by order 800 (would need NMAX beyond 800 or a lower-dps run to bracket it).',
+    }),
   }),
   // DETECTOR REACH: replace the on-line pair at true zero γ_0 by the FE-symmetric off-line quadruple
   // ½ ± δ ± iγ_0 in the exact moments; N_det = first Levinson order with |κ| ≥ 1 (all GENUINE: e/e_0 ≫ 1e-185).
@@ -289,6 +322,24 @@ export const RH_ROUTES_JKL_ASSERTIONS = Object.freeze([
         && byZero[10][2][1] <= 50 && byZero[20][2][1] >= 96 && byZero[20][2][1] <= 115;
     },
     why: 'N_det is nearly δ-independent (spread ≤ 20 orders over δ = 0.4 → 0.025), monotone in γ_0, equals the resolution order (zero 10 ≤ 50, zero 20 ≈ 100), and zero 40 is undetected at N = 400; the |z|^n-drift prediction γ²/(4aδ) fails by factors 1.4 → 0.04. Reach ≈ γ_{N/10}: verified-height-dominated.',
+  },
+  {
+    id: 'L-reach-extension-refutes-linear-law-imp96045',
+    holds: () => {
+      const r = ROUTE_L.a20.reachExtended;
+      if (!r || r.pdBreaks !== false || r.ordersReached !== 799) return false;
+      // PD is not lost by order 799: min slack unchanged from the N=400 run, error term way above floor
+      if (!(Math.abs(r.minOneMinusAbsAlpha - ROUTE_L.a20.levinson.minOneMinusAbsAlpha) < 1e-6)) return false;
+      if (!(r.eOverE0At799 > r.precisionFloor * 1e100)) return false;
+      // Schur parameters recede from the unit circle for k > 100 (block max|alpha| strictly decreasing)
+      const receding = r.alphaBlockMax.every((row, i, A) => i === 0 || row[1] < A[i - 1][1]);
+      // reach prefix grows SUBLINEARLY: at N=800 the measured index is far below the linear N/10 prediction
+      const last = r.reachPrefix[r.reachPrefix.length - 1];
+      const prev = r.reachPrefix[r.reachPrefix.length - 2];
+      const sublinear = last[1] < last[3] * 0.75 && last[1] > prev[1];
+      return receding && sublinear;
+    },
+    why: 'imp-96045: extending the a=20 truncation 400 -> 800 (dps 200) shows PD does NOT break (min slack 0.0309 unchanged, e_799/e_0 = 3.9e-79 >> floor 1e-185, Schur params recede 0.969 -> 0.227) and REFUTES the linear reach gamma_{N/10} (measured reach index 55 at N=800 vs linear prediction 80, ~N^0.5 growth). Measure only; NO QED.',
   },
   {
     id: 'honest-no-external-input-found-no-qed',

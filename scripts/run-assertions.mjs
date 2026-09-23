@@ -359,6 +359,18 @@ const DATA_MODULES = [
   // arithmetic; batch prize still not found. Import-light (Vasyunin c_0 + Burnol d_N^2 numerics only);
   // NOT a bound; RH open; NO QED.
   '/src/data/imp-96043-route-m-nyman-beurling-first-test.js',
+  // rh-route-m-nyman-beurling-vasyunin-reciprocity (2026-09-23): Route M FULL first test (independent of, and
+  // consistent with, imp-96043's analysis). Vasyunin's cotangent-sum formula for the Báez-Duarte Gram pinned to
+  // 3e-38 against exact piecewise integrals (V(h/k) = −c₀(h̄/k): the BARRED/Estermann-inverse argument — the unbarred
+  // c₀(h/k)+c₀(k/h) ansatz fails, residual 0.72); exact Gram to N=500: d_N² log N / Σ|ρ|⁻² = 0.998 (ON the Burnol
+  // floor; mpmath-30 agrees to 1e-12); G = rank-4 smooth + cotangent matrix (all spectral content modular, rigid at
+  // 1%); Bettin–Conrey reciprocity transcribed + verified (ΔR·k² → ±0.1648; small-z Bernoulli expansion π/36k −
+  // π³/5400k³ + π⁵/119070k⁵ − π⁷/1134000k⁷ reproduced); KEY TEST: every Euclid-depth truncation of the reciprocity
+  // descent (D<10) and the 2-term period surrogate leave G INDEFINITE at rel-err 1e-3 while positivity lives at 1e-6;
+  // λ_min ∝ N^{-1.92} = zero-free [1/max(h,k)] law; residual pinned at zeros with width 1/log N. VERDICT: modular
+  // input collapses to the mollifier lineage (cot sum = Estermann D(0,x) = off-diagonal of the twisted 2nd moment;
+  // reciprocity = Estermann FE = FE of ζ). Import-free; NOT a bound; RH open; NO QED.
+  '/src/data/rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js',
   // imp-96019 (2026-09-23): ASSESSMENT of sweep opening.nextTests[1] — can the Connes–Consani scaling
   // site extend the proven archimedean Weil positivity past the first prime shift u = ln 2? Verdict:
   // NO candidate extension; precise obstruction. The proven partial (|u| < ln 2) is prime-EMPTY (smallest

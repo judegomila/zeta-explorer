@@ -281,6 +281,11 @@ export const ROUTE_M_PROPOSED = Object.freeze({
   firstTest: 'Compute G_N exactly from the Vasyunin formula for N ≤ 500, d_N² vs the Burnol constant (Σ_ρ 1/|ρ|²)/log N = 0.0462/log N; then test whether the Bettin–Conrey reciprocity gives a structural (non-Möbius) bound on the Gram inverse. NOT RUN.',
   caveat: 'the standard near-optimal coefficients are Möbius μ(k)(1 − log k/log N) — a mollifier for 1/ζ — so the perturbative version is the Levinson lineage again (imp-1312 classified NB for Λ). Only a non-perturbative use of the reciprocity would be new.',
   status: 'proposed — not first-tested',
+  // 2026-09-23 (same day, later): FIRST-TESTED in rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js — the caveat
+  // held: d_N² log N / Σ|ρ|⁻² = 0.998 at N=500 (exact Gram), and the Bettin–Conrey reciprocity (= Estermann FE = FE of ζ)
+  // cannot bound G⁻¹: every truncation of its Euclid descent leaves G indefinite. Collapses to the mollifier lineage.
+  firstTestedIn: 'rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js',
+  firstTestVerdict: 'COLLAPSES to the mollifier lineage (Estermann functional equation); no partial escape; NOT-A-LEVER',
 });
 
 export const RH_ROUTES_JKL = Object.freeze({

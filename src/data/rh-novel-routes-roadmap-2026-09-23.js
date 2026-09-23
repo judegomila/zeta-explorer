@@ -254,7 +254,14 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         'Compute G_N exactly to N ≤ 500, d_N² against (Σ_ρ|ρ|⁻²)/log N = 0.0462/log N; test whether the reciprocity '
         + 'bounds the Gram inverse non-perturbatively (the Möbius-coefficient version is the mollifier lineage).',
       payoff: 'A non-mollifier NB bound',
-      status: 'proposed — not first-tested (2026-09-23)',
+      status: 'tested — COLLAPSES to the mollifier lineage (rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js): '
+        + 'exact Vasyunin Gram to N=500 gives d_N² log N / Σ|ρ|⁻² = 0.998 (on the Burnol floor; mpmath-30 agrees to 1e-12); '
+        + 'G = rank-4 smooth + cotangent matrix with V(h/k) = −c₀(h̄/k) (Estermann-inverse argument); Bettin–Conrey reciprocity '
+        + 'verified (ΔR·k² → ±0.1648, π/36k expansion) but every Euclid-depth truncation of the reciprocity descent and the '
+        + '2-term period-function surrogate leave G INDEFINITE at 1e-3 relative error while positivity lives at λ_min/λ_max = 1e-6; '
+        + 'λ_min ∝ N^{−1.92} is the zero-free [1/max(h,k)] law; residual |1+ζD_N|² = 1 at every zero, d_N² = Σ|ρ|⁻²/log N to 0.2%. '
+        + 'Pinpoint: cot sum = Estermann D(0,x) = off-diagonal of the twisted 2nd moment; reciprocity = Estermann FE = functional '
+        + 'equation of ζ (BC §3–4) = the Conrey-1989 θ<4/7 input. No partial escape; NOT-A-LEVER.',
     },
   ],
 

@@ -75,6 +75,11 @@ export const RH_SWEEP_SYNTHESIS = Object.freeze({
     module: 'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js',
     routes: 'J (function-field import), K (moments/ratios), L (Li–Herglotz–CMV explicit operator), M (Nyman–Beurling/Vasyunin, proposed)',
     verdict: 'none escapes the convergence; wall map = Landau pole / Jensen integration / Herglotz-Weil; Route L = best finite-certificate infrastructure (400×400 unitary truncation reproduces 39 zeros to 1e-12 from Taylor data of ξ alone; reach linear in N; completeness = Weil positivity). RH open; NO QED.',
+    // Route M first-tested later the same day (rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js): the exact
+    // Vasyunin Gram puts d_N² on the Burnol floor at N=500 (ratio 0.998); the Bettin–Conrey reciprocity is the Estermann
+    // functional equation (= FE of ζ, sweep lesson L1) and cannot bound G⁻¹ (all Euclid-depth truncations indefinite).
+    // Wall = mollifier / Estermann-FE. No external input.
+    routeM: { module: 'rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js', verdict: 'COLLAPSES to the mollifier lineage; no partial escape; RH open; NO QED' },
   },
 
   honest:

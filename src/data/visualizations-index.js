@@ -2382,15 +2382,15 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       route: '/viz-imp95607-gumbelz-band',
       title: 'imp-95583 Gumbel-Z Per-Height Band Check',
       oneLine:
-        'Bar chart of the imp-95583 per-height gumbelZ = (observed worst discrepancy window max(D) minus the Gumbel-predicted E[max]) / sd[max] against the |gumbelZ| < 2 no-outlier band, across the six sample heights T_c = 1e4..5e5 (nWindows = 75..443).',
+        'Bar chart overlaying the imp-95583 per-height gumbelZ (max side) and the imp-95599 gumbelZmin (min side) against the |gumbelZ| < 2 no-outlier band, across the six sample heights T_c = 1e4..5e5 (nWindows = 75..443), showing the measured two-sided symmetry.',
       mathBucket: 'measurement',
       dataModule: 'src/data/imp-95583-discrepancy-tail-evt.js',
       paperSourcePath:
-        'src/data/imp-95583-discrepancy-tail-evt.js (record IMP95583_DISCREPANCY_TAIL_EVT; imp-95607 viz page)',
-      ticket: 'imp-95607',
+        'src/data/imp-95583-discrepancy-tail-evt.js (record IMP95583_DISCREPANCY_TAIL_EVT); src/data/imp-95599-discrepancy-negative-tail-evt.js (record IMP95599_DISCREPANCY_NEGATIVE_TAIL_EVT); imp-95607/imp-95629 viz page',
+      ticket: 'imp-95629',
       pedagogicalStep: 152,
       honestCeiling:
-        'Presentation only: renders the imp-95583 baked (T_c, nWindows, gumbelZ) triples verbatim (no re-derivation of the Gumbel EVT formulas); proves nothing beyond what imp-95583 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+        'Presentation only: renders the imp-95583 and imp-95599 baked (T_c, nWindows, gumbelZ, gumbelZmin) tuples verbatim (no re-derivation of the Gumbel EVT formulas); proves nothing beyond what those tickets already state; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
       route: '/viz-imp95448-ra-ladder-input-provenance',

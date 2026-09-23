@@ -22224,6 +22224,32 @@ export const glossary = [
       'imp-95726-twin-pair-half-retention-finite-size-limit is the module confirming the residual is finite-size (1/nPairs^2), not a perturbation-theory model error',
     ],
   },
+  {
+    term: 'Sun Prop 6.3 Pure-Rational +4 Additive Offset (m-free)',
+    category: 'concept',
+    definition:
+      'A quick-lookup headword for the imp-95745 derivation of the mysterious "+4" additive ' +
+      'offset that imp-95720 had found only numerically at modulus m = 20 in Sun Prop 6.3 ' +
+      '(arXiv:2609.04176, unrefereed). Reducing (6.17)-(6.20) correctly -- the divergent ' +
+      'counterterm A_rho/t must cancel the u-linear growth of L_rho -- forces the const sector ' +
+      'of (6.21) to -5/2 rather than the OCR-literal 3/2 that imp-95720 used, giving ' +
+      'offset = 3/2 - (-5/2) = 4, equivalently offset = 5/2 + (3/2) INT_0^1 zeta(2,1+v) dv = 4. ' +
+      'The only input is the telescoping identity INT_0^1 zeta(2,1+v) dv = 1 (from the sum ' +
+      'of 1/n - 1/(n+1) telescoping to 1); both 3/2 and -5/2 are pure rationals carrying no ' +
+      'alpha, beta, gamma, or curvature term, so the offset is M-FREE: all m-dependence stays ' +
+      'quarantined in the untouched Q_0 sector (the alpha={20v}, beta={41v}, gamma={40v} piece), ' +
+      'meaning the same +4 offset holds at every modulus, not just m = 20. Verified: reconstructs ' +
+      'the certified c_odd(1/20) = 0.006276744728... to 3.5e-13 and upgrades c_odd(1/19) from ' +
+      '"conditional" to "offset-certain" = 0.006954762801 (still not interval-certified, the ' +
+      'named remaining sub-gap). Sun preprint remains unrefereed; Catalan G irrationality open; ' +
+      'no Lambda movement; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED; RH open.',
+    firstUsed: 'imp-95720 (numerical +4 offset at m = 20 only), 2026; derived in closed form and shown m-free by imp-95745, 2026',
+    relatedTerms: [
+      'imp-95745-sun-prop63-plus4-offset-derivation is the module deriving offset = 5/2 + (3/2) INT_0^1 zeta(2,1+v) dv = 4 and showing it is m-free',
+      'imp-95720 is the prior module that found the +4 offset numerically at m = 20 without a closed-form derivation',
+      'Q_0 sector is the m-dependent piece of Sun Prop 6.3 (6.21) left untouched by this offset derivation',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

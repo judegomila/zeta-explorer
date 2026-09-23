@@ -21633,6 +21633,41 @@ export const glossary = [
       'imp-35164 found E(N) does not vanish on the current surrogate, flooring at E_trunc instead (imp-35164)',
     ],
   },
+  {
+    term: 'Two-Block Seam Pencil Bound (THEOREM DIRECT-2)',
+    category: 'concept',
+    definition:
+      'The two-block seam quotient F(V,d) = Lambda(V1,d) + Lambda(V2,d) + 2 sigma sqrt(Lambda(V1,d) Lambda(V2,d)), ' +
+      'reduced to a single 2x2 generalized-Rayleigh problem rather than fenced by the ' +
+      'imp-95249 THEOREM SPLIT-2 triangle-inequality relaxation. Writing c = (sqrt(L1), sqrt(L2)) ' +
+      '(L1 = Lambda(V1,d), L2 = Lambda(V2,d)) and M = [[1, -sigma], [-sigma, 1]] for the 2x2 ' +
+      'angle Gram (sigma = cos angle(E_V1, E_V2), the same cross-block angle THEOREM ANG-PENCIL ' +
+      'identifies), THEOREM DIRECT-2 (imp-95426) is the closed form ' +
+      'DIRECT = (L1 + L2 + 2 sigma sqrt(L1 L2)) / (1 - sigma^2) = c^T M^(-1) c, obtained by ' +
+      'directly inverting the 2x2 pencil (c c^T, M) instead of relaxing the cross term by ' +
+      'Cauchy-Schwarz. Two elementary comparisons give DIRECT <= SPLIT-2 (an AM-GM slack term ' +
+      'sigma (sqrt(L1) - sqrt(L2))^2 >= 0 separates them) and DIRECT <= SPLIT-LOO (since sigma <= 1 ' +
+      'shrinks the SPLIT-LOO leave-one-out collar 1/sqrt(1-sigma_k^2) relative to the shared ' +
+      'denominator 1-sigma^2), so DIRECT <= min(SPLIT-2, SPLIT-LOO) uniformly -- the tightest of ' +
+      'the three two-block seam bounds, measured up to ~12% tighter than the min on the imp-95378 ' +
+      'asymmetric block-pair surface (direct/min in [0.8945, 1.0]).\n\n' +
+      'HONEST LIMITS: DIRECT-2 does NOT close the imp-95378 collar-limited nearby-cluster residual. ' +
+      'It shares the same 1/(1-sigma^2) angular collar as SPLIT-2 and SPLIT-LOO and collapses ' +
+      'exactly to SPLIT-2 in the symmetric-twin limit L1 = L2, so DIRECT/exact spans the same ' +
+      '[1.19, 3.22e6] range found for MIN/exact as sigma -> 1 (imp-95485 pins the wedge to exactly ' +
+      'the collar factor, with a bounded ~0.012 prefactor). imp-95485 also shows the natural ' +
+      'N-block (N >= 3) generalization of the direct 2x2 reduction is VACUOUS (the worst-case angle ' +
+      'Gram M = I - Sigma is generically indefinite for N >= 3), so N = 2 is the unique block count ' +
+      'with a guaranteed-PD direct reduction; the wedge closes only with the full joint pencil, not ' +
+      'block-by-block. Changes no Lambda bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95426 (THEOREM DIRECT-2, the 2x2 seam-pencil two-block reduction), 2026',
+    relatedTerms: [
+      'imp-95249 THEOREM SPLIT-2 is the Cauchy-Schwarz-relaxed bound DIRECT-2 is proven uniformly tighter than (imp-95249)',
+      'imp-95250 THEOREM SPLIT-LOO is the multi-block leave-one-out bound DIRECT-2 is also proven tighter than at m=2 (imp-95250)',
+      'imp-95378 measured the DIRECT-2/min ratio on the 35-point asymmetric surface and named the sigma->1 collar residual (imp-95378)',
+      'imp-95485 confirms the wedge equals the shared collar exactly and shows the N>=3 direct generalization is vacuous (imp-95485)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

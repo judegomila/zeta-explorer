@@ -7,6 +7,11 @@ import {
   IMP95888_GAP_DECADES,
   IMP95888_CAVEAT_BANNER,
 } from '../data/imp-95888-rcap-window-bottom-viz-data.js';
+import {
+  IMP95812_OFFSET_ROWS,
+  IMP95812_ANCHOR_ROWS,
+  IMP95812_OFFSET_SPREAD,
+} from '../data/imp-95812-number-variance-c0-estimator-viz-data.js';
 
 const LANDMARK_COLOR = {
   measured_ceiling: '#38bdf8',
@@ -204,6 +209,58 @@ export default function Imp95888RcapWindowBottomViz() {
         </tbody>
       </table>
 
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.5rem', marginBottom: '0.5rem' }}>
+        Estimator-choice sensitivity of C0 (imp-95812/imp-95787)
+      </h3>
+      <p style={{ color: '#64748b', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+        The window-bottom landmark above pins the offset C0 as the MAX over the six imp-95710
+        heights (the conservative upper-envelope choice). The per-height offsets spread{' '}
+        {IMP95812_OFFSET_SPREAD.toFixed(4)} (max&nbsp;&minus;&nbsp;min), driven by a single
+        anomalous T&nbsp;=&nbsp;1.5e5 height rather than a trend. Swapping the max for a mean- or
+        min-based estimator still leaves r_cap(3e12) far below the GUE asymptote 1:
+      </p>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginBottom: '1rem' }}>
+        <thead>
+          <tr style={{ color: '#64748b' }}>
+            <th style={{ textAlign: 'left', paddingBottom: 4 }}>estimator</th>
+            <th style={{ textAlign: 'right', paddingBottom: 4 }}>C0</th>
+            <th style={{ textAlign: 'right', paddingBottom: 4 }}>r_cap(3e12)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {IMP95812_ANCHOR_ROWS.map((a) => (
+            <tr key={a.label} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+              <td style={{ padding: '3px 0' }}>{a.label}</td>
+              <td style={{ textAlign: 'right' }}>{a.c0.toFixed(4)}</td>
+              <td style={{ textAlign: 'right', color: a.label === 'max' ? '#a78bfa' : '#94a3b8' }}>
+                {a.rCap.toFixed(4)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginBottom: '1.25rem' }}>
+        <thead>
+          <tr style={{ color: '#64748b' }}>
+            <th style={{ textAlign: 'left', paddingBottom: 4 }}>T</th>
+            <th style={{ textAlign: 'right', paddingBottom: 4 }}>ln T</th>
+            <th style={{ textAlign: 'right', paddingBottom: 4 }}>per-height offset</th>
+          </tr>
+        </thead>
+        <tbody>
+          {IMP95812_OFFSET_ROWS.map((r) => (
+            <tr key={r.Tc} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+              <td style={{ padding: '3px 0' }}>{r.Tc.toExponential(1)}</td>
+              <td style={{ textAlign: 'right' }}>{r.logT.toFixed(2)}</td>
+              <td style={{ textAlign: 'right', color: r.isArgmax ? '#a78bfa' : '#cbd5e1' }}>
+                {r.offset.toFixed(4)}
+                {r.isArgmax ? ' (argmax)' : ''}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
       <div
         style={{
           marginTop: '1.25rem',
@@ -216,9 +273,9 @@ export default function Imp95888RcapWindowBottomViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page rendering the frozen
-        imp-95722 derived envelope verbatim (no re-derivation). Supplies no new bound, establishes
-        no operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
-        NO QED.
+        imp-95722 derived envelope and imp-95787 estimator-bias table verbatim (no
+        re-derivation). Supplies no new bound, establishes no operator positivity, no RH claim;
+        Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
       </div>
     </div>
   );

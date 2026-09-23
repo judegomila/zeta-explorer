@@ -17994,6 +17994,13 @@ const DATA_MODULES = [
   // consumers PASS (none surfaces a superseded multiplier as final); one completeness gap flagged
   // (imp-95754 viz omits the 9.583x endpoint). Import-light, no zeros bundle, no bound, no QED.
   '/src/data/imp-95769-cf-band-hi-pinned-consumer-audit.js',
+  // imp-95767: turns the imp-95743 single-run dual-vs-primal agreement 1.7e-2% at
+  // delta=ln1.3 into a certified interval |A_fit-A_opt|/A_opt <= 2.46e-3 (0.246%) by
+  // propagating the DD Jacobi finite-grid extrapolation (dominant, model+leave-one-out
+  // envelope) and the negligible dual quadrature uncertainty; the interval contains
+  // zero, so the routes are certified consistent with exact agreement. Import-light,
+  // no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95767-dual-primal-agreement-interval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

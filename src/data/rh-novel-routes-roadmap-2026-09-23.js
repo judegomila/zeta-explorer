@@ -180,7 +180,14 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'is zero-free in the strip (|1−p^{−s}| ≥ 1−2^{−σ} > 0), so nontrivial zeros are EXACT RG fixed points — '
         + 'trivial reality-preservation with zero restoring force. Making the flow move zeros needs truncation, but '
         + 'partial sums have zeros with σ>½ whose rightmost climbs monotonically toward 1 (0.829..0.984, N=8..256; '
-        + 'Turán/Montgomery), which the frozen factor cannot repair. RG analogue of the flow-blindness no-go; NO QED',
+        + 'Turán/Montgomery), which the frozen factor cannot repair. RG analogue of the flow-blindness no-go; NO QED. '
+        + 'Second pass (rh-route-g-log-gas-rg-prime-freezing-2026-09-23.js): the SELF-DUAL truncation '
+        + 'f_w = D_w + χ D_w(1−s) (RS/AFE pair) is the one frame where freezing moves zeros while keeping them '
+        + 'on the line; fixed point = half-Gram crystal 1+χ(s) (σ=½ by |χ|=1⟺σ=½, Archimedean, prime-free); '
+        + 'freeze force = zero-mean sin(γ log p) mode along the line, no confining drift; reality at frozen stages '
+        + '= vacuum dominance r_w<1 that the ζ line never has (r≈2(t/2π)^{1/4}); continuous and density-rescaled '
+        + 'variants push zeros off the line; the k=0 end (RS main sum) is already off-line at Lehmer close pairs. '
+        + 'No arithmetic real-rootedness-preserving flow found; NOT-A-LEVER',
     },
   ],
 

@@ -292,6 +292,17 @@ const DATA_MODULES = [
   // zero-free factor cannot pull back to 1/2. NO-GO for a real-rootedness-preserving lever = RG analogue of
   // the flow-blindness no-go. Import-free; live Newton + baked ladder; NOT a bound; PT Lambda<=0.2; NO QED.
   '/src/data/rh-route-g-block-spin-rg-freezing-2026-09-23.js',
+  // rh-route-g-log-gas-rg-prime-freezing (2026-09-23): Route G, the WORKING coarse-graining. Lemma 1:
+  // every multiplicative block-spin of finitely many primes is exactly inert on ζ's zeros (cf. imp-96004).
+  // The only self-dual frame where freezing moves zeros is the RS/AFE pair f_w = D_w + χD_w(1−s); its
+  // fixed point is the half-Gram crystal 1+χ (zeros on σ=½ by |χ|=1⟺σ=½, Archimedean, prime-free).
+  // Freeze force = zero-mean sin(γ log p) mode along the line (corr 0.78 with the Hellmann–Feynman
+  // prediction); RMS approach to the crystal monotone, per-zero not (63%). Reality at frozen stages =
+  // vacuum dominance r_w<1 (ζ line: r≈2(t/2π)^{1/4}); continuous-λ path puts 30+ pairs off-line,
+  // Kadanoff-rescaled cutoff creates a pair, k=0 (RS main sum) already has 5 off-line pairs at Lehmer
+  // close pairs; exact incomplete-gamma frame is not a deformation (≥1e7×Λ). 460-site window [9.67,760],
+  // winding integrality <1e-12. Import-light literals; NOT-A-LEVER; no bound; PT Λ≤0.2 SOTA; NO QED.
+  '/src/data/rh-route-g-log-gas-rg-prime-freezing-2026-09-23.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

@@ -2570,6 +2570,7 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       paperSourcePath:
         'src/data/imp-95617-transition-knee-ordering-joint-2d.js, imp-95691-cf-band-hi-pinned-wedge-opening.js, imp-95721-cf-alpha-weight-density-pinned.js (baked box-min gap landmarks; imp-95754 viz page)',
       ticket: 'imp-95754',
+      alsoFulfills: ['imp-95719'],
       pedagogicalStep: 171,
       honestCeiling:
         'Presentation/measurement only: reshapes the frozen imp-95617/imp-95691/imp-95721 box-min gap values verbatim (no re-derivation, no fresh term); does not tame or bound the wedge, only visualizes its monotone deepening; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',

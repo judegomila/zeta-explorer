@@ -71,6 +71,11 @@
  * @see imp-95721-cf-alpha-weight-density-pinned (SUPERSEDES imp-95705 with a density-weighted 6.1x-8.6x band)
  * @see imp-95747-cf-reff-gue-repulsion-regularization (SUPERSEDES imp-95721 with the GUE-regularized,
  *   cutoff-independent converged value 9.583x -- the current honest CF_BAND_HI representative)
+ * @see imp-95754-cf-wedge-depth-vs-multiplier-viz-data (imp-95719: the routed viz asking for "box-min
+ *   gap vs cf multiplier across the pinned band" is ALREADY DELIVERED here, at route
+ *   /viz-imp95754-cf-wedge-depth-vs-multiplier -- it plots this module's boxMinGap landmarks
+ *   (cf = 1, 1.2, 1.29615, 1.4) as the low-cf segment of one continuous curve extended through
+ *   imp-95721/imp-95747. Do not build a second page for the same data.)
  */
 
 import { IMP95674_CF_PROVENANCE_BAND_WEDGE_REACHABILITY } from './imp-95674-cf-provenance-band-wedge-reachability.js';
@@ -128,6 +133,14 @@ export const IMP95691_CF_BAND_HI_PINNED_WEDGE_OPENING = {
       'the imp-95747 converged 9.583x as the current honest CF_BAND_HI representative, superseding both ' +
       'this pin and every intermediate link (imp-95705, imp-95721) in the chain.',
     supersedingValue: 9.583,
+  },
+  routedViz: {
+    fulfillsTicket: 'imp-95719',
+    route: '/viz-imp95754-cf-wedge-depth-vs-multiplier',
+    note:
+      'imp-95719 asked for a routed viz of this box-min gap vs cf multiplier data; imp-95754 already ' +
+      'delivers it (this module contributes the cf=1/1.2/1.29615/1.4 landmarks as the low-cf segment ' +
+      'of one continuous curve extended through imp-95721/imp-95747).',
   },
   boxMinGap: {
     at_cf1_nominal: MINGAP_AT_CF1, // -0.004682 (imp-95617)

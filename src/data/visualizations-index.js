@@ -2476,6 +2476,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Descriptive curves recomputing classicalWidth/vkWidth independently from the imp-95605 documented closed forms (no new derivation, no heavy import); illustrates the window-wide classical dominance and the far-outside-window crossover numerically, proves nothing beyond what imp-95605 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95645-kronecker-transfer-constant',
+      title: 'Kronecker Sup/RMS Transfer Constant vs sqrt(N)',
+      oneLine:
+        'Line chart of the imp-95604/imp-95616 measured and theoretical sup_T/rms_T transfer constant for the Lambda(p)p^{-sigma} packet across four prime-set sizes N = 4, 8, 15, 25, tracking the sqrt(N) ceiling from below.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95616-kronecker-suprms-crosscheck.js',
+      paperSourcePath:
+        'src/data/imp-95616-kronecker-suprms-crosscheck.js (record IMP95616_KRONECKER_SUPRMS_CROSSCHECK.rows; imp-95645 viz page)',
+      ticket: 'imp-95645',
+      pedagogicalStep: 159,
+      honestCeiling:
+        'Presentation only: renders the frozen imp-95616 independent-grid reproduction of the imp-95604 witness verbatim (no re-derivation); a measurement of an existing transfer-constant quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1102,6 +1102,9 @@ const Imp95623SeamGramOnsetLadderViz = lazy(() =>
 const Imp95624MtyVsVkCrossoverViz = lazy(() =>
   import('./pages/Imp95624MtyVsVkCrossoverViz.jsx')
 );
+const Imp95645KroneckerTransferConstantViz = lazy(() =>
+  import('./pages/Imp95645KroneckerTransferConstantViz.jsx')
+);
 const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
   import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
 );
@@ -3036,6 +3039,10 @@ function AppShell() {
           <Route
             path="/viz-imp95624-mty-vs-vk-crossover"
             element={<Imp95624MtyVsVkCrossoverViz />}
+          />
+          <Route
+            path="/viz-imp95645-kronecker-transfer-constant"
+            element={<Imp95645KroneckerTransferConstantViz />}
           />
           <Route
             path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"

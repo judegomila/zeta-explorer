@@ -18737,6 +18737,25 @@ const DATA_MODULES = [
   // is strictly monotone. imp-95925 macro-trend + midM^-3 tail unaffected. Import-light, no bound, NO
   // QED; certified only at m=20 (imp-95966); PT Lambda<=0.2 SOTA.
   '/src/data/imp-95967-q0-dip-parity-sampling-artifact.js',
+  // imp-95982: FIT the m-growth law of the imp-95966 c_odd_recon fractional departure below the pure-rho^2
+  // null across the full imp-95925 Q0_RECON grid (m=20..150), extending the imp-95966 three-point (m=41,60,150)
+  // tabulation. The departure has the EXACT closed form (Q0_RECON(20) - Q0_RECON(m))/kappa (the 1/m^2 cancels
+  // because kappa = 2.5 - Q0_RECON(20), imp-95745 +4 offset m-free), so its growth is governed by how Q0_RECON
+  // approaches its imp-95925 asymptote. Even-branch power fit (imp-95967 parity-clean m=60,80,110,150) gives
+  // Q0_RECON = L - c.m^-p with L=-0.010651895, p=1.96 (~2, cross-checking imp-95925 imbalance ~m^-3). So the
+  // departure SATURATES to a finite (Q0_RECON(20)-L)/kappa = -1.832e-5 like ~m^-2 (~98% reached at m=150), it
+  // does NOT diverge. Measurement of the reconstruction (m=20-only certified, imp-95966 PIECE-A unchanged);
+  // import-light; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95982-c-odd-departure-growth-law-saturation.js',
+  // imp-95981: DERIVE why the imp-95944 equal-rate residual bound (log-log slope ~-3.70) cannot match
+  // the imp-95960 measured eps_inf(k) slope ~-3.19. FINDING: the exact p->infinity residual splits
+  // additively (new RKHS identity eps_inf = 0.5 E[||f_d-f_d'||^2]/gall, verified 1e-6) into a CENTRE-
+  // separation term ~ PORT_V^2/(12 PORT_C^2) k^-10/3 (slope -10/3, what imp-95944 bounds) plus a RATE-
+  // variation term ~ (1/216) k^-2 (slope -2, EXACT distance (a-b)^2/(ab(a+b)), DISCARDED by the equal-rate
+  // assumption). The measured -3.19 is the two-scale crossover (k* ~ 13.75) of the two; no single-power
+  // p-independent majorant of this Gram class can have that slope (true asymptote is -2). Two-term law is
+  // an asymptotic ESTIMATE, not a proved majorant; changes no bound; imp-95212 port STILL OPEN; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95981-eps-inf-k-rate-variation-slope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

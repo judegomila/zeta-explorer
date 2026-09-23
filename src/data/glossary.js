@@ -22689,6 +22689,33 @@ export const glossary = [
       'imp-95967 the fine integer grid m=41..70 supplying the 15 odd-branch points and the finding that m=41 is the sole odd modulus of the imp-95925 sweep (imp-95967)',
     ],
   },
+  {
+    term: 'Route J Three-Wall Map (Weil-Deligne Engines)',
+    category: 'no-go',
+    definition:
+      'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23. Route J tests whether any of three ' +
+      'finite-field Weil-Deligne positivity engines, transported over Z, supplies external arithmetic ' +
+      'input escaping the Weil-positivity/PCC/verified-height convergence. Each engine lands on a distinct, ' +
+      'already-mapped wall. Engine (i) (Hodge index / Castelnuovo on X x X) needs the self-product ' +
+      'Spec Z x_{F1} Spec Z (Kurokawa zeta-tensor-zeta / Connes-Consani scaling-site square, Route H): its ' +
+      'closed points are 2-tori (Frobenius = an R-flow, not a Z-power), so H^1 has infinite rank and the ' +
+      'Riemann-Roch dimension count behind Castelnuovo is unavailable -- terminus: Weil positivity. Engine ' +
+      '(ii) (even tensor power + Landau positivity + rationality) is, once specialized to the global ' +
+      'Dirichlet series, exactly de la Vallee Poussin 3-4-1 / pair-correlation positivity: its output form ' +
+      'is fixed at 1 - c/log t, with the pure trig-polynomial scheme carrying a hard Fejer floor c <= ' +
+      '2(1 - 1/sqrt2)^2 = 0.171573 (R >= 5.8284, 4.375% above the sharper Mossinghoff-Trudgian 5.573) -- ' +
+      'terminus: the classical zero-free region / PCC wall. Engine (iii) (Kunneth on X^m) needs zeta^{(x)m} ' +
+      'with abscissa m/2 + O(1), but the Kurokawa-Koyama double-sine Euler product has a double pole at ' +
+      's = 2 = m, dragging the abscissa to m so the excess stays m/2 (Re rho <= 1, trivial) -- terminus: ' +
+      'the same self-product obstruction as engine (i). VERDICT: no reduction; all three engines are ' +
+      'structural restatements of Weil positivity / PCC, not computational gaps. RH open; NO QED.',
+    firstUsed: 'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (Route J Weil-Deligne engine wall map), 2026',
+    relatedTerms: [
+      'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js the module carrying the wallMap (J/K/L) and the three-engine ledger this headword documents',
+      'Route H (Connes-Consani adelic second direction) is the live corner Spec Z x_{F1} Spec Z work already occupies, so engine (i)/(iii) add no new lever',
+      'imp-96048 the Kurokawa-Koyama double-pole computation behind the engine (iii) verdict',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

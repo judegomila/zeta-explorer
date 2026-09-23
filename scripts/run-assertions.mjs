@@ -19079,6 +19079,14 @@ const DATA_MODULES = [
   // un-baselined stale citation. Meta/regression-guard only; changes no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95972-cf-band-hi-pin-regression-guard.js',
+  // imp-96116: regression guard for imp-96089 -- was committed but absent from this DATA_MODULES
+  // sweep, so its self-executing assertions never ran in node CI (--since-changed
+  // untracked/unregistered trap). Bakes the tiling formula n_w(T) = floor(0.6T / 2*sqrt(T/2pi))
+  // reproducing the imp-95562 window counts exactly (75, 130, 198, 291, 411, 443 at
+  // T = 1e4, 3e4, 7e4, 1.5e5, 3e5, 5e5) and the single-significant-dip verdict: only T = 1.5e5
+  // is significant (z = 1.92 sigma, n_w 291 >> crossover 79), T = 1e4 and T = 3e5 are noise.
+  // Meta/regression-guard only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96089-mean-anchor-window-count-significance-verdict.js',
 ];
 
 let ALL_MODULES = FAST_MODE

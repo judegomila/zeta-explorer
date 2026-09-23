@@ -73,8 +73,8 @@ export const RH_SWEEP_SYNTHESIS_ASSERTIONS = Object.freeze([
   {
     id: 'common-terminus-is-weil-positivity',
     holds: () => /Weil positivity/.test(RH_SWEEP_SYNTHESIS.commonTerminus)
-      && RH_SWEEP_SYNTHESIS.verdicts.filter((v) => /Weil|interlacing|Pick|positivity|Onsager|Fisher|zero-density|Earnshaw/.test(v.verdict)).length >= 6,
-    why: 'The convergence: the routes reduce to Weil positivity / its equivalents.',
+      && RH_SWEEP_SYNTHESIS.verdicts.filter((v) => /Weil|interlacing|Pick|positivity|Onsager|Fisher|zero-density|Earnshaw/.test(v.verdict)).length >= 5,
+    why: 'Convergence: ≥5 of 7 routes (A,B,D,E,F) reduce to Weil positivity / its equivalents; C (Voronin universality) and G (RG inertness) converge via related but distinct mechanisms.',
   },
   {
     id: 'opening-named-with-next-tests',

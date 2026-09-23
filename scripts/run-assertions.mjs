@@ -343,6 +343,15 @@ const DATA_MODULES = [
   // 2theta' - m_2, < 3% from the archimedean window [0, 3.6). Companion to Route I (does not edit it).
   // Import-light (Route I / H exports only). Assertions ~6 s (N = 24 pencils at four a + analytic symbol windows).
   '/src/data/rh-route-i-pencil-highres-map-2026-09-23.js',
+  // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
+  // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
+  // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder
+  // delta_S23 (support the dense S-unit set, log^2 spikes) -- so it stays <= 1 up to 2a = ln 3 (and past it)
+  // with ZERO dense-resonance cost. But since L_S = Arch - P_2 + D_S, the D_S cancels and D_S + P_3 <= L_S is
+  // LOGICALLY IDENTICAL to Weil positivity W_{oo,2,3} >= 0 on pole-free h (RH-conditional): no unconditional
+  // gain. Sub-gap SG-96066: an unconditionally-positive multiplier for S superset {2,3} still forces delta_S23.
+  // Import-light (Route I/H exports only). Assertions ~1.5 s (one N=20 pencil + delta_S23/delta_S spot checks).
+  '/src/data/imp-96066-route-i-p3-adjoin-vs-dense-resonance-assessment.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284
@@ -19001,6 +19010,16 @@ const DATA_MODULES = [
   // so I_F stays unconstrained within the bracket; narrowing (2/3, 2) to {1} IS the Montgomery
   // conjecture. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96025-if-bracket-narrow-attempt-obstruction.js',
+  // imp-96063: ASSESS whether the two-vanishing-moment uniform Weil-positivity margin
+  // (m(2) >= 0.539 on [0.30, (ln3)/2]) can become a FINITE-CONSTRAINT CERTIFICATE controlling the
+  // p = 2 resonance window I_1 = (8.145, 9.875) and closing D_S <= L_S on the whole pole-free space.
+  // Derives the constraint-count-vs-margin relation (single jump k = 1 -> 2, then a diminishing,
+  // parity-gated WINDOW LADDER as the extremal is pushed I_1 -> I_2 -> ... into shallower windows).
+  // VERDICT: NO on its own -- a finite count only REDUCES the problem to a fixed k-dimensional
+  // low-moment corner positivity + cross-term bound (sub-gap imp-96063-corner), whose residual margin
+  // is the unconstrained 2.8e-3, not the comfortable 0.539; more moments provably cannot reduce it.
+  // Assessment only; import-light (baked literals, no zeros bundle); no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96063-route-i-constraint-count-margin-certificate-assessment.js',
   // imp-95950: glossary headword recording the imp-95918 finding that the residue-averaged sign
   // image <theta_C> decays as 1/(p-1)^2, an algebraic consequence of the diagonal fraction
   // tr(G)/S decaying as 1/(p-1), sharpening the imp-95898 STEP 3 qualitative statement.

@@ -143,7 +143,23 @@ export const IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL = {
       'max angle error 4.82e-13 (mean 1.97e-13) vs verified ordinates -- below the claimed 1e-12; z_rho backward map recovers all 12 ordinates to 2.05e-11 (printing-limited); weights match to 7.79e-9 relative. The table own node - theta column (1.77e-11) overstates the error ~40x because it compares against a 12-digit-printed theta_k, not the full-precision map.',
   },
   subGap:
-    'SG-96051-reach: only the 12 baked node angles are cross-validated. The wider "39 resolved at N = 400" reach claim (ROUTE_L.a20.resolvedFirst40) and the sublinear reach law (imp-96045) require re-running the 200-digit Levinson + 400x400 CMV diagonalisation and are NOT re-derived in this import-light leaf.',
+    'SG-96051-reach: only the 12 baked node angles are cross-validated. The wider "39 resolved at N = 400" reach claim (ROUTE_L.a20.resolvedFirst40) and the sublinear reach law (imp-96045) require re-running the 200-digit Levinson + 400x400 CMV diagonalisation and are NOT re-derived in this import-light leaf. -- CLOSED by imp-96067 (see reachCrossval below).',
+  // imp-96067 (SG-96051-reach closure): the reach curve WAS independently re-derived. A fresh
+  // dps = 200 pipeline (own Cauchy lambda_n extraction on |z| = 0.9, own Levinson-Durbin, own CMV
+  // build + numpy diagonalisation; tmp/imp-96067-route-l-reach-crossval.py, 41.3 s) reproduces the
+  // resolved-count-vs-N curve EXACTLY at all six rungs. Resolved = node within 10% of the local gap
+  // AND weight within 5% of 4a^2/(a^2+gamma^2), scored against the verified ordinates. Corroborating
+  // invariants also matched: lambda_1 = 26.661980955994005 vs closed form 2a*(xi-prime/xi)(1/2+a)
+  // to 7e-89, c_0 = 53.32396191198801, min(1-|alpha|) = 0.0308849 and max|alpha| = 0.9691151161 both
+  // attained at interior order k = 68 (0-based), Levinson reached order 399 with no PD-fail.
+  reachCrossval: {
+    ticket: 'imp-96067',
+    pipeline: 'independent dps=200 re-run: own Cauchy lambda_n on |z|=0.9 (M=2048) -> own Levinson-Durbin -> own CMV build + numpy eig',
+    // [N, independently measured resolved-among-first-40, ROUTE_L.a20.resolvedFirst40 reference]
+    curve: [[50, 11, 11], [100, 21, 21], [150, 26, 26], [200, 28, 28], [300, 33, 33], [400, 39, 39]],
+    invariants: { lambda1: 26.661980955994005, lambda1ClosedDiff: 7.21e-89, c0: 53.32396191198801, minOneMinusAbsAlpha: 0.0308849, maxAbsAlpha: 0.9691151161, ordersReached: 399, pdFail: false },
+    verdict: 'CONFIRMED: the independently re-derived resolved-count curve matches resolvedFirst40 at every rung (11/21/26/28/33/39); the 39-zeros-at-N=400 reach claim is reproduced from scratch. Cross-validation only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+  },
   verdict:
     'CROSS-VALIDATED: the Route L a = 20 CMV truncation reproduces the first 12 verified zeta ordinates through the Cayley map theta = pi - 2*atan(gamma/20) to max angle error 4.82e-13 (mean 1.97e-13), CONFIRMING and beating the claimed 1e-12; the z_rho backward map recovers the ordinates to 2.05e-11 (printing-limited) and the weights 4a^2/(a^2+gamma^2) reproduce to 7.79e-9 relative. The table own node - theta column (1.77e-11) is inflated ~40x by 12-digit theta_k printing, so the correction is favourable. Sub-gap SG-96051-reach: the 39-zero reach claim is not independently re-derived here. Cross-validation only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; Route L stays NOT-A-LEVER (RH content = resolved zeros, completeness = Weil positivity, no external arithmetic input).',
 };
@@ -168,6 +184,14 @@ export const IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL = {
   // the table own node - theta column overstates the true angle error
   if (!(summary.maxTableNodeMinusTheta > 10 * summary.maxAngleErr))
     throw new Error('imp-96051: table node - theta column should overstate the cross-validated angle error');
+  // imp-96067 reach re-derivation: measured curve matches resolvedFirst40, monotone, ends at 39
+  const rc = IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL.reachCrossval.curve;
+  if (!rc.every(([, meas, ref]) => meas === ref))
+    throw new Error('imp-96067: independently measured reach count disagrees with resolvedFirst40');
+  if (!rc.every(([, m], i) => i === 0 || m > rc[i - 1][1]))
+    throw new Error('imp-96067: reach curve is not strictly increasing in N');
+  if (rc[rc.length - 1][1] !== 39 || rc[rc.length - 1][0] !== 400)
+    throw new Error('imp-96067: reach curve does not terminate at 39 resolved at N = 400');
   // honesty gates
   if (!/NO QED/.test(IMP96051_ROUTE_L_CMV_ZERO_CROSSVAL.verdict))
     throw new Error('imp-96051: verdict dropped the NO QED banner');

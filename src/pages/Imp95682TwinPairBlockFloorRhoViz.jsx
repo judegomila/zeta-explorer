@@ -5,8 +5,10 @@ import {
   IMP95682_HALF_RETENTION_RHO,
   IMP95682_CAVEAT_BANNER,
 } from '../data/imp-95682-twin-pair-block-floor-rho-viz-data.js';
+import { IMP95707_TWIN_PAIR_BLOCK_TOEPLITZ_INTERIOR_LIMIT } from '../data/imp-95707-twin-pair-block-toeplitz-interior-limit.js';
 
 const ROWS = IMP95682_ROWS;
+const BIAS_TABLE = IMP95707_TWIN_PAIR_BLOCK_TOEPLITZ_INTERIOR_LIMIT.table;
 
 const SERIES = [
   { key: 'log10F', label: 'F = lambda_min(seam Gram)', color: '#38bdf8' },
@@ -191,6 +193,47 @@ export default function Imp95682TwinPairBlockFloorRhoViz() {
               </td>
               <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
                 {r.FoverBlock.toExponential(4)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: '1.5rem 0 0.75rem', maxWidth: 700 }}>
+        The finite-80 table above is a proxy: imp-95707 quantified how far it sits from the true
+        infinite-lattice infimum F_inf (block-Toeplitz Szego, cancellation-free at delta = ln 1.5).
+        The interior finite-size overestimate runs from +5.65% at the rho = 1 endpoint down to
+        +2.25% by rho = 2, then keeps decaying toward 0% as rho grows further &mdash; a shrinking
+        one-sided bias, not a qualitative error.
+      </p>
+
+      <table
+        style={{
+          width: '100%',
+          borderCollapse: 'collapse',
+          fontSize: '0.78rem',
+        }}
+      >
+        <thead>
+          <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+            <th style={{ padding: '0.4rem 0.6rem' }}>rho</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>F_inf (dual, imp-95707)</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>F (finite-80 proxy)</th>
+            <th style={{ padding: '0.4rem 0.6rem' }}>bias%</th>
+          </tr>
+        </thead>
+        <tbody>
+          {BIAS_TABLE.map((r) => (
+            <tr key={`bias-${r.rho}`} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{r.rho}</td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {r.Finf.toExponential(4)}
+              </td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {r.Ffinite.toExponential(4)}
+              </td>
+              <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                {r.biasPct.toFixed(4)}
               </td>
             </tr>
           ))}

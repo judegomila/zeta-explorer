@@ -22150,6 +22150,32 @@ export const glossary = [
       'imp-95632-vk-crossover-height-gap is the module computing the additive (log t) and multiplicative (decades of T) height gap between them',
     ],
   },
+  {
+    term: 'VK-vs-classical crossover A/B-ratio robustness (provenance-independent, ~3.5x window-top floor)',
+    category: 'concept',
+    definition:
+      'imp-95694 tests whether the imp-95632 VK-vs-window height gap (crossover log t = ' +
+      '10242.2363, ~4432 decades above the imp-95519 window top) is an artifact of the ' +
+      'specific constant pair (Ford VK 57.54, MTY classical 5.558691), or is robust to ' +
+      'honest literature bands. STRUCTURAL REDUCTION: the crossover L solves ' +
+      'L / ln L = (A/B)^3, so sensitivity collapses to the single ratio A/B (cubed). The ' +
+      'canonical ratio A/B = 10.351 would need to fall to 2.1788 (a ~4.75x reduction) to ' +
+      'place the crossover at the window top log t = 37.4832. Testing across honest bands ' +
+      '(MTY 5.558691 / MT 5.573412 classical) AND a deliberately generous BEYOND-literature ' +
+      'stress corner (VK floor 30, ~1.9x better than Ford; classical ceiling 10, ~1.8x worse ' +
+      'than MTY), the most-favorable corner (A/B = 3.0) still yields crossover log t ~ 131.79 ' +
+      '-- ~3.5x above the window top and ~41 decades of T away. To reach the window top the ' +
+      'VK constant would have to fall to ~12.1 (with MTY classical), a ~4.75x improvement ' +
+      'over Ford that no admissible constant achieves. Verdict: the imp-95632 zero-VK-saving ' +
+      'result is ROBUST to constant provenance, not an artifact of the 57.54 / 5.558691 pair. ' +
+      'Measurement only; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95632 (VK-vs-window height gap), 2026; provenance robustness established by imp-95694, 2026',
+    relatedTerms: [
+      'VK-vs-window height gap (~4432 decades, zero unconditional VK saving) is the headword for the base result whose provenance-sensitivity this module tests',
+      'imp-95632-vk-crossover-height-gap is the module computing the canonical additive/multiplicative height gap',
+      'imp-95694-vk-crossover-constant-sensitivity is the module deriving the A/B-ratio structural reduction and the stress-corner robustness bound',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

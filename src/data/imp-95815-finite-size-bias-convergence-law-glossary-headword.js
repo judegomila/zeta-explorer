@@ -38,10 +38,14 @@
  *   SUPERSESSION NOTE: imp-95788's own log-log exponent read (p ~ 2.4-2.7) was
  *   later shown by imp-95803 to be a fixed-iteration under-convergence
  *   artifact -- a fully converged, extended-to-N=500 ladder shows the exponent
- *   drifting toward p ~ 2 (a 1/N^2 law), not locked at 2.4-2.7. This headword
- *   states the qualitative law (monotone, super-linear decay to zero) that
- *   both readings agree on, and flags the specific exponent value as
- *   provisional / superseded rather than baking the disputed 2.4-2.7 figure.
+ *   drifting toward p ~ 2 (a 1/N^2 law), not locked at 2.4-2.7. imp-95845 then
+ *   closed that residual drift: it is the expected O(N^-3) subleading tail on
+ *   a FIXED p = 2, with the extrapolated leading constant matching the imp-95839
+ *   Widom prefactor C_Widom = 50 pi^4/delta^2 = 146518.83. This headword states
+ *   the qualitative law (monotone, super-linear decay to zero) that all three
+ *   readings agree on, and points a reader who lands on the imp-95803 "drifting
+ *   prefactor" language at the imp-95845 fixed-p=2, exact-constant resolution
+ *   rather than the disputed 2.4-2.7 figure.
  *
  *   STATUS: a glossary/Concepts lookup only. Establishes nothing new; changes
  *   no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
@@ -50,6 +54,7 @@
  * @see imp-95762-twin-pair-block-floor-finite80-dd-eigensolver (the finite-80 51.63pct headline the law explains)
  * @see imp-95744-twin-pair-block-floor-belowprec-dd-resolve (the theta=0 Poisson dual F_inf the law confirms)
  * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (converged ladder superseding the 2.4-2.7 exponent read)
+ * @see imp-95845-deep-corner-biasN2-widom-fit (closes the imp-95803 drift as O(N^-3) on a fixed p=2, exact constant C_Widom)
  *
  * Ticket: imp-95815 (content, low). Documentation only; establishes nothing;
  * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
@@ -83,7 +88,11 @@ const FINITE_SIZE_BIAS_CONVERGENCE_HEADWORD = Object.freeze({
     'monotone by the independently re-run, fully converged imp-95803 ladder ' +
     'extended to N=500. The imp-95788 log-log EXPONENT read (p ~ 2.4-2.7) is ' +
     'superseded by imp-95803: it was a fixed-iteration under-convergence ' +
-    'artifact, and the converged exponent drifts toward p ~ 2 instead. Only ' +
+    'artifact, and the converged exponent drifts toward p ~ 2 instead. That ' +
+    'residual drift is NOT an open slowly-varying deviation from p=2 -- ' +
+    'imp-95845 fit it and confirmed it is exactly the expected O(N^-3) ' +
+    'subleading tail on a FIXED p=2, with leading constant matching the ' +
+    'imp-95839 Widom prefactor C_Widom = 50 pi^4/delta^2 = 146518.83. Only ' +
     'the specific 2.4-2.7 figure is superseded; the qualitative convergence ' +
     'law and the F_inf-reliably-pinned conclusion are not affected.',
 });
@@ -107,15 +116,18 @@ export const IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD = Objec
     '(biasPct 51.63 -> 17.15 -> 8.19 -> 4.82% over N=80..200), so a large ' +
     'finite-80 bias reflects only where that truncation sits on the ' +
     'convergence curve, not a defect of F_inf. Flags the imp-95788 2.4-2.7 ' +
-    'exponent read as superseded by imp-95803 (drifts toward p~2) while the ' +
-    'qualitative law stands. Establishes nothing; instantiates no interval; ' +
-    'moves no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    'exponent read as superseded by imp-95803 (drifts toward p~2, since ' +
+    'closed by imp-95845 as a fixed p=2 with O(N^-3) tail and exact constant ' +
+    'C_Widom) while the qualitative law stands. Establishes nothing; ' +
+    'instantiates no interval; moves no bound; NO QED. Platt-Trudgian ' +
+    'Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-95788 (the finite-size bias convergence law this glosses); ' +
     'imp-95762 (the finite-80 51.63pct headline the law explains); ' +
     'imp-95744 (the theta=0 Poisson dual F_inf the law confirms as the ' +
     'N->infinity limit); imp-95803 (converged ladder superseding the 2.4-2.7 ' +
-    'exponent read).',
+    'exponent read); imp-95845 (closes the imp-95803 drift as O(N^-3) on a ' +
+    'fixed p=2, exact constant C_Widom = 146518.83).',
 });
 
 export default IMP95815_FINITE_SIZE_BIAS_CONVERGENCE_LAW_GLOSSARY_HEADWORD;

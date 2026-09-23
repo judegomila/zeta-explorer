@@ -26,6 +26,23 @@ const LN10 = Math.LN10; // 2.302585092994046
 const T_HI = 1.9e16;
 const WINDOW_TOP_LOG_T = ln(T_HI); // 37.48317...
 
+// imp-95678 reconciliation: the T_HI = 1.9e16 used here (and in imp-95605 /
+// imp-95619) is a round number; the TRUE window top follows from the imp-95519
+// RS-index map T = x_N / 2, x_N = 4 pi N^2 - T0/16 at N_HI = 54799999. That gives
+// T_TRUE = 1.886866e16 (log t = 37.476279), i.e. T_HI overstates the top by
+// ~0.696%. imp-95519 itself already rounds this the OTHER way (its header says
+// 1.89e16), so the two modules agree to the digit; only the 1.9e16 round-up
+// differs. Propagated through the gap: delta(log t) = +0.006937, so GAP_LOG_T
+// runs 10204.7530 -> 10204.7600 and GAP_DECADES_T 4431.8680 -> 4431.8710. Neither
+// moves GAP_LOG_T (10204.75) nor GAP_DECADES_T (4431.87) at any of their stated
+// significant digits; the crossover-height verdict is unchanged. Reconciliation
+// only; changes no bound; NO QED.
+const N_HI = 54799999;
+const T0 = 24727519 / 200000000; // 0.123637595 (imp-95519 xOfN offset t0/16)
+const T_TRUE = (4 * Math.PI * N_HI * N_HI - T0 / 16) / 2; // 1.886866e16
+const WINDOW_TOP_OVERSTATE_PCT = (T_HI - T_TRUE) / T_TRUE * 100; // ~0.696%
+const WINDOW_TOP_LOG_T_TRUE = ln(T_TRUE); // 37.476279
+
 // Canonical VK-vs-classical crossover, recomputed here by the same bisection used
 // in imp-95605 / imp-95519 / imp-95619 (all agree at 10242.2363).
 function crossoverLogTBisection() {
@@ -71,6 +88,22 @@ export const IMP_95632_VK_CROSSOVER_HEIGHT_GAP = {
   // Additive gap in log t and multiplicative gap in decades of T.
   gapLogT: GAP_LOG_T, // 10204.75 in the natural-log height variable
   gapDecadesT: GAP_DECADES_T, // 4431.87 orders of magnitude in T
+  // imp-95678: true window top from the imp-95519 RS-index map vs the 1.9e16 round-up.
+  windowTopReconciliation: {
+    T_true: T_TRUE, // 1.886866e16 = (4 pi N_HI^2 - T0/16)/2 at N_HI = 54799999
+    logT_true: WINDOW_TOP_LOG_T_TRUE, // 37.476279
+    overstatePct: WINDOW_TOP_OVERSTATE_PCT, // ~0.696% (1.9e16 above the true 1.886866e16)
+    gapLogT_true: CROSSOVER_LOG_T - WINDOW_TOP_LOG_T_TRUE, // 10204.7600 vs 10204.7530
+    gapDecadesT_true: (CROSSOVER_LOG_T - WINDOW_TOP_LOG_T_TRUE) / LN10, // 4431.8710 vs 4431.8680
+    movesGapLogT: false, // 10204.75 unchanged at stated precision
+    movesGapDecadesT: false, // 4431.87 unchanged at stated precision
+    note:
+      'T_HI = 1.9e16 rounds the true window top 1.886866e16 up by ~0.696%; imp-95519 '
+      + 'header rounds the same value to 1.89e16, so the modules agree to the digit. The '
+      + '0.696% shift moves log t by +0.006937 (GAP_LOG_T 10204.7530 -> 10204.7600, '
+      + 'GAP_DECADES_T 4431.8680 -> 4431.8710), which changes neither reported gap at any '
+      + 'stated significant digit. Reconciliation only; NO QED.',
+  },
   // The height-ratio factor exp(crossoverLogT)/T_HI = mantissa x 10^exponent
   // (carried in log space; the raw factor overflows a double).
   gapFactor: { mantissa: GAP_MANTISSA, exponent: GAP_EXPONENT }, // ~7.4e4431

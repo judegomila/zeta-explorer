@@ -1024,6 +1024,9 @@ const Imp95267OffLatticeRobustnessViz = lazy(() =>
 const Imp95268CollarOverpriceViz = lazy(() =>
   import('./pages/Imp95268CollarOverpriceViz.jsx')
 );
+const Imp96039HalfGramInterlacingCensusViz = lazy(() =>
+  import('./pages/Imp96039HalfGramInterlacingCensusViz.jsx')
+);
 const Imp95143VacuitySaturationCorridorViz = lazy(() =>
   import('./pages/Imp95143VacuitySaturationCorridorViz.jsx')
 );
@@ -3089,6 +3092,10 @@ function AppShell() {
           <Route
             path="/viz-imp95268-collar-overprice"
             element={<Imp95268CollarOverpriceViz />}
+          />
+          <Route
+            path="/viz-imp96039-halfgram-interlacing-census"
+            element={<Imp96039HalfGramInterlacingCensusViz />}
           />
           <Route
             path="/viz-imp95143-vacuity-saturation-corridor"

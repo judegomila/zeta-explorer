@@ -3205,6 +3205,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted lambda_min point and the p_N^0.45 reference exponent are copied verbatim from the rh-route-a-reflection-positivity-primon-gas-2026-09-23 baked records (no re-derivation, no fresh Gram solve); the finite-N test REFUTES reflection positivity for the truncated gas, but the infinite-N statement RP<=>Weil positivity<=>RH is an exact equivalence (Lagarias-Pick), not a stronger route; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96039-halfgram-interlacing-census',
+      title: 'Route B: Half-Gram vs Classical-Gram Interlacing Census',
+      oneLine:
+        'Bar-chart census of the Route B Lemma H n=1 half-Gram pencil interlacing failures against the zeta zeros (167/302 intervals up to gamma_300, first violation at gamma_2/gamma_3) versus the far sparser classical Gram-law failure (16/302), plus the imp-96021 height bands showing the violation fraction stays flat near 0.55.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96039-route-b-half-gram-interlacing-census-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-b-arithmetic-freeze-flow-2026-09-23.js (ROUTE_B_FREEZE_FLOW.interlacing halfGram / classicalGram / heightCensus; imp-96039 viz page)',
+      ticket: 'imp-96039',
+      pedagogicalStep: 206,
+      honestCeiling:
+        'Presentation only: every census count and height band is copied verbatim from the Route B Lemma H interlacing literals (no re-derivation, no fresh census); interlacing of the n=1 pencil with the zeta zeros presupposes RH (HKO real-rootedness), so this chart establishes no operator positivity and carries no RH claim; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

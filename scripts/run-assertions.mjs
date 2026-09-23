@@ -18090,6 +18090,11 @@ const DATA_MODULES = [
   // but the zigzag SHAPE is a per-modulus artifact, NOT rho-structure. Conditional on the +4
   // offset; sub-gap = the tightened-Nsub re-run. Import-light, no zeros bundle, no bound, no QED.
   '/src/data/imp-95782-di-zigzag-artifact-vs-structure.js',
+  // imp-95785: unions the imp-95762 double-double and imp-95707 float64 twin-pair block
+  // biasPct measurements into one 13-cell (delta x rho) grid; only wired into the viz layer
+  // (imp-95808) until this imp-95816 registration audit -- its IMP95785_ASSERTIONS array was
+  // never exercised by this DATA_MODULES sweep. Added here to close the gap.
+  '/src/data/imp-95785-twin-pair-block-bias-union-grid.js',
   // imp-95786: cross-validates the imp-95761 reach-universality law (C_fit finite-grid
   // bias ~ a function of reach R=delta(N_max+1) alone, crossing sub-1% at N_max ~ 250/delta)
   // across additional deltas. It CONFIRMS the law on a fourth float64-clean delta (ln1.6:
@@ -18457,6 +18462,16 @@ const DATA_MODULES = [
   // interval 0.23%. r_point tightens +4.88e-4 -> +2.57e-4, u_fit/u_opt drops to 1.92e12
   // (still >> 1e10). Measurement; no bound; no QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95881-ln12-past1000-ufit-tightening.js',
+  // imp-95885: tabulates the per-delta u_fit certified intervals (ln1.2/ln1.25/ln1.3)
+  // into one cross-validated comparison never assembled before (A_fit vs dual A_opt,
+  // u_fit_rel, u_fit/u_opt, reach, worst shift budget). Two cross-thread facts emerge:
+  // (A) reach does NOT order the intervals across deltas -- ln1.2 reaches R~511 (0.34%)
+  // yet stays looser than ln1.3 at R~105 (0.23%); conditioning (not reach) orders them;
+  // (B) the imp-95820/imp-95838 shift-budget law shiftIts~5.670e-3 N^1.577 is
+  // delta-specific (calibrated at ln1.25 cond~1e17), not a cross-delta predictor.
+  // u_opt_rel=8eps delta-independent, u_fit/u_opt>>1e10 where a DD grid exists.
+  // Cross-validation only; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95885-per-delta-ufit-comparison-table.js',
 ];
 
 let ALL_MODULES = FAST_MODE

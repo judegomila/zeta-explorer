@@ -9,7 +9,13 @@
  *
  * Import-light: only imports the imp-95885 module (no zeros bundle).
  *
+ * CAVEAT: imp-95885 FINDING A's "conditioning orders the intervals" reading (for
+ * the two deltas it covered) is superseded by imp-95895, which refines it to a
+ * reach-to-conditioning INTERPLAY once the ln 1.25 cell is included -- see the
+ * banner text below and imp-95905 / imp-95932 for that refinement's own headword.
+ *
  * @see imp-95885-per-delta-ufit-comparison-table (the source record this renders)
+ * @see imp-95895-ln125-ufit-interval.js (refines FINDING A: reach-to-conditioning interplay)
  */
 
 import { IMP95885_PER_DELTA_UFIT_COMPARISON_TABLE } from './imp-95885-per-delta-ufit-comparison-table.js';
@@ -39,10 +45,12 @@ export const IMP95914_COMPARISON_ROWS = Object.freeze(
 export const IMP95914_CAVEAT_BANNER =
   'Presentation only: re-plots the frozen imp-95885 per-delta comparison verbatim ' +
   '(no re-derivation, no fresh extrapolation run). ln 1.25 carries no u_fit interval ' +
-  '(crossing/shift-budget thread only, recorded N/A). Reach does not order the ' +
-  'intervals across deltas -- conditioning does (imp-95885 FINDING A). Changes no ' +
-  'bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= ' +
-  '0.2 remains SOTA; NO QED.';
+  '(crossing/shift-budget thread only, recorded N/A). Reach alone does not order the ' +
+  'intervals across deltas (imp-95885 FINDING A); conditioning alone does not either ' +
+  '-- imp-95895 refines the reading to a reach-to-conditioning interplay (ln 1.25 ' +
+  'pairs a long reach with only moderate conditioning and is tightest of the three). ' +
+  'Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian ' +
+  'Lambda <= 0.2 remains SOTA; NO QED.';
 
 export const IMP95914_ASSERTIONS = [
   {

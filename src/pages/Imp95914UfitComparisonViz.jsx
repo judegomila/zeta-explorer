@@ -137,10 +137,11 @@ export default function Imp95914UfitComparisonViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page rendering the frozen
-        imp-95885 per-delta comparison verbatim (no re-derivation). Reach does not order the
-        intervals across deltas -- conditioning does. Supplies no new bound, establishes no
-        operator positivity, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA.
-        NO QED.
+        imp-95885 per-delta comparison verbatim (no re-derivation). Reach alone does not order
+        the intervals across deltas, and conditioning alone does not either -- imp-95895 refines
+        the reading to a reach-to-conditioning interplay (ln&nbsp;1.25 is tightest despite only
+        moderate conditioning). Supplies no new bound, establishes no operator positivity, no RH
+        claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
       </div>
     </div>
   );

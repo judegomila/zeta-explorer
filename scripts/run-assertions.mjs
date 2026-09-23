@@ -17958,6 +17958,14 @@ const DATA_MODULES = [
   // reaches higher, so ~97.6% of the gap stays reliant on the imp-95722 derived envelope. Import-light,
   // assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
   '/src/data/imp-95750-number-variance-deadzone-measurement-reach.js',
+  // imp-95946: CROSS-VALIDATES the imp-95722 derived envelope r_cap(T) against the six imp-95710
+  // directly-measured ratios over their overlap T = 1e4..5e5 (the only in-repo ground-truth check on
+  // the envelope that carries the imp-95750-F3 dead-zone conservatism). Tabulates the signed residual
+  // r_cap(T) - r(T): uniformly conservative (residual >= 0 at all six, min 0), touching the measurement
+  // at the C0-anchor T=1.5e5 and clearing it by up to +0.133 (~38%) at T=7e4, mean abs ~+0.077. CAVEAT:
+  // C0 was pinned from these same six points (max offset), so this is a self-consistency check of the
+  // max-anchor slack, not an out-of-sample test. Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95946-number-variance-envelope-vs-measured-crossvalidation.js',
   // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
   // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
   // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no

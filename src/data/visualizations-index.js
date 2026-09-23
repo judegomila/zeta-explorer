@@ -2700,6 +2700,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: overlays the frozen imp-95646 heatmap/contour and imp-95635 physical-band computations verbatim (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95681-eflow-inversion-contour-surface',
+      title: 'E_flow Attribution of the Inversion-Contour Wedge',
+      oneLine:
+        'Side-by-side (C_C, E_trunc) gap heatmaps from imp-95658 on a shared color scale: WITH the E_flow (imp-398) term the imp-95617 wedge inverts (box-min -0.00468); with E_flow zeroed the same corner stays strictly positive (box-min +0.01708) and the gap=0 contour leaves the search window, isolating the wedge to the E_flow term.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95658-eflow-inversion-contour-surface-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95658-eflow-inversion-contour-surface-viz-data.js (IMP95658_GAP_SURFACE_WITH_FLOW/_EFLOW_ZERO, contours, headline; imp-95681 viz page)',
+      ticket: 'imp-95681',
+      pedagogicalStep: 175,
+      honestCeiling:
+        'Presentation/measurement only: renders the frozen imp-95658 baked literals verbatim (no re-derivation, no fresh term); an attribution diagnostic on the imp-95617 wedge, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

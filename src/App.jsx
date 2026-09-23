@@ -1135,6 +1135,9 @@ const Imp95759MsqPointwiseWallViz = lazy(() =>
 const Imp95668DeficitFartailLimitViz = lazy(() =>
   import('./pages/Imp95668DeficitFartailLimitViz.jsx')
 );
+const Imp95681EflowInversionContourSurfaceViz = lazy(() =>
+  import('./pages/Imp95681EflowInversionContourSurfaceViz.jsx')
+);
 const Imp95549NsRigidPencilEigenvalueViz = lazy(() =>
   import('./pages/Imp95549NsRigidPencilEigenvalueViz.jsx')
 );
@@ -3128,6 +3131,10 @@ function AppShell() {
           <Route
             path="/viz-imp95668-deficit-fartail-limit"
             element={<Imp95668DeficitFartailLimitViz />}
+          />
+          <Route
+            path="/viz-imp95681-eflow-inversion-contour-surface"
+            element={<Imp95681EflowInversionContourSurfaceViz />}
           />
           <Route
             path="/viz-imp95549-ns-rigid-pencil-eigenvalue"

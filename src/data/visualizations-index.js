@@ -2813,6 +2813,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95674 provenance-band decision and imp-95660 cf* verbatim (no re-derivation, no fresh term); the component model is the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95737-half-retention-scale',
+      title: 'Half-Retention Gap D_cross(delta): Closed Form vs Tabulated',
+      oneLine:
+        'Delta-axis chart + table comparing the imp-95703 derived closed forms (full-sum seam-symbol root, explicit leading-log form) against the true 40-pair crossover and the imp-95693 tabulated D_cross across ln1.2..ln2.0, all nearly coincident.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95737-half-retention-scale-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95703-twin-pair-half-retention-scale-derivation.js (IMP95703_TWIN_PAIR_HALF_RETENTION_SCALE crossoverDerivation; imp-95737 viz page)',
+      ticket: 'imp-95737',
+      pedagogicalStep: 183,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95703 derivation verbatim (no re-derivation, no fresh term); derives an already-observed constant of the imp-95659/imp-95693 twin-pair mechanism; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

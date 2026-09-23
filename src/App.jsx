@@ -1216,6 +1216,9 @@ const Imp95588MsqGueEnvelopeViz = lazy(() =>
 const Imp95589WDecayCurvesViz = lazy(() =>
   import('./pages/Imp95589WDecayCurvesViz.jsx')
 );
+const Imp95737HalfRetentionScaleViz = lazy(() =>
+  import('./pages/Imp95737HalfRetentionScaleViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3260,6 +3263,10 @@ function AppShell() {
           <Route
             path="/viz-imp95589-w-decay-curves"
             element={<Imp95589WDecayCurvesViz />}
+          />
+          <Route
+            path="/viz-imp95737-half-retention-scale"
+            element={<Imp95737HalfRetentionScaleViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

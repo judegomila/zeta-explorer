@@ -215,6 +215,13 @@ const DATA_MODULES = [
   // route is over budget at the small-prime welds {2,3,5} (√(ΣS̄)=1.114 ≫ R_ex=0.2797) independent of
   // any A_{k,h} bound. Import-light literals; NOT a bound; PT Λ≤0.2 stands; RH open; NO QED.
   '/src/data/perm-arch-sieve-universality-no-go-2026-09-22.js',
+  // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
+  // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
+  // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on
+  // the t-axis (+1.75% at 0.13), |E97| crosses at 0.10; excess carried by the p in {2,3,5,7} welds
+  // (Theorem U wall in the evaluator); y-heavy escape priced out 40x by Route VII. Sampled sups
+  // only; literals baked; import-light. NOT a bound; PT Λ≤0.2 stands; RH open; NO QED.
+  '/src/data/gate2-sub0145-row-sweep-2026-09-22.js',
   // imp-95034: DIRECT assessment of the R1 node (terminal ceil count vs the EPS_FP floor) the imp-35259 two-rate
   // off-by-one WHETHER-question routes back onto. Q1 (does it certify which rate model is faithful at ~10^37?): NO --
   // the terminal ceil count is rate-BLIND in-band (imp-35572: n_two = n_single at all 202 seeds, both 13 vs measured

@@ -10,6 +10,7 @@ const SOURCE_COLOR = {
   'imp-95617': '#38bdf8',
   'imp-95691': '#f59e0b',
   'imp-95721': '#f87171',
+  'imp-95747': '#c084fc',
 };
 
 function WedgeDepthCurve() {
@@ -25,7 +26,7 @@ function WedgeDepthCurve() {
   const pts = IMP95754_DEEPEN_FACTORS;
   const cfLo = Math.log10(0.9);
   const cfHi = Math.log10(10);
-  const gapLo = -0.18;
+  const gapLo = -0.19;
   const gapHi = 0;
 
   const xOf = (cf) => padL + ((Math.log10(cf) - cfLo) / (cfHi - cfLo)) * cW;
@@ -34,7 +35,7 @@ function WedgeDepthCurve() {
   const path = pts.map((p, i) => `${i === 0 ? 'M' : 'L'} ${xOf(p.cf).toFixed(2)} ${yOf(p.minGap).toFixed(2)}`).join(' ');
 
   const xTicks = [1, 2, 5, 10];
-  const yTicks = [0, -0.05, -0.1, -0.15];
+  const yTicks = [0, -0.05, -0.1, -0.15, -0.18];
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
@@ -81,15 +82,17 @@ function WedgeDepthCurve() {
 export default function Imp95754CfWedgeDepthVsMultiplierViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
-      <PageHeader title="Transition-Before-Knee Wedge Depth vs the C_F Multiplier (imp-95617/95691/95721/95754)" />
+      <PageHeader title="Transition-Before-Knee Wedge Depth vs the C_F Multiplier (imp-95617/95691/95721/95747/95754)" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         imp-95617 found the imp-95582 transition-before-knee ordering inverts inside the nominal
         +/-50% (C_C, E_trunc) box, with a box-min gap of -0.004682 at the nominal C_F multiplier
         cf=1. imp-95691 pinned the honest upper C_F provenance edge to a geometric mean cf=1.29615,
         deepening the gap to -0.013188. imp-95721 then derived a density-weighted physical-cutoff
-        band cf in [6.1, 8.6]x, deepening the gap further to -0.171451 -- ~36.6x the nominal depth.
-        The chart below plots this single monotone-deepening curve; the wedge corner stays fixed at
+        band cf in [6.1, 8.6]x, deepening the gap further to -0.171451. imp-95747 regularized that
+        band with GUE level repulsion and found it saturates at a cutoff-independent cf=9.5831x,
+        deepening the gap to -0.184642 -- ~39.4x the nominal depth. The chart below plots this
+        single monotone-deepening curve; the wedge corner stays fixed at
         (C_C {IMP95754_WEDGE_CORNER.cC_mult}x, E_trunc {IMP95754_WEDGE_CORNER.eTrunc_mult}x)
         throughout.
       </p>

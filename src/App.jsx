@@ -1168,6 +1168,9 @@ const Imp95587LegBStraddleVsRatioViz = lazy(() =>
 const Imp95588MsqGueEnvelopeViz = lazy(() =>
   import('./pages/Imp95588MsqGueEnvelopeViz.jsx')
 );
+const Imp95589WDecayCurvesViz = lazy(() =>
+  import('./pages/Imp95589WDecayCurvesViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3148,6 +3151,10 @@ function AppShell() {
           <Route
             path="/viz-imp95588-msq-gue-envelope"
             element={<Imp95588MsqGueEnvelopeViz />}
+          />
+          <Route
+            path="/viz-imp95589-w-decay-curves"
+            element={<Imp95589WDecayCurvesViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

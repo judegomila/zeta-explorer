@@ -2588,6 +2588,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the imp-95562 baked discrepancy/GUE statistics measured over the actual Odlyzko zeros verbatim (no re-derivation); illustrates imp-95534 wall (i) at six sample heights, proves nothing beyond what imp-95562 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95589-w-decay-curves',
+      title: 'PD-Persistence Window W(S) Decay Curves vs Node Count',
+      oneLine:
+        'Log-scale line chart of the imp-95557 PD-persistence window W(S) = mu_S(0)/M1 vs node count n for dyadic, arithmetic, and geometric r=1.5 node families, with the Lehmer collision threshold 1.15e-11 drawn as a reference line far below every resolvable curve.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95557-w-decay-scaling.js',
+      paperSourcePath:
+        'src/data/imp-95557-w-decay-scaling.js (record IMP95557_LITERALS.tables; imp-95589 viz page)',
+      ticket: 'imp-95589',
+      pedagogicalStep: 167,
+      honestCeiling:
+        'Presentation only: renders the imp-95557 baked mu_S(0)/M1/W(S) tables verbatim (no re-derivation); illustrates the imp-95531 A5 all-S flow-criticality decay-law measurement, proves nothing beyond what imp-95557 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

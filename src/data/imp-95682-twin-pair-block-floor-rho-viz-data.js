@@ -9,11 +9,18 @@
  *   changes no bound; no QED.
  *
  *   @see imp-95659-twin-pair-block-floor-rho-tabulation.js (the measured table this reshapes)
+ *   @see imp-95693-twin-pair-block-floor-second-delta.js (delta-specific crossover: the
+ *     half-retention rho is NOT a fixed constant, it drifts with delta; the ln1.3 entry
+ *     of crossoverByDelta is the precise value at this module's fixed delta)
  */
 
 import { IMP95659_TWIN_PAIR_BLOCK_FLOOR_RHO_TABULATION } from './imp-95659-twin-pair-block-floor-rho-tabulation.js';
+import { IMP95693_TWIN_PAIR_BLOCK_FLOOR_SECOND_DELTA } from './imp-95693-twin-pair-block-floor-second-delta.js';
 
 const SRC = IMP95659_TWIN_PAIR_BLOCK_FLOOR_RHO_TABULATION;
+const LN13_CROSSOVER = IMP95693_TWIN_PAIR_BLOCK_FLOOR_SECOND_DELTA.crossoverByDelta.find(
+  (e) => e.label === 'ln1.3',
+);
 
 function log10(v) {
   return Math.log10(v);
@@ -38,7 +45,7 @@ export const IMP95682_ROWS = Object.freeze(
 export const IMP95682_DELTA = SRC.delta;
 export const IMP95682_A_OPT = SRC.aOpt;
 export const IMP95682_BLOCK_FLOOR_ISOLATED = SRC.blockFloorIsolated;
-export const IMP95682_HALF_RETENTION_RHO = SRC.halfRetentionRho;
+export const IMP95682_HALF_RETENTION_RHO = LN13_CROSSOVER.rhoCross;
 export const IMP95682_MONOTONE = SRC.monotone;
 export const IMP95682_VERDICT = SRC.verdict;
 export const IMP95682_CAVEAT_BANNER =

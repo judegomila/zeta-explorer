@@ -18374,6 +18374,16 @@ const DATA_MODULES = [
   '/src/data/imp-95846-finite-section-upper-companion-bound.js',
   // imp-95874: heavy-import audit of imp-95845/imp-95846 (extends imp-95854).
   '/src/data/imp-95874-seam-gram-heavy-import-audit.js',
+  // imp-95865: cross-tabulates the imp-95845 P0-vs-C_Widom fit family (2/3/4-param x window)
+  // into a formal residual table (P0, P0/C_Widom, residual=P0-C_Widom, relResid%, rmse per
+  // row), quotes the two-best-fit family spread [145019, 147164] as the (still informal)
+  // bracketing uncertainty since imp-95845(b) reports no formal covariance, and checks the
+  // C_Widom=146518.83 inclusion explicitly: the midpoint 146091.6 is 0.29% from C_Widom
+  // (better than the imp-95845 best single fit 0.44%), the wider well-conditioned spread
+  // [145019, 147643] also brackets it, and the 2-param (-17.4%) / 3-param all-rung (+4.68%)
+  // rows are the expected pre-asymptotic biases. Re-runs the same tiny 8-point OLS live to
+  // reproduce every row. Tabulation only; no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95865-widom-fit-family-residual-table.js',
   // imp-95778: consumer/orphan audit of imp-95743/95744/95745/95746/95749/95750. All six
   // are DATA_MODULES-registered (not orphaned); five of six are directly page-reachable;
   // none has any import statement, so none can pull the 16.7MB zeros bundle. One flagged

@@ -17741,8 +17741,7 @@ const DATA_MODULES = [
   // convention) that were dead code from `npm run assert`'s perspective -- no direct entry
   // here and not imported by anything else that is registered. Adding direct entries so
   // their assertions run. See imp-95650-frontier-cluster-reachability-audit.js for the
-  // full audit (also covers imp-95618/95619/95632, which have no self-executing throw and
-  // are read-only orphans left for a future ticket).
+  // full audit.
   '/src/data/imp-95614-sigma-exponent-ramp-crosscheck.js',
   '/src/data/imp-95616-kronecker-suprms-crosscheck.js',
   '/src/data/imp-95617-transition-knee-ordering-joint-2d.js',
@@ -17750,6 +17749,15 @@ const DATA_MODULES = [
   '/src/data/imp-95625-sigma-exponent-crossing-ladder-table.js',
   '/src/data/imp-95631-sigma-logspace-vs-direct-overlap-band.js',
   '/src/data/imp-95650-frontier-cluster-reachability-audit.js',
+  // imp-95663: the three imp-95650 no-throw-loop orphans (imp-95618/95619/95632) now
+  // carry self-executing throw-on-import checks, wired here so they actually run.
+  '/src/data/imp-95618-sun-s9-signfix-placement-robustness.js',
+  '/src/data/imp-95619-vk-crossover-reconcile.js',
+  '/src/data/imp-95632-vk-crossover-height-gap.js',
+  // imp-95655: standing import-light guard that independently re-derives the imp-95635 (P2)
+  // most-adverse-physical-corner transition-vs-knee gap (~+0.00353 > 0) and asserts it stays
+  // strictly positive, so the imp-95617 inversion wedge never enters the provenance-grounded band.
+  '/src/data/imp-95655-physical-corner-gap-positive.js',
 ];
 
 let ALL_MODULES = FAST_MODE

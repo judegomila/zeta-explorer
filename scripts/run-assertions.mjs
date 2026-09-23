@@ -18140,6 +18140,16 @@ const DATA_MODULES = [
   // imp-95803 drift is O(N^{-3})-subleading convergence to the exact Widom constant -- not a power
   // change. Import-light, no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95839-sech-widom-prefactor-eval.js',
+  // imp-95838: MEASURES the ln1.25 PD-preserving shift-invert iteration-budget scaling law
+  // (imp-95820 sub-gap). Robust shift-invert DD Toeplitz solver at N=150..1523: shiftIts ~
+  // 5.670e-3 N^1.577 (8 points, retries=0), vs the sigma=0 plain inverse-iteration plainIts ~
+  // 1.029e-2 N^1.841 (~O(N^2), 5 converged points). The shift exponent IS below the sigma=0
+  // exponent but only MODESTLY (1.58 vs 1.84, gap ~0.26), so imp-95820 "far slower blow-up"
+  // overstates the exponent gap; the real cure is a ~10-12x smaller constant (plain/shift 5.84
+  // -> 11.69) plus PD validity. Reach 340 -> Nmax=1523 needs 712 shift solves measured directly,
+  // so >= ~750 certifies the sub-1% crossing (imp-95820 maxIter=500 was ~1.5x too small). Import-
+  // light (one live N=150 shift solve), no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95838-ln125-shift-budget-scaling.js',
   // imp-95825: states and checks the finite-section positivity certificate lambda_min(G_n) >=
   // ess-inf f = A_opt(delta) for the positive sech Toeplitz Gram, forcing F/A_opt >= 1 for all
   // nPts and certifying the imp-95677 sub-1 (0.909) at delta=ln1.3 as pure float64 roundoff.

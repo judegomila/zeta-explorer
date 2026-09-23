@@ -143,6 +143,19 @@ export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT = Object.freeze({
     mEntersVia: 'alpha={mv}, beta={(2m+1)v}, gamma={2mv} (breakpoint loci) and the curvature -(4m-1)/2',
   }),
 
+  // imp-95915: reciprocal reading path across the three per-m kappa certification modules.
+  readingPath: Object.freeze({
+    position: '2 of 3',
+    previous: Object.freeze({
+      id: 'imp-95861',
+      relation: 'names the PIECE A/PIECE B decomposition and the TRANSPORT route this module attempts',
+    }),
+    sibling: Object.freeze({
+      id: 'imp-95878',
+      relation: 'attempts the INDEPENDENT route -- the other way to supply PIECE A at m>20',
+    }),
+  }),
+
   // three coefficient tiers, classified by how far each is symbolic in m:
   tiers: Object.freeze([
     Object.freeze({
@@ -264,6 +277,15 @@ export const TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT_ASSERTIONS = Object.free
       Math.abs(DQ_DM_VALUES[0] - 3.789621e-6) < 1e-11
       && Math.abs(DQ_DM_VALUES[1] - 2.146553e-6) < 1e-11
       && Math.abs(DQ_DM_VALUES[2] - 1.551067e-6) < 1e-11,
+  },
+  {
+    name: 'reading path: position 2 of 3, back to imp-95861, sibling imp-95878 (independent route)',
+    holds: () => {
+      const rp = TRANSPORT_IDENTITY_TRACTABILITY_ASSESSMENT.readingPath;
+      return rp.position === '2 of 3'
+        && rp.previous.id === 'imp-95861'
+        && rp.sibling.id === 'imp-95878';
+    },
   },
   {
     name: 'cell count NOT m-free correction (238 is the m=20 value; identity is per-locus)',

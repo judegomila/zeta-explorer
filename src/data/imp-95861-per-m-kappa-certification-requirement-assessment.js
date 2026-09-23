@@ -178,6 +178,23 @@ export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT = Object.freeze({
     leaner: 'transport', // one identity vs a growing family of anchors
   }),
 
+  // imp-95915: reciprocal reading path across the three per-m kappa certification modules.
+  readingPath: Object.freeze({
+    position: '1 of 3 (start here)',
+    next: Object.freeze([
+      Object.freeze({
+        id: 'imp-95877',
+        relation: 'attempts the TRANSPORT route named here (partially tractable; TIER-3 sub-leading '
+          + 'coefficients are the binding obstruction)',
+      }),
+      Object.freeze({
+        id: 'imp-95878',
+        relation: 'attempts the INDEPENDENT route named here (the pure-rho^2 null candidate; REFUTED '
+          + 'as a PIECE-A target at m>20)',
+      }),
+    ]),
+  }),
+
   perModulus: PER_MODULUS,
 
   m20AnchorHasBothPieces: Object.freeze({
@@ -277,6 +294,14 @@ export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT_ASSERTIONS = Objec
       const a = PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT.m20AnchorHasBothPieces;
       return a.valueMatch < 1e-9 && a.valueMatch > 1e-11
         && Math.abs(a.qForcedM20 - (2.5 - KAPPA_CERT_M20)) < 1e-15;
+    },
+  },
+  {
+    name: 'reading path: position 1 of 3, points forward to the imp-95877 transport and imp-95878 independent attempts',
+    holds: () => {
+      const rp = PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT.readingPath;
+      return rp.position === '1 of 3 (start here)'
+        && rp.next.map((n) => n.id).join(',') === 'imp-95877,imp-95878';
     },
   },
   {

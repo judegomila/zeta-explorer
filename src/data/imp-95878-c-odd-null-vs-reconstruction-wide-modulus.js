@@ -138,6 +138,19 @@ export const C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS = Object.freeze({
     forcesJVariationZero: true, // the structural reason it fails at m>20
   }),
 
+  // imp-95915: reciprocal reading path across the three per-m kappa certification modules.
+  readingPath: Object.freeze({
+    position: '3 of 3',
+    previous: Object.freeze({
+      id: 'imp-95861',
+      relation: 'names the PIECE A/PIECE B decomposition and the INDEPENDENT route this module attempts',
+    }),
+    sibling: Object.freeze({
+      id: 'imp-95877',
+      relation: 'attempts the TRANSPORT route -- the other way to supply PIECE A at m>20',
+    }),
+  }),
+
   perModulus: PER_MODULUS,
   dILinearityProbe: DI_LINEARITY,
 
@@ -205,6 +218,15 @@ export const C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS_ASSERTIONS = Object.freez
       const vals = DI_LINEARITY.map((r) => r.dIperDrho);
       const mx = Math.max(...vals), mn = Math.min(...vals);
       return Math.abs((mx - mn) / ((mx + mn) / 2)) > 0.05;
+    },
+  },
+  {
+    name: 'reading path: position 3 of 3, back to imp-95861, sibling imp-95877 (transport route)',
+    holds: () => {
+      const rp = C_ODD_NULL_VS_RECONSTRUCTION_WIDE_MODULUS.readingPath;
+      return rp.position === '3 of 3'
+        && rp.previous.id === 'imp-95861'
+        && rp.sibling.id === 'imp-95877';
     },
   },
   {

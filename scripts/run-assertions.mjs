@@ -18069,6 +18069,20 @@ const DATA_MODULES = [
   // convergence-rate artifact, not a defect of F_inf. Import-light, no zeros bundle, no
   // bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95788-twin-pair-deep-corner-finite-n-bias-convergence.js',
+  // imp-95698: registration audit found these three self-executing-assertion modules were
+  // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
+  // in directly so their throw-on-failure checks actually run under npm run-assertions.
+  // imp-95676: closed-form derivation of the imp-95662 half-point-below-crossover displacement.
+  // Import-light (C_C only), no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95676-half-point-crossover-displacement.js',
+  // imp-95677: measures whether the imp-95659 rho=1 F/A_opt ratio decays toward the class floor
+  // 1 as the uniform-lattice point count grows; names the float64 cancellation-floor sub-gap.
+  // Standalone, no imports, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95677-rho1-szego-finite-size-convergence.js',
+  // imp-95679: cross-checks the imp-95660 bisected cf* wedge-closure multiplier against the
+  // imp-95658 baked gap surfaces via a linear blend. Import-light (imp-95658 literals only),
+  // no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95679-cf-star-crosscheck-baked-surfaces.js',
 ];
 
 let ALL_MODULES = FAST_MODE

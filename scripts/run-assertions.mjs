@@ -18945,6 +18945,12 @@ const DATA_MODULES = [
   // tr(G)/S decaying as 1/(p-1), sharpening the imp-95898 STEP 3 qualitative statement.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95950-sign-image-inverse-p-minus-one-squared-glossary-headword.js',
+  // imp-95951: glossary headword recording the imp-95750 finding that the direct
+  // sd(C - E) number-variance measurement is hard-capped by gamma_1e6 = 6.003e5
+  // (largest verified ordinate in the repo), reaching only ~2.36% of the
+  // 3.358-decade gap to the imp-95729 crossover. Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95951-number-variance-ceiling-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

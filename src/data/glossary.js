@@ -21696,6 +21696,47 @@ export const glossary = [
       'Catalan constant G irrationality remains OPEN under every placement; Sun arXiv:2609.04176 remains single-author and unrefereed',
     ],
   },
+  {
+    term: 'Native-Span Softness Dichotomy (NS-RIGID)',
+    category: 'no-go',
+    definition:
+      "imp-95530 THEOREM NS-RIGID. For a finite set of real nodes S = {s_1..s_n} in (1, infinity), " +
+      "form the Caratheodory-Pick matrix P_S(eps)_ij = (phi_eps(s_i) + phi_eps(s_j)) / (s_i + s_j - 1) " +
+      "of the backward-flowed Xi_eps (phi_eps = d/ds log Xi_eps, phi_0 = xi'/xi). P_S(eps) is real-analytic " +
+      "in eps, so exactly one of two things happens: either (i) P_S(0) is positive definite, in which case " +
+      "positivity survives the flow for a range eps in [0, eps_0(S)) even though Xi_eps has a non-real zero " +
+      "for every eps > 0 (Rodgers-Tao) -- meaning \"P_S >= 0\" is FLOW-STABLE / soft, hence cannot be the " +
+      "missing arithmetic input the flow-blindness no-go rules out -- or (ii) P_S(0) fails to be positive " +
+      "definite, in which case RH is already false (a strictly PD Gram is forced under RH). Consequence: no " +
+      "finite native-span positivity statement, nor any finite collection of them, can supply a non-circular " +
+      "arithmetic input; each one is either useless or a refutation.",
+    firstUsed: 'imp-95530 (THEOREM NS-RIGID, native-span softness dichotomy), 2026',
+    relatedTerms: [
+      'flow-critical member is the companion notion: the unique native-span statement NOT covered by this dichotomy (imp-95530)',
+      'imp-95520 supplies the underlying Caratheodory-Pick / Lagarias identification of the Weil form on the native span E_V (imp-95520)',
+      'Rodgers-Tao backward-flow non-real-zero result and the flow-blindness no-go (SL2) are the inputs the dichotomy builds on',
+    ],
+  },
+  {
+    term: 'Flow-Critical (member)',
+    category: 'no-go',
+    definition:
+      "imp-95530 (A5). Within the native-span family {P_S >= 0 : all finite S in (1, infinity)} governed " +
+      "by the NS-RIGID dichotomy, a statement is FLOW-CRITICAL if it is true at eps = 0 if and only if RH " +
+      "holds, and false for every eps > 0. imp-95530 shows the FULL family (all finite S at once) is the " +
+      "unique flow-critical member: if every P_S(eps) were PSD for some eps > 0, the Pick interpolant would " +
+      "agree with phi_eps on (1, infinity) and, by the identity theorem, be pole-free on Re(s) > 1/2, forcing " +
+      "Xi_eps to have no non-real zero -- contradicting Rodgers-Tao. So within the machinery's native span " +
+      "there is no intermediate object between \"soft\" (flow-stable, useless) and RH itself; lacunary " +
+      "(Blaschke, sum 1/s < infinity) sub-families fail to be flow-critical for the same identity-theorem " +
+      "reason and so cannot reach RH either.",
+    firstUsed: 'imp-95530 (THEOREM NS-RIGID (A5), naming the flow-critical property), 2026',
+    relatedTerms: [
+      'Native-Span Softness Dichotomy (NS-RIGID) is the theorem this notion is defined inside (imp-95530)',
+      'imp-95226 BL-LAT lacunary node lattices are the Blaschke-sequence sub-families shown not flow-critical (imp-95530 A6)',
+      'flow-blindness no-go (SL2) is the broader result NS-RIGID shows cannot be evaded on the native span',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -18628,6 +18628,18 @@ const DATA_MODULES = [
   // (sub-gap imp-95922-fourth-ufit-point-for-out-of-sample). Fit of reported values; no
   // interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95922-ufit-reach-conditioning-two-factor.js',
+  // imp-95924: EXTENDS the imp-95895 delta=ln1.25 DD shift-invert u_fit grid PAST N=1523
+  // with four converged points (N=1850/2250/2800/3400, reach ~413/502/625/759; same
+  // imp-95820 solver, N=1523 anchor reproduces the imp-95838 baked corner to 5.6e-11).
+  // DECISION over reach 340->759: the leave-one-out envelope u_fit_rel keeps TIGHTENING
+  // monotonically 0.0846%->0.0506% (does NOT floor), A_fit stays pinned at 6.9647e-18,
+  // r_point tiny-positive +5.23e-5, interval still CONTAINS ZERO, so ln1.25 stays TIGHTEST
+  // by a widening margin (0.0506% < ln1.3 0.23% < ln1.2 0.34%). HONEST CAVEAT: the
+  // per-point ratio-1 scatters at a ~1e-4 conditioning noise floor past reach ~500
+  // (2.916->1.965->2.931->1.104 e-4, non-monotone), so where the interval eventually
+  // plateaus stays OPEN (sub-gap imp-95924-sub-ln125-floor-past-reach-759). Measurement
+  // extending a grid; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95924-ln125-ufit-past1523.js',
   // imp-95835: consumer/orphan audit of the imp-95682 twin-pair block-floor rho log-y
   // viz-data module (IMP95682_ROWS). FINDING: NOT orphaned -- fully wired end to end
   // (Imp95682TwinPairBlockFloorRhoViz.jsx imports it directly, App.jsx routes it at

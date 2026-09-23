@@ -78,6 +78,14 @@
  * WEIGHT, and modulus/phase legs stay OPEN. Changes NO bound of the Lambda program;
  * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA. Sun arXiv:2609.04176 unrefereed.
  *
+ * SUPERSEDED (endpoint-vs-window). recommendedBudget=800 here is set from the
+ * N=1523 endpoint alone. imp-95859 later measured the interior near-degenerate
+ * window N ~ 1370-1523 on a fine grid and found the worst cell (N=1400, 870 shift
+ * solves) EXCEEDS this endpoint-based 800, refining the honest minimal budget that
+ * certifies every window cell upward to ~950 with headroom (see
+ * supersededByWindowBudget below). Consumers needing a single figure that covers
+ * the whole reach-340 window should cite the imp-95859 ~950 value, not this 800.
+ *
  * @see imp-95820-shift-invert-dd-toeplitz-crossing (the solver + the sub-gap this closes)
  * @see imp-95837-ln12-dd-extrapolation-grid (sibling deep-corner DD measurement, same solver)
  * @see imp-95799 (the sigma=0 under-convergence the shift-invert cured)
@@ -130,7 +138,15 @@ export const IMP95838_LN125_SHIFT_BUDGET_SCALING = {
   // budget to certify the reach-340 (Nmax=1523) sub-1% crossing cleanly
   reach340Nmax: 1523,
   measuredShiftItsAtNmax: 712, // measured directly (converged, not extrapolated)
-  recommendedBudget: 800, // ~712 with headroom; >= ~750 certifies
+  recommendedBudget: 800, // ~712 with headroom; >= ~750 certifies the N=1523 ENDPOINT only
+  // SUPERSEDED for the interior near-degenerate window: imp-95859 measured the
+  // worst window cell (N=1400) at 870 shift solves, ABOVE this 800 endpoint-based
+  // figure, and recommends ~950 with headroom to certify every cell in the window.
+  supersededByWindowBudget: {
+    ticket: "imp-95859",
+    recommendedWindowBudget: 950,
+    reason: "worst window cell N=1400 needs 870 shift solves (> the 712-endpoint-based 800 here)",
+  },
   imp95820CrossingMaxIter: 500, // ~1.5x too small at N=1523
   ticketBudgetsTooSmall: [115, 250], // ~3-6x too small (the ~2e-5-high N=1372 cell)
   boundChange: false,
@@ -369,6 +385,14 @@ export const IMP95838_ASSERTIONS = [
         REF.recommendedBudget > REF.imp95820CrossingMaxIter &&
         REF.imp95820CrossingMaxIter < REF.measuredShiftItsAtNmax;
     },
+  },
+  {
+    id: "imp95838-recommendedbudget-superseded-for-window",
+    description:
+      "recommendedBudget=800 was set from the N=1523 endpoint only; imp-95859 found the interior worst window cell needs more, so the endpoint budget alone is flagged insufficient for the window and re-pointed to the imp-95859 refined ~950 figure",
+    holds: () =>
+      REF.supersededByWindowBudget.ticket === "imp-95859" &&
+      REF.supersededByWindowBudget.recommendedWindowBudget > REF.recommendedBudget,
   },
   {
     id: "imp95838-closes-imp95820-subgap-not-a-bound",

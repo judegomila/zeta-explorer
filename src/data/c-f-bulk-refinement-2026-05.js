@@ -133,6 +133,18 @@ const B_MEAN_N1E4       = TWO_PI / Math.log(T_0_N1E4);
 // against rho(T) (Section IV below) gives a direction-flip factor of
 // approximately 1.2 to 1.4 -- meaning the imp-398 C_F is a LOWER bound on
 // the true off-ladder amplitude by 20 to 40 pct, NOT a 5 pct upper bound.
+//
+// HONEST-STATUS CAVEAT: the "1.2 to 1.4" figure above is a hand-wavy
+// eyeball estimate written before Section IV was coded up; it was NEVER
+// produced by the Section IV numerics. The actual computed ratios are
+// RATIO_V2_ALPHA05_OVER_V1 approx 1.91 (alpha = 0.5, bulk midpoint) and
+// RATIO_V2_ALPHA08_OVER_V1 approx 4.56 (alpha = 0.8, near upper boundary),
+// both well outside the 1.2-1.4 band claimed here. The qualitative
+// direction-flip claim (ratio > 1, i.e. the imp-398 closed form
+// underestimates S_off) is confirmed and numerically asserted below
+// (imp1134-direction-flip-numerically-confirmed), but the specific
+// magnitude band and the derived "20 to 40 pct" LOWER-bound-slack figure
+// are NOT supported by Section IV and should not be cited downstream.
 
 // -- Section IV: numerical experiments at the imp-440 baseline --------------
 //

@@ -18129,6 +18129,17 @@ const DATA_MODULES = [
   // prefactor is not evaluated here (SUB-GAP inherited). Import-light, no zeros bundle, no bound,
   // no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95824-deep-corner-bias-exponent-szego-theory.js',
+  // imp-95839: EVALUATES the imp-95824 unevaluated Widom prefactor (residual b) for the ACTUAL
+  // sech Gram symbol f(theta)=sum sech(m*delta/2)e^{i m theta} at delta=ln1.2 via its
+  // cancellation-free Poisson dual f(theta)=(2 pi/delta) sum_k sech((pi/delta)(2 pi k - theta))
+  // (the direct alternating sum at theta=pi is ~4e-22, below the float64 noise floor). At the
+  // minimizer theta_star=pi: m=f(pi)=4.263426080e-22 (matches imp-95803 F_inf to 1.8e-9),
+  // f''(pi)=1.2659e-19 > 0 (non-degenerate quadratic min), and f''/m=(pi/delta)^2 exactly, giving
+  // C_Widom=100*(f''/2)*pi^2/m=50 pi^4/delta^2=146518.83. The measured biasPct*(N+1)^2 descends
+  // from above 338726 -> 163151 (N=80..500) toward C_Widom with an O(1/N) residual tail, so the
+  // imp-95803 drift is O(N^{-3})-subleading convergence to the exact Widom constant -- not a power
+  // change. Import-light, no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95839-sech-widom-prefactor-eval.js',
   // imp-95825: states and checks the finite-section positivity certificate lambda_min(G_n) >=
   // ess-inf f = A_opt(delta) for the positive sech Toeplitz Gram, forcing F/A_opt >= 1 for all
   // nPts and certifying the imp-95677 sub-1 (0.909) at delta=ln1.3 as pure float64 roundoff.
@@ -18225,6 +18236,11 @@ const DATA_MODULES = [
   // onto zero. Same blocker as ln 1.2: imp-95779-gap-robust-on2-toeplitz-bottom-eigsolver.
   // Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95819-on2-dd-toeplitz-reach-ln13.js',
+  // imp-95854: audit confirming the imp-95737 and imp-95697 viz-data modules and
+  // their pages stay import-light (no zeros-to-1e6.js in their closures); imp-95697
+  // was already registered above, imp-95737 has no self-executing assertions so
+  // registration does not apply. No gap found. NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95854-two-viz-cohort-heavy-import-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

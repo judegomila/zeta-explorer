@@ -17813,6 +17813,12 @@ const DATA_MODULES = [
   // leading-log closed form D_cross ~ 2 ln[4(1-e^-d/2)^2/(1-sech(d/2))] shows D_cross is logarithmic in
   // delta, deriving the stability. Import-light, finite-size proxy carried, no bound, no QED, PT Lambda<=0.2.
   '/src/data/imp-95703-twin-pair-half-retention-scale-derivation.js',
+  // imp-95704: MEASURES the delta-scaling of the imp-95689 finite-size Szego edge coefficient
+  // C = f''(pi)/(2 A_opt) of the rho=1 block floor across a delta grid via the cancellation-free
+  // Poisson dual. Finds C blows up as delta -> 0 but does so exactly: C*delta^2 = pi^2/2 for
+  // delta<=1 (the shared sech(pi^2/delta) prefactor cancels in the ratio), a benign delta^-2
+  // rescaling, not a pathology. Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95704-rho1-szego-coefficient-delta-scaling.js',
   // imp-95726: VERIFIES the imp-95703 half-retention closed form S(delta,D_cross)=blockIso/2 is the
   // INFINITE-lattice limit. Recomputing the true D_cross with the identical exact Jacobi lambda_min at
   // nPairs=40,80,160 shows the imp-95703 ~3.5e-3 residual (D_closed - D_true) decays as 1/nPairs^2

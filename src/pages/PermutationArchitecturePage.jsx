@@ -907,7 +907,12 @@ export default function PermutationArchitecturePage() {
             strict open-family target holds iff the residual constant product{' '}
             <InlineMath tex="Q = \sqrt{K_W(x,x)}\, C \sqrt{K}\, \|f\|" /> stays below{' '}
             <InlineMath tex="0.27968\ldots/\sqrt{\bar S} \approx 1.4327" /> — strictly above 1, so the pointwise step is
-            not the binding constraint. What remains of the former duality residual is finite: identifying{' '}
+            not the binding constraint. (1.4327 is the canonical value of{' '}
+            <InlineMath tex="R_{ex}/\sqrt{\bar S}" /> at <InlineMath tex="R_{ex} = 0.27968819555261474" /> and{' '}
+            <InlineMath tex="\sqrt{\bar S} = 0.19522203" />; an earlier ticket draft quoted 1.39930, which is not
+            reproducible from these inputs — see the imp-95556 reconciliation in{' '}
+            <code className="ed-mono" style={{ fontSize: 11.5 }}>src/data/imp-95519-localized-barrier-sum-prime-zero-nogo.js</code>.)
+            What remains of the former duality residual is finite: identifying{' '}
             <InlineMath tex="C_{E,17}" /> as a weld evaluation in a specific orthonormal picture with explicit
             normalization, and the Christoffel diagonal of the 18-mode carrier system at the seam points (18 numbers per
             point). At unit constants the ℓ¹ pointwise route caps at 1.7977 (above the target); the ℓ²+duality route

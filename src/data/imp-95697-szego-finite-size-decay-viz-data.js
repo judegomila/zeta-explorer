@@ -43,4 +43,45 @@ export const IMP95697_CAVEAT_BANNER =
   'only. Changes no bound of the Lambda program; no operator positivity ' +
   'established; no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
 
+// ---------------------------------------------------------------------------
+// imp-95833: float64-cancellation-floor caveat guard. Throws if any row with
+// ratio < 1 is NOT within the lmax*eps noise band (which would mean the
+// undershoot is no longer explainable as cancellation noise), or if the
+// caveat banner drops its honesty markers -- so this module can never be
+// consumed by a page/assertion that treats the rho=1 F/A_opt < 1 undershoot
+// as a real drop below the symbol infimum.
+// ---------------------------------------------------------------------------
+
+export const IMP95697_ASSERTIONS = [
+  {
+    id: 'imp95697-sub-unity-rows-stay-inside-noise-band',
+    description:
+      'every row with ratio < 1 has lminOverFloor within the O(1) float64 ' +
+      'cancellation-noise band, so the undershoot is never asserted as a ' +
+      'real drop below the symbol infimum',
+    holds: () =>
+      IMP95697_ROWS.every(
+        (row) => row.ratio >= 1 || (row.lminOverFloor > 0.3 && row.lminOverFloor < 3),
+      ),
+  },
+  {
+    id: 'imp95697-caveat-banner-carries-honesty-markers',
+    description:
+      'the caveat banner explicitly names the undershoot as noise and keeps ' +
+      'the NO QED / SOTA guardrail',
+    holds: () =>
+      /cancellation noise/.test(IMP95697_CAVEAT_BANNER) &&
+      /NO QED/.test(IMP95697_CAVEAT_BANNER) &&
+      /Lambda <= 0.2 remains SOTA/.test(IMP95697_CAVEAT_BANNER),
+  },
+];
+
+for (const a of IMP95697_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(
+      `imp-95697-szego-finite-size-decay-viz-data assertion failed: ${a.id}`,
+    );
+  }
+}
+
 export default IMP95697_ROWS;

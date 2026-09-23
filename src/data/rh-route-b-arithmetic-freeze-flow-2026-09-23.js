@@ -205,6 +205,36 @@ export const ROUTE_B_FREEZE_FLOW = Object.freeze({
       { t: -0.3, pair: [24, 25], z: [88.4831, 0.1683], heatDImz: -6.048, dImz: { n1: 0.8391, p2: 0.2234, p3: -0.8653, oct2: -1.2745, primes_le_31: -1.1852 } },
       { t: -0.3, pair: [45, 46], z: [134.4759, 0.3548], heatDImz: -3.097, dImz: { n1: 0.2833, p2: 0.2444, p3: -0.3181, oct2: -0.6411, primes_le_31: -0.3666 } },
     ],
+    // imp-96028: ASSESS whether the height-117 n=1 sign reversal is a systematic height effect
+    // or sampling. Cross-tabulation of the two reversed samples (sign(dImz.n1) < 0) against the
+    // 15 anti-confining samples, over height / Im z / heat-force. Analysis only; no new zeros
+    // generated, no bound changed, NO QED. Repro: tmp/imp-96028-assess.mjs.
+    heightReversalAssessment: {
+      reversedSamples: [
+        { z: [117.7968, 0.3598], heatDImz: -4.209, t: -1.2, n1: -0.1828 },
+        { z: [117.8698, 0.3305], heatDImz: -4.175, t: -1.2, n1: -0.3212 },
+      ],
+      // The two reversed pairs are a tightly-clustered adjacent doublet: heights differ by 0.073,
+      // Im z by 0.03, heat force by 0.03, both at the deepest heat t=-1.2 -- effectively ONE local
+      // event sampled twice, not two independent confirmations.
+      clusterSpread: { dHeight: 0.073, dImz: 0.0293, dHeatDImz: 0.034, sharedT: -1.2 },
+      // Systematic-law counter-tests (each FAILS a monotone predictor):
+      counterTests: {
+        notHeight: 'sample [33,34] at height 116.831 -- essentially the same height -- is anti-confining (n1 = +0.1411); all four samples ABOVE height 118 (131.23, 134.48, 134.81, 141.32) are anti-confining, so no monotone height threshold survives.',
+        notSmallImz: 'the three smallest-Im-z samples (Im z = 0.0131, 0.1683, 0.1958) are all anti-confining; the reversed doublet (Im z = 0.33, 0.36) is not near the small-Im-z extreme.',
+        notHeatForce: 'the two largest heat forces (heatDImz = -6.048 at h=88.48 and -5.217 at h=84.91) are both anti-confining; the reversed doublet ranks 3rd/4th by heat force.',
+      },
+      verdict: 'SAMPLING, not a systematic height effect. The reversal is a single localized adjacent-pair '
+        + 'coincidence at height 117.8 / t=-1.2, and it is contradicted by an anti-confining sample at the same '
+        + 'height (116.83) and by all four samples above height 118. No monotone predictor (height, Im z, or heat '
+        + 'force) separates the reversed doublet from the 15 anti-confining samples. So the 15/17 anti-confining '
+        + 'n=1 majority stands as a low-height TENDENCY with one local exception, not a law with a height crossover.',
+      // Sub-gap: definitively settling systematic-vs-sampling needs a WIDER off-line-zero census
+      // (many more t<0 zeros above height 118, plus a wider coefficient-set family evaluated at
+      // each new zero). That requires re-running the heat-evolution generator with the zeros bundle,
+      // which this import-light module cannot do -- literals for only 5 coefficient sets are baked.
+      subGap: 'wider-offline-census: needs H_t (t<0) zeros above height 118 and dImz for a broader coefficient family, out of scope for the import-light module (heavy heat-evolution regeneration).',
+    },
   },
 
   // Lemma H: interlacing census up to γ₃₀₀.

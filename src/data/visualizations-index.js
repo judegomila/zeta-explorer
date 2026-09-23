@@ -2756,6 +2756,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95762 / imp-95744 literals verbatim (no re-derivation, no fresh term); an independent numerical cross-check of an established interior quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95792-di-zigzag',
+      title: 'Four-Moduli dI Zigzag Band',
+      oneLine:
+        'Zigzag chart + table of the imp-95765 four-moduli dI(1/m) at m=18,19,20,21: a 4.146e-5-wide band (~4.15e4x the 1e-9 quadrature floor) with non-monotone consecutive-difference signs (-,+,-).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95765-di-variation-four-moduli.js',
+      paperSourcePath:
+        'src/data/imp-95765-di-variation-four-moduli.js (DI_VARIATION_FOUR_MODULI diTable/variation); imp-95792 viz page',
+      ticket: 'imp-95792',
+      pedagogicalStep: 179,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95765 four-point dI table verbatim (no new quadrature); conditional on the +4 offset hypothesis (verified only at m=20); four conditional points, not four certified anchors; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

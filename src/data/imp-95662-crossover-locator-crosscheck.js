@@ -147,6 +147,7 @@ const AB_HALF_REL = Math.abs(NA_HALF - NB_HALF) / NB_HALF; // ~0
 const B_VS_3444_CROSS_REL = Math.abs(NB_CROSS - IMP3444_N_CROSS) / IMP3444_N_CROSS; // ~1e-10
 const B_VS_3444_HALF_REL = Math.abs(NB_HALF - IMP3444_N_HALF) / IMP3444_N_HALF; // ~6e-11
 const DIRECT_VS_BISECT_REL = Math.abs(N_CROSS_DIRECT - NB_CROSS) / NB_CROSS; // ~4e-11 (< 1e-7)
+const DIRECT_VS_3444_CROSS_REL = Math.abs(N_CROSS_DIRECT - IMP3444_N_CROSS) / IMP3444_N_CROSS; // direct literal check, not via NB_CROSS
 const HALF_VS_CROSS_REL = Math.abs(NB_HALF - NB_CROSS) / NB_CROSS; // ~3.98e-3
 const SIGMA_AT_CROSS = partsB(NB_CROSS).sigma; // ~0.499526
 const E_FLOW_OVER_E_TRUNC_AT_HALF = partsB(NB_HALF).E_flow / E_TRUNC; // ~1.9e-3
@@ -252,6 +253,18 @@ export const IMP95662_CROSSOVER_LOCATOR_CROSSCHECK_ASSERTIONS = [
       Math.abs(SIGMA_AT_CROSS - 0.499526) < 5e-6 &&
       E_FLOW_OVER_E_TRUNC_AT_HALF < 1e-2 &&
       NB_HALF < NB_CROSS,
+  },
+  {
+    // Standing assertion: all THREE locators (not just A, B via transitivity through B)
+    // independently reproduce the imp-3444 pinned crossover literal directly.
+    id: 'imp95662-all-three-locators-reproduce-imp3444-literal',
+    description:
+      'Newton-height, closed-form, AND algebraic locators each independently match the imp-3444 ' +
+      'N_cross literal 3.280294352e9 to < 1e-7 relative (direct check, not chained through NB_CROSS)',
+    holds: () =>
+      Math.abs(NA_CROSS - IMP3444_N_CROSS) / IMP3444_N_CROSS < 1e-7 &&
+      Math.abs(NB_CROSS - IMP3444_N_CROSS) / IMP3444_N_CROSS < 1e-7 &&
+      DIRECT_VS_3444_CROSS_REL < 1e-7,
   },
   {
     // Honesty gate: measurement cross-check only, no QED, PT stays SOTA.

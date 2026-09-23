@@ -141,6 +141,23 @@ export const RH_ROUTE_C_SIGNED_INTERFEROMETER = Object.freeze({
         + 'pairs; at each off-line zero every arm has |L(ρ,χ)| ∈ [0.42, 2.0] — the superposition vanishes where no arm does. '
         + '|Φ′_DH(ρ_1)| = 2.42: simple zeros, not grazes.',
     },
+    superpositionVsUnion: {
+      measurement:
+        'Direct off-line zero-count comparison at q=5, rectangle [0.05,1.3]×[0.5,200]: the concrete 2-arm DH superposition '
+        + 'ε=(0,e^{−i argW/2},0,e^{+i argW/2}) has 8 off-line zeros (4 mirrored pairs, DH_OFFLINE_ZEROS_T200), while the '
+        + 'arm-union (all zeros of L(s,χ0), L(s,χ1), L(s,χ2), L(s,χ̄1) taken together) has 0 off-line zeros: each arm is '
+        + 'GRH-consistent on this window (χ1 130/130, χ2 129/129, χ3 129/129 on the line). Superposition 8 vs union 0.',
+      dhOffLineCount: 8,
+      armUnionOffLineCount: 0,
+      armOnLineCounts: { chi1: '130/130', chi2: '129/129', chi3: '129/129' },
+      disjoint:
+        'The 8 superposition off-line zeros are NOT arm-union points: at each of the four σ>1/2 representatives every arm '
+        + 'has |L(ρ,χ)| ∈ [0.42, 2.0] (DH_OFFLINE_ZEROS_T200[*].arms), so none coincides with an arm zero. The superposition '
+        + 'ADDS 8 off-line zeros the union does not have and DROPS the arms’ own on-line zeros — the two sets are disjoint here.',
+      verdict:
+        'Quantitative confirmation of the unionComparison verdict: off the line the superposition (8) is strictly worse than '
+        + 'the arm-union (0) on the measured window, and the two zero sets are disjoint. Measurement only; no bound moves; NO QED.',
+    },
     linearBlindness: {
       statement: 'Conversely, at the on-line zeros of the arm L(s,χ1), Φ_DH = ε_χ̄ L(s,χ̄1) ≠ 0.',
       rows: [
@@ -440,6 +457,18 @@ export const RH_ROUTE_C_SIGNED_INTERFEROMETER_ASSERTIONS = Object.freeze([
         && /verify before citing/.test(m.theorems[0].statement);
     },
     why: 'No false QED: status REFUTED, RH open, finite-window counts labelled as such, memory-cited theorem numbering flagged.',
+  },
+  {
+    id: 'route-c-superposition-offline-count-strictly-exceeds-union-q5',
+    holds: () => {
+      const m = RH_ROUTE_C_SIGNED_INTERFEROMETER.numericsQ5;
+      const svu = m.superpositionVsUnion;
+      const dhOff = m.davenportHeilbronn.counts_t200.offLine;
+      const unionOff = svu.armUnionOffLineCount; // 0: every arm is GRH-consistent (on-line = total) on the window.
+      const disjoint = DH_OFFLINE_ZEROS_T200.every((z) => z.arms.every((a) => a > 0.4)); // no DH off-line zero is an arm zero.
+      return svu.dhOffLineCount === dhOff && dhOff === 8 && unionOff === 0 && svu.dhOffLineCount > unionOff && disjoint;
+    },
+    why: 'Concrete q=5 measurement: the 2-arm DH superposition has 8 off-line zeros below t=200, the arm-union has 0 (each arm GRH-consistent), and the two sets are disjoint — superposition is quantitatively worse than the union.',
   },
 ]);
 

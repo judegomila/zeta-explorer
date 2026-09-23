@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   ENVELOPE_ROWS,
@@ -166,6 +167,14 @@ export default function Imp95869TwoSidedEnvelopeViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95869_VIZ_SUMMARY.verdict}
+      </div>
+
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+        <strong>Related:</strong>{' '}
+        <Link to="/viz-imp95868-biasn2-widom-fit" style={{ color: '#7c3aed' }}>
+          biasPct*N^2 Drift Converging to C_Widom (imp-95868): the companion deep-corner seam
+          result fitting the leading-order finite-N bias for the same sech-Gram Toeplitz family
+        </Link>
       </div>
     </div>
   );

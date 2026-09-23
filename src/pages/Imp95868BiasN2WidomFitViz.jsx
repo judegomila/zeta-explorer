@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   BIASN2_ROWS,
@@ -155,6 +156,19 @@ export default function Imp95868BiasN2WidomFitViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95868_VIZ_SUMMARY.verdict}
+      </div>
+
+      <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#64748b' }}>
+        <strong>Related:</strong>{' '}
+        <Link to="/viz-imp95869-two-sided-envelope" style={{ color: '#7c3aed' }}>
+          Two-Sided Finite-Section Spectral Envelope (imp-95869): the companion deep-corner
+          seam result trapping lambda_min/lambda_max of the same sech-Gram Toeplitz family
+        </Link>
+        {' | '}
+        <Link to="/concepts" style={{ color: '#7c3aed' }}>
+          Sech-Gram Widom Leading Prefactor C_Widom (imp-95839): the closed-form evaluation
+          this page&apos;s fit target P0 is checked against
+        </Link>
       </div>
     </div>
   );

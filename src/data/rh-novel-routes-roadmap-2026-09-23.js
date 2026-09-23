@@ -116,7 +116,11 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'the functional equation yields σ=½; test it against the known low zeros and check '
         + 'it is not itself trivially equivalent to RH.',
       payoff: 'RH via duality-fixed-point confinement, per height',
-      status: 'to-test',
+      status: 'refuted-as-lever (reformulation): every per-window uniqueness statement that duality '
+        + 'upgrades to σ=½ is equivalent to RH(+simple) in the window — count form = Turing / '
+        + 'distinct-ordinate program, parity form = Hardy/Levinson, order-parameter form = '
+        + 'Sondow–Dumitrescu; missing ingredient = positive-measure correlation inequality (GKS analog) '
+        + 'absent for complex weights n^{−it}; see rh-route-f-kramers-wannier-local-uniqueness-2026-09-23.js',
     },
     {
       key: 'G',

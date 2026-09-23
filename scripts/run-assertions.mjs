@@ -227,6 +227,16 @@ const DATA_MODULES = [
   // G log-gas RG freeze) from the primon-gas / log-gas / self-duality reframing. Roadmap,
   // not results; PT Λ≤0.2 SOTA; RH open.
   '/src/data/rh-novel-routes-roadmap-2026-09-23.js',
+  // rh-route-f-kramers-wannier-local-uniqueness (2026-09-23): Route F worked. Precise KW dictionary
+  // (D: s↦1−s̄ ↔ KW∘conj whose fixed set is exactly Fisher's circle |v+1|=√2; ξ has no real transition,
+  // its zeros are Fisher-type). Three per-window uniqueness statements U^(1) (count=1), U^(odd)
+  // (parity), U^(mono) (|ξ| monotone in σ) each combine with duality to give σ=½ — and each is
+  // EQUIVALENT to RH(+simple) in the window: U^(1) ⟺ no ordinate collisions (Turing method /
+  // Alpöge–Furman–Lamzouri distinct-ordinate program), U^(odd) = Hardy/Levinson, U^(mono) =
+  // Sondow–Dumitrescu/Lagarias. Missing ingredient = positive-measure correlation inequality (GKS
+  // analog) absent for complex weights n^{−it}. Euler–Maclaurin ζ + argument-principle counts verify
+  // U^(1) on the first 25 windows. Import-free; REFUTED-AS-LEVER; no bound changes; NO QED.
+  '/src/data/rh-route-f-kramers-wannier-local-uniqueness-2026-09-23.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

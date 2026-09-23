@@ -22481,6 +22481,33 @@ export const glossary = [
       'imp-95212 the kernel-weighted von-Mangoldt x Fresnel-Airy residue-bias envelope port this residue mean falls short of -- STILL OPEN (imp-95212)',
     ],
   },
+  {
+    term: 'imp-95898 honest-status verdict: determined-nontrivial-image PARTIAL, because the residue-uniform mean is not the physical von-Mangoldt-weighted explicit-formula sum',
+    category: 'proof-status',
+    definition:
+      'An honest-status verdict note for imp-95898, which attempts the sign-specification ' +
+      'leg (imp-95375 / imp-95397 / imp-95212 Fresnel-Airy port) at a single seam window. ' +
+      'STEP 2 delivers a determined result: the exact closed-form residue-averaged sign ' +
+      'image theta_C = (p tr(G) - S) / ((p - 1) S), strictly nontrivial and in (0,1) at ' +
+      'every tested (p,k). STEP 5 records the precise reason this does NOT close the leg: ' +
+      'theta_C averages n uniformly over the coprime residues via additive-character ' +
+      'orthogonality, but the physical per-window amplitude weights n by the von Mangoldt ' +
+      'x Fresnel-Airy kernel A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p), not uniformly. So ' +
+      'the leg\'s status is PARTIAL: a determined nontrivial image plus a sharpened, ' +
+      'still-open obstruction -- not a proof and not a refutation.\n\n' +
+      'HOW TO APPLY: cite this verdict (or imp-95898 directly) as the reason the sign-' +
+      'specification leg is not closed, and route any attempt to close it toward the ' +
+      'imp-95212 Fresnel-Airy kernel-weighted deviation-from-uniform question, not toward ' +
+      're-deriving theta_C (already exact).\n\n' +
+      'HONEST SCOPE: verdict-only; no numeric bound changes; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA. NO QED.',
+    firstUsed: 'imp-95928 (surfacing the imp-95898 STEP 5 PARTIAL verdict as its own honest-status headword), 2026',
+    relatedTerms: [
+      'imp-95898-single-window-sign-image-residue-average.js the determined closed-form theta_C = (p tr(G) - S)/((p-1) S) whose STEP 5 caveat this verdict headword surfaces (imp-95898)',
+      'imp-95212 the open kernel-weighted von-Mangoldt x Fresnel-Airy residue-bias port the leg is missing (imp-95212)',
+      'imp-95917-vonmangoldt-weighted-sign-image.js the physical von-Mangoldt-weighted sign image whose gap from the residue-uniform mean is the object of the obstruction (imp-95917)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

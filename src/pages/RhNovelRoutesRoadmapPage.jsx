@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { RH_NOVEL_ROUTES } from '../data/rh-novel-routes-roadmap-2026-09-23.js';
 import { RH_ROUTE_H_CONNES_SCALING_SITE as ROUTE_H } from '../data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js';
 import { RH_ROUTE_H_SEMILOCAL_SONINE as ROUTE_H_SONINE } from '../data/rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js';
+import { RH_ROUTE_I_SEMILOCAL_SONINE_TRACE as ROUTE_I } from '../data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
@@ -118,6 +119,23 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Sub-gap:</strong> {ROUTE_H_SONINE.subGap}</p>
           <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
             data: src/data/{ROUTE_H_SONINE.id}.js · p=2 structure: {ROUTE_H_SONINE.p2Structure}
+          </p>
+        </div>
+
+        <div className="card" style={{ marginTop: 24 }}>
+          <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 8 }}>Route I — the exact semilocal S = &#123;∞, 2&#125; Sonine trace identity, written and tested</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{ROUTE_I.status}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Left side:</strong> {ROUTE_I.lhs}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Right side:</strong> {ROUTE_I.rhs}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Gap term:</strong> {ROUTE_I.gapTerm}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Positivity of the trace side:</strong> {ROUTE_I.positivity}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Saturation:</strong> {ROUTE_I.saturation}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Where the gap switches on:</strong> {ROUTE_I.switchOn}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Many primes:</strong> {ROUTE_I.manyPrimeObstruction}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Correction to the previous card:</strong> {ROUTE_I.correction}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}>{ROUTE_I.verdict}</p>
+          <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
+            data: src/data/{ROUTE_I.id}.js · limits: {ROUTE_I.honestLimits}
           </p>
         </div>
 

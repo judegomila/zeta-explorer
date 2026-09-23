@@ -58,6 +58,12 @@ export const RH_SWEEP_SYNTHESIS = Object.freeze({
       module: 'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js',
       verdict: 'no new lever: the second direction is block-diagonal over 2-power Dirichlet characters (a family, spectrally inert for ζ; detector cap = uncertainty principle 2a_det = 0.9 ln(γ/2π)); the archimedean-only form goes indefinite at a_* = 0.3716 (odd) / 0.4101 (even), only 0.025–0.064 beyond ln2/2, and positivity across ln 2 is an exact archimedean-vs-p=2 cancellation (residual/P_2 = 7.5e-5 at a = 0.5) on the Slepian gap function — Weil positivity itself. Next step named: a semilocal S={∞,2} Sonine trace identity on g-support < ln 3. RH open; NO QED.',
     },
+    // Route I (2026-09-23): the named next step RUN — see rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js
+    // (supersedes the framing of rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js, imp-96044).
+    routeI: {
+      module: 'rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js',
+      verdict: 'the exact semilocal S={∞,2} identity EXISTS: on L²(X_S)^{Z_2^*} = L²(R)_ev the adelic Fourier descends to F_S = I∘(u_∞u_2)^g with u_2 the 2-adic Tate factor, and Tr(ϑ(f) P P̂_S P) = W_∞(f) + W_2(f) + D_S(f) for all f (Connes–Consani 2021 Prop 2.2 + Leibniz), the trace side unconditionally positive (multiplier min 0.0650 at t=0, minima at the p=2 resonances 2πk/ln2 where the remainder cancels the Euler-factor peak). It is NOT gap-free: the remainder D_S is explicit (log spikes at every 2^k) and takes 96.7% (a=0.5) / 99.71% ((ln 3)/2) of the trace on the pole-free Weil minimizer (pencil μ_max = 0.967 / 0.9971). Weil positivity on g-support < ln 3 ⟺ D_S ≤ L_S on pole-free h — the semilocal form of the CC program, an inequality between two explicit RH-free functionals, not an identity. Adjoining p=3 makes the remainder resonate on the dense set 2^a3^b (log² spikes). CC archimedean partial reproduced (δ(1)=2.237484835, Cor 2.3 positivity 0.0491); no unconditional positivity past ln 2 obtained. RH open; NO QED.',
+    },
   },
 
   // 2026-09-23 second batch from NON-stat-mech paradigms (rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js):

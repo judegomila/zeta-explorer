@@ -318,6 +318,23 @@ const DATA_MODULES = [
   // (2a_det = 0.9 ln(gamma/2pi), Class-II cap sqrt(ln(1/eps)/t)). No new lever; next step named (semilocal
   // Sonine identity). Import-light (imports Route A's D_t only; no zeros bundle); NOT a bound; RH open; NO QED.
   '/src/data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js',
+  // rh-route-h-semilocal-sonine-identity-attempt (2026-09-23, imp-96044): Route H next step as first attempted —
+  // p=2 factor below (ln3)/2 = the single compressed shift (ln2/sqrt2) fsMat(ln2), sign-indefinite across parity
+  // sectors, binding even sector hurt. Its "exact but circular" framing of the trace identity is corrected by
+  // Route I below (the actual identity carries an explicit remainder). Import-light (Route H assembly only).
+  '/src/data/rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js',
+  // rh-route-i-semilocal-sonine-trace-identity (2026-09-23): ROUTE I = the exact semilocal S={oo,2} Sonine trace
+  // identity. On L^2(X_S)^{Z_2^*} = L^2(R)_ev the adelic Fourier descends to F_S = I o (u_oo u_2)^g with u_2 the
+  // 2-adic Tate factor; CC 2021 Prop 2.2 with Leibniz gives, EXACTLY for all f,
+  //   Tr(vartheta(f) P Phat_S P) = W_oo(f) + W_2(f) + D_S(f),  delta_S in closed form (si double sum, log spikes
+  // at every 2^k). Trace side positive: multiplier 2theta' - m_2 + deltahat_S > 0 on [0,250], min 0.0650 at t=0,
+  // local minima at the p=2 resonances 2pi k/ln2 where deltahat_S cancels the Euler peak (defect 1.6e-3); three
+  // falsification controls go negative. Gap D_S nonzero: 96.7% (a=0.5) / 99.71% ((ln3)/2) of the trace on the
+  // pole-free Weil minimizer; pencil mu_max = 0.6024 / 0.96697 / 0.99710 (a = 0.4 / 0.5 / (ln3)/2). S={oo,2,3}
+  // remainder has dense log^2 spikes at every 2^a 3^b. Reproduces CC anchors (delta(1)=2.237484835, delta'(1)=1,
+  // Cor 2.3 positivity 0.0491). No gap-free identity, no extension past ln2; corrects imp-96044's framing.
+  // Import-light (Route H assembly only; no zeros bundle). Assertions ~10 s (coarse-mesh multiplier + N=16 Galerkin).
+  '/src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284

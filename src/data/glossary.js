@@ -22445,6 +22445,42 @@ export const glossary = [
       'imp-95212 the kernel-weighted von-Mangoldt x Fresnel-Airy residue-bias envelope port, untouched and STILL OPEN -- the residue mean is not the physical theta (imp-95212)',
     ],
   },
+  {
+    term: 'imp-95898 Residue-Averaged Sign Image theta_C = (p tr(G) - S) / ((p-1) S)',
+    category: 'proof',
+    definition:
+      'DERIVATION (honest PARTIAL; changes no bound; NO QED). Ticket imp-95898 attempts ' +
+      'the sign-specification leg (imp-95375 / imp-95397 / imp-95212 Fresnel-Airy port) at ' +
+      'a SINGLE seam window, the only lever left after imp-95879 proved the positive-cone ' +
+      'triviality is intrinsic to positivity.\n\n' +
+      'Because the imp-95397 per-alias coefficient a_h(n) = -(1/p) e(hn/p) has n-INDEPENDENT ' +
+      'modulus 1/p, the obligation-(2) denominator D = sum_ml G_ml (G the exact two-sided-' +
+      'exponential Gram, imp-95375) is n-free -- all n / sign dependence lives in the ' +
+      'numerator. Averaging theta_C over the coprime residues n = 1..p-1 and applying additive-' +
+      'character orthogonality (avg_n cos(2 pi (h_m - h_l) n / p) = 1 if h_m = h_l else ' +
+      '-1/(p-1), a Ramanujan sum) collapses the ratio-of-averages to the closed form ' +
+      'theta_C = (p tr(G) - S) / ((p - 1) S), tr(G) the Gram trace, S the total Gram mass -- ' +
+      'EXACT (matches the direct n-loop average to 1e-16), strictly nontrivial and in (0,1): ' +
+      '0.062728 at (p,k)=(5,5), 0.027870 at (7,6), 0.010036 at (11,7), 0.250662 at (3,4), ' +
+      'deepening as p grows.\n\n' +
+      'When p | n every additive character collapses to +1 (a positive cone) and theta_C = 1 ' +
+      'exactly, so the nontriviality is confined entirely to the coprime residues -- consistent ' +
+      'with the imp-95879 sign-orthant verdict.\n\n' +
+      'HONEST LIMITS. The residue-UNIFORM average is NOT the physical explicit-formula sum: ' +
+      'the true per-window amplitude weights n by the von Mangoldt x Fresnel-Airy kernel ' +
+      'A_{k,h} = sum_n Lambda(n) K_k(n) e(hn/p), so the surviving obligation sharpens to the ' +
+      'deviation of that kernel-weighted residue distribution from uniform -- the imp-95212 ' +
+      'Fresnel-Airy envelope port, still OPEN. Changes no bound; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA. NO QED.',
+    firstUsed: 'imp-95898 (attempting the sign-specification leg at a single seam window, finding an exact nontrivial residue-averaged sign image plus a sharpened obstruction), 2026',
+    relatedTerms: [
+      'imp-95397-alias-sign-determinacy-assessment.js the determined per-alias coefficient a_h(n) = -(1/p) e(hn/p) this closed form is built on (imp-95397)',
+      'imp-95879-theta-positive-cone-triviality-intrinsic.js proved positive-cone triviality intrinsic to positivity, making sign data the sole remaining lever (imp-95879)',
+      'imp-95375-theta-range-geometry-image.js the exact two-sided-exponential Gram closed form underlying tr(G) and S (imp-95375)',
+      'imp-95944 upgrades the imp-95918 empirical fits to a stated large-p asymptotic built on this exact closed form (imp-95944)',
+      'imp-95212 the kernel-weighted von-Mangoldt x Fresnel-Airy residue-bias envelope port this residue mean falls short of -- STILL OPEN (imp-95212)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

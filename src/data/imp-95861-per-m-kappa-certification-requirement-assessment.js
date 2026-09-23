@@ -39,12 +39,14 @@
  *     Prop 6.3 not routed through the reconstruction. Cost = THREE separate anchors (one per modulus,
  *     and one more for every future modulus added to the sweep). Yields genuinely per-m,
  *     modulus-by-modulus certification.
- *   TRANSPORT: prove ONE symbolic identity -- that the reconstructed 238-cell integrand equals Sun
+ *   TRANSPORT: prove ONE symbolic identity -- that the reconstructed integrand equals Sun
  *     Prop-6.3 IDENTICALLY as a function of m (a proof that the m-parametric reconstruction algorithm
  *     reproduces Prop 6.3 for all m, not just numerically at m=20). Cost = ONE proof, independent of
  *     how many moduli are in the sweep. It converts the single m=20 anchor + the m-free structure
- *     (238 cells, curvature -(4m-1)/2, 3/2 const sector, +4 offset) into an UNCONDITIONAL anchor at
- *     every m, retiring the conditionality outright rather than re-establishing PIECE A per modulus.
+ *     (curvature -(4m-1)/2, 3/2 const sector, +4 offset; NOTE the CELL COUNT itself is NOT m-free --
+ *     the breakpoint set B (6.24) has O(m) points, so 238 is only the m=20 value, per imp-95877) into
+ *     an UNCONDITIONAL anchor at every m, retiring the conditionality outright rather than
+ *     re-establishing PIECE A per modulus.
  * Both routes still need PIECE B (the B24 quadrature enclosure) to close the loop rigorously; they
  * differ only in how PIECE A is supplied. The transport route is the leaner one (one identity vs a
  * growing family of anchors) and is the ONLY route that scales to an open-ended modulus sweep.
@@ -218,8 +220,11 @@ export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT = Object.freeze({
     'Assessment only (no new heavy quadrature): reuses the imp-95822 grid-converged Q_0 sector values '
     + 'and the imp-95745/95746 m-free offset/const-sector structure carried through imp-95842. The '
     + 'assessment characterizes what a certification would require; it does NOT construct either route '
-    + 'and changes no bound. Catalan G irrationality OPEN; Sun single-author, unrefereed; NO Lambda '
-    + 'movement; PT Lambda<=0.2 SOTA; NO QED.',
+    + 'and changes no bound. CORRECTION (imp-95908, per imp-95877): the "238 cells" figure in the '
+    + 'transport-route description above is the m-free QUALITATIVE structure only for curvature/const '
+    + 'sector/offset -- the raw CELL COUNT itself grows with m (breakpoint set B (6.24) has O(m) '
+    + 'points), so 238 is specifically the m=20 value, not an m-free constant. Catalan G irrationality '
+    + 'OPEN; Sun single-author, unrefereed; NO Lambda movement; PT Lambda<=0.2 SOTA; NO QED.',
 });
 
 export const PER_M_KAPPA_CERTIFICATION_REQUIREMENT_ASSESSMENT_ASSERTIONS = Object.freeze([

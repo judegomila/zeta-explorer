@@ -22126,6 +22126,30 @@ export const glossary = [
       'imp-95621-alt-form-precision-threshold is the module deriving the closed-form delta* ~ 0.307 threshold via the summation condition number',
     ],
   },
+  {
+    term: 'VK-vs-window height gap (~4432 decades, zero unconditional VK saving)',
+    category: 'concept',
+    definition:
+      'imp-95632 quantifies, in log-space (the raw ratio overflows a double), how far ' +
+      'the Ford Vinogradov-Korobov (VK) zero-free-region crossover sits above the top ' +
+      'of the imp-95519 localized-barrier window. The VK width ' +
+      '1/(57.54 (log t)^(2/3) (loglog t)^(1/3)) overtakes the classical ' +
+      'Mossinghoff-Trudgian-Yang width 1/(5.558691 log t) only at log t = 10242.2363 ' +
+      '(imp-95605/imp-95619 crossover), while the imp-95519 window tops out at ' +
+      'T = 1.9e16, log t = 37.4832. The additive gap in log t is 10204.75 (the ' +
+      'crossover is ~273x higher in log t than the window top), equivalent to a ' +
+      'multiplicative gap of ~4431.87 decades in T (~7.4 x 10^4431). Because the ' +
+      'crossover is unreachable anywhere in the window, VK contributes ZERO ' +
+      'unconditional zero-free saving there; the operative region stays classical ' +
+      'throughout, with the inert per-zero factor ~0.845. Measurement only; changes ' +
+      'no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95519 (localized barrier window, T = 1.9e16), 2026; imp-95605/imp-95619 (VK-vs-classical crossover log t = 10242.2363), 2026; gap quantified by imp-95632, 2026',
+    relatedTerms: [
+      'imp-95519-localized-barrier-sum-prime-zero-nogo is the module establishing the barrier window this gap measures',
+      'imp-95605-zero-free-region-verify and imp-95619-vk-crossover-reconcile are the modules establishing the VK-vs-classical crossover log t = 10242.2363',
+      'imp-95632-vk-crossover-height-gap is the module computing the additive (log t) and multiplicative (decades of T) height gap between them',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -18326,6 +18326,16 @@ const DATA_MODULES = [
   // correction term from baked literals; no DD eigensolve). Sub-gap
   // imp-95840-dd-crossing-reach-needs-denser-sweep. No bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95840-dd-corrected-crossing-reach.js',
+  // imp-95858: cross-validates the imp-95840 corrected crossing-reach quadratic
+  // R*(delta) off the five-point grid without a new DD eigensolve. Leave-one-out CV
+  // gives LOO-CV RMS 0.439 reach (max |resid| 0.735 at the extreme ln1.25 DD corner,
+  // ~0.25% of R*), so the quadratic is off-grid predictive; a cubic fit (a3=-225.29,
+  // ~45% of the a2=+497 curvature) cuts in-sample RMS to 0.015 but only marginally
+  // improves LOO-CV RMS (0.339 vs 0.439), so a further second-order term is NOT
+  // compelled. Import-light (4 assertions re-derive the LOO-CV + cubic test from the
+  // five baked crossings; no DD eigensolve). Sub-gap
+  // imp-95858-intermediate-delta-dd-eigensolve-crossing. No bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95858-dd-crossing-reach-loo-cross-validation.js',
   // imp-95871: registry audit found imp-95837, imp-95844 and imp-95846 committed
   // as tracked files but absent from this DATA_MODULES sweep, so their
   // throw-on-failure assertions never ran under npm run-assertions. Wiring them

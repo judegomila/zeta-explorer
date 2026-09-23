@@ -18175,6 +18175,19 @@ const DATA_MODULES = [
   // imp-95824 residual (b) quantitatively in the N^2 convention. Import-light 8-point OLS, no zeros
   // bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95845-deep-corner-biasN2-widom-fit.js',
+  // imp-95856: MEASURES the exact O(N^-3) remainder constant of the imp-95803 deep-corner biasPct
+  // ladder (delta=ln1.2, rho=1) and assesses whether anchoring the intercept at the imp-95839
+  // C_Widom tightens the imp-95845 P0-vs-C_Widom agreement below 0.44%. The P3/N^3 term splits into
+  // an EXACT convention-conversion part P3_conv = -4 C_Widom = -586075.34 (since (N/(N+1))^2 =
+  // 1-2/N+3/N^2-4/N^3+... so C_Widom contributes coefficients C_Widom*(1,-2,3,-4)) and a PHYSICAL
+  // (N+1)-convention remainder biasPct*(N+1)^2 = C_Widom + A/(N+1) + ... with a window-stable
+  // A ~ 7.6e6 (A/C_Widom ~ 52, so the physical remainder DOMINATES the accessible-N drift, which is
+  // why the free-intercept fit stalled at 0.44%). Anchoring P0:=C_Widom and fitting the remainder
+  // reproduces the ladder to rel rmse ~0.004% (two orders below 0.44%), confirming C_Widom the exact
+  // asymptote and closing the exact-remainder-constant half of the imp-95845 sub-gap; the wider-cell
+  // rho!=1 prefactors are carried forward as the narrower residual wider-cell-widom-prefactor-ladder.
+  // Import-light 8-point OLS, no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95856-deep-corner-remainder-constant-widerc-prefactor.js',
   // imp-95838: MEASURES the ln1.25 PD-preserving shift-invert iteration-budget scaling law
   // (imp-95820 sub-gap). Robust shift-invert DD Toeplitz solver at N=150..1523: shiftIts ~
   // 5.670e-3 N^1.577 (8 points, retries=0), vs the sigma=0 plain inverse-iteration plainIts ~

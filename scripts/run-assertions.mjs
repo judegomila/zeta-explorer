@@ -190,6 +190,12 @@ const DATA_MODULES = [
   // degrees); dκ/dθ≈0.57; even θ=1 gives 0.588<0.6725, matching needs θ≈1.339 (conjectural rows
   // flagged). Binding barrier = mollifier length θ (Kloosterman/DI input); import-free. NO QED.
   '/src/data/levinson-mollifier-frontier-audit-2026-09.js',
+  // barrier-mollifier-length-ceiling-2026-09: exact fixed-height ceiling of the mollifier-LENGTH lever in
+  // the Polymath15 barrier / finite-lane (Λ≤0.1758354) machinery. inf over ALL mollifiers of the TRIANGLE
+  // lane mass = min(1, γ‖A/B‖_{ℓ¹,σ}) (Wiener algebra); γS_A(1e8) ≥ 1 at Λ=0.1495–0.1525 for every y
+  // ⇒ ceiling Λ≈0.155 at X=6e12, torus obstruction (any weight) at Λ=0.1455 (y0); 0.145 needs verified
+  // height ≈1.4–2.5e13. Not the θ=4/7 wall. Import-free; no bound changes; NO QED.
+  '/src/data/barrier-mollifier-length-ceiling-2026-09.js',
   // imp-95518-displacement-leg-discharge: double-verified (attack + independent from-scratch
   // replication at all 10 re-anchors + RK4 cross-check) discharge of the LAST ANALYTIC
   // obstruction of the C_Lip→D_rest E_field transfer leg — the displacement lemma. Gap-cancellation

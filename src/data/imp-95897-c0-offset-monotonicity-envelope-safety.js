@@ -82,6 +82,9 @@
  *   the saturated box number variance decides the approach direction analytically (UPWARD near
  *   3e12, slope 1/2pi^2), inside the max-anchor cushion but crossing C0 at a finite T_x. Readers
  *   citing this module's "monotonicity UNDECIDED" finding should cite imp-95921 instead.
+ * @see imp-95973-six-point-noise-domination-wall-glossary-headword (shared nav index: this
+ *   module's raw-slope R^2 = 0.0007 finding is one of four symptoms of the same noise-dominated
+ *   six-point sample -- read that headword first if landing here cold)
  */
 
 const TWO_PI = 2 * Math.PI;

@@ -22250,6 +22250,30 @@ export const glossary = [
       'Q_0 sector is the m-dependent piece of Sun Prop 6.3 (6.21) left untouched by this offset derivation',
     ],
   },
+  {
+    term: 'Finite-Section Positivity Certificate lambda_min(G_n) >= ess-inf f = A_opt',
+    category: 'concept',
+    definition:
+      'A quick-lookup headword for the imp-95825 Grenander-Szego bound certifying that the ' +
+      'rho=1 seam Gram G_n[j,k] = sech((j-k)*delta/2) has smallest eigenvalue lambda_min(G_n) ' +
+      'bounded below by the essential infimum of its generating symbol f(theta) = 1 + ' +
+      '2*sum_(m>=1) sech(m*delta/2)*cos(m*theta) for every finite section size n, and that this ' +
+      'infimum equals A_opt(delta) exactly (ess-inf f = f(pi) = A_opt, via the imp-95419 ' +
+      'theta-dual Poisson-summation identity). Certified at delta = 3, 5, 8 (cond ~ 1.16-6.74), ' +
+      'where the ratio F/A_opt = lambda_min/A_opt decays to 1 from above as claimed. This ' +
+      'resolves the imp-95677 tabulated sub-1 reading (0.909 at delta = ln 1.3, 320 pairs) as ' +
+      'pure float64 cancellation-floor roundoff (A_opt ~ 4.4e-15 there, below lmax*eps), not a ' +
+      'real bound violation -- confirmed independently by the imp-95823 direct double-double ' +
+      'Jacobi Gram eigensolve. Changes no bound of the Lambda program; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95677 (numerical sub-1 ratio reading at delta = ln 1.3), 2026; certified as roundoff by imp-95825, 2026; cross-confirmed by imp-95823, 2026',
+    relatedTerms: [
+      'imp-95825-finite-section-positivity-certificate is the module proving lambda_min(G_n) >= ess-inf f = A_opt at well-conditioned deltas',
+      'imp-95419-separated-class-optimal-riesz-floor is the module supplying the theta-dual identity ess-inf f = A_opt',
+      'imp-95677-rho1-szego-finite-size-convergence is the module whose sub-1 ratio reading at delta = ln 1.3 this certificate resolves as roundoff',
+      'imp-95823 is the direct double-double Jacobi Gram eigensolve independently confirming the cancellation-floor diagnosis',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

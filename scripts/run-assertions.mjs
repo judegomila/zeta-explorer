@@ -18060,6 +18060,15 @@ const DATA_MODULES = [
   // sub-ln1.4 needs the imp-95779 DD Toeplitz solver). Import-light, no zeros bundle, no
   // bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95786-reach-universality-crossval.js',
+  // imp-95788: assesses whether the imp-95762 51.63pct finite-80 biasPct at the deepest
+  // twin-pair cell (delta=ln1.2, rho=1) signals the finite-80 truncation is too small to
+  // pin F_inf, by re-running the imp-95762 DD eigensolver at N=80,120,160,200. biasPct
+  // collapses monotonically 51.63 -> 17.15 -> 8.19 -> 4.82 (~10.7x) toward the fixed dual
+  // F_inf=4.263426088e-22, super-linearly (log-log slope -2.72/-2.57/-2.38, faster than
+  // 1/N): F_inf is confirmed as the N->inf limit and the deep-corner bias is a finite-size
+  // convergence-rate artifact, not a defect of F_inf. Import-light, no zeros bundle, no
+  // bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95788-twin-pair-deep-corner-finite-n-bias-convergence.js',
 ];
 
 let ALL_MODULES = FAST_MODE

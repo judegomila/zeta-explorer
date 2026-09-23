@@ -227,6 +227,10 @@ const DATA_MODULES = [
   // G log-gas RG freeze) from the primon-gas / log-gas / self-duality reframing. Roadmap,
   // not results; PT Λ≤0.2 SOTA; RH open.
   '/src/data/rh-novel-routes-roadmap-2026-09-23.js',
+  // rh-novel-routes-sweep-synthesis (2026-09-23): all 7 routes A–G worked to a verdict;
+  // they converge on Weil positivity, and the one structural opening is the Connes–Consani
+  // adelic scaling site (the only geometry with a second Euclidean direction). Roadmap, not results.
+  '/src/data/rh-novel-routes-sweep-synthesis-2026-09-23.js',
   // rh-route-a-reflection-positivity-primon-gas (2026-09-23): FIRST TEST of roadmap Route A. Reflection
   // Gram <theta f_i, f_j> in the Weil zero pairing = Caratheodory Pick matrix of xi'/xi (RP <=> Weil
   // positivity <=> RH, Lagarias-Pick; not stronger). Finite-N gas: Pick Gram of the completed N-prime
@@ -18848,6 +18852,17 @@ const DATA_MODULES = [
   // filled by imp-95895) is already glossed, so no corrective edit is warranted. Import-light, 4 self-
   // executing assertions (all PASS); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95986-ln125-ufit-observable-conflation-audit.js',
+  // imp-96006: INSTANTIATE the imp-95984 conjectural I_F = 1 crossing-height point
+  // T_x(a_0 = -0.176248) through the imp-95940 closed form as a single FLAGGED-CONDITIONAL anchor
+  // inside the uncollapsed range [~5.8e17, ~1.36e28], and measure its offset from the imp-95964
+  // empirical mean a_0 = -0.116069. RESULT: T_x(conjectural) = 8.539689e19 (inside the range),
+  // T_x(empirical) = 5.778127e17 (the range lower edge); the Delta a_0 = 0.060179 offset moves T_x by
+  // 147.79x (ln = 4.996) -- the double-exponential amplifier made concrete (local d lnT_x/d a_0 from
+  // -78.12 to -88.11). The conjectural anchor is recorded strictly as a point-in-range with its
+  // rigorous RH bracket I_F in (2/3, 2), NEVER as a pinned crossing height, so the imp-95987
+  // no-collapse discipline holds and the range does not collapse. Measurement only; I_F = 1 conjectural
+  // (Montgomery PCC); no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96006-if1-crossing-height-conditional-anchor.js',
 ];
 
 let ALL_MODULES = FAST_MODE

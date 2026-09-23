@@ -7,6 +7,7 @@ import {
   IMP95810_REACH_MIN,
   IMP95810_REACH_MAX,
   IMP95810_CAVEAT_BANNER,
+  IMP95810_OPEN_RESIDUAL,
 } from '../data/imp-95810-reach-universality-viz-data.js';
 
 const SERIES = [
@@ -210,6 +211,24 @@ export default function Imp95810ReachUniversalityViz() {
       <div
         style={{
           marginTop: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(180,131,46,0.06)',
+          borderLeft: '3px solid #b58a2e',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#cbd5e1',
+        }}
+      >
+        <strong style={{ color: '#e2b566' }}>
+          Open residual ({IMP95810_OPEN_RESIDUAL.status}, {IMP95810_OPEN_RESIDUAL.id}):
+        </strong>{' '}
+        {IMP95810_OPEN_RESIDUAL.question}
+        <div style={{ marginTop: '0.4rem', color: '#94a3b8' }}>{IMP95810_OPEN_RESIDUAL.context}</div>
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
           padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',

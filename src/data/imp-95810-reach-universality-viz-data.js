@@ -64,3 +64,18 @@ export const IMP95810_CAVEAT_BANNER =
   'the reach-universality is an interior model-seam finite-grid diagnostic, ' +
   'not an RH bound. Changes no bound of the Lambda program; NO QED; ' +
   'Platt-Trudgian Lambda <= 0.2 remains SOTA.';
+
+// imp-95813: the imp-95786 R*-delta-drift sub-gap previously lived only as
+// prose in the imp-95786 module's header comment / verdict string. Surfaced
+// here as a structured open-residual object so this rendered viz page (the
+// frontier surface for this thread) reflects it directly.
+export const IMP95810_OPEN_RESIDUAL = Object.freeze({
+  id: IMP95786_REACH_UNIVERSALITY_CROSSVAL.subGap,
+  status: 'OPEN',
+  question:
+    'Does R* follow a clean second-order R* = 250 - c*delta form, and does ' +
+    'the fully-DD side (ln 1.35 / ln 1.25) cross at the extrapolated R*?',
+  context:
+    'R* drifts ~10% as delta shrinks (223.0 at ln 1.6 -> 244.7 at ln 1.45), ' +
+    'so the N_max ~ 250/delta crossing law is an upper envelope, not exact.',
+});

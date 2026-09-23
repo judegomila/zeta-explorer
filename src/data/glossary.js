@@ -22628,6 +22628,35 @@ export const glossary = [
       'imp-95984-fujii-varS-constant-literature-locate the later exact closed-form identification of the boundary constant K = I_F (imp-95984)',
     ],
   },
+  {
+    term: 'imp-95984 Identity K = I_F (Var S(T) Boundary Constant = Montgomery Pair-Correlation Integral)',
+    category: 'constant',
+    definition:
+      'The exact identification of the imp-95964 Var S(T) boundary constant K with the published ' +
+      'Montgomery pair-correlation integral I_F = INT_1^inf F(alpha,T)/alpha^2 d(alpha). Established ' +
+      'by reconciling imp-95964 (b = M + P2 + K) with T.H. Chan\'s Theorem 1.1 (arXiv:math/0305339, ' +
+      'refining Goldston 1987 via Montgomery pair correlation): under RH, b = I_F + gamma - ' +
+      'sum_{m>=2} sum_p (1/m - 1/m^2)/p^m. Using the Mertens identity sum_p[1/p^m/m] summed over ' +
+      'm>=2 collapses the Chan prime sum to gamma - M - P2, so Chan\'s formula becomes ' +
+      'b = I_F + M + P2 -- matching imp-95964 term for term and forcing K = I_F exactly.\n\n' +
+      'The arithmetic core M + P2 = 0.400967849406 (Mertens constant plus the convergent prime-power ' +
+      'double sum) is pinned to O(1e-12) by direct summation. I_F itself is rigorously bracketed only ' +
+      'in (2/3 - eps, 2) under RH -- a spread of ~4/3, about 133x the O(0.01) tolerance the imp-95940 ' +
+      'crossing-height range needs to collapse. I_F = 1 (giving b = 1.400968) holds only under ' +
+      'Montgomery pair correlation, which is conjectural (a quantitative twin-prime-type input), not RH.\n\n' +
+      'HOW TO APPLY: cite this identity as the reason the imp-95964 boundary constant K is not a vague ' +
+      'cutoff residue but a NAMED published object -- the pair-correlation integral I_F -- and that the ' +
+      'unavailable term in the Var S(T) constant is I_F, not the prime sum (which is already pinned).\n\n' +
+      'HONEST SCOPE: literature-locate / exact identity only; changes no bound; b is NOT available to ' +
+      'O(0.01) rigorously; the imp-95940 crossing-height range [~5.8e17, ~1.36e28] does not collapse; ' +
+      'NO QED; Catalan G irrationality OPEN; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95984 (LOCATE the Var S(T) constant b to O(0.01) from the literature, identifying K = I_F), 2026',
+    relatedTerms: [
+      'imp-95984-fujii-varS-constant-literature-locate.js the Chan Theorem 1.1 reconciliation and live Mertens-identity verification behind this identity (imp-95984)',
+      'imp-95964 Var S(T) Constant Decomposition (b = M + P2 + K) the prior decomposition whose boundary constant K this identity resolves (imp-95964)',
+      'imp-95940-arithmetic-intercept-a0-obstruction the a_0 = b - gamma - 1 identity and crossing-height range this identification does not collapse (imp-95940)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

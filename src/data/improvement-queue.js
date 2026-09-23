@@ -97998,7 +97998,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add a Concepts glossary headword for the imp-95984 identity K = I_F (Var S(T) boundary constant equals the Montgomery pair-correlation integral, rigorously bracketed (2/3-eps,2) under RH)',
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-95984 established that the imp-95964 empirical Var S(T) boundary constant K is EXACTLY the published Montgomery pair-correlation integral I_F = INT_1^inf F(alpha,T)/alpha^2 d(alpha) (Chan, refining Goldston 1987), with b = I_F + M + P2, the arithmetic core pinned to O(1e-12) and I_F rigorously only bracketed (2/3-eps < I_F < 2) under RH (Montgomery-conjectural value 1). Add an import-light Concepts/Wiki glossary headword capturing K = I_F, the exact b formula, and why b is NOT available to O(0.01) (the pair-correlation term, not the prime sum, is the unavailable object), so a reader can cite one entry. Functional non-marketing copy (feedback_functional_language_no_ads); documentation only; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-95984 exact identity K = I_F never given a glossary headword',
@@ -98006,6 +98006,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-96013',

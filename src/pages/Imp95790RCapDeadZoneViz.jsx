@@ -7,6 +7,7 @@ import {
 } from '../data/imp-95790-rcap-deadzone-viz-data.js';
 import { IMP95801_ORDINATE_SOURCE_REACH_AUDIT } from '../data/imp-95801-ordinate-source-reach-audit.js';
 import { IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE } from '../data/imp-95783-rtrue-vs-rcap-gap-deadzone.js';
+import { IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY } from '../data/imp-95805-slack-exclude-c0-artifact-monotonicity.js';
 
 const LANDMARK_COLOR = {
   ceiling: '#38bdf8',
@@ -215,6 +216,31 @@ export default function Imp95790RCapDeadZoneViz() {
         decades to the imp-95729 crossover and all{' '}
         {IMP95801_ORDINATE_SOURCE_REACH_AUDIT.deadZoneClosure.remainingToWindowBottomDecades.toFixed(2)}{' '}
         decades to the imp-95519 window bottom stay unreached by verified ordinates. Audit only;
+        changes no bound; NO QED.
+      </div>
+
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.05)',
+          borderLeft: '3px solid #94a3b8',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#cbd5e1' }}>Honest status (imp-95805):</strong> the sixth
+        measured-regime slack point above, T&nbsp;=&nbsp;1.5e5, sits at s&nbsp;=&nbsp;1.0000
+        only because it is the anchor pinning the imp-95766 offset C0 &mdash; a known artifact.
+        Excluding that anchor point does NOT restore monotonicity in the remaining five heights:
+        the sequence still steps down, down, UP, down (a U-shape, minimum at
+        T&nbsp;=&nbsp;7e4, reversal upward at T&nbsp;=&nbsp;3e5, both far below the imp-95750
+        ceiling gamma_1e6&nbsp;=&nbsp;{IMP95805_SLACK_EXCLUDE_C0_ARTIFACT_MONOTONICITY.residualUShape.ceilingGamma1e6.toExponential(3)}).
+        So no height-indexed lower proxy r_lo(T) can be extracted, and no two-sided bracket
+        r_lo(T)&nbsp;&le;&nbsp;r(T)&nbsp;&le;&nbsp;r_cap(T) forms even below the ceiling: the
+        one-sided bound r(T)&nbsp;&isin;&nbsp;(0, r_cap(T)] stands unchanged. Assessment only;
         changes no bound; NO QED.
       </div>
 

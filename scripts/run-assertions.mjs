@@ -17912,6 +17912,13 @@ const DATA_MODULES = [
   // estimators sits in [0.196, 0.260] -- all far below 1, so the conservatism is invariant to the choice.
   // Import-light, assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
   '/src/data/imp-95787-number-variance-c0-estimator-bias.js',
+  // imp-95800: LEAVE-ONE-OUT (jackknife) robustness of the same max-based C0 = 0.3337 to dropping the
+  // anomalous T=1.5e5 argmax height. Dropping it re-anchors C0 to the runner-up 0.2854 (T=1e4) -- not to
+  // the mean -- moving r_cap(3e12) from 0.2599 to 0.2348 (-9.65%); dropping any of the other five leaves
+  // C0 and r_cap unchanged. Full leave-one-out cap range [0.2348, 0.2599], all far below 1, so r_cap < 1
+  // survives every re-anchoring; removing the anomalous point only tightens the cap.
+  // Import-light, assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
+  '/src/data/imp-95800-number-variance-c0-leave-one-out.js',
   // imp-95750: ASSESSES how far up the ~6.78-decade dead zone the direct sd(C - E) measurement can
   // reach with in-repo zero data. The largest verified ordinate is gamma_1e6 = 6.003e5 (last entry
   // of ZEROS_EXTENDED), a hard ceiling only ~0.079 decade (~2.4%) into the 3.36-decade gap from the

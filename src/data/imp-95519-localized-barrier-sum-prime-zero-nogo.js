@@ -121,6 +121,13 @@
  *    half-strip sigma > sigma_B at height T for zeta AND for L(s, chi mod p <= 97).
  *    Pair-correlation inputs yield "for most T" (Selberg-CLT scale) statements,
  *    never "for all T"; imp-95526 T2 (Kronecker) shows the continuum sup saturates.
+ *    HONEST SCOPE (imp-95604 audit): this imp-95526 T2 Kronecker citation forecloses
+ *    only the mean-square -> pointwise UPGRADE mechanism (the sqrt(H) transfer
+ *    constant is Kronecker-sharp and exactly cancels the H^{-1/2} mean-square saving,
+ *    returning the trivial size); it must NOT be over-read as REFUTING the anchor
+ *    contract. Kronecker exhibits a positive-measure saturating set but does NOT
+ *    locate it at the anchor height T-star, so the contract there stays UNDECIDED /
+ *    PCC-gated -- neither closed nor broken by this argument.
  *
  * 5. VERDICT. No unconditional bound on A_{k,h} is reachable by exponential-sum
  *    or explicit-formula technology at the Fresnel width; the same object is

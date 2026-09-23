@@ -17831,6 +17831,12 @@ const DATA_MODULES = [
   // Ford 10242.24, still ~238x the window top and bracketed by the imp-95694 stress envelope; the
   // zero-VK-saving verdict STANDS under the best published constants. Import-light, no bound, no QED.
   '/src/data/imp-95706-vk-crossover-best-published-constant.js',
+  // imp-95628: wires the imp-95603 Sun-Catalan reattribution audit's four tripwires into this
+  // sweep (was git-tracked but absent from DATA_MODULES, so it never ran in node CI). Guards
+  // against the bad-commit-59a189f30 Sun->Raymond delta_0-ledger reattribution flip re-entering:
+  // every live site must stay KEEP, correct owner stays Sun arXiv:2609.04176 (not Raymond), and
+  // the summary keeps the G-irrationality-OPEN / PT-Lambda<=0.2-SOTA honesty banner. No bound, no QED.
+  '/src/data/imp-95603-sun-catalan-reattribution-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

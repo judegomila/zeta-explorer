@@ -3037,6 +3037,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95885 per-delta comparison verbatim (no re-derivation, no fresh extrapolation run); ln 1.25 carries no u_fit interval (recorded N/A); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95930-c0-offset-envelope',
+      title: 'C0 Offset vs log T + r_cap Envelope Band',
+      oneLine:
+        'Renders the imp-95897 six accessible finite-height offsets (T = 1e4..5e5, interior max C0=0.3338 at 1.5e5) and the resulting r_cap(3e12) min/max envelope band -- never assembled visually before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95930-c0-offset-envelope-panel-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95897-c0-offset-monotonicity-envelope-safety.js (imp-95930 viz panel)',
+      ticket: 'imp-95930',
+      pedagogicalStep: 195,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95897 six-offset table and envelope band verbatim (no re-derivation, no fresh measurement); the offset is noise-dominated with an interior max, so monotonicity over [3e12, infinity) is UNDECIDED by this table alone (see imp-95921); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

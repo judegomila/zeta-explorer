@@ -75,6 +75,8 @@
  * @see imp-95779-on2-dd-toeplitz-lambda-min-ln12 (the O(N^2) DD solver for the sub-ln1.4 side)
  * @see imp-95743-szego-coefficient-double-double-crosscheck (the DD fit and precision wall)
  * @see imp-95704-rho1-szego-coefficient-delta-scaling (the dual-derived law C = pi^2/(2 delta^2))
+ * @see imp-95810-reach-universality-viz-data (viz page /viz-imp95810-reach-universality plots this
+ *   module's reachTable and crossings)
  */
 
 export const IMP95786_REACH_UNIVERSALITY_CROSSVAL = {

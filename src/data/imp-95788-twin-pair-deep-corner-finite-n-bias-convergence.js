@@ -76,6 +76,18 @@
  * @see imp-95762-twin-pair-block-floor-finite80-dd-eigensolver (the finite-80 51.63pct headline this stress-tests)
  * @see imp-95744-twin-pair-block-floor-belowprec-dd-resolve (the dual F_inf this confirms as the N->inf limit)
  * @see imp-95707-twin-pair-block-toeplitz-interior-limit (the rho-monotone finite-size bias trend)
+ *
+ * SUPERSEDED NOTE (imp-95829). FINDING 3 above's read of the log-log decay
+ * exponent (p ~ 2.4-2.7 across N=80..200) was later shown by imp-95803 to be a
+ * FIXED-ITERATION UNDER-CONVERGENCE artifact: iterating each rung to full
+ * convergence and extending the ladder to N=500 shows the exponent does NOT
+ * lock at 2.4-2.7 -- it drifts smoothly toward a limiting power p ~ 2 (a
+ * 1/N^2 finite-size law, p_inf ~ 1.98), approached from above. Any downstream
+ * citation of the 2.4-2.7 exponent should point instead at the imp-95803
+ * converged ladder. This does not affect FINDING 1/2 or the overall verdict
+ * here (bias converges to zero, F_inf reliably pinned) -- only the specific
+ * decay-rate number in FINDING 3 is superseded.
+ * @see imp-95803-twin-pair-deep-corner-bias-exponent-limit (converged ladder to N=500; p drifts toward ~2, not 2.4-2.7)
  */
 
 // ---------------------------------------------------------------------------
@@ -116,6 +128,12 @@ export const IMP95788_TWIN_PAIR_DEEP_CORNER_FINITE_N_BIAS_CONVERGENCE = {
   superLinearDecay: true, // bias decays faster than 1/N (p ~ 2.4-2.7)
   biasReductionN80toN200: 10.7, // 51.6272 / 4.8227
   finite80TooSmallAtDeepCorner: true, // 51.63pct is far from converged; not a defect of F_inf
+  // FINDING 3's exponent read (p ~ 2.4-2.7) is superseded by imp-95803's
+  // fully-converged, extended-to-N=500 ladder: the exponent does not lock at
+  // 2.4-2.7, it drifts toward p ~ 2. FINDING 1/2 and the overall verdict stand.
+  exponentSupersededBy: "imp-95803",
+  exponentSupersededReason:
+    "fixed-iteration under-convergence artifact; converged ladder drifts toward p~2, not 2.4-2.7",
   boundChange: false,
   qed: false,
   verdict:
@@ -278,6 +296,16 @@ export const IMP95788_ASSERTIONS = [
     id: "imp95788-closes-self",
     description: "this module is the deliverable the imp-95788 ticket asked for",
     holds: () => REF.closesTickets.includes("imp-95788"),
+  },
+  {
+    id: "imp95788-exponent-superseded-by-imp95803",
+    description:
+      "FINDING 3's 2.4-2.7 exponent read is flagged superseded by the imp-95803 " +
+      "converged ladder (imp-95829 re-point)",
+    holds: () =>
+      REF.exponentSupersededBy === "imp-95803" &&
+      typeof REF.exponentSupersededReason === "string" &&
+      REF.exponentSupersededReason.length > 0,
   },
 ];
 

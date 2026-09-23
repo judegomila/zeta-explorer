@@ -17773,6 +17773,13 @@ const DATA_MODULES = [
   // claim -- rho^2 prefactor CERTIFIED, integrand rho-independence REFUTED (Q_0 moduli rescale
   // as 1/rho, 2/rho, 2/rho+1); guards the moduli and the not-structurally-forced verdict.
   '/src/data/imp-95690-sun-s6-integrand-rho-independence-verdict.js',
+  // imp-95745: analytic derivation that the imp-95720 +4 Prop-6.3 additive offset is EXACTLY 4
+  // and m-INDEPENDENT -- the const-sector correction 3/2 -> -5/2 of (6.21) via the m-free
+  // identity INT_0^1 zeta(2,1+v) dv = 1 (the u-linear terms cancel A_rho/t; the -2u marginal
+  // base of M(n,v) plus the C_rho block constant force -5 rho/2). Reproduces certified
+  // c_odd(1/20) to 3.5e-13 and upgrades c_odd(1/19)=0.006954762801 from conditional to
+  // offset-certain (still not interval-certified). No bound, no Lambda movement, NO QED.
+  '/src/data/imp-95745-sun-prop63-plus4-offset-derivation.js',
   // imp-95658: import-light baked-literal viz-data for a future E_flow-attribution chart -- the
   // imp-95639 (includeFlow on/off) gap surfaces + gap = 0 contours over the [0.5x, 1.5x]^2 box.
   // Carries cheap self-check assertions (baked grid min ~ -0.00468 vs +0.01708) with no quadrature.
@@ -17867,6 +17874,16 @@ const DATA_MODULES = [
   // present in this DATA_MODULES array, closing the untracked/unregistered full-sweep trap.
   // Read-only roll-up; no bound, no QED.
   '/src/data/imp-95739-95710-95630-data-modules-registration-audit.js',
+  // imp-95751: registration audit of the imp-95720..95729 finding-module cohort. Found 6 modules
+  // (95720, 95721, 95723, 95724, 95725, 95727) export a valid *_ASSERTIONS array but were absent
+  // from this sweep; wired in below (95722 and 95726 were already registered above; 95728 and
+  // 95729 export no *_ASSERTIONS array, nothing to wire). All import-light, no zeros bundle.
+  '/src/data/imp-95720-sun-prop63-second-anchor-obstruction.js',
+  '/src/data/imp-95721-cf-alpha-weight-density-pinned.js',
+  '/src/data/imp-95723-twin-pair-block-floor-full-grid-bias.js',
+  '/src/data/imp-95724-c-odd-J-variation-magnitude-assessment.js',
+  '/src/data/imp-95725-szego-ratio-monotonicity-endpoint.js',
+  '/src/data/imp-95727-szego-coefficient-eigensolver-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

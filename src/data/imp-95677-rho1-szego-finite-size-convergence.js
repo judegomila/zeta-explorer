@@ -57,6 +57,9 @@
  * @see imp-95659-twin-pair-block-floor-rho-tabulation (the rho = 1 endpoint this refines)
  * @see imp-95642-twin-pair-symbol-offlattice-obstruction (the two pinned endpoints)
  * @see imp-95419-separated-class-optimal-riesz-floor (A_opt scalar class floor / symbol infimum)
+ * @see imp-95689-rho1-szego-dual-convergence-rate (SUPERSEDES the float64-floor-limited
+ *      rate/exponent conclusions here: resolves the exact limit = 1 and convergence
+ *      exponent = 2 via the cancellation-free Poisson dual, without a bignum eigensolver)
  */
 
 // ---------------------------------------------------------------------------
@@ -89,6 +92,9 @@ export const IMP95677_RHO1_SZEGO_FINITE_SIZE_CONVERGENCE = {
   crossesUnityNearNPairs: 160, // ratio passes through 1 between nPairs = 80 and 160
   float64Limited: true, // lmin sits at the cancellation floor (cond ~ 5e15 > 1/eps)
   isFiniteSizeArtifact: true, // 1.092 is a decaying Szego edge effect, not a class floor
+  // the float64-floor-limited rate/exponent conclusions of THIS module are superseded
+  // by the extended-precision (Poisson-dual) resolution: exact limit = 1, exponent = 2
+  supersededBy: "imp-95689",
   boundChange: false,
   qed: false,
   verdict:
@@ -268,6 +274,14 @@ export const IMP95677_ASSERTIONS = [
     id: "imp95677-closes-self",
     description: "this module is the deliverable the imp-95677 ticket asked for",
     holds: () => REF.closesTickets.includes("imp-95677"),
+  },
+  {
+    id: "imp95677-superseded-by-pointer",
+    description:
+      "the float64-floor-limited rate/exponent conclusions here carry a " +
+      "supersededBy pointer to imp-95689, which resolves them via the " +
+      "cancellation-free Poisson dual",
+    holds: () => REF.supersededBy === "imp-95689",
   },
 ];
 

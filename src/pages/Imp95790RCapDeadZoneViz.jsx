@@ -6,6 +6,7 @@ import {
   IMP95790_CAVEAT_BANNER,
 } from '../data/imp-95790-rcap-deadzone-viz-data.js';
 import { IMP95801_ORDINATE_SOURCE_REACH_AUDIT } from '../data/imp-95801-ordinate-source-reach-audit.js';
+import { IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE } from '../data/imp-95783-rtrue-vs-rcap-gap-deadzone.js';
 
 const LANDMARK_COLOR = {
   ceiling: '#38bdf8',
@@ -26,13 +27,34 @@ function RCapChart() {
   const plotH = 260;
   const svgH = padT + plotH + padB;
 
-  const xMin = IMP95790_CURVE_POINTS[0].log10T;
+  const measuredRows = IMP95783_RTRUE_VS_RCAP_GAP_DEADZONE.measuredRows;
+  const ceilingLog10T = IMP95790_CURVE_POINTS[0].log10T;
+  const xMin = Math.min(measuredRows[0].log10Tc, ceilingLog10T);
   const xMax = IMP95790_CURVE_POINTS[IMP95790_CURVE_POINTS.length - 1].log10T;
   const xOf = (v) => padL + ((v - xMin) / (xMax - xMin)) * plotW;
 
   const yMin = 0;
   const yMax = 1.05;
   const yOf = (v) => padT + ((yMax - v) / (yMax - yMin)) * plotH;
+
+  // imp-95814: overlay the imp-95783 sub-ceiling measured-regime slack band
+  // s(T) = rTrue/rCap so the chart visually distinguishes the measurable
+  // regime (below the ceiling) from the dead zone above it.
+  const rCapSubPath = measuredRows
+    .map((r, i) => `${i === 0 ? 'M' : 'L'} ${xOf(r.log10Tc)} ${yOf(r.rCap)}`)
+    .join(' ');
+  const rTrueSubPath = measuredRows
+    .map((r, i) => `${i === 0 ? 'M' : 'L'} ${xOf(r.log10Tc)} ${yOf(r.rTrue)}`)
+    .join(' ');
+  const slackBandPath =
+    rCapSubPath +
+    ' ' +
+    measuredRows
+      .slice()
+      .reverse()
+      .map((r) => `L ${xOf(r.log10Tc)} ${yOf(r.rTrue)}`)
+      .join(' ') +
+    ' Z';
 
   const curvePath = IMP95790_CURVE_POINTS.map(
     (p, i) => `${i === 0 ? 'M' : 'L'} ${xOf(p.log10T)} ${yOf(p.rCap)}`,
@@ -48,12 +70,30 @@ function RCapChart() {
 
   return (
     <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+      {/* measurable regime (below ceiling, imp-95783) vs dead zone (above ceiling, imp-95766) */}
+      <rect x={xOf(xMin)} y={padT} width={xOf(ceilingLog10T) - xOf(xMin)} height={plotH} fill="rgba(52,211,153,0.05)" />
+      <rect x={xOf(ceilingLog10T)} y={padT} width={xOf(xMax) - xOf(ceilingLog10T)} height={plotH} fill="rgba(248,113,113,0.04)" />
+      <text x={xOf(xMin) + 4} y={padT - 6} textAnchor="start" fill="#34d399" fontSize={9}>
+        measurable regime (imp-95783)
+      </text>
+      <text x={xOf(xMax) - 4} y={padT - 6} textAnchor="end" fill="#f87171" fontSize={9}>
+        dead zone (imp-95766)
+      </text>
+
       {yTicks.map((t) => (
         <line key={`gy${t}`} x1={padL} y1={yOf(t)} x2={padL + plotW} y2={yOf(t)} stroke="#1e293b" strokeWidth={1} />
       ))}
 
       {/* (1 - r_cap) margin-below-one band */}
       <path d={bandPath} fill="rgba(96,165,250,0.10)" />
+
+      {/* imp-95783 sub-ceiling slack band s(T) = rTrue/rCap between the true ratio and the envelope */}
+      <path d={slackBandPath} fill="rgba(52,211,153,0.18)" />
+      <path d={rCapSubPath} fill="none" stroke="#60a5fa" strokeWidth={1.5} strokeDasharray="2 3" />
+      <path d={rTrueSubPath} fill="none" stroke="#34d399" strokeWidth={2} />
+      {measuredRows.map((r) => (
+        <circle key={`rtrue-${r.Tc}`} cx={xOf(r.log10Tc)} cy={yOf(r.rTrue)} r={2.5} fill="#34d399" />
+      ))}
 
       {/* GUE / margin-top asymptote r_cap = 1 */}
       <line x1={padL} y1={gueY} x2={padL + plotW} y2={gueY} stroke="#94a3b8" strokeWidth={1} strokeDasharray="4 4" />
@@ -181,6 +221,13 @@ export default function Imp95790RCapDeadZoneViz() {
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         r_cap(T) vs height (log scale), margin-below-one shaded
       </h3>
+      <p style={{ color: '#64748b', fontSize: '0.78rem', marginBottom: '0.5rem', maxWidth: 700 }}>
+        Green shading (below the ceiling) overlays the imp-95783 measured-regime slack band:
+        the solid green line is the true ratio r(T), the dashed blue line the envelope r_cap(T)
+        recomputed at the same six heights, and the gap between them is the slack s(T) = r/r_cap
+        &isin; [0.7244, 1.0000]. Red shading (above the ceiling) is the imp-95766 dead zone, where
+        no verified ordinates exist to measure that gap.
+      </p>
       <RCapChart />
 
       <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '1.25rem' }}>

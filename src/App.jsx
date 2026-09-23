@@ -1105,6 +1105,9 @@ const Imp95624MtyVsVkCrossoverViz = lazy(() =>
 const Imp95645KroneckerTransferConstantViz = lazy(() =>
   import('./pages/Imp95645KroneckerTransferConstantViz.jsx')
 );
+const Imp95646TransitionKnee2DHeatmapViz = lazy(() =>
+  import('./pages/Imp95646TransitionKnee2DHeatmapViz.jsx')
+);
 const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
   import('./pages/Imp95565AlphaOverOneMajorantMassFractionViz.jsx')
 );
@@ -3043,6 +3046,10 @@ function AppShell() {
           <Route
             path="/viz-imp95645-kronecker-transfer-constant"
             element={<Imp95645KroneckerTransferConstantViz />}
+          />
+          <Route
+            path="/viz-imp95646-transition-knee-2d-heatmap"
+            element={<Imp95646TransitionKnee2DHeatmapViz />}
           />
           <Route
             path="/viz-imp95565-alpha-over-one-majorant-mass-fraction"

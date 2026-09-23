@@ -2490,6 +2490,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the frozen imp-95616 independent-grid reproduction of the imp-95604 witness verbatim (no re-derivation); a measurement of an existing transfer-constant quantity, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95646-transition-knee-2d-heatmap',
+      title: 'Joint (C_C, E_trunc) Transition-Before-Knee Gap Contour',
+      oneLine:
+        'Heatmap of the imp-95617 joint 2-D (C_C, E_trunc) multiplier sweep over [0.5x, 1.5x]^2, shading the gap = log10 N_knee - log10 N_cross field, overlaying the rising gap = 0 inversion contour, and marking the pinned point and the low-C_C/high-E_trunc box-corner minimum.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95646-transition-knee-2d-heatmap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95617-transition-knee-ordering-joint-2d.js (IMP95617_TRANSITION_KNEE_ORDERING_JOINT_2D jointSweep/inversionContour/pinnedDistance; imp-95646 viz page)',
+      ticket: 'imp-95646',
+      pedagogicalStep: 160,
+      honestCeiling:
+        'Presentation/measurement only: re-implements the imp-95617 kernel standalone at a denser render-friendly grid resolution (no re-derivation, no fresh term); a sensitivity diagnostic on the imp-95582 F3 transition-before-knee ordering, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

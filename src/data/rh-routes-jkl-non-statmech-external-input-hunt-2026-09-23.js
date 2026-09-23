@@ -246,6 +246,33 @@ export const ROUTE_L = Object.freeze({
       resolutionLimited: true,
       verdict: 'RESOLUTION-LIMITED, not intrinsic: PD-fail order moves 40 -> 56 -> 77 -> 1345 as dps 40 -> 70 -> 100 -> 150 (none through 800 at dps 200), tracking the 10^{-DPS} moment noise floor amplified by 0.9^{-n}; the intrinsic min slack floor 0.0308849 sits at the FIXED interior order k = 68 and the Schur/Verblunsky sequence RECEDES from the unit circle (block-max |alpha| 0.969 -> 0.13 by k = 1300), so PD holds for all N and no genuine positivity obstruction exists.',
       scripts: Object.freeze(['tmp/rh-routes-jkl/route-l2-dps40-N1500.log', 'tmp/rh-routes-jkl/route-l2-dps70-N1500.log', 'tmp/rh-routes-jkl/route-l2-dps100-N1500.log', 'tmp/rh-routes-jkl/route-l2-dps150-N1500.log']),
+      // imp-96068: extend the dps sweep to 250 and 300 (fresh imp-96067 pipeline: own Cauchy lambda_n
+      // extraction on |z|=0.9 with M=2048, own Levinson-Durbin; NMAX=800). BOTH dps runs return
+      // BIT-IDENTICAL Verblunsky data to every printed digit and to the dps=200 values, so the
+      // intrinsic min-slack PD floor is DPS-INDEPENDENT, cleanly separated from the resolution-limited
+      // PD-fail order (which moved 40 -> 56 -> 77 -> 1345 as dps 40 -> 70 -> 100 -> 150).
+      dpsFloorConfirmation: Object.freeze({
+        ticket: 'imp-96068', a: 20, NMAX: 800,
+        // [dps, min 1-|alpha|, max|alpha|, interior order (1-indexed Levinson), first PD-fail order]
+        rows: Object.freeze([
+          [250, 0.0308848839, 0.9691151161, 69, null],
+          [300, 0.0308848839, 0.9691151161, 69, null],
+        ]),
+        identicalToAllPrintedDigits: true,
+        lambda1: 26.661980955994004975, lambda1ClosedFormDiff: 7.21e-89, c0: 53.323961911988009949,
+        // block-max |alpha| per 100 orders (identical at dps 250 and 300) -> Verblunsky sequence
+        // RECEDES from the unit circle, corroborating the dps=200 recession (0.969 -> 0.13 by k=1300)
+        blockMaxAbsAlpha: Object.freeze([
+          [1, 100, 0.9691151161], [101, 200, 0.7189745067], [201, 300, 0.4384965902],
+          [301, 400, 0.3405401197], [401, 500, 0.2722096207], [501, 600, 0.2533760498],
+          [601, 700, 0.2269041543], [701, 799, 0.1928569608],
+        ]),
+        // the prior blocks report the interior peak at k=68; this run 1-indexes the same peak at k=69
+        floorOrderNote: 'same fixed interior peak; imp-96045/96046/96067 label it k=68, this runs 1-indexed print labels it k=69 (max|alpha| value 0.9691151161 identical)',
+        verdict: 'DPS-INDEPENDENT: min-slack floor 0.0308848839 (= 0.0308849) and max|alpha| 0.9691151161 are bit-identical at dps 200, 250, 300 and no PD-fail occurs through NMAX=800; the intrinsic floor is confirmed separate from the resolution-limited (10^{-DPS} noise-floor) PD-fail wall, and the block-max recession persists -> no positivity obstruction emerges. NO QED; Route L stays NOT-A-LEVER; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+        subGap: 'SG-96068-recession: NMAX capped at 800, so recession only reached 0.1929 here; the full 0.13-by-k=1300 tail and the analytic reach law N_res(gamma) are still not re-derived at dps 250/300.',
+        scripts: Object.freeze(['tmp/imp-96068-route-l-floor-dps250-300.py', 'tmp/imp-96068-dps250.log', 'tmp/imp-96068-dps300.log']),
+      }),
     }),
   }),
   // DETECTOR REACH: replace the on-line pair at true zero γ_0 by the FE-symmetric off-line quadruple
@@ -393,6 +420,23 @@ export const RH_ROUTES_JKL_ASSERTIONS = Object.freeze([
       return receding && sublinear;
     },
     why: 'imp-96045: extending the a=20 truncation 400 -> 800 (dps 200) shows PD does NOT break (min slack 0.0309 unchanged, e_799/e_0 = 3.9e-79 >> floor 1e-185, Schur params recede 0.969 -> 0.227) and REFUTES the linear reach gamma_{N/10} (measured reach index 55 at N=800 vs linear prediction 80, ~N^0.5 growth). Measure only; NO QED.',
+  },
+  {
+    id: 'L-min-slack-floor-dps-independent-imp96068',
+    holds: () => {
+      const d = ROUTE_L.a20.pdBreakdownAssessment.dpsFloorConfirmation;
+      if (!d || d.rows.length !== 2) return false;
+      // dps 250 and 300 return bit-identical floor + max|alpha| and no PD-fail through NMAX=800
+      const [r250, r300] = d.rows;
+      const identical = r250[1] === r300[1] && r250[2] === r300[2] && r250[3] === r300[3]
+        && r250[4] === null && r300[4] === null;
+      // floor matches the dps=200 intrinsic value from the imp-96046 sweep
+      const matchesDps200 = Math.abs(r250[1] - ROUTE_L.a20.pdBreakdownAssessment.minSlackFloor) < 1e-6;
+      // block-max |alpha| strictly recedes from the unit circle (moves AWAY -> no obstruction)
+      const receding = d.blockMaxAbsAlpha.every((row, i, A) => i === 0 || row[2] < A[i - 1][2]);
+      return identical && matchesDps200 && receding && d.identicalToAllPrintedDigits === true;
+    },
+    why: 'imp-96068: at dps 250 and 300 the Route L Verblunsky data is bit-identical to the dps=200 run (min slack 0.0308848839, max|alpha| 0.9691151161, no PD-fail through NMAX=800) and the block-max |alpha| recedes 0.969 -> 0.193, so the intrinsic min-slack PD floor is DPS-INDEPENDENT, cleanly separated from the resolution-limited PD-fail wall; no positivity obstruction. Measure only; NO QED.',
   },
   {
     id: 'honest-no-external-input-found-no-qed',

@@ -343,6 +343,18 @@ const DATA_MODULES = [
   // 2theta' - m_2, < 3% from the archimedean window [0, 3.6). Companion to Route I (does not edit it).
   // Import-light (Route I / H exports only). Assertions ~6 s (N = 24 pencils at four a + analytic symbol windows).
   '/src/data/rh-route-i-pencil-highres-map-2026-09-23.js',
+  // rh-route-i-sonine-excess-semilocal-port (2026-09-23): the Connes–Consani Sonine REFINEMENT (arXiv:2006.13771 Thm 4.7 /
+  // Prop 5.5 / Thm 6.11) ported to the semilocal S={oo,2} identity. Exact algebra W_oo + W_2 = Tr(vartheta S_S) - E_S;
+  // semilocal prolate spectrum computed exactly (FFT–Mellin, no dyadic truncation): lam_S(0) = 0.9999731, lam_S(1) = -0.9927,
+  // dyadic ladder ±2^{-n/2}/2, no eigenvalue of modulus 1 (proved). Excess eps_S = delta^out + corr with delta^in(rho) =
+  // rho^{-1/2} br(1/rho) in closed form: eps_S inherits EXACTLY HALF of the log cusp of delta_S at rho = 2 (per-log2
+  // coefficients 0.7071/0.3536/0.3536), so for 2a > ln 2 the CC operator E_S o Q is indefinite and unbounded above along
+  // the p=2 resonances t_k = 2pi k/ln2 (half-split 210 vs predicted 202 at a=0.5, k=32; E_S o Q > 0 from k=6): CC's
+  // sufficient condition E o Q <= c|ghat(0)|^2 fails for every a > (ln2)/2, no finite-rank fix possible. Also: Q-trick
+  // reformulation, symbol landscape (resonance dip (6.945,10.532) min -50.7), minimizer band decomposition (binding
+  // negativity = first p=2 resonance window), moment ladder, one-prime reach a_2 = 0.565920 (= ln3 + 0.033 in 2a).
+  // No positivity past ln 2 proved. Import-light (Route H/I only; no zeros bundle). Assertions ~15 s.
+  '/src/data/rh-route-i-sonine-excess-semilocal-port-2026-09-23.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

@@ -973,6 +973,14 @@ export const IMP95519_LOCALIZED_BARRIER_SUM_NOGO_ASSERTIONS = [
       GP_RESID_ALL_UNDER_1E12 === 24,
   },
   {
+    id: 'imp95620-gauss-plancherel-per-prime-regression-guard',
+    description:
+      'each of the 25 sieving-prime Gauss-Plancherel residuals (not just the aggregate worst-case reduce) is finite and below the 1e-10 float64-roundoff tolerance, guarding the exact-DFT-isometry claim against a NaN/Infinity silently escaping a max-reduce seeded at 0',
+    holds: () =>
+      GP_RESID_ALL_PRIMES.length === 25 &&
+      GP_RESID_ALL_PRIMES.every((r) => Number.isFinite(r.residual) && r.residual < 1e-10),
+  },
+  {
     id: 'imp95680-toy-kernel-gauss-plancherel-per-h',
     description:
       'on a non-von-Mangoldt toy kernel, the per-h alias formula A_h = (1/(p-1))[-S_0 + sum chi(h) tau(chi-bar) S_chi] and the summed p/(p-1) identity both hold to roundoff, with |tau(chi-bar)|^2 = p, at p = 5, 7, 11, 13',

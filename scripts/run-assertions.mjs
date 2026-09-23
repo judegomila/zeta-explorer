@@ -18300,6 +18300,13 @@ const DATA_MODULES = [
   // imp-95801 catalog no such table exists in-repo so 0 decades are actually bought; reaching
   // the window bottom needs ~1.24e13 consecutive ordinates. Import-light, no bound, NO QED.
   '/src/data/imp-95863-intermediate-ordinate-table-reach-ledger.js',
+  // imp-95884: assesses whether Odlyzko-style LOCAL high blocks near T=1e20..1e23 could
+  // calibrate the imp-95722 r_cap envelope despite overshooting T=3e12 by 7.5-10.5 decades.
+  // Decomposing r_cap = [Selberg log log T + C0]/Sigma^2: the shape is analytic and the only
+  // empirical input C0 is a finite-height offset, so a high block pins the wrong (near-asymptotic)
+  // regime -- high blocks confirm the falling trend but cannot tighten r_cap(3e12). Import-light,
+  // no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95884-odlyzko-high-block-calibration-assessment.js',
   // imp-95804: assesses whether a single univariate function of the reach
   // L = delta*(1+rho) fits all 13 cells of the imp-95785 union twin-pair biasPct
   // grid. biasPct IS monotone-decreasing in L and a cubic-in-ln(L) model fits the

@@ -17869,6 +17869,13 @@ const DATA_MODULES = [
   // is offset-sensitive (~+/-7.5%) but the conservatism r_cap < 1 is robust (whole interval far below 1).
   // Import-light, sensitivity assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
   '/src/data/imp-95748-number-variance-ratio-c0-sensitivity.js',
+  // imp-95750: ASSESSES how far up the ~6.78-decade dead zone the direct sd(C - E) measurement can
+  // reach with in-repo zero data. The largest verified ordinate is gamma_1e6 = 6.003e5 (last entry
+  // of ZEROS_EXTENDED), a hard ceiling only ~0.079 decade (~2.4%) into the 3.36-decade gap from the
+  // imp-95710 measured top (5e5) to the imp-95729 crossover (1.14e9); no other in-repo zero table
+  // reaches higher, so ~97.6% of the gap stays reliant on the imp-95722 derived envelope. Import-light,
+  // assessment only, no bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
+  '/src/data/imp-95750-number-variance-deadzone-measurement-reach.js',
   // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
   // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
   // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no

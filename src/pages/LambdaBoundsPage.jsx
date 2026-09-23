@@ -712,6 +712,42 @@ export default function LambdaBoundsPage() {
                   <div style={{ fontStyle: 'italic' }}>{displayCaveat(s.rigorousUpgradeGap.caveat)}</div>
                 </div>
               )}
+              {s.conditionalBookkeeping && (
+                <div
+                  style={{
+                    fontSize: 11,
+                    color: 'var(--faint)',
+                    marginBottom: 10,
+                    padding: '8px 10px',
+                    borderRadius: 6,
+                    background: 'rgba(181,46,46,0.06)',
+                    border: '1px solid rgba(181,46,46,0.25)',
+                  }}
+                >
+                  <div style={{ marginBottom: 6 }}>
+                    <strong style={{ color: 'var(--red, #b52e2e)' }}>
+                      Conditional bookkeeping (B1-B3):
+                    </strong>{' '}
+                    {s.conditionalBookkeeping.framing}
+                  </div>
+                  <ul style={{ margin: '0 0 6px 18px', padding: 0, lineHeight: 1.5 }}>
+                    {s.conditionalBookkeeping.items.map((it) => (
+                      <li key={it.key}>
+                        <span style={statusChip(it.closed ? 'closed' : 'open')}>
+                          {it.closed ? 'CLOSED' : 'BLOCKED'}
+                        </span>{' '}
+                        <strong>{it.label}:</strong> {it.need}
+                        {it.blockedOn && (
+                          <div style={{ fontStyle: 'italic', marginTop: 2 }}>
+                            Blocked on: {it.blockedOn}
+                          </div>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                  <div style={{ fontStyle: 'italic' }}>{displayCaveat(s.conditionalBookkeeping.caveat)}</div>
+                </div>
+              )}
               <div>
                 {s.tickets.map((t) => ticketLink(t))}
               </div>

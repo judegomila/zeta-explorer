@@ -132,6 +132,11 @@ export const IMP95562_MEANSQUARE_VS_POINTWISE_GAP = {
   if (!(avgVarRatio > 0 && avgVarRatio < 1)) throw new Error('imp-95562: var ratio outside (0,1)');
   // worst windows are a few sigma (Gaussian tail), not anomalous spikes
   for (const r of ROWS) if (!(r.worstSigma > 2 && r.worstSigma < 4)) throw new Error('imp-95562: anomalous worst-sigma');
+  // honesty gate: this is a measurement, not a bound change -- verdict must keep asserting NO QED and PT SOTA
+  if (!/NO QED/.test(IMP95562_MEANSQUARE_VS_POINTWISE_GAP.verdict))
+    throw new Error('imp-95562: verdict dropped the NO QED banner');
+  if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95562_MEANSQUARE_VS_POINTWISE_GAP.verdict))
+    throw new Error('imp-95562: verdict dropped the PT Lambda <= 0.2 SOTA banner');
 })();
 
 export default IMP95562_MEANSQUARE_VS_POINTWISE_GAP;

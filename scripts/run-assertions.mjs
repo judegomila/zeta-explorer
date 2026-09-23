@@ -18251,6 +18251,16 @@ const DATA_MODULES = [
   // m-dependence. Also refines imp-95861: the raw cell count is O(m), not m-free. Import-light, no
   // bound, NO QED.
   '/src/data/imp-95877-transport-identity-tractability-assessment.js',
+  // imp-95900: attempts a per-locus quadratic coefficient law for the imp-95877 TIER-3 sub-leading
+  // s_J(m,cell), c_J(m,cell). Differentiating the Q_0 sector in m gives the exact decomposition
+  // dQ/dm(m) = C_1 + D_3(m) with C_1 = -2 INT_0^1 v^2 zeta(3,1+v) dv = -0.2006346034029 the m-free
+  // TIER-1 curvature contribution. Solving with the imp-95822 Q0_RECON gives D_3(m) = -C_1 to ~5 sig
+  // figs on every sweep interval, so the TIER-3 m-dependence is NOT a small residual (imp-95877
+  // framing) but an O(1) drift equal-and-opposite to the curvature drift -- Q_0 near-constancy is a
+  // cancellation. This pins the aggregate TIER-3 m-slope to +0.2006346034029 (a necessary check on any
+  // candidate law) but does not attribute it per-locus (greedy lowest-mass K_v selection still open).
+  // Import-light (baked C_1 literal + Q0_RECON), no bound, NO QED.
+  '/src/data/imp-95900-tier3-per-locus-cancellation.js',
   // imp-95878: derives the imp-95861 INDEPENDENT-route PIECE A candidate -- the only closed-form
   // c_odd(1/m) generalizing Sun (6.23) without a fresh v-integral is the pure-rho^2-shape null
   // kappa/m^2 (prefactor forced by 6.19-6.21). Evaluated at m=22,30,41 and compared to the baked

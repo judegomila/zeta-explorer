@@ -2519,6 +2519,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation/measurement only: re-implements the imp-95621 condition-number kernel standalone at a denser render-friendly delta grid (no re-derivation, no fresh term); a numerical precision diagnostic for the theta-dual mandate, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95731-number-variance-ratio',
+      title: 'Number-Variance Ratio r(T) vs Height and the Window-Reach Gap',
+      oneLine:
+        'Chart of the imp-95710 finite-height pointwise-variance/GUE number-variance ratio r(T) over the six measured heights T=1e4..5e5 (band [0.349,0.480], mean 0.402), with the GUE asymptote r=1 and a marked ~6.8-decade unmeasured gap out to the imp-95519 window bottom T=3.0e12.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95710-number-variance-ratio-vs-height.js',
+      paperSourcePath:
+        'src/data/imp-95710-number-variance-ratio-vs-height.js (IMP95710_NUMBER_VARIANCE_RATIO_VS_HEIGHT tabulation; imp-95731 viz page)',
+      ticket: 'imp-95731',
+      pedagogicalStep: 168,
+      honestCeiling:
+        'Presentation/measurement only: re-plots the frozen imp-95710 tabulation verbatim (no re-derivation, no fresh term); the conservatism r<1 is established only across the measured window, and the extrapolation to the imp-95519 window bottom is a named, unmeasured sub-gap; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95548-per-prime-sbar-budget',
       title: 'Per-Prime S-bar Budget: the l2-Collapse Route vs R_ex = 0.2797',
       oneLine:

@@ -6,6 +6,8 @@ import {
   IMP95697_CAVEAT_BANNER,
 } from '../data/imp-95697-szego-finite-size-decay-viz-data.js';
 import { IMP95767_DUAL_PRIMAL_AGREEMENT_INTERVAL } from '../data/imp-95767-dual-primal-agreement-interval.js';
+import { IMP95825_FINITE_SECTION_POSITIVITY_CERTIFICATE } from '../data/imp-95825-finite-section-positivity-certificate.js';
+import { IMP95823_RHO1_SZEGO_DIRECT_DD_EIGENSOLVE } from '../data/imp-95823-rho1-szego-direct-dd-eigensolve.js';
 
 const ROWS = IMP95697_ROWS;
 
@@ -225,6 +227,60 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
           ))}
         </tbody>
       </table>
+
+      <div
+        style={{
+          margin: '1.5rem 0 0',
+          padding: '0.75rem 1rem',
+          background: 'rgba(167,139,250,0.06)',
+          border: '1px solid rgba(167,139,250,0.22)',
+          borderRadius: '4px',
+          fontSize: '0.82rem',
+          color: '#cbd5e1',
+        }}
+      >
+        <strong style={{ color: '#a78bfa' }}>
+          Same nPts, cancellation-free route (imp-95823 direct double-double
+          eigensolve):
+        </strong>{' '}
+        recomputing F / A_opt at the same four section sizes in double-double
+        precision removes the float64 cancellation floor entirely -- every
+        ratio sits <em>strictly above</em> the imp-95825 certified floor{' '}
+        {IMP95825_FINITE_SECTION_POSITIVITY_CERTIFICATE.ratioLowerBound} and
+        decays monotonically toward it, with no sub-1 undershoot at nPts = 640.
+        <table
+          style={{
+            width: '100%',
+            marginTop: '0.6rem',
+            borderCollapse: 'collapse',
+            fontSize: '0.78rem',
+          }}
+        >
+          <thead>
+            <tr style={{ color: '#94a3b8', textAlign: 'left', borderBottom: '1px solid #334155' }}>
+              <th style={{ padding: '0.4rem 0.6rem' }}>nPts</th>
+              <th style={{ padding: '0.4rem 0.6rem' }}>float64 F / A_opt</th>
+              <th style={{ padding: '0.4rem 0.6rem' }}>direct-DD F / A_opt</th>
+            </tr>
+          </thead>
+          <tbody>
+            {IMP95823_RHO1_SZEGO_DIRECT_DD_EIGENSOLVE.table.map((ddRow) => {
+              const float64Row = ROWS.find((r) => r.nPts === ddRow.nPts);
+              return (
+                <tr key={ddRow.nPts} style={{ borderBottom: '1px solid #1e293b', color: '#cbd5e1' }}>
+                  <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>{ddRow.nPts}</td>
+                  <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace' }}>
+                    {float64Row ? float64Row.ratio.toFixed(6) : '--'}
+                  </td>
+                  <td style={{ padding: '0.4rem 0.6rem', fontFamily: 'monospace', color: '#a78bfa' }}>
+                    {ddRow.ratio.toFixed(6)}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

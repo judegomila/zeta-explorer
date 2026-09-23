@@ -17762,6 +17762,10 @@ const DATA_MODULES = [
   // 1/20 anchor -- records that no second independent numeric anchor exists (two-point test
   // not executable, sub-gap OPEN) and guards the kappa-insensitive downstream margin band.
   '/src/data/imp-95653-c-odd-second-anchor-shape-test.js',
+  // imp-95658: import-light baked-literal viz-data for a future E_flow-attribution chart -- the
+  // imp-95639 (includeFlow on/off) gap surfaces + gap = 0 contours over the [0.5x, 1.5x]^2 box.
+  // Carries cheap self-check assertions (baked grid min ~ -0.00468 vs +0.01708) with no quadrature.
+  '/src/data/imp-95658-eflow-inversion-contour-surface-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

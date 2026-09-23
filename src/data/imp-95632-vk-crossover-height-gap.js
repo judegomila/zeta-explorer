@@ -96,4 +96,17 @@ export const IMP_95632_VK_CROSSOVER_HEIGHT_GAP = {
     Math.abs(CROSSOVER_LOG_T / WINDOW_TOP_LOG_T - 273.2) < 1,
 };
 
+export const IMP_95632_VK_CROSSOVER_HEIGHT_GAP_ASSERTIONS = [
+  {
+    name: 'height-gap self-check holds',
+    holds: () => IMP_95632_VK_CROSSOVER_HEIGHT_GAP.holds(),
+  },
+];
+
+for (const a of IMP_95632_VK_CROSSOVER_HEIGHT_GAP_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-95632-vk-crossover-height-gap assertion failed: ${a.name}`);
+  }
+}
+
 export default IMP_95632_VK_CROSSOVER_HEIGHT_GAP;

@@ -107,4 +107,17 @@ export const IMP_95619_VK_CROSSOVER_RECONCILE = {
     Number(CROSSOVER_LOG_T.toPrecision(3)) === 1.02e4,
 };
 
+export const IMP_95619_VK_CROSSOVER_RECONCILE_ASSERTIONS = [
+  {
+    name: 'crossover reconciliation self-check holds',
+    holds: () => IMP_95619_VK_CROSSOVER_RECONCILE.holds(),
+  },
+];
+
+for (const a of IMP_95619_VK_CROSSOVER_RECONCILE_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-95619-vk-crossover-reconcile assertion failed: ${a.name}`);
+  }
+}
+
 export default IMP_95619_VK_CROSSOVER_RECONCILE;

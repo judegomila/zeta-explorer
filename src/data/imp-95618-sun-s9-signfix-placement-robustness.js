@@ -181,4 +181,10 @@ export const SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS_ASSERTIONS = Object.freeze([
   },
 ]);
 
+for (const a of SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-95618-sun-s9-signfix-placement-robustness assertion failed: ${a.name}`);
+  }
+}
+
 export default SUN_S9_SIGNFIX_PLACEMENT_ROBUSTNESS;

@@ -2800,6 +2800,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-plots the frozen imp-95743 and imp-95885 modules verbatim (no re-derivation, no fresh eigensolve); both certified DD-vs-dual intervals contain zero (consistent with agreement, not a separation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95888-rcap-window-bottom',
+      title: 'Number-Variance Ratio Cap r_cap(T): Window-Bottom Envelope',
+      oneLine:
+        'Log10-T chart of the imp-95722 derived r_cap(T) envelope bridging the ~6.78-decade gap from the imp-95710 measured ceiling T=5e5 (r_cap=0.4359) to the imp-95519 window bottom T=3.0e12 (r_cap=0.2599), the only in-repo lever that reaches that far.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95888-rcap-window-bottom-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95722-number-variance-ratio-window-bottom-bound.js (rows, windowBottom; imp-95888 viz page)',
+      ticket: 'imp-95888',
+      pedagogicalStep: 178.7,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95722 envelope verbatim (no re-derivation, no fresh measurement); the fine grid above the measured ceiling is the closed form evaluated for chart resolution, not new data; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95791-biaspct-vs-rho',
       title: 'Twin-Pair Finite-Size biasPct vs rho at delta=ln1.2',
       oneLine:

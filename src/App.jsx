@@ -1255,6 +1255,9 @@ const Imp95886DecadeReachLedgerViz = lazy(() =>
 const Imp95887SzegoDdToeplitzChainViz = lazy(() =>
   import('./pages/Imp95887SzegoDdToeplitzChainViz.jsx')
 );
+const Imp95888RcapWindowBottomViz = lazy(() =>
+  import('./pages/Imp95888RcapWindowBottomViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3351,6 +3354,10 @@ function AppShell() {
           <Route
             path="/viz-imp95887-szego-dd-toeplitz-chain"
             element={<Imp95887SzegoDdToeplitzChainViz />}
+          />
+          <Route
+            path="/viz-imp95888-rcap-window-bottom"
+            element={<Imp95888RcapWindowBottomViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -5,6 +5,7 @@ import {
   IMP95697_CROSSES_UNITY_NEAR_NPAIRS,
   IMP95697_CAVEAT_BANNER,
 } from '../data/imp-95697-szego-finite-size-decay-viz-data.js';
+import { IMP95767_DUAL_PRIMAL_AGREEMENT_INTERVAL } from '../data/imp-95767-dual-primal-agreement-interval.js';
 
 const ROWS = IMP95697_ROWS;
 
@@ -152,6 +153,36 @@ export default function Imp95697SzegoFiniteSizeDecayViz() {
           eigensolve, which reproduces this same section in extended precision
           away from the float64 cancellation floor.
         </span>
+      </div>
+
+      <div
+        style={{
+          margin: '0 0 1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(56,189,248,0.06)',
+          border: '1px solid rgba(56,189,248,0.22)',
+          borderRadius: '4px',
+          fontSize: '0.82rem',
+          color: '#cbd5e1',
+        }}
+      >
+        <strong style={{ color: '#38bdf8' }}>
+          imp-95767 dual-vs-primal consistency interval (delta = ln 1.3):
+        </strong>{' '}
+        the single-run 1.68e-2% agreement between the DD primal extrapolation
+        A_fit and the cancellation-free dual A_opt is certified as a signed
+        interval (A_fit&#8722;A_opt)&#47;A_opt &#8712;{' '}
+        <span style={{ fontFamily: 'monospace' }}>
+          [{IMP95767_DUAL_PRIMAL_AGREEMENT_INTERVAL.rInterval.lo.toExponential(3)},{' '}
+          {IMP95767_DUAL_PRIMAL_AGREEMENT_INTERVAL.rInterval.hi.toExponential(3)}]
+        </span>
+        , i.e. &#124;A_fit&#8722;A_opt&#124;&#47;A_opt &#8804;{' '}
+        {(IMP95767_DUAL_PRIMAL_AGREEMENT_INTERVAL.absRMax * 100).toFixed(3)}%. The
+        interval <strong>contains zero</strong> -- the two routes are certified
+        consistent with exact agreement -- and its half-width is dominated by
+        the primal finite-grid extrapolation uncertainty (u_fit&#47;u_opt
+        &#126; 1.3e12), so the dual quadrature side contributes nothing.
+        Cross-validation tightening only; changes no Lambda bound; NO QED.
       </div>
 
       <table

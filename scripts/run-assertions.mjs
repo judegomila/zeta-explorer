@@ -18115,6 +18115,10 @@ const DATA_MODULES = [
   // 1 as the uniform-lattice point count grows; names the float64 cancellation-floor sub-gap.
   // Standalone, no imports, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95677-rho1-szego-finite-size-convergence.js',
+  // imp-95833: viz-data reshape of imp-95677 carrying a float64-cancellation-floor caveat
+  // guard so the rho=1 F/A_opt < 1 undershoot can never be consumed as a real value below
+  // the symbol infimum. No bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95697-szego-finite-size-decay-viz-data.js',
   // imp-95679: cross-checks the imp-95660 bisected cf* wedge-closure multiplier against the
   // imp-95658 baked gap surfaces via a linear blend. Import-light (imp-95658 literals only),
   // no bound, NO QED, PT Lambda<=0.2 SOTA.
@@ -18138,6 +18142,16 @@ const DATA_MODULES = [
   // fit is forced by monotone L-segregation. Consistent but UNDETERMINED; sub-gap =
   // L-matched cross-delta cells. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95804-twin-pair-bias-reach-collapse-test.js',
+  // imp-95821: builds the L-matched cross-delta twin-pair grid imp-95804 named as
+  // missing (9 cells in 3 shared-reach triples, each placing ln1.2/ln1.3/ln1.5 at
+  // ONE reach L to <1e-10) and tests whether finite-N biasPct agrees across
+  // distinct deltas. Outcome H1-CONSISTENT: at each shared L the biasPct agree to
+  // within the finite-N oscillation envelope (best triple L=1.0137 to <=0.58 pct
+  // at every N), no systematic two-variable split -- but the finite-N biasPct
+  // oscillates strongly with N for the large-rho cells (real window-edge phase,
+  // eigenvalue converged), so discrimination is not conclusive. Sub-gap = the
+  // N->inf phase-averaged biasPct. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95821-twin-pair-overlapping-L-reach-collapse-test.js',
   // imp-95805: assesses whether EXCLUDING the C0-artifact T=1.5e5 touch from the
   // imp-95783 measured-regime slack s(T)=r/r_cap leaves a monotone five-height
   // sub-family that could bracket the true ratio r(T) from below as well as above.
@@ -18162,6 +18176,18 @@ const DATA_MODULES = [
   // relErr 2.35e-10) but a 7th-digit stale-value error in the imp-95707 baked
   // literal. Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95817-finf-ln15-rho1-dd-rebake.js',
+  // imp-95819: measures whether the imp-95779 O(N^2) DD Levinson Toeplitz lambda_min
+  // solver can reach N ~ 953-1142 at delta = ln 1.3 to shrink u_fit below the
+  // imp-95767 +1.68e-2% dual-vs-primal point gap. It CAN reach those N per-solve
+  // (N=953 in 42s, N=1142 in 59s) and reproduces the imp-95784 baked DD Jacobi grid
+  // to ~1e-11..1e-12, but the Toeplitz-forced sigma=0 inverse iteration UNDER-converges
+  // at those N (reach drive non-monotone at the top; still dropping at 3000 solves),
+  // so it cannot deliver the 13.6x u_fit shrink -- the reach-drive fit r=+0.188% is
+  // LARGER than r_point, not smaller. The imp-95767 interval stands unchanged and, per
+  // the imp-95784 one-signed monotone verdict, a converged solver would collapse it
+  // onto zero. Same blocker as ln 1.2: imp-95779-gap-robust-on2-toeplitz-bottom-eigsolver.
+  // Import-light, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95819-on2-dd-toeplitz-reach-ln13.js',
 ];
 
 let ALL_MODULES = FAST_MODE

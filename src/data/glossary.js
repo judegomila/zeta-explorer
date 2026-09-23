@@ -21718,6 +21718,32 @@ export const glossary = [
     ],
   },
   {
+    term: 'SPLIT Verdict / LEG A vs LEG B',
+    category: 'proof-status',
+    definition:
+      "imp-95436 (consolidating imp-95376). A SPLIT verdict is the answer format used when a question " +
+      "of the form \"does ingredient X alone make certificate value R admissible\" does not reduce to a " +
+      "single yes or no because the certificate family splits into sub-families with different answers. " +
+      "For the imp-95212 Fresnel-Airy envelope port, the question was whether the port plus the already- " +
+      "mapped per-window Q extraction suffice, on their own, to make a signed seam certificate value R an " +
+      "admissible bound on sqrt(Lambda) for the paper's actual seam functional. LEG A (count/depth-currency " +
+      "family: SGN-EQ, SGN-C, COAL-N, SPLIT-LOO) CLOSES -- these certificates use only transcribed geometry " +
+      "(depth, distinct-rate count, block angles), never the window's sign or amplitude pattern, so the " +
+      "Rayleigh-sup definition of Lambda (a supremum over every signed coefficient vector) already covers " +
+      "every sign pattern the paper window could have. LEG B (the envelope-domination inequality, living " +
+      "INSIDE the port itself) stays OPEN -- for any signed R to bound the paper window's ratio and not just " +
+      "the exponential model's, the port must separately prove LamBar_paper(d) <= Lambda(E_V, d) at every " +
+      "depth d, and matching rates/centers alone (a geometric substitution) does not establish this " +
+      "majorization. The distinction matters because \"the port maps geometry\" and \"the port makes R " +
+      "admissible\" turn out to be the same claim for LEG A but different claims for the program as a whole.",
+    firstUsed: 'imp-95436 (seam-port split-verdict writeup, consolidating imp-95376), 2026',
+    relatedTerms: [
+      'imp-95376 is the source assessment this writeup restates (fa-port-admissibility-assessment)',
+      'imp-95212 Fresnel-Airy envelope port is the object under assessment; LEG B remains open there',
+      'imp-95388 seam-chain obligation-ledger tracks the broader chain of seam certificate obligations',
+    ],
+  },
+  {
     term: 'Flow-Critical (member)',
     category: 'no-go',
     definition:

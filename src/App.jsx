@@ -1123,6 +1123,9 @@ const Imp95565AlphaOverOneMajorantMassFractionViz = lazy(() =>
 const Imp95566AliasEnergyInAlgebraViz = lazy(() =>
   import('./pages/Imp95566AliasEnergyInAlgebraViz.jsx')
 );
+const Imp95567DoublyExponentialHeightCeilingViz = lazy(() =>
+  import('./pages/Imp95567DoublyExponentialHeightCeilingViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -3079,6 +3082,10 @@ function AppShell() {
           <Route
             path="/viz-imp95566-alias-energy-in-algebra"
             element={<Imp95566AliasEnergyInAlgebraViz />}
+          />
+          <Route
+            path="/viz-imp95567-doubly-exponential-height-ceiling"
+            element={<Imp95567DoublyExponentialHeightCeilingViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

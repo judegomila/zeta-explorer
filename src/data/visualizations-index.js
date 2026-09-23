@@ -2546,6 +2546,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: recomputes flowedPickPencilMin from imp-95530 on a log-spaced eps grid and bakes the result as literals (no re-derivation, no fresh term); illustrates the A4(i) flow-stable-witness dichotomy, proves nothing beyond what imp-95530 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95567-doubly-exponential-height-ceiling',
+      title: 'RES-T Doubly-Exponential Detectable-Height Ceiling',
+      oneLine:
+        'Chart of ln E(T,delta) = ln ln(H_ceil(T,delta)/2pi) vs support T for the imp-95533/imp-95559 LEMMA RES-T (L4) ceiling H_ceil = 2pi exp(delta^2 S(T delta)^4 T^3), across delta = 0.1/0.25/0.5, with the edge-displacement first-exclusion T_X band [3.882, 4.147] over the verified-zero window X in [3e12, 1.9e16] shaded.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95567-height-ceiling-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95533-res-t-standalone-lemma.js (LEMMA RES-T L1-L4); src/data/imp-95559-res-t-moment-refined.js (refined (L4) ceiling table + T_X literals; imp-95567 viz page)',
+      ticket: 'imp-95567',
+      pedagogicalStep: 164,
+      honestCeiling:
+        'Presentation/measurement only: re-implements the imp-95533/imp-95559 ceiling kernel standalone at a denser render-friendly (T, delta) grid (no re-derivation, no fresh term); illustrates the (L4) doubly-exponential detectable-height law, proves nothing beyond what imp-95533/imp-95559 already state; supplies no T > T_X existence proof; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

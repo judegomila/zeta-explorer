@@ -22299,6 +22299,35 @@ export const glossary = [
       'imp-95845-deep-corner-biasN2-widom-fit is the module fitting the full biasPct*N^2 drift ladder to the C_Widom asymptote',
     ],
   },
+  {
+    term: 'Two-Sided Finite-Section Spectral Envelope [ess-inf f, ess-sup f] = [A_opt(delta), f(0)]',
+    category: 'concept',
+    definition:
+      'A quick-lookup headword for the two-sided bound trapping the whole spectrum of the rho=1 ' +
+      'single-scale seam Gram G_n[j,k] = sech((j-k)*delta/2), a finite section of the positive Toeplitz ' +
+      'operator with symbol f(theta) = 1 + 2*sum_(m>=1) sech(m*delta/2)*cos(m*theta) > 0. For every ' +
+      'section size n and every eigenvalue lambda of G_n, ess-inf f <= lambda <= ess-sup f, with the ' +
+      'endpoints attained at the two symbol extrema ess-inf f = f(pi) = A_opt(delta) (the imp-95825 ' +
+      'lower companion) and ess-sup f = f(0) (the imp-95846 upper companion). Both endpoints come from ' +
+      'ONE Rayleigh-quotient squeeze: for unit v, v* G_n v = (1/2pi)*integral |p(theta)|^2 f(theta) d ' +
+      'theta with (1/2pi)*integral |p|^2 = 1, so ess-inf f <= v* G_n v <= ess-sup f pointwise; minimising ' +
+      'the left side over v gives lambda_min(G_n) >= ess-inf f, maximising the right gives ' +
+      'lambda_max(G_n) <= ess-sup f. The forward peak f(0) = 1 + 2*sum_(m>=1) sech(m*delta/2) is a ' +
+      'cancellation-free sum and stays numerically reachable at every delta, whereas the infimum ' +
+      'A_opt(delta) = f(pi) falls to the float64 cancellation floor at small delta (imp-95825), so the ' +
+      'upper companion is the delta-uniformly reachable half of the envelope. imp-95862 formalizes both ' +
+      'companions as one delta-uniform tracked statement and notes the envelope is exact only on the ' +
+      'scalar-Toeplitz rho=1 line; off that line the seam Gram is block-Toeplitz and the scalar endpoints ' +
+      'give way to a matrix-valued symbol envelope. Documentation only; establishes nothing new; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95825 (lower companion, ess-inf f = A_opt), 2026; completed by imp-95846 (upper companion, ess-sup f = f(0)), 2026; formalized as one delta-uniform statement by imp-95862, 2026',
+    relatedTerms: [
+      'imp-95825-finite-section-positivity-certificate is the module proving lambda_min(G_n) >= ess-inf f = A_opt at well-conditioned deltas',
+      'imp-95846-finite-section-upper-companion-bound is the module proving lambda_max(G_n) <= ess-sup f = f(0)',
+      'imp-95862-delta-uniform-two-sided-envelope-statement is the module formalizing both companions as one delta-uniform Rayleigh-quotient squeeze',
+      'imp-95419-separated-class-optimal-riesz-floor is the module supplying the theta-dual identity ess-inf f = A_opt',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

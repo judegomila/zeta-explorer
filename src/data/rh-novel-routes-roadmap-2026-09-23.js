@@ -52,7 +52,12 @@ export const RH_NOVEL_ROUTES = Object.freeze({
         + 'test on the low ζ-zeros (and analytically) whether the force is monotone toward '
         + 'σ=½ (a confining drift). Monotonicity = a genuine non-soft lever.',
       payoff: 'Directly answers the flow-blindness no-go (arithmetic input the soft flow lacks)',
-      status: 'to-test',
+      status: 'first-test-done (imp-95999): reflection-symmetric additive prime-field source '
+        + 'F(s,τ)=ξ(s)+τΨ(s), force dρ/dτ=−Ψ(ρ)/ξ′(ρ) (prime field / Coulomb field). '
+        + 'VERDICT fixed-point-yes / stability-open: σ=½ is an EXACT fixed point of the '
+        + 'arithmetic flow (Re Ψ even in δ), but the confining curvature 2Σ_p(log p)³p^{−½}cos(γ ln p) '
+        + 'has a non-convergent finite-prime truncation (sign flips with cutoff) — sub-gap '
+        + 'B-STABILITY-SIGN needs the Coulomb-regularized −ζ′/ζ. No bound; NO QED.',
     },
     {
       key: 'C',

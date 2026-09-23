@@ -3163,6 +3163,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted point is copied verbatim from the imp-95982 baked departure table and even-branch fit literals (no re-derivation, no fresh quadrature); Q0_RECON is certified only at m=20, so this fits the reconstruction, not a Prop-6.3-certified per-m quantity; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96016-vars-constant-stack',
+      title: 'Var S(T) Constant Stack: Fixed Arithmetic Core vs the I_F RH Bracket',
+      oneLine:
+        'Plots the imp-95984 b = I_F + M + P2 decomposition as a constant stack -- a thin fixed arithmetic-core bar vs the wide I_F pair-correlation bar spanning its (2/3-eps, 2) RH bracket, marks the conjectural I_F=1 point, and compares the induced a_0 = -0.176248 (published) against the imp-95940 empirical mean -0.116.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95984-fujii-varS-constant-literature-locate.js',
+      paperSourcePath:
+        'src/data/imp-95984-fujii-varS-constant-literature-locate.js (decomposition, unavailableTerm, bValues; imp-96016 viz page)',
+      ticket: 'imp-96016',
+      pedagogicalStep: 203,
+      honestCeiling:
+        'Presentation only: every bar and marker is copied verbatim from the imp-95984 baked literature-located literals (Chan Thm 1.1 bracket, Mertens/P2 sums, imp-95940 empirical mean); no re-derivation of the pair-correlation integral, no fresh quadrature; I_F=1 stays conjectural (Montgomery pair correlation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

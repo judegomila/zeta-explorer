@@ -17813,6 +17813,14 @@ const DATA_MODULES = [
   // leading-log closed form D_cross ~ 2 ln[4(1-e^-d/2)^2/(1-sech(d/2))] shows D_cross is logarithmic in
   // delta, deriving the stability. Import-light, finite-size proxy carried, no bound, no QED, PT Lambda<=0.2.
   '/src/data/imp-95703-twin-pair-half-retention-scale-derivation.js',
+  // imp-95726: VERIFIES the imp-95703 half-retention closed form S(delta,D_cross)=blockIso/2 is the
+  // INFINITE-lattice limit. Recomputing the true D_cross with the identical exact Jacobi lambda_min at
+  // nPairs=40,80,160 shows the imp-95703 ~3.5e-3 residual (D_closed - D_true) decays as 1/nPairs^2
+  // (factor ~3.96 then ~3.98 per doubling), and an h^2 Richardson extrapolation (4*D160-D80)/3 of the
+  // finite sections matches the closed form to ~1.6e-6 at every delta -- CONFIRMING the residual is a
+  // finite-size chain-end band-edge effect, not a first-order perturbation-theory model error.
+  // Import-light (baked literals + cheap re-derivation), no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95726-twin-pair-half-retention-finite-size-limit.js',
   // imp-95710: TABULATES the imp-95562 finding-4 finite-height number-variance ratio r(T) =
   // measured pointwise variance / GUE Sigma^2(L) vs height. The per-height ratio does NOT trend
   // toward the GUE asymptote 1 -- it sits in [0.35, 0.48] (mean 0.40) across T = 1e4..5e5 with a

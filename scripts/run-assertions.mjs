@@ -18696,6 +18696,16 @@ const DATA_MODULES = [
   // rests on the analytic saturation law not the accessible data. Import-light, measurement only,
   // no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95941-offset-loglog-bracket-crossval.js',
+  // imp-95964: LOCATE the Selberg-Goldston-Fujii Var S(T) constant b to O(0.01) to pin
+  // a_0 = b - gamma - 1 (imp-95940) and collapse the crossing range, or record which term of
+  // the prime sum is unresolved. HONEST PARTIAL / PRECISE OBSTRUCTION: reconstructs b = M + P2 + K
+  // from Selberg diagonal second moment; PINS the convergent core -- Mertens M = 0.2614972128 and
+  // the prime-power double sum P2 = sum_{k>=2} sum_p 1/(k^2 p^k) = 0.139470636558 (b_diag = M+P2 =
+  // 0.400968) -- but the O(1) boundary/cutoff-matching constant K (~1.06 from the empirical a_0),
+  // ~100x the O(0.01) tolerance, is the ONE unresolved term the diagonal cannot supply. So b is NOT
+  // available to O(0.01), the crossing range does not collapse, and the unresolved term is K (NOT
+  // the prime sum) -- renamed sub-gap imp-95964-subgap-boundary-K. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95964-fujii-varS-constant-locate-obstruction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

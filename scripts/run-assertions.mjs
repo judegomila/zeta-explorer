@@ -18105,6 +18105,24 @@ const DATA_MODULES = [
   // p_inf ~ 1.98, approached from above). Exact limit unpinned (SUB-GAP, needs larger N /
   // quad-double). Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95803-twin-pair-deep-corner-bias-exponent-limit.js',
+  // imp-95824: DERIVES the imp-95803 deep-corner biasPct ~ N^{-p} exponent from finite-section
+  // (Kac-Murdock-Szego / Widom / Parter) edge theory. For a positive continuous Toeplitz symbol
+  // with a non-degenerate quadratic minimum the leading law is lambda_min(T_N)-m =
+  // (f''(theta_star)/2)(pi/(N+1))^2 + O(N^{-3}) -- p = 2 EXACTLY, universal in the sech coefficient
+  // decay (which only bounds the remainder). A degenerate quartic minimum would give the slower
+  // p = 4/3, so the imp-95803 measured drift toward p_inf ~ 1.98 confirms the minimum is quadratic.
+  // A closed-form toy symbol f = 1 - cos theta (T_N tridiagonal, eigenvalues 1 - cos(k pi/(N+1)))
+  // verifies both the N^{-2} power and the (f''/2)(pi/(N+1))^2 prefactor exactly. The residual
+  // biasPct*N^2 drift is the O(N^{-3}) subleading term, not a power change; the sech-symbol
+  // prefactor is not evaluated here (SUB-GAP inherited). Import-light, no zeros bundle, no bound,
+  // no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95824-deep-corner-bias-exponent-szego-theory.js',
+  // imp-95825: states and checks the finite-section positivity certificate lambda_min(G_n) >=
+  // ess-inf f = A_opt(delta) for the positive sech Toeplitz Gram, forcing F/A_opt >= 1 for all
+  // nPts and certifying the imp-95677 sub-1 (0.909) at delta=ln1.3 as pure float64 roundoff.
+  // Verified away from the cancellation floor at delta=3,5,8. No imports, no bound, NO QED, PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-95825-finite-section-positivity-certificate.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

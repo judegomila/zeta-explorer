@@ -17984,6 +17984,11 @@ const DATA_MODULES = [
   // differences are NOT sign-stable (signs -,+,-), a zigzag inherited from the non-monotone
   // Q_0 m-signal (dI = 1 - Q_0). Conditional on the +4 offset, only m=20 certified. NO QED.
   '/src/data/imp-95765-di-variation-four-moduli.js',
+  // imp-95768: offset-error budget for the imp-95749 conditional constant-J refutation and the
+  // imp-95720 c_odd(1/19). Both qualitative conclusions survive an offset error of 2.852e-5
+  // (~2.03e5x the measured m=20 residual 1.404e-10); only c_odd(1/19)'s trailing displayed
+  // digits are residual-sensitive (~2.57x). Import-light, no zeros bundle, no bound, no QED.
+  '/src/data/imp-95768-offset-error-budget-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

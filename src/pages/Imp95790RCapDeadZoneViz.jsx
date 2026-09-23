@@ -5,6 +5,7 @@ import {
   IMP95790_LANDMARKS,
   IMP95790_CAVEAT_BANNER,
 } from '../data/imp-95790-rcap-deadzone-viz-data.js';
+import { IMP95801_ORDINATE_SOURCE_REACH_AUDIT } from '../data/imp-95801-ordinate-source-reach-audit.js';
 
 const LANDMARK_COLOR = {
   ceiling: '#38bdf8',
@@ -151,6 +152,31 @@ export default function Imp95790RCapDeadZoneViz() {
         (1&nbsp;&minus;&nbsp;r_cap) between the envelope and the conservatism ceiling r_cap&nbsp;=&nbsp;1:
         it only WIDENS with height across the dead zone.
       </p>
+
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(56,189,248,0.06)',
+          borderLeft: '3px solid #38bdf8',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#38bdf8' }}>Verified-ordinate reach ceiling (imp-95801 audit):</strong>{' '}
+        the top verified Odlyzko ordinate anywhere in the repo is{' '}
+        gamma_1e6&nbsp;=&nbsp;{IMP95801_ORDINATE_SOURCE_REACH_AUDIT.reachCeiling.value.toExponential(6)}{' '}
+        ({IMP95801_ORDINATE_SOURCE_REACH_AUDIT.reachCeiling.source}). No other in-repo ordinate
+        source or repo-wide sweep reaches higher, so 0% of the dead zone above this ceiling is
+        closeable from in-repo data: all{' '}
+        {IMP95801_ORDINATE_SOURCE_REACH_AUDIT.deadZoneClosure.remainingToCrossoverDecades.toFixed(2)}{' '}
+        decades to the imp-95729 crossover and all{' '}
+        {IMP95801_ORDINATE_SOURCE_REACH_AUDIT.deadZoneClosure.remainingToWindowBottomDecades.toFixed(2)}{' '}
+        decades to the imp-95519 window bottom stay unreached by verified ordinates. Audit only;
+        changes no bound; NO QED.
+      </div>
 
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         r_cap(T) vs height (log scale), margin-below-one shaded

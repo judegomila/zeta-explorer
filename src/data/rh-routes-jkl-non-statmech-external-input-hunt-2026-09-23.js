@@ -71,6 +71,18 @@ export const ROUTE_J = Object.freeze({
   fejerLimit: Object.freeze({ c: 0.171573, R: 5.8284 }),
   classical341: Object.freeze({ a: [3, 4, 1], c: 0.028719, R: 34.821, note: 'reproduces de la Vallée Poussin’s classical constant R ≈ 34.8' }),
   mossinghoffTrudgian2015: 5.573412, // beats the pure-scheme floor via Stechkin/Heath-Brown weighting; STILL of the form c/log t
+  // imp-96050 — independent reproduction (fresh JS, not the assertion helpers): every fejerCeiling row
+  // recomputes from a_1/a_0 = 2cos(pi/(n+2)) with c_ceil = 2(1-(a_1/a_0)^{-1/2})^2, R_floor = 1/c_ceil
+  // to < 5e-7; the R -> 5.8284 limit is monotone-decreasing (n=1e5 -> 5.82843, exact 1/(2(1-1/sqrt2)^2));
+  // 3-4-1 gives R = 34.8205; and MT 5.573412 sits 0.255015 (4.375%) BELOW the pure-scheme Fejér floor.
+  fejerVerification: Object.freeze({
+    maxCeilingRowErr: 4.94e-7,   // max |mismatch| of a_1/a_0 and c_ceil vs the six baked rows
+    RfloorLimitCheck: 5.828427,  // 1/(2(1-1/sqrt2)^2), reproduces baked 5.8284 to 2.7e-5
+    R341Check: 34.8205,          // 2(sqrt4-sqrt3)^2/5 inverted, reproduces baked 34.821 to 5e-4
+    mtGapBelowFejerFloor: 0.255015, // R_inf(5.828427) - MT(5.573412): the Stechkin/Heath-Brown weighting gain
+    mtGapPct: 4.375,             // percent below the pure-scheme floor
+    verdict: 'All Route J Fejér ladder constants reproduce independently; MT 5.573 is 4.375% below the pure-scheme floor 5.8284. Verification only; changes no bound; NO QED.',
+  }),
   engines: Object.freeze([
     { engine: '(i) Weil: Hodge index / Castelnuovo on X×X', overQ: 'needs Spec Z ×_{F_1} Spec Z: Kurokawa ζ⊗ζ (zeros ρ_1+ρ_2) / Connes–Consani scaling-site square (Route H). Closed points of the self-product for rationally independent log p, log q are 2-tori (Frobenius = ℝ-flow, not ℤ); H^1 has infinite rank so the Riemann–Roch dimension count behind Castelnuovo is unavailable. Terminus: Weil positivity.' },
     { engine: '(ii) Deligne: even tensor power + Landau positivity + rationality', overQ: 'local eigenvalues of ζ are trivial; applied to the global Dirichlet series the positivity engine is exactly de la Vallée Poussin 3-4-1 (k=1) and prime-pair / pair-correlation statistics (k=2, Goldston–Montgomery ⟺ PCC). Output form is fixed at 1 − c/log t (pole at 1 vs ½log t): Rankin–Selberg abscissa is 1 for every self-dual GL(n), the "+1" excess never shrinks. Beyond it only exponential sums (Vinogradov–Korobov, not a positivity engine). Terminus: classical zero-free region / PCC wall.' },

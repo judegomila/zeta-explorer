@@ -1156,6 +1156,9 @@ const Imp95792DiZigzagViz = lazy(() =>
 const Imp95777DiShareAmplificationViz = lazy(() =>
   import('./pages/Imp95777DiShareAmplificationViz.jsx')
 );
+const Imp95868BiasN2WidomFitViz = lazy(() =>
+  import('./pages/Imp95868BiasN2WidomFitViz.jsx')
+);
 const Imp95688VkCrossoverHeightGapViz = lazy(() =>
   import('./pages/Imp95688VkCrossoverHeightGapViz.jsx')
 );
@@ -3207,6 +3210,10 @@ function AppShell() {
           <Route
             path="/viz-imp95777-di-share-amplification"
             element={<Imp95777DiShareAmplificationViz />}
+          />
+          <Route
+            path="/viz-imp95868-biasn2-widom-fit"
+            element={<Imp95868BiasN2WidomFitViz />}
           />
           <Route
             path="/viz-imp95688-vk-crossover-height-gap"

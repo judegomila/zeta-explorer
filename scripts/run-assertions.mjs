@@ -18180,6 +18180,10 @@ const DATA_MODULES = [
   // imp-95824 residual (b) quantitatively in the N^2 convention. Import-light 8-point OLS, no zeros
   // bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95845-deep-corner-biasN2-widom-fit.js',
+  // imp-95868: import-light viz-data reshaping the imp-95845 biasPct*N^2 fit into chart-ready rows
+  // (ladder points, C_Widom asymptote, well-conditioned fit-family band). Presentation only, no
+  // re-derivation, no bound, NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95868-biasn2-widom-fit-viz-data.js',
   // imp-95856: MEASURES the exact O(N^-3) remainder constant of the imp-95803 deep-corner biasPct
   // ladder (delta=ln1.2, rho=1) and assesses whether anchoring the intercept at the imp-95839
   // C_Widom tightens the imp-95845 P0-vs-C_Widom agreement below 0.44%. The P3/N^3 term splits into

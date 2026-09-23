@@ -2939,6 +2939,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: re-plots the frozen imp-95806 nine-height tabulation verbatim (no re-derivation, no fresh measurement); confirms the T=1.5e5 bump is a windowing/sampling artifact rather than a genuine finite-height feature, which only deepens the existing r_cap<1 conservatism; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95868-biasn2-widom-fit',
+      title: 'biasPct*N^2 Drift Converging to the C_Widom Asymptote',
+      oneLine:
+        'Log-N chart of the imp-95803 deep-corner biasPct*N^2 ladder (330414 -> 162500 over N=80..500) against the imp-95845 extrapolated P0=C_Widom=146518.83 asymptote and the well-conditioned fit-family band [145019, 147643].',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95868-biasn2-widom-fit-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95845-deep-corner-biasN2-widom-fit.js (ladder/fits/cWidom literals; imp-95868 viz page)',
+      ticket: 'imp-95868',
+      pedagogicalStep: 192,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95845 fit literals verbatim (no re-derivation, no new least-squares run); the fit-family band is a spread across model orders/windows, not a formal covariance; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

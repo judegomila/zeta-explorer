@@ -18168,6 +18168,14 @@ const DATA_MODULES = [
   // (slope drifts -2.13 -> -0.78), so the exponent stays a dual + control result. One small live DD
   // solve, no heavy import, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95823-rho1-szego-direct-dd-eigensolve.js',
+  // imp-95842: assesses whether a (6.26) B24 Euler-Maclaurin certificate can independently certify
+  // the faithful 238-cell Q_0(m,v) reconstruction at the non-anchor moduli m=22,30,41. Verdict: it
+  // is the wrong lever -- a B24 certificate certifies QUADRATURE (already ~1e-11, imp-95822), not
+  // MODEL faithfulness; the m=20 anchor is a VALUE cross-check (certified c_odd(1/20) forces
+  // Q_forced=5/2-kappa, matching the reconstruction to 1.4e-10). Reconstruction anchored at the wide
+  // moduli only CONDITIONALLY (m-free structure + offset transport all but the Q_0 sector value);
+  // binding obstruction = no closed-form c_odd(1/m) at m>20. Import-light, no bound, NO QED.
+  '/src/data/imp-95842-q0-wide-modulus-b24-certificate-assessment.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

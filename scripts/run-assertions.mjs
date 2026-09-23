@@ -17766,6 +17766,16 @@ const DATA_MODULES = [
   // imp-95639 (includeFlow on/off) gap surfaces + gap = 0 contours over the [0.5x, 1.5x]^2 box.
   // Carries cheap self-check assertions (baked grid min ~ -0.00468 vs +0.01708) with no quadrature.
   '/src/data/imp-95658-eflow-inversion-contour-surface-viz-data.js',
+  // imp-95661: independent (import-light) verification of the imp-95647/imp-95621 summation
+  // condition number law -- confirms the exp(pi^2/delta) scaling, the delta* ~ 0.307 crossover,
+  // and the ln(1.3)=TRAP / ln(2)=CLEAN verdicts; corrects the stated (1/2) prefactor to (1/4).
+  '/src/data/imp-95661-condition-number-law-verification.js',
+  // imp-95662: cross-checks the imp-3444 E_coll = E_trunc crossover (N ~ 3.28e9) and the
+  // adjacent sigma = 1/2 half-point against a SECOND independent height solver (the imp-95638
+  // closed-form inversion ln N = u + ln(u-1)) and an explicit algebraic pin N = ln(T0)(C_C/
+  // E_trunc)^2 -- both reproduce the imp-3444 landmarks to full double precision (solver-
+  // independent). Import-light (C_C + effectiveHeightForN). Measurement cross-check, no bound, no QED.
+  '/src/data/imp-95662-crossover-locator-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

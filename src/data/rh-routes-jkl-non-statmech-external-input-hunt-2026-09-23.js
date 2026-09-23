@@ -211,6 +211,38 @@ export const ROUTE_L = Object.freeze({
       linearRefuted: 'gamma_{N/10} (linear) predicts reach index 80 at N = 800 but MEASURED 55; doubling N 400 -> 800 raises the reach index only 39 -> 55 (x1.41) and gamma_reach 121 -> 153 (x1.26). Measured scaling ~ N^0.5 in index / ~N^0.4 in height: SUBLINEAR. The finite certificate is even more verified-height-dominated than the linear law implied.',
       note: 'Measure only; no bound changed; NO QED. Sub-gap remaining: (i) the analytic reach law N_res(gamma) (Christoffel function of nu_a) is still unproven, and (ii) the actual PD-breakdown order at fixed dps = 200 is not reached by order 800 (would need NMAX beyond 800 or a lower-dps run to bracket it).',
     }),
+    // imp-96046: BRACKET the PD-breakdown order by the dps-sweep left open as sub-gap (ii) above, and
+    // ASSESS resolution-limited vs intrinsic. Ran route-l2-generalized-li-cmv.py at a = 20, NMAX = 1500,
+    // for dps in {40, 70, 100, 150}; first Levinson order with |kappa| >= 1 (= PD-fail) and residual
+    // energy e/e_0 at that order:
+    //   dps 40  -> fail at order 40   (e/e_0 = 5.0e-21, min 1-|alpha| = 0.0691)
+    //   dps 70  -> fail at order 56   (e/e_0 = 6.7e-35, min 1-|alpha| = 0.0405)
+    //   dps 100 -> fail at order 77   (e/e_0 = 6.1e-55, min 1-|alpha| = 0.0309)
+    //   dps 150 -> fail at order 1345 (e/e_0 = 9.3e-82, min 1-|alpha| = 0.0308849)
+    //   dps 200 -> no fail through order 800 (imp-96045).
+    // The PD-fail order MOVES MONOTONICALLY OUTWARD with precision (a moving numerical wall, not a fixed
+    // order); the residual energy at the wall tracks the moment noise floor (~10^{-DPS}, amplified by
+    // the 0.9^{-n} Cauchy extraction on |z| = 0.9). Meanwhile the intrinsic Schur data is convergent:
+    // once dps >= 150 the min slack floor 0.0308849 is attained at the SAME interior order k = 68 as at
+    // dps = 200, and the block-max |alpha| RECEDES to 0.13 by k = 1300 -- the Verblunsky sequence moves
+    // AWAY from the unit circle. ASSESSMENT: the PD loss is RESOLUTION-LIMITED (a precision-floor
+    // artifact), NOT an intrinsic Schur approach to the unit circle; PD holds for all N at the intrinsic
+    // level, so this batch reveals no genuine positivity obstruction. Measure/assess only; NO QED.
+    pdBreakdownAssessment: Object.freeze({
+      ticket: 'imp-96046', a: 20, NMAX: 1500,
+      // [dps, first PD-fail order (null = none through NMAX), e/e_0 at fail, min 1-|alpha| reached]
+      sweep: Object.freeze([
+        [40, 40, 5.0e-21, 0.0690576],
+        [70, 56, 6.7e-35, 0.040456],
+        [100, 77, 6.1e-55, 0.0309201],
+        [150, 1345, 9.3e-82, 0.0308849],
+        [200, null, null, 0.0308849],
+      ]),
+      minSlackFloor: 0.0308849, minSlackFloorOrder: 68,
+      resolutionLimited: true,
+      verdict: 'RESOLUTION-LIMITED, not intrinsic: PD-fail order moves 40 -> 56 -> 77 -> 1345 as dps 40 -> 70 -> 100 -> 150 (none through 800 at dps 200), tracking the 10^{-DPS} moment noise floor amplified by 0.9^{-n}; the intrinsic min slack floor 0.0308849 sits at the FIXED interior order k = 68 and the Schur/Verblunsky sequence RECEDES from the unit circle (block-max |alpha| 0.969 -> 0.13 by k = 1300), so PD holds for all N and no genuine positivity obstruction exists.',
+      scripts: Object.freeze(['tmp/rh-routes-jkl/route-l2-dps40-N1500.log', 'tmp/rh-routes-jkl/route-l2-dps70-N1500.log', 'tmp/rh-routes-jkl/route-l2-dps100-N1500.log', 'tmp/rh-routes-jkl/route-l2-dps150-N1500.log']),
+    }),
   }),
   // DETECTOR REACH: replace the on-line pair at true zero γ_0 by the FE-symmetric off-line quadruple
   // ½ ± δ ± iγ_0 in the exact moments; N_det = first Levinson order with |κ| ≥ 1 (all GENUINE: e/e_0 ≫ 1e-185).

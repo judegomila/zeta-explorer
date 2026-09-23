@@ -1099,6 +1099,9 @@ const Imp95622SigmaExponentRampViz = lazy(() =>
 const Imp95623SeamGramOnsetLadderViz = lazy(() =>
   import('./pages/Imp95623SeamGramOnsetLadderViz.jsx')
 );
+const Imp95548PerPrimeSbarBudgetViz = lazy(() =>
+  import('./pages/Imp95548PerPrimeSbarBudgetViz.jsx')
+);
 const Imp95624MtyVsVkCrossoverViz = lazy(() =>
   import('./pages/Imp95624MtyVsVkCrossoverViz.jsx')
 );
@@ -3041,6 +3044,10 @@ function AppShell() {
           <Route
             path="/viz-imp95623-seam-gram-onset-ladder"
             element={<Imp95623SeamGramOnsetLadderViz />}
+          />
+          <Route
+            path="/viz-imp95548-per-prime-sbar-budget"
+            element={<Imp95548PerPrimeSbarBudgetViz />}
           />
           <Route
             path="/viz-imp95624-mty-vs-vk-crossover"

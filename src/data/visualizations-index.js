@@ -2518,6 +2518,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: re-implements the imp-95621 condition-number kernel standalone at a denser render-friendly delta grid (no re-derivation, no fresh term); a numerical precision diagnostic for the theta-dual mandate, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95548-per-prime-sbar-budget',
+      title: 'Per-Prime S-bar Budget: the l2-Collapse Route vs R_ex = 0.2797',
+      oneLine:
+        'Bar chart of the perm-arch section 5(i) S-bar_p weld strength across the 25 primes p<=97 (caveatP2-corrected p=2 term 0.397), overlaid with the running cumulative sqrt-sum against the R_ex=0.27968819555261474 l2-collapse budget line, showing the crossover happens at the very first prime.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95548-per-prime-sbar-budget-viz-data.js',
+      paperSourcePath:
+        'src/data/perm-arch-sieve-universality-no-go-2026-09-22.js (PERM_ARCH_SIEVE_UNIVERSALITY smallPrimeClosure/perPrimeMeasurement; imp-95548 viz page)',
+      ticket: 'imp-95548',
+      pedagogicalStep: 162,
+      honestCeiling:
+        'Presentation/measurement only: re-plots the perm-arch smallPrimeClosure/perPrimeMeasurement literals verbatim (no re-derivation, no fresh term); illustrates the section 5(i) l2-collapse over-budget picture, proves nothing beyond what perm-arch-sieve-universality-no-go-2026-09-22 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

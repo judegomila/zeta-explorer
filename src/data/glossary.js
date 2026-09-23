@@ -22565,6 +22565,38 @@ export const glossary = [
       'imp-95397-alias-sign-determinacy-assessment.js the determined per-alias coefficient a_h(n) = -(1/p) e(hn/p) whose phase collapses to 1 when p | n (imp-95397)',
     ],
   },
+  {
+    term: 'imp-95925 TIER-1/TIER-3 clean-asymptotic cancellation (dQ/dm ~ m^-3 -> 0, not a nonzero floor)',
+    category: 'proof-status',
+    definition:
+      'A decided honest-status verdict for the imp-95900 open question about the (6.21) residual ' +
+      'imbalance dQ/dm(m) = C_1 + D_3(m), where C_1 = -0.2006346034029 is the m-free TIER-1 curvature ' +
+      'contribution and D_3(m) the aggregate TIER-3 m-slope. On the narrow window m in {20,22,30,41}, ' +
+      'imp-95900 measured D_3(m) = -C_1 to ~5 sig figs (imbalance ~1e-6) but could not tell a clean ' +
+      'decay-to-zero from a nonzero floor. Re-quadraturing the faithful 238-cell Q0_RECON reconstruction ' +
+      '(imp-95822 machinery) at the larger moduli m = 60, 80, 110, 150 settles it: the imbalance does ' +
+      'NOT floor -- it collapses ~198x, from +3.79e-6 at m~21 to +1.91e-8 at m~130, with the cancellation ' +
+      'ratio |D_3/C_1| tightening monotonically toward 1 (1.0000189 -> 1.0000001). The positive large-m ' +
+      'tail (midM 70, 95, 130) decays cleanly with log-log slope ~-2.95 (imbalance ~ midM^-3), reached via ' +
+      'a single non-monotone sign wobble at the 41->60 interval (a genuine grid-converged dip, not ' +
+      'quadrature noise). Q0_RECON approaches a finite asymptote (~-0.010653), so dQ/dm -> 0: the ' +
+      'TIER-1/TIER-3 cancellation is a CLEAN ASYMPTOTIC cancellation, correcting the imp-95900 small-' +
+      'window "spread ratio ~2.44" reading, which was an artifact of never reaching large m.\n\n' +
+      'HOW TO APPLY: cite this verdict as the reason the imp-95900 aggregate cancellation identity is ' +
+      'now sharpened to an O(m^-3) remainder rather than merely O(1e-6). It does NOT close the imp-95916 ' +
+      'per-family/per-locus attribution -- any candidate per-locus law (s_family(j,m), c_family(j,m)) ' +
+      'must reproduce this ~m^-3 aggregate decay, but the per-locus split stays open.\n\n' +
+      'HONEST SCOPE: measure-only; Q0_RECON is certified only at m=20 (imp-95822 residual sub-gap), so ' +
+      'grid convergence to ~1e-11 bounds quadrature error, not reconstruction faithfulness at m>20. ' +
+      'Changes no bound; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+    firstUsed: 'imp-95978 (surfacing the imp-95925 large-m sweep verdict as its own honest-status headword), 2026',
+    relatedTerms: [
+      'imp-95925-tier3-imbalance-largem-sweep.js the large-m re-quadrature (m=60,80,110,150) and the ~m^-3 decay measurement behind this verdict (imp-95925)',
+      'imp-95900-tier3-per-locus-cancellation.js the narrow-window (m<=41) measurement whose "spread ratio ~2.44" small-window reading this verdict corrects (imp-95900)',
+      'imp-95916-tier3-per-family-attribution.js the per-family/per-locus attribution this verdict sharpens the target for but leaves OPEN (imp-95916)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

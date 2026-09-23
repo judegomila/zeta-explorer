@@ -6,6 +6,7 @@ import {
   IMP95606_TRANSITION,
   IMP95606_FAR_TAIL_EXPONENT,
 } from '../data/imp-95606-sigma-postpeak-fine-exponent-ramp-viz-data.js';
+import { SIGMA_EXPONENT_CROSSINGS } from '../data/imp-95625-sigma-exponent-crossing-ladder-table.js';
 
 // Line chart: p_local(N) ramp across log10N = 6..12, with the E_coll = E_trunc
 // transition point (log10N ~ 9.516) annotated.
@@ -199,6 +200,54 @@ export default function Imp95622SigmaExponentRampViz() {
         midpoint sampling of the fine imp-95582 ramp &mdash; the worst gap between
         the pointwise value at a decade midpoint and the whole-decade OLS fit is
         only 5.45% (first decade), shrinking to under 0.6% by the fourth decade.
+      </div>
+
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+        Far-tail tolerance crossings (imp-95625)
+      </h3>
+      <div
+        style={{
+          padding: '0.75rem 1rem',
+          background: 'rgba(96,165,250,0.05)',
+          borderLeft: '3px solid #60a5fa',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#cbd5e1',
+        }}
+      >
+        The chart above only covers log10&nbsp;N&nbsp;=&nbsp;6..12, where p_local
+        never gets within 1% of the asymptote. Continuing the same ramp (imp-95602)
+        to far larger heights locates two tolerance crossings:
+        <table style={{ width: '100%', fontSize: '0.78rem', color: '#cbd5e1', borderCollapse: 'collapse', marginTop: '0.5rem' }}>
+          <thead>
+            <tr style={{ color: '#64748b' }}>
+              <th style={{ textAlign: 'left', paddingBottom: 4 }}>tolerance</th>
+              <th style={{ textAlign: 'right', paddingBottom: 4 }}>log10 N</th>
+              <th style={{ textAlign: 'right', paddingBottom: 4 }}>N</th>
+              <th style={{ textAlign: 'right', paddingBottom: 4 }}>p_local</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+              <td style={{ padding: '3px 0' }}>within 1%</td>
+              <td style={{ textAlign: 'right' }}>{SIGMA_EXPONENT_CROSSINGS.within1pct.log10N}</td>
+              <td style={{ textAlign: 'right' }}>{SIGMA_EXPONENT_CROSSINGS.within1pct.N}</td>
+              <td style={{ textAlign: 'right' }}>{SIGMA_EXPONENT_CROSSINGS.within1pct.p}</td>
+            </tr>
+            <tr style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+              <td style={{ padding: '3px 0' }}>within 0.1%</td>
+              <td style={{ textAlign: 'right' }}>{SIGMA_EXPONENT_CROSSINGS.within0p1pct.log10N}</td>
+              <td style={{ textAlign: 'right' }}>{SIGMA_EXPONENT_CROSSINGS.within0p1pct.N}</td>
+              <td style={{ textAlign: 'right' }}>{SIGMA_EXPONENT_CROSSINGS.within0p1pct.p}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style={{ marginTop: '0.5rem', marginBottom: 0 }}>
+          Tightening the tolerance ten-fold (1%&nbsp;&rarr;&nbsp;0.1%) costs roughly
+          ten-fold more log10&nbsp;N ({SIGMA_EXPONENT_CROSSINGS.within1pct.log10N}&nbsp;&rarr;&nbsp;
+          {SIGMA_EXPONENT_CROSSINGS.within0p1pct.log10N}), the signature of a
+          1/log&nbsp;N deficit decay. Measurement/fit only; no Lambda bound moves.
+        </p>
       </div>
 
       <div

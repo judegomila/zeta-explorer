@@ -17896,6 +17896,14 @@ const DATA_MODULES = [
   // conservative in the measured window. Named sub-gap: the window is ~6.8 decades below the
   // imp-95519 bottom T = 3e12, so extending the conservatism there is unmeasured. No bound, no QED.
   '/src/data/imp-95710-number-variance-ratio-vs-height.js',
+  // imp-95843: EXTENDS the imp-95710 r(T) measurement above 5e5 with two nominal centers (5.5e5,
+  // 5.8e5). Finding: DATA-CEILING-LIMITED -- the +/-30% tiled windows truncate at gamma(10^6) ~ 6.00e5,
+  // so the EFFECTIVE mean sampled height rises only ~0.025 decades (4.75e5 -> 5.03e5) despite the higher
+  // centers. The two new ratios (0.371, 0.374) sit inside the imp-95710 band [0.349, 0.480]; the
+  // eight-point refit (slope ~ -1.96e-2, R^2 ~ 0.34) shows NO trend toward GUE=1. The ~6.8-decade gap to
+  // the imp-95519 bottom T = 3e12 is unchanged; closing it needs a larger zero table or the imp-95722
+  // analytic envelope (r_cap ~ 0.26). No bound, no QED, PT Lambda<=0.2 SOTA, zero-side PCC/GRH-gated.
+  '/src/data/imp-95843-number-variance-ratio-extend-data-ceiling.js',
   // imp-95722: DERIVES an analytic envelope for the imp-95710 number-variance ratio r(T) toward the
   // imp-95519 window bottom T = 3e12, replacing the noise-dominated six-point log-linear extrapolation.
   // The numerator (pointwise counting-fluctuation variance) grows at most like (1/2pi^2) log log(T/2pi)
@@ -18168,6 +18176,14 @@ const DATA_MODULES = [
   // (slope drifts -2.13 -> -0.78), so the exponent stays a dual + control result. One small live DD
   // solve, no heavy import, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95823-rho1-szego-direct-dd-eigensolve.js',
+  // imp-95841: pushes the DIRECT rho=1 delta=ln1.3 Gram eigensolve to nPts=1920 with the imp-95820
+  // PD-preserving shift-invert DD solver (O(N^2), far past the imp-95823 O(N^3) DD-Jacobi cap of 640).
+  // The direct-DD log-log slope of F/A_opt-1 now LOCKS to 2 (-2.069 -> -2.017 across nPts=320..1920,
+  // direct/dual -> 1), a purely-direct exponent-2 confirmation: the imp-95823 slope drift was DD-Jacobi
+  // under-convergence (biased-high lambda_min), not pre-asymptotics. New residual = the imp-95820
+  // shift-budget scaling beyond ~1.9k. One live N=320 solve, no heavy import, no bound, NO QED, PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-95841-ln13-shift-invert-direct-exponent.js',
   // imp-95842: assesses whether a (6.26) B24 Euler-Maclaurin certificate can independently certify
   // the faithful 238-cell Q_0(m,v) reconstruction at the non-anchor moduli m=22,30,41. Verdict: it
   // is the wrong lever -- a B24 certificate certifies QUADRATURE (already ~1e-11, imp-95822), not

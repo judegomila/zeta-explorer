@@ -18333,6 +18333,8 @@ const DATA_MODULES = [
   '/src/data/imp-95837-ln12-dd-extrapolation-grid.js',
   '/src/data/imp-95844-rho1-szego-direct-vs-dual-crossval-table.js',
   '/src/data/imp-95846-finite-section-upper-companion-bound.js',
+  // imp-95874: heavy-import audit of imp-95845/imp-95846 (extends imp-95854).
+  '/src/data/imp-95874-seam-gram-heavy-import-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

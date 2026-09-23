@@ -22,9 +22,13 @@
  */
 
 import { IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION } from './imp-95940-arithmetic-intercept-a0-obstruction.js';
+import { IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE } from './imp-95984-fujii-varS-constant-literature-locate.js';
 
 const { a0Rows, a0Empirical, crossingSensitivity, obstruction, verdict } =
   IMP95940_ARITHMETIC_INTERCEPT_A0_OBSTRUCTION;
+
+const { rigorousBracketRH: IF_RIGOROUS_BRACKET_RH } =
+  IMP95984_FUJII_VARS_CONSTANT_LITERATURE_LOCATE.unavailableTerm;
 
 const TWO_PI = 2 * Math.PI;
 const EULER = 0.5772156649015329;
@@ -76,8 +80,11 @@ export const IMP95971_CAVEAT_BANNER =
   'Presentation only: re-plots the frozen imp-95940 closed form T_x(a_0) over its own ' +
   'measured a_0 range (no re-derivation, no new bound); a_0 is NOT pinned to a point -- the ' +
   'curve visualizes why an unresolved O(1) intercept sweeps the crossing height across ~40 ' +
-  'orders of magnitude; establishes no operator positivity, no RH claim; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains SOTA; NO QED.';
+  `orders of magnitude; imp-95984 identifies this unresolved intercept EXACTLY as the ` +
+  `pair-correlation integral I_F, rigorously bracketed only in (${IF_RIGOROUS_BRACKET_RH[0].toFixed(2)}, ` +
+  `${IF_RIGOROUS_BRACKET_RH[1]}) under RH -- so the a_0 spread this chart plots is not merely ` +
+  'unpinned but has a named, rigorously-wide obstruction; establishes no operator positivity, ' +
+  'no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.';
 
 // --- self-executing internal-consistency assertions (baked-literal re-derivation only) ---
 (() => {
@@ -118,6 +125,10 @@ export const IMP95971_CAVEAT_BANNER =
   if (!/imp-95940-subgap-fujii-varS-constant/.test(IMP95971_SUBGAP))
     throw new Error('imp-95971: sub-gap name dropped');
   if (!/NO QED/.test(verdict)) throw new Error('imp-95971: source verdict dropped the NO QED banner');
+  // the banner must cite the imp-95984 I_F identity and its rigorous RH bracket.
+  if (!/I_F/.test(IMP95971_CAVEAT_BANNER)) throw new Error('imp-95971: caveat banner dropped the I_F identity citation');
+  if (!IMP95971_CAVEAT_BANNER.includes(`(${IF_RIGOROUS_BRACKET_RH[0].toFixed(2)}, ${IF_RIGOROUS_BRACKET_RH[1]})`))
+    throw new Error('imp-95971: caveat banner dropped the imp-95984 rigorous I_F bracket');
   if (!/NO QED/.test(IMP95971_CAVEAT_BANNER)) throw new Error('imp-95971: caveat banner dropped NO QED');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP95971_CAVEAT_BANNER))
     throw new Error('imp-95971: caveat banner dropped the PT Lambda <= 0.2 SOTA banner');

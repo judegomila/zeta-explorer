@@ -17989,6 +17989,11 @@ const DATA_MODULES = [
   // (~2.03e5x the measured m=20 residual 1.404e-10); only c_odd(1/19)'s trailing displayed
   // digits are residual-sensitive (~2.57x). Import-light, no zeros bundle, no bound, no QED.
   '/src/data/imp-95768-offset-error-budget-sensitivity.js',
+  // imp-95769: accuracy/consistency audit of every consumer of the imp-95691 CF_BAND_HI_PINNED
+  // = 1.29615 pin now that imp-95747 converged the honest representative to 9.583x. All five
+  // consumers PASS (none surfaces a superseded multiplier as final); one completeness gap flagged
+  // (imp-95754 viz omits the 9.583x endpoint). Import-light, no zeros bundle, no bound, no QED.
+  '/src/data/imp-95769-cf-band-hi-pinned-consumer-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

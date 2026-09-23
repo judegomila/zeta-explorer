@@ -17783,6 +17783,12 @@ const DATA_MODULES = [
   // E_trunc)^2 -- both reproduce the imp-3444 landmarks to full double precision (solver-
   // independent). Import-light (C_C + effectiveHeightForN). Measurement cross-check, no bound, no QED.
   '/src/data/imp-95662-crossover-locator-crosscheck.js',
+  // imp-95674: derives the honest provenance band of the imp-398 C_F = (log(T0/2pi)+1)/2pi prefactor
+  // (imp-398/imp-838 closed form, imp-2704 ~5e-5 interval certificate, imp-1134 downward audit) and
+  // decides the imp-95660 wedge-closure multiplier cf* ~ 0.839 sits OUTSIDE it: the honest downward
+  // floor is ~0.995 (C_F is a LOWER bound), so the ~16pct cut the wedge needs is ~32x the largest
+  // honest downward lane -- the imp-95617 E_flow inversion wedge is physically FORECLOSED. No bound, no QED.
+  '/src/data/imp-95674-cf-provenance-band-wedge-reachability.js',
 ];
 
 let ALL_MODULES = FAST_MODE

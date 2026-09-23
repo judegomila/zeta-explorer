@@ -17769,6 +17769,10 @@ const DATA_MODULES = [
   // 1/20 anchor -- records that no second independent numeric anchor exists (two-point test
   // not executable, sub-gap OPEN) and guards the kappa-insensitive downstream margin band.
   '/src/data/imp-95653-c-odd-second-anchor-shape-test.js',
+  // imp-95690: primary-source (Prop 6.3) verdict on the imp-95516 line-64 rho-independence
+  // claim -- rho^2 prefactor CERTIFIED, integrand rho-independence REFUTED (Q_0 moduli rescale
+  // as 1/rho, 2/rho, 2/rho+1); guards the moduli and the not-structurally-forced verdict.
+  '/src/data/imp-95690-sun-s6-integrand-rho-independence-verdict.js',
   // imp-95658: import-light baked-literal viz-data for a future E_flow-attribution chart -- the
   // imp-95639 (includeFlow on/off) gap surfaces + gap = 0 contours over the [0.5x, 1.5x]^2 box.
   // Carries cheap self-check assertions (baked grid min ~ -0.00468 vs +0.01708) with no quadrature.

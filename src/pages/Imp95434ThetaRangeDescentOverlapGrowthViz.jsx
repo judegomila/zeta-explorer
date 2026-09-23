@@ -181,6 +181,30 @@ export default function Imp95434ThetaRangeDescentOverlapGrowthViz() {
         style={{
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Update (imp-95442):</strong> "local minimizer"
+        above means greedy 1-flip-stable, not the true combinatorial argmin. A follow-up
+        structured search (alternating bulk + randomized tail perturbation, then O(N)
+        cached 1-flip descent) found an explicit sign vector strictly below the
+        alternating witness at every ported grid N &ge; 16 -- relative gaps 2.32%, 1.71%,
+        1.38%, 0.96% at N = 16, 64, 192, 640. The N = 16 witness reproduces the imp-95423
+        certified exact floor; N = 64, 192, 640 were left OPEN by imp-95423 and are now
+        decided negative (alternating is NOT the argmin) by construction. The exact
+        combinatorial floor theta_floor for N &ge; 64 remains UNCOMPUTED (2^N enumeration
+        infeasible). Changes no bound; NO QED; Platt&ndash;Trudgian &Lambda; &le; 0.2
+        remains SOTA.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',
           borderRadius: '0 4px 4px 0',

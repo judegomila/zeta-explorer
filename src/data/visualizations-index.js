@@ -2574,6 +2574,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the imp-95561 baked port-window (3,1) DELTA_A eigenpair and direct-pencil eigenvalues verbatim (no re-derivation); illustrates imp-95537 D2 witness-completeness at a single fixed window, proves nothing beyond what imp-95561 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95588-msq-gue-envelope',
+      title: 'Discrepancy D = C - E vs the GUE Number-Variance Envelope',
+      oneLine:
+        'Grouped-bar chart of the imp-95562 measured pointwise-vs-mean-square discrepancy sd(D) against the Dyson-Mehta GUE number-variance prediction across the six sample heights T_c = 1e4..5e5, showing the measured fluctuation sits well below the GUE envelope.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95562-meansquare-vs-pointwise-gap.js',
+      paperSourcePath:
+        'src/data/imp-95562-meansquare-vs-pointwise-gap.js (record IMP95562_MEANSQUARE_VS_POINTWISE_GAP.rows; imp-95588 viz page)',
+      ticket: 'imp-95588',
+      pedagogicalStep: 166,
+      honestCeiling:
+        'Presentation only: renders the imp-95562 baked discrepancy/GUE statistics measured over the actual Odlyzko zeros verbatim (no re-derivation); illustrates imp-95534 wall (i) at six sample heights, proves nothing beyond what imp-95562 already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1165,6 +1165,9 @@ const Imp95478RaLadderInputProvenanceViz = lazy(() =>
 const Imp95587LegBStraddleVsRatioViz = lazy(() =>
   import('./pages/Imp95587LegBStraddleVsRatioViz.jsx')
 );
+const Imp95588MsqGueEnvelopeViz = lazy(() =>
+  import('./pages/Imp95588MsqGueEnvelopeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3141,6 +3144,10 @@ function AppShell() {
           <Route
             path="/viz-imp95587-legb-straddle-vs-ratio"
             element={<Imp95587LegBStraddleVsRatioViz />}
+          />
+          <Route
+            path="/viz-imp95588-msq-gue-envelope"
+            element={<Imp95588MsqGueEnvelopeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

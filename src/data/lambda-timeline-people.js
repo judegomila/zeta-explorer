@@ -52,17 +52,9 @@ export const LAMBDA_TIMELINE_PEOPLE = {
     key: 'smith', display: 'Wayne Smith', photo: null,
     wiki: null, life: '', role: 'Co-author of the 1993 lower bound.',
   },
-  'X. Saouter': {
-    key: 'saouter', display: 'Xavier Saouter', photo: null,
-    wiki: null, life: '', role: 'Computational upper bounds (2007, 2011).',
-  },
-  'T. Papanikolaou': {
-    key: 'papanikolaou', display: 'Tobias Papanikolaou', photo: null,
-    wiki: null, life: '', role: 'Co-author, 2007 upper bound.',
-  },
   'P. Demichel': {
     key: 'demichel', display: 'Patrick Demichel', photo: null,
-    wiki: null, life: '', role: 'Co-author, 2007 & 2011 upper bounds.',
+    wiki: null, life: '', role: 'Co-author of the 2011 Lehmer-pair lower bound.',
   },
   'H.J.J. te Riele': {
     key: 'teriele', display: 'Herman te Riele', photo: null,

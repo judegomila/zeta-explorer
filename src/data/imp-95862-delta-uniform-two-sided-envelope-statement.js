@@ -91,6 +91,10 @@
  * @see imp-95846-finite-section-upper-companion-bound (upper companion, verified)
  * @see imp-95693-twin-pair-block-floor-second-delta (rho-sweep this envelope brackets)
  * @see imp-95419-separated-class-optimal-riesz-floor (A_opt = ess-inf f = f(pi))
+ * @see imp-95880-dd-lower-companion-ln12-ln13 (CORRECTS the ln 1.2 / ln 1.3 float64
+ *      essInf reads baked below: they are cancellation noise, not A_opt(delta); the
+ *      true cancellation-free DD endpoints are A_opt(ln 1.2) = 4.263426e-22 and
+ *      A_opt(ln 1.3) = 4.406252e-15 -- cite THOSE, not the essInf fields at those rows)
  */
 
 // ---------------------------------------------------------------------------
@@ -130,10 +134,14 @@ export const IMP95862_DELTA_UNIFORM_TWO_SIDED_ENVELOPE_STATEMENT = {
   // The one caveat that is delta-DEPENDENT: numerical reachability of the LOWER
   // endpoint, not the exact bound.
   lowerEndpointReachabilityCaveat:
-    "at small delta A_opt(delta) falls to the float64 cancellation floor " +
-    "(~6e-16 at ln 1.2, ~4.5e-15 at ln 1.3, comparable to lambda_max * eps), so the " +
-    "measured lambda_min reads spuriously non-positive though the exact bound holds; " +
-    "the upper endpoint f(0) stays reachable at every delta",
+    "at small delta the FORWARD-SUM essInf read baked in the rows below falls to the " +
+    "float64 cancellation floor (~6e-16 at ln 1.2, ~4.5e-15 at ln 1.3, comparable to " +
+    "lambda_max * eps) and is itself cancellation noise, not the true A_opt(delta); " +
+    "imp-95880 re-derived A_opt cancellation-free via the imp-95419 theta-dual in DD " +
+    "and found the true endpoints A_opt(ln 1.2) = 4.263426e-22 (~9 orders below the " +
+    "essInf row here) and A_opt(ln 1.3) = 4.406252e-15 -- cite the imp-95880 DD values, " +
+    "not the essInf field at these two rows; the upper endpoint f(0) stays reachable " +
+    "and correct at every delta",
   // Verified rows on the rho = 1 line. essInf = f(pi) attained, essSup = f(0),
   // lambda_min/lambda_max at n = 80. fullEnvelope = lower endpoint above the float64
   // floor so the TWO-SIDED bound is numerically confirmable at this delta.

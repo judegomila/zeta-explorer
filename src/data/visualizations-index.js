@@ -2855,6 +2855,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95703 derivation verbatim (no re-derivation, no fresh term); derives an already-observed constant of the imp-95659/imp-95693 twin-pair mechanism; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95776-cf-reff-gue-repulsion',
+      title: 'GUE Repulsion Regularizes the r_eff Divergence, but Doesn’t Tame It',
+      oneLine:
+        'Log-cutoff chart of the imp-95747 flat-RvM r_eff diverging (~2.5x per cutoff decade) against the GUE-reweighted r_eff saturating at the cutoff-independent 9.583x, plus the resulting box-min gap deepening from -0.171 to -0.185 at the fixed wedge corner.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95776-cf-reff-gue-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95747-cf-reff-gue-repulsion-regularization.js (rEffFlat/rEffGue/boxMinGap literals; imp-95776 viz page)',
+      ticket: 'imp-95776',
+      pedagogicalStep: 186,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95747 r_eff and box-min values verbatim (no re-derivation, no fresh term); the imp-486 C_mb GUE-conditional assumption is reweighted within, not established; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

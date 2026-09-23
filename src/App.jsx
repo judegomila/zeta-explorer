@@ -1177,6 +1177,9 @@ const Imp95770BarrierMollifierLengthCeilingViz = lazy(() =>
 const Imp95771Q0SignalVsConstSectorViz = lazy(() =>
   import('./pages/Imp95771Q0SignalVsConstSectorViz.jsx')
 );
+const Imp95776CfReffGueViz = lazy(() =>
+  import('./pages/Imp95776CfReffGueViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -3217,6 +3220,10 @@ function AppShell() {
           <Route
             path="/viz-imp95771-q0-signal-vs-const-sector"
             element={<Imp95771Q0SignalVsConstSectorViz />}
+          />
+          <Route
+            path="/viz-imp95776-cf-reff-gue-repulsion"
+            element={<Imp95776CfReffGueViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

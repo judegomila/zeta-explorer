@@ -17820,6 +17820,11 @@ const DATA_MODULES = [
   // and the m-free const sector (flat at exactly 3/2) -- for the Q0-vs-const-sector viz page.
   // No new computation, no re-derivation. NO QED.
   '/src/data/imp-95771-q0-signal-vs-const-sector-viz-data.js',
+  // imp-95776: import-light viz-data reshaping the imp-95747 rEffFlat/rEffGue/boxMinGap literals
+  // into per-cutoff r_eff rows (flat-RvM diverging vs GUE-reweighted saturating at 9.583x) and a
+  // four-point box-min gap depth series, for the cf-reff-gue-repulsion viz page. No new
+  // computation, no re-derivation. NO QED.
+  '/src/data/imp-95776-cf-reff-gue-viz-data.js',
   // imp-95780: wide-modulus (m=18..41) port of the (6.17)->(6.21) const-sector telescoping constant --
   // re-runs the imp-95720 faithful (6.21) machinery and decomposes the raw integrand as
   // (5/2 - zeta(2,1+v)) + Q_0(m,v) zeta(3,1+v) at seven moduli out to twice the anchor (m=41); the

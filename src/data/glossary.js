@@ -21784,6 +21784,27 @@ export const glossary = [
     ],
   },
   {
+    term: 'Fresnel-Airy Packet Width H_{k,h}',
+    category: 'concept',
+    definition:
+      'imp-95519 section 1. Poisson-summing the h-th prime-alias of the localized barrier sum A_{k,h} ' +
+      'turns each k-th term into a stationary-phase (Fresnel) integral with stationary point ' +
+      'u_{k,h} = v/(k - h/p) (v = T/(2 pi) the stationary numerator) and Fresnel width ' +
+      'H_{k,h} = sqrt(u_{k,h}/(k - h/p)) = u_{k,h}/sqrt(v). This width sets the scale over which the ' +
+      'explicit formula sums zeros with |gamma - T| <~ Delta := u_{k,h}/H_{k,h} = sqrt(v). The RH ' +
+      'short-interval barrier controls psi(x+H) - psi(x) only for H > sqrt(x) log^2 x; the ratio ' +
+      'rho = sqrt(u_{k,h}) log^2(u_{k,h}) / H_{k,h} tests which side of that barrier the packet sits on. ' +
+      'At the floor alias (k=1, h=p-1, p=97, N=690988) rho = 100.5 > 1, so the Fresnel width sits BELOW ' +
+      'the barrier and even verified GRH gives no cancellation there; imp-95580 confirms rho stays above ' +
+      '1 (GRH inert) over the full (k, h, N) alias grid of the program window.',
+    firstUsed: 'imp-95519 (localized barrier sum prime/zero no-go, Fresnel-Airy stationary-phase packet), 2026',
+    relatedTerms: [
+      'Montgomery packet frequency alpha_{k,h} is the zero-side frequency computed from the same stationary point u_{k,h}',
+      'imp-95580 RH short-interval-barrier ratio rho maps this width-vs-barrier ratio over the full (k, h, N) alias grid',
+      'imp-95519 localized barrier sum prime/zero no-go is the source result this width sits inside',
+    ],
+  },
+  {
     term: 'Analytic-conductor rescaling alpha_C',
     category: 'concept',
     definition:

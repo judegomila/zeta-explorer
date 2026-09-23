@@ -1117,6 +1117,9 @@ const Imp95647ConditionNumberViz = lazy(() =>
 const Imp95731NumberVarianceRatioViz = lazy(() =>
   import('./pages/Imp95731NumberVarianceRatioViz.jsx')
 );
+const Imp95752Finite80BiasHeatmapViz = lazy(() =>
+  import('./pages/Imp95752Finite80BiasHeatmapViz.jsx')
+);
 const Imp95549NsRigidPencilEigenvalueViz = lazy(() =>
   import('./pages/Imp95549NsRigidPencilEigenvalueViz.jsx')
 );
@@ -3086,6 +3089,10 @@ function AppShell() {
           <Route
             path="/viz-imp95731-number-variance-ratio"
             element={<Imp95731NumberVarianceRatioViz />}
+          />
+          <Route
+            path="/viz-imp95752-finite80-bias-heatmap"
+            element={<Imp95752Finite80BiasHeatmapViz />}
           />
           <Route
             path="/viz-imp95549-ns-rigid-pencil-eigenvalue"

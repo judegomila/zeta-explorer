@@ -2533,6 +2533,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation/measurement only: re-plots the frozen imp-95710 tabulation verbatim (no re-derivation, no fresh term); the conservatism r<1 is established only across the measured window, and the extrapolation to the imp-95519 window bottom is a named, unmeasured sub-gap; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95752-finite80-bias-heatmap',
+      title: 'Finite-80 Block-Toeplitz Bias Heatmap over the Full (delta, rho) Grid',
+      oneLine:
+        'Heatmap of the imp-95723 finite-80 twin-pair block-floor bias F_finite80/F_inf-1 across the full four-delta by nine-rho grid, falling from ~7.27% at the smallest resolved cross-pair gap toward 0% as D grows, with the five float64-unresolvable lower-left cells flagged.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95752-finite80-bias-heatmap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95723-twin-pair-block-floor-full-grid-bias.js (IMP95723_TWIN_PAIR_BLOCK_FLOOR_FULL_GRID_BIAS grid; imp-95752 viz page)',
+      ticket: 'imp-95752',
+      pedagogicalStep: 169,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95723 grid verbatim (no re-derivation, no fresh term); derivation + numerical witness of an already-established interior mechanism; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95548-per-prime-sbar-budget',
       title: 'Per-Prime S-bar Budget: the l2-Collapse Route vs R_ex = 0.2797',
       oneLine:

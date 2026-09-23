@@ -71,7 +71,9 @@
  *
  * @see imp-95837-ln12-dd-extrapolation-grid (ln 1.2 5-point)
  * @see imp-95860-ln12-extended-grid-ufit-tightening (ln 1.2 8-point)
- * @see imp-95881-ln12-past1000-ufit-tightening (ln 1.2 11-point, latest)
+ * @see imp-95881-ln12-past1000-ufit-tightening (ln 1.2 11-point)
+ * @see imp-95896-ln12-past2800-ufit-tightening (ln 1.2 14-point, N<=5200, latest reach-tightened)
+ * @see imp-95919-ln12-past5200-dd-floor (confirms ln 1.2 DD-floor plateau past N=5200)
  * @see imp-95838-ln125-shift-budget-scaling (ln 1.25 shift-budget law)
  * @see imp-95859-ln125-window-shift-budget (ln 1.25 worst window cell)
  * @see imp-95826-dual-primal-dd-extrapolation-limited-per-delta-audit (ln 1.3 envelope)
@@ -86,9 +88,10 @@ export const IMP95885_PER_DELTA_UFIT_COMPARISON_TABLE = {
     "TABULATE the per-delta u_fit certified intervals side by side (ln 1.2 / ln 1.25 " +
     "/ ln 1.3): A_fit vs dual A_opt, u_fit_rel, u_fit/u_opt, reach, worst shift " +
     "budget -- cross-validated for the first time. Two cross-thread facts emerge: " +
-    "(A) reach does NOT order the intervals across deltas (ln 1.2 reaches R ~ 511 yet " +
-    "stays looser at 0.34% than ln 1.3 at R ~ 105 / 0.23% -- ordering is set by " +
-    "conditioning, not reach), and (B) the imp-95820/imp-95838 shift-budget law " +
+    "(A) reach does NOT order the intervals across deltas (ln 1.2 reaches R ~ 948 yet " +
+    "stays looser at 0.247% than ln 1.3 at R ~ 105 / 0.23% -- ordering is set by " +
+    "conditioning, not reach; imp-95919 confirms the ln 1.2 reach lever is DD-floor-" +
+    "plateaued past N=5200), and (B) the imp-95820/imp-95838 shift-budget law " +
     "shiftIts ~ 5.670e-3 N^1.577 is delta-SPECIFIC (calibrated at ln 1.25 cond ~1e17), " +
     "not a cross-delta predictor. u_opt_rel = 8 eps delta-independent and " +
     "u_fit/u_opt >> 1e10 everywhere a DD grid exists -- DD-extrapolation-limited",
@@ -120,14 +123,20 @@ export const IMP95885_PER_DELTA_UFIT_COMPARISON_TABLE = {
         { source: "imp-95837", nMax: 400, points: 5, reach: 73, aFit: 4.2688499403e-22, uFitRel: 1.066674e-2, rPoint: 1.272183e-3, uFitOverUOpt: 6.012478e12 },
         { source: "imp-95860", nMax: 1000, points: 8, reach: 182.50, aFit: 4.2655052984e-22, uFitRel: 5.422584e-3, rPoint: 4.876872e-4, uFitOverUOpt: 3.054132e12 },
         { source: "imp-95881", nMax: 2800, points: 11, reach: 510.68, aFit: 4.2645230528e-22, uFitRel: 3.414761e-3, rPoint: 2.572984e-4, uFitOverUOpt: 1.922834e12 },
+        { source: "imp-95896", nMax: 5200, points: 14, reach: 948.25, aFit: 4.2641502501e-22, uFitRel: 2.465082e-3, rPoint: 1.698563e-4, uFitOverUOpt: 1.387953e12 },
       ],
-      uFitRelLatest: 3.414761e-3, // 0.34% (imp-95881, 11-point)
-      reachLatest: 510.68,
-      uFitOverUOptLatest: 1.922834e12,
-      rIntervalLatest: { lo: -3.158341e-3, hi: 3.672938e-3 }, // imp-95881, contains zero
+      uFitRelLatest: 2.465082e-3, // 0.247% (imp-95896, 14-point -- imp-95919 confirms this is the DD-floor plateau)
+      reachLatest: 948.25,
+      uFitOverUOptLatest: 1.387953e12,
+      rIntervalLatest: { lo: -2.295644e-3, hi: 2.635357e-3 }, // imp-95896, contains zero
       intervalContainsZero: true,
+      ddFloorPlateauNote:
+        "imp-95919: the DD reach lever is EXHAUSTED past N=5200 (N=6400 lambda_min " +
+        "reverses upward, N=8000 breaks down to NaN) -- u_fit_rel plateaus at 0.247% " +
+        "(1.07x looser than ln 1.3) rather than crossing below the ln 1.3 direct 0.23%; " +
+        "crossing needs precision beyond double-double (quad-double/MPFR)",
       worstShiftBudget: "N=2800 DD shift-invert converged in 240 solves (imp-95881); iteration-count-vs-N law not baked at ln 1.2",
-      uFitSource: "imp-95881 11-point DD Jacobi grid (fit-model + leave-one-out envelope)",
+      uFitSource: "imp-95896 14-point DD Jacobi grid (fit-model + leave-one-out envelope); reach lever DD-floor-plateaued past N=5200 per imp-95919",
     },
     {
       label: "ln1.25",
@@ -163,9 +172,10 @@ export const IMP95885_PER_DELTA_UFIT_COMPARISON_TABLE = {
   // FINDING A -- reach does not order the intervals across deltas (conditioning does)
   reachOrdersIntervals: false,
   reachVsPrecisionNote:
-    "ln 1.2 reaches R ~ 511 (0.34%) yet stays looser than ln 1.3 at R ~ 105 (0.23%): " +
-    "the deep-corner A_opt ~ 4.26e-22 conditioning ~5.6e22 makes each ln 1.2 grid " +
-    "point intrinsically noisier, so conditioning (not reach) orders the intervals",
+    "ln 1.2 reaches R ~ 948 (0.247%, DD-floor-plateaued per imp-95919) yet stays " +
+    "looser than ln 1.3 at R ~ 105 (0.23%): the deep-corner A_opt ~ 4.26e-22 " +
+    "conditioning ~5.6e22 makes each ln 1.2 grid point intrinsically noisier, so " +
+    "conditioning (not reach) orders the intervals",
   orderingSetByConditioning: true,
   // FINDING B -- the shift-budget law is delta-specific, not a cross-delta predictor
   shiftBudgetLawIsDeltaSpecific: true,
@@ -184,18 +194,21 @@ export const IMP95885_PER_DELTA_UFIT_COMPARISON_TABLE = {
     "by side for the first time (A_fit vs dual A_opt, u_fit_rel, u_fit/u_opt, reach, " +
     "worst shift budget). Two cross-thread facts emerge, invisible per-thread. " +
     "FINDING A: reach does NOT order the intervals across deltas -- the ln 1.2 chain " +
-    "now reaches R ~ 511 (11 points, N <= 2800, u_fit_rel = 0.34%) yet stays LOOSER " +
-    "than the ln 1.3 5-point DD-Jacobi envelope at only R ~ 105 (0.23%), because the " +
-    "ln 1.2 dual A_opt ~ 4.26e-22 sits at conditioning ~5.6e22 (near the DD floor) so " +
-    "each grid point is intrinsically noisier than at ln 1.3 (A_opt ~ 4.41e-15, cond " +
-    "~5e15); the ordering is set by conditioning, not by reach-universality alone. " +
+    "now reaches R ~ 948 (14 points, N <= 5200, u_fit_rel = 0.247%, imp-95896) yet " +
+    "stays LOOSER than the ln 1.3 5-point DD-Jacobi envelope at only R ~ 105 (0.23%), " +
+    "because the ln 1.2 dual A_opt ~ 4.26e-22 sits at conditioning ~5.6e22 (near the " +
+    "DD floor) so each grid point is intrinsically noisier than at ln 1.3 (A_opt ~ " +
+    "4.41e-15, cond ~5e15); the ordering is set by conditioning, not by reach-" +
+    "universality alone. imp-95919 confirms the ln 1.2 reach lever is EXHAUSTED past " +
+    "N=5200 (N=6400 reverses, N=8000 breaks down), so 0.247% is a DD-floor plateau, " +
+    "not merely the latest reach step. " +
     "FINDING B: the imp-95820/imp-95838 shift-budget law shiftIts ~ 5.670e-3 N^1.577 " +
     "was calibrated at ln 1.25 (cond ~1e17) and is delta-SPECIFIC -- the three deltas " +
     "span conditioning by orders of magnitude (5e15 / 1e17 / 5.6e22), so the fitted " +
     "constant/exponent is a FORM, not a cross-delta predictor, which is why the worst " +
     "reported budgets are not comparable numbers. CONSISTENT everywhere: u_opt_rel = " +
     "8 eps ~ 1.78e-15 is delta-independent, u_fit/u_opt >> 1e10 wherever a DD grid " +
-    "exists (ln 1.2 1.92e12, ln 1.3 1.29e12) so every certified width is a pure " +
+    "exists (ln 1.2 1.39e12, ln 1.3 1.29e12) so every certified width is a pure " +
     "DD-grid-reach artifact, and both extrapolated intervals contain zero signed. No " +
     "inconsistency was found in any reported interval; ln 1.25 carries no u_fit " +
     "interval (crossing / shift-budget thread only) and is recorded as N/A. " +

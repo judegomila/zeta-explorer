@@ -6,6 +6,7 @@ import {
   CONST_SECTOR_SPREAD,
   IMP95771_SUMMARY,
 } from '../data/imp-95771-q0-signal-vs-const-sector-viz-data.js';
+import { Q0_RECON_LARGEM_CERTIFICATION_OBSTRUCTION as CERT } from '../data/imp-95966-q0-recon-largem-certification-obstruction.js';
 
 // Two stacked panels sharing an m-axis: the Q_0 zeta(3) sector (top, genuinely varying)
 // against the const sector (bottom, pinned flat at 1.5) across the four tested moduli.
@@ -94,6 +95,28 @@ export default function Imp95771Q0SignalVsConstSectorViz() {
         no RH-relevant theorem. Catalan G irrationality is OPEN; Sun arXiv:2609.04176
         remains single-author and unrefereed; Platt&ndash;Trudgian &Lambda; &le; 0.2
         remains state of the art. NO QED.
+      </div>
+
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Certification caveat (imp-95966):</strong> the
+        wider Q&#8320;_RECON reconstruction this Q&#8320; sector belongs to is certified
+        against Sun Prop-6.3 <strong>ONLY at m=20</strong> (via the (6.23) certified anchor).
+        At m&gt;20 it is offset-certain double-precision, structurally transported, but rests
+        on a single TIER-3 integrand-faithfulness hypothesis verified only at m=20 &mdash; the
+        {' '}<strong>PIECE-A obstruction</strong>: no reconstruction-independent Prop-6.3
+        target c_odd(1/m) exists at any m&gt;20, so the m&gt;20 value comes from the
+        reconstruction itself, not an external check. {CERT.obstruction.routesToCertify}
       </div>
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

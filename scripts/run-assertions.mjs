@@ -18623,6 +18623,16 @@ const DATA_MODULES = [
   // u_fit_rel envelope is DECELERATING (extrapolation leg), not floor-limited. No QD solver run
   // at import; analytic precision budget; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95938-qd-mpfr-deepcorner-feasibility.js',
+  // imp-95940: DERIVE-or-BOUND attack on the imp-95921 unpinned O(1) arithmetic intercept a_0
+  // of the saturated box number variance. HONEST PARTIAL: reduces the sub-gap to ONE scalar --
+  // a_0 = b - gamma - 1 with b the rigorous Selberg-Goldston-Fujii Var S(T) constant (since the
+  // saturated box variance = 2 x Var S) -- but does NOT pin it. Two-leg obstruction: (1) the six
+  // accessible offsets back a_0 out with a ~1.18 spread straddling zero (noise-dominated, R^2 0.0007),
+  // (2) the semiclassical box model supplies only the loglog slope 1/2pi^2, not the arithmetic
+  // intercept. The crossing T_x(a_0)=2pi exp(exp(2pi^2 C0 - 2(gamma+1+a_0))) is DOUBLE-exponential
+  // in a_0 (d ln T_x/d a_0 ~ -78), so a_0 must be pinned to O(0.01) to fix T_x within a decade --
+  // sharpened sub-gap imp-95940-subgap-fujii-varS-constant. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95940-arithmetic-intercept-a0-obstruction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -22538,6 +22538,33 @@ export const glossary = [
       'imp-95921-c0-offset-approach-analytic-bracket the analytic decision (upward drift, slope 1/2pi^2) that SUPERSEDES this UNDECIDED verdict for current status (imp-95921)',
     ],
   },
+  {
+    term: 'imp-95898 p|n Positive-Cone Collapse (theta_C = 1 exactly)',
+    category: 'proof',
+    definition:
+      'A structural consistency check inside imp-95898 STEP 4 (the single-window sign-' +
+      'specification leg). Each alias coefficient carries phase a_h(n) = -(1/p) e(hn/p). ' +
+      'When p divides n, every additive character e(hn/p) collapses to 1, so all p-1 alias ' +
+      'coefficients a_h share the SAME sign (a positive cone): the numerator N(n) of ' +
+      'theta_C(p,k,n) = N(n)/D reduces to N(n) = D exactly, giving theta_C = 1 with no ' +
+      'approximation.\n\n' +
+      'This pins down WHERE the residue-averaged sign image (imp-95898 main headword, ' +
+      'theta_C = (p tr(G) - S)/((p-1) S)) gets its nontriviality from: the p | n residue ' +
+      'class contributes nothing but the trivial value 1, so the departure of the average ' +
+      'from 1 is confined ENTIRELY to the coprime residues n = 1..p-1 with p not dividing ' +
+      'n -- exactly the residues the STEP 2 average is taken over. It also matches the ' +
+      'imp-95879 sign-orthant verdict (positive-cone triviality is intrinsic to positivity, ' +
+      'not an artifact of a particular family), so the same triviality resurfaces here as a ' +
+      'structural checkpoint rather than a new obstruction.\n\n' +
+      'HONEST SCOPE: a structural/consistency observation inside an honest-PARTIAL ' +
+      'derivation; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA. NO QED.',
+    firstUsed: 'imp-95898 (single-window sign-specification leg, STEP 4), 2026',
+    relatedTerms: [
+      'imp-95898 Residue-Averaged Sign Image theta_C = (p tr(G) - S) / ((p-1) S) the closed form whose nontriviality this collapse confines to coprime residues (imp-95898)',
+      'imp-95879-theta-positive-cone-triviality-intrinsic.js proved positive-cone triviality intrinsic to positivity, the same triviality this collapse re-confirms (imp-95879)',
+      'imp-95397-alias-sign-determinacy-assessment.js the determined per-alias coefficient a_h(n) = -(1/p) e(hn/p) whose phase collapses to 1 when p | n (imp-95397)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

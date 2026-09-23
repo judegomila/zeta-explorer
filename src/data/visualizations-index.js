@@ -2953,6 +2953,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation/measurement only: reshapes the frozen imp-95845 fit literals verbatim (no re-derivation, no new least-squares run); the fit-family band is a spread across model orders/windows, not a formal covariance; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95869-two-sided-envelope',
+      title: 'Two-Sided Finite-Section Spectral Envelope vs Section Size n',
+      oneLine:
+        'Chart of lambda_min(G_n) descending to ess-inf f = A_opt and lambda_max(G_n) ascending to ess-sup f = f(0) versus section size n at delta = 3, combining the imp-95825 lower companion and imp-95846 upper companion into one two-sided envelope.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95869-two-sided-envelope-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95825-finite-section-positivity-certificate.js, src/data/imp-95846-finite-section-upper-companion-bound.js (A_opt / f(0) constants; imp-95869 viz page)',
+      ticket: 'imp-95869',
+      pedagogicalStep: 193,
+      honestCeiling:
+        'Presentation plus light recomputation of the already-verified imp-95825/imp-95846 Rayleigh-quotient method (no new cited input); every n=160 row cross-checked against those frozen certified endpoints; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

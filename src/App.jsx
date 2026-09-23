@@ -1159,6 +1159,9 @@ const Imp95777DiShareAmplificationViz = lazy(() =>
 const Imp95868BiasN2WidomFitViz = lazy(() =>
   import('./pages/Imp95868BiasN2WidomFitViz.jsx')
 );
+const Imp95869TwoSidedEnvelopeViz = lazy(() =>
+  import('./pages/Imp95869TwoSidedEnvelopeViz.jsx')
+);
 const Imp95688VkCrossoverHeightGapViz = lazy(() =>
   import('./pages/Imp95688VkCrossoverHeightGapViz.jsx')
 );
@@ -3214,6 +3217,10 @@ function AppShell() {
           <Route
             path="/viz-imp95868-biasn2-widom-fit"
             element={<Imp95868BiasN2WidomFitViz />}
+          />
+          <Route
+            path="/viz-imp95869-two-sided-envelope"
+            element={<Imp95869TwoSidedEnvelopeViz />}
           />
           <Route
             path="/viz-imp95688-vk-crossover-height-gap"

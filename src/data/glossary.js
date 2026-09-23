@@ -22001,6 +22001,37 @@ export const glossary = [
       'imp-95562 mean-square-vs-pointwise gap measurement is the source of the (nWindows, sd(D), maxPosExcess) triples the EVT comparison is built from',
     ],
   },
+  {
+    term: 'Sun Catalan-Irrationality Verdict (partial settlement: ledger verified, margin hardened, core open)',
+    category: 'concept',
+    definition:
+      'imp-95516, auditing Zhi-Wei Sun’s arXiv:2609.04176 "Catalan’s constant is irrational". The ' +
+      'objective was to verify-or-refute the two hard analytic components of Sun’s §6-§9 ledger ' +
+      'and, if sound, harden the decisive margin δ0(ρ) = Λ_mid(ρ) + Δ_{>B}(ρ) - c_odd(ρ) - ' +
+      '(4ρ-2ρ²) by optimizing the free ratio ρ = S/B that Sun fixes at 1/20 and never varies. ' +
+      'RESULT (PARTIAL): c_odd(1/20) = 0.006276744725... is VERIFIED to all printed digits (a prior reported ' +
+      'erratum was itself traced to a quadrature sign-bug and refuted); Λ_mid(1/20) = 0.1763558379286483 is ' +
+      'VERIFIED at the gate by two independent from-scratch reconstructions of the §7 integrand. Re-optimizing ' +
+      'ρ over the uncorrected ledger gives an interior optimum ρ* = 1/50 with δ0 ≈ 0.038723, a ' +
+      '~4.01× hardening of the razor-thin ρ=1/20 value δ0 ≈ 0.00966243 (positivity holds for ' +
+      'ρ ∈ (0, 0.05548)). But this hardening is UNDER SUN’S OWN FLAGGED §9 SIGN FLAW: imp-95600 ' +
+      'shows that applying Sun’s own flagged wrong-sign B² correction (-2ρ² → +2ρ²) ' +
+      'flips the ρ=1/20 baseline margin NEGATIVE (δ0_corr(1/20) ≈ -0.00033757), destroying the 4.01× ' +
+      'figure as a ratio (no positive baseline survives to harden over); a positive margin survives only ' +
+      'conditionally at a shifted interior optimum ρ* ≈ 1/56 (δ0_corr ≈ 0.0373), making the ' +
+      'ρ-optimization LOAD-BEARING rather than cosmetic. Independently of the sign question, the §2-§5 ' +
+      'determinant/rank construction and the raw coefficient 4ρ-2ρ² of (9.4) are taken as Sun states ' +
+      'them, not re-derived here. So Catalan’s constant G irrationality stays OPEN and the single-author, ' +
+      'unrefereed preprint is neither confirmed nor refuted. Report only; changes no bound; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95516 (sun-catalan-objective-verdict, the c_odd/Λ_mid verification and ρ-optimization), 2026; sign-flaw reassessment by imp-95600, 2026',
+    relatedTerms: [
+      'imp-95516-sun-catalan-objective-verdict is the module recording the c_odd/Λ_mid verification, the ρ*=1/50 hardening, and the named §2-§5 sub-gap',
+      'imp-95600 is the module applying Sun’s own flagged §9 wrong-sign B² correction, which flips the ' +
+        'ρ=1/20 baseline margin negative and relocates the load-bearing optimum to ρ*≈1/56',
+      'Catalan Signed Ladder is the companion project memory tracking the broader G-irrationality obstruction landscape this verdict sits inside',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

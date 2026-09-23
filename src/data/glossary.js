@@ -22657,6 +22657,38 @@ export const glossary = [
       'imp-95940-arithmetic-intercept-a0-obstruction the a_0 = b - gamma - 1 identity and crossing-height range this identification does not collapse (imp-95940)',
     ],
   },
+  {
+    term: 'imp-96007 Verdict: Genuine Parity-Independent Saturation of the c_odd Departure Ceiling',
+    category: 'numerical',
+    definition:
+      'Cross-validation of the imp-95982 saturating fracBelowNull ceiling on the ODD parity branch. ' +
+      'imp-95982 fit the fractional departure of c_odd below the pure-rho^2 null, Q0_RECON(m) = ' +
+      'L - c.m^-p, on four EVEN-branch points only (m=60,80,110,150), getting L=-0.010651895, p=1.9608, ' +
+      'and a finite saturation ceiling fracBelowNull(inf) = -1.832e-5. Since the imp-95925 sweep grid has ' +
+      'only one odd modulus (m=41), this module instead fits the SAME power law on the imp-95967 fine ' +
+      'integer grid m=41..70, split into an odd branch (m=41,43,...,69, 15 points) and a refit even branch ' +
+      '(m=42,44,...,70, 15 points).\n\n' +
+      'The odd branch gives L=-0.010651861, p=1.8961, ceiling -1.8334e-5; the fine-grid even refit gives ' +
+      'L=-0.010651836, p=1.9368, ceiling -1.8344e-5. Both match the imp-95982 wide-even ceiling -1.8320e-5 ' +
+      'to ~1e-8 (~0.06% of the ceiling magnitude), and both exponents sit near 2 (spread 0.065 across all ' +
+      'three fits). VERDICT: GENUINE PARITY-INDEPENDENT SATURATION -- the odd branch converges to the same ' +
+      'finite ~-1.833e-5 ceiling with the same ~m^-2 approach, so the imp-95982 SATURATES reading is not an ' +
+      'artifact of the four even-branch points it was fit from.\n\n' +
+      'HOW TO APPLY: cite this cross-validation as the reason the imp-95982 saturation ceiling can be ' +
+      'treated as a genuine property of the Q_0 rho-variation (imp-95878), not a parity-specific fitting ' +
+      'artifact -- any future refinement of the c_odd departure floor should expect the same ~-1.833e-5 ' +
+      'limit on either parity branch.\n\n' +
+      'HONEST SCOPE: measurement/fit of the reconstruction only (Q0_RECON certified only at m=20, imp-95966 ' +
+      'PIECE-A obstruction unchanged); the exponent p ~ 1.9-2.0 is NOT proven to be exactly 2; changes no ' +
+      'bound; Catalan G irrationality OPEN; Sun arXiv:2609.04176 single-author, unrefereed; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96007 (cross-validate the imp-95982 saturating fracBelowNull ceiling on the odd parity branch), 2026',
+    relatedTerms: [
+      'imp-96007-c-odd-departure-odd-branch-crossvalidation.js the fine-grid odd/even fits and cross-branch comparison behind this verdict (imp-96007)',
+      'imp-95982 the original even-branch-only fit whose SATURATES reading this verdict cross-validates (imp-95982)',
+      'imp-95967 the fine integer grid m=41..70 supplying the 15 odd-branch points and the finding that m=41 is the sole odd modulus of the imp-95925 sweep (imp-95967)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

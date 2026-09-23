@@ -81,7 +81,8 @@
  *          Trudgian-Yang), i.e. 1 - beta >= 6.26e-3 (bottom) / 4.80e-3 (top);
  *          the Vinogradov-Korobov region 1/(57.54 (log t)^{2/3} (log log t)^{1/3})
  *          (Ford) is WEAKER here and only overtakes the classical one for
- *          log t > 1.03e4, i.e. t > e^{10000}. The per-zero factor u^{-(1-beta)}
+ *          log t > 1.0242e4 (10242.24; imp-95619 canonical value -- "1.03e4"
+ *          was an imprecise rounding gloss), i.e. t > e^{10000}. The per-zero factor u^{-(1-beta)}
  *          is 0.845 / 0.843: no saving at all; the explicit formula is then
  *          worse than trivial by the zero count (1e6-1e8). Short-window zero-
  *          density theorems need windows >= T^{2/3} > Delta ~ T^{1/2}: inapplicable.
@@ -347,7 +348,7 @@ function vkCrossoverLogT() {
   }
   return 0.5 * (lo + hi);
 }
-const VK_CROSSOVER_LOGT = vkCrossoverLogT(); // ~1.03e4
+const VK_CROSSOVER_LOGT = vkCrossoverLogT(); // ~1.0242e4 (10242.24; imp-95619 canonical, NOT 1.03e4)
 
 // Platt GRH verification height for q = 97 (10^8 / q) vs window bottom T
 const PLATT_GRH_HEIGHT_Q97 = 1e8 / 97;

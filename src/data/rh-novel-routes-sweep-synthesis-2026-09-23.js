@@ -114,6 +114,30 @@ export const RH_CROSS_ROUTE_WALL_MAP = Object.freeze([
   { route: 'M', name: 'Nyman–Beurling / Vasyunin reciprocity', wall: 'mollifier lineage (Estermann FE)', note: 'the Bettin–Conrey reciprocity is the Estermann functional equation and cannot bound the Gram inverse; collapses to the standard mollifier' },
 ]);
 
+// imp-96082: the single named open residual of the 2026-09-23 novel-routes
+// program. rh-novel-routes-sweep-synthesis names Route H as "the one live
+// corner"; the Route I module (opening.routeI above) sharpened that corner to
+// an explicit inequality between two RH-free functionals -- not an identity.
+// This entry registers that inequality by name so it reads as the program's
+// live open step without re-deriving it. Bookkeeping only; asserts no
+// closure; NO QED.
+export const RH_NAMED_OPEN_RESIDUAL = Object.freeze({
+  id: 'route-hi-semilocal-sonine-inequality',
+  name: 'Route H/I semilocal S={infinity,2} inequality D_S <= L_S',
+  statement:
+    'Weil positivity on g-support < ln 3 <=> D_S(f) <= L_S(f) on pole-free '
+    + 'Weil minimizers h -- an inequality between two explicit RH-free '
+    + 'functionals (trace remainder D_S vs. positive trace-side floor L_S), '
+    + 'not an identity.',
+  margin: 'unconstrained margin 2.8e-3 at a=(ln3)/2; FALSE for 2a > 1.1316 (rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js high-res map)',
+  controlObject: 'the resonance window I_1 (forTheProof)',
+  modules: [
+    'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js',
+    'rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js',
+  ],
+  status: 'OPEN; RH open; NO QED',
+});
+
 export const RH_SWEEP_SYNTHESIS_ASSERTIONS = Object.freeze([
   {
     id: 'cross-route-wall-map-covers-a-to-m',
@@ -144,6 +168,14 @@ export const RH_SWEEP_SYNTHESIS_ASSERTIONS = Object.freeze([
     id: 'honest-no-qed',
     holds: () => /NO QED/.test(RH_SWEEP_SYNTHESIS.status) && /RH open/.test(RH_SWEEP_SYNTHESIS.honest),
     why: 'No false QED; RH stays open; PT Λ≤0.2 SOTA.',
+  },
+  {
+    id: 'named-open-residual-registered',
+    holds: () => /D_S/.test(RH_NAMED_OPEN_RESIDUAL.statement)
+      && RH_NAMED_OPEN_RESIDUAL.modules.length === 2
+      && /OPEN/.test(RH_NAMED_OPEN_RESIDUAL.status)
+      && /NO QED/.test(RH_NAMED_OPEN_RESIDUAL.status),
+    why: 'imp-96082: registers the Route H/I semilocal inequality as the single named open residual of the 2026-09-23 novel-routes program.',
   },
 ]);
 

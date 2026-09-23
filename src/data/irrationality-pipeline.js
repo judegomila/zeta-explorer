@@ -119,6 +119,11 @@ export const IRRATIONALITY_PIPELINE = Object.freeze({
       + '+0.474 B² after removing a 2-adic waste factor) where the proof needs ≤ −0.0097 B² '
       + '(wrong-sign B²; three distinct §9 errors; no construction-class variant reaches a '
       + 'negative coefficient). So: treat it as REFUTED-as-a-proof, Catalan G still OPEN. '
+      + 'Conditional on the flagged §9 sign error (ρ=S/B), a re-derived δ₀_corr(ρ) ledger '
+      + 'flips Sun’s literal ρ=1/20 margin NEGATIVE (δ₀_corr≈−0.00034), destroying the '
+      + 'fixed-ratio hardening framing, while a robust interior optimum survives near '
+      + 'ρ*≈1/56 with δ₀_corr(ρ*)≈+0.0373 — so under this one interpretation of the sign '
+      + 'error, the ρ-optimization is load-bearing, not cosmetic. '
       + '(Do not confuse it with Dale James Raymond’s de Bruijn–Newman bound Λ<0.149396, '
       + 'Zenodo 22867547 — a different author and problem; Raymond’s paper shares NONE of '
       + 'Sun’s δ₀ ledger, and Λ is zero-location, not value-irrationality.)',
@@ -186,6 +191,11 @@ export const IRRATIONALITY_PIPELINE_ASSERTIONS = Object.freeze([
     name: 'Sun case: flagged UNVERIFIED + distinguished from Raymond’s Λ paper',
     holds: () => /UNVERIFIED/i.test(IRRATIONALITY_PIPELINE.sunCase.status + IRRATIONALITY_PIPELINE.sunCase.body)
       && /Raymond/.test(IRRATIONALITY_PIPELINE.sunCase.body),
+  },
+  {
+    name: 'Sun case: sign-corrected ρ=1/20 margin flagged negative, interior optimum load-bearing',
+    holds: () => /NEGATIVE/.test(IRRATIONALITY_PIPELINE.sunCase.body)
+      && /load-bearing/.test(IRRATIONALITY_PIPELINE.sunCase.body),
   },
   {
     name: 'Fauzan ζ(5) case: credible-unrefereed, NOT certified (no false QED)',

@@ -22597,6 +22597,37 @@ export const glossary = [
       'imp-95916-tier3-per-family-attribution.js the per-family/per-locus attribution this verdict sharpens the target for but leaves OPEN (imp-95916)',
     ],
   },
+  {
+    term: 'imp-95964 Var S(T) Constant Decomposition (b = M + P2 + K)',
+    category: 'constant',
+    definition:
+      'A structural decomposition of the rigorous Selberg-Goldston-Fujii Var S(T) additive ' +
+      'constant b, reconstructed from the diagonal explicit-formula second moment: ' +
+      'b = M + P2 + K, where M = 0.2614972128 is the Mertens constant (sum_{p<=x} 1/p = ' +
+      'loglog x + M), P2 = sum_{k>=2} sum_p 1/(k^2 p^k) = 0.139470636558 is the convergent ' +
+      'prime-power double sum, and K is the O(1) boundary / cutoff-matching constant ' +
+      'absorbing the loglog re-anchoring and off-diagonal/smoothing contributions.\n\n' +
+      'M and P2 are pinned to O(1e-12) by direct summation, giving a diagonal-only value ' +
+      'b_diag = M + P2 = 0.400967849406. K is NOT reconstructible from the diagonal ' +
+      'computation alone; backed out from the imp-95940 empirical mean a_0 ~ -0.116, K ~ ' +
+      '1.06 -- an O(1) constant, ~100x the O(0.01) accuracy needed to collapse the imp-95940 ' +
+      'crossing-height range [~5.8e17, ~1.36e28] to a point. This isolates the true frontier ' +
+      'obstruction: the cutoff / off-diagonal boundary constant K, not the convergent prime ' +
+      'sum, which the full smoothed explicit-formula treatment (Selberg / Goldston 1987 / ' +
+      'Tsang 1984 / Fujii) would need to supply.\n\n' +
+      'HOW TO APPLY: cite this decomposition as the reason the imp-95940 b sub-gap renames to ' +
+      'imp-95964-subgap-boundary-K -- any future attempt to pin b to O(0.01) must target K ' +
+      'specifically, since M + P2 is already resolved two orders of magnitude tighter than ' +
+      'needed.\n\n' +
+      'HONEST SCOPE: assessment / precise obstruction only; changes no bound; NO QED; the ' +
+      'imp-95940 crossing range does not collapse; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-95964 (LOCATE the Var S(T) constant b, reconstructing b = M + P2 + K and isolating K as the unresolved term), 2026',
+    relatedTerms: [
+      'imp-95964-fujii-varS-constant-locate-obstruction.js the diagonal reconstruction and live P2 sieve computation behind this decomposition (imp-95964)',
+      'imp-95940-arithmetic-intercept-a0-obstruction the a_0 = b - gamma - 1 identity and named b sub-gap this decomposition renames to imp-95964-subgap-boundary-K (imp-95940)',
+      'imp-95984-fujii-varS-constant-literature-locate the later exact closed-form identification of the boundary constant K = I_F (imp-95984)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

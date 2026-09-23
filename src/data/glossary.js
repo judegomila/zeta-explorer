@@ -22274,6 +22274,31 @@ export const glossary = [
       'imp-95823 is the direct double-double Jacobi Gram eigensolve independently confirming the cancellation-floor diagnosis',
     ],
   },
+  {
+    term: 'Sech-Gram Widom Leading Prefactor C_Widom = 50 pi^4/delta^2',
+    category: 'constant',
+    definition:
+      'A quick-lookup headword for the imp-95839 closed-form evaluation of the Kac-Murdock-Szego/Widom ' +
+      'finite-section prefactor for the rho=1 deep-corner sech Gram symbol f(theta) = sum_m sech(m*delta/2) ' +
+      'e^{i m theta}. Writing biasPct = 100*(lambda_min(T_N[f])/m - 1), the leading N^-2 correction law ' +
+      '(imp-95824) gives biasPct*(N+1)^2 -> 100*(f\'\'(theta_star)/2)*pi^2/m =: C_Widom as N -> infinity, a ' +
+      'scale-invariant ratio depending only on delta. Evaluated via the cancellation-free imp-95744 Poisson ' +
+      'dual at the minimizer theta_star = pi, the ratio f\'\'(pi)/m collapses to (pi/delta)^2 EXACTLY (the ' +
+      'dominant dual terms carry large argument pi^2/delta, where sech\'\'(u) -> sech(u)), so C_Widom = ' +
+      '50*pi^4/delta^2. At delta = ln 1.2 this is C_Widom = 146518.834..., and the imp-95803 measured ladder ' +
+      'biasPct*(N+1)^2 descends monotonically FROM ABOVE (338726 at N=80, 163151 at N=500) toward this exact ' +
+      'constant with an O(1/N) pre-asymptotic tail (matching the O(N^-3) KMS/Widom subleading remainder), ' +
+      'confirming the drift is convergence to a fixed constant on a FIXED leading power p=2, not a power ' +
+      'change. Evaluation only; changes no bound of the Lambda program; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-95824 (derived the N^-2 leading law, left the prefactor a sub-gap), 2026; evaluated in closed form by imp-95839, 2026',
+    relatedTerms: [
+      'imp-95839-sech-widom-prefactor-eval is the module evaluating C_Widom = 50 pi^4/delta^2 from the actual sech Gram symbol',
+      'imp-95824-deep-corner-bias-exponent-szego-theory is the module deriving the N^-2 leading law and leaving the prefactor open',
+      'imp-95803-twin-pair-deep-corner-bias-exponent-limit is the module supplying the measured biasPct*(N+1)^2 ladder that converges to C_Widom',
+      'imp-95845-deep-corner-biasN2-widom-fit is the module fitting the full biasPct*N^2 drift ladder to the C_Widom asymptote',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -21880,6 +21880,28 @@ export const glossary = [
       'imp-95443 decay-vs-margin race is the separate UNIFORM question this fixed-window decidability does not resolve',
     ],
   },
+  {
+    term: '1.15e-11 Lehmer-Pair Collision Threshold (units)',
+    category: 'concept',
+    definition:
+      'imp-95558 provenance audit. The figure 1.15e-11 (precise value -1.14541e-11) is the ' +
+      'Saouter-Gourdon-Demichel (2011, Math. Comp. 80(276)) unconditional lower bound |Lambda| >= 1.15e-11 ' +
+      'on the de Bruijn-Newman constant. It is an EPS-TIME on the backward-heat-flow parameter axis -- the ' +
+      'critical flow time t at which the deformed Xi_t would first acquire a non-real zero -- in the SAME ' +
+      'units as the imp-95531 window statistic eps_0(S). It is NOT a normalized zero gap delta_n = ' +
+      '(gamma_{n+1}-gamma_n) log(gamma_n/2pi)/2pi (a dimensionless O(0.1-1) spacing) and NOT a displacement ' +
+      'of a zero off the real axis. The bound is proved via the Csordas-Smith-Varga inequality applied to a ' +
+      'tightest verified Lehmer pair (~10^13 height): a more negative Lambda would drive that already-close ' +
+      'pair to collide under the backward flow before reaching the observed configuration -- hence the name. ' +
+      'Reading W(S) exceeds 1.15e-11 by 5-8 orders of magnitude as a gap-size comparison would be a units ' +
+      'error; read correctly, it compares two flow-time magnitudes and is dimensionally sound.',
+    firstUsed: 'imp-95558 (Lehmer-threshold provenance audit), 2026',
+    relatedTerms: [
+      'de Bruijn-Newman Constant Λ is the flow-time axis this threshold is a point on',
+      'imp-95531 explicit PD-persistence window computes the W(S) statistic this threshold is compared against',
+      'imp-95530 Flow-Critical (member) is the companion inf_S eps_0(S) = 0 notion on the same flow-time axis',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

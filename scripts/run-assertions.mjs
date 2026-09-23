@@ -18472,6 +18472,16 @@ const DATA_MODULES = [
   // u_opt_rel=8eps delta-independent, u_fit/u_opt>>1e10 where a DD grid exists.
   // Cross-validation only; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95885-per-delta-ufit-comparison-table.js',
+  // imp-95895: DERIVES the delta=ln1.25 per-delta u_fit certified interval from the
+  // imp-95838 converged DD shift-invert grid (eight points N=150..1523, reach ~34..340,
+  // monotone) via the imp-95881 primal envelope, filling the imp-95885 N/A cell:
+  // A_opt=6.9643e-18, A_fit=6.9646e-18, u_fit_rel=0.0846%, u_fit/u_opt=4.77e11,
+  // r_interval=[-7.99e-4,+8.94e-4] CONTAINS ZERO. ln1.25 is the TIGHTEST of the three
+  // deltas (0.085% < ln1.3 0.23% < ln1.2 0.34%) despite intermediate conditioning,
+  // refining imp-95885 FINDING A: the ordering is the reach-to-conditioning interplay.
+  // A live N=150 DD shift-invert solve reproduces the baked coarsest point (~5e-11 rel).
+  // Measurement/cross-validation; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95895-ln125-ufit-interval.js',
 ];
 
 let ALL_MODULES = FAST_MODE

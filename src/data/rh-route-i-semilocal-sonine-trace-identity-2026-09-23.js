@@ -282,6 +282,16 @@ export const ROUTE_I_LITERALS = Object.freeze({
   galerkinN24: { a030: { lamWpf: 0.691999, lamWpf0: 0.987883, lamLS: 0.154128, DSh0: 0.1853, LSh0: 0.877299, DAh0: -0.0186206 }, aLn2Half: { lamWpf: 0.547061, lamLS: 0.134588, DAh0: -0.0162064 }, a037: { lamWpf: 0.410917, DAh0: -0.00667033 }, a040: { DAh0: 0.00879125 }, a045: { lamWpf: 0.0664115, lamLS: 0.107482 }, a060: { lamW: 1.80676e-9, lamWpf: 6.82636e-5, lamArchPf: -0.00709274, lamLSminusP3: 0.0335115 }, a065: { lamW: 4.30575e-11, lamWpf: 2.60545e-6, lamLSminusP3: -0.191421 } },
   pencil: { a040: 0.602395, a050: 0.966974, a050N16: 0.966334, aLn3Half: 0.997099, aLn3HalfN16: 0.997043, lamLSpf: { a040: 0.56599, a050: 0.35673, aLn3Half: 0.30830 }, a050HiRes: 0.96730, a050Note: 'imp-96074: a050 = 0.966974 is the N=32 GL-8/J=30/panel-0.25 quadrature-limited mu_max(0.5;0), ~1.4e-4 below the hi-res N=32 value 0.9671131 of rh-route-i-pencil-highres-map (same N, GL-12/J=34 graded, cross-check < 2e-7); that hi-res sequence N=32..128 then N^-2-extrapolates to 0.96730 (a050HiRes). All three agree mu_max(0.5) < 1, so no bound or verdict changes; use a050HiRes for the converged pencil eigenvalue' },
   s23: { threeHalves: [1.2862, 5.4464, 13.3924], fourThirds: [1.1915, 4.8840, 12.1533], nineEighths: [1.0988, 3.9632, 10.0632], three: [2.4867, 9.9398, 22.7899], sqrt2: [0.7894, 0.7752, 0.7749], eps: [1e-2, 1e-4, 1e-6], s2AtThreeHalves: 1.5495 },
+  // imp-96087: lambda_min(L_S - P_3) on a fine a-grid (N = 24, GL-8/J = 30 Toeplitz D_S; P_3 = wf.primeTerms[3]).
+  // L_S = Arch - P_2 + D_S is the semilocal S = {oo, 2} trace (only p = 2); past ln 3 the true Weil form gains -P_3.
+  // lamMin(L_S - P_3) decreases monotonically through a = ((ln3)/2, 0.66], crossing 0 at a* = the loss-of-positivity
+  // support: the discrete-P_3 rescue of the odd pencil vector holds only for a < a*. Endpoints reproduce the baked
+  // galerkinN24 a060 (0.033511) and a065 (-0.191421) to all digits.
+  lsMinusP3: {
+    grid: [[0.58, 0.080817], [0.585, 0.074654], [0.59, 0.065359], [0.595, 0.051808], [0.60, 0.033511], [0.605, 0.011181], [0.61, -0.013584], [0.615, -0.039166], [0.62, -0.064413], [0.625, -0.088685], [0.63, -0.111740], [0.635, -0.133534], [0.64, -0.154067], [0.645, -0.173353], [0.65, -0.191421], [0.655, -0.208276], [0.66, -0.224006]],
+    aStarN24: 0.6072972, aStarN32: 0.6068884, twoAStar: 1.2137768, gSupportPastLn3: 0.1151645, aPastLn3Half: 0.0575823,
+    note: 'lamMin(L_S - P_3) = 0 at a* = 0.60689 (N = 32; N = 24 gives 0.60730, N-drift ~4e-4). The discrete-P_3 rescue extends only Delta a = a* - (ln3)/2 = 0.0576 past the p = 3 onset (2a* - ln3 = 0.1152 in g-support); beyond a* the form L_S - P_3 is indefinite (lamMin < 0) and the semilocal trace no longer dominates the adjoined p = 3 shift. Measurement only; RH open; NO QED',
+  },
 });
 
 export const RH_ROUTE_I_SEMILOCAL_SONINE_TRACE = Object.freeze({

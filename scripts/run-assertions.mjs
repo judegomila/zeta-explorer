@@ -18001,6 +18001,11 @@ const DATA_MODULES = [
   // zero, so the routes are certified consistent with exact agreement. Import-light,
   // no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95767-dual-primal-agreement-interval.js',
+  // imp-95790: reshapes the imp-95766 r_cap(T) dead-zone rows (ceiling, imp-95729
+  // crossover, imp-95519 window bottom) into a chart-ready curve + landmark viz-data
+  // module, no re-derivation. Import-light, no zeros bundle, no bound, no QED, PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-95790-rcap-deadzone-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

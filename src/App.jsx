@@ -1132,6 +1132,9 @@ const Imp95754CfWedgeDepthVsMultiplierViz = lazy(() =>
 const Imp95759MsqPointwiseWallViz = lazy(() =>
   import('./pages/Imp95759MsqPointwiseWallViz.jsx')
 );
+const Imp95790RCapDeadZoneViz = lazy(() =>
+  import('./pages/Imp95790RCapDeadZoneViz.jsx')
+);
 const Imp95668DeficitFartailLimitViz = lazy(() =>
   import('./pages/Imp95668DeficitFartailLimitViz.jsx')
 );
@@ -3130,6 +3133,10 @@ function AppShell() {
           <Route
             path="/viz-imp95759-msq-pointwise-wall"
             element={<Imp95759MsqPointwiseWallViz />}
+          />
+          <Route
+            path="/viz-imp95790-rcap-deadzone"
+            element={<Imp95790RCapDeadZoneViz />}
           />
           <Route
             path="/viz-imp95668-deficit-fartail-limit"

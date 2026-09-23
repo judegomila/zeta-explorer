@@ -2728,6 +2728,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95659 tabulation verbatim (no re-derivation, no fresh term); the rho=1 value carries the same finite-size Szego factor as imp-95642 and is not the infinite-lattice infimum; model seam family only; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95790-rcap-deadzone',
+      title: 'Number-Variance Cap r_cap(T) Dead-Zone Monotone Descent',
+      oneLine:
+        'Log10-T chart of the imp-95766 derived envelope r_cap(T) falling monotonically from 0.4322 at the direct-measurement ceiling through 0.3237 at the imp-95729 crossover to 0.2599 at the imp-95519 window bottom, with the (1-r_cap) margin-below-one band shaded.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95790-rcap-deadzone-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95766-number-variance-cap-crossover-deadzone.js (IMP95766_NUMBER_VARIANCE_CAP_CROSSOVER_DEADZONE deadZoneRows; imp-95790 viz page)',
+      ticket: 'imp-95790',
+      pedagogicalStep: 177,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95766 dead-zone measurement verbatim (no re-derivation, no fresh term); r_cap(T) is a derived upper envelope, not the true pointwise ratio r(T); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

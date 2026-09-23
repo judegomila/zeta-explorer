@@ -21923,6 +21923,31 @@ export const glossary = [
       'imp-95530 Flow-Critical (member) is the companion inf_S eps_0(S) = 0 notion on the same flow-time axis',
     ],
   },
+  {
+    term: 'Closed-as-Stated vs Undecided-at-Anchor (localized barrier sum)',
+    category: 'concept',
+    definition:
+      'imp-95519 section 5 / imp-95604 honest-scope audit. imp-95519 concludes the sub-0.14 program\'s ' +
+      'last quantitative lever, the localized barrier sum A_{k,h}, is CLOSED AS STATED: prime side height- ' +
+      'bound (Platt GRH for L(s, chi mod 97) reaches only ~1.03e6, a factor 2.9e6 below T = 3e12) and width- ' +
+      'bound (Fresnel width sits below the RH short-interval barrier, rho > 1), zero side PCC-gated with ' +
+      'Montgomery frequency alpha_{k,h} > 1 for 59.26% of the majorant mass. Section 4 cites imp-95526 T2 ' +
+      '(a Kronecker/Weyl saturation result) as blocking a mean-square-to-pointwise upgrade of the pair- ' +
+      'correlation input; imp-95604 audited this citation and found it ACCURATE but narrower than it reads: ' +
+      'the sqrt(H) L^2-to-L^infinity transfer constant is Kronecker-sharp and exactly cancels the H^{-1/2} ' +
+      'mean-square saving (product = 1, trivial size), which forecloses only that UPGRADE MECHANISM. Kronecker ' +
+      'exhibits a positive-measure saturating set but does not locate it at the anchor height T-star, so the ' +
+      'contract there stays UNDECIDED and PCC-gated on pointwise zero-location -- neither closed nor refuted. ' +
+      'The distinction matters: "closed as stated" describes the specific upgrade route Section 4/5 examined, ' +
+      'not a claim that the underlying anchor contract has been disproved.',
+    firstUsed: 'imp-95519 (localized barrier sum prime/zero no-go, Section 5 closure verdict), 2026; sharpened by imp-95604 (mean-square-to-pointwise upgrade foreclosure audit), 2026',
+    relatedTerms: [
+      'Montgomery packet frequency alpha_{k,h} is the zero-side PCC-gated quantity this lever\'s closure argument turns on',
+      'Fresnel-Airy Packet Width H_{k,h} is the prime-side height/width-bound quantity this lever\'s closure argument turns on',
+      'imp-95519 localized barrier sum prime/zero no-go is the source result whose Section 5 verdict this headword records',
+      'imp-95604 mean-square-to-pointwise upgrade foreclosure is the audit module distinguishing FORECLOSED (upgrade mechanism) from UNDECIDED (anchor contract)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

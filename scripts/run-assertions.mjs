@@ -18338,6 +18338,18 @@ const DATA_MODULES = [
   // only; changes no bound; the imp-95212 kernel-weighted residue-bias port is untouched, STILL OPEN;
   // NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.
   '/src/data/imp-95918-residue-avg-sign-image-pk-grid.js',
+  // imp-95943: measures how the SIGNED (Fresnel-oscillating) proxy deviation from the imp-95898
+  // residue-UNIFORM sign image scales across the wider grid p in {3,5,7,11,13,17,19,23}, k in {4..7}
+  // using the same signed proxy w(n)=Lambda(n)cos(0.7 n)exp(-((n-3000)/1200)^2). The signed image
+  // stays STRICTLY BELOW 1 at all 32 points, but the relative deviation from <theta_C> does NOT
+  // shrink with p: per-p mean |rel dev| is 0.025/0.292/1.137/0.164/0.442/0.716/0.035/0.308 -- max at
+  // an INTERMEDIATE prime (p=7), where the signed bias exceeds the tiny 1/(p-1)^2 uniform image and
+  // flips theta slightly NEGATIVE. Because the uniform image decays as 1/(p-1)^2 (imp-95918) while
+  // the sign-driven additive bias does not, the kernel SIGN is a FIRST-ORDER effect on the small
+  // image, not a vanishing correction (sharp contrast with the imp-95917 nonneg proxy that tracked to
+  // ~1e-3). Import-light. Measurement only (a PROXY, not the imp-95212 kernel); no bound, NO QED,
+  // Platt-Trudgian Lambda<=0.2 SOTA.
+  '/src/data/imp-95943-signed-proxy-deviation-pk-grid.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.

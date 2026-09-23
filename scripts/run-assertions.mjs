@@ -307,6 +307,16 @@ const DATA_MODULES = [
   // close pairs; exact incomplete-gamma frame is not a deformation (≥1e7×Λ). 460-site window [9.67,760],
   // winding integrality <1e-12. Import-light literals; NOT-A-LEVER; no bound; PT Λ≤0.2 SOTA; NO QED.
   '/src/data/rh-route-g-log-gas-rg-prime-freezing-2026-09-23.js',
+  // imp-96019 (2026-09-23): ASSESSMENT of sweep opening.nextTests[1] — can the Connes–Consani scaling
+  // site extend the proven archimedean Weil positivity past the first prime shift u = ln 2? Verdict:
+  // NO candidate extension; precise obstruction. The proven partial (|u| < ln 2) is prime-EMPTY (smallest
+  // lattice point = log 2); the scaling site supplies a reflection-positive transverse Euclidean direction
+  // ONLY at the archimedean place (Sonin space, Connes–Consani 2021), reproducing exactly that window and
+  // terminating at u = ln 2. The finite places Q_p are totally disconnected — no transverse Euclidean
+  // coordinate, only periodic-orbit counts — so the first finite shift (p=2, w_{2,1}=(log2)/√2≈0.4901)
+  // has no local positivity channel. Named sub-gap = a finite-place Sonin/reflection structure (geometric
+  // refinement of imp-95520). Import-light lattice/weight witnesses only; NOT a bound; PT Λ≤0.2 SOTA; NO QED.
+  '/src/data/imp-96019-scaling-site-weil-past-ln2-assessment.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

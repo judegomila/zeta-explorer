@@ -29,7 +29,7 @@ export const IMP95606_FINE_GRID = Object.freeze([
   { log10N: 10.5, p_local: 0.358, sigma: 0.2527 },
   { log10N: 11, p_local: 0.4019, sigma: 0.163 },
   { log10N: 11.5, p_local: 0.4326, sigma: 0.1007 },
-  { log10N: 12, p_local: 0.4526, sigma: 0.0604 },
+  { log10N: 12, p_local: 0.45264, sigma: 0.0604 },
 ]);
 
 // Whole-decade OLS exponent (imp-33582) vs the pointwise value at the decade midpoint: the

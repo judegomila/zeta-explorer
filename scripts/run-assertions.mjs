@@ -18706,6 +18706,18 @@ const DATA_MODULES = [
   // available to O(0.01), the crossing range does not collapse, and the unresolved term is K (NOT
   // the prime sum) -- renamed sub-gap imp-95964-subgap-boundary-K. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95964-fujii-varS-constant-locate-obstruction.js',
+  // imp-95966: ASSESS whether the imp-95925 238-cell Q0_RECON can be certified against Sun Prop-6.3
+  // at a larger modulus (m=41 or m=60), or record the precise obstruction. VERDICT: OBSTRUCTED -- the
+  // binding imp-95842/95861/95878 PIECE-A shortfall (no reconstruction-independent c_odd(1/m) at m>20;
+  // (6.23) states it only at m=20, imp-95878 refuted the pure-rho^2 null as a target) is unchanged
+  // across the imp-95925 large-m range m=41,60,150. The reconstructed comparison quantity c_odd(1/m)
+  // sits ~1.6-1.8e-5 (fractional) below the pure-rho^2 null -- the genuine Q_0 rho-variation a pure
+  // form forces to zero -- so the m>20 value comes only from the reconstruction. imp-95745 (+4 offset
+  // m-free) + imp-95720 (curvature reproduced) transport all but the TIER-3 K_v coefficients, so the
+  // residual is a SINGLE integrand-faithfulness hypothesis verified only at m=20. Consequence: the
+  // imp-95925 clean-cancellation finding is offset-certain, NOT per-m Prop-6.3-certified. Import-light,
+  // no bound, NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95966-q0-recon-largem-certification-obstruction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -17700,6 +17700,22 @@ const DATA_MODULES = [
   // by Montgomery-Vaughan T + N. Import-free, 7 holds() assertions. No bound
   // change; PT Lambda <= 0.2 stands; RH open; NO QED.
   '/src/data/proportion-to-all-bridge-2026-09-22.js',
+  // lane-arithmetic-input-audit (fable-5-1, Route VII floor attack, 2026-09-22):
+  // can ARITHMETIC INPUT (Guth-Maynard density, Bettin-Gonek / F(alpha) twisted
+  // moments, explicit-formula tails) shrink the P15 tail lane below the
+  // U ~ 0.145-0.150 floor? Exact gap: the lane closes by the triangle
+  // inequality at sigma_c = 1/2 + c0 = 1.722 (= the zeta(sigma) - 1 = 1 root),
+  // the flow/SC floor is sigma = 1; shortfall 12.2 nats = 5.3 decades in N at
+  // U = 0.145 (N1* = 1.09e8, 1.4e3 CPU-days). Verdicts: density Lambda-inert
+  // (vacuous at abscissa > 1; permits 1e12 off-line zeros); L2/large-sieve to
+  // pointwise needs E2 < 1/(4 pi N), threshold (1.81) no better than L1 (1.86);
+  // heat lift breaks multiplicativity. Deliverable: CONDITIONAL flow-descent
+  // theorem Lambda <= t0 + y0^2/2 given H_desc(p), p >= p_req solving
+  // int_{y0}^1 Y/(1+pY) dY = t0 (p_req = 4.37 at U = 0.145; p = 0 reproduces
+  // de Bruijn 1/2), input = pointwise anti-clustering of off-line zeros on
+  // [3e12, 7.5e16], implied by RH-to-7.5e16 and by nothing known (MV-CAP).
+  // Import-free, 9 holds() assertions. Lambda < 0.145 NOT established; NO QED.
+  '/src/data/lane-arithmetic-input-audit-2026-09-22.js',
   // imp-95581 (opus-4-8, api-pool): can the imp-95519 section-4 zero-side
   // "for all T uniformly" requirement be weakened to a "for most T" (a.e. /
   // exceptional-set) pair-correlation statement without breaking the
@@ -17918,6 +17934,7 @@ const DATA_MODULES = [
   '/src/data/imp-95724-c-odd-J-variation-magnitude-assessment.js',
   '/src/data/imp-95725-szego-ratio-monotonicity-endpoint.js',
   '/src/data/imp-95727-szego-coefficient-eigensolver-crosscheck.js',
+  '/src/data/imp-95743-szego-coefficient-double-double-crosscheck.js',
   // imp-95744: resolves the five imp-95723 below-precision (delta,rho) cells via a
   // cancellation-free theta=0 Poisson dual (F_inf = (2pi/L) sum_k sech(2pi^2 k/L)
   // * 2 sin^2(pi k delta/L), all-positive, no subtraction; double-double confirmed).

@@ -18264,6 +18264,12 @@ const DATA_MODULES = [
   // ceiling is closeable in-repo; the obstruction stands as the verified-height bottleneck.
   // Import-light, no zeros bundle, no bound, NO QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95801-ordinate-source-reach-audit.js',
+  // imp-95863: decade-ledger quantifying how many decades toward T=3e12 each candidate
+  // intermediate ordinate table (N=1e6..1e13) would buy for the imp-95843 number-variance
+  // ratio window-reach data-ceiling. RvM-asymptotic reach calibrated to gamma_1e6; per the
+  // imp-95801 catalog no such table exists in-repo so 0 decades are actually bought; reaching
+  // the window bottom needs ~1.24e13 consecutive ordinates. Import-light, no bound, NO QED.
+  '/src/data/imp-95863-intermediate-ordinate-table-reach-ledger.js',
   // imp-95804: assesses whether a single univariate function of the reach
   // L = delta*(1+rho) fits all 13 cells of the imp-95785 union twin-pair biasPct
   // grid. biasPct IS monotone-decreasing in L and a cubic-in-ln(L) model fits the

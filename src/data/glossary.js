@@ -21668,6 +21668,34 @@ export const glossary = [
       'imp-95485 confirms the wedge equals the shared collar exactly and shows the N>=3 direct generalization is vacuous (imp-95485)',
     ],
   },
+  {
+    term: 'Sun Section 9 Sign-Flip Placement Dependence',
+    category: 'concept',
+    definition:
+      'A caveat on the imp-95600 repair of Sun\'s flagged wrong-sign B-squared term in the ' +
+      'Catalan-constant delta_0(rho) ledger (rho = S/B): the ledger carries rho^2 = S^2/B^2 in ' +
+      'THREE places -- the (9.4) quadratic (4 rho - 2 rho^2), Delta_gtB(rho) = (2/3) rho + ' +
+      '(1/2) rho^2, and c_odd(rho) = kappa rho^2 with kappa = 2.51069789 -- and Sun\'s note only ' +
+      'says a B-squared term has the wrong sign, without pinning which one. imp-95600 repaired ' +
+      'placement A (the (9.4) quadratic, shift -4 rho^2) and reported two sharp claims: Sun\'s ' +
+      'literal rho=1/20 margin flips NEGATIVE (-0.000338), and the interior optimum lands near ' +
+      'rho* ~ 1/56.19. imp-95618 tested the two other plausible placements on the same local ' +
+      'parabola model (curvature A = -32.28952): placement B (Delta_gtB, shift -1 rho^2) keeps ' +
+      'the rho=1/20 margin POSITIVE (+0.007162, rho* ~ 1/51.55); placement C (c_odd, shift ' +
+      '+2 kappa rho^2 = +5.02140 rho^2, an upshift since c_odd is subtracted) keeps it POSITIVE ' +
+      'and IMPROVES it (+0.022216, rho* ~ 1/42.22). Both imp-95600 sharp claims are therefore ' +
+      'PLACEMENT-A-SPECIFIC: placement A is decisive only because its downshift coefficient (4) ' +
+      'is the largest of the three, the only one big enough to overrun the razor-thin 0.00966243 ' +
+      'gate at rho=1/20. What IS placement-robust: an interior POSITIVE-margin optimum exists in ' +
+      '(0, 1/20) under all three placements, with corrected margin at the optimum exceeding 0.037 ' +
+      '(0.0373 / 0.0383 / 0.0411 for A / B / C respectively).',
+    firstUsed: 'imp-95618-sun-s9-signfix-placement-robustness (placement-dependence assessment of imp-95600), 2026',
+    relatedTerms: [
+      'imp-95600 repaired Sun Section 9 under the (9.4)-quadratic reading (placement A) and reported the two sharp, placement-specific claims (imp-95600)',
+      'imp-95516 supplies the original delta_0(rho) ledger and c_odd curvature kappa=2.51069789 that all three placements share (imp-95516)',
+      'Catalan constant G irrationality remains OPEN under every placement; Sun arXiv:2609.04176 remains single-author and unrefereed',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

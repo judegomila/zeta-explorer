@@ -2561,6 +2561,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation/measurement only: reshapes the frozen imp-95729 placement verbatim (no re-derivation, no fresh term); the crossover-vs-conservatism overlap AT the crossover height remains unmeasured (frontier dead zone); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95754-cf-wedge-depth-vs-multiplier',
+      title: 'Transition-Before-Knee Wedge Depth vs the C_F Multiplier',
+      oneLine:
+        'Log-x curve of the imp-95617/imp-95691/imp-95721 box-min gap minGap deepening monotonically from -0.004682 (nominal cf=1) to -0.171451 (~36.6x) as the honest C_F provenance multiplier cf rises from 1x to the imp-95721 density-weighted 8.6x physical-cutoff band, at the fixed (C_C 0.5x, E_trunc 1.5x) wedge corner.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95754-cf-wedge-depth-vs-multiplier-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95617-transition-knee-ordering-joint-2d.js, imp-95691-cf-band-hi-pinned-wedge-opening.js, imp-95721-cf-alpha-weight-density-pinned.js (baked box-min gap landmarks; imp-95754 viz page)',
+      ticket: 'imp-95754',
+      pedagogicalStep: 171,
+      honestCeiling:
+        'Presentation/measurement only: reshapes the frozen imp-95617/imp-95691/imp-95721 box-min gap values verbatim (no re-derivation, no fresh term); does not tame or bound the wedge, only visualizes its monotone deepening; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95548-per-prime-sbar-budget',
       title: 'Per-Prime S-bar Budget: the l2-Collapse Route vs R_ex = 0.2797',
       oneLine:

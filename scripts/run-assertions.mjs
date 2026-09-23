@@ -17928,6 +17928,10 @@ const DATA_MODULES = [
   // top, imp-3444 crossover, imp-95519 window bottom) into a log-T axis viz-data module,
   // no re-derivation. Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95753-crossover-height-window-viz-data.js',
+  // imp-95754: reshapes the imp-95617/imp-95691/imp-95721 box-min gap landmarks into a
+  // single monotone-deepening cf-vs-minGap curve viz-data module, no re-derivation.
+  // Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95754-cf-wedge-depth-vs-multiplier-viz-data.js',
   // imp-95749: combines the imp-95720 conditional J(1/19) with the imp-95724 exact split
   // J=3/2+dI to measure the dI variation (-2.852e-5, ~2.85e4x the quadrature floor): the
   // 40%-of-J rho-carrying term MOVES, conditionally refuting the constant-J null; fractional

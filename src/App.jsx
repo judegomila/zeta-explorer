@@ -1123,6 +1123,9 @@ const Imp95752Finite80BiasHeatmapViz = lazy(() =>
 const Imp95753CrossoverHeightWindowViz = lazy(() =>
   import('./pages/Imp95753CrossoverHeightWindowViz.jsx')
 );
+const Imp95754CfWedgeDepthVsMultiplierViz = lazy(() =>
+  import('./pages/Imp95754CfWedgeDepthVsMultiplierViz.jsx')
+);
 const Imp95549NsRigidPencilEigenvalueViz = lazy(() =>
   import('./pages/Imp95549NsRigidPencilEigenvalueViz.jsx')
 );
@@ -3100,6 +3103,10 @@ function AppShell() {
           <Route
             path="/viz-imp95753-crossover-height-window"
             element={<Imp95753CrossoverHeightWindowViz />}
+          />
+          <Route
+            path="/viz-imp95754-cf-wedge-depth-vs-multiplier"
+            element={<Imp95754CfWedgeDepthVsMultiplierViz />}
           />
           <Route
             path="/viz-imp95549-ns-rigid-pencil-eigenvalue"

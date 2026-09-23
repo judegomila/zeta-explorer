@@ -222,6 +222,20 @@ export const PENCIL_HIGHRES_LITERALS = Object.freeze({
   withP3N128: { a056: [0.998236, 0.956862, 0.584528, 0.229245], a058: [0.999353, 0.981056, 0.771751, 0.308494], a060: [0.999791, 0.992214, 0.879621, 0.467730] },
   lamLSpfN128: { a030: 0.87676, aLn2Half: 0.77531, a040: 0.56552, a050: 0.35649, aLn3Half: 0.30806, a060: 0.26933 },
   crossing: { aStarN64: 0.565818, aStarN96: 0.565792, aStarExtrapolated: 0.56578, twoAStar: 1.1316, ln3: LN3, parity: 'odd', evenSectorCrossing: '~0.59 (mu2 = 0.99801 at 0.58, 1.00245 at 0.60)', atAStar: { Arch: 0.36370, P2: 0.36366, W: 0.02038, P3: -0.02035, muWithP3: 0.99866, hhatPeakT: 8.85, energyBelowT1: 0.524 } },
+  /** imp-96064: crossing a*(pole-free) firmed up beyond the original two N values. mu_max(a; k=0) = 1 located by
+   *  2-point linear interpolation on a in [0.5654, 0.5660] (mu changes ~2.3e-3 across the bracket, near-linear);
+   *  the k=0 and k=1 eigenvalues coincide to <= 1.5e-14 at every N (odd crossing vector). N = 224 is beyond this
+   *  Jacobi assembly: the compressed L_S on the pole-free basis loses positivity (lamLSpf = -6.57, lamDSmin drifts
+   *  to -0.409 vs the correct ~-0.087) so L_S^-1/2 produces NaN; N = 192 is the finest stable point (lamLSpf = 0.295). */
+  crossingHighN: {
+    N: [64, 96, 128, 160, 192],
+    aStar: [0.565818, 0.565792, 0.565783, 0.565778, 0.565775],
+    lamLSpfAt0p566: { N192: 0.29488, N224: -6.573 },
+    richardsonPairs: [0.5657712, 0.5657714, 0.5657691, 0.5657682], // N^-2 extrapolation over consecutive pairs
+    aStarRichardson: 0.565770, errorBar: 3.3e-6, // finest-3 mean 0.5657696, full-range spread 3.2e-6
+    twoAStarRichardson: 1.131539, twoAStarMinusLn3: 0.032927,
+    note: 'confirms aStarExtrapolated 0.56578 (the original two-value estimate was high by ~1e-5); N >= 224 unstable',
+  },
   constraintFamiliesLn3Half: { N: 96, k: [0, 1, 2, 3, 4, 5, 6, 7, 8], moments: [0.9971589, 0.9315457, 0.4605021, 0.2279864, 0.1903956, 0.1903956, 0.1731696, 0.1225070, 0.0960235], slepian: [0.9971589, 0.9315457, 0.3243181, 0.2337244, 0.2337244, 0.2152530, 0.1415009, 0.1095564, 0.1019487], optimalWeilEig: [0.9971589, 0.9315457, 0.2673586, 0.2069117, 0.1187660, 0.1087365, 0.1087365, 0.0793410, 0.0664163], slepianEigs: [0.999997, 0.999816, 0.995634, 0.946191, 0.691777, 0.261525, 0.043677, 0.004016, 0.000255], c: 7.7647 },
   symbol: {
     wZeroCrossings: [3.597, 8.145, 9.875, 17.542, 18.699, 26.719, 27.662, 35.85, 36.664, 44.961, 45.684, 54.063, 54.713],
@@ -272,7 +286,7 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP = Object.freeze({
   extremalAnatomy: '(ln 3)/2, k = 0: even, |hhat|^2 peak t = 7.55, 74% energy below t_1, 98% below gamma_1; W = (1/2pi) int w |hhat|^2 splits as [0,3.6) -0.0092, [3.6,8.15) +0.226, I_1 -0.341, [9.9,17.5) +0.126, I_2 -0.005 (W = 0.00095, L_S = 0.3329): the negativity is the first p = 2 resonance window (102% of L_S), the archimedean window is 2.8%; k = 1 extremal odd on I_1 (-0.408); k = 2 even, I_1 -0.224 and I_2 -0.125; k = 3 odd on I_2 (-0.173): extremals migrate outward as moments are added',
   DSform: 'lambda(D_S) in [-0.07136, 2.14499] (a = 0.5), [-0.08670, 2.31368] ((ln 3)/2), N-stable to 1e-5; negative eigenvalue count 7/11/15/22/30 at N = 32..128 = Szego samples of the negative lobes of deltahat_S (sign changes 4.05, 7.83, 10.19, 13.25, ...); negative eigenvectors peak at t = 13.7 (even), 22.7 (odd), 31.9, 40.9 in those lobes; top eigenvector 2.145 is the t ~ 0 direction, next two (0.423 odd, 0.365 even) sit on the first resonance; lambda_min(L_S) = 0.0992 / 0.0934, lambda_min(L_S|pf) = 0.3565 / 0.3081',
   forTheProof: '(a) D_S <= L_S on pole-free h is true with margin >= 2.8e-3 for 2a <= ln 3 and FALSE for 2a > 1.1316 (odd sector; Weil positivity needs -P_3 there): a proof must use the support bound and cannot be a support-free operator inequality; (b) the object to control is the resonance window I_1 = (8.145, 9.875) (then I_2), not the t ~ 0 archimedean window; (c) vanishing moments act via the uncertainty principle (bandwidth pi/a ~ 5.7 vs window widths <= 1.73), two of them give a uniform margin 0.54 — a finite constraint count suffices numerically for a large margin; the unconstrained margin 2.8e-3 at (ln 3)/2 is what an unconditional statement must reproduce',
-  honestLimits: 'Rayleigh–Ritz numbers at finite N (algebraic convergence, 5 decimals); window decompositions use a t <= 200 symbol integral (1-2% short of the quadratic form); symbol tabulation of deltahat_S truncates the u-mesh at 24; a* extrapolated from two N values; nothing here is a proof, no Lambda bound or verified height changes; RH open',
+  honestLimits: 'Rayleigh–Ritz numbers at finite N (algebraic convergence, 5 decimals); window decompositions use a t <= 200 symbol integral (1-2% short of the quadratic form); symbol tabulation of deltahat_S truncates the u-mesh at 24; a* now extrapolated from a 5-point N^-2 sequence N = 64..192 (a* = 0.565770 +- 3.3e-6, imp-96064; the original 0.56578 two-value estimate was high by ~1e-5), and N >= 224 is beyond this Jacobi assembly (compressed L_S loses positivity); nothing here is a proof, no Lambda bound or verified height changes; RH open',
   truncationAudit: 'imp-96065 (measured, tmp/imp-96065-scratch2.mjs): residual error of the two honestLimits truncations. (1) u-MESH PAST 24: with the all-spikes grid u = k ln 2 (GL-8, J = 26, NMAX = 30), deltahat_S(0) = 8.784576 (umax = 24) vs 8.784599 (umax = 40) = 2.2e-5 absolute / 2.6e-6 relative; at the resonances t_1, t_2, t_3 the shift is ~1e-6; Lhat_S(0) (the positivity minimum) moves 0.065582 -> 0.065605. The delta_S(e^u) integrand between the graded 2^k spikes decays fast enough that u > 24 is negligible. (2) mu_max AND THE 2.84e-3 MARGIN ARE INVARIANT under both truncations: they are direct v-quadratures of delta_S(e^v) over v in [0, 2a] with 2a <= ln 3 = 1.0986 < 24 (toeplitzFormHiRes on gradedMesh(2a)), so the u-mesh = 24 symbol tabulation and the t <= 200 symbol integral never enter D_S; extending either moves every D_S matrix element, hence mu_max and the margin, by 0 to machine precision. (3) The t <= 200 symbol integral feeds ONLY the extremalAnatomy symbolIntegral window cross-check (already within 15% of the quadratic form W); the omitted tail t > 200 is net positive (w > 0 once the p = 2 windows close at t ~ 181) and closes part of the ~5% symbolIntegral-vs-W gap. Sub-gap SG-96065-tsymbol-tail: an exact tail figure needs the extremal eigenvector reconstructed in the import-light leaf. No bound, margin, or verified height changes; RH open; NO QED.',
 });
 
@@ -338,6 +352,18 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP_ASSERTIONS = Object.freeze([
       const k0 = [E.aLn3Half[0], E.a05[0]].every((r) => r.parts[2] < -0.3 && Math.abs(r.parts[2]) > 30 * Math.abs(r.parts[0]) && chk(r));
       const k3 = [E.aLn3Half[3], E.a05[3]].every((r) => r.parts[4] < -0.15 && Math.abs(r.parts[4]) > 10 * Math.abs(r.parts[2]) && chk(r));
       return k0 && k3 && [...E.aLn3Half, ...E.a05].every((r) => Math.abs(r.LS - r.DS - r.W) < 2e-3 && Math.abs(r.Arch - r.P2 - r.W) < 2e-3);
+    },
+  },
+  {
+    id: 'PH6-crossing-high-N-richardson',
+    description: 'imp-96064: the crossing sequence a*(N) at N = 64..192 is monotone decreasing; each consecutive-pair N^-2 Richardson estimate lands in [0.56576, 0.56578]; the reported aStarRichardson 0.565770 sits inside that range, agrees with the baked aStarExtrapolated 0.56578 to <= 2e-5, has 2a* - ln3 = 0.032927, and N = 224 is flagged unstable (lamLSpf < 0)',
+    holds: () => {
+      const c = L.crossingHighN;
+      const monoDec = c.aStar.every((x, i) => i === 0 || x <= c.aStar[i - 1] + 1e-12);
+      const richIn = c.richardsonPairs.every((e) => e > 0.56576 && e < 0.56578);
+      const consistent = c.aStarRichardson > Math.min(...c.richardsonPairs) - 1e-6 && c.aStarRichardson < Math.max(...c.richardsonPairs) + 1e-6
+        && Math.abs(c.aStarRichardson - L.crossing.aStarExtrapolated) < 2e-5 && Math.abs(2 * c.aStarRichardson - LN3 - c.twoAStarMinusLn3) < 1e-5;
+      return monoDec && richIn && consistent && c.lamLSpfAt0p566.N192 > 0 && c.lamLSpfAt0p566.N224 < 0;
     },
   },
   {

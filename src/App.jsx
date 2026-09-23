@@ -1252,6 +1252,9 @@ const Imp95737HalfRetentionScaleViz = lazy(() =>
 const Imp95886DecadeReachLedgerViz = lazy(() =>
   import('./pages/Imp95886DecadeReachLedgerViz.jsx')
 );
+const Imp95997UfitLedgerViz = lazy(() =>
+  import('./pages/Imp95997UfitLedgerViz.jsx')
+);
 const Imp95887SzegoDdToeplitzChainViz = lazy(() =>
   import('./pages/Imp95887SzegoDdToeplitzChainViz.jsx')
 );
@@ -3372,6 +3375,10 @@ function AppShell() {
           <Route
             path="/viz-imp95886-decade-reach-ledger"
             element={<Imp95886DecadeReachLedgerViz />}
+          />
+          <Route
+            path="/viz-imp95997-ufit-ledger"
+            element={<Imp95997UfitLedgerViz />}
           />
           <Route
             path="/viz-imp95887-szego-dd-toeplitz-chain"

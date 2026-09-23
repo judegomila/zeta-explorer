@@ -2786,6 +2786,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-plots the frozen imp-95863 decade ledger verbatim (no re-derivation, no fresh RvM inversion); rows above N=1e6 are asymptotic estimates, not verified ordinates, and no cataloged in-repo source buys any decades; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95997-ufit-ledger',
+      title: 'u_fit Cross-Validation Ledger: A-Floor vs Crossing-Constant Observables at ln 1.25',
+      oneLine:
+        'Standing ledger table for the imp-95963 non-conflation finding: the ln 1.25 imp-95895 A_opt scalar-floor u_fit_rel (+0.0846%) and imp-95939 crossing-constant u_fit_rel (-0.7363%) are two distinct observables differing in scale by ~1.4e19, so mixing them onto the imp-95885 FINDING A reach-vs-conditioning ordering axis is a conflation artifact.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95963-ln125-crossing-vs-floor-ufit-retabulation.js',
+      paperSourcePath:
+        'src/data/imp-95963-ln125-crossing-vs-floor-ufit-retabulation.js (ln125TwoObservables, aFloorRows; imp-95997 viz page)',
+      ticket: 'imp-95997',
+      pedagogicalStep: 178.65,
+      honestCeiling:
+        'Presentation only: re-tabulates the frozen imp-95963 retabulation verbatim (no re-derivation, no fresh extrapolation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95887-szego-dd-toeplitz-chain',
       title: 'Szego / DD-Toeplitz Chain: C(delta) Crosscheck and Per-Delta Reach',
       oneLine:

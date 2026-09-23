@@ -1126,6 +1126,9 @@ const Imp95752Finite80BiasHeatmapViz = lazy(() =>
 const Imp95753CrossoverHeightWindowViz = lazy(() =>
   import('./pages/Imp95753CrossoverHeightWindowViz.jsx')
 );
+const Imp95828BracketClusterViz = lazy(() =>
+  import('./pages/Imp95828BracketClusterViz.jsx')
+);
 const Imp95754CfWedgeDepthVsMultiplierViz = lazy(() =>
   import('./pages/Imp95754CfWedgeDepthVsMultiplierViz.jsx')
 );
@@ -3156,6 +3159,10 @@ function AppShell() {
           <Route
             path="/viz-imp95731-number-variance-ratio"
             element={<Imp95731NumberVarianceRatioViz />}
+          />
+          <Route
+            path="/viz-imp95828-bracket-cluster"
+            element={<Imp95828BracketClusterViz />}
           />
           <Route
             path="/viz-imp95752-finite80-bias-heatmap"

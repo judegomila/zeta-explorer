@@ -2925,6 +2925,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95786 reachTable/crossings and imp-95761 ln14PrecisionWall verbatim (no re-derivation, no fresh solve); the reach-universality is an interior model-seam finite-grid diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95828-bracket-cluster',
+      title: 'Nine-Height Bracket Cluster Around T=1.5e5: Isolated Spike vs Bracket Mean',
+      oneLine:
+        'Chart of the imp-95806 nine-height re-measurement bracketing the imp-95710 T=1.5e5 number-variance bump, showing the peak (r=0.4627) strictly above every bracketing height while the immediate neighbours 1.35e5/1.65e5 sit in the baseline band (bracket mean r=0.3547).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95806-number-variance-bracket-1p5e5-bump.js',
+      paperSourcePath:
+        'src/data/imp-95806-number-variance-bracket-1p5e5-bump.js (IMP95806_NUMBER_VARIANCE_BRACKET_1P5E5_BUMP rows/decision; imp-95828 viz page)',
+      ticket: 'imp-95828',
+      pedagogicalStep: 191,
+      honestCeiling:
+        'Presentation/measurement only: re-plots the frozen imp-95806 nine-height tabulation verbatim (no re-derivation, no fresh measurement); confirms the T=1.5e5 bump is a windowing/sampling artifact rather than a genuine finite-height feature, which only deepens the existing r_cap<1 conservatism; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

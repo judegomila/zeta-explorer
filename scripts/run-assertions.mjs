@@ -18482,6 +18482,17 @@ const DATA_MODULES = [
   // A live N=150 DD shift-invert solve reproduces the baked coarsest point (~5e-11 rel).
   // Measurement/cross-validation; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95895-ln125-ufit-interval.js',
+  // imp-95896: EXTENDS the imp-95881 ln1.2 DD extrapolation reach PAST N=2800 (three new
+  // points N=3600/4400/5200, reach ~657/~803/~948, imp-95820 shift-invert DD Toeplitz
+  // solver, every N converged in 240 solves, sweep still monotone decreasing). The
+  // extended 14-point primal envelope tightens u_fit_rel 0.34%->0.247% (1.385x), pulls
+  // r_point +2.57e-4->+1.70e-4, drops u_fit/u_opt to 1.39e12 (still >>1e10). DECISION:
+  // the ln1.2 interval REACHES the ln1.3 direct level (0.247% vs 0.23%, within 1.07x) but
+  // stays just looser, and the A_opt~4.26e-22 deep corner does NOT flatten/floor it --
+  // still reach-refinable. r_interval=[-2.30e-3,+2.64e-3] CONTAINS ZERO. A live N=120 DD
+  // solve reproduces the imp-95837 baked coarsest point (<1e-6 rel).
+  // Measurement extending an audit grid; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95896-ln12-past2800-ufit-tightening.js',
   // imp-95835: consumer/orphan audit of the imp-95682 twin-pair block-floor rho log-y
   // viz-data module (IMP95682_ROWS). FINDING: NOT orphaned -- fully wired end to end
   // (Imp95682TwinPairBlockFloorRhoViz.jsx imports it directly, App.jsx routes it at

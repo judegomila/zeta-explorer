@@ -98050,7 +98050,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add a viz panel for the imp-95982 fracBelowNull saturation curve: the even-branch power-law approach to the finite -1.83e-5 ceiling (data derived, never plotted)',
     category: 'ux',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-95982 derived that the c_odd fractional departure below the pure-rho^2 null SATURATES to a finite ceiling fracBelowNull(inf) = -1.832e-5, approached like ~m^-2 on the even parity branch (m=150 already at ~98.0%), replacing the imp-95966 ambiguous 'growing with m' reading. This is baked as data but never visualized. Add an import-light viz-data module + routed panel plotting fracBelowNull(m) vs m with the fitted power-law curve and the -1.83e-5 asymptote line, distinguishing the even/odd parity branches (imp-95967). Re-plot the frozen imp-95982 literals only; no re-derivation. Presentation only; reconstruction stays m=20-only certified; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: imp-95982-c-odd-departure-growth-law-saturation.js saturation curve baked but never plotted',
@@ -98058,6 +98058,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-96016',

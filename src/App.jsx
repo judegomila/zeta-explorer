@@ -1289,6 +1289,9 @@ const Imp95993WorstAliasMarginViz = lazy(() =>
   import('./pages/Imp95993WorstAliasMarginViz.jsx')
 );
 const RhNovelRoutesRoadmapPage = lazy(() => import('./pages/RhNovelRoutesRoadmapPage.jsx'));
+const Imp96015FracBelowNullSaturationViz = lazy(() =>
+  import('./pages/Imp96015FracBelowNullSaturationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3431,6 +3434,10 @@ function AppShell() {
             element={<Imp95995VarsConstantDecompositionViz />}
           />
           <Route path="/rh-novel-routes-roadmap" element={<RhNovelRoutesRoadmapPage />} />
+          <Route
+            path="/viz-imp96015-fracbelownull-saturation"
+            element={<Imp96015FracBelowNullSaturationViz />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         </Suspense>

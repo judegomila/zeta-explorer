@@ -3149,6 +3149,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the w(t) curve is a direct evaluation of the source module\'s own exact closed-form weilSymbol (no re-derivation of the underlying Toeplitz forms, no fresh pencil solve); the resonance windows and mu_max(a) grid are copied verbatim from PENCIL_HIGHRES_LITERALS; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96015-fracbelownull-saturation',
+      title: 'c_odd Departure Below the Pure-rho^2 Null: Saturation to a Finite Floor',
+      oneLine:
+        'Plots the imp-95982 fracBelowNull(m) fractional departure across the full imp-95925 eight-modulus grid, showing the even-branch power-law fit (p=1.9608) bending toward a finite ~-1.832e-5 ceiling rather than diverging -- the imp-95966 three-point tabulation was never plotted before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95982-c-odd-departure-growth-law-saturation.js',
+      paperSourcePath:
+        'src/data/imp-95982-c-odd-departure-growth-law-saturation.js (DEPARTURE, FIT, DEPARTURE_LIMIT; imp-96015 viz page)',
+      ticket: 'imp-96015',
+      pedagogicalStep: 202,
+      honestCeiling:
+        'Presentation only: every plotted point is copied verbatim from the imp-95982 baked departure table and even-branch fit literals (no re-derivation, no fresh quadrature); Q0_RECON is certified only at m=20, so this fits the reconstruction, not a Prop-6.3-certified per-m quantity; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

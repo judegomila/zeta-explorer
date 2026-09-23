@@ -267,4 +267,12 @@ export const TIER3_PER_LOCUS_CANCELLATION_ASSERTIONS = Object.freeze([
   },
 ]);
 
+for (const a of TIER3_PER_LOCUS_CANCELLATION_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(
+      `imp-95900-tier3-per-locus-cancellation assertion failed: ${a.name}`,
+    );
+  }
+}
+
 export default TIER3_PER_LOCUS_CANCELLATION;

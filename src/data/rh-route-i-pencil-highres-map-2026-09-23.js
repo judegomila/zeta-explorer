@@ -265,6 +265,57 @@ export const PENCIL_HIGHRES_LITERALS = Object.freeze({
     DStopA05: [[2.14499, 'even', 0, 0.897], [0.42259, 'odd', 9.75], [0.36487, 'even', 8.35]], // [lambda, parity, peak t, (energy below 6)]
     WpfLowA05: [0.011869, 0.189886, 0.828031, 0.865524, 1.101060], WpfLowLn3Half: [0.000946, 0.033105, 0.663491, 0.816160, 1.063514],
   },
+  /** imp-96086 (SG-96065-tsymbol-tail): the omitted t > 200 tail of W(h) = (1/2pi) int w(t) |hhat(t)|^2 dt for the
+   *  k = 0 pole-free extremal, reconstructed in the import-light leaf (tmp/imp-96086-tail.mjs, N = 96, M = 8000-node
+   *  u-grid trapezoidal hhat, panel-graded D_S). head = symbolIntegral over t in [0, 200] (reproduces the baked
+   *  extremalAnatomy.symbolIntegral); segTail = tail contribution over [200, 500], [500, 1000], [1000, 2000],
+   *  [2000, 4000]; full = head + sum(segTail); W = quadratic form. Every tail segment is STRICTLY POSITIVE
+   *  (w > 0 once the p = 2 resonance windows close at t ~ 181; no negative part), so the omitted tail is net positive
+   *  and monotonically decaying as ~ln(t)/t^2. Integrating it to t = 4000 recovers ~95% of the symbolIntegral-vs-W
+   *  gap; the residual gapRemain (0.26-0.34% of W) is the t > 4000 tail plus finite-N / finite-grid quadrature error.
+   *  Confirms the truncationAudit claim: the ~5% gap is the omitted positive tail, not a defect of the identity. */
+  tSymbolTailN96: {
+    grid: 'M = 8000 u-nodes, dt = 0.005 (head) / 0.02 (tail), N = 96 pole-free k = 0 extremal; M = 4000 agrees to < 3% on each segment',
+    aLn3Half: { head0to200: 0.0008971, W: 0.0009457, segTail: [2.9700e-5, 9.5187e-6, 4.7386e-6, 2.2651e-6], full: 0.0009433, gap0: 4.864e-5, gap0Pct: 5.14, gapRemain: 2.42e-6, gapRemainPct: 0.26, tailClosedPct: 95.0, tailAllPositive: true },
+    a05: { head0to200: 0.0110748, W: 0.0118740, segTail: [4.7916e-4, 1.6024e-4, 7.9927e-5, 3.9228e-5], full: 0.0118333, gap0: 7.992e-4, gap0Pct: 6.73, gapRemain: 4.07e-5, gapRemainPct: 0.34, tailClosedPct: 94.9, tailAllPositive: true },
+    tailWindows: 'segments start at t = 200 > 181 (where 2theta\' overtakes max m_2 = 3.3468), so w > 0 on the whole tail; segTail entries are all > 0 and decreasing',
+  },
+  /** imp-96088: a-dependence of the k = 0 pole-free extremal negativity window split (tmp/imp-96088-scratch.mjs,
+   *  N = 96, dt = 0.005 symbol integral to t = 200, parts binned in the a-INDEPENDENT sign windows of w). Each row
+   *  [a, mu_max, L_S(h), W(h), arch part [0, 3.597), I_1 part [8.145, 9.875), sum of all negative window parts,
+   *  I_1/L_S, arch/L_S, I_1/sumNeg, |hhat|^2 peak t]. VERDICT: the p = 2-window dominance is NOT uniform in a.
+   *  (1) The first resonance window I_1 grows from carrying only ~20% of L_S at a = 0.30 (I_1/L_S = -0.199) to
+   *  ~100%+ near (ln 3)/2 (crosses -1 at a ~ 0.52, reaches -1.025 at (ln 3)/2): the "~100% from I_1" figure is
+   *  specific to the top of the range, not uniform. (2) I_1s share of the TOTAL negativity (I_1/sumNeg) is
+   *  non-uniform, dipping to 0.777 at a = 0.30 and 0.90-0.93 near a = 0.40 (the extremal peak sits at t = 12.3 -> 8.8
+   *  there, spreading negativity into the outer windows I_2, I_3), peaking ~0.987 at a = 0.36 and settling ~0.96 at
+   *  (ln 3)/2. (3) What IS uniform: the archimedean window [0, 3.597) is uniformly negligible, |arch/L_S| growing
+   *  monotonically from 0.001 (a = 0.30) to only 0.028 ((ln 3)/2) and never exceeding 3%. The peak t migrates
+   *  monotonically inward 12.3 -> 7.5 as a rises (uncertainty principle: bandwidth ~ pi/a shrinks). For a windowed
+   *  positivity bound this means a SINGLE-window (I_1) argument only suffices near (ln 3)/2; at small a it must also
+   *  control I_2 (and I_3). The a = 0.5 / (ln 3)/2 rows reproduce the baked extremalAnatomy k = 0 parts. NO QED. */
+  extremalWindowSplitVsA: {
+    N: 96, windowNote: 'parts[0] = arch [0, 3.597), parts[2] = I_1 [8.145, 9.875); sumNeg = sum of all negative window parts on [0, 60]',
+    rows: [
+      [0.30, 0.212319, 0.88256, 0.68493, -0.00086, -0.17534, -0.22557, -0.1987, -0.0010, 0.7773, 12.30],
+      [0.32, 0.245475, 0.83632, 0.62107, -0.00118, -0.21160, -0.23987, -0.2530, -0.0014, 0.8821, 11.51],
+      [0.34, 0.284558, 0.79861, 0.56194, -0.00160, -0.24774, -0.25740, -0.3102, -0.0020, 0.9625, 10.80],
+      [LN2 / 2, 0.299335, 0.78916, 0.54199, -0.00176, -0.25937, -0.26505, -0.3287, -0.0022, 0.9786, 10.58],
+      [0.36, 0.355912, 0.75079, 0.46629, -0.00228, -0.28547, -0.28931, -0.3802, -0.0030, 0.9867, 9.96],
+      [0.38, 0.476912, 0.65663, 0.32925, -0.00307, -0.30612, -0.32887, -0.4662, -0.0047, 0.9308, 9.26],
+      [0.40, 0.603019, 0.56801, 0.21628, -0.00381, -0.32081, -0.35604, -0.5648, -0.0067, 0.9011, 8.84],
+      [0.42, 0.715292, 0.50083, 0.13687, -0.00457, -0.33390, -0.37059, -0.6667, -0.0091, 0.9010, 8.56],
+      [0.44, 0.808001, 0.45102, 0.08296, -0.00534, -0.34388, -0.37700, -0.7624, -0.0119, 0.9121, 8.32],
+      [0.46, 0.880097, 0.41350, 0.04724, -0.00615, -0.34985, -0.37757, -0.8461, -0.0149, 0.9266, 8.12],
+      [0.48, 0.932516, 0.38477, 0.02454, -0.00696, -0.35180, -0.37432, -0.9143, -0.0181, 0.9398, 7.95],
+      [0.50, 0.967272, 0.36281, 0.01108, -0.00775, -0.35038, -0.36884, -0.9657, -0.0214, 0.9499, 7.79],
+      [0.52, 0.987156, 0.34660, 0.00407, -0.00847, -0.34679, -0.36254, -1.0005, -0.0244, 0.9566, 7.66],
+      [0.54, 0.995767, 0.33590, 0.00130, -0.00904, -0.34271, -0.35699, -1.0203, -0.0269, 0.9600, 7.56],
+      [LN3 / 2 - 1e-6, 0.997159, 0.33288, 0.00090, -0.00922, -0.34120, -0.35515, -1.0250, -0.0277, 0.9607, 7.53],
+    ],
+    uniform: 'archimedean window uniformly < 3% of L_S (|arch/L_S| in [0.001, 0.028], monotone in a)',
+    nonUniform: 'I_1/L_S rises -0.199 -> -1.025 (crosses -1 at a ~ 0.52); I_1/sumNeg spans [0.777, 0.987] (dips at small a where negativity spreads to I_2, I_3)',
+  },
   anchorsN24: { // pencilMap(a, 24, 3) with J = 34 (assertions use J = 30; difference < 1e-6)
     a05: { mus: [0.9669758, 0.6815098, 0.2589735, 0.1685116], lamW: [1.198e-2, 1.907e-1, 7.474e-1, 8.454e-1] },
     aLn3Half: { mus: [0.9970992, 0.9305684, 0.4589464, 0.2270384], lamW: [9.657e-4, 3.361e-2, 4.154e-1, 7.998e-1] },
@@ -287,7 +338,7 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP = Object.freeze({
   DSform: 'lambda(D_S) in [-0.07136, 2.14499] (a = 0.5), [-0.08670, 2.31368] ((ln 3)/2), N-stable to 1e-5; negative eigenvalue count 7/11/15/22/30 at N = 32..128 = Szego samples of the negative lobes of deltahat_S (sign changes 4.05, 7.83, 10.19, 13.25, ...); negative eigenvectors peak at t = 13.7 (even), 22.7 (odd), 31.9, 40.9 in those lobes; top eigenvector 2.145 is the t ~ 0 direction, next two (0.423 odd, 0.365 even) sit on the first resonance; lambda_min(L_S) = 0.0992 / 0.0934, lambda_min(L_S|pf) = 0.3565 / 0.3081',
   forTheProof: '(a) D_S <= L_S on pole-free h is true with margin >= 2.8e-3 for 2a <= ln 3 and FALSE for 2a > 1.1316 (odd sector; Weil positivity needs -P_3 there): a proof must use the support bound and cannot be a support-free operator inequality; (b) the object to control is the resonance window I_1 = (8.145, 9.875) (then I_2), not the t ~ 0 archimedean window; (c) vanishing moments act via the uncertainty principle (bandwidth pi/a ~ 5.7 vs window widths <= 1.73), two of them give a uniform margin 0.54 — a finite constraint count suffices numerically for a large margin; the unconstrained margin 2.8e-3 at (ln 3)/2 is what an unconditional statement must reproduce',
   honestLimits: 'Rayleigh–Ritz numbers at finite N (algebraic convergence, 5 decimals); window decompositions use a t <= 200 symbol integral (1-2% short of the quadratic form); symbol tabulation of deltahat_S truncates the u-mesh at 24; a* now extrapolated from a 5-point N^-2 sequence N = 64..192 (a* = 0.565770 +- 3.3e-6, imp-96064; the original 0.56578 two-value estimate was high by ~1e-5), and N >= 224 is beyond this Jacobi assembly (compressed L_S loses positivity); nothing here is a proof, no Lambda bound or verified height changes; RH open',
-  truncationAudit: 'imp-96065 (measured, tmp/imp-96065-scratch2.mjs): residual error of the two honestLimits truncations. (1) u-MESH PAST 24: with the all-spikes grid u = k ln 2 (GL-8, J = 26, NMAX = 30), deltahat_S(0) = 8.784576 (umax = 24) vs 8.784599 (umax = 40) = 2.2e-5 absolute / 2.6e-6 relative; at the resonances t_1, t_2, t_3 the shift is ~1e-6; Lhat_S(0) (the positivity minimum) moves 0.065582 -> 0.065605. The delta_S(e^u) integrand between the graded 2^k spikes decays fast enough that u > 24 is negligible. (2) mu_max AND THE 2.84e-3 MARGIN ARE INVARIANT under both truncations: they are direct v-quadratures of delta_S(e^v) over v in [0, 2a] with 2a <= ln 3 = 1.0986 < 24 (toeplitzFormHiRes on gradedMesh(2a)), so the u-mesh = 24 symbol tabulation and the t <= 200 symbol integral never enter D_S; extending either moves every D_S matrix element, hence mu_max and the margin, by 0 to machine precision. (3) The t <= 200 symbol integral feeds ONLY the extremalAnatomy symbolIntegral window cross-check (already within 15% of the quadratic form W); the omitted tail t > 200 is net positive (w > 0 once the p = 2 windows close at t ~ 181) and closes part of the ~5% symbolIntegral-vs-W gap. Sub-gap SG-96065-tsymbol-tail: an exact tail figure needs the extremal eigenvector reconstructed in the import-light leaf. No bound, margin, or verified height changes; RH open; NO QED.',
+  truncationAudit: 'imp-96065 (measured, tmp/imp-96065-scratch2.mjs): residual error of the two honestLimits truncations. (1) u-MESH PAST 24: with the all-spikes grid u = k ln 2 (GL-8, J = 26, NMAX = 30), deltahat_S(0) = 8.784576 (umax = 24) vs 8.784599 (umax = 40) = 2.2e-5 absolute / 2.6e-6 relative; at the resonances t_1, t_2, t_3 the shift is ~1e-6; Lhat_S(0) (the positivity minimum) moves 0.065582 -> 0.065605. The delta_S(e^u) integrand between the graded 2^k spikes decays fast enough that u > 24 is negligible. (2) mu_max AND THE 2.84e-3 MARGIN ARE INVARIANT under both truncations: they are direct v-quadratures of delta_S(e^v) over v in [0, 2a] with 2a <= ln 3 = 1.0986 < 24 (toeplitzFormHiRes on gradedMesh(2a)), so the u-mesh = 24 symbol tabulation and the t <= 200 symbol integral never enter D_S; extending either moves every D_S matrix element, hence mu_max and the margin, by 0 to machine precision. (3) The t <= 200 symbol integral feeds ONLY the extremalAnatomy symbolIntegral window cross-check (already within 15% of the quadratic form W); the omitted tail t > 200 is net positive (w > 0 once the p = 2 windows close at t ~ 181) and closes part of the ~5% symbolIntegral-vs-W gap. Sub-gap SG-96065-tsymbol-tail MEASURED (imp-96086, tSymbolTailN96, tmp/imp-96086-tail.mjs): reconstructing the k = 0 pole-free extremal in the import-light leaf and integrating the tail to t = 4000 gives an entirely POSITIVE, monotonically decaying (~ln t / t^2) tail that recovers ~95% of the gap (95.0% at (ln 3)/2, 94.9% at 0.5); the residual is 0.26-0.34% of W (t > 4000 tail + finite-N / finite-grid quadrature) — the ~5% gap is the omitted positive tail, not a defect of the identity. No bound, margin, or verified height changes; RH open; NO QED.',
 });
 
 // ---- assertions
@@ -364,6 +415,43 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP_ASSERTIONS = Object.freeze([
       const consistent = c.aStarRichardson > Math.min(...c.richardsonPairs) - 1e-6 && c.aStarRichardson < Math.max(...c.richardsonPairs) + 1e-6
         && Math.abs(c.aStarRichardson - L.crossing.aStarExtrapolated) < 2e-5 && Math.abs(2 * c.aStarRichardson - LN3 - c.twoAStarMinusLn3) < 1e-5;
       return monoDec && richIn && consistent && c.lamLSpfAt0p566.N192 > 0 && c.lamLSpfAt0p566.N224 < 0;
+    },
+  },
+  {
+    id: 'PH7-tsymbol-tail-closes-gap',
+    description: 'imp-96086 (SG-96065-tsymbol-tail): the baked t > 200 tail measurement is internally consistent - head reproduces extremalAnatomy.symbolIntegral, W matches extremalAnatomy.W, every tail segment is positive and decreasing, full = head + sum(segTail), and the tail closes >= 94% of the symbolIntegral-vs-W gap with a residual < 0.4% of W',
+    holds: () => {
+      const T = L.tSymbolTailN96; const E = L.extremalAnatomy;
+      const chk = (r, anat) => {
+        const sum = r.segTail.reduce((s, x) => s + x, 0);
+        const allPosDec = r.segTail.every((x, i) => x > 0 && (i === 0 || x < r.segTail[i - 1]));
+        return Math.abs(r.head0to200 - anat.symbolIntegral) < 5e-6 && Math.abs(r.W - anat.W) < 5e-6
+          && allPosDec && r.tailAllPositive && Math.abs(r.full - (r.head0to200 + sum)) < 2e-6
+          && Math.abs(r.gap0 - (r.W - r.head0to200)) < 2e-6 && r.tailClosedPct >= 94 && r.gapRemainPct < 0.4
+          && Math.abs(sum / r.gap0 * 100 - r.tailClosedPct) < 1;
+      };
+      return chk(T.aLn3Half, E.aLn3Half[0]) && chk(T.a05, E.a05[0]);
+    },
+  },
+  {
+    id: 'PH8-extremal-window-split-vs-a-nonuniform',
+    description: 'imp-96088: the baked a-sweep of the k = 0 extremal window split shows the p = 2-window dominance is NOT uniform - I_1/L_S falls monotonically from -0.199 (a = 0.30) past -1 near (ln 3)/2, I_1/sumNeg spans a range > 0.15 (dips at small a), while the archimedean [0, 3.597) window is uniformly negligible (|arch/L_S| < 0.03 all a, monotone) and the |hhat|^2 peak migrates inward; the a = 0.5 and (ln 3)/2 rows reproduce the baked extremalAnatomy k = 0 parts',
+    holds: () => {
+      const R = L.extremalWindowSplitVsA.rows; const E = L.extremalAnatomy;
+      const iA = 0.30, iB = LN3 / 2 - 1e-6;
+      // columns: [a, mu, LS, W, arch, I1, sumNeg, I1/LS, arch/LS, I1/sumNeg, peakT]
+      const first = R[0], last = R[R.length - 1];
+      const monoI1overLS = R.every((r, i) => i === 0 || r[7] <= R[i - 1][7] + 1e-9); // decreasing (more negative)
+      const crossesMinusOne = first[7] > -0.5 && last[7] < -1;
+      const archUniform = R.every((r) => Math.abs(r[8]) < 0.03) && R.every((r, i) => i === 0 || Math.abs(r[8]) >= Math.abs(R[i - 1][8]) - 1e-9);
+      const shareRange = Math.max(...R.map((r) => r[9])) - Math.min(...R.map((r) => r[9]));
+      const nonUniformShare = shareRange > 0.15 && first[9] < 0.85; // small-a dip
+      const peakInward = R.every((r, i) => i === 0 || r[10] <= R[i - 1][10] + 1e-9) && first[10] > 11 && last[10] < 8;
+      const i1Dominant = R.every((r) => r[5] < 0 && Math.abs(r[5]) > 0.5 * Math.abs(r[6]) && Math.abs(r[5]) > 20 * Math.abs(r[4]));
+      const rowA05 = R.find((r) => Math.abs(r[0] - 0.5) < 1e-9), rowLn3 = R.find((r) => Math.abs(r[0] - iB) < 1e-9);
+      const matchAnat = Math.abs(rowA05[5] - E.a05[0].parts[2]) < 2e-3 && Math.abs(rowA05[4] - E.a05[0].parts[0]) < 2e-3
+        && Math.abs(rowLn3[5] - E.aLn3Half[0].parts[2]) < 2e-3 && Math.abs(rowLn3[4] - E.aLn3Half[0].parts[0]) < 2e-3;
+      return Math.abs(first[0] - iA) < 1e-9 && monoI1overLS && crossesMinusOne && archUniform && nonUniformShare && peakInward && i1Dominant && matchAnat;
     },
   },
   {

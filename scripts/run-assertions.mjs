@@ -18428,6 +18428,20 @@ const DATA_MODULES = [
   // the imp-95693 rho-monotone floor A_opt(delta) -> 1-sech(delta/2); the upper mirrors it
   // f(0) -> 1+sech(delta/2). Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95876-offline-block-toeplitz-two-sided-envelope.js',
+  // imp-95811: banner audit of the imp-95790 dead-zone and imp-95697 Szego-decay
+  // viz pages. Both render their imported caveat-banner constant verbatim, and
+  // both banners carry the mandatory "Platt-Trudgian Lambda <= 0.2 remains SOTA"
+  // + "NO QED" guardrail phrase. No missing banner found. Audit-only, no bound,
+  // NO QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95811-banner-audit-imp95790-imp95697.js',
+  // imp-95880: verifies the imp-95862 LOWER companion lambda_min(G_n) >= A_opt(delta) at
+  // delta=ln1.2 and ln1.3 in double-double with the imp-95820/imp-95841 shift-invert DD
+  // Toeplitz solver, where float64 lost reachability (float64 lambda_min at ln1.2 read
+  // spuriously non-positive, -8.07e-16). DD lambda_min sits strictly above A_opt at every
+  // nPts=80..640, ratio F/A_opt decaying to 1 from above. Also corrects the imp-95862 ln1.2
+  // essInf: its forward-sum float64 read 5.87e-16 was cancellation noise; the true theta-dual
+  // A_opt(ln1.2)=4.263426e-22. Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95880-dd-lower-companion-ln12-ln13.js',
 ];
 
 let ALL_MODULES = FAST_MODE

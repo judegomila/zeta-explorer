@@ -22095,6 +22095,32 @@ export const glossary = [
       'imp-95519 localized barrier sum prime/zero no-go is the result whose zero-side normalization this decision sharpens without closing',
     ],
   },
+  {
+    term: 'Alternating A_opt FLOAT TRAP + theta-Dual Mandate Threshold (delta* ~ 0.307)',
+    category: 'concept',
+    definition:
+      'A quick-lookup headword for the numerical-precision boundary between the two closed forms ' +
+      'of the class-optimal off-lattice Riesz floor A_opt(delta) = sum_(n in Z) (-1)^n sech(n delta/2) ' +
+      '= (4 pi/delta) sum_(n>=0) sech(pi^2 (2n+1)/delta) established by imp-95419 (SEP-OPT collapse, ' +
+      'A_opt = A_lat) and reconfirmed by imp-95601 (independent cross-check). The ALTERNATING form ' +
+      'sums O(1)-sized terms whose true total is exponentially small, so it is a FLOAT TRAP at small ' +
+      'delta: at delta = ln 1.3 it returns a ~7 percent-wrong value against the stable THETA-DUAL ' +
+      'positive-term Poisson form, while at delta = ln 2 the two forms agree to 3.2e-12 (theta-transform ' +
+      'identity confirmed, no trap). imp-95621 quantifies the boundary rather than leaving two sampled ' +
+      'points: the summation condition number kappa(delta) = (sum of |terms|)/|A_opt| ~ (1/2) ' +
+      'exp(pi^2/delta) crosses 1 percent relative error at delta* = pi^2/ln(0.02/EPS) ~ 0.30716 (ratio ' +
+      'r = exp(delta*) ~ 1.36), matched by a direct condition-number bisection at delta* ~ 0.30068 ' +
+      '(~2 percent apart). Mandate: use the theta-dual form for delta below delta* ~ 0.307; ln 1.3 ' +
+      '(0.2624) sits below it (trapped), ln 2 (0.6931) sits above it (clean). Numerical-precision audit ' +
+      'only; changes no bound and asserts no new theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'NO QED.',
+    firstUsed: 'imp-95419 (SEP-OPT collapse identifying the FLOAT TRAP), 2026; reconfirmed by imp-95601, 2026; quantified by imp-95621, 2026',
+    relatedTerms: [
+      'imp-95419-separated-class-optimal-riesz-floor is the module deriving A_opt = A_lat and first flagging the alternating-form FLOAT TRAP',
+      'imp-95601-sepopt-collapse-crosscheck is the module independently reconfirming the trap at ln 1.3 and the clean agreement at ln 2',
+      'imp-95621-alt-form-precision-threshold is the module deriving the closed-form delta* ~ 0.307 threshold via the summation condition number',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

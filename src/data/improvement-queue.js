@@ -92774,7 +92774,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Add a Concepts glossary headword for the imp-95642 genuine-floor verdict: the twin-pair block-vs-scalar 4.611560 residual is a lattice-specific two-scale floor of the delta-separated class, not un-ported slack',
     category: 'content',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "imp-95642 settled the open imp-95609 question by proving the twin-pair Toeplitz block symbol admits NO off-lattice / m-uniform port: the SPLIT-OPT(20.593144)-SPLIT-RZ(15.981584)=4.611560 residual is a GENUINE floor because the block sharpness needs a two-scale geometry (D>=rho*delta, rho>1) that the single-scale delta-separated class dissolves as D->delta+, collapsing per-pair lambda_min to the scalar A_opt(delta). Add a Concepts glossary headword stating this genuine-floor verdict and the two-scale/single-scale mechanism, citing imp-95642 and imp-95609. No bound, NO QED, PT Lambda<=0.2 remains SOTA.",
     rationale: 'Frontier scout: imp-95642-twin-pair-symbol-offlattice-obstruction verdictKind \'genuine-floor\', no glossary headword yet',
@@ -92782,6 +92782,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-95666',

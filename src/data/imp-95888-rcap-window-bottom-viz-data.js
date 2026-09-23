@@ -84,7 +84,10 @@ export const IMP95888_CAVEAT_BANNER =
   'imp-95519 window bottom is analytic bridging for chart resolution, not new data. It is the ' +
   'only in-repo lever that reaches T=3.0e12 at all: no verified-zero table extends anywhere ' +
   'near that height. Introduces no new cited input and changes no bound; Platt-Trudgian ' +
-  'Lambda <= 0.2 remains the rigorous SOTA. No QED.';
+  'Lambda <= 0.2 remains the rigorous SOTA. C0-envelope-safety is ALSO only a FINITE ' +
+  'super-window, not an all-heights guarantee: imp-95921 shows offset(T) drifts upward ' +
+  'without bound and crosses C0 at a finite height T_x in [~5.8e17, ~1.36e28] -- comfortably ' +
+  'above 3.0e12 but not beyond it. No QED.';
 
 export const IMP95888_RCAP_WINDOW_BOTTOM_VIZ_DATA_ASSERTIONS = [
   {
@@ -130,6 +133,12 @@ export const IMP95888_RCAP_WINDOW_BOTTOM_VIZ_DATA_ASSERTIONS = [
     id: 'imp95888-caveat-banner-states-honest-status',
     description: 'the caveat banner opens with HONEST STATUS and flags no QED',
     holds: () => /HONEST STATUS/.test(IMP95888_CAVEAT_BANNER) && /No QED/.test(IMP95888_CAVEAT_BANNER),
+  },
+  {
+    id: 'imp95888-caveat-banner-flags-finite-super-window',
+    description:
+      'the caveat banner records that C0-envelope-safety (imp-95921) is a FINITE super-window, not an all-heights guarantee',
+    holds: () => /FINITE/.test(IMP95888_CAVEAT_BANNER) && /super-window/.test(IMP95888_CAVEAT_BANNER) && /imp-95921/.test(IMP95888_CAVEAT_BANNER),
   },
 ];
 

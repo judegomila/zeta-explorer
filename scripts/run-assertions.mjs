@@ -18017,6 +18017,26 @@ const DATA_MODULES = [
   // sigma=0 inverse iteration forced by the Toeplitz structure has a vanishing bottom
   // gap. Import-light, no zeros bundle, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95779-on2-dd-toeplitz-lambda-min-ln12.js',
+  // imp-95696: orphan-consumer audit confirming the imp-95587 LEG B DELTA_A
+  // straddle-vs-ratio viz-data module is fully wired (page -> App.jsx route ->
+  // visualizations-index.js row), not orphaned. Audit-only, no bound, no QED.
+  '/src/data/imp-95696-legb-straddle-consumer-audit.js',
+  // imp-95783: assesses how far below the imp-95766 derived envelope r_cap(T) the TRUE
+  // pointwise number-variance ratio r(T) sits. Sub-ceiling (below gamma_1e6 = 6.003e5)
+  // the measured-regime slack s = r/r_cap is in [0.7244, 1.0000] (over-estimation factor
+  // [1.000, 1.381]); the s = 1 touch is a C0-anchor artifact at T = 1.5e5. Above the
+  // ceiling the gap is an OBSTRUCTION: no verified ordinates, non-monotone slack, so only
+  // r(T) in (0, r_cap(T)] survives. Import-light, no zeros bundle, no bound, no QED, PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-95783-rtrue-vs-rcap-gap-deadzone.js',
+  // imp-95782: assesses whether the imp-95765 four-moduli dI zigzag (consecutive-difference
+  // signs -,+,- across m=18..21, spread ~4.15e-5) is genuine rho-structure or a per-modulus
+  // quadrature artifact, via a finite-difference-ORDER discriminator on the four points (no
+  // 238-cell re-quadrature). The dI differences GROW with order (ratios 1.74, 1.89 > 1) and the
+  // linear-trend residuals alternate in sign (+,-,+,-): the aggregate band is a resolved signal
+  // but the zigzag SHAPE is a per-modulus artifact, NOT rho-structure. Conditional on the +4
+  // offset; sub-gap = the tightened-Nsub re-run. Import-light, no zeros bundle, no bound, no QED.
+  '/src/data/imp-95782-di-zigzag-artifact-vs-structure.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -331,6 +331,17 @@ const DATA_MODULES = [
   // + Bettin–Conrey), NOT run. Wall map: Landau pole / Jensen integration / Herglotz-Weil. Import-light (imports
   // only imp-2426); NOT a bound; no external input found; RH open; NO QED.
   '/src/data/rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js',
+  // imp-96043 (2026-09-23): FIRST-TEST of Route M (the untested route of the J/K/L/M batch) — the
+  // Nyman-Beurling / Baez-Duarte Gram whose exact entries are the Vasyunin cotangent sums c_0(h/k),
+  // wired to the Bettin-Conrey (2013) quantum-modular reciprocity as the claimed external arithmetic
+  // input. Crux: c_0(h/k) is a special value of the Estermann zeta D(s,h/k), and the Bettin-Conrey
+  // reciprocity IS the Estermann functional equation — inherited from zeta's functional equation, the
+  // symmetry the NB involution x -> 1/x already encodes. So Route M reduces to BOTH mapped termini:
+  // the Mobius mollifier mu(k)(1-log k/log N) (perturbative, Levinson-Conrey lineage, imp-1312) and
+  // Weil positivity (completeness, Baez-Duarte-Bercovici-Foias = Lagarias PICK-WEIL). No external
+  // arithmetic; batch prize still not found. Import-light (Vasyunin c_0 + Burnol d_N^2 numerics only);
+  // NOT a bound; RH open; NO QED.
+  '/src/data/imp-96043-route-m-nyman-beurling-first-test.js',
   // imp-96019 (2026-09-23): ASSESSMENT of sweep opening.nextTests[1] — can the Connes–Consani scaling
   // site extend the proven archimedean Weil positivity past the first prime shift u = ln 2? Verdict:
   // NO candidate extension; precise obstruction. The proven partial (|u| < ln 2) is prime-EMPTY (smallest

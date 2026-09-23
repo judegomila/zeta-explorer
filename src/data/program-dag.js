@@ -459,6 +459,111 @@ export const NODES = [
     route: '/frozen-rung-pt-equivalence',
     source: 'l2_detection_modulus (job32) / frozen-rung Kernels.lean',
   },
+
+  // ── phase N · novel-routes roadmap (2026-09-23): a separate frontier
+  // program (stat-mech reframing + non-stat-mech external-input hunt),
+  // tracked here alongside the seam-chain program per lambda-roadmap
+  // currentStatusTLDR. Every route below is a to-test idea that was then
+  // FIRST-TESTED; none is graded 'won' — RH remains open. NO QED.
+  {
+    id: 'novel-route-a',
+    name: 'Novel route A: reflection positivity of the primon gas (Osterwalder–Schrader)',
+    outcome: 'ruled-out',
+    grade: 'first-test-done: finite-N gas reflection positivity REFUTED (Pick reflection Gram indefinite at every N, λ_min → −∞); the infinite-N RP holds but equals Weil positivity = RH (Lagarias–Pick), not a stronger statement. Route closed as stated.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key A / rh-route-a-reflection-positivity-primon-gas-2026-09-23.js',
+  },
+  {
+    id: 'novel-route-b',
+    name: 'Novel route B: arithmetic freeze-flow H_{t,τ} (flow-blindness complement)',
+    outcome: 'ruled-out',
+    grade: 'second-pass VERDICT NEGATIVE (Lemma M: every multiplicative prime coupling has force 0 or a rigid translation; Lemma A: the additive coefficient-freeze force is real, so "σ=½ exact fixed point" is open-condition triviality); the one majority tendency confines AWAY from ζ (de Bruijn trap). RH open.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key B / rh-route-b-arithmetic-freeze-flow-2026-09-23.js',
+  },
+  {
+    id: 'novel-route-c',
+    name: 'Novel route C: twisted-ladder signed interferometer',
+    outcome: 'ruled-out',
+    grade: 'tested — REFUTED: pair phases pinned by the root number, every ≥2-arm design has ≫T off-line zeros (joint universality), orthogonality is mean-square only.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key C / rh-route-c-signed-interferometer-2026-09-23.js',
+  },
+  {
+    id: 'novel-route-d',
+    name: 'Novel route D: Peierls domain-wall confinement of the zero-gas',
+    outcome: 'ruled-out',
+    grade: 'tested — REFORMULATION, no lever: pure Coulomb self-energy of the mirror quadruple is exactly ANTI-confining (Earnshaw); RH ⟺ R_σ(t) bounded as σ→0 = Weil’s criterion on Gaussian probes.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key D / rh-route-d-peierls-defect-confinement-2026-09-23.js',
+  },
+  {
+    id: 'novel-route-e',
+    name: 'Novel route E: supercritical Widom line + large deviations',
+    outcome: 'ruled-out',
+    grade: 'E-CONTINUATION-GAP closed, route ABSORBED: σ=½ IS the Widom line (Bohr–Jessen/Selberg), but the concentration statement is Bohr–Landau 1914 via Littlewood’s lemma — the rate function is the known zero-density exponent. No new lever.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key E / rh-route-e-widom-line-large-deviations-2026-09-23.js',
+  },
+  {
+    id: 'novel-route-f',
+    name: 'Novel route F: Kramers–Wannier local-uniqueness',
+    outcome: 'ruled-out',
+    grade: 'refuted-as-lever (reformulation): every per-window uniqueness statement that upgrades to σ=½ is equivalent to RH(+simple) in the window; missing ingredient = a positive-measure correlation inequality absent for complex weights n^{−it}.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key F / rh-route-f-kramers-wannier-local-uniqueness-2026-09-23.js',
+  },
+  {
+    id: 'novel-route-g',
+    name: 'Novel route G: log-gas renormalization / block-spin prime freezing',
+    outcome: 'ruled-out',
+    grade: 'second pass: the self-dual truncation fixed point (half-Gram crystal) has zero-mean freeze force, no confining drift; no arithmetic real-rootedness-preserving flow found. NOT-A-LEVER.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key G / rh-route-g-log-gas-rg-prime-freezing-2026-09-23.js',
+  },
+  {
+    id: 'novel-route-j',
+    name: 'Novel route J: arithmetic-geometry import (Weil–Deligne template to ℤ)',
+    outcome: 'ruled-out',
+    grade: 'tested — NO external input: engine (ii) reproduces the classical Fejér zero-free-region floor R ≥ 5.8284 (still c/log t); engines (i),(iii) need Spec Z ×_{F1} Spec Z (Route H); local-RH import moves no archimedean zero-free region.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key J',
+  },
+  {
+    id: 'novel-route-k',
+    name: 'Novel route K: RMT / moments / ratios pointwise zero constraints',
+    outcome: 'ruled-out',
+    grade: 'tested — NO: moments reach zeros only through Littlewood’s integrated lemma (measured |I(200)|=0.92 vs Jensen 130.4, 141× loss); k→0 moment IS Littlewood’s criterion. Wall = Jensen/integration, ceiling = Lindelöf ⇒ Density Hypothesis.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key K',
+  },
+  {
+    id: 'novel-route-l',
+    name: 'Novel route L: Li–Herglotz–CMV unitary truncation from Taylor data of ξ',
+    outcome: 'ruled-out',
+    grade: 'tested — reality forced non-circularly (400×400 CMV matrix reproduces 39/40 zeros to 1e-12); completeness = Weil positivity. NOT-A-LEVER, but the best finite-certificate infrastructure built so far.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key L',
+  },
+  {
+    id: 'novel-route-m',
+    name: 'Novel route M: Nyman–Beurling Gram via Vasyunin cotangent sums + Bettin–Conrey reciprocity',
+    outcome: 'ruled-out',
+    grade: 'tested — COLLAPSES to the mollifier lineage: cotangent sum = Estermann D(0,x); reciprocity = Estermann functional equation = the Conrey-1989 θ<4/7 input. No partial escape; NOT-A-LEVER.',
+    date: '2026-09-23',
+    route: '/rh-novel-routes-roadmap',
+    source: 'rh-novel-routes-roadmap-2026-09-23.js key M',
+  },
 ];
 
 // meaning: 'led-to' | 'refuted-by' | 'pivoted-to' | 'merged-into' | 'closes' | 'gates'
@@ -508,6 +613,19 @@ export const EDGES = [
   // no-gos and floors
   { from: 'flow-blindness', to: 'route7-floor', meaning: 'gates', note: 'below the floor = arithmetic input' },
   { from: 'flow-blindness', to: 'inertia-pcc', meaning: 'gates', note: 'soft linear algebra creates no arithmetic input' },
+  { from: 'flow-blindness', to: 'novel-route-b', meaning: 'gates', note: 'route B is the direct arithmetic-flow test of the no-go' },
+
+  // novel-routes roadmap (2026-09-23): worked in sequence A→G, then J–M
+  { from: 'novel-route-a', to: 'novel-route-b', meaning: 'led-to' },
+  { from: 'novel-route-b', to: 'novel-route-c', meaning: 'led-to' },
+  { from: 'novel-route-c', to: 'novel-route-d', meaning: 'led-to' },
+  { from: 'novel-route-d', to: 'novel-route-e', meaning: 'led-to' },
+  { from: 'novel-route-e', to: 'novel-route-f', meaning: 'led-to' },
+  { from: 'novel-route-f', to: 'novel-route-g', meaning: 'led-to' },
+  { from: 'novel-route-g', to: 'novel-route-j', meaning: 'led-to', note: 'stat-mech batch → non-stat-mech external-input hunt' },
+  { from: 'novel-route-j', to: 'novel-route-k', meaning: 'led-to' },
+  { from: 'novel-route-k', to: 'novel-route-l', meaning: 'led-to' },
+  { from: 'novel-route-l', to: 'novel-route-m', meaning: 'led-to' },
 
   // formalization
   { from: 'frozen-rung-prop', to: 'zr-promotion', meaning: 'gates' },

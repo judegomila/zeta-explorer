@@ -97986,7 +97986,7 @@ export const IMPROVEMENT_QUEUE = [
     title: 'Cross-link the rh-novel-routes-roadmap into program-dag.js / graded-results.js as tracked frontier nodes alongside the seam-chain program',
     category: 'meta',
     priority: 'low',
-    status: 'pending',
+    status: 'completed',
     proofSection: 'S-frontier',
     description: "lambda-roadmap currentStatusTLDR notes that the seam-chain / signed-certificate program is tracked in graded-results.js and program-dag.js. The new rh-novel-routes-roadmap-2026-09-23.js (routes A-G) is a separate frontier program with no presence in either tracker, so the two RH-attack programs are not visible together. Add the seven novel routes as tracked frontier nodes (status to-test, no grade / no bound) in program-dag.js and/or graded-results.js, cross-linking each to its firstTest and to the roadmap module, without asserting any result. Preserve the imp-2519 no-overclaim guard: these are to-test routes, not graded results. Documentation/wiring only; NO QED; PT Lambda<=0.2 SOTA.",
     rationale: 'Frontier scout: rh-novel-routes-roadmap not present in program-dag.js/graded-results.js (currentStatusTLDR names both as the program trackers)',
@@ -97994,6 +97994,8 @@ export const IMPROVEMENT_QUEUE = [
     dependsOn: [],
     model: 'sonnet-4-6',
     channel: 'sonnet',
+    completedByModel: 'sonnet-4-6',
+    completedByChannel: 'sonnet',
   },
   {
     id: 'imp-96012',

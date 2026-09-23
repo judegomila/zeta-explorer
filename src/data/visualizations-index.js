@@ -3066,6 +3066,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: re-plots the frozen imp-95897 six-offset table and envelope band verbatim (no re-derivation, no fresh measurement); the offset is noise-dominated with an interior max, so monotonicity over [3e12, infinity) is UNDECIDED by this table alone (see imp-95921); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96040-a0-reconcile-panel',
+      title: 'Six-Height a_0 Scatter vs Conjectural Line',
+      oneLine:
+        'Renders the imp-96005 six-height a_0 scatter (T = 1e4..5e5), sample mean +/-SE band, and the imp-95984 conjectural a_0 = -0.176248 (I_F=1) line, annotated with z=0.337 / p~0.736 -- never assembled visually before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96040-a0-reconcile-panel-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96005-a0-published-vs-empirical-reconcile.js (imp-96040 viz panel)',
+      ticket: 'imp-96040',
+      pedagogicalStep: 207,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-96005 six-height a_0 scatter, mean/SE band and conjectural line verbatim (no re-derivation, no fresh measurement); the gap is 0.337 SE (p~0.736), fully noise-consistent, not a resolved discrepancy; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95931-ln12-descent-ladder',
       title: 'ln 1.2 u_fit_rel Descent Ladder vs the ln 1.3 Target',
       oneLine:

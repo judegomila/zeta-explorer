@@ -1279,6 +1279,9 @@ const Imp95914UfitComparisonViz = lazy(() =>
 const Imp95930C0OffsetEnvelopeViz = lazy(() =>
   import('./pages/Imp95930C0OffsetEnvelopeViz.jsx')
 );
+const Imp96040A0ReconcilePanelViz = lazy(() =>
+  import('./pages/Imp96040A0ReconcilePanelViz.jsx')
+);
 const Imp95931Ln12DescentLadderViz = lazy(() =>
   import('./pages/Imp95931Ln12DescentLadderViz.jsx')
 );
@@ -3432,6 +3435,10 @@ function AppShell() {
           <Route
             path="/viz-imp95930-c0-offset-envelope"
             element={<Imp95930C0OffsetEnvelopeViz />}
+          />
+          <Route
+            path="/viz-imp96040-a0-reconcile-panel"
+            element={<Imp96040A0ReconcilePanelViz />}
           />
           <Route
             path="/viz-imp95931-ln12-descent-ladder"

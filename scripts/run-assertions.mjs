@@ -18610,6 +18610,19 @@ const DATA_MODULES = [
   // row at pedagogicalStep 176, browsable via VisualizationsIndexPage.jsx). No new
   // wiring needed. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-95835-imp95682-consumer-audit.js',
+  // imp-95938: FEASIBILITY / COST assessment of a quad-double / MPFR deep-corner
+  // shift-invert solve past N=5200 (N~6400-8000) -- can it restore the imp-95919 monotone
+  // lambda_min sweep and cross the ln1.2 companion u_fit_rel below the ln1.3 direct 0.23%?
+  // PRECISION BUDGET: cond(M)=cond(G)/margin=5.6e22/0.02=2.8e24 loses ~24.4 digits per solve;
+  // the DD floor is MEASURED as the imp-95919 N=6400 reversal jump (+1.872e-5 rel = the ratio-1
+  // change), so K=floor/eps_dd=1.519e27 and the estimated QD floor K*eps_qd~2.3e-37 (MPFR-256
+  // ~1.3e-50) sits ~31.9 orders BELOW the ~2.5e-5 monotone signal. VERDICT: FEASIBLE on
+  // precision (QD/MPFR clears the floor with ~31.9 orders headroom, WOULD restore the sweep),
+  // DEFERRED on cost (O(N^2)-per-solve QD ~1.8-5.3 CPU-h/point for a 1.07x companion gain that
+  // moves no bound), and the CROSSING stays OPEN even at unlimited precision because the
+  // u_fit_rel envelope is DECELERATING (extrapolation leg), not floor-limited. No QD solver run
+  // at import; analytic precision budget; no interval value changed; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95938-qd-mpfr-deepcorner-feasibility.js',
 ];
 
 let ALL_MODULES = FAST_MODE

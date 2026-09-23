@@ -92,6 +92,9 @@
  * @see imp-95921-c0-offset-approach-analytic-bracket (named the sub-gap; slope pinned, intercept not)
  * @see imp-95897-c0-offset-monotonicity-envelope-safety (noise-dominated data, R^2 = 0.0007)
  * @see imp-95722-number-variance-ratio-window-bottom-bound (r_cap envelope; C0 = max offset)
+ * @see imp-95973-six-point-noise-domination-wall-glossary-headword (shared nav index: this
+ *   thread's a_0 spread ~1.18 sits alongside the sibling imp-95941/imp-95946 six-point-wall
+ *   findings under one index note)
  */
 
 const TWO_PI = 2 * Math.PI;

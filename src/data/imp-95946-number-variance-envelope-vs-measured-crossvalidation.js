@@ -46,6 +46,10 @@
  * changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side
  * route stays PCC/GRH-gated.
  *
+ * @see imp-95973-six-point-noise-domination-wall-glossary-headword (shared nav index: this
+ *   thread's self-consistency-only overlap check sits alongside the sibling imp-95940/imp-95941
+ *   six-point-wall findings under one index note)
+ *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) values are the same
  * measured literals imp-95710/imp-95722 baked; every derived quantity is recomputed here.
  */

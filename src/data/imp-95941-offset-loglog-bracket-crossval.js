@@ -69,6 +69,9 @@
  * @see imp-95710-number-variance-ratio-vs-height (the six measured sd(C - E) inputs; window-reach sub-gap)
  * @see imp-95897-c0-offset-monotonicity-envelope-safety (raw-slope R^2 = 0.0007, interior max at 1.5e5)
  * @see imp-95562-meansquare-vs-pointwise-gap (source of the measured offsets)
+ * @see imp-95973-six-point-noise-domination-wall-glossary-headword (shared nav index: this
+ *   thread's loglog-slope R^2 = 1.8e-4 sits alongside the sibling imp-95940/imp-95946
+ *   six-point-wall findings under one index note)
  */
 
 const TWO_PI = 2 * Math.PI;

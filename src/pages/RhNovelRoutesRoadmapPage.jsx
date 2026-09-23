@@ -51,6 +51,76 @@ function StatusBadge({ status }) {
   );
 }
 
+function classifyRouteStatus(status) {
+  if (/NOT-A-LEVER|no lever|REFUTED|refuted|NO-GO|VERDICT NEGATIVE/i.test(status)) {
+    return { label: 'refuted / no lever', fg: '#c23a1c', bg: 'rgba(194,58,28,0.10)', border: '#c23a1c' };
+  }
+  if (/^first-test-done/.test(status)) {
+    return { label: 'first test done', fg: 'var(--brass-dk)', bg: 'rgba(181,138,46,0.14)', border: 'var(--brass-dk)' };
+  }
+  if (/^to-test$/.test(status)) {
+    return { label: 'to test', fg: 'var(--faint)', bg: 'rgba(120,113,108,0.10)', border: 'var(--faint)' };
+  }
+  return { label: 'tested — see detail', fg: 'var(--blue)', bg: 'rgba(63,107,134,0.10)', border: 'var(--blue)' };
+}
+
+function RouteStatusDashboard({ routes }) {
+  return (
+    <div className="card" style={{ marginTop: 20 }}>
+      <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Route status at a glance</h3>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+          <thead>
+            <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--hairline)' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Route</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Name</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Payoff</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {routes.map((route) => {
+              const t = classifyRouteStatus(route.status);
+              return (
+                <tr key={route.key} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                  <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{route.key}</td>
+                  <td style={{ padding: '6px 8px', color: 'var(--ink-soft)' }}>{route.name}</td>
+                  <td style={{ padding: '6px 8px', color: 'var(--ink-soft)' }}>{route.payoff}</td>
+                  <td style={{ padding: '6px 8px' }}>
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        padding: '2px 8px',
+                        background: t.bg,
+                        border: `1px solid ${t.border}`,
+                        borderRadius: 4,
+                        color: t.fg,
+                        fontFamily: mono,
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: 0.3,
+                      }}
+                    >
+                      {t.label}
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 10, lineHeight: 1.6 }}>
+        Legend: <strong style={{ color: '#c23a1c' }}>refuted / no lever</strong> — a test (first pass or a later pass) closed
+        the route as an RH lever; <strong style={{ color: 'var(--brass-dk)' }}>first test done</strong> — a concrete test
+        ran with an open follow-on; <strong style={{ color: 'var(--faint)' }}>to test</strong> — no test run yet;{' '}
+        <strong style={{ color: 'var(--blue)' }}>tested — see detail</strong> — tested with a nuanced finding, read the
+        card below. Derived directly from each route&apos;s status string; no new verdicts.
+      </p>
+    </div>
+  );
+}
+
 function RouteCard({ route }) {
   return (
     <div className="card" style={{ marginTop: 16 }}>
@@ -98,6 +168,8 @@ export default function RhNovelRoutesRoadmapPage() {
             {R.date} · {R.routes.length} routes (A–G) · {R.status}
           </p>
         </div>
+
+        <RouteStatusDashboard routes={R.routes} />
 
         {R.routes.map((route) => (
           <RouteCard key={route.key} route={route} />

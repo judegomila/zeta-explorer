@@ -122,6 +122,10 @@ export const ROUTE_K = Object.freeze({
     [100, -1.75593, -0.381295, 291.547027, 0.633086, 2371.975071, 1.041015, 53.501557, 79.157702, 30.469078],
     [150, -1.347885, -0.269005, 493.198476, 0.656202, 5071.292787, 1.058732, 89.270729, 132.026841, 66.230246],
     [200, -0.924121, -0.174418, 736.832711, 0.695346, 9146.480649, 1.145518, 130.404351, 191.140354, 141.111837],
+    // imp-96047: extended to T=500 (269 zeros). I/logT still O(1) (0.0216, even shrinking); M_1/(T log T)→0.733,
+    // M_2 norm→1.122; J_1 keeps growing ~(T/2)log log T (130→379). Loss J_1/|I| jumps 141→2828, amplified by
+    // |I(500)|=0.134 dipping near an I(T) sign change — but J_1 vs |I|=O(1) is the paradigm ceiling regardless.
+    [500, -0.134003, -0.021563, 2276.421068, 0.732603, 42393.15299, 1.12202, 378.9379, 555.0168, 2827.826],
   ]),
   keatingSnaithConsistency: Object.freeze({
     // f(k) = G(1+k)²/G(1+2k) (Barnes G), a(k) = arithmetic factor; RH-geometric-mean forces (log af)′(0) = 0

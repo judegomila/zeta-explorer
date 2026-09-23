@@ -2632,6 +2632,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation/measurement only: re-implements the imp-95533/imp-95559 ceiling kernel standalone at a denser render-friendly (T, delta) grid (no re-derivation, no fresh term); illustrates the (L4) doubly-exponential detectable-height law, proves nothing beyond what imp-95533/imp-95559 already state; supplies no T > T_X existence proof; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp95770-barrier-mollifier-length-ceiling',
+      title: 'Barrier Mollifier-Length Ceiling vs Verified Height',
+      oneLine:
+        'Chart of the barrier-mollifier-length-ceiling-2026-09 Wiener-algebra ceiling Lambda_ceil(X) = min(1, gamma*||A/B||) across four verified-height rungs (N = 690,988 / 1.5M / 2.0M / 6.0M), marking the current Lambda_ceil(6.0e12) ~ 0.154 point and the X where the curve crosses the 0.145 and 0.14 targets.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95770-barrier-mollifier-length-ceiling-viz-data.js',
+      paperSourcePath:
+        'src/data/barrier-mollifier-length-ceiling-2026-09.js (CEILING_HEIGHT_Y0, CROSSING_PIN_Y0; imp-95770 viz page)',
+      ticket: 'imp-95770',
+      pedagogicalStep: 184,
+      honestCeiling:
+        'Presentation/measurement only: reuses the baked CEILING_HEIGHT_Y0 literals from barrier-mollifier-length-ceiling-2026-09.js and re-runs its own bracket-crossing interpolation across four height rungs (no re-derivation, no fresh term); illustrates that a longer mollifier cannot beat the fixed-height Wiener-algebra ceiling, proves nothing beyond what that module already states; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; the 0.1758354 candidate remains unrefereed; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp95587-legb-straddle-vs-ratio',
       title: 'LEG B DELTA_A Straddle vs. the Direct Ratio Inequality',
       oneLine:

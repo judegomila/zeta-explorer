@@ -1171,6 +1171,9 @@ const Imp95566AliasEnergyInAlgebraViz = lazy(() =>
 const Imp95567DoublyExponentialHeightCeilingViz = lazy(() =>
   import('./pages/Imp95567DoublyExponentialHeightCeilingViz.jsx')
 );
+const Imp95770BarrierMollifierLengthCeilingViz = lazy(() =>
+  import('./pages/Imp95770BarrierMollifierLengthCeilingViz.jsx')
+);
 const Imp95366RzPenOnsetDropLadderViz = lazy(() =>
   import('./pages/Imp95366RzPenOnsetDropLadderViz.jsx')
 );
@@ -3203,6 +3206,10 @@ function AppShell() {
           <Route
             path="/viz-imp95567-doubly-exponential-height-ceiling"
             element={<Imp95567DoublyExponentialHeightCeilingViz />}
+          />
+          <Route
+            path="/viz-imp95770-barrier-mollifier-length-ceiling"
+            element={<Imp95770BarrierMollifierLengthCeilingViz />}
           />
           <Route
             path="/viz-imp95366-rzpen-onset-drop-ladder"

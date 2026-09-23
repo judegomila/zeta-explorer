@@ -6,6 +6,11 @@ import {
   IMP95753_GEOMETRIC_MEAN_GAP_T,
   IMP95753_CAVEAT_BANNER,
 } from '../data/imp-95753-crossover-height-window-viz-data.js';
+import {
+  IMP95772_CEILING_LANDMARK,
+  IMP95772_REACH_ANNOTATION,
+  IMP95772_CAVEAT_BANNER,
+} from '../data/imp-95772-deadzone-ceiling-reach-viz-data.js';
 
 const LANDMARK_COLOR = {
   conservatism_top: '#38bdf8',
@@ -45,6 +50,27 @@ function CrossoverAxis() {
           </g>
         );
       })}
+
+      {/* imp-95772 direct-measurement ceiling: a thin dashed marker, close beside the top landmark */}
+      {(() => {
+        const x = xOf(IMP95772_CEILING_LANDMARK.log10T);
+        return (
+          <g>
+            <line
+              x1={x}
+              y1={axisY - 14}
+              x2={x}
+              y2={axisY + 14}
+              stroke="#f59e0b"
+              strokeWidth={1.5}
+              strokeDasharray="3,2"
+            />
+            <text x={x} y={axisY + 52} textAnchor="middle" fill="#f59e0b" fontSize={8.5}>
+              gamma_1e6 ceiling
+            </text>
+          </g>
+        );
+      })()}
 
       {/* gap-decade brackets between consecutive landmarks */}
       {[0, 1].map((i) => {
@@ -120,6 +146,20 @@ export default function Imp95753CrossoverHeightWindowViz() {
         style={{
           marginTop: '1.25rem',
           padding: '0.75rem 1rem',
+          background: 'rgba(245,158,11,0.06)',
+          borderLeft: '3px solid #f59e0b',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#cbd5e1',
+        }}
+      >
+        <strong style={{ color: '#f59e0b' }}>imp-95772 measurement-reach:</strong> {IMP95772_REACH_ANNOTATION.text}
+      </div>
+
+      <div
+        style={{
+          marginTop: '1.25rem',
+          padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',
           borderRadius: '0 4px 4px 0',
@@ -128,6 +168,20 @@ export default function Imp95753CrossoverHeightWindowViz() {
         }}
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> {IMP95753_CAVEAT_BANNER}
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Status (imp-95772):</strong> {IMP95772_CAVEAT_BANNER}
       </div>
     </div>
   );

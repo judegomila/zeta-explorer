@@ -236,6 +236,33 @@ export const PENCIL_HIGHRES_LITERALS = Object.freeze({
     twoAStarRichardson: 1.131539, twoAStarMinusLn3: 0.032927,
     note: 'confirms aStarExtrapolated 0.56578 (the original two-value estimate was high by ~1e-5); N >= 224 unstable',
   },
+  /** imp-96106 (measured, tmp/imp-96106-scratch.mjs + tmp/imp-96106-locate.mjs): pin the honestLimits N >= 224
+   *  assembly obstruction and TEST the two candidate fixes it names. a = 0.5, default pencil pipeline.
+   *  (1) ONSET. lambda_min(L_S) stays SPD and flat at +0.099221 through N = 196 and 200 (cond(L_S) ~ 84), then
+   *      collapses ABRUPTLY at N = 204 to -4.893 and worsens monotonically: lamLSmin(N) = +0.099220 (196), +0.099219
+   *      (200), -4.8929 (204), -5.5899 (208), -5.9702 (212), -6.2173 (216), -6.3805 (220), -6.4806 (224). It is a
+   *      discrete blow-up, not a gradual approach of lambda_min to the machine floor; the finest STABLE point is
+   *      N = 200 (the crossingHighN sequence stopped at 192 and can be nudged to include 196, 200). D_S itself corrupts
+   *      in lockstep: lamDSmin = -0.071359 (<=200) drifts to -0.077788 (204), -0.37136 (224).
+   *  (2) D_S-QUADRATURE REFINEMENT DOES NOT HELP (refutes the honestLimits "extended precision on the D_S Toeplitz
+   *      quadrature" route). Sweeping (J, panelFactor) from the default (30, 3) to (44, 1.0) to (60, 0.5) leaves every
+   *      eigenvalue UNCHANGED to printed precision at BOTH N = 192 (stable) and N = 224 (broken): lamDSmin -0.0714,
+   *      lamLSmin -6.4806, lamLSpfMin -6.4806 identical across all three settings at N = 224.
+   *  (3) MORE ARCHIMEDEAN QUADRATURE HURTS. At N = 224, raising V from 3N to 5N to 8N leaves lamDSmin fixed at -0.37136
+   *      and drives lamLSmin FURTHER negative (-6.4806 -> -7.4991 -> -8.4369).
+   *  VERDICT: the obstruction is a double-precision Legendre-Galerkin BASIS conditioning wall at degree ~200 (the
+   *  high-degree orthonormalized Legendre products lose accuracy in both D_S and Arch), not a remainder- or
+   *  archimedean-quadrature resolution limit. A differently-conditioned assembly (extended precision across the whole
+   *  Galerkin build, or a better-conditioned prolate/shifted-Chebyshev basis) would be required to reach N >= 204;
+   *  refining the Toeplitz quadrature alone cannot. No bound, margin, or verified height changes; RH open; NO QED. */
+  conditioningObstruction: {
+    a: 0.5, finestStableN: 200, onsetN: 204, condLSStable: 84,
+    lamLSmin: { N196: 0.099220, N200: 0.099219, N204: -4.8929, N208: -5.5899, N212: -5.9702, N216: -6.2173, N220: -6.3805, N224: -6.4806 },
+    lamDSmin: { stableLE200: -0.071359, N204: -0.077788, N224: -0.37136 },
+    dsQuadRefinementInvariant: true, // (J, panelFactor) in {(30,3),(44,1.0),(60,0.5)} give identical eigs at N=192 and N=224
+    archNodeCountNoHelp: { lamLSminAt224: { V3N: -6.4806, V5N: -7.4991, V8N: -8.4369 }, lamDSminInvariant: -0.37136 },
+    verdict: 'double-precision Legendre basis conditioning wall at degree ~200; abrupt (SPD cond~84 at N=200, indefinite at N=204); NOT a remainder- or archimedean-quadrature-resolution limit; D_S-quadrature extended precision alone refuted; map extendable to N=200; RH open; NO QED',
+  },
   constraintFamiliesLn3Half: { N: 96, k: [0, 1, 2, 3, 4, 5, 6, 7, 8], moments: [0.9971589, 0.9315457, 0.4605021, 0.2279864, 0.1903956, 0.1903956, 0.1731696, 0.1225070, 0.0960235], slepian: [0.9971589, 0.9315457, 0.3243181, 0.2337244, 0.2337244, 0.2152530, 0.1415009, 0.1095564, 0.1019487], optimalWeilEig: [0.9971589, 0.9315457, 0.2673586, 0.2069117, 0.1187660, 0.1087365, 0.1087365, 0.0793410, 0.0664163], slepianEigs: [0.999997, 0.999816, 0.995634, 0.946191, 0.691777, 0.261525, 0.043677, 0.004016, 0.000255], c: 7.7647 },
   symbol: {
     wZeroCrossings: [3.597, 8.145, 9.875, 17.542, 18.699, 26.719, 27.662, 35.85, 36.664, 44.961, 45.684, 54.063, 54.713],
@@ -385,7 +412,7 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP = Object.freeze({
   extremalAnatomy: '(ln 3)/2, k = 0: even, |hhat|^2 peak t = 7.55, 74% energy below t_1, 98% below gamma_1; W = (1/2pi) int w |hhat|^2 splits as [0,3.6) -0.0092, [3.6,8.15) +0.226, I_1 -0.341, [9.9,17.5) +0.126, I_2 -0.005 (W = 0.00095, L_S = 0.3329): the negativity is the first p = 2 resonance window (102% of L_S), the archimedean window is 2.8%; k = 1 extremal odd on I_1 (-0.408); k = 2 even, I_1 -0.224 and I_2 -0.125; k = 3 odd on I_2 (-0.173): extremals migrate outward as moments are added',
   DSform: 'lambda(D_S) in [-0.07136, 2.14499] (a = 0.5), [-0.08670, 2.31368] ((ln 3)/2), N-stable to 1e-5; negative eigenvalue count 7/11/15/22/30 at N = 32..128 = Szego samples of the negative lobes of deltahat_S (sign changes 4.05, 7.83, 10.19, 13.25, ...); negative eigenvectors peak at t = 13.7 (even), 22.7 (odd), 31.9, 40.9 in those lobes; top eigenvector 2.145 is the t ~ 0 direction, next two (0.423 odd, 0.365 even) sit on the first resonance; lambda_min(L_S) = 0.0992 / 0.0934, lambda_min(L_S|pf) = 0.3565 / 0.3081',
   forTheProof: '(a) D_S <= L_S on pole-free h is true with margin >= 2.8e-3 for 2a <= ln 3 and FALSE for 2a > 1.1316 (odd sector; Weil positivity needs -P_3 there): a proof must use the support bound and cannot be a support-free operator inequality; (b) the object to control is the resonance window I_1 = (8.145, 9.875) (then I_2), not the t ~ 0 archimedean window; (c) vanishing moments act via the uncertainty principle (bandwidth pi/a ~ 5.7 vs window widths <= 1.73), two of them give a uniform margin 0.54 — a finite constraint count suffices numerically for a large margin; the unconstrained margin 2.8e-3 at (ln 3)/2 is what an unconditional statement must reproduce',
-  honestLimits: 'Rayleigh–Ritz numbers at finite N (algebraic convergence, 5 decimals); window decompositions use a t <= 200 symbol integral (1-2% short of the quadratic form); symbol tabulation of deltahat_S truncates the u-mesh at 24; a* now extrapolated from a 5-point N^-2 sequence N = 64..192 (a* = 0.565770 +- 3.3e-6, imp-96064; the original 0.56578 two-value estimate was high by ~1e-5), and N >= 224 is beyond this Jacobi assembly (compressed L_S loses positivity); nothing here is a proof, no Lambda bound or verified height changes; RH open',
+  honestLimits: 'Rayleigh–Ritz numbers at finite N (algebraic convergence, 5 decimals); window decompositions use a t <= 200 symbol integral (1-2% short of the quadratic form); symbol tabulation of deltahat_S truncates the u-mesh at 24; a* now extrapolated from a 5-point N^-2 sequence N = 64..192 (a* = 0.565770 +- 3.3e-6, imp-96064; the original 0.56578 two-value estimate was high by ~1e-5), and the Legendre-Galerkin assembly is SPD only through N = 200 (imp-96106, conditioningObstruction): L_S collapses to indefinite abruptly at N = 204 and this is a double-precision basis conditioning wall at degree ~200, NOT a remainder- or archimedean-quadrature-resolution limit (refining the D_S Toeplitz quadrature leaves every eigenvalue unchanged; more archimedean nodes only worsen it), so extended precision on the D_S quadrature alone cannot extend the map -- a differently-conditioned (extended-precision or prolate/Chebyshev) whole-assembly build would be needed; nothing here is a proof, no Lambda bound or verified height changes; RH open',
   truncationAudit: 'imp-96065 (measured, tmp/imp-96065-scratch2.mjs): residual error of the two honestLimits truncations. (1) u-MESH PAST 24: with the all-spikes grid u = k ln 2 (GL-8, J = 26, NMAX = 30), deltahat_S(0) = 8.784576 (umax = 24) vs 8.784599 (umax = 40) = 2.2e-5 absolute / 2.6e-6 relative; at the resonances t_1, t_2, t_3 the shift is ~1e-6; Lhat_S(0) (the positivity minimum) moves 0.065582 -> 0.065605. The delta_S(e^u) integrand between the graded 2^k spikes decays fast enough that u > 24 is negligible. (2) mu_max AND THE 2.84e-3 MARGIN ARE INVARIANT under both truncations: they are direct v-quadratures of delta_S(e^v) over v in [0, 2a] with 2a <= ln 3 = 1.0986 < 24 (toeplitzFormHiRes on gradedMesh(2a)), so the u-mesh = 24 symbol tabulation and the t <= 200 symbol integral never enter D_S; extending either moves every D_S matrix element, hence mu_max and the margin, by 0 to machine precision. (3) The t <= 200 symbol integral feeds ONLY the extremalAnatomy symbolIntegral window cross-check (already within 15% of the quadratic form W); the omitted tail t > 200 is net positive (w > 0 once the p = 2 windows close at t ~ 181) and closes part of the ~5% symbolIntegral-vs-W gap. Sub-gap SG-96065-tsymbol-tail MEASURED (imp-96086, tSymbolTailN96, tmp/imp-96086-tail.mjs): reconstructing the k = 0 pole-free extremal in the import-light leaf and integrating the tail to t = 4000 gives an entirely POSITIVE, monotonically decaying (~ln t / t^2) tail that recovers ~95% of the gap (95.0% at (ln 3)/2, 94.9% at 0.5); the residual is 0.26-0.34% of W (t > 4000 tail + finite-N / finite-grid quadrature) — the ~5% gap is the omitted positive tail, not a defect of the identity. No bound, margin, or verified height changes; RH open; NO QED.',
 });
 
@@ -515,6 +542,22 @@ export const RH_ROUTE_I_PENCIL_HIGHRES_MAP_ASSERTIONS = Object.freeze([
       const lhatRise = S.lhatAtTk[0][4] > 0.36 && S.lhatAtTk[0][4] < 0.38 && S.lhatAtTk.slice(0, 19).every((r, i) => i === 0 || r[4] >= S.lhatAtTk[i - 1][4] - 1e-3);
       const gmin = S.lhatGlobalMin.value > 0 && S.lhatGlobalMin.t === 0 && Math.abs(weilSymbol(0) + S.deltahat0 - S.Lhat0) < 1e-3 && Math.abs(S.Lhat0 - S.lhatGlobalMin.value) < 1e-3;
       return zc.length >= 37 && closeOK && winLive && winMono && lhatCons && lhatRise && gmin && S.deltahatSignChangeCountTo200 > 190;
+    },
+  },
+  {
+    id: 'PH10-conditioning-obstruction-onset',
+    description: 'imp-96106: the baked conditioning-obstruction measurement is internally consistent - L_S is SPD (lamLSmin ~ +0.099) through the finest stable N = 200 and collapses abruptly to indefinite at the onset N = 204, worsening monotonically to N = 224; D_S itself corrupts (lamDSmin drifts from -0.0714 to -0.371); refining the D_S Toeplitz quadrature leaves the eigenvalues unchanged (dsQuadRefinementInvariant) and raising the archimedean node count only drives lamLSmin further negative - so neither quadrature lever fixes the wall',
+    holds: () => {
+      const C = L.conditioningObstruction;
+      const stable = C.lamLSmin.N196 > 0.09 && C.lamLSmin.N200 > 0.09 && C.finestStableN === 200 && C.onsetN === 204;
+      const collapse = C.lamLSmin.N204 < -1 && C.lamLSmin.N208 < C.lamLSmin.N204 && C.lamLSmin.N224 < C.lamLSmin.N220
+        && [C.lamLSmin.N208, C.lamLSmin.N212, C.lamLSmin.N216, C.lamLSmin.N220, C.lamLSmin.N224].every((x, i, arr) => i === 0 || x < arr[i - 1]);
+      const dsDrift = C.lamDSmin.stableLE200 > -0.075 && C.lamDSmin.N204 < C.lamDSmin.stableLE200 && C.lamDSmin.N224 < -0.3;
+      const quadNoFix = C.dsQuadRefinementInvariant === true
+        && C.archNodeCountNoHelp.lamLSminAt224.V5N < C.archNodeCountNoHelp.lamLSminAt224.V3N
+        && C.archNodeCountNoHelp.lamLSminAt224.V8N < C.archNodeCountNoHelp.lamLSminAt224.V5N
+        && C.archNodeCountNoHelp.lamDSminInvariant === C.lamDSmin.N224;
+      return stable && collapse && dsDrift && quadNoFix && /NO QED/.test(C.verdict) && /RH open/.test(C.verdict);
     },
   },
   {

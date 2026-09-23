@@ -2911,6 +2911,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-95788 N=80..200 bias ladder verbatim (no re-derivation, no fresh DD solve); biasPct is an interior model-seam finite-size diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp95810-reach-universality',
+      title: 'Szego Reach-Universality Cross-Validation',
+      oneLine:
+        'Line chart of the imp-95786 relative C_fit error vs reach R=delta(N_max+1) across the four float64-clean deltas (ln1.6/1.5/1.45/1.4), with the sub-1% crossing reaches R* marked for the three cleanly-monotone deltas.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-95810-reach-universality-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-95786-reach-universality-crossval.js (reachTable, crossings; imp-95810 viz page)',
+      ticket: 'imp-95810',
+      pedagogicalStep: 190,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-95786 reachTable/crossings and imp-95761 ln14PrecisionWall verbatim (no re-derivation, no fresh solve); the reach-universality is an interior model-seam finite-grid diagnostic, not an RH bound; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

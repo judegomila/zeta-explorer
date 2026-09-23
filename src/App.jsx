@@ -1144,6 +1144,9 @@ const Imp95808TwinPairBiasUnionHeatmapViz = lazy(() =>
 const Imp95809DeepCornerBiasConvergenceLadderViz = lazy(() =>
   import('./pages/Imp95809DeepCornerBiasConvergenceLadderViz.jsx')
 );
+const Imp95810ReachUniversalityViz = lazy(() =>
+  import('./pages/Imp95810ReachUniversalityViz.jsx')
+);
 const Imp95792DiZigzagViz = lazy(() =>
   import('./pages/Imp95792DiZigzagViz.jsx')
 );
@@ -3185,6 +3188,10 @@ function AppShell() {
           <Route
             path="/viz-imp95809-deep-corner-bias-ladder"
             element={<Imp95809DeepCornerBiasConvergenceLadderViz />}
+          />
+          <Route
+            path="/viz-imp95810-reach-universality"
+            element={<Imp95810ReachUniversalityViz />}
           />
           <Route
             path="/viz-imp95792-di-zigzag"

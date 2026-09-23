@@ -18227,6 +18227,15 @@ const DATA_MODULES = [
   // moduli only CONDITIONALLY (m-free structure + offset transport all but the Q_0 sector value);
   // binding obstruction = no closed-form c_odd(1/m) at m>20. Import-light, no bound, NO QED.
   '/src/data/imp-95842-q0-wide-modulus-b24-certificate-assessment.js',
+  // imp-95861: assesses what a GENUINE per-m kappa certification would require for the imp-95842
+  // q0-wide-modulus reconstruction. Decomposes it into PIECE A (an independent target for Q_true(m)
+  // -- integrand-faithfulness) and PIECE B (a rigorous quadrature enclosure of the reconstruction);
+  // imp-95842 showed B24 supplies PIECE B but nothing for PIECE A, so PIECE A is the binding
+  // shortfall at m>20. Two ways to supply it: the INDEPENDENT route (three per-modulus anchors) or
+  // the TRANSPORT route (one symbolic Prop-6.3 identity, leaner and the only one that scales). The
+  // residual conditionality is a SINGLE integrand-faithfulness hypothesis attached identically to
+  // m=22,30,41, verified only at m=20; not a quadrature caveat. Import-light, no bound, NO QED.
+  '/src/data/imp-95861-per-m-kappa-certification-requirement-assessment.js',
   // imp-95698: registration audit found these three self-executing-assertion modules were
   // reachable only via a page/log reference, never via this DATA_MODULES sweep -- wiring them
   // in directly so their throw-on-failure checks actually run under npm run-assertions.
@@ -18348,6 +18357,13 @@ const DATA_MODULES = [
   // throw-on-failure assertions never ran under npm run-assertions. Wiring them
   // in directly.
   '/src/data/imp-95837-ln12-dd-extrapolation-grid.js',
+  // imp-95860: extend the imp-95837 ln1.2 DD Jacobi grid past N=400 (N=560/760/1000,
+  // reach ~102/~139/~182); extending the reach TIGHTENS the ln1.2 u_fit_rel 1.07%->0.54%
+  // (~1.97x), the signed r_point +1.27e-3->+4.88e-4, and halves u_fit/u_opt to 3.05e12
+  // (still >> 1e10) -- the deep-corner A_opt~4.3e-22 does NOT hit the DD floor, so the
+  // per-delta u_fit interval is refinable by reach (ln1.2 companion of imp-95857). One
+  // live N=120 solve re-validates the solver. No bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-95860-ln12-extended-grid-ufit-tightening.js',
   '/src/data/imp-95844-rho1-szego-direct-vs-dual-crossval-table.js',
   '/src/data/imp-95846-finite-section-upper-companion-bound.js',
   // imp-95874: heavy-import audit of imp-95845/imp-95846 (extends imp-95854).

@@ -16432,6 +16432,13 @@ const DATA_MODULES = [
   // with a dedicated viz already carry a consistent banner; imp-95276 has
   // no dedicated page. AUDIT-ONLY, no banner added. No bound change; NO QED.
   '/src/data/imp-95417-seam-viz-banner-audit.js',
+  // imp-95664 (sonnet-4-6, sonnet): AUDIT -- checks the imp-95645/95646/95647
+  // viz pages for a no-QED / PT Lambda<=0.2 honest-status banner and a
+  // correct, complete visualizations-index.js row. FINDING: all three pages
+  // already carry a matching banner and a complete index row (route wired
+  // in App.jsx, dataModule exists). AUDIT-ONLY, nothing added or changed.
+  // No bound change; NO QED.
+  '/src/data/imp-95664-viz-banner-audit.js',
   // imp-95256 (opus-4-8, api-pool): MEASUREMENT -- maps the imp-95250
   // THEOREM SPLIT-LOO "neither of the two multi-block splits dominates"
   // claim (asserted from one config) onto a two-parameter (scale-separation

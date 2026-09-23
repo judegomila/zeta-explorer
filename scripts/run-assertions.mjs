@@ -18875,6 +18875,19 @@ const DATA_MODULES = [
   // confirming the imp-95878 sub-gap. Fits the reconstruction (m=20-only certified); import-light;
   // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96008-c-odd-departure-two-term-closed-form-assessment.js',
+  // imp-96024: ASSESS whether the c_odd fractional-departure power-law exponent p (measured 1.90-1.96
+  // across parity branches, imp-96007/96008) is EXACTLY 2. Extending the fine grid is blocked by the
+  // imp-95966 m=20-only certification, so two data-free discriminants on the imp-95967 fine grid m=41..70:
+  // (1) DRIFT -- free-p single-power fits on expanding even windows rise monotonically toward 2 (m=42..50
+  // p=1.9244, ..., m=42..70 1.9364, wide 1.9608), the signature of a single power absorbing a subleading
+  // term; (2) DECISIVE -- a pure m^-2 fits ~400x worse than free-p, but pinning p=2 and adding one m^-3
+  // term (same 3 params as free-p) fits BETTER than free-p on both branches (even RSS 5.48e-19 vs
+  // 3.30e-18, odd 2.90e-19 vs 2.17e-18), and makes the asymptote ~14x more parity-consistent. VERDICT:
+  // p is CONSISTENT WITH / FAVORED = 2, NOT PROVEN. Precise obstruction: on a finite window "p=2 + m^-3"
+  // and "p<2, no correction" are near-degenerate; separating them needs a theory-derived large-m
+  // asymptotic or a grid beyond m=150, both gated by the imp-95966 obstruction. Import-light; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96024-c-odd-departure-exponent-p2-assessment.js',
   // imp-95981: DERIVE why the imp-95944 equal-rate residual bound (log-log slope ~-3.70) cannot match
   // the imp-95960 measured eps_inf(k) slope ~-3.19. FINDING: the exact p->infinity residual splits
   // additively (new RKHS identity eps_inf = 0.5 E[||f_d-f_d'||^2]/gall, verified 1e-6) into a CENTRE-

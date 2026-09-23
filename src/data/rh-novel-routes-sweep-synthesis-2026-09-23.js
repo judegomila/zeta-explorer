@@ -53,6 +53,11 @@ export const RH_SWEEP_SYNTHESIS = Object.freeze({
       'Attempt to extend the proven archimedean Weil positivity past the first prime shift u=ln2 using the scaling-site geometry (the exact point where conditionality currently starts — Connes–Consani 2021).',
       'Route B/D handoff: a signed arithmetic normal force / LP-feasible bounded-support coefficient field with Z_w·Z′′>0 at every near-collision, uniform in T — expected feasible at fixed T, not uniformly (a Gram-law surrogate); its uniform form IS Weil positivity.',
     ],
+    // Route H (2026-09-23): nextTests[0] and [1] RUN — see rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js.
+    routeH: {
+      module: 'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js',
+      verdict: 'no new lever: the second direction is block-diagonal over 2-power Dirichlet characters (a family, spectrally inert for ζ; detector cap = uncertainty principle 2a_det = 0.9 ln(γ/2π)); the archimedean-only form goes indefinite at a_* = 0.3716 (odd) / 0.4101 (even), only 0.025–0.064 beyond ln2/2, and positivity across ln 2 is an exact archimedean-vs-p=2 cancellation (residual/P_2 = 7.5e-5 at a = 0.5) on the Slepian gap function — Weil positivity itself. Next step named: a semilocal S={∞,2} Sonine trace identity on g-support < ln 3. RH open; NO QED.',
+    },
   },
 
   honest:

@@ -307,6 +307,17 @@ const DATA_MODULES = [
   // close pairs; exact incomplete-gamma frame is not a deformation (≥1e7×Λ). 460-site window [9.67,760],
   // winding integrality <1e-12. Import-light literals; NOT-A-LEVER; no bound; PT Λ≤0.2 SOTA; NO QED.
   '/src/data/rh-route-g-log-gas-rg-prime-freezing-2026-09-23.js',
+  // rh-route-h-connes-scaling-site-weil-positivity (2026-09-23): Route H = the sweep's opening (Connes–Consani
+  // adelic scaling site, semilocal S={oo,2}). Weil form on L^2(-a,a) from the arithmetic side (Legendre Galerkin,
+  // u-space archimedean term verified 1e-9, zero side vs 10^6 zeros 1e-10..1e-8). Archimedean-only positivity
+  // radius a_* = 0.3716 (odd) / 0.4101 (even) vs ln2/2 = 0.3466 (no slack past the first prime shift); full form
+  // stays positive across ln 2 (1.1e-3 -> 5.6e-8 at (ln3)/2 -> 1e-14 floor at a>=0.8) but only as an exact
+  // archimedean-vs-p=2 CANCELLATION (ratio 7.5e-5 at a=0.5) on the Slepian gap function; odd sector: p=2 ADDS
+  // positivity. Second direction = block-diagonal family over 2-power characters (chi_4 block verified: zeros,
+  // explicit formula 7e-15, Class-II Gram PSD) — spectrally inert for zeta; detector cap = uncertainty principle
+  // (2a_det = 0.9 ln(gamma/2pi), Class-II cap sqrt(ln(1/eps)/t)). No new lever; next step named (semilocal
+  // Sonine identity). Import-light (imports Route A's D_t only; no zeros bundle); NOT a bound; RH open; NO QED.
+  '/src/data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js',
   // imp-96019 (2026-09-23): ASSESSMENT of sweep opening.nextTests[1] — can the Connes–Consani scaling
   // site extend the proven archimedean Weil positivity past the first prime shift u = ln 2? Verdict:
   // NO candidate extension; precise obstruction. The proven partial (|u| < ln 2) is prime-EMPTY (smallest
@@ -18918,6 +18929,17 @@ const DATA_MODULES = [
   // no-collapse discipline holds and the range does not collapse. Measurement only; I_F = 1 conjectural
   // (Montgomery PCC); no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96006-if1-crossing-height-conditional-anchor.js',
+  // imp-96025: ATTEMPT to narrow the rigorous pair-correlation integral bracket
+  // I_F = INT_1^inf F(alpha)/alpha^2 in (2/3-eps, 2) toward the Montgomery-conjectural I_F = 1 using
+  // the in-repo Montgomery/GUE data (imp-1098), or record the precise obstruction. RESULT: bracket
+  // NOT narrowed; obstruction recorded in three named parts -- (A) the in-repo data is R2(r), the
+  // Fourier DUAL of the form factor F that I_F integrates, and reading F just above alpha = 1 needs
+  // the large-r tail of R2 a finite-N sample cannot resolve; (B) one third of the conjectural I_F
+  // mass (INT_3^inf 1/alpha^2 = 1/3) lies beyond the alpha <= 3 grid; (C) the empirical R2
+  // (KS ~ 0.094) is a finite-N estimate, not a rigorous bound. On [1, inf) RH pins F only by F >= 0,
+  // so I_F stays unconstrained within the bracket; narrowing (2/3, 2) to {1} IS the Montgomery
+  // conjecture. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96025-if-bracket-narrow-attempt-obstruction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

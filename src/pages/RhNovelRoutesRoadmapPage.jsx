@@ -7,6 +7,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { RH_NOVEL_ROUTES } from '../data/rh-novel-routes-roadmap-2026-09-23.js';
+import { RH_ROUTE_H_CONNES_SCALING_SITE as ROUTE_H } from '../data/rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 
@@ -99,6 +100,15 @@ export default function RhNovelRoutesRoadmapPage() {
         {R.routes.map((route) => (
           <RouteCard key={route.key} route={route} />
         ))}
+
+        <div className="card" style={{ marginTop: 24 }}>
+          <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 8 }}>Route H — the opening, tested (Connes–Consani scaling site)</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{ROUTE_H.status}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}>{ROUTE_H.verdict}</p>
+          <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
+            data: src/data/{ROUTE_H.id}.js · Test 2: {ROUTE_H.test2.aStar} · Test 1: {ROUTE_H.test1.compactCap}
+          </p>
+        </div>
 
         <div className="card" style={{ marginTop: 24, background: 'var(--paper2)' }}>
           <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 8 }}>Honest note</h3>

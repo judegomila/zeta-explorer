@@ -23219,6 +23219,32 @@ export const glossary = [
       'imp-33723-sigma-half-vs-crossover-closed-form.js the closed-form crossover fixed point feeding sigma_CF',
     ],
   },
+  {
+    term: 'E_flow Peak-Recovery Reconstruction Tail: err_k Shrinks by ~x Per Taylor Order (imp-96308)',
+    category: 'measurement',
+    definition:
+      'sigma_full = sigma_CF/(1+x) (x = E_flow/(E_trunc+E_coll)) is an EXACT geometric identity. ' +
+      'Truncating its Taylor expansion at degree k, S_k = Sum_{j=0..k}(-x)^j, leaves the exact ' +
+      'error err_k = -sigma_CF*(-x)^(k+1)/(1+x) -- an O(x^(k+1)) truncation tail, not a new ' +
+      'obstruction. Measured at the imp-3220 interior peak (x_peak ~ 3.155e-2): adding the third ' +
+      'Taylor term (1 - x + x^2 - x^3) drops the peak location error from the imp-96286 ' +
+      'second-order value 4.37e-3 to 1.84e-4, and the height error from 2.99e-5 to 9.41e-7. The ' +
+      'height error shrinks by essentially exactly 1/x per order (measured ratio 31.76 vs ' +
+      '1/x = 31.69, since |err_k| ~ sigma_CF*x^(k+1)); the location error shrinks by ' +
+      '(k/(k+1))/x per order (measured ratio 23.82 vs 0.75/x = 23.77) because the flat-peak ' +
+      'amplification divides by the error SLOPE, whose leading term scales as (k+1)*x^k*x_prime, ' +
+      'adding a polynomial-degree prefactor absent from the height channel. Both channels fall ' +
+      'monotonically -- location 9.08e-2 -> 4.37e-3 -> 1.84e-4, height ' +
+      '9.19e-4 -> 2.99e-5 -> 9.41e-7 -- toward the exact identity (location ~1.7e-7, ' +
+      'height ~2e-16). Measurement only; C_mb stays GUE-conditional (imp-486); changes no bound; ' +
+      'RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96308-eflow-peak-third-order-shrink.js (measures the third-order shrink predicted but not measured by imp-96286), 2026',
+    relatedTerms: [
+      'imp-96286-eflow-peak-location-error-order.js the flat-peak amplification mechanism and the second-order slope-drift correction',
+      'imp-96266-eflow-peak-recovery-residual.js the first-order reconstruction and the original ~9% location / <1e-3 height asymmetry',
+      'imp-3220-en-bridge-fidelity-frontier.js the interior peak sigma_max ~ 0.9494 at N ~ 9.22e5 being reconstructed',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

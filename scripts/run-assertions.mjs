@@ -19426,6 +19426,16 @@ const DATA_MODULES = [
   // ~795; flip threshold rho_crit = +0.5744 is sign-forbidden). Import-light; changes no bound;
   // NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-96128-number-variance-two-interval-covariance-exact.js',
+  // imp-96452: ASSESSMENT of what drives the ~1.9-sigma excursion confidence cited (never quantified)
+  // by imp-96430 and its GUE siblings. Traces it to the imp-96089 z-score z = relErr/sqrt(2/n_w) =
+  // 0.159457/sqrt(2/291) = 1.9234 of the single significant T = 1.5e5 below-envelope dip; the three
+  // inputs are the fixed ~16% dip depth relErr, the +/-30% tiling count n_w = 291 (~ sqrt(T)), and the
+  // chi-square sqrt(2/n_w) sampling model. Reaching 2-sigma needs n_w >= 315 (+24 windows, +8.1%), but
+  // that CANNOT come from more verified height (the dip window [1.05e5, 1.95e5] is fully interior/
+  // unclipped, so zeros above ~6e5 add nothing) nor from the correlation model (imp-96128 n_eff ~ 795,
+  // naive z ~ 3.18, so ~1.9-sigma is conservative). Capped by a fixed data ceiling. Assessment only;
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96452-excursion-confidence-2sigma-reach.js',
   // imp-96125: REDUCTION of the corr23 continuity that imp-96110 assumed by analogy with p = 2.
   // The p = 2 Weierstrass bound |term_n| <= |lam_n|^3/sqrt(1 - lam_n^2) is rho-UNIFORM (Cauchy-Schwarz
   // erases rho), so it never sees the dense log^2 cusps that imp-96110 flagged as the difficulty --

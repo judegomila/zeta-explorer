@@ -23024,6 +23024,38 @@ export const glossary = [
       'imp-3220-en-bridge-fidelity-frontier the original interior peak landmark (sigma_max ~ 0.9494 at N ~ 9.22e5)',
     ],
   },
+  {
+    term: 'Route M w~4.08 Swing: Low-Conductor Arithmetic Band, Not a Zero-Tone (imp-96189)',
+    category: 'concept',
+    definition:
+      'imp-96163 refuted the imp-96147 conjecture that the genuine period-1.5 (w ~ 4.08) swing in ' +
+      'the Route M Burnol ratio residual is an aliased gamma_1 = 14.1347 zero-tone -- the coarse ' +
+      '17-point log N grid resolves a planted gamma_1 tone cleanly, so the swing is real, not a grid ' +
+      'artifact. imp-96189 attributes it by fitting four candidate sources by OLS on the same baked ' +
+      'data and scoring variance explained (R^2). Finite-size algebraic transients (1/N, 1/log N, ' +
+      '1/sqrt(N)) explain essentially none of it (R^2 < 0.003). The lam_min SPD descent is strictly ' +
+      'monotone-decreasing (0 upward steps), so it has zero oscillatory content and cannot be the ' +
+      'source -- its strong tail correlation (-0.77 / -0.85) is a short monotone-window artifact (only ' +
+      '1 residual sign change over that tail), not a causal link. The gamma_1 zero-tone itself stays ' +
+      'negligible (R^2 = 0.013), reconfirming imp-96147/imp-96163. What DOES explain the swing is a ' +
+      'LOW-CONDUCTOR ARITHMETIC BAND of the Vasyunin cotangent table small-denominator structure: ' +
+      'single conductor tones cos/sin(2 pi log N / log q) peak at q=5 (w=3.904, R^2=0.685) and q=4 ' +
+      '(w=4.532, R^2=0.619), the best FREE single tone (w=4.08, R^2=0.710) lands between them -- i.e. ' +
+      'it is the single-tone proxy of the q=4/5 band, not a distinct frequency -- and a q=3..6 band ' +
+      'captures 89.7 percent of the residual variance. HONEST RESIDUAL: 17 non-uniform log N points ' +
+      'cannot uniquely separate a few-conductor band from a slow smooth drift (the fixed q4+q5 band, ' +
+      'R^2=0.712, is statistically indistinguishable from the free tone, 0.710), and the sub-leading ' +
+      'Vasyunin eigen-spectrum was unavailable to test an eigen-drift candidate directly -- so this is ' +
+      'a consistent-with / most-plausible attribution, not a unique identification. Measurement only; ' +
+      'changes no bound; establishes no operator positivity; RH open; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96189-route-m-swing-attribution.js (OLS attribution of the w~4.08 swing across transient/arithmetic/zero-tone/lam_min candidates), 2026',
+    relatedTerms: [
+      'imp-96163-route-m-residual-gamma1-alias-refute.js the aliasing refutation that left the swing unattributed',
+      'imp-96147-route-m-ratio-const-oscillation-fit.js the source residual rows and original oscillation fit',
+      'imp-96105-route-m-vasyunin-gram-extend-n6000.js the ratio and lam_min data on N>2600 used in the fit',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

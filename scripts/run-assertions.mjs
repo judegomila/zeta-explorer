@@ -385,6 +385,16 @@ const DATA_MODULES = [
   // (SG-96126-truncation-window: needs br23 pushed past L = 20, imp-96127 territory). Import-light
   // (reuses imp-96110 exports). Assertions ~0.5 s. Changes no bound; RH open; NO QED.
   '/src/data/imp-96126-route-i-fout-richardson-extrapolation-limit.js',
+  // imp-96127 (2026-09-23): MEASUREMENT — extend the imp-96110 br23 bracket truncation past L = 20 to
+  // decide the flagged rho = 9 edge OVERSHOOT of the Route I Sonine-excess out-fraction (0.8923 > 1 - 1/9
+  // = 0.8889 at L = 20). Pinning the outer eps to 4x the truncation floor (Jhi = L - 2) REPRODUCES and
+  // grows the overshoot at L = 24/28/30 -> it tracks the protocol, not the cusp; keeping the window >= 16x
+  // above a deeper floor (L = 32, Jhi <= 28) puts rho = 9 AND rho = 8/3, 16/9, 6, 3 strictly BELOW 1 - 1/rho
+  // with a monotonically shrinking deficit (rho = 9: 3.64e-2 -> 8.56e-3). So the rho = 9 overshoot is a
+  // truncation-EDGE artifact and the imp-96110 law f_out -> 1 - 1/rho from below holds uniformly; addresses
+  // SG-96126-truncation-window (the deeper log^2-cusp rigorous-limit residual stays open). Import-light
+  // (reuses imp-96110 exports). Assertions ~0.7 s. Changes no bound; RH open; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-96127-route-i-br23-truncation-extension-rho9-edge.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284

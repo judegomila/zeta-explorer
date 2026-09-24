@@ -543,6 +543,17 @@ const DATA_MODULES = [
   // peak is purely a Gronwall flow effect. Import-light literals. C_mb GUE-conditional per imp-486
   // UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96162-sigma-ushape-peak-eflow-recovery.js',
+  // imp-96168 (2026-09-23): CROSS-VALIDATES the imp-96151 F1 per-decade decay-exponent ladder with a
+  // fresh, fully independent recompute -- (1) a closed-form Lambert-W height mapping T0 = 2pi exp(1 +
+  // W(N/e)) that agrees with the imported Newton effectiveHeightForN to 2.02e-14 over [1e2,1e100], (2)
+  // decades {13,16,20,40,80} DISJOINT from imp-96151s {12,15,18,24,30}, and (3) a local log-log-
+  // derivative estimator at 10^(k+1/2) instead of the 4-pt OLS. The independent full and closed-form
+  // exponents agree to <= 5.28e-7 at every fresh decade (share gap < 1.65e-6 out to 1e100), and the
+  // independent estimator reproduces the F1 anchors 0.4852/0.4880/0.4927 at 1e15/1e18/1e30 -- so F1 is
+  // a structural agreement (E_flow negligible past the crossover), not an artifact of shared inputs or
+  // a shared estimator. Import-light literals. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96168-sigma-closed-form-ladder-independent-recompute.js',
   // imp-96166 (2026-09-23): MEASURES the empirical E(N) decay exponent p(N) = -dlogE/dlogN across a
   // wide N-ladder (reusing the imp-3220/imp-2643 sub-term formulas) against the sustained
   // strictly-positive decay the Step-4 bridge threshold needs for Lambda<=0. Two regimes: sqrt-law

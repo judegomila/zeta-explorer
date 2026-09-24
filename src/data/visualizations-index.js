@@ -3429,6 +3429,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the 26-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96209 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96237-height-to-floor-law',
+      title: 'imp-96207: Verified-Height-to-Floor Law H_required(E) = (prefactor/E)^(1/kappa_star)',
+      oneLine:
+        'Log-log line chart of the imp-96207 height-to-floor law for a certified fixed kappa_star=0.4 (prefactor 3.0): a straight line of slope -2.5 (2.5 height-decades per floor-decade, ~316x per decade) through the three tabulated thresholds (1e-5/1e-6/1e-7), contrasted against the frozen Platt-Trudgian branch-A floor 3.06e-5 at T_PT=3e12.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96237-height-to-floor-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96207-verified-height-floor-law-kappa-star.js (anchors/table/sensitivity; imp-96237 viz page)',
+      ticket: 'imp-96237',
+      pedagogicalStep: 221,
+      honestCeiling:
+        'Presentation only: the three threshold rows and kappa_star/prefactor/sensitivity anchors are copied verbatim from the imp-96207 baked fields; only the log-log line samples are computed here (evaluating the already-derived law, no re-derivation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

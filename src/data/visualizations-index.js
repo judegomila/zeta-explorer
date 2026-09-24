@@ -3849,6 +3849,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every depth, intercept, and seC value is copied verbatim from the imp-96367 baked trajectory (no re-fit); only the +/-2 SE band and the sixth projected point are computed here. The gamma8000 point is a labeled projection, not a measurement -- the asymptotic sign past gamma4000 stays measurement-undecided pending fresh rho(32,T) evaluations. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96413-count-model-sensitivity-ladder',
+      title: 'imp-96387 / imp-96363: +7/8 Count-Model Relative Sensitivity Ladder',
+      oneLine:
+        'Log-scale bar ladder comparing the +7/8 count-model relative E_coll shift at the imp-96290 N = 1e4 anchor (-4.11e-6) against the imp-96363 reconstructed N = 1e6 anchor (-3.00e-8), a measured ~137x gap tracking the 100x height ratio.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96413-count-model-sensitivity-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96387-ecoll-anchor-count-model-sensitivity-n1e4.js (IMP96387_ECOLL_ANCHOR_COUNT_MODEL_SENSITIVITY_N1E4; imp-96413 viz page)',
+      ticket: 'imp-96413',
+      pedagogicalStep: 249,
+      honestCeiling:
+        'Presentation only: both ladder rungs and the scaling ratios are copied verbatim from the imp-96387 measurement (no re-fit, no re-derivation). Absolute anchor shifts stay tiny (~4.5e-8) despite the ~137x relative-sensitivity gap; conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1427,6 +1427,9 @@ const Imp96395SigmaLocalExponentRampViz = lazy(() =>
 const Imp96401InterceptSeTrajectoryViz = lazy(() =>
   import('./pages/Imp96401InterceptSeTrajectoryViz.jsx')
 );
+const Imp96413CountModelSensitivityLadderViz = lazy(() =>
+  import('./pages/Imp96413CountModelSensitivityLadderViz.jsx')
+);
 const Imp96378RouteMBeatPeriodOverlapViz = lazy(() =>
   import('./pages/Imp96378RouteMBeatPeriodOverlapViz.jsx')
 );
@@ -3765,6 +3768,10 @@ function AppShell() {
           <Route
             path="/viz-imp96401-intercept-se-trajectory"
             element={<Imp96401InterceptSeTrajectoryViz />}
+          />
+          <Route
+            path="/viz-imp96413-count-model-sensitivity-ladder"
+            element={<Imp96413CountModelSensitivityLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

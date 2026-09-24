@@ -2,6 +2,7 @@ import React from 'react';
 import PageHeader from '../components/PageHeader.jsx';
 import {
   IMP96136_ROWS,
+  IMP96136_CONTROL_ROWS,
   IMP96136_LAW,
   IMP96136_CAVEAT_BANNER,
 } from '../data/imp-96136-route-i-fixed-fraction-panel-viz-data.js';
@@ -77,6 +78,26 @@ function FixedFractionChart() {
           </g>
         );
       })}
+
+      {/* pure-p=2 control points (rho = 2, 4, 8): same law, different (isolated) prime set */}
+      {IMP96136_CONTROL_ROWS.map((row) => {
+        const x = xOf(Math.log2(row.rho));
+        const y = yOf(row.fOut);
+        return (
+          <circle
+            key={row.label}
+            cx={x}
+            cy={y}
+            r={3.5}
+            fill="none"
+            stroke="#34d399"
+            strokeWidth={1.5}
+          />
+        );
+      })}
+      <text x={padL + 4} y={yOf(0.84)} fill="#34d399" fontSize={9}>
+        &#9711; control f_out (pure p=2, rho=2/4/8)
+      </text>
     </svg>
   );
 }
@@ -103,7 +124,9 @@ export default function Imp96136RouteIFixedFractionPanelViz() {
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         {IMP96136_LAW}. Measured f_out (yellow points / blue dotted line) tracks the target
-        1 - 1/rho (red dashed line) at every {'{oo,2,3}'} S-unit cusp rho = 2^a 3^b.
+        1 - 1/rho (red dashed line) at every {'{oo,2,3}'} S-unit cusp rho = 2^a 3^b, and the same
+        law holds independently at the pure-p=2 control points (green rings, rho = 2, 4, 8) --
+        11 distinct rho values in all, spanning both the mixed and single-prime allocations.
       </p>
 
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
@@ -133,6 +156,37 @@ export default function Imp96136RouteIFixedFractionPanelViz() {
             <tr key={row.label} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
               <td style={{ padding: '3px 0' }}>{row.label}</td>
               <td style={{ textAlign: 'right', color: '#60a5fa' }}>{row.fOut.toFixed(6)}</td>
+              <td style={{ textAlign: 'right', color: '#f87171' }}>{row.target.toFixed(6)}</td>
+              <td style={{ textAlign: 'right' }}>{row.deficit.toFixed(6)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.25rem 0 0.5rem' }}>
+        pure-p=2 control (rho = 2, 4, 8): same law from a single-prime allocation
+      </h3>
+      <table
+        style={{
+          width: '100%',
+          fontSize: '0.78rem',
+          color: '#cbd5e1',
+          borderCollapse: 'collapse',
+        }}
+      >
+        <thead>
+          <tr style={{ color: '#64748b' }}>
+            <th style={{ textAlign: 'left', paddingBottom: 4 }}>rho</th>
+            <th style={{ textAlign: 'right', paddingBottom: 4 }}>measured f_out</th>
+            <th style={{ textAlign: 'right', paddingBottom: 4 }}>target 1 - 1/rho</th>
+            <th style={{ textAlign: 'right', paddingBottom: 4 }}>deficit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {IMP96136_CONTROL_ROWS.map((row) => (
+            <tr key={row.label} style={{ borderTop: '1px solid rgba(148,163,184,0.15)' }}>
+              <td style={{ padding: '3px 0' }}>{row.label}</td>
+              <td style={{ textAlign: 'right', color: '#34d399' }}>{row.fOut.toFixed(6)}</td>
               <td style={{ textAlign: 'right', color: '#f87171' }}>{row.target.toFixed(6)}</td>
               <td style={{ textAlign: 'right' }}>{row.deficit.toFixed(6)}</td>
             </tr>

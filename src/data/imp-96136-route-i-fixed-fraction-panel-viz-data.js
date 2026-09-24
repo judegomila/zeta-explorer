@@ -27,6 +27,18 @@ export const IMP96136_ROWS = Object.freeze(
     ),
 );
 
+// pure-p=2 control set (rho = 2, 4, 8): confirms the same 1 - 1/rho law holds outside the
+// mixed {oo,2,3} S-unit family this panel otherwise renders, completing the imp-96222
+// 11-point measured-vs-law picture (10 mixed S-units + this 3-point control, minus the
+// rho = 2, 4 overlap already covered above).
+export const IMP96136_CONTROL_ROWS = Object.freeze(
+  [...SRC.p2Control]
+    .sort((a, b) => a[1] - b[1])
+    .map(([rho, fOut, target]) =>
+      Object.freeze({ label: `${rho} (2^${Math.log2(rho)}, p=2 control)`, rho, fOut, target, deficit: target - fOut }),
+    ),
+);
+
 export const IMP96136_LAW = SRC.law;
 
 export const IMP96136_CAVEAT_BANNER =
@@ -61,6 +73,17 @@ export const IMP96136_ASSERTIONS = [
     description: 'every row tracks 1 - 1/rho within the imp-96110-documented 0.033 finite-window tolerance, approaching from below (deficit > -0.01)',
     holds: () =>
       IMP96136_ROWS.every((row) => Math.abs(row.deficit) < 0.033 && row.deficit > -0.01),
+  },
+  {
+    id: 'imp96136-control-rows-match-p2-source-and-law',
+    description: 'the three pure-p=2 control rows (rho = 2, 4, 8) match the imp-96110 p2Control literals exactly and track 1 - 1/rho within 2e-4',
+    holds: () =>
+      IMP96136_CONTROL_ROWS.length === SRC.p2Control.length &&
+      IMP96136_CONTROL_ROWS.every((row) =>
+        SRC.p2Control.some(
+          ([rho, fOut, target]) => rho === row.rho && fOut === row.fOut && target === row.target,
+        ) && Math.abs(row.deficit) < 2e-4,
+      ),
   },
   {
     id: 'imp96136-caveat-carries-honesty-markers',

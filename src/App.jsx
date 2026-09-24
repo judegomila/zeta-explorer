@@ -1313,6 +1313,9 @@ const Imp96115BelowEnvelopeDipSignificanceTableViz = lazy(() =>
 const Imp96038RouteALammMinDescentViz = lazy(() =>
   import('./pages/Imp96038RouteALammMinDescentViz.jsx')
 );
+const Imp96120RouteMBurnolRatioDenseLadderViz = lazy(() =>
+  import('./pages/Imp96120RouteMBurnolRatioDenseLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3485,6 +3488,10 @@ function AppShell() {
           <Route
             path="/viz-imp96038-route-a-lammin-descent"
             element={<Imp96038RouteALammMinDescentViz />}
+          />
+          <Route
+            path="/viz-imp96120-route-m-burnol-ratio-dense-ladder"
+            element={<Imp96120RouteMBurnolRatioDenseLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

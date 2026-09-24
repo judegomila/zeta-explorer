@@ -3289,6 +3289,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the delta_S(rho) curve and the spike/regular points are direct evaluations of the source module\'s own exact closed-form deltaS(rho) (no re-derivation of the Sonine trace identity, no fresh Galerkin solve); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96120-route-m-burnol-ratio-dense-ladder',
+      title: 'Route M: Burnol-Ratio Dense Ladder (N=250..2600)',
+      oneLine:
+        'Line chart of the RH Route M Burnol-normalized quantity ratio(N) = d_N^2 log N / C_burnol across the ten dense-ladder rungs N=250..2600 against the ratio=1 (RH + simple zeros) target: the ratio stays inside [0.964,1.010] with four sign changes in the successive differences, not tightening toward 1.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96120-route-m-burnol-ratio-dense-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96094-route-m-burnol-ratio-dense-ladder.js (IMP96094_ROWS, IMP96094_VERDICT; imp-96120 viz page)',
+      ticket: 'imp-96120',
+      pedagogicalStep: 211,
+      honestCeiling:
+        'Presentation only: every ratio(N) value is copied verbatim from imp-96094\'s own IMP96094_ROWS (no re-derivation of the exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

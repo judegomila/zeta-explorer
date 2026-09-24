@@ -19480,6 +19480,14 @@ const DATA_MODULES = [
   '/src/data/imp-96237-height-to-floor-viz-data.js',
   '/src/data/imp-96238-joint-leak-region-viz-data.js',
   '/src/data/imp-96160-max-anchor-window-robustness-viz-data.js',
+  // imp-96180 registration audit (2026-09-24): three of the six 2026-09-23 finding modules named in
+  // the ticket (imp-96147, imp-96149, imp-96150) were git-tracked but absent from this DATA_MODULES
+  // sweep (--since-changed untracked/unregistered trap, imp-96235 pattern); the other three
+  // (imp-96143/96148/96151) were already registered above. Wired in here so their self-executing
+  // assertions run instead of silently falling back to a full sweep. No bound changes; NO QED.
+  '/src/data/imp-96147-route-m-ratio-const-oscillation-fit.js',
+  '/src/data/imp-96149-route-l-detector-reach-law-fit.js',
+  '/src/data/imp-96150-number-variance-two-interval-covariance-heldout-heights.js',
   // imp-96243 (2026-09-24): DERIVATION — derives in closed form why the imp-96227 anchor-invariant
   // per-channel Kato-Temple coupling is EXACTLY sqrt(3)/2. The U=1 boundary factors as
   // s0*[(t-1)(t-alpha) + (p-1)(p-alpha)eps_a^2 + (q-1)(q-alpha)eps_b^2]=0, an exact line in the

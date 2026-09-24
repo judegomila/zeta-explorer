@@ -1376,6 +1376,9 @@ const Imp96257UshapeSlopeDriftViz = lazy(() =>
 const Imp96294EflowResidualViz = lazy(() =>
   import('./pages/Imp96294EflowResidualViz.jsx')
 );
+const Imp96393DiscrepancyEnvelopeViz = lazy(() =>
+  import('./pages/Imp96393DiscrepancyEnvelopeViz.jsx')
+);
 const Imp96314CovarianceDeviationViz = lazy(() =>
   import('./pages/Imp96314CovarianceDeviationViz.jsx')
 );
@@ -3659,6 +3662,10 @@ function AppShell() {
           <Route
             path="/viz-imp96294-eflow-residual"
             element={<Imp96294EflowResidualViz />}
+          />
+          <Route
+            path="/viz-imp96393-discrepancy-envelope"
+            element={<Imp96393DiscrepancyEnvelopeViz />}
           />
           <Route
             path="/viz-imp96314-covariance-deviation"

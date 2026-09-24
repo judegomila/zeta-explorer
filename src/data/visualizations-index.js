@@ -3709,6 +3709,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every worstSigma, E[max], Gumbel-sd, and deviation value is copied verbatim from the imp-96271 baked rows (no re-derivation); only the bandLow/bandHigh = E[max] -/+ sd[max] arithmetic is computed here. This charts a measurement comparison already reduced by imp-96271 (itself testing an imp-95562 claim): it establishes no operator positivity, moves no Lambda bound, and touches nothing on the zero side. Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96393-discrepancy-envelope',
+      title: 'imp-96371: Exact-vs-Asymptotic Number-Variance Discrepancy Envelope',
+      oneLine:
+        'Log-scale line chart of the imp-96371 |rho_exact - rho_asymp| discrepancy vs log10 T across the imp-96267 decade ladder 1e4..3e12: U-shaped, worst (1.47e-7) at T=1e4, a roundoff floor (~3.23e-13) near T=1e8-1e9, rising back to the imp-96350 PT-anchor reading (2.52e-10) at T=3e12.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96393-discrepancy-envelope-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96371-covariance-exact-vs-asymptotic-decade-ladder.js (ladder, shape landmarks, honest caveat; imp-96393 viz page)',
+      ticket: 'imp-96393',
+      pedagogicalStep: 239,
+      honestCeiling:
+        'Presentation only: every discrepancy reading is copied verbatim from the imp-96371 baked decade ladder (no re-derivation); only the chart-axis reshaping (log10 T, log10 discrepancy) is computed here. rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at these heights (and at 3e12) there are no computed Riemann zeros, so this cross-validates two closed-form evaluations of the same envelope, not a measurement of actual zeros. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

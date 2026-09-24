@@ -1430,6 +1430,9 @@ const Imp96475EtruncSensitivityViz = lazy(() =>
 const Imp96494SigmaKneeWidenedGridViz = lazy(() =>
   import('./pages/Imp96494SigmaKneeWidenedGridViz.jsx')
 );
+const Imp96497ExcursionSignificanceSensitivityViz = lazy(() =>
+  import('./pages/Imp96497ExcursionSignificanceSensitivityViz.jsx')
+);
 const Imp96478CountGapShareViz = lazy(() =>
   import('./pages/Imp96478CountGapShareViz.jsx')
 );
@@ -3811,6 +3814,10 @@ function AppShell() {
           <Route
             path="/viz-imp96494-sigma-knee-widened-grid"
             element={<Imp96494SigmaKneeWidenedGridViz />}
+          />
+          <Route
+            path="/viz-imp96497-excursion-significance-sensitivity"
+            element={<Imp96497ExcursionSignificanceSensitivityViz />}
           />
           <Route
             path="/viz-imp96478-count-gap-share"

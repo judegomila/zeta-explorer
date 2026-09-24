@@ -4045,6 +4045,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every factor, eTrunc, knee, crossover, gap and exit-factor value plotted here is copied verbatim from the imp-96464 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96497-excursion-significance-sensitivity',
+      title: 'imp-96452: Excursion-Significance Sensitivity (naive vs 2-sigma vs correlation-corrected)',
+      oneLine:
+        'Bar chart of the imp-96452 T = 1.5e5 excursion z-score across three fixed-depth scenarios: the cited naive z ~= 1.923 (n_w = 291), the 2-sigma target (n_w = 315, +24 windows / +8.12%), and the imp-96128 anti-correlation-corrected n_eff ~= 795 (z ~= 3.18).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96497-excursion-significance-sensitivity-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96452-excursion-confidence-2sigma-reach.js (IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH; imp-96497 viz page)',
+      ticket: 'imp-96497',
+      pedagogicalStep: 263,
+      honestCeiling:
+        'Presentation only: every n_w/z-score/window-gap value plotted here is copied verbatim from the imp-96452 baked reach record; only the bar layout is computed here (no re-derivation). The naive ~1.9-sigma is a conservative lower bound on a single fixed-data-ceiling dip whose window is fully interior to the existing 10^6-ordinate set; reaching 2-sigma needs a deeper excursion from new interior data, not more verified-zero height. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

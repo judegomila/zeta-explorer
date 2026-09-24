@@ -19790,6 +19790,12 @@ const DATA_MODULES = [
   // C_F inflated x5.3-6.3, outside any admissible mollifier. Measurement only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96409-eflow-domination-required-factor.js',
+  // imp-96531 (2026-09-24): recomputes the imp-96430 basis-C corroboration-reach crossover from the
+  // imp-96448 MEASURED anchor floor (~2.84e-5, ~573x above the model floor) instead of the L-linear
+  // MODEL floor -- crossover collapses ~460x from L* ~ 1.32e12 to ~2.86e9 (still ~2.7 decades past the
+  // PT anchor), anchor headroom is the measured ~642 not the model ~3.7e5. Import-light (no zeros
+  // bundle). Cross-validation numerics only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96531-basis-c-crossover-measured-floor.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light

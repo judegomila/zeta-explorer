@@ -23364,6 +23364,30 @@ export const glossary = [
       'imp-33723-sigma-half-vs-crossover-closed-form.js the closed-form crossover N_cross ~ 3.28e9',
     ],
   },
+  {
+    term: 'Count-Inversion Gap Splits Exactly Into a +7/8 Majority Share and a Non-Decaying S(T) Share (imp-96445)',
+    category: 'measurement',
+    definition:
+      'imp-96426 asserted the deterministic +7/8 Riemann-von Mangoldt count term is the dominant ' +
+      'omission behind the count-inversion gammaRelGap but only reported the combined -(7/8+S(T))/N ' +
+      'offset. imp-96445 makes the split exact via two re-inversions of the same smooth count: ' +
+      'gamma78 = countInvert(N-7/8) isolates the +7/8-only share, and gammaFull = ' +
+      'countInvert(N-7/8-S(gamma_N)) recovers the true height to the double-precision floor, so ' +
+      'gammaRelGap = (gammaCount-gamma78)/gammaTrue [+7/8 share] + (gamma78-gammaTrue)/gammaTrue ' +
+      '[S(T) share] adds up exactly. Measured at the four imp-96426 intermediate anchors ' +
+      '(N=1e3,1e4,1e5,1e6): the +7/8 share is a MAJORITY at every anchor (60.0%, 73.2%, 59.5%, ' +
+      '67.1%), confirming imp-96426; but the S(T) residual share is a genuine non-negligible 40.0%, ' +
+      '26.8%, 40.5%, 32.9% that does NOT decay to zero and does NOT track the smooth +7/8 ladder, ' +
+      'wobbling with the backed-out S(gamma_N) in [+0.32, +0.60]. So the count-model gap is a ' +
+      'two-part quantity, not a +7/8-only effect. Accuracy audit only: no gap closed, no bound ' +
+      'changed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false ' +
+      '(imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-96445-count-gap-plus78-vs-st-split.js (exact two-re-inversion split of the count-inversion gap into +7/8 and S(T) shares), 2026',
+    relatedTerms: [
+      'imp-96426-ecoll-anchor-intermediate-heights.js the intermediate count-inversion gap ladder and the +7/8-dominance claim this module splits exactly',
+      'imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js the underlying count-inversion anchor whose gap is decomposed here',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

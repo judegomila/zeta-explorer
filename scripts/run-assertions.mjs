@@ -395,6 +395,17 @@ const DATA_MODULES = [
   // SG-96126-truncation-window (the deeper log^2-cusp rigorous-limit residual stays open). Import-light
   // (reuses imp-96110 exports). Assertions ~0.7 s. Changes no bound; RH open; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-96127-route-i-br23-truncation-extension-rho9-edge.js',
+  // imp-96143 (2026-09-23): NUMERICAL — the mixed 2^a 3^b {oo,2,3} prolate LADDER and the two rho-free
+  // facts imp-96125 named as the whole corr23 gap. (II) CUBIC TAIL ESTABLISHED: Sum_tail |lam|^3 =
+  // (C/8)(G2 G3 - 1) = 1.769529 (C = 2) < oo, a rho-free geometric double sum (both 2^{-1/2}, 3^{-1/2} < 1),
+  // robust to the multiplicity constant (needs only the rigorous per-block norm s_u = u^{-1/2}/2 and
+  // m_u = O(u)); N-convergence in (a, b) confirmed and the proved p = 2 / p = 3 single-prime cubic tails
+  // (0.603553 / 0.341506) reproduced; the square sum Sum lam^2 = (C/4)(# S-units) = oo. (I) GAP REDUCED
+  // (not proved) to the finitely-many top confined states: every ladder-tail magnitude <= s_2 = 0.353553 < 1,
+  // so the strict gap is the mixed-group no-modulus-1 theorem (exact diagonalization blocked by the fractal
+  // Zygmund eigenfunctions). Ladder MODEL, not a diagonalization. Import-light (no imports, no zeros bundle).
+  // Assertions ~0.1 s. Changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED.
+  '/src/data/imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284

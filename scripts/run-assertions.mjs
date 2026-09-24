@@ -19565,6 +19565,11 @@ const DATA_MODULES = [
   // margin extend beyond the imp-96150 {2e4 .. 4e5} sampled band. Documentation only; no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96194-outofbracket-persistence-glossary-headword.js',
+  // imp-96195: Concepts glossary headword for the imp-96164 rigid-profile collapse -- the p=3
+  // over-determination forces the mixed-{oo,2,3} ladder-tail-interior modulus-1 candidate space
+  // down to the single rigid profile g(v) = C/v, reducing (I) to the scalar boundary condition
+  // SG-96164-boundary. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96195-rigid-profile-collapse-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

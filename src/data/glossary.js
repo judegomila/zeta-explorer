@@ -23194,6 +23194,31 @@ export const glossary = [
       'imp-96128-number-variance-two-interval-covariance-exact.js the single-height exact covariance and safe-side anti-correlation verdict',
     ],
   },
+  {
+    term: 'Flat-Peak Amplification: Peak Height Error Tracks Term Magnitude, Peak Location Error Tracks Term Slope Over Curvature (imp-96286)',
+    category: 'measurement',
+    definition:
+      'imp-96266 finds the imp-96266 first-order reconstruction sigma_recon = sigma_CF*(1-x) recovers ' +
+      'the imp-3220 interior peak HEIGHT to <1e-3 (0.948510 vs 0.949429) but only ~9.1e-2 in peak ' +
+      'LOCATION (N_recon ~ 1.006e6 vs N_full ~ 9.219e5), a ~100x asymmetry. imp-96286 explains the split: ' +
+      'the exact sigma_full = sigma_CF/(1+x) has an anomalously flat interior maximum, its second ' +
+      'derivative sigma_full_pp(N*) ~ -7.57e-15, so for any reconstruction error term err(N), the peak ' +
+      'HEIGHT shift is |err(N*)| ' +
+      '(the term MAGNITUDE, ~9.45e-4 for the dropped x^2 term) while the peak LOCATION shift is ' +
+      '~ -err_p(N*)/(N* sigma_full_pp(N*)) (the term SLOPE divided by the near-zero curvature, ~9.22e-2 ' +
+      'for the same term) -- the same error produces a small height shift and a large location shift ' +
+      'because a broad peak divides the slope by a tiny curvature. A second-order slope-drift correction ' +
+      '(1 - x + x^2) closes the location gap ~21x to 4.37e-3; the full geometric series sigma_CF/(1+x) ' +
+      'reproduces sigma_full to machine epsilon. Measurement/diagnostic only; changes no bound; ' +
+      'establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96286-eflow-peak-location-error-order.js (measures why the imp-96266 reconstruction is height-accurate but location-inaccurate), 2026',
+    relatedTerms: [
+      'imp-96266-eflow-peak-recovery-residual.js the first-order reconstruction and the original ~9% location / <1e-3 height asymmetry',
+      'imp-96308-eflow-peak-third-order-shrink.js measures the further ~x-per-order shrink of the residual location error toward the exact identity',
+      'imp-3220-en-bridge-fidelity-frontier.js the interior peak sigma_max ~ 0.9494 at N ~ 9.22e5 being reconstructed',
+      'imp-33723-sigma-half-vs-crossover-closed-form.js the closed-form crossover fixed point feeding sigma_CF',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

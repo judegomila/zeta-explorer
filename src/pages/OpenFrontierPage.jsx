@@ -2727,6 +2727,12 @@ const DYSON_LANE_RESIDUALS = [
       'of C_H remains NEGATIVE, and the asymptotic modulo (imp-35056) persists regardless of route. No candidate ' +
       'closure via the density-floor measurement exists; G6a_shock_lipschitz stays OPEN (PARTIAL) exactly as above; ' +
       'changes no bound; NO QED.',
+      'Honest-status note (imp-96290 sub-constant inventory): C_H isRigorousUpperBound = false ' +
+      '(imp-2642/imp-2701 lock) -- of the three named Step-4 bridge objects, G6 (assembly) and G6a ' +
+      '(this Holder-1/2 mechanism/exponent) are CLOSED, but the leading modulus constant C_H is not, and ' +
+      'the residual gap localizes to the single factor C_Lip inside C_H = C_shock * C_Lip / 4 (C_shock is ' +
+      'N-uniform and quantified, < 1/3). The polylog-over-N RATE of E(N) is unconditional; the E(N) -> 0 ' +
+      'CONCLUSION stays gated on this one unproven constant. Inventory only; changes no bound; NO QED.',
     ],
     links: [
       { to: '/rh-dag', label: 'Proof DAG (G6a node)' },

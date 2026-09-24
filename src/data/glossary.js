@@ -22940,6 +22940,34 @@ export const glossary = [
     ],
   },
   {
+    term: 'Super-Nyquist Aliasing Refutation on the Coarse Route M Grid (imp-96163)',
+    category: 'concept',
+    definition:
+      'imp-96147 found the Route M Burnol ratio ratio(N) = d_N^2 logN / C_burnol carries a genuine ' +
+      '~1.3 percent, non-decaying period-1.5 (w ~ 4.08) swing rather than the RH-predicted constant, ' +
+      'and CONJECTURED the swing might be an aliased image of the leading zero-tone gamma_1 = 14.1347 ' +
+      '(period 0.4445), since the naive uniform-grid Nyquist limit of the 17-point imp-96105 log N grid ' +
+      '(gaps up to 0.69) is only 0.2223 < 0.4445. imp-96163 tested this directly: a KNOWN pure gamma_1 ' +
+      'tone placed on the SAME exact coarse grid is recovered by a least-squares frequency scan at ' +
+      'w = 14.136, variance explained 1.00000 at all 8 tested phases -- identical to the dense 400-point ' +
+      'uniform control. Irregular (non-uniform) sampling breaks the uniform-grid aliasing degeneracy ' +
+      '(Lomb-Scargle / super-Nyquist behaviour), so the grid resolves gamma_1 cleanly rather than folding ' +
+      'it down. Since the real residual best free tone sits at w = 4.081 (period 1.539, 71.0 percent ' +
+      'variance explained) with only 1.26 percent gamma_1 content, and a first-5-zero explicit-formula ' +
+      'remainder stays gamma_1-dominated on both grids (never near w = 4), the aliasing conjecture is ' +
+      'REFUTED: the period-1.5 swing is a genuine low-frequency feature of ratio(N) on N <= 6000, not a ' +
+      'folded zero-tone. The open question re-frames to whether c0 -> 1 and a gamma_1 term eventually ' +
+      'emerges at higher N, which now needs actual denser d_N data past N = 6000, not a finer analysis ' +
+      'of the existing grid. Measurement only; changes no bound; RH open; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96163-route-m-residual-gamma1-alias-refute.js (super-Nyquist aliasing test on the exact imp-96105 coarse grid), 2026',
+    relatedTerms: [
+      'imp-96147-route-m-ratio-const-oscillation-fit.js the source residual and the original aliasing conjecture',
+      'imp-96105-route-m-vasyunin-gram-extend-n6000.js the 17-point coarse log N grid tested for aliasing',
+      'rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js the Route M base construction',
+    ],
+  },
+  {
     term: 'N_flow / N_cross Second-Crossover Split (imp-96162)',
     category: 'concept',
     definition:

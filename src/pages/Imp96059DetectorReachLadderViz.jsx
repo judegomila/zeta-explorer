@@ -11,6 +11,7 @@ import {
 import { IMP96149_DETECTOR_FIT, IMP96149_EXTRAPOLATION } from '../data/imp-96149-route-l-detector-reach-law-fit.js';
 import { IMP96287_REACH_BAND } from '../data/imp-96287-route-l-reach-band-reconciliation.js';
 import { IMP96273_MEASURED_LOWER_BOUND } from '../data/imp-96273-detector-zero40-extrapolation.js';
+import { IMP96347_CURVATURE_CORRECTION } from '../data/imp-96347-detector-reach-curvature-correction.js';
 
 const BAR_COLOR = '#38bdf8';
 const UNDETECTED_COLOR = '#f87171';
@@ -154,6 +155,11 @@ function ResolvedCountTable() {
 
 function PowerLawComparisonTable() {
   const { A, b } = IMP96149_DETECTOR_FIT;
+  const { a0, a1, a2 } = IMP96347_CURVATURE_CORRECTION;
+  const quadPredicted = (gamma0) => {
+    const L = Math.log(gamma0);
+    return Math.exp(a0 + a1 * L + a2 * L * L);
+  };
   return (
     <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
       <thead>
@@ -162,23 +168,26 @@ function PowerLawComparisonTable() {
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>gamma_0</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>measured N_det range</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>power-law N_det = {A} * gamma_0^{b}</th>
+          <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>quadratic-in-log N_det (imp-96347)</th>
           <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>in range?</th>
         </tr>
       </thead>
       <tbody>
-        {IMP96059_NDET_RANGE_BY_ZERO.filter((z) => z.detected).map((z) => {
+        {IMP96059_NDET_RANGE_BY_ZERO.map((z) => {
           const predicted = A * Math.pow(z.gamma0, b);
-          const inRange = predicted >= z.nDetMin && predicted <= z.nDetMax;
+          const quadPred = quadPredicted(z.gamma0);
+          const inRange = z.detected && predicted >= z.nDetMin && predicted <= z.nDetMax;
           return (
             <tr key={z.k} style={{ borderBottom: '1px solid #1e293b' }}>
               <td style={{ padding: '0.35rem 0.5rem' }}>{z.k}</td>
               <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{z.gamma0}</td>
-              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: BAR_COLOR }}>
-                {z.nDetMin} - {z.nDetMax}
+              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: z.detected ? BAR_COLOR : UNDETECTED_COLOR }}>
+                {z.detected ? `${z.nDetMin} - ${z.nDetMax}` : `undetected, >= ${IMP96059_NMAX}`}
               </td>
               <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{predicted.toFixed(1)}</td>
-              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: inRange ? RESOLVED_COLOR : UNDETECTED_COLOR }}>
-                {inRange ? 'yes' : 'no'}
+              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{quadPred.toFixed(1)}</td>
+              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: z.detected ? (inRange ? RESOLVED_COLOR : UNDETECTED_COLOR) : UNDETECTED_COLOR }}>
+                {z.detected ? (inRange ? 'yes' : 'no') : 'both below floor'}
               </td>
             </tr>
           );
@@ -215,7 +224,10 @@ export default function Imp96059DetectorReachLadderViz() {
 
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         Measured N_det range vs the imp-96149 canonical (delta = 0.1) power-law fit N_det = A *
-        gamma_0^b
+        gamma_0^b, alongside the imp-96347 quadratic-in-log-gamma curvature correction. At zero 40
+        (gamma_0 = 122.95) the curvature correction lifts the reach estimate from 165.6 (power law)
+        to 278.4 (quadratic) -- still below the measured floor N_det &gt;= 400, halving but not
+        closing the shortfall.
       </p>
       <PowerLawComparisonTable />
 

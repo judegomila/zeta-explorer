@@ -23266,6 +23266,30 @@ export const glossary = [
       'imp-96059-detector-reach-ladder.js the underlying detector power-law reach ladder',
     ],
   },
+  {
+    term: 'Route L Reach-Law Consistency: Detector and Christoffel Agree Within a Factor of Two (imp-96269)',
+    category: 'numerical',
+    definition:
+      'The imp-96149 empirical detector reach power law (N_det = 0.364336 gamma^1.271686, fit to ' +
+      'measured detection orders) and the imp-96182 genuine Christoffel-saturation reach law ' +
+      '(re-fit in imp-96269 as N_C = 0.396870 gamma^1.248736, eps1e4CrossColumn) agree to 1.80% in ' +
+      'fitted exponent and 8.93% in fitted prefactor over the shared gamma range [14.13, 77.14], ' +
+      'differing by at most 2.44% in predicted order at any shared row. Extrapolated to the ' +
+      'Platt-Trudgian verified height T0 = 3.0001e12, the two laws predict N needed = 2.6823e15 ' +
+      '(detector) and 1.5111e15 (Christoffel), ratio 0.5634 -- agreement WITHIN A FACTOR OF TWO, ' +
+      'and both land at the same O(1e15) order, within a factor of two of the imp-96149 baked ' +
+      'all-delta pooled-exponent extrapolation of 3.2897e15. Two independently derived reach ' +
+      'characterizations -- one empirical/detector-based, one analytic/Christoffel-based -- landing ' +
+      'on the same order of magnitude confirms Route L is a fixed-cost detector set by the target ' +
+      'height, not a tunable lever. Cross-check of baked literals only; changes no bound; RH open; ' +
+      'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96269-route-l-reach-law-crosscheck.js (re-fits the imp-96182 Christoffel column and compares it against the imp-96149 detector power law), 2026',
+    relatedTerms: [
+      'imp-96149-route-l-detector-reach-law-fit.js the empirical detector power-law fit',
+      'imp-96182-christoffel-reach-law.js the genuine Christoffel eps1e4 reach column',
+      'imp-96269-route-l-reach-law-crosscheck.js the original detector-vs-Christoffel reach-law consistency check (~2.4% agreement)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

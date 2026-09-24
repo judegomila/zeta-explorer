@@ -19148,6 +19148,16 @@ const DATA_MODULES = [
   // the mixed ladder). Numerics reproduce the tail-not-term cusp growth and the rho-free ladder
   // majorant. Reduction + red-herring removal, not a closure; changes no bound; RH open; NO QED.
   '/src/data/imp-96125-route-i-corr23-continuity-reduction.js',
+  // imp-96130: ASSESS whether any constrained pole-free sub-family keeps the semilocal D_S <= L_S
+  // (S = {oo, 2}) past the crossing 2a* = 1.1316 (= ln 3 + 0.033), or whether the FALSE verdict is
+  // uniform. From the frozen high-res pencil literals: NOT uniform -- a k >= 2 vanishing-moment
+  // sub-family keeps mu_max below 1 past the crossing (margin 0.392 at 2a = 1.16, 0.291 at 2a = 1.20).
+  // But the surviving sub-family certifies NOTHING: the crossing is carried by an ODD low-moment corner
+  // vector (peaked in I_1) that every such constraint DELETES rather than controls (min-over-subset
+  // identity min_{V_2} R >= min_{whole} R), and past 2a = ln 3 the p = 2-only form is not Weil positivity
+  // anyway (the -P_3 rescue keeps the true W = 0.02038 > 0 at a*). Precise obstruction = corner-confinement
+  // of the crossing direction (the imp-96085 corner, now binding). Assessment only; changes no bound; RH open; NO QED.
+  '/src/data/imp-96130-route-i-crossing-uniformity-vs-constrained-subfamily-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

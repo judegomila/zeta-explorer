@@ -19819,6 +19819,14 @@ const DATA_MODULES = [
   '/src/data/imp-96347-detector-reach-curvature-correction.js',
   '/src/data/imp-96350-covariance-outoffamily-crossvalidation.js',
   '/src/data/imp-96351-sigma-knee-tenthdecade-1e12-stability.js',
+  // imp-96404 (2026-09-24): MEASUREMENT -- how far the imp-96351 sigma(N) exponent-ramp
+  // knee (log10 N* ~ 9.529) moves when gamma_N is taken from the +7/8-corrected count
+  // instead of the RvM main term. The knee stays put (shift ~ -1.3e-10 in log10, seven
+  // orders below the 0.001 resolution; the ~1/N count correction is only relative ~2.5e-10
+  // at the knee height N* ~ 3.38e9), and the imp-96388 knee/crossover coincidence (knee
+  // ~0.015 log10 above the sigma = 1/2 crossover) survives. Measurement only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96404-sigma-knee-plus78-count-model-shift.js',
   // imp-96388 (2026-09-24): MEASUREMENT -- cross-tabulates the imp-96351 exponent-ramp
   // knee (log10 N* ~ 9.529) against the imp-3220/imp-96266 sigma value U-shape peak
   // (log10 N ~ 5.96) on one shared log10 N axis. Two independent landmarks ~3.56 decades

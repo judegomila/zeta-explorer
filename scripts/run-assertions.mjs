@@ -19771,6 +19771,13 @@ const DATA_MODULES = [
   // vanishing term, contingent on the fitted exponent gap being real. Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96375-route-l-k5-residual-diverging-not-constant-glossary-headword.js',
+  // imp-96380: cross-reference ledger recording that only imp-96327 is a genuinely
+  // independent baked anchor cross-check of the imp-96311 E_coll ratio law
+  // (imp-96290 pair at N=1e4); imp-96349's extra second anchors are re-rounding-
+  // floor artifacts by construction; imp-96363's independent second anchor
+  // corroborates the RATE R(N), not the (definitionally exact) ratio law.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96380-ecoll-anchor-independence-subgap-crossref.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -19889,6 +19889,12 @@ const DATA_MODULES = [
   // zero console/page errors, zero NaN coordinates in any rendered svg. No fix needed.
   // Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96358-imp96337-viz-browser-render-audit.js',
+  // imp-96359 (2026-09-24): browser-only-assertion audit of the imp-96338 worst-excess EVT
+  // viz page. Headless-Chromium render of /#/viz-imp96338-worst-excess-evt is clean: chart
+  // draws geometry, honest banner + worstSigma/leading-order labels + deviation-range sentence
+  // all present, zero console/page errors, zero NaN coordinates in any rendered svg. No fix
+  // needed. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96359-imp96338-viz-browser-render-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

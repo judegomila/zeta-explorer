@@ -19889,6 +19889,13 @@ const DATA_MODULES = [
   // contrast resolves the count-model gap (8.5e-2 in the rate) that 1e22 pushes
   // below the floor. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js',
+  // imp-96426 (2026-09-24): MEASUREMENT -- fills the intermediate-height gap the
+  // imp-96402 anchor left between its two endpoints (N=1 macroscopic, N=1e22 at the
+  // double floor). Four externally tabulated Odlyzko true heights (imp-359 table) at
+  // N=1e3..1e6 give a monotone count-model-gap ladder (rate gap 8.19e-5 -> 4.47e-8),
+  // each above the ~1e-16 floor and below the first-zero macroscopic regime, decaying
+  // like 1/(gamma log gamma). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96426-ecoll-anchor-intermediate-heights.js',
   // imp-96358 (2026-09-24): browser-only-assertion audit of the imp-96337 mixed-ladder-margin
   // viz page. Headless-Chromium render of /#/viz-imp96337-mixed-ladder-margin is clean: both
   // charts draw geometry, honest banner + top-confined-states residual sentence both present,

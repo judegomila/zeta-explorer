@@ -23245,6 +23245,27 @@ export const glossary = [
       'imp-3220-en-bridge-fidelity-frontier.js the interior peak sigma_max ~ 0.9494 at N ~ 9.22e5 being reconstructed',
     ],
   },
+  {
+    term: 'Detector vs Node-Counting Reach-Law Discrepancy Is a Two-Sided, Sign-Changing Residual (imp-96269)',
+    category: 'caveat',
+    definition:
+      'The imp-96269 low-index (k=1) gap between the detector power law and the Christoffel ' +
+      '(node-counting) reach law is NOT a genuine small-gamma curvature term. The signed residual ' +
+      'd_k is MONOTONE in gamma and CHANGES SIGN: d_1 = -2.444% (detector below Christoffel at ' +
+      'small gamma) to d_5 = +1.430% (detector above Christoffel at large gamma), crossing zero at ' +
+      'gamma ~ 41.55. This sign flip is the exact signature of a whole-band fitted-exponent (slope) ' +
+      'mismatch, b_det - b_C = +0.02295, not a localized offset that a low-index-only correction ' +
+      'term could absorb. At the low-index end the gap additionally sits below the integer ' +
+      'node-counting granularity floor (N_det = N_C = 12 nodes, one node = 8.33% of the order at ' +
+      'gamma_1), so a sub-1% reconciliation there is not measurable. Classification: exponent-slope ' +
+      'mismatch plus node-counting granularity, not curvature. Measurement only; changes no bound; ' +
+      'RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96291-route-l-low-index-correction-test.js (tests and rules out a low-index-only curvature correction for the imp-96269 gap), 2026',
+    relatedTerms: [
+      'imp-96269-route-l-reach-law-crosscheck.js the original detector-vs-Christoffel reach-law consistency check (~2.4% agreement)',
+      'imp-96059-detector-reach-ladder.js the underlying detector power-law reach ladder',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

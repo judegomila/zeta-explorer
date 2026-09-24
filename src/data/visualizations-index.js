@@ -3779,6 +3779,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every landmark value, shared-axis row, and finding is copied verbatim from the imp-96388 baked cross-tabulation (no re-derivation); only the log10 curve interpolation and axis sampling are computed here. Confirms two independent landmarks ~3.56 decades apart, not one feature at different differencing orders. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96377-off-anchor-residual',
+      title: 'imp-96345: Off-Anchor Margin Residual Structure vs the Seven-Anchor Design Line',
+      oneLine:
+        'Scatter of the 34 measured rho(32,T) worst-support margins vs T against the seven-anchor reciprocal-log design line: 23 of 27 off-anchor points sit below the line, worst residual -0.0608 at gamma_4000 (T=4506.31), where the binding envelope (min measured margin 0.3791) also lands.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96377-off-anchor-residual-scatter-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96345-route-bd-offline-margin-envelope.js (residual structure, binding envelope; imp-96377 viz page)',
+      ticket: 'imp-96377',
+      pedagogicalStep: 244,
+      honestCeiling:
+        'Presentation only: every T/rho pair and the seven-anchor line floor/slope are copied verbatim from imp-96345 (and, before that, imp-96148/imp-96224); only the per-point below-line flag and the line-curve sample points are computed here. The binding envelope stays strictly positive (0.3791 at gamma_4000) even as the fitted floor collapses toward zero off the line -- the margin SIGN survives, the positive FLOOR does not. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

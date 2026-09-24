@@ -1379,6 +1379,9 @@ const Imp96294EflowResidualViz = lazy(() =>
 const Imp96393DiscrepancyEnvelopeViz = lazy(() =>
   import('./pages/Imp96393DiscrepancyEnvelopeViz.jsx')
 );
+const Imp96377OffAnchorResidualViz = lazy(() =>
+  import('./pages/Imp96377OffAnchorResidualViz.jsx')
+);
 const Imp96298PrefAtRayleighViz = lazy(() =>
   import('./pages/Imp96298PrefAtRayleighViz.jsx')
 );
@@ -3678,6 +3681,10 @@ function AppShell() {
           <Route
             path="/viz-imp96393-discrepancy-envelope"
             element={<Imp96393DiscrepancyEnvelopeViz />}
+          />
+          <Route
+            path="/viz-imp96377-off-anchor-residual"
+            element={<Imp96377OffAnchorResidualViz />}
           />
           <Route
             path="/viz-imp96298-pref-at-rayleigh"

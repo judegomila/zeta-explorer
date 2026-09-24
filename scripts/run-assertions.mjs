@@ -449,6 +449,18 @@ const DATA_MODULES = [
   // indicated (p=2 top 0.9999731<1) not enclosed (Zygmund edge). New sub-gap SG-96181-edge-octave. Import-light
   // (no imports, no zeros bundle). Assertions ~0.1 s. RH open; PT Lambda <= 0.2 stands; NO QED.
   '/src/data/imp-96181-route-i-sg-boundary-edge-octave.js',
+  // imp-96188 (2026-09-23): NUMERICAL/MEASUREMENT — recalibrate the imp-96169 Kato-Temple certify-threshold
+  // U = R + sigma^2/(R-alpha) < 1 from the STYLIZED toy gap (lam_2 = 0.35, alpha = 0.5, eps ~ 1.174e-2) to
+  // the ACTUAL measured semilocal {oo,2} prolate spectrum (FFT-Mellin). The ~1.17e-2 capture requirement is
+  // NOT a toy artifact: the real top gap lam_top - lam_2 = 0.9999731 - 0.6202012 = 0.379772 is smaller than
+  // the toy 0.649973, so an adjacent-state leak certifies only for eps < 8.416e-3; and the real spectrum has
+  // a SECOND near-modulus-1 eigenvalue lam_S(1) = -0.9927022 (absent from the toy) that inflates sigma^2 ~9.4x
+  // per unit overlap^2 and drags R toward the anchor, collapsing the bottom-twin certify-threshold to
+  // eps < 1.192e-3 (~10x tighter) and breaking Kato-Temple validity past eps ~ 0.3245. Variational route stays
+  // obstructed MORE firmly than the toy indicated; strict gap stays with SG-96164-boundary / SG-96181-edge-octave.
+  // Import-light (baked spectrum literals, no imports, no zeros bundle). Assertions < 0.1 s. Measurement only;
+  // changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED.
+  '/src/data/imp-96188-route-i-kato-temple-real-spectrum-recalibration.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284
@@ -566,6 +578,18 @@ const DATA_MODULES = [
   // peak is purely a Gronwall flow effect. Import-light literals. C_mb GUE-conditional per imp-486
   // UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96162-sigma-ushape-peak-eflow-recovery.js',
+  // imp-96187 (2026-09-23): DERIVES the imp-96162 F2 peak-location ratio from the sub-leading log
+  // -corrections of g_t = E_trunc/E_coll and g_f = E_flow/E_coll and DECIDES it is an ACCIDENT, not
+  // an identity. Peak stationarity d g/d ln N = 0 gives the exact peak condition E_flow/E_trunc =
+  // a/b (a = d ln g_t/d ln N ~ 0.4655, b = -d ln g_f/d ln N ~ 0.3041; a/b = 1.531 matches the
+  // imp-96162 measured 1.530 to ~1e-4) and the location law N_peak/N_flow = (b/a)^(1/(a+b)) = 0.575
+  // (matches 0.577 to 0.3pct). At clean leading order a=b=1/2 the ratio is EXACTLY 1 (peak at
+  // N_flow), so the entire 0.577 is a finite-height log-correction effect; scaling E_trunc 0.25x..16x
+  // sweeps the ratio smoothly from 0.637 to 0.357 THROUGH 1/sqrt(3) with no fixed point -- so the
+  // 1/sqrt(3) proximity is a crossing of the inherited constants (C_C/C_F/E_trunc), NOT a forced
+  // identity. imp-96162 F2 flag CONFIRMED and explained. Import-light literals. C_mb GUE-conditional
+  // per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident.js',
   // imp-96168 (2026-09-23): CROSS-VALIDATES the imp-96151 F1 per-decade decay-exponent ladder with a
   // fresh, fully independent recompute -- (1) a closed-form Lambert-W height mapping T0 = 2pi exp(1 +
   // W(N/e)) that agrees with the imported Newton effectiveHeightForN to 2.02e-14 over [1e2,1e100], (2)

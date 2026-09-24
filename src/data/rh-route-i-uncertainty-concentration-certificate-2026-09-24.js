@@ -318,6 +318,11 @@ export const UNCERTAINTY_CERTIFICATE_LITERALS = Object.freeze({
       [0.3, [0.4221, 0.4135, 0.3323, 0.2620], [-0.2680, -0.2655, -0.1667, -0.0470]], [0.4, [0.5222, 0.4741, 0.3603, 0.2764], [-0.2503, -0.2311, -0.1111, 0.0210]], [0.5, [0.7051, 0.5842, 0.4025, 0.2926], [-0.2940, -0.2335, -0.0682, 0.0853]],
       [0.6, [0.9353, 0.7350, 0.4587, 0.3106], [-0.4026, -0.2824, -0.0422, 0.1452]], [0.7, [0.9414, 0.7536, 0.4826, 0.3289], [-0.4004, -0.2689, -0.0048, 0.2013]], [0.8, [0.9484, 0.7758, 0.5115, 0.3494], [-0.4001, -0.2621, 0.0238, 0.2520]]],
     best: { k0: -0.2503, k1: -0.2311, k2: 0.0238, k3: 0.2520 }, verdict: 'pure concentration certifies only with three vanishing moments (two: marginal +0.024); unconstrained deficit 0.25',
+    /** (imp-96566) can the marginal k = 2 value +0.024 be pushed strictly positive by a larger T / optimized m / sharper floor? Measured (a = (ln3)/2, N = 240). Measurement only; NO QED. */
+    k2MarginPush: {
+      mStar: 0.95, marginK2: 0.0428, Tconverged: [600, 800], baked: 0.0238,
+      note: 'the baked best k = 2 = +0.0238 at m = 0.8 is the boundary value of the truncated m-grid, not an optimum: m (1 - conc) is still RISING at m = 0.8, where the T = 400 floor m_T = 0.8068 caps the ratio form (it requires floor(T) > m). Extending T so the floor exceeds m and optimizing m reaches an INTERIOR optimum m* = 0.95 with margin +0.0428, identical at T = 600 and T = 800 to 4 digits (T-converged; lambda_max T[w_-] = 0.36699 is itself T-independent past the last resonance t = 181.3). So the two-moment ratio margin nearly doubles (0.024 -> 0.043) but stays SMALL -- about 1/6 of the k = 3 margin +0.252 and far from a comfortable certificate. It is a ratio-criterion LOWER BOUND only and does NOT improve the exact-symbol constant 9.04e-4 that already closes D_S <= L_S unconditionally on pole-free h. The effective levers are m and larger T; the ratio floor is already the exact negative part w_- (delta -> 0), so no sharper step-floor helps here.',
+    },
   },
   /** (II) step-resolution ladder: lambda_min(T[w_step]) at (ln3)/2 and 0.5 (T = 200, N = 160, fine cells on [0, 60]); rows [delta, k=0, k=1, k=2, k=3] */
   ladder: {

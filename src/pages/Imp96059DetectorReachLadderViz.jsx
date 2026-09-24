@@ -8,7 +8,8 @@ import {
   IMP96059_LAW,
   IMP96059_REACH,
 } from '../data/imp-96059-detector-reach-ladder-viz-data.js';
-import { IMP96149_DETECTOR_FIT } from '../data/imp-96149-route-l-detector-reach-law-fit.js';
+import { IMP96149_DETECTOR_FIT, IMP96149_EXTRAPOLATION } from '../data/imp-96149-route-l-detector-reach-law-fit.js';
+import { IMP96287_REACH_BAND } from '../data/imp-96287-route-l-reach-band-reconciliation.js';
 
 const BAR_COLOR = '#38bdf8';
 const UNDETECTED_COLOR = '#f87171';
@@ -222,6 +223,45 @@ export default function Imp96059DetectorReachLadderViz() {
         (ROUTE_L.a20.resolvedFirst40)
       </p>
       <ResolvedCountTable />
+
+      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+        Extrapolated N needed at the Platt-Trudgian height T0 = {IMP96149_EXTRAPOLATION.T0.toExponential(4)}
+        (imp-96149 power-law point estimate) alongside the imp-96287 covariance-propagated
+        statistical reach band
+      </p>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>estimate</th>
+            <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>N range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+            <td style={{ padding: '0.35rem 0.5rem' }}>point extrapolation (detector power law)</td>
+            <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: BAR_COLOR }}>
+              {IMP96149_EXTRAPOLATION.nNeeded.detectorPowerLaw.toExponential(4)}
+            </td>
+          </tr>
+          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+            <td style={{ padding: '0.35rem 0.5rem' }}>1-sigma covariance-propagated band</td>
+            <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>
+              [{IMP96287_REACH_BAND.band1sigma.detector.lo.toExponential(2)}, {IMP96287_REACH_BAND.band1sigma.detector.hi.toExponential(2)}]
+            </td>
+          </tr>
+          <tr style={{ borderBottom: '1px solid #1e293b' }}>
+            <td style={{ padding: '0.35rem 0.5rem' }}>95% covariance-propagated band</td>
+            <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>
+              [{IMP96287_REACH_BAND.band95.detector.lo.toExponential(2)}, {IMP96287_REACH_BAND.band95.detector.hi.toExponential(2)}]
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p style={{ color: '#64748b', fontSize: '0.78rem', margin: '0.5rem 0 0' }}>
+        The band widens ~14-16 orders of magnitude around the point estimate because the fit
+        extrapolates ~10.4 decades of gamma from only n = 5 measured points (imp-96287); the full
+        multi-column reconciliation and chart live on the imp-96320 reach-band page.
+      </p>
 
       <div
         style={{

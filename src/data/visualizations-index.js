@@ -3303,6 +3303,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ratio(N) value is copied verbatim from imp-96094\'s own IMP96094_ROWS (no re-derivation of the exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96136-route-i-fixed-fraction-panel',
+      title: 'Route I: {oo,2,3} Fixed-Fraction Cusp-Allocation Law',
+      oneLine:
+        'Renders the imp-96110 ten-point {oo,2,3} S-unit table showing the Sonine excess inherits f_out(rho) -> 1 - 1/rho of each log^2 cusp at rho = 2^a 3^b, generalizing (and worsening, via cusp density) the p = 2 half-cusp law -- never assembled visually before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96136-route-i-fixed-fraction-panel-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96110-route-i-p3-cusp-allocation-fixed-fraction-assessment.js (imp-96136 viz panel)',
+      ticket: 'imp-96136',
+      pedagogicalStep: 212,
+      honestCeiling:
+        'Presentation only: re-plots the frozen imp-96110 ten-point {oo,2,3} S-unit table verbatim (measured f_out vs target 1 - 1/rho; no re-derivation of the br23 double sum, no fresh numerics); the surviving fixed-fraction law is an obstruction (dense log^2 cusps), not a rescue; corr23 continuity through the cusp is ASSUMED by analogy with p = 2, not proved; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1288,6 +1288,9 @@ const Imp95930C0OffsetEnvelopeViz = lazy(() =>
 const Imp96040A0ReconcilePanelViz = lazy(() =>
   import('./pages/Imp96040A0ReconcilePanelViz.jsx')
 );
+const Imp96136RouteIFixedFractionPanelViz = lazy(() =>
+  import('./pages/Imp96136RouteIFixedFractionPanelViz.jsx')
+);
 const Imp95931Ln12DescentLadderViz = lazy(() =>
   import('./pages/Imp95931Ln12DescentLadderViz.jsx')
 );
@@ -3455,6 +3458,10 @@ function AppShell() {
           <Route
             path="/viz-imp96040-a0-reconcile-panel"
             element={<Imp96040A0ReconcilePanelViz />}
+          />
+          <Route
+            path="/viz-imp96136-route-i-fixed-fraction-panel"
+            element={<Imp96136RouteIFixedFractionPanelViz />}
           />
           <Route
             path="/viz-imp95931-ln12-descent-ladder"

@@ -1349,6 +1349,9 @@ const Imp96237HeightToFloorViz = lazy(() =>
 const Imp96238JointLeakRegionViz = lazy(() =>
   import('./pages/Imp96238JointLeakRegionViz.jsx')
 );
+const Imp96160MaxAnchorWindowRobustnessViz = lazy(() =>
+  import('./pages/Imp96160MaxAnchorWindowRobustnessViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3569,6 +3572,10 @@ function AppShell() {
           <Route
             path="/viz-imp96238-joint-leak-region"
             element={<Imp96238JointLeakRegionViz />}
+          />
+          <Route
+            path="/viz-imp96160-max-anchor-window-robustness"
+            element={<Imp96160MaxAnchorWindowRobustnessViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

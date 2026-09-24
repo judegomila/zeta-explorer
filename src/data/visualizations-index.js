@@ -3457,6 +3457,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the boundary curve re-runs the imp-96206 maxTolerableBottom bisection verbatim at plot resolution (no re-derivation), and the three named markers are copied from the imp-96206 baked literals; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96160-max-anchor-window-robustness',
+      title: 'imp-96132: Max-Anchor Window-Robustness Sweep Across Four Held-Out Heights',
+      oneLine:
+        'Signed-sqrt-scale bar chart of the imp-96132 48-config window-robustness sweep (4 held-out heights x 12 configs): 46/48 cap, with the two shallow endpoint breaches (T=2e4 coarse k=2 at -0.47%, T=4e5 fine k=0.5 at -0.0019%) visible next to the imp-96090 canonical-window margins (+15%..+43%).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96160-max-anchor-window-robustness-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96132-max-anchor-window-robustness-four-heights.js (48-config margin table; imp-96160 viz page)',
+      ticket: 'imp-96160',
+      pedagogicalStep: 223,
+      honestCeiling:
+        'Presentation only: every margin value plotted is imported verbatim from imp-96132 (no re-derivation, no re-baking of the underlying sd(C-E) / mean-L literals); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

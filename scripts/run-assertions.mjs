@@ -602,6 +602,15 @@ const DATA_MODULES = [
   // arm as an E_flow (Gronwall) effect. Surviving share driven to ~2.80e-104 by N~1e218. Import-light
   // literals. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96151-sigma-closed-form-crossover-fartail-reproduction.js',
+  // imp-96272 (2026-09-24): LOCATES the imp-96151/imp-96176 closed-form-vs-full share gap along the
+  // far-tail decade ladder. imp-96176 re-exports maxRelGap ~4.60e-4 as a scalar without its
+  // location. This module (import-light, baked literals) shows the gap argmax sits at the LEFT edge
+  // k=10 (N=1e10, the first decade past the imp-33723 crossover N_cross~3.28e9, where the omitted
+  // E_flow is largest) and equals maxRelGap exactly, then decays STRICTLY MONOTONICALLY at
+  // ~0.86-0.93 dex/decade (mean 0.859 over [1e10,1e16]), reaching ~5.6e-12 by 1e20 and machine-zero
+  // before 1e100. So the far-tail error is BOUNDED and shrinking, NOT diverging -- the closed form
+  // is asymptotically exact. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED.
+  '/src/data/imp-96272-closed-form-fartail-gap-argmax.js',
   // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
   // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
   // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151

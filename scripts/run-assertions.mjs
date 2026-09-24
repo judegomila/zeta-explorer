@@ -19786,6 +19786,13 @@ const DATA_MODULES = [
   '/src/data/imp-96347-detector-reach-curvature-correction.js',
   '/src/data/imp-96350-covariance-outoffamily-crossvalidation.js',
   '/src/data/imp-96351-sigma-knee-tenthdecade-1e12-stability.js',
+  // imp-96296: Concepts glossary headword restating the imp-96250 verdict that the
+  // imp-96187 U-shape location ratio R(N)=N_peak/N_flow flattens toward 1 only
+  // logarithmically (R=1-4/ln N-16/(ln N)^2+...), reaching within 1% of 1 only at
+  // log10 N~174 and within 0.1% at ~1737 -- glacial, with NO reach at physical
+  // heights (still ~0.577 at N_flow~1.6e6). Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96296-farN-flattening-glacial-reach-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

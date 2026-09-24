@@ -22806,6 +22806,27 @@ export const glossary = [
       'rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js and rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js the named next-step S={oo,2} Sonine identity this verdict points to, and its own partial (not gap-free) resolution',
     ],
   },
+  {
+    term: 'Quasi-Independent Window Count n_w(T)',
+    category: 'numerical',
+    definition:
+      'imp-96089. The per-height window count entering the number-variance chi-square sampling model ' +
+      'is pure DETERMINISTIC GEOMETRY, not a zeros-dependent quantity: n_w(T) = floor((min(1.3T, T_max) ' +
+      '- 0.7T) / (2 Delta(T))), Delta = sqrt(T/2pi), T_max ~ 600269.68 (the height of the 10^6-th ' +
+      'Odlyzko ordinate). This is the imp-95562 tiling of n_w non-overlapping hard-box windows of full ' +
+      'width 2*Delta(T_c) across a +/-30 percent span about each center T_c, clipped to the available ' +
+      'ordinate range. Evaluated on the six imp-95562 heights (T = 1e4, 3e4, 7e4, 1.5e5, 3e5, 5e5) this ' +
+      'formula reproduces the baked window counts EXACTLY (75, 130, 198, 291, 411, 443) -- confirming ' +
+      'n_w needs no zeros bundle to recover. Non-overlapping hard boxes sharing only an O(1/L) boundary ' +
+      'relative to the ~L zeros each box holds are quasi-independent to leading order, so n_w is the ' +
+      'count the chi-square model asks for.',
+    firstUsed: 'imp-96089 (mean-anchor window-count significance verdict, closing the imp-96071-window-count sub-gap), 2026',
+    relatedTerms: [
+      'imp-96089-mean-anchor-window-count-significance-verdict.js the module recovering n_w(T) from tiling geometry and deciding each contested dip',
+      'z-score significance test z(T) = (|residual|/r) / sqrt(2/n_w): a below-envelope number-variance dip is declared SIGNIFICANT iff z >= 1 (equivalently n_w > the imp-96071 crossover count), NOISE otherwise -- decided T = 1.5e5 (z = 1.92, SIGNIFICANT) vs T = 1e4 and T = 3e5 (z = 0.37 / 0.08, NOISE)',
+      'imp-96071-mean-anchor-below-envelope-correction-vs-noise-floor.js the sub-gap this closes (named the crossover counts but deferred the actual n_w(T))',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

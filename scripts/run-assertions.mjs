@@ -19638,6 +19638,11 @@ const DATA_MODULES = [
   // bundle) and cross-checks endpoints against the imp-96210 frozen landmarks. Documentation/viz
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96239-ushape-slope-drift-viz-data.js',
+  // imp-96258: Concepts glossary headword for the imp-96228 far-N slope-drift saturation --
+  // past N_flow the b-dominated upward drift in a(N), b(N) stays monotone with no reversal
+  // to at least N=1e40, but the (a+b) increment shrinks strictly, saturating toward the
+  // (1/2, 1/2, 1) asymptote. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96258-ushape-slope-drift-saturation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

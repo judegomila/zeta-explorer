@@ -79,6 +79,10 @@
  * @see imp-96109-tue5-dip-decorrelation-safety-margin (the O(1/L) proxy this replaces)
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the significant-dip verdict)
  * @see imp-95562-meansquare-vs-pointwise-gap (the non-overlapping hard-box windowing)
+ * @see imp-96312-covariance-cross-validation-pt-anchor (extends this safe-side verdict to the
+ *   Platt-Trudgian verified height T = 3e12: rho_exact strengthens from -0.46398 to -0.48177,
+ *   the AR-1 factor rises from 2.7312 to 2.8593, and the gap to the sign-forbidden flip threshold
+ *   widens from 1.0384 to 1.0562 -- the verdict DEEPENS, it does not weaken, at the PT anchor)
  *
  * Import-light: no zeros bundle, no sibling imports. The six sd(C - E) window counts are the imp-95562
  * literals baked over the 10^6 Odlyzko ordinates in src/data/zeros-to-1e6.js; the covariance census is
@@ -164,6 +168,8 @@ export const IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT = {
   },
   higherLagNote:
     'Direct sine-kernel integrals give lag-2 and lag-3 box correlations of -0.020 and -0.008 (L = 40): correlation concentrates at lag-1 and the small higher-lag terms are also negative, so the tiled sequence is well modelled by the AR-1 lag-1 correlation and any deviation raises n_eff further.',
+  statusNote:
+    'imp-96312 extends this safe-side verdict to the Platt-Trudgian verified height T = 3e12: rho_exact strengthens (more negative) from -0.46398 here to -0.48177 there, the AR-1 effective factor rises from 2.7312 to 2.8593, and the gap to the sign-forbidden positive flip threshold rho_crit = 0.5744 widens from 1.0384 to 1.0562 rho units. The safe-side anti-correlation verdict DEEPENS, it does not weaken, when extended to the PT anchor.',
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L, not the empirical adjacent-box covariance of the actual Riemann zeros (which would need the zeros bundle). The AR-1 effective-count formula is the same imp-96109 model; the sine process has slowly decaying higher-lag correlations so the tiling is only approximately AR-1, but the measured higher lags are small and negative and push the same way. This replaces the O(1/L) proxy with the exact value and finds it strengthens (does not weaken) the significant-dip verdict; it changes no bound and does not raise the ~1.9-sigma confidence, which is set by the excursion depth, not the correlation model.',
   verdict:
@@ -200,6 +206,9 @@ export const IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT = {
     throw new Error('imp-96128: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT.verdict))
     throw new Error('imp-96128: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  // status note recording the imp-96312 PT-anchor deepening must say DEEPENS, not weaken
+  if (!/DEEPENS/.test(IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT.statusNote))
+    throw new Error('imp-96128: status note dropped the DEEPENS-at-PT-anchor claim');
 })();
 
 export default IMP96128_NUMBER_VARIANCE_TWO_INTERVAL_COVARIANCE_EXACT;

@@ -138,6 +138,13 @@ export const IMP96105_SUBGAP = Object.freeze({
   // m(n) is unmeasured and plausibly grows as the spectrum crowds toward zero, which would
   // steepen the true solve scaling past the fitted N^3.
   reachCostModel: 'imp-96352 (IMP96352_REACH / IMP96352_REACH_MODEL): reaching N=1e4 costs 1838.5 s, not the imp-96230 BUILD-only 399 s; repriced ceiling N ~ 5355 at 399 s, N ~ 9916 at 30 min; wall-clock binds (RAM only at N ~ 1.1e5); corrected ceiling still optimistic if m(n) grows (IMP96352_SUBGAP).',
+  // imp-96342 cross-link: the "CPU-starved" wording above (and in the reachCostModel
+  // note) reads as an intrinsic compute wall. imp-96261
+  // (IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE) corrected that framing: the m9
+  // stall at N=3500 was POOL CONTENTION from concurrent workers sharing cores, not
+  // an O(N^3) wall -- a dedicated off-peak process reaches N=1e4 fine. That scheduling
+  // fix does NOT close this sub-gap: whether ratio(N) -> 1 beyond N=6000 is still open.
+  schedulingCorrection: 'imp-96261 (IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE): "CPU-starved" is a scheduling condition (pool contention), not an intrinsic compute wall -- a dedicated process reaches N=1e4 in ~7 min / ~2 GB. Resource framing only; the beyond-6000 asymptotic question stays open.',
 });
 
 export const IMP96105_HONEST_BANNER =

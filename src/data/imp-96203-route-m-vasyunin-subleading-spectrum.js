@@ -154,6 +154,11 @@ export const IMP96203_SUBGAP = Object.freeze({
   id: 'imp-96203-band-uniqueness-and-beyond-6000',
   statement:
     'ruling out the eigen-drift candidate closes part (b) of IMP96189_SUBGAP but NOT part (a): 17 non-uniform log N points still cannot uniquely separate the low-conductor band (q = 4, 5) from a slow smooth NON-spectral drift, and extending d_N past N = 6000 (the 1e4 target of IMP96105_SUBGAP) remains CPU-starved. So the band attribution is candidate-eliminated and consistency-strengthened, not uniquely identified. Deciding uniqueness needs a denser more uniform log N grid well past 6000 (a heavier Gram build) or an explicit-formula remainder model, not a further re-analysis of the N <= 6000 spectrum.',
+  // imp-96342 cross-link: same "CPU-starved" wall reading as IMP96105_SUBGAP -- see
+  // imp-96261 (IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE), which found the m9
+  // stall was pool contention, not an intrinsic O(N^3) wall. Does not resolve the
+  // band-uniqueness question this sub-gap names.
+  schedulingCorrection: 'imp-96261 (IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE): "CPU-starved" is a scheduling condition (pool contention), not an intrinsic compute wall -- a dedicated process reaches N=1e4 in ~7 min / ~2 GB. Resource framing only; band-uniqueness stays open.',
 });
 
 export const IMP96203_HONEST_BANNER =

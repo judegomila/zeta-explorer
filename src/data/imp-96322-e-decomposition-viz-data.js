@@ -67,6 +67,13 @@ export const IMP96322_C_H_ANSATZ = Object.freeze({
   isRigorousUpperBound: ANCHOR.isProven,
 });
 
+// Shared null -> label mapping so the render layer and the assertion below use the exact same
+// string (imp-96341): C_Lip's value must never fall through to blank/NaN in the table cell.
+export const IMP96322_UNQUANTIFIED_LABEL = '— (unquantified)';
+export function formatCHFactorValue(value) {
+  return value === null ? IMP96322_UNQUANTIFIED_LABEL : value;
+}
+
 export const IMP96322_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every E_trunc/E_flow/E_coll/E(N) '
   + 'magnitude and every C_shock/C_H value is copied verbatim from the imp-96290 baked inventory; only the '
@@ -114,6 +121,12 @@ const IMP96322_ASSERTIONS = [
       && IMP96322_C_H_FACTORS.find((c) => c.key === 'C_Lip').quantified === false,
     why: 'C_Lip carries no numerical magnitude (its N-dependence is unquantified/RH-hard); the leaf must '
       + 'never fabricate a number for it.',
+  },
+  {
+    id: 'imp96341-c-lip-formats-as-unquantified-label',
+    holds: () => formatCHFactorValue(null) === IMP96322_UNQUANTIFIED_LABEL
+      && formatCHFactorValue(IMP96322_C_H_FACTORS.find((c) => c.key === 'C_Lip').value) === IMP96322_UNQUANTIFIED_LABEL,
+    why: 'imp-96341: the C_Lip table cell must render the explicit unquantified label, never blank/NaN.',
   },
   {
     id: 'imp96322-anchor-not-proven',

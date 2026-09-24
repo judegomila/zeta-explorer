@@ -7,6 +7,7 @@ import {
   IMP96322_C_H_FACTORS,
   IMP96322_C_H_ANSATZ,
   IMP96322_HONEST_BANNER,
+  formatCHFactorValue,
 } from '../data/imp-96322-e-decomposition-viz-data.js';
 
 const BAR_COLORS = { E_trunc: '#38bdf8', E_flow: '#a78bfa', E_coll: '#f472b6', E_N: '#facc15' };
@@ -82,7 +83,7 @@ function SubConstantTable() {
           <tr key={c.key} style={{ borderBottom: '1px solid #1e293b' }}>
             <td style={{ padding: '0.35rem 0.5rem', color: '#e2e8f0' }}>{c.label}</td>
             <td style={{ padding: '0.35rem 0.5rem', color: '#94a3b8' }}>
-              {c.value === null ? '— (unquantified)' : c.value}
+              {formatCHFactorValue(c.value)}
             </td>
             <td style={{ padding: '0.35rem 0.5rem', color: c.quantified ? '#4ade80' : '#f87171' }}>
               {c.quantified ? 'yes' : 'no (RH-hard)'}

@@ -4101,6 +4101,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every n_eff/z_eff/correlation value plotted here is copied verbatim from the imp-96509 AR(p) resummation (which reproduces the imp-96489 AR-1 baseline exactly); the lag-2/lag-3 inputs are theoretical GUE sine-process box correlations, not empirical zero covariances, so the AR-2/AR-3 figures are indicative, not precise. The headline conservative z_cons = 1.9234 floor is unchanged and remains the strict lower bound; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96535-ledger-reconciliation',
+      title: 'Excursion Ledger Reconciliation',
+      oneLine:
+        'Cards the imp-96512 height-by-height reconciliation of the imp-96493 interior z-score scan against the imp-96089 below-envelope dip table: the two shared heights (1.5e5, 3.0e5) agree bit-for-bit (max delta z = 0), the T=1e4 dip is dip-table-only, and nine dense heights are scan-only.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96535-ledger-reconciliation-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96512-excursion-significance-ledger-reconciliation.js (IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION; imp-96535 viz page)',
+      ticket: 'imp-96535',
+      pedagogicalStep: 267,
+      honestCeiling:
+        'Presentation only: every Tc, nW, z, verdict and agreement flag shown here is copied verbatim from the imp-96512 baked height-by-height comparison; the only new step is picking a display nW/z per row and a ledger-membership category. Cross-validation only: changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

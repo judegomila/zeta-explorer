@@ -1487,6 +1487,9 @@ const Imp96520OffsetDriftLdriftPredictionViz = lazy(() =>
 const Imp96534ArEffectiveCountLadderViz = lazy(() =>
   import('./pages/Imp96534ArEffectiveCountLadderViz.jsx')
 );
+const Imp96535LedgerReconciliationViz = lazy(() =>
+  import('./pages/Imp96535LedgerReconciliationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3891,6 +3894,10 @@ function AppShell() {
           <Route
             path="/viz-imp96534-ar-effective-count-ladder"
             element={<Imp96534ArEffectiveCountLadderViz />}
+          />
+          <Route
+            path="/viz-imp96535-ledger-reconciliation"
+            element={<Imp96535LedgerReconciliationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

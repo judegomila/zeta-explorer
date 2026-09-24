@@ -4087,6 +4087,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every crossoverLog10, offset and slope value plotted here is copied verbatim from the imp-96467 baked fit object; the only new step is sorting the rows and laying out the two charts. The analytic L-drift term reproduces the sign and near-linearity of the measured drift but over-predicts its slope by ~21%, so a residual sub-leading term is shaded, not closed; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96534-ar-effective-count-ladder',
+      title: 'AR Effective-Count Ladder',
+      oneLine:
+        'Charts the imp-96489/imp-96509 excursion effective-count ladder: n_eff and z_eff climbing AR-0 (naive) -> AR-1 -> AR-2 -> AR-3 as successive negative higher-lag sine-process correlations are folded in, with the z_cons=1.9234 conservative floor and the rho_crit=+0.5744 sign-flip threshold marked.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96534-ar-effective-count-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96509-excursion-effective-significance-ar2.js (IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2; imp-96534 viz page)',
+      ticket: 'imp-96534',
+      pedagogicalStep: 266,
+      honestCeiling:
+        'Presentation only: every n_eff/z_eff/correlation value plotted here is copied verbatim from the imp-96509 AR(p) resummation (which reproduces the imp-96489 AR-1 baseline exactly); the lag-2/lag-3 inputs are theoretical GUE sine-process box correlations, not empirical zero covariances, so the AR-2/AR-3 figures are indicative, not precise. The headline conservative z_cons = 1.9234 floor is unchanged and remains the strict lower bound; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

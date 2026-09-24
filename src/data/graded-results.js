@@ -382,6 +382,40 @@ export const RESULTS = [
     date: '2026-09',
   },
 
+  // ── novel routes J/K/L/M (2026-09-23 non-stat-mech external-input hunt) ─────
+  {
+    statement: 'Novel route J (Weil–Deligne import to Z): every engine lands on a known wall — Weil positivity (missing Spec Z ×_F1 Spec Z self-product), the classical Landau-pole c/log t zero-free region (Fejér floor R ≥ 5.8284), or PCC (tensor square); no external arithmetic input reaches Z.',
+    grade: 'no-go',
+    verification: ['module rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (ROUTE_J)', 'Fejér ladder + 3-4-1 constant independently re-derived twice (imp-96050, imp-96073)'],
+    thread: 'rh-novel-routes',
+    route: '/rh-novel-routes-roadmap',
+    date: '2026-09',
+  },
+  {
+    statement: 'Novel route K (RMT/moments/ratios): moments constrain zeros only through Littlewood’s integrated lemma; the sole pointwise-sensitive channel (negative moments) is RH-equivalent and reduces to the Levinson–Conrey mollifier lineage. Wall = Jensen/integration, ceiling = Lindelöf ⇒ Density Hypothesis.',
+    grade: 'no-go',
+    verification: ['module rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (ROUTE_K)', 'Littlewood I(T) vs Jensen-from-moments measured to T=500 (loss 10x→2828x)'],
+    thread: 'rh-novel-routes',
+    route: '/rh-novel-routes-roadmap',
+    date: '2026-09',
+  },
+  {
+    statement: 'Novel route L (Li–Herglotz–CMV finite truncation, no zero input): reality is forced non-circularly and the 400×400 CMV matrix reproduces 39 zeros to 1e-12, but completeness is Weil positivity and the measured detector reach law is sublinear in N — the certificate stays verified-height-dominated, not a lever.',
+    grade: 'no-go',
+    verification: ['module rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (ROUTE_L)', 'reach extension to N=800 (imp-96045) + dps-independence sweep (imp-96068)'],
+    thread: 'rh-novel-routes',
+    route: '/rh-novel-routes-roadmap',
+    date: '2026-09',
+  },
+  {
+    statement: 'Novel route M (Nyman–Beurling via Vasyunin cotangent sums + Bettin–Conrey reciprocity): the reciprocity law is the Estermann functional equation of ζ itself, so every truncation of its descent leaves the Gram matrix indefinite — the route collapses to the Möbius-mollifier lineage with no non-perturbative escape.',
+    grade: 'refuted',
+    verification: ['module rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23', 'exact Vasyunin Gram to N=500: d_N² logN / Σ|ρ|⁻² = 0.998'],
+    thread: 'rh-novel-routes',
+    route: '/rh-novel-routes-roadmap',
+    date: '2026-09',
+  },
+
   // ── eliminates and refutations ──────────────────────────────────────────────────
   {
     statement: '0.1399 tail lane, K2 failure: N₁* = 220,495,706 is 4.01× the economic cutoff line, and the finite transition lane would need 219,804,718 rows (69.8× the v3 full-replay campaign) — economically dead in the verbatim endpoint-cap architecture.',

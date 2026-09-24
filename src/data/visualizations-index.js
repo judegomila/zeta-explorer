@@ -3723,6 +3723,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every discrepancy reading is copied verbatim from the imp-96371 baked decade ladder (no re-derivation); only the chart-axis reshaping (log10 T, log10 discrepancy) is computed here. rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at these heights (and at 3e12) there are no computed Riemann zeros, so this cross-validates two closed-form evaluations of the same envelope, not a measurement of actual zeros. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96298-pref-at-rayleigh',
+      title: 'imp-96264: Route M Two-Tone AICc Preference at the Rayleigh Span',
+      oneLine:
+        'Line chart of the imp-96264 AICc two-tone preference prefAtRayleigh vs log(rho) amplitude ratio rho = A4/A5: peaks at rho=1 (0.944, equal amplitude) and falls off symmetrically with imbalance, dropping below the 90% confident-separation threshold past |log rho| ~ ln(1.4).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96298-route-m-pref-at-rayleigh-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96264-route-m-amplitude-ratio-sensitivity.js (ratio table, verdict, sub-gap; imp-96298 viz page)',
+      ticket: 'imp-96298',
+      pedagogicalStep: 240,
+      honestCeiling:
+        'Presentation only: every prefAtRayleigh and rho value is copied verbatim from the imp-96264 baked ratio table (no re-derivation); only the log(rho) axis reshaping is computed here. Route M off-lattice arithmetic per imp-96189, NOT a zero-tone measurement. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

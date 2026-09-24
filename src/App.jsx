@@ -1460,6 +1460,9 @@ const Imp96456VasyuninConditioningCeilingViz = lazy(() =>
 const Imp96514Excursion2SigmaInteriorScanViz = lazy(() =>
   import('./pages/Imp96514Excursion2SigmaInteriorScanViz.jsx')
 );
+const Imp96515PppCollapseViz = lazy(() =>
+  import('./pages/Imp96515PppCollapseViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3828,6 +3831,10 @@ function AppShell() {
           <Route
             path="/viz-imp96514-excursion-2sigma-interior-scan"
             element={<Imp96514Excursion2SigmaInteriorScanViz />}
+          />
+          <Route
+            path="/viz-imp96515-ppp-collapse-map"
+            element={<Imp96515PppCollapseViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

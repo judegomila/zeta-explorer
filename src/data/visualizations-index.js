@@ -3975,6 +3975,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every Tc, z, relErr, nW, isDip and clipped value plotted here is copied verbatim from the imp-96493 baked scan object; the only new step is merging the T=1.5e5 reference point into the series and labelling each marker category; measurement/accuracy audit of imp-96452 lever (b) reach only, no gap closed, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96515-ppp-collapse-map',
+      title: 'Basis-C ppp-Collapse Map',
+      oneLine:
+        'Charts the imp-96486 basis-C ppp-collapse map: optimal panels-per-period collapsing monotonically 640 -> 3 across L=960..5.9e6, and the achievable floor tracking the imp-96430 L-linear model within ~2-4x until L~3e5, then departing to 573x above it at the anchor.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96515-ppp-collapse-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96486-basis-c-ppp-collapse-transition.js (IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION; imp-96515 viz page)',
+      ticket: 'imp-96515',
+      pedagogicalStep: 258,
+      honestCeiling:
+        'Presentation only: every L, optPpp, floor, floorModel and floorOverModel value plotted here is copied verbatim from the imp-96486 baked rung map; the only new step is labelling each rung cancellation or truncation branch from the existing crossover landmark; feasibility/cross-validation numerics only, theoretical GUE quantity, not real zeros, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -55,6 +55,11 @@
  *
  * @see imp-96267-covariance-drift-rigidity-limit-reach (the decade-ladder + PT-anchor rho_exact = -0.4818)
  * @see imp-96128-number-variance-two-interval-covariance-exact (the union-identity covariance and safe-side verdict)
+ * @see imp-96350-covariance-outoffamily-crossvalidation (the OUT-OF-FAMILY corroboration: this module's two forms both
+ *      feed on the same asymptotic-only number variance and the union identity makes them algebraically the same
+ *      expression, so the byte-identical agreement here is a self-consistency check, not an independent confirmation;
+ *      imp-96350 supplies the genuine independent check, against the exact Dyson-Mehta number variance and a direct
+ *      pair-correlation double integral, discrepancy 2.52e-10)
  *
  * Import-light: no zeros bundle, no sibling imports. The sine-kernel number-variance and unfolded-length
  * formulas are re-derived verbatim from imp-96150/imp-96128/imp-96267 (the same closed form).
@@ -126,6 +131,8 @@ export const IMP96312_COVARIANCE_CROSS_VALIDATION_PT_ANCHOR = {
   },
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at T=3e12 there are no computed Riemann zeros, so this cross-validates two closed-form evaluations of the same envelope, not a measurement of actual zeros. It changes no bound and does not touch the ~1.9-sigma excursion confidence.',
+  statusNote:
+    'NOT INDEPENDENT: the two forms cross-checked above (imp-96267 ratio and imp-96128 union-identity covariance) both reduce, algebraically, to the same asymptotic-only number variance Sigma2_asymp(L) = (ln(2piL)+gamma+1)/pi^2, so their byte-identical agreement is a WITHIN-family self-consistency check, not an independent confirmation of rho_exact=-0.4817670. imp-96350 supplies the genuine out-of-family corroboration -- the exact Dyson-Mehta sine-kernel number variance and a direct pair-correlation double integral, agreeing to a discrepancy of 2.52e-10 -- and should be cited as the independent cross-validation instead of this module.',
   verdict:
     'The imp-96267 rho_exact = -0.4817670 at the Platt-Trudgian verified height 3e12 (deviation 0.0182330) is byte-identical to the imp-96128 union-identity covariance evaluation Cov/Sigma^2(L) at the same height -- the two forms are the same object and agree to floating point. The imp-96128 covariance machinery at the PT anchor gives L=5.91e6, Sigma^2(L)=1.926, Cov=-0.928, AR-1 factor 2.859, and the correlation sits 1.056 in rho units on the safe side of the sign-forbidden rho_crit=0.5744 flip threshold: the accessible-band value ~-0.48 is the operative correlation and the -1/2 idealization is not reached. Measurement/cross-validation only; theoretical GUE quantity, not real zeros; changes no bound; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
@@ -166,6 +173,12 @@ export const IMP96312_COVARIANCE_CROSS_VALIDATION_PT_ANCHOR = {
     throw new Error('imp-96312: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96312_COVARIANCE_CROSS_VALIDATION_PT_ANCHOR.verdict))
     throw new Error('imp-96312: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+
+  // consumer status note: must re-point to imp-96350 as the independent corroboration
+  if (!/NOT INDEPENDENT/.test(IMP96312_COVARIANCE_CROSS_VALIDATION_PT_ANCHOR.statusNote))
+    throw new Error('imp-96312: statusNote dropped the NOT INDEPENDENT flag');
+  if (!/imp-96350/.test(IMP96312_COVARIANCE_CROSS_VALIDATION_PT_ANCHOR.statusNote))
+    throw new Error('imp-96312: statusNote should re-point to imp-96350');
 })();
 
 export default IMP96312_COVARIANCE_CROSS_VALIDATION_PT_ANCHOR;

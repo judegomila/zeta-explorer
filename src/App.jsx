@@ -1373,6 +1373,9 @@ const Imp96257UshapeSlopeDriftViz = lazy(() =>
 const Imp96314CovarianceDeviationViz = lazy(() =>
   import('./pages/Imp96314CovarianceDeviationViz.jsx')
 );
+const Imp96316EtruncSensitivityViz = lazy(() =>
+  import('./pages/Imp96316EtruncSensitivityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3625,6 +3628,10 @@ function AppShell() {
           <Route
             path="/viz-imp96314-covariance-deviation"
             element={<Imp96314CovarianceDeviationViz />}
+          />
+          <Route
+            path="/viz-imp96316-etrunc-sensitivity"
+            element={<Imp96316EtruncSensitivityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

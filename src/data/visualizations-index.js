@@ -3569,6 +3569,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every deviation, rho_exact, and crossing value is copied verbatim from the imp-96267 baked ladder; only the log10 T axis reshaping is computed here (no re-derivation, no new height measurement); rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation, not a measurement of the actual Riemann zeros; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96316-etrunc-sensitivity',
+      title: 'imp-96187: N_peak/N_flow vs E_trunc-Scaling Sensitivity Sweep, the 1/sqrt(3) Crossing',
+      oneLine:
+        'Line chart of the imp-96187 F3 N_peak/N_flow ratio vs E_trunc-scale multiplier (0.2x..20x) at a fine log-spaced grid, showing the ratio fall smoothly through 1/sqrt(3) = 0.57735 with no plateau or fixed point there.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96316-etrunc-sensitivity-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident.js (F3 six-point sensitivity sweep; imp-96316 viz page)',
+      ticket: 'imp-96316',
+      pedagogicalStep: 231,
+      honestCeiling:
+        'Presentation only: recomputes the imp-96187 F3 E_trunc-scale sensitivity sweep from the identical inherited component model (Gronwall E_flow, GUE-conditional C_C_PINNED E_coll) at a finer grid to expose the smooth crossing for charting, cross-checked against the imp-96187 frozen sensitivity landmarks; the 1/sqrt(3) proximity is a crossing point, not a fixed point; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -22912,6 +22912,33 @@ export const glossary = [
       'Route H Connes-Consani Scaling-Site Verdict the one live corner (exotic F_1-geometry self-product) this bifurcation audit does not rule out',
     ],
   },
+  {
+    term: 'Route C Twisted-Ladder Signed Interferometer (imp-96153 / rh-route-c-signed-interferometer-2026-09-23)',
+    category: 'no-go',
+    definition:
+      'Route C tested the signed superposition Phi_eps(s) = Sum_chi eps_chi L(s,chi) over characters chi mod q, treating ' +
+      'the signs/phases eps_chi as free design variables that might be tuned to force off-line nonvanishing (numerics on ' +
+      'q=5 and q=7: Hurwitz-zeta Euler-Maclaurin evaluation, argument-principle zero counts, Hardy-Z on-line counts, Newton ' +
+      'zero refinement). VERDICT: REFUTED as an off-line-nonvanishing / zero-free-region lever, on three independent ' +
+      'grounds. P1 LINEAR BLINDNESS: Phi_eps vanishes at points where every arm L(s,chi) is far from zero (modulus ' +
+      '0.42-2.0) and is nonzero at the arms actual zeros, so a nonvanishing statement about the superposition carries no ' +
+      'information about any individual arm (dim v(s)^perp >= 1 for the arm vector v(s) = (L(s,chi))_chi). P2 ORTHOGONALITY ' +
+      'IS MEAN-VALUE ONLY: character orthogonality cancels cross terms in the L^2/Parseval sense on the critical line (the ' +
+      'large-sieve/mollifier content), not pointwise off it, where the cross terms measured net CONSTRUCTIVE (ratios ' +
+      '1.2-2.0x the incoherent sum). P3 JOINT UNIVERSALITY LEAK: the functional equation pins the relative PHASE within ' +
+      'each conjugate pair {chi, chi-bar} to the root number (arg W(chi) = 2*arctan(kappa), reproduced to 1e-15 for the ' +
+      'Davenport-Heilbronn design at q=5), so the only surviving design freedom is one real mixing weight per pair; joint ' +
+      'universality then forces every non-coordinate hyperplane eps^perp to be crossed order-T times regardless of that ' +
+      'weight (the FE-compatible q=5 interferometer alone already leaks 8 off-line zeros below t=200, matching Spira 1994 ' +
+      'to 10 digits). No design with 2 or more arms escapes all three simultaneously. Documentation/assessment only; ' +
+      'establishes nothing new; changes no bound; RH open; NO QED; Platt-Trudgian Lambda<=0.2 remains SOTA.',
+    firstUsed: 'rh-route-c-signed-interferometer-2026-09-23.js (Route C twisted-ladder signed interferometer, tested and refuted on q=5, q=7), 2026',
+    relatedTerms: [
+      'rh-novel-routes-roadmap-2026-09-23.js the roadmap entry (Route C) this module tests and closes',
+      'Davenport-Heilbronn / Titchmarsh counterexample the unique FE-compatible mixed design at q=5, source of the P3 off-line-leak numerics',
+      'rh-novel-routes-sweep-synthesis-2026-09-23.js the cross-route synthesis tracking Route C alongside the other novel-route verdicts',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

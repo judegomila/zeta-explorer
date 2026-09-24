@@ -6,6 +6,12 @@ import {
   IMP96120_VERDICT_SUMMARY,
   IMP96120_HONEST_BANNER,
 } from '../data/imp-96120-route-m-burnol-ratio-dense-ladder-viz-data.js';
+import {
+  IMP96105_EXT_ROWS,
+  IMP96105_BANDS,
+  IMP96105_VERDICT,
+  IMP96105_HONEST_BANNER,
+} from '../data/imp-96105-route-m-vasyunin-gram-extend-n6000.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
@@ -179,6 +185,69 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96120
         baked viz-data (every value copied verbatim from imp-96094's own IMP96094_ROWS, no
         re-derivation of the underlying Gram / Cholesky numerics). {IMP96120_HONEST_BANNER}
+      </div>
+
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+        Extension ladder N=3000..6000 (imp-96105) and the SPD lam_min descent
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+        The exact Vasyunin Gram was rebuilt once to N=6000, extending the dense ladder above past
+        its N=2600 cap. Every extension rung sits below the N=2600 peak of{' '}
+        {IMP96105_BANDS.full.hi.toFixed(4)} and re-crosses below 1, continuing the oscillation
+        rather than tightening toward it: worst deviation {IMP96105_BANDS.extOnly.worstDev.toFixed(4)}{' '}
+        (N=3500), matching the pre-extension worst in magnitude.
+      </p>
+      <table style={{ width: '100%', maxWidth: 560, borderCollapse: 'collapse', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>N</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>d_N&sup2;</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>ratio(N)</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>lam_min</th>
+          </tr>
+        </thead>
+        <tbody>
+          {IMP96105_EXT_ROWS.map((r) => (
+            <tr key={r.N} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+              <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{r.N}</td>
+              <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{r.dN2.toFixed(6)}</td>
+              <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{r.ratio.toFixed(4)}</td>
+              <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{r.lamMin.toExponential(2)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div
+        style={{
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+          marginBottom: '0.75rem',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>lam_min descent:</strong> across the full N=250..6000
+        ladder (imp-96094 rungs plus this extension) lam_min falls smoothly and monotonically from
+        2.06e-5 (N=250) to {IMP96105_EXT_ROWS[IMP96105_EXT_ROWS.length - 1].lamMin.toExponential(2)}{' '}
+        (N=6000): the Gram stays symmetric positive-definite throughout, so the ratio(N) oscillation
+        is not Cholesky conditioning noise. {IMP96105_VERDICT.conclusion}
+      </div>
+
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Honest status (imp-96105):</strong> {IMP96105_HONEST_BANNER}
       </div>
     </div>
   );

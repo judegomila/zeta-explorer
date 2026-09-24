@@ -19765,6 +19765,12 @@ const DATA_MODULES = [
   // monotone decreasing, right arm only). Documentation only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96276-closed-form-half-reproduces-ushape-glossary-headword.js',
+  // imp-96375: Concepts glossary headword restating the imp-96346 verdict that the
+  // imp-96291 +1.430% k=5 Route L residual is a slowly DIVERGING finite-gamma value
+  // (N_det/N_C = 0.918024 gamma^0.022950), not a constant asymptotic offset nor a
+  // vanishing term, contingent on the fitted exponent gap being real. Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96375-route-l-k5-residual-diverging-not-constant-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

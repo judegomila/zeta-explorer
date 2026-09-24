@@ -19824,6 +19824,12 @@ const DATA_MODULES = [
   // diverging without bound outside it. Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96394-route-l-reach-correction-incompatible-siblings-glossary-headword.js',
+  // imp-96300: Concepts glossary headword restating the imp-96187 F1 / imp-96292 F4
+  // verdict that the imp-3220 U-shape peak condition E_flow/E_trunc|peak = a/b (ratio of
+  // the g_t/g_f local log-slopes) is a DERIVED stationarity identity, confirmed genuine
+  // (not a single-height coincidence) across a 0.25x..16x E_trunc sweep. Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96300-f1-stationarity-identity-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

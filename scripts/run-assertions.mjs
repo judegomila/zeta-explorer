@@ -19896,6 +19896,15 @@ const DATA_MODULES = [
   // each above the ~1e-16 floor and below the first-zero macroscopic regime, decaying
   // like 1/(gamma log gamma). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96426-ecoll-anchor-intermediate-heights.js',
+  // imp-96429 (2026-09-24): MEASUREMENT -- sensitivity of the imp-96402
+  // count-model-independence verdict to the Koksma-Hlawka factor C_KH = pi*2.622.
+  // C_KH enters both the count-inversion rate and the tabulated-true-height rate
+  // as the same sqrt(C_KH) prefactor, so it cancels in the relative gap: the 1e22
+  // verdict (rel gap 0) and the macroscopic first-zero contrast (8.47e-2) stay
+  // invariant to within machine epsilon over a 3-decade C_KH sweep; only the
+  // absolute E_coll magnitude scales, as sqrt(C_KH). Measurement only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96429-ecoll-ckh-sensitivity.js',
   // imp-96358 (2026-09-24): browser-only-assertion audit of the imp-96337 mixed-ladder-margin
   // viz page. Headless-Chromium render of /#/viz-imp96337-mixed-ladder-margin is clean: both
   // charts draw geometry, honest banner + top-confined-states residual sentence both present,

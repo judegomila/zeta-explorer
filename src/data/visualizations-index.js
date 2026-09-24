@@ -3597,6 +3597,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every crossSpan and rho value is copied verbatim from the imp-96288 baked fine-grid curve; only the log(rho) axis reshaping is computed here (no re-derivation, no new Monte-Carlo run); synthetic q4+q5 two-tone simulation, not a measurement of the real conductor content or its amplitude ratio; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96320-route-l-reach-band',
+      title: 'imp-96287: Route L Reach Band vs Point Estimate at the PT Height',
+      oneLine:
+        'Log-scale number-line chart of the imp-96287 covariance-propagated Route L reach bands (95% envelope [2.63e11,2.73e19], 1-sigma envelope [1.18e14,4.87e16]) against the three imp-96269 point-estimate extrapolations, all clustered near the reported reach ~1e15.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96320-route-l-reach-band-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96287-route-l-reach-band-reconciliation.js (covariance-propagated bands, verdict; imp-96320 viz page)',
+      ticket: 'imp-96320',
+      pedagogicalStep: 233,
+      honestCeiling:
+        'Presentation only: every band and point-estimate literal is copied verbatim from the imp-96287 baked reconciliation; only the log10 axis reshaping is computed here (no re-derivation, no new LSQ fit); derivation on baked literals only, changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

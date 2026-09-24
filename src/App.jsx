@@ -1325,6 +1325,9 @@ const Imp96141ExcursionDepthOffsetLedgerTableViz = lazy(() =>
 const Imp96216RouteBDMarginColumnGamma1000TableViz = lazy(() =>
   import('./pages/Imp96216RouteBDMarginColumnGamma1000TableViz.jsx')
 );
+const Imp96199RouteBDMarginColumnGamma500TableViz = lazy(() =>
+  import('./pages/Imp96199RouteBDMarginColumnGamma500TableViz.jsx')
+);
 const Imp96038RouteALammMinDescentViz = lazy(() =>
   import('./pages/Imp96038RouteALammMinDescentViz.jsx')
 );
@@ -3546,6 +3549,10 @@ function AppShell() {
           <Route
             path="/viz-imp96216-route-bd-margin-column-gamma1000-table"
             element={<Imp96216RouteBDMarginColumnGamma1000TableViz />}
+          />
+          <Route
+            path="/viz-imp96199-route-bd-margin-column-gamma500-table"
+            element={<Imp96199RouteBDMarginColumnGamma500TableViz />}
           />
           <Route
             path="/viz-imp96038-route-a-lammin-descent"

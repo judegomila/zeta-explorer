@@ -3374,6 +3374,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every row and fitted parameter is copied verbatim from the imp-96186 baked column and refit (no re-derivation of the Gilbert min-norm-point LP or the near-collision census); the sign (strictly positive margin, no crossing) is stable but the asymptotic floor and functional form remain undecided by this census depth; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96199-route-bd-margin-column-gamma500-table',
+      title: 'imp-96167: Worst-Support On-Line Margin rho(32,T) -- 11-Point Column to gamma_500',
+      oneLine:
+        'Table of the full 11-point worst-support on-line margin column (imp-96148 baked + imp-96167 gamma_500 extension) and both re-fit laws: log-linear R2=0.96691 vs reciprocal-log-with-floor R2=0.99483, floor 0.16030, with a note that imp-96186 later showed the floor is non-monotone at gamma_1000.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96167-route-bd-online-margin-floor-extended.js',
+      paperSourcePath:
+        'src/data/imp-96167-route-bd-online-margin-floor-extended.js (validation, extendedT/extendedRho, refit; imp-96199 viz page)',
+      ticket: 'imp-96199',
+      pedagogicalStep: 226,
+      honestCeiling:
+        'Presentation only: every row and fitted parameter is copied verbatim from the imp-96167 baked column and refit (no re-derivation of the Gilbert min-norm-point LP or the near-collision census); the imp-96167 "settled positive asymptote" reading was later partly corrected by imp-96186 (floor non-monotone at gamma_1000); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96214-kato-temple-ueps',
       title: 'Route I: Kato-Temple U(eps) on the Real Semilocal {oo,2} Spectrum',
       oneLine:

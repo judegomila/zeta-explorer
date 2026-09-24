@@ -22744,6 +22744,35 @@ export const glossary = [
       'Levinson-Conrey mollifier lineage (kappa >= 0.4173) where the one pointwise-sensitive Route K channel (negative moments) actually reduces',
     ],
   },
+  {
+    term: 'Route L Non-Circular Finite Hilbert-Polya CMV Operator',
+    category: 'no-go',
+    definition:
+      'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23. Route L builds a CONCRETE finite ' +
+      'Hilbert-Polya truncation from xi\'/xi Taylor data at Re s >= 1.55 (a=20) with NO zero input: the ' +
+      'generalized-Li coefficients c_n(a) are the Toeplitz moments of a Herglotz measure nu_a on the ' +
+      'circle, and Toeplitz(c) >= 0 for all N iff RH (Bombieri-Lagarias direction; the converse is the ' +
+      'standard boundedness argument, not re-proved here). Szego/Levinson-Durbin gives Verblunsky ' +
+      '(Schur) parameters alpha_k with |alpha_k| < 1 iff the form is PD; the CMV matrix built from the ' +
+      'alpha_k is then unitary BY CONSTRUCTION, so its spectrum is forced real non-circularly (from PD ' +
+      'of finite Taylor data of xi, not from any assumed self-adjointness). At a=20 the Toeplitz form is ' +
+      'PD through order 400 (200-digit run; min 1-|alpha_k|=0.0308849), and the 400x400 unitary CMV ' +
+      'matrix reproduces the first 12 zeros to 1e-12 in angle with weights 4a^2/(a^2+gamma^2) matching ' +
+      'to 1e-7, resolving 39 of the first 40 zeros. The measured detection reach is height ~ gamma_{N/10} ' +
+      '(linear in N): certifying RH to the Platt-Trudgian height 3e12 this way would need N ~ 1e13 ' +
+      'orders at ~1e13 digits, incomparably more expensive than the verified-zero route. Completeness of ' +
+      'the filtration (PD for ALL N) is exactly Weil positivity on a finer polynomial class than Li\'s ' +
+      'lambda_n >= 0 -- same terminus. VERDICT: the cleanest finite zero-free certificate structure found ' +
+      'in the batch, and genuinely non-circular, but NOT-A-LEVER: it brings no external arithmetic input ' +
+      'and its RH content is exactly its resolved-zero reach. Platt-Trudgian Lambda<=0.2 remains SOTA; ' +
+      'RH open; NO QED.',
+    firstUsed: 'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (Route L Li-Herglotz-CMV finite truncation), 2026',
+    relatedTerms: [
+      'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js the module carrying ROUTE_L (liHalf/a20 Taylor-data Li coefficients, Levinson-Durbin Verblunsky parameters, CMV nodes400, detector reach rows) this headword documents',
+      'Route J Three-Wall Map (Weil-Deligne Engines) and Route K Wall (Littlewood Integral vs Jensen-from-Moments) the sibling headwords covering the same non-stat-mech batch\'s other two walls',
+      'imp-96045/imp-96046/imp-96068 the NMAX and dps extensions confirming the intrinsic min-slack PD floor (0.0308849) is resolution-limited-wall-independent and DPS-independent, so no positivity obstruction emerges',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

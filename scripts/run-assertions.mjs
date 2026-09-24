@@ -543,6 +543,28 @@ const DATA_MODULES = [
   // peak is purely a Gronwall flow effect. Import-light literals. C_mb GUE-conditional per imp-486
   // UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96162-sigma-ushape-peak-eflow-recovery.js',
+  // imp-96166 (2026-09-23): MEASURES the empirical E(N) decay exponent p(N) = -dlogE/dlogN across a
+  // wide N-ladder (reusing the imp-3220/imp-2643 sub-term formulas) against the sustained
+  // strictly-positive decay the Step-4 bridge threshold needs for Lambda<=0. Two regimes: sqrt-law
+  // p~0.47 (GUE-conditional E_coll) up to the crossover N_x~3.28e9 (E_coll=E_trunc, matching the
+  // imp-96162/imp-33723 denominator crossover), then the exponent collapses to ~0 as E(N) plateaus at
+  // the frozen E_trunc floor ~3.06e-5. The residual shortfall is that positive floor (N-independent,
+  // pinned to T_PT=3e12): closing the bridge needs E_trunc->0, not a faster N-decay, and the sole
+  // decaying term (E_coll) is also the sole GUE conditional (imp-486). Quantifies the imp-35164
+  // "E(N) FLOORS" obstruction on which conditionalBookkeeping B1-B3 are blocked. C_mb GUE-conditional
+  // per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96166-en-decay-exponent-vs-step4-bridge-threshold.js',
+  // imp-96167 (2026-09-23): EXTENDS the imp-96148 worst-support on-line signed-force margin column
+  // rho(32,T) beyond T=395.98 (gamma_200) to gamma_500 (T~811) to test whether the strictly-positive
+  // reciprocal-log floor c~0.143 is a limited-T-range artifact. Reproduces the imp-96020 LP pipeline
+  // from scratch (matching the baked column to |delta|<=0.0004), extends the near-collision census
+  // 72 -> 185, and re-fits both laws on 11 points: the reciprocal-log-with-floor law still wins with a
+  // WIDER R2 gap (0.99483 vs 0.96691) and its fitted floor stays strictly positive and RISES slightly
+  // (0.14256 -> 0.16030) rather than drifting to zero, while the log-linear naive crossing recedes
+  // further out (T~9e4 -> T~3.5e5). So the positive on-line margin floor is CONFIRMED not a range
+  // artifact -- the surrogate flattens, it does not cross zero; the uniform-in-T obstruction stays
+  // OFF the line (Weil strength). Import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-96167-route-bd-online-margin-floor-extended.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

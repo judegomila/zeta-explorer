@@ -19753,6 +19753,13 @@ const DATA_MODULES = [
   '/src/data/imp-96264-route-m-amplitude-ratio-sensitivity.js',
   '/src/data/imp-96265-margin-floor-loo-stability.js',
   '/src/data/imp-96266-eflow-peak-recovery-residual.js',
+  // imp-96409 (2026-09-24): ASSESSMENT -- the parity factor kappa(N)=E_coll/E_flow the rigorous
+  // Gronwall flow term must be enlarged by to tie the GUE-conditional E_coll is bounded below by
+  // ~5.30 globally (~6.26 in the N>=1e3 diagnostic regime) and DIVERGES with N (to ~4.94e3 at
+  // 1e12), so E_flow domination is unreachable at every N; reaching parity needs the imp-398 pinned
+  // C_F inflated x5.3-6.3, outside any admissible mollifier. Measurement only; no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96409-eflow-domination-required-factor.js',
   '/src/data/imp-96267-covariance-drift-rigidity-limit-reach.js',
   '/src/data/imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js',
   '/src/data/imp-96271-worst-excess-evt-gaussianity.js',
@@ -19928,6 +19935,14 @@ const DATA_MODULES = [
   // absolute E_coll magnitude scales, as sqrt(C_KH). Measurement only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96429-ecoll-ckh-sensitivity.js',
+  // imp-96447 (2026-09-24): MEASUREMENT -- replace the arbitrary 0.1x..100x C_KH
+  // sweep of imp-96429 with the ACTUAL admissible C_Selberg range [1.1619, 3.0]
+  // (imp-2641 Trudgian), mapped through C_KH = pi*C_Selberg and the sqrt scaling.
+  // The absolute E_coll(0.125,1e22) band is [1.666092e-11, 2.677165e-11] (span
+  // factor 1.6069), ~19.7x tighter than the wide sweep (31.6228x); rigorous
+  // headline E_coll (C_Selberg=2.622) sits inside. Measurement only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96447-ecoll-cselberg-admissible-band.js',
   // imp-96358 (2026-09-24): browser-only-assertion audit of the imp-96337 mixed-ladder-margin
   // viz page. Headless-Chromium render of /#/viz-imp96337-mixed-ladder-margin is clean: both
   // charts draw geometry, honest banner + top-confined-states residual sentence both present,

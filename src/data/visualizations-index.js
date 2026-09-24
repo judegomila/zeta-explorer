@@ -4031,6 +4031,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every N, plus78Fraction, stFraction and S(gamma_N) value plotted here is copied verbatim from the imp-96445 baked per-anchor split; the only new step is the log10(N) stacked-bar projection. Accuracy-audit diagnostic only, not rigorous; changes no bound; conditional C_H <= 0.127 stays UNPROVEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96494-sigma-knee-widened-grid',
+      title: 'Widened-Grid sigma-Knee Resolution and Window-Exit Factor',
+      oneLine:
+        'Charts the imp-96464 widened-[1e7,1e13]-grid re-measurement of the imp-96451 sigma-knee: the D2 zero-crossing knee resolves at every 0.5x..2x E_trunc factor (elasticity ~-0.9115, matching the crossover and the on-window imp-96451 value), and marks the bisected factor f*~1.7847 where it exits the original [1e9,1e12] window.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96494-sigma-knee-widened-grid-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96464-sigma-knee-widened-grid-window-exit.js (IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT; imp-96494 viz page)',
+      ticket: 'imp-96494',
+      pedagogicalStep: 262,
+      honestCeiling:
+        'Presentation only: every factor, eTrunc, knee, crossover, gap and exit-factor value plotted here is copied verbatim from the imp-96464 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

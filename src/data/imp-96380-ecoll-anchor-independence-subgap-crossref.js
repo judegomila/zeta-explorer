@@ -182,7 +182,7 @@ export const IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF_ASSERTIONS = [
         IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF.headword
           .independentSecondAnchorIsForTheRateNotTheRatio,
       ) &&
-      /definitionally exact/.test(
+      /definitionally exact/i.test(
         IMP96380_ECOLL_ANCHOR_INDEPENDENCE_SUBGAP_CROSSREF.headword
           .independentSecondAnchorIsForTheRateNotTheRatio,
       ),

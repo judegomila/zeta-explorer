@@ -3444,6 +3444,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: the 26-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96209 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96263-route-bd-margin-gamma4000',
+      title: 'imp-96224: Worst-Support On-Line Margin rho(32,T) -- Full 34-Point Column to gamma_4000',
+      oneLine:
+        'Log-x chart of the full 34-point imp-96224 worst-support (N=32) on-line signed-force margin column rho(32,T) from gamma_200 to gamma_4000, with both fitted (not re-fit) laws overlaid: the reciprocal-log floor (0.03411, still falling) and the log-linear no-floor law (now the clearly better R2 fit, naive cross T~4.2e5); every observed and fitted value stays strictly above zero.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96263-route-bd-margin-gamma4000-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96224-route-bd-online-margin-floor-gamma4000.js (validation/extendedT/extendedRho/refit; imp-96263 viz page)',
+      ticket: 'imp-96263',
+      pedagogicalStep: 239,
+      honestCeiling:
+        'Presentation only: the 34-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96224 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96237-height-to-floor-law',
       title: 'imp-96207: Verified-Height-to-Floor Law H_required(E) = (prefactor/E)^(1/kappa_star)',
       oneLine:

@@ -19553,6 +19553,10 @@ const DATA_MODULES = [
   // no-floor log-linear law (-0.01042 -> -0.01828). Sign unchanged (rho=0.3791 at T~4506, no
   // crossing). Import-light (baked literals, no zeros bundle). No bound change; NO QED.
   '/src/data/imp-96224-route-bd-online-margin-floor-gamma4000.js',
+  // imp-96263 (2026-09-24): import-light viz-data leaf for the imp-96224 gamma_4000 worst-support
+  // rho(32,T) column (34 points) and its two fitted laws, since imp-96236 stops at gamma_2000.
+  // Presentation only, reshapes imp-96224 literals verbatim. No bound change; NO QED.
+  '/src/data/imp-96263-route-bd-margin-gamma4000-viz-data.js',
   // imp-96249 (2026-09-24): EXTENDS the imp-96224 worst-support on-line signed-force margin
   // column rho(32,T) from gamma_4000 (T~4506) to gamma_8000 (T~8148, census 1541 -> 3085).
   // Completes the imp-96224 drift: the fitted reciprocal-log floor reaches zero and crosses

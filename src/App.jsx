@@ -1349,6 +1349,9 @@ const Imp96142DecorrelationSafetyMarginViz = lazy(() =>
 const Imp96236RouteBDMarginGamma2000ChartViz = lazy(() =>
   import('./pages/Imp96236RouteBDMarginGamma2000ChartViz.jsx')
 );
+const Imp96263RouteBDMarginGamma4000ChartViz = lazy(() =>
+  import('./pages/Imp96263RouteBDMarginGamma4000ChartViz.jsx')
+);
 const Imp96237HeightToFloorViz = lazy(() =>
   import('./pages/Imp96237HeightToFloorViz.jsx')
 );
@@ -3617,6 +3620,10 @@ function AppShell() {
           <Route
             path="/viz-imp96236-route-bd-margin-gamma2000"
             element={<Imp96236RouteBDMarginGamma2000ChartViz />}
+          />
+          <Route
+            path="/viz-imp96263-route-bd-margin-gamma4000"
+            element={<Imp96263RouteBDMarginGamma4000ChartViz />}
           />
           <Route
             path="/viz-imp96237-height-to-floor-law"

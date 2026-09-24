@@ -19475,6 +19475,12 @@ const DATA_MODULES = [
   '/src/data/imp-96237-height-to-floor-viz-data.js',
   '/src/data/imp-96238-joint-leak-region-viz-data.js',
   '/src/data/imp-96160-max-anchor-window-robustness-viz-data.js',
+  // imp-96243 (2026-09-24): DERIVATION — derives in closed form why the imp-96227 anchor-invariant
+  // per-channel Kato-Temple coupling is EXACTLY sqrt(3)/2. The U=1 boundary factors as
+  // s0*[(t-1)(t-alpha) + (p-1)(p-alpha)eps_a^2 + (q-1)(q-alpha)eps_b^2]=0, an exact line in the
+  // squared-overlap coordinates; spending eps_a = half the pure-adjacent threshold consumes 1/4 of the
+  // budget, leaving sqrt(3)/2 of the pure-bottom overlap, anchor-invariantly. Import-light, 6 assertions.
+  '/src/data/imp-96243-route-i-kato-temple-coupling-derivation.js',
   // imp-96224 (2026-09-23): EXTENDS the imp-96209 worst-support on-line signed-force margin
   // column rho(32,T) from gamma_2000 (T~2515) to gamma_4000 (T~4506, census 775 -> 1541).
   // Settles the imp-96209 drift direction: the fitted reciprocal-log floor keeps falling toward

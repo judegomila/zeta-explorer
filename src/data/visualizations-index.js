@@ -3332,6 +3332,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every row is copied verbatim from the imp-96112 baked 12-config sweep (no re-derivation of the band() estimator or the offline quadrature); the +3.0% imp-96090 headline is the tight end of a uniformly-positive family, not a representative central margin; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96212-two-branch-etrunc-obstruction',
+      title: 'imp-96190: The Two-Branch E_trunc Obstruction',
+      oneLine:
+        'Panel of the imp-96190 assessment: the truncation height feeding the Ingham tail has exactly two parameterizations (fixed T_PT, frozen at 3.06e-5, or N-coupled, forced to the moving exponent kappa(H)=(4/3)/log H) and the exact height-cancellation H^-kappa(H)=exp(-4/3)=0.263597 pins the branch-B tail to grow like ~0.4 log H instead of decaying -- neither branch supplies an N-decaying fixed-strip tail.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96190-fixed-strip-n-decaying-tail-obstruction.js',
+      paperSourcePath:
+        'src/data/imp-96190-fixed-strip-n-decaying-tail-obstruction.js (branches, movingTailTable, heightCancellationIdentity; imp-96212 viz page)',
+      ticket: 'imp-96212',
+      pedagogicalStep: 215,
+      honestCeiling:
+        'Presentation only: renders the frozen imp-96190 branch definitions and moving-tail ladder verbatim (no re-derivation of the Ingham density or the height-cancellation identity); this is an assessment/derivation, not a rigorous theorem; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96141-excursion-depth-offset-ledger-table',
       title: 'imp-96108: Excursion-Depth-vs-Max-Anchor Offset Ledger',
       oneLine:

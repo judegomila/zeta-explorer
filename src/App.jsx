@@ -1316,6 +1316,9 @@ const Imp96115BelowEnvelopeDipSignificanceTableViz = lazy(() =>
 const Imp96139WindowRobustnessSweepTableViz = lazy(() =>
   import('./pages/Imp96139WindowRobustnessSweepTableViz.jsx')
 );
+const Imp96212TwoBranchEtruncObstructionViz = lazy(() =>
+  import('./pages/Imp96212TwoBranchEtruncObstructionViz.jsx')
+);
 const Imp96141ExcursionDepthOffsetLedgerTableViz = lazy(() =>
   import('./pages/Imp96141ExcursionDepthOffsetLedgerTableViz.jsx')
 );
@@ -3501,6 +3504,10 @@ function AppShell() {
           <Route
             path="/viz-imp96139-window-robustness-sweep-table"
             element={<Imp96139WindowRobustnessSweepTableViz />}
+          />
+          <Route
+            path="/viz-imp96212-two-branch-etrunc-obstruction"
+            element={<Imp96212TwoBranchEtruncObstructionViz />}
           />
           <Route
             path="/viz-imp96141-excursion-depth-offset-ledger-table"

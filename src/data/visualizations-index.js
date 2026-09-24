@@ -3485,6 +3485,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the ramp table and landmark values are copied verbatim from the imp-96151 baked fields; the U-shape/monotone comparison curve is illustrative of the imp-96151 sign findings, not a re-derivation of sigma(N); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96197-en-decay-exponent-ladder',
+      title: 'imp-96166: E(N) Decay-Exponent Ladder vs. the Step-4 Bridge Threshold',
+      oneLine:
+        'Local decay exponent p(N) = -dlogE/dlogN of the assembled Step-4 bridge budget E(N): peaks near 0.47 (sqrt-law E_coll regime) then collapses toward 0 past the crossover N_x~3.28e9, where E(N) plateaus at the frozen E_trunc floor ~3.06e-5.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96197-en-decay-exponent-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96166-en-decay-exponent-vs-step4-bridge-threshold.js (decay-exponent ladder, crossover, residual shortfall; imp-96197 viz page)',
+      ticket: 'imp-96197',
+      pedagogicalStep: 225,
+      honestCeiling:
+        'Presentation only: every ladder value plotted is imported verbatim from imp-96166 (no re-derivation, no fresh computation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

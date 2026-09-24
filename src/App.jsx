@@ -1355,6 +1355,9 @@ const Imp96176SigmaClosedFormLadderViz = lazy(() =>
 const Imp96160MaxAnchorWindowRobustnessViz = lazy(() =>
   import('./pages/Imp96160MaxAnchorWindowRobustnessViz.jsx')
 );
+const Imp96197EnDecayExponentLadderViz = lazy(() =>
+  import('./pages/Imp96197EnDecayExponentLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3583,6 +3586,10 @@ function AppShell() {
           <Route
             path="/viz-imp96176-sigma-closed-form-ladder"
             element={<Imp96176SigmaClosedFormLadderViz />}
+          />
+          <Route
+            path="/viz-imp96197-en-decay-exponent-ladder"
+            element={<Imp96197EnDecayExponentLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

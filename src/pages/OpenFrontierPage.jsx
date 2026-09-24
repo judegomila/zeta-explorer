@@ -2742,6 +2742,71 @@ const DYSON_LANE_RESIDUALS = [
   },
 ];
 
+// Route M (Nyman-Beurling Burnol/Vasyunin) numerical-program residuals. Each
+// is a MEASUREMENT/FIT-ONLY sub-gap already carrying its own honest-status
+// banner in src/data/ but not previously rendered on any page (imp-96518).
+const ROUTE_M_RESIDUALS = [
+  {
+    id: 'RouteM-1',
+    tag: 'imp-96487-remainder-model-degenerate',
+    color: '#a05a2c',
+    badge: 'ASYMPTOTE UNDECIDED',
+    title: 'Route M Burnol ratio: asymptotic-remainder model favors a plateau at ~0.985, not ratio -> 1',
+    status: 'OPEN',
+    body: [
+      'The decaying-oscillation asymptotic-remainder model fit to the N=250..10000 ratio(N) = ' +
+      'd_N^2 log N / C_burnol ladder favors a plateau centerline at ~0.985 over the RH asymptote ' +
+      '1 by a factor ~1.9x in rms, robustly across every trial oscillation frequency. But the ' +
+      'log-N window is only 3.689 wide (~2.26 oscillation periods) and the remainder decay ' +
+      'exponent is degenerate, so the fitted centerline and decay rate are jointly ' +
+      'underdetermined: the model gives no evidence for a drift to 1 and positively favors the ' +
+      'plateau on the accessible range, but cannot rigorously exclude a centerline that creeps ' +
+      'upward beyond N=10000 on a scale this window cannot resolve. Deciding the true asymptote ' +
+      'needs a wider Gram ladder, not a further fit.',
+      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/fit only, no bound is claimed.',
+    ],
+    links: [],
+  },
+  {
+    id: 'RouteM-2',
+    tag: 'imp-96491-extrapolation-inconsistent-needs-new-form',
+    color: '#a05a2c',
+    badge: 'EXTRAPOLATION FAILS',
+    title: 'Route M Burnol ratio: the imp-96094 smooth fit extrapolates the wrong side of 1 -- needs a new functional form',
+    status: 'OPEN',
+    body: [
+      'The imp-96094 smooth 1/logN + 1/logN^2 fit (N <= 2600), extrapolated to the imp-96105 ' +
+      'extension rungs N=3000..6000, predicts ratio(N) rising ABOVE 1 (1.0126..1.0361), the ' +
+      'opposite of the measured below-1 plateau (0.9639..0.9856). All seven residuals are ' +
+      'one-signed (mean bias -0.0489), rms ~5.4x the in-sample rms and growing with N. The ' +
+      'extrapolated fit has no out-of-sample predictive power; a new functional form (below-1 ' +
+      'asymptote, added constant offset, or different 1/logN power) is required.',
+      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Pure-arithmetic evaluation of a baked fit, no refit, no bound is claimed.',
+    ],
+    links: [],
+  },
+  {
+    id: 'RouteM-3',
+    tag: 'imp-96466-doubledouble-ceiling-extrapolated-to-1e16',
+    color: '#a05a2c',
+    badge: 'CONDITIONING NOT LIMITING',
+    title: 'Route M Vasyunin double-double conditioning ceiling (~1.03e16) extrapolates measured fits by ~12 decades',
+    status: 'OPEN (extrapolated)',
+    body: [
+      'Re-deriving the Cholesky-breakdown conditioning ceiling under double-double precision ' +
+      '(eps=1e-32) from the imp-96443 measured lam_max log-fit and the imp-96428 measured ' +
+      'lam_min power law gives N ~ 1.026e16, about 1.035e12 times the imp-96352 wall-clock ' +
+      'compute ceiling N ~ 9916 -- compute still binds first by twelve orders of magnitude. But ' +
+      'both inherited fits are measured only over N=250..6000, so this ceiling extrapolates them ' +
+      'by ~12 decades in N. Because lam_max enters cond# only linearly while lam_min ~ N^-1.92 ' +
+      'dominates, even an order-of-magnitude lam_max error moves the ceiling by a factor < 3 -- ' +
+      'negligible against the ~1e12x margin, so the compute-binds-first verdict is robust to the extrapolation.',
+      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extrapolation only, no Gram was rebuilt, no bound is claimed.',
+    ],
+    links: [],
+  },
+];
+
 export default function OpenFrontierPage() {
   return (
     <div className="page">
@@ -4723,6 +4788,65 @@ export default function OpenFrontierPage() {
           transforms remain unexcluded.
         </p>
       </div>
+
+      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #a05a2c' }}>
+        <strong style={{ color: '#a05a2c', fontSize: 13 }}>Route M (Nyman-Beurling Burnol/Vasyunin) numerical residuals</strong>
+        <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>
+          The three records below are honest-status sub-gaps from the Route M finite-N
+          numerical program (Burnol-normalized ratio ladder and Vasyunin Gram
+          conditioning). Each already carries its own reproducible measurement and
+          honest-status banner in src/data/ but was previously referenced only in the
+          improvement log, not rendered on any page. None of them establish RH, change
+          the PT-Lambda &lt;= 0.2 bound, or claim operator positivity.
+        </p>
+      </div>
+
+      {ROUTE_M_RESIDUALS.map((r) => (
+        <div
+          key={r.id}
+          className="card"
+          style={{ marginBottom: 18, borderLeft: "3px solid " + r.color }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: 0.5,
+                color: r.color,
+                border: "1px solid " + r.color,
+                borderRadius: 4,
+                padding: '2px 7px',
+              }}
+            >
+              {r.badge}
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 10.5,
+                fontWeight: 700,
+                color: '#b58a2e',
+                border: '1px solid #b58a2e',
+                borderRadius: 4,
+                padding: '1px 6px',
+              }}
+            >
+              {r.status}
+            </span>
+            <code style={{ fontSize: 11, color: '#877b67' }}>{r.tag}</code>
+          </div>
+          <strong style={{ color: '#1c1814', fontSize: 14, display: 'block', marginBottom: 10 }}>
+            {r.title}
+          </strong>
+          {r.body.map((para, i) => (
+            <p key={i} style={{ fontSize: 13, color: '#877b67', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+              {para}
+            </p>
+          ))}
+        </div>
+      ))}
 
       <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #3f6b86' }}>
         <strong style={{ color: '#3f6b86', fontSize: 13 }}>Separate Dyson / collision-flow lane</strong>

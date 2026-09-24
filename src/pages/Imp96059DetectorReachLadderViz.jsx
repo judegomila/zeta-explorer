@@ -10,6 +10,7 @@ import {
 } from '../data/imp-96059-detector-reach-ladder-viz-data.js';
 import { IMP96149_DETECTOR_FIT, IMP96149_EXTRAPOLATION } from '../data/imp-96149-route-l-detector-reach-law-fit.js';
 import { IMP96287_REACH_BAND } from '../data/imp-96287-route-l-reach-band-reconciliation.js';
+import { IMP96273_MEASURED_LOWER_BOUND } from '../data/imp-96273-detector-zero40-extrapolation.js';
 
 const BAR_COLOR = '#38bdf8';
 const UNDETECTED_COLOR = '#f87171';
@@ -217,6 +218,14 @@ export default function Imp96059DetectorReachLadderViz() {
         gamma_0^b
       </p>
       <PowerLawComparisonTable />
+
+      <p style={{ color: '#64748b', fontSize: '0.78rem', margin: '0.5rem 0 0' }}>
+        Honest status (imp-96273): this power law under-predicts the first-detection order for
+        zero {IMP96273_MEASURED_LOWER_BOUND.zeroIndex} -- it forecasts N_det ~ 144-166 but the zero
+        is measured UNDETECTED through N = {IMP96273_MEASURED_LOWER_BOUND.nDetLowerBound} (&ge;
+        {IMP96273_MEASURED_LOWER_BOUND.pointOverMeasuredRatio.toFixed(2)}x the point estimate).
+        The reach law is super-power at this height; the verified-zero route stays cheaper.
+      </p>
 
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         The linear-in-N reach: resolved count among the first 40 zeros vs CMV order N

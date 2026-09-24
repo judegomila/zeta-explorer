@@ -60,6 +60,8 @@
  * @see imp-96094-route-m-burnol-ratio-dense-ladder.js (dense ladder to 2600)
  * @see imp-96069-route-m-mellin-residual-extended-n1000-n2000.js (3-rung baseline)
  * @see rh-route-m-nyman-beurling-vasyunin-reciprocity-2026-09-23.js (Route M base)
+ * @see imp-96325-route-m-vasyunin-gram-n1e4-run.js (the 1e4 target named below WAS run: still no tightening)
+ * @see imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (conditioning does not cap the reach past N=6000)
  *
  * Ticket: imp-96105 (numerical, opus-4-8, api-pool). Numerics only; NO QED.
  */
@@ -145,6 +147,11 @@ export const IMP96105_SUBGAP = Object.freeze({
   // an O(N^3) wall -- a dedicated off-peak process reaches N=1e4 fine. That scheduling
   // fix does NOT close this sub-gap: whether ratio(N) -> 1 beyond N=6000 is still open.
   schedulingCorrection: 'imp-96261 (IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE): "CPU-starved" is a scheduling condition (pool contention), not an intrinsic compute wall -- a dedicated process reaches N=1e4 in ~7 min / ~2 GB. Resource framing only; the beyond-6000 asymptotic question stays open.',
+  // imp-96461 re-point: the 1e4 target this sub-gap named has since been RUN, and a
+  // separate conditioning concern has been RULED OUT -- both supersede the "remains
+  // CPU-starved" / "1e4 target" framing above as an open TODO.
+  ranToN1e4: 'imp-96325 (imp-96325-route-m-vasyunin-gram-n1e4-run.js): the N=1e4 ladder named here was actually RUN. Q1 answer: NO tightening -- ratio(N) still oscillates in the same ~4.6 percent band with EIGHT sign changes out to N=1e4 (worst deviation 0.0361, unchanged from the N=6000 figure). The finite-N plateau/oscillation is reconfirmed, not resolved, at the target this sub-gap names; the true asymptotic beyond N=1e4 stays undecided.',
+  conditioningCeiling: 'imp-96428 (imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js): CONDITIONING DOES NOT CAP the reach past N=6000. The measured lam_min ~ N^-1.9179 decay only forces double-precision Cholesky breakdown at N ~ 2.16e5 (pessimistic lam_max bound) to ~1e7 (trace bound) -- 22x to 1000x beyond the already-run N=1e4 (imp-96325). Wall-clock (imp-96352, ~30 min ceiling N~9916), not numerical conditioning, is the binding constraint on any further brute-force extension.',
 });
 
 export const IMP96105_HONEST_BANNER =
@@ -202,6 +209,14 @@ const IMP96105_ASSERTIONS = [
       typeof IMP96105_SUBGAP.statement === 'string' &&
       /beyond-6000/.test(IMP96105_SUBGAP.id),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers and an explicit named sub-gap for the undecided asymptotic beyond N=6000.',
+  },
+  {
+    id: 'imp96105-subgap-repointed-to-imp96325-imp96428',
+    holds: () =>
+      /imp-96325/.test(IMP96105_SUBGAP.ranToN1e4) &&
+      /imp-96428/.test(IMP96105_SUBGAP.conditioningCeiling) &&
+      /CONDITIONING DOES NOT CAP/.test(IMP96105_SUBGAP.conditioningCeiling),
+    why: 'the sub-gap re-points its consumers to the two tickets that superseded its original "1e4 target / CPU-starved" framing: imp-96325 (the ladder was actually run to N=1e4) and imp-96428 (conditioning does not cap the reach past N=6000).',
   },
 ];
 

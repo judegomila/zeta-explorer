@@ -3947,6 +3947,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every C_KH, factorVsBaseline, rateRelGap and eCollA1e22 value is copied verbatim from the imp-96429 baked sweep table (no re-derivation); the only new arithmetic is the log10 axis reshaping, a double-precision floor clip for the exact-zero 1e22 gap, and the eCollA1e22-to-baseline ratio; measurement/accuracy audit of a normalization constant only, no gap closed, no bound changed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96456-vasyunin-conditioning-ceiling',
+      title: 'Route M Vasyunin Conditioning Ceiling',
+      oneLine:
+        'Charts the imp-96428 Route M Vasyunin Gram conditioning-ceiling finding: the 12 measured lam_min(N) rungs and power-law fit (p=1.918), and cond#(N) = lam_max/lam_min under the three lam_max proxies against the 1/eps=4.5e15 double-precision breakdown line, marking the imp-96352 compute ceiling N~9916 far below all three conditioning ceilings.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96456-vasyunin-conditioning-ceiling-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js (IMP96428_FIT / IMP96428_CEILING; imp-96456 viz page)',
+      ticket: 'imp-96456',
+      pedagogicalStep: 256,
+      honestCeiling:
+        'Presentation only: the 12 measured lam_min rungs, the power-law fit, and the three proxy ceiling-N values are copied verbatim from imp-96428; the cond#(N) curves are traced from the exact lam_max(N) proxy formulas imp-96428 names (N, 10 log N, 1), each verified here to reproduce the published ceiling-N and target cond# values; measurement/extrapolation only, no Gram rebuilt, no bound changed, no operator positivity established; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -1454,6 +1454,9 @@ const Imp96454EcollGapLadderViz = lazy(() =>
 const Imp96455CKhSensitivityViz = lazy(() =>
   import('./pages/Imp96455CKhSensitivityViz.jsx')
 );
+const Imp96456VasyuninConditioningCeilingViz = lazy(() =>
+  import('./pages/Imp96456VasyuninConditioningCeilingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3814,6 +3817,10 @@ function AppShell() {
           <Route
             path="/viz-imp96455-ckh-sensitivity"
             element={<Imp96455CKhSensitivityViz />}
+          />
+          <Route
+            path="/viz-imp96456-vasyunin-conditioning-ceiling"
+            element={<Imp96456VasyuninConditioningCeilingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

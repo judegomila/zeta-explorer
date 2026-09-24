@@ -708,6 +708,16 @@ const DATA_MODULES = [
   // cross-validation only; changes no bound; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2
   // SOTA; RH open.
   '/src/data/imp-96232-kappa-star-floor-height-cross-validation.js',
+  // imp-96247 (2026-09-24): EXTENDS the imp-96232 fixed-strip floor-to-height law
+  // H_required(E) = (3.0/E)^{1/0.4} from floors 1e-5..1e-8 to floors 1e-9 and 1e-10.
+  // Recompute gives 4.9295e23 (1e-9, ~11.2157 decades above 3e12) and 1.5588e26 (1e-10,
+  // ~13.7157 decades); the 2.5-height-decades-per-floor-decade leverage (10^{2.5}~316x)
+  // continues unbroken from the 1e-8 endpoint (1.5588e21), and the mantissa cycle
+  // 4.9295 -> 1.5588 persists (odd floor exponent lands on 4.9295, even on 1.5588, via
+  // 3^{2.5}=15.588457 with a 10^{0.5} half-decade on odd exponents). Import-light literals;
+  // extension only; changes no bound; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2
+  // SOTA; RH open.
+  '/src/data/imp-96247-floor-height-law-extension-1e9-1e10.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

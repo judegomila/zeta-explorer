@@ -1382,6 +1382,9 @@ const Imp96318ConfidentSpanCrossingViz = lazy(() =>
 const Imp96320RouteLReachBandViz = lazy(() =>
   import('./pages/Imp96320RouteLReachBandViz.jsx')
 );
+const Imp96322EDecompositionViz = lazy(() =>
+  import('./pages/Imp96322EDecompositionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3646,6 +3649,10 @@ function AppShell() {
           <Route
             path="/viz-imp96320-route-l-reach-band"
             element={<Imp96320RouteLReachBandViz />}
+          />
+          <Route
+            path="/viz-imp96322-e-decomposition"
+            element={<Imp96322EDecompositionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

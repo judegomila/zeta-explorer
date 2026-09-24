@@ -3611,6 +3611,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every band and point-estimate literal is copied verbatim from the imp-96287 baked reconciliation; only the log10 axis reshaping is computed here (no re-derivation, no new LSQ fit); derivation on baked literals only, changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96322-e-decomposition',
+      title: 'imp-96290: E(N) = E_trunc + E_flow + E_coll Decomposition and the C_H Factorization',
+      oneLine:
+        'Log-scale bar chart of the imp-96290 Step-4 bridge E(N) sub-term magnitudes at the N=1e4 conditional anchor (E_trunc~3.1e-5, E_flow~1.239e-3, E_coll~0.0111, total~0.0122) against the Platt-Trudgian bound 0.2, plus a table of the C_H = C_shock * C_Lip / 4 factorization showing C_Lip as the sole unquantified residual.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96322-e-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96290-step4-bridge-subconstant-inventory.js (G6/G6a/C_H inventory, conditional anchor, C_H factorization; imp-96322 viz page)',
+      ticket: 'imp-96322',
+      pedagogicalStep: 234,
+      honestCeiling:
+        'Presentation only: every E_trunc/E_flow/E_coll/E(N) magnitude and every C_shock/C_H value is copied verbatim from the imp-96290 baked inventory; only the log-scale bar layout is computed here (no re-derivation); the conditional anchor (C_H <= 0.127) is UNPROVEN (C_H isRigorousUpperBound = false, imp-2642/imp-2701) and C_Lip is the RH-hard unquantified residual (imp-2640 Gronwall discharge NEGATIVE); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -19778,6 +19778,14 @@ const DATA_MODULES = [
   // corroborates the RATE R(N), not the (definitionally exact) ratio law.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96380-ecoll-anchor-independence-subgap-crossref.js',
+  // imp-96381 audit: the following five imp-9634x/imp-9635x modules were git-tracked
+  // but absent from this DATA_MODULES sweep (--since-changed untracked/unregistered
+  // trap). Wired in here to close the gap.
+  '/src/data/imp-96345-route-bd-offline-margin-envelope.js',
+  '/src/data/imp-96346-route-l-largegamma-residual-tail.js',
+  '/src/data/imp-96347-detector-reach-curvature-correction.js',
+  '/src/data/imp-96350-covariance-outoffamily-crossvalidation.js',
+  '/src/data/imp-96351-sigma-knee-tenthdecade-1e12-stability.js',
 ];
 
 let ALL_MODULES = FAST_MODE

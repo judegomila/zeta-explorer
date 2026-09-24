@@ -5,6 +5,8 @@ import {
   IMP96337_THRESHOLD_SERIES,
   IMP96337_ANCHORS,
   IMP96337_HONEST_BANNER,
+  IMP96376_DENSITY_GROWTH_SERIES,
+  IMP96376_FIRST_PRIME5_RUNG,
 } from '../data/imp-96337-mixed-ladder-margin-viz-data.js';
 
 function RungMarginChart() {
@@ -135,6 +137,77 @@ function ThresholdCountChart() {
   );
 }
 
+function DensityGrowthChart() {
+  const svgW = 680;
+  const svgH = 300;
+  const padL = 56;
+  const padR = 16;
+  const padT = 16;
+  const padB = 46;
+  const plotW = svgW - padL - padR;
+  const plotH = svgH - padT - padB;
+
+  const log10 = (v) => Math.log(v) / Math.LN10;
+  const xMin = log10(1e2);
+  const xMax = log10(1e9);
+  const yMin = log10(1);
+  const yMax = log10(2000);
+
+  const xOf = (U) => padL + ((log10(U) - xMin) / (xMax - xMin)) * plotW;
+  const yOf = (v) => padT + plotH - ((log10(v) - yMin) / (yMax - yMin)) * plotH;
+
+  const pathFor = (key) => IMP96376_DENSITY_GROWTH_SERIES
+    .map((row, i) => `${i === 0 ? 'M' : 'L'} ${xOf(row.U).toFixed(2)} ${yOf(row[key]).toFixed(2)}`)
+    .join(' ');
+
+  const yTicks = [1, 10, 100, 1000];
+  const xTicks = IMP96376_DENSITY_GROWTH_SERIES.map((r) => r.U);
+
+  return (
+    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+      {yTicks.map((v) => (
+        <g key={`y${v}`}>
+          <line x1={padL} y1={yOf(v)} x2={padL + plotW} y2={yOf(v)} stroke="#334155" strokeWidth={0.5} opacity={0.4} />
+          <text x={padL - 8} y={yOf(v) + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>{v}</text>
+        </g>
+      ))}
+
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+
+      <path d={pathFor('cubicAsymptotic')} fill="none" stroke="#94a3b8" strokeWidth={1.25} strokeDasharray="2 3" opacity={0.85} />
+      <path d={pathFor('twoPrimeCount')} fill="none" stroke="#38bdf8" strokeWidth={1.75} opacity={0.9} />
+      <path d={pathFor('threePrimeCount')} fill="none" stroke="#f472b6" strokeWidth={1.75} opacity={0.9} />
+
+      {IMP96376_DENSITY_GROWTH_SERIES.map((row) => (
+        <g key={`d-${row.U}`}>
+          <circle cx={xOf(row.U)} cy={yOf(row.twoPrimeCount)} r={2.6} fill="#38bdf8" />
+          <circle cx={xOf(row.U)} cy={yOf(row.threePrimeCount)} r={2.6} fill="#f472b6" />
+        </g>
+      ))}
+
+      {xTicks.map((v) => (
+        <text key={`x${v}`} x={xOf(v)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={7.5}>
+          {v.toExponential(0)}
+        </text>
+      ))}
+
+      <text x={padL + plotW / 2} y={svgH - 6} textAnchor="middle" fill="#64748b" fontSize={9.5}>
+        U (log10 axis) &mdash; S-unit count(u &le; U)
+      </text>
+
+      <g transform={`translate(${padL + 8}, ${padT + 8})`}>
+        <line x1={0} y1={0} x2={18} y2={0} stroke="#f472b6" strokeWidth={1.75} />
+        <text x={22} y={3} fill="#94a3b8" fontSize={8.5}>three-prime {'{'}oo,2,3,5{'}'} count, ~(ln U)^3</text>
+        <line x1={0} y1={16} x2={18} y2={16} stroke="#38bdf8" strokeWidth={1.75} />
+        <text x={22} y={19} fill="#94a3b8" fontSize={8.5}>two-prime {'{'}oo,2,3{'}'} count, ~(ln U)^2</text>
+        <line x1={0} y1={30} x2={18} y2={30} stroke="#94a3b8" strokeWidth={1.25} strokeDasharray="2 3" />
+        <text x={22} y={33} fill="#94a3b8" fontSize={8.5}>cubic leading term (ln U)^3/(6 ln2 ln3 ln5)</text>
+      </g>
+    </svg>
+  );
+}
+
 export default function Imp96337MixedLadderMarginViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
@@ -174,6 +247,18 @@ export default function Imp96337MixedLadderMarginViz() {
       </h3>
       <ThresholdCountChart />
 
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', margin: '1.5rem 0 0.5rem' }}>
+        imp-96376: three-prime {'{'}oo,2,3,5{'}'} tail density vs the two-prime count
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 760 }}>
+        Adding the prime 5 does not raise the ceiling: the new smallest rung u = 5 sits at
+        s&#8325; = {IMP96376_FIRST_PRIME5_RUNG.s.toFixed(6)}, a margin
+        {' '}{IMP96376_FIRST_PRIME5_RUNG.marginBelowCeiling.toFixed(6)} below s&#8322; = {IMP96337_ANCHORS.ceiling.toFixed(6)}.
+        What changes is density: the S-unit count(u &le; U) grows from the two-prime (ln U)&sup2; to the
+        three-prime (ln U)&sup3;, converging toward the cubic leading term from above as U grows.
+      </p>
+      <DensityGrowthChart />
+
       <div
         style={{
           marginTop: '1.25rem',
@@ -205,10 +290,11 @@ export default function Imp96337MixedLadderMarginViz() {
       >
         <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the imp-96270
         baked leadingMagnitudes and countAboveThreshold fields verbatim (only the margin and threshold
-        reordering are computed here). This is a tabulation of the already-reduced imp-96143 fact (I):
-        it diagonalizes nothing, establishes no operator positivity, and does not touch the
-        finitely-many top confined states outside the ladder (the actual residual). Changes no bound,
-        no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+        reordering are computed here), extended by imp-96376 with the imp-96333 three-prime
+        cubicGrowthSamples and firstNewRung fields. This is a tabulation of the already-reduced
+        imp-96143 fact (I): it diagonalizes nothing, establishes no operator positivity, and does not
+        touch the finitely-many top confined states outside the ladder (the actual residual). Changes
+        no bound, no RH claim; Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
       </div>
     </div>
   );

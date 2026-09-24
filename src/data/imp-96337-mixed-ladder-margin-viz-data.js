@@ -24,9 +24,23 @@
  * Ticket: imp-96337 (ux, sonnet-4-6, medium). Presentation only, RH-free; changes no bound; NO QED.
  */
 
-import { IMP_96270_SPECTRAL_GAP_MARGIN } from './imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js';
+import { IMP_96270_SPECTRAL_GAP_MARGIN, ladderMagnitudes } from './imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js';
+import { IMP_96333_SPECTRAL_GAP_MARGIN_235 } from './imp-96333-mixed-ladder-235-spectral-gap-margin-tabulation.js';
 
 const CEILING = IMP_96270_SPECTRAL_GAP_MARGIN.ceiling;
+
+// imp-96376: three-prime {oo,2,3,5} tail-density growth vs the two-prime {oo,2,3}
+// count, at the five U samples baked by imp-96333. The two-prime count is
+// recomputed here (ladderMagnitudes(U).length, same helper imp-96270 exports)
+// since imp-96270 only baked threshold-count pairs, not count(u<=U) samples.
+export const IMP96376_DENSITY_GROWTH_SERIES = IMP_96333_SPECTRAL_GAP_MARGIN_235.cubicGrowthSamples.map((row) => ({
+  U: row.U,
+  threePrimeCount: row.count,
+  twoPrimeCount: ladderMagnitudes(row.U).length,
+  cubicAsymptotic: row.asymptotic,
+}));
+
+export const IMP96376_FIRST_PRIME5_RUNG = IMP_96333_SPECTRAL_GAP_MARGIN_235.firstNewRung;
 
 // The ten baked leading rungs, reshaped with the margin below the ceiling
 // (s_2 - s_u) alongside each magnitude, sorted u ascending (already the
@@ -60,7 +74,9 @@ export const IMP96337_HONEST_BANNER =
   + '(s_2 - s_u) and the threshold-series reordering are computed here (no re-derivation, no new '
   + 'diagonalization). This charts a TABULATION of the already-reduced imp-96143 fact (I): it establishes '
   + 'no operator positivity, moves no Lambda bound, and does NOT touch the finitely-many top confined '
-  + 'states (the actual residual).';
+  + 'states (the actual residual). The imp-96376 three-prime density-growth panel adds the prime 5: the '
+  + 'ceiling s_2 is unmoved (attained only at u = 2) while the S-unit count(u<=U) grows from the two-prime '
+  + '(ln U)^2 to the three-prime (ln U)^3, copied from the imp-96333 baked cubicGrowthSamples.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -108,6 +124,24 @@ const IMP96337_ASSERTIONS = [
     id: 'imp96337-honest-banner-carries-status',
     holds: () => /RH open/.test(IMP96337_HONEST_BANNER) && /NO QED/.test(IMP96337_HONEST_BANNER) && /SOTA/.test(IMP96337_HONEST_BANNER),
     why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+  },
+  {
+    id: 'imp96376-density-growth-series-matches-source-and-three-prime-denser',
+    holds: () => IMP96376_DENSITY_GROWTH_SERIES.length === 5
+      && IMP96376_DENSITY_GROWTH_SERIES.every((row, i) => {
+        const src = IMP_96333_SPECTRAL_GAP_MARGIN_235.cubicGrowthSamples[i];
+        return row.U === src.U && row.threePrimeCount === src.count && approx(row.cubicAsymptotic, src.asymptotic, 1e-9)
+          && row.threePrimeCount > row.twoPrimeCount;
+      }),
+    why: 'the five density-growth samples must reproduce imp-96333 cubicGrowthSamples row-for-row, and the three-prime count must exceed the recomputed two-prime count at every U (adding prime 5 only adds rungs).',
+  },
+  {
+    id: 'imp96376-first-prime5-rung-below-ceiling',
+    holds: () => IMP96376_FIRST_PRIME5_RUNG.u === 5
+      && approx(IMP96376_FIRST_PRIME5_RUNG.s, 0.22360679774997896, 1e-15)
+      && approx(CEILING - IMP96376_FIRST_PRIME5_RUNG.s, IMP96376_FIRST_PRIME5_RUNG.marginBelowCeiling, 1e-15)
+      && approx(IMP_96333_SPECTRAL_GAP_MARGIN_235.ceiling, CEILING, 1e-15),
+    why: 'the first new prime-5 rung (u = 5) sits 0.129947 below the ceiling, and the three-prime ceiling must equal the unmoved two-prime ceiling s_2.',
   },
 ];
 

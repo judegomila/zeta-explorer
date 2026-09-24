@@ -19775,6 +19775,14 @@ const DATA_MODULES = [
   '/src/data/imp-96344-route-m-synthetic-span-identifiability.js',
   '/src/data/imp-96332-evt-window-independence-neff-audit.js',
   '/src/data/imp-96311-ecoll-rate-ch-independence-tabulation.js',
+  // imp-96370: measure the C_H-sensitivity of the imp-3220 conditional-share peak
+  // sigma(N)=E_coll/E(N) over the conditional interval [1/8,0.127] (E_coll=C_H*R(N),
+  // imp-96311). Finding: the interior peak location is EXACTLY C_H-invariant (N*~9.2257e5;
+  // scaling E_coll by a positive prefactor cannot move argmax_N E_coll0/E_rig) and its
+  // height moves only 7.567e-4 (0.9494290->0.9501857) since the interval spans 1.6% of C_H
+  // and sigma is saturated (E_coll0/E_rig=18.77) at the peak. Measurement only; C_H<=0.127
+  // stays UNPROVEN; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96370-sigma-peak-ch-sensitivity.js',
   '/src/data/imp-96314-covariance-deviation-viz-data.js',
   '/src/data/imp-96316-etrunc-sensitivity-viz-data.js',
   '/src/data/imp-96318-confident-span-crossing-viz-data.js',

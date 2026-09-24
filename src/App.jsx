@@ -1376,6 +1376,9 @@ const Imp96314CovarianceDeviationViz = lazy(() =>
 const Imp96316EtruncSensitivityViz = lazy(() =>
   import('./pages/Imp96316EtruncSensitivityViz.jsx')
 );
+const Imp96318ConfidentSpanCrossingViz = lazy(() =>
+  import('./pages/Imp96318ConfidentSpanCrossingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3632,6 +3635,10 @@ function AppShell() {
           <Route
             path="/viz-imp96316-etrunc-sensitivity"
             element={<Imp96316EtruncSensitivityViz />}
+          />
+          <Route
+            path="/viz-imp96318-confident-span-crossing"
+            element={<Imp96318ConfidentSpanCrossingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

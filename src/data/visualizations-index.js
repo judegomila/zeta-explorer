@@ -3583,6 +3583,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: recomputes the imp-96187 F3 E_trunc-scale sensitivity sweep from the identical inherited component model (Gronwall E_flow, GUE-conditional C_C_PINNED E_coll) at a finer grid to expose the smooth crossing for charting, cross-checked against the imp-96187 frozen sensitivity landmarks; the 1/sqrt(3) proximity is a crossing point, not a fixed point; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96318-confident-span-crossing',
+      title: 'imp-96288: Confident Two-Tone Separation Span Crossing L(rho), Flat Plateau Below Rayleigh',
+      oneLine:
+        'Line chart of the imp-96288 fine-grid AICc>0.90 confident-separation crossing span L(rho) vs amplitude ratio rho=A4/A5: a flat plateau (~9.05-9.25, just below the Rayleigh span 9.999) across near-equal amplitudes, rising monotonically with imbalance outside it.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96318-confident-span-crossing-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96288-route-m-confident-span-lower-bound-test.js (fine-grid crossing curve, verdict; imp-96318 viz page)',
+      ticket: 'imp-96318',
+      pedagogicalStep: 232,
+      honestCeiling:
+        'Presentation only: every crossSpan and rho value is copied verbatim from the imp-96288 baked fine-grid curve; only the log(rho) axis reshaping is computed here (no re-derivation, no new Monte-Carlo run); synthetic q4+q5 two-tone simulation, not a measurement of the real conductor content or its amplitude ratio; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

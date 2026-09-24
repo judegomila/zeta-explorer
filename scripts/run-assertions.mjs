@@ -19643,6 +19643,12 @@ const DATA_MODULES = [
   // to at least N=1e40, but the (a+b) increment shrinks strictly, saturating toward the
   // (1/2, 1/2, 1) asymptote. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96258-ushape-slope-drift-saturation-glossary-headword.js',
+  // imp-96268: naive linear extrapolation of the imp-95562 finding-4 var-ratio r(T) to GUE
+  // saturation is DEGENERATE -- the six-height ladder is non-monotone (band [0.349,0.480], mean
+  // 0.401) with a NEGATIVE OLS log-linear slope (b=-0.0208, R^2=0.296), so solving a+b logT=1
+  // gives logT_sat=-17.36 (T~2.9e-8, below range): no forward saturation height. The rigorous
+  // replacement is the imp-95722 monotone-decreasing envelope r_cap(3e12)~0.26<1. No bound, NO QED.
+  '/src/data/imp-96268-varratio-gue-saturation-extrapolation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

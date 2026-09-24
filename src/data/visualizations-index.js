@@ -3247,6 +3247,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder row and marker value is copied verbatim from ROUTE_J (no re-derivation of the Fejer inequality or the c_ceil(n) formula); the c/log t FORM of the zero-free region is unchanged by any weighting scheme, including Mossinghoff-Trudgian\'s tighter constant; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96059-detector-reach-ladder',
+      title: 'Route L: CMV Detector Reach Law',
+      oneLine:
+        'Log-y range-bar chart of the RH Route L CMV detector reach law N_det vs zero height gamma_0: an off-line FE-symmetric quadruple 1/2 +/- delta +/- i*gamma_0 spliced into the exact Herglotz moments is detected (Toeplitz PD fails) at N = 9-14 for zero 1, N = 96-115 for zero 20, and remains undetected through N = 400 for zero 40, plus the resolved-count-vs-N table substantiating the linear-in-N reach ~ gamma_{N/10}.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96059-detector-reach-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (ROUTE_L.detector.rows/.law/.reach, ROUTE_L.a20.resolvedFirst40; imp-96059 viz page)',
+      ticket: 'imp-96059',
+      pedagogicalStep: 208,
+      honestCeiling:
+        'Presentation only: every detector row, resolved-count row, and law/reach string is copied verbatim from ROUTE_L (no re-derivation of the Levinson-Durbin recursion or the CMV diagonalisation); establishes no operator positivity beyond the already-resolved zeros; changes no bound; Route L stays NOT-A-LEVER (Weil positivity is its completeness step, no external arithmetic input); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

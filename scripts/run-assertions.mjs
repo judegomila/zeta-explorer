@@ -575,6 +575,14 @@ const DATA_MODULES = [
   // per-L small-sample band, showing r1 stays in [-0.526,-0.433] and brackets the proxy throughout.
   // Documentation only; import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
   '/src/data/imp-96193-lag1-l-sweep-analysis-table.js',
+  // imp-96280 (2026-09-24) DATA_MODULES audit of the imp-961xx finding-module wave: imp-96173,
+  // imp-96177, imp-96190, imp-96191, imp-96193, imp-96194 already covered (direct entry or
+  // transitively imported by a registered module). imp-96248 (IMP96248_ASSERTIONS self-executing
+  // loop, Route M conductor-resolvability curve) was git-tracked but had NO direct entry here and
+  // NO page importer, so its assertions silently never ran under node CI -- added below to close
+  // the gap. imp-96176 has no *_ASSERTIONS export (pure viz literals) and is already page-reachable
+  // via Imp96176SigmaClosedFormLadderViz.jsx, so it needs no entry.
+  '/src/data/imp-96248-route-m-conductor-resolvability-curve.js',
   // imp-96151 (2026-09-23): promotes the imp-33723 closed-form crossover N_cross=(C_C/E_trunc)^2 log
   // T0(N_cross) to a two-term analytic share model sigma_CF(N)=1/(1+sqrt(N/N_cross) sqrt(L_cross/L(N)))
   // and tests it past the imp-33582 1e12 grid endpoint. It REPRODUCES the post-peak decay-exponent ramp

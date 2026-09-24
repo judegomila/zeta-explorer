@@ -19565,6 +19565,14 @@ const DATA_MODULES = [
   // heights (ratio still ~0.577 at N_flow~1.6e6). Leading coef 4 survives exact slopes; next-order -24
   // is polynomial-only (+O(lnln N/(lnN)^2)). Conditional only through imp-486; import-light, 5 assertions. NO QED.
   '/src/data/imp-96250-ushape-location-ratio-farN-asymptote.js',
+  // imp-96285 (2026-09-24): MEASUREMENT — decomposes the imp-96250 far-N flattening coefficient
+  // 4 = 2(b_c - a_c) into its GUE-conditional and unconditional parts. Holding b_c = 5/2 unconditional
+  // and treating the imp-486-conditional a-branch a_c as free, the leading coefficient is the exact
+  // line C_flat = 5 - 2 a_c (5 at a_c=0, 4 at the GUE a_c=1/2, 0 at the threshold a_c = b_c = 5/2),
+  // confirmed by the imp-96187 location law u(1-R) to ~1e-4 with a sign change at 5/2. Verdict: no
+  // strictly-positive unconditional lower bound on the flattening rate survives without the GUE input
+  // (positivity is equivalent to a_c < 5/2). Import-light, 5 assertions. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96285-flattening-rate-conditional-unconditional-split.js',
   // imp-96174: Concepts glossary headword for the imp-96147 Route M ratio two-term fit --
   // c0 = 0.975 is separated from the RH-predicted 1, and the leftover ~1.3 percent RMS
   // residual is a genuine, non-decaying oscillation (not a resolvable smooth drift),

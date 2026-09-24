@@ -19509,6 +19509,12 @@ const DATA_MODULES = [
   // N~3.267e9, sigma<0.1 at N~3.213e11) sit consistently on the imp-96228 grid with a+b still
   // climbing toward 1. Import-light, 5 assertions. Conditional per imp-486; no bound change; NO QED.
   '/src/data/imp-96245-slope-grid-vs-sigma-decay-crossvalidation.js',
+  // imp-96174: Concepts glossary headword for the imp-96147 Route M ratio two-term fit --
+  // c0 = 0.975 is separated from the RH-predicted 1, and the leftover ~1.3 percent RMS
+  // residual is a genuine, non-decaying oscillation (not a resolvable smooth drift),
+  // grid-aliased against the gamma_1 zero-side prediction. Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96174-route-m-const-oscillation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

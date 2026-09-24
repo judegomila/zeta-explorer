@@ -23000,6 +23000,37 @@ export const glossary = [
     ],
   },
   {
+    term: 'Verified-Height Floor Law: 2.5 Height-Decades per Floor-Decade (imp-96207)',
+    category: 'concept',
+    definition:
+      'imp-96190 showed the two imp-96166 named ways past the unconditional lim_N E(N) = 0 shortfall ' +
+      '-- push the Platt-Trudgian verified height T_PT to infinity, OR find a fixed-strip route whose ' +
+      'truncation tail decays with N -- collapse to ONE way, because a genuinely decaying tail needs a ' +
+      'FIXED positive exponent kappa_star held at a growing height, which honesty permits only with an ' +
+      'all-zeros-in-strip certificate to that height (Platt-Trudgian strength); without one the honest ' +
+      'exponent is kappa(H) = (4/3)/log H and the tail GROWS instead. imp-96207 makes that collapse ' +
+      'quantitative by tabulating the height-to-floor law at the honest fixed abscissa sigma = 3/4 ' +
+      '(kappa_star = 0.4, prefactor 3.0, reproducing the frozen floor E_trunc(3e12) = 3.06e-5): ' +
+      'E_trunc(H) = prefactor H^{-kappa_star}, inverted as H_required(E) = (prefactor/E)^{1/kappa_star}. ' +
+      'The inverse sensitivity exponent d log H / d log E = -1/kappa_star = -2.5 is exact and ' +
+      'floor-independent -- 2.5 decades of certified height per decade of floor drop (~316x per decade) ' +
+      '-- so the three tabulated targets are equispaced: floor 1e-5 needs H ~ 4.93e13 (~16x above 3e12, ' +
+      'near-term plausible), floor 1e-6 needs H ~ 1.56e16 (~5.2e3x, far beyond any published strip ' +
+      'verification), and floor 1e-7 needs H ~ 4.93e18 (~1.6e6x, out of foreseeable reach). Under ' +
+      'either name -- T_PT growing, or an N-decaying fixed-strip tail with a certificate -- reaching ' +
+      'lim_N E(N) = 0 needs H(N) -> infinity, so the imp-96166 pair is one quantitative law, not two. ' +
+      'Measurement/derivation only; no zero is verified; the rigorous bound stays E_trunc = 3.06e-5; ' +
+      'C_mb stays GUE-conditional per imp-486; changes no bound; RH open; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96207-verified-height-floor-law-kappa-star.js (tabulating the imp-96190 collapse as an exact 2.5-decade height-per-floor leverage law), 2026',
+    relatedTerms: [
+      'Anti-Decay Identity: H^{-kappa(H)} = exp(-4/3) (imp-96190) the structural collapse this quantifies',
+      'imp-96166-en-decay-exponent-vs-step4-bridge-threshold.js the frozen E_trunc floor and the two named alternatives',
+      'imp-96185-etrunc-floor-inverse-height-thresholds.js the same kappa_star=0.4 inversion at floors 1e-5/1e-6/1e-8',
+      'imp-2322-etrunc-pt-T_PT-sensitivity.js the forward E_trunc(T_PT) power law, elasticity -0.4',
+    ],
+  },
+  {
     term: 'N_flow / N_cross Second-Crossover Split (imp-96162)',
     category: 'concept',
     definition:

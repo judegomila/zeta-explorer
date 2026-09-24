@@ -4073,6 +4073,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every spread/shift value plotted here is copied verbatim from the imp-96449 baked rows; only the log10 axis reshaping is computed here (no re-derivation). The N ~ 1e15 crossover is benign, not a real divergence: past that height both the solver-path residual and the count-model reference shift are numerically negligible (sub-ULP of a double-precision gamma_N). Solver-path / conditioning diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96520-offset-drift-ldrift-prediction',
+      title: 'Offset-Drift L-Drift Prediction vs Measured',
+      oneLine:
+        'Charts the imp-96467 analytic leading L(N)-drift offset prediction against the imp-96431 measured (sigma-inflection minus crossover) offset drift across the ~5.24-decade crossover ladder, plus a slope-magnitude bar pair shading the ~17-21% residual sub-leading share the L-drift term over-predicts by.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96520-offset-drift-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96467-offset-drift-slope-vs-Ldrift-prediction.js (IMP96467_OFFSET_DRIFT_SLOPE_VS_LDRIFT_PREDICTION; imp-96520 viz page)',
+      ticket: 'imp-96520',
+      pedagogicalStep: 265,
+      honestCeiling:
+        'Presentation only: every crossoverLog10, offset and slope value plotted here is copied verbatim from the imp-96467 baked fit object; the only new step is sorting the rows and laying out the two charts. The analytic L-drift term reproduces the sign and near-linearity of the measured drift but over-predicts its slope by ~21%, so a residual sub-leading term is shaded, not closed; derivation/measurement diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

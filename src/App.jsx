@@ -1481,6 +1481,9 @@ const Imp96516RouteMRemainderViz = lazy(() =>
 const Imp96498SolverSpreadCountShiftCrossoverViz = lazy(() =>
   import('./pages/Imp96498SolverSpreadCountShiftCrossoverViz.jsx')
 );
+const Imp96520OffsetDriftLdriftPredictionViz = lazy(() =>
+  import('./pages/Imp96520OffsetDriftLdriftPredictionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3877,6 +3880,10 @@ function AppShell() {
           <Route
             path="/viz-imp96498-solver-spread-count-shift-crossover"
             element={<Imp96498SolverSpreadCountShiftCrossoverViz />}
+          />
+          <Route
+            path="/viz-imp96520-offset-drift-ldrift-prediction"
+            element={<Imp96520OffsetDriftLdriftPredictionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

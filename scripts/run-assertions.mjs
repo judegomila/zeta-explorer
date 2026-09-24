@@ -19549,6 +19549,14 @@ const DATA_MODULES = [
   // N~3.267e9, sigma<0.1 at N~3.213e11) sit consistently on the imp-96228 grid with a+b still
   // climbing toward 1. Import-light, 5 assertions. Conditional per imp-486; no bound change; NO QED.
   '/src/data/imp-96245-slope-grid-vs-sigma-decay-crossvalidation.js',
+  // imp-96250 (2026-09-24): DERIVATION — derives the far-N behaviour of the imp-96187 location ratio
+  // N_peak/N_flow=(b/a)^(1/(a+b)) from the imp-96244 slope tails a=1/2-1/(2 lnN), b=1/2-5/(2 lnN):
+  // R=1-4/lnN-16/(lnN)^2 -> 1 from below, so the U-shape peak and the numerator crossover N_flow
+  // coincide asymptotically at leading rate 4/lnN (4=2(b_c-a_c), twice the imp-96244 slope gap). The
+  // flattening is logarithmic/glacial (within 1% only at log10 N~174), so it has no reach at physical
+  // heights (ratio still ~0.577 at N_flow~1.6e6). Leading coef 4 survives exact slopes; next-order -24
+  // is polynomial-only (+O(lnln N/(lnN)^2)). Conditional only through imp-486; import-light, 5 assertions. NO QED.
+  '/src/data/imp-96250-ushape-location-ratio-farN-asymptote.js',
   // imp-96174: Concepts glossary headword for the imp-96147 Route M ratio two-term fit --
   // c0 = 0.975 is separated from the RH-predicted 1, and the leftover ~1.3 percent RMS
   // residual is a genuine, non-decaying oscillation (not a resolvable smooth drift),

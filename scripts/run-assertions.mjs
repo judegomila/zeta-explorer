@@ -19482,6 +19482,17 @@ const DATA_MODULES = [
   // conductor q4 from q5 needs a log N span >= 2 pi / (w4-w5) = 10 (N ~ 5.5e6, ~72 uniform rungs) vs the
   // current span 3.18. Import-light (baked literals); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96231-route-m-band-vs-drift-identifiability.js',
+  // imp-96325 (2026-09-24): INGESTS the completed single-process N=1e4 Route M Vasyunin Gram run
+  // (tmp/rh-route-m/m9-extend-n1e4.py, m9-out.json) that imp-96230 only assessed as reachable and
+  // imp-96261 only re-framed. Answers the two IMP96105_SUBGAP / IMP96203_SUBGAP residuals: (Q1)
+  // ratio(N)=d_N^2 logN/C_burnol does NOT approach 1 beyond N=6000 -- the four new rungs 7000..1e4
+  // sit ~1.2-2.3 percent below 1 (0.9878,0.9863,0.9769,0.9769), the full band [0.9639,1.0102] has 8
+  // sign changes and does not tighten, the smooth fit still extrapolates 0.862 -- a finite-N
+  // plateau/oscillation reconfirmed to 1e4; (Q2) band uniqueness stays OPEN, the extension adds only
+  // ~0.51 in log-N span (half a decade), too little to break the band-vs-drift degeneracy. lam_min
+  // stays SPD monotone to 1.747e-8. Import-light (baked m9 literals), self-executing assertions.
+  // Measurement only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96325-route-m-vasyunin-gram-n1e4-run.js',
   // imp-96165: works the imp-96149 sub-gap SG-96149-grid on two fronts, measurement only. (1) The
   // per-delta Route L detector exponent b is NOT delta-independent -- it drifts monotonically from
   // 1.3862 (delta=0.4) to 1.2074 (delta=0.025), a spread of 0.1788, an O(log 1/delta) additive term

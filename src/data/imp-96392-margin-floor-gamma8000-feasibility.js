@@ -241,6 +241,17 @@ export const IMP_96392_GAMMA8000_FEASIBILITY = {
   closesTickets: ['imp-96392'],
 };
 
+// -- honest-status banner (imp-96337 convention: plain-string, machine-readable) -----
+export const IMP_96392_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The intercept STANDARD ERROR does NOT '
+  + 'collapse under a gamma_8000 census extension: even the leverage-optimal placement of new '
+  + 'anchors tightens it by at most ~18% (0.013868 -> ~0.0113), a realistic spread by only ~14% '
+  + '(-> ~0.0120) -- it stays near 0.012-0.014. The intercept NUMERATOR (does it keep '
+  + 'near-halving past gamma_4000) is NOT measured here: it needs a fresh ~2400s+ single-threaded '
+  + 'imp-96224 LP pipeline run (zeta zeros past gamma_4000 + census + Gilbert solve), not runnable '
+  + 'in this pool worker. The gamma_8000 sign decision therefore stays measurement-undecided past '
+  + 'gamma_4000, resting entirely on that deferred numerator.';
+
 // -- assertions (import-light; recompute-and-check only) -------------------
 export const IMP_96392_ASSERTIONS = [
   {
@@ -294,6 +305,16 @@ export const IMP_96392_ASSERTIONS = [
     holds: () => /no fabricated rho|no fresh rho/i.test(IMP_96392_GAMMA8000_FEASIBILITY.note)
       && /NO QED/.test(IMP_96392_GAMMA8000_FEASIBILITY.note),
     why: 'the SE half is measured from the x-design + measured s2 with no fabricated rho; this moves no Lambda bound and proves no QED.',
+  },
+  {
+    id: 'imp-96392-honest-banner-states-flat-se-and-undecided-numerator',
+    holds: () => /does NOT.*collapse/.test(IMP_96392_HONEST_BANNER)
+      && /0.012-0.014/.test(IMP_96392_HONEST_BANNER)
+      && /measurement-undecided/.test(IMP_96392_HONEST_BANNER)
+      && /RH open/.test(IMP_96392_HONEST_BANNER)
+      && /NO QED/.test(IMP_96392_HONEST_BANNER),
+    why: 'the honest-status banner must state both halves plainly: the SE does not collapse '
+      + '(stays 0.012-0.014) and the intercept numerator stays measurement-undecided past gamma_4000.',
   },
   {
     id: 'imp-96392-closes-self',

@@ -19474,6 +19474,13 @@ const DATA_MODULES = [
   '/src/data/imp-96236-route-bd-margin-gamma2000-viz-data.js',
   '/src/data/imp-96237-height-to-floor-viz-data.js',
   '/src/data/imp-96238-joint-leak-region-viz-data.js',
+  // imp-96224 (2026-09-23): EXTENDS the imp-96209 worst-support on-line signed-force margin
+  // column rho(32,T) from gamma_2000 (T~2515) to gamma_4000 (T~4506, census 775 -> 1541).
+  // Settles the imp-96209 drift direction: the fitted reciprocal-log floor keeps falling toward
+  // zero (0.07061 -> 0.03411, near-halving per doubling) and the R2 gap keeps widening toward the
+  // no-floor log-linear law (-0.01042 -> -0.01828). Sign unchanged (rho=0.3791 at T~4506, no
+  // crossing). Import-light (baked literals, no zeros bundle). No bound change; NO QED.
+  '/src/data/imp-96224-route-bd-online-margin-floor-gamma4000.js',
 ];
 
 let ALL_MODULES = FAST_MODE

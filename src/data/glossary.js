@@ -22716,6 +22716,34 @@ export const glossary = [
       'imp-96048 the Kurokawa-Koyama double-pole computation behind the engine (iii) verdict',
     ],
   },
+  {
+    term: 'Route K Wall (Littlewood Integral vs Jensen-from-Moments)',
+    category: 'no-go',
+    definition:
+      'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23. Route K tests whether the RMT/moments ' +
+      'paradigm supplies a pointwise-on-zeros channel escaping Weil positivity/PCC. Littlewood’s lemma ' +
+      'gives I(T) := int_0^T log|zeta(1/2+it)| dt = 2 pi Sum_{beta>1/2, 0<gamma<T} (beta-1/2) + O(log T), so ' +
+      'RH iff I(T) = O(log T). The only known bridge from moments to I(T) is Jensen’s inequality, ' +
+      'I(T) <= (T/2k) log(M_k(T)/T) with M_k = int_0^T |zeta|^{2k}; measured at T=200, |I(200)| = 0.924121 ' +
+      'while the M_1-Jensen bound is 130.404351, a loss factor of 141.111837x that grows like T/log T (the ' +
+      'M_2-Jensen loss grows even faster, ~2828x). Positive moments therefore see zeros only through this ' +
+      'integrated, lossy bound. The one channel that is genuinely pointwise -- negative moments ' +
+      'int |zeta(sigma+it)|^{-2} dt finite on [0,T] for all sigma in (1/2,1) and all T -- is itself RH-' +
+      'equivalent (Littlewood: 1/zeta’s Dirichlet series converges on Re s > 1/2 iff RH) and its finite ' +
+      'truncations reduce to the Levinson-Conrey mollifier lineage (kappa >= 0.4173 record), not a new ' +
+      'route. The k -> 0 limit of the moments literally IS Littlewood’s criterion: the moment paradigm ' +
+      'touches RH only at the boundary k=0 where Jensen is an equality and the moment method has no tools ' +
+      'left. Ceiling of the whole paradigm: Lindelof (M_k << T^{1+eps} for all k) implies the Density ' +
+      'Hypothesis N(sigma,T) << T^{2(1-sigma)+eps}, and there is no known Density-Hypothesis => RH ' +
+      'implication. VERDICT: no external arithmetic input; the wall is Jensen/integration -- distinct from ' +
+      'Weil positivity/PCC (Routes H, J) and from the Herglotz-Weil wall (Route L). RH open; NO QED.',
+    firstUsed: 'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23 (Route K Littlewood-vs-Jensen wall), 2026',
+    relatedTerms: [
+      'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js the module carrying ROUTE_K.littlewoodVsJensen (the T=50..200 loss-factor ladder) and the wallMap this headword documents',
+      'Route J Three-Wall Map (Weil-Deligne Engines) the sibling headword refining the same non-stat-mech sweep into distinct Landau-pole / Jensen / Herglotz-Weil walls',
+      'Levinson-Conrey mollifier lineage (kappa >= 0.4173) where the one pointwise-sensitive Route K channel (negative moments) actually reduces',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

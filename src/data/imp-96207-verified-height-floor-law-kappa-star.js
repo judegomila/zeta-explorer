@@ -72,7 +72,6 @@
 // literals to keep this module import-light (self-contained, imp-96190 pattern).
 const T_PT_BASELINE = 3e12;                 // Platt-Trudgian 2021 verified height
 const KAPPA_STAR = 0.4;                       // honest fixed exponent at sigma = 3/4
-const E_TRUNC_BASELINE = 3.06e-5;             // imp-96166 frozen floor at 3e12
 
 // prefactor(kappa) = 2 (1 - kappa) / kappa = 2 e_I / kappa with e_I = 1 - kappa.
 function prefactorOf(kappa) {
@@ -84,6 +83,11 @@ const PREFACTOR = prefactorOf(KAPPA_STAR);    // 3.0
 function etruncOf(H, kappa = KAPPA_STAR) {
   return prefactorOf(kappa) * Math.pow(H, -kappa);
 }
+
+// Full computed anchor (not the imp-96166 rounded pin 3.06e-5), matching the
+// imp-96185/imp-2322 baseline (~3.063887e-5). Removes the imp-96246 display-
+// only floorDecadesBelowBaseline split between this module and imp-96185.
+const E_TRUNC_BASELINE = etruncOf(T_PT_BASELINE);
 
 // Inverse: certified strip height required to reach a target floor E.
 function heightForFloor(E, kappa = KAPPA_STAR) {

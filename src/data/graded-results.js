@@ -424,6 +424,14 @@ export const RESULTS = [
     date: '2026-09',
   },
   {
+    statement: 'Route B/D worst-support on-line margin ρ(32,T) extended to γ₂₀₀₀ (T≈2515): the fitted reciprocal-log floor keeps FALLING (0.16030 → 0.11063 → 0.07061, no plateau) and the reciprocal-log/log-linear R² gap REVERSES SIGN (+0.00214 → −0.01042), so the log-linear no-floor law now fits marginally better — overturning the earlier "floor law clearly wins" reading. The SIGN is unchanged: the margin stays strictly positive with no crossing (0.4171 at T≈2515); the uniform-in-T obstruction remains off the line (Weil-positivity strength).',
+    grade: 'measured',
+    verification: ['module imp-96209-route-bd-online-margin-floor-gamma2000', 'reproduces imp-96148/imp-96167/imp-96186 baked columns to |delta|<=0.0004, extends census 1000->2000 zeros'],
+    thread: 'rh-novel-routes',
+    route: '/rh-novel-routes-roadmap',
+    date: '2026-09',
+  },
+  {
     statement: 'Novel route C (twisted-ladder signed interferometer Φ_ε(s)=Σ_χ ε_χ L(s,χ)): REFUTED as an off-line-nonvanishing lever — the functional equation pins each conjugate pair’s relative phase to the root number (arg W=2 arctan κ), so orthogonality is only a mean-square (Parseval) statement and joint universality forces ≫T off-line zeros for every ≥2-arm design; a concrete q=5 Davenport–Heilbronn superposition measures 8 off-line zeros vs 0 for the arm-union.',
     grade: 'refuted',
     verification: ['module rh-route-c-signed-interferometer-2026-09-23', 'q=5 superposition-vs-union off-line zero count 8 vs 0 (imp-96029), FE phase-pinning arg W=2 arctan κ verified to 1e-15'],

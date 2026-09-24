@@ -19403,6 +19403,16 @@ const DATA_MODULES = [
   // residual: 17 non-uniform points cannot uniquely separate band from slow drift. Import-light
   // (baked literals); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96189-route-m-swing-attribution.js',
+  // imp-96231: quantifies the imp-96189 / imp-96203 IMP96203_SUBGAP part (a) -- "17 non-uniform log N
+  // points cannot uniquely separate a few-conductor band from a slow smooth non-spectral drift" -- as a
+  // model-selection MEASUREMENT on the same 17 imp-96147 residual rows. Result: the identifiability
+  // question splits. (A) fixed q4+q5 Vasyunin band vs low-order polynomial drift is RESOLVED for the band
+  // (R^2 0.712 vs 0.140, delta AICc -18.6, Akaike weight 0.998, better leave-one-out PRESS, permutation
+  // p=0.005) -- the slow smooth non-spectral drift is rejected, the swing is genuinely oscillatory. (B)
+  // band vs a free oscillatory tone at the same frequency is NOT resolvable (0.712 vs 0.710). (C) splitting
+  // conductor q4 from q5 needs a log N span >= 2 pi / (w4-w5) = 10 (N ~ 5.5e6, ~72 uniform rungs) vs the
+  // current span 3.18. Import-light (baked literals); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96231-route-m-band-vs-drift-identifiability.js',
   // imp-96165: works the imp-96149 sub-gap SG-96149-grid on two fronts, measurement only. (1) The
   // per-delta Route L detector exponent b is NOT delta-independent -- it drifts monotonically from
   // 1.3862 (delta=0.4) to 1.2074 (delta=0.025), a spread of 0.1788, an O(log 1/delta) additive term

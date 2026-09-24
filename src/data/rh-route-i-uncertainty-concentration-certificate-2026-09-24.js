@@ -259,6 +259,26 @@ export const UNCERTAINTY_CERTIFICATE_LITERALS = Object.freeze({
     tailBoundLog10: { T200N120: 2.3, T200N160: -10.3, T200N200: -29.0, T200N240: -51.9, T400N320: -23.5, T600N440: -21.9 },
     Phi: { T200: 8.833, T400: 9.526, T600: 9.931 }, wRangeT200: [-8.719, 4.009],
     extrapolated1overT: { from400_600: 9.568e-4, from600_800: 9.512e-4, pencilMapRitzN96: 9.46e-4 },
+    /** (imp-96547) reconcile the from-below 1/T-extrapolated constant (9.51-9.57e-4) with the from-above pencil-map Ritz (9.46e-4)
+     *  and bracket the true D_S<=L_S constant C* = inf_h W(h)/||h||^2. Measurement only; changes no bound; NO QED.
+     *  The floor-cost ladder c(T) = m_T + lambda_min(K_N|V_N) is a RIGOROUS lower bound on C* for each T (from below, monotone up):
+     *  8.204660 (200), 8.830066 (300), 9.043721 (400), 9.218475 (600), 9.291830 (800), all x1e-4.
+     *  KEY: the pure two-point 1/T extrapolants c(T)=C-A/T themselves DECREASE with the later, tail-safer T-pairs --
+     *  9.8828 (200,400) -> 9.5680 (400,600) -> 9.5119 (600,800) -- i.e. pure 1/T is biased HIGH by positive curvature
+     *  (the minimizer |hhat|^2 ~ 1/t^2 tail gives a leading 1/T energy loss with a POSITIVE 1/T^2 correction). A two-term
+     *  fit c(T)=C*-A/T-B/T^2 on the tail triple (400,600,800) collapses the extrapolant to C* = 9.4558e-4 (A=97.5, B=2.69e-1
+     *  in absolute units), matching the INDEPENDENT from-above pencil-map Ritz 9.46e-4 to < 0.05%. So the apparent ~1%
+     *  discrepancy is a 2-point 1/T artifact, not a real conflict: the two methods AGREE once the 1/T^2 term is kept.
+     *  Rigorous bracket: 9.291830e-4 (largest finite-T certificate LOWER bound, from below) <= C* <= 9.46e-4 (Rayleigh-Ritz
+     *  UPPER bound, from above), a window of width 0.168e-4 (~1.78%); best point estimate C* ~ 9.456e-4 (top of the bracket). */
+    constantReconciliation: {
+      floorCostLadder: { T200: 8.204660e-4, T300: 8.830066e-4, T400: 9.043721e-4, T600: 9.218475e-4, T800: 9.291830e-4 },
+      pure1overTExtrap: { from200_400: 9.8828e-4, from400_600: 9.5680e-4, from600_800: 9.5119e-4, trend: 'monotone DECREASING toward the Ritz value -> pure 1/T biased high by positive curvature' },
+      twoTermFit: { model: 'c(T) = C* - A/T - B/T^2', on: [400, 600, 800], Cstar: 9.4558e-4, A: 97.53e-4, B: 2.6922e-1, altOn200_400_800Cstar: 9.4257e-4 },
+      ritzFromAbove: 9.46e-4, certLowerBoundFromBelow: 9.291830e-4,
+      bracket: { lo: 9.291830e-4, hi: 9.46e-4, widthAbs: 1.682e-5, widthPct: 1.78, bestEstimate: 9.456e-4 },
+      verdict: 'the ~1% gap is a 2-point 1/T positive-curvature artifact; keeping the 1/T^2 term reconciles the from-below extrapolation with the from-above Ritz to < 0.05% (9.456e-4 vs 9.46e-4); together they bracket C* into [9.2918e-4, 9.46e-4] (~1.78% wide). SUB-GAP imp-96547-tail-triple-fit: A/B/C* are a 3-point (400,600,800) fit and want a T=1000/1200 floor-cost recompute to confirm the 1/T^2 law and tighten the from-below end of the bracket.',
+    },
     minimizerEnergyBeyondT: { T200: 1.69e-4, T400: 1.98e-5, T600: 8.37e-6 }, hAtEndpoint: 0.1242,
     reachOnePrimeK0: { T200: { a: 0.55996, twoA: 1.11992 }, T400: { a: 0.56431, twoA: 1.12862 }, trueCrossingTwoA: 1.131539, ln3: LN3 },
     /** (imp-96546) resolution needed to close the certified one-prime reach (2a = 1.1286 at T=400) to the true crossing 2a* = 1.131539.

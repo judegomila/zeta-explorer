@@ -19683,6 +19683,12 @@ const DATA_MODULES = [
   // identical across a ~66x span of C_H). Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96335-ecoll-rate-vs-conclusion-glossary-headword.js',
+  // imp-96327 (2026-09-24): cross-validate the imp-96311 cross-column E_coll ratio law
+  // against the two INDEPENDENTLY baked imp-96290 anchors. anchor ratio 0.0110547/0.0108806
+  // = 1.0160009558 vs target 0.127/0.125 = 1.016; residual 9.56e-7 sits inside the ~9.26e-6
+  // rounding band of the 7-sig-fig anchors, so the raw anchors satisfy the ratio law to their
+  // stored precision; modules mutually consistent. Accuracy audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96327-ecoll-ratio-law-vs-anchor-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

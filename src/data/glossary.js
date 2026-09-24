@@ -22939,6 +22939,31 @@ export const glossary = [
       'rh-novel-routes-sweep-synthesis-2026-09-23.js the cross-route synthesis tracking Route C alongside the other novel-route verdicts',
     ],
   },
+  {
+    term: 'N_flow / N_cross Second-Crossover Split (imp-96162)',
+    category: 'concept',
+    definition:
+      'The imp-3220 sigma(N) U-shape share has TWO distinct crossovers, not one. N_cross is the ' +
+      'imp-33723 DENOMINATOR crossover where E_coll = E_trunc (sigma = 1/2), ~3.280e9, which governs ' +
+      'the right-arm decay ramp. N_flow is a SEPARATE, NUMERATOR crossover where E_flow = E_trunc, ' +
+      '~1.598e6 (log10 6.204) -- about 3.3 decades below N_cross. imp-96162 showed the imp-3220 ' +
+      'interior peak (sigma_max = 0.949429 at N ~ 9.2257e5) sits at N_flow, not N_cross: the ' +
+      'imp-96151 two-term closed form sqrt(N/N_cross) sqrt(L_cross/L) reproduces only the right arm ' +
+      'because it omits E_flow, and is strictly monotone with no peak. Multiplying by the explicit ' +
+      'pre-crossover rising factor r_pre(N) = 1 + E_flow(N)/E_trunc restores the left arm and the ' +
+      'peak, matching the full three-term share to ~5.7e-16 over [1e5,1e12]. The exact peak sits at ' +
+      'E_flow/E_trunc = 1.530, a factor ~0.577 below N_flow after log corrections (the measured ' +
+      'log-slopes of E_trunc/E_coll and E_flow/E_coll are +0.466/-0.304, not the clean leading-order ' +
+      '+1/2/-1/2, so the 0.577 proximity to 1/sqrt(3) is a flagged coincidence, not a derived ' +
+      'identity). Measurement/derivation only; conditional-share diagnostic (C_mb GUE-conditional per ' +
+      'imp-486 untouched); changes no bound; no QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96162-sigma-ushape-peak-eflow-recovery.js (recovering the imp-3220 U-shape peak via the explicit pre-crossover rising factor), 2026',
+    relatedTerms: [
+      'imp-96151-sigma-closed-form-crossover-fartail-reproduction.js the two-term closed form that fixes N_cross but misses the peak',
+      'imp-33723-sigma-half-vs-crossover-closed-form the denominator crossover N_cross (E_coll=E_trunc) fixed point',
+      'imp-3220-en-bridge-fidelity-frontier the original interior peak landmark (sigma_max ~ 0.9494 at N ~ 9.22e5)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

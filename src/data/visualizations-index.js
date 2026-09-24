@@ -3737,6 +3737,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every prefAtRayleigh and rho value is copied verbatim from the imp-96264 baked ratio table (no re-derivation); only the log(rho) axis reshaping is computed here. Route M off-lattice arithmetic per imp-96189, NOT a zero-tone measurement. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96299-margin-floor-loo',
+      title: 'imp-96265: Margin-Floor Leave-One-Out / Leave-Two-Out Refit Spread',
+      oneLine:
+        'Bar chart of the imp-96265 leave-one-out refit floor c by dropped height cutoff T, with the highest-leverage drop T=60 highlighted (floor 0.14256 -> 0.17740) and the 21-refit leave-two-out min/max band [0.121, 0.212] shaded behind it.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96299-margin-floor-loo-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96265-margin-floor-loo-stability.js (LOO/LTO refit tables, verdict; imp-96299 viz page)',
+      ticket: 'imp-96299',
+      pedagogicalStep: 241,
+      honestCeiling:
+        'Presentation only: every LOO/LTO floor value is copied verbatim from the imp-96265 baked refit tables (no re-derivation); only the by-dropped-height sort and delta-from-full-fit are computed here. The positive-floor sign is robust across every held-out subset; the 0.14256 magnitude is endpoint-driven, not a sharp value. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

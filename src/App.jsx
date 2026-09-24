@@ -1382,6 +1382,9 @@ const Imp96393DiscrepancyEnvelopeViz = lazy(() =>
 const Imp96298PrefAtRayleighViz = lazy(() =>
   import('./pages/Imp96298PrefAtRayleighViz.jsx')
 );
+const Imp96299MarginFloorLooViz = lazy(() =>
+  import('./pages/Imp96299MarginFloorLooViz.jsx')
+);
 const Imp96314CovarianceDeviationViz = lazy(() =>
   import('./pages/Imp96314CovarianceDeviationViz.jsx')
 );
@@ -3673,6 +3676,10 @@ function AppShell() {
           <Route
             path="/viz-imp96298-pref-at-rayleigh"
             element={<Imp96298PrefAtRayleighViz />}
+          />
+          <Route
+            path="/viz-imp96299-margin-floor-loo"
+            element={<Imp96299MarginFloorLooViz />}
           />
           <Route
             path="/viz-imp96314-covariance-deviation"

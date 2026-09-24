@@ -1328,6 +1328,9 @@ const Imp96038RouteALammMinDescentViz = lazy(() =>
 const Imp96120RouteMBurnolRatioDenseLadderViz = lazy(() =>
   import('./pages/Imp96120RouteMBurnolRatioDenseLadderViz.jsx')
 );
+const Imp96214KatoTempleUepsViz = lazy(() =>
+  import('./pages/Imp96214KatoTempleUepsViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3520,6 +3523,10 @@ function AppShell() {
           <Route
             path="/viz-imp96120-route-m-burnol-ratio-dense-ladder"
             element={<Imp96120RouteMBurnolRatioDenseLadderViz />}
+          />
+          <Route
+            path="/viz-imp96214-kato-temple-ueps"
+            element={<Imp96214KatoTempleUepsViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

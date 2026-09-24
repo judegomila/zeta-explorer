@@ -3359,6 +3359,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every row is copied verbatim from the imp-96108 baked offset ledger (no re-derivation of the Selberg-subtracted offset or the Odlyzko-fitted sd(C - E) literals); the max anchor is a SAMPLE maximum over 11 finite heights and cannot exclude a deeper unmeasured interior excursion; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96214-kato-temple-ueps',
+      title: 'Route I: Kato-Temple U(eps) on the Real Semilocal {oo,2} Spectrum',
+      oneLine:
+        'Two line charts of the imp-96188 recalibrated Kato-Temple upper bound U(eps) for a single-mode leak into the adjacent second-largest eigenvalue (certify-threshold eps~8.42e-3) versus the bottom near-modulus-1 twin lam_S(1)=-0.9927022 (certify-threshold eps~1.19e-3, an order of magnitude tighter, and validity itself breaks at eps~0.3245).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96188-route-i-kato-temple-real-spectrum-recalibration.js',
+      paperSourcePath:
+        'src/data/imp-96188-route-i-kato-temple-real-spectrum-recalibration.js (katoTempleUpperTwoLevel, IMP_96188_LITERALS; imp-96214 viz page)',
+      ticket: 'imp-96214',
+      pedagogicalStep: 216,
+      honestCeiling:
+        'Presentation only: both curves are live evaluations of the imp-96188 module\'s own katoTempleUpperTwoLevel on the exact FFT-Mellin semilocal spectrum literals (no re-derivation of the Rayleigh-Ritz eigenvalues or the Kato-Temple gap inequality); the two-level [1, eps] test function models a single-mode leak only, a lower bound on what an actual dyadic-grid ansatz incurs; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

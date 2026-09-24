@@ -3275,6 +3275,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every I(T), J_1(T), and loss value is copied verbatim from ROUTE_K.littlewoodVsJensen (no re-derivation of the tanh-sinh zero-aware integration or the Jensen inequality); establishes no operator positivity, no RH claim; the wall is Jensen/integration (moments see zeros only through Littlewood\'s integrated lemma), distinct from Weil positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96103-route-i-remainder-resonance',
+      title: 'Route I: Remainder delta_S(rho) Resonance Structure',
+      oneLine:
+        'Line chart of the RH Route I semilocal trace remainder delta_S(rho) sampled directly from the exact closed-form function over rho in [0.8,9.2], plus a bar chart of the four baked near-dyadic log spikes at rho = 2^k + 1e-7, k=0..3 (12.15/16.65/22.71/31.70) versus the regular non-dyadic value at rho=3 (0.379) -- over 32x smaller since delta_S has no p=2 resonance there.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96103-route-i-remainder-resonance-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js (deltaS, ROUTE_I_LITERALS.deltaS; imp-96103 viz page)',
+      ticket: 'imp-96103',
+      pedagogicalStep: 210,
+      honestCeiling:
+        'Presentation only: the delta_S(rho) curve and the spike/regular points are direct evaluations of the source module\'s own exact closed-form deltaS(rho) (no re-derivation of the Sonine trace identity, no fresh Galerkin solve); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

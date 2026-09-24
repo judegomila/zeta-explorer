@@ -1216,6 +1216,9 @@ const Imp96075RouteMVasyuninDnLadderViz = lazy(() =>
 const Imp96080RouteISymbolAnatomyViz = lazy(() =>
   import('./pages/Imp96080RouteISymbolAnatomyViz.jsx')
 );
+const Imp96103RouteIRemainderResonanceViz = lazy(() =>
+  import('./pages/Imp96103RouteIRemainderResonanceViz.jsx')
+);
 const Imp95371BcapTwoBranchCapVsExactRatioViz = lazy(() =>
   import('./pages/Imp95371BcapTwoBranchCapVsExactRatioViz.jsx')
 );
@@ -3353,6 +3356,10 @@ function AppShell() {
           <Route
             path="/viz-imp96080-route-i-symbol-anatomy"
             element={<Imp96080RouteISymbolAnatomyViz />}
+          />
+          <Route
+            path="/viz-imp96103-route-i-remainder-resonance"
+            element={<Imp96103RouteIRemainderResonanceViz />}
           />
           <Route
             path="/viz-imp95371-bcap-two-branch-cap-vs-exact-ratio"

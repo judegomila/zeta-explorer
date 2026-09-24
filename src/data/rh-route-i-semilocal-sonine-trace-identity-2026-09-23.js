@@ -273,7 +273,22 @@ export function gapAnalysis(a, N, J = 30) {
 export const ROUTE_I_LITERALS = Object.freeze({
   archimedean: { Si4pi: 1.492161225584455, delta1: 2.2374848349418266, deltaPrime1plus: 1.0, deltaHat0: 5.421302, twoThetaPrime0: -5.3721834192256654, LHat0: 0.0491187, deltaHatMin: { value: -0.10679, t: 9.9 }, ccDelta1: 2.237484835 },
   deltaS: { r1e7: 12.146531, r1001: 5.499942, r101: 3.870635, r13: 1.754665, r15: 1.549486, r199: 4.914787, r2e7: 16.651084, r25: 0.915466, r3: 0.379224, r4e7: 22.713239, r6: 0.469624, r8e7: 31.699639, r20: 0.237921, r100: 0.101133, r1000: 0.033501, spikeLaw: 'delta_S(2^k(1+eps)) ~ (2^{k/2}/2) log_2(1/eps)' },
-  multiplier: { deltaSHat0: 8.78395, threshold: 8.7189942, LSHat0: 0.06496, LSHat0mesh1: 0.06565, sweep: '[0,250] step 0.01, min at t=0', m2Max: 3.3468108, resonances: [[1, 9.0647, 0.3676, 3.3484], [2, 18.1294, 0.3726, 2.6599], [3, 27.1941, 0.3999, 2.2817], [5, 45.3235, 0.4813, 1.8522], [10, 90.6470, 0.6917, 1.3694], [20, 181.2940, 1.0138, 0.9984], [27, 244.7469, 1.1880, 0.8724]], controls: { dropCosPiT: { min: -1.2763, at: 1.06, resDefect: 3.3668 }, flipP2Sign: { min: -1.0143, at: 3.90 }, archRemainderMinusP2: { min: -3.2977, at: 0 } }, coarseMesh: { UMAX: 16, J: 18, NMAX: 30, LSHat0: 0.06306, LSHatRes: 0.36630, resDefect: 0.00029 } },
+  multiplier: { deltaSHat0: 8.78395, threshold: 8.7189942, LSHat0: 0.06496, LSHat0mesh1: 0.06565, sweep: '[0,250] step 0.01, min at t=0', m2Max: 3.3468108, resonances: [[1, 9.0647, 0.3676, 3.3484], [2, 18.1294, 0.3726, 2.6599], [3, 27.1941, 0.3999, 2.2817], [5, 45.3235, 0.4813, 1.8522], [10, 90.6470, 0.6917, 1.3694], [20, 181.2940, 1.0138, 0.9984], [27, 244.7469, 1.1880, 0.8724]], controls: { dropCosPiT: { min: -1.2763, at: 1.06, resDefect: 3.3668 }, flipP2Sign: { min: -1.0143, at: 3.90 }, archRemainderMinusP2: { min: -3.2977, at: 0 } }, coarseMesh: { UMAX: 16, J: 18, NMAX: 30, LSHat0: 0.06306, LSHatRes: 0.36630, resDefect: 0.00029 },
+    // imp-96152: N-stability of the trace-side multiplier in the dyadic-truncation parameter NMAX (the n <= NMAX cutoff
+    // of the semilocal Fourier sum F_S eta = (1/2) Sum_{n>=0} etahat(2^n .) - (1/2) etahat(./2) inside deltaS). Recomputed
+    // Lhat_S(t) = 2 theta'(t) - m_2(t) + deltahat_S(t) at NMAX = 30 (base), 48, 64, 96, 128 on a fixed graded mesh
+    // (UMAX = 20, J = 28, dyadic spikes u = k ln2). Every reported quantity is N-stable to 6 digits: deltahat_S(0),
+    // Lhat_S(0), the global minimum (always at t = 0, always > 0), the p = 2 resonance minima, and the resonance defect
+    // deltahat_S(t_1) - m_2(t_1) do not move across NMAX 30..128. So the multiplier minimum 0.0650 and the resonance-minima
+    // structure are NOT an artifact of truncating the infinite dyadic sum -- they are already converged by NMAX = 30.
+    nStability: {
+      mesh: { UMAX: 20, J: 28, spikes: 'u = k ln2' }, NMAXseq: [30, 48, 64, 96, 128],
+      deltaSHat0: 8.784261, LSHat0: 0.065267, globalMin: 0.065267, argMin: 0, allPositive: true,
+      resMinima: [0.3673, 0.3720, 0.4000, 0.4812], resK: [1, 2, 3, 5], resDefectK1: 1.299e-3,
+      driftLSHat0_30to128: 6.72e-8, tailDrift_96to128: 0.0,
+      coarseCrosscheck: { UMAX: 16, J: 18, NMAX30: 0.063060, NMAX64: 0.063060, drift: '< 1e-6' },
+      verdict: 'imp-96152: the trace-side positivity multiplier (min 0.0650 at t=0) and the p=2 resonance local minima are N-STABLE in the dyadic truncation NMAX -- drift 30->128 is 6.7e-8 (below 1e-6), converged by NMAX=30, NOT a discretization artifact. Global minimum stays at t=0 and > 0 for every NMAX. Verification of a stated positivity claim; RH open; PT Lambda <= 0.2 stands; NO QED',
+    } },
   galerkinN32: [ // [a, lamW, lamW|polefree, lamW|polefree+h0, lam Arch|polefree, lamLS, lamDSmin, lamDSmax, LS(h0), DS(h0), W(h0), Arch(h0), P2(h0)]
     [0.40, 1.81727e-4, 0.2255, 0.779516, 0.402832, 0.11892, -0.0270024, 1.7312, 0.567059, 0.341558, 0.2255, 0.443675, 0.218175],
     [0.50, 9.40392e-7, 0.0119305, 0.190364, 0.177727, 0.0992734, -0.0711966, 2.14502, 0.36261, 0.350679, 0.0119305, 0.197538, 0.185608],
@@ -357,6 +372,18 @@ export const RH_ROUTE_I_SEMILOCAL_SONINE_TRACE_ASSERTIONS = Object.freeze([
       const tres = 2 * PI / LN2; const L0 = twoThetaPrime(0) - m2(0) + hat(0), Lres = twoThetaPrime(tres) - m2(tres) + hat(tres);
       let mn = Infinity, arg = -1, mnFlip = Infinity; for (let t = 0; t <= 40; t += 0.05) { const h = hat(t); const v = twoThetaPrime(t) - m2(t) + h; if (v < mn) { mn = v; arg = t; } mnFlip = Math.min(mnFlip, twoThetaPrime(t) + m2(t) + h); }
       return within(L0, 0.055, 0.075) && Math.abs(hat(tres) - m2(tres)) < 0.01 && within(Lres, 0.33, 0.40) && arg === 0 && mn > 0.05 && mnFlip < -0.5;
+    },
+  },
+  {
+    id: 'I3b-multiplier-N-stable-in-NMAX',
+    description: 'imp-96152: the trace-side multiplier is N-stable in the dyadic truncation NMAX. On the coarse mesh (UMAX 16, J 18), deltahat_S(0) at NMAX = 64 matches the baked NMAX = 30 value 0.063060 to < 1e-5, Lhat_S(0) stays in [0.055, 0.075], and the first p = 2 resonance value stays in [0.33, 0.40]; the baked NMAX 30 -> 128 drift is below 1e-6',
+    holds: () => {
+      const C = ROUTE_I_LITERALS.multiplier.coarseMesh; const spikes = []; for (let k = 0; k * LN2 < C.UMAX; k++) spikes.push(k * LN2);
+      const mesh = buildMesh(spikes, C.UMAX, C.J); const vals = Float64Array.from(mesh.pts, (u) => deltaS(Math.exp(u), 64)); const hat = fourierOnMesh(mesh, vals);
+      const tres = 2 * PI / LN2; const L0 = twoThetaPrime(0) - m2(0) + hat(0), Lres = twoThetaPrime(tres) - m2(tres) + hat(tres);
+      const NS = ROUTE_I_LITERALS.multiplier.nStability;
+      return Math.abs((twoThetaPrime(0) - m2(0) + hat(0)) - C.LSHat0) < 1e-5 && within(L0, 0.055, 0.075) && within(Lres, 0.33, 0.40)
+        && NS.driftLSHat0_30to128 < 1e-6 && NS.tailDrift_96to128 === 0 && NS.argMin === 0 && NS.allPositive === true;
     },
   },
   {

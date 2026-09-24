@@ -19583,6 +19583,12 @@ const DATA_MODULES = [
   // lower-bounds it) and the Kato-Temple gap rescue re-encounters the same fractal Zygmund
   // eigenfunction. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96196-rayleigh-kato-temple-obstruction-glossary-headword.js',
+  // imp-96198: Concepts glossary headword for the imp-96166 frozen-floor shortfall --
+  // E(N) -> E_trunc (not 0) because E_trunc is pinned to the finite T_PT = 3e12
+  // verification height, and the sole decaying term E_coll is GUE-conditional, so the
+  // Step-4 bridge needs verified height, not faster N-decay. Documentation only; no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96198-frozen-floor-shortfall-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

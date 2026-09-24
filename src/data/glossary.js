@@ -22854,6 +22854,29 @@ export const glossary = [
       'Route H Connes-Consani Scaling-Site Verdict the archimedean-only precursor whose Test-2 cancellation named this exact semilocal S={oo,2} Sonine identity as its next step',
     ],
   },
+  {
+    term: 'Number-Variance Held-Out Anchor Vindication (imp-96090)',
+    category: 'numerical',
+    definition:
+      'imp-96090 resolves the imp-96070 honest caveat that leave-one-out (LOO) cross-validation over ' +
+      'the six imp-95562 fit heights is not a true out-of-sample test (each LOO refit still shares five ' +
+      'of the same six offsets). It re-runs the identical band() estimator at five BRAND-NEW held-out ' +
+      'centres {2e4, 5e4, 1e5, 2e5, 4e5}, none in the fit set, over the same 10^6 Odlyzko ordinates, and ' +
+      'tests the in-sample mean/max offset anchors (fitted from the original six heights only) against ' +
+      'these genuinely new measurements. RESULT: the MAX anchor caps all five held-out heights (0 ' +
+      'breaches), tightest margin +0.0141 (+3.0%) at T = 5e4; the MEAN anchor breaches at 1 of 5, ' +
+      'deepest -0.0651 (-13.7%) at T = 5e4, where the true sd(C-E) = 0.6574 exceeds the mean anchor ' +
+      'built from the neighboring fit heights 3e4/7e4. This is a TRUE out-of-sample vindication of the ' +
+      'imp-95722/imp-96070 max-anchor choice as the strictly safer r_cap(T) < 1 envelope, stronger than ' +
+      'the LOO proxy. Caveat: all five heights stay ~6.8 decades below the imp-95519 window bottom ' +
+      'T = 3e12 (the named imp-95710 window-reach sub-gap); measurement only, changes no bound.',
+    firstUsed: 'imp-96090 (number-variance mean-anchor held-out out-of-sample test, resolving the imp-96070 LOO caveat), 2026',
+    relatedTerms: [
+      'imp-96090-number-variance-mean-anchor-heldout-out-of-sample.js the module measuring sd(C-E) at the five held-out centres and comparing both anchors',
+      'imp-96070-number-variance-mean-anchor-loo-out-of-sample-residual.js the LOO proxy this replaces with real held-out data',
+      'imp-96049-number-variance-mean-anchor-six-height-residual-band.js the in-sample mean-anchor fit; imp-95722 the in-sample max-anchor fit',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

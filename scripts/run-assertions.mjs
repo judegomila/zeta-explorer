@@ -534,6 +534,13 @@ const DATA_MODULES = [
   // PT Lambda<=0.2 SOTA banner, and never picks up a promotion word (RIGOROUS/RH-follows/
   // proves RH). Guard only; changes no bound; light imports (5 zero-import leaves).
   '/src/data/imp-96134-number-variance-honesty-guard.js',
+  // imp-96140 (2026-09-24): standalone honest-status banner (imp-36182-style) surfacing the
+  // imp-96108 HONEST CAVEAT: the max offset anchor C0_max=0.333721 is an empirical SAMPLE
+  // MAXIMUM over only 11 finite heights spanning ~1.5 decades (T=1.0e4..5.0e5), not a bound
+  // proved uniform in T -- an unsampled deeper excursion anywhere in the ~6.8 decades up to the
+  // T=3.0e12 window bottom would breach it. Read-only restatement, imports imp-96108 verbatim.
+  // Note only; changes no bound; RH open; PT Lambda<=0.2 SOTA; NO QED.
+  '/src/data/imp-96140-number-variance-max-anchor-sample-max-honest-status.js',
   // imp-96020 (2026-09-23): Route B/D handoff -- LP-feasibility of a bounded-support signed coefficient
   // field with Z_w*Z'' > 0 at every near-collision (the arithmetic Gram-law surrogate), at FIXED T, and
   // how it degrades as T grows. Strict system g_k.w>0 (g_k = sign(Z'') a(x*)); feasible iff 0 not in

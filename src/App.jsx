@@ -1346,6 +1346,9 @@ const Imp96236RouteBDMarginGamma2000ChartViz = lazy(() =>
 const Imp96237HeightToFloorViz = lazy(() =>
   import('./pages/Imp96237HeightToFloorViz.jsx')
 );
+const Imp96238JointLeakRegionViz = lazy(() =>
+  import('./pages/Imp96238JointLeakRegionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3562,6 +3565,10 @@ function AppShell() {
           <Route
             path="/viz-imp96237-height-to-floor-law"
             element={<Imp96237HeightToFloorViz />}
+          />
+          <Route
+            path="/viz-imp96238-joint-leak-region"
+            element={<Imp96238JointLeakRegionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

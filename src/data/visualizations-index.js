@@ -3443,6 +3443,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the three threshold rows and kappa_star/prefactor/sensitivity anchors are copied verbatim from the imp-96207 baked fields; only the log-log line samples are computed here (evaluating the already-derived law, no re-derivation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96238-joint-leak-region',
+      title: 'imp-96206: Joint (eps_a, eps_b) Kato-Temple Certify Region',
+      oneLine:
+        'Shaded non-rectangular admissible region on the (eps_a, eps_b) two-leak plane for the imp-96206 3-level Kato-Temple test function, marking the pure-bottom worst case (1.192e-3), the equal-split boundary (1.180627e-3/channel), and the per-channel tightening as the adjacent leak grows.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96238-joint-leak-region-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96206-route-i-kato-temple-joint-leak.js (boundary function, coupled slices, literals; imp-96238 viz page)',
+      ticket: 'imp-96238',
+      pedagogicalStep: 222,
+      honestCeiling:
+        'Presentation only: the boundary curve re-runs the imp-96206 maxTolerableBottom bisection verbatim at plot resolution (no re-derivation), and the three named markers are copied from the imp-96206 baked literals; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

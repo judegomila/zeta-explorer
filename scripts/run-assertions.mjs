@@ -19473,6 +19473,7 @@ const DATA_MODULES = [
   '/src/data/imp-96210-ushape-peak-slope-drift-location-law.js',
   '/src/data/imp-96236-route-bd-margin-gamma2000-viz-data.js',
   '/src/data/imp-96237-height-to-floor-viz-data.js',
+  '/src/data/imp-96238-joint-leak-region-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

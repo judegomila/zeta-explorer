@@ -201,6 +201,15 @@ export const IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE = Object.freeze({
 
 export default IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE;
 
+export const IMP96449_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/fit only (frontier-direction, NOT '
+  + 'rigorous): the solver-path gamma_N spread stays at floating-point noise across all 21 tested '
+  + 'decades and carries no count-model content at any anchored height. The component model is '
+  + 'the inherited imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb '
+  + 'GUE-conditional per imp-486 is UNTOUCHED; C_H isRigorousUpperBound stays false '
+  + '(imp-2642/imp-2701); changes no bound; establishes no operator positivity; imp-3066 K_a >= 0 '
+  + 'untouched.';
+
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP96449_ASSERTIONS = [
   {
@@ -240,6 +249,14 @@ const IMP96449_ASSERTIONS = [
       IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.isRigorous === false &&
       /NO QED/.test(IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.verdict) &&
       /remains SOTA/.test(IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE.verdict),
+  },
+  {
+    id: 'imp96449-honest-banner-present',
+    description: 'a dedicated machine-readable IMP96449_HONEST_BANNER carries the RH-open / PT-Lambda / NO-QED markers',
+    holds: () =>
+      /RH open/.test(IMP96449_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2/.test(IMP96449_HONEST_BANNER) &&
+      /NO QED/.test(IMP96449_HONEST_BANNER),
   },
 ];
 

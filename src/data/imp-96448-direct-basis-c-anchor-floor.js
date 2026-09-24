@@ -188,6 +188,15 @@ export const IMP96448_DIRECT_BASIS_C_ANCHOR_FLOOR = {
     'A direct basis-C double-integral evaluation at the PT anchor L = 5.9e6 IS feasible -- in the LOW-ppp regime (optimum ppp ~ 3, ~2.2 s), not the high-ppp regime whose ~1.1e10-evaluation budget imp-96430 flagged as astronomical. Measured best-achievable floor ~2.84e-5, which is ~573x ABOVE the imp-96430 L-linear model floor of 4.96e-8: the model under-predicts the achievable floor by ~570x because the anchor optimum ppp collapses (cancellation roundoff grows with panel count) so the floor is truncation-set, not the extrapolated cancellation line. The exact signal |rho + 1/2| ~ 1.82e-2 still beats the measured floor by ~642x, so direct basis C DOES corroborate basis A at the anchor, but with ~570x less headroom than the model claimed (~640, not ~3.7e5). Feasibility / cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+export const IMP96448_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility / cross-validation numerics '
+  + 'only: rho is the theoretical GUE (sine-kernel, universality) two-interval correlation, '
+  + 'not computed from real zeros; the ~2.84e-5 anchor floor is a double-precision '
+  + 'quadrature/cancellation artifact of this direct integral, not a property of the zeros. '
+  + 'This supersedes the imp-96430 model-quoted anchor headroom (~3.7e5) with the measured '
+  + 'figure (~642, ~570x smaller); changes no bound; establishes no operator positivity; the '
+  + 'zero-side route stays PCC/GRH-gated.';
+
 // --- self-executing internal-consistency assertions (live anchor re-evaluation + budget checks) ---
 (() => {
   const approx = (a, b, tol) => Math.abs(a - b) <= tol;
@@ -225,6 +234,8 @@ export const IMP96448_DIRECT_BASIS_C_ANCHOR_FLOOR = {
     throw new Error('imp-96448: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96448_DIRECT_BASIS_C_ANCHOR_FLOOR.verdict))
     throw new Error('imp-96448: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!(/RH open/.test(IMP96448_HONEST_BANNER) && /PT Lambda <= 0\.2/.test(IMP96448_HONEST_BANNER) && /NO QED/.test(IMP96448_HONEST_BANNER)))
+    throw new Error('imp-96448: IMP96448_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 
 export default IMP96448_DIRECT_BASIS_C_ANCHOR_FLOOR;

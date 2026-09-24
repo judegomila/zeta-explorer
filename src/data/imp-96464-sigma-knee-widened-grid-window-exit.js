@@ -306,6 +306,14 @@ export const IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT = Object.freeze({
 
 export default IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT;
 
+export const IMP96464_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement (frontier-direction, NOT rigorous): '
+  + 'the widened-grid re-measurement resolves the imp-96451 F4 window-clipping artefact and refines '
+  + 'its ~5e-5 E_trunc exit estimate, but the underlying component model remains the inherited '
+  + 'imp-3220/imp-3406 extrapolation, NOT a rigorous asymptotic; the C_mb GUE-conditional per '
+  + 'imp-486 is UNTOUCHED; C_H isRigorousUpperBound stays false (imp-2642/imp-2701); changes no '
+  + 'bound; establishes no operator positivity; imp-3066 K_a >= 0 untouched.';
+
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 const IMP96464_ASSERTIONS = [
   {
@@ -349,6 +357,14 @@ const IMP96464_ASSERTIONS = [
       IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT.isRigorous === false &&
       /NO QED/.test(IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT.verdict) &&
       /remains SOTA/.test(IMP96464_SIGMA_KNEE_WIDENED_GRID_WINDOW_EXIT.verdict),
+  },
+  {
+    id: 'imp96464-honest-banner-present',
+    description: 'a dedicated machine-readable IMP96464_HONEST_BANNER carries the RH-open / PT-Lambda / NO-QED markers',
+    holds: () =>
+      /RH open/.test(IMP96464_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2/.test(IMP96464_HONEST_BANNER) &&
+      /NO QED/.test(IMP96464_HONEST_BANNER),
   },
 ];
 

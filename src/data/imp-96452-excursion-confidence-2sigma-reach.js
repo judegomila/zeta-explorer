@@ -179,6 +179,15 @@ export const IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH = {
     'The ~1.9-sigma excursion confidence is the imp-96089 z-score z = relErr/sqrt(2/n_w) = 0.159457/sqrt(2/291) = 1.9234 of the single significant below-envelope dip at T = 1.5e5. Its three inputs are the fixed ~16% dip depth relErr, the deterministic +/-30% tiling window count n_w = 291 (~ sqrt(T)), and the chi-square sqrt(2/n_w) sampling model. Reaching a clean 2-sigma at fixed depth needs n_w >= 315 (+24 windows, +8.1 percent). That increment CANNOT come from more verified-zero height: the dip window [1.05e5, 1.95e5] is fully interior to the existing 10^6-ordinate set (not clipped), so zeros above ~6e5 add nothing there. Nor from the correlation model: imp-96128 already puts n_eff ~ 795 (naive z ~ 3.18), so the ~1.9-sigma quote is a conservative floor. The confidence is capped by a fixed data ceiling -- the single measured dip depth over a complete interior window -- and only a DEEPER excursion from new interior data at ~1.5e5 would clear 2-sigma. Assessment/measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+export const IMP96452_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment/measurement only: the ~1.9-sigma '
+  + 'figure is capped by a FIXED DATA CEILING (the single measured T=1.5e5 dip depth over a '
+  + 'complete interior window) -- more verified zero height does NOT lift it, since the dip '
+  + 'window is already fully interior to the existing 10^6-ordinate set. The naive n_w=291 quote '
+  + 'is deliberately conservative (imp-96128 anti-correlation would raise it to a naive z~3.18 '
+  + 'if used); changes no bound; establishes no operator positivity; the zero-side route stays '
+  + 'PCC/GRH-gated.';
+
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
 (() => {
   const approx = (a, b, tol) => Math.abs(a - b) <= tol;
@@ -209,6 +218,8 @@ export const IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH = {
     throw new Error('imp-96452: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH.verdict))
     throw new Error('imp-96452: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!(/RH open/.test(IMP96452_HONEST_BANNER) && /PT Lambda <= 0\.2/.test(IMP96452_HONEST_BANNER) && /NO QED/.test(IMP96452_HONEST_BANNER)))
+    throw new Error('imp-96452: IMP96452_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 
 export default IMP96452_EXCURSION_CONFIDENCE_2SIGMA_REACH;

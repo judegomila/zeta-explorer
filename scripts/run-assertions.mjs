@@ -19730,6 +19730,11 @@ const DATA_MODULES = [
   '/src/data/imp-96318-confident-span-crossing-viz-data.js',
   '/src/data/imp-96337-mixed-ladder-margin-viz-data.js',
   '/src/data/imp-96338-worst-excess-evt-viz-data.js',
+  // imp-96354: Concepts glossary headword restating the imp-96328 verdict that the
+  // imp-96307 anchor-hardening projection (6.56 -> 10.58 SE) is a design floor
+  // conditional on landing on-line, refuted by the measured rho(32,4000)=0.3845 which
+  // collapses it to 1.69 SE. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96354-margin-floor-projection-vs-realized-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

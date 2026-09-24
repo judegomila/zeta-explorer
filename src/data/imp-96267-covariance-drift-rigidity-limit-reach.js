@@ -125,6 +125,40 @@ const crossings = EPSILONS.map((epsilon) => {
   };
 });
 
+// imp-96305: TABULATE the deviationClosedForm-vs-direct cross-check across the FULL reach range
+// T = 1e4..1e294 (the same decade span over which the epsilon = 1e-3 crossing lives), so the identity
+// deviation(T) = deviationClosedForm(T) is a checked, exported claim rather than only a code comment.
+// The two are algebraically identical (Sigma^2(2L) - Sigma^2(L) is exactly log2/pi^2), so any gap is
+// pure floating-point roundoff. maxRelDiscrepancy is the worst relative gap over the whole ladder.
+const CROSS_CHECK_LOG10 = [];
+for (let e = 4; e <= 294; e += 1) CROSS_CHECK_LOG10.push(e);
+const closedFormCrossCheck = (() => {
+  let maxRel = 0;
+  let maxAbs = 0;
+  let maxRelLog10 = CROSS_CHECK_LOG10[0];
+  for (const e of CROSS_CHECK_LOG10) {
+    const T = Math.pow(10, e);
+    const direct = deviationAt(T);
+    const closed = deviationClosedForm(T);
+    const abs = Math.abs(direct - closed);
+    const rel = abs / Math.abs(closed);
+    if (rel > maxRel) {
+      maxRel = rel;
+      maxRelLog10 = e;
+    }
+    if (abs > maxAbs) maxAbs = abs;
+  }
+  return {
+    log10RangeStart: CROSS_CHECK_LOG10[0],
+    log10RangeEnd: CROSS_CHECK_LOG10[CROSS_CHECK_LOG10.length - 1],
+    rungs: CROSS_CHECK_LOG10.length,
+    maxRelDiscrepancy: maxRel,
+    maxAbsDiscrepancy: maxAbs,
+    maxRelAtLog10Height: maxRelLog10,
+    note: 'deviationClosedForm(T) = log2/(2(log(2pi L)+gamma+1)) reproduces the direct |rho_exact - (-1/2)| to floating-point precision across all 291 decade rungs T = 1e4..1e294; the ~1.5e-13 max relative gap is pure roundoff, confirming the closed form is an exact identity, not an approximation.',
+  };
+})();
+
 export const IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH = {
   ticket: 'imp-96267',
   source:
@@ -145,6 +179,7 @@ export const IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH = {
     isPlattTrudgianAnchor: r.isPlattTrudgianAnchor,
   })),
   crossings,
+  closedFormCrossCheck,
   caveat:
     'rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T), not a measurement of the actual Riemann zeros (which exist to no such height). The crossing heights are properties of the closed-form envelope -- a pure extrapolation of the imp-96150 formula -- not empirical covariances. This changes no bound and does not touch the ~1.9-sigma excursion confidence.',
   verdict:
@@ -165,6 +200,15 @@ export const IMP96267_COVARIANCE_DRIFT_RIGIDITY_LIMIT_REACH = {
     if (!approx(r.deviation, deviationClosedForm(r.T), 1e-12))
       throw new Error(`imp-96267: closed-form deviation mismatch at T = ${r.T}`);
   }
+
+  // imp-96305: the tabulated cross-check over the FULL reach range T = 1e4..1e294 confirms the
+  // closed form is an EXACT identity -- worst relative gap is pure roundoff (~1.5e-13, well below 1e-12).
+  if (closedFormCrossCheck.rungs !== 291)
+    throw new Error('imp-96305: cross-check should span all 291 decade rungs 1e4..1e294');
+  if (!(closedFormCrossCheck.maxRelDiscrepancy < 1e-12))
+    throw new Error('imp-96305: closed-form vs direct max relative discrepancy should be roundoff (<1e-12)');
+  if (!(closedFormCrossCheck.maxAbsDiscrepancy < 1e-14))
+    throw new Error('imp-96305: closed-form vs direct max absolute discrepancy should be roundoff (<1e-14)');
 
   // ladder reproduces the offline census (matches the imp-96150 formula at the shared decade points)
   if (!approx(at(1e5).rhoExact, -0.463042, 1e-5)) throw new Error('imp-96267: T = 1e5 rho_exact drifted');

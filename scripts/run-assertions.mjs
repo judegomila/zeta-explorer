@@ -19552,6 +19552,11 @@ const DATA_MODULES = [
   // box-overlap artifact, not a de-correlation reversal. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96191-empirical-lag1-gue-confirmation-glossary-headword.js',
+  // imp-96194: Concepts glossary headword for the imp-96170 out-of-bracket persistence --
+  // the ~2.7x AR-1 inflation (f = 2.72095/2.75103 at T = 8e4/6e5) and ~1.04 safe-side flip
+  // margin extend beyond the imp-96150 {2e4 .. 4e5} sampled band. Documentation only; no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96194-outofbracket-persistence-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

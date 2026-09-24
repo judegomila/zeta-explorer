@@ -416,6 +416,14 @@ export const RESULTS = [
     date: '2026-09',
   },
   {
+    statement: 'Route M eigen-drift candidate RULED OUT: the sub-leading Vasyunin prolate eigen-spectrum (λ₁..λ₆, N=250..6000) is as strictly monotone-decreasing (0 upward steps each) and as uncorrelated with the w≈4.08 ratio(N) residual swing (max |corr|=0.064, spectral-gap ratios max 0.072) as λ_min, eliminating the eigen-drift alternative and strengthening the imp-96189 low-conductor (q=4,5) arithmetic-band attribution; band uniqueness vs a smooth non-spectral drift remains open.',
+    grade: 'measured',
+    verification: ['module imp-96203-route-m-vasyunin-subleading-spectrum', 'exact eigvalsh of the Vasyunin Gram to N=6000, d_N² reproduces imp-96105 bit-for-bit'],
+    thread: 'rh-novel-routes',
+    route: '/rh-novel-routes-roadmap',
+    date: '2026-09',
+  },
+  {
     statement: 'Novel route C (twisted-ladder signed interferometer Φ_ε(s)=Σ_χ ε_χ L(s,χ)): REFUTED as an off-line-nonvanishing lever — the functional equation pins each conjugate pair’s relative phase to the root number (arg W=2 arctan κ), so orthogonality is only a mean-square (Parseval) statement and joint universality forces ≫T off-line zeros for every ≥2-arm design; a concrete q=5 Davenport–Heilbronn superposition measures 8 off-line zeros vs 0 for the arm-union.',
     grade: 'refuted',
     verification: ['module rh-route-c-signed-interferometer-2026-09-23', 'q=5 superposition-vs-union off-line zero count 8 vs 0 (imp-96029), FE phase-pinning arg W=2 arctan κ verified to 1e-15'],

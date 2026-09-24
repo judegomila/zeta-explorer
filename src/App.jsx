@@ -1379,6 +1379,9 @@ const Imp96316EtruncSensitivityViz = lazy(() =>
 const Imp96318ConfidentSpanCrossingViz = lazy(() =>
   import('./pages/Imp96318ConfidentSpanCrossingViz.jsx')
 );
+const Imp96262ModelSelectionScoresViz = lazy(() =>
+  import('./pages/Imp96262ModelSelectionScoresViz.jsx')
+);
 const Imp96320RouteLReachBandViz = lazy(() =>
   import('./pages/Imp96320RouteLReachBandViz.jsx')
 );
@@ -3645,6 +3648,10 @@ function AppShell() {
           <Route
             path="/viz-imp96318-confident-span-crossing"
             element={<Imp96318ConfidentSpanCrossingViz />}
+          />
+          <Route
+            path="/viz-imp96262-model-selection-scores"
+            element={<Imp96262ModelSelectionScoresViz />}
           />
           <Route
             path="/viz-imp96320-route-l-reach-band"

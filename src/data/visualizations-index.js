@@ -3625,6 +3625,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every E_trunc/E_flow/E_coll/E(N) magnitude and every C_shock/C_H value is copied verbatim from the imp-96290 baked inventory; only the log-scale bar layout is computed here (no re-derivation); the conditional anchor (C_H <= 0.127) is UNPROVEN (C_H isRigorousUpperBound = false, imp-2642/imp-2701) and C_Lip is the RH-hard unquantified residual (imp-2640 Gronwall discharge NEGATIVE); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96262-model-selection-scores',
+      title: 'imp-96231: Band-vs-Drift Model-Selection Scores (R2, AICc, BIC, LOO PRESS, Akaike Weights)',
+      oneLine:
+        'Table of the imp-96231 model-selection scores comparing the fixed q4+q5 Vasyunin conductor band against degree-2/3/4 smooth drift polynomials (R2, AICc, BIC, exact LOO PRESS, Akaike weight), plus the free-tone permutation-significance test (5000 shuffles).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96231-route-m-band-vs-drift-identifiability.js',
+      paperSourcePath:
+        'src/data/imp-96231-route-m-band-vs-drift-identifiability.js (IMP96231_MODELS, IMP96231_SELECTION, IMP96231_PEAK_SIGNIFICANCE; imp-96262 viz page)',
+      ticket: 'imp-96262',
+      pedagogicalStep: 235,
+      honestCeiling:
+        'Presentation only: every R2/AICc/BIC/PRESS/Akaike-weight and permutation-test value is copied verbatim from the imp-96231 baked model-selection scores (no re-derivation, no new fit). The band decisively beats a slow smooth non-spectral drift (delta AICc -18.6), but is statistically indistinguishable from a free single tone at the same frequency (delta R2 0.002): the specific q4+q5 conductor content is NOT uniquely identified. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

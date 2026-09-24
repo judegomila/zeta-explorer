@@ -1427,6 +1427,9 @@ const Imp96410SigmaPeakKneeCrossoverViz = lazy(() =>
 const Imp96475EtruncSensitivityViz = lazy(() =>
   import('./pages/Imp96475EtruncSensitivityViz.jsx')
 );
+const Imp96478CountGapShareViz = lazy(() =>
+  import('./pages/Imp96478CountGapShareViz.jsx')
+);
 const Imp96395SigmaLocalExponentRampViz = lazy(() =>
   import('./pages/Imp96395SigmaLocalExponentRampViz.jsx')
 );
@@ -3801,6 +3804,10 @@ function AppShell() {
           <Route
             path="/viz-imp96475-etrunc-sensitivity"
             element={<Imp96475EtruncSensitivityViz />}
+          />
+          <Route
+            path="/viz-imp96478-count-gap-share"
+            element={<Imp96478CountGapShareViz />}
           />
           <Route
             path="/viz-imp96395-sigma-local-exponent-ramp"

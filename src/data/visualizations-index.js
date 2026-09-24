@@ -4017,6 +4017,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every factor, eTrunc, knee, crossover and gap value plotted here is copied verbatim from the imp-96451 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96478-count-gap-share',
+      title: 'Count-Inversion Gap Split (+7/8 Share vs S(T) Residual)',
+      oneLine:
+        'Charts the imp-96445 split of the imp-96426 count-inversion relative gap into its deterministic +7/8-only share (60-73% majority at every intermediate anchor N=1e3..1e6) and its residual S(T) fluctuation share (27-40%, does not decay), with the backed-out S(gamma_N) wobble overlaid.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96478-count-gap-share-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96445-count-gap-plus78-vs-st-split.js (IMP96445_COUNT_GAP_PLUS78_VS_ST_SPLIT; imp-96478 viz page)',
+      ticket: 'imp-96478',
+      pedagogicalStep: 261,
+      honestCeiling:
+        'Presentation only: every N, plus78Fraction, stFraction and S(gamma_N) value plotted here is copied verbatim from the imp-96445 baked per-anchor split; the only new step is the log10(N) stacked-bar projection. Accuracy-audit diagnostic only, not rigorous; changes no bound; conditional C_H <= 0.127 stays UNPROVEN; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

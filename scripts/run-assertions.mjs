@@ -438,6 +438,17 @@ const DATA_MODULES = [
   // (SG-96164-boundary). Import-light (no imports, no zeros bundle). Assertions < 0.1 s. Measurement only;
   // changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED.
   '/src/data/imp-96169-route-i-rayleigh-variational-topstate-assessment.js',
+  // imp-96181 (2026-09-24): PROOF/ASSESSMENT — DECIDE imp-96164 sub-gap SG-96164-boundary (does the archimedean
+  // edge at v=1/2 force C=0 in the rigid modulus-1 profile g(v)=C/v of A_S23 = P_1 F_S23 P_1?). HONEST PARTIAL:
+  // NOT decided, but sharpened. (A) the Paley-Wiener / analytic-continuation shortcut (band-limited=>entire=>pole
+  // at 0 forbidden=>C=0) is REFUTED — the semilocal top confined states are Zygmund-fractal, not entire, so no
+  // continuation reaches the edge. (B) 1/v is the exact unique fixed point of every dilation D_U g(v)=U g(Uv)
+  // (the imp-96164 law g(Uv)=g(v)/U), and the confinement cut P_1 at v=1/2 breaks D_U there, so the scaling
+  // rigidity cannot reach the boundary. (C) the residual localizes to the edge octave (1/2,1) carrying EXACTLY
+  // HALF the mode L^2 mass (int_{1/2}^{1} v^-2 dv = 1 of 2), so it undecided-weighs half the top state. C=0
+  // indicated (p=2 top 0.9999731<1) not enclosed (Zygmund edge). New sub-gap SG-96181-edge-octave. Import-light
+  // (no imports, no zeros bundle). Assertions ~0.1 s. RH open; PT Lambda <= 0.2 stands; NO QED.
+  '/src/data/imp-96181-route-i-sg-boundary-edge-octave.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284

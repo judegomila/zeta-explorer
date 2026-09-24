@@ -23388,6 +23388,37 @@ export const glossary = [
       'imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js the underlying count-inversion anchor whose gap is decomposed here',
     ],
   },
+  {
+    term: 'The imp-96128 Union-Identity Covariance and the imp-96267 rho_exact Ratio Are the Same Object at the PT Anchor (imp-96312)',
+    category: 'measurement',
+    definition:
+      'imp-96267 reports rho_exact = -0.4817670 (deviation 0.0182330 from the GUE-rigidity limit -1/2) ' +
+      'at the Platt-Trudgian verified height T = 3e12 via the ratio form Sigma^2(2L)/(2 Sigma^2(L)) - 1. ' +
+      'imp-96128 computes the same adjacent-box correlation via the union-identity covariance ' +
+      'Cov = (Sigma^2(2L) - 2 Sigma^2(L))/2, rho_exact = Cov/Sigma^2(L), but had only tabulated it on the ' +
+      'six imp-95562 census heights 1e4..5e5. imp-96312 evaluates both forms at 3e12 and finds them ' +
+      'BYTE-IDENTICAL (absolute discrepancy exactly 0), as they must be since the union identity makes the ' +
+      'two expressions algebraically the same. It also tabulates, for the first time, the imp-96128 ' +
+      'covariance quantities at the PT anchor: L = 5.9148e6 zeros per box, Sigma^2(L) = 1.92592, ' +
+      'Cov = -0.92784, and AR-1 effective factor f = (1-rho)/(1+rho) = 2.8593 -- up from 2.7312 at the ' +
+      'T = 1.5e5 significant-dip height, even though the PT-anchor box holds ~11,900x more zeros, ' +
+      'confirming the near height-flat 1/log T crawl of imp-96267. The correlation sits 1.0562 in rho ' +
+      'units on the safe side of the sign-forbidden positive flip threshold rho_crit = 0.5744: extending ' +
+      'imp-96128 to the PT anchor deepens, not weakens, its safe-side anti-correlation verdict. HONEST ' +
+      'CAVEAT: because both forms reduce to the same asymptotic-only sine-kernel number variance, the ' +
+      'byte-identical agreement is a WITHIN-family self-consistency check, not an independent confirmation ' +
+      '-- imp-96350 supplies the genuine out-of-family corroboration, against the exact Dyson-Mehta number ' +
+      'variance and a direct pair-correlation double integral. rho_exact is the theoretical GUE quantity for ' +
+      'boxes of unfolded length L(T); at T = 3e12 there are no computed zeros, so nothing here touches real ' +
+      'zero data. Changes no bound; establishes no operator positivity; does not touch the ~1.9-sigma ' +
+      'excursion confidence; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96312-covariance-cross-validation-pt-anchor.js (cross-validates the imp-96267 ratio form and the imp-96128 union-identity covariance form at the PT verified height), 2026',
+    relatedTerms: [
+      'imp-96267-covariance-drift-rigidity-limit-reach.js the source rho_exact = -0.4817670 decade-ladder + PT-anchor ratio-form measurement',
+      'imp-96128-number-variance-two-interval-covariance-exact.js the union-identity covariance and safe-side anti-correlation verdict extended here to the PT anchor',
+      'imp-96350-covariance-outoffamily-crossvalidation.js the genuine OUT-OF-FAMILY corroboration (exact Dyson-Mehta number variance + direct double integral) that this module explicitly defers to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

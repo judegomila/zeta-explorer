@@ -19634,6 +19634,12 @@ const DATA_MODULES = [
   // and the fourth-order reconstruction continues the monotone shrink (location 1.84e-4->7.20e-6 by
   // (4/5)/x, height 9.41e-7->2.97e-8 by 1/x). Import-light, 8 assertions. NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96329-eflow-tail-law-global.js',
+  // imp-96397: registers the imp-96294 viz-data leaf's IMP96294_ASSERTIONS array (3 checks
+  // derived from the previously-unexecuted IMP96294_VALIDATION object) with this sweep. The
+  // module still carries no import-time throw guard (per its original ticket spec, to avoid
+  // blanking the viz page in the browser); this generic *_ASSERTIONS discovery runs the checks
+  // only under the Node sweep. Import-light, 3 assertions. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96294-eflow-residual-viz-data.js',
   // imp-96391 (2026-09-24): WITHIN-MODEL PROOF — the imp-96266 E_flow suppression residual R(N) =
   // sigma_full - sigma_CF = -sigma_full*E_flow/(E_trunc+E_coll) admits a clean N-uniform bound:
   // 0 >= R(N) >= -0.137472 for all N >= 1e3. Proof from three exact analytic properties of the model

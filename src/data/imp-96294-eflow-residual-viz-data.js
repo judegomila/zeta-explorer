@@ -79,3 +79,25 @@ export const IMP96294_VALIDATION = Object.freeze({
     Math.abs(IMP96294_PEAK_ANNOTATION.peakN / 9.22e5 - 1) < 5e-3
     && Math.abs(IMP96294_PEAK_ANNOTATION.peakSigmaFull - 0.9494) < 1e-3,
 });
+
+// imp-96397: registers the IMP96294_VALIDATION checks with the build-time assertion sweep
+// (scripts/run-assertions.mjs), which discovers any exported *_ASSERTIONS array without
+// requiring an import-time throw -- so this stays inert in the browser (no guard that could
+// blank the viz page) while still running under the Node sweep.
+export const IMP96294_ASSERTIONS = [
+  {
+    id: 'imp96294-residual-strictly-negative',
+    description: 'every plotted R(N) residual point is strictly negative',
+    holds: () => IMP96294_VALIDATION.residualStrictlyNegative,
+  },
+  {
+    id: 'imp96294-series-length-matches-ladder',
+    description: 'reshaped residual and E_flow/E_N series both match the imp-96266 ladder length',
+    holds: () => IMP96294_VALIDATION.seriesLengthMatchesLadder,
+  },
+  {
+    id: 'imp96294-peak-annotation-near-imp3220-landmark',
+    description: 'peak annotation N and sigma_full match the imp-3220 landmark within tolerance',
+    holds: () => IMP96294_VALIDATION.peakAnnotationNearImp3220Landmark,
+  },
+];

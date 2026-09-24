@@ -22877,6 +22877,41 @@ export const glossary = [
       'imp-96049-number-variance-mean-anchor-six-height-residual-band.js the in-sample mean-anchor fit; imp-95722 the in-sample max-anchor fit',
     ],
   },
+  {
+    term: 'Route J Tensor-Square Finite-Analog Bifurcation (imp-96123 / imp-96092)',
+    category: 'no-go',
+    definition:
+      'Route J (Kunneth tensor-power bootstrap) needs the missing self-product Spec Z x_{F1} Spec Z ' +
+      'to carry an m-fold tensor-power excess that is a fixed constant DIVIDED by m, so the exponent ' +
+      'excess vanishes as m -> infinity and |beta| <= q^{n/2 + O(1)/m} reaches the Weil weight n/2. ' +
+      'RES-96072 (named residual) asserted, without a finite-model audit, that no computable finite ' +
+      'analog of the missing self-product is a genuine partial. imp-96092 performed that audit and ' +
+      'found the two natural finite analogs BIFURCATE and NEITHER is a partial: (A) the FAITHFUL F_q ' +
+      'self-product (curve/variety X over F_q, self-product X^m) is exactly the geometry where the ' +
+      'bootstrap already WORKS (a fixed +1/2 functional-equation weight excess divided by m gives ' +
+      'exponent excess 1/(2m) -> 0, i.e. Weil/Deligne RH holds), but that fixed-and-divided law ' +
+      'belongs to a product over a genuine base field (Frobenius a single q-power, closed points a ' +
+      'q^Z orbit) and does NOT model the Z obstruction at all -- it is precisely the analog whose ' +
+      'transfer to Z fails, since Spec Z x_{F1} Spec Z is a surface with infinite-rank H^1 and an ' +
+      'R-scaling-flow Frobenius, not a q^Z orbit; (B) a finite Euler-product truncation over Z ' +
+      '(primes p <= X) destroys both quantities the trick consumes -- a Dirichlet polynomial has no ' +
+      'pole (abscissa of absolute convergence = -infinity) and is entire with spurious zeros, so ' +
+      'there is no pole order to lower and no zero-free half-plane to inherit. The Z-model ' +
+      'excessOverTarget is pinned at the trivial value 1 for every m regardless of truncation length ' +
+      'or model size, while the F_q exponent excess falls as 1/(2m) for reasons internal to F_q ' +
+      'geometry a finite Z-truncation cannot import. VERDICT: RES-96072 is CONFIRMED a STRUCTURAL ' +
+      'WALL (missing finite-rank H^1, Z-valued Frobenius, the self-product Spec Z x_{F1} Spec Z), not ' +
+      'a computational one awaiting a bigger finite model; the one live corner (an exotic F_1-geometry ' +
+      'self-product, e.g. Connes-Consani scaling site) is Route H territory, not audited here. ' +
+      'Documentation/assessment only; establishes nothing new; changes no bound; RH open; NO QED; ' +
+      'Platt-Trudgian Lambda<=0.2 remains SOTA; Route J stays NOT-A-LEVER.',
+    firstUsed: 'imp-96092 (Route J tensor-square finite-analog structural-only audit, deciding RES-96072), 2026',
+    relatedTerms: [
+      'imp-96092-tensor-square-finite-analog-structural-only.js the module tabulating the two competing excess laws (Z model vs F_q model) and the bifurcation verdict',
+      'rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js ROUTE_J engine (iii) the Kunneth tensor-power bootstrap and the RES-96072 named residual this audit decides',
+      'Route H Connes-Consani Scaling-Site Verdict the one live corner (exotic F_1-geometry self-product) this bifurcation audit does not rule out',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

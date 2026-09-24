@@ -796,6 +796,25 @@ export default function LambdaBoundsPage() {
               <div style={{ fontSize: 10, color: 'var(--faint)', marginBottom: 8 }}>
                 <strong>Closes if:</strong> {v.closesIf}
               </div>
+              {v.closesIfResolution && (
+                <div
+                  style={{
+                    fontSize: 10,
+                    color: 'var(--faint)',
+                    marginBottom: 8,
+                    padding: '6px 10px',
+                    borderRadius: 6,
+                    background: resolutionBg(v.closesIfResolution.status),
+                    border: `1px solid ${resolutionColor(v.closesIfResolution.status)}`,
+                  }}
+                >
+                  <strong style={{ color: resolutionColor(v.closesIfResolution.status) }}>
+                    Resolution ({v.closesIfResolution.status}
+                    {v.closesIfResolution.resolvedBy ? `, ${v.closesIfResolution.resolvedBy}` : ''}):
+                  </strong>{' '}
+                  {v.closesIfResolution.reason}
+                </div>
+              )}
               <div>
                 {v.tickets.map((t) => ticketLink(t))}
               </div>
@@ -913,4 +932,20 @@ function routeColor(id) {
   if (id.includes('route-B')) return 'var(--brass-dk)';
   if (id.includes('route-C')) return 'var(--blue)';
   return 'var(--faint)';
+}
+
+// A closesIfResolution records the harvested-closure verdict for a
+// VERIFICATION_EFFORTS entry (imp-2614/2615/2616/2617). "not-met-conditional-negative"
+// (e.g. Route A) must render distinctly from the "met-*-positive" verdicts so a
+// conditional route never reads as rigorous/closed in the UI.
+function resolutionColor(status) {
+  if (status === 'not-met-conditional-negative') return 'var(--terra-dk)';
+  if (status === 'met-partial-positive') return 'var(--brass-dk)';
+  return 'var(--green)';
+}
+
+function resolutionBg(status) {
+  if (status === 'not-met-conditional-negative') return 'rgba(194,58,28,0.08)';
+  if (status === 'met-partial-positive') return 'rgba(181,138,46,0.08)';
+  return 'rgba(76,122,74,0.08)';
 }

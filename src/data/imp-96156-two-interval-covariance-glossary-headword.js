@@ -18,6 +18,8 @@
  * @see imp-96128-number-variance-two-interval-covariance-exact (source: the exact covariance and verdict this glosses)
  * @see imp-96109-tue5-dip-decorrelation-safety-margin (the superseded O(1/L) proxy)
  * @see imp-96089-mean-anchor-window-count-significance-verdict (the significant-dip verdict this strengthens)
+ * @see imp-96171-number-variance-empirical-lag1-vs-gue-proxy (empirical confirmation on a clean tiling;
+ *   the imp-95562 raw tiling's own adjacent-box correlation is a box-overlap artifact, not usable directly)
  *
  * Ticket: imp-96156 (content, low). Documentation only; establishes nothing; changes no bound;
  * NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.
@@ -68,7 +70,9 @@ export const IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD = Object.freeze(
     'Establishes nothing; changes no bound; NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   citation:
     'imp-96128 (exact GUE two-interval covariance and verdict); imp-96109 (superseded O(1/L) proxy); ' +
-    'imp-96089 (the significant-dip verdict this strengthens); imp-95562 (the hard-box tiling).',
+    'imp-96089 (the significant-dip verdict this strengthens); imp-95562 (the hard-box tiling); ' +
+    'imp-96171 (empirical clean-tiling confirmation -- the raw imp-95562 tiling adjacent-box ' +
+    'correlation is a box-overlap artifact, honest-status caveat on citing imp-95562 directly for correlation).',
 });
 
 export default IMP96156_TWO_INTERVAL_COVARIANCE_GLOSSARY_HEADWORD;

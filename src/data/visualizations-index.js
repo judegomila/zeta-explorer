@@ -3331,6 +3331,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every row is copied verbatim from the imp-96112 baked 12-config sweep (no re-derivation of the band() estimator or the offline quadrature); the +3.0% imp-96090 headline is the tight end of a uniformly-positive family, not a representative central margin; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96141-excursion-depth-offset-ledger-table',
+      title: 'imp-96108: Excursion-Depth-vs-Max-Anchor Offset Ledger',
+      oneLine:
+        'Table of the imp-96108 offset-space ledger across 11 measured heights: offset(T), the offset headroom below the max anchor C0_max=0.333721, and the per-height excursion depth d_reach(T) needed to lift the mean cap to the max cap, plus the window-bottom (T=3e12) r_cap_max=0.25987 dead-zone margin 0.740 below 1 -- never tabulated before.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96108-number-variance-excursion-depth-vs-max-anchor.js',
+      paperSourcePath:
+        'src/data/imp-96108-number-variance-excursion-depth-vs-max-anchor.js (measuredRows, deadZoneBottom; imp-96141 viz page)',
+      ticket: 'imp-96141',
+      pedagogicalStep: 214,
+      honestCeiling:
+        'Presentation only: every row is copied verbatim from the imp-96108 baked offset ledger (no re-derivation of the Selberg-subtracted offset or the Odlyzko-fitted sd(C - E) literals); the max anchor is a SAMPLE maximum over 11 finite heights and cannot exclude a deeper unmeasured interior excursion; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

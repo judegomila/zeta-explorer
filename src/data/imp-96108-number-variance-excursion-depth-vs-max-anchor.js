@@ -141,6 +141,7 @@ const measuredRows = [...FIT, ...HELDOUT].map((m) => {
     offsetGapBelowMax: C0_max - offset, // >= 0: offset headroom before the max cap breaches
     maxCapMarginRelPct: ((rCapMax - rMeasured) / rMeasured) * 100, // >= 0 means the max cap covers
     breachesMaxCap: offset > C0_max + 1e-12,
+    depthToReachMaxCapPct: depthToReachMaxCap(m.Tc) * 100, // excursion depth (% of measured ratio) needed at this height to reach the max cap
   };
 });
 
@@ -218,6 +219,9 @@ export const IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR = {
     throw new Error('imp-96108: nearest unmeasured max-cap margin not ~+3.0 percent');
   // the r_cap < 1 dead-zone is far from binding at the window bottom
   if (!approx(rCapMaxBottom, 0.25987, 1e-4)) throw new Error('imp-96108: r_cap_max(3e12) drifted');
+  // per-height d_reach stays in the ~16-19 percent band claimed by FINDINGS 3
+  if (measuredRows.some((r) => r.depthToReachMaxCapPct < 15 || r.depthToReachMaxCapPct > 20))
+    throw new Error('imp-96108: a per-height depthToReachMaxCapPct fell outside the claimed 16-19 percent band');
   if (!(IMP96108_NUMBER_VARIANCE_EXCURSION_DEPTH_VS_MAX_ANCHOR.deadZoneBottom.offsetToReachOneInC0MaxUnits > 5))
     throw new Error('imp-96108: dead-zone breach offset should be > 5 x C0_max');
   // honesty gates

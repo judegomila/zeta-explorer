@@ -143,6 +143,13 @@ export const IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION = {
     'The imp-96493 z-scan and the imp-96115 / imp-96089 below-envelope dip table are CONSISTENT where they overlap. At the two shared heights T = 1.5e5 and T = 3.0e5 the window counts (291, 411) and the z-scores (1.9234, 0.0749) agree to full double precision (max delta z = 0); the shared definition z = relErr / sqrt(2 / n_w), the imp-95562 tiling window counts, and the ~4.6175e5 clip threshold all reconcile, with every dip-table height (1e4, 1.5e5, 3e5) sitting below the clip in the unclipped interior. The T = 1e4 dip is dip-table-only (below the imp-96493 interior floor T > 1.5e5) and the imp-96129 dense heights above 3e5 are scan-only; neither ledger contradicts the other. Cross-validation only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
+export const IMP96512_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation only: the imp-96493 z-scan and the '
+  + 'imp-96089 below-envelope dip table are byte-consistent only at their two shared heights (T = 1.5e5, '
+  + '3.0e5); the T = 1e4 dip and the nine imp-96129 scan-only heights are not cross-checked against the '
+  + 'other ledger, they simply do not conflict; changes no bound.';
+
 // --- self-executing internal-consistency assertions (comparison only, no re-derivation) ---
 (() => {
   const approx = (a, b, tol) => Math.abs(a - b) <= tol;
@@ -174,6 +181,8 @@ export const IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION = {
     throw new Error('imp-96512: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION.verdict))
     throw new Error('imp-96512: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!(/RH open/.test(IMP96512_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96512_HONEST_BANNER) && /NO QED/.test(IMP96512_HONEST_BANNER)))
+    throw new Error('imp-96512: IMP96512_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 
 export default IMP96512_EXCURSION_SIGNIFICANCE_LEDGER_RECONCILIATION;

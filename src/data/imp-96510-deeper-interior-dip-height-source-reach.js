@@ -231,6 +231,14 @@ export const IMP96510_DEEPER_INTERIOR_DIP_HEIGHT_SOURCE_REACH = {
     'Realizing imp-96452 lever (b) -- a genuinely deeper interior dip ~1.93x below the imp-96493 deepest measured excursion (z=1.0358 at T=3.879e5) -- requires, under the SAMPLING-NOISE reading the existing data favours, a statistical hunt across ~30 independent unclipped heights (50% chance) or ~100 (90%): a CONTIGUOUS zero-source reaching top ordinate ~2.44e13 (~1.09e14 zeros, ~8.1x the Platt-Trudgian verified height ~3.0001e12) or ~1.55e32 respectively -- neither of which exists, and the Odlyzko 10^21/10^22 local blocks are far too narrow to supply even one unclipped interior tiling. The GUE number-variance envelope does NOT predict deeper dips become attainable at height: the depth is a fixed ~2.28% one-sided tail per independent height, and the imp-96493 measured depths already shrink FASTER than the sampling floor (0.425 vs 0.789 over T=1.5e5->3.879e5), arguing against a systematic excursion. Only under the data-disfavoured SYSTEMATIC reading would a deeper 2-sigma dip be cheap (height ~5.4e6, ~1.4e7 zeros); the ~7-order-of-magnitude gap between the two zero-source estimates IS the unresolved systematic-vs-noise question (SUB-GAP). Assessment/measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
+export const IMP96510_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Assessment/measurement only: whether the below-envelope '
+  + 'dip depth is a genuine systematic (cheap, height ~5.4e6) or pure sampling noise (needs a ~2.44e13-ordinate '
+  + 'contiguous source that does not exist, ~8.1x past the Platt-Trudgian verified height) is an OPEN sub-gap '
+  + '(imp-96510-systematic-vs-noise-dip-depth-scaling) -- the ~7-order-of-magnitude spread between the two '
+  + 'readings is unresolved, not decided in either direction; changes no bound.';
+
 // --- self-executing internal-consistency assertions (formula re-derivation, generous tolerances) ---
 (() => {
   const rel = (a, b) => Math.abs(a - b) / Math.abs(b); // relative error
@@ -266,6 +274,8 @@ export const IMP96510_DEEPER_INTERIOR_DIP_HEIGHT_SOURCE_REACH = {
     throw new Error('imp-96510: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96510_DEEPER_INTERIOR_DIP_HEIGHT_SOURCE_REACH.verdict))
     throw new Error('imp-96510: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!(/RH open/.test(IMP96510_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96510_HONEST_BANNER) && /NO QED/.test(IMP96510_HONEST_BANNER)))
+    throw new Error('imp-96510: IMP96510_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 
 export default IMP96510_DEEPER_INTERIOR_DIP_HEIGHT_SOURCE_REACH;

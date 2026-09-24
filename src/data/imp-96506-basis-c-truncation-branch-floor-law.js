@@ -197,6 +197,13 @@ export const IMP96506_BASIS_C_TRUNCATION_BRANCH_FLOOR_LAW = {
     'The ppp-truncation branch (L >= 3e5) that the imp-96486 L-linear cancellation model departs from has its achievable floor set by the composite-Simpson h^4 TRUNCATION error at the collapsed optimal ppp*: floor = D * ppp*^beta with beta ~ -4.11 (the Simpson 4th order; D ~ 3.09e-3, R^2 ~ 0.98), equivalently floor = C * L^alpha with alpha ~ 2.20 (C ~ 2.9e-20, R^2 ~ 0.99), the two related by alpha ~ beta * gamma through the empirical ppp* collapse rate gamma ~ -0.56. A live L=3e5 low-ppp sweep reproduces the Simpson-order slope (~ -4.8) directly. So the anchor ppp=3 truncation floor (~2.84e-5) is the h^4 truncation error at ppp*=3, not the extrapolated cancellation line (~4.96e-8) -- characterizing the branch imp-96486 only localized. Feasibility / cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
+export const IMP96506_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Feasibility / cross-validation numerics only: rho is '
+  + 'the theoretical GUE two-interval correlation, not computed from real zeros; the fitted truncation-branch '
+  + 'floor law (beta ~ -4.11, alpha ~ 2.20) rests on only four coarse rungs (log-rms ~ 0.2-0.3) and the two '
+  + 'largest inherit imp-96486 eval-budget-capped optima; changes no bound, establishes no operator positivity.';
+
 // --- self-executing internal-consistency assertions (live sweep + fit sanity + honesty gates) ---
 (() => {
   const approx = (a, b, tol) => Math.abs(a - b) <= tol;
@@ -230,6 +237,8 @@ export const IMP96506_BASIS_C_TRUNCATION_BRANCH_FLOOR_LAW = {
     throw new Error('imp-96506: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96506_BASIS_C_TRUNCATION_BRANCH_FLOOR_LAW.verdict))
     throw new Error('imp-96506: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!(/RH open/.test(IMP96506_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96506_HONEST_BANNER) && /NO QED/.test(IMP96506_HONEST_BANNER)))
+    throw new Error('imp-96506: IMP96506_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 
 export default IMP96506_BASIS_C_TRUNCATION_BRANCH_FLOOR_LAW;

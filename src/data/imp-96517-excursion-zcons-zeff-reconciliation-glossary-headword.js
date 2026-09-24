@@ -107,6 +107,13 @@ export const IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD = Ob
     'T = 1.5e5).',
 });
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
+export const IMP96517_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Documentation only, restating the imp-96489 ' +
+  'reconciliation: z_cons = 1.9234 is a strict lower bound (independence assumption) and z_eff = 3.1787 ' +
+  'is its exact AR-1 correction (rho_exact is the theoretical GUE sine-kernel value, not an empirical ' +
+  'covariance of the actual zeros); establishes nothing, instantiates no interval, moves no bound.';
+
 export default IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD;
 
 // -- Tripwire assertions ------------------------------------------------------
@@ -134,6 +141,15 @@ export const IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD_ASSE
       /NO QED/.test(IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
       /remains SOTA/.test(IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.verdict) &&
       IMP96517_EXCURSION_ZCONS_ZEFF_RECONCILIATION_GLOSSARY_HEADWORD.glosses === 'imp-96489',
+  },
+  {
+    id: 'imp96517-honest-banner-has-markers',
+    why: 'The exported machine-readable banner must carry the RH-open / PT-Lambda / NO-QED markers ' +
+      'for any consumer viz page to render (imp-96337 / imp-96428 convention).',
+    holds: () =>
+      /RH open/.test(IMP96517_HONEST_BANNER) &&
+      /PT Lambda <= 0\.2/.test(IMP96517_HONEST_BANNER) &&
+      /NO QED/.test(IMP96517_HONEST_BANNER),
   },
 ];
 

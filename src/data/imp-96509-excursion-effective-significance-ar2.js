@@ -196,6 +196,14 @@ export const IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2 = {
     'Extending the imp-96489 AR-1 effective-count model to AR-2 (Yule-Walker on the true sine-process lag-2 ~ -0.020) raises n_eff from 794.78 to 1475.43 and z_eff from 3.1787 to 4.3310; the AR-3 lag-3 refinement pushes them to 2321.70 and 5.4329. The higher-lag corrections push strictly in the SAFE direction, every figure clears the 2-sigma target, and every fitted correlation stays negative -- sign-forbidden from the rho_crit = +0.57443 flip threshold. The headline conservative z_cons = 1.9234 floor is unchanged and remains a strict lower bound. Measurement/reconciliation only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention).
+export const IMP96509_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/reconciliation only: the lag-2/lag-3 inputs '
+  + '(-0.020/-0.008) are the theoretical GUE sine-process box correlations, not empirical zero covariances, '
+  + 'so the >4-sigma AR-2/AR-3 effective figures are indicative, not precise; the robust takeaway is direction '
+  + '(each added lag raises n_eff/z_eff) and sign safety, not the exact numbers; the conservative z_cons = '
+  + '1.9234 floor is unchanged and remains the strict lower bound; changes no bound.';
+
 // --- self-executing internal-consistency assertions (formula re-derivation only) ---
 (() => {
   const approx = (a, b, tol) => Math.abs(a - b) <= tol;
@@ -227,6 +235,8 @@ export const IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2 = {
     throw new Error('imp-96509: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains SOTA/.test(IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2.verdict))
     throw new Error('imp-96509: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+  if (!(/RH open/.test(IMP96509_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96509_HONEST_BANNER) && /NO QED/.test(IMP96509_HONEST_BANNER)))
+    throw new Error('imp-96509: IMP96509_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 
 export default IMP96509_EXCURSION_EFFECTIVE_SIGNIFICANCE_AR2;

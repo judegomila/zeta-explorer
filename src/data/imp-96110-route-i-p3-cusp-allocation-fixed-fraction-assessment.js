@@ -138,6 +138,18 @@ export const IMP_96110_P3_CUSP_ALLOCATION = Object.freeze({
   honestLimits: 'the in/out decomposition is exact algebra but corr23 continuity through the cusp is ASSUMED by analogy with p = 2 and NOT proved (the dense log^2 spikes make a uniform-convergence proof harder); the fractions are incremental ratios at finite eps converging to 1 - 1/rho from below, not rigorously extrapolated; br23 truncated at L = 20 (reliable while eps >> 2^{-L}; the rho = 9 edge point slightly overshoots); nothing moves a Lambda bound or verified height; RH open; NO QED',
 });
 
+// ---- honest-status banner (imp-96137): the honestLimits field above states this, but it is easy
+// to miss buried inside IMP_96110_P3_CUSP_ALLOCATION -- this is the standalone, prominent version.
+export const IMP_96110_HONEST_STATUS_BANNER =
+  'HONEST STATUS: corr23 continuity through the {oo,2,3} S-unit log^2 cusps is ASSUMED by analogy ' +
+  'with the validated p = 2 case (where delta^out_2 / delta_S2 is known continuous through rho = 2), ' +
+  'NOT proved. The dense log^2 spikes at every S-unit rho = 2^a 3^b make a termwise-uniform ' +
+  'continuity argument strictly harder than the single isolated cusp of the p = 2 case, and no such ' +
+  'proof is supplied here. If corr23 fails to stay continuous at even one S-unit, the delta^out_23 = ' +
+  'delta_S23 - delta^in_23 in/out split and the measured f_out(rho) -> 1 - 1/rho fractions in ' +
+  'IMP_96110_CUSP_ALLOCATION_LITERALS would need re-derivation. RH open; PT Lambda <= 0.2 remains ' +
+  'SOTA; NO QED.';
+
 // ---- assertions
 const within = (x, lo, hi) => x >= lo && x <= hi;
 const L = IMP_96110_CUSP_ALLOCATION_LITERALS;
@@ -185,6 +197,14 @@ export const IMP_96110_P3_CUSP_ALLOCATION_ASSERTIONS = Object.freeze([
       && /NO QED/.test(IMP_96110_P3_CUSP_ALLOCATION.status)
       && /corr23 continuity through the cusp is ASSUMED/.test(IMP_96110_P3_CUSP_ALLOCATION.honestLimits)
       && /compact-Toeplitz foothold is lost/.test(IMP_96110_P3_CUSP_ALLOCATION.obstruction),
+  },
+  {
+    id: 'imp96110-honest-status-banner-names-corr23-assumption',
+    description: 'the standalone honest-status banner names corr23 continuity as ASSUMED by analogy with p = 2, NOT proved, and keeps the NO QED / SOTA guardrail',
+    holds: () => /corr23 continuity/.test(IMP_96110_HONEST_STATUS_BANNER)
+      && /ASSUMED by analogy/.test(IMP_96110_HONEST_STATUS_BANNER)
+      && /NOT proved/.test(IMP_96110_HONEST_STATUS_BANNER)
+      && /NO QED/.test(IMP_96110_HONEST_STATUS_BANNER),
   },
 ]);
 

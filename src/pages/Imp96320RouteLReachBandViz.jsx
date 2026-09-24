@@ -9,6 +9,7 @@ import {
   IMP96320_SOURCE_POINTS,
   IMP96320_HONEST_BANNER,
 } from '../data/imp-96320-route-l-reach-band-viz-data.js';
+import { IMP96310_FEASIBILITY_HEIGHT } from '../data/imp-96310-route-l-feasibility-height.js';
 
 function ReachBandChart() {
   const svgW = 680;
@@ -147,6 +148,29 @@ export default function Imp96320RouteLReachBandViz() {
         {IMP96320_BAND95.hi.toExponential(2)}] spanning {IMP96320_BAND95.decades.toFixed(2)} decades.
         Even the tightest (1-sigma) band floor sits ~14 orders of magnitude beyond any feasible
         computation, so widening the band changes nothing operationally.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>imp-96310 feasibility-height check:</strong> at no
+        feasible accessible-N does the reach reach the verified height. Even at the extreme
+        feasibility ceiling N = {IMP96310_FEASIBILITY_HEIGHT.extremeFeasibilityCeiling.toExponential(0)} (the
+        SOTA computed-zeros count), the inverted reach fit gives &gamma;_max ={' '}
+        {IMP96310_FEASIBILITY_HEIGHT.leverTestAt1e13.detector.gammaMax.toExponential(2)} (detector) /{' '}
+        {IMP96310_FEASIBILITY_HEIGHT.leverTestAt1e13.christoffel.gammaMax.toExponential(2)} (Christoffel),
+        still {IMP96310_FEASIBILITY_HEIGHT.leverTestAt1e13.detector.decadesShort} /{' '}
+        {IMP96310_FEASIBILITY_HEIGHT.leverTestAt1e13.christoffel.decadesShort} decades short of the
+        already-verified Platt&ndash;Trudgian height T0 ={' '}
+        {IMP96310_FEASIBILITY_HEIGHT.T0.toExponential(4)}.
       </div>
 
       <div

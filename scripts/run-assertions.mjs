@@ -19515,6 +19515,14 @@ const DATA_MODULES = [
   // no-floor log-linear law (-0.01042 -> -0.01828). Sign unchanged (rho=0.3791 at T~4506, no
   // crossing). Import-light (baked literals, no zeros bundle). No bound change; NO QED.
   '/src/data/imp-96224-route-bd-online-margin-floor-gamma4000.js',
+  // imp-96249 (2026-09-24): EXTENDS the imp-96224 worst-support on-line signed-force margin
+  // column rho(32,T) from gamma_4000 (T~4506) to gamma_8000 (T~8148, census 1541 -> 3085).
+  // Completes the imp-96224 drift: the fitted reciprocal-log floor reaches zero and crosses
+  // slightly negative (0.03411 -> -0.02810; c=+0.00449 with the steep final drop excluded) and
+  // the R2 gap keeps widening toward the no-floor log-linear law (-0.01828 -> -0.05371). Sign
+  // unchanged (rho=0.2371 at T~8148, no crossing). Import-light (baked literals, no zeros
+  // bundle). No bound change; NO QED.
+  '/src/data/imp-96249-route-bd-online-margin-floor-gamma8000.js',
   // imp-96244 (2026-09-23): DERIVATION — derives in closed form the imp-96228 U-shape location-slope
   // asymptote a->1/2, b->1/2, a+b->1 and its approach rate as exact log-derivatives of the component
   // tails: a=(1/2)(1-(dL/du)/L)->1/2 (corr -1/(2 lnN)); b->1/2 (corr -5/(2 lnN)); a+b=1-3/lnN. The
@@ -19570,6 +19578,11 @@ const DATA_MODULES = [
   // down to the single rigid profile g(v) = C/v, reducing (I) to the scalar boundary condition
   // SG-96164-boundary. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96195-rigid-profile-collapse-glossary-headword.js',
+  // imp-96196: Concepts glossary headword for the imp-96169 Rayleigh/Kato-Temple obstruction --
+  // the variational route is directionally wrong for the top confined eigenvalue (Rayleigh only
+  // lower-bounds it) and the Kato-Temple gap rescue re-encounters the same fractal Zygmund
+  // eigenfunction. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96196-rayleigh-kato-temple-obstruction-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

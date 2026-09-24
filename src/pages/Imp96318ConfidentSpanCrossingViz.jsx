@@ -6,6 +6,7 @@ import {
   IMP96318_ANCHORS,
   IMP96318_HONEST_BANNER,
 } from '../data/imp-96318-confident-span-crossing-viz-data.js';
+import { IMP96309_VERDICT } from '../data/imp-96309-route-m-confident-span-dip-seed-ensemble.js';
 
 function CrossingChart() {
   const svgW = 680;
@@ -149,6 +150,29 @@ export default function Imp96318ConfidentSpanCrossingViz() {
         minimum at rho = {IMP96318_ANCHORS.minSpanRho}) sit only {IMP96318_ANCHORS.marginVsEqual.toFixed(3)}{' '}
         apart -- a noise-sized margin. Outside the plateau the span rises monotonically with
         imbalance in either direction, reaching past 10.5 at rho = 2 or rho = 0.5.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>imp-96309 update:</strong> the yellow dot above (the
+        rho = {IMP96318_ANCHORS.minSpanRho} "global minimum", {IMP96318_ANCHORS.marginVsEqual.toFixed(3)}{' '}
+        below the equal-amplitude value) is the single-seed dip that imp-96309 re-ran at 10x draws
+        (span reverts to rho = 1, with 0.94 now {Math.abs(IMP96309_VERDICT.highDrawDipEqMinus094).toFixed(3)}{' '}
+        above it) and across a 16-seed ensemble (signed margin {IMP96309_VERDICT.ensembleMarginMean.toFixed(4)}{' '}
+        &plusmn; 0.0615, mean/sd = {IMP96309_VERDICT.ensembleMeanOverSd.toFixed(3)}, sign flipping 10-vs-6
+        across seeds): {IMP96309_VERDICT.dipSurvives ? 'the dip survives' : 'CONFIRMED as Monte-Carlo/interpolation jitter, not a real sub-plateau feature'}.
+        The durable finding is the flat plateau itself
+        (shaded band, ~9.1 just below Rayleigh across the near-equal regime) &mdash; that picture is
+        unaffected and holds regardless of which point within it is nominally lowest.
       </div>
 
       <div

@@ -172,6 +172,21 @@ export const IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION = {
     'the height is frozen (branch A) and BLOWS UP when the height is coupled to N ' +
     '(branch B). Both branches of the only available parameterization fail ' +
     'lim_N E(N) = 0.',
+  honestStatusBanner: {
+    tier: 'ASSESSMENT / DERIVATION ONLY -- NOT A THEOREM',
+    label: 'The two named ways past the E(N) shortfall collapse to ONE',
+    body:
+      'imp-96166 named two routes past the frozen E_trunc floor: push T_PT to ' +
+      'infinity, or find a fixed-strip surrogate whose truncation tail decays ' +
+      'with N. This module shows no such fixed-strip surrogate exists: honesty ' +
+      'above an unverified height forces the moving exponent kappa(H) = ' +
+      '(4/3)/log H, whose exact height-cancellation H^-kappa(H) = exp(-4/3) pins ' +
+      'the only decay lever to a constant, so the tail GROWS instead of ' +
+      'decaying. The two named alternatives are therefore ONE alternative: an ' +
+      'unconditional lim_N E(N) = 0 requires a verified strip height that grows ' +
+      'with N (the T_PT -> infinity branch), not a fixed-strip shortcut. Changes ' +
+      'no bound; C_mb stays GUE-conditional per imp-486. NO QED.',
+  },
   isRigorous: false,
   verdict:
     'OBSTRUCTED (assessment / derivation, NOT rigorous). The truncation height H ' +
@@ -249,6 +264,16 @@ export const IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION_ASSERTIONS = [
       const coupledFarAboveFrozen = MOVING_TABLE[0]._E_full > 1e5 * frozenTail();
       return frozenPositive && coupledAboveCeiling && coupledFarAboveFrozen;
     },
+  },
+  {
+    // The honest-status banner names the collapse-to-one framing explicitly, so
+    // a reader consuming only the banner still gets the correct, non-QED verdict.
+    id: 'imp96190-honest-status-banner-names-collapse',
+    description: 'honestStatusBanner names the two-alternatives-collapse-to-one verdict',
+    holds: () =>
+      /collapse to ONE/.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.honestStatusBanner.label) &&
+      /grows with N/.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.honestStatusBanner.body) &&
+      /NO QED/.test(IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION.honestStatusBanner.body),
   },
   {
     // Honesty gate: assessment only, names the obstruction, keeps PT SOTA, no QED.

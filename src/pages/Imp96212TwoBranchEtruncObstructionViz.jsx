@@ -43,7 +43,7 @@ function MovingTailTable({ rows, frozenFloor }) {
 
 export default function Imp96212TwoBranchEtruncObstructionViz() {
   const data = IMP96190_FIXED_STRIP_N_DECAYING_TAIL_OBSTRUCTION;
-  const { branches, heightCancellationIdentity, movingTailTable } = data;
+  const { branches, heightCancellationIdentity, movingTailTable, honestStatusBanner } = data;
 
   return (
     <div style={{ padding: '1.5rem', maxWidth: 960, margin: '0 auto' }}>
@@ -61,11 +61,11 @@ export default function Imp96212TwoBranchEtruncObstructionViz() {
           maxWidth: 760,
         }}
       >
-        <strong style={{ color: '#f87171' }}>Honest status:</strong> a reader-facing panel of the
-        imp-96190 assessment / derivation (not a rigorous theorem): the truncation height H that feeds
-        the Ingham tail E_trunc has exactly two parameterizations, and neither supplies a tail that
-        decays with N. Changes no bound, establishes no operator positivity. Platt&ndash;Trudgian
-        &Lambda; &le; 0.2 remains state of the art. NO QED.
+        <div style={{ color: '#f87171', fontWeight: 600, marginBottom: '0.3rem' }}>
+          {honestStatusBanner.tier}
+        </div>
+        <strong style={{ color: '#f87171' }}>{honestStatusBanner.label}:</strong>{' '}
+        {honestStatusBanner.body}
       </div>
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>

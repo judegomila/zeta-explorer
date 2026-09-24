@@ -4003,6 +4003,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every N, ratio, c0, a, b, p, w and rms value plotted here is copied verbatim from the imp-96487 baked ladder/model objects; the only new step is sampling the fixed fitted curve at a dense grid for a smooth line; the 3.689-wide log-N window leaves the true asymptote undecided, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96475-etrunc-sensitivity',
+      title: 'sigma-Knee / Crossover Sensitivity to the E_trunc Truncation Floor',
+      oneLine:
+        'Charts the imp-96451 E_trunc sensitivity sweep: the tenth-decade sigma-knee and the sigma = 1/2 crossover both move with elasticity ~-0.911 across a 0.5x..2x band about E_trunc=3.06e-5, tracking the analytic -2/ln10 leading term, with the knee leaving the [1e9,1e12] resolution window at 2x.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96475-etrunc-sensitivity-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96451-sigma-knee-etrunc-sensitivity.js (IMP96451_SIGMA_KNEE_ETRUNC_SENSITIVITY; imp-96475 viz page)',
+      ticket: 'imp-96475',
+      pedagogicalStep: 260,
+      honestCeiling:
+        'Presentation only: every factor, eTrunc, knee, crossover and gap value plotted here is copied verbatim from the imp-96451 baked row literals; the only new step is the log10(factor) axis projection and the analytic reference line. Component-model curvature/sensitivity diagnostic only, not rigorous; changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

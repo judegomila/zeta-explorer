@@ -1400,6 +1400,9 @@ const Imp96262ModelSelectionScoresViz = lazy(() =>
 const Imp96320RouteLReachBandViz = lazy(() =>
   import('./pages/Imp96320RouteLReachBandViz.jsx')
 );
+const Imp96302RouteLReachPowerLawViz = lazy(() =>
+  import('./pages/Imp96302RouteLReachPowerLawViz.jsx')
+);
 const Imp96322EDecompositionViz = lazy(() =>
   import('./pages/Imp96322EDecompositionViz.jsx')
 );
@@ -3700,6 +3703,10 @@ function AppShell() {
           <Route
             path="/viz-imp96320-route-l-reach-band"
             element={<Imp96320RouteLReachBandViz />}
+          />
+          <Route
+            path="/viz-imp96302-route-l-reach-power-law"
+            element={<Imp96302RouteLReachPowerLawViz />}
           />
           <Route
             path="/viz-imp96322-e-decomposition"

@@ -3751,6 +3751,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every LOO/LTO floor value is copied verbatim from the imp-96265 baked refit tables (no re-derivation); only the by-dropped-height sort and delta-from-full-fit are computed here. The positive-floor sign is robust across every held-out subset; the 0.14256 magnitude is endpoint-driven, not a sharp value. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96302-route-l-reach-power-law',
+      title: 'imp-96269: Route L Detector-vs-Christoffel Reach Power Laws and the PT-Height Extrapolation Fan',
+      oneLine:
+        'Log-log curve chart of the imp-96269 detector power law (N=0.364336*gamma^1.271686) vs the Christoffel eps1e4 re-fit (N=0.396870*gamma^1.248736) over the shared gamma range, with the PT-height T0=3.0001e12 extrapolation fan landing both curves near N~1e15.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96302-route-l-reach-power-law-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96269-route-l-reach-law-crosscheck.js (power-law fits, shared measured points, T0 extrapolation, verdict; imp-96302 viz page)',
+      ticket: 'imp-96302',
+      pedagogicalStep: 242,
+      honestCeiling:
+        'Presentation only: every fit coefficient, measured point, and T0 extrapolation is copied verbatim from the imp-96269 baked crosscheck (no re-fit); only the log10 curve sampling is computed here. Both extrapolated orders sit ~15 decades beyond feasible computation, so Route L remains a fixed-cost detector, not a lever. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

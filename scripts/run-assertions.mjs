@@ -19689,6 +19689,21 @@ const DATA_MODULES = [
   // rounding band of the 7-sig-fig anchors, so the raw anchors satisfy the ratio law to their
   // stored precision; modules mutually consistent. Accuracy audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96327-ecoll-ratio-law-vs-anchor-crossvalidation.js',
+  // imp-96336 audit (2026-09-24): ten import-light imp-9626x/9627x/9631x measurement modules
+  // carry self-executing *_ASSERTIONS throws but were never wired into this DATA_MODULES sweep,
+  // so their tripwires silently never ran. None imports the 16.7MB zeros bundle. Registered below;
+  // imp-96269/96273/96310 audited too but carry no assertions (pure data), so intentionally omitted.
+  '/src/data/imp-96261-route-m-vasyunin-n1e4-scheduling-status-note.js',
+  '/src/data/imp-96264-route-m-amplitude-ratio-sensitivity.js',
+  '/src/data/imp-96265-margin-floor-loo-stability.js',
+  '/src/data/imp-96266-eflow-peak-recovery-residual.js',
+  '/src/data/imp-96267-covariance-drift-rigidity-limit-reach.js',
+  '/src/data/imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js',
+  '/src/data/imp-96271-worst-excess-evt-gaussianity.js',
+  '/src/data/imp-96311-ecoll-rate-ch-independence-tabulation.js',
+  '/src/data/imp-96314-covariance-deviation-viz-data.js',
+  '/src/data/imp-96316-etrunc-sensitivity-viz-data.js',
+  '/src/data/imp-96318-confident-span-crossing-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

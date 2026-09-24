@@ -633,6 +633,18 @@ const DATA_MODULES = [
   // artifact -- the surrogate flattens, it does not cross zero; the uniform-in-T obstruction stays
   // OFF the line (Weil strength). Import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
   '/src/data/imp-96167-route-bd-online-margin-floor-extended.js',
+  // imp-96186 (2026-09-23): EXTENDS the imp-96167 worst-support on-line signed-force margin column
+  // rho(32,T) from gamma_500 (T~811) to gamma_1000 (T~1419) and re-fits both laws to decide whether the
+  // strictly-positive reciprocal-log floor is asymptotic or a still-drifting finite-height feature.
+  // Reproduces the imp-96020 LP pipeline (matching the imp-96148 baked + imp-96167 gamma_500 columns to
+  // |delta|<=0.0004), grows the near-collision census 185 -> 378, and re-fits on 17 points: the fitted
+  // floor REVERSES its rise (0.14256 g200 -> 0.16030 g500 -> 0.11063 g1000, non-monotone) and the
+  // reciprocal-log/log-linear R2 gap COLLAPSES (0.02792 -> 0.00214, both ~0.985), so the floor is a
+  // still-drifting finite-height feature NOT a settled asymptote -- partly correcting the imp-96167
+  // positive-asymptote reading. The SIGN is unchanged: margin stays strictly positive (0.4580 at
+  // T~1419, no crossing; log-linear cross recedes to T~3.3e5); obstruction stays OFF the line (Weil
+  // strength). Import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-96186-route-bd-online-margin-floor-gamma1000.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on
@@ -19348,6 +19360,16 @@ const DATA_MODULES = [
   // not alias it down to w ~ 4. The period-1.5 swing is a genuine low-frequency feature of ratio(N)
   // on N <= 6000, not an aliased gamma_1 tone. Import-light; changes no bound; NO QED.
   '/src/data/imp-96163-route-m-residual-gamma1-alias-refute.js',
+  // imp-96189: attributes the GENUINE w ~ 4.08 (period 1.539 in log N) swing that imp-96163 refuted
+  // as a gamma_1 alias. On the baked imp-96147 residual rows + imp-96105 ratio/lam_min, OLS variance
+  // explained rules out finite-size transients (1/N, 1/logN, 1/sqrt(N) all R^2 < 0.003), the gamma_1
+  // zero-tone (R^2 = 0.0126), and lam_min (strictly monotone, no oscillatory content -- its tail
+  // correlation is a monotone-window artifact), and attributes the swing to a LOW-CONDUCTOR arithmetic
+  // band of the Vasyunin cotangent table (single conductor tones peak at q=5 R^2=0.685 and q=4
+  // R^2=0.619; the free tone w=4.08 sits between them; a q=3..6 band captures 89.7 percent). Honest
+  // residual: 17 non-uniform points cannot uniquely separate band from slow drift. Import-light
+  // (baked literals); changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96189-route-m-swing-attribution.js',
   // imp-96165: works the imp-96149 sub-gap SG-96149-grid on two fronts, measurement only. (1) The
   // per-delta Route L detector exponent b is NOT delta-independent -- it drifts monotonically from
   // 1.3862 (delta=0.4) to 1.2074 (delta=0.025), a spread of 0.1788, an O(log 1/delta) additive term

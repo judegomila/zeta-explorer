@@ -3905,6 +3905,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every rho, agreement and roundoff-floor value is copied verbatim from the imp-96389 baked three-basis table (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96453-basis-c-corroboration-crossover',
+      title: 'Basis-C Corroboration-Reach Crossover',
+      oneLine:
+        'Log-log chart of the imp-96430 basis-C corroboration-reach crossover: the growing L-linear cancellation floor (two slope calibrations) against the shrinking exact |rho + 1/2| rigidity signal, marking the PT anchor L=5.9e6 and the crossover band [1.3e12, 2.5e12] where the lines meet.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96453-basis-c-corroboration-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96430-basis-c-corroboration-reach-crossover.js (IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER; imp-96453 viz page)',
+      ticket: 'imp-96453',
+      pedagogicalStep: 253,
+      honestCeiling:
+        'Presentation only: every signal, floor and crossover value is copied verbatim from the imp-96430 baked crossover object (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; the crossover band is an extrapolation of a floor model calibrated only on accessible L (<= 960); the PT-anchor headroom marked is the imp-96430 model figure (~3.7e5), superseded by the imp-96448 measured ~640; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

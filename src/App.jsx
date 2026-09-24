@@ -1445,6 +1445,9 @@ const Imp96438RouteMFullLadderViz = lazy(() =>
 const Imp96439ThreeBasisRhoCrossvalidationViz = lazy(() =>
   import('./pages/Imp96439ThreeBasisRhoCrossvalidationViz.jsx')
 );
+const Imp96453BasisCCorroborationCrossoverViz = lazy(() =>
+  import('./pages/Imp96453BasisCCorroborationCrossoverViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3793,6 +3796,10 @@ function AppShell() {
           <Route
             path="/viz-imp96439-three-basis-rho-crossvalidation"
             element={<Imp96439ThreeBasisRhoCrossvalidationViz />}
+          />
+          <Route
+            path="/viz-imp96453-basis-c-corroboration-crossover"
+            element={<Imp96453BasisCCorroborationCrossoverViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

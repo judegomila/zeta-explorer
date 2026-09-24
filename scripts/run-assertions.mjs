@@ -19834,6 +19834,15 @@ const DATA_MODULES = [
   // with the E_coll = E_trunc crossover (sigma ~ 1/2, E_flow/E_N ~ 9.3e-4). Measurement
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96388-sigma-peak-vs-knee-cross-tabulation.js',
+  // imp-96405 (2026-09-24): DERIVATION + MEASUREMENT -- decides the imp-96388 knee/crossover
+  // near-coincidence is FORCED, not accidental. At the knee scale E_flow is negligible so
+  // sigma = E_coll/(E_trunc+E_coll) with E_coll a power law in N is a LOGISTIC in log N, whose
+  // curvature inflection is intrinsically pinned to sigma = 1/2 = the crossover. Frozen-L exact
+  // test lands the inflection on the crossover to ~3e-7 (sigma = 0.500000); the full-model
+  // inflection (9.533) matches the imp-96388 OLS knee (9.529) to 0.0037; the +0.0168 residual is
+  // ~54% E_flow, rest the slowly-varying L(N); dragging the crossover 1.32 decades keeps the
+  // offset in [0.0068,0.0088]. Measurement/derivation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96405-knee-crossover-forced-vs-coincidental.js',
   // imp-96296: Concepts glossary headword restating the imp-96250 verdict that the
   // imp-96187 U-shape location ratio R(N)=N_peak/N_flow flattens toward 1 only
   // logarithmically (R=1-4/ln N-16/(ln N)^2+...), reaching within 1% of 1 only at

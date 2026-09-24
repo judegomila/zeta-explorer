@@ -261,6 +261,16 @@ export const UNCERTAINTY_CERTIFICATE_LITERALS = Object.freeze({
     extrapolated1overT: { from400_600: 9.568e-4, from600_800: 9.512e-4, pencilMapRitzN96: 9.46e-4 },
     minimizerEnergyBeyondT: { T200: 1.69e-4, T400: 1.98e-5, T600: 8.37e-6 }, hAtEndpoint: 0.1242,
     reachOnePrimeK0: { T200: { a: 0.55996, twoA: 1.11992 }, T400: { a: 0.56431, twoA: 1.12862 }, trueCrossingTwoA: 1.131539, ln3: LN3 },
+    /** (imp-96546) resolution needed to close the certified one-prime reach (2a = 1.1286 at T=400) to the true crossing 2a* = 1.131539.
+     *  The reach deficit 2a* - 2a(T) follows a benign 1/T^2 law over the two measured points: C = deficit*T^2 = 464.8 (T=200), 467.0 (T=400);
+     *  2-point power-law exponent p = 1.993 (so 1/T floor cost does NOT prevent reaching the crossing -- closure is quadratic, not stalled).
+     *  Model 2a*(T) = 1.131539 - 465.9/T^2, N tied ~0.8*T (as in the N=160/320 tail-safe pairs). eps = target residual window in 2a. */
+    reachScaling: {
+      deficitTwoA: { T200: 1.16190e-2, T400: 2.91900e-3 }, cTimesTsq: { T200: 464.76, T400: 467.04 }, powerLawExponent: 1.993, C: 465.9,
+      // eps in 2a -> [T, N~0.8T] required by the 1/T^2 model
+      resolutionForEps: [[1e-3, 690, 550], [3e-4, 1250, 1000], [1e-4, 2160, 1730], [1e-5, 6830, 5470], [1e-6, 21590, 17270]],
+      verdict: 'benign quadratic closure: reach within 1e-4 of 2a* is dense-eigensolver-feasible (T~2160, N~1730); exact closure is asymptotic-only (T->inf); floor cost does not stall. SUB-GAP imp-96546-two-reach-points: p=1.993 and C=465.9 are a 2-point (T=200,400) fit and want a T=600/800 reach recompute to confirm the exponent.',
+    },
   },
   /** lambda_min(lower-bound form | pole-free + k moments), k = 0..3, on the a-grid (T = 400, N = 320); values equal to m_T = 0.806777 are floor-capped */
   gridT400: [

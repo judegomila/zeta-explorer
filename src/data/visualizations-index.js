@@ -3807,6 +3807,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the three marked anchors are copied verbatim from imp-96344; the connecting curve is a closed-form reconstruction of the same overlap definition (product-to-sum trig identity, no sampling/fitting) computed here, verified to agree with the baked anchors to within their own rounding. Establishes no operator positivity, moves no Lambda bound, and does not decide whether the real Route M data carries a genuine multi-conductor band (imp-96344 F4: that needs the actual Vasyunin Gram at N ~ 5.5e6..1.2e11). Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96395-sigma-local-exponent-ramp',
+      title: 'imp-96351: sigma(N) Local-Exponent Ramp and Its D2 Zero-Crossing Knee across [1e9,1e12]',
+      oneLine:
+        'Two stacked charts across the tenth-decade grid on [1e9,1e12]: the OLS local decay exponent p_dec(N) ramp on top and its second difference D2 (acceleration) below, both marking the single D2 zero-crossing knee at log10 N* = 9.529 (N* ~ 3.38e9).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96395-sigma-local-exponent-ramp-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96351-sigma-knee-tenthdecade-1e12-stability.js (sigma/OLS-exponent/D2 method, knee measurement, verdict; imp-96395 viz page)',
+      ticket: 'imp-96395',
+      pedagogicalStep: 246,
+      honestCeiling:
+        'Presentation only: the sigma(N)/OLS-exponent/D2 logic is copied verbatim from imp-96351 (identical sub-terms, identical estimator, no fresh model); it is re-run here only to expose the per-bracket p_dec/D2 series imp-96351 does not export, so the chart can render the ramp and its curvature rather than just the baked summary scalars. Establishes no operator positivity, moves no Lambda bound; measurement/fit only on an inherited, non-rigorous component model; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

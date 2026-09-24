@@ -652,6 +652,18 @@ const DATA_MODULES = [
   // T~1419, no crossing; log-linear cross recedes to T~3.3e5); obstruction stays OFF the line (Weil
   // strength). Import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
   '/src/data/imp-96186-route-bd-online-margin-floor-gamma1000.js',
+  // imp-96207 (2026-09-23): TABULATES the imp-96190 verified-strip-height -> E_trunc-floor law. For a
+  // fixed positive kappa_star held under a Platt-Trudgian-strength certificate the honest tail is
+  // E_trunc(H) = (2(1-kappa_star)/kappa_star) H^{-kappa_star}; inverting, H_required(E) =
+  // (prefactor/E)^{1/kappa_star}. At the honest anchor kappa_star=0.4 (prefactor 3.0, reproducing the
+  // imp-96166 frozen floor 3.06e-5 at 3e12) the tail reaches floor 1e-5 at certified height H~4.93e13,
+  // 1e-6 at ~1.56e16, and 1e-7 at ~4.93e18, equispaced at exactly 2.5 height-decades per floor-decade
+  // (1/kappa_star leverage, ~316x per decade). imp-96190 showed both imp-96166 routes -- T_PT to
+  // infinity, and an N-decaying fixed-strip tail -- reduce to this same certified growing height, so
+  // lim_N E(N)=0 needs H(N)->infinity under either name: the two named ways are ONE quantitative law.
+  // Fills the 1e-7 threshold imp-96185 skipped. Import-light literals; measurement only; changes no
+  // bound; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2 SOTA; RH open.
+  '/src/data/imp-96207-verified-height-floor-law-kappa-star.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

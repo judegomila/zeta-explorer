@@ -19527,6 +19527,11 @@ const DATA_MODULES = [
   // ~2.7x n_eff inflation and a uniform ~1.04 safe-side flip margin. Documentation only;
   // no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96177-heldout-covariance-uniformity-glossary-headword.js',
+  // imp-96179: Concepts glossary headword for the imp-96149 Route L power-law reach --
+  // gamma_det(N) ~ 2.212 * N^0.786 (detector) and gamma_reach(N) ~ 13.55 * N^0.367
+  // (clean-prefix), both sublinear, superseding the stale imp-96059 linear
+  // "gamma_{N/10}" string. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96179-route-l-power-law-reach-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

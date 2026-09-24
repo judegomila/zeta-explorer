@@ -19702,6 +19702,13 @@ const DATA_MODULES = [
   // rounding band of the 7-sig-fig anchors, so the raw anchors satisfy the ratio law to their
   // stored precision; modules mutually consistent. Accuracy audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96327-ecoll-ratio-law-vs-anchor-crossvalidation.js',
+  // imp-96349 (2026-09-24): extend the imp-96327 single-anchor cross-check of the imp-96311
+  // E_coll ratio law to a SECOND anchor -- N=1e6 (residual 1.71e-6 inside band 7.70e-6) and the
+  // distinct C_H pair 1.0/0.127 (residual -3.45e-5 inside band 4.01e-5), so the constant ratio is
+  // not a single-point coincidence. Sub-gap: both second anchors are formula-reconstructed
+  // (storage-floor, not independent); the lone independent baked cross-check stays imp-96327 at
+  // N=1e4. Accuracy audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96349-ecoll-ratio-law-second-anchor-crossvalidation.js',
   // imp-96336 audit (2026-09-24): ten import-light imp-9626x/9627x/9631x measurement modules
   // carry self-executing *_ASSERTIONS throws but were never wired into this DATA_MODULES sweep,
   // so their tripwires silently never ran. None imports the 16.7MB zeros bundle. Registered below;

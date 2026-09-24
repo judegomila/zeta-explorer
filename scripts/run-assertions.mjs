@@ -569,6 +569,12 @@ const DATA_MODULES = [
   // reciprocal-log-with-floor) and the six per-segment slopes drho/dlnT in one seven-row table.
   // Documentation only; import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
   '/src/data/imp-96173-route-bd-margin-decay-fits-table.js',
+  // imp-96193 (2026-09-24): reader-facing analysis table for the imp-96171 empirical adjacent-box
+  // lag-1 correlation L-sweep (clean unfolded edge-to-edge tiling) -- lays r1 across L in
+  // {100,200,300,495.779,700,1000} alongside the fixed GUE proxy rho_exact=-0.46398 and the
+  // per-L small-sample band, showing r1 stays in [-0.526,-0.433] and brackets the proxy throughout.
+  // Documentation only; import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-96193-lag1-l-sweep-analysis-table.js',
   // imp-96151 (2026-09-23): promotes the imp-33723 closed-form crossover N_cross=(C_C/E_trunc)^2 log
   // T0(N_cross) to a two-term analytic share model sigma_CF(N)=1/(1+sqrt(N/N_cross) sqrt(L_cross/L(N)))
   // and tests it past the imp-33582 1e12 grid endpoint. It REPRODUCES the post-peak decay-exponent ramp

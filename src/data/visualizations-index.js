@@ -3555,6 +3555,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every a(N), b(N), a+b grid value and the deep-probe reading are copied verbatim from the imp-96228 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new slope measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96314-covariance-deviation',
+      title: 'imp-96267: GUE Two-Interval Covariance Deviation vs Height, the 1/log T Crawl',
+      oneLine:
+        'Line chart of the imp-96267 deviation |rho_exact + 1/2| vs log10 T across the decade ladder 1e4..1e12 plus the Platt-Trudgian verified anchor 3e12: the deviation only falls from 0.0436 to 0.0182, confirming the GUE-rigidity limit -1/2 is a 1/log T asymptote no accessible height operationally reaches.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96314-covariance-deviation-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96267-covariance-drift-rigidity-limit-reach.js (decade ladder, closed form, epsilon-reach crossings; imp-96314 viz page)',
+      ticket: 'imp-96314',
+      pedagogicalStep: 230,
+      honestCeiling:
+        'Presentation only: every deviation, rho_exact, and crossing value is copied verbatim from the imp-96267 baked ladder; only the log10 T axis reshaping is computed here (no re-derivation, no new height measurement); rho_exact is the theoretical GUE (sine-kernel, universality) two-interval correlation, not a measurement of the actual Riemann zeros; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

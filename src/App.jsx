@@ -1370,6 +1370,9 @@ const Imp96197EnDecayExponentLadderViz = lazy(() =>
 const Imp96257UshapeSlopeDriftViz = lazy(() =>
   import('./pages/Imp96257UshapeSlopeDriftViz.jsx')
 );
+const Imp96314CovarianceDeviationViz = lazy(() =>
+  import('./pages/Imp96314CovarianceDeviationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3618,6 +3621,10 @@ function AppShell() {
           <Route
             path="/viz-imp96257-ushape-slope-drift"
             element={<Imp96257UshapeSlopeDriftViz />}
+          />
+          <Route
+            path="/viz-imp96314-covariance-deviation"
+            element={<Imp96314CovarianceDeviationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

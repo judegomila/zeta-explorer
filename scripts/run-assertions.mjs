@@ -19119,6 +19119,16 @@ const DATA_MODULES = [
   // ~795; flip threshold rho_crit = +0.5744 is sign-forbidden). Import-light; changes no bound;
   // NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-96128-number-variance-two-interval-covariance-exact.js',
+  // imp-96125: REDUCTION of the corr23 continuity that imp-96110 assumed by analogy with p = 2.
+  // The p = 2 Weierstrass bound |term_n| <= |lam_n|^3/sqrt(1 - lam_n^2) is rho-UNIFORM (Cauchy-Schwarz
+  // erases rho), so it never sees the dense log^2 cusps that imp-96110 flagged as the difficulty --
+  // those live entirely in the degree-1 delta^out_23 piece. corr23 continuity therefore reduces to the
+  // single rho-FREE spectral criterion Sum_n |lam_n(A_S23)|^3/sqrt(1 - lam_n^2) < infinity, i.e. the
+  // pair (I) spectral gap sup|lam_n| < 1 and (II) cubic-summable tail Sum|lam_n|^3 < infinity for the
+  // mixed 2^a 3^b {oo,2,3} prolate operator (both proved for the p = 2 dyadic ladder, neither yet for
+  // the mixed ladder). Numerics reproduce the tail-not-term cusp growth and the rho-free ladder
+  // majorant. Reduction + red-herring removal, not a closure; changes no bound; RH open; NO QED.
+  '/src/data/imp-96125-route-i-corr23-continuity-reduction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

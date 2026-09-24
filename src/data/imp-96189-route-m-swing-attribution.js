@@ -69,6 +69,9 @@
  * @see imp-96163-route-m-residual-gamma1-alias-refute.js (aliasing refuted)
  * @see imp-96147-route-m-ratio-const-oscillation-fit.js (residual rows + fit)
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (ratio + lam_min to 6000)
+ * @see imp-96325-route-m-vasyunin-gram-n1e4-run.js (Q2: the N=1e4 Gram extension
+ *   this sub-gap called for still does NOT uniquely separate the band from a
+ *   smooth drift -- the extra half-decade of log-N range is too narrow)
  *
  * Ticket: imp-96189 (numerical, opus-4-8, api-pool). Numerics only; NO QED.
  */
@@ -147,6 +150,11 @@ export const IMP96189_SUBGAP = Object.freeze({
   id: 'imp-96189-band-vs-drift-non-unique',
   statement:
     'the swing is attributed to a low-conductor arithmetic band (q = 4, 5), but 17 non-uniform log N points cannot UNIQUELY separate a few-conductor band from a slow smooth drift -- the fixed q4+q5 band (R^2=0.712) is statistically indistinguishable from the free single tone (0.710) at this resolution -- and the sub-leading Vasyunin eigenvalue spectrum (beyond the single lam_min per rung) was unavailable to test the eigen-drift candidate directly. Pinning the exact conductor content needs denser d_N data past N=6000 WITH the full Vasyunin eigen-spectrum (heavy Gram eigendecomposition), not a further re-analysis of the N<=6000 residual.',
+  // imp-96357 cross-link: the denser-past-6000 data this sub-gap asked for was
+  // run (imp-96325, IMP96325_Q2_BAND_UNIQUENESS) -- the ladder now reaches
+  // N=1e4, but the four new rungs only widen the log-N span by ~0.51 (a
+  // half-decade), still too narrow to break the band-vs-drift degeneracy.
+  // Part (a) of this sub-gap stands past N=1e4.
 });
 
 export const IMP96189_HONEST_BANNER =

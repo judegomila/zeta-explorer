@@ -70,6 +70,9 @@
  * @see imp-96189-route-m-swing-attribution.js (band attribution + the sub-gap)
  * @see imp-96147-route-m-ratio-const-oscillation-fit.js (the residual rows r(N))
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (Gram to 6000, lam_min)
+ * @see imp-96325-route-m-vasyunin-gram-n1e4-run.js (Q2: extending the Gram to
+ *   N=1e4 still does NOT resolve part (a) of this sub-gap -- the half-decade of
+ *   extra log-N range is too narrow to break the band-vs-drift degeneracy)
  *
  * Ticket: imp-96203 (numerical, opus-4-8, api-pool). Numerics only; NO QED.
  */
@@ -159,6 +162,11 @@ export const IMP96203_SUBGAP = Object.freeze({
   // stall was pool contention, not an intrinsic O(N^3) wall. Does not resolve the
   // band-uniqueness question this sub-gap names.
   schedulingCorrection: 'imp-96261 (IMP96261_ROUTE_M_N1E4_SCHEDULING_STATUS_NOTE): "CPU-starved" is a scheduling condition (pool contention), not an intrinsic compute wall -- a dedicated process reaches N=1e4 in ~7 min / ~2 GB. Resource framing only; band-uniqueness stays open.',
+  // imp-96357 cross-link: the N=1e4 run this scheduling note unblocked was
+  // actually carried out (imp-96325, IMP96325_Q2_BAND_UNIQUENESS) -- the four
+  // new rungs only extend the log-N span by ~0.51 (a half-decade), still too
+  // narrow to uniquely separate the band from a smooth drift. Part (a) of this
+  // sub-gap stands past N=1e4, not just past N=6000.
 });
 
 export const IMP96203_HONEST_BANNER =

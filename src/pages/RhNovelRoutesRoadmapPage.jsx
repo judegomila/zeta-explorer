@@ -71,6 +71,65 @@ function RouteIConstraintLadderTable() {
   );
 }
 
+// imp-96102: per-t-window contribution to the pole-free k=0 extremal quadratic form W(h),
+// at the tested supports a in [0.30, (ln3)/2] (N = 96), read from
+// RH_ROUTE_I_PENCIL_HIGHRES_MAP.forTheProof / PENCIL_HIGHRES_LITERALS.extremalWindowSplitVsA
+// in rh-route-i-pencil-highres-map-2026-09-23.js. archPart = window [0, 3.597); i1Part =
+// first p = 2 resonance window (8.145, 9.875); both as a share of L_S(h).
+const ROUTE_I_WINDOW_SPLIT = [
+  { a: 0.30, archPart: -0.00086, i1Part: -0.17534, archOverLS: -0.0010, i1OverLS: -0.1987 },
+  { a: 0.34, archPart: -0.00160, i1Part: -0.24774, archOverLS: -0.0020, i1OverLS: -0.3102 },
+  { a: 0.38, archPart: -0.00307, i1Part: -0.30612, archOverLS: -0.0047, i1OverLS: -0.4662 },
+  { a: 0.42, archPart: -0.00457, i1Part: -0.33390, archOverLS: -0.0091, i1OverLS: -0.6667 },
+  { a: 0.46, archPart: -0.00615, i1Part: -0.34985, archOverLS: -0.0149, i1OverLS: -0.8461 },
+  { a: 0.50, archPart: -0.00775, i1Part: -0.35038, archOverLS: -0.0214, i1OverLS: -0.9657 },
+  { a: 0.54, archPart: -0.00904, i1Part: -0.34271, archOverLS: -0.0269, i1OverLS: -1.0203 },
+  { a: Math.log(3) / 2, archPart: -0.00922, i1Part: -0.34120, archOverLS: -0.0277, i1OverLS: -1.0250 },
+];
+
+function RouteIWindowDecompositionTable() {
+  return (
+    <div style={{ marginTop: 20 }}>
+      <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginBottom: 6 }}>
+        Window decomposition: k = 0 pole-free extremal, contribution to W(h) by t-window vs L_S(h), across the
+        tested supports a (N = 96)
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+          <thead>
+            <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--hairline)' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>a</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>arch [0, 3.6)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>I&#8321; (8.15, 9.88)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>arch / L_S</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>I&#8321; / L_S</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ROUTE_I_WINDOW_SPLIT.map((row) => (
+              <tr key={row.a} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{row.a.toFixed(4)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.archPart.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.i1Part.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{(row.archOverLS * 100).toFixed(2)}%</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: row.i1OverLS < -1 ? '#c23a1c' : 'var(--ink-soft)' }}>
+                  {(row.i1OverLS * 100).toFixed(1)}%
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8, lineHeight: 1.6 }}>
+        The archimedean window stays under 3% of L_S(h) across the whole tested range; the first p = 2 resonance
+        window I&#8321; carries the negativity, rising from ~20% at a = 0.30 to past 100% at (ln 3)/2 (the extremal
+        peak migrates inward from t &#8776; 12.3 to t &#8776; 7.5 as a rises). Not uniform in a — measurement only,
+        N = 96 Rayleigh&ndash;Ritz; RH open; NO QED.
+      </p>
+    </div>
+  );
+}
+
 // imp-96061: J/K/L/M (non-stat-mech batch, rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js)
 // have no "to-test / first-test-done / refuted-as-lever" status string of their own -- they are read
 // off the already-committed cross-route wall map (route, name, wall, note) and folded into the
@@ -364,6 +423,7 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Crossing past ln 3:</strong> {ROUTE_I_HIGHRES.crossing}</p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Honest limits:</strong> {ROUTE_I_HIGHRES.honestLimits}</p>
           <RouteIConstraintLadderTable />
+          <RouteIWindowDecompositionTable />
           <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
             data: src/data/{ROUTE_I_HIGHRES.id}.js
           </p>

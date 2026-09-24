@@ -19357,6 +19357,18 @@ const DATA_MODULES = [
   // the mixed ladder). Numerics reproduce the tail-not-term cusp growth and the rho-free ladder
   // majorant. Reduction + red-herring removal, not a closure; changes no bound; RH open; NO QED.
   '/src/data/imp-96125-route-i-corr23-continuity-reduction.js',
+  // imp-96225 (2026-09-24): ASSESSMENT — what a TERMWISE-UNIFORM continuity proof of corr23 across the
+  // dense 2^a 3^b family requires, and where density breaks uniform control. The imp-96110 assumption
+  // splits into TWO candidate proofs: Route A (termwise-uniform-IN-RHO) is a density NO-GO -- the S-units
+  // are dense (ln2/ln3 irrational), so no rho has a cusp-free neighborhood and the p = 2 isolated-cusp
+  // tactic has no analogue; Route B (the rho-FREE Weierstrass M-test |lam_n|^3/sqrt(1-lam_n^2)) is
+  // DENSITY-BLIND (Cauchy-Schwarz erases rho) and reduces continuity to the spectral gap (I) + cubic
+  // tail (II) (imp-96125/96143). Density has ONE footprint -- the quadratic count N(A,B) = (A+1)(B+1)-1
+  // (Route B level-count = imp-96226 log^2 order = imp-96143 square-sum divergence) -- which destroys
+  // Route A but is killed by the cube in (II), benign for Route B. corr23 continuity stays conditional on
+  // the rho-free gap (I), not on any continuity-through-dense-cusps claim. Import-light (no imports).
+  // Assertions ~0.05 s. Assessment only; changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED.
+  '/src/data/imp-96225-route-i-corr23-termwise-uniform-density-assessment.js',
   // imp-96130: ASSESS whether any constrained pole-free sub-family keeps the semilocal D_S <= L_S
   // (S = {oo, 2}) past the crossing 2a* = 1.1316 (= ln 3 + 0.033), or whether the FALSE verdict is
   // uniform. From the frozen high-res pencil literals: NOT uniform -- a k >= 2 vanishing-moment

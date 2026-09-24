@@ -19205,6 +19205,11 @@ const DATA_MODULES = [
   // anyway (the -P_3 rescue keeps the true W = 0.02038 > 0 at a*). Precise obstruction = corner-confinement
   // of the crossing direction (the imp-96085 corner, now binding). Assessment only; changes no bound; RH open; NO QED.
   '/src/data/imp-96130-route-i-crossing-uniformity-vs-constrained-subfamily-assessment.js',
+  // imp-96083: four bundled Concepts glossary headwords for the 2026-09-23 route vocabulary --
+  // Vasyunin cotangent sum / Gram (Route M), semilocal Sonine trace identity S={oo,2} (Route I),
+  // CMV/Verblunsky truncation (Route L), and the Fejer pure-scheme floor (Route J). Documentation
+  // only, restating existing source-module conclusions verbatim; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96083-route-vocabulary-glossary-headwords.js',
 ];
 
 let ALL_MODULES = FAST_MODE

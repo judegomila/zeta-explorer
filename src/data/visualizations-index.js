@@ -3317,6 +3317,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: re-plots the frozen imp-96110 ten-point {oo,2,3} S-unit table verbatim (measured f_out vs target 1 - 1/rho; no re-derivation of the br23 double sum, no fresh numerics); the surviving fixed-fraction law is an obstruction (dense log^2 cusps), not a rescue; corr23 continuity through the cusp is ASSUMED by analogy with p = 2, not proved; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96139-window-robustness-sweep-table',
+      title: 'imp-96112: sd(C - E) Window-Robustness Sweep at T = 5e4',
+      oneLine:
+        'Table of the imp-96112 12-config sweep (half-width k, half-span, box-overlap) of the imp-95562 band() estimator at T=5e4: zero breaches of the imp-95722 max-anchor envelope, with margin ranging +3.6% (finest windows) to +51.4% (narrowest span), showing the imp-96090 +3.0% headline is estimator-specific but the cap sign is robust.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96112-max-anchor-margin-window-robustness.js',
+      paperSourcePath:
+        'src/data/imp-96112-max-anchor-margin-window-robustness.js (rows, robustness, target; imp-96139 viz page)',
+      ticket: 'imp-96139',
+      pedagogicalStep: 213,
+      honestCeiling:
+        'Presentation only: every row is copied verbatim from the imp-96112 baked 12-config sweep (no re-derivation of the band() estimator or the offline quadrature); the +3.0% imp-96090 headline is the tight end of a uniformly-positive family, not a representative central margin; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -1313,6 +1313,9 @@ const Imp96016VarSConstantDecompositionViz = lazy(() =>
 const Imp96115BelowEnvelopeDipSignificanceTableViz = lazy(() =>
   import('./pages/Imp96115BelowEnvelopeDipSignificanceTableViz.jsx')
 );
+const Imp96139WindowRobustnessSweepTableViz = lazy(() =>
+  import('./pages/Imp96139WindowRobustnessSweepTableViz.jsx')
+);
 const Imp96038RouteALammMinDescentViz = lazy(() =>
   import('./pages/Imp96038RouteALammMinDescentViz.jsx')
 );
@@ -3491,6 +3494,10 @@ function AppShell() {
           <Route
             path="/viz-imp96115-below-envelope-dip-significance-table"
             element={<Imp96115BelowEnvelopeDipSignificanceTableViz />}
+          />
+          <Route
+            path="/viz-imp96139-window-robustness-sweep-table"
+            element={<Imp96139WindowRobustnessSweepTableViz />}
           />
           <Route
             path="/viz-imp96038-route-a-lammin-descent"

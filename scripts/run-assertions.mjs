@@ -611,6 +611,16 @@ const DATA_MODULES = [
   // before 1e100. So the far-tail error is BOUNDED and shrinking, NOT diverging -- the closed form
   // is asymptotically exact. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED.
   '/src/data/imp-96272-closed-form-fartail-gap-argmax.js',
+  // imp-96348 (2026-09-24): DECIDES whether the imp-96272 far-tail relative-gap argmax (k=10, N=1e10)
+  // drifts outward as the decade ladder is extended past 1e10, or is a fixed left-edge artifact.
+  // Import-light baked literals re-derived from the exact imp-96151 sigma_full/sigma_CF formulas show
+  // the integer-decade argmax stays PINNED at k=10 with relGap 4.5973e-4 for every window ending
+  // 1e11..1e100 (drift 0 decades), because relGap decays strictly monotonically for N>N_cross. The
+  // TRUE window-free maximum is stationary AT the imp-33723 crossover N_cross~3.28e9 (log10~9.5159,
+  // relGap~9.4962e-4, ~2.07x the k=10 value): k=10 is merely the first integer decade above the
+  // crossover. So the argmax does NOT migrate outward -- it is pinned; the diverging-argmax premise is
+  // refuted. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96348-fartail-gap-argmax-drift.js',
   // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
   // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
   // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151

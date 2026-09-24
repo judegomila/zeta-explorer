@@ -10,6 +10,7 @@ import {
   VERIFICATION_EFFORTS,
   OPEN_GAPS,
 } from '../data/lambda-roadmap.js';
+import { IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE } from '../data/imp-33828-sigma-decay-landmark-ladder-reference.js';
 
 // Lambda Bounds & RH Roadmap — the plan, the status, the verification.
 // Read interface for src/data/lambda-roadmap.js.
@@ -398,6 +399,45 @@ export default function LambdaBoundsPage() {
           <div style={{ fontSize: 13, color: 'var(--ink-soft)', lineHeight: 1.5 }}>
             {displayCurrentStatus(LAMBDA_ROADMAP.currentStatus)}
           </div>
+
+          {/* sigma(N)-decay landmark reference table (imp-96415): the currentStatus prose
+              above cites these N-locations inline; this table collects them once, in
+              N-order, sourced from the imp-33828 reference module (no re-derivation). */}
+          <div style={{ marginTop: 12 }}>
+            <div style={{ fontSize: 11, color: 'var(--ink-soft)', fontWeight: 600, marginBottom: 6 }}>
+              sigma(N) decay landmarks ({IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE.quantity})
+            </div>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 11.5 }}>
+              <thead>
+                <tr style={{ color: 'var(--faint)', textAlign: 'left', borderBottom: '1px solid var(--hairline)' }}>
+                  <th style={{ padding: '4px 8px', fontWeight: 600 }}>N</th>
+                  <th style={{ padding: '4px 8px', fontWeight: 600 }}>Landmark</th>
+                  <th style={{ padding: '4px 8px', fontWeight: 600 }}>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {IMP_33828_SIGMA_DECAY_LANDMARK_LADDER_REFERENCE.ladder.map((entry) => (
+                  <tr key={entry.name} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                    <td style={{ padding: '4px 8px', fontFamily: 'var(--ed-mono, var(--font-mono))', color: 'var(--ink)' }}>
+                      {entry.N.toExponential(2)}
+                    </td>
+                    <td style={{ padding: '4px 8px', color: 'var(--ink-soft)' }}>{entry.label}</td>
+                    <td style={{ padding: '4px 8px', color: 'var(--brass-dk)', fontFamily: 'var(--ed-mono, var(--font-mono))' }}>
+                      {entry.source}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div style={{ fontSize: 10, color: 'var(--faint)', marginTop: 6 }}>
+              Reference only (imp-33828); full plot at{' '}
+              <Link to="/viz-imp33830-sigma-decay-landmark-ladder" style={{ color: 'var(--brass-dk)' }}>
+                /viz-imp33830-sigma-decay-landmark-ladder
+              </Link>
+              . No new value derived; imp-3066 K_a ≥ 0 untouched; NO QED; Platt-Trudgian Lambda ≤ 0.2 remains SOTA.
+            </div>
+          </div>
+
           <div
             style={{
               marginTop: 10,

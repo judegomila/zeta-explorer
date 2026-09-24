@@ -211,6 +211,16 @@ export const IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER = {
     'Extrapolating the imp-96389 basis-C L-linear cancellation floor against the exact, logarithmically-shrinking |rho + 1/2| rigidity signal, the growing floor does not overtake the shrinking signal until L* ~ 1.3e12 (conservative endpoint slope) to ~2.5e12 (mean slope) -- about five-to-six decades beyond the PT anchor L = 5.9e6, where rho ~ -0.489 and floor = signal ~ 1.1e-2. At the anchor itself the signal (~1.82e-2) beats the floor (~5e-8) by ~3.7e5, so basis C remains a genuine INDEPENDENT corroboration of basis A across the entire accessible-to-anchor range and only loses independence far past it. Cross-validation / extrapolation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for
+// any consumer surface (e.g. the imp-96453 viz page) that renders this finding.
+export const IMP96430_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Cross-validation / '
+  + 'extrapolation numerics only: rho is the theoretical GUE two-interval '
+  + 'correlation, not computed from real zeros; the crossover band [1.3e12, '
+  + '2.5e12] is calibrated only on accessible L (<= 960); at the PT anchor the '
+  + 'imp-96448 MEASURED headroom (~640) supersedes this module’s model-quoted '
+  + 'figure (~3.7e5).';
+
 // --- self-executing internal-consistency assertions (accessible-L re-measurement + crossover bisection) ---
 (() => {
   const approx = (a, b, tol) => Math.abs(a - b) <= tol;
@@ -251,6 +261,10 @@ export const IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER = {
     throw new Error('imp-96430: reconciliation note dropped the SUPERSEDED flag');
   if (!/NO QED/.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.reconciliation))
     throw new Error('imp-96430: reconciliation note dropped the NO QED banner');
+
+  // exported honest-status banner (imp-96337 / imp-96428 convention) must carry the markers
+  if (!(/RH open/.test(IMP96430_HONEST_BANNER) && /PT Lambda <= 0.2/.test(IMP96430_HONEST_BANNER) && /NO QED/.test(IMP96430_HONEST_BANNER)))
+    throw new Error('imp-96430: IMP96430_HONEST_BANNER missing RH-open / PT-Lambda / NO-QED markers');
 })();
 
 export default IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER;

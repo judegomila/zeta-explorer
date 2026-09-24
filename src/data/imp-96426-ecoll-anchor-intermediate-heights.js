@@ -246,6 +246,16 @@ export const IMP96426_ECOLL_ANCHOR_INTERMEDIATE_HEIGHTS = {
     'heights, baked as literals (not imported, to keep this module light).',
 };
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for
+// any consumer surface (e.g. the imp-96454 viz page) that renders this finding.
+export const IMP96426_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/accuracy audit '
+  + 'only: the four intermediate anchors (N = 1e3..1e6) are externally tabulated '
+  + 'true zero heights (Odlyzko table, imp-359) bridging the imp-96402 '
+  + 'macroscopic first-zero gap and the double-precision floor at N = 1e22; no '
+  + 'gap closed, no bound changed, G6_polymath15_bridge not closed, conditional '
+  + 'C_H <= 0.127 stays UNPROVEN.';
+
 export const IMP96426_ECOLL_ANCHOR_INTERMEDIATE_HEIGHTS_ASSERTIONS = [
   {
     id: 'imp96426-intermediate-gaps-above-floor-below-macroscopic',
@@ -292,5 +302,13 @@ export const IMP96426_ECOLL_ANCHOR_INTERMEDIATE_HEIGHTS_ASSERTIONS = [
       'This ticket is measurement/accuracy only: it must not assert closure of ' +
       'G6_polymath15_bridge, must not change any bound, and must not reclassify ' +
       'the unproven conditional C_H <= 0.127 as rigorous.',
+  },
+  {
+    id: 'imp96426-honest-banner-present',
+    holds: () =>
+      /RH open/.test(IMP96426_HONEST_BANNER) &&
+      /PT Lambda <= 0.2/.test(IMP96426_HONEST_BANNER) &&
+      /NO QED/.test(IMP96426_HONEST_BANNER),
+    why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers for any consumer surface that renders this finding.',
   },
 ];

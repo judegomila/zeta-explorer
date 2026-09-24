@@ -180,6 +180,15 @@ export const IMP96429_ECOLL_CKH_SENSITIVITY = {
     'imp-2641 Trudgian (C_KH = pi*2.622).',
 };
 
+// Machine-readable honest-status banner (imp-96337 / imp-96428 convention) for
+// any consumer surface (e.g. the imp-96455 viz page) that renders this finding.
+export const IMP96429_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Sensitivity sweep only: the '
+  + 'imp-96402 count-model-independence verdict is shown C_KH-invariant across a '
+  + '3-decade rescaling (C_KH cancels as a common sqrt-prefactor in the relative '
+  + 'gap); no gap closed, no bound changed, conditional C_H <= 0.127 stays '
+  + 'UNPROVEN.';
+
 export const IMP96429_ECOLL_CKH_SENSITIVITY_ASSERTIONS = [
   {
     id: 'imp96429-1e22-gap-c-kh-invariant',
@@ -219,5 +228,13 @@ export const IMP96429_ECOLL_CKH_SENSITIVITY_ASSERTIONS = [
       'This ticket is measurement/accuracy only: it must not assert closure, must ' +
       'not change any bound, and must not reclassify the unproven conditional ' +
       'C_H <= 0.127 as rigorous.',
+  },
+  {
+    id: 'imp96429-honest-banner-present',
+    holds: () =>
+      /RH open/.test(IMP96429_HONEST_BANNER) &&
+      /PT Lambda <= 0.2/.test(IMP96429_HONEST_BANNER) &&
+      /NO QED/.test(IMP96429_HONEST_BANNER),
+    why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers for any consumer surface that renders this finding.',
   },
 ];

@@ -1427,6 +1427,9 @@ const Imp96395SigmaLocalExponentRampViz = lazy(() =>
 const Imp96378RouteMBeatPeriodOverlapViz = lazy(() =>
   import('./pages/Imp96378RouteMBeatPeriodOverlapViz.jsx')
 );
+const Imp96399RouteMReachRepriceViz = lazy(() =>
+  import('./pages/Imp96399RouteMReachRepriceViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3739,6 +3742,10 @@ function AppShell() {
           <Route
             path="/viz-imp96378-route-m-beat-period-overlap"
             element={<Imp96378RouteMBeatPeriodOverlapViz />}
+          />
+          <Route
+            path="/viz-imp96399-route-m-reach-reprice"
+            element={<Imp96399RouteMReachRepriceViz />}
           />
           <Route
             path="/viz-imp96338-worst-excess-evt"

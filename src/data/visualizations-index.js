@@ -3821,6 +3821,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the sigma(N)/OLS-exponent/D2 logic is copied verbatim from imp-96351 (identical sub-terms, identical estimator, no fresh model); it is re-run here only to expose the per-bracket p_dec/D2 series imp-96351 does not export, so the chart can render the ramp and its curvature rather than just the baked summary scalars. Establishes no operator positivity, moves no Lambda bound; measurement/fit only on an inherited, non-rigorous component model; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96399-route-m-reach-reprice',
+      title: 'imp-96352: Route M Reachable-N Ceiling Reprice',
+      oneLine:
+        'Bar chart comparing the imp-96230 BUILD-only assumed reach (N~10000 at 399 s) against the imp-96352 corrected-cost-model reach at the same budget (N~5355, a 1.87x overstatement), plus the full corrected reach ladder at 399 s/30 min/1 hour/4 hours.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96399-route-m-reach-reprice-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96352-route-m-vasyunin-solve-cost-model.js (IMP96352_REACH, IMP96352_BUILD_ONLY_ESTIMATE); src/data/imp-96230-route-m-vasyunin-gram-n1e4-feasibility.js (IMP96230_N1E4_BUDGET)',
+      ticket: 'imp-96399',
+      pedagogicalStep: 247,
+      honestCeiling:
+        'Presentation only: every reach figure is copied verbatim from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new timing measurement is made here, and the corrected reach ladder is itself an extrapolated cubic fit rather than a re-measured wall-clock run at each budget. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

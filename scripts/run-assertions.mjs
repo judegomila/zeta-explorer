@@ -19677,6 +19677,12 @@ const DATA_MODULES = [
   // gives logT_sat=-17.36 (T~2.9e-8, below range): no forward saturation height. The rigorous
   // replacement is the imp-95722 monotone-decreasing envelope r_cap(3e12)~0.26<1. No bound, NO QED.
   '/src/data/imp-96268-varratio-gue-saturation-extrapolation.js',
+  // imp-96335: Concepts glossary headword for the imp-96311 rate-vs-conclusion
+  // separation -- C_H = C_shock * C_Lip / 4 moves only the E_coll linear prefactor
+  // and the limit value, never the N^{-1/2}-ish decay rate (log-log slope profile
+  // identical across a ~66x span of C_H). Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96335-ecoll-rate-vs-conclusion-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -12,6 +12,7 @@ import { RH_ROUTE_H_SEMILOCAL_SONINE as ROUTE_H_SONINE } from '../data/rh-route-
 import { RH_ROUTE_I_SEMILOCAL_SONINE_TRACE as ROUTE_I } from '../data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';
 import { RH_ROUTE_I_PENCIL_HIGHRES_MAP as ROUTE_I_HIGHRES } from '../data/rh-route-i-pencil-highres-map-2026-09-23.js';
 import { RH_ROUTE_I_SONINE_EXCESS_PORT as ROUTE_I_SONINE_PORT } from '../data/rh-route-i-sonine-excess-semilocal-port-2026-09-23.js';
+import { RH_ROUTE_I_UNCERTAINTY_CONCENTRATION_CERTIFICATE as ROUTE_I_UC_CERT } from '../data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js';
 import { IMP_96225_CORR23_DENSITY_ASSESSMENT as CORR23_STATUS } from '../data/imp-96225-route-i-corr23-termwise-uniform-density-assessment.js';
 import { IMP_96130_CROSSING_UNIFORMITY } from '../data/imp-96130-route-i-crossing-uniformity-vs-constrained-subfamily-assessment.js';
 import { RH_CROSS_ROUTE_WALL_MAP } from '../data/rh-novel-routes-sweep-synthesis-2026-09-23.js';
@@ -470,6 +471,18 @@ export default function RhNovelRoutesRoadmapPage() {
           </p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8, borderLeft: '2px solid var(--brass-dk)', paddingLeft: 10 }}>
             <strong style={{ color: 'var(--brass-dk)' }}>Honest status — mixed &#123;∞, 2, 3&#125; extension (imp-96225):</strong> {CORR23_STATUS.verdict}
+          </p>
+        </div>
+
+        <div className="card" style={{ marginTop: 24 }}>
+          <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 8 }}>Route I — the D_S &le; L_S full-symbol certificate, all 2a &le; ln 3</h3>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{ROUTE_I_UC_CERT.status}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Theorem:</strong> {ROUTE_I_UC_CERT.theorem}</p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8, borderLeft: '2px solid var(--brass-dk)', paddingLeft: 10 }}>
+            <strong style={{ color: 'var(--brass-dk)' }}>Honest status — verification level:</strong> {ROUTE_I_UC_CERT.honestLimits}
+          </p>
+          <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
+            data: src/data/{ROUTE_I_UC_CERT.id}.js
           </p>
         </div>
 

@@ -19515,6 +19515,12 @@ const DATA_MODULES = [
   // grid-aliased against the gamma_1 zero-side prediction. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96174-route-m-const-oscillation-glossary-headword.js',
+  // imp-96175: Concepts glossary headword for the imp-96143 mixed 2^a 3^b {oo,2,3}
+  // ladder summability dichotomy -- the cubic tail Sum|lam|^3 = 1.769529 CONVERGES
+  // (geometric double sum, both ratios < 1) while the square tail Sum lam^2 DIVERGES
+  // (counts the infinite S-unit semigroup, quadratic in the box side). Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96175-mixed-ladder-summability-dichotomy-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

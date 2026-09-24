@@ -3471,6 +3471,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every margin value plotted is imported verbatim from imp-96132 (no re-derivation, no re-baking of the underlying sd(C-E) / mean-L literals); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96176-sigma-closed-form-ladder',
+      title: 'imp-96151: Closed-Form Conditional-Share Ladder vs. the Full U-Shape',
+      oneLine:
+        'Schematic full share sigma_full(N) (U-shape peak at N~9.22e5) vs. the imp-96151 closed-form sigma_CF(N) (monotone right-arm only), plus a per-decade decay-exponent table past the imp-33582 1e12 endpoint (matches to 4 decimals, max relative gap 4.60e-4 over [1e10,1e100]).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96176-sigma-closed-form-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96151-sigma-closed-form-crossover-fartail-reproduction.js (closed-form model, ramp table, U-shape sign findings; imp-96176 viz page)',
+      ticket: 'imp-96176',
+      pedagogicalStep: 224,
+      honestCeiling:
+        'Presentation only: the ramp table and landmark values are copied verbatim from the imp-96151 baked fields; the U-shape/monotone comparison curve is illustrative of the imp-96151 sign findings, not a re-derivation of sigma(N); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

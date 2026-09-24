@@ -1349,6 +1349,9 @@ const Imp96237HeightToFloorViz = lazy(() =>
 const Imp96238JointLeakRegionViz = lazy(() =>
   import('./pages/Imp96238JointLeakRegionViz.jsx')
 );
+const Imp96176SigmaClosedFormLadderViz = lazy(() =>
+  import('./pages/Imp96176SigmaClosedFormLadderViz.jsx')
+);
 const Imp96160MaxAnchorWindowRobustnessViz = lazy(() =>
   import('./pages/Imp96160MaxAnchorWindowRobustnessViz.jsx')
 );
@@ -3576,6 +3579,10 @@ function AppShell() {
           <Route
             path="/viz-imp96160-max-anchor-window-robustness"
             element={<Imp96160MaxAnchorWindowRobustnessViz />}
+          />
+          <Route
+            path="/viz-imp96176-sigma-closed-form-ladder"
+            element={<Imp96176SigmaClosedFormLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

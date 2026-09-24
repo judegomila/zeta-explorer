@@ -12,6 +12,7 @@ import { RH_ROUTE_H_SEMILOCAL_SONINE as ROUTE_H_SONINE } from '../data/rh-route-
 import { RH_ROUTE_I_SEMILOCAL_SONINE_TRACE as ROUTE_I } from '../data/rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';
 import { RH_ROUTE_I_PENCIL_HIGHRES_MAP as ROUTE_I_HIGHRES } from '../data/rh-route-i-pencil-highres-map-2026-09-23.js';
 import { RH_ROUTE_I_SONINE_EXCESS_PORT as ROUTE_I_SONINE_PORT } from '../data/rh-route-i-sonine-excess-semilocal-port-2026-09-23.js';
+import { IMP_96130_CROSSING_UNIFORMITY } from '../data/imp-96130-route-i-crossing-uniformity-vs-constrained-subfamily-assessment.js';
 import { RH_CROSS_ROUTE_WALL_MAP } from '../data/rh-novel-routes-sweep-synthesis-2026-09-23.js';
 import HonestCeilingBanner from '../components/HonestCeilingBanner.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
@@ -125,6 +126,57 @@ function RouteIWindowDecompositionTable() {
         window I&#8321; carries the negativity, rising from ~20% at a = 0.30 to past 100% at (ln 3)/2 (the extremal
         peak migrates inward from t &#8776; 12.3 to t &#8776; 7.5 as a rises). Not uniform in a — measurement only,
         N = 96 Rayleigh&ndash;Ritz; RH open; NO QED.
+      </p>
+    </div>
+  );
+}
+
+// imp-96159: mu_max(a; k) tracked past the crossing 2a* = 1.1316, from
+// IMP_96130_CROSSING_UNIFORMITY.pastCrossingGrid in
+// imp-96130-route-i-crossing-uniformity-vs-constrained-subfamily-assessment.js (rows are
+// [a, 2a, mu_max(k=0), mu_max(k=1), mu_max(k=2), mu_max(k=3)]).
+const ROUTE_I_CROSSING_GRID = IMP_96130_CROSSING_UNIFORMITY.pastCrossingGrid;
+
+function RouteICrossingLadderTable() {
+  return (
+    <div style={{ marginTop: 20 }}>
+      <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginBottom: 6 }}>
+        Crossing ladder: mu_max(a; k) tracked past 2a* = 1.1316 (= ln 3 + 0.033), by vanishing-moment
+        count k (N = 128)
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+          <thead>
+            <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--hairline)' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>2a</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>k = 0</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>k = 1</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>k = 2</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>k = 3</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>margin (k &ge; 2)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ROUTE_I_CROSSING_GRID.map(([a, twoA, k0, k1, k2, k3]) => (
+              <tr key={a} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{twoA.toFixed(2)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: k0 < 1 ? 'var(--ink-soft)' : '#c23a1c' }}>{k0.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: k1 < 1 ? 'var(--ink-soft)' : '#c23a1c' }}>{k1.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{k2.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{k3.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{(1 - k2).toFixed(3)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8, lineHeight: 1.6 }}>
+        Past the crossing (2a = 1.16, 1.20) the unconstrained k &le; 1 eigenvalue exceeds 1, but the
+        k &ge; 2 vanishing-moment sub-family stays strictly below 1 (margin &ge; 0.29). By the
+        min-over-subset identity (min over a constrained subspace is &ge; the min over the whole
+        space), this larger margin is the absence of the crossing direction from the sub-family, not
+        evidence about it — certifying D_S &le; L_S on k &ge; 2 certifies nothing about the full-space
+        inequality. Not a bound or a proof; RH open; NO QED.
       </p>
     </div>
   );
@@ -424,6 +476,7 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Honest limits:</strong> {ROUTE_I_HIGHRES.honestLimits}</p>
           <RouteIConstraintLadderTable />
           <RouteIWindowDecompositionTable />
+          <RouteICrossingLadderTable />
           <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
             data: src/data/{ROUTE_I_HIGHRES.id}.js
           </p>

@@ -415,6 +415,14 @@ export const RESULTS = [
     route: '/rh-novel-routes-roadmap',
     date: '2026-09',
   },
+  {
+    statement: 'Route I (semilocal S={∞,2} Sonine/prolate trace identity, Connes–Consani style): the identity Tr(ϑ(f)PP̂_SP)=W_∞+W_2+D_S is EXACT and its trace side is unconditionally positive (min multiplier 0.0650), but the explicit remainder D_S carries log-cusp singularities at every ρ=2^k; Weil positivity on g-support<ln3 reduces to the inequality D_S≤L_S, saturated to 96.7%/99.71% on the pole-free minimizer — not gap-free, no unconditional extension past ln2.',
+    grade: 'no-go',
+    verification: ['module rh-route-i-semilocal-sonine-trace-identity-2026-09-23', 'trace-side positivity Lhat_S(0)=0.0650 verified on [0,250] step 0.01'],
+    thread: 'rh-novel-routes',
+    route: '/rh-novel-routes-roadmap',
+    date: '2026-09',
+  },
 
   // ── eliminates and refutations ──────────────────────────────────────────────────
   {

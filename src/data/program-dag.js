@@ -596,6 +596,15 @@ export const NODES = [
     source: 'imp-96109-tue5-dip-decorrelation-safety-margin.js',
   },
   {
+    id: 'route-i-semilocal-sonine-trace-identity',
+    name: 'Route I: semilocal S={∞,2} Sonine/prolate trace identity',
+    outcome: 'open',
+    grade: 'EXACT identity built (Tr(ϑ(f)PP̂_SP) = W_∞+W_2+D_S) with the trace side unconditionally positive (min multiplier Lhat_S(0)=0.0650>0), but the remainder D_S carries explicit log-cusp singularities at every ρ=2^k; Weil positivity on g-support<ln3 is the inequality D_S≤L_S, saturated to 96.7% (a=0.5) / 99.71% (a=(ln3)/2) on the pole-free minimizer — not gap-free, no unconditional extension past ln2; RH open, NO QED',
+    date: '2026-09-23',
+    route: null,
+    source: 'rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js',
+  },
+  {
     id: 'route-i-p3-cusp-fixed-fraction',
     name: 'Route I: p=3 cusp allocation fixed-fraction law',
     outcome: 'ruled-out',
@@ -687,7 +696,8 @@ export const EDGES = [
 
   // number-variance / Route-M / Route-I robustness leaves (2026-09-23)
   { from: 'novel-route-m', to: 'route-m-vasyunin-n6000-ext', meaning: 'led-to', note: 'extends the Burnol-ratio ladder past N=2600' },
-  { from: 'novel-route-l', to: 'route-i-p3-cusp-fixed-fraction', meaning: 'led-to', note: 'Route I compact-Toeplitz foothold, S={oo,2,3}' },
+  { from: 'novel-route-l', to: 'route-i-semilocal-sonine-trace-identity', meaning: 'led-to', note: 'the Connes-Consani semilocal object named as the only thing that could work past u = ln 2' },
+  { from: 'route-i-semilocal-sonine-trace-identity', to: 'route-i-p3-cusp-fixed-fraction', meaning: 'led-to', note: 'S={oo,2} exact identity extended to S={oo,2,3}' },
   { from: 'numvar-excursion-vs-maxanchor', to: 'numvar-decorr-safety-margin', meaning: 'led-to' },
   { from: 'numvar-decorr-safety-margin', to: 'numvar-maxanchor-window-robustness', meaning: 'led-to' },
   { from: 'numvar-maxanchor-window-robustness', to: 'numvar-meananchor-zscore-crosscheck', meaning: 'led-to' },

@@ -588,6 +588,16 @@ const DATA_MODULES = [
   // "E(N) FLOORS" obstruction on which conditionalBookkeeping B1-B3 are blocked. C_mb GUE-conditional
   // per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96166-en-decay-exponent-vs-step4-bridge-threshold.js',
+  // imp-96185 (2026-09-23): INVERTS the imp-2322 fixed-strip power law
+  // E_trunc(T_PT) = 3.0 T_PT^{-0.4} to answer how far the Platt-Trudgian verified height
+  // T_PT must be pushed to drop the frozen imp-96166 E(N) floor (3.06e-5 at 3e12) below
+  // 1e-5/1e-6/1e-8. T_required(E) = (3.0/E)^{2.5}: floor 1e-5 at T_PT~4.93e13 (~1.22
+  // decades), 1e-6 at ~1.56e16 (~3.72), 1e-8 at ~1.56e21 (~8.72). The inverse sensitivity
+  // exponent is exactly -1/kappa = -2.5 (2.5 decades of verified height per decade of floor
+  // drop, ~316x per decade), floor-independent -- so the floor is a structural power-law
+  // cost, not a range artifact. C_mb GUE-conditional per imp-486; changes no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96185-etrunc-floor-inverse-height-thresholds.js',
   // imp-96167 (2026-09-23): EXTENDS the imp-96148 worst-support on-line signed-force margin column
   // rho(32,T) beyond T=395.98 (gamma_200) to gamma_500 (T~811) to test whether the strictly-positive
   // reciprocal-log floor c~0.143 is a limited-T-range artifact. Reproduces the imp-96020 LP pipeline
@@ -19305,6 +19315,35 @@ const DATA_MODULES = [
   // CMV/Verblunsky truncation (Route L), and the Fejer pure-scheme floor (Route J). Documentation
   // only, restating existing source-module conclusions verbatim; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96083-route-vocabulary-glossary-headwords.js',
+  // imp-96163: partial closure of the imp-96147 sub-gap imp-96147-gamma1-identification. An
+  // aliasing conjecture test on the exact imp-96105 17-point (non-uniform) log N grid REFUTES the
+  // imp-96147 hypothesis that the Route M Burnol-ratio residual's dominant tone (w = 4.081, period
+  // 1.539 in log N, 71.0% variance explained) is an aliased gamma_1 = 14.1347 zero-tone: a known pure
+  // gamma_1 tone placed on the identical coarse grid is recovered cleanly at w = 14.136 (varExpl
+  // 1.00000 at all 8 test phases, matching the dense 400-point control), so irregular sampling does
+  // not alias it down to w ~ 4. The period-1.5 swing is a genuine low-frequency feature of ratio(N)
+  // on N <= 6000, not an aliased gamma_1 tone. Import-light; changes no bound; NO QED.
+  '/src/data/imp-96163-route-m-residual-gamma1-alias-refute.js',
+  // imp-96165: works the imp-96149 sub-gap SG-96149-grid on two fronts, measurement only. (1) The
+  // per-delta Route L detector exponent b is NOT delta-independent -- it drifts monotonically from
+  // 1.3862 (delta=0.4) to 1.2074 (delta=0.025), a spread of 0.1788, an O(log 1/delta) additive term
+  // re-expressed as an exponent tilt when a pure power law is forced through it (the pooled fit
+  // b=1.28025 averages the tilt away). (2) Tests whether N_res(gamma) equals a Christoffel-function
+  // count of the atomic measure nu_a on the unit circle (atoms at theta_k = pi - 2 atan(gamma_k/a),
+  // a=20). Import-light; changes no bound; NO QED.
+  '/src/data/imp-96165-route-l-detector-finer-grid-christoffel.js',
+  // imp-96170: exact GUE two-interval number-variance covariance for the sd(C - E) statistic at two
+  // fresh heights OUTSIDE the imp-96150 sampled bracket {2e4,5e4,1e5,2e5,4e5} -- T=8e4 (interior gap)
+  // and T=6e5 (beyond the top of the band) -- to test whether the ~2.7x AR-1 inflation and ~1.04-rho
+  // safe-side flip margin persist out of bracket. Import-light (baked literals, no zeros bundle);
+  // changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96170-number-variance-two-interval-covariance-outofbracket-heights.js',
+  // imp-96171: measures the EMPIRICAL adjacent-box lag-1 correlation of the sd(C - E) statistic on
+  // the actual Riemann zeros at T=1.5e5, filling the imp-96128 honest caveat that its theoretical GUE
+  // proxy rho_exact=-0.46398 was never checked against the real zero set. Import-light: consumes only
+  // baked literal rows (no live zeros-bundle import), so it does not trip the heavy-module vite/ssr
+  // hang; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96171-number-variance-empirical-lag1-vs-gue-proxy.js',
 ];
 
 let ALL_MODULES = FAST_MODE

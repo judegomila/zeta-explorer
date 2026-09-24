@@ -23315,6 +23315,32 @@ export const glossary = [
       'imp-96380-... the single-independent-anchor honest statement this measurement is scoped by',
     ],
   },
+  {
+    term: 'E_flow Peak-Location Correction Is Algebraic (E_flow^2), Not a Flow-Drift (dE_flow/dN) Effect (imp-96403)',
+    category: 'measurement',
+    definition:
+      'imp-96266 M3 named two candidate second-order corrections that could close the ~9.08e-2 ' +
+      'peak-LOCATION error of the first-order reconstruction sigma_recon = sigma_CF*(1-x): an ' +
+      'E_flow^2 (Taylor x^2) term, or a dE_flow/dN (flow-drift) term. imp-96403 decides the fork by ' +
+      'direct measurement. The exact first-order residual err1 = sigma_CF*(1-x) - sigma_full = ' +
+      '-sigma_CF*x^2/(1+x) matches the pure E_flow^2 candidate -sigma_CF*x^2 with ratio 1/(1+x), ' +
+      'staying in [0.904, 0.986] across the peak region 1e4..1e7 -- confirming imp-96286-s ~21x ' +
+      'location-gap closure is algebraic. Against the flow-drift candidate dE_flow/dN, the same ' +
+      'ratio is NOT constant: it spans ~1.2e5 to ~3.2e8 (>3 decades) over the same window, and a ' +
+      'best-least-squares-scaled dE_flow/dN correction makes the location error WORSE (~9.9e-1 vs ' +
+      'the uncorrected 9.08e-2). The reason: the pointwise reconstruction already evaluates ' +
+      'x(N) = E_flow(N)/(E_trunc+E_coll(N)) at each N, so it already carries the exact local ' +
+      'dE_flow/dN -- there is no missing-drift degree of freedom to recover. Measurement only; ' +
+      'C_mb stays GUE-conditional (imp-486); changes no bound; RH open; NO QED; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96403-eflow-peak-location-eflowsq-vs-dedn.js (isolates and rules out the untested dE_flow/dN branch of the imp-96266 M3 fork), 2026',
+    relatedTerms: [
+      'imp-96286-eflow-peak-location-error-order.js the flat-peak amplification mechanism and the E_flow^2/x^2 correction this module confirms and cross-checks against the drift alternative',
+      'imp-96266-eflow-peak-recovery-residual.js the first-order reconstruction and the original ~9% location / <1e-3 height asymmetry',
+      'imp-96308-eflow-peak-third-order-shrink.js the further ~x-per-order Taylor shrink of the same residual',
+      'imp-96329-eflow-tail-law-global.js the global reconstruction-tail law err_k = -sigma_CF*(-x)^(k+1)/(1+x)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -24,6 +24,12 @@ import {
   IMP96189_HONEST_BANNER,
 } from '../data/imp-96189-route-m-swing-attribution.js';
 import { IMP96325_SUBGAP, IMP96325_RUN, IMP96325_HONEST_BANNER } from '../data/imp-96325-route-m-vasyunin-gram-n1e4-run.js';
+import {
+  IMP96352_BUILD_ONLY_ESTIMATE,
+  IMP96352_REACH,
+  IMP96352_REACH_MODEL,
+  IMP96352_HONEST_BANNER,
+} from '../data/imp-96352-route-m-vasyunin-solve-cost-model.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
@@ -362,6 +368,49 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         no tightening. The true asymptotic beyond N={IMP96325_RUN.NMAX.toLocaleString()} and the Q2
         conductor-band-vs-smooth-drift identifiability both stay OPEN &mdash; see {IMP96325_SUBGAP.id}.
         {' '}{IMP96325_HONEST_BANNER}
+      </div>
+
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+        Reach cost model reprice (imp-96352): BUILD-only vs the actual N={IMP96325_RUN.NMAX.toLocaleString()} run
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+        The imp-96230 BUILD-only budget ({IMP96352_BUILD_ONLY_ESTIMATE.totalWallSeconds} s: Gram build,
+        one dense eigvalsh, and 25 rung Cholesky factorizations) omitted the per-rung inverse-power
+        lam_min solve. The imp-96325 run above actually took {IMP96352_BUILD_ONLY_ESTIMATE.underCountFactor.toFixed(2)}&times;{' '}
+        that estimate, so a wall-clock budget reaches a much smaller N than the BUILD-only figure implied:
+      </p>
+      <table style={{ width: '100%', maxWidth: 700, borderCollapse: 'collapse', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Budget</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>Reachable N</th>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {IMP96352_REACH.map((row) => (
+            <tr key={row.budgetSeconds} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+              <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem' }}>{row.budgetLabel}</td>
+              <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{row.reachN.toLocaleString()}</td>
+              <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem' }}>{row.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Binding constraint:</strong> {IMP96352_REACH_MODEL.bindingConstraint}
+        {' '}Reference only (imp-96352); no new value derived here. {IMP96352_HONEST_BANNER}
       </div>
     </div>
   );

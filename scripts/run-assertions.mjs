@@ -19471,6 +19471,7 @@ const DATA_MODULES = [
   '/src/data/imp-96206-route-i-kato-temple-joint-leak.js',
   '/src/data/imp-96209-route-bd-online-margin-floor-gamma2000.js',
   '/src/data/imp-96210-ushape-peak-slope-drift-location-law.js',
+  '/src/data/imp-96236-route-bd-margin-gamma2000-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

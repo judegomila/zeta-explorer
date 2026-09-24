@@ -3415,6 +3415,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every rho_boundary, rho_crit, and safety-ratio value is copied verbatim from the imp-96109 baked rows and significantDip block (no re-derivation of the AR-1 de-correlation model or the imp-96071 chi-square crossover); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96236-route-bd-margin-gamma2000',
+      title: 'imp-96209: Worst-Support On-Line Margin rho(32,T) -- Full 26-Point Column to gamma_2000',
+      oneLine:
+        'Log-x chart of the full 26-point imp-96209 worst-support (N=32) on-line signed-force margin column rho(32,T) from gamma_200 to gamma_2000, with both fitted (not re-fit) laws overlaid: the reciprocal-log floor (0.07061, still falling) and the log-linear no-floor law (now the marginally better R2 fit, naive cross T~3.66e5); every observed and fitted value stays strictly above zero.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96236-route-bd-margin-gamma2000-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96209-route-bd-online-margin-floor-gamma2000.js (validation/extendedT/extendedRho/refit; imp-96236 viz page)',
+      ticket: 'imp-96236',
+      pedagogicalStep: 220,
+      honestCeiling:
+        'Presentation only: the 26-point column and both fit parameters (a, b, c, d) are copied verbatim from the imp-96209 baked fields; only the plotted curve samples are computed here (evaluating the already-fitted formulas, no re-fitting); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

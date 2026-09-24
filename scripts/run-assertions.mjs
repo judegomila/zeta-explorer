@@ -426,6 +426,18 @@ const DATA_MODULES = [
   // (sub-gap SG-96164-boundary), numerically excluded (p=2 top 0.9999731 < 1) but exact enclosure blocked by
   // the Zygmund edge. Import-light (no imports, no zeros bundle). Assertions ~0.1 s. RH open; PT Lambda <= 0.2 stands; NO QED.
   '/src/data/imp-96164-route-i-mixed-group-no-modulus1-overdetermination.js',
+  // imp-96169 (2026-09-23): NUMERICAL/ASSESSMENT — can a Rayleigh-quotient variational bound put the mixed
+  // {oo,2,3} top confined eigenvalue strictly below 1 without diagonalizing (imp-96143 residual (I),
+  // fractal-Zygmund-blocked)? VERDICT NO. (a) DIRECTION: for self-adjoint A_S23 the Rayleigh quotient
+  // R(psi) <= lam_max for all psi (Courant-Fischer), so a test function only LOWER-bounds lam_max; an upper
+  // bound is coercivity of I - A (inf over all psi), realized along the fractal near-top eigenfunction.
+  // (b) GAP RESCUE: the ladder reduction hands the Kato-Temple anchor alpha in (s_2=0.354, lam_top) for free,
+  // but U = R + sigma^2/(R-alpha) < 1 needs sigma^2 small => the test function must capture the fractal top
+  // eigenfunction to ~1% (p=2-calibrated model threshold eps ~ 1.17e-2; U = 1.00015 > 1 at eps = 0.03) --
+  // the blocked diagonalization re-encountered. Strict gap stays with the analytic no-modulus-1 route
+  // (SG-96164-boundary). Import-light (no imports, no zeros bundle). Assertions < 0.1 s. Measurement only;
+  // changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED.
+  '/src/data/imp-96169-route-i-rayleigh-variational-topstate-assessment.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284

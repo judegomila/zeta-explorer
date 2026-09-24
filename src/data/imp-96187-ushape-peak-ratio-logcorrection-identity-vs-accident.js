@@ -225,6 +225,15 @@ export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION = {
       'and explained: nothing pins the ratio to 1/sqrt(3); it merely crosses near it at E_trunc=3.06e-5.',
   },
   isRigorous: false,
+  honestStatus:
+    'CONDITIONAL-SHARE DIAGNOSTIC, NOT AN RH BOUND. sigma = E_coll/E_N is a ratio of terms in the ' +
+    'inherited imp-3220/imp-3406/imp-33723 extrapolation; the GUE-conditional C_mb per imp-486 is ' +
+    'UNTOUCHED (E_coll stays conditional on GUE pair-correlation), and the C_C 1/8 ansatz ' +
+    '(imp-2642/imp-2643) that sets its prefactor is UNTOUCHED. The 0.577 ~ 1/sqrt(3) proximity of ' +
+    'N_peak/N_flow decided here is a FINITE-HEIGHT ACCIDENT of the inherited constants (a smooth ' +
+    'crossing at the current E_trunc, C_C, C_F, not a fixed point or forced identity) -- it is not ' +
+    'evidence toward, and carries no implication for, RH. Changes no bound; establishes no operator ' +
+    'positivity; imp-3066 K_a >= 0 untouched; no QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.',
   verdict:
     'MEASUREMENT/DERIVATION (frontier-direction, NOT rigorous). The imp-3220 U-shape peak obeys the ' +
     'DERIVED law N_peak/N_flow = (b/a)^(1/(a+b)) with a = d ln g_t/d ln N ~ 0.4655 and b = -d ln ' +
@@ -287,6 +296,17 @@ export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION_ASSERTIONS = [
       IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.isRigorous === false &&
       /NO QED/.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.verdict) &&
       /remains SOTA/.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.verdict),
+  },
+  {
+    // Honest-status banner: conditional-share diagnostic, GUE-conditional/C_C ansatz untouched,
+    // 1/sqrt(3) proximity flagged as a finite-height accident, not an RH bound.
+    id: 'imp96187-honest-status-banner',
+    description: 'honestStatus states conditional-share diagnostic, NOT an RH bound, accident not identity',
+    holds: () =>
+      typeof IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.honestStatus === 'string' &&
+      /NOT AN RH BOUND/.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.honestStatus) &&
+      /UNTOUCHED/.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.honestStatus) &&
+      /ACCIDENT/.test(IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.honestStatus),
   },
 ];
 

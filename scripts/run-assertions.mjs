@@ -256,6 +256,8 @@ const DATA_MODULES = [
   // ≫T off-line zeros for every ≥2-arm design (DH/Spira four pairs reproduced to 10 digits; q=7 mixing scan 11→0 only
   // at the single arm). Pair phases pinned by root number (arg W = 2·atan κ, 1e-15). Import-light; in-module Hurwitz
   // EM recomputation; no bound moves; PT Λ≤0.2 SOTA; RH open; NO QED.
+  // imp-96155 audit (2026-09-23): re-verified git-tracked (git ls-files) and present in this DATA_MODULES
+  // array (no untracked/unregistered --since-changed trap here); plain-node import is clean.
   '/src/data/rh-route-c-signed-interferometer-2026-09-23.js',
   // rh-route-b-arithmetic-freeze-flow (2026-09-23): Route B first test. Two-parameter deformation
   // H_{t,tau} = H_t[Phi - tau psi_S] (heat time t + arithmetic coefficient-freeze tau). Lemmas: every

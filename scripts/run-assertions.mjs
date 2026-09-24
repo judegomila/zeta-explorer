@@ -564,6 +564,11 @@ const DATA_MODULES = [
   // OFF the line (Route B Test 2 no-universal-sign = Weil strength), upgrading the imp-96020 prose sub-gap
   // to quantitative. Import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
   '/src/data/imp-96148-route-bd-online-margin-decay-law.js',
+  // imp-96173 (2026-09-23): reader-facing analysis table for the imp-96148 worst-support (N=32) on-line
+  // margin column rho(32,T) -- lays the observed rho alongside both fitted predictions (log-linear and
+  // reciprocal-log-with-floor) and the six per-segment slopes drho/dlnT in one seven-row table.
+  // Documentation only; import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-96173-route-bd-margin-decay-fits-table.js',
   // imp-96151 (2026-09-23): promotes the imp-33723 closed-form crossover N_cross=(C_C/E_trunc)^2 log
   // T0(N_cross) to a two-term analytic share model sigma_CF(N)=1/(1+sqrt(N/N_cross) sqrt(L_cross/L(N)))
   // and tests it past the imp-33582 1e12 grid endpoint. It REPRODUCES the post-peak decay-exponent ramp

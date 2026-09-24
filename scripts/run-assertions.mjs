@@ -19795,6 +19795,13 @@ const DATA_MODULES = [
   // corroborates the RATE R(N), not the (definitionally exact) ratio law.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96380-ecoll-anchor-independence-subgap-crossref.js',
+  // imp-96387: measures the +7/8-corrected count-model sensitivity of the ONE
+  // independently baked E_coll anchor (imp-96290, N=1e4): relative shift -4.11e-6,
+  // about 137x the -3.00e-8 imp-96363 measured at the reconstructed N=1e6 anchor,
+  // and it scales as ~1/N with height (NOT a comparable ~3e-8 constant). The
+  // absolute shift stays ~4.5e-8, inside the storage floor. Measurement only;
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96387-ecoll-anchor-count-model-sensitivity-n1e4.js',
   // imp-96381 audit: the following five imp-9634x/imp-9635x modules were git-tracked
   // but absent from this DATA_MODULES sweep (--since-changed untracked/unregistered
   // trap). Wired in here to close the gap.

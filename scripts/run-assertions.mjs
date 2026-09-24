@@ -374,6 +374,17 @@ const DATA_MODULES = [
   // only: whether a non-CC construction could evade the rank obstruction. Import-light (Route I exports only).
   // Assertions < 0.1 s (S-unit log-gap dichotomy + one L=18 delta_S23 spot check).
   '/src/data/imp-96084-route-i-unconditional-multiplier-rank-obstruction-assessment.js',
+  // imp-96126 (2026-09-23): MEASUREMENT — Richardson/Aitken-extrapolate the imp-96110 finite-eps
+  // incremental out-fractions f_out(rho; J) of the Route I Sonine excess and test how tightly the
+  // extrapolated limit matches 1 - 1/rho at the mixed S = {oo,2,3} units. The p = 2 log-cusp control
+  // extrapolates RIGOROUSLY (windowed Aitken recovers 1 - 2^{-k} to |err| < 1.1e-7, geometric ~2^{-J}
+  // deficit); the S23 log^2-cusp fractions do NOT at L = 20 — per-unit residual to 1 - 1/rho is mean
+  // 5.9e-2 / max 1.9e-1 (5-6 orders worse), the clean J-window shuts near J = 11..14 before the slower
+  // log^2 convergence resolves, and the rho = 9 truncation edge extrapolates to an impossible L_ext > 1.
+  // So 1 - 1/rho is confirmed FROM BELOW only at the O(10^{-2}) bracket, NOT to a rigorous limit
+  // (SG-96126-truncation-window: needs br23 pushed past L = 20, imp-96127 territory). Import-light
+  // (reuses imp-96110 exports). Assertions ~0.5 s. Changes no bound; RH open; NO QED.
+  '/src/data/imp-96126-route-i-fout-richardson-extrapolation-limit.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284
@@ -434,6 +445,14 @@ const DATA_MODULES = [
   // Sub-gap DENSE-GRID-INTERPOLATION (finite grid, ~6.7 decades below the T=3e12 window bottom).
   // Import-light baked literals; reproduction tmp/imp-96129-dense-grid.mjs. NOT a bound; PT Lambda<=0.2 SOTA; NO QED.
   '/src/data/imp-96129-number-variance-dense-grid-max-anchor-stress.js',
+  // imp-96134: overclaim-registry honesty guard for the five 2026-09-23 number-variance
+  // / Route-M leaves (imp-96105/96108/96109/96112/96114) -- none of the five leaf files
+  // were previously wired into this DATA_MODULES sweep, so their own inline honesty
+  // throws never ran at build time. Importing them here + cross-checking each leaf's
+  // honest-status text keeps RH open (directly or via PCC/GRH-gated), NO QED, and the
+  // PT Lambda<=0.2 SOTA banner, and never picks up a promotion word (RIGOROUS/RH-follows/
+  // proves RH). Guard only; changes no bound; light imports (5 zero-import leaves).
+  '/src/data/imp-96134-number-variance-honesty-guard.js',
   // imp-96020 (2026-09-23): Route B/D handoff -- LP-feasibility of a bounded-support signed coefficient
   // field with Z_w*Z'' > 0 at every near-collision (the arithmetic Gram-law surrogate), at FIXED T, and
   // how it degrades as T grows. Strict system g_k.w>0 (g_k = sign(Z'') a(x*)); feasible iff 0 not in

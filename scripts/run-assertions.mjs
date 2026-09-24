@@ -677,6 +677,18 @@ const DATA_MODULES = [
   // inverse). No drift on exponent, anchor, or prefactor. Import-light literals; accuracy audit
   // only; changes no bound; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2 SOTA; RH open.
   '/src/data/imp-96229-reciprocal-elasticity-consistency-audit.js',
+  // imp-96232 (2026-09-23): CROSS-VALIDATES the imp-96207 (floors 1e-5/1e-6/1e-7) and imp-96185
+  // (floors 1e-5/1e-6/1e-8) kappa_star=0.4 height-to-floor inversions side by side. Independent
+  // recompute of H_required(E) = (3.0/E)^{1/0.4} gives 4.9295e13 (1e-5), 1.5588e16 (1e-6),
+  // 4.9295e18 (1e-7), 1.5588e21 (1e-8); every row agrees with both source tables where they overlap,
+  // and the two tables are mutually consistent (shared law, agreeing overlap, each extending to one
+  // further threshold). The 2.5-height-decades-per-floor-decade leverage (10^{2.5}~316x) is unbroken
+  // across all four. CORRECTION: the ticket note H_required(1e-8)~4.93e20 is wrong by 10^{0.5}~3.162
+  // (it re-used the 1e-7 mantissa 4.93 while advancing the exponent by only 2, breaking the 2.5
+  // leverage); the correct value is 1.5588e21, as imp-96185 already tabulated. Import-light literals;
+  // cross-validation only; changes no bound; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2
+  // SOTA; RH open.
+  '/src/data/imp-96232-kappa-star-floor-height-cross-validation.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on
@@ -19450,6 +19462,15 @@ const DATA_MODULES = [
   // 1.04 rho-units on the safe side of the sign-forbidden rho_crit = 0.5744 flip threshold.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96156-two-interval-covariance-glossary-headword.js',
+  // imp-96235 registration audit (2026-09-24): the five 2026-09-23 finding modules below were
+  // git-tracked but absent from this DATA_MODULES sweep (--since-changed untracked/unregistered
+  // trap); wired in here so their self-executing assertions run instead of silently falling
+  // back to a full sweep. No bound changes; NO QED.
+  '/src/data/imp-96203-route-m-vasyunin-subleading-spectrum.js',
+  '/src/data/imp-96205-route-i-kato-temple-anchor-sensitivity.js',
+  '/src/data/imp-96206-route-i-kato-temple-joint-leak.js',
+  '/src/data/imp-96209-route-bd-online-margin-floor-gamma2000.js',
+  '/src/data/imp-96210-ushape-peak-slope-drift-location-law.js',
 ];
 
 let ALL_MODULES = FAST_MODE

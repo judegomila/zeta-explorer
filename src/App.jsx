@@ -1439,6 +1439,9 @@ const Imp96378RouteMBeatPeriodOverlapViz = lazy(() =>
 const Imp96399RouteMReachRepriceViz = lazy(() =>
   import('./pages/Imp96399RouteMReachRepriceViz.jsx')
 );
+const Imp96438RouteMFullLadderViz = lazy(() =>
+  import('./pages/Imp96438RouteMFullLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3779,6 +3782,10 @@ function AppShell() {
           <Route
             path="/viz-imp96413-count-model-sensitivity-ladder"
             element={<Imp96413CountModelSensitivityLadderViz />}
+          />
+          <Route
+            path="/viz-imp96438-route-m-full-ladder"
+            element={<Imp96438RouteMFullLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

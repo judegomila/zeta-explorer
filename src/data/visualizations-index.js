@@ -3877,6 +3877,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every E_flow/E_N ladder reading and the recon-vs-full peak location/height are copied verbatim from the imp-96266 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new residual or peak measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96438-route-m-full-ladder',
+      title: 'Route M: Full Burnol-Ratio Ladder (N=250..6000)',
+      oneLine:
+        'Single continuous line chart merging the imp-96094 dense ladder (N=250..2600) and the imp-96105 SPD-Gram extension (N=3000..6000) into one 17-rung ratio(N) = d_N^2 log N / C_burnol series against the ratio=1 (RH + simple zeros) target, showing the oscillation in [0.9639,1.0102] does not tighten across the full accessible range.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96438-route-m-full-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96094-route-m-burnol-ratio-dense-ladder.js, src/data/imp-96105-route-m-vasyunin-gram-extend-n6000.js (IMP96094_ROWS, IMP96105_EXT_ROWS; imp-96438 viz page)',
+      ticket: 'imp-96438',
+      pedagogicalStep: 251,
+      honestCeiling:
+        'Presentation only: every ratio(N) value is copied verbatim from imp-96094 IMP96094_ROWS and imp-96105 IMP96105_EXT_ROWS (no re-derivation of either exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

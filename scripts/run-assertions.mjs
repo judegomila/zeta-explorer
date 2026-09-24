@@ -19790,6 +19790,11 @@ const DATA_MODULES = [
   // C_F inflated x5.3-6.3, outside any admissible mollifier. Measurement only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96409-eflow-domination-required-factor.js',
+  // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
+  // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
+  // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light
+  // (no zeros bundle). Registered here to close the gap. Housekeeping only; NO QED.
+  '/src/data/imp-96481-knee-crossover-offset-window-artifact-glossary-headword.js',
   '/src/data/imp-96267-covariance-drift-rigidity-limit-reach.js',
   '/src/data/imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js',
   '/src/data/imp-96271-worst-excess-evt-gaussianity.js',

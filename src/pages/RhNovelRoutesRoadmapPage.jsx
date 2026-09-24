@@ -19,6 +19,12 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 const R = RH_NOVEL_ROUTES;
 const mono = 'var(--ed-mono, var(--font-mono))';
 
+// imp-96061: J/K/L/M (non-stat-mech batch, rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js)
+// have no "to-test / first-test-done / refuted-as-lever" status string of their own -- they are read
+// off the already-committed cross-route wall map (route, name, wall, note) and folded into the
+// dashboard as extra rows so the "at a glance" table covers all thirteen A-M routes, not just A-G.
+const NON_STAT_MECH_ROUTE_KEYS = ['J', 'K', 'L', 'M'];
+
 function statusTheme(status) {
   if (/^to-test$/.test(status)) {
     return { fg: 'var(--faint)', bg: 'rgba(120,113,108,0.10)', border: 'var(--faint)', label: 'to test' };
@@ -67,7 +73,8 @@ function classifyRouteStatus(status) {
   return { label: 'tested — see detail', fg: 'var(--blue)', bg: 'rgba(63,107,134,0.10)', border: 'var(--blue)' };
 }
 
-function RouteStatusDashboard({ routes }) {
+function RouteStatusDashboard({ routes, extraRows = [] }) {
+  const hasExtra = extraRows.length > 0;
   return (
     <div className="card" style={{ marginTop: 20 }}>
       <h3 style={{ color: 'var(--faint)', fontSize: 13, marginBottom: 10 }}>Route status at a glance</h3>
@@ -78,6 +85,7 @@ function RouteStatusDashboard({ routes }) {
               <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Route</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Name</th>
               <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Payoff</th>
+              {hasExtra && <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Wall</th>}
               <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>Status</th>
             </tr>
           </thead>
@@ -89,6 +97,36 @@ function RouteStatusDashboard({ routes }) {
                   <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{route.key}</td>
                   <td style={{ padding: '6px 8px', color: 'var(--ink-soft)' }}>{route.name}</td>
                   <td style={{ padding: '6px 8px', color: 'var(--ink-soft)' }}>{route.payoff}</td>
+                  {hasExtra && <td style={{ padding: '6px 8px', color: 'var(--faint)' }}>—</td>}
+                  <td style={{ padding: '6px 8px' }}>
+                    <span
+                      style={{
+                        display: 'inline-block',
+                        padding: '2px 8px',
+                        background: t.bg,
+                        border: `1px solid ${t.border}`,
+                        borderRadius: 4,
+                        color: t.fg,
+                        fontFamily: mono,
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: 0.3,
+                      }}
+                    >
+                      {t.label}
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+            {extraRows.map((row) => {
+              const t = classifyRouteStatus(row.status);
+              return (
+                <tr key={row.key} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                  <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{row.key}</td>
+                  <td style={{ padding: '6px 8px', color: 'var(--ink-soft)' }}>{row.name}</td>
+                  <td style={{ padding: '6px 8px', color: 'var(--faint)' }}>—</td>
+                  <td style={{ padding: '6px 8px', color: 'var(--blue)', fontFamily: mono, fontSize: 12 }}>{row.wall}</td>
                   <td style={{ padding: '6px 8px' }}>
                     <span
                       style={{
@@ -119,6 +157,7 @@ function RouteStatusDashboard({ routes }) {
         ran with an open follow-on; <strong style={{ color: 'var(--faint)' }}>to test</strong> — no test run yet;{' '}
         <strong style={{ color: 'var(--blue)' }}>tested — see detail</strong> — tested with a nuanced finding, read the
         card below. Derived directly from each route&apos;s status string; no new verdicts.
+        {hasExtra && ' The J/K/L/M rows (non-stat-mech batch) carry a Wall column read from the cross-route wall map below instead of a Payoff.'}
       </p>
     </div>
   );
@@ -206,7 +245,12 @@ export default function RhNovelRoutesRoadmapPage() {
           </p>
         </div>
 
-        <RouteStatusDashboard routes={R.routes} />
+        <RouteStatusDashboard
+          routes={R.routes}
+          extraRows={RH_CROSS_ROUTE_WALL_MAP
+            .filter((e) => NON_STAT_MECH_ROUTE_KEYS.includes(e.route))
+            .map((e) => ({ key: e.route, name: e.name, wall: e.wall, status: `refuted-as-lever — ${e.note}` }))}
+        />
 
         {R.routes.map((route) => (
           <RouteCard key={route.key} route={route} />

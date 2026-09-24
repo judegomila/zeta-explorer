@@ -1355,6 +1355,9 @@ const Imp96237HeightToFloorViz = lazy(() =>
 const Imp96238JointLeakRegionViz = lazy(() =>
   import('./pages/Imp96238JointLeakRegionViz.jsx')
 );
+const Imp96256JointAnchorSweepViz = lazy(() =>
+  import('./pages/Imp96256JointAnchorSweepViz.jsx')
+);
 const Imp96176SigmaClosedFormLadderViz = lazy(() =>
   import('./pages/Imp96176SigmaClosedFormLadderViz.jsx')
 );
@@ -3592,6 +3595,10 @@ function AppShell() {
           <Route
             path="/viz-imp96238-joint-leak-region"
             element={<Imp96238JointLeakRegionViz />}
+          />
+          <Route
+            path="/viz-imp96256-joint-anchor-sweep"
+            element={<Imp96256JointAnchorSweepViz />}
           />
           <Route
             path="/viz-imp96160-max-anchor-window-robustness"

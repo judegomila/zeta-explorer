@@ -3472,6 +3472,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: the boundary curve re-runs the imp-96206 maxTolerableBottom bisection verbatim at plot resolution (no re-derivation), and the three named markers are copied from the imp-96206 baked literals; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96256-joint-anchor-sweep',
+      title: 'imp-96227: Joint Kato-Temple Certify Region, Swept Across the Anchor',
+      oneLine:
+        'Two line charts over the imp-96227 anchor sweep alpha in (lam_2, lam_top): the pure-bottom worst-case threshold and equal-split boundary both shrink monotonically (~1.7828e-3 low edge to ~5.893e-4 near lam_top), while the per-channel coupling strength stays flat at exactly sqrt(3)/2 ~ 0.8660254 at every anchor.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96256-joint-anchor-sweep-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96227-route-i-kato-temple-joint-anchor-sweep.js (anchor-sweep table, literals; imp-96256 viz page)',
+      ticket: 'imp-96256',
+      pedagogicalStep: 228,
+      honestCeiling:
+        'Presentation only: every threshold value and the sqrt(3)/2 coupling constant are copied verbatim from the imp-96227 baked anchor-sweep table; only the chart-axis reshaping is computed here (no re-derivation, no new bisection); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96160-max-anchor-window-robustness',
       title: 'imp-96132: Max-Anchor Window-Robustness Sweep Across Four Held-Out Heights',
       oneLine:

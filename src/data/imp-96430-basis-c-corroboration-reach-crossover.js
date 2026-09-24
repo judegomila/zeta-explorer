@@ -60,6 +60,8 @@
  * @see imp-96369-direct-double-integral-pt-anchor-feasibility (basis C feasibility and its floor model)
  * @see imp-96424-basis-c-cancellation-reformulation-floor (whether the floor can be lowered)
  * @see imp-96267-covariance-drift-rigidity-limit-reach (the rho drift toward the rigidity limit -1/2)
+ * @see imp-96448-direct-basis-c-anchor-floor (SUPERSEDES the atPtAnchor headroom below with a measured
+ *   ~640, not the ~3.7e5 this module's L-linear model claims -- see the `reconciliation` field)
  *
  * Import-light: no zeros bundle, no sibling imports. Si/Ci, the exact number variance and the direct
  * quadrature are re-derived verbatim here (identical to imp-96389/imp-96369) so the crossover is
@@ -192,8 +194,17 @@ export const IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER = {
   atPtAnchor: {
     signal: anchorSignal, // ~1.82e-2
     floorModel: anchorFloor, // ~4.96e-8 (endpoint slope)
-    signalOverFloor: anchorSignal / anchorFloor, // ~3.7e5 headroom
+    signalOverFloor: anchorSignal / anchorFloor, // ~3.7e5 headroom -- MODEL value, superseded below
   },
+  reconciliation:
+    'SUPERSEDED AT THE ANCHOR: imp-96448 directly evaluated the basis-C double integral at the PT anchor '
+    + '(feasible at low ppp ~3, ~2.2s) and measured an achievable floor ~2.84e-5, ~573x ABOVE this module’s '
+    + 'L-linear model floor (~4.96e-8). The true signal/floor headroom at the anchor is the MEASURED ~640, '
+    + 'not the model-quoted ~3.7e5 above -- the model overstated the anchor independence margin by ~570x. '
+    + 'Basis C still corroborates basis A at the anchor (the exact signal still beats the measured floor), '
+    + 'just with far less headroom than this module’s extrapolation claimed. The crossover band '
+    + '[~1.3e12, ~2.5e12] is untouched (it is calibrated from the same accessible-L rungs, not the anchor). '
+    + 'RH open; NO QED; PT Lambda <= 0.2 remains SOTA.',
   caveat:
     'rho is the theoretical GUE (sine-kernel, universality) two-interval correlation for boxes of unfolded length L; there are no computed Riemann zeros behind these values. The crossover L* is an EXTRAPOLATION -- the L-linear floor model is calibrated only on accessible L (<= 960) and the direct integral is never evaluated at L ~ 1e12, so L* is a projected reach of an independence property, not a measured one. The direct-floor sweep is jittery (the L=240 rung dips below L=120), so the slope is a coarse L-linear fit and the crossover is a band [~1.3e12, ~2.5e12], not a sharp value. Changes no bound, establishes no operator positivity, does not touch the ~1.9-sigma excursion confidence.',
   verdict:
@@ -231,6 +242,15 @@ export const IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER = {
     throw new Error('imp-96430: verdict dropped the NO QED banner');
   if (!/Lambda <= 0\.2 remains\s+SOTA/.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.verdict))
     throw new Error('imp-96430: verdict dropped the PT Lambda <= 0.2 SOTA banner');
+
+  // reconciliation note (imp-96499): the anchor headroom is the imp-96448 MEASURED ~640, not this
+  // module's model-quoted ~3.7e5 -- the note must stay present and carry the honesty banners too.
+  if (!/imp-96448/.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.reconciliation))
+    throw new Error('imp-96430: reconciliation note dropped the imp-96448 reference');
+  if (!/SUPERSEDED/.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.reconciliation))
+    throw new Error('imp-96430: reconciliation note dropped the SUPERSEDED flag');
+  if (!/NO QED/.test(IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER.reconciliation))
+    throw new Error('imp-96430: reconciliation note dropped the NO QED banner');
 })();
 
 export default IMP96430_BASIS_C_CORROBORATION_REACH_CROSSOVER;

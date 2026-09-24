@@ -19915,6 +19915,19 @@ const DATA_MODULES = [
   // C_Lip-Gronwall-NEGATIVE sentence present, zero console/page errors, zero NaN
   // coordinates. No fix needed. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96360-imp96334-viz-browser-render-audit.js',
+  // imp-96377 (2026-09-24): viz-data leaf for the imp-96345 off-anchor margin residual
+  // structure -- scatter of the 34-point column vs the seven-anchor design line, colored
+  // by below-line residual sign, with the worst residual / binding envelope marked at
+  // gamma_4000. Presentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96377-off-anchor-residual-scatter-viz-data.js',
+  // imp-96428 (2026-09-24): EXTRAPOLATION -- fits the imp-96105/imp-96325 measured
+  // Vasyunin Gram lam_min to a near-N^-2 power law (p=1.918, R^2=0.99998; a blind
+  // N<=6000 fit predicts the measured N=1e4 lam_min to 0.12%) and extrapolates the
+  // cond#=1/eps Cholesky-breakdown ceiling to N>=2.16e5 (pessimistic lam_max) .. ~9.3e6
+  // (trace lam_max), 22x-1000x past the already-run 1e4. Conditioning does NOT cap the
+  // reach; compute (imp-96352 N^3, reachable ~9916) binds first. No bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js',
 ];
 
 let ALL_MODULES = FAST_MODE

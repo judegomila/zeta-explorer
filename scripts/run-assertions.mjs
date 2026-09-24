@@ -19411,6 +19411,12 @@ const DATA_MODULES = [
   // baked literal rows (no live zeros-bundle import), so it does not trip the heavy-module vite/ssr
   // hang; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96171-number-variance-empirical-lag1-vs-gue-proxy.js',
+  // imp-96156: Concepts glossary headword for the imp-96128 exact GUE two-interval covariance
+  // result -- rho_exact = -0.46398 (near GUE-rigidity -1/2), confirming the imp-96109 sign claim
+  // but correcting its magnitude by ~230x (opposite sign), raising n_eff 291 -> ~795 and sitting
+  // 1.04 rho-units on the safe side of the sign-forbidden rho_crit = 0.5744 flip threshold.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96156-two-interval-covariance-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

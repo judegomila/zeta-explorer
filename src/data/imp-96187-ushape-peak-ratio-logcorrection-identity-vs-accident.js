@@ -168,6 +168,24 @@ for (let i = 1; i < SENSITIVITY.length; i++) {
 }
 const STRADDLES_SQRT3 = RATIO_AT_QUARTER > ONE_OVER_SQRT3 && RATIO_AT_16X < ONE_OVER_SQRT3;
 
+// (F4) imp-96292: OFF-HEIGHT ROBUSTNESS of the F1 stationarity identity. F1 verified
+// E_flow/E_trunc |_peak == a/b at the SINGLE physical peak height only. Re-evaluate the identity at
+// EACH scaled peak of the F3 sweep (0.25x..16x E_trunc, which MOVES the physical peak height L), using
+// the same coarse peakN + logSlope method as the F1 measurement (apples-to-apples). A genuine
+// stationarity identity holds at every peak (d g/d ln N = 0 forces g_t a = g_f b at ANY peak, hence
+// g_f/g_t = E_flow/E_trunc = a/b); a single-height coincidence would degrade off the physical height.
+const F1_OFFHEIGHT = [0.25, 0.5, 1, 2, 4, 16].map((f) => {
+  const Et = E_TRUNC_PT * f;
+  const pk = peakN(Et).N;
+  const a = logSlope((n) => g_t(n, Et), pk);
+  const b = -logSlope(g_f, pk);
+  const measured = parts(pk, Et).E_flow / Et;
+  const ratio = a / b;
+  return { scale: f, eflow_over_etrunc: measured, slope_ratio: ratio, rel_err: Math.abs(ratio - measured) / measured };
+});
+const F1_OFFHEIGHT_MAX_REL_ERR = Math.max(...F1_OFFHEIGHT.map((r) => r.rel_err)); // ~1.6e-4 (same tol as F1)
+const F1_HOLDS_ACROSS_SWEEP = F1_OFFHEIGHT_MAX_REL_ERR < 2e-4;
+
 export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION = {
   id: 'imp-96187',
   proofSection: 'S-frontier',
@@ -205,6 +223,28 @@ export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION = {
     ratio_at_16x: +RATIO_AT_16X.toFixed(6), // ~0.357 (below 1/sqrt3)
     monotone_down_in_etrunc: RATIO_MONOTONE_DOWN, // true
     straddles_one_over_sqrt3: STRADDLES_SQRT3, // true (0.577 is a crossing, not a fixed point)
+  },
+  f1OffHeightRobustness: {
+    // (F4) imp-96292: the F1 identity E_flow/E_trunc |_peak == a/b holds at EVERY scaled peak of the
+    // F3 sweep, not just the physical one -- a genuine stationarity identity, not a single-height fluke.
+    rows: F1_OFFHEIGHT.map((r) => ({
+      etrunc_scale: r.scale,
+      eflow_over_etrunc: +r.eflow_over_etrunc.toFixed(6),
+      slope_ratio_a_over_b: +r.slope_ratio.toFixed(6),
+      rel_err: +r.rel_err.toExponential(3),
+    })),
+    max_rel_err_across_sweep: +F1_OFFHEIGHT_MAX_REL_ERR.toExponential(3), // ~1.6e-4 (same tol as single-height F1)
+    holds_across_sweep: F1_HOLDS_ACROSS_SWEEP, // true
+    // The identity VALUE a/b drifts with the peak height L, but the identity itself holds at each height.
+    ratio_drifts_from_to: [+F1_OFFHEIGHT[0].slope_ratio.toFixed(4), +F1_OFFHEIGHT[5].slope_ratio.toFixed(4)], // [~1.434, ~2.040]
+    verdict:
+      'GENUINE STATIONARITY IDENTITY, not a single-height coincidence: E_flow/E_trunc |_peak == a/b ' +
+      'holds at every scaled peak across the full 0.25x..16x E_trunc sweep to <2e-4 (the same tolerance ' +
+      'as the single physical-height F1 check; the residual is coarse peak-grid resolution, and a ' +
+      'fine-refined peak drops it below 1.1e-7). The identity VALUE a/b itself DRIFTS from ~1.434 to ' +
+      '~2.040 as the sweep moves the peak height L, but the identity E_flow/E_trunc == a/b holds at each ' +
+      'height, exactly as expected for a stationarity condition (d g/d ln N = 0 forces g_t a = g_f b at ' +
+      'ANY peak). imp-96292: F1 off-height robustness CONFIRMED. Measurement only; no bound; NO QED.',
   },
   finding: {
     F1_peak_condition_is_a_slope_ratio:
@@ -287,6 +327,14 @@ export const IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION_ASSERTIONS = [
     id: 'imp96187-one-over-sqrt3-is-accident-not-identity',
     description: 'ratio monotone-decreasing in E_trunc and straddles 1/sqrt3 (crossing, not fixed point)',
     holds: () => RATIO_MONOTONE_DOWN && STRADDLES_SQRT3,
+  },
+  {
+    // (F4) imp-96292: the F1 stationarity identity holds off the physical peak height across the whole
+    // F3 E_trunc sweep -- a genuine identity, not a single-height coincidence.
+    id: 'imp96292-f1-identity-holds-across-etrunc-sweep',
+    description:
+      'E_flow/E_trunc |_peak == a/b at every scaled peak (0.25x..16x) to <2e-4 (same tol as single-height F1)',
+    holds: () => F1_HOLDS_ACROSS_SWEEP && F1_OFFHEIGHT.length === 6 && F1_OFFHEIGHT_MAX_REL_ERR < 2e-4,
   },
   {
     // Honesty gate: measurement only, no QED, PT stays SOTA.

@@ -19573,6 +19573,16 @@ const DATA_MODULES = [
   // strictly-positive unconditional lower bound on the flattening rate survives without the GUE input
   // (positivity is equivalent to a_c < 5/2). Import-light, 5 assertions. NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96285-flattening-rate-conditional-unconditional-split.js',
+  // imp-96286 (2026-09-24): MEASUREMENT — quantifies why the imp-96266 E_flow peak-recovery
+  // reconstruction sigma_CF*(1 - E_flow/(E_trunc+E_coll)) recovers the imp-3220 interior maximum to
+  // <1e-3 in HEIGHT but ~9e-2 in LOCATION. Source: sigma_full = sigma_CF/(1 + x), x = E_flow/
+  // (E_trunc+E_coll), and imp-96266 keeps only the first-order Taylor term (1 - x); the dropped +x^2
+  // term (x~3.16e-2 at the peak) sets the height error via its MAGNITUDE (~9.45e-4) and the location
+  // error via its SLOPE divided by an anomalously flat peak curvature (sigma_full_pp ~ -7.6e-15),
+  // predicting ~9.22e-2 vs measured ~9.08e-2. A slope-drift second-order correction (1 - x + x^2)
+  // closes the location gap ~21x to 4.37e-3; the full geometric sum 1/(1+x) is an identity. Import-
+  // light, 6 assertions. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96286-eflow-peak-location-error-order.js',
   // imp-96174: Concepts glossary headword for the imp-96147 Route M ratio two-term fit --
   // c0 = 0.975 is separated from the RH-predicted 1, and the leftover ~1.3 percent RMS
   // residual is a genuine, non-decaying oscillation (not a resolvable smooth drift),

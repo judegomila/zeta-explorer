@@ -140,6 +140,22 @@ export const RH_ROUTE_C_SIGNED_INTERFEROMETER = Object.freeze({
         + 'GRH + a zero-spacing hypothesis almost all zeros of such combinations are on the line) but leaks 4 mirrored '
         + 'pairs; at each off-line zero every arm has |L(ρ,χ)| ∈ [0.42, 2.0] — the superposition vanishes where no arm does. '
         + '|Φ′_DH(ρ_1)| = 2.42: simple zeros, not grazes.',
+      classicalCoefficientCrosscheck: {
+        kappa: 0.2840790438404,
+        classicalCoefficients:
+          '(1−iκ)/2 on χ1, (1+iκ)/2 on χ̄1 = (0.5−0.1420395i, 0.5+0.1420395i) (Titchmarsh §10.25 / Davenport–Heilbronn 1936).',
+        rootNumberPinnedReconstruction:
+          'ε_DH = (e^{−i argW/2}, e^{+i argW/2}) = ((1−iκ)/√(1+κ²), (1+iκ)/√(1+κ²)) = (0.961938−0.273267i, 0.961938+0.273267i).',
+        proportionality:
+          'ε_DH = (2/√(1+κ²))·classical = 1.923877·classical: the FE-pinned unit-phase vector and the classical DH coefficients '
+          + 'differ only by one positive real rescale, so the reconstructed combination has identical zeros.',
+        firstOffLineZero:
+          'ρ_1 = 0.8085171825 + 85.6993484854i (Spira 1994; Balanzario–Sánchez-Ortiz 2007); |classicalCombo(ρ_1)| < 1e-8.',
+        reading:
+          'The root-number-pinned q=5 signed interferometer reconstructs the classical Davenport–Heilbronn / Titchmarsh '
+          + 'counterexample function up to one positive real scale, and shares its first known off-line zero. Accuracy '
+          + 're-derivation only; establishes nothing new; no bound moves; RH open; NO QED.',
+      },
     },
     superpositionVsUnion: {
       measurement:
@@ -469,6 +485,31 @@ export const RH_ROUTE_C_SIGNED_INTERFEROMETER_ASSERTIONS = Object.freeze([
       return svu.dhOffLineCount === dhOff && dhOff === 8 && unionOff === 0 && svu.dhOffLineCount > unionOff && disjoint;
     },
     why: 'Concrete q=5 measurement: the 2-arm DH superposition has 8 off-line zeros below t=200, the arm-union has 0 (each arm GRH-consistent), and the two sets are disjoint — superposition is quantitatively worse than the union.',
+  },
+  {
+    id: 'route-c-DH-reconstruction-matches-classical-coefficients-and-first-offline-zero',
+    holds: () => {
+      const k = KAPPA_DH;
+      // Classical Davenport–Heilbronn / Titchmarsh counterexample coefficients: f(s) = (1−ik)/2 L(s,chi1) + (1+ik)/2 L(s,chi_bar1).
+      const cCl1 = C(0.5, -k / 2), cCl3 = C(0.5, k / 2);
+      // Root-number-pinned unit-phase reconstruction (EPS_DH) must equal the classical coefficients up to one positive real scale.
+      const sc = Math.sqrt(1 + k * k) / 2; // EPS_DH[1] = (1−ik)/sqrt(1+k^2); classical = (1−ik)/2, so scale by sqrt(1+k^2)/2.
+      const match1 = cabs(sub(scale(EPS_DH[1], sc), cCl1)) < 1e-13;
+      const match3 = cabs(sub(scale(EPS_DH[3], sc), cCl3)) < 1e-13;
+      // Form the classical combination independently and check DH is a positive-real multiple of it (identical zeros).
+      const classicalCombo = (s) => { const v = arms5(s); return add(mul(cCl1, v[1]), mul(cCl3, v[3])); };
+      const t = C(0.75, 22.0);
+      const ratio = div(DH(t), classicalCombo(t));
+      const realPositive = Math.abs(ratio.im) < 1e-10 && Math.abs(ratio.re - 2 / Math.sqrt(1 + k * k)) < 1e-10 && ratio.re > 0;
+      // The classical combination exhibits the first known off-line zero (Spira 1994) to the stated tolerance.
+      const z = DH_OFFLINE_ZEROS_T200[0];
+      const firstZero = cabs(classicalCombo(C(z.re, z.im))) < 1e-8 && Math.abs(z.re - 0.8085171825) < 1e-9 && Math.abs(z.im - 85.6993484854) < 1e-9;
+      const tab = RH_ROUTE_C_SIGNED_INTERFEROMETER.numericsQ5.davenportHeilbronn.classicalCoefficientCrosscheck;
+      return match1 && match3 && realPositive && firstZero && Math.abs(tab.kappa - k) < 1e-12 && /NO QED/.test(tab.reading);
+    },
+    why: 'Cross-check of the verdict claim that q=5 uniquely reconstructs Davenport–Heilbronn: the FE/root-number-pinned sign '
+      + 'vector EPS_DH equals the classical (1∓iκ)/2 coefficients (Titchmarsh §10.25) up to a positive real scale 1.923877, and '
+      + 'the independently-formed classical combination shares the first off-line zero 0.8085+85.6993i to <1e-8. Accuracy re-derivation; no bound moves; NO QED.',
   },
 ]);
 

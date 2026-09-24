@@ -564,6 +564,64 @@ export const NODES = [
     route: '/rh-novel-routes-roadmap',
     source: 'rh-novel-routes-roadmap-2026-09-23.js key M',
   },
+  // ── phase N+1 · number-variance / Route-M / Route-I robustness leaves
+  // (2026-09-23): imp-96124 (imp-96089/96090 mean/max-anchor nodes) is a
+  // separate pending registration ticket; these six leaves are tracked here
+  // now and slot alongside it once that ticket lands.
+  {
+    id: 'route-m-vasyunin-n6000-ext',
+    name: 'Route M: Vasyunin/Burnol ladder extended to N=6000',
+    outcome: 'ruled-out',
+    grade: 'the N=2600→6000 extension does NOT resolve into a monotone approach to C_burnol: every rung sits in band [0.9639, 1.0102], six sign changes, worst deviation 0.0361 unchanged in magnitude from the imp-96094 N≤2600 worst (0.0360) — no tightening with N',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96105-route-m-vasyunin-gram-extend-n6000.js',
+  },
+  {
+    id: 'numvar-excursion-vs-maxanchor',
+    name: 'Number-variance excursion depth vs the max-offset anchor',
+    outcome: 'won',
+    grade: 'measured: the imp-96089 significant −16% excursion (T=1.5e5) is COMPATIBLE with the max-offset anchor by construction — it exactly saturates C0_max=0.333721 (residual 0) rather than breaching it; every other measured height sits below the cap; r_cap<1 dead-zone stays far from binding (margin 0.74)',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96108-number-variance-excursion-depth-vs-max-anchor.js',
+  },
+  {
+    id: 'numvar-decorr-safety-margin',
+    name: 'Number-variance dip verdict de-correlation safety margin',
+    outcome: 'won',
+    grade: 'measured: the imp-96089 T=1.5e5 significant-dip verdict is robust by a ~285× margin — flipping it needs adjacent-box correlation ρ≥0.5744, far past the O(1/L)=0.0020 boundary-sharing estimate and of the wrong sign versus anti-correlated GUE physics',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96109-tue5-dip-decorrelation-safety-margin.js',
+  },
+  {
+    id: 'route-i-p3-cusp-fixed-fraction',
+    name: 'Route I: p=3 cusp allocation fixed-fraction law',
+    outcome: 'ruled-out',
+    grade: 'the f_out(ρ)=1−1/ρ fraction law SURVIVES and GENERALIZES to every S={∞,2,3} S-unit cusp, but this is an obstruction not a rescue: the fraction is now inherited across a dense set of log² cusps (one order worse than the isolated log cusp at ρ=2 that already killed the CC route past ln2), so the compact-Toeplitz foothold is lost through density and cusp order',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96110-route-i-p3-cusp-allocation-fixed-fraction-assessment.js',
+  },
+  {
+    id: 'numvar-maxanchor-window-robustness',
+    name: 'Max-anchor margin robustness across the window estimator',
+    outcome: 'won',
+    grade: 'measured: the imp-96090 max-anchor cap at T=5e4 is ROBUST to the sd(C−E) window estimator across a 12-config sweep of half-width/span/overlap — margin stays strictly positive (+3.6% .. +51.4%) in every configuration; the +3.0% headline is the tight end of the family, not a fragile artifact',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96112-max-anchor-margin-window-robustness.js',
+  },
+  {
+    id: 'numvar-meananchor-zscore-crosscheck',
+    name: 'Mean-anchor dip z-score independent cross-check',
+    outcome: 'won',
+    grade: 'CONFIRMED: an independent second implementation reproduces the imp-96089 below-envelope dip z-scores (0.374/1.923/0.075) and the single-significant-dip verdict exactly from the baked literals, with no sibling import',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96114-mean-anchor-dip-zscore-crosscheck.js',
+  },
 ];
 
 // meaning: 'led-to' | 'refuted-by' | 'pivoted-to' | 'merged-into' | 'closes' | 'gates'
@@ -626,6 +684,13 @@ export const EDGES = [
   { from: 'novel-route-j', to: 'novel-route-k', meaning: 'led-to' },
   { from: 'novel-route-k', to: 'novel-route-l', meaning: 'led-to' },
   { from: 'novel-route-l', to: 'novel-route-m', meaning: 'led-to' },
+
+  // number-variance / Route-M / Route-I robustness leaves (2026-09-23)
+  { from: 'novel-route-m', to: 'route-m-vasyunin-n6000-ext', meaning: 'led-to', note: 'extends the Burnol-ratio ladder past N=2600' },
+  { from: 'novel-route-l', to: 'route-i-p3-cusp-fixed-fraction', meaning: 'led-to', note: 'Route I compact-Toeplitz foothold, S={oo,2,3}' },
+  { from: 'numvar-excursion-vs-maxanchor', to: 'numvar-decorr-safety-margin', meaning: 'led-to' },
+  { from: 'numvar-decorr-safety-margin', to: 'numvar-maxanchor-window-robustness', meaning: 'led-to' },
+  { from: 'numvar-maxanchor-window-robustness', to: 'numvar-meananchor-zscore-crosscheck', meaning: 'led-to' },
 
   // formalization
   { from: 'frozen-rung-prop', to: 'zr-promotion', meaning: 'gates' },

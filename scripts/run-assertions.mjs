@@ -19895,6 +19895,13 @@ const DATA_MODULES = [
   // all present, zero console/page errors, zero NaN coordinates in any rendered svg. No fix
   // needed. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96359-imp96338-viz-browser-render-audit.js',
+  // imp-96360 (2026-09-24): browser-only-assertion audit of the imp-96334 E_coll-rate
+  // C_H-independence viz page. Headless-Chromium render of
+  // /#/viz-imp96334-ecoll-rate-ch-independence is clean: family chart plots all 24 E_coll
+  // values (4 C_H series x 6 N points), slope panel plots all 5 segments, honest banner +
+  // C_Lip-Gronwall-NEGATIVE sentence present, zero console/page errors, zero NaN
+  // coordinates. No fix needed. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96360-imp96334-viz-browser-render-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

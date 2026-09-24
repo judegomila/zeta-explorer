@@ -1442,6 +1442,9 @@ const Imp96399RouteMReachRepriceViz = lazy(() =>
 const Imp96438RouteMFullLadderViz = lazy(() =>
   import('./pages/Imp96438RouteMFullLadderViz.jsx')
 );
+const Imp96439ThreeBasisRhoCrossvalidationViz = lazy(() =>
+  import('./pages/Imp96439ThreeBasisRhoCrossvalidationViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3786,6 +3789,10 @@ function AppShell() {
           <Route
             path="/viz-imp96438-route-m-full-ladder"
             element={<Imp96438RouteMFullLadderViz />}
+          />
+          <Route
+            path="/viz-imp96439-three-basis-rho-crossvalidation"
+            element={<Imp96439ThreeBasisRhoCrossvalidationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -3891,6 +3891,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ratio(N) value is copied verbatim from imp-96094 IMP96094_ROWS and imp-96105 IMP96105_EXT_ROWS (no re-derivation of either exact Vasyunin Gram / Cholesky numerics); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96439-three-basis-rho-crossvalidation',
+      title: 'Three-Basis GUE Rho Cross-Validation (L = 30..480)',
+      oneLine:
+        'Two charts from the imp-96389 three-basis table: rho(L) from the exact Dyson-Mehta variance, the asymptotic module, and the direct pair-correlation integral overlapping to >= 6 figures, plus the pairwise log-agreements showing |A-B| analytic truncation shrink against the basis-C roundoff floor that grows with L.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96439-three-basis-rho-crossvalidation-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96389-three-basis-rho-crossvalidation-table.js (IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE; imp-96439 viz page)',
+      ticket: 'imp-96439',
+      pedagogicalStep: 252,
+      honestCeiling:
+        'Presentation only: every rho, agreement and roundoff-floor value is copied verbatim from the imp-96389 baked three-basis table (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

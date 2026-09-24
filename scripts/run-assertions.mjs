@@ -666,6 +666,17 @@ const DATA_MODULES = [
   // Fills the 1e-7 threshold imp-96185 skipped. Import-light literals; measurement only; changes no
   // bound; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2 SOTA; RH open.
   '/src/data/imp-96207-verified-height-floor-law-kappa-star.js',
+  // imp-96229 (2026-09-23): ACCURACY audit cross-checking that the imp-96207 inverse sensitivity
+  // exponent d log H / d log E = -1/kappa_star = -2.5 and the imp-2322 forward elasticity
+  // d log E / d log H = -kappa = -0.4 are mutually consistent reciprocal readings of the ONE
+  // H^{-kappa} fixed-strip truncation power law. Confirms kappa_star = kappa = 0.4 (e_I = 0.6 at
+  // sigma = 3/4), prefactor 2 e_I/kappa = 2(1-kappa_star)/kappa_star = 3.0, and E_trunc(3e12) =
+  // 3.063887e-5 (the pinned 3.06e-5) on BOTH modules; the exponents are exact reciprocals
+  // ((-0.4)*(-2.5) = 1, -2.5 = 1/(-0.4)) while the per-decade FACTORS 2.512 and 316.23 are NOT
+  // (reciprocity is on the exponents kappa and 1/kappa, as it must be for a function and its
+  // inverse). No drift on exponent, anchor, or prefactor. Import-light literals; accuracy audit
+  // only; changes no bound; C_mb GUE-conditional per imp-486; NO QED; PT Lambda<=0.2 SOTA; RH open.
+  '/src/data/imp-96229-reciprocal-elasticity-consistency-audit.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

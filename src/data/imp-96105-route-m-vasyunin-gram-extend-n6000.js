@@ -127,6 +127,17 @@ export const IMP96105_SUBGAP = Object.freeze({
   id: 'imp-96105-beyond-6000',
   statement:
     'the completable range reached here is N=6000, not the 1e4 target (the 1e4 build is CPU-starved by the active pool); and 6000 is still finite. Whether ratio(N) = d_N^2 logN / C_burnol -> 1 (RH + simple zeros) manifests only for N well beyond 6000 is still undecided. An asymptotic-remainder model of the fluctuating zero-oscillation term (amplitude decaying with logN) -- not a further brute-force Gram extension -- is the route to decide the true asymptotic.',
+  // imp-96390 re-point: cost the 1e4 reach against the imp-96352 solve-residual-corrected
+  // model, superseding the imp-96230 BUILD-only budget. The CPU-starvation framing above
+  // implied 1e4 sat near the ~399 s BUILD-only estimate, but imp-96352 measured the real
+  // single-process wall at 1838.5 s (4.61x the 399 s figure) -- the gap is an omitted
+  // per-rung inverse-power lam_min solve term (962.1 s, 52 percent of wall). Under a
+  // wall-clock budget the repriced reachable-N ceiling is N ~ 5355 at 399 s and N ~ 9916
+  // at 30 min, with RAM non-binding until N ~ 1.1e5. CAVEAT (IMP96352_SUBGAP): even this
+  // corrected ceiling is an optimistic upper bound -- the inverse-power iteration count
+  // m(n) is unmeasured and plausibly grows as the spectrum crowds toward zero, which would
+  // steepen the true solve scaling past the fitted N^3.
+  reachCostModel: 'imp-96352 (IMP96352_REACH / IMP96352_REACH_MODEL): reaching N=1e4 costs 1838.5 s, not the imp-96230 BUILD-only 399 s; repriced ceiling N ~ 5355 at 399 s, N ~ 9916 at 30 min; wall-clock binds (RAM only at N ~ 1.1e5); corrected ceiling still optimistic if m(n) grows (IMP96352_SUBGAP).',
 });
 
 export const IMP96105_HONEST_BANNER =

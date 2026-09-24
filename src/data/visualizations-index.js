@@ -3261,6 +3261,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every detector row, resolved-count row, and law/reach string is copied verbatim from ROUTE_L (no re-derivation of the Levinson-Durbin recursion or the CMV diagonalisation); establishes no operator positivity beyond the already-resolved zeros; changes no bound; Route L stays NOT-A-LEVER (Weil positivity is its completeness step, no external arithmetic input); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96060-littlewood-jensen-loss',
+      title: 'Route K: Littlewood I(T) vs Jensen-from-Moments Bound',
+      oneLine:
+        'Log-value line chart of the RH Route K Littlewood integral I(T) vs the first-moment Jensen upper bound J_1(T) for T = 50..500: |I(T)| stays O(1) (even shrinking relative to log T) while J_1(T) grows like (T/2) log log T, widening the loss factor J_1/|I| from 10x at T=50 to 141x at T=200 to 2828x at T=500.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96060-littlewood-jensen-loss-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (ROUTE_K.littlewoodVsJensen; imp-96060 viz page)',
+      ticket: 'imp-96060',
+      pedagogicalStep: 209,
+      honestCeiling:
+        'Presentation only: every I(T), J_1(T), and loss value is copied verbatim from ROUTE_K.littlewoodVsJensen (no re-derivation of the tanh-sinh zero-aware integration or the Jensen inequality); establishes no operator positivity, no RH claim; the wall is Jensen/integration (moments see zeros only through Littlewood\'s integrated lemma), distinct from Weil positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

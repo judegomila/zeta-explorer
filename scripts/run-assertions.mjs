@@ -19785,6 +19785,12 @@ const DATA_MODULES = [
   // conditional on landing on-line, refuted by the measured rho(32,4000)=0.3845 which
   // collapses it to 1.69 SE. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96354-margin-floor-projection-vs-realized-glossary-headword.js',
+  // imp-96362: Concepts glossary headword restating the imp-96327 verdict that the
+  // E_coll cross-column ratio-law residual (9.558e-7) between the two independently
+  // baked imp-96290 anchors is a 7-sig-fig rounding-floor artifact, not a discrepancy,
+  // structurally guaranteed by E_coll = C_H * R(N). Does NOT close G6_polymath15_bridge;
+  // C_H<=0.127 stays UNPROVEN. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96362-ratio-law-residual-rounding-floor-glossary-headword.js',
   // imp-96276: Concepts glossary headword for the imp-96151 verdict that the closed-form
   // crossover share sigma_CF(N) reproduces the imp-33582 far-tail decay-exponent ramp
   // exactly past N=1e12 but does NOT reproduce the imp-3220 U-shape interior peak (strictly

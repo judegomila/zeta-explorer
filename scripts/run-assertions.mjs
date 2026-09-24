@@ -19634,6 +19634,17 @@ const DATA_MODULES = [
   // and the fourth-order reconstruction continues the monotone shrink (location 1.84e-4->7.20e-6 by
   // (4/5)/x, height 9.41e-7->2.97e-8 by 1/x). Import-light, 8 assertions. NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96329-eflow-tail-law-global.js',
+  // imp-96391 (2026-09-24): WITHIN-MODEL PROOF — the imp-96266 E_flow suppression residual R(N) =
+  // sigma_full - sigma_CF = -sigma_full*E_flow/(E_trunc+E_coll) admits a clean N-uniform bound:
+  // 0 >= R(N) >= -0.137472 for all N >= 1e3. Proof from three exact analytic properties of the model
+  // functions — (i) sigma_full in (0,1), (ii) a strictly positive N-independent floor E_trunc =
+  // 3.06e-5 in the denominator giving abs(R) <= E_flow/E_trunc, (iii) E_flow ~ (log T0)^2/(2 pi T0)
+  // exp(TC_A1) -> 0, monotone decreasing. So abs(R) is monotone decreasing and sup abs(R) = abs(R(1e3))
+  // ~ 0.137472 sits at the LEFT EDGE, not at the share peak (abs(R) ~ 0.02996 at N ~ 9.22e5). NO
+  // obstruction in R(N). CAVEAT: the bound does not advance the Step-4 E(N) -> 0 breach point — the
+  // same E_trunc floor keeps E_N >= E_trunc > 0 for every N, so E(N) never reaches 0; the residual
+  // bound is orthogonal to the E(N) bottleneck. Import-light, 6 assertions. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96391-eflow-residual-uniform-bound.js',
   // imp-96174: Concepts glossary headword for the imp-96147 Route M ratio two-term fit --
   // c0 = 0.975 is separated from the RH-predicted 1, and the leftover ~1.3 percent RMS
   // residual is a genuine, non-decaying oscillation (not a resolvable smooth drift),

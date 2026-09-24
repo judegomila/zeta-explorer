@@ -19803,6 +19803,13 @@ const DATA_MODULES = [
   // PT anchor), anchor headroom is the measured ~642 not the model ~3.7e5. Import-light (no zeros
   // bundle). Cross-validation numerics only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96531-basis-c-crossover-measured-floor.js',
+  // imp-96568 (2026-09-24): directly MEASURES the basis-C floor(L) at intermediate rungs (L=1e3,1e5,
+  // 1e6,1e7) to characterize the two-mechanism crossover the imp-96531 caveat flagged as unmeasured --
+  // the optimum ppp collapses monotonically (256 -> 48 -> pinned at 3), cancellation-set at small L,
+  // Simpson-truncation-set at/above the anchor -- and the floor grows super-linearly (above-anchor
+  // exponent ~1.81), tightening the projected reach from L* ~ 2.86e9 to ~1.9e8. Import-light (no zeros
+  // bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96568-basis-c-intermediate-rung-floor-ladder.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light

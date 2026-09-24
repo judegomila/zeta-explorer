@@ -22773,6 +22773,39 @@ export const glossary = [
       'imp-96045/imp-96046/imp-96068 the NMAX and dps extensions confirming the intrinsic min-slack PD floor (0.0308849) is resolution-limited-wall-independent and DPS-independent, so no positivity obstruction emerges',
     ],
   },
+  {
+    term: 'Route H Connes-Consani Scaling-Site Verdict',
+    category: 'no-go',
+    definition:
+      'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23. Route H attacks Weil positivity on the ' +
+      'Connes-Consani adelic SCALING SITE X_S = (R x Q_2)/{+-2^n}, the one geometry with a second (idele-class ' +
+      '/ p-adic fibre) direction supporting transfer/Markov tools, hoping that direction supplies a lever past ' +
+      'the archimedean-only reach. Two tests were run. TEST 1 (does the second direction raise the Class-II ' +
+      'detection cap?): functions on R x Z_2^x split over characters of Z_2^x, i.e. Dirichlet characters of ' +
+      '2-power conductor, so the semilocal Weil form is BLOCK-DIAGONAL over that family (character ' +
+      'orthogonality kills every cross term) -- verified on the chi_4 block (37 sub-80 zeros matched, heat-' +
+      'explicit formula to 7e-15, Class-II Gram PSD). The zeta block itself is unchanged: the second direction ' +
+      'adds a FAMILY of L-functions, not sensitivity, so it is SPECTRALLY INERT for zeta and does not extend ' +
+      'the one-variable uncertainty-principle height cap. TEST 2 (does it extend positivity past g-support ' +
+      'ln 2, the first prime shift): the ARCHIMEDEAN-ONLY form (poles + digamma, no primes) goes indefinite at ' +
+      'a_* = 0.37160 (odd sector) / 0.41011 (even sector) -- only 0.025-0.064 beyond ln2/2 = 0.34657, i.e. the ' +
+      'Connes-Consani archimedean theorem is nearly sharp by its own mechanism and has essentially no slack to ' +
+      'spend on a perturbative bound of the p=2 shift. Past a_*, positivity of the full form W = W_arch - P_2 ' +
+      'survives only as an exact CANCELLATION between the archimedean part and the single p=2 term, tight to ' +
+      '5-6 relative digits on the even Slepian gap-function minimizer (ratio 7.52e-5 at a=0.5, 3.16e-6 at ' +
+      '(ln3)/2) -- i.e. Weil positivity itself, not a leading-order inequality. VERDICT: the scaling site ' +
+      'supplies real structure (p=2 shift as periodic orbit / 2-adic transfer; exact archimedean Sonine trace) ' +
+      'but NO NEW LEVER: block-diagonality kills Test 1, and the Test-2 cancellation can only be captured ' +
+      'exactly, naming the precise next step -- an exact semilocal S={oo,2} Sonine/prolate trace identity ' +
+      'W_oo(g) + W_2(g) = Tr(Q_S vartheta(g) Q_S) for g-support < ln 3. RH open; Platt-Trudgian Lambda <= 0.2 ' +
+      'stands; NO QED.',
+    firstUsed: 'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23 (Route H Connes-Consani adelic scaling site), 2026',
+    relatedTerms: [
+      'rh-route-h-connes-scaling-site-weil-positivity-2026-09-23.js the module carrying ROUTE_H (Test 1 block-diagonal Class-II cap, Test 2 archimedean-vs-p=2 cancellation, the named next-step identity) this headword documents',
+      'imp-96091 the follow-up module mapping the archimedean/p=2 cancellation ratio as a full curve in a across the ln2 crossing (steep monotone, ~14 orders of magnitude, not a fixed 7.5e-5 spot value)',
+      'rh-route-h-semilocal-sonine-identity-attempt-2026-09-23.js and rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js the named next-step S={oo,2} Sonine identity this verdict points to, and its own partial (not gap-free) resolution',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

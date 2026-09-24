@@ -23341,6 +23341,29 @@ export const glossary = [
       'imp-96329-eflow-tail-law-global.js the global reconstruction-tail law err_k = -sigma_CF*(-x)^(k+1)/(1+x)',
     ],
   },
+  {
+    term: 'Exponent-Ramp Knee Is FORCED to the sigma=1/2 Crossover, Not a Coincidence (imp-96405)',
+    category: 'measurement',
+    definition:
+      'imp-96388 found the exponent-ramp knee (log10 N* ~ 9.529) sits only ~0.013 log10 above the ' +
+      'imp-33723 closed-form E_coll = E_trunc crossover (log10 N_cross ~ 9.516, sigma = 1/2). imp-96405 ' +
+      'derives WHY: at the knee scale E_flow is negligible, so sigma = E_coll/(E_trunc+E_coll) with ' +
+      'E_coll a power law in N is exactly the LOGISTIC SIGMOID in log N, and a logistic curve has its ' +
+      'curvature inflection intrinsically pinned to its own midpoint (sigma = 1/2) -- the same point ' +
+      'as the crossover. Freezing L to make the power law exact lands the inflection on the crossover ' +
+      'to ~3.4e-7 in log10 with sigma = 0.500000 there (forcing exact); the full model (L varying) puts ' +
+      'the inflection at log10 ~9.533, matching the imp-96388 knee to 0.0037; and dragging the ' +
+      'crossover across 1.32 decades by scaling C_C and E_trunc keeps the offset pinned in ' +
+      '[+0.0068, +0.0088] with sigma in [0.4976, 0.4981] -- rigid tracking a coincidence could not ' +
+      'produce. Measurement/derivation only; no operator positivity; no RH verdict; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96405-knee-crossover-forced-vs-coincidental.js (derives and measures the logistic-sigmoid forcing of the knee to the crossover), 2026',
+    relatedTerms: [
+      'imp-96388-sigma-peak-vs-knee-cross-tabulation.js the ~0.013 log10 near-coincidence this module explains',
+      'imp-96351-sigma-knee-tenthdecade-1e12-stability.js the knee location at log10 N* ~ 9.529',
+      'imp-33723-sigma-half-vs-crossover-closed-form.js the closed-form crossover N_cross ~ 3.28e9',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

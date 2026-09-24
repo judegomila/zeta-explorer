@@ -485,6 +485,16 @@ const DATA_MODULES = [
   // uniform-in-T obstruction is OFF the line (Route B Test 2 no-universal-sign = Weil-strength). Import-light
   // literals; reproduction tmp/imp-96020-lp-signed-force-feasibility.py. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
   '/src/data/imp-96020-lp-signed-force-feasibility.js',
+  // imp-96148 (2026-09-23): Route B/D handoff opening.nextTests[2] -- DERIVE the T-decay law of the
+  // on-line signed-force feasibility margin rho(32,T) from the imp-96020 worst-support column and locate
+  // the precise obstruction to uniformity. Two OLS fits: log-linear (R2=0.967, would naively cross rho=0
+  // at T~9e4) vs reciprocal-log-with-floor rho=c+d/lnT (R2=0.991, positive floor c~0.143). The decelerating
+  // per-segment slope (|slope| ~0.17->~0.07-0.10, not constant) plus the higher R2 select the floor law:
+  // the on-line margin FLATTENS to a strictly positive value, it does not cross -- the log-linear crossing
+  // is a constant-slope extrapolation artifact. So the uniform-in-T obstruction is NOT on the line; it is
+  // OFF the line (Route B Test 2 no-universal-sign = Weil strength), upgrading the imp-96020 prose sub-gap
+  // to quantitative. Import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-96148-route-bd-online-margin-decay-law.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

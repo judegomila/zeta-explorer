@@ -8,6 +8,7 @@ import {
   IMP96059_LAW,
   IMP96059_REACH,
 } from '../data/imp-96059-detector-reach-ladder-viz-data.js';
+import { IMP96149_DETECTOR_FIT } from '../data/imp-96149-route-l-detector-reach-law-fit.js';
 
 const BAR_COLOR = '#38bdf8';
 const UNDETECTED_COLOR = '#f87171';
@@ -149,6 +150,42 @@ function ResolvedCountTable() {
   );
 }
 
+function PowerLawComparisonTable() {
+  const { A, b } = IMP96149_DETECTOR_FIT;
+  return (
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.8rem', color: '#94a3b8' }}>
+      <thead>
+        <tr style={{ borderBottom: '1px solid #334155' }}>
+          <th style={{ textAlign: 'left', padding: '0.35rem 0.5rem' }}>zero k</th>
+          <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>gamma_0</th>
+          <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>measured N_det range</th>
+          <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>power-law N_det = {A} * gamma_0^{b}</th>
+          <th style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>in range?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {IMP96059_NDET_RANGE_BY_ZERO.filter((z) => z.detected).map((z) => {
+          const predicted = A * Math.pow(z.gamma0, b);
+          const inRange = predicted >= z.nDetMin && predicted <= z.nDetMax;
+          return (
+            <tr key={z.k} style={{ borderBottom: '1px solid #1e293b' }}>
+              <td style={{ padding: '0.35rem 0.5rem' }}>{z.k}</td>
+              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{z.gamma0}</td>
+              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: BAR_COLOR }}>
+                {z.nDetMin} - {z.nDetMax}
+              </td>
+              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem' }}>{predicted.toFixed(1)}</td>
+              <td style={{ textAlign: 'right', padding: '0.35rem 0.5rem', color: inRange ? RESOLVED_COLOR : UNDETECTED_COLOR }}>
+                {inRange ? 'yes' : 'no'}
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  );
+}
+
 export default function Imp96059DetectorReachLadderViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 940, margin: '0 auto' }}>
@@ -173,6 +210,12 @@ export default function Imp96059DetectorReachLadderViz() {
         Per-zero detection range (verbatim from ROUTE_L.detector.rows)
       </p>
       <DetectorRangeTable />
+
+      <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
+        Measured N_det range vs the imp-96149 canonical (delta = 0.1) power-law fit N_det = A *
+        gamma_0^b
+      </p>
+      <PowerLawComparisonTable />
 
       <p style={{ color: '#64748b', fontWeight: 700, fontSize: '0.82rem', margin: '1.75rem 0 0.5rem' }}>
         The linear-in-N reach: resolved count among the first 40 zeros vs CMV order N

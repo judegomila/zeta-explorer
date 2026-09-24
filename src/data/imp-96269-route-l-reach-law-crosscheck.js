@@ -85,4 +85,41 @@ export const IMP96269_VERDICT =
   + 'Cross-check of baked literals only; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 '
   + 'stays SOTA; NO QED.';
 
-export const IMP96269_SCRIPTS = Object.freeze(['tmp/imp-96269-crosscheck.mjs']);
+// imp-96421 (numerical): robustness of the imp-96269 Christoffel eps1e4 re-fit to
+// DROPPING the k=3 one-order-off outlier row (imp-96182 flagged k=3 as the raw
+// Christoffel-vs-measured off-by-one row; in the shared 5-point subset it is the
+// gamma=37.5862 point, the second-largest negative log residual of the full fit).
+// Re-fitting the remaining 4 points (same log-log LSQ) barely moves the law and
+// STRENGTHENS every imp-96269 conclusion. Measurement only; changes NO bound; NO QED.
+// Reproduce: tmp/imp-96421-scratch.mjs.
+export const IMP96421_K3_DROP_ROBUSTNESS = Object.freeze({
+  droppedRow: Object.freeze({ k: 3, gamma: 37.5862, christoffelEps1e4: 33, fullFitRelPct: -10.24 }),
+  fullFit: Object.freeze({ A: 0.396870, b: 1.248736, r2: 0.980687 }),          // all 5 points (imp-96269 christoffelFit)
+  dropK3Fit: Object.freeze({ A: 0.398919, b: 1.254930, r2: 0.986146 }),        // 4 points, k=3 removed
+  exponentMove: Object.freeze({ absolute: 0.006193, relativePct: 0.496 }),     // full -> drop, negligible
+  prefactorMove: Object.freeze({ absolute: 0.002049, relativePct: 0.516 }),
+  // after dropping k=3 the Christoffel exponent moves TOWARD the imp-96149 detector b=1.271686
+  exponentVsDetectorPct: Object.freeze({ full: -1.8047, dropK3: -1.318 }),     // agreement tightens 1.80 -> 1.32
+  prefactorVsDetectorPct: Object.freeze({ full: 8.9296, dropK3: 9.492 }),      // essentially unchanged
+  // PT-height extrapolation at T0 = 3.0001e12
+  nNeededAtT0: Object.freeze({
+    christoffelFull: 1.5111e15,
+    christoffelDropK3: 1.8147e15,
+    ratioDropOverFull: 1.2009,          // stays the same 1e15 order
+    ratioDropOverDetector: 0.6766,      // in [0.5, 2] -> detector/Christoffel factor-of-two agreement SURVIVES
+    bothLog10: 15,
+  }),
+  robust: true,   // exponent/prefactor move < 0.6%, factor-of-two agreement survives, r2 improves
+});
+
+export const IMP96421_VERDICT =
+  'imp-96269 re-fit is robust to the k=3 outlier: dropping the gamma=37.5862 row (imp-96182 one-'
+  + 'order-off k=3) and re-fitting the remaining 4 Christoffel eps1e4 points gives N_C = 0.398919 * '
+  + 'gamma^1.254930 (r2 0.9861, up from 0.9807), moving the exponent 0.50% and prefactor 0.52% from '
+  + 'the full fit. The PT-height order is unchanged (1.81e15 vs 1.51e15, still 1e15, ratio 1.20), the '
+  + 'detector/Christoffel factor-of-two agreement survives (ratio 0.68 in [0.5,2]), and the exponent-'
+  + 'vs-detector agreement even tightens (1.80% -> 1.32%). Every imp-96269 conclusion holds; Route L '
+  + 'stays a fixed-cost detector, NOT a lever; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 '
+  + 'stays SOTA; NO QED.';
+
+export const IMP96269_SCRIPTS = Object.freeze(['tmp/imp-96269-crosscheck.mjs', 'tmp/imp-96421-scratch.mjs']);

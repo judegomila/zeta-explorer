@@ -3513,6 +3513,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value plotted is imported verbatim from imp-96166 (no re-derivation, no fresh computation); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96239-ushape-slope-drift',
+      title: 'imp-96210: U-Shape a(N)/b(N) Slope Drift and the Drift-Integrated Location Law',
+      oneLine:
+        'Line chart of the imp-96210 local log-slopes a(N) and b(N) across the [N_peak, N_flow] decade of the E(N)-share U-shape: a stays nearly flat while b rises ~6.6x more, and feeding the decade-averaged slope sum into N_peak/N_flow=(b/a)^(1/<a+b>) tightens the imp-96187 constant-slope residual 20x (2.94e-3 to 1.44e-4).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96239-ushape-slope-drift-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96210-ushape-peak-slope-drift-location-law.js (a(N), b(N) grid, drift-integrated location law; imp-96239 viz page)',
+      ticket: 'imp-96239',
+      pedagogicalStep: 227,
+      honestCeiling:
+        'Presentation only: recomputes the imp-96210 a(N), b(N) grid from the identical inherited component model (E_trunc frozen, Gronwall E_flow, GUE-conditional E_coll) purely to expose the per-N curve for charting, cross-checked against the imp-96210 frozen landmarks; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

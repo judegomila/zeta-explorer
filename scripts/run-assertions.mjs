@@ -19623,6 +19623,11 @@ const DATA_MODULES = [
   // Step-4 bridge needs verified height, not faster N-decay. Documentation only; no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96198-frozen-floor-shortfall-glossary-headword.js',
+  // imp-96239 (2026-09-24): viz-data leaf for the imp-96210 a(N)/b(N) slope-drift measurement --
+  // recomputes the grid from the identical inherited component model (import-light, no zeros
+  // bundle) and cross-checks endpoints against the imp-96210 frozen landmarks. Documentation/viz
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96239-ushape-slope-drift-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

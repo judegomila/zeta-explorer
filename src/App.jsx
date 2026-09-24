@@ -1291,6 +1291,9 @@ const Imp96040A0ReconcilePanelViz = lazy(() =>
 const Imp96136RouteIFixedFractionPanelViz = lazy(() =>
   import('./pages/Imp96136RouteIFixedFractionPanelViz.jsx')
 );
+const Imp96239UshapeSlopeDriftViz = lazy(() =>
+  import('./pages/Imp96239UshapeSlopeDriftViz.jsx')
+);
 const Imp95931Ln12DescentLadderViz = lazy(() =>
   import('./pages/Imp95931Ln12DescentLadderViz.jsx')
 );
@@ -3504,6 +3507,10 @@ function AppShell() {
           <Route
             path="/viz-imp96136-route-i-fixed-fraction-panel"
             element={<Imp96136RouteIFixedFractionPanelViz />}
+          />
+          <Route
+            path="/viz-imp96239-ushape-slope-drift"
+            element={<Imp96239UshapeSlopeDriftViz />}
           />
           <Route
             path="/viz-imp95931-ln12-descent-ladder"

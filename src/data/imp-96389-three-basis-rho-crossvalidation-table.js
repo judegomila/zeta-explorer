@@ -37,6 +37,18 @@
  *     as L grows) is reproduced by three genuinely independent evaluation paths, confirming the
  *     imp-96350/imp-96371/imp-96369 out-of-family verdict from one consolidated table rather than
  *     three separate PT-anchor spot checks.
+ *  4. PER-ROW CORROBORATION-REACH COLUMN (imp-96430 EXTENSION). imp-96430 bisected a single
+ *     endpoint-slope / mean-slope crossover L* -- the largest L at which the growing basis-C floor
+ *     overtakes the shrinking |rho + 1/2| rigidity signal. Calibrating that same floor-vs-signal
+ *     crossover independently from EACH row's own floor/L slope shows FOUR of the five rungs
+ *     (L=30/60/120/480) project L* into a tight ~1.6e12..5.1e12 cluster, consistent with the
+ *     imp-96430 [~1.3e12, ~2.5e12] band -- but the L=240 rung, whose directFloor is the ALREADY-
+ *     DOCUMENTED jitter dip (imp-96430's own caveat: "the L=240 rung dips below L=120 because the
+ *     best-ppp point wanders"), projects an outlier L* ~ 8.0e13, about 30-50x further out than the
+ *     other four rungs. So the per-row column does not just corroborate the imp-96430 band -- it also
+ *     shows WHY imp-96430 calibrated from the endpoint/mean slope rather than any single accessible
+ *     rung: a per-row calibration inherits the same floor-sweep jitter as the floor itself, and one
+ *     noisy rung can throw the projected reach off by well over an order of magnitude.
  *
  * HONEST CAVEAT. rho is the THEORETICAL GUE (sine-kernel, universality) two-interval correlation for
  * boxes of unfolded length L; these are theoretical envelope values with no computed Riemann zeros
@@ -60,6 +72,8 @@
  * @see imp-96371-covariance-exact-vs-asymptotic-decade-ladder (basis A vs basis B across the decade ladder)
  * @see imp-96369-direct-double-integral-pt-anchor-feasibility (basis C feasibility and its L-linear cancellation floor)
  * @see imp-96267-covariance-drift-rigidity-limit-reach (the rho drift toward the rigidity limit -1/2)
+ * @see imp-96430-basis-c-corroboration-reach-crossover (endpoint/mean-slope crossover band this module
+ *   adds a per-row corroboration-reach column against)
  *
  * Import-light: no zeros bundle, no sibling imports. Si/Ci, the number-variance formulas and the
  * direct quadrature are re-derived verbatim here (identical to imp-96350/imp-96369/imp-96371) so the
@@ -146,12 +160,28 @@ const directFloor = (L) => {
   return best;
 };
 
+// imp-96430 crossover machinery: the largest L at which the basis-C floor-linear model
+// (calibrated from a single row's own floor/L slope) still sits below the shrinking
+// |rho + 1/2| rigidity signal.
+const signalOf = (L) => Math.abs(rhoExact(L) - RIGIDITY_LIMIT);
+function crossoverL(slope) {
+  let lo = 1e3, hi = 1e18;
+  for (let i = 0; i < 200; i++) {
+    const mid = Math.sqrt(lo * hi);
+    if (slope * mid - signalOf(mid) > 0) hi = mid;
+    else lo = mid;
+  }
+  return Math.sqrt(lo * hi);
+}
+
 const TABLE_L = [30, 60, 120, 240, 480];
 
 const table = TABLE_L.map((L) => {
   const rhoA = rhoExact(L);
   const rhoB = rhoAsymp(L);
   const rhoC = directRho(L, Math.ceil(TABLE_PPP * L)).rho;
+  const floorAtL = directFloor(L);
+  const reachSlope = floorAtL / L; // this row's own floor/L calibration slope
   return {
     L,
     rhoExact: rhoA, // basis A
@@ -160,11 +190,15 @@ const table = TABLE_L.map((L) => {
     agreeAB: Math.abs(rhoA - rhoB), // exact vs asymptotic (analytic truncation)
     agreeAC: Math.abs(rhoA - rhoC), // exact vs direct (quadrature roundoff)
     agreeBC: Math.abs(rhoB - rhoC), // asymptotic vs direct
-    directFloor: directFloor(L), // basis-C best-achievable error at this L
+    directFloor: floorAtL, // basis-C best-achievable error at this L
+    reachSlope, // imp-96430 extension: this row's floor/L slope
+    corroborationReachL: crossoverL(reachSlope), // imp-96430 extension: L* crossover calibrated from this row alone
   };
 });
 
 const worstPair = table.reduce((a, b) => (b.agreeAB > a.agreeAB ? b : a));
+const reachValues = table.map((r) => r.corroborationReachL);
+const reachBand = [Math.min(...reachValues), Math.max(...reachValues)];
 
 export const IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE = {
   ticket: 'imp-96389',
@@ -182,6 +216,12 @@ export const IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE = {
     worstPairwiseGap: { L: worstPair.L, agreeAB: worstPair.agreeAB }, // L = 30, ~1.76e-6 (small-L asymptotic truncation)
     note:
       '|A-C| (~1e-11) is pure quadrature roundoff -- C samples the same sine kernel A evaluates in closed form. |A-B| (1.76e-6 at L=30 down to 4.71e-9 at L=480) is the analytic truncation of the dropped oscillatory terms (small-L branch of the imp-96371 U-shape), not roundoff. All three agree on rho to >= 6 figures at every accessible rung.',
+  },
+  corroborationReach: {
+    note:
+      'imp-96430 extension: per-row L* crossover (largest L at which the basis-C floor-linear model, calibrated from THIS row alone, still sits below the shrinking |rho + 1/2| rigidity signal). Four of five rungs (L=30/60/120/480) cluster in ~1.6e12..5.1e12, consistent with the imp-96430 [~1.3e12, ~2.5e12] band, but the L=240 rung -- whose directFloor is the already-documented jitter dip -- projects an outlier L* ~8e13, ~30-50x further out. The outlier shows why imp-96430 calibrated from the endpoint/mean slope rather than a single accessible rung: any one rung inherits the floor sweep noise.',
+    perRow: table.map((r) => ({ L: r.L, reachSlope: r.reachSlope, corroborationReachL: r.corroborationReachL })),
+    band: reachBand, // [min, max] projected L* across the five accessible rungs (widened by the L=240 jitter outlier)
   },
   roundoffFloors: {
     basisA: 'closed form, limited by ~1e-16 machine epsilon of the rho ratio (good to ~15 figures)',
@@ -219,6 +259,20 @@ export const IMP96389_THREE_BASIS_RHO_CROSSVALIDATION_TABLE = {
   // Finding 2: the basis-C direct floor grows with L (L-linear cancellation model)
   if (!(directFloor(480) > directFloor(30)))
     throw new Error('imp-96389: basis-C direct floor should grow with L (Var cancellation)');
+
+  // Finding 4 (imp-96430 extension): the four non-jittery rungs project a per-row corroboration-
+  // reach L* consistent with the imp-96430 endpoint/mean crossover order of magnitude, while the
+  // L=240 rung (already-documented floor-sweep jitter dip) is an outlier well past 1e13.
+  const jitterRow = table.find((r) => r.L === 240);
+  const steadyRows = table.filter((r) => r.L !== 240);
+  for (const r of steadyRows) {
+    if (!(r.corroborationReachL > 1e11 && r.corroborationReachL < 1e13))
+      throw new Error(`imp-96389: per-row corroboration-reach L* at L=${r.L} outside the expected ~1e12 band`);
+  }
+  if (!(jitterRow.corroborationReachL > 1e13))
+    throw new Error('imp-96389: the L=240 jitter-dip rung should project an outlier corroboration-reach L* past 1e13');
+  if (!(reachBand[0] < reachBand[1]))
+    throw new Error('imp-96389: corroboration-reach band should have distinct min/max across rungs');
 
   // Finding 3: all three bases agree on rho to >= 6 figures at every accessible rung
   for (const r of table) {

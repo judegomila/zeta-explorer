@@ -5,6 +5,7 @@ import {
   IMP96378_ANCHORS,
   IMP96378_HONEST_BANNER,
 } from '../data/imp-96378-route-m-beat-period-overlap-viz-data.js';
+import { IMP96344_SYNTHETIC_VS_REAL_NOTE } from '../data/imp-96344-route-m-synthetic-span-identifiability.js';
 
 function OverlapCurveChart() {
   const svgW = 680;
@@ -98,6 +99,21 @@ export default function Imp96378RouteMBeatPeriodOverlapViz() {
         }}
       >
         <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96378_HONEST_BANNER}
+      </div>
+
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(250,204,21,0.06)',
+          borderLeft: '3px solid #facc15',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 760,
+        }}
+      >
+        <strong style={{ color: '#facc15' }}>Synthetic vs real:</strong> {IMP96344_SYNTHETIC_VS_REAL_NOTE}
       </div>
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 760 }}>

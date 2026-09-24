@@ -177,6 +177,18 @@ export const IMP96344_SUBGAP = Object.freeze({
 export const IMP96344_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Model / measurement only: every value is a reproducible numeric from tmp/imp-96344-scratch.mjs / scratch2.mjs (drift-projection residual fractions and adjacent-tone overlaps) plus the analytic Rayleigh beat period 2 pi / (w_4 - w_5); no bound is claimed and no operator positivity is established.';
 
+// imp-96462: plain SYNTHETIC-vs-REAL status separator, so a reader of this module
+// (or a consumer viz such as imp-96378) does not mistake the closed-form overlap
+// null for a statement about the real Route M spectrum.
+export const IMP96344_SYNTHETIC_VS_REAL_NOTE =
+  'SYNTHETIC vs REAL: every number on this page (the conductor tones w_4/w_5, the overlap curve, the beat '
+  + 'period and required-N figures) comes from an assumed closed-form model of the conductor spectrum, not '
+  + 'from the real Route M d_N^2 data. It answers a design/power question -- HOW MUCH log-N span would be '
+  + 'needed to separate q=4 from q=5 if the real spectrum matches this model -- and cannot itself decide '
+  + 'whether the real spectrum does. The REAL Route M question (does the actual Vasyunin Gram at '
+  + 'N ~ 5.5e6..1.2e11 carry a genuine multi-conductor band) stays OPEN, out of brute-force reach '
+  + '(IMP96325_Q2_BAND_UNIQUENESS).';
+
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
 const IMP96344_ASSERTIONS = [
@@ -255,6 +267,16 @@ const IMP96344_ASSERTIONS = [
       /required-span-vs-surrogate-circularity/.test(IMP96344_SUBGAP.id),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers and an explicit named sub-gap that the required span is measured but a surrogate cannot decide the real band.',
   },
+  {
+    id: 'imp96344-synthetic-vs-real-note-present',
+    holds: () =>
+      /SYNTHETIC/.test(IMP96344_SYNTHETIC_VS_REAL_NOTE) &&
+      /REAL/.test(IMP96344_SYNTHETIC_VS_REAL_NOTE) &&
+      /OPEN/.test(IMP96344_SYNTHETIC_VS_REAL_NOTE) &&
+      /5\.5e6/.test(IMP96344_SYNTHETIC_VS_REAL_NOTE) &&
+      /1\.2e11/.test(IMP96344_SYNTHETIC_VS_REAL_NOTE),
+    why: 'imp-96462: a plain status separator must exist so the synthetic closed-form finding is never read as a statement about the real Route M spectrum.',
+  },
 ];
 
 for (const a of IMP96344_ASSERTIONS) {
@@ -273,4 +295,5 @@ export default {
   verdict: IMP96344_VERDICT,
   subGap: IMP96344_SUBGAP,
   banner: IMP96344_HONEST_BANNER,
+  syntheticVsRealNote: IMP96344_SYNTHETIC_VS_REAL_NOTE,
 };

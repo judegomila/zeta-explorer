@@ -343,6 +343,14 @@ const DATA_MODULES = [
   // 2theta' - m_2, < 3% from the archimedean window [0, 3.6). Companion to Route I (does not edit it).
   // Import-light (Route I / H exports only). Assertions ~6 s (N = 24 pencils at four a + analytic symbol windows).
   '/src/data/rh-route-i-pencil-highres-map-2026-09-23.js',
+  // imp-96099 (2026-09-23): overclaim-registry guard for the Route I Sonine/pencil pair above,
+  // mirroring the imp-96062/imp-96134 standalone-guard pattern. Both source modules already carry
+  // an inline verdict-honesty assertion, but nothing watches their OTHER prose fields (correction,
+  // verdict, forTheProof, honestLimits). Asserts both keep RH open / NO QED, and that the
+  // inequality-not-identity framing (D_S <= L_S, D_S explicit/nonzero, trace side positive
+  // UNCONDITIONALLY) stays non-promoted -- no gap-free identity, no promotion word. Guard only;
+  // changes no bound; import-light (imports only the two Route I modules above).
+  '/src/data/imp-96099-route-i-sonine-honesty-guard.js',
   // rh-route-i-sonine-excess-semilocal-port (2026-09-23): the Connes–Consani Sonine REFINEMENT (arXiv:2006.13771 Thm 4.7 /
   // Prop 5.5 / Thm 6.11) ported to the semilocal S={oo,2} identity. Exact algebra W_oo + W_2 = Tr(vartheta S_S) - E_S;
   // semilocal prolate spectrum computed exactly (FFT–Mellin, no dyadic truncation): lam_S(0) = 0.9999731, lam_S(1) = -0.9927,
@@ -406,6 +414,18 @@ const DATA_MODULES = [
   // Zygmund eigenfunctions). Ladder MODEL, not a diagonalization. Import-light (no imports, no zeros bundle).
   // Assertions ~0.1 s. Changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED.
   '/src/data/imp-96143-route-i-mixed-ladder-23-prolate-spectrum-summability.js',
+  // imp-96164 (2026-09-23): PROOF/DERIVATION — attack imp-96143 residual (I), the mixed-group no-modulus-1
+  // theorem for the {oo,2,3} prolate top confined states. HONEST PARTIAL: the p=3 OVER-DETERMINATION
+  // collapses the modulus-1 candidate space on the ladder-tail interior from an infinite-dimensional family
+  // of ln2-periodic (Zygmund) modulations of 1/v down to the single RIGID profile g(v)=C/v. Composing
+  // g(v)=2g(2v), g(v)=3g(3v) and their local inverses gives g(v)=2^a 3^b g(2^a 3^b v) for (a,b) in Z^2;
+  // multiplier = e^{a ln2 + b ln3} exactly and the shift Z-module is DENSE (ln2/ln3 irrational, max gap on
+  // [0,1] falls 0.0657 -> 0.0115), so by continuity g(Uv)=g(v)/U for all U>0 => rigid power; two incommensurate
+  // periods force the modulation constant. NOT a QED: the rigid profile is L^2 on the tail half-line
+  // (int_{1/2}^oo v^-2 dv = 2), so C is not forced to 0; residual = one scalar boundary match at v=1/2
+  // (sub-gap SG-96164-boundary), numerically excluded (p=2 top 0.9999731 < 1) but exact enclosure blocked by
+  // the Zygmund edge. Import-light (no imports, no zeros bundle). Assertions ~0.1 s. RH open; PT Lambda <= 0.2 stands; NO QED.
+  '/src/data/imp-96164-route-i-mixed-group-no-modulus1-overdetermination.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284
@@ -511,6 +531,18 @@ const DATA_MODULES = [
   // arm as an E_flow (Gronwall) effect. Surviving share driven to ~2.80e-104 by N~1e218. Import-light
   // literals. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96151-sigma-closed-form-crossover-fartail-reproduction.js',
+  // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
+  // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
+  // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151
+  // CF factor EQUALS E_trunc/E_coll to ~1.6e-16 (crossover identity K = N_cross/L_cross), so
+  // sigma_rec matches the full three-term share to ~5.7e-16 over [1e5,1e12] and reproduces the peak
+  // 0.949429 at N~9.22e5 exactly. The peak is a SECOND, numerator crossover N_flow (E_flow=E_trunc,
+  // ~1.598e6), ~3.3 decades below the imp-33723 denominator crossover N_cross (E_coll=E_trunc,
+  // ~3.28e9): leading-order peak = N_flow, log-corrected to ~0.577 N_flow (E_flow/E_trunc=1.530 at
+  // the exact peak). Forcing r_pre=1 recovers the monotone right-arm-only model -- confirming the
+  // peak is purely a Gronwall flow effect. Import-light literals. C_mb GUE-conditional per imp-486
+  // UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96162-sigma-ushape-peak-eflow-recovery.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

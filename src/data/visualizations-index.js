@@ -3765,6 +3765,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every fit coefficient, measured point, and T0 extrapolation is copied verbatim from the imp-96269 baked crosscheck (no re-fit); only the log10 curve sampling is computed here. Both extrapolated orders sit ~15 decades beyond feasible computation, so Route L remains a fixed-cost detector, not a lever. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96410-sigma-peak-knee-crossover',
+      title: 'imp-96388: sigma(N) Peak, Knee, and E_coll = E_trunc Crossover on One Shared log10 N Axis',
+      oneLine:
+        'Log-x curve chart of sigma(N) = E_coll/(E_trunc+E_flow+E_coll) across the shared log10 N axis, marking the imp-96266 E_flow-built peak (log10 N ~ 5.965), the imp-96351 exponent-ramp knee (log10 N ~ 9.529), and the imp-33723 closed-form E_coll = E_trunc crossover, showing the two landmarks sit ~3.56 decades apart with sigma falling monotonically between them.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96410-sigma-peak-knee-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96388-sigma-peak-vs-knee-cross-tabulation.js (peak/knee/crossover measurement, method, verdict; imp-96410 viz page)',
+      ticket: 'imp-96410',
+      pedagogicalStep: 243,
+      honestCeiling:
+        'Presentation only: every landmark value, shared-axis row, and finding is copied verbatim from the imp-96388 baked cross-tabulation (no re-derivation); only the log10 curve interpolation and axis sampling are computed here. Confirms two independent landmarks ~3.56 decades apart, not one feature at different differencing orders. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -463,6 +463,14 @@ const DATA_MODULES = [
   // Import-light (baked spectrum literals, no imports, no zeros bundle). Assertions < 0.1 s. Measurement only;
   // changes no bound; RH open; PT Lambda <= 0.2 stands; NO QED.
   '/src/data/imp-96188-route-i-kato-temple-real-spectrum-recalibration.js',
+  // imp-96221 (sonnet-4-6, content): consumer status/routing note recording that
+  // imp-96188 confirmed the Route I variational (Rayleigh/Kato-Temple) route is
+  // HARDER to reach on the real semilocal {oo,2} spectrum than the imp-96169 toy
+  // indicated, so it is NOT a live certificate; re-points downstream readers to
+  // the analytic no-modulus-1 route (SG-96164-boundary / SG-96181-edge-octave) as
+  // the confirmed strict-gap carrier. Import-light (no imports, no zeros bundle).
+  // Documentation only; changes no bound; RH open; NO QED.
+  '/src/data/imp-96221-kato-temple-variational-routing-status-note.js',
   // rh-routes-jkl-non-statmech-external-input-hunt (2026-09-23): FRESH batch from NON-stat-mech paradigms,
   // first-tested with real math + bounded numerics (mpmath/numpy, all runs < 1 min). J (Weil–Deligne import):
   // engine (ii) over Q = de la Vallée Poussin positivity, c/log t form with pure-scheme Fejér floor R ≥ 5.8284

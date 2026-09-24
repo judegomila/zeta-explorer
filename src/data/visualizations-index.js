@@ -3793,6 +3793,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every T/rho pair and the seven-anchor line floor/slope are copied verbatim from imp-96345 (and, before that, imp-96148/imp-96224); only the per-point below-line flag and the line-curve sample points are computed here. The binding envelope stays strictly positive (0.3791 at gamma_4000) even as the fitted floor collapses toward zero off the line -- the margin SIGN survives, the positive FLOOR does not. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96378-route-m-beat-period-overlap',
+      title: 'imp-96344: Route M Adjacent Conductor-Tone (q=4/q=5) Overlap vs Window Span',
+      oneLine:
+        'Curve chart of the adjacent q=4/q=5 conductor-tone overlap |corr(cos w4 x, cos w5 x)| vs window span L in log N, marking the current span L=3.69 (0.369 of one beat, overlap 0.0674), the sidelobe bump ~0.26 near L=7.5, and the exact first true null at L=9.85 (N~5.5e6), one Rayleigh beat period 2 pi/(w4-w5) out.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96378-route-m-beat-period-overlap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96344-route-m-synthetic-span-identifiability.js (IMP96344_LINE_RESOLUTION, IMP96344_CONDUCTORS; imp-96378 viz page)',
+      ticket: 'imp-96378',
+      pedagogicalStep: 245,
+      honestCeiling:
+        'Presentation only: the three marked anchors are copied verbatim from imp-96344; the connecting curve is a closed-form reconstruction of the same overlap definition (product-to-sum trig identity, no sampling/fitting) computed here, verified to agree with the baked anchors to within their own rounding. Establishes no operator positivity, moves no Lambda bound, and does not decide whether the real Route M data carries a genuine multi-conductor band (imp-96344 F4: that needs the actual Vasyunin Gram at N ~ 5.5e6..1.2e11). Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

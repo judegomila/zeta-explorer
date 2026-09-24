@@ -1421,6 +1421,9 @@ const Imp96338WorstExcessEvtViz = lazy(() =>
 const Imp96410SigmaPeakKneeCrossoverViz = lazy(() =>
   import('./pages/Imp96410SigmaPeakKneeCrossoverViz.jsx')
 );
+const Imp96378RouteMBeatPeriodOverlapViz = lazy(() =>
+  import('./pages/Imp96378RouteMBeatPeriodOverlapViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3729,6 +3732,10 @@ function AppShell() {
           <Route
             path="/viz-imp96337-mixed-ladder-margin"
             element={<Imp96337MixedLadderMarginViz />}
+          />
+          <Route
+            path="/viz-imp96378-route-m-beat-period-overlap"
+            element={<Imp96378RouteMBeatPeriodOverlapViz />}
           />
           <Route
             path="/viz-imp96338-worst-excess-evt"

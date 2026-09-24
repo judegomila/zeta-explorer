@@ -3401,6 +3401,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: renders the frozen imp-96187 sensitivity sweep verbatim (no re-derivation of the peak-location formula or the local log-slopes a, b); measurement/derivation only, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96142-decorrelation-safety-margin',
+      title: 'Route B/D Robustness: De-Correlation Safety Margin Across the Three Dip Heights',
+      oneLine:
+        'Log-scale grouped-bar chart of the imp-96109 boundary-sharing estimate rho_boundary vs the critical lag-1 correlation |rho_crit| for the three imp-95562 below-envelope dip heights: only T=1.5e5 has a positive (real) flip threshold, ~285x above rho_boundary=0.00202; the other two heights have negative rho_crit and are unconditionally unpromotable.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96142-decorrelation-safety-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96109-tue5-dip-decorrelation-safety-margin.js (rows, significantDip; imp-96142 viz page)',
+      ticket: 'imp-96142',
+      pedagogicalStep: 219,
+      honestCeiling:
+        'Presentation only: every rho_boundary, rho_crit, and safety-ratio value is copied verbatim from the imp-96109 baked rows and significantDip block (no re-derivation of the AR-1 de-correlation model or the imp-96071 chi-square crossover); changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

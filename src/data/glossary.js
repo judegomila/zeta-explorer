@@ -23290,6 +23290,31 @@ export const glossary = [
       'imp-96269-route-l-reach-law-crosscheck.js the original detector-vs-Christoffel reach-law consistency check (~2.4% agreement)',
     ],
   },
+  {
+    term: 'First Count-Model-Independent E_coll Anchor at the 1e22-nd True Zero Height (imp-96402)',
+    category: 'accuracy',
+    definition:
+      'Every prior stored E_coll(C_H, N) anchor obtained its zero height gamma_N by INVERTING the ' +
+      'Riemann-von Mangoldt count model, never from a tabulated true zero height, so none was ' +
+      'count-model-independent (imp-96363 residual). Plugging the Odlyzko (2001) tabulated true ' +
+      'height of the 1e22-nd zero, gammaTrue = 1370919909931995308226.68016, directly into the ' +
+      'E_coll formula gives E_coll(0.125, 1e22) = 2.502828e-11 and E_coll(0.127, 1e22) = 2.542873e-11, ' +
+      'matching the count-inversion values to within the ~1e-16 double-precision floor (gammaRelGap ' +
+      '~ -1.53e-15). This is NOT evidence the count model is exact: at N = 1e22 the fluctuation term ' +
+      'the count model omits, S(gamma)/N ~ log(gamma)/N, is order 1e-21 -- far below double-precision ' +
+      'resolution of a 21-digit height -- so the tiny gap is dominated by the storage floor, not by ' +
+      'model accuracy. Contrasting against the first zero (N=1), where gammaTrue = 14.134725141734693790 ' +
+      'vs. the count-inverted gammaCount ~ 22.5637 (rateRelGap ~ 8.47e-2), shows the count-model ' +
+      'dependence is real and macroscopic at low N, just invisible at 1e22. Accuracy audit only -- no ' +
+      'gap closed, no bound changed, conditional C_H <= 0.127 stays UNPROVEN; changes no bound; RH open; ' +
+      'NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js (supplies the first E_coll anchor built from a tabulated true zero height instead of a count-model inversion), 2026',
+    relatedTerms: [
+      'imp-96363-... the residual noting every stored E_coll anchor used a count-inverted gamma_N',
+      'imp-96311-ecoll-ratio-law.js the E_coll ratio law and C_KH = pi*2.622 Koksma-Hlawka factor these anchors feed',
+      'imp-96380-... the single-independent-anchor honest statement this measurement is scoped by',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

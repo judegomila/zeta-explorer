@@ -19723,6 +19723,13 @@ const DATA_MODULES = [
   // imp-96172 floor-value verdict headword. Documentation only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96275-route-bd-margin-decay-discriminator-glossary-headword.js',
+  // imp-96344: assess the synthetic log-N span-extension route to the imp-96325 Q2
+  // band-vs-drift degeneracy. Literal band-vs-smooth-drift is already resolved
+  // (imp-96231); the open span-limited degeneracy is resolving the q4/q5 conductor
+  // lines (spacing 0.628), needing Rayleigh span L>=2pi/dw~10 (N~5.5e6, marginal) to
+  // ~20 (N~1.2e11, clean); a surrogate quantifies the span but is circular for the
+  // real decision. Model/measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96344-route-m-synthetic-span-identifiability.js',
   '/src/data/imp-96332-evt-window-independence-neff-audit.js',
   '/src/data/imp-96311-ecoll-rate-ch-independence-tabulation.js',
   '/src/data/imp-96314-covariance-deviation-viz-data.js',

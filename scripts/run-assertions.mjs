@@ -19883,6 +19883,12 @@ const DATA_MODULES = [
   // contrast resolves the count-model gap (8.5e-2 in the rate) that 1e22 pushes
   // below the floor. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js',
+  // imp-96358 (2026-09-24): browser-only-assertion audit of the imp-96337 mixed-ladder-margin
+  // viz page. Headless-Chromium render of /#/viz-imp96337-mixed-ladder-margin is clean: both
+  // charts draw geometry, honest banner + top-confined-states residual sentence both present,
+  // zero console/page errors, zero NaN coordinates in any rendered svg. No fix needed.
+  // Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96358-imp96337-viz-browser-render-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

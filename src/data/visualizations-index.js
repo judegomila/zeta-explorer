@@ -3233,6 +3233,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every census count and height band is copied verbatim from the Route B Lemma H interlacing literals (no re-derivation, no fresh census); interlacing of the n=1 pencil with the zeta zeros presupposes RH (HKO real-rootedness), so this chart establishes no operator positivity and carries no RH claim; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96058-fejer-ceiling-floor-ladder',
+      title: 'Route J: Fejer Zero-Free-Region Floor Ladder',
+      oneLine:
+        'Log-x line chart of the RH Route J Fejer ceiling ladder R_floor(n) = 1/c_ceil(n) for trig-polynomial degree n = 2..100, descending monotonically toward the pure-scheme limit R = 5.8284, plus the classical de la Vallee Poussin 3-4-1 marker (R = 34.821) and the Mossinghoff-Trudgian (2015) marker (R = 5.573412) sitting 4.375% below the pure-scheme floor via a different weighting scheme.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96058-fejer-ceiling-floor-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (ROUTE_J.fejerCeiling, .fejerLimit, .classical341, .mossinghoffTrudgian2015; imp-96058 viz page)',
+      ticket: 'imp-96058',
+      pedagogicalStep: 207,
+      honestCeiling:
+        'Presentation only: every ladder row and marker value is copied verbatim from ROUTE_J (no re-derivation of the Fejer inequality or the c_ceil(n) formula); the c/log t FORM of the zero-free region is unchanged by any weighting scheme, including Mossinghoff-Trudgian\'s tighter constant; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

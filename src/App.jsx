@@ -199,6 +199,7 @@ const Imp3656TripleSkewToeplitzGapLadderViz = lazy(() => import('./pages/Imp3656
 const Imp3657SigmaCrossoverTcClosedformPinViz = lazy(() => import('./pages/Imp3657SigmaCrossoverTcClosedformPinViz.jsx'));
 const Imp3658PlantedReplicaArgmaxDriftViz = lazy(() => import('./pages/Imp3658PlantedReplicaArgmaxDriftViz.jsx'));
 const Imp3695FeatureFoldinFloorLadderViz = lazy(() => import('./pages/Imp3695FeatureFoldinFloorLadderViz.jsx'));
+const Imp96058FejerCeilingFloorLadderViz = lazy(() => import('./pages/Imp96058FejerCeilingFloorLadderViz.jsx'));
 const Imp3677SkewToeplitzKrylovDepthVsNLawViz = lazy(() => import('./pages/Imp3677SkewToeplitzKrylovDepthVsNLawViz.jsx'));
 const Imp3696MatchedPairKrylovDepthSweepViz = lazy(() => import('./pages/Imp3696MatchedPairKrylovDepthSweepViz.jsx'));
 const Imp3697AWeightDecayCrosscheckViz = lazy(() => import('./pages/Imp3697AWeightDecayCrosscheckViz.jsx'));
@@ -1957,6 +1958,7 @@ function AppShell() {
           <Route path="/viz-imp3657-sigma-crossover-tc-closedform-pin" element={<Imp3657SigmaCrossoverTcClosedformPinViz />} />
           <Route path="/viz-imp3658-planted-replica-argmax-drift" element={<Imp3658PlantedReplicaArgmaxDriftViz />} />
           <Route path="/viz-imp3695-feature-foldin-floor-ladder" element={<Imp3695FeatureFoldinFloorLadderViz />} />
+          <Route path="/viz-imp96058-fejer-ceiling-floor-ladder" element={<Imp96058FejerCeilingFloorLadderViz />} />
           <Route path="/viz-imp3677-skew-toeplitz-krylov-depth-vs-N-law" element={<Imp3677SkewToeplitzKrylovDepthVsNLawViz />} />
           <Route path="/viz-imp3696-matched-pair-krylov-depth-sweep" element={<Imp3696MatchedPairKrylovDepthSweepViz />} />
           <Route path="/viz-imp3697-a-weight-decay-crosscheck" element={<Imp3697AWeightDecayCrosscheckViz />} />

@@ -99,6 +99,46 @@ function ResidualChart() {
   );
 }
 
+function SignSplitSummary() {
+  const { nBelowLine, nOffAnchor } = IMP96377_LANDMARKS;
+  const nAboveLine = nOffAnchor - nBelowLine;
+  const pctBelow = (100 * nBelowLine) / nOffAnchor;
+  const pctAbove = (100 * nAboveLine) / nOffAnchor;
+
+  return (
+    <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.25rem', flexWrap: 'wrap' }}>
+      <div
+        style={{
+          padding: '0.6rem 0.9rem',
+          background: 'rgba(248,113,113,0.08)',
+          border: '1px solid rgba(248,113,113,0.35)',
+          borderRadius: 6,
+          minWidth: 150,
+        }}
+      >
+        <div style={{ color: '#f87171', fontSize: '1.15rem', fontWeight: 600 }}>
+          {nBelowLine} / {nOffAnchor} ({pctBelow.toFixed(1)}%)
+        </div>
+        <div style={{ color: '#94a3b8', fontSize: '0.75rem' }}>off-anchor heights below the design line</div>
+      </div>
+      <div
+        style={{
+          padding: '0.6rem 0.9rem',
+          background: 'rgba(74,222,128,0.08)',
+          border: '1px solid rgba(74,222,128,0.35)',
+          borderRadius: 6,
+          minWidth: 150,
+        }}
+      >
+        <div style={{ color: '#4ade80', fontSize: '1.15rem', fontWeight: 600 }}>
+          {nAboveLine} / {nOffAnchor} ({pctAbove.toFixed(1)}%)
+        </div>
+        <div style={{ color: '#94a3b8', fontSize: '0.75rem' }}>off-anchor heights above the design line</div>
+      </div>
+    </div>
+  );
+}
+
 export default function Imp96377OffAnchorResidualViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
@@ -126,6 +166,8 @@ export default function Imp96377OffAnchorResidualViz() {
         {' '}{IMP96377_LANDMARKS.nOffAnchor} sit below the line (red), worsening with T, down to the marked worst
         residual at gamma_4000. The gold ring marks that same point as the binding uniform-in-T lower envelope.
       </p>
+
+      <SignSplitSummary />
 
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         rho(32,T) scatter vs the seven-anchor design line (log-x scale)

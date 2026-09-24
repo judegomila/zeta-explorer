@@ -19810,6 +19810,13 @@ const DATA_MODULES = [
   '/src/data/imp-96347-detector-reach-curvature-correction.js',
   '/src/data/imp-96350-covariance-outoffamily-crossvalidation.js',
   '/src/data/imp-96351-sigma-knee-tenthdecade-1e12-stability.js',
+  // imp-96388 (2026-09-24): MEASUREMENT -- cross-tabulates the imp-96351 exponent-ramp
+  // knee (log10 N* ~ 9.529) against the imp-3220/imp-96266 sigma value U-shape peak
+  // (log10 N ~ 5.96) on one shared log10 N axis. Two independent landmarks ~3.56 decades
+  // apart: the peak is E_flow-manufactured (E_flow/E_N ~ 3.06e-2) while the knee coincides
+  // with the E_coll = E_trunc crossover (sigma ~ 1/2, E_flow/E_N ~ 9.3e-4). Measurement
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96388-sigma-peak-vs-knee-cross-tabulation.js',
   // imp-96296: Concepts glossary headword restating the imp-96250 verdict that the
   // imp-96187 U-shape location ratio R(N)=N_peak/N_flow flattens toward 1 only
   // logarithmically (R=1-4/ln N-16/(ln N)^2+...), reaching within 1% of 1 only at

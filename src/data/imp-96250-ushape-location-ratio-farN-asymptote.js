@@ -133,6 +133,38 @@ const COEF_NEXT = +(U_PROBE * U_PROBE * (Math.log(R_PROBE) + 4 / U_PROBE)).toFix
 const U_DEEP = Math.log(Math.pow(10, 250));
 const COEF_LEAD_EXACT = +(U_DEEP * (1 - Rexact(Math.pow(10, 250)))).toFixed(4); // ~4.07 -> 4
 
+// imp-96284: reconcile the 1/u^2 coefficient (polynomial -24 vs exact-slope drift ~-42..-48).
+// The polynomial -24 uses the LEADING-ORDER slopes only. The EXACT imp-96244 slopes carry
+// O(ln ln N / u^2) sub-corrections. Writing u = ln N, w = ln ln N, c = ln(2 pi), and using the
+// EXACT Riemann-von Mangoldt log-derivative dl = 1 - 1/(L - c) (NOT the naive 1 - 1/u -- the map is
+// N = (T0/2pi)(ln(T0/2pi) - 1), so with v = L - c one has dl = dL/du = (v-1)/v = 1 - 1/v), the
+// slope tails expand to second order as
+//   a(N) = 1/2 - 1/(2u) - (w - c - 1)/(2 u^2) + O(w^2/u^3),
+//   b(N) = 1/2 - (5/2)/u - ((5/2) w - c/2 - 5/2)/u^2 + O(w^2/u^3).
+// Feeding these through the imp-96187 location law R = (b/a)^(1/(a+b)) gives the exact-slope
+// 1/u^2 coefficient of ln R
+//   C(N) = -(4 ln ln N + 20) + o(1),
+// which carries an IRREDUCIBLE ln ln N factor and grows in magnitude without bound (glacially).
+// The polynomial -24 is only its w = 1 (u = e) value -- an artifact of dropping the w terms.
+function measuredU2Coef(N) {
+  const u = Math.log(N);
+  return u * u * (Math.log(Rexact(N)) + 4 / u); // exact-slope u^2(ln R + 4/u) -> -(4 ln ln N + 20)
+}
+const lnlnModel = (u) => -(4 * Math.log(u) + 20); // -(4 ln ln N + 20), leading exact-slope coefficient
+const SUBCORR_GRID = [60, 120, 250, 300].map((lg) => {
+  const N = Math.pow(10, lg);
+  const u = Math.log(N);
+  const meas = measuredU2Coef(N);
+  const mdl = lnlnModel(u);
+  return {
+    log10N: lg,
+    lnlnN: +Math.log(u).toFixed(4),
+    coef_measured: +meas.toFixed(4), // exact-slope 1/u^2 coefficient (the ~-42..-48 drift)
+    coef_lnlnN_model: +mdl.toFixed(4), // -(4 ln ln N + 20)
+    residual: +(meas - mdl).toFixed(4), // -> 0 from below as the O(w/u) tail vanishes
+  };
+});
+
 // Glacial-convergence quantification: R within eps of 1 requires ln N ~ 4/eps.
 const LOG10N_WITHIN_1PCT = +(4 / 0.01 / Math.log(10)).toFixed(1); // ~173.7
 const LOG10N_WITHIN_0P1PCT = +(4 / 0.001 / Math.log(10)).toFixed(1); // ~1737.2
@@ -149,6 +181,9 @@ export const IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE = {
     R_limit: 1, // N_peak/N_flow -> 1 from below (peak and N_flow coincide)
     lnR_leading: '-4/ln N', // = -2 (b_c - a_c)/ln N with b_c - a_c = 5/2 - 1/2 = 2
     lnR_next_order: '-4/ln N - 24/(ln N)^2', // polynomial part; +O(ln ln N/(ln N)^2)
+    lnR_next_order_exact_slopes: '-4/ln N - (4 ln ln N + 20)/(ln N)^2', // imp-96284: exact-slope 1/u^2 term
+    nextOrder_subcorrection: 'C(N) = -(4 ln ln N + 20) + o(1); irreducible ln ln N factor, NOT a constant',
+    subcorrection_grid: SUBCORR_GRID, // imp-96284: measured coef vs -(4 ln ln N + 20), residual -> 0
     R_expansion: '1 - 4/ln N - 16/(ln N)^2 + O((ln ln N/ln N)^2)',
     flattening_measure: 'Delta = ln(N_flow/N_peak) = 4/ln N + 24/(ln N)^2 -> 0',
     leading_coefficient_measured: COEF_LEAD, // ~4.0000 (leading-order slopes)
@@ -175,6 +210,17 @@ export const IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE = {
       'and within 0.1% at log10 N ~ 1737. So peak/crossover coincidence has NO reach at physical ' +
       'heights: at the actual N_flow ~ 1.6e6 the ratio is still ~ 0.577, confirming the imp-96187 ' +
       'verdict that the 0.577 ~ 1/sqrt(3) proximity is a finite-height artifact, not a limit constant.',
+    D5_next_order_subcorrection_lnlnN:
+      'imp-96284: the polynomial -24 and the exact-slope drift ~-42..-48 are reconciled. The exact ' +
+      'imp-96244 slopes carry O(ln ln N/u^2) sub-corrections -- a = 1/2 - 1/(2u) - (w-c-1)/(2u^2), ' +
+      'b = 1/2 - (5/2)/u - ((5/2)w - c/2 - 5/2)/u^2 with w = ln ln N, c = ln 2pi -- coming from the ' +
+      'EXACT Riemann-von Mangoldt log-derivative dl = 1 - 1/(L-c), not the naive 1 - 1/u. Feeding these ' +
+      'through the location law gives the exact-slope 1/u^2 coefficient C(N) = -(4 ln ln N + 20) + o(1). ' +
+      'So the coefficient does NOT converge to a constant: it carries an IRREDUCIBLE ln ln N factor and ' +
+      'grows in magnitude without bound (glacially). The polynomial -24 is only C at w = 1 (u = e); at ' +
+      'physical u the measured coefficient (-42..-48) tracks -(4 ln ln N + 20) with a residual that ' +
+      'shrinks monotonically toward 0 (2.48 at log10 N = 60 down to 0.66 at log10 N = 300). This changes ' +
+      'no bound and leaves the leading 4/ln N flattening (and its imp-486 conditionality) untouched.',
     D4_conditionality:
       'The flattening coefficient 4 = 2(b_c - a_c) is conditional ONLY through the a-branch coefficient ' +
       'a_c = 1/2, which rests on the N^{-1/2} collision-term shape (imp-486 GUE-conditional); the ' +
@@ -193,8 +239,11 @@ export const IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE = {
     'only at log10 N ~ 174, within 0.1% at ~1737, so the coincidence has NO reach at physical heights ' +
     '(at N_flow ~ 1.6e6 the ratio is still ~ 0.577, per imp-96187). Leading-order slopes pin both ' +
     'derived coefficients (u(1-R) -> 4, u^2(ln R + 4/u) -> -24); with exact slopes the leading 4 ' +
-    'survives (u(1-R): 5.78 -> 4.07 over log10 N = 6.2 -> 250) while the 1/(ln N)^2 coefficient carries ' +
-    'an O(ln ln N) ambiguity (imp-96244 pins the slopes only to leading order). Conditional ONLY ' +
+    'survives (u(1-R): 5.78 -> 4.07 over log10 N = 6.2 -> 250) while the 1/(ln N)^2 coefficient is ' +
+    'NOT the constant -24: imp-96284 reconciles the polynomial -24 with the measured -42..-48 drift by ' +
+    'deriving the O(ln ln N/(ln N)^2) slope sub-corrections (from the exact map dl = 1 - 1/(L-c)), giving ' +
+    'the exact-slope 1/u^2 coefficient C(N) = -(4 ln ln N + 20) + o(1) -- an irreducible ln ln N factor ' +
+    'that grows without bound, with -24 recovered only at the unphysical ln ln N = 1. Conditional ONLY ' +
     'through the a-branch GUE-conditional N^{-1/2} collision shape (imp-486, UNTOUCHED); the C_C 1/8 ' +
     'ansatz (imp-2642/imp-2643) cancels and is UNTOUCHED; changes no bound; establishes no operator ' +
     'positivity; imp-3066 K_a >= 0 untouched; no zero verified; no RH verdict; NO QED. ' +
@@ -241,6 +290,23 @@ export const IMP96250_USHAPE_LOCATION_RATIO_FARN_ASYMPTOTE_ASSERTIONS = [
     id: 'imp96250-next-order-coefficient-minus-24',
     description: 'u^2(ln R + 4/u) -> -24 for the leading-order slope model (polynomial part)',
     holds: () => Math.abs(COEF_NEXT - -24) < 1e-1,
+  },
+  {
+    // imp-96284 (D5): the exact-slope 1/u^2 coefficient carries an irreducible ln ln N factor
+    // C(N) = -(4 ln ln N + 20), reconciling the polynomial -24 with the measured -42..-48 drift.
+    id: 'imp96250-next-order-subcorrection-lnlnN',
+    description: 'exact-slope 1/u^2 coef tracks -(4 ln ln N + 20) (not constant -24); residual shrinks to 0',
+    holds: () => {
+      // (i) all measured coefficients are far past the polynomial -24 (magnitude > 40): NOT the constant.
+      const allPast24 = SUBCORR_GRID.every((r) => r.coef_measured < -40);
+      // (ii) the ln ln N model tracks the measurement, with residual shrinking monotonically toward 0.
+      let shrinks = true;
+      for (let i = 1; i < SUBCORR_GRID.length; i++) {
+        if (Math.abs(SUBCORR_GRID[i].residual) >= Math.abs(SUBCORR_GRID[i - 1].residual)) shrinks = false;
+      }
+      const deepMatch = Math.abs(SUBCORR_GRID[SUBCORR_GRID.length - 1].residual) < 1; // within 1 at log10 N=300
+      return allPast24 && shrinks && deepMatch;
+    },
   },
   {
     // D3: the convergence is glacial (logarithmic) -- within 1% only at log10 N ~ 174.

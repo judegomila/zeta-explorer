@@ -19634,6 +19634,15 @@ const DATA_MODULES = [
   // and the fourth-order reconstruction continues the monotone shrink (location 1.84e-4->7.20e-6 by
   // (4/5)/x, height 9.41e-7->2.97e-8 by 1/x). Import-light, 8 assertions. NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96329-eflow-tail-law-global.js',
+  // imp-96403 (2026-09-24): MEASUREMENT — decides which of the two second-order corrections imp-96266
+  // M3 names (an E_flow^2 Taylor x^2 term OR a dE_flow/dN flow-drift term) closes the ~9% peak-LOCATION
+  // error of the first-order reconstruction. The exact residual err1 = -sigma_CF*x^2/(1+x) matches the
+  // -sigma_CF*x^2 (E_flow^2) form with ratio 1/(1+x) ~[0.90,0.99]; re-applying it (1 - x + x^2) closes
+  // location ~21x to 4.37e-3 (the imp-96286 branch). The dE_flow/dN candidate is RULED OUT: err1/
+  // (dE_flow/dN) spans >3 decades (wrong N-scaling) and a best-fit drift correction makes location
+  // WORSE (9.9e-1 vs 9.08e-2) — the pointwise reconstruction already carries the exact local
+  // dE_flow/dN. Import-light, 6 assertions. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96403-eflow-peak-location-eflowsq-vs-dedn.js',
   // imp-96397: registers the imp-96294 viz-data leaf's IMP96294_ASSERTIONS array (3 checks
   // derived from the previously-unexecuted IMP96294_VALIDATION object) with this sweep. The
   // module still carries no import-time throw guard (per its original ticket spec, to avoid

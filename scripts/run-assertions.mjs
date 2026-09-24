@@ -19790,6 +19790,13 @@ const DATA_MODULES = [
   // C_F inflated x5.3-6.3, outside any admissible mollifier. Measurement only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96409-eflow-domination-required-factor.js',
+  // imp-96550 (2026-09-24): QUANTIFIES the admissible-mollifier reshaping range of the imp-398 pinned
+  // C_F, replacing the imp-96409 (M3) bare "reshapes at O(1)" with an explicit ceiling: the mollified
+  // 2nd-moment gain 1+theta is <=~1.571 for the longest rigorous mollifier (Conrey theta=4/7) and 2.0
+  // even at the conjectural theta->1 barrier, so the imp-96409 required kappa_min ~5.30/6.26 overshoots
+  // it by x2.65-x3.99 -- strictly outside. Import-light (no zeros bundle). Measurement only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96550-mollifier-reshaping-range.js',
   // imp-96531 (2026-09-24): recomputes the imp-96430 basis-C corroboration-reach crossover from the
   // imp-96448 MEASURED anchor floor (~2.84e-5, ~573x above the model floor) instead of the L-linear
   // MODEL floor -- crossover collapses ~460x from L* ~ 1.32e12 to ~2.86e9 (still ~2.7 decades past the

@@ -44,9 +44,19 @@
  *  stays with the analytic no-modulus-1 route (SG-96164-boundary / SG-96181-edge-octave). Nothing here
  *  diagonalizes A, moves a Lambda bound, or a verified height. RH open; PT Lambda <= 0.2 stands; NO QED.
  *
- * Import-light: baked real-spectrum literals + pure linear-algebra arithmetic in the eigenbasis; no
- *  imports, no zeros bundle. Reproduction inline in the assertions (Kato-Temple threshold recalibration).
+ * Import-light: baked real-spectrum literals + pure linear-algebra arithmetic in the eigenbasis; the
+ *  only import is the port module SONINE_EXCESS_LITERALS (semilocal.lam) for the imp-96204
+ *  cross-validation assertion — that chain is itself import-light (no zeros bundle). Reproduction
+ *  inline in the assertions (Kato-Temple threshold recalibration + baked-spectrum transcription check).
+ *
+ * imp-96204 (2026-09-23) — CROSS-VALIDATION: the baked IMP_96188_REAL_SPECTRUM (24 elements) was
+ *  compared element-by-element against the canonical port literals SONINE_EXCESS_LITERALS.semilocal.lam
+ *  (rh-route-i-sonine-excess-semilocal-port-2026-09-23.js line 221). Result: IDENTICAL, max element-wise
+ *  drift 0, lengths equal (24) — the recalibration inputs (lam_top = 0.9999731, lam_bottom = -0.9927022,
+ *  lam_2 = 0.6202012, and the full dyadic tail) were transcribed EXACTLY from the port module. No
+ *  transcription drift; changes no bound; RH open; NO QED. (See assertion imp96204-crossval-against-port.)
  */
+import { SONINE_EXCESS_LITERALS } from './rh-route-i-sonine-excess-semilocal-port-2026-09-23.js';
 
 // Real measured semilocal {oo,2} prolate spectrum (FFT-Mellin; baked from the port module, line 221).
 export const IMP_96188_REAL_SPECTRUM = Object.freeze([
@@ -153,6 +163,18 @@ export const IMP_96188_ASSESSMENT_ASSERTIONS = Object.freeze([
       return approx(epsB, 0.324544, 1e-5)
         && katoTempleUpperTwoLevel(epsB * 0.99, IMP_96188_LAM_BOTTOM).valid
         && !katoTempleUpperTwoLevel(epsB * 1.01, IMP_96188_LAM_BOTTOM).valid;
+    },
+  },
+  {
+    id: 'imp96204-crossval-against-port',
+    description: 'imp-96204: the baked IMP_96188_REAL_SPECTRUM matches the canonical port literals SONINE_EXCESS_LITERALS.semilocal.lam (port line 221) element-by-element (max element-wise drift 0, equal length 24), confirming the recalibration inputs (lam_top 0.9999731, lam_bottom -0.9927022, lam_2 0.6202012) were transcribed exactly with no drift',
+    holds: () => {
+      const port = SONINE_EXCESS_LITERALS.semilocal.lam;
+      if (!Array.isArray(port) || port.length !== IMP_96188_REAL_SPECTRUM.length) return false;
+      const drift = IMP_96188_REAL_SPECTRUM.reduce((m, x, i) => Math.max(m, Math.abs(x - port[i])), 0);
+      return drift === 0
+        && port[0] === IMP_96188_LAM_TOP && port[1] === IMP_96188_LAM_BOTTOM
+        && port[2] === IMP_96188_LAM_SECOND_SIGNED;
     },
   },
   {

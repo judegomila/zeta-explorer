@@ -21,6 +21,7 @@ const {
   christoffelFit,
   T0,
   nNeededAtT0,
+  consistent,
 } = IMP96269_REACH_LAW_CROSSCHECK;
 
 const log10 = (x) => Math.log10(x);
@@ -84,3 +85,7 @@ export const IMP96302_FIT_SUMMARY = Object.freeze({
 });
 
 export const IMP96302_HONEST_BANNER = IMP96269_VERDICT;
+
+// imp-96419: surface the imp-96269 boolean consistency verdict as a scannable flag, not just
+// buried inside the IMP96302_HONEST_BANNER paragraph.
+export const IMP96302_CONSISTENT = consistent;

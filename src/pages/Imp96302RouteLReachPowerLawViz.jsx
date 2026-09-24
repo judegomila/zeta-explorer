@@ -9,6 +9,7 @@ import {
   IMP96302_EXTRAPOLATION_FAN,
   IMP96302_FIT_SUMMARY,
   IMP96302_HONEST_BANNER,
+  IMP96302_CONSISTENT,
 } from '../data/imp-96302-route-l-reach-power-law-viz-data.js';
 
 function ReachPowerLawChart() {
@@ -116,6 +117,23 @@ export default function Imp96302RouteLReachPowerLawViz() {
   return (
     <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
       <PageHeader title="imp-96269: Route L Detector-vs-Christoffel Reach Power Laws and the PT-Height Extrapolation Fan" />
+
+      <span
+        style={{
+          display: 'inline-block',
+          marginBottom: '0.75rem',
+          padding: '0.2rem 0.6rem',
+          borderRadius: '999px',
+          fontSize: '0.75rem',
+          fontWeight: 600,
+          letterSpacing: '0.02em',
+          background: IMP96302_CONSISTENT ? 'rgba(74,222,128,0.12)' : 'rgba(248,113,113,0.12)',
+          color: IMP96302_CONSISTENT ? '#4ade80' : '#f87171',
+          border: `1px solid ${IMP96302_CONSISTENT ? '#4ade80' : '#f87171'}`,
+        }}
+      >
+        {`VERDICT: ${IMP96302_CONSISTENT ? 'CONSISTENT' : 'INCONSISTENT'}`}
+      </span>
 
       <div
         style={{

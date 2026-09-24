@@ -425,6 +425,15 @@ const DATA_MODULES = [
   // has no local positivity channel. Named sub-gap = a finite-place Sonin/reflection structure (geometric
   // refinement of imp-95520). Import-light lattice/weight witnesses only; NOT a bound; PT Λ≤0.2 SOTA; NO QED.
   '/src/data/imp-96019-scaling-site-weil-past-ln2-assessment.js',
+  // imp-96129 (2026-09-23): STRESS of the imp-96108 max offset anchor C0_max=0.333721 against its
+  // sample-maximum caveat -- re-measures offset(T)=sd(C-E)^2-(1/2pi^2)loglog(T/2pi) on a DENSER+WIDER
+  // 25-height interior grid (same band() over the 10^6 Odlyzko ordinates, none coinciding with the six
+  // fit heights, reach to T=6.37e5). Result: 0/25 breaches (0/36 with the prior sample); deepest new
+  // offset 0.292306 at T=2.75e4 sits 0.041415 below the anchor and no denser point approaches C0_max
+  // closer than the held-out T=5e4 (0.012815) -> finer sampling does NOT reveal a coarse-grid ceiling.
+  // Sub-gap DENSE-GRID-INTERPOLATION (finite grid, ~6.7 decades below the T=3e12 window bottom).
+  // Import-light baked literals; reproduction tmp/imp-96129-dense-grid.mjs. NOT a bound; PT Lambda<=0.2 SOTA; NO QED.
+  '/src/data/imp-96129-number-variance-dense-grid-max-anchor-stress.js',
   // imp-96020 (2026-09-23): Route B/D handoff -- LP-feasibility of a bounded-support signed coefficient
   // field with Z_w*Z'' > 0 at every near-collision (the arithmetic Gram-law surrogate), at FIXED T, and
   // how it degrades as T grows. Strict system g_k.w>0 (g_k = sign(Z'') a(x*)); feasible iff 0 not in
@@ -19101,6 +19110,15 @@ const DATA_MODULES = [
   // the build only on a NEW, un-baselined unqualified citation. Meta/
   // regression-guard only; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96042-a0-tx-pinned-citation-regression-guard.js',
+  // imp-96128: exact GUE two-interval number-variance covariance for the sd(C - E) statistic,
+  // replacing the imp-96109 O(1/L) = 0.00202 boundary proxy. Union identity
+  // Cov = (Sigma^2(2L) - 2 Sigma^2(L))/2 (cross-checked against the direct sine-kernel double
+  // integral) gives a strongly ANTI-correlated adjacent-box lag-1 rho_exact = -0.46398 at T = 1.5e5
+  // (near the GUE-rigidity value -1/2, ~230x the proxy but of the opposite sign). Confirms the
+  // anti-correlation sign claim and strengthens the imp-96089 significant-dip verdict (n_eff 291 ->
+  // ~795; flip threshold rho_crit = +0.5744 is sign-forbidden). Import-light; changes no bound;
+  // NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-96128-number-variance-two-interval-covariance-exact.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -182,6 +182,20 @@ export const IMP96487_SUBGAP = Object.freeze({
     'the decaying-oscillation asymptotic-remainder model favors a plateau at ~0.985 over ratio->1 by ~1.9x in rms, but the log-N window is only 3.689 wide (~2.26 oscillation periods) and the remainder decay exponent p is degenerate (p in {0,1,2} give c0 ~ 0.9845 alike), so the fitted centerline and decay rate are jointly underdetermined. The model gives no evidence for a slow drift of the centerline to 1 and positively favors the plateau on N <= 1e4, but cannot rigorously exclude a centerline that creeps upward beyond N=1e4 on a scale this window cannot resolve. Deciding the true asymptote still needs a wider log-N reach (a longer Gram ladder), not a further fit.',
 });
 
+// Registration (imp-96521): literal `openSubGap:` key (not a variable reference)
+// so scripts/auto-ticket-producer.mjs harvestSubGaps() can mint a follow-up
+// ticket next wave. Content mirrors IMP96487_SUBGAP above; kept as a separate
+// literal object because the harvester's regex requires a quoted string value,
+// not a reference into another export.
+export const IMP96487_OPEN_SUBGAP_REGISTRATION = Object.freeze({
+  openSubGap: {
+    id: 'imp-96487-remainder-model-degenerate',
+    statement:
+      'the imp-96487 decaying-oscillation asymptotic-remainder model favors a ~0.985 plateau over ratio->1 by ~1.9x in rms on the N=250..10000 Route M Burnol ladder, but the log-N window is only 3.689 wide (~2.26 oscillation periods) and the remainder decay exponent is degenerate (p in {0,1,2} all give c0 ~ 0.9845), so the fitted centerline and decay rate are jointly underdetermined. Deciding the true asymptote needs a longer Gram ladder (wider log-N reach), not a further fit.',
+    status: 'open',
+  },
+});
+
 export const IMP96487_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/fit only: every value is a reproducible numeric from tmp/imp-96487-scratch.mjs over the baked imp-96094/imp-96105/imp-96325 ladder; no new solve, no bound is claimed and no operator positivity is established.';
 
@@ -262,5 +276,6 @@ export default {
   tail: IMP96487_TAIL,
   verdict: IMP96487_VERDICT,
   subGap: IMP96487_SUBGAP,
+  openSubGapRegistration: IMP96487_OPEN_SUBGAP_REGISTRATION,
   banner: IMP96487_HONEST_BANNER,
 };

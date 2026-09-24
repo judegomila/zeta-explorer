@@ -188,6 +188,21 @@ export const IMP96486_BASIS_C_PPP_COLLAPSE_TRANSITION = {
     'Mapping the direct basis-C floor across L = 960 .. 5.9e6, the optimal ppp collapses monotonically 640 -> 3, beginning immediately past the L = 960 endpoint (already 128 at L = 3e3, a true U-shape optimum, not an affordability artifact). The achievable floor follows the imp-96430 L-linear cancellation model to within ~2-4x while ppp* >= 32 (up to L ~ 1e5), then departs into the ppp-truncation regime as ppp* falls through 16 (13.5x at 3e5, 50x at 1e6, 133x at 3e6, 573x at the anchor). The model is valid only on the L <= ~1e5 cancellation branch; at the anchor the ppp = 3 truncation floor (~2.84e-5), not the extrapolated cancellation line (~4.96e-8), sets the achievable error -- confirming and localizing the imp-96448 verdict. Feasibility / cross-validation numerics only; theoretical GUE quantity, not real zeros; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
 };
 
+// Registration (imp-96521): literal `openSubGap:` key so
+// scripts/auto-ticket-producer.mjs harvestSubGaps() can mint a follow-up ticket.
+// imp-96506 fit the truncation-branch (L>=3e5) floor law this module only
+// localized, but that fit is coarse (four rungs, two eval-budget-capped) --
+// the residual refinement gap is registered here, on the module that first
+// named the branch.
+export const IMP96486_OPEN_SUBGAP_REGISTRATION = Object.freeze({
+  openSubGap: {
+    id: 'imp-96486-ppp-truncation-floor-law-refinement',
+    statement:
+      'imp-96506 fit the ppp-truncation-branch (L>=3e5) floor law as floor = D*ppp*^beta (beta ~ -4.11) equivalently floor = C*L^alpha (alpha ~ 2.20), but the fit rests on only four imp-96486 rungs with ~0.2-0.3 log-rms scatter, and two of those four (L=3e6, 5.9e6) have eval-budget-capped high-ppp arms so their optimal ppp are confirmed lower bounds, not confirmed optima. Tightening beta/alpha needs either more truncation-branch rungs or an uncapped eval budget at the two largest rungs.',
+    status: 'open',
+  },
+});
+
 // --- self-executing internal-consistency assertions (live mid-rung re-checks + map monotonicity) ---
 (() => {
   const approx = (a, b, tol) => Math.abs(a - b) <= tol;

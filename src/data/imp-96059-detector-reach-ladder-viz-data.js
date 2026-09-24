@@ -6,14 +6,16 @@
  * detector reach law: replacing the true zero gamma_0 by an off-line FE-symmetric quadruple
  * 1/2 +/- delta +/- i*gamma_0 in the exact Herglotz moments, N_det = first Levinson order at
  * which the CMV Toeplitz form goes indefinite (|alpha| >= 1) detecting the displacement. The
- * measured law is N_det ~ N_res(gamma_0) + O(log 1/delta), nearly delta-independent, giving a
- * reach ~ gamma_{N/10} that is LINEAR in N: zero 1 detected at N = 9-14, zero 20 at N = 96-115,
- * zero 40 undetected through N = 400.
+ * measured law is N_det ~ N_res(gamma_0) + O(log 1/delta), nearly delta-independent: zero 1
+ * detected at N = 9-14, zero 20 at N = 96-115, zero 40 undetected through N = 400. The reach is a
+ * POWER law gamma_det(N) ~ 2.21 * N^0.786 (imp-96149 fit) -- the earlier "linear in N, gamma_{N/10}"
+ * characterization below is STALE/REFUTED, corrected here per imp-96149/imp-96178.
  *
  * Reference literals are copied verbatim from ROUTE_L.detector.rows / .law / .reach -- no
  * re-derivation here. Presentation only; changes no bound; NO QED.
  *
  * @see rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js (source module: ROUTE_L.detector)
+ * @see imp-96149-route-l-detector-reach-law-fit.js (power-law refit correcting the stale linear string)
  *
  * Ticket: imp-96059 (ux, low). RH-equivalent; Platt-Trudgian Lambda <= 0.2 stays SOTA; NO QED.
  */
@@ -39,8 +41,8 @@ export const IMP96059_NDET_RANGE_BY_ZERO = [
 ];
 
 // [N, resolved count among the first 40 zeros] from ROUTE_L.a20.resolvedFirst40 -- the
-// order-vs-resolved-count curve substantiating the "linear-in-N reach" ~ gamma_{N/10} law
-// (a SEPARATE, coarser count than the per-zero detector rows above).
+// order-vs-resolved-count curve for the detector reach (power law gamma_det ~ 2.21 * N^0.786,
+// imp-96149; a SEPARATE, coarser count than the per-zero detector rows above).
 export const IMP96059_RESOLVED_FIRST_40 = [
   [50, 11], [100, 21], [150, 26], [200, 28], [300, 33], [400, 39],
 ];
@@ -50,4 +52,4 @@ export const IMP96059_NMAX = 400;
 export const IMP96059_LAW =
   'N_det ~ N_res(gamma_0) + O(log 1/delta): detection happens when the Gauss-Szego quadrature resolves the displaced zero; nearly delta-independent. The pre-test prediction N_det ~ gamma_0^2/(4*a*delta) (from |z_rho|^n drift) is REFUTED (measured/predicted ranges 1.44 -> 0.039).';
 export const IMP96059_REACH =
-  'height reach ~ gamma_{N/10} (~ N*(2*pi/10)/log N): linear in N. Certifying RH to the Platt-Trudgian height 3e12 would need N ~ 1e13 orders -- the verified-zero route is incomparably cheaper. The finite certificate is verified-height-dominated.';
+  'height reach ~ 2.21 * N^0.786 (POWER law, imp-96149 fit; the earlier "gamma_{N/10} linear in N" string was stale and is corrected here). Certifying RH to the Platt-Trudgian height 3e12 would need N ~ 3e15 orders -- the verified-zero route is incomparably cheaper. The finite certificate is verified-height-dominated.';

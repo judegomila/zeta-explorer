@@ -419,6 +419,11 @@ const DATA_MODULES = [
   // + Bettin–Conrey), NOT run. Wall map: Landau pole / Jensen integration / Herglotz-Weil. Import-light (imports
   // only imp-2426); NOT a bound; no external input found; RH open; NO QED.
   '/src/data/rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js',
+  // imp-96062: standalone overclaim-registry guard for the JKL batch above -- scans ROUTE_J/K/L's
+  // own verdict text and RH_ROUTES_JKL.wallMap.J/K/L for a promotion word (RIGOROUS / RH-follows /
+  // proves RH), mirroring imp-96134's leaf-honesty-guard pattern. Import-light (imports only the
+  // JKL module above). Changes no bound; RH open; NO QED.
+  '/src/data/imp-96062-jkl-honesty-guard.js',
   // imp-96043 (2026-09-23): FIRST-TEST of Route M (the untested route of the J/K/L/M batch) — the
   // Nyman-Beurling / Baez-Duarte Gram whose exact entries are the Vasyunin cotangent sums c_0(h/k),
   // wired to the Bettin-Conrey (2013) quantum-modular reciprocity as the claimed external arithmetic
@@ -495,6 +500,17 @@ const DATA_MODULES = [
   // OFF the line (Route B Test 2 no-universal-sign = Weil strength), upgrading the imp-96020 prose sub-gap
   // to quantitative. Import-light literals. NOT a bound; PT Λ≤0.2 SOTA; RH open; NO QED.
   '/src/data/imp-96148-route-bd-online-margin-decay-law.js',
+  // imp-96151 (2026-09-23): promotes the imp-33723 closed-form crossover N_cross=(C_C/E_trunc)^2 log
+  // T0(N_cross) to a two-term analytic share model sigma_CF(N)=1/(1+sqrt(N/N_cross) sqrt(L_cross/L(N)))
+  // and tests it past the imp-33582 1e12 grid endpoint. It REPRODUCES the post-peak decay-exponent ramp
+  // EXACTLY (per-decade exponents identical to 4 dp -- 0.4646 at 1e12 up to 0.4927 at 1e30 -- full-vs-CF
+  // share gap < 4.60e-4 out to 1e100, since E_flow becomes negligible past the crossover) and confirms the
+  // ramp climbs to the imp-3463 1/2 with a SINGLE knee (imp-33701/imp-95055 [1e10,1e11] inflection) and no
+  // second knee (increment strictly positive and strictly decreasing past 1e12). But it does NOT reproduce
+  // the imp-3220 U-shape peak -- sigma_CF is monotone decreasing over [1e2,1e12] -- isolating the peak/left
+  // arm as an E_flow (Gronwall) effect. Surviving share driven to ~2.80e-104 by N~1e218. Import-light
+  // literals. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96151-sigma-closed-form-crossover-fartail-reproduction.js',
   // gate2-sub0145-row-sweep (2026-09-22): the native Gate-2 freeze-calculus evaluator RUN at six
   // sub-0.145 rows (frozen 0.14, paper 0.1399, synthetic 0.13/0.12/0.10 t-axis, 0.13 y-heavy) on the
   // anchor window + 4 sample windows. Pilot sum|D_j| crosses Rex between Lambda 0.1399 and 0.13 on

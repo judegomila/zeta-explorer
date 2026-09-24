@@ -19583,6 +19583,14 @@ const DATA_MODULES = [
   // closes the location gap ~21x to 4.37e-3; the full geometric sum 1/(1+x) is an identity. Import-
   // light, 6 assertions. NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96286-eflow-peak-location-error-order.js',
+  // imp-96308: MEASURE the imp-96286 M4 residual peak-location error 4.37e-3 under a THIRD Taylor
+  // term (1 - x + x^2 - x^3) and test the predicted further ~x shrink toward the exact 1/(1+x).
+  // Third-order location error measures 1.84e-4 (from 4.37e-3), height error 9.41e-7 (from 2.99e-5):
+  // the height error shrinks by essentially exactly 1/x (31.76 vs 1/x=31.69, |err_k|~sigma_CF*x^(k+1))
+  // and the location error by (3/4)/x=23.82, the same ~x law with the (k+1)/k degree prefactor of the
+  // error-slope ratio the flat-peak amplification passes through; both converge monotonically to the
+  // exact geometric identity. Import-light, 7 assertions. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96308-eflow-peak-third-order-shrink.js',
   // imp-96174: Concepts glossary headword for the imp-96147 Route M ratio two-term fit --
   // c0 = 0.975 is separated from the RH-predicted 1, and the leftover ~1.3 percent RMS
   // residual is a genuine, non-decaying oscillation (not a resolvable smooth drift),

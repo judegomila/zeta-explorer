@@ -5,6 +5,7 @@ import {
   IMP96075_RESIDUAL_POINTS,
   IMP96075_MELLIN_SUMMARY,
   IMP96075_HONEST_BANNER,
+  IMP96075_LATER_DENSE_LADDER_NOTE,
 } from '../data/imp-96075-route-m-vasyunin-dn-ladder-viz-data.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
@@ -182,6 +183,21 @@ export default function Imp96075RouteMVasyuninDnLadderViz() {
         falls from {first.ratioToBurnol.toFixed(3)} at N={first.N} to {last.ratioToBurnol.toFixed(3)} at
         N={last.N} &mdash; the exact Gram already sits on the Burnol lower-bound floor at this size.
       </p>
+
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Update (imp-96119):</strong> {IMP96075_LATER_DENSE_LADDER_NOTE}
+      </div>
 
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         d_N ladder: convergence onto the Burnol floor

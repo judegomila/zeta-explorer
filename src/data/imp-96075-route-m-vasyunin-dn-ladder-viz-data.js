@@ -67,6 +67,19 @@ export const IMP96075_MELLIN_SUMMARY = Object.freeze({
 export const IMP96075_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every plotted value is copied verbatim from the rh-route-m-nyman-beurling-vasyunin-reciprocity module’s own NB_DISTANCE_LADDER and RECIPROCITY_STRUCTURAL_TEST.mellinResidual records; no bound is claimed and no operator positivity is established.';
 
+// imp-96119: honest-status correction. Denser later sampling (imp-96094,
+// N=250..2600; imp-96105, extended to N=6000) found the N=500 ratio=0.998
+// figure above is a SAMPLING ARTIFACT, not genuine convergence: ratio(N)
+// does not tighten toward 1 anywhere on N<=6000 -- it oscillates in a band
+// [0.9639,1.0102] (~4.6 percent spread, six sign changes over the full
+// ladder), and the very next rung N=750 is already 3.6 percent off. See
+// imp-96094-route-m-burnol-ratio-dense-ladder.js / imp-96105-route-m-
+// vasyunin-gram-extend-n6000.js for the full dense ladder and named
+// beyond-N sub-gaps (the N~1e4 target is not yet reached; 6000 is the
+// completable range so far).
+export const IMP96075_LATER_DENSE_LADDER_NOTE =
+  'Later denser sampling (imp-96094, dense ladder N=250..2600; imp-96105, extended to N=6000) found the N=500 ratio=0.998 figure above is a SAMPLING ARTIFACT, not convergence: ratio(N) does not tighten toward 1 anywhere on N<=6000 -- it oscillates in a band [0.9639,1.0102] (~4.6 percent spread, six sign changes), and the very next rung, N=750, is already 3.6 percent off. Extending the exact Vasyunin Gram to the N~1e4 target (from the completable N=6000 reached so far) remains the named open sub-gap.';
+
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
 const IMP96075_ASSERTIONS = [
@@ -111,6 +124,15 @@ const IMP96075_ASSERTIONS = [
       /NO QED/.test(IMP96075_HONEST_BANNER) &&
       RH_ROUTE_M.verdict.key === 'M',
     why: 'the mellin summary fields are copied verbatim (dN2/Burnol matches 1/log N to 0.3%, as the source module states) and the honest banner carries the RH-open / PT-Lambda / NO-QED markers required of every Route A-M viz surface.',
+  },
+  {
+    id: 'imp96119-later-dense-ladder-note-present',
+    holds: () =>
+      /imp-96094/.test(IMP96075_LATER_DENSE_LADDER_NOTE) &&
+      /imp-96105/.test(IMP96075_LATER_DENSE_LADDER_NOTE) &&
+      /sampling artifact/i.test(IMP96075_LATER_DENSE_LADDER_NOTE) &&
+      /1e4/.test(IMP96075_LATER_DENSE_LADDER_NOTE),
+    why: 'the N=500 apparent convergence to 0.998 shown by this ladder is later shown (imp-96094/imp-96105) to be a sampling artifact, not genuine convergence; the note must name both correcting tickets and the still-open N~1e4 sub-gap so this page cannot be misread in isolation.',
   },
 ];
 

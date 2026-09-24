@@ -23115,6 +23115,35 @@ export const glossary = [
       'imp-96221 the consumer status note re-pointing Route I to the analytic no-modulus-1 route on this recalibration',
     ],
   },
+  {
+    term: 'Anchor-Invariant sqrt(3)/2 Kato-Temple Joint Coupling Constant (imp-96227)',
+    category: 'concept',
+    definition:
+      'imp-96206 built a JOINT 3-level Kato-Temple certify region [1, eps_a, eps_b] on the real semilocal ' +
+      '{oo,2} spectrum (lam_top = 0.9999731, lam_2 = 0.6202012, lam_S(1) = -0.9927022), coupling an ' +
+      'adjacent-state leak eps_a to a bottom-twin leak eps_b around the imp-96206 gap-midpoint anchor ' +
+      'alpha = 0.81008715, and noticed a per-channel tightening ratio reading of ~0.866 there. imp-96227 ' +
+      'sweeps the anchor alpha across the WHOLE admissible gap (0.6202012, 0.9999731) to test whether that ' +
+      '0.866 reading was a midpoint coincidence. It is not: at every interior anchor, opening a ' +
+      'simultaneous adjacent leak equal to HALF that anchor own pure-adjacent threshold shrinks the ' +
+      'bottom-twin tolerance to exactly sqrt(3)/2 ~ 0.8660254038 of its pure value (maxTolerableBottom' +
+      '(adjThresh/2) / maxTolerableBottom(0) = sqrt(3)/2, reproduced to ~1e-11 at each sampled alpha from ' +
+      '0.65 to 0.95). The joint worst-case leak direction is also pure-bottom (theta = 90 deg) at every ' +
+      'anchor, so the joint total-magnitude threshold equals the separate bottom-twin threshold, sliding ' +
+      'from ~1.7828e-3 at the low-anchor edge through 1.192419e-3 at the midpoint down to ~5.892776e-4 ' +
+      'near lam_top; the equal-split boundary (eps_a = eps_b) tracks just below it (es/botPure from ' +
+      '~0.9842 near the top to ~0.9983 near the low edge). Net: the coupling GEOMETRY of the joint region ' +
+      'is anchor-independent even though the absolute thresholds shrink toward lam_top, so combining both ' +
+      'leak channels and sweeping the anchor buys nothing -- the region stays pinned at O(1e-3) everywhere ' +
+      'and the Route I variational (Sonine refinement) route stays obstructed. Measurement only; no bound ' +
+      'moved; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96227-route-i-kato-temple-joint-anchor-sweep.js (sweeping the imp-96206 joint Kato-Temple region across the admissible anchor gap), 2026',
+    relatedTerms: [
+      'imp-96206 the gap-midpoint joint (eps_a, eps_b) Kato-Temple region that first read the 0.866 tightening ratio',
+      'imp-96205 the single-channel anchor sweep whose botEps column matches the imp-96227 joint pure-bottom threshold exactly',
+      'imp-96188-route-i-kato-temple-real-spectrum-recalibration.js the real-spectrum recalibration that introduced the bottom-twin eigenvalue lam_S(1) = -0.9927022',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -18256,6 +18256,13 @@ const DATA_MODULES = [
   // C0 was pinned from these same six points (max offset), so this is a self-consistency check of the
   // max-anchor slack, not an out-of-sample test. Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
   '/src/data/imp-95946-number-variance-envelope-vs-measured-crossvalidation.js',
+  // imp-96049: RECOMPUTES the imp-95946 six-height residual band under the MEAN offset anchor
+  // (imp-95787/imp-95800/imp-95958) instead of the max anchor. The mean anchor shrinks the band
+  // ~54% (mean-abs +0.0770 -> +0.0350) but loses uniform conservatism -- three of six overlap
+  // heights fall below the envelope (deepest -0.0737 at the former T=1.5e5 touch point) -- while
+  // r_cap(3e12) = 0.22255 stays comfortably < 1. Was git-untracked and absent from this sweep
+  // (imp-96098 audit). Import-light, no bound, no QED, PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96049-number-variance-mean-anchor-six-height-residual-band.js',
   // imp-95611: META provenance roll-up confirming that each of the imp-95456/95457/95459/95473/
   // 95475 honest-status note modules carries the mandatory no-QED and Platt-Trudgian Lambda<=0.2
   // SOTA banner. AUDITED: all five carry the full banner; no gaps found. Read-only roll-up; no

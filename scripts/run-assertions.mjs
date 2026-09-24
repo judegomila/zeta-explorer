@@ -19718,6 +19718,11 @@ const DATA_MODULES = [
   // usable at span ~6, confident separation only at span ~9-10 == Rayleigh). Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96274-route-m-resolvability-graded-transition-glossary-headword.js',
+  // imp-96275: Concepts glossary headword naming the imp-96148/imp-96173 positive-floor
+  // discriminator itself (higher R2 AND decelerating per-segment slope), complementing the
+  // imp-96172 floor-value verdict headword. Documentation only; no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96275-route-bd-margin-decay-discriminator-glossary-headword.js',
   '/src/data/imp-96332-evt-window-independence-neff-audit.js',
   '/src/data/imp-96311-ecoll-rate-ch-independence-tabulation.js',
   '/src/data/imp-96314-covariance-deviation-viz-data.js',

@@ -62,6 +62,26 @@ export const ROUTE_BD_ONLINE_MARGIN_FLOOR_EXTENDED = Object.freeze({
     + 'positive on-line margin floor is NOT a range artifact; the margin flattens, it does not cross zero. '
     + 'Changes no bound; PT Lambda<=0.2 SOTA; RH open; NO QED',
 
+  // Consumer correction (imp-96211 re-point): imp-96186 EXTENDS this column from gamma_500 to
+  // gamma_1000 and PARTLY CORRECTS the "positive asymptote" reading recorded below. On the full
+  // 17-point column the fitted floor REVERSES its rise (0.16030 -> 0.11063, non-monotone in
+  // census depth) and the reciprocal-log vs log-linear R2 gap COLLAPSES (0.02792 -> 0.00214), so
+  // the "floor law clearly wins" reading does NOT survive extension. What still holds: the margin
+  // stays STRICTLY POSITIVE (no zero-crossing). What does NOT: the floor VALUE and functional form
+  // are unsettled -- a still-drifting finite-height feature, not a settled asymptote. Deciding the
+  // true asymptote would need census depth well beyond gamma_1000. The gamma_500 measurement and
+  // fit below are correct AS-MEASURED; only the extrapolated "confirmed positive asymptote" reading
+  // is now over-stated. See src/data/imp-96186-route-bd-online-margin-floor-gamma1000.js.
+  partiallyCorrectedBy: {
+    id: 'imp-96186-route-bd-online-margin-floor-gamma1000',
+    file: 'src/data/imp-96186-route-bd-online-margin-floor-gamma1000.js',
+    reading: 'imp-96186 extends this column to gamma_1000 and partly corrects the positive-asymptote reading: on the '
+      + 'full 17-point column the fitted floor REVERSES its rise (0.16030 -> 0.11063, non-monotone in census depth) and '
+      + 'the reciprocal-log vs log-linear R2 gap COLLAPSES (0.02792 -> 0.00214), so the floor-law-clearly-wins reading '
+      + 'does not survive extension. The margin sign stays strictly positive (no zero-crossing); only the floor value '
+      + 'and functional form are unsettled -- a still-drifting finite-height feature, NOT a settled asymptote.',
+  },
+
   method: {
     pipeline: 'reproduces imp-96020: a_n(x)=n^-1/2 cos(theta(x)-x log n); near-collision x*=inter-zero extremum '
       + '(Z prime=0) with tightness gap/localMeanGap<0.85; g_k=sign(Z second (x*)) a(x*); ghat_k unit-normalized; '

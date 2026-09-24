@@ -1451,6 +1451,9 @@ const Imp96453BasisCCorroborationCrossoverViz = lazy(() =>
 const Imp96454EcollGapLadderViz = lazy(() =>
   import('./pages/Imp96454EcollGapLadderViz.jsx')
 );
+const Imp96455CKhSensitivityViz = lazy(() =>
+  import('./pages/Imp96455CKhSensitivityViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3807,6 +3810,10 @@ function AppShell() {
           <Route
             path="/viz-imp96454-ecoll-gap-ladder"
             element={<Imp96454EcollGapLadderViz />}
+          />
+          <Route
+            path="/viz-imp96455-ckh-sensitivity"
+            element={<Imp96455CKhSensitivityViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

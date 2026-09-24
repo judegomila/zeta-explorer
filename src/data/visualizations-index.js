@@ -3933,6 +3933,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every N, true height and relative-gap value is copied verbatim from the imp-96426 baked six-anchor object (no re-derivation); the reference 1/(gamma log gamma) envelope is scaled to match the N=1e3 anchor, a visual check of the imp-96426 prose claim, not an independent re-derivation; measurement/accuracy audit only, no gap closed, no bound changed, G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96455-ckh-sensitivity',
+      title: 'C_KH-Invariance Sweep',
+      oneLine:
+        'Charts the imp-96429 C_KH-sensitivity sweep: the two relative-gap conclusions (1e22 gap flat at the double-precision floor, first-zero gap flat at 8.47e-2) stay invariant across a 0.1x..100x rescaling of the Koksma-Hlawka factor, while the absolute E_coll(0.125, 1e22) magnitude tracks the exact sqrt(C_KH / baseline) reference line.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96455-ckh-sensitivity-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96429-ecoll-ckh-sensitivity.js (IMP96429_ECOLL_CKH_SENSITIVITY; imp-96455 viz page)',
+      ticket: 'imp-96455',
+      pedagogicalStep: 255,
+      honestCeiling:
+        'Presentation only: every C_KH, factorVsBaseline, rateRelGap and eCollA1e22 value is copied verbatim from the imp-96429 baked sweep table (no re-derivation); the only new arithmetic is the log10 axis reshaping, a double-precision floor clip for the exact-zero 1e22 gap, and the eCollA1e22-to-baseline ratio; measurement/accuracy audit of a normalization constant only, no gap closed, no bound changed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

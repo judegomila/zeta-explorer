@@ -3373,6 +3373,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: both curves are live evaluations of the imp-96188 module\'s own katoTempleUpperTwoLevel on the exact FFT-Mellin semilocal spectrum literals (no re-derivation of the Rayleigh-Ritz eigenvalues or the Kato-Temple gap inequality); the two-level [1, eps] test function models a single-mode leak only, a lower bound on what an actual dyadic-grid ansatz incurs; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96215-ushape-peak-accident',
+      title: 'imp-96187: The U-Shape Peak-Ratio 1/sqrt(3) Accident',
+      oneLine:
+        'Line chart of the imp-96187 N_peak/N_flow ratio across the E_trunc sensitivity sweep (0.25x..16x): the ratio falls monotonically and crosses 1/sqrt(3)=0.57735 near the pinned E_trunc=3.06e-5 with no plateau or fixed point, confirming the imp-96162 proximity is an accident of the inherited constants, not a forced identity.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident.js',
+      paperSourcePath:
+        'src/data/imp-96187-ushape-peak-ratio-logcorrection-identity-vs-accident.js (IMP96187_USHAPE_PEAK_RATIO_LOGCORRECTION.sensitivity; imp-96215 viz page)',
+      ticket: 'imp-96215',
+      pedagogicalStep: 217,
+      honestCeiling:
+        'Presentation only: renders the frozen imp-96187 sensitivity sweep verbatim (no re-derivation of the peak-location formula or the local log-slopes a, b); measurement/derivation only, not a rigorous asymptotic; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

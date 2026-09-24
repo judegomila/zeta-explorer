@@ -12,6 +12,17 @@ import {
   IMP96105_VERDICT,
   IMP96105_HONEST_BANNER,
 } from '../data/imp-96105-route-m-vasyunin-gram-extend-n6000.js';
+import {
+  IMP96189_GAMMA1,
+  IMP96189_TRANSIENTS,
+  IMP96189_CONDUCTOR_TONES,
+  IMP96189_FREE_TONE,
+  IMP96189_BAND,
+  IMP96189_GAMMA1_TONE,
+  IMP96189_LAMMIN,
+  IMP96189_VERDICT,
+  IMP96189_HONEST_BANNER,
+} from '../data/imp-96189-route-m-swing-attribution.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
@@ -248,6 +259,84 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         }}
       >
         <strong style={{ color: '#f87171' }}>Honest status (imp-96105):</strong> {IMP96105_HONEST_BANNER}
+      </div>
+
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+        w&nbsp;~&nbsp;4.08 swing attribution (imp-96189): variance-explained R&sup2; per candidate
+      </h3>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '0.75rem', maxWidth: 700 }}>
+        The imp-96147 residual (ratio(N) with the c0 + c1/logN smooth term removed) carries a
+        genuine period-1.5 (w&nbsp;~&nbsp;4.08) swing that imp-96163 showed is not a gamma_1
+        aliasing artifact. Four candidate sources were fit by ordinary least squares against the
+        17-point residual and scored by variance explained (R&sup2;):
+      </p>
+      <table style={{ width: '100%', maxWidth: 560, borderCollapse: 'collapse', fontSize: '0.82rem', color: '#94a3b8', marginBottom: '0.75rem' }}>
+        <thead>
+          <tr style={{ borderBottom: '1px solid #334155' }}>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Candidate</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>w</th>
+            <th style={{ textAlign: 'right', padding: '0.3rem 0.6rem', color: '#64748b' }}>R&sup2;</th>
+            <th style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: '#64748b' }}>Verdict</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[
+            { label: '1/N transient', w: null, r2: IMP96189_TRANSIENTS.invN_R2, verdict: 'ruled out' },
+            { label: '1/logN transient', w: null, r2: IMP96189_TRANSIENTS.invLogN_R2, verdict: 'ruled out' },
+            { label: '1/sqrt(N) transient', w: null, r2: IMP96189_TRANSIENTS.invSqrtN_R2, verdict: 'ruled out' },
+            ...IMP96189_CONDUCTOR_TONES.map((t) => ({
+              label: `conductor q=${t.q}`,
+              w: t.w,
+              r2: t.R2,
+              verdict: t.q === 4 || t.q === 5 ? 'dominant' : '',
+            })),
+            { label: 'best free tone', w: IMP96189_FREE_TONE.bestW, r2: IMP96189_FREE_TONE.R2, verdict: 'proxies q4+q5 band' },
+            { label: 'q4+q5 fixed band', w: null, r2: IMP96189_BAND.q4_q5_R2, verdict: 'matches free tone' },
+            { label: 'q3..q6 fixed band', w: null, r2: IMP96189_BAND.q3_q4_q5_q6_R2, verdict: 'captures 89.7%' },
+            { label: 'gamma_1 zero-tone (control)', w: IMP96189_GAMMA1, r2: IMP96189_GAMMA1_TONE.R2, verdict: 'negligible' },
+          ].map((row) => (
+            <tr key={row.label} style={{ borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+              <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem' }}>{row.label}</td>
+              <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{row.w == null ? '—' : row.w.toFixed(3)}</td>
+              <td style={{ textAlign: 'right', padding: '0.3rem 0.6rem' }}>{row.r2.toFixed(4)}</td>
+              <td style={{ textAlign: 'left', padding: '0.3rem 0.6rem', color: row.verdict === 'dominant' || row.verdict === 'ruled out' ? '#64748b' : '#94a3b8' }}>{row.verdict}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div
+        style={{
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+          marginBottom: '0.75rem',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>lam_min (not in the table, ruled out as a source):</strong>{' '}
+        Pearson r against the residual is {IMP96189_LAMMIN.corrResidLamMin.toFixed(4)} (raw) and{' '}
+        {IMP96189_LAMMIN.corrResidLogLamMin.toFixed(4)} (log), but lam_min is strictly monotone-decreasing
+        ({IMP96189_LAMMIN.lamMinUpwardSteps} upward steps) over the tail where the residual only changes
+        sign {IMP96189_LAMMIN.residSignChangesInTail} time, so it has zero oscillatory content and the
+        strong correlation is a short monotone-window artifact, not a causal link.
+      </div>
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Verdict (imp-96189):</strong> {IMP96189_VERDICT.conclusion}
+        <br />
+        <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96189_HONEST_BANNER}
       </div>
     </div>
   );

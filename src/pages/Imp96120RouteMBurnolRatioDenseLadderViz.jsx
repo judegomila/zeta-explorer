@@ -23,6 +23,7 @@ import {
   IMP96189_VERDICT,
   IMP96189_HONEST_BANNER,
 } from '../data/imp-96189-route-m-swing-attribution.js';
+import { IMP96325_SUBGAP, IMP96325_RUN, IMP96325_HONEST_BANNER } from '../data/imp-96325-route-m-vasyunin-gram-n1e4-run.js';
 
 function AxisFrame({ children, svgW, svgH, padL, padR, padT, padB, xLabel, yLabel }) {
   const plotW = svgW - padL - padR;
@@ -337,6 +338,30 @@ export default function Imp96120RouteMBurnolRatioDenseLadderViz() {
         <strong style={{ color: '#f87171' }}>Verdict (imp-96189):</strong> {IMP96189_VERDICT.conclusion}
         <br />
         <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96189_HONEST_BANNER}
+      </div>
+
+      <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginTop: '1.75rem', marginBottom: '0.5rem' }}>
+        Ladder run to N={IMP96325_RUN.NMAX.toLocaleString()} (imp-96325): accessible range only
+      </h3>
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Honest status (imp-96325):</strong> the ladder above was
+        extended to N={IMP96325_RUN.NMAX.toLocaleString()} as a single dedicated run. That run answers
+        Q1 (does ratio(N) approach the Burnol constant?) for the accessible range only: NO, the
+        finite-N plateau/oscillation seen above persists to N={IMP96325_RUN.NMAX.toLocaleString()} with
+        no tightening. The true asymptotic beyond N={IMP96325_RUN.NMAX.toLocaleString()} and the Q2
+        conductor-band-vs-smooth-drift identifiability both stay OPEN &mdash; see {IMP96325_SUBGAP.id}.
+        {' '}{IMP96325_HONEST_BANNER}
       </div>
     </div>
   );

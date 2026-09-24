@@ -365,6 +365,17 @@ const DATA_MODULES = [
   // negativity = first p=2 resonance window), moment ladder, one-prime reach a_2 = 0.565920 (= ln3 + 0.033 in 2a).
   // No positivity past ln 2 proved. Import-light (Route H/I only; no zeros bundle). Assertions ~15 s.
   '/src/data/rh-route-i-sonine-excess-semilocal-port-2026-09-23.js',
+  // rh-route-i-uncertainty-concentration-certificate (2026-09-24): the uncertainty/concentration attack on D_S <= L_S
+  // (Weil positivity on pole-free h, ln2 < 2a <= ln3) whose binding negativity is the first p=2 resonance dip. Symbol-side
+  // Toeplitz operator T[s] on L^2(-a,a) (Legendre basis, entries = 1-D t-quadratures of s j_m j_n, exponentially
+  // convergent). (I) pure Slepian bound FAILS: dip concentration lambda_0(c=0.475)=0.295 but positive windows have no
+  // pointwise floor; best ratio bound -0.25 (pole-free), +0.024 (two moments), +0.25 (three). (II) step ladder: the symbol
+  // must be resolved to delta*=1e-3 (k=0) / 1.6e-2 / 0.5 / 1.0 vs Paley-Wiener resolution pi/a=5.72 (nu_max=0.997689).
+  // (III) full-symbol certificate (computer-assisted, double precision, floor lemma w >= 2theta'(T) - 3.3468 beyond T,
+  // Bernstein tail bound 3e-24): W(h) >= 9.04e-4 ||h||^2 on pole-free h for ALL a <= (ln3)/2 (nesting); one-prime reach
+  // 2a = 1.1286 vs true crossing 1.1315. Sept-2026 external certified-window preprints cited as UNVERIFIED. Fixed-window
+  // positivity implies nothing about zeros; RH open; NO QED. Import-light (Route I identity exports only). Assertions ~3 s.
+  '/src/data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

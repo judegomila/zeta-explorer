@@ -19496,6 +19496,14 @@ const DATA_MODULES = [
   // C_C prefactor cancels in every log-derivative (coefficients C_C-independent); conditional only through
   // the GUE-conditional N^{-1/2} collision shape (imp-486). Import-light, 5 assertions. No bound change; NO QED.
   '/src/data/imp-96244-ushape-slope-asymptote-derivation.js',
+  // imp-96245 (2026-09-24): CROSS-VALIDATION — places the imp-96228 a,b,a+b location-slope grid
+  // side by side with the imp-33582 six-decade sigma-decay ladder, both recomputed from the shared
+  // inherited model. Reconciles the two exponent families via the EXACT identity
+  // p_sigma = a*w_trunc - b*w_flow (relative error <= 1e-7 across log10 N in [6,250]); the imp-33582
+  // OLS ladder reproduces the pointwise bridge to ~2e-3, and the imp-33582 landmarks (sigma=1/2 at
+  // N~3.267e9, sigma<0.1 at N~3.213e11) sit consistently on the imp-96228 grid with a+b still
+  // climbing toward 1. Import-light, 5 assertions. Conditional per imp-486; no bound change; NO QED.
+  '/src/data/imp-96245-slope-grid-vs-sigma-decay-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

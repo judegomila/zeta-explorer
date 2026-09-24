@@ -1367,6 +1367,9 @@ const Imp96160MaxAnchorWindowRobustnessViz = lazy(() =>
 const Imp96197EnDecayExponentLadderViz = lazy(() =>
   import('./pages/Imp96197EnDecayExponentLadderViz.jsx')
 );
+const Imp96257UshapeSlopeDriftViz = lazy(() =>
+  import('./pages/Imp96257UshapeSlopeDriftViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3611,6 +3614,10 @@ function AppShell() {
           <Route
             path="/viz-imp96197-en-decay-exponent-ladder"
             element={<Imp96197EnDecayExponentLadderViz />}
+          />
+          <Route
+            path="/viz-imp96257-ushape-slope-drift"
+            element={<Imp96257UshapeSlopeDriftViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

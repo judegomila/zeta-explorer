@@ -3541,6 +3541,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: recomputes the imp-96210 a(N), b(N) grid from the identical inherited component model (E_trunc frozen, Gronwall E_flow, GUE-conditional E_coll) purely to expose the per-N curve for charting, cross-checked against the imp-96210 frozen landmarks; the C_mb GUE-conditional share (imp-486) stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96257-ushape-slope-drift',
+      title: 'imp-96228: U-Shape Slope Drift Past N_flow, Toward the (1/2, 1/2, 1) Asymptote',
+      oneLine:
+        'Line chart of a(N), b(N), a+b vs log10 N extending the imp-96210 U-shape slope drift a few decades past N_flow plus a deep probe at log10 N=250: the b-dominated upward drift stays monotone with no reversal, decelerates (saturates), and approaches (1/2, 1/2, 1) from below.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96257-ushape-slope-drift-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96228-ushape-slope-drift-beyond-nflow.js (extended grid, deep probe, monotonicity/deceleration/asymptote findings; imp-96257 viz page)',
+      ticket: 'imp-96257',
+      pedagogicalStep: 229,
+      honestCeiling:
+        'Presentation only: every a(N), b(N), a+b grid value and the deep-probe reading are copied verbatim from the imp-96228 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new slope measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

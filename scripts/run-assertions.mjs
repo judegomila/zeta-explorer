@@ -19904,6 +19904,13 @@ const DATA_MODULES = [
   // each above the ~1e-16 floor and below the first-zero macroscopic regime, decaying
   // like 1/(gamma log gamma). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96426-ecoll-anchor-intermediate-heights.js',
+  // imp-96445 (2026-09-24): MEASUREMENT -- splits the imp-96426 count-inversion
+  // gammaRelGap at N=1e3..1e6 into its deterministic +7/8-term share and its
+  // residual S(T)/N fluctuation share via two exact re-inversions. The +7/8 term
+  // is the dominant single omission (60-73%, confirming imp-96426) but S(T) is a
+  // genuine non-vanishing 27-41% residual; restoring both recovers the true height
+  // to the double floor. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96445-count-gap-plus78-vs-st-split.js',
   // imp-96429 (2026-09-24): MEASUREMENT -- sensitivity of the imp-96402
   // count-model-independence verdict to the Koksma-Hlawka factor C_KH = pi*2.622.
   // C_KH enters both the count-inversion rate and the tabulated-true-height rate

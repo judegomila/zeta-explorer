@@ -4059,6 +4059,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every n_w/z-score/window-gap value plotted here is copied verbatim from the imp-96452 baked reach record; only the bar layout is computed here (no re-derivation). The naive ~1.9-sigma is a conservative lower bound on a single fixed-data-ceiling dip whose window is fully interior to the existing 10^6-ordinate set; reaching 2-sigma needs a deeper excursion from new interior data, not more verified-zero height. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96498-solver-spread-count-shift-crossover',
+      title: 'imp-96449: Solver-Path Spread vs Count-Model Shift',
+      oneLine:
+        'Log-log chart of the imp-96449 Newton-vs-Lambert-W solver-path gamma_N spread (flat, floating-point noise) against the ~1/N count-model reference shift (decaying) across N = 1e2 .. 1e22, marking the N ~ 1e15 crossover where the count-model shift underflows below the solver noise floor.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96498-solver-spread-count-shift-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96449-solver-path-spread-full-range.js (IMP96449_SOLVER_PATH_SPREAD_FULL_RANGE; imp-96498 viz page)',
+      ticket: 'imp-96498',
+      pedagogicalStep: 264,
+      honestCeiling:
+        'Presentation only: every spread/shift value plotted here is copied verbatim from the imp-96449 baked rows; only the log10 axis reshaping is computed here (no re-derivation). The N ~ 1e15 crossover is benign, not a real divergence: past that height both the solver-path residual and the count-model reference shift are numerically negligible (sub-ULP of a double-precision gamma_N). Solver-path / conditioning diagnostic only, not rigorous; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

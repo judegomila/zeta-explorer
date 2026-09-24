@@ -1478,6 +1478,9 @@ const Imp96515PppCollapseViz = lazy(() =>
 const Imp96516RouteMRemainderViz = lazy(() =>
   import('./pages/Imp96516RouteMRemainderViz.jsx')
 );
+const Imp96498SolverSpreadCountShiftCrossoverViz = lazy(() =>
+  import('./pages/Imp96498SolverSpreadCountShiftCrossoverViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3870,6 +3873,10 @@ function AppShell() {
           <Route
             path="/viz-imp96516-route-m-remainder-model"
             element={<Imp96516RouteMRemainderViz />}
+          />
+          <Route
+            path="/viz-imp96498-solver-spread-count-shift-crossover"
+            element={<Imp96498SolverSpreadCountShiftCrossoverViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

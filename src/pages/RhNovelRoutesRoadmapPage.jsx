@@ -19,6 +19,58 @@ import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
 const R = RH_NOVEL_ROUTES;
 const mono = 'var(--ed-mono, var(--font-mono))';
 
+// imp-96081: sup_{2a <= ln3} mu_max(a; k) at a = (ln 3)/2, k = number of vanishing moments
+// (pole-free {hhat(+-i/2) = 0} plus k moments), read from
+// RH_ROUTE_I_PENCIL_HIGHRES_MAP.constraintLever in rh-route-i-pencil-highres-map-2026-09-23.js.
+const ROUTE_I_MU_MAX_LADDER = [
+  { k: 0, muMax: 0.99716 },
+  { k: 1, muMax: 0.93162 },
+  { k: 2, muMax: 0.46061 },
+  { k: 3, muMax: 0.22802 },
+  { k: 4, muMax: 0.19039 },
+  { k: 5, muMax: 0.19039 },
+  { k: 6, muMax: 0.17320 },
+  { k: 7, muMax: 0.12253 },
+  { k: 8, muMax: 0.09604 },
+];
+
+function RouteIConstraintLadderTable() {
+  return (
+    <div style={{ marginTop: 12 }}>
+      <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginBottom: 6 }}>
+        Constraint ladder: sup&#8321;&#8322;&#8210;&#8734; mu_max(a; k) at a = (ln 3)/2, by vanishing-moment count k (N = 128)
+      </p>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+          <thead>
+            <tr style={{ textAlign: 'left', borderBottom: '1px solid var(--hairline)' }}>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>k (moments)</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>mu_max</th>
+              <th style={{ padding: '4px 8px', fontFamily: mono, fontSize: 11, color: 'var(--faint)' }}>margin (1 &minus; mu_max)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ROUTE_I_MU_MAX_LADDER.map((row) => (
+              <tr key={row.k} style={{ borderBottom: '1px solid var(--hairline)' }}>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--faint)' }}>{row.k}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: 'var(--ink-soft)' }}>{row.muMax.toFixed(5)}</td>
+                <td style={{ padding: '6px 8px', fontFamily: mono, color: row.muMax < 1 ? 'var(--ink-soft)' : '#c23a1c' }}>
+                  {(1 - row.muMax).toFixed(5)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8, lineHeight: 1.6 }}>
+        Two vanishing moments (k = 2) buy a uniform margin of 0.539 versus 0.068 for one moment (k = 1); k = 4 and
+        k = 5 give the same value (added moment has the wrong parity for the current extremal). Not a bound or a
+        proof — a finite-N (N = 128) Rayleigh&ndash;Ritz reading of the pencil eigenvalue ladder; RH open.
+      </p>
+    </div>
+  );
+}
+
 // imp-96061: J/K/L/M (non-stat-mech batch, rh-routes-jkl-non-statmech-external-input-hunt-2026-09-23.js)
 // have no "to-test / first-test-done / refuted-as-lever" status string of their own -- they are read
 // off the already-committed cross-route wall map (route, name, wall, note) and folded into the
@@ -311,6 +363,7 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75 }}>{ROUTE_I_HIGHRES.status}</p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Crossing past ln 3:</strong> {ROUTE_I_HIGHRES.crossing}</p>
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8 }}><strong style={{ color: 'var(--brass-dk)' }}>Honest limits:</strong> {ROUTE_I_HIGHRES.honestLimits}</p>
+          <RouteIConstraintLadderTable />
           <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
             data: src/data/{ROUTE_I_HIGHRES.id}.js
           </p>

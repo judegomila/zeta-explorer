@@ -22827,6 +22827,33 @@ export const glossary = [
       'imp-96071-mean-anchor-below-envelope-correction-vs-noise-floor.js the sub-gap this closes (named the crossover counts but deferred the actual n_w(T))',
     ],
   },
+  {
+    term: 'Route I Sonine-Excess Half-Cusp Allocation',
+    category: 'no-go',
+    definition:
+      'rh-route-i-sonine-excess-semilocal-port-2026-09-23. Porting the Connes-Consani Sonine refinement ' +
+      'to the semilocal set S = {oo, 2} splits the remainder delta_S at rho = 2 into a folded-back "in" ' +
+      'part and an excess eps_S carried into the CC operator E_S o Q. The two halves split the rho = 2 ' +
+      'log cusp of delta_S EXACTLY EVENLY: per unit log_2(1/eps) at rho = 2(1+-eps), delta_S ~ 1/sqrt2 = ' +
+      '0.7071, delta^in ~ delta^out ~ 1/(2 sqrt2) = 0.3536, so eps_S(2(1+-eps)) = c_2 log_2(1/eps) + O(1) ' +
+      'with c_2 = 1/(2 sqrt2 ln 2) = 0.51007 -- half the cusp lands in the excess. By Hadamard finite ' +
+      'parts this log cusp turns E_S o Q(k*k^*) into c_2 INT |t| cos(t ln2) |khat(t)|^2 dt + bounded terms, ' +
+      'which for a test function k = cos(t_0 x) phi(x) of half-length a grows like 2 pi c_2 t_0 ' +
+      'cos(t_0 ln2) R_phi(ln2) along the p = 2 resonances t_k = 2 pi k / ln 2 -- to +oo at the resonances ' +
+      'and -oo at the antiresonances -- for every window 2a > ln 2 (measured half-split 210 vs predicted ' +
+      '202 at a = 0.5, k = 32). So the CC sufficient condition E o Q <= c|ghat(0)|^2 (CC Thm 6.11) fails ' +
+      'for every a > (ln2)/2 and no finite-rank correction can repair an operator unbounded above. ' +
+      'VERDICT: the Sonine refinement is exact and every ingredient (excess, semilocal prolate spectrum, ' +
+      'resonance split) is computed explicitly, but the route to Weil positivity via this method ' +
+      'terminates at support ln 2; ln2 < 2a < ln3 remains the open inequality D_S <= L_S. RH open; ' +
+      'Platt-Trudgian Lambda <= 0.2 stands; NO QED.',
+    firstUsed: 'rh-route-i-sonine-excess-semilocal-port-2026-09-23 (Route I Sonine-excess semilocal port), 2026',
+    relatedTerms: [
+      'rh-route-i-sonine-excess-semilocal-port-2026-09-23.js the module carrying C2_CUSP, the cuspTheorem, resonanceSplit and positivityOnset ladders this headword documents',
+      'rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js the sibling exact trace identity Tr(vartheta(f) P Phat_S P) = W_oo + W_2 + D_S that this excess term D_S = eps_S is drawn from',
+      'Route H Connes-Consani Scaling-Site Verdict the archimedean-only precursor whose Test-2 cancellation named this exact semilocal S={oo,2} Sonine identity as its next step',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

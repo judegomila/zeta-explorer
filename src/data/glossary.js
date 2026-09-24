@@ -23056,6 +23056,34 @@ export const glossary = [
       'imp-96105-route-m-vasyunin-gram-extend-n6000.js the ratio and lam_min data on N>2600 used in the fit',
     ],
   },
+  {
+    term: 'Twin Near-Modulus-1 Eigenvalue: Why the Real-Spectrum Kato-Temple Certificate Is Harder (imp-96188)',
+    category: 'concept',
+    definition:
+      'imp-96169 measured the Rayleigh/Kato-Temple certify-threshold U = R + sigma^2/(R - alpha) < 1 on a ' +
+      'STYLIZED 5-level toy gap (eigs 0.9999731, 0.35, 0.2, 0.12, 0.05; anchor alpha = 0.5) and found a ' +
+      '~1.17e-2 eigenvector-capture requirement. imp-96188 recalibrates against the ACTUAL measured ' +
+      'semilocal {oo,2} prolate spectrum (FFT-Mellin, 24 elements) to test whether that requirement is a ' +
+      'toy-model artifact. It is not -- the real spectrum makes the certificate STRICTER. The true top gap ' +
+      'lam_top - lam_2 = 0.9999731 - 0.6202012 = 0.379772 is smaller than the toy 0.649973, so with a ' +
+      'valid anchor alpha = 0.81009 (gap midpoint) a leak into the adjacent second-largest state already ' +
+      'tightens the threshold to eps ~ 8.416e-3 (~28% tighter). The decisive feature ABSENT from the toy: ' +
+      'the real spectrum carries a SECOND near-modulus-1 eigenvalue lam_S(1) = -0.9927022 at the BOTTOM ' +
+      'of the spectrum (the toy smallest eigenvalue was 0.05). A leak into this bottom twin inflates ' +
+      'sigma^2 ~9.4x per unit overlap^2 (its residual distance from the top, ~1.9927, is ~5.3x the toy ' +
+      'state) and simultaneously drags R toward the anchor, collapsing the certify-threshold an order of ' +
+      'magnitude to eps ~ 1.192e-3, and Kato-Temple even loses VALIDITY (R falls to alpha) past eps ~ ' +
+      '0.3245 -- a hard ceiling the toy never exhibited. Net: the Route I variational (Rayleigh/Kato-Temple) ' +
+      'route stays obstructed more firmly than the toy indicated, so imp-96221 re-points the strict-gap ' +
+      'carrier to the analytic no-modulus-1 route (SG-96164-boundary / SG-96181-edge-octave) on the real ' +
+      'spectrum. Measurement only; no bound moved; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96188-route-i-kato-temple-real-spectrum-recalibration.js (recalibrating the imp-96169 stylized threshold against the real semilocal {oo,2} spectrum), 2026',
+    relatedTerms: [
+      'imp-96169-route-i-rayleigh-variational-topstate-assessment.js the stylized 5-level toy that set the original ~1.17e-2 threshold',
+      'rh-route-i-sonine-excess-semilocal-port-2026-09-23.js the exact FFT-Mellin semilocal {oo,2} spectrum (source of lam_S(1)=-0.9927022)',
+      'imp-96221 the consumer status note re-pointing Route I to the analytic no-modulus-1 route on this recalibration',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

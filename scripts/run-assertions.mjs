@@ -19849,6 +19849,14 @@ const DATA_MODULES = [
   // fixed 3.06e-5 literal), closing the imp-96246 gap. Meta only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96303-etrunc-baseline-cross-module-tripwire.js',
+  // imp-96402 (2026-09-24): MEASUREMENT -- closes the imp-96363 RESIDUAL by
+  // supplying the first E_coll anchor whose gamma_N is an externally tabulated
+  // true zero height (Odlyzko 10^22-nd zero) rather than a von-Mangoldt count
+  // inversion. Relative gap to the reconstructed count-inversion anchor is at the
+  // double-precision storage floor at 1e22 (-1.5e-15 gamma); a first-zero
+  // contrast resolves the count-model gap (8.5e-2 in the rate) that 1e22 pushes
+  // below the floor. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96402-ecoll-anchor-from-tabulated-true-zero-height.js',
 ];
 
 let ALL_MODULES = FAST_MODE

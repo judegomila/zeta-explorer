@@ -19936,6 +19936,13 @@ const DATA_MODULES = [
   // genuine non-vanishing 27-41% residual; restoring both recovers the true height
   // to the double floor. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96445-count-gap-plus78-vs-st-split.js',
+  // imp-96471 (2026-09-24): MEASUREMENT -- regresses the imp-96445 S(T) fluctuation
+  // share of the count-inversion gap (and the backed-out S(gamma_N)) against log10 N
+  // across the four N=1e3..1e6 anchors. Both slopes are statistically zero (t ~ -0.22,
+  // -0.26; R^2 ~ 0.02, 0.03), and the share sequence is non-monotone, so the wobble is
+  // a random O(1) fluctuation with NO systematic drift -- sharpening the imp-96445
+  // non-decay reading. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96471-st-share-vs-logn-regression.js',
   // imp-96429 (2026-09-24): MEASUREMENT -- sensitivity of the imp-96402
   // count-model-independence verdict to the Koksma-Hlawka factor C_KH = pi*2.622.
   // C_KH enters both the count-inversion rate and the tabulated-true-height rate

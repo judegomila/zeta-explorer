@@ -3863,6 +3863,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: both ladder rungs and the scaling ratios are copied verbatim from the imp-96387 measurement (no re-fit, no re-derivation). Absolute anchor shifts stay tiny (~4.5e-8) despite the ~137x relative-sensitivity gap; conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96422-eflow-frac-ladder-peak-recovery',
+      title: 'imp-96266: E_flow Fractional-Suppression Ladder and the Recon-vs-Full Sigma Peak',
+      oneLine:
+        'Log-scale chart of the imp-96266 E_flow/E_N fractional-suppression ladder vs log10 N (1.38e-1 at 1e3 down to 1.22e-5 at 1e12) alongside a direct recon-vs-full sigma_max comparison at the imp-3220 U-shape peak, showing the reconstruction recovers the peak height to 9.2e-4.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96422-eflow-frac-ladder-peak-recovery-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96266-eflow-peak-recovery-residual.js (fractional ladder, peak/peak-recovery landmarks; imp-96422 viz page)',
+      ticket: 'imp-96422',
+      pedagogicalStep: 250,
+      honestCeiling:
+        'Presentation only: every E_flow/E_N ladder reading and the recon-vs-full peak location/height are copied verbatim from the imp-96266 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new residual or peak measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

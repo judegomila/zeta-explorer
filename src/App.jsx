@@ -1376,6 +1376,9 @@ const Imp96257UshapeSlopeDriftViz = lazy(() =>
 const Imp96294EflowResidualViz = lazy(() =>
   import('./pages/Imp96294EflowResidualViz.jsx')
 );
+const Imp96422EflowFracLadderPeakRecoveryViz = lazy(() =>
+  import('./pages/Imp96422EflowFracLadderPeakRecoveryViz.jsx')
+);
 const Imp96393DiscrepancyEnvelopeViz = lazy(() =>
   import('./pages/Imp96393DiscrepancyEnvelopeViz.jsx')
 );
@@ -3692,6 +3695,10 @@ function AppShell() {
           <Route
             path="/viz-imp96294-eflow-residual"
             element={<Imp96294EflowResidualViz />}
+          />
+          <Route
+            path="/viz-imp96422-eflow-frac-ladder-peak-recovery"
+            element={<Imp96422EflowFracLadderPeakRecoveryViz />}
           />
           <Route
             path="/viz-imp96393-discrepancy-envelope"

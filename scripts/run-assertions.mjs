@@ -19804,6 +19804,13 @@ const DATA_MODULES = [
   // heights (still ~0.577 at N_flow~1.6e6). Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96296-farN-flattening-glacial-reach-glossary-headword.js',
+  // imp-96394: Concepts glossary headword restating the imp-96368 verdict that the
+  // imp-96347 Route L reach "correction factor" C=1.6812 is the disagreement ratio
+  // between two incompatible sibling reach laws (fixed power vs running-exponent
+  // quadratic-in-log), agreeing only inside the shared gamma 14..77 fit window and
+  // diverging without bound outside it. Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96394-route-l-reach-correction-incompatible-siblings-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

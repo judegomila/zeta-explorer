@@ -1424,6 +1424,9 @@ const Imp96410SigmaPeakKneeCrossoverViz = lazy(() =>
 const Imp96395SigmaLocalExponentRampViz = lazy(() =>
   import('./pages/Imp96395SigmaLocalExponentRampViz.jsx')
 );
+const Imp96401InterceptSeTrajectoryViz = lazy(() =>
+  import('./pages/Imp96401InterceptSeTrajectoryViz.jsx')
+);
 const Imp96378RouteMBeatPeriodOverlapViz = lazy(() =>
   import('./pages/Imp96378RouteMBeatPeriodOverlapViz.jsx')
 );
@@ -3758,6 +3761,10 @@ function AppShell() {
           <Route
             path="/viz-imp96395-sigma-local-exponent-ramp"
             element={<Imp96395SigmaLocalExponentRampViz />}
+          />
+          <Route
+            path="/viz-imp96401-intercept-se-trajectory"
+            element={<Imp96401InterceptSeTrajectoryViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

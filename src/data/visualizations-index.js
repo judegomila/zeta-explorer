@@ -3835,6 +3835,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every reach figure is copied verbatim from imp-96352 (corrected cost model) and imp-96230 (BUILD-only budget); no new timing measurement is made here, and the corrected reach ladder is itself an extrapolated cubic fit rather than a re-measured wall-clock run at each budget. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96401-intercept-se-trajectory',
+      title: 'imp-96367: Reciprocal-Log Margin-Floor Intercept-vs-Census-Depth Trajectory',
+      oneLine:
+        'Curve chart of the imp-96367 reciprocal-log margin-floor intercept falling 0.14256 -> 0.03705 across gamma200..gamma4000 with the flat +/-2 SE band around zero, plus the labeled (not measured) one-doubling gamma8000 projection landing inside the band.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96401-intercept-se-trajectory-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96367-route-bd-intercept-se-trajectory.js (trajectory, standard errors, projection, sub-gap; imp-96401 viz page)',
+      ticket: 'imp-96401',
+      pedagogicalStep: 248,
+      honestCeiling:
+        'Presentation only: every depth, intercept, and seC value is copied verbatim from the imp-96367 baked trajectory (no re-fit); only the +/-2 SE band and the sixth projected point are computed here. The gamma8000 point is a labeled projection, not a measurement -- the asymptotic sign past gamma4000 stays measurement-undecided pending fresh rho(32,T) evaluations. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

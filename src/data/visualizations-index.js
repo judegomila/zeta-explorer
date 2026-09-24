@@ -3989,6 +3989,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every L, optPpp, floor, floorModel and floorOverModel value plotted here is copied verbatim from the imp-96486 baked rung map; the only new step is labelling each rung cancellation or truncation branch from the existing crossover landmark; feasibility/cross-validation numerics only, theoretical GUE quantity, not real zeros, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96516-route-m-remainder-model',
+      title: 'Route M Remainder Model',
+      oneLine:
+        'Charts the imp-96487 Route M Burnol-ratio 21-rung N=250..10000 ladder against the fitted decaying-oscillation plateau c0~0.9846 vs the RH asymptote 1, and the rms bars showing every decay exponent p in {0,1,2} prefers the plateau by ~1.85-1.98x.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96516-route-m-remainder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (IMP96487_LADDER, IMP96487_MODELS, IMP96487_C0EQ1_TEST; imp-96516 viz page)',
+      ticket: 'imp-96516',
+      pedagogicalStep: 259,
+      honestCeiling:
+        'Presentation only: every N, ratio, c0, a, b, p, w and rms value plotted here is copied verbatim from the imp-96487 baked ladder/model objects; the only new step is sampling the fixed fitted curve at a dense grid for a smooth line; the 3.689-wide log-N window leaves the true asymptote undecided, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

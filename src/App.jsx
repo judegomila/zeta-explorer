@@ -1463,6 +1463,9 @@ const Imp96514Excursion2SigmaInteriorScanViz = lazy(() =>
 const Imp96515PppCollapseViz = lazy(() =>
   import('./pages/Imp96515PppCollapseViz.jsx')
 );
+const Imp96516RouteMRemainderViz = lazy(() =>
+  import('./pages/Imp96516RouteMRemainderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3835,6 +3838,10 @@ function AppShell() {
           <Route
             path="/viz-imp96515-ppp-collapse-map"
             element={<Imp96515PppCollapseViz />}
+          />
+          <Route
+            path="/viz-imp96516-route-m-remainder-model"
+            element={<Imp96516RouteMRemainderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

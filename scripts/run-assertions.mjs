@@ -376,6 +376,15 @@ const DATA_MODULES = [
   // 2a = 1.1286 vs true crossing 1.1315. Sept-2026 external certified-window preprints cited as UNVERIFIED. Fixed-window
   // positivity implies nothing about zeros; RH open; NO QED. Import-light (Route I identity exports only). Assertions ~3 s.
   '/src/data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js',
+  // rh-route-i-direct-sonine-trace-certificate (2026-09-24): the DIRECT attack on D_S <= L_S keeping the full Sonine trace.
+  // Symbol level: the retained trace is 1/9.11 of the remainder at t_1 (no pointwise domination); form level on the pole-free
+  // extremal: 89% of L_S is the shared positive part Z, S_S exceeds E_S by 2.8% at (ln3)/2, operator-norm separation fails past
+  // a ~ 0.47. Reformulation: D_S <= L_S on pole-free h <=> positive extension w_1 + phihat >= 0 with phi = alpha cosh(u/2) +
+  // beta u sinh(u/2) on |u| < 2a (certificate lemma). Dual certificates constructed by LP and verified (double precision,
+  // Lipschitz safety, analytic tail; NOT interval): W(h) >= 0.0467/0.0160/0.0077/0.0016 ||h||^2 at a = 0.40/0.44/0.46/0.48,
+  // i.e. 2a <= 0.96 > ln 2; independent cross-check of the sibling primal certificate (all a <= (ln3)/2). Fixed-window
+  // positivity says nothing about zeros; RH open; NO QED. Import-light (Route H/I exports). Assertions ~1.5 s.
+  '/src/data/rh-route-i-direct-sonine-trace-certificate-2026-09-24.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder

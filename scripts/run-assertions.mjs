@@ -19704,6 +19704,11 @@ const DATA_MODULES = [
   '/src/data/imp-96267-covariance-drift-rigidity-limit-reach.js',
   '/src/data/imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js',
   '/src/data/imp-96271-worst-excess-evt-gaussianity.js',
+  // imp-96274: Concepts glossary headword for the imp-96248 graded (not binary) Route M
+  // conductor-resolvability transition and its two practical thresholds (amplitude-recovery
+  // usable at span ~6, confident separation only at span ~9-10 == Rayleigh). Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96274-route-m-resolvability-graded-transition-glossary-headword.js',
   '/src/data/imp-96332-evt-window-independence-neff-audit.js',
   '/src/data/imp-96311-ecoll-rate-ch-independence-tabulation.js',
   '/src/data/imp-96314-covariance-deviation-viz-data.js',

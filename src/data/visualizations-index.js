@@ -3919,6 +3919,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every signal, floor and crossover value is copied verbatim from the imp-96430 baked crossover object (no re-derivation); rho is the theoretical GUE two-interval correlation with no computed Riemann zeros behind it; the crossover band is an extrapolation of a floor model calibrated only on accessible L (<= 960); the PT-anchor headroom marked is the imp-96430 model figure (~3.7e5), superseded by the imp-96448 measured ~640; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96454-ecoll-gap-ladder',
+      title: 'E_coll Count-Model Gap Ladder',
+      oneLine:
+        'Log-log chart of the imp-96426 count-model gap ladder: gammaRelGap and rateRelGap between the RvM main-term count-inversion height and the externally tabulated TRUE Odlyzko height across six anchors N = 1..1e22, showing the 1/(gamma log gamma) decay from the macroscopic first-zero gap to the double-precision floor.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96454-ecoll-gap-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96426-ecoll-anchor-intermediate-heights.js (IMP96426_ECOLL_ANCHOR_INTERMEDIATE_HEIGHTS; imp-96454 viz page)',
+      ticket: 'imp-96454',
+      pedagogicalStep: 254,
+      honestCeiling:
+        'Presentation only: every N, true height and relative-gap value is copied verbatim from the imp-96426 baked six-anchor object (no re-derivation); the reference 1/(gamma log gamma) envelope is scaled to match the N=1e3 anchor, a visual check of the imp-96426 prose claim, not an independent re-derivation; measurement/accuracy audit only, no gap closed, no bound changed, G6_polymath15_bridge not closed, conditional C_H <= 0.127 stays UNPROVEN, C_H isRigorousUpperBound = false (imp-2642/imp-2701); Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

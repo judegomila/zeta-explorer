@@ -69,7 +69,7 @@ export const IMP96080_CROSSING = Object.freeze({
 });
 
 export const IMP96080_HONEST_BANNER =
-  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the w(t) curve is a direct evaluation of the source module’s own exact closed-form weilSymbol (no re-derivation of the Toeplitz forms); the resonance windows and mu_max(a) column are copied verbatim from PENCIL_HIGHRES_LITERALS; no bound is claimed and no operator positivity is established.';
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: the w(t) curve is a direct evaluation of the source module’s own exact closed-form weilSymbol (no re-derivation of the Toeplitz forms); the resonance windows and mu_max(a) column are copied verbatim from PENCIL_HIGHRES_LITERALS; no bound is claimed and no operator positivity is established. The 5-decimal a* = 0.56578 shown on the crossing chart is a Richardson extrapolation from N = 64..192 (a* = 0.565770 +- 3.3e-6, imp-96064); it is NOT confirmed by any assembly at N >= 224, where the compressed pole-free L_S loses positivity (imp-96106) and the pencil eigenvalues become unreliable, so the 5th decimal should be read as extrapolated, not as converged past N = 192.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 

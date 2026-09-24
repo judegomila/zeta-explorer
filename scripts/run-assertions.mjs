@@ -19488,6 +19488,14 @@ const DATA_MODULES = [
   // no-floor log-linear law (-0.01042 -> -0.01828). Sign unchanged (rho=0.3791 at T~4506, no
   // crossing). Import-light (baked literals, no zeros bundle). No bound change; NO QED.
   '/src/data/imp-96224-route-bd-online-margin-floor-gamma4000.js',
+  // imp-96244 (2026-09-23): DERIVATION — derives in closed form the imp-96228 U-shape location-slope
+  // asymptote a->1/2, b->1/2, a+b->1 and its approach rate as exact log-derivatives of the component
+  // tails: a=(1/2)(1-(dL/du)/L)->1/2 (corr -1/(2 lnN)); b->1/2 (corr -5/(2 lnN)); a+b=1-3/lnN. The
+  // 5/2-vs-1/2 coefficient ratio explains the measured ~5x faster b-drift, and the derived half-decade
+  // increment 3(0.5 ln10)/(lnN)^2 crossing 5e-3 at log10 N~11.4 reproduces the imp-96228 rate claim. The
+  // C_C prefactor cancels in every log-derivative (coefficients C_C-independent); conditional only through
+  // the GUE-conditional N^{-1/2} collision shape (imp-486). Import-light, 5 assertions. No bound change; NO QED.
+  '/src/data/imp-96244-ushape-slope-asymptote-derivation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

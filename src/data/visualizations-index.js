@@ -3961,6 +3961,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the 12 measured lam_min rungs, the power-law fit, and the three proxy ceiling-N values are copied verbatim from imp-96428; the cond#(N) curves are traced from the exact lam_max(N) proxy formulas imp-96428 names (N, 10 log N, 1), each verified here to reproduce the published ceiling-N and target cond# values; measurement/extrapolation only, no Gram rebuilt, no bound changed, no operator positivity established; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96514-excursion-2sigma-interior-scan',
+      title: 'Interior-Height 2-Sigma Scan',
+      oneLine:
+        'Charts the imp-96493 interior-height 2-sigma scan: the z-score at ten unclipped-and-clipped interior heights T > 1.5e5 against the T=1.5e5 reference excursion (z=1.9234), the z=2 target, and the ordinate-ceiling clip threshold, showing the deepest clean interior dip (z=1.0358 at T=3.879e5) stays well short of 2-sigma.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96514-excursion-2sigma-interior-scan-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96493-excursion-2sigma-interior-scan.js (IMP96493_EXCURSION_2SIGMA_INTERIOR_SCAN; imp-96514 viz page)',
+      ticket: 'imp-96514',
+      pedagogicalStep: 257,
+      honestCeiling:
+        'Presentation only: every Tc, z, relErr, nW, isDip and clipped value plotted here is copied verbatim from the imp-96493 baked scan object; the only new step is merging the T=1.5e5 reference point into the series and labelling each marker category; measurement/accuracy audit of imp-96452 lever (b) reach only, no gap closed, no bound changed; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

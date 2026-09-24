@@ -19615,6 +19615,15 @@ const DATA_MODULES = [
   // error-slope ratio the flat-peak amplification passes through; both converge monotonically to the
   // exact geometric identity. Import-light, 7 assertions. NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96308-eflow-peak-third-order-shrink.js',
+  // imp-96329: measure the imp-96308 reconstruction-tail law err_k=-sigma_CF*(-x)^(k+1)/(1+x) across
+  // the FULL N ladder (1e3..1e9), not only the peak, and at fourth order. The exact identity
+  // sigma_full=sigma_CF/(1+x) holds pointwise to machine precision (<3e-16); the closed-form tail
+  // reproduces recon_k - sigma_full down to the float cancellation floor eps/x^(k+1) (worst mismatch
+  // 2.2e-11/2.2e-8/2.0e-5/1.4e-2 for k=1..4, exactly the floor at the largest-x point N=1e9); the
+  // per-order shrink |err_k|/|err_(k-1)| equals x(N) to <1e-12 at every ladder point (off-peak too);
+  // and the fourth-order reconstruction continues the monotone shrink (location 1.84e-4->7.20e-6 by
+  // (4/5)/x, height 9.41e-7->2.97e-8 by 1/x). Import-light, 8 assertions. NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96329-eflow-tail-law-global.js',
   // imp-96174: Concepts glossary headword for the imp-96147 Route M ratio two-term fit --
   // c0 = 0.975 is separated from the RH-predicted 1, and the leftover ~1.3 percent RMS
   // residual is a genuine, non-decaying oscillation (not a resolvable smooth drift),

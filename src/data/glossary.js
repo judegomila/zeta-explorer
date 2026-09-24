@@ -22968,6 +22968,38 @@ export const glossary = [
     ],
   },
   {
+    term: 'Anti-Decay Identity: H^{-kappa(H)} = exp(-4/3) (imp-96190)',
+    category: 'concept',
+    definition:
+      'imp-96166 found the assembled E(N) FLOORS at the N-independent truncation term E_trunc ~ ' +
+      '3.06e-5 (frozen at the Platt-Trudgian height T_PT = 3e12) and named two ways past the ' +
+      'shortfall for lim_N E(N) = 0: push T_PT to infinity, or find a fixed-strip route whose ' +
+      'truncation TAIL decays with N instead of freezing. imp-96190 shows the second alternative is ' +
+      'structurally obstructed by an anti-decay identity. The truncation tail E_trunc(H) = ' +
+      '(2e/kappa) H^{-kappa} can only decay through its power factor H^{-kappa}. Coupling the ' +
+      'height H to N forces the honest moving density abscissa sigma = 1/2 + 1/log H (no strip ' +
+      'verification above an unverified height), whose Ingham exponent collapses to kappa(H) = ' +
+      '(4/3)/log H (the imp-2622 thin-strip ceiling). Substituting this into the power factor gives ' +
+      'an EXACT height-cancellation: H^{-kappa(H)} = exp(-kappa(H) log H) = exp(-4/3) = 0.263597, a ' +
+      'CONSTANT for every H -- the N-coupling that was supposed to supply decay is exactly the ' +
+      'coupling that pins the only decay lever to a constant. The resulting honest tail exp(-4/3)(1.5 ' +
+      'log H - 2) is then strictly INCREASING in log H (slope 0.3954 per log H), so coupling the ' +
+      'height to N makes the tail GROW (e.g. ~10.8 at H=3e12, ~14.0 at H=1e16), never decay. A ' +
+      'genuinely decaying tail needs a FIXED positive exponent at a growing height, which honesty ' +
+      'only permits with an all-zeros-in-strip certificate to that height (Platt-Trudgian strength) ' +
+      '-- i.e. the T_PT -> infinity branch, not a fixed-strip shortcut. So the two imp-96166 named ' +
+      'alternatives collapse to ONE (verified height must grow), cross-checking the imp-35164 ' +
+      'FLOORS/BLOWS-UP dichotomy. Assessment/derivation only; changes no bound; E_trunc stays ' +
+      '3.06e-5; C_mb stays GUE-conditional per imp-486; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA.',
+    firstUsed: 'imp-96190-fixed-strip-n-decaying-tail-obstruction.js (deriving the exp(-4/3) height-cancellation obstruction), 2026',
+    relatedTerms: [
+      'imp-96166-en-decay-exponent-vs-step4-bridge-threshold.js the frozen E_trunc floor and the two named alternatives',
+      'imp-2622-honest-truncation-route-assessment.js the thin-strip ceiling kappa(H)=(4/3)/logH origin',
+      'imp-35164 the E(N) FLOORS-vs-BLOWS-UP dichotomy this cross-checks from the truncation side',
+    ],
+  },
+  {
     term: 'N_flow / N_cross Second-Crossover Split (imp-96162)',
     category: 'concept',
     definition:

@@ -19540,6 +19540,12 @@ const DATA_MODULES = [
   // (clean-prefix), both sublinear, superseding the stale imp-96059 linear
   // "gamma_{N/10}" string. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96179-route-l-power-law-reach-glossary-headword.js',
+  // imp-96191: Concepts glossary headword for the imp-96171 empirical adjacent-box lag-1
+  // confirmation -- clean unfolded tiling r1 = -0.5126 confirms the exact GUE proxy
+  // rho_exact = -0.46398, while the imp-95562 raw variable-width tiling's r1 = +0.243 is a
+  // box-overlap artifact, not a de-correlation reversal. Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96191-empirical-lag1-gue-confirmation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

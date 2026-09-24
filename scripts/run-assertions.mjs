@@ -19742,6 +19742,12 @@ const DATA_MODULES = [
   // conditional on landing on-line, refuted by the measured rho(32,4000)=0.3845 which
   // collapses it to 1.69 SE. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96354-margin-floor-projection-vs-realized-glossary-headword.js',
+  // imp-96276: Concepts glossary headword for the imp-96151 verdict that the closed-form
+  // crossover share sigma_CF(N) reproduces the imp-33582 far-tail decay-exponent ramp
+  // exactly past N=1e12 but does NOT reproduce the imp-3220 U-shape interior peak (strictly
+  // monotone decreasing, right arm only). Documentation only; no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96276-closed-form-half-reproduces-ushape-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -3667,6 +3667,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every rung magnitude, margin, and threshold-count value is copied verbatim from the imp-96270 baked leadingMagnitudes/countAboveThreshold fields (no re-derivation); only the margin subtraction and threshold reordering are computed here. This charts a TABULATION of the already-reduced imp-96143 fact (I): it diagonalizes nothing, establishes no operator positivity, moves no Lambda bound, and does not touch the finitely-many top confined states (the actual residual). Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96338-worst-excess-evt',
+      title: 'imp-96271: Worst-Excess Extreme-Value Test',
+      oneLine:
+        'Per-height chart of the imp-96271 worst-window discrepancy excess worstSigma against the E[max] +/-1 Gumbel-sd band expected from a batch of nWindows iid standard Gaussians, across the six imp-95562 heights (deviation in [-1.10, +1.85] Gumbel sd).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96338-worst-excess-evt-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96271-worst-excess-evt-gaussianity.js (rows, aggregates; imp-96338 viz page)',
+      ticket: 'imp-96338',
+      pedagogicalStep: 238,
+      honestCeiling:
+        'Presentation only: every worstSigma, E[max], Gumbel-sd, and deviation value is copied verbatim from the imp-96271 baked rows (no re-derivation); only the bandLow/bandHigh = E[max] -/+ sd[max] arithmetic is computed here. This charts a measurement comparison already reduced by imp-96271 (itself testing an imp-95562 claim): it establishes no operator positivity, moves no Lambda bound, and touches nothing on the zero side. Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

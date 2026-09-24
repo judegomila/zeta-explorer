@@ -19700,11 +19700,13 @@ const DATA_MODULES = [
   '/src/data/imp-96267-covariance-drift-rigidity-limit-reach.js',
   '/src/data/imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js',
   '/src/data/imp-96271-worst-excess-evt-gaussianity.js',
+  '/src/data/imp-96332-evt-window-independence-neff-audit.js',
   '/src/data/imp-96311-ecoll-rate-ch-independence-tabulation.js',
   '/src/data/imp-96314-covariance-deviation-viz-data.js',
   '/src/data/imp-96316-etrunc-sensitivity-viz-data.js',
   '/src/data/imp-96318-confident-span-crossing-viz-data.js',
   '/src/data/imp-96337-mixed-ladder-margin-viz-data.js',
+  '/src/data/imp-96338-worst-excess-evt-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1394,6 +1394,9 @@ const Imp96334EcollRateChIndependenceChartViz = lazy(() =>
 const Imp96337MixedLadderMarginViz = lazy(() =>
   import('./pages/Imp96337MixedLadderMarginViz.jsx')
 );
+const Imp96338WorstExcessEvtViz = lazy(() =>
+  import('./pages/Imp96338WorstExcessEvtViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3674,6 +3677,10 @@ function AppShell() {
           <Route
             path="/viz-imp96337-mixed-ladder-margin"
             element={<Imp96337MixedLadderMarginViz />}
+          />
+          <Route
+            path="/viz-imp96338-worst-excess-evt"
+            element={<Imp96338WorstExcessEvtViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

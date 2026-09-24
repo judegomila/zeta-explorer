@@ -19975,6 +19975,11 @@ const DATA_MODULES = [
   // reach; compute (imp-96352 N^3, reachable ~9916) binds first. No bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96428-route-m-vasyunin-lammin-conditioning-ceiling.js',
+  // imp-96436 (2026-09-24): import-light glossary/Concepts headword restating the imp-96105
+  // finding that the Route M Burnol-normalized ratio(N) does NOT tighten toward 1 through
+  // N=6000 (six sign changes, worst deviation 0.0361 unchanged from pre-extension). No
+  // re-import of imp-96105; documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96436-route-m-ratio-plateau-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

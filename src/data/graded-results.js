@@ -424,6 +424,24 @@ export const RESULTS = [
     date: '2026-09',
   },
 
+  // ── number-variance mean/max-anchor frontier ────────────────────────────────
+  {
+    statement: 'Number-variance mean-anchor window-count significance verdict: recovering the imp-95562 tiled window count n_w(T) from deterministic geometry (no zeros bundle) decides the three below-envelope mean-anchor dips — T=1.5e5 (−16.0%) is a real ~1.9σ excursion, T=1e4 and T=3e5 are noise (0.37σ, 0.08σ) — confirming the mean anchor genuinely under-caps at T=1.5e5.',
+    grade: 'measured',
+    verification: ['module imp-96089-mean-anchor-window-count-significance-verdict', 'n_w(T) tiling geometry reproduces imp-95562 nWindows exactly (75, 130, 198, 291, 411, 443)'],
+    thread: 'number-variance',
+    route: null,
+    date: '2026-09',
+  },
+  {
+    statement: 'Number-variance max-anchor out-of-sample vindication: at five brand-new held-out heights {2e4, 5e4, 1e5, 2e5, 4e5} outside the six fit heights, the imp-96049 max offset anchor caps all five (tightest +3.0% at T=5e4) while the mean anchor breaches at T=5e4 (−13.7%), resolving the imp-96070 in-sample caveat with real held-out data.',
+    grade: 'measured',
+    verification: ['module imp-96090-number-variance-mean-anchor-heldout-out-of-sample', 'five held-out centres over the 10^6 Odlyzko ordinates in zeros-to-1e6.js'],
+    thread: 'number-variance',
+    route: null,
+    date: '2026-09',
+  },
+
   // ── eliminates and refutations ──────────────────────────────────────────────────
   {
     statement: '0.1399 tail lane, K2 failure: N₁* = 220,495,706 is 4.01× the economic cutoff line, and the finite transition lane would need 219,804,718 rows (69.8× the v3 full-replay campaign) — economically dead in the verbatim endpoint-cap architecture.',

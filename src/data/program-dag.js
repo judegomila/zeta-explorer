@@ -565,9 +565,24 @@ export const NODES = [
     source: 'rh-novel-routes-roadmap-2026-09-23.js key M',
   },
   // ── phase N+1 · number-variance / Route-M / Route-I robustness leaves
-  // (2026-09-23): imp-96124 (imp-96089/96090 mean/max-anchor nodes) is a
-  // separate pending registration ticket; these six leaves are tracked here
-  // now and slot alongside it once that ticket lands.
+  {
+    id: 'numvar-meananchor-window-significance',
+    name: 'Number-variance mean-anchor window-count significance verdict',
+    outcome: 'open',
+    grade: 'measured: recovering the imp-95562 tiled window count n_w(T) from deterministic geometry (no zeros bundle) decides the three below-envelope mean-anchor dips — T=1.5e5 (−16.0%) is a real ~1.9σ excursion (n_w=291 >> crossover 79), T=1e4 and T=3e5 are noise (0.37σ, 0.08σ); the mean anchor genuinely under-caps at T=1.5e5',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96089-mean-anchor-window-count-significance-verdict.js',
+  },
+  {
+    id: 'numvar-maxanchor-heldout-vindication',
+    name: 'Number-variance max-anchor out-of-sample vindication',
+    outcome: 'won',
+    grade: 'measured: at five brand-new held-out heights {2e4, 5e4, 1e5, 2e5, 4e5} outside the six imp-96049 fit heights, the max offset anchor caps all five (tightest +3.0% at T=5e4) while the mean anchor breaches at T=5e4 (−13.7%) — a true out-of-sample vindication that resolves the imp-96070 in-sample-only caveat',
+    date: '2026-09-23',
+    route: null,
+    source: 'imp-96090-number-variance-mean-anchor-heldout-out-of-sample.js',
+  },
   {
     id: 'route-m-vasyunin-n6000-ext',
     name: 'Route M: Vasyunin/Burnol ladder extended to N=6000',
@@ -698,8 +713,10 @@ export const EDGES = [
   { from: 'novel-route-m', to: 'route-m-vasyunin-n6000-ext', meaning: 'led-to', note: 'extends the Burnol-ratio ladder past N=2600' },
   { from: 'novel-route-l', to: 'route-i-semilocal-sonine-trace-identity', meaning: 'led-to', note: 'the Connes-Consani semilocal object named as the only thing that could work past u = ln 2' },
   { from: 'route-i-semilocal-sonine-trace-identity', to: 'route-i-p3-cusp-fixed-fraction', meaning: 'led-to', note: 'S={oo,2} exact identity extended to S={oo,2,3}' },
+  { from: 'numvar-meananchor-window-significance', to: 'numvar-excursion-vs-maxanchor', meaning: 'led-to' },
   { from: 'numvar-excursion-vs-maxanchor', to: 'numvar-decorr-safety-margin', meaning: 'led-to' },
   { from: 'numvar-decorr-safety-margin', to: 'numvar-maxanchor-window-robustness', meaning: 'led-to' },
+  { from: 'numvar-maxanchor-heldout-vindication', to: 'numvar-maxanchor-window-robustness', meaning: 'led-to' },
   { from: 'numvar-maxanchor-window-robustness', to: 'numvar-meananchor-zscore-crosscheck', meaning: 'led-to' },
 
   // formalization

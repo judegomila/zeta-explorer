@@ -23144,6 +23144,33 @@ export const glossary = [
       'imp-96188-route-i-kato-temple-real-spectrum-recalibration.js the real-spectrum recalibration that introduced the bottom-twin eigenvalue lam_S(1) = -0.9927022',
     ],
   },
+  {
+    term: 'Theoretical-GUE-Envelope Caveat on the rho_exact = -0.4817670 Covariance Cross-Checks (imp-96350/imp-96371/imp-96369)',
+    category: 'caveat',
+    definition:
+      'imp-96350, imp-96371, and imp-96369 each cross-validate the imp-96267 two-interval covariance ' +
+      'rho_exact = -0.4817670 at the Platt-Trudgian verified height T = 3e12 against an INDEPENDENT ' +
+      'evaluation basis: imp-96350 against the exact Dyson-Mehta sine-kernel number variance and a direct ' +
+      'pair-correlation double integral, imp-96371 against the same exact-vs-asymptotic pair across the ' +
+      'full decade ladder T = 1e4..3e12, and imp-96369 as a feasibility/error-budget study of pushing the ' +
+      'direct double integral itself out to the PT anchor. All three agree with the asymptotic module ' +
+      'value to between 6 and 10 significant figures. What none of the three do -- and each says so in an ' +
+      'explicit HONEST CAVEAT -- is touch actual computed Riemann zeros. rho is the THEORETICAL GUE ' +
+      '(sine-kernel, universality) two-interval correlation for boxes of unfolded length L(T); at T = 3e12 ' +
+      'there are no computed zeros, so every cross-check compares independent closed-form or quadrature ' +
+      'evaluations of the SAME envelope, not a measurement against real zero data. The agreement therefore ' +
+      'certifies the ARITHMETIC of the rho_exact figure (and its 0.0182330 deviation from -1/2), not its ' +
+      'applicability to the true zero process at that height. This changes no bound, establishes no ' +
+      'operator positivity, and does not touch the ~1.9-sigma excursion confidence; RH open; NO QED; ' +
+      'Platt-Trudgian Lambda <= 0.2 remains SOTA; the zero-side route stays PCC/GRH-gated.',
+    firstUsed: 'imp-96350-covariance-outoffamily-crossvalidation.js (out-of-family cross-validation against the exact Dyson-Mehta number variance and a direct double integral), 2026',
+    relatedTerms: [
+      'imp-96371-covariance-exact-vs-asymptotic-decade-ladder.js extends the same exact-vs-asymptotic check across the full decade ladder of heights',
+      'imp-96369-direct-double-integral-pt-anchor-feasibility.js feasibility/error-budget study of pushing the direct double integral itself to the PT anchor',
+      'imp-96267-covariance-drift-rigidity-limit-reach.js the source rho_exact = -0.4817670 decade-ladder + PT-anchor measurement being cross-validated',
+      'imp-96312-covariance-cross-validation-pt-anchor.js the earlier WITHIN-family self-consistency check that imp-96350 explicitly distinguishes itself from',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

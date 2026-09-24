@@ -19849,6 +19849,14 @@ const DATA_MODULES = [
   // ~54% E_flow, rest the slowly-varying L(N); dragging the crossover 1.32 decades keeps the
   // offset in [0.0068,0.0088]. Measurement/derivation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96405-knee-crossover-forced-vs-coincidental.js',
+  // imp-96431 (2026-09-24): MEASUREMENT + FIT -- assesses the imp-96405 M4 offset band
+  // [+0.0068,+0.0088] beyond the tested 1.32 decades. Dragging the E_coll=E_trunc crossover across
+  // ~5.24 decades (log10 ~7.41 -> ~12.65) via the same C_C/E_trunc rescale (flow off), the
+  // sigma-inflection-minus-crossover offset LEAVES that band, running ~+0.0124 -> ~+0.0044 (~4x
+  // wider) -- but STRICTLY MONOTONE decreasing (16/16 steps), near-linear (slope ~-0.00143/decade,
+  // R^2 ~0.96), with sigma at the inflection pinned in [0.4967,0.4988]. Monotone deterministic drift
+  // SHARPENS the FORCED verdict. Measurement/fit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96431-knee-crossover-tracking-wide-range.js',
   // imp-96296: Concepts glossary headword restating the imp-96250 verdict that the
   // imp-96187 U-shape location ratio R(N)=N_peak/N_flow flattens toward 1 only
   // logarithmically (R=1-4/ln N-16/(ln N)^2+...), reaching within 1% of 1 only at

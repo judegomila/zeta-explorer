@@ -19843,6 +19843,12 @@ const DATA_MODULES = [
   // leading mantissa cycling 4.9295 <-> 1.5588 by floor-exponent parity. Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96301-floor-height-leverage-mantissa-cycle-glossary-headword.js',
+  // imp-96303: meta cross-module consistency tripwire comparing the imp-96185
+  // and imp-96207 E_trunc(3e12) baseline literals directly against the
+  // imp-2322 computed reference (rather than each in isolation against a
+  // fixed 3.06e-5 literal), closing the imp-96246 gap. Meta only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96303-etrunc-baseline-cross-module-tripwire.js',
 ];
 
 let ALL_MODULES = FAST_MODE

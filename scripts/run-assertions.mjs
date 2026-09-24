@@ -19830,6 +19830,12 @@ const DATA_MODULES = [
   // (not a single-height coincidence) across a 0.25x..16x E_trunc sweep. Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96300-f1-stationarity-identity-glossary-headword.js',
+  // imp-96301: Concepts glossary headword restating the imp-96247 verdict that the
+  // fixed-strip floor-to-height law H_required(E) = (3.0/E)^{2.5} extends unbroken through
+  // floors 1e-9/1e-10 at a fixed 2.5-height-decades-per-floor-decade leverage, with the
+  // leading mantissa cycling 4.9295 <-> 1.5588 by floor-exponent parity. Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96301-floor-height-leverage-mantissa-cycle-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -1388,6 +1388,9 @@ const Imp96320RouteLReachBandViz = lazy(() =>
 const Imp96322EDecompositionViz = lazy(() =>
   import('./pages/Imp96322EDecompositionViz.jsx')
 );
+const Imp96334EcollRateChIndependenceChartViz = lazy(() =>
+  import('./pages/Imp96334EcollRateChIndependenceChartViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3660,6 +3663,10 @@ function AppShell() {
           <Route
             path="/viz-imp96322-e-decomposition"
             element={<Imp96322EDecompositionViz />}
+          />
+          <Route
+            path="/viz-imp96334-ecoll-rate-ch-independence"
+            element={<Imp96334EcollRateChIndependenceChartViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

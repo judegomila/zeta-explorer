@@ -3639,6 +3639,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every R2/AICc/BIC/PRESS/Akaike-weight and permutation-test value is copied verbatim from the imp-96231 baked model-selection scores (no re-derivation, no new fit). The band decisively beats a slow smooth non-spectral drift (delta AICc -18.6), but is statistically indistinguishable from a free single tone at the same frequency (delta R2 0.002): the specific q4+q5 conductor content is NOT uniquely identified. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96334-ecoll-rate-ch-independence',
+      title: 'imp-96311: E_coll Rate-vs-Conclusion C_H-Independence',
+      oneLine:
+        'Log-log family chart of the imp-96311 collision-term E_coll(N) across four C_H magnitudes (1/8, 0.127, 1.0, C_KH): the four lines are exactly parallel (only the prefactor differs) and the shared segment slope crawls from -0.4568 to -0.4801 toward the N^(-1/2) exponent, showing the rate is C_H-independent while only the E(N) -> 0 conclusion is gated on C_H.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96334-ecoll-rate-ch-independence-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96311-ecoll-rate-ch-independence-tabulation.js (columns, sharedSlopeProfile, prefactor; imp-96334 viz page)',
+      ticket: 'imp-96334',
+      pedagogicalStep: 236,
+      honestCeiling:
+        'Presentation only: every E_coll value, segment slope, and slope-spread literal is copied verbatim from the imp-96311 baked columns/sharedSlopeProfile fields (no re-derivation); only the plotting shape is computed here. C_H isRigorousUpperBound remains false (imp-2642/imp-2701) and the imp-2640 Gronwall discharge of C_Lip remains NEGATIVE; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

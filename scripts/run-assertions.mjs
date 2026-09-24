@@ -19521,6 +19521,12 @@ const DATA_MODULES = [
   // (counts the infinite S-unit semigroup, quadratic in the box side). Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96175-mixed-ladder-summability-dichotomy-glossary-headword.js',
+  // imp-96177: Concepts glossary headword for the imp-96150 five-height uniformity result --
+  // the exact GUE two-interval covariance for sd(C - E) is uniformly anti-correlated
+  // (rho_exact -0.4587 .. -0.4660) across five held-out heights, with a nearly-constant
+  // ~2.7x n_eff inflation and a uniform ~1.04 safe-side flip margin. Documentation only;
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96177-heldout-covariance-uniformity-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

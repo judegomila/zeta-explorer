@@ -158,6 +158,25 @@ export default function Imp96080RouteISymbolAnatomyViz() {
         <strong style={{ color: '#f87171' }}>Honest status:</strong> {IMP96080_HONEST_BANNER}
       </div>
 
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(250,204,21,0.06)',
+          borderLeft: '3px solid #facc15',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#facc15' }}>Saturation status:</strong> on the pole-free Weil minimizer the
+        remainder D_S is already 96.7% of the semilocal trace L_S at a = 0.5, rising to 99.71% at a = (ln3)/2 &mdash;
+        the pencil eigenvalue mu_max(a) stays below 1 only by this shrinking margin. No unconditional Weil
+        positivity past g-support ln 2 is obtained; D_S &le; L_S is an inequality between two explicit
+        RH-free functionals saturated to 3 digits at (ln3)/2, not a gap-free identity.
+      </div>
+
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>
         The Route I semilocal S = {'{'}&infin;, 2{'}'} pencil D_S c = &mu; L_S c has Toeplitz symbol
         w(t) = 2&theta;&prime;(t) &minus; m<sub>2</sub>(t) (the symbol of Arch &minus; P<sub>2</sub> = L_S &minus; D_S).

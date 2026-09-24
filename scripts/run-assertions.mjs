@@ -19704,6 +19704,7 @@ const DATA_MODULES = [
   '/src/data/imp-96314-covariance-deviation-viz-data.js',
   '/src/data/imp-96316-etrunc-sensitivity-viz-data.js',
   '/src/data/imp-96318-confident-span-crossing-viz-data.js',
+  '/src/data/imp-96337-mixed-ladder-margin-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

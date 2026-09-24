@@ -1,0 +1,118 @@
+/**
+ * @module imp-96337-mixed-ladder-margin-viz-data
+ *
+ * imp-96337 (ux): import-light viz-data leaf for the imp-96270 mixed {oo,2,3}
+ * S-unit ladder spectral-gap margin. imp-96270 tabulated the ladder magnitudes
+ * s_u = u^(-1/2)/2 (u = 2^a 3^b, (a,b) != (0,0)), found the ceiling s_2 =
+ * 0.353553 attained only at u = 2, and the finite rung-count-within-threshold
+ * ladder (t = 0.30 -> 1 rung .. t = 0.05 -> 19 rungs), but shipped no chart.
+ *
+ * Reshapes the imp-96270 baked leadingMagnitudes and countAboveThreshold
+ * fields into two chart-ready series (rung magnitude + margin below ceiling
+ * vs u; rung-count vs threshold) and copies the ceiling/gap anchors verbatim.
+ * No re-derivation: every plotted value is copied from
+ * IMP_96270_SPECTRAL_GAP_MARGIN.
+ *
+ * PRESENTATION ONLY. This renders a TABULATION of the already-reduced
+ * imp-96143 fact (I); it diagonalizes nothing, establishes no operator
+ * positivity, moves no Lambda bound, and does NOT touch the finitely-many
+ * top confined states (the actual residual). RH open; NO QED; Platt-Trudgian
+ * Lambda <= 0.2 remains SOTA.
+ *
+ * @see imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js (ladder, ceiling, thresholds)
+ *
+ * Ticket: imp-96337 (ux, sonnet-4-6, medium). Presentation only, RH-free; changes no bound; NO QED.
+ */
+
+import { IMP_96270_SPECTRAL_GAP_MARGIN } from './imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js';
+
+const CEILING = IMP_96270_SPECTRAL_GAP_MARGIN.ceiling;
+
+// The ten baked leading rungs, reshaped with the margin below the ceiling
+// (s_2 - s_u) alongside each magnitude, sorted u ascending (already the
+// source order).
+export const IMP96337_RUNG_SERIES = IMP_96270_SPECTRAL_GAP_MARGIN.leadingMagnitudes.map((row) => ({
+  rank: row.rank,
+  a: row.a,
+  b: row.b,
+  u: row.u,
+  s: row.s,
+  margin: CEILING - row.s,
+}));
+
+// The threshold -> rung-count ladder, reshaped into a plot-ready series
+// sorted threshold ascending (smallest t first, so the step chart reads
+// as a monotone-increasing count).
+export const IMP96337_THRESHOLD_SERIES = Object.entries(IMP_96270_SPECTRAL_GAP_MARGIN.countAboveThreshold)
+  .map(([t, count]) => ({ threshold: Number(t), count }))
+  .sort((x, y) => x.threshold - y.threshold);
+
+export const IMP96337_ANCHORS = Object.freeze({
+  ceiling: IMP_96270_SPECTRAL_GAP_MARGIN.ceiling,
+  gapBelowOne: IMP_96270_SPECTRAL_GAP_MARGIN.gapBelowOne,
+  secondRung: IMP_96270_SPECTRAL_GAP_MARGIN.secondRung,
+  secondRungRatio: IMP_96270_SPECTRAL_GAP_MARGIN.secondRungRatio,
+});
+
+export const IMP96337_HONEST_BANNER =
+  'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every rung magnitude, margin, and '
+  + 'threshold-count value is copied verbatim from the imp-96270 baked tabulation; only the margin '
+  + '(s_2 - s_u) and the threshold-series reordering are computed here (no re-derivation, no new '
+  + 'diagonalization). This charts a TABULATION of the already-reduced imp-96143 fact (I): it establishes '
+  + 'no operator positivity, moves no Lambda bound, and does NOT touch the finitely-many top confined '
+  + 'states (the actual residual).';
+
+// -- self-executing assertions (imp-3715 convention): any failure throws at import --
+
+const approx = (x, y, tol) => Math.abs(x - y) <= tol;
+
+const IMP96337_ASSERTIONS = [
+  {
+    id: 'imp96337-rung-series-matches-source',
+    holds: () => IMP96337_RUNG_SERIES.every((p, i) => {
+      const src = IMP_96270_SPECTRAL_GAP_MARGIN.leadingMagnitudes[i];
+      return p.u === src.u && approx(p.s, src.s, 1e-15) && approx(p.margin, CEILING - src.s, 1e-15);
+    }),
+    why: 'the reshaped rung series must reproduce the imp-96270 baked leadingMagnitudes row-for-row, with margin = ceiling - s.',
+  },
+  {
+    id: 'imp96337-rung-series-length-ten',
+    holds: () => IMP96337_RUNG_SERIES.length === 10,
+    why: 'imp-96270 bakes exactly ten leading magnitudes (ranks 1..10).',
+  },
+  {
+    id: 'imp96337-rung-margin-zero-at-ceiling-and-increasing',
+    holds: () => approx(IMP96337_RUNG_SERIES[0].margin, 0, 1e-15)
+      && IMP96337_RUNG_SERIES.every((p, i) => i === 0 || p.margin > IMP96337_RUNG_SERIES[i - 1].margin),
+    why: 'the top rung (u = 2) sits exactly at the ceiling (margin 0), and margin strictly increases as u grows and s_u falls.',
+  },
+  {
+    id: 'imp96337-threshold-series-matches-source-and-monotone',
+    holds: () => {
+      const want = { '0.3': 1, '0.25': 3, '0.2': 4, '0.15': 6, '0.1': 10, '0.05': 19 };
+      const matches = IMP96337_THRESHOLD_SERIES.every((row) => want[String(row.threshold)] === row.count);
+      const monotone = IMP96337_THRESHOLD_SERIES.every((row, i) => i === 0 || row.threshold > IMP96337_THRESHOLD_SERIES[i - 1].threshold);
+      const countsDecrease = IMP96337_THRESHOLD_SERIES.every((row, i) => i === 0 || row.count <= IMP96337_THRESHOLD_SERIES[i - 1].count);
+      return matches && monotone && countsDecrease && IMP96337_THRESHOLD_SERIES.length === 6;
+    },
+    why: 'imp-96270: counts 1,3,4,6,10,19 at t = 0.30,0.25,0.20,0.15,0.10,0.05, sorted threshold-ascending the count must be non-increasing (a higher threshold admits fewer rungs).',
+  },
+  {
+    id: 'imp96337-anchors-match-source',
+    holds: () => approx(IMP96337_ANCHORS.ceiling, 0.3535533905932738, 1e-15)
+      && approx(IMP96337_ANCHORS.gapBelowOne, 0.6464466094067263, 1e-15)
+      && approx(IMP96337_ANCHORS.ceiling + IMP96337_ANCHORS.gapBelowOne, 1, 1e-15),
+    why: 'the ceiling and gap-below-one anchors must match the imp-96270 source verbatim and sum to 1.',
+  },
+  {
+    id: 'imp96337-honest-banner-carries-status',
+    holds: () => /RH open/.test(IMP96337_HONEST_BANNER) && /NO QED/.test(IMP96337_HONEST_BANNER) && /SOTA/.test(IMP96337_HONEST_BANNER),
+    why: 'honesty gate: presentation only, no RH claim, PT stays SOTA.',
+  },
+];
+
+for (const a of IMP96337_ASSERTIONS) {
+  if (!a.holds()) {
+    throw new Error(`imp-96337-mixed-ladder-margin-viz-data assertion failed: ${a.id} (${a.why})`);
+  }
+}

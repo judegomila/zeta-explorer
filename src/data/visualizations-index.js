@@ -3653,6 +3653,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every E_coll value, segment slope, and slope-spread literal is copied verbatim from the imp-96311 baked columns/sharedSlopeProfile fields (no re-derivation); only the plotting shape is computed here. C_H isRigorousUpperBound remains false (imp-2642/imp-2701) and the imp-2640 Gronwall discharge of C_Lip remains NEGATIVE; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96337-mixed-ladder-margin',
+      title: 'imp-96270: Mixed {oo,2,3} Ladder Spectral-Gap Margin',
+      oneLine:
+        'Bar chart of the imp-96270 mixed 2^a 3^b S-unit ladder rung magnitudes s_u and their margin below the ceiling s_2 = 0.353553 (attained only at u = 2), plus a step chart of the finite rung-count-within-threshold ladder (1 rung at t=0.30 growing to 19 rungs at t=0.05).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96337-mixed-ladder-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96270-mixed-ladder-spectral-gap-margin-tabulation.js (leadingMagnitudes, countAboveThreshold; imp-96337 viz page)',
+      ticket: 'imp-96337',
+      pedagogicalStep: 237,
+      honestCeiling:
+        'Presentation only: every rung magnitude, margin, and threshold-count value is copied verbatim from the imp-96270 baked leadingMagnitudes/countAboveThreshold fields (no re-derivation); only the margin subtraction and threshold reordering are computed here. This charts a TABULATION of the already-reduced imp-96143 fact (I): it diagonalizes nothing, establishes no operator positivity, moves no Lambda bound, and does not touch the finitely-many top confined states (the actual residual). Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
   ]),
 });
 

@@ -23171,6 +23171,29 @@ export const glossary = [
       'imp-96312-covariance-cross-validation-pt-anchor.js the earlier WITHIN-family self-consistency check that imp-96350 explicitly distinguishes itself from',
     ],
   },
+  {
+    term: 'The GUE-Rigidity Limit -1/2 Is a 1/log T Asymptote, Not an Operationally Reachable Value (imp-96267)',
+    category: 'caveat',
+    definition:
+      'imp-96150/imp-96177 found the exact GUE two-interval correlation rho_exact drifts monotonically ' +
+      'toward the rigidity limit -1/2 across the five held-out heights {2e4..4e5}. imp-96267 derives the ' +
+      'exact closed form for the deviation, |rho_exact - (-1/2)| = (log 2)/(2 (log(2 pi L) + gamma + 1)), ' +
+      'and shows it decays like 1/log T -- the slowest possible envelope. On a decade ladder to 1e12 the ' +
+      'deviation only falls from 0.0436 to 0.0188 across eight decades; reaching within 1e-2 of -1/2 needs ' +
+      'T ~ 2.6e25 (~13 decades past the Platt-Trudgian verified height 3e12, where rho_exact is still ' +
+      '-0.4818, deviation 0.0182), and reaching within 1e-3 needs T ~ 1.6e294. The rigidity limit is a ' +
+      'genuine asymptote that no accessible height operationally reaches. This does not weaken the ' +
+      'imp-96128 anti-correlation verdict (rho_exact is strongly negative and safe-side at every finite ' +
+      'height) and confirms the accessible-band value ~-0.46..-0.48 is the operative correlation for any ' +
+      'real census, not the -1/2 idealization. Measurement/documentation only; changes no bound; ' +
+      'establishes no operator positivity; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96267-covariance-drift-rigidity-limit-reach.js (decade-ladder extrapolation of the imp-96150 closed form to the epsilon-reach crossing heights), 2026',
+    relatedTerms: [
+      'imp-96150-number-variance-two-interval-covariance-heldout-heights.js the five held-out heights and the exact closed form',
+      'imp-96177-heldout-covariance-uniformity-glossary-headword.js the original "drifting monotonically toward the GUE-rigidity limit -1/2" headword',
+      'imp-96128-number-variance-two-interval-covariance-exact.js the single-height exact covariance and safe-side anti-correlation verdict',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

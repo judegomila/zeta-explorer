@@ -3570,6 +3570,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every a(N), b(N), a+b grid value and the deep-probe reading are copied verbatim from the imp-96228 baked landmarks; only the chart-axis reshaping is computed here (no re-derivation, no new slope measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96294-eflow-residual',
+      title: 'imp-96266: Closed-Form E_flow Suppression Residual R(N)',
+      oneLine:
+        'Line chart of the imp-96266 exact identity R(N) = sigma_full - sigma_CF = -sigma_full*E_flow/(E_trunc+E_coll) vs log10 N across the [1e3,1e12] ladder: the residual is strictly negative and deepest near the peak region, the differential suppression that manufactures the imp-3220 U-shape interior maximum.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96294-eflow-residual-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96266-eflow-peak-recovery-residual.js (residual identity, ladder, peak/peak-recovery landmarks; imp-96294 viz page)',
+      ticket: 'imp-96294',
+      pedagogicalStep: 230,
+      honestCeiling:
+        'Presentation only: every R(N), E_flow/E_N, and peak/peak-recovery reading is copied verbatim from the imp-96266 baked landmarks; only the chart-axis reshaping (log10 N parsing) is computed here (no re-derivation, no new residual measurement); the component model is the inherited imp-3220/imp-3406/imp-33723 extrapolation, not a rigorous asymptotic; the C_mb GUE-conditional per imp-486 stays untouched; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96314-covariance-deviation',
       title: 'imp-96267: GUE Two-Interval Covariance Deviation vs Height, the 1/log T Crawl',
       oneLine:

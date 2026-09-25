@@ -20733,6 +20733,10 @@ const DATA_MODULES = [
   // (the plane-wave Bessel sum majorises only term-by-term to O(1/s), a divergent
   // tail-trace); |Psi_N|^2 <= a^{2m} t^{-2(m+1)} S_N with S_N = sum V_j^2. Derivation; NO QED.
   '/src/data/imp-96866-krein-gegenbauer-tailtrace-majorant.js',
+  // imp-96872: exact equidistribution reformulation of the imp-96850 scalar beta as
+  // beta = Integral_0^1 P(x)^2 dmu (x=a/k), profile-collapse verified, obstruction
+  // localized to the small-a edge (bulk 2.4173 fixed, edge carries the 1/log k drift). NO QED.
+  '/src/data/imp-96872-weighted-vasyunin-beta-equidistribution-profile.js',
 ];
 
 let ALL_MODULES = FAST_MODE

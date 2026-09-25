@@ -63,6 +63,13 @@
  * the trace ceiling 2.594e7 is a rigorous lower bound on the ceiling. This audit checks
  * consistency and labels; it does not make the fit ceilings rigorous.
  *
+ * SUPERSEDED VALUE (imp-96694): the Frobenius ceiling F=3.764e7 quoted throughout this
+ * module is the imp-96684 ELEVEN-rung fit. imp-96694 extended the ladder to fourteen rungs
+ * (N=10000,11000,12000) and re-solved the ceiling to F14=3.775e7 (+0.30 percent, robust in
+ * the same ~3.75-3.78e7 band, T < F14 < M still holds and the decomposition still closes
+ * qualitatively). Every F=3.764e7 figure below is the eleven-rung snapshot, not the current
+ * best fit; see imp-96694 for the fourteen-rung re-solve.
+ *
  * HONEST STATUS (imp-96706): all three ceilings T, F, M are DOUBLE-PRECISION CONDITIONING
  * limits -- the N at which cond#(N) = lam_max/lam_min reaches the IEEE-double breakdown
  * scale 1/eps. None of them is the constraint that actually binds: the imp-96352 wall-clock
@@ -76,6 +83,7 @@
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (measured composed ceiling 4.11e7)
  * @see imp-96352-route-m-vasyunin-solve-cost-model.js (wall-clock compute ceiling ~9916)
  * @see imp-96682-route-m-conditioning-ceiling-ladder-status.js (four-rung ladder incl. compute)
+ * @see imp-96694-route-m-majorant-ladder-above-9000.js (fourteen-rung re-solve: F 3.764e7 -> 3.775e7)
  *
  * Ticket: imp-96693 (accuracy, opus-4-8, api-pool). Audit only; NO QED.
  */
@@ -146,6 +154,20 @@ export const IMP96693_HONEST_BANNER =
   'ceiling T=2.594e7 is a rigorous lower bound; the Frobenius ceiling F=3.764e7 and the ' +
   'measured ceiling M=4.109e7 both rest on the imp-96684 / imp-96443 log-fit extrapolated ' +
   '~four decades in N. No bound is claimed moved and no operator positivity is established.';
+
+// imp-96694 re-solved the Frobenius ceiling on a fourteen-rung ladder (N up to 12000):
+// F14=3.775e7 vs the eleven-rung F=3.764e7 quoted throughout this module (+0.30 percent,
+// same ~3.75-3.78e7 band). Exported so downstream consumers can flag the newer figure
+// instead of silently repeating the pre-extension value.
+export const IMP96693_SUPERSEDED_FROBENIUS_NOTE = Object.freeze({
+  elevenRungFrobeniusCeilingN: 37637000, // ~ this module's F (imp-96684, superseded snapshot)
+  fourteenRungFrobeniusCeilingN: 37751000, // ~ imp-96694 re-solve (current)
+  shiftFactor: 37751000 / 37637000, // ~1.00303
+  statement:
+    'the F=3.764e7 Frobenius ceiling in this module is the imp-96684 eleven-rung snapshot; ' +
+    'imp-96694 extended the ladder to fourteen rungs and re-solved F to ~3.775e7 (+0.30 ' +
+    'percent), robust in the same band. See imp-96694-route-m-majorant-ladder-above-9000.js.',
+});
 
 // imp-96706: none of T, F, M is a real-world compute limit -- each is the N at which
 // cond#(N) hits the IEEE-double breakdown scale 1/eps. The imp-96352 wall-clock compute
@@ -218,6 +240,16 @@ const IMP96693_ASSERTIONS = [
       /compute binds first/.test(IMP96693_HONEST_STATUS.statement),
     why: 'the honest-status note must name the imp-96352 compute ceiling 9916 and state that all three T,F,M ceilings are double-precision conditioning limits which compute binds ahead of by >1500x.',
   },
+  {
+    id: 'imp96693-superseded-frobenius-note-flags-imp96694-update',
+    holds: () =>
+      IMP96693_SUPERSEDED_FROBENIUS_NOTE.fourteenRungFrobeniusCeilingN >
+        IMP96693_SUPERSEDED_FROBENIUS_NOTE.elevenRungFrobeniusCeilingN &&
+      IMP96693_SUPERSEDED_FROBENIUS_NOTE.shiftFactor > 1.0 &&
+      IMP96693_SUPERSEDED_FROBENIUS_NOTE.shiftFactor < 1.01 &&
+      /imp-96694/.test(IMP96693_SUPERSEDED_FROBENIUS_NOTE.statement),
+    why: 'this module quotes the imp-96684 eleven-rung Frobenius ceiling (3.764e7); the note must record that imp-96694 re-solved it to the fourteen-rung 3.775e7 figure so downstream readers are not left on the pre-extension value.',
+  },
 ];
 
 for (const a of IMP96693_ASSERTIONS) {
@@ -236,4 +268,5 @@ export default {
   verdict: IMP96693_VERDICT,
   banner: IMP96693_HONEST_BANNER,
   honestStatus: IMP96693_HONEST_STATUS,
+  supersededFrobeniusNote: IMP96693_SUPERSEDED_FROBENIUS_NOTE,
 };

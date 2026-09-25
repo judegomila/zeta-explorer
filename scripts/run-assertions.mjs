@@ -20288,6 +20288,15 @@ const DATA_MODULES = [
   // does NOT saturate; the rigorous-lower ceiling shifts only +0.30% (3.764e7 -> 3.775e7),
   // robust. Self-executing *_ASSERTIONS re-derive the constants in JS. No bound moved; NO QED.
   '/src/data/imp-96694-route-m-majorant-ladder-above-9000.js',
+  // imp-96708 (2026-09-24): settles the imp-96694 flattening-continues sub-gap. RIGOROUS
+  // reduction: by monotone convergence + the 1<=H2<=zeta(2) sandwich, ||G_N||_F^2 saturates
+  // iff the explicit positive interior series T_inf=Sum_{coprime a,b>=2} I(a,b)^2/(a^2 b^2)
+  // converges. MEASURED directly from the Vasyunin closed form to M=4000 (no Gram, ~27 s):
+  // the per-decade increment is stable/rising at ~3.53 (fit T ~ -7.57 + 3.495 log M), so the
+  // series diverges => genuine log-N growth, NOT saturation; the imp-96694 ||G||_F flattening
+  // is the sqrt(log N) concavity. Self-executing *_ASSERTIONS re-derive the constants in JS.
+  // No bound moved; slope constant still open (Bettin-Conrey cotangent 2nd moment); NO QED.
+  '/src/data/imp-96708-route-m-interior-second-moment-dichotomy.js',
   // imp-96638: Concepts glossary headword restating the imp-96617 verdict that the box
   // sine-kernel closed-form lag correlation is a two-SIDED ~6-7-digit approximation
   // (|DeltaCov_k| <~ 2.07e-3/L^2, Bartlett weight kills the O(1/L) term), NOT a certified

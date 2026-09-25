@@ -20208,6 +20208,13 @@ const DATA_MODULES = [
   // N=6000 value gap (true value ratio 1.92x); imp-96581 + page already label the two distinctly.
   // Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96686-route-m-lammax-overstatement-figure-label-audit.js',
+  // imp-96599: Concepts glossary headword restating the imp-96568 verdict that the
+  // basis-C direct-integral floor(L) grows super-linearly above the PT anchor (measured
+  // exponent p ~ 1.81, not the L-linear exponent 1 the imp-96531 re-anchoring assumed),
+  // tightening the projected corroboration reach from L* ~ 2.86e9 (~2.7 decades past the
+  // anchor) to ~1.90e8 (~1.5 decades) -- ~15x tighter. Documentation only; no bound; NO
+  // QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96599-basis-c-superlinear-floor-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

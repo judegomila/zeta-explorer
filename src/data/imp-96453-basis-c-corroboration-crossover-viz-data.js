@@ -24,8 +24,19 @@
  * finding this ticket visualizes) and carries that reconciliation note forward rather than
  * silently repeating the superseded ~3.7e5 figure as if it were unqualified.
  *
+ * VALIDITY-BOUNDARY CARRY-FORWARD (imp-96486 / imp-96559). The two floor-model lines drawn
+ * below are exact arithmetic (slope * L) across the FULL plotted range (L = 30 .. ~2.9e12), but
+ * imp-96486 localized the model's actual validity to the L <= ~1e5 cancellation branch (where
+ * the optimal panels-per-period ppp* stays >= 32); past that the achievable floor is set by
+ * Simpson-truncation, not cancellation, and departs the line by 13.5x (3e5), 50x (1e6), 133x
+ * (3e6), 573x at the anchor (5.9e6). So everything plotted on these lines above L ~ 1e5 --
+ * including the PT anchor point and the whole crossover band [~1.3e12, ~2.5e12] -- sits outside
+ * the model's own validated regime and is an extrapolation, not a tracked measurement.
+ *
  * @see imp-96430-basis-c-corroboration-reach-crossover.js (the source object this reshapes)
  * @see imp-96448-direct-basis-c-anchor-floor.js (supersedes the anchor headroom figure)
+ * @see imp-96486-basis-c-ppp-collapse-transition.js (localizes the L <= ~1e5 validity boundary)
+ * @see imp-96559-basis-c-ppp-collapse-lmodel-validity-glossary-headword.js (quick-lookup headword)
  *
  * Ticket: imp-96453 (ux, sonnet-4-6, low). Presentation only, RH-free; changes no bound; NO QED.
  * No self-executing assertion throw (per the imp-96294 convention) -- values are validated below
@@ -81,6 +92,7 @@ export const IMP96453_LANDMARKS = Object.freeze({
   crossoverBand: SRC.crossover.band, // [~1.3e12, ~2.5e12]
   crossoverEndpoint: SRC.crossover.endpointSlope,
   crossoverMean: SRC.crossover.meanSlope,
+  lmodelValidityBoundaryL: 1e5, // imp-96486/imp-96559: L-linear floor model valid only below this
 });
 
 export const IMP96453_HONEST_BANNER =
@@ -90,7 +102,12 @@ export const IMP96453_HONEST_BANNER =
   + 'measurement. rho is the theoretical GUE (sine-kernel, universality) two-interval correlation '
   + 'for boxes of unfolded length L, with no computed Riemann zeros behind it; the crossover band '
   + 'is an EXTRAPOLATION of an L-linear floor model calibrated only on accessible L (<= 960), not '
-  + 'a measured value. The PT-anchor headroom marked here (~3.7e5) is the imp-96430 MODEL figure; '
+  + 'a measured value. VALIDITY BOUNDARY (imp-96486/imp-96559): the L-linear floor-model lines are '
+  + 'only tracked by the measured direct-quadrature floor while L <= ~1e5 (optimal ppp* >= 32); '
+  + 'past that the optimal ppp collapses toward truncation and the lines UNDERSTATE the real floor, '
+  + 'departing by 13.5x (3e5), 50x (1e6), 133x (3e6), 573x at the PT anchor. So the PT-anchor point '
+  + 'and the entire crossover band [~1.3e12, ~2.5e12] plotted here lie outside the model’s own '
+  + 'validated range. The PT-anchor headroom marked here (~3.7e5) is the imp-96430 MODEL figure; '
   + 'imp-96448 directly measured the anchor floor and found the true headroom is ~640, ~570x '
   + 'smaller -- basis C still corroborates basis A at the anchor, just with far less margin than '
   + 'the model line implies. Changes no bound, establishes no operator positivity.';
@@ -109,4 +126,7 @@ export const IMP96453_VALIDATION = Object.freeze({
   ptAnchorInRange:
     IMP96453_LANDMARKS.ptAnchorL > IMP96453_MEASURED_FLOOR_POINTS[IMP96453_MEASURED_FLOOR_POINTS.length - 1].L
     && IMP96453_LANDMARKS.ptAnchorL < IMP96453_LANDMARKS.crossoverBand[0],
+  ptAnchorPastValidityBoundary:
+    IMP96453_LANDMARKS.ptAnchorL > IMP96453_LANDMARKS.lmodelValidityBoundaryL,
+  bannerNamesValidityBoundary: /L <= ~1e5/.test(IMP96453_HONEST_BANNER),
 });

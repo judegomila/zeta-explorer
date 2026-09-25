@@ -20770,6 +20770,9 @@ const DATA_MODULES = [
   // imp-96997: builds a corrected sigma_2-weighted-tail envelope model at 2a=ln3.
   // Modelling (honest partial); NO QED.
   '/src/data/imp-96997-sigma2-weighted-tail-envelope-model.js',
+  // imp-97018: quantifies the imp-96997 C=wtf/rfo decline as a two-regime accelerating
+  // drift and tests the residMeas-vs-residFO attribution. Measurement only; NO QED.
+  '/src/data/imp-97018-c-drift-vs-residmeas-gap.js',
   // imp-96998: extends the imp-96977 Route I Krein floor ladder at a=0.48 (2a=0.96)
   // beyond N=36. Numerical; NO QED.
   '/src/data/imp-96998-krein-a048-Nladder-extended.js',
@@ -20779,6 +20782,10 @@ const DATA_MODULES = [
   // imp-97017: machine-checks the imp-96996 STEP 1 structural fact -- the committed imp-96912
   // 18-rung exact ||G||_F ladder is monotone non-decreasing. Verification / assertion only; NO QED.
   '/src/data/imp-97017-frobenius-ladder-monotonicity-assertion.js',
+  // imp-97019: machine-checks the imp-96993 rq enclosure literals -- valid interval (rqLo<=rqHi),
+  // rigorous upper bound preserved (rqLo>=actual), and recomputed slack rq/actual in the tighter
+  // benign band [1.12,1.20] at all three rungs. Verification / assertion only; NO QED.
+  '/src/data/imp-97019-rq-enclosure-upperbound-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

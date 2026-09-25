@@ -20504,6 +20504,13 @@ const DATA_MODULES = [
   // band on N* spans ~4.73 decades and the 95% band spans ~19.31 decades. Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96680-crossover-near-pole-fragility-glossary-headword.js',
+  // imp-96781: read-only audit confirming the imp-96749 Krein-floor's two
+  // reader-facing consumers (the imp-96777 viz page and the ConceptsPage
+  // glossary entry) already carry a compliant honest-status statement
+  // separating the measured plateau from the OPEN uniform-in-N positivity
+  // question. No page fix required. Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96781-imp96749-consumer-honesty-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

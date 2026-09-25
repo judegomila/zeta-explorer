@@ -23729,6 +23729,32 @@ export const glossary = [
       'imp-96806-krein-tconv-plateau-2a-ln3.js the reused build()/lam_min() solver (IMP96806_TSWEEP_LN3)',
     ],
   },
+  {
+    term: 'Coupled (N,T) Resolvent-Truncation Wall (Shift-Invert Ritz Floor Bias)',
+    category: 'numerical',
+    definition:
+      'imp-96911-krein-eta-nconvergence-scout.js. For the imp-96889 compressed shift-invert resolvent ' +
+      'R_N=(K+m)^-1 at 2a=ln3, the top Ritz eigenvalue eta was reported to drift with the evaluation-space ' +
+      'dimension Nbig (0.622238 at Nbig=24 to 0.660250 at Nbig=120, N=20 fixed). This scout shows the drift ' +
+      'is (a) purely a Nbig evaluation-space effect -- eta is identical to 7 digits across N=12,16,20, so ' +
+      'N>=12 already saturates the trial; (b) NOT convergent under a single power law eta_inf-c*Nbig^-p over ' +
+      'Nbig=24..240 at fixed T=800 (the exponent pins at the search floor p=0.300, rms 5.47e-3); and (c) its ' +
+      'apparent Nbig=200-240 plateau is a T=800 integration-cutoff ceiling, not a Nbig limit -- raising T at ' +
+      'fixed Nbig reopens the drift (eta at Nbig=240 falls 0.677688 to 0.641151 as T runs 800 to 3200). ' +
+      'Nbig and T push the Ritz floor lam1=1/eta-m in opposite directions (Nbig lowers it, T raises it), so ' +
+      'the ~0.13 floor swing over the ladder cannot be sized as a standalone Nbig rate: it is exactly the ' +
+      'open coupled (N,T) resolvent-truncation wall of IMP96889_SHIFTINVERT_REEXPRESSES_NT_RATE. Ritz value ' +
+      'is an upper bound on lambda_1(T), so the floor is an upper estimate, not a certified lower bound; ' +
+      'measurement/derivation only; no operator positivity established; interval-rigorous reach stays ' +
+      '2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96945 (adds this glossary headword for the imp-96911 coupled (N,T) wall result), 2026',
+    relatedTerms: [
+      'imp-96911-krein-eta-nconvergence-scout.js the source scout (IMP96911_ETA_NBIG_T800, IMP96911_T_SENSITIVITY, IMP96911_VERDICT)',
+      'imp-96889-krein-shiftinvert-katotemple-scout.js the source Finding 3a eta drift this scout fits (IMP96889_SHIFTINVERT_REEXPRESSES_NT_RATE)',
+      'imp-96827-krein-tresidual-envelope-extrapolation.js the open t-truncation (N,T) rate the floor bias couples to',
+      'imp-96768-gegenbauer-krein-lammin-recompute.js the pole-free Gegenbauer Galerkin build reused by both scouts',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

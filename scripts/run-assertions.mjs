@@ -20554,6 +20554,13 @@ const DATA_MODULES = [
   // imp-96768). Floor stays firmly positive, no collapse. Measurement only; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96772-krein-lammin-double-double-recompute.js',
+  // imp-96803: scan of the imp-96707 cohort2 orphan modules (imp-96631/87/88/89/91/97/
+  // 709/751/770) for the browser-only self-executing-throw anti-pattern -- all 9 carry
+  // the module-scope throw by design, none is risky (loosest measured margin ~280x
+  // over its own tolerance, several bit-identical by construction, no
+  // environment-dependent globals used). Audit only; no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96803-cohort2-browser-throw-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

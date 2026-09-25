@@ -20705,6 +20705,24 @@ const DATA_MODULES = [
   // (shape c = 3.92), agreeing with the LS pair (-0.3953, -0.3983) within 1 sigma and still steeper than
   // GUE -1/3; fitted shape corroborates cubic repulsion. Measurement only; conditional on GUE; NO QED.
   '/src/data/imp-96757-gev-blockmin-exponent.js',
+  // imp-96878 registration fix: the four modules below carry self-executing assertion
+  // tripwires but were never wired into this DATA_MODULES sweep (orphaned).
+  // imp-96846: assesses which route (coercivity/Garding, trace-class tail, min-max
+  // complementary) can deliver a Galerkin-N-uniform lower bound on the Route I Krein
+  // floor; names the precise obstruction stopping each. Assessment only; NO QED.
+  '/src/data/imp-96846-krein-uniform-N-lower-bound-routes-assessment.js',
+  // imp-96847: measures the T-truncation-vs-N scaling law the Route I Krein floor needs
+  // as N grows past 100 (decay-length vs geometric-doubling extrapolation routes).
+  // Measurement/extrapolation only; NO QED.
+  '/src/data/imp-96847-krein-tconv-tvsn-scaling-law.js',
+  // imp-96848: upgrades the imp-96827 geometric-per-doubling t-truncation envelope past
+  // its decay-ratio modeling assumption using the sign-structure of sigma_2 in the tail;
+  // names the remaining step blocking a full interval enclosure. Derivation/assessment; NO QED.
+  '/src/data/imp-96848-krein-tresidual-rigorous-tailtrace-bound.js',
+  // imp-96853 (also tracked/registered here per the ticket): per-lag-partitioned VIF
+  // variant against the box-sine sign-alternating DeltaCov_k; the two-sided envelope
+  // makes the partition unnecessary. Assessment/derivation; conditional on GUE; NO QED.
+  '/src/data/imp-96853-vif-twosided-envelope-partition-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

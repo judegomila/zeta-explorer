@@ -4311,6 +4311,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every Sigma2/rho value is reused verbatim from imp-96695; the |rho + 1/2| signal columns are a direct arithmetic reshape of the same baked rhoEmp/rhoGue values. Measures a finite-height (Berry semiclassical) number-variance saturation effect, not a GUE-universality failure; moves no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96641-gmin-gue-envelope',
+      title: 'g_min(N)/y_N Extreme-Gap Decay vs. the GUE Median Envelope',
+      oneLine:
+        'Plots the imp-96616 running-min g_min(N)/y_N extreme-gap ladder (N=50..1e6, fit exponent -0.3953) on a log-log axis against the GUE median envelope 0.8582 N^-1/3, marking the three argmin-freeze plateaus (idx 6708, 95247, 420890) where the running-min record gap has not moved between rungs.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96641-gmin-gue-envelope-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96616-gmin-ratio-extreme-gap-decay.js (GMIN_RATIO_EXTREME_GAP_DECAY.ladder, .fit, .gue; imp-96641 viz page)',
+      ticket: 'imp-96641',
+      pedagogicalStep: 282,
+      honestCeiling:
+        'Presentation only: every ladder value (N, ratio, gueMedian, ratioOverGue, argminIdx) is reused verbatim from imp-96616; only the log-log chart reshape and the isPlateau flag (derived from repeated argminIdx) are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

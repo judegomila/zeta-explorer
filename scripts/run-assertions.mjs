@@ -19850,6 +19850,14 @@ const DATA_MODULES = [
   // reproducing the imp-96686 ~1.58x ceiling ratio. Import-light (no zeros bundle). Audit only; no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96693-route-m-conditioning-ceiling-residual-decomposition.js',
+  // imp-96696 (2026-09-24): accuracy AUDIT tabulating the Route M lam_max VALUE ratio
+  // rigorous(N)/measured(N) per rung N=250..6000 (imp-96548 curve forms; imp-96443 raw
+  // trace/lam_max cross-check) beside the single ~1.58 ceiling ratio. Finds the value ratio
+  // is NOT a constant 1.9x but grows 1.546->1.920 and CROSSES the 1.58 ceiling-ratio level at
+  // N~327 (inside the ladder), so it must be anchored to a specific N; distinct from the
+  // ceiling ratio only at the top rung. Import-light (no zeros bundle). Audit only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96696-route-m-value-ratio-vs-ceiling-ratio-per-rung.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light

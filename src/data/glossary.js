@@ -23596,6 +23596,37 @@ export const glossary = [
       'imp-96845-krein-kmax5-frontier-measurement.js the higher-degree LP measurement of how far 2a* actually moves past 1.0',
     ],
   },
+  {
+    term: 'Route I Krein eps(2a)=200(1-2a) Zero at 2a=1.0 Is a Fixed-Degree Certificate Artifact, Not Intrinsic',
+    category: 'numerical',
+    definition:
+      'imp-96834-krein-certificate-degree-margin-assessment.js. imp-96732 labelled the certified design ' +
+      'margin eps(2a)=200(1-2a) -- which vanishes at 2a*=1.0 and goes negative by ln3 (eps~=-19.7) -- ' +
+      'INTRINSIC at and above 2a=1.0, since that margin comes from a FIXED trig-polynomial certificate ' +
+      'degree (kmax=4, lattice spacing dx=0.02, double precision). imp-96834 assesses that labelling ' +
+      'structurally (no fresh higher-degree LP solved). VERDICT: it is an ARTIFACT of the fixed degree, ' +
+      'not intrinsic. Raising the certificate degree only enlarges the LP feasible set (every kmax=4 ' +
+      'certificate stays feasible with new coefficients zeroed), so the achievable margin eps_max(2a; ' +
+      'degree) is monotone non-decreasing in degree and the positive-margin frontier 2a*(degree) can only ' +
+      'move RIGHT toward ln3, never left -- the observed 2a*=1.0 is a lower bound, not the true frontier. ' +
+      'Its ceiling is the true operator floor lambda_min(T_a[sigma_2]) (N=36 Galerkin Rayleigh upper ' +
+      'bound), which stays POSITIVE across the whole disputed window: ~7.743 at 2a=1.0, ~0.552 at 2a=ln3, ' +
+      'only flipping sign near 2a~1.1316 (a=0.5658) -- to the RIGHT of ln3=1.0986. So 0<eps<=lambda_min ' +
+      'room genuinely exists for a richer certificate throughout 1.0<2a<=ln3; the eps->0 at 2a=1.0 is a ' +
+      'property of THIS certificate, not of the positivity problem. What IS genuinely intrinsic, and both ' +
+      'lie to the right of the 2a=1.0 eps zero: the l1-norm blow-up of the constructive exterior measure ' +
+      '(~68 mantissa bits by ln3, a precision/conditioning wall degree alone at double precision does not ' +
+      'remove), and the true positivity boundary near 2a~1.13 where lambda_min itself changes sign. ' +
+      'Structural assessment only, no LP re-solved (sub-gap IMP96834_HIGHER_DEGREE_LP_UNSOLVED: how far ' +
+      '2a* actually moves is unmeasured); interval-rigorous reach stays 2a<=0.96; the lambda_min ceiling ' +
+      'is an unproven-in-the-limit Rayleigh upper bound; RH open; PT Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96834-krein-certificate-degree-margin-assessment.js (sharpens imp-96732: the eps=200(1-2a) zero at 2a=1.0 is a fixed-degree/double-precision certificate artifact, with the genuinely intrinsic obstructions -- l1 blow-up and the lambda_min sign flip -- sitting to its right), 2026',
+    relatedTerms: [
+      'imp-96732-krein-extended-precision-reach-assessment.js the parent assessment this corrects, which had labelled the 2a=1.0 eps zero intrinsic',
+      'imp-96845-krein-kmax5-frontier-measurement.js the numeric kmax=5 LP measurement of how far 2a* actually moves past 1.0 (fills the IMP96834_HIGHER_DEGREE_LP_UNSOLVED sub-gap)',
+      'rh-route-i-toeplitz-krein-certificate-2026-09-24.js source literals epsMarginDecay and lambdaMinSigma2 baked here verbatim',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

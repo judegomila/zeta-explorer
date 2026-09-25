@@ -37,8 +37,10 @@
  * The rigorous trace slope is I(1,1) = 1.2607; the measured fit slope is 0.3526,
  * about 3.6x smaller. At the top accessible rung N=6000 the rigorous bound gives
  * lam_max <= 11.6948 (= the measured trace) against the measured lam_max ~ 6.09,
- * so trace domination OVERSTATES lam_max by ~1.58x there and the gap WIDENS in the
- * pure slope (3.6x). The slack is the OFF-DIAGONAL Gram mass: trace domination
+ * so trace domination OVERSTATES lam_max by ~1.92x there (11.6948/6.0924) and the
+ * gap WIDENS in the pure slope (3.6x) -- the ~1.58x figure is the CEILING-N ratio
+ * from FINDING 3 below, not the value ratio at N=6000. The slack is the OFF-DIAGONAL
+ * Gram mass: trace domination
  * throws away all off-diagonal cancellation, and pinning the true coefficient 0.3526
  * rigorously would require a sharp asymptotic for the off-diagonal spectral mass of
  * the multiplicative Vasyunin kernel gcd(h,k) I(h/g,k/g)/(hk) -- a Toeplitz / Szego

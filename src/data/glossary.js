@@ -23755,6 +23755,36 @@ export const glossary = [
       'imp-96768-gegenbauer-krein-lammin-recompute.js the pole-free Gegenbauer Galerkin build reused by both scouts',
     ],
   },
+  {
+    term: 'Route M Three-Ceiling Ordering T<F<M: p-Invariant but NOT eps-Invariant',
+    category: 'numerical',
+    definition:
+      'imp-96920 and imp-96914. Route M reports three conditioning ceilings from the same ' +
+      'cond#(N) = lam_max(N)/lam_min(N) = 1/eps equation: T (rigorous trace bound, ~2.594e7) < ' +
+      'F (Frobenius fit, ~3.764e7) < M (measured fit, ~4.109e7). imp-96920 showed the strict ' +
+      'order is p-INVARIANT: every ceiling shares the identical lam_min = A N^-p factor ' +
+      '(imp-96428, p = 1.917927), so their ratio N_i/N_j = (pi_j/pi_i)^(1/p) preserves the sign ' +
+      'of (pi_i - pi_j) for every p > 0 -- no uncertainty in p can reorder them, and imp-96833 ' +
+      'confirmed the +/-2-sigma p bands (SE(p)/p = 0.127%) do not overlap. imp-96914 then banded ' +
+      'the SEPARATE machine-epsilon choice eps = 2.22e-16 in the same equation and found the ' +
+      'ordering does NOT survive that variation: T, F, M have DIFFERENT eps-elasticities ' +
+      '-1/(p+b) (b_T=0, b_F=0.4781, b_M=0.3526, since eps enters only through the lam_max proxy ' +
+      'exponent b, not the shared p), and F/M start only ~9 percent apart, so they swap at just ' +
+      '~45x machine eps (~1.0e-14) -- well inside a plausible c*sqrt(N)*eps accumulated-roundoff ' +
+      'band (~3.7 decades wide) -- giving T < M < F at the conservative edge. The qualitative ' +
+      '"wall-clock compute binds first" conclusion still survives to ~3.6e6x machine eps, but the ' +
+      'specific imp-96706 >=1500x headroom figure is fragile, breaking at only ~2.9x machine eps. ' +
+      'Measurement/sensitivity restatement only; no bound moved; no operator positivity ' +
+      'established; interval-rigorous reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA; NO QED.',
+    firstUsed: 'imp-96946 (adds this glossary headword contrasting the imp-96920 p-invariance with the imp-96914 eps-non-invariance of the same T<F<M ordering), 2026',
+    relatedTerms: [
+      'imp-96920-route-m-ceiling-ordering-glossary-headword.js the p-invariance headword this contrasts (CEILING_ORDERING_HEADWORD)',
+      'imp-96914-route-m-ceiling-eps-sensitivity-band.js the source eps-sensitivity band (IMP96914_ORDERING, IMP96914_VERDICT)',
+      'imp-96833-route-m-ceiling-p-sensitivity-band.js the p-sensitivity band imp-96920 glosses',
+      'imp-96693-route-m-conditioning-ceiling-residual-decomposition.js the three reported ceilings T/F/M',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

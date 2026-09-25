@@ -20169,6 +20169,20 @@ const DATA_MODULES = [
   // (no zeros bundle); no page importer (ORPHANED from any page/index, flagged). Added
   // below to close the gap and let its self-executing *_ASSERTIONS run under CI.
   '/src/data/imp-96586-route-m-lammax-meanfield-cesaro-proxy.js',
+  // imp-96668 (2026-09-24): re-fits the Route M lam_max(N) growth on the enlarged imp-96649
+  // ladder (lam_max measured through N=9000) with a curvature / 1-over-logN term. The pure
+  // log-linear slope over the eleven-rung ladder is ~0.340 (below the imp-96443 0.3526 fit to
+  // N<=6000), and a strongly-favored curvature term (R^2 0.9941 -> 0.99997, C<0) shows the
+  // local slope near N=9000 is ~0.26 and still slowing. The recomputed 1/eps conditioning
+  // ceiling stays in the ~4e7 band (4.10-4.49e7) and moves UP slightly (smaller lam_max ->
+  // smaller cond#, conservative); compute 9916 still binds first by >2000x. Self-executing
+  // *_ASSERTIONS re-derive every fit in JS from the embedded rungs. Measurement only; NO QED.
+  '/src/data/imp-96668-route-m-lammax-curvature-refit.js',
+  // imp-96669: extends the imp-96652 full-eigendecomposition ladder to N=4000,5000,6000 and
+  // measures that the two-scale inputs w1 (top overlap) and lam1/lam2 (top gap) both KEEP
+  // DRIFTING monotonically down -- the derived two-scale r0/k climb and OVERSHOOT the imp-96636
+  // measured 2.94/0.86, so those are not asymptotic limits. Measurement only; NO QED.
+  '/src/data/imp-96669-route-m-twoscale-inputs-nladder-drift.js',
 ];
 
 let ALL_MODULES = FAST_MODE

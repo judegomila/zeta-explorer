@@ -217,6 +217,35 @@ export const PATH_C_BASELINE_FIT_ACCURATE = [
   { N: 2458, tc: 0.0011923134, tcLegacy: 0.0086, gmin0: 0.097502502, collidingPair: 1496 },
 ];
 
+// Re-derived baseline fit |t_c| = a + b/N from the ACCURATE adaptive-RK4 ladder
+// above (imp-96615 / rh-bridge-route-b-overclaim-baseline-audit FINDING 2).
+// The contaminated PATH_C_FIT_POINTS literals give a = 0.00294, b = 6.98,
+// R^2 = 0.9987 (an artefact of fixed-step overshoot inflating the intercept);
+// the accurate t_c values give a = 0.00586, b = 4.886, R^2 = 0.943, which
+// reconciles with the header-documented a = 0.0066, b = 4.91, R^2 = 0.943 in
+// b and R^2 (that fit came from an earlier near-accurate re-run, not from the
+// baked literals, as lambda-intercept-confidence.js already flagged).
+// INTEGRATOR ATTRIBUTION (settled): the fluid module labelled the baseline
+// "Euler" and imp-1228 agrees, but imp-1226 called it RK4; the audit shows the
+// defect is the FIXED dt, not the Euler/RK4 choice -- fixed-step RK4 at
+// dt = 5e-4 reproduces the N = 50 literal 0.1435 exactly (RK4 stages straddle
+// the pole and the pair bounces back to gap ~0.58), whereas fixed-step Euler at
+// the same dt gives 0.097. So the corrected fit here comes from ADAPTIVE RK4
+// (dt = frac * g_min^2/8, fold-extrapolated), independent of that Euler-vs-RK4
+// dispute. The N = 500 / 2458 literals are not reproduced by any fixed dt in
+// {5e-4, 3e-4, 1e-4} (RK4 or Euler); their provenance is unrecoverable.
+export const PATH_C_BASELINE_FIT_ACCURATE_COEFFS = Object.freeze({
+  a: 0.005860,
+  b: 4.8860,
+  R2: 0.9431,
+  integrator: 'adaptive RK4 (dt = frac * g_min^2/8, fold-extrapolated)',
+  ladder: 'PATH_C_BASELINE_FIT_ACCURATE',
+  contaminatedLiteralFit: Object.freeze({ a: 0.002936, b: 6.9832, R2: 0.9987 }),
+  documentedFit: Object.freeze({ a: 0.0066, b: 4.91, R2: 0.943 }),
+  provenance: 'rh-bridge-route-b-overclaim-baseline-audit-2026-09-24 FINDING 2 / imp-96615',
+  note: 'fixed-dt (not Euler-vs-RK4) is the contamination defect; documented fit reconciles in b and R^2',
+});
+
 function linearFit(points) {
   const xs = points.map(p => 1 / p.N);
   const ys = points.map(p => p.tc);

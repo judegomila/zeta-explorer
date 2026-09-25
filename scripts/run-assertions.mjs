@@ -20135,6 +20135,12 @@ const DATA_MODULES = [
   // measured 0.3526 growth coefficient. Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96574-spd-trace-domination-log-shape-glossary-headword.js',
+  // imp-96648: sharper unconditional lam_max majorants on the Route M Vasyunin Gram --
+  // the Frobenius / Wolkowicz-Styan two-moment bound raises the rigorous lower
+  // conditioning ceiling from N>=~2.59e7 (trace domination, imp-96548) to N>=~3.75e7
+  // (~76% of the trace->measured 4.11e7 gap), while the Gershgorin/Brauer row-sum family
+  // is WORSE than trace and is ruled out. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96648-route-m-lammax-frobenius-moment-majorant.js',
 ];
 
 let ALL_MODULES = FAST_MODE

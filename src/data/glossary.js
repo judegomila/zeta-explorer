@@ -23444,6 +23444,36 @@ export const glossary = [
       'rh-route-i-direct-sonine-trace-certificate-2026-09-24.js the same-day dual-LP sibling certificate for the IDENTICAL range 2a <= 0.96 (margins 0.0467..0.0016), IEEE double precision, NOT interval-verified -- cite THIS module, not that one, for the rigorous status of 2a <= 0.96',
     ],
   },
+  {
+    term: 'Basis-C Corroboration-Reach Crossover (measured-floor recomputation)',
+    category: 'measurement',
+    definition:
+      'imp-96531-basis-c-crossover-measured-floor.js. imp-96430 found the largest unfolded box length L at ' +
+      'which the basis-C direct double-integral number-variance evaluation still independently corroborates ' +
+      'the exact basis-A (Dyson-Mehta) signal |rho + 1/2| above a shrinking cancellation floor, by ' +
+      'extrapolating an L-linear floor MODEL calibrated from accessible-L rungs -- giving a crossover band ' +
+      'L* ~ [1.3e12, 2.5e12] (five-to-six decades past the PT-verified anchor L = 5.9e6) and an anchor ' +
+      'headroom signal/floor ~3.7e5. imp-96448 then directly MEASURED the achievable basis-C floor at the ' +
+      'anchor (~2.84e-5, ~573x above the imp-96430 model floor there, because the optimum quadrature ' +
+      'points-per-period collapses to ~3 at the anchor and the floor becomes Simpson-truncation-set rather ' +
+      'than cancellation-set) -- but the imp-96430 crossover band and headroom were never recomputed against ' +
+      'that measured value. This module re-anchors the same L-linear floor form to the imp-96448 measured ' +
+      'slope and re-bisects: the crossover COLLAPSES ~460x, from L* ~ 1.32e12 to L* ~ 2.86e9 (rho ~ -0.4862 ' +
+      'there), and the anchor headroom is the measured ~642, not the model ~3.7e5. Basis C still ' +
+      'independently corroborates basis A across the accessible-to-anchor range and ~2.7 decades past the PT ' +
+      'anchor -- a real but modest reach, not the ~5-6 decades the model extrapolation claimed. HONEST SCOPE: ' +
+      'rho is the theoretical GUE (sine-kernel) two-interval correlation, not computed from real zeros; the ' +
+      'measured-floor crossover is itself a coarser extrapolation (re-anchoring one L-linear form across two ' +
+      'different floor mechanisms); changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96531-basis-c-crossover-measured-floor.js (re-anchors the imp-96430 crossover model to the imp-96448 measured anchor floor and re-bisects), 2026',
+    relatedTerms: [
+      'imp-96430-basis-c-corroboration-reach-crossover.js the original L-linear MODEL-floor crossover band [1.3e12, 2.5e12] this recomputes',
+      'imp-96448-direct-basis-c-anchor-floor.js the MEASURED anchor floor ~2.84e-5 (ppp collapses to ~3) this re-anchors to',
+      'imp-96568-basis-c-intermediate-rung-floor-ladder.js measures the floor(L) growth as super-linear (~L^1.81) above the anchor, sharpening this crossover further to L* ~ 1.9e8',
+      'imp-96588-basis-c-floor-1e8-rung-powerlaw-bend.js a further rung showing the power law BENDS steeper (exponent ~2.43), sharpening the projected reach again to L* ~ 8e7',
+      'imp-96389-three-basis-rho-crossvalidation-table.js the three-basis (A/B/C) cross-validation table in which the basis-C L-linear floor is identified as the binding constraint',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

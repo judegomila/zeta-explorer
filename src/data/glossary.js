@@ -23506,6 +23506,37 @@ export const glossary = [
       'imp-96751-route-m-frobenius-ladder-above-12000.js a later extension of this same ladder to N=16000',
     ],
   },
+  {
+    term: 'Running-Min Small-Gaps "3 SE From the Pole" Reading Was an Autocorrelated-OLS Artifact',
+    category: 'measurement',
+    definition:
+      'imp-96774-gmin-exponent-refit-genuine-se.js. imp-96654 fit the running-min small-gaps ' +
+      'exponent b on a SINGLE 14-rung real-zeros ladder by OLS, getting b = -0.395338 with OLS ' +
+      'SE = 0.020615, i.e. -3.006 SE from the cube-root pole c = -1/3 -- a reading taken as ' +
+      'evidence the exponent was safely clear of the pole. But the 14/15 running-min rungs form a ' +
+      'heavily AUTOCORRELATED staircase (the numerator freezes at the last record gap across whole ' +
+      'plateaus), so a single-sample OLS SE understates the genuine fit uncertainty. This module ' +
+      'regenerates the sample as theoretical GUE (Wigner surmise, beta = 2) over M = 100 INDEPENDENT ' +
+      'realizations at N_max = 2e6 and measures the true replicate spread: mean b = -0.336315 with ' +
+      'genuine single-realization SD(b) = 0.056783 -- ~2.75x LARGER than the imp-96654 OLS SE -- and ' +
+      'the mean itself sits only ~0.05 SD from the pole, statistically indistinguishable from it. ' +
+      'Re-scored against this genuine spread, the real-zeros b = -0.395338 is only ~1.09 SD from the ' +
+      'pole, not 3.006 SE. Propagating the +/-1 SD band through N* = (A/C)^{1/(c-b)} shows N* CROSSES ' +
+      'the singularity: the steep edge gives N* = 3.58e6, the mean edge gives N* ~ 2.2e131 (essentially ' +
+      'infinite), and the shallow edge has c - b < 0 (no finite crossing at all) -- so N* is unbounded ' +
+      'on both sides, not merely large. HONEST SCOPE: theoretical GUE via the Wigner-surmise i.i.d. ' +
+      'proxy (exact for the s^2 small-gap repulsion driving this exponent, but ignoring multi-gap ' +
+      'sine-kernel correlations), not real zeros; a numerical re-measurement, not a proof; changes no ' +
+      'bound; the imp-96616 consequence (beating 1/log^2 needs the unproved GUE cube-root law) is ' +
+      'unchanged; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96774-gmin-exponent-refit-genuine-se.js (re-fits the running-min exponent b across 100 independent theoretical-GUE realizations to measure its genuine standard error), 2026',
+    relatedTerms: [
+      'imp-96654-gmin-crossover-sensitivity-oscillation.js the single-realization OLS SE = 0.0206 / "-3.006 SE from the pole" reading this re-scores as understated by ~2.75x',
+      'imp-96680-crossover-near-pole-fragility-glossary-headword.js the near-pole fragility glossary headword this sharpens from "near-singular" to "AT the singularity"',
+      'imp-96637-gmin-fit-gue-crossover.js the point-estimate crossover N* = 2.09e6 whose fragility this quantifies',
+      'imp-96616-gmin-ratio-extreme-gap-decay.js the real-zeros running-min fit A N^b (A = 2.1147, b = -0.3953) re-scored here against the genuine replicate spread',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

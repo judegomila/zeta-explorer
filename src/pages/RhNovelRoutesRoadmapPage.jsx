@@ -481,6 +481,9 @@ export default function RhNovelRoutesRoadmapPage() {
           <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8, borderLeft: '2px solid var(--brass-dk)', paddingLeft: 10 }}>
             <strong style={{ color: 'var(--brass-dk)' }}>Honest status — verification level:</strong> {ROUTE_I_UC_CERT.honestLimits}
           </p>
+          <p style={{ color: 'var(--ink-soft)', fontSize: 13, lineHeight: 1.75, marginTop: 8, borderLeft: '2px solid var(--brass-dk)', paddingLeft: 10 }}>
+            <strong style={{ color: 'var(--brass-dk)' }}>Literature — external claims, UNVERIFIED here:</strong> {ROUTE_I_UC_CERT.literature}
+          </p>
           <p style={{ fontFamily: mono, fontSize: 11, color: 'var(--faint)', marginTop: 8 }}>
             data: src/data/{ROUTE_I_UC_CERT.id}.js
           </p>

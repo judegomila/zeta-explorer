@@ -2847,6 +2847,48 @@ const ROUTE_M_RESIDUALS = [
   },
 ];
 
+// Route I (Toeplitz/Krein certificate) uniform-N gap verdict, consolidating
+// imp-96846 (route assessment), imp-96848 (partial tail-trace closure), and
+// imp-96835 (2a-monotonicity cross-check) -- imp-96885.
+const ROUTE_I_VERDICT = [
+  {
+    id: 'RouteI-1',
+    tag: 'imp-96846-imp-96848-imp-96835-uniform-N-gap-consolidated',
+    color: '#6d55b8',
+    badge: 'ROUTE C MOST TRACTABLE; PARTIAL CLOSURE',
+    title: 'Route I Krein uniform-N gap: complementary min-max methods are the tractable path; tail-trace bound partially closed',
+    status: 'OPEN',
+    body: [
+      'imp-96835 cross-checked that the condB=1 Gegenbauer Rayleigh floor lambda_min(T_a[sigma_2]) is ' +
+      'monotone-increasing as 2a decreases from ln3 to 0.96 (0.579988 at ln3 -> 20.132660 at 0.96, ' +
+      'N=100, T=4800), so the 2a=ln3 plateau is the smallest/most binding floor in the certified-adjacent ' +
+      'window and the imp-96651 positivity at 2a=0.96 is reproduced. But every tabulated floor is an ' +
+      'N-Galerkin Rayleigh UPPER bound (Courant-Fischer), monotone DECREASING in N, so this in-basis ' +
+      'monotonicity is necessary consistency, not operator positivity uniform in N (IMP96749_UNIFORM_N_GAP).',
+      'imp-96846 assessed the three operator-theoretic routes that could deliver a genuine lower bound. ' +
+      'Route A (Garding coercivity) is structurally incapable of a positive floor: it only reaches ' +
+      'lambda_1 >= -C, C the mid-band dip depth. Route B (trace-class tail control) fails at the outset ' +
+      'because T_a[sigma_2] is unbounded (order-4 symbol t^4 ln t), so its Galerkin tail is not trace-class; ' +
+      'its only viable variant collapses onto the open (N,T) resolvent-truncation rate. Route C (min-max ' +
+      'complementary: Temple / Kato-Temple / Lehmann-Goerisch) is the MOST TRACTABLE -- the only route that ' +
+      'structurally produces lower bounds on lambda_1 with interval-friendly ingredients -- and reduces the ' +
+      'whole problem to one missing input: a certified a-priori lower bound beta <= lambda_2(a).',
+      'imp-96848 partially closes the companion tail-trace question Route B reduces to. The imp-96827 ' +
+      'geometric-per-doubling decay law is NOT itself provable, but a strictly stronger structural bound ' +
+      'replaces it needing no decay assumption: (A) the floor climbs monotonically because sigma_2 > 0 for ' +
+      '|t| >= T0 ~ 17, so every truncation increment is a PSD Loewner slab (Weyl monotonicity); (B) a ' +
+      'closed-form residual bound L - f(T) <= a^{-(4m+1)} (1/2pi) int_{|t|>T} sigma_2 |Psi|^2 dt follows from ' +
+      'lambda_max(R_T) <= Tr(B^{-1} R_T). The enclosure becomes genuine once a single N-dependent tail-trace ' +
+      'majorant on the Gegenbauer-transform diagonal is supplied (sub-gap IMP96848_TAILTRACE_MAJORANT) -- the ' +
+      'named blocking step.',
+      'None of these three results proves operator positivity; the interval-rigorous certified reach stays ' +
+      '2a <= 0.96, IMP96749_UNIFORM_N_GAP_UNSETTLED remains open, RH is open, and Platt-Trudgian Lambda <= 0.2 ' +
+      'remains SOTA. Assessment/measurement only; NO QED.',
+    ],
+    links: [],
+  },
+];
+
 export default function OpenFrontierPage() {
   return (
     <div className="page">
@@ -4970,6 +5012,65 @@ export default function OpenFrontierPage() {
       </div>
 
       {DIP_DEPTH_RESIDUALS.map((r) => (
+        <div
+          key={r.id}
+          className="card"
+          style={{ marginBottom: 18, borderLeft: "3px solid " + r.color }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: 0.5,
+                color: r.color,
+                border: "1px solid " + r.color,
+                borderRadius: 4,
+                padding: '2px 7px',
+              }}
+            >
+              {r.badge}
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 10.5,
+                fontWeight: 700,
+                color: '#b58a2e',
+                border: '1px solid #b58a2e',
+                borderRadius: 4,
+                padding: '1px 6px',
+              }}
+            >
+              {r.status}
+            </span>
+            <code style={{ fontSize: 11, color: '#877b67' }}>{r.tag}</code>
+          </div>
+          <strong style={{ color: '#1c1814', fontSize: 14, display: 'block', marginBottom: 10 }}>
+            {r.title}
+          </strong>
+          {r.body.map((para, i) => (
+            <p key={i} style={{ fontSize: 13, color: '#877b67', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+              {para}
+            </p>
+          ))}
+        </div>
+      ))}
+
+      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #6d55b8' }}>
+        <strong style={{ color: '#6d55b8', fontSize: 13 }}>Route I (Toeplitz/Krein certificate) uniform-N gap</strong>
+        <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>
+          The record below consolidates three honest-status sub-gaps from the Route I Krein-floor
+          program (imp-96846 route assessment, imp-96848 partial tail-trace closure, imp-96835
+          2a-monotonicity cross-check). Each already carries its own reproducible measurement or
+          derivation in src/data/ but was previously referenced only in the improvement log. None of
+          them establish operator positivity, change the interval-rigorous certified reach (2a &le; 0.96),
+          or claim RH.
+        </p>
+      </div>
+
+      {ROUTE_I_VERDICT.map((r) => (
         <div
           key={r.id}
           className="card"

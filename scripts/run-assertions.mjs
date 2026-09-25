@@ -20152,6 +20152,23 @@ const DATA_MODULES = [
   // direct entry here and NO page importer, so its assertions silently never ran under node CI --
   // added below to close the gap.
   '/src/data/imp-96564-route-i-galerkin-eigenvalue-verification-recipe.js',
+  // imp-96674: re-runs the imp-96656 delta-method 95% conditioning-ceiling bands on the
+  // ENLARGED imp-96649 eight-rung cond# fit and tabulates the ordering against the raised
+  // imp-96648 Frobenius rigorous lower ceiling 3.75e7. Result: 3.75e7 now EXCEEDS both the
+  // dense-seven (3.55e7) and all-eight (3.65e7) 95% band lower edges yet stays below both
+  // fitted point ceilings (3.784e7 / 3.963e7) and both upper edges -- the rigorous lower
+  // bound CONVERGES into the fit band (agrees with the all-eight point to ~0.9%) rather than
+  // restoring slack; the imp-96656 6.5% tight spot vs the old trace ceiling 2.59e7 is
+  // dissolved (both edges +37-41% above it), and compute 9916 still binds first by ~3600x.
+  // Error-propagation / tabulation only; no bound moved; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96674-route-m-frobenius-vs-eightrung-95band.js',
+  // imp-96672 (2026-09-24): the imp-96586 heuristic mean-field/Cesaro proxy assessment
+  // (neither single-mode proxy predicts the measured 0.3526 lam_max log-slope; peak row
+  // is Hilbert-Schmidt so the growth is collective) was committed untracked and absent
+  // from this DATA_MODULES sweep -- the known silent-full-sweep CI trap. Import-light
+  // (no zeros bundle); no page importer (ORPHANED from any page/index, flagged). Added
+  // below to close the gap and let its self-executing *_ASSERTIONS run under CI.
+  '/src/data/imp-96586-route-m-lammax-meanfield-cesaro-proxy.js',
 ];
 
 let ALL_MODULES = FAST_MODE

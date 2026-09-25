@@ -20408,6 +20408,16 @@ const DATA_MODULES = [
   // re-derive the projected rungs and wall ordering in JS. Assessment only; interval-rigorous
   // reach stays exactly 2a<=0.96; RH open; NO QED. (imp-96764 registry audit)
   '/src/data/imp-96732-krein-extended-precision-reach-assessment.js',
+  // imp-96834 (2026-09-25): sharpens imp-96732 -- assesses whether the certified design margin
+  // eps(2a)=200(1-2a) and its zero 2a*=1.0 are an artifact of the FIXED kmax=4 double-precision
+  // trig-polynomial certificate or intrinsic. Structural verdict: ARTIFACT -- the max achievable
+  // certified margin is monotone non-decreasing in certificate degree (LP feasible-set enlargement),
+  // so 2a* can only move right toward ln3; and its ceiling lambda_min(T_a[sigma_2]) stays positive
+  // through ln3 (~7.7 at 2a=1.0, sign flip only near 2a~1.13), so eps->0 at 2a=1.0 is not dictated by
+  // positivity. Genuinely intrinsic obstructions (l1 blow-up, lambda_min sign flip) sit to the RIGHT.
+  // Self-executing *_ASSERTIONS re-derive the eps fit / operator ceiling in JS. Assessment only;
+  // interval-rigorous reach stays 2a<=0.96; RH open; NO QED.
+  '/src/data/imp-96834-krein-certificate-degree-margin-assessment.js',
   // imp-96638: Concepts glossary headword restating the imp-96617 verdict that the box
   // sine-kernel closed-form lag correlation is a two-SIDED ~6-7-digit approximation
   // (|DeltaCov_k| <~ 2.07e-3/L^2, Bartlett weight kills the O(1/L) term), NOT a certified

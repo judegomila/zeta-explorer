@@ -1237,6 +1237,9 @@ const Imp96721Sigma2EmpVsGueViz = lazy(() =>
 const Imp96646KreinCertificateMarginViz = lazy(() =>
   import('./pages/Imp96646KreinCertificateMarginViz.jsx')
 );
+const Imp96661KreinFtCurveViz = lazy(() =>
+  import('./pages/Imp96661KreinFtCurveViz.jsx')
+);
 const Imp96600BasisCFloorLadderViz = lazy(() =>
   import('./pages/Imp96600BasisCFloorLadderViz.jsx')
 );
@@ -3605,6 +3608,10 @@ function AppShell() {
           <Route
             path="/viz-imp96646-krein-certificate-margin"
             element={<Imp96646KreinCertificateMarginViz />}
+          />
+          <Route
+            path="/viz-imp96661-krein-ft-curve"
+            element={<Imp96661KreinFtCurveViz />}
           />
           <Route
             path="/viz-imp96721-sigma2-emp-vs-gue"

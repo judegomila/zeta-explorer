@@ -4339,6 +4339,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every anchor and fit coefficient (eps, l1, slopes, intercepts, wall band, ln2/ln3) is reused verbatim from the Route I Krein certificate literals; only the paired chart and reach-diagram reshape are new. The double-precision LP wall is a conditioning symptom of the certificate norm, not a positivity failure (lambda_min(T_a[sigma_2]) stays positive well past 2a=1.0). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96661-krein-ft-curve',
+      title: 'Krein Sigma2 Certificate Positivity Margin: F(t) Over t in [0,60]',
+      oneLine:
+        'Plots F(t)=sigma_2(t)+nu(t) itself (not a summary statistic) over t in [0,60] for both interval-verified Route I Krein certificates (2a=0.9, 2a=0.96), marking the imp-96633 reported worst points and zooming into the sigma_2/nu near-cancellation window around t~11 where the 2a=0.96 curve oscillates rapidly.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96661-krein-ft-curve-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-toeplitz-krein-certificate-2026-09-24.js (certificateF/sigma2, sampled offline by tmp/imp-96661-sample-curve.mjs); src/data/imp-96633-krein-worst-point-crosscheck.js (worst points); src/data/imp-96651-krein-096-fine-extended-scan.js (refined dip)',
+      ticket: 'imp-96661',
+      pedagogicalStep: 284,
+      honestCeiling:
+        'Presentation only: the two curves and zoom panel were generated offline from the already-committed double-precision certificateF/sigma2 against the baked certificate coefficient tables (no new numerics), then baked as literals; the worst-point and dip markers reproduce the imp-96633/imp-96651 values exactly. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

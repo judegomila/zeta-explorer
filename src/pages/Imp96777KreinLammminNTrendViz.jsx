@@ -5,6 +5,7 @@ import {
   IMP96777_NS,
   IMP96777_TRUSTED_BAND,
   IMP96777_HONEST_BANNER,
+  IMP96777_CORRECTION_IMP96772,
 } from '../data/imp-96777-krein-lammin-n-trend-viz-data.js';
 
 // Three-curve chart (each 2a rung normalised to its own N=20 value so all
@@ -158,6 +159,21 @@ export default function Imp96777KreinLammminNTrendViz() {
         {IMP96777_TRUSTED_BAND.condBAtWallOnset.toExponential(2)}) is where the near-linear
         dependence of the (1-y^2)^{'{2m}'}-weighted basis corrupts the generalized eigenvalue &mdash;
         the visible re-acceleration there is numerical noise, not evidence the gap is closing.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(250,204,21,0.06)',
+          borderLeft: '3px solid #facc15',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#facc15' }}>Update ({IMP96777_CORRECTION_IMP96772.ticket}):</strong>{' '}
+        {IMP96777_CORRECTION_IMP96772.note}
       </div>
 
       <div

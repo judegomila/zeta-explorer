@@ -18,6 +18,8 @@
  * Lambda <= 0.2 remains SOTA; RH open; NO QED.
  *
  * @see imp-96749-krein-lammin-N-trend-measurement.js (source ladder + verdict)
+ * @see imp-96772-krein-lammin-double-double-recompute.js (extended-precision recompute REFUTING
+ *   the "red band = conditioning noise" reading below; IMP96777_CORRECTION_IMP96772)
  * @see imp-96701-frobenius-majorant-eleven-rung-viz-data.js (sibling viz-data leaf convention)
  *
  * Ticket: imp-96777 (ux, sonnet-4-6, medium). Presentation only, RH-free;
@@ -31,6 +33,7 @@ import {
   IMP96749_TRUSTED,
   IMP96749_VERDICT,
 } from './imp-96749-krein-lammin-N-trend-measurement.js';
+import { IMP96772_VERDICT } from './imp-96772-krein-lammin-double-double-recompute.js';
 
 export const IMP96777_NS = IMP96749_NS;
 
@@ -72,6 +75,18 @@ export const IMP96777_VERDICT_SUMMARY = Object.freeze({
   qed: IMP96749_VERDICT.qed,
 });
 
+// imp-96772 recomputed this same ladder at extended precision (mp.dps=40) past the condB~1e13
+// wall marked below and found the wall does NOT corrupt the floor: double- and extended-precision
+// solves agree to < 1e-6 up to condB=1.1e16 (N=100), so the red-band re-acceleration this page
+// calls "numerical noise, not evidence the gap is closing" is instead a real (t-truncation) effect.
+export const IMP96777_CORRECTION_IMP96772 = Object.freeze({
+  ticket: 'imp-96772',
+  note: 'the imp-96749 "red band = Gram-conditioning noise" reading below is REFUTED: an extended-precision (dps=40) recompute reproduces the double-precision floor to < 1e-6 across the entire ladder up to condB=1.1e16 (N=100) -- the wall does not corrupt the floor. The descent past N=60 is a real t-truncation effect (fixed T=800 under-resolving the positive t-tail), not numerical noise, confirming imp-96768 from the Legendre side.',
+  floorCorruptionWallExists: IMP96772_VERDICT.floorCorruptionWallExists,
+  imp96749Finding3ConditioningReadingRefuted: IMP96772_VERDICT.imp96749Finding3ConditioningReadingRefuted,
+  qed: IMP96772_VERDICT.qed,
+});
+
 export const IMP96777_HONEST_BANNER =
   'Measurement only: this is a Rayleigh-Ritz UPPER floor, not an operator positivity proof. ' +
   'The uniform-in-N spectral gap lambda_min(T_a[sigma_2]) >= c > 0 stays OPEN past the ' +
@@ -104,6 +119,14 @@ const IMP96777_ASSERTIONS = [
       IMP96777_TRUSTED_BAND.condBAtTrustedMax < IMP96777_TRUSTED_BAND.condBWall &&
       IMP96777_TRUSTED_BAND.condBAtWallOnset > IMP96777_TRUSTED_BAND.condBWall,
     why: 'the trusted-window boundary (N<=52) must sit strictly before the corruption-onset rung (N=60) on the shared N grid, with condB crossing the 1e13 wall exactly in between.',
+  },
+  {
+    id: 'imp96777-imp96772-correction-present',
+    holds: () =>
+      IMP96777_CORRECTION_IMP96772.floorCorruptionWallExists === false &&
+      IMP96777_CORRECTION_IMP96772.imp96749Finding3ConditioningReadingRefuted === true &&
+      IMP96777_CORRECTION_IMP96772.qed === false,
+    why: 'this page must not go on displaying the superseded imp-96749 "conditioning noise" reading of the red band without the imp-96772 correction (wall does not corrupt the floor; descent is real t-truncation).',
   },
   {
     id: 'imp96777-honest-banner-present',

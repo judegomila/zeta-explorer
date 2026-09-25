@@ -20795,6 +20795,17 @@ const DATA_MODULES = [
   // at sigma < 1 (NS-RIGID class); t > 0 model composite 0.19 sits on P15 Table 1. Import-free,
   // 12 holds() assertions. No new bound; PT Lambda <= 0.2 stands; NO QED.
   '/src/data/rh-bridge-mirror-descent-2026-09-25.js',
+  // imp-97069 registration fix: the two modules below carry self-executing
+  // assertion tripwires but were never wired into this DATA_MODULES sweep
+  // (orphaned, --since-changed untracked/unregistered trap).
+  // imp-96969: META cross-reference index grouping the Route C-direct
+  // bounded-resolvent / Krein t-truncation cohort (imp-96827/96889/96911/
+  // 96935/96938) as a closed-lever family. Index/meta only; NO QED.
+  '/src/data/imp-96969-coupled-nt-truncation-wall-cohort-index.js',
+  // imp-97032: tests whether a larger cutoff T or a denser HP tail block
+  // drives the kmax=5 Route I Krein guarded LP residual >= 0 at 2a=1.00;
+  // neither converges, dip is structural. Certified reach stays 2a<=0.96; NO QED.
+  '/src/data/imp-97032-krein-tail-parametrisation-lever.js',
   // imp-97043 registration fix: the three imp-9695x viz-data leaves below carry
   // self-executing assertion tripwires (or exported *_ASSERTIONS arrays) but were
   // never wired into this DATA_MODULES sweep (orphaned).

@@ -20128,6 +20128,13 @@ const DATA_MODULES = [
   // Galerkin smallest eigenvalue lambda_min(K_N|V_N). Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96573-route-i-ds-le-ls-one-leg-glossary-headword.js',
+  // imp-96574: Concepts glossary headword restating the imp-96548 verdict that SPD
+  // trace domination gives a rigorous, unconditional log-shape upper bound
+  // lam_max(N) <= I(1,1) H_N = 1.2607 log N + O(1) for the Route M Vasyunin Gram --
+  // confirming the conditioning ceiling is compute-bound, but not reproducing the
+  // measured 0.3526 growth coefficient. Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96574-spd-trace-domination-log-shape-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

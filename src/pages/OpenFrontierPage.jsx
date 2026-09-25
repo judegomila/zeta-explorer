@@ -2931,6 +2931,15 @@ const KMAX5_FRONTIER_VERDICT = [
       'gives NO interval-certified extension past 2a<=0.96. The certified reach is unchanged, operator ' +
       'positivity is not established (the Rayleigh floors remain upper bounds), RH is open, and ' +
       'Platt-Trudgian Lambda<=0.2 remains SOTA. NO QED.',
+      'HONEST STATUS on the 226-cell collapse itself (imp-96978): a follow-up decomposition of the worst ' +
+      'reported cell (t=16.697, rigorous lower bound -0.2706) found the negative bound is a COARSE-GRID ' +
+      '(hc) guard-resolution artifact, not a genuine sign change -- the true point value there is +1.054, ' +
+      'and shrinking the coarse cell width to hc<=1e-3 already flips that cell positive (+0.706), climbing ' +
+      'to +1.053 by hc=2e-5. But imp-96978 measured ONLY that one worst cell in isolation; a full [0,40] ' +
+      're-verification at hc<=1e-3 (2x the coarse cell count) that would actually CERTIFY 2a=1.00 was NOT ' +
+      'run (SUB-GAP IMP96978_FULLDOMAIN_HC1EM3_RERUN_NOT_RUN). So 2a=1.00 certification is PENDING that ' +
+      'rerun -- it is neither certified nor refuted by imp-96978 -- and the certified interval-rigorous ' +
+      'reach stays 2a<=0.96 above. NO QED.',
     ],
     links: [],
   },

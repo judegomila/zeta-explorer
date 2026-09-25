@@ -20201,6 +20201,13 @@ const DATA_MODULES = [
   // sole non-orphan (its own direct DATA_MODULES entry above). None of the seven can transitively
   // pull the zeros bundle. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96685-orphan-consumer-audit.js',
+  // imp-96686: accuracy/consistency audit of every consumer citing a Route M lam_max overstatement
+  // multiplier, checking each labels which imp-96548 quantity it reports (the ~1.92x N=6000 curve-
+  // value ratio vs the ~1.58x conditioning-ceiling ratio). Two MISLABELS found: imp-96548 FINDING 2
+  // prose and the USER-FACING imp-96574 glossary headword both quote the 1.58x ceiling ratio for the
+  // N=6000 value gap (true value ratio 1.92x); imp-96581 + page already label the two distinctly.
+  // Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96686-route-m-lammax-overstatement-figure-label-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

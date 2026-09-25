@@ -20806,6 +20806,12 @@ const DATA_MODULES = [
   // drives the kmax=5 Route I Krein guarded LP residual >= 0 at 2a=1.00;
   // neither converges, dip is structural. Certified reach stays 2a<=0.96; NO QED.
   '/src/data/imp-97032-krein-tail-parametrisation-lever.js',
+  // imp-97055: tests whether a windowed/tapered endpoint-damped design F or an
+  // edge-weighted L1 objective removes the structural tail-edge F-dip in the
+  // kmax=5 Route I Krein guarded LP at 2a=1.00; edge-weighting is inert (cannot
+  // change feasibility), the taper suppresses the edge dip ~2.3x but walls < 0 and
+  // is inadmissible. Certified reach stays 2a<=0.96; NO QED.
+  '/src/data/imp-97055-krein-windowed-design-lever.js',
   // imp-97043 registration fix: the three imp-9695x viz-data leaves below carry
   // self-executing assertion tripwires (or exported *_ASSERTIONS arrays) but were
   // never wired into this DATA_MODULES sweep (orphaned).

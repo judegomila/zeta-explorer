@@ -194,6 +194,25 @@ export default function Imp96721Sigma2EmpVsGueViz() {
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
           background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #f59e0b',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#fbbf24' }}>Not uniform over the window:</strong> imp-96714
+        checked the safe-direction sign at every calibration rung above, not just L = 960. It
+        holds (safe) at L &ge; 120 but FAILS at the two smallest rungs L = 30 and L = 60, where
+        the empirical number variance has not yet saturated to the rigidity limit -1/2. So the
+        claim above should be read as &ldquo;safe at L &ge; 120, fails at L in {'{30, 60}'}&rdquo;,
+        not as holding across the whole displayed window.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
           borderLeft: '3px solid #334155',
           borderRadius: '0 4px 4px 0',
           fontSize: '0.8rem',

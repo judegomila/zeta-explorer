@@ -20216,6 +20216,7 @@ const DATA_MODULES = [
   '/src/data/imp-96616-gmin-ratio-extreme-gap-decay.js',
   '/src/data/imp-96617-finite-L-correction-sign.js',
   '/src/data/imp-96812-boxsine-onesided-sign-assessment.js',
+  '/src/data/imp-96854-boxsine-remainder-thirdibp-sharpening.js',
   // imp-96573: Concepts glossary headword restating the imp-96544 verdict that the Route I
   // D_S<=L_S certificate (W(h)>=9.04e-4||h||^2, pole-free, 2a<=ln3) is DOUBLE-precision and
   // NOT interval-verified as a whole, but after imp-96544's mpmath.iv port of legs (B) floor
@@ -20687,6 +20688,10 @@ const DATA_MODULES = [
   // T(N) exactly to a single-denominator sum; derived growth law c = 2 beta (6/pi^2) log N ~ 3.542
   // (matching imp-96828), residual = a closed form for the scalar beta. Derivation+measurement; NO QED.
   '/src/data/imp-96850-coupled-weighted-vasyunin-double-sum-decoupling.js',
+  // imp-96849: extend the imp-96828 coprime-core Vasyunin second-moment T(N) ladder to N=8000;
+  // linear-in-log reading TIGHTENS (local exponent falls below 1.05, dT/dlogN pinned ~3.544,
+  // free-quadratic coeff still ~0.0022) so no eventual (log N)^2 law. Measurement/fit only; NO QED.
+  '/src/data/imp-96849-coprime-core-vasyunin-second-moment-ladder-extension.js',
 ];
 
 let ALL_MODULES = FAST_MODE

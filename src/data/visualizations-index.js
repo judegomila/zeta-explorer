@@ -4269,6 +4269,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value and the crossover figure are reused verbatim from imp-96591 (itself a re-analysis of the imp-96428 fit and the imp-96563 Higham/Rump rounding-shift formula); only the log10 reshape and marker packaging are new. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96621-sigma2-lammin-margin-ladder',
+      title: 'lambda_min(T_a[sigma_2]) Margin Ladder vs 2a, and the sigma_1 Sign Ambiguity Near ln 3',
+      oneLine:
+        'Plots the rh-route-i-toeplitz-krein-certificate lambda_min(T_a[sigma_2]) margin ladder across 2a=0.90..1.16 (falling from 56.05 through 0.552 at (ln 3)/2 to a zero crossing between 2a=1.12 and 1.1316, well past the interval-verified theorem wall 2a=0.96), alongside the CC Q-trick lambda_min(T_a[sigma_1]) ladder and its raw sign-straddle at exactly (ln 3)/2 (tcut300 negative, tcut800 positive) that the tail-inclusive recompute resolves positive.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96621-sigma2-lammin-margin-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-toeplitz-krein-certificate-2026-09-24.js (TOEPLITZ_KREIN_LITERALS.lambdaMinSigma2, .lambdaMinSigma1Full; imp-96621 viz page)',
+      ticket: 'imp-96621',
+      pedagogicalStep: 279,
+      honestCeiling:
+        'Presentation only: every ladder value, the crossing bracket, and the sigma_1 straddle/resolution are reused verbatim from the Route I Toeplitz/Krein certificate literals; only the ladder reshape and chart packaging are new. The zero crossing is a floating-point Rayleigh-Ritz measurement past the interval-verified range, not a proof of failure; establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

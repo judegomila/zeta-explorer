@@ -20438,6 +20438,13 @@ const DATA_MODULES = [
   // rigorous trace-domination lower ceiling N >= 2.59e7. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96657-conditioning-ceiling-crossvalidation-glossary-headword.js',
+  // imp-96673: Concepts glossary headword restating the imp-96652 spectral derivation --
+  // the imp-96636 logistic rank-r lam_max onset (r0=2.94, k=0.86) is the exact
+  // top-eigenpair weight share of a two-scale Vasyunin Gram spectrum, width
+  // k=1/ln(lam1/lam2) fixed by the top gap ratio (~2.6), half-saturation
+  // r0=ln((1-w1)/w1)/ln(lam1/lam2) fixed by the small top overlap w1 ~ 8%.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96673-lammax-sigmoid-onset-glossary-headword.js',
   // imp-96658: Concepts glossary headword restating the imp-96637 finding -- the
   // imp-96616 running-min ratio g_min(N)/y_N vs the GUE median envelope is a
   // TWO-SIDED oscillation (dips below 1 at N=5000 and N=5e5), not the one-sided

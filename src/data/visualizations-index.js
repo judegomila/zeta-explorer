@@ -4409,6 +4409,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the two-scale curve is computed at render time from baked closed-form parameters already reported in imp-96652 (no new numerics); the measured points and exact-share overlay are baked literals reused verbatim. Does not close IMP96562_SUBGAP, changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96679-gmin-ratio-sawtooth',
+      title: 'GUE Running-Min Sawtooth: ratioOverGue Plateaus and Record-Gap Resets',
+      oneLine:
+        'Plots the imp-96654 ratioOverGue = g_min(N)/(0.8582 N^-1/3) sawtooth over the imp-96616 14-rung ladder (N=50..1e6) on a log-log axis, tagging each rung as an argmin-freeze plateau continuation (rising as N^+1/3, x1.2599 per doubling) or a fresh record-gap reset, against the y=1 GUE median crossing.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96679-gmin-ratio-sawtooth-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96654-gmin-crossover-sensitivity-oscillation.js (GMIN_CROSSOVER_SENSITIVITY_OSCILLATION.oscillation; imp-96679 viz page)',
+      ticket: 'imp-96679',
+      pedagogicalStep: 288,
+      honestCeiling:
+        'Presentation only: every ladder value (N, ratioOverGue, argminIdx) is reused verbatim from imp-96616 and every doubling/jump/oscillation figure is reused verbatim from imp-96654; only the plateau/reset flags and the log-log chart reshape are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -1436,6 +1436,9 @@ const Imp96497ExcursionSignificanceSensitivityViz = lazy(() =>
 const Imp96478CountGapShareViz = lazy(() =>
   import('./pages/Imp96478CountGapShareViz.jsx')
 );
+const Imp96560BasisCCrossoverBandNarrowingViz = lazy(() =>
+  import('./pages/Imp96560BasisCCrossoverBandNarrowingViz.jsx')
+);
 const Imp96395SigmaLocalExponentRampViz = lazy(() =>
   import('./pages/Imp96395SigmaLocalExponentRampViz.jsx')
 );
@@ -3843,6 +3846,10 @@ function AppShell() {
           <Route
             path="/viz-imp96478-count-gap-share"
             element={<Imp96478CountGapShareViz />}
+          />
+          <Route
+            path="/viz-imp96560-basis-c-crossover-band-narrowing"
+            element={<Imp96560BasisCCrossoverBandNarrowingViz />}
           />
           <Route
             path="/viz-imp96395-sigma-local-exponent-ramp"

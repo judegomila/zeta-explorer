@@ -4157,6 +4157,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder row and landmark value plotted here is copied verbatim from the imp-96409 required-factor measurement; the only new step is parsing "1eK" N-labels to numeric N and taking log10 for the plotting grid. E_coll stays GUE-conditional (imp-486, UNTOUCHED); the imp-398 pinned C_F is UNTOUCHED; no admissible mollifier reshaping can inflate C_F by the required x5-6x+. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96560-basis-c-crossover-band-narrowing',
+      title: 'Basis-C Corroboration-Reach Crossover Band Narrowing',
+      oneLine:
+        'Charts the imp-96479/imp-96444 de-jittering of the basis-C direct-integral floor estimator: the corroboration-reach crossover band narrows from [1.3e12,2.5e12] (width ratio ~1.92x, min-over-coarse-ppp) to a proper subset [1.38e12,1.76e12] (width ratio ~1.27x, median-over-resolved-ppp), plotted against the Platt-Trudgian anchor L=5.9e6.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96560-basis-c-crossover-band-narrowing-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96479-basis-c-floor-dejitter-glossary-headword.js (IMP96479_BASIS_C_FLOOR_DEJITTER_GLOSSARY_HEADWORD; imp-96560 viz page)',
+      ticket: 'imp-96560',
+      pedagogicalStep: 271,
+      honestCeiling:
+        'Presentation only: both band endpoints and the PT anchor value plotted here are copied verbatim from the imp-96479 baked verdict; the only new step is the shared log10(L) axis projection for the before/after range chart. The crossover L* remains an EXTRAPOLATION never evaluated at L~1e12; changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

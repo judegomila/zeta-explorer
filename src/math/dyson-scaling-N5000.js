@@ -134,11 +134,18 @@ function backwardCollision(initial, dt, maxSteps) {
 }
 
 // RK4-based backward Dyson ODE integrator (imp-353 / imp353c_baseline_dt_overshoot).
-// Addresses the Euler step-size overshoot: at N = 50 with dt = 0.0005 the
-// Euler integrator overshoots the first collision singularity and reports
-// t_c = 0.1435 (a nonphysical second near-approach). RK4 at the same dt is
-// 4th-order accurate and greatly reduces the overshoot — the true first-collision
-// time at N = 50 is approx 0.0958 (33% lower than the Euler-baseline value).
+// Addresses the fixed-step overshoot: at N = 50 with dt = 0.0005 a fixed-step
+// integrator overshoots the first collision singularity and reports
+// t_c = 0.1435 (a nonphysical second near-approach). The true first-collision
+// time at N = 50 is approx 0.0957 (33% lower than the baseline value).
+// CORRECTION 2026-09-24 (rh-bridge-route-b-overclaim-baseline-audit-2026-09-24):
+// fixed-step RK4 at dt = 0.0005 on the Odlyzko zeros REPRODUCES the 0.1435
+// bounce exactly, while fixed-step Euler at the same dt gives 0.097 -- so a
+// fixed dt, not the Euler/RK4 choice, is the defect (the RK4 stage evaluations
+// straddling the pole produce the bounce). RK4 at dt = 0.0003 / 0.0001 gives
+// 0.0960 / 0.0962 (still dt-quantized). The fix is an ADAPTIVE step
+// dt = frac * g_min^2 / 8 (a fraction of the local fold time) plus fold
+// extrapolation of the residual g^2/8; see PATH_C_BASELINE_FIT_ACCURATE below.
 // Uses the same Kahan-compensated dysonDerivBackward as backwardCollision so
 // roundoff from the 1/(g_n - g_k) pole terms is not the limiting factor.
 export function backwardCollisionRK4(initial, dt, maxSteps) {
@@ -169,12 +176,45 @@ export function backwardCollisionRK4(initial, dt, maxSteps) {
 }
 
 // Existing 5-point fit data from certified-lambda-hybrid (Path C, imp-309).
+//
+// ACCURACY CAVEAT (2026-09-24 re-audit, rh-bridge-route-b-overclaim-baseline-audit-2026-09-24.js):
+// these literals are fixed-step-overshoot CONTAMINATED at EVERY N, not only at
+// N = 50 (imp-353 / imp353c_baseline_dt_overshoot). Adaptive RK4 on the Odlyzko
+// zeros (two independent step/stop settings agreeing to 4e-9) gives
+//   N = 50: 0.0957473   (literal 0.1435 is 1.499x too high)
+//   N = 100: 0.0701183  (0.0723, 1.031x)
+//   N = 200: 0.0326830  (0.0352, 1.077x)
+//   N = 500: 0.0123271  (0.0163, 1.322x)
+//   N = 2458: 0.00119231 (0.0086, 7.213x).
+// The N = 50 literal is reproduced exactly by fixed-step RK4 at dt = 5e-4; the
+// N = 500 / 2458 literals are not reproduced by any fixed dt in {5e-4, 3e-4, 1e-4}
+// and their provenance is unrecoverable. NOTE ALSO: the OLS the header quotes
+// (a = 0.0066, b = 4.91, R^2 = 0.943) is NOT what these five literals produce
+// (they give a = 0.00294, b = 6.98, R^2 = 0.9987); the accurate values give
+// a = 0.00586, b = 4.88, R^2 = 0.943, i.e. the documented fit came from a
+// different (near-accurate) runtime re-run, as lambda-intercept-confidence.js
+// already notes for the 0.0029 vs 0.0066 gap. The literals are left in place
+// because 80+ modules consume them with baked expectations; new work should
+// read PATH_C_BASELINE_FIT_ACCURATE below or the certified imp-360 ladder
+// (src/data/path-c-baseline-fit-v2.js).
 const PATH_C_FIT_POINTS = [
   { N: 50,   tc: 0.1435 },
   { N: 100,  tc: 0.0723 },
   { N: 200,  tc: 0.0352 },
   { N: 500,  tc: 0.0163 },
   { N: 2458, tc: 0.0086 },
+];
+
+// Accurate adaptive-RK4 collision times at the same N (Odlyzko zeros,
+// src/data/zeros-to-1e6.js; dt = frac * g_min^2/8, fold-extrapolated;
+// frac/gStop = 0.04/2e-3 and 0.01/5e-4 agree to <= 4.1e-9 relative).
+// tcLegacy repeats the contaminated literal so the ratio stays visible.
+export const PATH_C_BASELINE_FIT_ACCURATE = [
+  { N: 50,   tc: 0.0957472914, tcLegacy: 0.1435, gmin0: 0.845123634, collidingPair: 34 },
+  { N: 100,  tc: 0.0701183039, tcLegacy: 0.0723, gmin0: 0.715786716, collidingPair: 91 },
+  { N: 200,  tc: 0.0326830480, tcLegacy: 0.0352, gmin0: 0.498179464, collidingPair: 186 },
+  { N: 500,  tc: 0.0123271238, tcLegacy: 0.0163, gmin0: 0.310430705, collidingPair: 453 },
+  { N: 2458, tc: 0.0011923134, tcLegacy: 0.0086, gmin0: 0.097502502, collidingPair: 1496 },
 ];
 
 function linearFit(points) {

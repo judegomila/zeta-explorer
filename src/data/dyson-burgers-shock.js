@@ -93,6 +93,53 @@
  *   loose upper envelope that overpredicts the observed |t_c(N)| by one to
  *   two orders of magnitude on the baseline; it does not replace the
  *   imp-328 conditional bound at any finite N.
+ *
+ * CORRECTION 2026-09-24 (adversarial re-audit of two findings raised by
+ * rh-bridge-supercritical-fluid-shock-scaling-2026-09-24.js; audit module
+ * rh-bridge-route-b-overclaim-baseline-audit-2026-09-24.js)
+ * ----------------------------------------------------------------------
+ * (1) ROUTE B OVERCLAIM. G6_PER_N_BOUND was recorded as CLOSED ("Route B
+ *     FULLY CLOSED", "C_H = 1/8 RIGOROUS", |t_c(N)| <= 0.384 sqrt(log gamma_N / N))
+ *     by imp-683. That status is CORRECTED to CONDITIONAL. The chain is
+ *       (S0) tau_c(rho_inf) = 0, so the Hoelder deviation IS |t_c(N)| itself;
+ *       (S1) g_min(mu_N) <= C_Lip * W_1(mu_N, rho_inf)      [imp-366 Step 1, imp-395 Step 1]
+ *       (S2) |t_c(N)| <= g_min^2 / 8 (leading order)         [quadratic tangency]
+ *       (S3) W_1 <= 3 pi log(gamma_N) / N                    [imp-341 Koksma-Hlawka]
+ *       (S4) W_1^2 <= W_1^{1/2} for W_1 <= 1, C_Lip -> 1     [imp-395 Steps 2-3].
+ *     S1 is the silent small-gaps input: with S3 it asserts g_min(N) <= C_Lip * 3 pi
+ *     log(gamma_N)/N, a LINEAR per-N small-gap bound. On the Odlyzko zeros that
+ *     inequality needs C_Lip >= 1.39 (N = 100), 3.18 (N = 2458), 4.35 (10^4),
+ *     13.9 (10^5), 45.5 (10^6): the imp-395 premise "C_Lip -> 1, deviating < 0.1%"
+ *     is false from N = 100 on, and C_Lip cannot be N-uniform (consistent with
+ *     imp-2640 / imp-2642 / ch-wall-frontier-verdict-2026-06-26, which already
+ *     retracted C_C = (1/8) sqrt(3 pi) as an ANSATZ, not a rigorous constant --
+ *     polymath15-lemma52-shock-holder.js; this file had not been co-updated).
+ *     Independently, the RIGOROUS half of the fold law, |t_c(N)| >= g_min(N)^2/8
+ *     (d(g^2)/ds = -8 + 4 g^2 S, S > 0), shows that the bound as stated would
+ *     imply g_min(N) <= 1.753 (log gamma_N / N)^{1/4} for every N -- a
+ *     power-saving small-gaps theorem for zeta zeros that is not known. Hence
+ *     "Route B closed" was never rigorous; the per-N bound is CONDITIONAL on an
+ *     unproved per-N small-gaps / gap-Lipschitz input. The lim-sup statement
+ *     a = 0 (imp-341/imp-344) is a separate chain and is NOT re-audited here.
+ *     No status of Route A changes; both routes now visibly need a small-gaps-type
+ *     input (Route A: argmin bulk confinement; Route B: S1).
+ * (2) BASELINE CONTAMINATION. PATH_C_BASELINE_FIT collision times are
+ *     fixed-step-overshoot contaminated at EVERY N, not only N = 50 (imp-353):
+ *     adaptive RK4 (dt = frac * g_min^2/8, two independent (frac, gStop)
+ *     settings agreeing to 4e-9) on the Odlyzko zeros gives
+ *       t_c = 0.0957473 (N=50), 0.0701183 (100), 0.0326830 (200),
+ *             0.0123271 (500), 0.00119231 (2458),
+ *     i.e. baseline / accurate = 1.499, 1.031, 1.077, 1.322, 7.213. Fixed-step
+ *     RK4 at dt = 5e-4 reproduces the N = 50 value 0.1435 exactly (a bounce
+ *     through the singularity), while Euler at the same dt gives 0.097 -- the
+ *     repo's "Euler" attribution of the baseline is not what reproduces it. The
+ *     N = 500 / 2458 literals are not reproduced by any fixed dt in {5e-4, 3e-4,
+ *     1e-4}; their provenance is unrecoverable. The surrogate/observed ratios in
+ *     SHOCK_ROWS therefore carry both the legacy literal and the accurate value:
+ *     against accurate t_c the surrogate is 6.7x (N = 50) .. 139x (N = 2458)
+ *     loose, not "one to two orders of magnitude" uniformly. The legacy literal
+ *     array is left in place (80+ consumers); PATH_C_BASELINE_FIT_ACCURATE in
+ *     src/math/dyson-scaling-N5000.js carries the corrected values.
  */
 
 import { PATH_C_BASELINE_FIT } from '../math/dyson-scaling-N5000.js';
@@ -149,16 +196,27 @@ function burgersShockSurrogate(N) {
 
 // ── Apply to PATH_C_BASELINE_FIT ────────────────────────────────────────────
 
+// Accurate (adaptive-RK4, fold-extrapolated) collision times on the Odlyzko zeros,
+// 2026-09-24 re-audit (see CORRECTION (2) in the header). The legacy PATH_C literal
+// is fixed-step-overshoot contaminated at every N; both columns are kept so the
+// contamination stays visible. Source: tmp/finding2-tc-recompute.mjs, two
+// independent (frac, gStop) settings agreeing to 4e-9 relative.
+const TC_ACCURATE = { 50: 0.0957472914, 100: 0.0701183039, 200: 0.0326830480, 500: 0.0123271238, 2458: 0.0011923134 };
+
 const SHOCK_ROWS = PATH_C_BASELINE_FIT.map((pt) => {
   const s = burgersShockSurrogate(pt.N);
   const ratio = s.tauShock / pt.tc;
+  const tcAcc = TC_ACCURATE[pt.N] ?? null;
   return {
     N: pt.N,
-    observed_tc: pt.tc,
+    observed_tc: pt.tc, // legacy PATH_C literal (contaminated, see header CORRECTION (2))
+    observed_tc_accurate: tcAcc,
+    baseline_over_accurate: tcAcc ? pt.tc / tcAcc : null,
     gammaN_RvM: s.gammaN,
     meanSpacing_y_N: s.meanSpacing,
     burgersShockSurrogate: s.tauShock,
-    ratio_surrogate_over_observed: ratio,
+    ratio_surrogate_over_observed: ratio, // against the legacy literal
+    ratio_surrogate_over_accurate: tcAcc ? s.tauShock / tcAcc : null,
     log10Ratio: Math.log10(ratio),
   };
 });
@@ -213,16 +271,44 @@ const G5_BURGERS = {
   ],
 };
 
-// G6_per_N_bound: CLOSED via Route B — G6a-sub-constant CLOSED by imp-395
-// (C_H = 1/8 rigorous via Dyson two-particle ODE). Route A still blocked
+// G6_per_N_bound: recorded CLOSED via Route B by imp-683 (C_H = 1/8 "rigorous"
+// via Dyson two-particle ODE). CORRECTED 2026-09-24 to CONDITIONAL: the Route B
+// chain's Step 1 (g_min <= C_Lip * W_1) is an unproved per-N small-gaps input and
+// is numerically false with C_Lip ~ 1 from N = 100 on; imp-2640/imp-2642 had
+// already retracted C_C = 0.384 as an ansatz upstream. Route A still blocked
 // by G1-sub-extremal. Named by imp-661.
 const G6_PER_N_BOUND = {
   id: 'G6_per_N_bound',
-  status: 'closed',
+  status: 'conditional (CORRECTED 2026-09-24 from "closed": Route B rests on the unproved gap-Lipschitz / per-N small-gaps input g_min(mu_N) <= C_Lip * W_1(mu_N, rho_inf) with N-uniform C_Lip; see overclaimCorrection)',
   namedBy: 'imp-661',
   investigatedBy: 'imp-668',
-  closureAttemptedBy: 'imp-673; imp-676; imp-679; imp-680; imp-683',
+  closureAttemptedBy: 'imp-673; imp-676; imp-679; imp-680; imp-683 (status later corrected, 2026-09-24 re-audit)',
+  overclaimCorrection: {
+    date: '2026-09-24',
+    raisedBy: 'rh-bridge-supercritical-fluid-shock-scaling-2026-09-24.js (routeBImpliedSmallGaps tripwire)',
+    auditedBy: 'rh-bridge-route-b-overclaim-baseline-audit-2026-09-24.js',
+    previousStatus: 'closed',
+    previousClaim: '|t_c(N)| <= C_C * sqrt(log gamma_N / N), C_C = (1/8) sqrt(3 pi) ~ 0.384, RIGOROUS via C_H = 1/8 (imp-395) + Hoelder-1/2 (imp-354/imp-366) + Koksma-Hlawka (imp-341). "Route B FULLY CLOSED."',
+    whatIsRigorous: [
+      'tau_c(rho_inf) = 0 (imp-338 continuum shock), so the Hoelder deviation |tau_c(mu_N) - tau_c(rho_inf)| IS |t_c(N)|.',
+      'd(g^2)/ds = -8 + 4 g^2 S with S > 0 for every adjacent pair up to the first collision, hence |t_c(N)| >= g_min(N)^2 / 8 (elementary, rigorous lower bound; measured t_c / (g_min^2/8) = 1.003 .. 1.095 on the baseline).',
+      'W_1(mu_N, rho_inf) <= 3 pi log(gamma_N) / N (imp-341 Koksma-Hlawka; not re-audited here).',
+    ],
+    whatIsNot: [
+      'Step 1 of imp-366 / imp-395: g_min(mu_N) <= C_Lip * W_1(mu_N, rho_inf) with C_Lip -> 1. This is a per-N small-gaps statement (g_min = O(log gamma_N / N)); it is unproved and, with the imp-341 bound in the bridge normalization, FALSE for C_Lip ~ 1 from N = 100 on (required C_Lip: 0.90 @50, 1.39 @100, 1.77 @200, 2.46 @500, 3.18 @2458, 4.35 @1e4, 13.9 @1e5, 45.5 @1e6 -- non-N-uniform, consistent with imp-2640 / ch-wall-frontier-verdict-2026-06-26).',
+      'C_H = 1/8 as a Hoelder-modulus constant: imp-2642 verdict NEGATIVE (1/8 is the leading-order gap-to-time coefficient, not a bound on C_shock * C_Lip / 4); C_C = (1/8) sqrt(3 pi) is an ANSATZ value (polymath15-lemma52-shock-holder.js). This file had not been co-updated with that retraction.',
+    ],
+    smallGapsImplication:
+      'Because |t_c(N)| >= g_min(N)^2/8 is rigorous, the claimed bound would imply g_min(N) <= sqrt(8 * 0.384) (log gamma_N / N)^{1/4} = 1.753 (log gamma_N / N)^{1/4} for EVERY N (0.49 y_N at N = 50 .. 0.19 y_N at N = 10^6): a per-N power-saving small-gaps theorem for zeta zeros. No such unconditional theorem exists (known small-gap results are lim-inf constants of order 0.5 mean spacing). A rigorous Route B would therefore BE a new small-gaps theorem; it is not one, so the status is conditional.',
+    correctedStatement:
+      '|t_c(N)| <= 0.384 sqrt(log gamma_N / N) holds CONDITIONALLY on an N-uniform gap-Lipschitz constant C_Lip in Step 1 (equivalently on a per-N small-gaps input g_min(N) <= C_Lip 3 pi log(gamma_N)/N). The Odlyzko data satisfy the weaker (log/N)^{1/4} consequence at every N tested (N <= 10^6), so the bound is not refuted as a statement about the actual t_c(N); its PROOF is what is missing.',
+    downstreamNote:
+      'The lim-sup statement a = 0 (imp-341/imp-344, G5_burgers) is a separate chain and is not re-graded here; RouteBLimsupPage records an independent audit downgrading it to CLOSED-MODULO. Route A (imp-336) remains blocked by G1-sub-extremal; both routes now visibly require a small-gaps-type input.',
+  },
   closureOutcome:
+    'SUPERSEDED 2026-09-24 (see overclaimCorrection): the closure below rests on imp-395 Step 1 ' +
+    '(g_min <= C_Lip * W_1, C_Lip -> 1), which is an unproved small-gaps input and numerically ' +
+    'false at C_Lip ~ 1 for N >= 100. Original imp-683 record retained for provenance: ' +
     'imp-683 closes G6_per_N_bound via Route B. G6a-sub-constant is CLOSED ' +
     'by imp-395 (g6a-sub-constant-value.js): Whitham C_W path obstructed ' +
     '(u_0 = 2 m_inf singular at y → 0+); Dyson two-particle ODE gives ' +
@@ -240,13 +326,18 @@ const G6_PER_N_BOUND = {
     'bound, stronger than the unconditional lim-sup a = 0 statement.',
   whyOpen:
     'The Burgers surrogate 2π / log²(γ_N / 2π) is a LOOSE upper envelope: it ' +
-    'overpredicts the observed |t_c(N)| on PATH_C_BASELINE_FIT by one to two ' +
-    'orders of magnitude at every anchor. Converting it to a rigorous per-N ' +
+    'overpredicts |t_c(N)| by 4.5x .. 19x against the legacy PATH_C literals and ' +
+    'by 6.7x (N = 50) .. 139x (N = 2458) against the accurate adaptive-RK4 values ' +
+    '(2026-09-24 recompute; the legacy literals are overshoot-contaminated). ' +
+    'Converting it to a rigorous per-N ' +
     'bound requires either (a) imp-336 drift-sign monotonicity to show the ' +
     'sequence is non-increasing and the continuum limit a = 0 then forces it ' +
     'below any positive ε, or (b) a quantitative rate estimate on the ' +
     'ψ_N convergence from imp-344 that explicitly bounds |τ_c(m_N) − τ_c(m_∞)|.',
   investigationStatus:
+    'SUPERSEDED 2026-09-24 as to Route B rigor (see overclaimCorrection; "RIGOROUS" and ' +
+    '"FULLY RESOLVED" below are the imp-683 wording, retained for provenance, and are ' +
+    'CORRECTED to conditional). ' +
     'imp-668 audited both routes. Route A (monotonicity, imp-336): the imp-336 ' +
     'sketch is complete but retains G1-sub-extremal — bulk confinement of k*_N ' +
     'under the backward Dyson flow for Riemann zeros is conjectural via ' +
@@ -264,7 +355,14 @@ const G6_PER_N_BOUND = {
     'G1-sub-extremal: bulk confinement of k*_N under the backward Dyson flow ' +
       'for Riemann zeros — conjectural via Montgomery 1973, not a theorem. ' +
       'Blocks Route A. Shared with imp-343 residualSubGap.G4a_bulk_confinement.',
-    'G6b_shock_continuity: CLOSED by imp-354 + imp-366 + imp-394 + imp-395 (imp-683 audit). ' +
+    'G6b-Step1-gap-Lipschitz (OPEN, named 2026-09-24): the imp-366/imp-395 Step 1 input ' +
+      'g_min(mu_N) <= C_Lip * W_1(mu_N, rho_inf) with an N-uniform C_Lip. With the imp-341 ' +
+      'bound this is the per-N small-gaps statement g_min(N) <= C_Lip * 3 pi log(gamma_N)/N; ' +
+      'the Odlyzko zeros require C_Lip >= 1.39 (N = 100) .. 45.5 (N = 10^6), so C_Lip -> 1 ' +
+      'is false and no N-uniform value is known (imp-2640 / imp-2642 / ch-wall-frontier-verdict-2026-06-26: ' +
+      'C_Lip provably non-N-uniform in the W_1 channel). Blocks Route B rigor.',
+    'G6b_shock_continuity: recorded CLOSED by imp-354 + imp-366 + imp-394 + imp-395 (imp-683 audit); ' +
+      'the closure is CONDITIONAL on G6b-Step1-gap-Lipschitz above (2026-09-24). ' +
       'Holder-1/2 modulus: |τ_c(m_N) − τ_c(m_∞)| ≤ C_H · W_1^{1/2} (imp-366). ' +
       'G6a-sub-hyperbolic CLOSED (imp-394, Privalov-Sokhotski). ' +
       'G6a-sub-constant CLOSED (imp-395): Whitham C_W obstructed (u_0 = 2 m_inf ' +
@@ -279,23 +377,30 @@ const G6_PER_N_BOUND = {
     'Obtain a quantitative ψ_N rate upgrade (extending imp-344) that bounds ' +
       '|τ_c(m_N) − τ_c(m_∞)| ≤ δ(N) explicitly, with δ(N) → 0 as N → ∞, ' +
       'bypassing the monotonicity requirement entirely.',
+    'Prove a per-N small-gaps statement for zeta zeros: because |t_c(N)| >= g_min(N)^2/8 ' +
+      'is rigorous and |t_c(N)| ~ g_min(N)^2/8 (1 + 0.3% .. 10%) is measured, ANY explicit ' +
+      'per-N bound |t_c(N)| <= eps(N) with eps(N) -> 0 is equivalent (up to the stretch ' +
+      'term) to g_min(N) <= sqrt(8 eps(N)). The per-N bound is a small-gaps theorem in ' +
+      'disguise; the 1-point density alone cannot supply it (2026-09-24).',
   ],
 };
 
 // G1-sub-extremal: the remaining Route A blocker — bulk confinement of k*_N
 // under the backward Dyson flow, conjectural via Montgomery 1973.
-// Route B (G6_per_N_bound) was CLOSED by imp-683 without needing this.
+// Route B (G6_per_N_bound) was recorded CLOSED by imp-683 without needing this;
+// CORRECTED 2026-09-24: Route B is CONDITIONAL on its own small-gaps-type input
+// (G6b-Step1-gap-Lipschitz), so neither route currently yields a rigorous per-N bound.
 const G1_SUB_EXTREMAL = {
   id: 'G1-sub-extremal',
-  status: 'open-permanent; Route-A-only; three closure paths formally blocked (imp-696/imp-708/imp-711/imp-808/imp-900 audits); pending Montgomery 1973; main result G6_per_N_bound CLOSED via Route B (imp-683)',
+  status: 'open-permanent; Route-A-only; three closure paths formally blocked (imp-696/imp-708/imp-711/imp-808/imp-900 audits); pending Montgomery 1973; main result G6_per_N_bound CONDITIONAL (Route B status corrected 2026-09-24 from the imp-683 "closed")',
   impactScope:
-    'Non-blocking for the established result: G6_per_N_bound is CLOSED via ' +
-    'Route B (imp-683) independently of bulk confinement. G1-sub-extremal ' +
-    'remains open and continues to block Route A (imp-336 drift-sign ' +
-    'monotonicity), but the per-N bound |t_c(N)| <= (1/8)*sqrt(3*pi)* ' +
-    'sqrt(log gamma_N / N) is rigorous without it. Closure of this sub-gap ' +
-    'would enable Route A as an independent proof path; it does not affect ' +
-    'the Route B proof or the unconditional lim-sup a = 0 statement.',
+    'CORRECTED 2026-09-24: G6_per_N_bound is NOT established via Route B; that route is ' +
+    'conditional on the imp-366/imp-395 Step-1 gap-Lipschitz input (G6b-Step1-gap-Lipschitz), ' +
+    'itself a per-N small-gaps statement. G1-sub-extremal remains open and continues to block ' +
+    'Route A (imp-336 drift-sign monotonicity); the per-N bound |t_c(N)| <= (1/8)*sqrt(3*pi)* ' +
+    'sqrt(log gamma_N / N) is CONDITIONAL, not rigorous, with or without it. Both routes now ' +
+    'visibly require a small-gaps-type input (Route A: argmin bulk confinement; Route B: ' +
+    'N-uniform C_Lip). This does not touch the lim-sup a = 0 chain (imp-341/imp-344).',
   equivalentTo: 'imp-343 residualSubGap.G4a_bulk_confinement',
   namedBy: 'imp-336-post-ladder-update.js openSubGap; imp-687 formal registration',
   blocks: 'Route A of G6_per_N_bound (imp-336 drift-sign monotonicity)',
@@ -308,10 +413,12 @@ const G1_SUB_EXTREMAL = {
     'Riemann zeros requires GUE universality (Montgomery 1973 pair-correlation ' +
     'conjecture), which is not yet a theorem.',
   routeAvoided:
-    'Route B of G6_per_N_bound is CLOSED (imp-683): C_H = 1/8 rigorous via ' +
-    'Dyson two-particle ODE (imp-395) + Holder-1/2 modulus (imp-354/imp-366). ' +
-    'Explicit per-N bound |t_c(N)| <= (1/8)*sqrt(3*pi)*sqrt(log gamma_N / N) ' +
-    'requires no bulk-confinement input. G1-sub-extremal blocks only Route A.',
+    'Route B of G6_per_N_bound was recorded CLOSED (imp-683: C_H = 1/8 via Dyson ' +
+    'two-particle ODE (imp-395) + Holder-1/2 modulus (imp-354/imp-366)); CORRECTED ' +
+    '2026-09-24 to CONDITIONAL. The explicit per-N bound |t_c(N)| <= (1/8)*sqrt(3*pi)* ' +
+    'sqrt(log gamma_N / N) requires no bulk-confinement input but DOES require the ' +
+    'unproved N-uniform gap-Lipschitz constant C_Lip (Step 1), a small-gaps input of ' +
+    'the same family. G1-sub-extremal blocks only Route A.',
   blockingDependency: 'Montgomery 1973 pair-correlation conjecture (unproved)',
   closurePaths: [
     'Prove GUE universality for pair correlations of Riemann zeros (Montgomery ' +
@@ -404,8 +511,9 @@ const G1_SUB_EXTREMAL = {
       'by the global/local gap — the restricted result controls global averages ' +
       'but not local edge statistics. The sub-gap is formally registered as a ' +
       'named open obstruction of Route A only. The main result G6_per_N_bound ' +
-      'is fully rigorous via Route B (imp-683) without any input from ' +
-      'G1-sub-extremal.',
+      'was recorded as fully rigorous via Route B (imp-683) without any input from ' +
+      'G1-sub-extremal; CORRECTED 2026-09-24: Route B is conditional on ' +
+      'G6b-Step1-gap-Lipschitz (see G6_PER_N_BOUND.overclaimCorrection).',
   },
 };
 
@@ -413,14 +521,18 @@ const G1_SUB_EXTREMAL = {
 
 export const DYSON_BURGERS_SHOCK = {
   id: 'imp-338',
-  blocker: 'B2(a)-statistical-intercept (imp-328 candidate (ii), Burgers shock)', // CLOSED: lim-sup a=0 unconditional (imp-341/imp-344); per-N bound closed Route B (imp-395/imp-683)
+  blocker: 'B2(a)-statistical-intercept (imp-328 candidate (ii), Burgers shock)', // CLOSED as to the lim-sup a=0 (imp-341/imp-344); per-N bound Route B CORRECTED to conditional 2026-09-24 (was "closed", imp-395/imp-683)
   status:
     'continuum limit τ_shock(ρ_∞) = 0 established; finite-N surrogate is a ' +
     'loose upper envelope; uniformity gap G5_burgers CLOSED (imp-341 ' +
     'Koksma-Hlawka + imp-344 assembly) ⇒ candidate (ii) lim-sup a = 0 is ' +
-    'UNCONDITIONAL; per-N bound G6_per_N_bound CLOSED via Route B (imp-683): ' +
-    '|t_c(N)| ≤ C_C · sqrt(log γ_N / N) with C_C = (1/8)·sqrt(3π) ≈ 0.384 ' +
-    '(G6a-sub-constant CLOSED by imp-395; Route A blocked by G1-sub-extremal)',
+    'recorded UNCONDITIONAL (not re-audited here); per-N bound G6_per_N_bound ' +
+    'CONDITIONAL (CORRECTED 2026-09-24 from the imp-683 "closed via Route B"): ' +
+    '|t_c(N)| ≤ C_C · sqrt(log γ_N / N) with C_C = (1/8)·sqrt(3π) ≈ 0.384 holds only ' +
+    'under the unproved N-uniform gap-Lipschitz input g_min ≤ C_Lip·W_1 (imp-366/imp-395 ' +
+    'Step 1), a per-N small-gaps statement; Route A blocked by G1-sub-extremal. ' +
+    'PATH_C_BASELINE_FIT literals are overshoot-contaminated at all N (accurate values in ' +
+    'SHOCK_ROWS.observed_tc_accurate).',
   consumes: [
     'PATH_C_BASELINE_FIT (src/math/dyson-scaling-N5000.js)',
     'imp-323 LAMBDA_INTERCEPT_CONFIDENCE.fit — OLS (a, b) for cross-projection',
@@ -455,10 +567,14 @@ export const DYSON_BURGERS_SHOCK = {
     interpretation:
       'The surrogate decays to 0 as N → ∞ (like 1 / log² N to leading order) ' +
       'and therefore AGREES with the continuum limit, but at finite N it ' +
-      'overpredicts the observed |t_c(N)| on PATH_C_BASELINE_FIT by roughly ' +
-      'one to two orders of magnitude. It is a LOOSE upper envelope, not a ' +
-      'tight finite-N bound; its role here is to exhibit the log-squared ' +
-      'decay that Burgers predicts on top of the mean-spacing regularization.',
+      'overpredicts |t_c(N)|: by 4.5x .. 19x against the legacy PATH_C_BASELINE_FIT ' +
+      'literals, and by 6.7x (N = 50) .. 139x (N = 2458) against the accurate ' +
+      'adaptive-RK4 collision times (2026-09-24 recompute; the legacy literals are ' +
+      'fixed-step-overshoot contaminated, ratio legacy/accurate 1.50, 1.03, 1.08, 1.32, ' +
+      '7.21). It is a LOOSE upper envelope, not a tight finite-N bound; its role here is ' +
+      'to exhibit the log-squared decay that Burgers predicts on top of the mean-spacing ' +
+      'regularization. Algebraically it equals the fold law g^2/8 evaluated at a gap of ' +
+      '1.128 mean spacings, so it carries no extreme-gap information.',
   },
   crossProjectionAt1e8: {
     N: N_PROJECTION,
@@ -496,17 +612,23 @@ export const DYSON_BURGERS_SHOCK = {
       'see imp-344 lambda-intercept-unconditional.js for the assembly.',
   },
   verdict:
-    'UNCONDITIONAL LIMIT STATEMENT ESTABLISHED + PER-N BOUND CLOSED. The ' +
+    'LIMIT STATEMENT RECORDED + PER-N BOUND CONDITIONAL (corrected 2026-09-24). The ' +
     'Burgers shock time for the Riemann-von Mangoldt continuum density is ' +
     'exactly 0, which IS candidate (ii)\'s closed-form a. The uniformity gap ' +
     'G5_burgers was CLOSED by imp-341 (Koksma-Hlawka discrepancy bound) and ' +
-    'imp-344 (assembly), so a := lim sup_N |t_c(N)| = 0 holds UNCONDITIONALLY. ' +
-    'The explicit per-N bound G6_per_N_bound is CLOSED via Route B (imp-683): ' +
-    '|t_c(N)| ≤ (1/8)·sqrt(3π)·sqrt(log γ_N / N) ≈ 0.384·sqrt(log γ_N / N), ' +
-    'with C_H = 1/8 rigorous via Dyson two-particle ODE (imp-395) and ' +
-    'Hölder-1/2 modulus (imp-354/imp-366). Route A (imp-336 monotonicity) ' +
+    'imp-344 (assembly), so a := lim sup_N |t_c(N)| = 0 is recorded as UNCONDITIONAL ' +
+    '(that chain is not re-audited here). The explicit per-N bound G6_per_N_bound was ' +
+    'recorded CLOSED via Route B (imp-683): |t_c(N)| ≤ (1/8)·sqrt(3π)·sqrt(log γ_N / N) ' +
+    '≈ 0.384·sqrt(log γ_N / N) "with C_H = 1/8 rigorous". That is an OVERCLAIM: the chain ' +
+    'needs the imp-366/imp-395 Step-1 input g_min(μ_N) ≤ C_Lip·W_1(μ_N, ρ_∞) with N-uniform ' +
+    'C_Lip, an unproved per-N small-gaps statement that the Odlyzko zeros violate at C_Lip ~ 1 ' +
+    'from N = 100 on (imp-2640/imp-2642 had already retracted C_C = 0.384 as an ansatz). Via ' +
+    'the rigorous fold lower bound |t_c(N)| ≥ g_min²/8 the bound would imply ' +
+    'g_min(N) ≤ 1.753 (log γ_N / N)^{1/4} for every N -- a small-gaps theorem nobody has. ' +
+    'The per-N bound is therefore CONDITIONAL. Route A (imp-336 monotonicity) ' +
     'remains blocked by G1-sub-extremal. Candidate (i) (imp-337) remains ' +
-    'modulo G3_density / G4_argmin_drift.',
+    'modulo G3_density / G4_argmin_drift. No Λ bound, no RH claim, NO QED; ' +
+    'Platt-Trudgian Λ ≤ 0.2 remains the rigorous SOTA.',
   openWork: [
     'Obtain a tight per-N explicit upper bound on |t_c(N)|: the 2π / log²(γ_N / 2π) ' +
       'surrogate is a loose envelope; closing this requires imp-336 drift-sign ' +
@@ -516,6 +638,13 @@ export const DYSON_BURGERS_SHOCK = {
       'loose because it uses the global-max density; using a local minimum ' +
       'gap argument at the argmin site k* would give a ρ-weighted surrogate ' +
       'closer to the observed PATH_C_BASELINE_FIT.',
+    'Discharge G6b-Step1-gap-Lipschitz (2026-09-24): supply an N-uniform C_Lip in ' +
+      'g_min(μ_N) ≤ C_Lip·W_1(μ_N, ρ_∞), or equivalently a per-N small-gaps theorem ' +
+      'g_min(N) ≤ c(N)·y_N with explicit c(N) → 0. Until then the Route B per-N bound ' +
+      'stays conditional. Do not re-attempt the W_1-channel Gronwall route (imp-2640).',
+    'Migrate consumers of the contaminated PATH_C_BASELINE_FIT literals to ' +
+      'PATH_C_BASELINE_FIT_ACCURATE (src/math/dyson-scaling-N5000.js) or to the ' +
+      'certified imp-360 ladder (path-c-baseline-fit-v2.js).',
   ],
   consumesAnalyticId: LAMBDA_INTERCEPT_ANALYTIC.id,
   consumesConfidenceFit: {
@@ -598,5 +727,69 @@ export const DYSON_BURGERS_SHOCK_ASSERTIONS = [
       'imp-338 cites imp-328 by id and consumes the imp-323 OLS fit constants ' +
       'for the PT-scale cross-projection. If either drifts out from under ' +
       'this file the citation chain breaks; this assertion is the tripwire.',
+  },
+  {
+    id: 'imp338-route-b-per-n-bound-is-conditional-not-closed',
+    holds: () =>
+      G6_PER_N_BOUND.status !== 'closed' &&
+      /conditional/i.test(G6_PER_N_BOUND.status) &&
+      G6_PER_N_BOUND.overclaimCorrection.previousStatus === 'closed' &&
+      /small-gaps/.test(G6_PER_N_BOUND.overclaimCorrection.smallGapsImplication) &&
+      /CONDITIONAL/.test(DYSON_BURGERS_SHOCK.verdict) &&
+      !/PER-N BOUND CLOSED/.test(DYSON_BURGERS_SHOCK.verdict) &&
+      /CONDITIONAL|conditional/.test(G1_SUB_EXTREMAL.impactScope) &&
+      !/is rigorous without it/.test(G1_SUB_EXTREMAL.impactScope),
+    why:
+      'TRIPWIRE (2026-09-24 overclaim correction): the Route B per-N bound ' +
+      '|t_c(N)| <= 0.384 sqrt(log gamma_N / N) rests on the unproved N-uniform ' +
+      'gap-Lipschitz input g_min <= C_Lip W_1 (imp-366/imp-395 Step 1) and, via the ' +
+      'rigorous fold lower bound t_c >= g_min^2/8, would imply an unknown power-saving ' +
+      'small-gaps theorem. Any edit flipping G6_per_N_bound back to "closed" or restoring ' +
+      '"PER-N BOUND CLOSED" / "rigorous without it" wording without a proof of Step 1 ' +
+      'must fail here.',
+  },
+  {
+    id: 'imp338-implied-small-gap-bound-from-route-b-constant',
+    holds: () => {
+      // sqrt(8 * C_C) with C_C = (1/8) sqrt(3 pi): the constant in g_min <= C (log gamma_N / N)^{1/4}.
+      const C_C = Math.sqrt(3 * Math.PI) / 8;
+      const impliedC = Math.sqrt(8 * C_C);
+      // C_C = 0.38375 exactly; the fluid module quotes the rounded 0.384 -> sqrt(3.072) = 1.7527.
+      const ok = Math.abs(C_C - 0.3840) < 5e-4 && Math.abs(impliedC - 1.7527) < 2e-3;
+      // The implied consequence is satisfied by the accurate data at every baseline N
+      // (it is not refuted as a statement -- its PROOF is what is missing).
+      return ok && SHOCK_ROWS.every((r) => {
+        // t_c >= g_min^2/8 (rigorous) => g_min <= sqrt(8 t_c); that upper bound must itself
+        // sit below the implied small-gap envelope at every baseline N.
+        const gminUpper = Math.sqrt(8 * r.observed_tc_accurate);
+        return gminUpper <= impliedC * (Math.log(r.gammaN_RvM) / r.N) ** 0.25;
+      });
+    },
+    why:
+      'Records the small-gaps implication of the (conditional) Route B constant: ' +
+      '|t_c(N)| >= g_min^2/8 (rigorous) and |t_c(N)| <= 0.384 sqrt(log gamma_N/N) together ' +
+      'give g_min(N) <= 1.753 (log gamma_N / N)^{1/4}. Checks the constants and that the ' +
+      'accurate baseline t_c is consistent with it (sqrt(8 t_c) below the envelope), ' +
+      'so the correction is a rigor downgrade, not a numerical refutation of the bound itself.',
+  },
+  {
+    id: 'imp338-baseline-literals-contaminated-accurate-rows-consistent',
+    holds: () => {
+      const expected = { 50: 1.499, 100: 1.031, 200: 1.077, 500: 1.322, 2458: 7.213 };
+      return SHOCK_ROWS.every((r) =>
+        typeof r.observed_tc_accurate === 'number' &&
+        Math.abs(r.baseline_over_accurate - expected[r.N]) < 2e-3 &&
+        r.ratio_surrogate_over_accurate > r.ratio_surrogate_over_observed,
+      ) &&
+      SHOCK_ROWS[0].ratio_surrogate_over_accurate > 6 &&
+      SHOCK_ROWS[SHOCK_ROWS.length - 1].ratio_surrogate_over_accurate > 130 &&
+      SHOCK_ROWS.every((r, i) => i === 0 || r.observed_tc_accurate < SHOCK_ROWS[i - 1].observed_tc_accurate);
+    },
+    why:
+      'Finding 2 (2026-09-24): the legacy PATH_C_BASELINE_FIT literals exceed the ' +
+      'adaptive-RK4 collision times by 1.50, 1.03, 1.08, 1.32, 7.21 at N = 50 .. 2458 ' +
+      '(fixed-step overshoot at every N, not only N = 50). Against the accurate values the ' +
+      'surrogate is >6x (N = 50) and >130x (N = 2458) loose, strictly larger than against ' +
+      'the legacy literals. Guards the baked accurate column and the corrected ratios.',
   },
 ];

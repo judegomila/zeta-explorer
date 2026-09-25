@@ -20786,6 +20786,43 @@ const DATA_MODULES = [
   // rigorous upper bound preserved (rqLo>=actual), and recomputed slack rq/actual in the tighter
   // benign band [1.12,1.20] at all three rungs. Verification / assertion only; NO QED.
   '/src/data/imp-97019-rq-enclosure-upperbound-assertion.js',
+  // rh-bridge-mirror-descent (2026-09-25): tests replacing the lane-audit H_desc ("a third of nearby
+  // zeros real") by a count of nearby zeros at any height. PROVED: pair lemma f(a)+f(2y-a) >= f(2y)
+  // for all Delta (subadditivity), higher-neighbour K_Y lemma, Poisson domination for eta >= sqrt5*y,
+  // conditional descent theorem H_desc-mirror => Lambda <= t0 + y0^2/2 (flagged residuals), t = 0
+  // Euler-product rate as an implication (single instant, vacuous under RH). Referee corrections:
+  // Palm baseline turns "no shortage" into a local surplus (~1.73x neutral at the seam); pointwise
+  // at sigma < 1 (NS-RIGID class); t > 0 model composite 0.19 sits on P15 Table 1. Import-free,
+  // 12 holds() assertions. No new bound; PT Lambda <= 0.2 stands; NO QED.
+  '/src/data/rh-bridge-mirror-descent-2026-09-25.js',
+  // imp-97043 registration fix: the three imp-9695x viz-data leaves below carry
+  // self-executing assertion tripwires (or exported *_ASSERTIONS arrays) but were
+  // never wired into this DATA_MODULES sweep (orphaned).
+  // imp-96959: chart-ready reshape of the imp-96938 ln3-vs-0.96 Ritz floor-drift
+  // calibration; asserts the drift-direction/margin-only-discriminant finding is
+  // preserved. Presentation only; NO QED.
+  '/src/data/imp-96959-krein-floor-margin-viz-data.js',
+  // imp-96960: merges the imp-96936/imp-96950 C_C-vs-E_trunc elasticity ladders
+  // into one chart-ready series across the full sigma decay arm. Presentation
+  // only; NO QED.
+  '/src/data/imp-96960-etrunc-cc-elasticity-ladder-viz-data.js',
+  // imp-96961: chart-ready reshape of the imp-96934 Bessel onset-mass vs
+  // measured tail-residual table at 2a=ln3. Presentation only; NO QED.
+  '/src/data/imp-96961-bessel-onset-mass-tail-residual-viz-data.js',
+  // imp-97012: re-runs the imp-96970 round-12 kmax=5 2a=1.00 interval verify with
+  // the imp-96992 cell-local |w1-prime-prime| enclosure swapped in; import-light
+  // (no imports). Numerical/verification; NO QED.
+  '/src/data/imp-97012-krein-kmax5-100-celllocal-w1pp-verify.js',
+  // imp-97016: re-runs the imp-96996 Route M F<M monotonicity-partition against
+  // the extended 24-rung ||G||_F ladder; import-light (only imports the
+  // self-contained imp-96912 ladder-extension module). Measurement; NO QED.
+  '/src/data/imp-97016-route-m-fm-dataalone-extended-ladder.js',
+  // imp-97037: re-pins the imp-33721 sub-decade sigma(N) ramp knee (single D2 sign
+  // change, log10 N* ~ 9.529, N* ~ 3.38e9) and measures its offset from the
+  // imp-3444/imp-33723 E_coll=E_trunc crossover N_cross ~ 3.280294e9: knee/N_cross-1
+  // ~ +3.0% (strictly positive) => the knee TRAILS the crossover, ordering
+  // N_half < N_cross < N_knee. Measurement only; C_mb GUE-conditional (imp-486); NO QED.
+  '/src/data/imp-97037-sigma-knee-vs-crossover-offset.js',
 ];
 
 let ALL_MODULES = FAST_MODE

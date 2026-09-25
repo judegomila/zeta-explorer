@@ -4563,6 +4563,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every band edge, z-score, and observed exponent is reused verbatim from imp-96755 (200,000-trial Monte Carlo of the Weibull-3 block-extreme null); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; measurement conditional on GUE; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96822-gmin-ladder-reach-frontier',
+      title: 'Dyadic Block-Minima Ladder: Reach Frontier and Acquisition Requirement',
+      oneLine:
+        'Three-stage fill-fraction bar chart of the imp-96754 dyadic block-minima reach frontier for the imp-96629/imp-96734 gap-exponent ladder: the last COMPLETE block (k=19), the current 90.835%-filled top rung (k=20), and the next rung (k=21), which needs 2,193,252 more consecutive ordinates than the 2,001,052 currently cached.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96822-gmin-ladder-reach-frontier-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96754-gmin-ladder-reach-frontier.js (GMIN_LADDER_REACH_FRONTIER.topRung, .acquisition; imp-96822 viz page)',
+      ticket: 'imp-96822',
+      pedagogicalStep: 298,
+      honestCeiling:
+        'Presentation only: every N_center, fill fraction, and ordinate count is reused verbatim from imp-96754 (arithmetic on the cached zero COUNT only, no zeros bundle imported, no gaps recomputed). Changes no bound, establishes no operator positivity, no RH claim; measurement/scoping only, conditional on GUE; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

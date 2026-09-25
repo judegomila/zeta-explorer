@@ -23537,6 +23537,35 @@ export const glossary = [
       'imp-96616-gmin-ratio-extreme-gap-decay.js the real-zeros running-min fit A N^b (A = 2.1147, b = -0.3953) re-scored here against the genuine replicate spread',
     ],
   },
+  {
+    term: 'Coprime-Core Vasyunin Second Moment T(N): the Route M Frobenius Ceiling Reduces to This Single Target',
+    category: 'obstruction',
+    definition:
+      'imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js. The orphan ' +
+      'imp-96688 Route M Frobenius g-factorization was assessed to see if it gives a third, ' +
+      'INDEPENDENT conditioning-ceiling estimate beside the trace (T, rigorous, ~2.594e7) and ' +
+      'Frobenius (F, fit, ~3.764e7) ceilings of imp-96693. VERDICT: no. imp-96688 factorizes ' +
+      '||G_N||_F^2 = trace(G_N^2) -- the SECOND spectral moment that DEFINES the F majorant -- as ' +
+      'the exact arithmetic identity Sum_{gcd(a,b)=1} I(a,b)^2/(a^2 b^2) Sum_{g<=N/max(a,b)} 1/g^2, ' +
+      'so it collapses onto the F route rather than standing beside it, and has no bearing on the ' +
+      'first-moment T route beyond the Cauchy-Schwarz gap already separating F from T. What it DOES ' +
+      'contribute is a structural sharpening: it localizes the entire F-route growth into the ' +
+      'coprime-core Vasyunin second moment T(N) = Sum_{gcd(a,b)=1, a,b<=N} I(a,b)^2/(a^2 b^2), up to ' +
+      'a bounded [1, zeta(2)] inner-g factor, replacing the fitted ||G||_F log-law with a single ' +
+      'well-posed target -- prove T(N) ~ c (log N)^2 -- and naming the precise obstruction: a ' +
+      'UNIFORM (in both free arguments) Bettin-Conrey / Maier-Rassias cotangent-sum second moment ' +
+      'against the coprimality-restricted 1/(a^2 b^2) weight, which the literature supplies only for ' +
+      'a fixed denominator. No new ceiling number and no rigorous bound result; the ladder stays ' +
+      'two-rigor-levels deep (T rigorous, F/M fit/measured), and wall-clock compute still binds ' +
+      'first. RH open; PT Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js (decides the imp-96688 g-factorization reduces to the F route and names T(N) as the residual well-posed target), 2026',
+    relatedTerms: [
+      'imp-96688-route-m-frobenius-g-factorization-assessment.js the g-factorization assessed here, factorizing ||G_N||_F^2 exactly',
+      'imp-96693-route-m-conditioning-ceiling-residual-decomposition.js the T/F/M ceiling ladder this collapses onto (F leg)',
+      'imp-96684-route-m-frobenius-majorant-high-n-rungs.js the fitted F ceiling ~3.764e7 this reproduces without relocating',
+      'imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js the rigorous trace-domination T route this is NOT (different spectral moment)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

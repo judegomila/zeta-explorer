@@ -147,6 +147,11 @@ export const f = (h, D) => h / (D * D + h * h);
 // pair term of a neighbour at height yj on a zero at height y, offset D (conjugate included)
 export const pairTerm = (y, yj, D) => f(y - yj, D) + f(y + yj, D);
 export const K_Y = (y, Y, D) => (2 * y * (D * D - Y * Y + y * y)) / ((D * D + (Y - y) ** 2) * (D * D + (Y + y) ** 2));
+// residual (c): pointwise ratio real kernel / mirror kernel at horizontal offset D and height y.
+// = 4 at D = 0 (coincident), -> 1 as D -> infinity; in (1, 4] always. This is the factor that makes
+// the height-blind count C_t and H_desc incomparable: real pull <= (this ratio) x mirror pull termwise,
+// bounded above by 4, so H_desc(p) yields only C_t >= p/4 unconditionally.
+export const realOverMirror = (D, y) => (D * D + 4 * y * y) / (D * D + y * y);
 
 // lane-audit descent time for constant p: int_{y0}^1 Y/(1+pY) dY (closed form)
 export const tNeeded = (p, y0) =>
@@ -336,6 +341,19 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
       'B1 assumes P15 (ii) the barrier only, NOT the large-x effective kill (that is the piece the descent is meant to replace). The barrier is a rectangular-contour winding computation near x = X whose argument-principle count is constant in t BY CONSTRUCTION (H_t is nonzero on the contour for every t in [0, t0]); it is a genuine FLOW statement, not an endpoint one. Combined with RH verified below the barrier it forces the zero count in the box [0, X] x [y-range] to equal the full real count for every t, so no nonreal zero has x <= X during (0, t0]. The extra unit buffer to x >= X+1 is a minor strengthening (barrier placed at X+1, or a cheap Rouche estimate that [X, X+1] carries no nonreal zero) inside the same P15 framework. This lower-edge localisation transfers cleanly.',
     b2_does_not_transfer:
       'The topmost nonreal zero the descent tracks is the sup over the SEMI-INFINITE strip x >= X+1, which the single-abscissa barrier does not bound from above: a nonreal zero at arbitrarily large x is not excluded by the barrier alone. In P15 the large-x nonreal zeros are killed by the effective approximation A_t + B_t - C_t with the ratio |C_t| below |A_t + B_t| -- precisely the machinery B1 forgoes. So the localisation of the RUNNING MAX is not supplied by the barrier; it needs the uniform-in-t finiteness / envelope-attainment on the unbounded x-strip, which is exactly the still-open sub-gap of residual (a) (MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP). Residuals (a) and (b) are therefore NOT independent: the hard half of (b) IS the sub-gap of (a). Without the P15 effective approximation there is no barrier-only route to it.',
+  }),
+  residualAssessmentC: Object.freeze({
+    id: 'MIRROR_RESIDUAL_C_ALLXALLT_NOEULER_AND_INCOMPARABILITY_INTRINSIC',
+    ticket: 'imp-97053',
+    residual: '(c) the hypothesis is needed on ALL x >= X+1 for all t in (0, t0], where zeros of H_t carry no Euler product; and C_t vs H_desc are logically incomparable',
+    verdict:
+      'MEASURED, NOT CLOSED: the all-x-all-t gap is essentially total -- the only UNCONDITIONAL input (the A5 Euler-product rate) covers a Lebesgue-measure-zero slice {t = 0} of the required interval (0, t0] and only a single globally topmost zero, not all x >= X+1; and the C_t <-> H_desc incomparability admits only the one direction C_t >= p/4, whose factor 4 is narrowable solely with pointwise horizontal-spacing input at sigma < 1 (NS-RIGID class), so it cannot be tightened unconditionally. Residual (c) is therefore a genuine standalone gap, coinciding with the C4 NS-RIGID wall, not a technicality. No new Lambda bound. PT Lambda <= 0.2 stands. NO QED.',
+    c1_allxallt_measured:
+      'REQUIRED regime for B1: H_desc-mirror(p) at every nonreal zero of H_t with y >= y0, x >= X+1, for EVERY t in (0, t0] (t0 = 0.1314). UNCONDITIONALLY SUPPLIED: only the A5/A5-Euler instantaneous rate, which holds (i) at the single instant t = 0 (Lebesgue measure 0 inside (0, t0]) and (ii) only for a globally topmost zero whose existence is unknown, NOT for the running max over the semi-infinite strip x >= X+1. For t > 0 the zeros are zeros of H_t and carry NO Euler product, so the sigma > 1 arithmetic input (the only unconditional lever) is unavailable on the entire positive-measure set (0, t0]. Measured coverage fraction of the required t-interval = 0 (a measure-zero endpoint slice); the gap is 100 percent of the flow.',
+    c2_incomparability_measured:
+      'C_t = sum_all 2y/(D^2 + 4y^2) (height-blind, mirror kernel on every zero) vs H_desc (real-zero pull, real kernel 2y/(D^2 + y^2)). Pointwise realOverMirror(D, y) = (D^2 + 4y^2)/(D^2 + y^2) lies in (1, 4], = 4 only at D = 0, -> 1 as D -> infinity. Hence real pull <= 4 x (mirror pull of the same zeros) <= 4 C_t, giving the ONLY unconditional direction C_t >= p/4. The reverse (C_t >= p => H_desc(p)) fails: C_t also counts nonreal zeros and uses the smaller kernel. The factor 4 is a worst case attained only at coincident abscissa (D = 0); for the ACTUAL nearest real neighbour at the seam spacing s = 2 pi/ln N = 0.4673 the loss is far smaller (ratio 1.333 at Y0 = 0.165, 2.601 at Y = 0.5, 3.462 at Y = 1). But bounding D below -- to replace 4 by these smaller effective ratios unconditionally -- is precisely a pointwise horizontal-spacing statement at sigma < 1: a nonreal zero may sit arbitrarily close in abscissa to a real one without a repulsion input, so D cannot be bounded below and c = 4 is the only unconditional constant.',
+    c3_subgap:
+      'The precise still-open obstruction: replace the A5 t = 0 / topmost-zero Euler rate by a lower bound valid for all t in (0, t0] and all x >= X+1 (a sigma < 1 pointwise input on H_t, which has no Euler product), OR narrow C_t >= p/4 to C_t >= p/c with c < 4 via an unconditional lower bound on the real-to-nonreal abscissa gap. Both are pointwise statements at sigma < 1 of NS-RIGID class -- the same wall recorded in C4 and lane-audit item 2(c). Residual (c) is thus not narrowable to a usable one-directional bound without arithmetic input beyond the sigma > 1 Euler product.',
   }),
   nextStep:
     'Prove the loss factor 2y/eta is forced: construct zero configurations satisfying every sigma > 1 (eta >= 1) wide-Poisson lower bound that H_0 satisfies, yet with pull at width y below the Palm-neutral profile near a topmost zero. This would close the mirror-descent route as a theorem (as done for Sonine / rank-one fixes) instead of leaving it to modelling.',
@@ -536,6 +554,30 @@ export const RH_BRIDGE_MIRROR_DESCENT_ASSERTIONS = Object.freeze([
         /PT Lambda <= 0\.2 stands/.test(b.verdict) &&
         /MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP/.test(b.b2_does_not_transfer) &&
         a.id === 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP';
+    },
+  },
+  {
+    id: 'mirror-residual-c-incomparability-intrinsic',
+    name: 'residual (c): realOverMirror(D,y) in (1,4] (=4 at D=0, ->1 far), so C_t >= p/4 is the only unconditional direction; nearest-neighbour loss 1.333/2.601/3.462 at Y=0.165/0.5/1; all-x-all-t Euler coverage is a measure-zero t=0 slice; recorded MEASURED-NOT-CLOSED with an NS-RIGID sub-gap, NO QED',
+    why: 'imp-97053 residual (c): the C_t <-> H_desc incomparability narrows to nothing unconditional tighter than p/4 (factor 4 attained only at coincident abscissa, narrowable only with pointwise sigma<1 spacing input), and the sigma>1 Euler input covers a Lebesgue-measure-zero t=0 slice of the required (0,t0] flow where H_t carries no Euler product',
+    holds: () => {
+      const s = (2 * Math.PI) / LN_SEAM;
+      // pointwise ratio bounds: in (1,4], = 4 at D = 0, -> 1 far
+      let mx = 0, mn = Infinity;
+      for (let D = 0; D <= 50; D += 0.05)
+        for (let y = 0.02; y <= 1.0001; y += 0.02) {
+          const r = realOverMirror(D, y);
+          if (r > mx) mx = r;
+          if (r < mn) mn = r;
+        }
+      const c = RH_BRIDGE_MIRROR_DESCENT.residualAssessmentC;
+      return near(realOverMirror(0, 0.5), 4, 1e-12) && realOverMirror(1e6, 0.5) < 1.001 &&
+        mx <= 4 + 1e-9 && mn > 1 - 1e-6 &&
+        near(realOverMirror(s, 0.165), 1.333, 3e-3) && near(realOverMirror(s, 0.5), 2.601, 3e-3) &&
+        near(realOverMirror(s, 1), 3.462, 3e-3) &&
+        c.id === 'MIRROR_RESIDUAL_C_ALLXALLT_NOEULER_AND_INCOMPARABILITY_INTRINSIC' &&
+        c.ticket === 'imp-97053' && /MEASURED, NOT CLOSED/.test(c.verdict) && /NO QED/.test(c.verdict) &&
+        /PT Lambda <= 0\.2 stands/.test(c.verdict) && /NS-RIGID/.test(c.c3_subgap);
     },
   },
   {

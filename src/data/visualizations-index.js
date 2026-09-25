@@ -4605,6 +4605,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value across all three tabs is reused verbatim from the imp-96959/imp-96960/imp-96961 viz-data leaves (themselves verbatim reshapes of imp-96938/imp-96936+imp-96950/imp-96934); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97082-ritz-vs-rigorous-crossval-range',
+      title: 'Route I Krein Floor at 2a=0.96: Ritz vs Rigorous Cross-Validation',
+      oneLine:
+        'Log-scale range chart of the imp-96983 Ritz UPPER-estimate band [12.0089,21.0155] nested strictly inside the interval-rigorous flanking bracket (7.743,56.05) for lambda_min(T_0.48[sigma_2]), both ~22x the binding 2a=(ln3)/2 margin -- first confirmed consumer of the previously-orphaned imp-96983 leaf.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96983-ritz-vs-rigorous-crossval-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96958-krein-096-ritz-vs-rigorous-crossval.js (Finding 2 containment; imp-97082 viz page)',
+      ticket: 'imp-97082',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every band value is reused verbatim from imp-96983 (itself verbatim from imp-96958). The Ritz band is an UPPER estimate, not a certified lower bound. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -1597,6 +1597,9 @@ const Imp96671SpectralShareVsMeasuredSlopeViz = lazy(() =>
 const Imp97040OrphanedCalibrationLeavesTabbedViz = lazy(() =>
   import('./pages/Imp97040OrphanedCalibrationLeavesTabbedViz.jsx')
 );
+const Imp97082RitzVsRigorousCrossvalRangeViz = lazy(() =>
+  import('./pages/Imp97082RitzVsRigorousCrossvalRangeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4147,6 +4150,10 @@ function AppShell() {
           <Route
             path="/viz-imp97040-orphaned-calibration-leaves"
             element={<Imp97040OrphanedCalibrationLeavesTabbedViz />}
+          />
+          <Route
+            path="/viz-imp97082-ritz-vs-rigorous-crossval-range"
+            element={<Imp97082RitzVsRigorousCrossvalRangeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

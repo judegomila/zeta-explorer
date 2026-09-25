@@ -19880,6 +19880,13 @@ const DATA_MODULES = [
   // saturates (Berry) while GUE grows; at small L (<=3) Sigma2_emp matches GUE to 1-9%. Import-
   // light (bakes the measured table; no zeros bundle at import). Measurement only; no bound; NO QED.
   '/src/data/imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation.js',
+  // imp-96714: verify the imp-96695 finite-height "safe direction" claim across the FULL
+  // imp-96430 window, not just at L=960. Sign of d_sig(L) = |rho_emp+1/2| - |rho_GUE+1/2|
+  // (arithmetic reshape of the imp-96695 baked rhoEmp/rhoGue table) is NEGATIVE (safe) at
+  // L>=120 but POSITIVE (fails) at L=30 (+0.030) and L=60 (+0.002), where the number variance
+  // has not yet saturated to -1/2. Import-light (bakes the reshaped table; no zeros bundle).
+  // Per-rung sign verification only; no bound; NO QED.
+  '/src/data/imp-96714-safe-direction-per-rung-verification.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light

@@ -20562,6 +20562,12 @@ const DATA_MODULES = [
   // environment-dependent globals used). Audit only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96803-cohort2-browser-throw-audit.js',
+  // imp-96805: confirms the SAME imp-96707 cohort2 orphan set (imp-96631/87/88/89/
+  // 91/97/709/751/770) is unregistered in this DATA_MODULES sweep, so their
+  // module-scope throw tripwires (present per imp-96803) run under neither node
+  // run-assertions nor any page bundle; also confirms none pulls the zeros bundle.
+  // Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96805-cohort2-run-assertions-registration-audit.js',
   // imp-96738: Concepts glossary headword restating the HONEST CAVEAT repeated across
   // imp-96690/96712/96716/96568/96448 -- the basis-C corroboration-reach ladder
   // (L* ~ 8.1e7, bracket [7.6e7, 8.2e7]) is entirely a THEORETICAL-GUE quantity

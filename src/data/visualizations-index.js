@@ -4410,6 +4410,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every band edge and point estimate is reused verbatim from imp-96656 (delta-method log-normal CI), the Frobenius reference ceiling from imp-96648, and the compute ceiling from imp-96352; no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96701-frobenius-majorant-eleven-rung',
+      title: 'Route M Frobenius Majorant: Eleven-Rung Ladder N=250..9000',
+      oneLine:
+        'Plots the imp-96684 eleven-rung Frobenius / Wolkowicz-Styan majorant (imp-96648 eight rungs N=250..6000 plus three new measured rungs N=7000,8000,9000) against the measured lam_max and trace, showing the majorant slope flattens ~1.7% while the re-solved rigorous-lower conditioning ceiling barely shifts (3.748e7 -> 3.764e7, +0.42%): ROBUST, not tightened.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96701-frobenius-majorant-eleven-rung-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96684-route-m-frobenius-majorant-high-n-rungs.js (IMP96684_NEW_ROWS, IMP96684_CEILINGS, IMP96684_CEILING_SHIFT, IMP96684_VERDICT; imp-96701 viz page)',
+      ticket: 'imp-96701',
+      pedagogicalStep: 290,
+      honestCeiling:
+        'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (eight committed rungs) and imp-96684 (three new rungs + re-fit ceilings); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96671-spectral-share-vs-measured-slope',
       title: 'Route M Sigmoid Onset: Two-Scale Weight Share vs Measured Slope Fraction',
       oneLine:

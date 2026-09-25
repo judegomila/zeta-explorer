@@ -19836,6 +19836,13 @@ const DATA_MODULES = [
   // exponent ~1.81), tightening the projected reach from L* ~ 2.86e9 to ~1.9e8. Import-light (no zeros
   // bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96568-basis-c-intermediate-rung-floor-ladder.js',
+  // imp-96690 (2026-09-24): EXTENDS the imp-96568 above-anchor floor ladder with more truncation-regime
+  // rungs (L=2e7,3e7,5e7, plus a below-anchor control at 3e6) to firm up the two-rung exponent p~1.81.
+  // Finds the optimum ppp collapses further to 2 above 1e7 (the imp-96568 ppp=3 pinning is a local
+  // anchor..1e7 feature) and the best-achievable floor grows FASTER than p~1.81 (log-log OLS p~2.42 over
+  // five rungs), re-bisecting the corroboration reach from L*~1.9e8 to ~8.1e7 (~1.14 decades past the PT
+  // anchor). Import-light (no zeros bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96690-basis-c-above-anchor-rung-ladder.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light

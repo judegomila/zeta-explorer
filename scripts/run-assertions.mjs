@@ -20110,6 +20110,17 @@ const DATA_MODULES = [
   // page-reachable. None of the five has any import statement; the one real transitive chain was
   // walked three hops deep with no zeros-bundle pull found. No bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96643-orphan-consumer-audit.js',
+  // imp-96645: the imp-96643 audit above (line ~20106) found imp-96612/96613/96616/96617 git-tracked
+  // but absent from this DATA_MODULES list, so their self-executing assertions (96612, 96613, 96617
+  // each throw at import) silently never ran, and a --since-changed run touching only one of these
+  // files would filter ALL_MODULES down to zero matches and silently fall back to a full hours-long
+  // sweep. Wired in below. The payload (rh-route-i-toeplitz-krein-certificate-payload-2026-09-24.js)
+  // stays transitively covered via the already-registered certificate module and needs no separate
+  // entry.
+  '/src/data/imp-96612-route-m-lammax-rankr-power-iteration-bracket.js',
+  '/src/data/imp-96613-route-m-lammin-nuniform-lowerbound-obstruction-assessment.js',
+  '/src/data/imp-96616-gmin-ratio-extreme-gap-decay.js',
+  '/src/data/imp-96617-finite-L-correction-sign.js',
 ];
 
 let ALL_MODULES = FAST_MODE

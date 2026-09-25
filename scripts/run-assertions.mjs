@@ -20221,6 +20221,12 @@ const DATA_MODULES = [
   // cannot deliver, by 1.4 to 3.2 orders of magnitude. Documentation only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96601-route-m-reach-verdict-glossary-headword.js',
+  // imp-96602: Concepts glossary headword restating the imp-96563 verdict that
+  // double-precision verified Cholesky (Higham/Rump backward error) certifies the
+  // Route M Vasyunin Gram lam_min(N) rigorously only up to N ~ 1.08e5 -- above the
+  // imp-96352 compute ceiling (~9916) but ~240x below the imp-96548 conditioning
+  // ceiling (~2.59e7). Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96602-lammin-verified-cholesky-cert-limit-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -20380,6 +20380,13 @@ const DATA_MODULES = [
   // mean-field / multiplicative-Toeplitz surrogate reproducing it. Documentation only;
   // no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96647-vasyunin-lammax-collective-rank-glossary-headword.js',
+  // imp-96657: Concepts glossary headword restating the imp-96570 cross-validation
+  // verdict -- fitting the directly-measured cond#(N) = lam_max/lam_min as a single
+  // power law (q = 1.9557-1.9837, R^2 >= 0.99975) reproduces the imp-96548/imp-96443
+  // composed conditioning ceiling N ~ 4.11e7 to within 5-8%, and lands above the
+  // rigorous trace-domination lower ceiling N >= 2.59e7. Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96657-conditioning-ceiling-crossvalidation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

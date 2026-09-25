@@ -25,7 +25,9 @@ import { GMIN_RATIO_EXTREME_GAP_DECAY } from './imp-96616-gmin-ratio-extreme-gap
 
 // argmin zero indices where the running-min freezes across consecutive N rungs
 // (imp-96629 plateau-bias note): the same record gap is still the minimum.
-const PLATEAU_ARGMIN_IDX = Object.freeze([6708, 95247, 420890]);
+// imp-96747 audit: corrected from 3 to 4 -- N=100 also freezes on N=50's
+// argminIdx=33, a rung the original ticket comment missed.
+const PLATEAU_ARGMIN_IDX = Object.freeze([33, 6708, 95247, 420890]);
 
 // chart-ready ladder: N, ratio, gueMedian, ratioOverGue, argminIdx, isPlateau.
 // isPlateau marks a rung whose argminIdx repeats the PRIOR rung's argminIdx
@@ -67,16 +69,16 @@ const IMP96641_ASSERTIONS = [
     why: 'the N-ladder must reproduce all 14 imp-96616 rungs (N=50..1e6) unmodified.',
   },
   {
-    id: 'imp96641-three-plateaus-match-known-argmin-freezes',
+    id: 'imp96641-four-plateaus-match-known-argmin-freezes',
     holds: () => {
       const plateauRows = IMP96641_LADDER.filter((r) => r.isPlateau);
       const plateauArgmins = new Set(plateauRows.map((r) => r.argminIdx));
       return (
-        plateauRows.length === 3 &&
+        plateauRows.length === 4 &&
         PLATEAU_ARGMIN_IDX.every((idx) => plateauArgmins.has(idx))
       );
     },
-    why: 'the three named argmin-freeze plateaus (idx 6708, 95247, 420890) must each mark exactly one repeated-argmin rung.',
+    why: 'the four named argmin-freeze plateaus (idx 33, 6708, 95247, 420890) must each mark exactly one repeated-argmin rung.',
   },
   {
     id: 'imp96641-fit-exponent-matches-source',

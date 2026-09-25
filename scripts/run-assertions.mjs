@@ -20574,6 +20574,15 @@ const DATA_MODULES = [
   // (C(2)=3.850e-3 dominates the imp-96617 measured 2.07e-3, ratio 1.86). Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96745-boxsine-ibp-envelope-glossary-headword.js',
+  // imp-96747 audit: three import-light viz-data leaves (imp-96641 g_min/y_N
+  // GUE-envelope reshape, imp-96646 Krein sigma_2 margin-decay reshape,
+  // imp-96721 sigma_2 emp-vs-GUE reshape) each carry a module-scope
+  // self-executing throw but were missing from this DATA_MODULES sweep --
+  // all three are already wired into visualizations-index.js. Registration
+  // fix only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96641-gmin-gue-envelope-viz-data.js',
+  '/src/data/imp-96646-krein-certificate-margin-viz-data.js',
+  '/src/data/imp-96721-sigma2-emp-vs-gue-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

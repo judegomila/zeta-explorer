@@ -59,6 +59,7 @@
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the exact closed-form tail and Sigma^2(L))
  * @see imp-96543-sine-kernel-vif-conditional-lower-bound (the three-level certificate and OBSTRUCTION)
  * @see imp-96489-excursion-effective-significance-direct-rho (the exact rho_1 = -0.4639782 union value)
+ * @see imp-96628-boxsine-lagcorr-ibp-envelope (certifies the sign-pinning obstruction (ii) flagged here as a two-sided envelope)
  *
  * Import-light: no zeros bundle, no sibling imports. The VIF formula, z map, the closed-form tail, and the
  * three levels are re-derived here from the imp-96543 / imp-96567 / imp-96571 literals.

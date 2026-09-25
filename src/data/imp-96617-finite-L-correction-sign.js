@@ -62,6 +62,7 @@
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment (VERDICT obstruction (ii): unpinned sign)
  * @see imp-96543-sine-kernel-vif-conditional-lower-bound (the conditional VIF certificate)
  * @see imp-96571-vif-rho1-bound-rigor-assessment (softness confined to the sharpest level)
+ * @see imp-96628-boxsine-lagcorr-ibp-envelope (certifies the |DeltaCov_k| <= C(k)/L^2 envelope left as the residual here)
  *
  * Import-light: no zeros bundle, no sibling imports. The signed DeltaCov_k at L = 495.779 and the
  * O(1/L^2) envelope constant are baked literals from the offline exact-correction integral; the

@@ -23969,6 +23969,32 @@ export const glossary = [
       'lane-arithmetic-input-audit-2026-09-22.js the H_desc lane hypothesis and the U = 0.145 / t0 = 0.1314 target this empirics lens tests',
     ],
   },
+  {
+    term: 'The imp-96887 Three-Level Conditional VIF Ladder',
+    category: 'concept',
+    definition:
+      'A three-row cross-validation table (imp-96887, reshaping imp-96853 verbatim) comparing three ' +
+      'nested estimates of the same conditional variance-inflation factor (VIF): (1) the rho_1-only head, ' +
+      'VIF = 0.075232, z = 7.012 -- rigorous but conservative, since it drops the whole lag-correlation ' +
+      'tail in the bound-enlarging direction; (2) the actual finite-window value, VIF = 0.005463, ' +
+      'z = 26.023 -- the closed-form tail summed over the whole Bartlett window, no envelope added; and ' +
+      '(3) the two-sided-envelope upper bound, VIF <= 0.0054629, z >= 26.023 -- a RIGOROUS conditional ' +
+      'upper bound equal to the actual value plus the imp-96853 envelope slack sum (5.65e-8), needing no ' +
+      'per-lag sign information. Because z falls as VIF rises (z = REL_ERR / sqrt(2*VIF/N_W)), the ' +
+      'envelope bound\'s z sits |dz| ~ 1.35e-4 BELOW the actual z -- a shift four orders of magnitude ' +
+      'smaller than the gap between either finite-window level and the conservative rho_1-only head\'s ' +
+      'z = 7.012. The ladder shows the rigorous conditional bound is essentially indistinguishable from ' +
+      'the actual value. Presentation only; every figure is imported verbatim from imp-96853; no bound ' +
+      'moved; conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros ' +
+      '(UNPROVEN); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-96988 (adds this glossary headword for the imp-96887 VIF cross-validation ladder), 2026',
+    relatedTerms: [
+      'imp-96887-vif-crossval-table.js the source table (IMP96887_VIF_CROSSVAL_TABLE, the three-level rows and z-shift)',
+      'imp-96853-vif-twosided-envelope-partition-assessment.js the source of all three VIF levels and the envelope slack sum',
+      'imp-96628-boxsine-lagcorr-ibp-envelope.js the certified two-sided C(k)/L^2 envelope underlying the upper-bound level',
+      'imp-96593-vif-exact-tail-rigor-upgrade-assessment.js the residual obstruction that motivated the envelope upgrade',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

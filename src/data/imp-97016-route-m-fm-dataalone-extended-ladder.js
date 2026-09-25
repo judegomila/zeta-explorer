@@ -167,8 +167,9 @@ export const IMP97016_SUBGAP = Object.freeze({
     'under the monotonicity prior. Because the discriminating scale is the ~3.23-decade far ' +
     'extrapolation to N*~4e7 rather than the local shape, a DATA-ALONE F<M verdict needs exact rungs ' +
     'reaching a substantial fraction of ~4e7 -- an O(N^3) exact V-table build genuinely CPU-blocked ' +
-    'in-pool and requiring a native/offline backend. Alternatively a PROVEN one-sided interior norm ' +
-    'asymptotic (imp-96750) would pin F rigorously without more rungs.',
+    'in-pool and requiring a native/offline backend. Alternatively a one-sided interior norm ' +
+    'asymptotic -- which imp-96750 reduces to a single unproved target (oneSidedBoundProved=false), ' +
+    'not a proof -- would pin F rigorously without more rungs if it were established.',
 });
 
 export const IMP97016_HONEST_BANNER =

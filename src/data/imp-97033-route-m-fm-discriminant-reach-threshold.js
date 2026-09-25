@@ -64,8 +64,9 @@
  *   N_top ~ 2.01e7 (49.1 percent, S* = 1)      ~ 5.9e8 x
  * A decisive DATA-ALONE 1-percent resolution is ~6e8 x the current top-rung CPU -- firmly on a
  * native/offline HPC backend, not in-pool. This confirms imp-97016: settling F < M data-only is
- * blocked on exact rungs FAR beyond N = 24000, and a proven one-sided interior norm asymptotic
- * (imp-96750) remains the only rung-free route to pin F.
+ * blocked on exact rungs FAR beyond N = 24000, and a one-sided interior norm asymptotic -- which
+ * imp-96750 reduces to a single unproved target (oneSidedBoundProved=false), not a proof -- remains
+ * the only rung-free route to pin F if it were established.
  *
  * -------------------------------------------------------------------------------
  * VERDICT (honest partial).
@@ -280,7 +281,8 @@ export const IMP97033_VERDICT = Object.freeze({
     'cross-check (truth=monotone) puts a 0.30 percent-of-N* LOWER bound on the M_lo drop. So the data ' +
     'alone cannot exclude the concave turnover at any useful confidence without reaching a genuinely ' +
     'substantial fraction of the ceiling scale; a decisive run is native/offline-HPC-only, and a ' +
-    'proven one-sided interior norm asymptotic (imp-96750) stays the only rung-free route. Measurement ' +
+    'one-sided interior norm asymptotic -- which imp-96750 reduces to a single unproved target ' +
+    '(oneSidedBoundProved=false), not a proof -- stays the only rung-free route if established. Measurement ' +
     'only; only the trace ceiling T~2.594e7 is rigorous; no bound moves; PT Lambda <= 0.2 remains ' +
     'SOTA; RH open; NO QED.',
 });
@@ -293,8 +295,9 @@ export const IMP97033_SUBGAP = Object.freeze({
     'the current N=24000 top rung -- native/offline-HPC-only. Merely dropping the quad ceiling to the ' +
     'M_lo inversion boundary needs ~5.19 percent of N* (~2.1e6, ~6.9e5 x). The decay rate (-0.62 ' +
     'decade of spread per decade of N_top) is the obstruction: the spread is dominated by the far ' +
-    'extrapolation, so a PROVEN one-sided interior norm asymptotic (imp-96750) remains the only ' +
-    'rung-free route to pin F.',
+    'extrapolation, so a one-sided interior norm asymptotic -- which imp-96750 reduces to a single ' +
+    'unproved target (oneSidedBoundProved=false), not a proof -- remains the only rung-free route to ' +
+    'pin F if it were established.',
 });
 
 export const IMP97033_HONEST_BANNER =

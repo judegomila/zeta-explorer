@@ -23419,6 +23419,30 @@ export const glossary = [
       'imp-96350-covariance-outoffamily-crossvalidation.js the genuine OUT-OF-FAMILY corroboration (exact Dyson-Mehta number variance + direct double integral) that this module explicitly defers to',
     ],
   },
+  {
+    term: 'Toeplitz/Krein Certificate (pole-free Weil positivity past ln 2)',
+    category: 'theorem',
+    definition:
+      'rh-route-i-toeplitz-krein-certificate-2026-09-24. A Krein spectral-gap sufficiency argument: for ' +
+      'sigma_2 = (t^2+1/4)^2 w_1 (the SQUARED-weight form, not the CC Q-trick sigma_1 = (t^2+1/4) w_1 used by ' +
+      'the sibling qTrickLamMin module), find any X0 > 0 and an atomic measure nu supported on |x| >= X0 with ' +
+      'int nu |fhat|^2 = 0 for every f = g * g~ band-limited to (-2a, 2a) with 2a <= X0, such that sigma_2 + nu ' +
+      '>= 0 pointwise on R. That single pointwise inequality then certifies <T_a[sigma_2] f, f> >= 0 -- pole-free ' +
+      'Weil positivity -- simultaneously for EVERY support 2a <= X0. Two atomic certificates were built by LP ' +
+      'and interval-verified (tmp/toeplitz-krein-verify4.py): the main KREIN_CERTIFICATE at X0 = 0.96 (154 atoms, ' +
+      'l1 = 1.5e6) and a compact KREIN_CERTIFICATE_090 at X0 = 0.9 (150 atoms, l1 = 53.8) -- both exceed the prior ' +
+      'Yoshida/Connes-Consani range ln 2 = 0.6931 and both sit strictly below ln 3 = 1.0986. The l1 norm of the ' +
+      'certificate grows ~30-50x per 0.02 step in 2a (54 -> 3.2e4 -> 1.5e6 from X0 = 0.9 to 0.96), and the ' +
+      'double-precision LP hits a conditioning wall between 2a = 0.96 and 1.0 -- 0.96 < 2a < ln 3 remains open. ' +
+      'HONEST SCOPE: proved and machine-verified (interval arithmetic) for 2a <= 0.96; RH open; Platt-Trudgian ' +
+      'Lambda <= 0.2 stands; NO QED.',
+    firstUsed: 'rh-route-i-toeplitz-krein-certificate-2026-09-24.js (builds and interval-verifies both atomic Krein certificates, quantifies the ln 3 obstruction and the LP conditioning wall), 2026',
+    relatedTerms: [
+      'rh-route-i-toeplitz-krein-certificate-2026-09-24.js the module carrying KREIN_CERTIFICATE, KREIN_CERTIFICATE_090, the certificate lemma and the RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE theorem record',
+      'rh-route-i-toeplitz-krein-certificate-payload-2026-09-24.js the baked atomic-certificate payload (atom lattice x_j = k_j * 0.02, coefficients, l1 norms) this module imports',
+      'Route I Sonine-Excess Half-Cusp Allocation the sibling no-go for the CC Q-trick sigma_1 route, which this sigma_2 (squared-weight) form sidesteps past ln 2',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

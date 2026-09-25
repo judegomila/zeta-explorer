@@ -52,6 +52,16 @@
  * @see imp-96531-basis-c-crossover-measured-floor (the L-linear re-anchored crossover L* ~ 2.86e9 this tightens)
  * @see imp-96448-direct-basis-c-anchor-floor (the MEASURED anchor floor ~2.84e-5 and ppp = 3 collapse)
  * @see imp-96430-basis-c-corroboration-reach-crossover (the original L-linear floor MODEL)
+ * @see imp-96690-basis-c-above-anchor-rung-ladder (SUPERSEDES this headword's numbers: a five-rung
+ *   log-log OLS gives p ~ 2.42, not the two-rung p ~ 1.81 here, tightening L* to ~8.1e7, not ~1.9e8)
+ *
+ * SUPERSEDED (imp-96690, 2026-09-24): the p ~ 1.81 / L* ~ 1.9e8 numbers below rest on only the two
+ * ppp-pinned rungs (anchor, 1e7) this headword names. imp-96690 measured three more above-anchor
+ * rungs (2e7, 3e7, 5e7), found the optimum ppp collapses further (3 -> 2) past 1e7, and re-fit the
+ * exponent via a log-log OLS over all five rungs: p ~ 2.42, tightening the projected reach to
+ * L* ~ 8.1e7 (~1.14 decades past the PT anchor, ~2.35x tighter than this headword's L* ~ 1.9e8).
+ * This entry is kept as the historical two-rung projection for provenance; imp-96690 is the current
+ * best-available projection.
  *
  * Ticket: imp-96599 (content, low). Documentation only; establishes nothing; NO QED;
  * Platt-Trudgian Lambda <= 0.2 SOTA.
@@ -113,7 +123,16 @@ export const IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD = Object.freez
     'imp-96568 (the measured floor ladder and above-anchor growth law this glosses); ' +
     'imp-96531 (the L-linear re-anchored crossover L* ~ 2.86e9 this tightens); imp-96448 ' +
     '(the measured anchor floor and ppp = 3 collapse); imp-96430 (the original L-linear ' +
-    'floor model).',
+    'floor model); imp-96690 (SUPERSEDES the p ~ 1.81 / L* ~ 1.9e8 numbers here with a five-' +
+    'rung log-log OLS: p ~ 2.42, L* ~ 8.1e7).',
+  supersededBy: {
+    ticket: 'imp-96690',
+    reason:
+      'Five-rung log-log OLS above-anchor exponent (p ~ 2.42) replaces the two-rung exponent ' +
+      '(p ~ 1.81) this headword names; tightened reach L* ~ 8.1e7 replaces L* ~ 1.9e8.',
+    exponent: 2.42,
+    crossoverL: 8.1e7,
+  },
 });
 
 export default IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD;
@@ -142,6 +161,21 @@ export const IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD_ASSERTIONS = [
       /NO QED/.test(IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       /remains SOTA/.test(IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.verdict) &&
       IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.glosses === 'imp-96568',
+  },
+  {
+    id: 'imp96599-supersededby-imp96690-recorded',
+    why: 'imp-96690 measured three more above-anchor rungs and re-fit the exponent (p ~ 2.42, ' +
+      'L* ~ 8.1e7), superseding this headword’s two-rung numbers (p ~ 1.81, L* ~ 1.9e8) -- ' +
+      'a reader must not treat this entry as the current best-available projection.',
+    holds: () => {
+      const sb = IMP96599_BASIS_C_SUPERLINEAR_FLOOR_GLOSSARY_HEADWORD.supersededBy;
+      return (
+        sb != null &&
+        sb.ticket === 'imp-96690' &&
+        Math.abs(sb.exponent - 2.42) < 0.01 &&
+        Math.abs(sb.crossoverL - 8.1e7) / 8.1e7 < 0.01
+      );
+    },
   },
 ];
 

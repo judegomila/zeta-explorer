@@ -20429,6 +20429,13 @@ const DATA_MODULES = [
   // only ~4.7% of the target slope. Documentation only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96659-lammax-slope-saturation-glossary-headword.js',
+  // imp-96664: registration audit found imp-96636 (rank-r lam_max slope saturation
+  // curve fit) and imp-96644 (Krein certificate payload bundle-hygiene check) each
+  // export a *_ASSERTIONS array but were absent from this sweep, so their
+  // assertions never ran. imp-96633 and imp-96637 export plain data objects with
+  // no *_ASSERTIONS array and are correctly excluded.
+  '/src/data/imp-96636-route-m-lammax-slope-saturation-fit.js',
+  '/src/data/imp-96644-krein-payload-bundle-hygiene-check.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -20612,6 +20612,12 @@ const DATA_MODULES = [
   // self-executing IMP96683_ASSERTIONS throw that was missing from this
   // DATA_MODULES sweep; registration fix only, extends the imp-96747 lineage.
   '/src/data/imp-96683-route-m-conditioning-ceiling-ci-viz-data.js',
+  // imp-96816: Concepts glossary headword restating the imp-96772 verdict -- the
+  // double-precision Legendre-Galerkin Krein floor lambda_min(T_a[sigma_2]) is
+  // trustworthy to < 1e-6 across the entire tested ladder, past condB = 1.1e16,
+  // refuting the imp-96749 reading that its condB ~ 1e13 wall spuriously lowers the
+  // floor. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96816-krein-lammin-double-precision-trustworthy-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

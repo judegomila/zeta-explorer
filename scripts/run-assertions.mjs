@@ -20445,6 +20445,12 @@ const DATA_MODULES = [
   // ROBUST (shifts only +0.42%), not tightened. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96703-frobenius-ceiling-robust-glossary-headword.js',
+  // imp-96704: Concepts glossary headword restating the imp-96562 Finding 3 verdict --
+  // both normalized lam_max ratios (lam_max/log N -> 0.8929 to 0.6968, target 0.3526;
+  // lam_max/trace -> 0.6410 to 0.5183, target 0.2799) remain ~2x their Szego-fit
+  // targets at N=6000, so no limiting constant is numerically readable from the
+  // accessible ladder. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96704-lammax-numerical-pinnability-glossary-headword.js',
   // imp-96675: Concepts glossary headword restating the imp-96656 error-propagation
   // verdict -- the Route M conditioning ceiling is a delta-method log-normal
   // confidence interval (all-rung 95% CI [3.50e7, 4.07e7], ~1.16x wide; dense 95% CI

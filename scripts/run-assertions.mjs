@@ -395,6 +395,10 @@ const DATA_MODULES = [
   // 2a <= 0.9 with l1 = 54) — the first interval-rigorous (not IEEE-double) range past ln 2 in the repo. Two-window uncertainty bound crosses 0 at 2a = 0.6026 < ln 2 (refuted as a route). ln 3
   // obstruction quantified: eps <= lambda_min = 0.552 vs symbol up to 1.7e7, HiGHS wall at a >= 0.50, t^4 atoms capped
   // by the log growth of 2theta'. Import-light (Route I twoThetaPrime + payload). Assertions ~5 s. NO QED.
+  // imp-96626 audit (2026-09-24): the payload module (KREIN_CERTIFICATE/_090 baked atom lattice) was
+  // untracked in git despite being imported here since creation -- git-added to close the trap; it needs
+  // no separate DATA_MODULES entry (pure frozen-object data, no imports, no self-executing assertions of
+  // its own) since this module's tripwire already imports it transitively and stays import-light.
   '/src/data/rh-route-i-toeplitz-krein-certificate-2026-09-24.js',
   // rh-supercritical-fluid-bridge (2026-09-24): the de Bruijn / twin-ladder bridge written EXACTLY as a viscous Burgers
   // fluid. Cole-Hopf: heat potential = H_t itself, w = -2 nu d_x log H solves w_tau + w w_x = nu w_xx in backward de Bruijn

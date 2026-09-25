@@ -23846,6 +23846,36 @@ export const glossary = [
       'imp-96656-route-m-conditioning-ceiling-confidence-interval.js the two CI variants and the cond# rows',
     ],
   },
+  {
+    term: 'Two-Constant C_C/E_trunc Ratio Structure On The Sigma-Share Decay Arm',
+    category: 'numerical',
+    definition:
+      'On the decay arm of the GUE-conditional share sigma(N) = E_coll / (E_trunc + E_flow + ' +
+      'E_coll), E_coll = C_C sqrt(log T0 / N), once E_flow has collapsed relative to E_trunc the ' +
+      'crossing condition reduces to C_C sqrt(log T0 / N) ~ k E_trunc (k = s/(1-s)), giving ' +
+      'N ~ (log T0) C_C^2 / (k E_trunc)^2: C_C and E_trunc enter every decay-arm crossing ' +
+      'location only through their ratio C_C / E_trunc. imp-96916 measured d(log N_0.25)/d(log ' +
+      'E_trunc) ~ -2.086756 at the sigma=0.25 crossing (N_0.25 ~ 3.259e10); imp-96936 measured ' +
+      'the conjugate d(log N_0.25)/d(log C_C) ~ +2.087365 at the same crossing -- equal in ' +
+      'magnitude, opposite in sign, as the ratio structure predicts. imp-96931 measured the ' +
+      'E_trunc side (~ -2.066) at the deeper sigma=0.01 crossing (N_0.01 ~ 4.624e13). The small ' +
+      'excess past exactly +/-2 is the same slowly-growing log T0 factor in both directions: ' +
+      'raising C_C pushes the crossing to larger N (raising log T0, adding to the C_C ' +
+      'elasticity), while raising E_trunc pushes it to smaller N (subtracting the mirrored ' +
+      'amount). The signed sum elast_C_C + elast_E_trunc isolates this residual and shrinks ' +
+      'monotonically down the decay arm as E_flow/E_trunc collapses: +0.0325 (sigma=0.75) -> ' +
+      '+0.0044 (sigma=0.5) -> +0.0006 (sigma=0.25) -> +0.0001 (sigma=0.1) -- the ratio structure ' +
+      'sharpens the deeper the crossing sits. Sensitivity/naming only; C_mb/C_C stays GUE-' +
+      'conditional (imp-486); E_trunc stays the imp-2631 fixed-strip truncation floor; changes ' +
+      'no bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96967 (adds this glossary headword for the imp-96936/imp-96916/imp-96931 equal-and-opposite C_C/E_trunc leverages), 2026',
+    relatedTerms: [
+      'imp-96936-sigma-quarter-crossing-cc-elasticity.js the conjugate C_C leverage +2.0874 at sigma=0.25 and the signed-sum ladder',
+      'imp-96916-sigma-quarter-crossing-etrunc-elasticity.js the E_trunc leverage -2.0868 at the same sigma=0.25 crossing',
+      'imp-96931-sigma-deep-decay-crossing-etrunc-elasticity.js the E_trunc leverage -2.066 at the deeper sigma=0.01 crossing',
+      'imp-96960-etrunc-cc-elasticity-ladder-viz-data.js the viz ladder built on the same C_C/E_trunc elasticity pair',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

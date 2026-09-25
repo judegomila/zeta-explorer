@@ -20382,6 +20382,15 @@ const DATA_MODULES = [
   // rises to ~3.78-3.98e7 (~78-82% of the trace->measured gap). Self-executing *_ASSERTIONS
   // re-derive the constants in JS. Assessment only; no bound moved; NO QED.
   '/src/data/imp-96731-route-m-trace-ceiling-tightening-assessment.js',
+  // imp-96752 (2026-09-25): posts the Frobenius ||G||_F and Wolkowicz-Styan two-moment RIGOROUS
+  // per-N upper bounds on lam_max(G_N) as a first-class tighter-than-trace ceiling ladder across
+  // the exact Gram rungs N=7000..12000 (imp-96731 Finding 1). At every rung lam_max < WS <=
+  // ||G||_F < trace with Wolkowicz-Styan tightest, and the trace-overstatement factor
+  // trace/best grows 1.7545 -> 1.7943 -- so the trace is nowhere the tightest rigorous per-N
+  // bound. Rows imported single-source from imp-96684 / imp-96694; nothing re-measured.
+  // Self-executing *_ASSERTIONS re-derive the ordering and factors in JS. Presentation of an
+  // existing inequality only; extrapolated ceiling stays fit-limited; no bound moved; NO QED.
+  '/src/data/imp-96752-route-m-rigorous-per-n-lammax-bound-ladder.js',
   // imp-96732 (2026-09-25): assesses whether extended/exact-precision LP can push the Route I
   // Krein sigma_2 interval-rigorous reach past 2a=0.96 toward ln3. Result: composite wall --
   // solver-limited (plausibly recoverable) for 0.96<2a<1.0 where the certified design margin

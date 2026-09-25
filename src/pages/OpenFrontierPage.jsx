@@ -2881,6 +2881,15 @@ const ROUTE_I_VERDICT = [
       'lambda_max(R_T) <= Tr(B^{-1} R_T). The enclosure becomes genuine once a single N-dependent tail-trace ' +
       'majorant on the Gegenbauer-transform diagonal is supplied (sub-gap IMP96848_TAILTRACE_MAJORANT) -- the ' +
       'named blocking step.',
+      'STATUS UPDATE (imp-96876/imp-96888/imp-96973): that named blocking step is now closed off as a dead ' +
+      'end, not a live path -- even a perfectly-assembled IMP96848_TAILTRACE_MAJORANT is ~3e15x (~15 orders) ' +
+      'too loose at N=100, 2a=ln3, and the looseness is structural (baked into the bounding chain), not an ' +
+      'un-computed constant. imp-96973 factorises the ~15-order gap as [sum-vs-single 1.9x] x [spectral-gap ' +
+      '1.4e15x] x [trial-vector-slack 1.17x], correcting imp-96876s original attribution to the trace step ' +
+      '(lambda_max(R_T) <= Tr(B^{-1} R_T), only ~1.9x) and localising nearly all of it in the spectral-gap ' +
+      'step instead. Assembling the tail-trace majorant is therefore not worth pursuing; the productive ' +
+      'successor is the per-mode Rayleigh/min-max bound <v0|R_T|v0> (IMP96888_RAYLEIGH_TAIL_MAJORANT, ' +
+      'imp-96888), which is within 1.17-2.24x of the measured residual.',
       'None of these three results proves operator positivity; the interval-rigorous certified reach stays ' +
       '2a <= 0.96, IMP96749_UNIFORM_N_GAP_UNSETTLED remains open, RH is open, and Platt-Trudgian Lambda <= 0.2 ' +
       'remains SOTA. Assessment/measurement only; NO QED.',

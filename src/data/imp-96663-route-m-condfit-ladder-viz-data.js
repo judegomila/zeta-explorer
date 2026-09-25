@@ -68,7 +68,11 @@ export const IMP96663_CEILINGS = Object.freeze({
 export const IMP96663_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Presentation only: every ladder row, the ' +
   'power-fit coefficients, and the three ceiling values are reused verbatim from imp-96570; no ' +
-  'new measurement or Gram rebuild. Changes no bound and establishes no operator positivity.';
+  'new measurement or Gram rebuild. Changes no bound and establishes no operator positivity. ' +
+  'Per imp-96731 FINDING 2: of the three ceilings only the rigorous trace lower ceiling ' +
+  '(2.59e7, proven closed-form asymptotic) is rigorously anchored -- the composed measured ' +
+  '(4.11e7) and independent dense-fit (~4.30e7) ceilings are ~four-decade log-fit ' +
+  'extrapolations with no proven asymptotic.';
 
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
@@ -110,6 +114,14 @@ const IMP96663_ASSERTIONS = [
       /PT Lambda <= 0.2/.test(IMP96663_HONEST_BANNER) &&
       /NO QED/.test(IMP96663_HONEST_BANNER),
     why: 'every Route M viz surface carries the RH-open / PT-Lambda / NO-QED markers.',
+  },
+  {
+    id: 'imp96663-banner-flags-rigor-gap',
+    holds: () =>
+      /imp-96731/.test(IMP96663_HONEST_BANNER) &&
+      /rigorously anchored/.test(IMP96663_HONEST_BANNER) &&
+      /extrapolations/.test(IMP96663_HONEST_BANNER),
+    why: 'imp-96731 FINDING 2: only the trace lower ceiling is rigorously anchored, while the composed measured and independent dense-fit ceilings are log-fit extrapolations; the banner must say so, not present all three as equally certain.',
   },
 ];
 

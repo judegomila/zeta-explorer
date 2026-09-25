@@ -20485,6 +20485,12 @@ const DATA_MODULES = [
   // modules, so no route bundle currently carries it. Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96765-zeros-bundle-import-reachability-audit.js',
+  // imp-96680: Concepts glossary headword restating the imp-96654 verdict -- the
+  // imp-96637 GUE crossover N* = 2.09e6 is essentially unlocalized because the fitted
+  // small-gaps exponent b = -0.3953 sits only ~3 SE from the -1/3 pole, so the +/-1 SE
+  // band on N* spans ~4.73 decades and the 95% band spans ~19.31 decades. Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96680-crossover-near-pole-fragility-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

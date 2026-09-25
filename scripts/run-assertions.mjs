@@ -19857,6 +19857,13 @@ const DATA_MODULES = [
   // the best floor crossover-set (ppp=6, ~1.75e-6) at every rung, and cuts the jump to ~1x -- so L_transition
   // and the jump are naive-accumulator artifacts. Import-light. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96728-basis-c-compensated-var-transition.js',
+  // imp-96736 (2026-09-25): pins the imp-96716 FINDING-3 intra-crossover best-floor optimum ppp 5->4 step.
+  // Fine sweep of the same basis-C direct integral in (3.5e6,4.0e6), ppp in {4,5,6}: the step is pinned to
+  // L in (3.93e6,3.94e6] (geo-mid ~3.935e6), ~0.02 decades ABOVE the imp-96716 "near 3.75e6" midpoint guess.
+  // The crossing is deterministic (ppp=5 floor strictly up, ppp=4 strictly down, f4/f5 crosses 1 once) yet a
+  // cancellation-roundoff sweet-spot in mechanism (per-ppp error non-monotone: f6>f5, f6 blows up from 3.75e6),
+  // the same double-precision mechanism imp-96728 proved. Import-light. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96736-basis-c-intra-crossover-ppp-step.js',
   // imp-96711 (2026-09-24): reconciliation AUDIT cross-tabulating the three basis-C corroboration-reach
   // L* figures (imp-96531 L-linear ~2.86e9, imp-96568 two-rung ~1.9e8, imp-96690 five-rung OLS ~8.1e7).
   // Re-derives all three from ONE anchored-power-law crossover floor(L)=anchorFloor*(L/anchor)^p at
@@ -20369,6 +20376,14 @@ const DATA_MODULES = [
   // rises to ~3.78-3.98e7 (~78-82% of the trace->measured gap). Self-executing *_ASSERTIONS
   // re-derive the constants in JS. Assessment only; no bound moved; NO QED.
   '/src/data/imp-96731-route-m-trace-ceiling-tightening-assessment.js',
+  // imp-96732 (2026-09-25): assesses whether extended/exact-precision LP can push the Route I
+  // Krein sigma_2 interval-rigorous reach past 2a=0.96 toward ln3. Result: composite wall --
+  // solver-limited (plausibly recoverable) for 0.96<2a<1.0 where the certified design margin
+  // eps(2a)=200(1-2a) is still positive, but INTRINSIC (margin-vanishing) at and above 2a=1.0;
+  // ln3 is out of reach at any precision since eps(ln3)~-19.7<0. Self-executing *_ASSERTIONS
+  // re-derive the projected rungs and wall ordering in JS. Assessment only; interval-rigorous
+  // reach stays exactly 2a<=0.96; RH open; NO QED. (imp-96764 registry audit)
+  '/src/data/imp-96732-krein-extended-precision-reach-assessment.js',
   // imp-96638: Concepts glossary headword restating the imp-96617 verdict that the box
   // sine-kernel closed-form lag correlation is a two-SIDED ~6-7-digit approximation
   // (|DeltaCov_k| <~ 2.07e-3/L^2, Bartlett weight kills the O(1/L) term), NOT a certified

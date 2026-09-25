@@ -4241,6 +4241,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value is reused verbatim from imp-96568; only the log10 reshaping and the ppp-pinned regime split are new. imp-96568 itself is a theoretical GUE quantity (no computed zeros) and the above-anchor exponent is fit from only two rungs. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96604-lammax-normalized-ratio',
+      title: 'Normalized lam_max Ratios: Still ~2x Their Asymptotic Targets',
+      oneLine:
+        'Plots the imp-96562 two normalized lam_max ratio series against N=250..6000 (lam_max/log N: 0.8929 -> 0.6968 targeting 0.3526; lam_max/trace: 0.6410 -> 0.5183 targeting 0.2797) with dashed target lines, showing both remain > 1.8x their asymptotic targets at the top rung.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96604-lammax-normalized-ratio-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96562-route-m-lammax-offdiagonal-szego-assessment.js (IMP96562_ROWS, IMP96562_NUMERICAL_PINNABILITY; imp-96604 viz page)',
+      ticket: 'imp-96604',
+      pedagogicalStep: 277,
+      honestCeiling:
+        'Presentation only: every ratio value is reused verbatim from imp-96562; only the two-series reshape and target-line overlay are new. imp-96562 itself is a re-analysis measurement (Szego route does not apply; no bound moved). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

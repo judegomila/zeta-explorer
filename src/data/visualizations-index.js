@@ -4256,6 +4256,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every ladder value is reused verbatim from imp-96568; only the log10 reshaping and the ppp-pinned regime split are new. imp-96568 itself is a theoretical GUE quantity (no computed zeros) and the above-anchor exponent is fit from only two rungs. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96739-basis-c-above-anchor-ladder-lstar-crossover',
+      title: 'Basis-C Above-Anchor Floor Ladder and the L* Corroboration-Reach Crossover',
+      oneLine:
+        'Plots the imp-96690 five-rung above-anchor basis-C floor(L) ladder (PT anchor 5.9e6 through 5e7) on log-log axes alongside the imp-96712 three-model L* bracket [7.6e7,8.2e7] (yellow band), the imp-96690 constant-OLS crossover baseline inside it (~8.08e7, red dashed line), and the earlier looser imp-96568 two-point projection (~1.9e8, grey dotted line) for scale contrast.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96739-basis-c-above-anchor-ladder-lstar-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96690-basis-c-above-anchor-rung-ladder.js (aboveAnchorRungs, crossover); src/data/imp-96712-basis-c-accelerating-exponent-model.js (bracket); imp-96739 viz page',
+      ticket: 'imp-96739',
+      pedagogicalStep: 277,
+      honestCeiling:
+        'Presentation only: every ladder, bracket, and crossover value is reused verbatim from imp-96690/imp-96712; only the log10 reshaping is new. Both source modules are theoretical GUE quantities (no computed zeros) and every L* figure is a projection, not a measured reach. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96604-lammax-normalized-ratio',
       title: 'Normalized lam_max Ratios: Still ~2x Their Asymptotic Targets',
       oneLine:

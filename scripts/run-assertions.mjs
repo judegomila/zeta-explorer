@@ -20723,6 +20723,11 @@ const DATA_MODULES = [
   // variant against the box-sine sign-alternating DeltaCov_k; the two-sided envelope
   // makes the partition unnecessary. Assessment/derivation; conditional on GUE; NO QED.
   '/src/data/imp-96853-vif-twosided-envelope-partition-assessment.js',
+  // imp-96865: attempts to derive the Route C (Kato-Temple / Lehmann-Goerisch) a-priori seed
+  // beta <= lambda_2 with beta > mu that imp-96846 reduced the uniform-N Krein floor to; both the
+  // Loewner base problem and the Weyl bounded-perturbation split return beta < 0 (dip |sigma_2^min|
+  // ~ 4336 >> mu ~ 0.55), so the seed is sign-obstructed. Derivation only; NO QED.
+  '/src/data/imp-96865-krein-katotemple-lambda2-lowerbound-obstruction.js',
 ];
 
 let ALL_MODULES = FAST_MODE

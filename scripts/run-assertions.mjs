@@ -19850,6 +19850,13 @@ const DATA_MODULES = [
   // across it (6.03e-7->2.97e-5) as the Var cancellation roundoff overtakes the finer panel count, so the
   // anchor is the first ppp=3 rung. Import-light (no zeros bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96716-basis-c-mechanism-transition-scale.js',
+  // imp-96728 (2026-09-24): re-runs the imp-96716 basis-C double integral at the transition-bracket rungs
+  // (5.5e6..5.9e6, ppp in {2..6}) head-to-head between the naive Simpson accumulator and a Neumaier-
+  // compensated one to test FINDING 2 (the ~49x jump = Var cancellation roundoff). Naive reproduces the
+  // transition + 49x jump; Neumaier compensation holds the ppp=4 branch flat (~1.01e-5, no blow-up), keeps
+  // the best floor crossover-set (ppp=6, ~1.75e-6) at every rung, and cuts the jump to ~1x -- so L_transition
+  // and the jump are naive-accumulator artifacts. Import-light. Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96728-basis-c-compensated-var-transition.js',
   // imp-96711 (2026-09-24): reconciliation AUDIT cross-tabulating the three basis-C corroboration-reach
   // L* figures (imp-96531 L-linear ~2.86e9, imp-96568 two-rung ~1.9e8, imp-96690 five-rung OLS ~8.1e7).
   // Re-derives all three from ONE anchored-power-law crossover floor(L)=anchorFloor*(L/anchor)^p at
@@ -20387,6 +20394,13 @@ const DATA_MODULES = [
   // rigorous trace-domination lower ceiling N >= 2.59e7. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96657-conditioning-ceiling-crossvalidation-glossary-headword.js',
+  // imp-96658: Concepts glossary headword restating the imp-96637 finding -- the
+  // imp-96616 running-min ratio g_min(N)/y_N vs the GUE median envelope is a
+  // TWO-SIDED oscillation (dips below 1 at N=5000 and N=5e5), not the one-sided
+  // upper bound the smooth single-power fit suggests over N=50..1e6 (the fit only
+  // crosses the median past the data, at N*=2.09e6). Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96658-gmin-two-sided-oscillation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

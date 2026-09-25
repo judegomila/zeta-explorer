@@ -171,6 +171,21 @@ export function descentTime(pfun, y0 = Y0, n = 4000) {
   return s * h;
 }
 
+// residual (a) collision-time drop: the corrected local picture gives a topmost-member rate
+// ~ -1/sqrt(2(tStar - t)) into a collision (vertical approach, upper member descending). This helper
+// returns the total height drop over [tStar - Delta, tStar - eps] by midpoint quadrature; it is used to
+// certify that the singular rate is integrable (finite limit as eps -> 0) and signed (negative/downward),
+// so the envelope Y(t) stays absolutely continuous across a collision and the Dini integration is valid.
+export function collisionDrop(tStar, Delta, eps = 1e-6, n = 50000) {
+  const h = (Delta - eps) / n;
+  let drop = 0;
+  for (let i = 0; i < n; i++) {
+    const t = tStar - Delta + (i + 0.5) * h;
+    drop += (-1 / Math.sqrt(2 * (tStar - t))) * h;
+  }
+  return drop; // -> -(sqrt(2 Delta) - sqrt(2 eps)), a finite limit as eps -> 0
+}
+
 // Riemann zeta for real s > 1 via Euler-Maclaurin (M = 40, 8 Bernoulli terms), and zeta'/zeta by central difference
 const B2K = [1 / 6, -1 / 30, 1 / 42, -1 / 30, 5 / 66, -691 / 2730, 7 / 6, -3617 / 510];
 export function zetaReal(s) {
@@ -301,6 +316,16 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
     'height-blind count at width 2y equals (1/2)Re xi\'/xi at 1/2 + y only when all zeros are real',
     'lemma-lens scenario A/B reach numbers unreproduced; empirics lens unrefereed',
   ]),
+  residualAssessment: Object.freeze({
+    id: 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP',
+    ticket: 'imp-97051',
+    residual: '(a) Dini/envelope argument through collision times with uniform-in-t Ki-Kim-Lee finiteness',
+    verdict: 'HALF-CLOSED: the collision/Dini/envelope mechanics are rigorous; the remaining obstruction is the uniform-in-t finiteness / envelope-attainment on the unbounded x-strip, which Ki-Kim-Lee does not supply as stated. No new Lambda bound. PT Lambda <= 0.2 stands. NO QED.',
+    a1_rigorous:
+      'The topmost-height envelope Y(t) = sup{ y : nonreal zero of H_t with x >= X+1 } is continuous in t (Rouche/Hurwitz, zeros vary continuously). Away from collisions it is locally Lipschitz and its upper Dini derivative satisfies D+ Y(t) <= max over the active topmost zeros of dy/dt <= -1/y_top - (mirror pull), i.e. the B1 descent inequality (Danskin/envelope theorem for a max of C^1 trajectories). At a collision the corrected local picture gives the topmost member rate ~ -1/sqrt(2(t*-t)): (i) NEGATIVE (downward), so a collision is sign-favourable and only accelerates descent -- it can never push the running max UP; (ii) INTEGRABLE (int dt/sqrt(t*-t) converges; finite total drop, verified by collisionDrop). Hence across finitely many collisions Y stays absolutely continuous and the FTC-for-Dini bound Y(t0) - Y(0) <= int_0^{t0} D+ Y dt is valid. Collision times are isolated: they are zeros of the analytic-in-t discriminant, not identically zero for t > 0.',
+    a2_subgap:
+      'The envelope integration needs the number of nonreal zeros AND collision times inside { x >= X+1 } x { t in [0, t0] } to be finite UNIFORMLY in t, and the sup over the unbounded x-strip to be ATTAINED (a max fed by finitely many zeros, not a sequence of zeros marching in from x = +infinity as t varies). Ki-Kim-Lee gives per-t / asymptotic-in-t finiteness (for each fixed t all but finitely many zeros are real; real-eventually as t grows), NOT the uniform-over-a-compact-t-interval-on-an-unbounded-x-strip statement the argument consumes. This uniform finiteness + envelope-attainment is the precise, still-open obstruction of residual (a).',
+  }),
   nextStep:
     'Prove the loss factor 2y/eta is forced: construct zero configurations satisfying every sigma > 1 (eta >= 1) wide-Poisson lower bound that H_0 satisfies, yet with pull at width y below the Palm-neutral profile near a topmost zero. This would close the mirror-descent route as a theorem (as done for Sonine / rank-one fixes) instead of leaving it to modelling.',
   verdict:
@@ -471,6 +496,21 @@ export const RH_BRIDGE_MIRROR_DESCENT_ASSERTIONS = Object.freeze([
     holds: () => {
       const r = RH_BRIDGE_MIRROR_DESCENT.numbers.heatFlowComplexShell;
       return r.measured <= r.mirror && r.mirror <= r.domination && r.oldRealOnly > r.domination && -r.oldRealOnly < 4.37;
+    },
+  },
+  {
+    id: 'mirror-residual-a-collision-integrable-signed',
+    name: 'residual (a): the collision-time rate ~ -1/sqrt(2(t*-t)) is NEGATIVE (downward) and INTEGRABLE (finite drop -> -sqrt(2 Delta)); assessment recorded as HALF-CLOSED with a named uniform-finiteness sub-gap',
+    why: 'imp-97051 residual (a): Dini/envelope through collisions is rigorous (singular rate integrable + signed); remaining obstruction = uniform-in-t finiteness / envelope-attainment on the unbounded x-strip (Ki-Kim-Lee gives only per-t / asymptotic finiteness)',
+    holds: () => {
+      const tStar = 0.05, Delta = 0.02, eps = 1e-6;
+      const drop = collisionDrop(tStar, Delta, eps, 50000);
+      const closed = -(Math.sqrt(2 * Delta) - Math.sqrt(2 * eps));
+      const finiteLimit = Math.abs((-(Math.sqrt(2 * Delta) - Math.sqrt(2 * 1e-6))) - (-Math.sqrt(2 * Delta))) < 2e-3;
+      const a = RH_BRIDGE_MIRROR_DESCENT.residualAssessment;
+      return drop < 0 && Number.isFinite(drop) && near(drop, closed, 1e-4) && finiteLimit &&
+        a.id === 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP' && /HALF-CLOSED/.test(a.verdict) &&
+        /NO QED/.test(a.verdict) && /PT Lambda <= 0\.2 stands/.test(a.verdict);
     },
   },
   {

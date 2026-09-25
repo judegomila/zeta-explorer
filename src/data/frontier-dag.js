@@ -211,6 +211,18 @@ export const NODES = [
   },
 
   // ── the unconditional floor ────────────────────────────────────────────
+  // ── Route I Krein Toeplitz certificate ─────────────────────────────────
+  {
+    id: 'route-i-uniform-n-gap',
+    name: 'IMP96749_UNIFORM_N_GAP_UNSETTLED — uniform-in-N spectral gap for T_a[σ₂]',
+    kind: 'open-object',
+    status: 'open — Rayleigh-Ritz floors (Legendre N≤52, Gegenbauer diagonal-Gram N≤124) measure λ_min(T_a[σ₂]) firmly positive and flat (~8.34/~2.16/~0.577 at 2a=1.00/1.05/ln3) with no sign of collapse, but the uniform-in-N gap is EXACTLY the strict positivity of the lowest eigenvalue λ₁(a), which no finite-N measurement can settle; the de Branges realisation route is blocked (σ₂ is sign-indefinite, not a de Branges weight) and reduces to the same uncertainty/concentration inequality',
+    statusKind: 'open',
+    route: '/viz-imp96777-krein-lammin-n-trend',
+    source: 'imp-96749 / imp-96768 / imp-96769',
+    closesIf:
+      'Either pushing the interval Krein certificate past the LP wall (double-double / exact-rational cutting planes) or a quantitative concentration inequality bounding the concentrable dip fraction strictly below 1 would deliver a rigorous c > 0 on 0.96 < 2a < ln 3. Rigorous reach stays 2a ≤ 0.96 either way this closes; Platt–Trudgian Λ ≤ 0.2 remains SOTA.',
+  },
   {
     id: 'verified-height',
     name: 'Verified zero height (external HPC)',

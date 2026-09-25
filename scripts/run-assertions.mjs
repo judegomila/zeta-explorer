@@ -20625,6 +20625,20 @@ const DATA_MODULES = [
   // positivity (~20) is reproduced in this basis. Import-light; 5 self-executing
   // assertions. Measurement only (Rayleigh UPPER bound); no bound; NO QED.
   '/src/data/imp-96835-krein-2a-monotonicity-cross-check.js',
+  // imp-96855: the imp-96707 cohort2 orphan modules (imp-96805 confirmed all 9
+  // import-light, zero zeros-bundle dependence, direct or transitive) were missing
+  // from this DATA_MODULES sweep, so their module-scope self-executing throw
+  // tripwires ran nowhere. Registration fix only; no bound; NO QED; PT Lambda<=0.2
+  // SOTA.
+  '/src/data/imp-96631-route-m-largesieve-lower-frame-assessment.js',
+  '/src/data/imp-96687-lammax-normalized-ratios-above-6000.js',
+  '/src/data/imp-96688-route-m-frobenius-g-factorization-assessment.js',
+  '/src/data/imp-96689-route-m-lammin-doubledouble-cert-crossover-ladder.js',
+  '/src/data/imp-96691-route-m-bohr-lift-multiplicative-szego-assessment.js',
+  '/src/data/imp-96697-route-m-lammin-elementary-lower-bound-routes-assessment.js',
+  '/src/data/imp-96709-route-m-drift-vif-block-bootstrap.js',
+  '/src/data/imp-96751-route-m-frobenius-ladder-above-12000.js',
+  '/src/data/imp-96770-route-m-weighted-cotangent-homogeneous-envelope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -211,6 +211,27 @@ export const TOEPLITZ_KREIN_LITERALS = Object.freeze({
     extendedPrecReach: { l1Log10AtLn3: 16.24, decadesToHold: 20.2, bitsNeeded: 68, doubleBits: 53, doubleDoubleBits: 106 }, // double-double (106 bits) comfortably reaches ln3
     note: 'measurement/projection only; NO QED. Confirms norm growth IS the obstruction: double-prec walls out at 2a ~ 1.0, reaching ln3 needs ~68-bit (double-double) LP',
   },
+  // imp-96632: DISTINCT projection from normGrowthLaw -- fit the CERTIFIED interval-verified eps-margin decay
+  // directly (not the l1-norm) vs support 2a, from the same three baked verified sigma_2 rungs. The certified eps
+  // (round-2 cutting-plane LP margin, interval-confirmed) is EXACTLY LINEAR in 2a: (0.90,20),(0.94,12),(0.96,8) have
+  // segment slopes -200/-200 per unit 2a (R^2 = 1.00000000), giving eps(2a) = 200*(1 - 2a). It reaches eps -> 0 at
+  // 2a* = 1.000000 (a* = 0.500000), which coincides EXACTLY with the observed LP double-precision wall (a >= 0.50,
+  // HiGHS status 4/15) and with the normGrowthLaw l1-explosion wall 2a in [1.00, 1.04] -- an independent second
+  // observable confirming the same wall. a* = 0.50 falls SHORT of (ln 3)/2 = 0.549306 by 0.049306 (2a short of
+  // ln 3 = 1.098612 by 0.098612). HONEST SUB-GAP (eps-fit-3anchor): (i) the eps here is the CERTIFIED LP margin, NOT
+  // the true positivity margin lambda_min(T_a[sigma_2]) -- lambda_min stays positive well past 2a = 1.0 (~7.7 at
+  // a=0.50, sign flip only near a=0.5658 per lambdaMinSigma2), so a* = 0.50 marks where the DOUBLE-PRECISION LP can
+  // no longer emit a positive-margin certificate, not where positivity fails; (ii) only 3 baked anchors, no fresh
+  // fine-grid LP sweep; the perfect linearity is empirical over the narrow 0.90-0.96 window.
+  epsMarginDecay: {
+    anchors: [{ twoA: 0.90, eps: 20, verified: true }, { twoA: 0.94, eps: 12, verified: true }, { twoA: 0.96, eps: 8, verified: true }],
+    segmentSlopesPerUnit: [-200.0, -200.0], // 0.90->0.94, 0.94->0.96: identical => exactly linear in 2a
+    lsFit: { slope: -200.0, intercept: 200.0, r2: 1.0 }, // eps = slope * (2a) + intercept
+    epsZeroTwoA: 1.000000, epsZeroA: 0.500000, // certified-margin wall (extrapolated eps -> 0)
+    coincidesWithLpWallA: 0.50, coincidesWithNormGrowthWallTwoA: [1.00, 1.04], // same wall, three independent observables
+    ln3HalfShortfallA: 0.049306, ln3ShortfallTwoA: 0.098612, // a* below (ln 3)/2 = 0.549306
+    note: 'projection only; NO QED; interval-rigorous range stays exactly the certified rungs 2a <= 0.96. eps here is the certified LP margin, not lambda_min positivity (which persists past 2a=1.0)',
+  },
 });
 
 export const RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE = Object.freeze({

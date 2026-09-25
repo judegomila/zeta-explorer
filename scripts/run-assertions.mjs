@@ -20193,6 +20193,14 @@ const DATA_MODULES = [
   // re-solves the ceiling to ~3.98e7 (vs log-linear 3.75e7) but rests on the unproven interior slope.
   // Self-executing *_ASSERTIONS re-derive the constants/ceilings in JS. No bound moved; NO QED.
   '/src/data/imp-96667-route-m-frobenius-second-moment-asymptotic.js',
+  // imp-96685: consumer/orphan audit of the seven newest Route M/Route I finding modules
+  // (imp-96648, imp-96649, imp-96651, imp-96652, imp-96654, imp-96655, imp-96656). Six of seven
+  // are ORPHANED (no real import statement anywhere in src/, not DATA_MODULES-registered); a
+  // naive filename grep surfaces four apparent "consumers" (imp-96667/96668/96669/96674) but each
+  // references the targets only via prose/@see comments, never a real import. imp-96648 is the
+  // sole non-orphan (its own direct DATA_MODULES entry above). None of the seven can transitively
+  // pull the zeros bundle. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96685-orphan-consumer-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

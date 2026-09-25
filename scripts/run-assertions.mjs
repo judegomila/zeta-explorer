@@ -385,6 +385,28 @@ const DATA_MODULES = [
   // i.e. 2a <= 0.96 > ln 2; independent cross-check of the sibling primal certificate (all a <= (ln3)/2). Fixed-window
   // positivity says nothing about zeros; RH open; NO QED. Import-light (Route H/I exports). Assertions ~1.5 s.
   '/src/data/rh-route-i-direct-sonine-trace-certificate-2026-09-24.js',
+  // rh-route-i-toeplitz-krein-certificate (2026-09-24): the Route I crux as TRUNCATED TOEPLITZ POSITIVITY with a
+  // Krein spectral-gap certificate. Sharpened reformulation: the CC Q-trick symbol sigma_1 = (t^2+1/4) w_1 is the
+  // HALF-pole-free form (only marginally positive near ln 3, |lambda_min| < 2e-4, sign unresolved); pole-free Weil
+  // positivity is EXACTLY T_a[sigma_2] >= 0 on L^2(-a,a) with sigma_2 = (t^2+1/4)^2 w_1 (lambda_min 0.552 at (ln3)/2,
+  // crossing 2a = 1.13). Certificate nu = sum c_k t^k trig(x t), lattice atoms x >= X0 = 0.9, sigma_2 + nu >= 0 on R,
+  // VERIFIED with interval arithmetic (mpmath.iv, shifted Stirling with Binet remainders, Lagrange guards, periodic
+  // tail): pole-free Weil positivity for ALL 2a <= 0.96 > ln 2 (main certificate, a <= 0.48; compact secondary at
+  // 2a <= 0.9 with l1 = 54) — the first interval-rigorous (not IEEE-double) range past ln 2 in the repo. Two-window uncertainty bound crosses 0 at 2a = 0.6026 < ln 2 (refuted as a route). ln 3
+  // obstruction quantified: eps <= lambda_min = 0.552 vs symbol up to 1.7e7, HiGHS wall at a >= 0.50, t^4 atoms capped
+  // by the log growth of 2theta'. Import-light (Route I twoThetaPrime + payload). Assertions ~5 s. NO QED.
+  '/src/data/rh-route-i-toeplitz-krein-certificate-2026-09-24.js',
+  // rh-supercritical-fluid-bridge (2026-09-24): the de Bruijn / twin-ladder bridge written EXACTLY as a viscous Burgers
+  // fluid. Cole-Hopf: heat potential = H_t itself, w = -2 nu d_x log H solves w_tau + w w_x = nu w_xx in backward de Bruijn
+  // time with nu = 1/4 (ordinates) / 1 (P15 z = 2x) / 1 (repo tau_repo = -t/4) / 1/N (Dyson-normalised m_N) — the inviscid
+  // Dyson-Burgers of dyson-burgers-shock.js is the nu = 1/N -> 0 limit; verified on exact H_t to residual < 2e-18.
+  // Complex pair = viscous shock with Delta*b = 4 nu exactly (measured 0.990 at birth), real collision = inviscid shock.
+  // Critical point Lambda = shock-dissolution time; order parameter phi = non-real fraction; RH <=> phi(0) = 0;
+  // Rodgers-Tao <=> two-phase for all t < 0. Equation of state phi = Psi_beta(|t|/tau_*(T)), tau_* = 2 pi^2/log^2(T/2pi),
+  // exponent (beta+1)/2 (GUE 3/2; heuristic, PCC-conditional), measured on beta-Hermite samples and the first 400 zeros.
+  // Exact H_t on [0,100]: first collision t = -0.881077 (two-body -0.743334, many-body delay 1.17-1.40), staircase phi.
+  // Import-free, self-contained polynomial-heat-flow checks + baked literals; assertions < 0.1 s. No bound moves; NO QED.
+  '/src/data/rh-supercritical-fluid-bridge-2026-09-24.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder
@@ -20042,6 +20064,22 @@ const DATA_MODULES = [
   // N=6000 (six sign changes, worst deviation 0.0361 unchanged from pre-extension). No
   // re-import of imp-96105; documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96436-route-m-ratio-plateau-glossary-headword.js',
+  // 2026-09-24: RH bridge, supercritical-fluid / viscous-Burgers shock scaling. Import-light
+  // (no module imports; Odlyzko-derived literals baked from tmp/supercritical-fluid-shock-
+  // scratch.mjs). Fold law |t_c| = g_min^2/8 (rigorous lower half), supercritical width^2 =
+  // 8 (s - s_c) measured to 0.2%, exact Cole-Hopf identity m_s = 2 m m_z + m_zz live, tail
+  // linear-response law for G6's E(N). Verdicts: argmin bypass = Montgomery in disguise;
+  // G6 via Cole-Hopf = exact identity, sharper E(N) form, same wall (tail reality). Tripwire:
+  // Route B per-N bound implies an unproved power-saving small-gaps statement. No bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/rh-bridge-supercritical-fluid-shock-scaling-2026-09-24.js',
+  // imp-96559 (2026-09-24): Concepts glossary headword restating the imp-96486 verdict
+  // that the imp-96430 basis-C L-linear cancellation floor model floorModel(L) =
+  // 8.4e-15 * L is valid only while the optimal ppp stays >= 32 (L <= ~1e5); past that
+  // the optimal ppp collapses toward 3 and the floor is truncation-set, departing the
+  // model by up to 573x at the PT anchor L = 5.9e6. No re-import of imp-96486;
+  // documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96559-basis-c-ppp-collapse-lmodel-validity-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

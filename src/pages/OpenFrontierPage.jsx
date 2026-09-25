@@ -2927,6 +2927,46 @@ const KMAX5_FRONTIER_VERDICT = [
   },
 ];
 
+// Route C-direct (Kato-Temple / Lehmann-Goerisch) for the Route I Krein floor:
+// double obstruction from imp-96865 (certified-seed sign) and imp-96875
+// (residual divergence), leaving only the bounded-resolvent path -- imp-96904.
+const ROUTE_C_DOUBLE_BLOCK_VERDICT = [
+  {
+    id: 'RouteCDoubleBlock-1',
+    tag: 'imp-96865-imp-96875-route-c-direct-doubly-blocked',
+    color: '#2e6db5',
+    badge: 'ROUTE C-DIRECT BLOCKED BOTH WAYS',
+    title: 'Route C-direct (Kato-Temple / Lehmann-Goerisch) for lambda_1(T_a[sigma_2]) fails from the seed side AND the residual side',
+    status: 'CLOSED (negative result)',
+    body: [
+      'imp-96846 named Route C (min-max complementary methods: Temple / Kato-Temple / Lehmann-Goerisch) ' +
+      'the most tractable path to a genuine lower bound on the Route I Krein floor, reducing the whole ' +
+      'problem to one missing input: a certified a-priori lower bound beta <= lambda_2(a) with beta > mu, ' +
+      'mu ~ 0.5521 being the best measured Rayleigh upper bound at 2a=ln3.',
+      'imp-96865 shows that CERTIFIED seed is unreachable by either exogenous mechanism. The classical ' +
+      'Loewner base-problem seed forces beta_Loewner < 0, because any explicitly solvable comparison ' +
+      'symbol c(t^2+1/4)^2 <= sigma_2(t) pointwise must use c <= min_t w_1(t) = -0.62758, a strictly ' +
+      'negative constant. The Weyl bounded-perturbation split fares far worse: the sign-indefinite part ' +
+      'of sigma_2 has operator norm |sigma_2^min| ~ 4336.2 at t~9.35, so beta_Weyl <= -4336.2, three-plus ' +
+      'decades below mu. Both mechanisms fail the Kato-Temple hypothesis mu < beta before the residual leg ' +
+      'is even reached.',
+      'imp-96875 is the complementary result: GRANTING a positive, uncertified Ritz estimate of lambda_2 as ' +
+      'a provisional seed (beta ~ 99-111, comfortably above mu) clears the seed-sign obstruction, but the ' +
+      'residual ||Tg - mu g||^2 then diverges as the evaluation space grows (1.65e3 -> 2.60e4 as Nbig runs ' +
+      '24..120 at fixed N=20) because the pole-free trial g lies in the operator’s form domain but not ' +
+      'its operator domain (T_a[sigma_2] is unbounded, order-4 symbol t^4 ln t). The resulting Kato-Temple ' +
+      'floor is ~-1e6, worsening with N.',
+      'VERDICT: Route C-direct is doubly blocked -- no certified exogenous seed exists (imp-96865), and even ' +
+      'a granted positive seed cannot survive the residual leg for the unbounded operator (imp-96875). The ' +
+      'only remaining path is a BOUNDED shift-invert / resolvent reformulation (T+m)^{-1}, which collapses ' +
+      'onto the open Route B (N,T) resolvent-truncation-rate envelope (imp-96827 / imp-96847 / imp-96848). ' +
+      'IMP96749_UNIFORM_N_GAP_UNSETTLED remains open, the interval-rigorous certified reach stays 2a <= 0.96, ' +
+      'RH is open, and Platt-Trudgian Lambda <= 0.2 remains SOTA. NO operator positivity established; NO QED.',
+    ],
+    links: [],
+  },
+];
+
 export default function OpenFrontierPage() {
   return (
     <div className="page">
@@ -5166,6 +5206,63 @@ export default function OpenFrontierPage() {
       </div>
 
       {KMAX5_FRONTIER_VERDICT.map((r) => (
+        <div
+          key={r.id}
+          className="card"
+          style={{ marginBottom: 18, borderLeft: "3px solid " + r.color }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: 0.5,
+                color: r.color,
+                border: "1px solid " + r.color,
+                borderRadius: 4,
+                padding: '2px 7px',
+              }}
+            >
+              {r.badge}
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 10.5,
+                fontWeight: 700,
+                color: '#b58a2e',
+                border: '1px solid #b58a2e',
+                borderRadius: 4,
+                padding: '1px 6px',
+              }}
+            >
+              {r.status}
+            </span>
+            <code style={{ fontSize: 11, color: '#877b67' }}>{r.tag}</code>
+          </div>
+          <strong style={{ color: '#1c1814', fontSize: 14, display: 'block', marginBottom: 10 }}>
+            {r.title}
+          </strong>
+          {r.body.map((para, i) => (
+            <p key={i} style={{ fontSize: 13, color: '#877b67', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+              {para}
+            </p>
+          ))}
+        </div>
+      ))}
+
+      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #2e6db5' }}>
+        <strong style={{ color: '#2e6db5', fontSize: 13 }}>Route C-direct (Kato-Temple / Lehmann-Goerisch): doubly blocked</strong>
+        <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>
+          The record below consolidates imp-96865 (certified exogenous seed forced negative) and imp-96875
+          (direct residual diverges even with a granted positive seed), showing Route C-direct cannot deliver
+          a positive floor and the only remaining path reduces to the open Route B (N,T) resolvent-truncation
+          rate.
+        </p>
+      </div>
+
+      {ROUTE_C_DOUBLE_BLOCK_VERDICT.map((r) => (
         <div
           key={r.id}
           className="card"

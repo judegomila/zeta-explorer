@@ -20668,6 +20668,15 @@ const DATA_MODULES = [
   // tripwire assertions ran nowhere. Registration fix only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96774-gmin-exponent-refit-genuine-se.js',
+  // imp-96851: joint / second-order (cross-term) sensitivity of the sigma_max
+  // GUE-conditional peak share to C_C and E_trunc together. imp-96831 (+0.048)
+  // and imp-96794 (-0.019) measured only the single levers; this measures the
+  // mixed second derivative dg2_sigma/(dlogC_C dlogE_trunc) ~ +0.017 (matches the
+  // envelope form -phi*sigma*(1 - 2 sigma)), finds the levers combine essentially
+  // additively, and sweeps the 2D band (sigma_max stays ~0.85..0.99). No in-model
+  // combination shrinks the ~0.95 conditioning burden. Measurement only; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96851-sigma-peak-share-cc-etrunc-joint-sensitivity.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -19858,6 +19858,13 @@ const DATA_MODULES = [
   // ceiling ratio only at the top rung. Import-light (no zeros bundle). Audit only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96696-route-m-value-ratio-vs-ceiling-ratio-per-rung.js',
+  // imp-96695: cross-validate the two-interval correlation rho used in the basis-C reach
+  // crossover against a rho computed from REAL Odlyzko zeros (zeros6, heights <= 1.13e6) rather
+  // than the theoretical GUE. Empirical rho departs from GUE by |d_rho| up to ~9.4e-2 over
+  // L=30..960, biased toward the rigidity limit -1/2, because the finite-height number variance
+  // saturates (Berry) while GUE grows; at small L (<=3) Sigma2_emp matches GUE to 1-9%. Import-
+  // light (bakes the measured table; no zeros bundle at import). Measurement only; no bound; NO QED.
+  '/src/data/imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light

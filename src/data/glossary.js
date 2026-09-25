@@ -23441,6 +23441,7 @@ export const glossary = [
       'rh-route-i-toeplitz-krein-certificate-2026-09-24.js the module carrying KREIN_CERTIFICATE, KREIN_CERTIFICATE_090, the certificate lemma and the RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE theorem record',
       'rh-route-i-toeplitz-krein-certificate-payload-2026-09-24.js the baked atomic-certificate payload (atom lattice x_j = k_j * 0.02, coefficients, l1 norms) this module imports',
       'Route I Sonine-Excess Half-Cusp Allocation the sibling no-go for the CC Q-trick sigma_1 route, which this sigma_2 (squared-weight) form sidesteps past ln 2',
+      'rh-route-i-direct-sonine-trace-certificate-2026-09-24.js the same-day dual-LP sibling certificate for the IDENTICAL range 2a <= 0.96 (margins 0.0467..0.0016), IEEE double precision, NOT interval-verified -- cite THIS module, not that one, for the rigorous status of 2a <= 0.96',
     ],
   },
 ];

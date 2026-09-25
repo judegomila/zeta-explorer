@@ -19851,6 +19851,13 @@ const DATA_MODULES = [
   // imp-96690 is the best current projection. Import-light (no zeros bundle). Reconciliation only; no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96711-basis-c-corroboration-reach-cross-tab.js',
+  // imp-96712 (2026-09-24): projection MODEL of the imp-96690 accelerating local floor exponent
+  // (1.81 -> 2.81 -> 2.08 -> 2.65). Fits quadratic-in-log-log (raw + anchored) and integrated linear-
+  // local-exponent floor models to the SAME five committed imp-96690 floors (no new heavy runs) and
+  // re-bisects L*, bracketing the corroboration reach at ~[7.6e7, 8.2e7] (within ~+/-6% of the constant-
+  // OLS 8.1e7; quadratic models tighten to ~7.6-7.8e7, integrated-exponent model loosens to ~8.2e7).
+  // Import-light (no zeros bundle). Projection only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96712-basis-c-accelerating-exponent-model.js',
   // imp-96693 (2026-09-24): accuracy AUDIT tabulating the residual-factor decomposition of the three
   // Route M lam_max conditioning ceilings imported from imp-96684 -- trace 2.594e7 (rigorous) < Frobenius
   // 3.764e7 (fit) < measured 4.109e7 -- confirming M/F=1.0917 reproduces the imp-96684 residual factor
@@ -20339,6 +20346,12 @@ const DATA_MODULES = [
   // (obs 0.054 vs Berry 0.050). Quantifies the imp-96695 finite-height attribution.
   // Measurement/derivation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96710-berry-satscale-vs-height.js',
+  // imp-96642: Concepts glossary headword restating the imp-96613 FINDING 4 verdict
+  // that no N-uniform analytic lam_min(G_N) >= A N^-p bound is in reach because the
+  // Vasyunin Gram is a non-compact multiplicative operator with 0 in its limiting
+  // spectrum, and the GCD-sum / large-sieve literature bounds only the TOP edge, not
+  // the lower frame. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96642-lammin-nuniform-nogo-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

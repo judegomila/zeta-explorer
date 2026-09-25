@@ -4227,6 +4227,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value plotted is reused verbatim from imp-96567\'s baked inputs; only the closed-form curve over an extended k-range is recomputed here from those same inputs, using the identical formula. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96600-basis-c-floor-ladder',
+      title: 'Basis-C floor(L) Ladder: Optimum-ppp Collapse and Super-linear Growth',
+      oneLine:
+        'Plots the imp-96568 basis-C direct-integral floor(L) at five rungs (1e3, 1e5, 1e6, PT anchor 5.9e6, 1e7) on log-log axes, colored by the optimum-ppp collapse (256 -> 48 -> 6 -> pinned 3), with a fitted dashed line through the two ppp-pinned rungs showing the above-anchor super-linear exponent p~1.81.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96600-basis-c-floor-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96568-basis-c-intermediate-rung-floor-ladder.js (floorLadder, floorGrowth; imp-96600 viz page)',
+      ticket: 'imp-96600',
+      pedagogicalStep: 276,
+      honestCeiling:
+        'Presentation only: every ladder value is reused verbatim from imp-96568; only the log10 reshaping and the ppp-pinned regime split are new. imp-96568 itself is a theoretical GUE quantity (no computed zeros) and the above-anchor exponent is fit from only two rungs. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

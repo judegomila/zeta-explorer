@@ -20438,6 +20438,13 @@ const DATA_MODULES = [
   // rigorous trace-domination lower ceiling N >= 2.59e7. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96657-conditioning-ceiling-crossvalidation-glossary-headword.js',
+  // imp-96703: Concepts glossary headword restating the imp-96684 verdict --
+  // extending the imp-96648 Frobenius / Wolkowicz-Styan majorant ladder with the
+  // high-N rungs N=7000,8000,9000 flattens the fitted slope (~1.7%, like the
+  // imp-96649 lam_max) but leaves the rigorous-lower conditioning ceiling ~3.76e7
+  // ROBUST (shifts only +0.42%), not tightened. Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96703-frobenius-ceiling-robust-glossary-headword.js',
   // imp-96675: Concepts glossary headword restating the imp-96656 error-propagation
   // verdict -- the Route M conditioning ceiling is a delta-method log-normal
   // confidence interval (all-rung 95% CI [3.50e7, 4.07e7], ~1.16x wide; dense 95% CI

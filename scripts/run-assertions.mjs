@@ -20366,6 +20366,13 @@ const DATA_MODULES = [
   // spectrum, and the GCD-sum / large-sieve literature bounds only the TOP edge, not
   // the lower frame. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96642-lammin-nuniform-nogo-glossary-headword.js',
+
+  // imp-96647: Concepts glossary headword restating the imp-96612 verdict that the
+  // 0.3526 Vasyunin lam_max log-slope needs ~6 collective off-diagonal power-iteration
+  // modes (rank-one captures <5%, r>=4 within 25%, r>=6 within 10%), with no rank-one /
+  // mean-field / multiplicative-Toeplitz surrogate reproducing it. Documentation only;
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96647-vasyunin-lammax-collective-rank-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

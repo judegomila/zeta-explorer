@@ -20588,6 +20588,13 @@ const DATA_MODULES = [
   // bootstrap, is ~1.70 (band [1.41, 1.79]), below all three imp-96692 model-based
   // estimates. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96786-drift-vif-block-bootstrap-glossary-headword.js',
+  // imp-96787 audit: the imp-96683 Route M conditioning-ceiling CI viz-data
+  // leaf already has a wired consumer page (Imp96683RouteMConditioningCeilingCiViz,
+  // route /viz-imp96683-route-m-conditioning-ceiling-ci, listed in
+  // visualizations-index.js) -- not page-orphaned. It DID carry a
+  // self-executing IMP96683_ASSERTIONS throw that was missing from this
+  // DATA_MODULES sweep; registration fix only, extends the imp-96747 lineage.
+  '/src/data/imp-96683-route-m-conditioning-ceiling-ci-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -4452,6 +4452,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every floor value, condB reading, and window boundary is reused verbatim from imp-96749 (Rayleigh-Ritz upper floor, not an operator positivity proof); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96779-route-m-ceiling-ladder',
+      title: 'Route M Conditioning-Ceiling Ladder',
+      oneLine:
+        'Plots the imp-96682 reconciled four-rung Route M conditioning-ceiling ladder (imp-96352 compute 9916 < imp-96548 rigorous trace 2.594e7 < imp-96648 rigorous Frobenius 3.75e7 < imp-96443/96570/96656 measured/fit 4.109e7) as bars on a log10(N) axis, labelling the traceOverCompute/frobeniusOverTrace/measuredOverFrobenius adjacency ratios between rungs and showing compute binds first by >=1500x.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96779-route-m-ceiling-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96682-route-m-conditioning-ceiling-ladder-status.js (IMP96682_LADDER, IMP96682_RATIOS, IMP96682_VERDICT; imp-96779 viz page)',
+      ticket: 'imp-96779',
+      pedagogicalStep: 293,
+      honestCeiling:
+        'Presentation only: every ladder value and ratio is reused verbatim from imp-96682 (itself a pure reconciliation of imp-96352/96548/96648/96443/96570/96656, no new measurement); no bound moved, no operator positivity established, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96671-spectral-share-vs-measured-slope',
       title: 'Route M Sigmoid Onset: Two-Scale Weight Share vs Measured Slope Fraction',
       oneLine:

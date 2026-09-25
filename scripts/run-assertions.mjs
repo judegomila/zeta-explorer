@@ -20683,6 +20683,10 @@ const DATA_MODULES = [
   // combination shrinks the ~0.95 conditioning burden. Measurement only; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96851-sigma-peak-share-cc-etrunc-joint-sensitivity.js',
+  // imp-96850: reciprocity decouples the coupled weighted two-argument Vasyunin second moment
+  // T(N) exactly to a single-denominator sum; derived growth law c = 2 beta (6/pi^2) log N ~ 3.542
+  // (matching imp-96828), residual = a closed form for the scalar beta. Derivation+measurement; NO QED.
+  '/src/data/imp-96850-coupled-weighted-vasyunin-double-sum-decoupling.js',
 ];
 
 let ALL_MODULES = FAST_MODE

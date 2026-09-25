@@ -20567,6 +20567,13 @@ const DATA_MODULES = [
   // evaluated by double-precision quadrature, with NO computed Riemann zeros behind
   // any value. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96738-basis-c-lstar-theoretical-gue-glossary-headword.js',
+  // imp-96745: Concepts glossary headword restating the imp-96628 verdict that the box
+  // sine-kernel lag-correlation finite-L correction obeys the CERTIFIED two-sided
+  // envelope |DeltaCov_k(L)| <= C(k)/L^2 for all L > 0, all lags k >= 2, with
+  // C(k) = (1/(8 pi^4))[2/k^2+1/(k-1)^2+1/(k+1)^2+V(k)] from two integrations by parts
+  // (C(2)=3.850e-3 dominates the imp-96617 measured 2.07e-3, ratio 1.86). Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96745-boxsine-ibp-envelope-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -19901,6 +19901,15 @@ const DATA_MODULES = [
   // has not yet saturated to -1/2. Import-light (bakes the reshaped table; no zeros bundle).
   // Per-rung sign verification only; no bound; NO QED.
   '/src/data/imp-96714-safe-direction-per-rung-verification.js',
+  // imp-96729: pin the exact L where the imp-96714 safe-direction sign d_sig(L) changes. Recomputes
+  // d_sig at intermediate integer rungs L=61..70 from the SAME imp-96695 zeros6 MC pipeline. The
+  // first (and lowest) sign flip is between L=60 (+0.002054) and L=61 (-0.024163), tightening the
+  // imp-96714 (60,120) bracket ~60x to (60,61), linear-interp L* ~ 60.08; d_sig(60)>0 is robust
+  // (12-seed mean +0.0021 +/- 5e-4, 12/12 positive). NOT coincident with the imp-96695 saturation
+  // onset (L~3-8). Residual sub-gap: d_sig re-touches zero inside the ~5e-4 MC noise floor at
+  // L=64..66 (spurious FAIL blip at L=65), unresolvable without a lower-variance estimator.
+  // Import-light (bakes the swept table). Bisection measurement only; no bound; NO QED.
+  '/src/data/imp-96729-safe-direction-crossover-bisection.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light

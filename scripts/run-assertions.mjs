@@ -20212,6 +20212,7 @@ const DATA_MODULES = [
   '/src/data/imp-96623-vasyunin-lammax-slope-crossvalidation.js',
   '/src/data/imp-96616-gmin-ratio-extreme-gap-decay.js',
   '/src/data/imp-96617-finite-L-correction-sign.js',
+  '/src/data/imp-96812-boxsine-onesided-sign-assessment.js',
   // imp-96573: Concepts glossary headword restating the imp-96544 verdict that the Route I
   // D_S<=L_S certificate (W(h)>=9.04e-4||h||^2, pole-free, 2a<=ln3) is DOUBLE-precision and
   // NOT interval-verified as a whole, but after imp-96544's mpmath.iv port of legs (B) floor

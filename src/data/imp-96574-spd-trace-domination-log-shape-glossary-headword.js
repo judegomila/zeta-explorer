@@ -53,9 +53,12 @@
  * @see imp-96443-route-m-lammax-measured-fit (the measured 3.0247 + 0.3526 log N fit)
  * @see imp-96562-route-m-lammax-offdiagonal-szego-assessment (the residual off-diagonal-mass sub-gap)
  * @see imp-96352 (compute ceiling N ~ 9916 that binds before conditioning)
+ * @see imp-96696-route-m-value-ratio-vs-ceiling-ratio-per-rung (the VALUE ratio 1.92x is itself
+ *   N-varying, not universal: it rises from ~1.546 at N=250 toward an asymptote ~3.575 as
+ *   N -> infinity, and crosses the DISTINCT 1.58 ceiling-ratio scalar near N ~ 327)
  *
- * Ticket: imp-96574 (content, low). Documentation only; establishes nothing; NO QED;
- * Platt-Trudgian Lambda <= 0.2 SOTA.
+ * Ticket: imp-96574 (content, low), reconciled by imp-96724 (content, medium). Documentation
+ * only; establishes nothing; NO QED; Platt-Trudgian Lambda <= 0.2 SOTA.
  */
 
 // The SPD trace-domination log-shape headword, baked verbatim (no re-import).
@@ -86,6 +89,14 @@ const SPD_TRACE_DOMINATION_LOG_SHAPE_HEADWORD = Object.freeze({
     'N ~ 4.11e7 (measured-fit) to N ~ 2.59e7 (rigorous), a factor 1.58 shift. Both ' +
     'sit ~2600x above the imp-96352 compute ceiling N ~ 9916, so conditioning does ' +
     'not cap and compute binds first -- now rigorous in lam_max.',
+  valueRatioIsNVarying:
+    'The ~1.92x figure above is the VALUE ratio rigorous(N)/measured(N) evaluated at ' +
+    'the top accessible rung N=6000 ONLY -- imp-96696 found it is not a universal ' +
+    'constant but a monotone-increasing curve, ~1.546 at N=250 rising toward the ' +
+    'asymptote I(1,1)/0.3526 ~= 3.575 as N -> infinity. It numerically crosses the ' +
+    'DISTINCT 1.58 ceiling-ratio scalar near N ~ 327, inside the accessible ladder, so ' +
+    'the value ratio must always be quoted at a specific N (canonically N=6000), never ' +
+    'as a universal multiplier.',
   verificationStatus:
     'A rigorous, unconditional log-shape bound and a confirmed compute-first ' +
     'ceiling; the log-coefficient (0.3526) remains an unproven measurement, not a ' +
@@ -118,7 +129,8 @@ export const IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD = Object.
     'imp-96548 (the rigorous trace-domination assessment and finding this glosses); ' +
     'imp-96443/imp-96480 (the measured 3.0247 + 0.3526 log N fit); imp-96562 (the ' +
     'residual off-diagonal-mass sub-gap on the coefficient); imp-96352 (the compute ' +
-    'ceiling N ~ 9916 that binds first).',
+    'ceiling N ~ 9916 that binds first); imp-96696 (the value ratio is an N-varying ' +
+    'curve, not a universal ~1.9x, and crosses the 1.58 ceiling ratio near N ~ 327).',
 });
 
 export default IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD;
@@ -137,6 +149,22 @@ export const IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD_ASSERTION
         /~3\.6x/.test(h.definition) &&
         /2\.59e7/.test(h.ceilingConsequence) &&
         /4\.11e7/.test(h.ceilingConsequence)
+      );
+    },
+  },
+  {
+    id: 'imp96574-value-ratio-is-n-varying-imp96724',
+    why: 'imp-96696 found the ~1.92x value ratio is N-varying (not universal) and crosses ' +
+      'the distinct 1.58 ceiling ratio near N ~ 327 -- the headword must reflect that ' +
+      'reconciliation (imp-96724), not just the top-rung 1.92x figure.',
+    holds: () => {
+      const h = IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD.headword;
+      return (
+        typeof h.valueRatioIsNVarying === 'string' &&
+        /1\.546/.test(h.valueRatioIsNVarying) &&
+        /3\.575/.test(h.valueRatioIsNVarying) &&
+        /327/.test(h.valueRatioIsNVarying) &&
+        /imp-96696/.test(IMP96574_SPD_TRACE_DOMINATION_LOG_SHAPE_GLOSSARY_HEADWORD.citation)
       );
     },
   },

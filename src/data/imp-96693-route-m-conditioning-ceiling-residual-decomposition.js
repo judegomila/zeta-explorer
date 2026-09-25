@@ -63,15 +63,27 @@
  * the trace ceiling 2.594e7 is a rigorous lower bound on the ceiling. This audit checks
  * consistency and labels; it does not make the fit ceilings rigorous.
  *
+ * HONEST STATUS (imp-96706): all three ceilings T, F, M are DOUBLE-PRECISION CONDITIONING
+ * limits -- the N at which cond#(N) = lam_max/lam_min reaches the IEEE-double breakdown
+ * scale 1/eps. None of them is the constraint that actually binds: the imp-96352 wall-clock
+ * compute ceiling (~9916, a single 30-min solve reach) sits >=1500x below even the smallest
+ * (trace) conditioning ceiling, so wall-clock compute binds first at every rigor level in
+ * this ladder, well before double-precision conditioning ever becomes an issue.
+ *
  * @see imp-96684-route-m-frobenius-majorant-high-n-rungs.js (source of the three ceilings)
  * @see imp-96686-route-m-lammax-overstatement-figure-label-audit.js (the ~1.58x ceiling ratio label)
  * @see imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (trace-domination rigorous ceiling)
  * @see imp-96443-route-m-vasyunin-lammax-measured.js (measured composed ceiling 4.11e7)
+ * @see imp-96352-route-m-vasyunin-solve-cost-model.js (wall-clock compute ceiling ~9916)
+ * @see imp-96682-route-m-conditioning-ceiling-ladder-status.js (four-rung ladder incl. compute)
  *
  * Ticket: imp-96693 (accuracy, opus-4-8, api-pool). Audit only; NO QED.
  */
 
 import { IMP96684_CEILINGS } from './imp-96684-route-m-frobenius-majorant-high-n-rungs.js';
+
+// imp-96352 wall-clock 30-min single-process solve reach (the constraint that actually binds).
+const COMPUTE_CEILING = 9916;
 
 // The three ceilings, imported from imp-96684 (single source of truth). Each carries its
 // fit-vs-rigorous label: trace is a RIGOROUS lower ceiling, Frobenius is a FIT
@@ -135,6 +147,24 @@ export const IMP96693_HONEST_BANNER =
   '(only the trace ceiling 2.594e7 is a rigorous lower bound). No bound is claimed moved and ' +
   'no operator positivity is established.';
 
+// imp-96706: none of T, F, M is a real-world compute limit -- each is the N at which
+// cond#(N) hits the IEEE-double breakdown scale 1/eps. The imp-96352 wall-clock compute
+// ceiling (~9916) sits far below all three, so compute binds first regardless of which
+// conditioning ceiling is quoted.
+export const IMP96693_HONEST_STATUS = Object.freeze({
+  computeCeilingN: COMPUTE_CEILING, // imp-96352, ~9916 (measured wall-clock, 30-min single-process reach)
+  allCeilingsAreDoublePrecisionConditioningLimits: true,
+  computeBindsFirstFactor: T / COMPUTE_CEILING, // smallest of T,F,M over compute; still >=1500x
+  statement:
+    'The three Route M lam_max ceilings T(~2.594e7), F(~3.764e7), M(~4.109e7) are all ' +
+    'DOUBLE-PRECISION CONDITIONING limits -- the N at which cond#(N) = lam_max/lam_min ' +
+    'reaches the IEEE-double breakdown scale 1/eps -- not compute limits. The imp-96352 ' +
+    'wall-clock compute ceiling (~9916, a single 30-min solve reach) sits ' +
+    ((T / COMPUTE_CEILING).toFixed(0)) + 'x below even the smallest (trace) conditioning ' +
+    'ceiling, so wall-clock compute binds first at every rigor level; double-precision ' +
+    'conditioning breakdown is never the practical obstruction.',
+});
+
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
 const IMP96693_ASSERTIONS = [
@@ -178,6 +208,16 @@ const IMP96693_ASSERTIONS = [
       /RH open/.test(IMP96693_HONEST_BANNER),
     why: 'audit only: no bound moved, the ordering and decomposition-closure flags are set, and the honesty markers are present.',
   },
+  {
+    id: 'imp96693-honest-status-compute-binds-first',
+    holds: () =>
+      IMP96693_HONEST_STATUS.computeCeilingN === 9916 &&
+      IMP96693_HONEST_STATUS.allCeilingsAreDoublePrecisionConditioningLimits === true &&
+      IMP96693_HONEST_STATUS.computeBindsFirstFactor > 1500 &&
+      /DOUBLE-PRECISION CONDITIONING limits/.test(IMP96693_HONEST_STATUS.statement) &&
+      /compute binds first/.test(IMP96693_HONEST_STATUS.statement),
+    why: 'the honest-status note must name the imp-96352 compute ceiling 9916 and state that all three T,F,M ceilings are double-precision conditioning limits which compute binds ahead of by >1500x.',
+  },
 ];
 
 for (const a of IMP96693_ASSERTIONS) {
@@ -195,4 +235,5 @@ export default {
   decomposition: IMP96693_DECOMPOSITION,
   verdict: IMP96693_VERDICT,
   banner: IMP96693_HONEST_BANNER,
+  honestStatus: IMP96693_HONEST_STATUS,
 };

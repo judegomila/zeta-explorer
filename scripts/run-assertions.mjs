@@ -19953,6 +19953,16 @@ const DATA_MODULES = [
   // R^2 ~0.96), with sigma at the inflection pinned in [0.4967,0.4988]. Monotone deterministic drift
   // SHARPENS the FORCED verdict. Measurement/fit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96431-knee-crossover-tracking-wide-range.js',
+  // imp-96492 (2026-09-24): ACCURACY -- tests whether the imp-96464 widened-grid ([1e7,1e13])
+  // knee-minus-crossover gap (band 0.01448..0.01483) is a systematic shift off the imp-96388
+  // fixed-window ([1e9,1e12]) baseline. At the anchor factor the knee is BIT-IDENTICAL on both grids
+  // (widened re-uses the same bracket edges, difference exactly 0), and with the crossover definition
+  // held fixed the gap is bit-identical too (window-only shift EXACTLY 0, below the 1e-13 solver floor
+  // and far below the 1e-3 noise threshold). The apparent +0.00173 offset is FULLY the crossover-
+  // definition difference (sigma=1/2 bisection retaining E_flow vs imp-33723 closed-form E_coll=E_trunc),
+  // NOT a window shift -- raw diff equals the def offset to ~1e-16. Confirms imp-96464 G2 at the gap
+  // level. Measurement/fit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96492-widened-vs-fixed-gap-shift.js',
   // imp-96296: Concepts glossary headword restating the imp-96250 verdict that the
   // imp-96187 U-shape location ratio R(N)=N_peak/N_flow flattens toward 1 only
   // logarithmically (R=1-4/ln N-16/(ln N)^2+...), reaching within 1% of 1 only at

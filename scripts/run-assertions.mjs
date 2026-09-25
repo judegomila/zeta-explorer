@@ -20183,6 +20183,16 @@ const DATA_MODULES = [
   // DRIFTING monotonically down -- the derived two-scale r0/k climb and OVERSHOOT the imp-96636
   // measured 2.94/0.86, so those are not asymptotic limits. Measurement only; NO QED.
   '/src/data/imp-96669-route-m-twoscale-inputs-nladder-drift.js',
+  // imp-96667 (2026-09-24): attacks the imp-96648 residual sub-gap -- a rigorous asymptotic for
+  // ||G_N||_F^2 = Sum_hk gcd(h,k)^2 I(h/g,k/g)^2/(hk)^2. The g-sum factors EXACTLY; the diagonal
+  // limit is closed (I(1,1)^2 zeta(2)=2.6142397) and the border a=1 xor b=1 CONVERGES (kernel
+  // I(1,b)=(1/2)log b + C + 1/2 via the classical cotangent asymptotic V(1,b)=-(b/pi)log b+(2C/pi)b
+  // -1/pi, so I(1,b)^2/b^2 is summable) -- reversing the imp-96648 guess that the h=1 row is the
+  // culprit. The whole log-N divergence is the INTERIOR a,b>=2 coprime second moment (slope ~5.66,
+  // R^2>0.9999), the residual OBSTRUCTION. By-product: correct form is ||G||_F~sqrt(s log N), which
+  // re-solves the ceiling to ~3.98e7 (vs log-linear 3.75e7) but rests on the unproven interior slope.
+  // Self-executing *_ASSERTIONS re-derive the constants/ceilings in JS. No bound moved; NO QED.
+  '/src/data/imp-96667-route-m-frobenius-second-moment-asymptotic.js',
 ];
 
 let ALL_MODULES = FAST_MODE

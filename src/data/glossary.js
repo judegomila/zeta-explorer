@@ -23566,6 +23566,36 @@ export const glossary = [
       'imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js the rigorous trace-domination T route this is NOT (different spectral moment)',
     ],
   },
+  {
+    term: 'Route I Krein Composite Wall: Solver-Limited Below 2a=1.0, Intrinsic At and Above It',
+    category: 'obstruction',
+    definition:
+      'imp-96732-krein-extended-precision-reach-assessment.js. Assessed whether extended/exact ' +
+      'precision could push the Route I Krein sigma_2 interval-rigorous reach (certified only to ' +
+      '2a<=0.96) past the double-precision HiGHS conditioning stall toward ln3. Tracks two ' +
+      'quantities across 0.96<2a<ln3: the certified design margin eps(2a) = 200(1-2a), and the ' +
+      'tail l1-norm law log10(l1) ~= 73.254*(2a) - 64.238 (l1 ~ 1.0e9, ~30 bits, at 2a=1.0; ' +
+      'exploding to ~1.73e16, ~54 bits, by 2a=ln3). VERDICT: the two walls arrive in a fixed order ' +
+      'and split the interval into two different kinds of obstruction. For 0.96<2a<1.0, eps is ' +
+      'still positive (eps=4.0 at 0.98, 2.0 at 0.99) while l1 stays modest -- so the double-precision ' +
+      'solver stall here is a SOLVER-CONDITIONING ARTIFACT, plausibly recoverable by a double-double ' +
+      'or exact-rational LP (unverified; open sub-gap IMP96732_EXTPREC_098_RUNG_UNVERIFIED, no rung ' +
+      'in this window has actually been solved at extended precision). At and above 2a=1.0, eps<=0 ' +
+      '(eps=0 exactly at 2a=1.0, eps~=-19.7 at ln3) -- the finite trig-polynomial certificate design ' +
+      'has genuinely run out of margin, so no amount of numerical precision restores a margin the LP ' +
+      'design already drove to zero: this part of the wall is INTRINSIC to the fixed-degree ' +
+      'certificate route, not a numerical artifact. ln3 in particular is unreachable by this route at ' +
+      'any precision (eps(ln3)<0). Assessment only, no LP re-solved; interval-rigorous reach stays ' +
+      '2a<=0.96; whether ln3 is reachable at all is a uniform-in-N spectral-gap / de Branges ' +
+      'existence question, not an arithmetic-precision one; RH open; PT Lambda <= 0.2 remains SOTA; ' +
+      'NO QED.',
+    firstUsed: 'imp-96732-krein-extended-precision-reach-assessment.js (splits the post-0.96 Krein wall into a solver-limited sub-window below 2a=1.0 and an intrinsic margin-vanishing wall at and above it), 2026',
+    relatedTerms: [
+      'imp-96732-krein-extended-precision-reach-assessment.js the source assessment for this two-regime reading',
+      'imp-96834-krein-certificate-degree-margin-assessment.js the structural argument that the certified 2a*=1.0 zero is a fixed-degree/double-precision artifact, consistent with the solver-limited sub-window here',
+      'imp-96845-krein-kmax5-frontier-measurement.js the higher-degree LP measurement of how far 2a* actually moves past 1.0',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

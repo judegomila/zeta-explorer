@@ -4171,6 +4171,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: both band endpoints and the PT anchor value plotted here are copied verbatim from the imp-96479 baked verdict; the only new step is the shared log10(L) axis projection for the before/after range chart. The crossover L* remains an EXTRAPOLATION never evaluated at L~1e12; changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96576-route-i-window-anatomy',
+      title: 'Route I: Certified-Minimizer Window Anatomy',
+      oneLine:
+        'Bar chart of the Route I exact symbol-side certificate’s certified-minimizer signed window contributions to W(h): [0,3.597) -0.00925, [3.597,8.145) +0.22665, I_1 -0.34093, [9.875,17.54) +0.12563, I_2 -0.00451, rest +0.00338, summing to the true form value 9.7861e-4.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96576-route-i-certified-minimizer-window-anatomy-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js (UNCERTAINTY_CERTIFICATE_LITERALS.anatomy, .certificate.T400N320; imp-96576 viz page)',
+      ticket: 'imp-96576',
+      pedagogicalStep: 272,
+      honestCeiling:
+        'Presentation only: every window part/energy value plotted here is copied verbatim from the certificate module\'s own baked anatomy literal (no re-derivation, no fresh solve); the minimizer itself is not interval-verified, only the T=400/N=320 Galerkin lower bound is. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

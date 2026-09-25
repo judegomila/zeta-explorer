@@ -1216,6 +1216,9 @@ const Imp96075RouteMVasyuninDnLadderViz = lazy(() =>
 const Imp96080RouteISymbolAnatomyViz = lazy(() =>
   import('./pages/Imp96080RouteISymbolAnatomyViz.jsx')
 );
+const Imp96576RouteICertifiedMinimizerWindowAnatomyViz = lazy(() =>
+  import('./pages/Imp96576RouteICertifiedMinimizerWindowAnatomyViz.jsx')
+);
 const Imp96103RouteIRemainderResonanceViz = lazy(() =>
   import('./pages/Imp96103RouteIRemainderResonanceViz.jsx')
 );
@@ -3545,6 +3548,10 @@ function AppShell() {
           <Route
             path="/viz-imp96080-route-i-symbol-anatomy"
             element={<Imp96080RouteISymbolAnatomyViz />}
+          />
+          <Route
+            path="/viz-imp96576-route-i-window-anatomy"
+            element={<Imp96576RouteICertifiedMinimizerWindowAnatomyViz />}
           />
           <Route
             path="/viz-imp96103-route-i-remainder-resonance"

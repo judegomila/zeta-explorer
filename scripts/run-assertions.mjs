@@ -20438,6 +20438,13 @@ const DATA_MODULES = [
   // rigorous trace-domination lower ceiling N >= 2.59e7. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96657-conditioning-ceiling-crossvalidation-glossary-headword.js',
+  // imp-96675: Concepts glossary headword restating the imp-96656 error-propagation
+  // verdict -- the Route M conditioning ceiling is a delta-method log-normal
+  // confidence interval (all-rung 95% CI [3.50e7, 4.07e7], ~1.16x wide; dense 95% CI
+  // [2.76e7, 6.69e7], ~2.4x wide), and the compute-binds-first ordering
+  // 9916 < 2.59e7 < ceiling survives the full band. Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96675-conditioning-ceiling-confidence-interval-glossary-headword.js',
   // imp-96673: Concepts glossary headword restating the imp-96652 spectral derivation --
   // the imp-96636 logistic rank-r lam_max onset (r0=2.94, k=0.86) is the exact
   // top-eigenpair weight share of a two-scale Vasyunin Gram spectrum, width

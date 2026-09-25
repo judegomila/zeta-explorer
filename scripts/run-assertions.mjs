@@ -20309,6 +20309,13 @@ const DATA_MODULES = [
   // the 1/log^2 fold-law surrogate needs the unproved GUE small-gaps law. Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96639-gmin-ratio-gue-envelope-glossary-headword.js',
+  // imp-96719: Concepts glossary headword restating the imp-96692 finding that the
+  // measured drift covariance (phi1 = 0.44, AR(1) VIF ~ 2.58) in the imp-96487
+  // ladder inflates the imp-96569 SE-of-mean reach by ~0.4-1.9 orders of magnitude
+  // (representative ~12x) and tightens the drift-aware gap-resolution floor to
+  // ~1.09 sigma, below the SE-of-mean model's 1.74 sigma. Documentation only; no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96719-route-m-drift-covariance-reach-inflation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

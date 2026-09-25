@@ -4381,6 +4381,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: both curves are baked literals computed offline from the closed-form fit parameters already reported in imp-96636 (no new curve_fit run); the imp-96636 module is not imported at runtime. Changes no bound, establishes no operator positivity; the underlying fit is a measurement of a surrogate that converges to lam_max by construction, not a closed-form derivation of the 0.3526 coefficient. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96670-route-m-lammax-majorants',
+      title: 'Route M lam_max Majorants: Row-Sum vs Moment Family',
+      oneLine:
+        'Plots the imp-96648 four unconditional lam_max majorants (Gershgorin row-sum, Brauer/Cassini, Frobenius, Wolkowicz-Styan) against the measured power-iteration lam_max and the imp-96548 trace bound over N=250..6000, labeling each curve\'s re-solved conditioning ceiling: row-sum/Brauer sit below the trace ceiling 2.59e7 (fails), Frobenius/Wolkowicz-Styan raise it to 3.75e7 (~76% of the way to the measured 4.11e7), all far above the imp-96352 compute ceiling ~9916.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96670-route-m-lammax-majorants-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96648-route-m-lammax-frobenius-moment-majorant.js (IMP96648_ROWS, IMP96648_CEILINGS, IMP96648_GAP, IMP96648_VERDICT; imp-96670 viz page)',
+      ticket: 'imp-96670',
+      pedagogicalStep: 286,
+      honestCeiling:
+        'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (rigorous, unconditional matrix inequalities measured on the same exact Vasyunin Gram as imp-96105/imp-96443); no re-solve. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

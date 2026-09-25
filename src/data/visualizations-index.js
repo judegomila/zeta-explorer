@@ -4199,6 +4199,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value, extrapolant, and bracket endpoint plotted here is copied verbatim from the certificate module\'s own baked constantReconciliation literal (no re-derivation, no fresh solve); c(T) is a double-precision, non-interval lower bound and the two-term fit / Ritz value are point estimates, not proved bounds. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96581-route-m-lammax-rigorous-vs-measured',
+      title: 'Route M: lam_max(N) -- Rigorous Trace Bound vs. Measured Fit',
+      oneLine:
+        'Plots the imp-96548 rigorous SPD trace-domination upper bound lam_max(N)<=I(1,1)H_N (slope 1.2607) against the measured power-iteration fit 3.0247+0.3526 log N over N=250..6000, marking the ~3.6x slope gap and the ~1.92x curve-value gap at N=6000 (kept distinct from imp-96548\'s ~1.58x conditioning-ceiling ratio, a different quantity).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96581-route-m-lammax-rigorous-vs-measured-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96548-route-m-lammax-rigorous-upper-bound-assessment.js (IMP96548_INPUTS, IMP96548_CEILING; imp-96581 viz page)',
+      ticket: 'imp-96581',
+      pedagogicalStep: 274,
+      honestCeiling:
+        'Presentation only: every curve value is recomputed verbatim from the imp-96548 baked inputs (I(1,1), gamma, fit coefficients); no new measurement. The rigorous curve is an unconditional SPD trace-domination upper bound, not a match to the measured coefficient. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

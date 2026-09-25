@@ -1222,6 +1222,9 @@ const Imp96576RouteICertifiedMinimizerWindowAnatomyViz = lazy(() =>
 const Imp96577RouteICertificateConstantLadderViz = lazy(() =>
   import('./pages/Imp96577RouteICertificateConstantLadderViz.jsx')
 );
+const Imp96581RouteILammaxRigorousVsMeasuredViz = lazy(() =>
+  import('./pages/Imp96581RouteILammaxRigorousVsMeasuredViz.jsx')
+);
 const Imp96103RouteIRemainderResonanceViz = lazy(() =>
   import('./pages/Imp96103RouteIRemainderResonanceViz.jsx')
 );
@@ -3559,6 +3562,10 @@ function AppShell() {
           <Route
             path="/viz-imp96577-route-i-certificate-constant-ladder"
             element={<Imp96577RouteICertificateConstantLadderViz />}
+          />
+          <Route
+            path="/viz-imp96581-route-m-lammax-rigorous-vs-measured"
+            element={<Imp96581RouteILammaxRigorousVsMeasuredViz />}
           />
           <Route
             path="/viz-imp96103-route-i-remainder-resonance"

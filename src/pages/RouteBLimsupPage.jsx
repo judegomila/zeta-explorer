@@ -132,9 +132,11 @@ export default function RouteBLimsupPage() {
             but the composition into <InlineMath tex={"\\limsup|t_c(N)|=0"} /> rests on an admitted finite-N
             collision-formula surrogate (the G5-residual) plus a normalization repair. The label is{' '}
             <em>"unconditional modulo the finite-N validity of the collision formula."</em> The route-map "RIGOROUS-SOTA"
-            tag and the imp-341/344 "UNCONDITIONALLY" wording should be regraded <strong>CLOSED-MODULO</strong>, and the
-            stale <code>G6_PER_N_BOUND</code> / "C_H = 1/8 RIGOROUS" block in <code>dyson-burgers-shock.js</code>{' '}
-            corrected. No false QED.
+            tag and the imp-341/344 "UNCONDITIONALLY" wording should be regraded <strong>CLOSED-MODULO</strong>.
+            Separately, the <code>G6_PER_N_BOUND</code> / "C_H = 1/8 RIGOROUS" block in{' '}
+            <code>dyson-burgers-shock.js</code> was corrected 2026-09-24 from <strong>closed</strong> to{' '}
+            <strong style={{ color: 'var(--terra-dk)' }}>conditional</strong> (Route B rests on an unproved
+            N-uniform gap-Lipschitz input; see <code>overclaimCorrection</code>). No false QED.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 12, fontSize: 13 }}>
             <Link to="/route-map" style={{ color: 'var(--brass)' }}>→ Full route map</Link>

@@ -23476,6 +23476,36 @@ export const glossary = [
       'imp-96389-three-basis-rho-crossvalidation-table.js the three-basis (A/B/C) cross-validation table in which the basis-C L-linear floor is identified as the binding constraint',
     ],
   },
+  {
+    term: 'Route M Frobenius/lam_max Flattening Continues Past N=9000 (no saturation through N=12000)',
+    category: 'measurement',
+    definition:
+      'imp-96694-route-m-majorant-ladder-above-9000.js. imp-96684 measured a ~1.7 percent flattening ' +
+      'of the Route M Frobenius majorant slope (0.48652 -> 0.47808, 8 -> 11 rungs) and imp-96649 a ' +
+      'matching lam_max flattening, but both were seen only over the single decade below the N=9000 ' +
+      'exact-Vasyunin-Gram compute limit. This module rebuilds the Gram to N=10000,11000,12000 and asks ' +
+      'whether the flattening continues or saturates: it CONTINUES -- the global Frobenius slope drops ' +
+      'further to 0.47196 (14 rungs), the local N>=7000 finite-difference slope is only 0.42324, and the ' +
+      'below-fit gaps widen for both lam_max (1.21 -> 1.49 percent below the imp-96443 fit) and Frobenius ' +
+      '(0.42 -> 0.57 percent below the imp-96684 fit). The rigorous-lower conditioning ceiling stays ' +
+      'ROBUST, shifting only +0.30 percent (3.7637e7 -> 3.7751e7), remaining in the ~3.75-3.78e7 band ' +
+      'above the trace-lower ceiling 2.5937e7 and below the measured composed ceiling 4.1089e7 -- ~3800x ' +
+      'above the imp-96352 compute-ceiling reach, so compute still binds first. RESIDUAL: N=12000 is only ' +
+      '~1.3 decade above the flattening onset and the per-extension flatten increment is itself shrinking ' +
+      '(1.73 -> 1.28 percent), so continued flattening over the accessible window cannot yet distinguish a ' +
+      'genuine sub-log growth law from the tail of an asymptotic slope that saturates beyond N=12000; ' +
+      'changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    firstUsed: 'imp-96694-route-m-majorant-ladder-above-9000.js (extends the imp-96684 eleven-rung Frobenius/Wolkowicz-Styan ladder and imp-96649 lam_max ladder to N=10000,11000,12000), 2026',
+    relatedTerms: [
+      'imp-96684-route-m-frobenius-majorant-high-n-rungs.js the eleven-rung ladder extended here, which first flagged the flattening as measured only over one decade below the compute ceiling',
+      'imp-96649-route-m-condfit-rungs-above-6000.js measured lam_max at N=7000,8000,9000, the earlier flattening trend this continues to N=10000-12000',
+      'imp-96443-route-m-vasyunin-lammax-measured.js the measured lam_max log-fit the below-fit gap is measured against',
+      'imp-96648-route-m-lammax-frobenius-moment-majorant.js the original eight-rung Frobenius/Wolkowicz-Styan majorant ladder',
+      'imp-96352-route-m-vasyunin-solve-cost-model.js the wall-clock compute ceiling (~9916) that still binds before the ~3.78e7 conditioning ceiling',
+      'imp-96667-route-m-frobenius-second-moment-asymptotic.js the interior second-moment obstruction whose rigorous asymptotic would settle the residual sub-log-vs-saturating question',
+      'imp-96751-route-m-frobenius-ladder-above-12000.js a later extension of this same ladder to N=16000',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

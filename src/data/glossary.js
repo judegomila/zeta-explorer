@@ -23703,6 +23703,32 @@ export const glossary = [
       'rh-route-i-toeplitz-krein-certificate-2026-09-24.js the baked kmax=4 interval-rigorous certificate whose reach (2a<=0.96) is the only certified figure',
     ],
   },
+  {
+    term: 'Min-Max Rayleigh Residual Bound <v0|R_T|v0> (Sharp T-Truncation Residual)',
+    category: 'numerical',
+    definition:
+      'imp-96888-krein-tresidual-rayleigh-permode-bound.js. For the Route I Krein floor lambda_min(T_a[sigma_2]) ' +
+      'at N=100, 2a=ln3, the Weyl identity A_infty = A_T + R_T (R_T PSD, the discarded tail block) gives the ' +
+      'operator bound |lambda_min(A_infty)-lambda_min(A_T)| <= lambda_max(R_T), which is ~1.66e15x the actual ' +
+      't-truncation residual -- intrinsically vacuous, refuting the imp-96876 prescription to control ' +
+      'lambda_max(R_T) directly (the lambda_max<=Tr(R_T) step is itself benign, only ~1.9x). The SHARP bound ' +
+      'is instead the min-max quadratic form <v0|R_T|v0> in the A_T ground state v0: since A_infty = A_T + R_T, ' +
+      'lambda_min(A_infty) <= <v0|(A_T+R_T)|v0> = lambda_min(A_T) + <v0|R_T|v0>, a RIGOROUS upper bound on the ' +
+      'residual for any trial v0. Measured across T in {4800,6400,9600} it lands within 1.17-2.24x of the ' +
+      'actual residual, recovering ~15 orders of magnitude versus both lambda_max(R_T) and Tr(B^{-1}R_T), ' +
+      'because the tail perturbation loads high-frequency modes nearly orthogonal to the protected bottom ' +
+      'eigenvector v0. Measurement/derivation only: the Rayleigh value is a quadrature evaluation, not yet a ' +
+      'rigorous interval majorant (IMP96888_RAYLEIGH_TAIL_MAJORANT stays open); establishes no operator ' +
+      'positivity; interval-rigorous reach stays 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'NO QED.',
+    firstUsed: 'imp-96919 (adds this glossary headword for the imp-96888 Rayleigh residual bound), 2026',
+    relatedTerms: [
+      'imp-96888-krein-tresidual-rayleigh-permode-bound.js the source derivation (IMP96888_ROWS, IMP96888_VERDICT)',
+      'imp-96876-krein-tresidual-crossval-measurement.js the refuted lambda_max(R_T) prescription (IMP96876_TRACE_VACUOUS)',
+      'imp-96848-krein-tresidual-rigorous-tailtrace-bound.js the vacuous closed-form trace majorant (IMP96848_TAILTRACE_MAJORANT) this replaces',
+      'imp-96806-krein-tconv-plateau-2a-ln3.js the reused build()/lam_min() solver (IMP96806_TSWEEP_LN3)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -4283,6 +4283,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value, the crossing bracket, and the sigma_1 straddle/resolution are reused verbatim from the Route I Toeplitz/Krein certificate literals; only the ladder reshape and chart packaging are new. The zero crossing is a floating-point Rayleigh-Ritz measurement past the interval-verified range, not a proof of failure; establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96640-route-m-rankr-power-iteration-bracket',
+      title: 'Route M: Rank-r Power-Iteration Bracket on the lam_max Log-Slope',
+      oneLine:
+        'Plots the imp-96612 rank-r power-iteration moment-ratio log-slopes b_r (r=0..11) as a fraction of the measured Vasyunin lam_max log-slope 0.3526, showing monotone climb from 0 through the r=1 rank-one one-step (4.7%) to within 25% at r=4 and within 10% at r=6 collective modes.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96640-rankr-power-iteration-bracket-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96612-route-m-lammax-rankr-power-iteration-bracket.js (IMP96612_RANKR_SLOPES, IMP96612_MODE_COUNT; imp-96640 viz page)',
+      ticket: 'imp-96640',
+      pedagogicalStep: 280,
+      honestCeiling:
+        'Presentation only: every ladder value (slope, ratio, r2) is reused verbatim from imp-96612; only the ratio-to-target bar reshape is new. R_r -> lam_max by SPD power/Lanczos construction, so convergence to 0.3526 measures the coefficient collective rank, not an independent prediction. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

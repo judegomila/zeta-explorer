@@ -19843,6 +19843,14 @@ const DATA_MODULES = [
   // five rungs), re-bisecting the corroboration reach from L*~1.9e8 to ~8.1e7 (~1.14 decades past the PT
   // anchor). Import-light (no zeros bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96690-basis-c-above-anchor-rung-ladder.js',
+  // imp-96711 (2026-09-24): reconciliation AUDIT cross-tabulating the three basis-C corroboration-reach
+  // L* figures (imp-96531 L-linear ~2.86e9, imp-96568 two-rung ~1.9e8, imp-96690 five-rung OLS ~8.1e7).
+  // Re-derives all three from ONE anchored-power-law crossover floor(L)=anchorFloor*(L/anchor)^p at
+  // exponents 1.0/1.81/2.42, showing they are one crossover at three measured exponents (not three
+  // mechanisms), L*(p) is monotone decreasing, the ~1.5-decade span is exponent uncertainty, and
+  // imp-96690 is the best current projection. Import-light (no zeros bundle). Reconciliation only; no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96711-basis-c-corroboration-reach-cross-tab.js',
   // imp-96693 (2026-09-24): accuracy AUDIT tabulating the residual-factor decomposition of the three
   // Route M lam_max conditioning ceilings imported from imp-96684 -- trace 2.594e7 (rigorous) < Frobenius
   // 3.764e7 (fit) < measured 4.109e7 -- confirming M/F=1.0917 reproduces the imp-96684 residual factor

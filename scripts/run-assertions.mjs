@@ -20141,6 +20141,17 @@ const DATA_MODULES = [
   // (~76% of the trace->measured 4.11e7 gap), while the Gershgorin/Brauer row-sum family
   // is WORSE than trace and is ruled out. Assessment only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96648-route-m-lammax-frobenius-moment-majorant.js',
+  // imp-96580 DATA_MODULES audit of the three newest Route I / sine-kernel finding modules:
+  // rh-route-i-uncertainty-concentration-certificate-2026-09-24 is already page-reachable
+  // (RhNovelRoutesRoadmapPage.jsx) and directly registered above, so it needs no new entry.
+  // imp-96543-sine-kernel-vif-conditional-lower-bound has no *_ASSERTIONS export (pure content
+  // literals, only referenced via @see comments elsewhere) so it is inert but ORPHANED from any
+  // page/index -- flagged, no CI gap to close. imp-96544-route-i-ds-le-ls-interval-port-triage is
+  // imported only by imp-96564-route-i-galerkin-eigenvalue-verification-recipe.js, which itself
+  // (IMP96564_ROUTE_I_GALERKIN_EIGENVALUE_VERIFICATION_RECIPE_ASSERTIONS, self-executing) had NO
+  // direct entry here and NO page importer, so its assertions silently never ran under node CI --
+  // added below to close the gap.
+  '/src/data/imp-96564-route-i-galerkin-eigenvalue-verification-recipe.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -20466,6 +20466,11 @@ const DATA_MODULES = [
   // static top-level import, to avoid repeating the imp-95523 eager-load bug.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96666-krein-payload-lazy-import-guard-glossary-headword.js',
+  // imp-96765: bundle-hygiene sweep extending imp-96644's check to the zeros-to-1e6.js
+  // bundle (20.85MB) -- verified all five real importers are non-page/component data/math
+  // modules, so no route bundle currently carries it. Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96765-zeros-bundle-import-reachability-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

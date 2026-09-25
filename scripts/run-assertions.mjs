@@ -20288,6 +20288,12 @@ const DATA_MODULES = [
   // does NOT saturate; the rigorous-lower ceiling shifts only +0.30% (3.764e7 -> 3.775e7),
   // robust. Self-executing *_ASSERTIONS re-derive the constants in JS. No bound moved; NO QED.
   '/src/data/imp-96694-route-m-majorant-ladder-above-9000.js',
+  // imp-96638: Concepts glossary headword restating the imp-96617 verdict that the box
+  // sine-kernel closed-form lag correlation is a two-SIDED ~6-7-digit approximation
+  // (|DeltaCov_k| <~ 2.07e-3/L^2, Bartlett weight kills the O(1/L) term), NOT a certified
+  // one-sided VIF upper bound -- the finite-L sign is oscillatory. Documentation only;
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96638-box-sine-kernel-two-sided-approx-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

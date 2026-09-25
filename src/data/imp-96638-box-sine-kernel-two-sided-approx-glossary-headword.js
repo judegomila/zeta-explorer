@@ -28,9 +28,12 @@
  *   |DeltaCov_k| <~ 2.07e-3/L^2 (measured flat to ~1% across L ~ 50..2000), giving
  *   agreement to ~6-7 significant figures at the certificate window.
  *
- *   STATUS: a sign measurement (closes the one-sided-bound route), not a certified
- *   envelope constant -- a rigorous C would need an integration-by-parts /
- *   stationary-phase bound on the oscillatory integral, not delivered.
+ *   STATUS: a sign measurement (closes the one-sided-bound route). The rigorous
+ *   envelope constant C flagged here as "not delivered" HAS since been delivered by
+ *   imp-96628, which certifies |DeltaCov_k(L)| <= C(k)/L^2 with the explicit L-uniform
+ *   C(k) = (1/(8 pi^4)) [2/k^2 + 1/(k-1)^2 + 1/(k+1)^2 + V(k)] for k >= 2, obtained by
+ *   two integrations by parts on the oscillatory integral (the first IBP kills the
+ *   O(1/L) boundary term because the Bartlett weight vanishes at v = +/-1).
  *
  *   WHAT THIS IS AND IS NOT
  *   ------------------------
@@ -39,6 +42,7 @@
  *   NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
  * @see imp-96617-finite-L-correction-sign.js (source: the measurement this glosses)
+ * @see imp-96628-boxsine-lagcorr-ibp-envelope.js (the certified C(k) that upgrades this measured envelope)
  * @see imp-96567-box-averaged-sine-kernel-lag-decay (the closed form whose sign this probes)
  * @see imp-96593-vif-exact-tail-rigor-upgrade-assessment (VERDICT obstruction (ii): unpinned sign)
  *
@@ -73,10 +77,14 @@ const BOX_SINE_KERNEL_TWO_SIDED_APPROX_HEADWORD = Object.freeze({
     '~1e-7 relative to Cov_k(inf), i.e. agreement to ~6-7 significant figures -- ' +
     'small, but oscillatory in sign, not one-signed, so the route to a rigorous ' +
     'conditional VIF via a ONE-SIDED closed-form bound stays closed. What remains is a ' +
-    'two-sided enclosure Cov_k(L) = Cov_k(inf) +/- C/L^2 with C ~ 2.07e-3 measured ' +
-    '(not yet certified via a stationary-phase / integration-by-parts bound).',
+    'two-sided enclosure Cov_k(L) = Cov_k(inf) +/- C/L^2 with C ~ 2.07e-3 measured; ' +
+    'imp-96628 has since CERTIFIED this envelope via two integrations by parts on the ' +
+    'oscillatory correction integral, giving the rigorous L-uniform constant ' +
+    'C(k) = (1/(8 pi^4)) [2/k^2 + 1/(k-1)^2 + 1/(k+1)^2 + V(k)] for all k >= 2 ' +
+    '(C(2) = 3/(8 pi^4) = 3.85e-3, which dominates the measured 2.07e-3, ratio 1.86).',
   verificationStatus:
-    'Sign measurement (closes off a proof route), not a certified envelope constant. ' +
+    'Sign measurement (closes off a proof route); the certified envelope constant is ' +
+    'now delivered separately by imp-96628 (two-IBP bound |DeltaCov_k| <= C(k)/L^2). ' +
     'Changes no bound; establishes no operator positivity; PT Lambda <= 0.2 remains ' +
     'SOTA; RH open; NO QED.',
 });

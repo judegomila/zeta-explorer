@@ -23678,6 +23678,31 @@ export const glossary = [
       'imp-96593-vif-exact-tail-rigor-upgrade-assessment.js the residual obstruction items (i)/(iii) this migrates to',
     ],
   },
+  {
+    term: 'Route I Krein kmax=5 LP Solvability Frontier (1.06 < 2a* < 1.08) Is Not the Certified Reach',
+    category: 'numerical',
+    definition:
+      'imp-96845-krein-kmax5-frontier-measurement.js. CLARIFICATION: the measured kmax=5 double-' +
+      'precision cutting-plane LP stays solvable and near-feasible out to 2a=1.06 and walls (HiGHS ' +
+      'status 4, numerical) at 2a=1.08, so the DOUBLE-PRECISION SOLVABILITY FRONTIER sits in the band ' +
+      '1.06 < 2a* < 1.08 -- strictly to the right of the interval-rigorous CERTIFIED reach 2a<=0.96. ' +
+      'These are two different quantities and must not be conflated: the 1.06-1.08 band is where a ' +
+      'lean, uncertified, converged=false cutting-plane iterate exists at ordinary double precision ' +
+      '(worst guarded-condition residual still negative, -0.166 to -0.30, at the rounds/tolerance cap); ' +
+      'the 0.96 figure is the only reach with an actual interval-verified positivity certificate ' +
+      '(rh-route-i-toeplitz-krein-certificate-2026-09-24.js). Nothing in the kmax=5 measurement raises ' +
+      'the certified reach past 0.96: it only shows the fixed-degree/double-precision wall at 2a=1.0 ' +
+      '(imp-96834) is an artifact of degree and precision, not that any point past 0.96 is proved. ' +
+      'Measurement only; interval-rigorous reach stays exactly 2a<=0.96; RH open; Platt-Trudgian ' +
+      'Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96886 (adds this clarifying headword distinguishing the imp-96845 measured LP solvability frontier from the interval-rigorous certified reach), 2026',
+    relatedTerms: [
+      'imp-96845-krein-kmax5-frontier-measurement.js the source measurement (IMP96845_SWEEP, IMP96845_VERDICT.intervalRigorousReachUnchanged=0.96)',
+      'imp-96834-krein-certificate-degree-margin-assessment.js the structural artifact claim this measurement fills the sub-gap for',
+      'imp-96881-krein-kmax-degree-frontier-viz-data.js the chart-ready ladder carrying the same honest-banner distinction',
+      'rh-route-i-toeplitz-krein-certificate-2026-09-24.js the baked kmax=4 interval-rigorous certificate whose reach (2a<=0.96) is the only certified figure',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

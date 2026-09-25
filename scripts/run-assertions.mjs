@@ -20636,6 +20636,12 @@ const DATA_MODULES = [
   // self-executing assertions. Measurement only (not converged, not verified); reach
   // stays 2a<=0.96; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96845-krein-kmax5-frontier-measurement.js',
+  // imp-96836: import-light viz-data leaf for the imp-96806 Krein t-sweep at
+  // 2a=ln3 -- floor lambda_min(T_a[sigma_2]) vs t-truncation T=800..4800, one
+  // series per N in {52,76,100}, annotating the T=800 dip as a t-truncation
+  // artifact climbing to the ~0.579988 (N=100) plateau. Presentation only;
+  // no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96836-krein-tsweep-viz-data.js',
   // imp-96855: the imp-96707 cohort2 orphan modules (imp-96805 confirmed all 9
   // import-light, zero zeros-bundle dependence, direct or transitive) were missing
   // from this DATA_MODULES sweep, so their module-scope self-executing throw

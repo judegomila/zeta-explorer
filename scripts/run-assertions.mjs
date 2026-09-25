@@ -20215,6 +20215,12 @@ const DATA_MODULES = [
   // anchor) to ~1.90e8 (~1.5 decades) -- ~15x tighter. Documentation only; no bound; NO
   // QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96599-basis-c-superlinear-floor-glossary-headword.js',
+  // imp-96601: Concepts glossary headword restating the imp-96569 verdict that deciding the
+  // Route M Burnol-normalized ratio(N) -> 1 against the imp-96487 ~0.985 plateau needs a log-N
+  // reach (N ~ 2.7e5 at 2 sigma to N ~ 1.6e7 at 3 sigma) the imp-96352 N ~ 9916 compute ceiling
+  // cannot deliver, by 1.4 to 3.2 orders of magnitude. Documentation only; no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96601-route-m-reach-verdict-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

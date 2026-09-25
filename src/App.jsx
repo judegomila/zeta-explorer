@@ -1490,6 +1490,9 @@ const Imp96534ArEffectiveCountLadderViz = lazy(() =>
 const Imp96535LedgerReconciliationViz = lazy(() =>
   import('./pages/Imp96535LedgerReconciliationViz.jsx')
 );
+const Imp96554TwoExponentRelErrConeViz = lazy(() =>
+  import('./pages/Imp96554TwoExponentRelErrConeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3898,6 +3901,10 @@ function AppShell() {
           <Route
             path="/viz-imp96535-ledger-reconciliation"
             element={<Imp96535LedgerReconciliationViz />}
+          />
+          <Route
+            path="/viz-imp96554-two-exponent-relerr-cone"
+            element={<Imp96554TwoExponentRelErrConeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

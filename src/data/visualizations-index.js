@@ -4115,6 +4115,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every Tc, nW, z, verdict and agreement flag shown here is copied verbatim from the imp-96512 baked height-by-height comparison; the only new step is picking a display nW/z per row and a ledger-membership category. Cross-validation only: changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96554-two-exponent-relerr-cone',
+      title: 'Two-Exponent relErr(T) Cone',
+      oneLine:
+        'Charts the imp-96528 two-exponent log-log relErr(T) cone: the systematic (p=0) vs sampling-noise (p=-1/4) power laws anchored through the imp-96493 T=1.5e5 measurement, the SE(p)~0.21 error cone, and the actual T=3.879e5 anchor falling outside both predictions.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96554-two-exponent-relerr-cone-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96528-independent-unclipped-height-count-exponent-fit-reach.js (IMP96528_INDEPENDENT_UNCLIPPED_HEIGHT_COUNT_EXPONENT_FIT_REACH; imp-96554 viz page)',
+      ticket: 'imp-96554',
+      pedagogicalStep: 268,
+      honestCeiling:
+        'Presentation only: SE(p), Delta_p and the separation-in-sigma are copied verbatim from the imp-96528 exponent-fit-reach verdict, and both relErr(T) measurements are copied verbatim from the imp-96493 interior scan; the only new computation is evaluating the two power laws and the cone bounds over a plotting grid. Neither exponent is established -- the fixed 10^6 Odlyzko set cannot resolve Delta_p=0.25 at better than ~1.16 sigma. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

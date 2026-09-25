@@ -382,4 +382,55 @@ export const RH_ROUTE_I_DIRECT_SONINE_TRACE_CERTIFICATE_ASSERTIONS = Object.free
   },
 ]);
 
+/**
+ * imp-96634 CROSS-VALIDATION — the IEEE-double direct-Sonine margin ladder W(h) >= m(a)||h||^2 against the
+ * interval-verified Krein sigma_2 certificate (rh-route-i-toeplitz-krein-certificate-2026-09-24), over the shared
+ * window a <= 0.48 (2a <= 0.96). RIGOR-BRIDGE VERDICT (NO QED, NO new positivity):
+ *
+ * The two ladders live in DIFFERENT norms and are NOT inter-convertible in the direction the ticket asks.
+ *   - Direct-Sonine: W(h) >= m(a) ||h||^2, m = 0.0467/0.0160/0.0077/0.0016 at a = 0.40/0.44/0.46/0.48, in the
+ *     ||h||^2 = (1/2pi) int |hhat|^2 norm; LP LOWER bounds on lam_min(Arch-P_2 | pole-free), IEEE double.
+ *   - Krein: T_a[sigma_2] >= 0 via sigma_2 + nu >= eps (eps = 8 main / 20 compact), interval-verified. Writing
+ *     h = Q g (hhat = (t^2+1/4) ghat, Q = -d^2/dx^2 + 1/4), W(h) = <T_a[sigma_2] g, g> >= eps ||g||^2 in the
+ *     ||g||^2 = ||Q^{-1} h||^2 norm. eps is compared against lam_min(T_a[sigma_2]) (||g||-normalised, 56.1 at a = 0.45).
+ *
+ * ONE-WAY norm relation: Q >= 1/4 => Q^2 >= 1/16 => ||h||^2 = ||Q g||^2 >= (1/16) ||g||^2, i.e. ||g||^2 <= 16 ||h||^2.
+ * This converts an ||h||-margin INTO a ||g||-margin (W >= m ||h||^2 => W >= (m/16) ||g||^2), not the reverse. In the
+ * reverse direction sup_{g in PW_a} ||Q g||^2 / ||g||^2 = +oo (the multiplier (t^2+1/4)^2 is unbounded in t; measured
+ * ratio 600 -> 1.0e12 for g = (a^2-x^2)^2 cos(freq x) as freq 0 -> 1000, tmp/imp-96634-scratch.mjs), so
+ * inf_{h != 0} ||g||^2 / ||h||^2 = 0 and the Krein floor eps ||g||^2 supplies NO positive ||h||^2-normalised margin.
+ *
+ * CONSEQUENCE. What the interval Krein certificate DOES upgrade to interval-rigorous on all a <= 0.48: the QUALITATIVE
+ * statement W(h) > 0 for every nonzero pole-free h (eps > 0, ||g|| > 0), i.e. D_S < L_S strictly. What it DOES NOT
+ * upgrade: any single quantitative m(a) in the ||h||^2-normalised ladder — those remain IEEE-double. Interval-upgrading
+ * m(a) would need a SEPARATE interval-rigorous lower bound on lam_min(Arch-P_2 | pole-free) in the ||h|| norm (an
+ * interval version of the direct-Sonine LP, or interval Rayleigh-Ritz with a rigorous tail), which is not supplied by
+ * the sigma_2 certificate. Cross-validation is CONSISTENT (both give W > 0 on the shared window); the rigor bridge is
+ * one-directional and does not transfer the sharper local ||h||-margin. RH open; PT Lambda <= 0.2 stands; NO QED.
+ */
+export const KREIN_INTERVAL_BRIDGE = Object.freeze({
+  id: 'imp-96634-direct-sonine-vs-krein-interval-bridge',
+  question: 'Does the interval-verified Krein sigma_2 certificate interval-upgrade any m(a) in the IEEE-double direct-Sonine ||h||^2-normalised margin ladder over the shared window a <= 0.48?',
+  sharedWindow: '2a <= 0.96 (a = 0.40..0.48); direct-Sonine dual-LP certificates and the Krein main certificate (X0 = 0.96) both cover it; the compact Krein certificate (X0 = 0.9) covers a <= 0.45',
+  /** [a, 2a, m_direct(a) LP lower bound ||h||^2 (IEEE dbl), RR upper bound ||h||^2 lam_min|pf (N=32, or null if off-grid),
+   *   Krein interval status T_a[sigma_2] >= 0, Krein eps (||g||^2 floor, interval), lam_min(T_a[sigma_2]) ||g||^2 signal (N=36, or null),
+   *   m(a) interval-upgraded by the Krein cert?] */
+  ladder: [
+    [0.40, 0.80, 0.046677, 0.22550, 'interval-verified (main cert)', 8, null, false],
+    [0.44, 0.88, 0.016041, null, 'interval-verified (main cert)', 8, null, false],
+    [0.46, 0.92, 0.007686, 0.049691, 'interval-verified (main cert)', 8, null, false],
+    [0.48, 0.96, 0.001618, null, 'interval-verified (main cert)', 8, null, false],
+  ],
+  normMismatch: {
+    directNorm: '||h||^2 = (1/2pi) int |hhat|^2 (Arch - P_2 on pole-free h)',
+    kreinNorm: '||g||^2 = ||Q^{-1} h||^2 (T_a[sigma_2] on g, h = Q g, hhat = (t^2+1/4) ghat)',
+    rigorousDirection: 'Q >= 1/4 => ||g||^2 <= 16 ||h||^2, so an ||h||-margin m gives a ||g||-margin >= m/16 (NOT the reverse)',
+    reverseUnbounded: 'sup_{g in PW_a} ||Q g||^2/||g||^2 = +oo (measured 600 -> 1.0e12 for freq 0 -> 1000), hence inf ||g||^2/||h||^2 = 0: eps ||g||^2 gives no positive ||h||^2 floor',
+    kreinEpsIsGnorm: 'eps (8 / 20) is compared against lam_min(T_a[sigma_2]) = 56.1 at a = 0.45 (||g||^2-normalised), not against the ||h||^2 ladder value ~0.01',
+  },
+  upgraded: 'QUALITATIVE only: W(h) > 0 for every nonzero pole-free h (D_S < L_S strictly) is interval-rigorous on all a <= 0.48 via the Krein cert. QUANTITATIVE: NONE of m = 0.0467/0.0160/0.0077/0.0016 is interval-upgraded — each remains an IEEE-double LP lower bound in the ||h|| norm the Krein certificate does not control',
+  toUpgradeMOfA: 'a separate interval-rigorous lower bound on lam_min(Arch - P_2 | pole-free) in the ||h|| norm (interval direct-Sonine LP, or interval Rayleigh-Ritz with a rigorous truncation tail); the sigma_2 certificate, being ||g||-normalised, does not provide it',
+  verdict: 'the two ladders CROSS-VALIDATE (both establish W > 0 on 2a <= 0.96) but the rigor bridge is one-directional: the interval Krein certificate upgrades the qualitative pole-free positivity, not the sharper local ||h||^2-normalised margins m(a), which stay IEEE-double. NO QED; no zero localised; RH open; PT Lambda <= 0.2 stands',
+});
+
 export default RH_ROUTE_I_DIRECT_SONINE_TRACE_CERTIFICATE;

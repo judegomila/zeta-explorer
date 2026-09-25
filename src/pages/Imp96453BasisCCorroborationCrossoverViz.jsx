@@ -8,6 +8,8 @@ import {
 } from '../data/imp-96453-basis-c-corroboration-crossover-viz-data.js';
 import { IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR } from '../data/imp-96531-basis-c-crossover-measured-floor.js';
 import { IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND } from '../data/imp-96588-basis-c-floor-1e8-rung-powerlaw-bend.js';
+import { IMP96735_HONEST_BANNER } from '../data/imp-96735-basis-c-lstar-bracket-leave-one-out-robustness.js';
+import { IMP96733_HONEST_BANNER } from '../data/imp-96733-basis-c-real-zero-intermediate-signal.js';
 
 function CrossoverChart() {
   const svgW = 720;
@@ -207,6 +209,36 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         roughly 1.1&ndash;1.2 decades past the PT anchor, not the multi-decade band charted above.
         Measurement/extrapolation only; changes no bound; RH open; Platt&ndash;Trudgian &Lambda;
         &le; 0.2 remains SOTA. NO QED.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(250,204,21,0.06)',
+          borderLeft: '3px solid #facc15',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#facc15' }}>Honest status &mdash; the L* point estimate is not a tight bracket:</strong>{' '}
+        {IMP96735_HONEST_BANNER}
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>Honest status &mdash; L* is real-zero uncorroborable:</strong>{' '}
+        {IMP96733_HONEST_BANNER}
       </div>
     </div>
   );

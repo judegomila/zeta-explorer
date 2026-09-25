@@ -20561,6 +20561,12 @@ const DATA_MODULES = [
   // environment-dependent globals used). Audit only; no bound; NO QED; PT
   // Lambda<=0.2 SOTA.
   '/src/data/imp-96803-cohort2-browser-throw-audit.js',
+  // imp-96738: Concepts glossary headword restating the HONEST CAVEAT repeated across
+  // imp-96690/96712/96716/96568/96448 -- the basis-C corroboration-reach ladder
+  // (L* ~ 8.1e7, bracket [7.6e7, 8.2e7]) is entirely a THEORETICAL-GUE quantity
+  // evaluated by double-precision quadrature, with NO computed Riemann zeros behind
+  // any value. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96738-basis-c-lstar-theoretical-gue-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

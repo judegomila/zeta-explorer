@@ -23876,6 +23876,35 @@ export const glossary = [
       'imp-96960-etrunc-cc-elasticity-ladder-viz-data.js the viz ladder built on the same C_C/E_trunc elasticity pair',
     ],
   },
+  {
+    term: 'Kmax=5 Double-Precision Near-Feasibility Is Not An Interval-Certified Reach',
+    category: 'numerical',
+    definition:
+      'imp-96956 took the Route I Krein kmax=5 cutting-plane iterate at 2a=1.00 -- strictly inside ' +
+      'the imp-96845/imp-96881 double-precision solvable band (2a up to the 1.06-1.07 wall) -- and ' +
+      'ran it through the interval-rigorous verifier (mpmath.iv prec 80, second-order between-grid ' +
+      'guard, 32x local sub-cell refinement). The re-solved iterate reproduces imp-96845 exactly ' +
+      '(l1=7.030242896554375, worst LEAN guarded residual -0.16636421527952594 at t=30.7686, ' +
+      'converged=false) -- a HiGHS double-precision NEAR-FEASIBLE signal only. Under rigor it ' +
+      'COLLAPSES: 226 of 20000 coarse cells report a negative rigorous lower bound (worst ' +
+      '-0.2709175966692893), clustering INTERIOR at t~16.0-17.4 -- not at the LP lean worst point ' +
+      't~30.77 -- where the sigma_2 curvature and t^5-family second-order guard bite a margin the ' +
+      'lean fine grid (FINEH=3e-4) never saw. The t>=40 tail block verifies cleanly (bracket ' +
+      '+0.458124). So DOUBLE-PRECISION LP SOLVABILITY (near-feasible out to 2a=1.06) and ' +
+      'INTERVAL-CERTIFIED POSITIVITY are two different quantities that must not be conflated: the ' +
+      'kmax=5 frontier does not extend the certified reach, which stays exactly 2a<=0.96. SUB-GAP ' +
+      'IMP96956_CONVERGED_KMAX5_100_UNPRODUCED: only the round-cap-stalled lean iterate was tested, ' +
+      'not a fully-converged (guarded-residual >= 0) one, so whether a converged kmax=5 iterate at ' +
+      '2a=1.00 could interval-verify remains open. Verification-attempt only; interval-rigorous ' +
+      'certified reach stays exactly 2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96980 (adds this glossary headword for the imp-96956 kmax=5 2a=1.00 collapse-under-rigor verdict), 2026',
+    relatedTerms: [
+      'imp-96956-krein-kmax5-100-interval-verify.js the source verification attempt (IMP96956_VERIFY, IMP96956_VERDICT.intervalRigorousReachUnchanged=0.96)',
+      'imp-96845-krein-kmax5-frontier-measurement.js the double-precision solvability frontier this iterate is drawn from',
+      'imp-96881-krein-kmax-degree-frontier-viz-data.js the chart-ready ladder carrying the same near-feasible-vs-certified distinction',
+      'Route I Krein kmax=5 LP Solvability Frontier (1.06 < 2a* < 1.08) Is Not the Certified Reach the sibling headword distinguishing the same two quantities at the frontier band rather than a single interior-verified iterate',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

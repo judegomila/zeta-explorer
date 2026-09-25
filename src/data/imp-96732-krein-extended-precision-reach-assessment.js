@@ -70,6 +70,8 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (source literals: normGrowthLaw, epsMarginDecay, analyticObstruction, lpWallIsSymptom)
  * @see imp-96646-krein-certificate-margin-viz-data.js (sibling margin/norm viz leaf)
  * @see imp-96651-krein-096-fine-extended-scan.js (independent positivity re-confirmation at 2a=0.96)
+ * @see imp-96749-krein-lammin-N-trend-measurement.js (independent axis: pushes the N-truncation ladder
+ *   this assessment's certificate margin is built on past N=36 toward the Gram-conditioning wall)
  */
 
 // baked fit constants (verbatim from TOEPLITZ_KREIN_LITERALS.normGrowthLaw / .epsMarginDecay)

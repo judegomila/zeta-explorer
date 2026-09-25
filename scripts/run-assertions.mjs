@@ -20647,6 +20647,12 @@ const DATA_MODULES = [
   // (VIF<=0.0334), and actual finite-window z~26.0. Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96820-vif-three-level-reconciliation-glossary-headword.js',
+  // imp-96824: Concepts glossary headword restating the imp-96773 verdict -- the
+  // Route M total conditioning-ceiling ratio M/T = 1.5841640857 (imp-96713) is
+  // genuinely fit-invariant, reproduced by a structurally independent
+  // Wolkowicz-Styan pivot family and a fit-free geometric-mean pivot to machine
+  // precision. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96824-route-m-mt-ratio-fit-invariant-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

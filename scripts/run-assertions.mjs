@@ -20280,6 +20280,14 @@ const DATA_MODULES = [
   '/src/data/imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js',
   '/src/data/imp-96569-route-m-window-reach-projection.js',
   '/src/data/imp-96571-vif-rho1-bound-rigor-assessment.js',
+  // imp-96694 (2026-09-25): extends the Route M measured lam_max ladder (imp-96443/96649)
+  // and the Frobenius/Wolkowicz-Styan majorant ladder (imp-96648/96684) PAST N=9000 to
+  // N=10000,11000,12000 on the exact Vasyunin Gram rebuilt to NMAX=12000. Result: the ~1.7%
+  // slope flattening CONTINUES (global Frobenius slope 0.47808 -> 0.47196, local N>=7000
+  // slope 0.42324, below-fit gaps widen lam_max 1.21->1.49% and Frobenius 0.42->0.57%), it
+  // does NOT saturate; the rigorous-lower ceiling shifts only +0.30% (3.764e7 -> 3.775e7),
+  // robust. Self-executing *_ASSERTIONS re-derive the constants in JS. No bound moved; NO QED.
+  '/src/data/imp-96694-route-m-majorant-ladder-above-9000.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -20308,6 +20308,12 @@ const DATA_MODULES = [
   // N=6000 value gap (true value ratio 1.92x); imp-96581 + page already label the two distinctly.
   // Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96686-route-m-lammax-overstatement-figure-label-audit.js',
+  // imp-96705: caveat-propagation audit of all 19 Route M consumers of the imp-96428
+  // lam_min power-law fit (A=0.8187, p=1.9179). 13 carry the "fit-extrapolated, not
+  // certified" caveat explicitly; 6 carry it implicitly (an @see/inline imp-96428
+  // citation plus the house-style non-certified honest banner). No consumer presents
+  // the ceiling as certified. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96705-lammin-fit-caveat-propagation-audit.js',
   // imp-96599: Concepts glossary headword restating the imp-96568 verdict that the
   // basis-C direct-integral floor(L) grows super-linearly above the PT anchor (measured
   // exponent p ~ 1.81, not the L-linear exponent 1 the imp-96531 re-anchoring assumed),

@@ -59,6 +59,8 @@
  * @see imp-96105-route-m-vasyunin-gram-extend-n6000.js (lam_min N<=6000, finding 4)
  * @see imp-96325-route-m-vasyunin-gram-n1e4-run.js (measured lam_min N=7000..1e4)
  * @see imp-96352-route-m-vasyunin-solve-cost-model.js (N^3 wall-clock reach ceiling)
+ * @see imp-96999-route-m-lammin-exponent-crossvalidation.js (p/A cross-validated across
+ *   ESTIMATORS, not across bases -- see IMP96428_CROSSVALIDATION_STATUS below)
  *
  * Ticket: imp-96428 (numerical, opus-4-8, api-pool). Numerics only; NO QED.
  */
@@ -149,6 +151,24 @@ export const IMP96428_SUBGAP = Object.freeze({
 export const IMP96428_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Extrapolation only: every lam_min value is a reproducible numeric already committed in imp-96105 / imp-96325; the fit and conditioning ceiling are pure re-analysis (tmp/imp-96428-final.mjs); no Gram was rebuilt, no bound is claimed and no operator positivity is established.';
 
+// Honest-status caveat (imp-97026): the p/A fit above (IMP96428_FIT) has since been
+// cross-validated by imp-96999 across FOUR INDEPENDENT ESTIMATORS on this SAME Gram
+// basis (Theil-Sen, anchor-dropped dense, low/high splits), all landing within the
+// OLS band. That does NOT extend to a second, genuinely independent BASIS (the Route
+// M analogue of the imp-96852 Legendre-vs-Gegenbauer Route I cross-basis check) -- a
+// diagonal-preconditioned / correlation-matrix rescaling of the Vasyunin Gram would
+// yield a DIFFERENT lam_min obeying a related law, and that rebuild has not been run.
+export const IMP96428_CROSSVALIDATION_STATUS = Object.freeze({
+  crossValidatedAcrossEstimators: true,
+  crossValidatedAcrossEstimatorsSource: 'imp-96999-route-m-lammin-exponent-crossvalidation.js',
+  crossValidatedAcrossBases: false,
+  openSubGap: 'IMP96999_SUBGAP (imp-96999-estimator-not-second-basis)',
+  note:
+    'the p=1.917927 / A=0.8186721 exponent is estimator-robust (imp-96999) but has NOT been ' +
+    'reproduced on a second Vasyunin Gram basis; readers citing this exponent as basis-independent ' +
+    'should point instead at the open second-basis rebuild.',
+});
+
 // -- self-executing assertions (imp-3715 convention): any failure throws at import --
 
 const IMP96428_ASSERTIONS = [
@@ -197,6 +217,15 @@ const IMP96428_ASSERTIONS = [
       /lammax-unrecorded/.test(IMP96428_SUBGAP.id),
     why: 'the honest banner carries the RH-open / PT-Lambda / NO-QED markers and the named sub-gap flags the unrecorded lam_max that the ceiling bracket rests on.',
   },
+  {
+    id: 'imp96428-crossvalidation-status-honest',
+    holds: () =>
+      IMP96428_CROSSVALIDATION_STATUS.crossValidatedAcrossEstimators === true &&
+      IMP96428_CROSSVALIDATION_STATUS.crossValidatedAcrossBases === false &&
+      /imp-96999/.test(IMP96428_CROSSVALIDATION_STATUS.crossValidatedAcrossEstimatorsSource) &&
+      /IMP96999_SUBGAP/.test(IMP96428_CROSSVALIDATION_STATUS.openSubGap),
+    why: 'the caveat must record that the exponent is cross-validated across estimators (imp-96999) but explicitly NOT across bases, pointing at the still-open second-basis sub-gap.',
+  },
 ];
 
 for (const a of IMP96428_ASSERTIONS) {
@@ -215,4 +244,5 @@ export default {
   verdict: IMP96428_VERDICT,
   subGap: IMP96428_SUBGAP,
   banner: IMP96428_HONEST_BANNER,
+  crossValidationStatus: IMP96428_CROSSVALIDATION_STATUS,
 };

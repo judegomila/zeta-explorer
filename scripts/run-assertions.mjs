@@ -19843,6 +19843,13 @@ const DATA_MODULES = [
   // five rungs), re-bisecting the corroboration reach from L*~1.9e8 to ~8.1e7 (~1.14 decades past the PT
   // anchor). Import-light (no zeros bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96690-basis-c-above-anchor-rung-ladder.js',
+  // imp-96716 (2026-09-24): pins the basis-C floor MECHANISM-TRANSITION scale left open by imp-96690
+  // FINDING 1. Sweeps the same direct integral at intermediate L in [3e6,5.9e6] (ppp in {2..6}) and finds
+  // the best-floor optimum drops out of the crossover regime (ppp>=4) into the truncation-set (ppp=3) at
+  // L in (5.5e6,5.6e6] (geo-mid ~5.55e6), just ~0.03 decades below the PT anchor; the floor jumps ~49x
+  // across it (6.03e-7->2.97e-5) as the Var cancellation roundoff overtakes the finer panel count, so the
+  // anchor is the first ppp=3 rung. Import-light (no zeros bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96716-basis-c-mechanism-transition-scale.js',
   // imp-96711 (2026-09-24): reconciliation AUDIT cross-tabulating the three basis-C corroboration-reach
   // L* figures (imp-96531 L-linear ~2.86e9, imp-96568 two-rung ~1.9e8, imp-96690 five-rung OLS ~8.1e7).
   // Re-derives all three from ONE anchored-power-law crossover floor(L)=anchorFloor*(L/anchor)^p at

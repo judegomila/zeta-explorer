@@ -4521,6 +4521,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ceiling value and ratio is reused verbatim from imp-96693 (itself a pure re-analysis of the imp-96684 bisection-solved ceilings, no new numerics); the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap, only the trace ceiling is a rigorous lower bound. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96741-route-m-three-ceiling-decomposition',
+      title: 'Route M Three-Ceiling Conditioning Decomposition (T < F < M)',
+      oneLine:
+        'Horizontal bar chart of the imp-96713 re-audited three Route M lam_max conditioning ceilings (rigorous trace-domination T 2.594e7, Frobenius fit F 3.775e7 updated to the imp-96694 N=12000 re-solve, measured composed M 4.109e7), annotated with the M/F ~1.09x residual factor, the (F-T)/(M-T) ~78% gap-fraction, and the invariant total M/T ~1.58x ratio.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96741-route-m-three-ceiling-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96713-route-m-conditioning-ceiling-decomposition-reaudit.js (IMP96713_CEILINGS, IMP96713_RATIOS, IMP96713_GAP_FRACTION, IMP96713_DECOMPOSITION); imp-96741 viz page',
+      ticket: 'imp-96741',
+      pedagogicalStep: 295,
+      honestCeiling:
+        'Presentation only: every ceiling, ratio, and gap-fraction value is reused verbatim from imp-96713 (a pure re-analysis of the imp-96684/imp-96694 ceilings, no new numerics); only the trace ceiling is a rigorous lower bound, the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

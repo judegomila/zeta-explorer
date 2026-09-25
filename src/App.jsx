@@ -1276,6 +1276,9 @@ const Imp96600BasisCFloorLadderViz = lazy(() =>
 const Imp96739BasisCAboveAnchorLadderLstarCrossoverViz = lazy(() =>
   import('./pages/Imp96739BasisCAboveAnchorLadderLstarCrossoverViz.jsx')
 );
+const Imp96741RouteMThreeCeilingDecompositionViz = lazy(() =>
+  import('./pages/Imp96741RouteMThreeCeilingDecompositionViz.jsx')
+);
 const Imp96604LammaxNormalizedRatioViz = lazy(() =>
   import('./pages/Imp96604LammaxNormalizedRatioViz.jsx')
 );
@@ -3700,6 +3703,10 @@ function AppShell() {
           <Route
             path="/viz-imp96739-basis-c-above-anchor-ladder-lstar-crossover"
             element={<Imp96739BasisCAboveAnchorLadderLstarCrossoverViz />}
+          />
+          <Route
+            path="/viz-imp96741-route-m-three-ceiling-decomposition"
+            element={<Imp96741RouteMThreeCeilingDecompositionViz />}
           />
           <Route
             path="/viz-imp96604-lammax-normalized-ratio"

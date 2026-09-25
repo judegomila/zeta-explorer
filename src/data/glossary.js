@@ -23627,6 +23627,30 @@ export const glossary = [
       'rh-route-i-toeplitz-krein-certificate-2026-09-24.js source literals epsMarginDecay and lambdaMinSigma2 baked here verbatim',
     ],
   },
+  {
+    term: 'Route M Coprime-Core Second Moment T(N) Grows Linearly In log N, Not (log N)^2',
+    category: 'numerical',
+    definition:
+      'imp-96828-coprime-core-vasyunin-second-moment-growth.js. imp-96688 factored the Route M ' +
+      'Frobenius majorant EXACTLY as ||G_N||_F^2 = T(N) times a bounded [1, zeta(2)] inner-g factor, ' +
+      'where T(N) = Sum_{gcd(a,b)=1, a,b<=N} I(a,b)^2/(a^2 b^2) is the coprime-core Vasyunin second ' +
+      'moment -- localizing the entire F-route conditioning-ceiling growth into T(N) alone. imp-96795 ' +
+      'then set T(N) ~ c (log N)^2 as the well-posed target to decide. imp-96828 directly measured T(N) ' +
+      'with the exact Vasyunin cotangent kernel over N = 250..4000 (log N up to 8.29) and found it grows ' +
+      'LINEARLY in log N, not quadratically: the linear fit T = 3.542 log N - 1.426 reproduces the ' +
+      'ladder to rms 0.002, over 1000x tighter than the best pure-quadratic fit, the free-quadratic ' +
+      'leading coefficient collapses to 0.0026, and the local power exponent sits flat (and slightly ' +
+      'decreasing) at ~1.06 -- nowhere near 2. HONEST SCOPE: measured to N=4000 only; a slow transient ' +
+      'masking an eventual (log N)^2 law past this reach cannot be excluded from data alone, but the ' +
+      'ladder gives no evidence for it. Measurement/fit only; no growth law is proved; no bound moved; ' +
+      'RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96828-coprime-core-vasyunin-second-moment-growth.js (measures T(N) ~ 3.542 log N over N<=4000, refuting the imp-96795 (log N)^2 target over the measured range), 2026',
+    relatedTerms: [
+      'imp-96688-route-m-frobenius-g-factorization-assessment.js the exact factorization localizing the F-route growth into T(N)',
+      'imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js Finding 3, the well-posed (log N)^2 target this measurement tests',
+      'imp-96830 the uniform cotangent-sum second moment named as the residual route to settle the true asymptotic power',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

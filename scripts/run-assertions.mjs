@@ -19882,6 +19882,14 @@ const DATA_MODULES = [
   // OLS 8.1e7; quadratic models tighten to ~7.6-7.8e7, integrated-exponent model loosens to ~8.2e7).
   // Import-light (no zeros bundle). Projection only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96712-basis-c-accelerating-exponent-model.js',
+  // imp-96776 (2026-09-25): single-crossover CROSS-TAB placing the three imp-96711 basis-C reach figures
+  // (imp-96531 ~2.86e9, imp-96568 ~1.9e8, imp-96690 ~8.1e7) and the imp-96712 accelerating-exponent bracket
+  // [7.63e7, 8.2e7] on ONE L axis via the inverse exponent map (bisect p so crossoverL(p)=L*). Confirms they
+  // name ONE crossover, not four scales: the reach figures recover the measured exponents p ~ 1.00/1.81/2.42
+  // within 5% (max on-curve residual ~5e-4), and the imp-96712 bracket inverts to a ~0.069-wide exponent-shape
+  // window nested at the p ~ 2.42 OLS rung (far narrower than the ~0.63/1.44 gaps to the neighbouring figures).
+  // Import-light (no zeros bundle). Cross-tabulation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96776-basis-c-single-crossover-cross-tab.js',
   // imp-96735 (2026-09-25): MODEL-SELECTION ROBUSTNESS of the imp-96712 L* bracket [7.6e7, 8.2e7]. Leave-
   // one-out / jackknife over the five committed imp-96690 floors (drop each rung, refit models A/B/C) spreads
   // L* across ~[6.96e7, 8.71e7] (hi/lo ~1.25, ~4x wider than the full-data +/-6% band); the dominant leverage
@@ -20692,6 +20700,11 @@ const DATA_MODULES = [
   // linear-in-log reading TIGHTENS (local exponent falls below 1.05, dT/dlogN pinned ~3.544,
   // free-quadratic coeff still ~0.0022) so no eventual (log N)^2 law. Measurement/fit only; NO QED.
   '/src/data/imp-96849-coprime-core-vasyunin-second-moment-ladder-extension.js',
+  // imp-96757: independent extreme-value (Weibull / Gumbel block-minima) estimate of the small-gap
+  // N-scaling exponent -- MLE on the imp-96629 disjoint dyadic block minima gives b = -0.3814 +/- 0.026
+  // (shape c = 3.92), agreeing with the LS pair (-0.3953, -0.3983) within 1 sigma and still steeper than
+  // GUE -1/3; fitted shape corroborates cubic repulsion. Measurement only; conditional on GUE; NO QED.
+  '/src/data/imp-96757-gev-blockmin-exponent.js',
 ];
 
 let ALL_MODULES = FAST_MODE

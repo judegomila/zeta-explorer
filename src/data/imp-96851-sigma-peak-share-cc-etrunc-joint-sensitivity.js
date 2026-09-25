@@ -173,13 +173,19 @@ let bandMin = Infinity;
 let bandMax = -Infinity;
 let bandMinCorner = null;
 let bandMaxCorner = null;
+const FULL_GRID = [];
 for (const a of CC_FACTORS) {
   for (const b of ET_FACTORS) {
     const s = peakShare(C_C_PINNED * a, E_TRUNC_BASE * b).sigma_max;
+    FULL_GRID.push({ ccFactor: a, etFactor: b, sigma_max: +s.toFixed(7) });
     if (s < bandMin) { bandMin = s; bandMinCorner = { ccFactor: a, etFactor: b }; }
     if (s > bandMax) { bandMax = s; bandMaxCorner = { ccFactor: a, etFactor: b }; }
   }
 }
+
+// Full 2D grid (every ccFactor x etFactor pair, verbatim sigma_max), exposed
+// for the imp-96884 heatmap viz-data leaf.
+export const IMP96851_FULL_GRID = FULL_GRID;
 
 // Compact 2D corner + base table for the record.
 const CORNER_TABLE = [

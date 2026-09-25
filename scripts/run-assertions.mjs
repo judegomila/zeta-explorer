@@ -20531,6 +20531,12 @@ const DATA_MODULES = [
   // 751/770). Extends the imp-96605 first-cohort audit. Audit only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96707-orphan-consumer-audit-cohort2.js',
+  // imp-96720: Concepts glossary headword reconciling two same-named but UNRELATED
+  // VIF quantities: imp-96638's box sine-kernel number-variance VIF_291 (values << 1,
+  // one-sided-bound question still OPEN) and imp-96692's Route M drift-covariance VIF
+  // ~2.578 (measurement CLOSED, values > 1) -- neither resolves or updates the other.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96720-vif-terminology-reconciliation-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

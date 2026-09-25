@@ -23905,6 +23905,41 @@ export const glossary = [
       'Route I Krein kmax=5 LP Solvability Frontier (1.06 < 2a* < 1.08) Is Not the Certified Reach the sibling headword distinguishing the same two quantities at the frontier band rather than a single interior-verified iterate',
     ],
   },
+  {
+    term: 'T_a[sigma_2] >= 0 <=> Pole-Free Weil Positivity Survives Exactly to 2a<=0.96 -- and the Two Named Blockers Are One Axis, Not the Full Gap',
+    category: 'obstruction',
+    definition:
+      'The interval-verified Toeplitz/Krein certificate T_a[sigma_2] >= 0 (sigma_2 = (t^2+1/4)^2 w_1) is ' +
+      'EXACTLY EQUIVALENT to pole-free Weil positivity, and that equivalence is currently certified only ' +
+      'for support 2a <= 0.96 (rh-route-i-toeplitz-krein-certificate-2026-09-24.js). imp-97036 named two ' +
+      'blockers standing between this certificate and FULL Weil / operator positivity: the Rayleigh/' +
+      'Courant-Fischer direction problem (the Galerkin lambda_min table is a wrong-signed variational ' +
+      'estimate, and the coercive extremal state is the fractal Zygmund eigenfunction with no dyadic-grid ' +
+      'rate) and the 0.96-1.00 LP double-precision conditioning wall (HiGHS status 4 once eps <= ' +
+      'lambda_min). imp-97049 sorts the full gap into THREE orthogonal axes and shows these two named ' +
+      'blockers are BOTH faces of a single axis -- Axis I, REACH (extend the certified support past ' +
+      '0.96) -- so they cannot, even in principle, exhaust it. Two further INDEPENDENT axes remain: Axis ' +
+      'II, POLE TERM (pole-free -> full Weil form), obstructed by the semilocal Sonine/excess bridge ' +
+      'D_S <= L_S failing at 2a = ln2 = 0.6931 -- strictly INSIDE the certified 0.96 reach, and not ' +
+      'gap-free below ln3 either (remainder is 96.7-99.71 percent of the trace on the minimiser); and ' +
+      'Axis III, CRITERION COMPLETENESS (a per-support certificate -> the full Weil cone over every ' +
+      'support), which carries the unconditional flow-blindness no-go: the RH-true profile sits exactly ' +
+      'on the soft-class boundary, so no soft/estimate-only strategy can close this axis and arithmetic ' +
+      'input is required. The axis-level enumeration {I, II, III} is shown to be structurally complete ' +
+      '(reach x pole term x quantifier-over-the-cone is the entire difference between the certified and ' +
+      'target objects), but SUB-GAP IMP97049_AXIS_LEVEL_ONLY: this does not enumerate every specific ' +
+      'blocker within each axis, nor rule out an untried instance inside one. Certified reach stays ' +
+      '2a<=0.96; no bridge to full Weil positivity exists; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH ' +
+      'open; NO QED.',
+    firstUsed: 'imp-97062 (adds this glossary headword for the imp-97049 obstruction-axis enumeration), 2026',
+    relatedTerms: [
+      'imp-97049-polefree-to-weil-obstruction-enumeration.js the source enumeration (IMP97049_OBSTRUCTION_AXES, IMP97049_EXHAUSTIVENESS)',
+      'imp-97036-taplsigma2-to-weil-interpretive-obstruction.js the prior leaf naming the two Axis-I blockers without proving completeness',
+      'rh-route-i-toeplitz-krein-certificate-2026-09-24.js the exact certificate this headword is anchored to (reach 2a<=0.96)',
+      'rh-route-i-sonine-excess-semilocal-port-2026-09-23.js the Axis-II Sonine/excess bridge, obstructed at 2a=ln2',
+      'flow-blindness-no-go.js the Axis-III unconditional no-go against soft/estimate-only closure',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

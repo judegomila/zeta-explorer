@@ -20642,6 +20642,11 @@ const DATA_MODULES = [
   '/src/data/imp-96709-route-m-drift-vif-block-bootstrap.js',
   '/src/data/imp-96751-route-m-frobenius-ladder-above-12000.js',
   '/src/data/imp-96770-route-m-weighted-cotangent-homogeneous-envelope.js',
+  // imp-96820: Concepts glossary headword reconciling the three imp-96593 VIF
+  // levels -- soft z=13.71 (mis-calibration artifact), rigorous two-lag z>=10.52
+  // (VIF<=0.0334), and actual finite-window z~26.0. Documentation only; no bound;
+  // NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96820-vif-three-level-reconciliation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

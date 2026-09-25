@@ -12,6 +12,9 @@
 //   node scripts/run-assertions.mjs --fast            # skip modules known to be slow
 //   node scripts/run-assertions.mjs --since-changed   # only changed files (fast pre-commit)
 //   node scripts/run-assertions.mjs --since-ref=REF   # directly changed registered modules (PR/CI)
+//   node scripts/run-assertions.mjs --check-registry  # fail if a src/data/imp-*.js module with
+//                                                      # self-executing tripwire assertions is
+//                                                      # absent from DATA_MODULES (no sweep run)
 //
 // Exit codes:
 //   0 -- all assertions pass
@@ -20657,6 +20660,48 @@ if (MATH_MODULES.length + DATA_MODULES.length < MODULE_COUNT_FLOOR) {
     MODULE_COUNT_FLOOR + '. Update MODULE_COUNT_FLOOR in run-assertions.mjs if this is intentional.'
   );
   process.exit(2);
+}
+
+// imp-96864: registry-completeness guard. Across this file's history, dozens of
+// src/data/imp-*.js modules used the codebase's "self-executing ... assertions"
+// IIFE convention (a top-level throw new Error(...) that fires on plain import,
+// no *_ASSERTIONS array needed) but were never added to DATA_MODULES, so their
+// tripwire silently never ran under this sweep (the recurring orphan-module
+// class documented throughout the DATA_MODULES comments above). Opt-in via
+// --check-registry: the existing backlog (measured 391 orphans at introduction)
+// is a separate cleanup, but this flag stops NEW orphans from slipping in
+// silently when run in CI.
+const CHECK_REGISTRY = process.argv.includes('--check-registry');
+
+function findOrphanedSelfExecutingDataModules() {
+  const dataDir = path.join(ROOT, 'src/data');
+  const registered = new Set([...MATH_MODULES, ...DATA_MODULES]);
+  const orphans = [];
+  for (const file of fs.readdirSync(dataDir)) {
+    if (!/^imp-\d+.*\.js$/.test(file)) continue;
+    const modPath = '/src/data/' + file;
+    if (registered.has(modPath)) continue;
+    const source = fs.readFileSync(path.join(dataDir, file), 'utf8');
+    if (/self-executing/i.test(source) && source.includes('throw new Error(')) {
+      orphans.push(modPath);
+    }
+  }
+  return orphans;
+}
+
+if (CHECK_REGISTRY) {
+  const orphans = findOrphanedSelfExecutingDataModules();
+  if (orphans.length > 0) {
+    console.error(
+      'REGISTRY COMPLETENESS: ' + orphans.length + ' src/data/imp-*.js module(s) carry ' +
+      'self-executing tripwire assertions but are absent from DATA_MODULES (their ' +
+      'assertions silently never run):'
+    );
+    for (const m of orphans) console.error('  ' + m);
+    process.exit(1);
+  }
+  console.log('REGISTRY COMPLETENESS: OK — every self-executing src/data/imp-*.js module is registered in DATA_MODULES.');
+  process.exit(0);
 }
 
 // imp-2749: --since-changed incremental mode — restrict sweep to modules whose

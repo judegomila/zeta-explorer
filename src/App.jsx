@@ -1231,6 +1231,9 @@ const Imp96600BasisCFloorLadderViz = lazy(() =>
 const Imp96604LammaxNormalizedRatioViz = lazy(() =>
   import('./pages/Imp96604LammaxNormalizedRatioViz.jsx')
 );
+const Imp96606CertLimitCrossoverViz = lazy(() =>
+  import('./pages/Imp96606CertLimitCrossoverViz.jsx')
+);
 const Imp96598SineKernelLagDecayViz = lazy(() =>
   import('./pages/Imp96598SineKernelLagDecayViz.jsx')
 );
@@ -3583,6 +3586,10 @@ function AppShell() {
           <Route
             path="/viz-imp96604-lammax-normalized-ratio"
             element={<Imp96604LammaxNormalizedRatioViz />}
+          />
+          <Route
+            path="/viz-imp96606-cert-limit-crossover"
+            element={<Imp96606CertLimitCrossoverViz />}
           />
           <Route
             path="/viz-imp96598-sine-kernel-lag-decay"

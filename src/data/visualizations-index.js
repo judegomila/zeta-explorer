@@ -4255,6 +4255,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ratio value is reused verbatim from imp-96562; only the two-series reshape and target-line overlay are new. imp-96562 itself is a re-analysis measurement (Szego route does not apply; no bound moved). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96606-cert-limit-crossover',
+      title: 'Double-Precision Cert Limit: delta(N) vs lam_min(N) Crossover',
+      oneLine:
+        'Plots the imp-96591 delta(N) = g_{n+1} I(1,1) H_N rounding-shift ladder (rising) against the imp-96428 lam_min(N) ~ A N^-p fit (falling) on log-log axes across N=1e4..2.59e7, marking the measured crossover N ~ 1.0757e5, the imp-96352 compute ceiling 9916, and the imp-96548 conditioning ceiling ~2.59e7.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96606-cert-limit-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96591-route-m-lammin-cert-limit-crossover-measurement.js (IMP96591_CROSSOVER_LADDER, IMP96591_MEASURED_CROSSOVER; imp-96606 viz page)',
+      ticket: 'imp-96606',
+      pedagogicalStep: 278,
+      honestCeiling:
+        'Presentation only: every ladder value and the crossover figure are reused verbatim from imp-96591 (itself a re-analysis of the imp-96428 fit and the imp-96563 Higham/Rump rounding-shift formula); only the log10 reshape and marker packaging are new. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

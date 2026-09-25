@@ -20401,6 +20401,14 @@ const DATA_MODULES = [
   // crosses the median past the data, at N*=2.09e6). Documentation only; no bound;
   // NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96658-gmin-two-sided-oscillation-glossary-headword.js',
+  // imp-96659: Concepts glossary headword restating the imp-96636 verdict -- the
+  // rank-r lam_max log-slope sequence b_r converges toward its measured target in a
+  // SIGMOIDAL (logistic) shape (half-saturation rank r0=2.940802, width k=0.863214,
+  // r2=0.996115), not the single-exponential shape a naive ansatz suggests (r2<=0.944,
+  // non-constant implied time-constant), because a rank-one surrogate alone captures
+  // only ~4.7% of the target slope. Documentation only; no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96659-lammax-slope-saturation-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

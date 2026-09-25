@@ -20294,6 +20294,12 @@ const DATA_MODULES = [
   // one-sided VIF upper bound -- the finite-L sign is oscillatory. Documentation only;
   // no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96638-box-sine-kernel-two-sided-approx-glossary-headword.js',
+  // imp-96639: Concepts glossary headword restating the imp-96616 finding that the
+  // extreme-gap ratio g_min(N)/y_N ~ N^{-0.395} tracks the GUE median cube-root envelope
+  // (0.90x-2.21x) and RELOCATES, does not remove, the pair-correlation wall -- beating
+  // the 1/log^2 fold-law surrogate needs the unproved GUE small-gaps law. Documentation
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96639-gmin-ratio-gue-envelope-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

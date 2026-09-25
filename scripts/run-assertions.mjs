@@ -19872,6 +19872,15 @@ const DATA_MODULES = [
   // OLS 8.1e7; quadratic models tighten to ~7.6-7.8e7, integrated-exponent model loosens to ~8.2e7).
   // Import-light (no zeros bundle). Projection only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96712-basis-c-accelerating-exponent-model.js',
+  // imp-96735 (2026-09-25): MODEL-SELECTION ROBUSTNESS of the imp-96712 L* bracket [7.6e7, 8.2e7]. Leave-
+  // one-out / jackknife over the five committed imp-96690 floors (drop each rung, refit models A/B/C) spreads
+  // L* across ~[6.96e7, 8.71e7] (hi/lo ~1.25, ~4x wider than the full-data +/-6% band); the dominant leverage
+  // is the ANCHOR and TOP rungs (dropping the anchor flips the quadratic to decelerating), not the 2e7->3e7
+  // dip. AIC/BIC/AICc all prefer the single-slope OLS baseline over the three-parameter quadratic (dAIC=+0.6,
+  // dBIC=+0.2, dAICc=+18.6), confirming the over-parameterization caveat; the ~1.07-1.17-decade reach survives
+  // but the tight bracket does not. Import-light (no zeros bundle). Re-analysis only; no bound; NO QED; PT
+  // Lambda<=0.2 SOTA.
+  '/src/data/imp-96735-basis-c-lstar-bracket-leave-one-out-robustness.js',
   // imp-96693 (2026-09-24): accuracy AUDIT tabulating the residual-factor decomposition of the three
   // Route M lam_max conditioning ceilings imported from imp-96684 -- trace 2.594e7 (rigorous) < Frobenius
   // 3.764e7 (fit) < measured 4.109e7 -- confirming M/F=1.0917 reproduces the imp-96684 residual factor

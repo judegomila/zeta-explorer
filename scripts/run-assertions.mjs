@@ -20618,6 +20618,13 @@ const DATA_MODULES = [
   // refuting the imp-96749 reading that its condB ~ 1e13 wall spuriously lowers the
   // floor. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96816-krein-lammin-double-precision-trustworthy-glossary-headword.js',
+  // imp-96835: monotonicity-in-2a cross-check of the imp-96806 condB=1 Gegenbauer
+  // Krein Rayleigh floor -- lambda_min(T_a[sigma_2]) strictly increases as 2a
+  // decreases from ln3 to 0.96 (all N in {52,76,100}, T in {3200,4800}), so the
+  // 2a=ln3 plateau ~0.579 is the smallest in the window and the imp-96651 2a=0.96
+  // positivity (~20) is reproduced in this basis. Import-light; 5 self-executing
+  // assertions. Measurement only (Rayleigh UPPER bound); no bound; NO QED.
+  '/src/data/imp-96835-krein-2a-monotonicity-cross-check.js',
 ];
 
 let ALL_MODULES = FAST_MODE

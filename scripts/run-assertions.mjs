@@ -20148,6 +20148,7 @@ const DATA_MODULES = [
   // entry.
   '/src/data/imp-96612-route-m-lammax-rankr-power-iteration-bracket.js',
   '/src/data/imp-96613-route-m-lammin-nuniform-lowerbound-obstruction-assessment.js',
+  '/src/data/imp-96623-vasyunin-lammax-slope-crossvalidation.js',
   '/src/data/imp-96616-gmin-ratio-extreme-gap-decay.js',
   '/src/data/imp-96617-finite-L-correction-sign.js',
   // imp-96573: Concepts glossary headword restating the imp-96544 verdict that the Route I

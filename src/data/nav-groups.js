@@ -19,6 +19,7 @@ export const NAV_GROUPS = [
     label: 'Audits & No-Gos',
     items: [
       { to: '/pt-floor-audit', label: 'What Binds the Λ≤0.2 Floor? (audit)' },
+      { to: '/route-m-cohort2-audit', label: 'Route M Cohort-2 Orphans (audit index)' },
       { to: '/verified-height-lever', label: 'The Verified-Height Lever' },
       { to: '/mollified-barrier-certificate', label: 'Mollified Barrier Certificate (survivor)' },
       { to: '/zero-density-scoping', label: 'Can Zero-Density Move Λ? (no)' },

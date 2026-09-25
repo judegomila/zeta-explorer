@@ -4213,6 +4213,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every curve value is recomputed verbatim from the imp-96548 baked inputs (I(1,1), gamma, fit coefficients); no new measurement. The rigorous curve is an unconditional SPD trace-domination upper bound, not a match to the measured coefficient. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96598-sine-kernel-lag-decay',
+      title: 'Box-Averaged GUE Sine-Kernel Lag Decay: rho_k vs k',
+      oneLine:
+        'Plots the imp-96567 direct box lag correlations rho_1..rho_6 against the closed-form O(1/k^2) tail rho_k=-(1/(2 pi^2 Sigma^2))ln(k^2/(k^2-1)), marking the ~8.9x gap between rho_1=-0.4640 and the tail curve\'s k=1 extrapolation (a false-anchoring artifact) and the bounded telescoping tail sum sum_{k>=2} rho_k=-0.036022.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96598-sine-kernel-lag-decay-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96567-box-averaged-sine-kernel-lag-decay.js (numberVariance, directLagCorrelations, closedFormTail, reconciliation, tailBudget; imp-96598 viz page)',
+      ticket: 'imp-96598',
+      pedagogicalStep: 275,
+      honestCeiling:
+        'Presentation only: every value plotted is reused verbatim from imp-96567\'s baked inputs; only the closed-form curve over an extended k-range is recomputed here from those same inputs, using the identical formula. Conditional on the GUE sine kernel / Montgomery pair correlation for the zeta zeros (UNPROVEN). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

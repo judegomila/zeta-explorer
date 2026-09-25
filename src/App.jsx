@@ -1225,6 +1225,9 @@ const Imp96577RouteICertificateConstantLadderViz = lazy(() =>
 const Imp96581RouteILammaxRigorousVsMeasuredViz = lazy(() =>
   import('./pages/Imp96581RouteILammaxRigorousVsMeasuredViz.jsx')
 );
+const Imp96598SineKernelLagDecayViz = lazy(() =>
+  import('./pages/Imp96598SineKernelLagDecayViz.jsx')
+);
 const Imp96103RouteIRemainderResonanceViz = lazy(() =>
   import('./pages/Imp96103RouteIRemainderResonanceViz.jsx')
 );
@@ -3566,6 +3569,10 @@ function AppShell() {
           <Route
             path="/viz-imp96581-route-m-lammax-rigorous-vs-measured"
             element={<Imp96581RouteILammaxRigorousVsMeasuredViz />}
+          />
+          <Route
+            path="/viz-imp96598-sine-kernel-lag-decay"
+            element={<Imp96598SineKernelLagDecayViz />}
           />
           <Route
             path="/viz-imp96103-route-i-remainder-resonance"

@@ -20753,6 +20753,29 @@ const DATA_MODULES = [
   // in the cited numeric value; 25/47 also explicitly cite the primal certificate module inline.
   // Audit only; changes no bound; NO QED.
   '/src/data/imp-96922-krein-096-banner-audit.js',
+  // imp-97029 registration fix: the seven modules below carry self-executing assertion
+  // tripwires but were never wired into this DATA_MODULES sweep (orphaned).
+  // imp-96970: kmax=5 Route I Krein cutting-plane converged-iterate solve + re-verification
+  // at 2a=1.00. Numerical; NO QED.
+  '/src/data/imp-96970-krein-kmax5-100-converged-solve-verify.js',
+  // imp-96993: upgrades the imp-96973 step-3 Rayleigh quadratic form to an interval enclosure.
+  // Measurement; NO QED.
+  '/src/data/imp-96993-rayleigh-tail-interval-enclosure.js',
+  // imp-96995: closes the imp-96975 super-cubic tail exponent via the full minimiser
+  // coefficient spectrum. Measurement/derivation (honest partial); NO QED.
+  '/src/data/imp-96995-minimiser-coeff-spectrum-supercubic.js',
+  // imp-96996: adjudicates the imp-96976 Route M F<M ceiling separation model-form question.
+  // Analysis only; NO QED.
+  '/src/data/imp-96996-route-m-fm-quad-turnover-adjudication.js',
+  // imp-96997: builds a corrected sigma_2-weighted-tail envelope model at 2a=ln3.
+  // Modelling (honest partial); NO QED.
+  '/src/data/imp-96997-sigma2-weighted-tail-envelope-model.js',
+  // imp-96998: extends the imp-96977 Route I Krein floor ladder at a=0.48 (2a=0.96)
+  // beyond N=36. Numerical; NO QED.
+  '/src/data/imp-96998-krein-a048-Nladder-extended.js',
+  // imp-96999: cross-validates the imp-96428 Route M Vasyunin Gram lam_min power-law
+  // exponent/amplitude. Accuracy, cross-validation only; NO QED.
+  '/src/data/imp-96999-route-m-lammin-exponent-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

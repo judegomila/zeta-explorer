@@ -23785,6 +23785,34 @@ export const glossary = [
       'imp-96693-route-m-conditioning-ceiling-residual-decomposition.js the three reported ceilings T/F/M',
     ],
   },
+  {
+    term: 'Krein Ritz-Drift Sign Structure Is Truncation-Scheme-Generic; Margin Is the Only Discriminant (IMP96938_DRIFT_DIRECTION_IS_SCHEME_GENERIC_MARGIN_IS_THE_ONLY_DISCRIMINANT)',
+    category: 'numerical',
+    definition:
+      'imp-96938 calibrates the imp-96911 coupled-(N,T) Ritz-drift measurement (top eigenvalue eta ' +
+      'of the compressed resolvent R_N = P_N (K+m)^-1 P_N, floor = 1/eta - m) against the ' +
+      'CERTIFIED-POSITIVE endpoint 2a=0.96 (a=0.48), where the interval-rigorous Toeplitz/Krein ' +
+      'certificate already proves lambda_1 > 0, and compares it to the binding open-positivity case ' +
+      '2a=ln3. At BOTH endpoints eta rises monotonically with Nbig and falls with T at fixed Nbig ' +
+      '(so the Ritz floor falls with Nbig and rises with T) -- an identical drift sign structure. At ' +
+      '2a=0.96 the floor never approaches zero: it stays >= 12.0 across the full (Nbig,T) sweep ' +
+      '(min 12.0089 at the most adverse Nbig=240/T=800 cell) and only rises further with T ' +
+      '(12.0089 -> 19.1126 over T=800..3200), consistent with the large established positive ' +
+      'lambda_1 there, versus a floor of order 0.5 at 2a=ln3. So the drift DIRECTION is a generic ' +
+      'property of the coupled (N,T) resolvent-truncation scheme and does not by itself signal ' +
+      'open positivity; the only quantity separating the two endpoints is the absolute floor ' +
+      'MARGIN (order 12 vs order 0.5), not the drift behaviour. Ritz value is an upper bound so the ' +
+      'floor is an upper estimate, not a certified lower bound; interval-rigorous reach stays ' +
+      '2a<=0.96; no operator positivity established at ln3; RH open; Platt-Trudgian Lambda<=0.2 ' +
+      'remains SOTA; NO QED.',
+    firstUsed: 'imp-96964 (adds this glossary headword for the imp-96938 drift-vs-margin calibration), 2026',
+    relatedTerms: [
+      'imp-96938-krein-drift-calibration-096.js the source calibration (IMP96938_ETA_NBIG_T800, IMP96938_T_SENSITIVITY, IMP96938_VERDICT)',
+      'imp-96911-krein-eta-nconvergence-scout.js the ln3-only coupled-(N,T) drift this leaf calibrates',
+      'imp-96935-krein-shift-drift-sensitivity.js sibling shift-sensitivity companion to this calibration',
+      'imp-96889-krein-shiftinvert-katotemple-scout.js the Finding 3a eta drift source',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

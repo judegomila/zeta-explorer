@@ -1,0 +1,309 @@
+import React, { useState } from 'react';
+import PageHeader from '../components/PageHeader.jsx';
+import {
+  IMP96959_FLOOR_LADDER,
+  IMP96959_MARGIN_CONTRAST,
+  IMP96959_HONEST_BANNER,
+} from '../data/imp-96959-krein-floor-margin-viz-data.js';
+import {
+  IMP96960_LADDER_SERIES,
+  IMP96960_HONEST_BANNER,
+} from '../data/imp-96960-etrunc-cc-elasticity-ladder-viz-data.js';
+import {
+  IMP96961_ONSET_TAIL_SERIES,
+  IMP96961_HONEST_BANNER,
+} from '../data/imp-96961-bessel-onset-mass-tail-residual-viz-data.js';
+
+// imp-97040: imp-96959/imp-96960/imp-96961 were each "-viz-data" leaves with no confirmed
+// consumer (no .jsx page imported them -- see imp-96925 for the same trap on an earlier leaf).
+// This is the first consumer: a single tabbed page giving all three orphaned calibration
+// tables a chart-ready home instead of shipping three near-duplicate single-purpose pages.
+
+function LineChart({ series, xTicks, xLabel, yFormat, useLogY }) {
+  const svgW = 680;
+  const svgH = 300;
+  const padL = 46;
+  const padR = 16;
+  const padT = 16;
+  const padB = 40;
+  const plotW = svgW - padL - padR;
+  const plotH = svgH - padT - padB;
+
+  const allX = series.flatMap((s) => s.points.map((p) => p.x));
+  const allY = series.flatMap((s) => s.points.map((p) => (useLogY ? Math.log10(p.y) : p.y)));
+  const minX = Math.min(...allX);
+  const maxX = Math.max(...allX);
+  const minY = Math.min(...allY);
+  const maxY = Math.max(...allY);
+  const spanY = maxY - minY || 1;
+
+  const xOf = (x) => padL + ((x - minX) / (maxX - minX || 1)) * plotW;
+  const yOf = (y) => padT + plotH - (((useLogY ? Math.log10(y) : y) - minY) / spanY) * plotH;
+
+  const yTickVals = [0, 0.5, 1].map((f) => minY + f * spanY);
+
+  return (
+    <svg width={svgW} height={svgH} style={{ display: 'block', maxWidth: '100%' }}>
+      <line x1={padL} y1={padT} x2={padL} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      <line x1={padL} y1={padT + plotH} x2={padL + plotW} y2={padT + plotH} stroke="#64748b" strokeWidth={1.5} />
+      {yTickVals.map((v) => (
+        <g key={`y${v}`}>
+          <line x1={padL - 4} y1={padT + plotH - ((v - minY) / spanY) * plotH} x2={padL} y2={padT + plotH - ((v - minY) / spanY) * plotH} stroke="#334155" strokeWidth={1} />
+          <text x={padL - 8} y={padT + plotH - ((v - minY) / spanY) * plotH + 3} textAnchor="end" fill="#64748b" fontSize={8.5}>
+            {yFormat(useLogY ? 10 ** v : v)}
+          </text>
+        </g>
+      ))}
+      {xTicks.map((x) => (
+        <text key={`x${x}`} x={xOf(x)} y={padT + plotH + 14} textAnchor="middle" fill="#64748b" fontSize={8}>
+          {x}
+        </text>
+      ))}
+      {series.map((s) => (
+        <g key={s.label}>
+          <polyline
+            points={s.points.map((p) => `${xOf(p.x)},${yOf(p.y)}`).join(' ')}
+            fill="none"
+            stroke={s.color}
+            strokeWidth={1.9}
+          />
+          {s.points.map((p) => (
+            <circle key={`${s.label}-${p.x}`} cx={xOf(p.x)} cy={yOf(p.y)} r={2.4} fill={s.color} />
+          ))}
+        </g>
+      ))}
+      <text x={padL + plotW / 2} y={padT + plotH + 32} textAnchor="middle" fill="#94a3b8" fontSize={9}>
+        {xLabel}
+      </text>
+    </svg>
+  );
+}
+
+function Legend({ series }) {
+  return (
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem 1.2rem', marginTop: '0.5rem', fontSize: '0.75rem' }}>
+      {series.map((s) => (
+        <span key={s.label} style={{ color: s.color }}>
+          &#9632; {s.label}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function HonestBanner({ text }) {
+  return (
+    <div
+      style={{
+        marginTop: '1.25rem',
+        padding: '0.75rem 1rem',
+        background: 'rgba(248,113,113,0.06)',
+        borderLeft: '3px solid #f87171',
+        borderRadius: '0 4px 4px 0',
+        fontSize: '0.8rem',
+        color: '#94a3b8',
+      }}
+    >
+      <strong style={{ color: '#f87171' }}>Honest status:</strong> {text}
+    </div>
+  );
+}
+
+function KreinFloorMarginPanel() {
+  const series = [
+    {
+      label: '2a=ln3',
+      color: '#4ade80',
+      points: IMP96959_FLOOR_LADDER.map((r) => ({ x: r.Nbig, y: r.floorLn3 })),
+    },
+    {
+      label: '2a=0.96',
+      color: '#38bdf8',
+      points: IMP96959_FLOOR_LADDER.map((r) => ({ x: r.Nbig, y: r.floorA096 })),
+    },
+  ];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-96959 reshapes the imp-96938 Nbig=24..240 Ritz floor ladder (T=800) at both endpoints
+        onto one chart (log y-axis, since the two floors differ by ~25x). Both floors drift the
+        same direction with Nbig (down); only the absolute margin differs.
+      </p>
+      <LineChart
+        series={series}
+        xTicks={IMP96959_FLOOR_LADDER.map((r) => r.Nbig)}
+        xLabel="Nbig"
+        yFormat={(v) => v.toFixed(2)}
+        useLogY
+      />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+        Floor minima: 2a=ln3 &rarr; {IMP96959_MARGIN_CONTRAST.floorMin_ln3.toFixed(6)}; 2a=0.96
+        &rarr; {IMP96959_MARGIN_CONTRAST.floorMin_a096.toFixed(6)} (ratio{' '}
+        {IMP96959_MARGIN_CONTRAST.ratio.toFixed(2)}x). Drift direction identical at both
+        endpoints: {String(IMP96959_MARGIN_CONTRAST.driftDirectionsIdenticalBothEndpoints)}.
+      </div>
+      <HonestBanner text={IMP96959_HONEST_BANNER} />
+    </div>
+  );
+}
+
+function EtruncCcElasticityPanel() {
+  const series = [
+    {
+      label: 'C_C elasticity',
+      color: '#facc15',
+      points: IMP96960_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.elasticityCC })),
+    },
+    {
+      label: 'E_trunc elasticity',
+      color: '#f87171',
+      points: IMP96960_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.elasticityEtrunc })),
+    },
+  ];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-96960 merges the imp-96936/imp-96950 conjugate ladders across all six measured
+        sigma-share decay landmarks (sigma = 0.75 down to 0.01). The two leverages mirror each
+        other about the +2 / -2 inverse-square asymptote and their signed sum shrinks
+        monotonically deeper into the decay arm.
+      </p>
+      <LineChart
+        series={series}
+        xTicks={IMP96960_LADDER_SERIES.map((r) => r.log10N)}
+        xLabel="log10(N_cross)"
+        yFormat={(v) => v.toFixed(2)}
+      />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+          <thead>
+            <tr>
+              {['sigma', 'N_cross', 'elasticity_cc', 'elasticity_etrunc', 'signed sum'].map((h) => (
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {IMP96960_LADDER_SERIES.map((r) => (
+              <tr key={r.sigma}>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.sigma}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.nCross.toExponential(3)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.elasticityCC.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.elasticityEtrunc.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.signedSum.toFixed(4)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <HonestBanner text={IMP96960_HONEST_BANNER} />
+    </div>
+  );
+}
+
+function BesselOnsetTailPanel() {
+  const series = [
+    {
+      label: 'measured residual',
+      color: '#4ade80',
+      points: IMP96961_ONSET_TAIL_SERIES.map((r) => ({ x: r.log10N, y: r.residMeasured })),
+    },
+    {
+      label: 'first-order residual',
+      color: '#38bdf8',
+      points: IMP96961_ONSET_TAIL_SERIES.map((r) => ({ x: r.log10N, y: r.residFirstOrder })),
+    },
+  ];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-96961 reshapes the imp-96934 per-N (N = 76, 100, 124) Bessel onset-mass vs measured
+        beyond-T=3200 tail-residual table at 2a=ln3. The first-order (Rayleigh) tail residual
+        reproduces the measured floor lift in sign and order at every N, but the onset sits
+        13-22x below the T=3200 cutoff and the literal onset-mass model over-predicts the
+        absolute fraction.
+      </p>
+      <LineChart
+        series={series}
+        xTicks={IMP96961_ONSET_TAIL_SERIES.map((r) => r.log10N)}
+        xLabel="log10(N)"
+        yFormat={(v) => v.toExponential(2)}
+      />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+        Cutoff T3200 = {IMP96961_T3200}. {IMP96961_ONSET_TAIL_SERIES.length} N-rungs shown
+        (onset-over-weighted-fraction ratio ranges{' '}
+        {Math.min(...IMP96961_ONSET_TAIL_SERIES.map((r) => r.onsetOverWeightedRatio)).toFixed(2)}x
+        &ndash;{' '}
+        {Math.max(...IMP96961_ONSET_TAIL_SERIES.map((r) => r.onsetOverWeightedRatio)).toFixed(2)}x).
+      </div>
+      <HonestBanner text={IMP96961_HONEST_BANNER} />
+    </div>
+  );
+}
+
+const TABS = [
+  { id: 'krein-floor-margin', label: 'imp-96959: Krein floor margin', Panel: KreinFloorMarginPanel },
+  { id: 'etrunc-cc-elasticity', label: 'imp-96960: E_trunc vs C_C elasticity', Panel: EtruncCcElasticityPanel },
+  { id: 'bessel-onset-tail', label: 'imp-96961: Bessel onset-mass vs tail residual', Panel: BesselOnsetTailPanel },
+];
+
+export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
+  const [activeTab, setActiveTab] = useState(TABS[0].id);
+  const Active = TABS.find((t) => t.id === activeTab) ?? TABS[0];
+
+  return (
+    <div style={{ padding: '1.5rem', maxWidth: 900, margin: '0 auto' }}>
+      <PageHeader title="Orphaned Route I / Route M Calibration Leaves" />
+
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        Three viz-data leaves (imp-96959, imp-96960, imp-96961) shipped as import-light
+        reshapes of earlier calibration tables but had no consuming page. This tab set gives
+        all three a chart-ready home in one place instead of three near-duplicate pages.
+      </p>
+
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem', borderBottom: '1px solid #334155' }}>
+        {TABS.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            onClick={() => setActiveTab(t.id)}
+            style={{
+              padding: '0.5rem 0.9rem',
+              fontSize: '0.8rem',
+              background: 'none',
+              border: 'none',
+              borderBottom: t.id === activeTab ? '2px solid #38bdf8' : '2px solid transparent',
+              color: t.id === activeTab ? '#e2e8f0' : '#64748b',
+              cursor: 'pointer',
+            }}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      <Active.Panel />
+
+      <div
+        style={{
+          marginTop: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming three
+        previously-orphaned viz-data leaves verbatim. Changes no bound, establishes no operator
+        positivity; Platt-Trudgian Lambda&le;0.2 remains SOTA; RH open; NO QED.
+      </div>
+    </div>
+  );
+}

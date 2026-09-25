@@ -4591,6 +4591,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every deficit and percentage value is reused verbatim from imp-96814 (itself verbatim from imp-96768); no re-solve, no new numerics. The deficit is a LOWER bound on the true t-truncation gap. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97040-orphaned-calibration-leaves',
+      title: 'Orphaned Route I / Route M Calibration Leaves (Tabbed)',
+      oneLine:
+        'Three-tab page giving the previously-orphaned imp-96959 (Krein floor margin, 2a=ln3 vs 2a=0.96), imp-96960 (E_trunc-vs-C_C conjugate elasticity across all six sigma-share decay landmarks), and imp-96961 (Bessel onset-mass vs measured tail-residual at 2a=ln3) viz-data leaves their first consuming page.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96959-krein-floor-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96959-krein-floor-margin-viz-data.js, src/data/imp-96960-etrunc-cc-elasticity-ladder-viz-data.js, src/data/imp-96961-bessel-onset-mass-tail-residual-viz-data.js (imp-97040 tabbed viz page)',
+      ticket: 'imp-97040',
+      pedagogicalStep: 300,
+      honestCeiling:
+        'Presentation only: every value across all three tabs is reused verbatim from the imp-96959/imp-96960/imp-96961 viz-data leaves (themselves verbatim reshapes of imp-96938/imp-96936+imp-96950/imp-96934); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -1594,6 +1594,9 @@ const Imp96557EflowDominationKappaViz = lazy(() =>
 const Imp96671SpectralShareVsMeasuredSlopeViz = lazy(() =>
   import('./pages/Imp96671SpectralShareVsMeasuredSlopeViz.jsx')
 );
+const Imp97040OrphanedCalibrationLeavesTabbedViz = lazy(() =>
+  import('./pages/Imp97040OrphanedCalibrationLeavesTabbedViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4140,6 +4143,10 @@ function AppShell() {
           <Route
             path="/viz-imp96671-spectral-share-vs-measured-slope"
             element={<Imp96671SpectralShareVsMeasuredSlopeViz />}
+          />
+          <Route
+            path="/viz-imp97040-orphaned-calibration-leaves"
+            element={<Imp97040OrphanedCalibrationLeavesTabbedViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -23940,6 +23940,29 @@ export const glossary = [
       'flow-blindness-no-go.js the Axis-III unconditional no-go against soft/estimate-only closure',
     ],
   },
+  {
+    term: 'The rh-bridge-mirror-descent-2026-09-25 Section C2 Zeta-Zero Empirics Are UNREFEREED Measurement, Not Evidence for a Bound',
+    category: 'caveat',
+    definition:
+      'rh-bridge-mirror-descent-2026-09-25 proves a pair (mirror) lemma and a conditional flow-descent ' +
+      'theorem (Section A/B), then in Section C2 records a separate, unrefereed empirical lens: location-free ' +
+      'descent-time minima computed from 1e4-zero samples at gamma ~ 2.68e11 (ln N = 12.24) and ~1.37e21, plus ' +
+      'a GUE largest-gap extrapolation, all outside the Platt-Trudgian verified zero-height lane 3e12-7.5e16. ' +
+      'Unlike Sections A and B, this lens received NO adversarial referee pass. The module states this ' +
+      'explicitly (module docstring and the mirror-empirics-descent-times assertion), but the C2 numbers -- ' +
+      'e.g. location-free T = 0.1139 falling narrowly BELOW the U = 0.145 target t0 = 0.1314, versus ' +
+      'pair-replacement (Palm-corrected) T = 0.1400 failing it -- read like a measurement result and must not ' +
+      'be cited as evidence for or against a Lambda bound. The Palm correction (Section C1, which WAS ' +
+      'refereed) already shows the naive C2 framing understates the required local surplus by treating the ' +
+      'wrong baseline; the worst-case Palm-corrected data narrowly fail the target. No bound changes; the ' +
+      'conditional theorem in Section B stands independent of C2; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'RH open; NO QED.',
+    firstUsed: 'imp-97064 (adds this honest-status caveat for the rh-bridge-mirror-descent-2026-09-25 C2 unrefereed empirics), 2026',
+    relatedTerms: [
+      'rh-bridge-mirror-descent-2026-09-25.js the source module (RH_BRIDGE_MIRROR_DESCENT.numbers.empiricsDescentTimeSeam, refereeCorrections)',
+      'lane-arithmetic-input-audit-2026-09-22.js the H_desc lane hypothesis and the U = 0.145 / t0 = 0.1314 target this empirics lens tests',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -114,6 +114,7 @@
 
 import { twoThetaPrime } from './rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';
 import { KREIN_CERTIFICATE, KREIN_CERTIFICATE_090 } from './rh-route-i-toeplitz-krein-certificate-payload-2026-09-24.js';
+import { KREIN_096_ACHIEVED_MARGIN } from './imp-96676-krein-096-achieved-margin-record.js';
 
 const LN2 = Math.LN2, LN3 = Math.log(3), SQRT2 = Math.SQRT2, PI = Math.PI;
 
@@ -239,7 +240,13 @@ export const RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE = Object.freeze({
   title: 'Toeplitz/Krein certificate for pole-free Weil positivity past ln 2: sigma_2 = (t^2+1/4)^2 w_1, interval-verified for 2a <= 0.96; ln 3 obstruction quantified',
   status: 'THEOREM (machine-verified, interval arithmetic) for 2a <= 0.96; OPEN for 0.96 < 2a < ln 3; NO QED; RH open; PT Lambda <= 0.2 stands',
   reformulation: 'pole-free Weil positivity on L^2(-a,a) <=> T_a[(t^2+1/4)^2 w_1] >= 0 on L^2(-a,a) (hhat = (t^2+1/4) ghat); the CC Q-trick symbol (t^2+1/4) w_1 is the half-pole-free form, only marginally positive near ln 3 (|lambda_min| < 2e-4, sign unresolved)',
-  certificate: { X0: KREIN_CERTIFICATE.twoA, dx: KREIN_CERTIFICATE.dx, atoms: KREIN_CERTIFICATE.xs.length, kmax: KREIN_CERTIFICATE.kmax, T: KREIN_CERTIFICATE.T, eps: KREIN_CERTIFICATE.eps, epsRel: KREIN_CERTIFICATE.eps_rel, l1: KREIN_CERTIFICATE.l1, verification: KREIN_CERTIFICATE.verification },
+  certificate: { X0: KREIN_CERTIFICATE.twoA, dx: KREIN_CERTIFICATE.dx, atoms: KREIN_CERTIFICATE.xs.length, kmax: KREIN_CERTIFICATE.kmax, T: KREIN_CERTIFICATE.T, eps: KREIN_CERTIFICATE.eps, epsRel: KREIN_CERTIFICATE.eps_rel, l1: KREIN_CERTIFICATE.l1, verification: KREIN_CERTIFICATE.verification,
+    // imp-96677: eps=8.0 above is the NOMINAL LP design margin baked into the payload; the imp-96651 finer scan
+    // found the coefficients only ACHIEVE rawFfloor=7.9867 (at t=9.0254) and the full design-condition floor
+    // epsAchieved=5.280437 (at t=12.48) -- see achievedMargin below. Positivity F > 0 (verify4-certified) is
+    // unaffected either way; this only corrects the design-record bookkeeping.
+    achievedMargin: { rawFfloor: KREIN_096_ACHIEVED_MARGIN.achieved.rawFfloor.value, rawFfloorAt: KREIN_096_ACHIEVED_MARGIN.achieved.rawFfloor.at, epsAchieved: KREIN_096_ACHIEVED_MARGIN.achieved.designConditionFloor.epsAchieved, epsAchievedAt: KREIN_096_ACHIEVED_MARGIN.achieved.designConditionFloor.at, positivityUnaffected: KREIN_096_ACHIEVED_MARGIN.positivityUnchanged },
+  },
   compactCertificate: { X0: KREIN_CERTIFICATE_090.twoA, atoms: KREIN_CERTIFICATE_090.xs.length, l1: KREIN_CERTIFICATE_090.l1, eps: KREIN_CERTIFICATE_090.eps, verification: KREIN_CERTIFICATE_090.verification },
   theorem: 'for every 0 < a <= 0.48 and h in L^2(-a,a) with hhat(+-i/2) = 0: (1/2pi) int (2theta\' - m_2)|hhat|^2 >= 0 (pole-free Weil positivity, support 2a <= 0.96 > ln 2; compact certificate for 2a <= 0.9)',
   obstruction: 'eps <= lambda_min(T_a[sigma_2]) = 0.552 at (ln 3)/2 (relative 1.3e-4 of the dip 4336; symbol up to 1.7e7 on the verified window); double-precision LP wall at a >= 0.50; t^4 atoms capped by the log growth of 2theta\' (tail needs min p_4 > -(ln(T/2pi) - 0.98)); the analytic Krein extension of (sigma_2)^vee on (-ln 3, ln 3) is the open problem',

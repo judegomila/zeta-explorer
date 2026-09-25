@@ -4325,6 +4325,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value (N, ratio, gueMedian, ratioOverGue, argminIdx) is reused verbatim from imp-96616; only the log-log chart reshape and the isPlateau flag (derived from repeated argminIdx) are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96646-krein-certificate-margin',
+      title: 'Krein Sigma2 Certificate Margin: Verified Rungs, eps -> 0 Wall, ln2 / ln3',
+      oneLine:
+        'Plots the three interval-verified Route I Krein sigma_2 certificate rungs (2a=0.90/0.94/0.96) against the exactly-linear certified margin eps(2a)=200(1-2a) and the log-linear tail l1-norm growth, marking the projected eps->0 double-precision LP wall (2a in [1.00,1.04]) and the ln2/ln3 landmarks on a reach diagram.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96646-krein-certificate-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-toeplitz-krein-certificate-2026-09-24.js (TOEPLITZ_KREIN_LITERALS.epsMarginDecay, .normGrowthLaw, .priorRange; imp-96646 viz page)',
+      ticket: 'imp-96646',
+      pedagogicalStep: 283,
+      honestCeiling:
+        'Presentation only: every anchor and fit coefficient (eps, l1, slopes, intercepts, wall band, ln2/ln3) is reused verbatim from the Route I Krein certificate literals; only the paired chart and reach-diagram reshape are new. The double-precision LP wall is a conditioning symptom of the certificate norm, not a positivity failure (lambda_min(T_a[sigma_2]) stays positive well past 2a=1.0). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

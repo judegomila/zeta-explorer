@@ -1234,6 +1234,9 @@ const Imp96641GminGueEnvelopeViz = lazy(() =>
 const Imp96721Sigma2EmpVsGueViz = lazy(() =>
   import('./pages/Imp96721Sigma2EmpVsGueViz.jsx')
 );
+const Imp96646KreinCertificateMarginViz = lazy(() =>
+  import('./pages/Imp96646KreinCertificateMarginViz.jsx')
+);
 const Imp96600BasisCFloorLadderViz = lazy(() =>
   import('./pages/Imp96600BasisCFloorLadderViz.jsx')
 );
@@ -3598,6 +3601,10 @@ function AppShell() {
           <Route
             path="/viz-imp96641-gmin-gue-envelope"
             element={<Imp96641GminGueEnvelopeViz />}
+          />
+          <Route
+            path="/viz-imp96646-krein-certificate-margin"
+            element={<Imp96646KreinCertificateMarginViz />}
           />
           <Route
             path="/viz-imp96721-sigma2-emp-vs-gue"

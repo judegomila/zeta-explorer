@@ -4214,6 +4214,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every curve value is recomputed verbatim from the imp-96548 baked inputs (I(1,1), gamma, fit coefficients); no new measurement. The rigorous curve is an unconditional SPD trace-domination upper bound, not a match to the measured coefficient. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96663-route-m-condfit-ladder',
+      title: 'Route M: Directly-Measured cond#(N) Ladder and Ceiling Markers',
+      oneLine:
+        'Plots the imp-96570 directly-measured cond#(N)=lam_max/lam_min ladder (N=250,3000..6000), its single-object power fit (q~1.9557 dense, R^2=0.99975), and the three conditioning ceilings (rigorous lower 2.59e7, composed measured 4.11e7, independent dense 4.30e7) against the imp-96352 wall-clock compute ceiling ~9916 on a log-log axis.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96663-route-m-condfit-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96570-route-m-conditioning-ceiling-crossvalidation.js (IMP96570_COND_ROWS, IMP96570_FIT, IMP96570_CROSSCHECK; imp-96663 viz page)',
+      ticket: 'imp-96663',
+      pedagogicalStep: 286,
+      honestCeiling:
+        'Presentation only: every ladder row, fit coefficient, and ceiling value plotted here is copied verbatim from the imp-96570 baked literals (no re-derivation, no fresh solve); the power-law extrapolation is a double-precision, non-interval point estimate, not a proved bound. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96598-sine-kernel-lag-decay',
       title: 'Box-Averaged GUE Sine-Kernel Lag Decay: rho_k vs k',
       oneLine:

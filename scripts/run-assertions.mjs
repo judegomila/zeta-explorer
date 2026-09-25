@@ -20227,6 +20227,13 @@ const DATA_MODULES = [
   // imp-96352 compute ceiling (~9916) but ~240x below the imp-96548 conditioning
   // ceiling (~2.59e7). Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96602-lammin-verified-cholesky-cert-limit-glossary-headword.js',
+  // imp-96603: Concepts glossary headword restating the imp-96562 structural verdict
+  // that the Vasyunin Gram is a MULTIPLICATIVE (Dirichlet-Bohr) kernel, not an
+  // additive-Toeplitz one, and has an unbounded log-divergent spectral edge, so no
+  // classical Szego/Grenander edge constant exists and the measured lam_max log-slope
+  // 0.3526 is a growth RATE, not an edge VALUE. Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96603-vasyunin-gram-multiplicative-not-toeplitz-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

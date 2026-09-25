@@ -4577,6 +4577,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every N_center, fill fraction, and ordinate count is reused verbatim from imp-96754 (arithmetic on the cached zero COUNT only, no zeros bundle imported, no gaps recomputed). Changes no bound, establishes no operator positivity, no RH claim; measurement/scoping only, conditional on GUE; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96925-krein-t-truncation-deficit',
+      title: 'Route I Krein Floor: Fixed-T=800 vs T=3200 t-Truncation Deficit',
+      oneLine:
+        'Line chart of the imp-96814 per-2a relative Krein Rayleigh-floor t-truncation deficit (T=3200 minus T=800, as a percent of the T=3200 floor) over N=52..124, showing the deficit is SMALLEST at the binding 2a=ln3 rung (~7.79% at N=100) and grows super-linearly with N at every rung -- first confirmed consumer of the previously-orphaned imp-96814 leaf.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96814-krein-t-truncation-deficit-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96768-gegenbauer-krein-lammin-recompute.js (IMP96768_LADDER_T800, IMP96768_LADDER_CONVERGED; imp-96925 viz page)',
+      ticket: 'imp-96925',
+      pedagogicalStep: 299,
+      honestCeiling:
+        'Presentation only: every deficit and percentage value is reused verbatim from imp-96814 (itself verbatim from imp-96768); no re-solve, no new numerics. The deficit is a LOWER bound on the true t-truncation gap. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

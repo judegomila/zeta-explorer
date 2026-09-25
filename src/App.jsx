@@ -1284,6 +1284,9 @@ const Imp96739BasisCAboveAnchorLadderLstarCrossoverViz = lazy(() =>
 const Imp96822GminLadderReachFrontierViz = lazy(() =>
   import('./pages/Imp96822GminLadderReachFrontierViz.jsx')
 );
+const Imp96925KreinTTruncationDeficitViz = lazy(() =>
+  import('./pages/Imp96925KreinTTruncationDeficitViz.jsx')
+);
 const Imp96741RouteMThreeCeilingDecompositionViz = lazy(() =>
   import('./pages/Imp96741RouteMThreeCeilingDecompositionViz.jsx')
 );
@@ -3724,6 +3727,10 @@ function AppShell() {
           <Route
             path="/viz-imp96822-gmin-ladder-reach-frontier"
             element={<Imp96822GminLadderReachFrontierViz />}
+          />
+          <Route
+            path="/viz-imp96925-krein-t-truncation-deficit"
+            element={<Imp96925KreinTTruncationDeficitViz />}
           />
           <Route
             path="/viz-imp96741-route-m-three-ceiling-decomposition"

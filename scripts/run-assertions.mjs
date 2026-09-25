@@ -20653,6 +20653,13 @@ const DATA_MODULES = [
   // Wolkowicz-Styan pivot family and a fit-free geometric-mean pivot to machine
   // precision. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96824-route-m-mt-ratio-fit-invariant-glossary-headword.js',
+  // imp-96825: audit of imp-96772/96773/96774 found imp-96772 and imp-96773
+  // already registered above but imp-96774 (re-fit of the small-gaps
+  // running-min exponent b on theoretical GUE over 100 independent
+  // realizations) missing from this DATA_MODULES sweep, so its self-executing
+  // tripwire assertions ran nowhere. Registration fix only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96774-gmin-exponent-refit-genuine-se.js',
 ];
 
 let ALL_MODULES = FAST_MODE

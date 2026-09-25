@@ -20628,6 +20628,14 @@ const DATA_MODULES = [
   // positivity (~20) is reproduced in this basis. Import-light; 5 self-executing
   // assertions. Measurement only (Rayleigh UPPER bound); no bound; NO QED.
   '/src/data/imp-96835-krein-2a-monotonicity-cross-check.js',
+  // imp-96845 (2026-09-25): closes imp-96834 SUB-GAP IMP96834_HIGHER_DEGREE_LP_UNSOLVED
+  // by a fresh solve -- a kmax=5 double-precision cutting-plane LP is solvable and
+  // near-feasible (l1 ~7-19, ~1e5x below the kmax=4 baked 1.466e6) past 2a=1.0 out to
+  // 1.06, then walls (HiGHS status 4) at 1.08, so the measured kmax=5 frontier is
+  // 1.06 < 2a* < 1.08 -- moves right of 1.0 but does NOT reach ln3. Import-light; 6
+  // self-executing assertions. Measurement only (not converged, not verified); reach
+  // stays 2a<=0.96; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96845-krein-kmax5-frontier-measurement.js',
   // imp-96855: the imp-96707 cohort2 orphan modules (imp-96805 confirmed all 9
   // import-light, zero zeros-bundle dependence, direct or transitive) were missing
   // from this DATA_MODULES sweep, so their module-scope self-executing throw

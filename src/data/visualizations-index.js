@@ -4395,6 +4395,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (rigorous, unconditional matrix inequalities measured on the same exact Vasyunin Gram as imp-96105/imp-96443); no re-solve. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96671-spectral-share-vs-measured-slope',
+      title: 'Route M Sigmoid Onset: Two-Scale Weight Share vs Measured Slope Fraction',
+      oneLine:
+        'Plots the imp-96652 two-scale closed-form top-eigenpair weight share s_r = 1/(1+exp(-(r-r0)/k)) -- width k=1/ln(lam1/lam2) from the top gap ratio, half-saturation r0 from the small top overlap w1~8.7% -- against the measured imp-96612 rank-r Rayleigh log-slope fraction b_r/L, with the exact (non-idealized) N=3000 top-share overlaid for reference.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96671-spectral-share-vs-measured-slope-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96652-route-m-lammax-sigmoid-onset-spectral-derivation.js (IMP96652_TWOSCALE_AVG, IMP96652_SHARE_N3000; imp-96671 viz page)',
+      ticket: 'imp-96671',
+      pedagogicalStep: 287,
+      honestCeiling:
+        'Presentation only: the two-scale curve is computed at render time from baked closed-form parameters already reported in imp-96652 (no new numerics); the measured points and exact-share overlay are baked literals reused verbatim. Does not close IMP96562_SUBGAP, changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

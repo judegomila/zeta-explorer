@@ -1550,6 +1550,9 @@ const Imp96555RouteIConcentrationLadderViz = lazy(() =>
 const Imp96557EflowDominationKappaViz = lazy(() =>
   import('./pages/Imp96557EflowDominationKappaViz.jsx')
 );
+const Imp96671SpectralShareVsMeasuredSlopeViz = lazy(() =>
+  import('./pages/Imp96671SpectralShareVsMeasuredSlopeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4038,6 +4041,10 @@ function AppShell() {
           <Route
             path="/viz-imp96557-eflow-domination-kappa"
             element={<Imp96557EflowDominationKappaViz />}
+          />
+          <Route
+            path="/viz-imp96671-spectral-share-vs-measured-slope"
+            element={<Imp96671SpectralShareVsMeasuredSlopeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

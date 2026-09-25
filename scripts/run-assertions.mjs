@@ -20583,6 +20583,11 @@ const DATA_MODULES = [
   '/src/data/imp-96641-gmin-gue-envelope-viz-data.js',
   '/src/data/imp-96646-krein-certificate-margin-viz-data.js',
   '/src/data/imp-96721-sigma2-emp-vs-gue-viz-data.js',
+  // imp-96786: Concepts glossary headword restating the imp-96709 verdict -- the
+  // defensible single Route M drift VIF, measured directly by moving block
+  // bootstrap, is ~1.70 (band [1.41, 1.79]), below all three imp-96692 model-based
+  // estimates. Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96786-drift-vif-block-bootstrap-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

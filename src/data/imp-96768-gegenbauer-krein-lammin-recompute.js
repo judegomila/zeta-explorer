@@ -66,6 +66,7 @@
  *
  * @see imp-96749-krein-lammin-N-trend-measurement.js (Legendre ladder; SUB-GAP IMP96749_UNIFORM_N_GAP_UNSETTLED)
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (pole-free Weil positivity = T_a[sigma_2] >= 0)
+ * @see imp-96772-krein-lammin-double-double-recompute.js (sibling: extended-precision Legendre recompute, same wall, same conclusion)
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098

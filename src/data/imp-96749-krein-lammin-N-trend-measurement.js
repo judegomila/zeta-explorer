@@ -64,6 +64,8 @@
  * @see rh-route-i-toeplitz-krein-certificate-2026-09-24.js (lambdaMinSigma2 N={20,28,36}; analyticObstruction)
  * @see imp-96732-krein-extended-precision-reach-assessment.js (finite-certificate margin blocked past 2a=1.0)
  * @see imp-96748-krein-098-cutting-plane-solve.js (sibling: double-precision LP probe at 2a=0.98)
+ * @see imp-96772-krein-lammin-double-double-recompute.js (resolves IMP96749_UNIFORM_N_GAP_UNSETTLED: extended-precision solve, wall reproduces double-precision floor)
+ * @see imp-96768-gegenbauer-krein-lammin-recompute.js (resolves IMP96749_UNIFORM_N_GAP_UNSETTLED: diagonal-Gram basis, descent is t-truncation not conditioning)
  */
 
 const LN3 = Math.log(3); // 1.0986122886681098

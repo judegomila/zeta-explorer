@@ -25,7 +25,7 @@
  *   about zeta beyond the diagonal integral I(1,1) = 1.2607. This is unconditional
  *   and rigorous. It does NOT reproduce the measured slope: the rigorous trace
  *   slope 1.2607 is ~3.6x the measured 0.3526 (at N = 6000 trace domination gives
- *   lam_max <= 11.69 versus the measured ~6.09, a ~1.58x overstatement). The slack
+ *   lam_max <= 11.69 versus the measured ~6.09, a ~1.92x overstatement). The slack
  *   is the off-diagonal Gram mass that trace domination discards entirely; pinning
  *   the measured 0.3526 rigorously needs a Toeplitz/Szego-type limiting-spectrum
  *   asymptotic of the multiplicative kernel gcd(h,k) I(h/g,k/g) / (hk), which is not
@@ -76,7 +76,7 @@ const SPD_TRACE_DOMINATION_LOG_SHAPE_HEADWORD = Object.freeze({
     'The gap between the rigorous trace bound and the measured value is the ' +
     'off-diagonal Gram mass, which trace domination discards entirely (trace only ' +
     'sums diagonal entries). At N = 6000, trace domination gives lam_max <= 11.69 ' +
-    'versus the measured ~6.09 (a ~1.58x overstatement). Pinning the measured ' +
+    'versus the measured ~6.09 (a ~1.92x overstatement). Pinning the measured ' +
     '0.3526 slope rigorously would require a Toeplitz/Szego-type limiting-spectrum ' +
     'asymptotic for the multiplicative kernel gcd(h,k) I(h/g,k/g) / (hk), which is ' +
     'not available -- left as an open sub-gap.',

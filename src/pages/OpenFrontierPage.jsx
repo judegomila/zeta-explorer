@@ -2742,6 +2742,46 @@ const DYSON_LANE_RESIDUALS = [
   },
 ];
 
+// Odlyzko interior-dip depth-scaling sub-gap. Already carries its own reproducible
+// measurement and honest-status banner in src/data/ but was previously referenced only
+// in the improvement log, not rendered on any page (imp-96541).
+const DIP_DEPTH_RESIDUALS = [
+  {
+    id: 'DipDepth-1',
+    tag: 'imp-96510-systematic-vs-noise-dip-depth-scaling',
+    color: '#a05a2c',
+    badge: 'ZERO-SOURCE GAP: ~7 ORDERS OF MAGNITUDE',
+    title: 'Odlyzko interior below-envelope dip: systematic vs sampling-noise depth scaling is undecided',
+    status: 'OPEN',
+    body: [
+      'imp-96452 named the only lever that could lift the T = 1.5e5 number-variance excursion from ' +
+      '~1.9-sigma to a clean 2-sigma: a comparably deep below-envelope dip at a higher unclipped ' +
+      'height. Whether such a dip is reachable turns entirely on how the fractional dip depth relErr ' +
+      'scales with height, and the two competing readings imply wildly different required zero-sources. ' +
+      'Reading (A) SYSTEMATIC treats relErr as a fixed fractional feature, so z = relErr*sqrt(n_w/2) grows ' +
+      'as T^(1/4) and a clean 2-sigma dip becomes cheap: height ~5.38e6, needing only ~1.44e7 zeros -- ' +
+      'well inside existing 10^12 contiguous datasets. Reading (B) SAMPLING-NOISE treats relErr as shrinking ' +
+      'with the chi-square floor sqrt(2/n_w), so z stays O(1) at every height and a 2-sigma dip is a rare ' +
+      '~2.28% one-sided tail per independent height, only reachable via a statistical hunt across ~30 ' +
+      'independent heights (50% chance) needing a contiguous source to ordinate ~2.44e13 (~1.09e14 zeros, ' +
+      '~8.1x the Platt-Trudgian verified height ~3.0001e12) -- or ~100 heights (90%) needing ~1.55e32, ' +
+      'astronomically out of reach. The two readings differ by ~7 orders of magnitude in the required ' +
+      'zero-source.',
+      'The imp-96493 two-anchor data favours reading (B): the measured depth shrank faster (0.425x) than ' +
+      'the sampling floor (0.789x) from T = 1.5e5 to T = 3.879e5, so z FELL rather than rising as T^(1/4) ' +
+      'would predict. The GUE number-variance envelope itself does not predict deeper dips become ' +
+      'attainable at height. Follow-up fits (imp-96528, imp-96530) corroborate direction (B) across five ' +
+      'more interior anchors -- higher-anchor mean depth collapsed 6.54x and the z-exponent came out ' +
+      'negative, opposite the systematic sign -- but the free relErr(T) exponent remains too scattered ' +
+      '(R^2 = 0.288) to rigorously PIN, so this sub-gap stays formally OPEN: deciding it needs 3+ ' +
+      'independent unclipped interior heights beyond the existing 10^6-ordinate set, which the current ' +
+      'data does not supply.',
+      'Assessment/measurement only; changes no bound; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.',
+    ],
+    links: [],
+  },
+];
+
 // Route M (Nyman-Beurling Burnol/Vasyunin) numerical-program residuals. Each
 // is a MEASUREMENT/FIT-ONLY sub-gap already carrying its own honest-status
 // banner in src/data/ but not previously rendered on any page (imp-96518).
@@ -4915,6 +4955,64 @@ export default function OpenFrontierPage() {
               ))}
             </div>
           )}
+        </div>
+      ))}
+
+      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #a05a2c' }}>
+        <strong style={{ color: '#a05a2c', fontSize: 13 }}>Odlyzko interior-dip depth-scaling sub-gap</strong>
+        <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>
+          The record below is a honest-status sub-gap from the Odlyzko number-variance excursion
+          program (imp-96452/imp-96493/imp-96510). It already carries its own reproducible
+          measurement and honest-status banner in src/data/ but was previously referenced only in
+          the improvement log, not rendered on any page. It does not establish RH, change the
+          PT-Lambda &lt;= 0.2 bound, or claim operator positivity.
+        </p>
+      </div>
+
+      {DIP_DEPTH_RESIDUALS.map((r) => (
+        <div
+          key={r.id}
+          className="card"
+          style={{ marginBottom: 18, borderLeft: "3px solid " + r.color }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10, flexWrap: 'wrap' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: 0.5,
+                color: r.color,
+                border: "1px solid " + r.color,
+                borderRadius: 4,
+                padding: '2px 7px',
+              }}
+            >
+              {r.badge}
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-mono, monospace)',
+                fontSize: 10.5,
+                fontWeight: 700,
+                color: '#b58a2e',
+                border: '1px solid #b58a2e',
+                borderRadius: 4,
+                padding: '1px 6px',
+              }}
+            >
+              {r.status}
+            </span>
+            <code style={{ fontSize: 11, color: '#877b67' }}>{r.tag}</code>
+          </div>
+          <strong style={{ color: '#1c1814', fontSize: 14, display: 'block', marginBottom: 10 }}>
+            {r.title}
+          </strong>
+          {r.body.map((para, i) => (
+            <p key={i} style={{ fontSize: 13, color: '#877b67', lineHeight: 1.65, marginTop: i === 0 ? 0 : 10, marginBottom: 0 }}>
+              {para}
+            </p>
+          ))}
         </div>
       ))}
 

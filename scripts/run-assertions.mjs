@@ -20345,6 +20345,13 @@ const DATA_MODULES = [
   // the 1/log^2 fold-law surrogate needs the unproved GUE small-gaps law. Documentation
   // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96639-gmin-ratio-gue-envelope-glossary-headword.js',
+  // imp-96717: narrows the imp-96616/imp-96639 GUE cube-root extreme-gap band with a
+  // variance-reduced disjoint-window MEDIAN estimator on the full 2,001,052 zeros -- median
+  // tracks 0.8582 w^{-1/3} to within 0.984x-1.067x (~15x tighter than the running-min
+  // 0.90x-2.21x) with exponent -0.3430 (within 3% of -1/3), so the wide band and the -0.3953
+  // exponent gap are single-draw variance artifacts, not a real GUE departure. Measurement
+  // only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96717-gmin-gue-median-bootstrap-narrows-band.js',
   // imp-96719: Concepts glossary headword restating the imp-96692 finding that the
   // measured drift covariance (phi1 = 0.44, AR(1) VIF ~ 2.58) in the imp-96487
   // ladder inflates the imp-96569 SE-of-mean reach by ~0.4-1.9 orders of magnitude

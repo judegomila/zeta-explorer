@@ -1496,6 +1496,9 @@ const Imp96554TwoExponentRelErrConeViz = lazy(() =>
 const Imp96555RouteIConcentrationLadderViz = lazy(() =>
   import('./pages/Imp96555RouteIConcentrationLadderViz.jsx')
 );
+const Imp96557EflowDominationKappaViz = lazy(() =>
+  import('./pages/Imp96557EflowDominationKappaViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -3912,6 +3915,10 @@ function AppShell() {
           <Route
             path="/viz-imp96555-route-i-concentration-ladder"
             element={<Imp96555RouteIConcentrationLadderViz />}
+          />
+          <Route
+            path="/viz-imp96557-eflow-domination-kappa"
+            element={<Imp96557EflowDominationKappaViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

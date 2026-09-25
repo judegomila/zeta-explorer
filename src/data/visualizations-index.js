@@ -4143,6 +4143,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every lambda_0(c), dip-concentration, and nu_max value plotted here is copied verbatim from the Route I uncertainty/concentration certificate module. The pure concentration bound fails on its own (nu_max=0.997689 is a 0.23% cancellation); the certificate closes D_S <= L_S unconditionally by a different route (Theorem III, constant 9.04e-4), not via this concentration argument. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96557-eflow-domination-kappa',
+      title: 'E_flow-Domination Required Factor kappa(N)',
+      oneLine:
+        'Charts the imp-96409 E_flow-domination required-factor kappa(N)=E_coll/E_flow: the diagnostic-regime ladder rising monotonically from ~6.26 (N=1e3) to ~4.94e3 (N=1e12), plus the shallow global infimum ~5.30 at N~95.5 -- never reaching the kappa=1 parity line at any N.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96557-eflow-domination-kappa-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96409-eflow-domination-required-factor.js (IMP96409_EFLOW_DOMINATION_REQUIRED_FACTOR; imp-96557 viz page)',
+      ticket: 'imp-96557',
+      pedagogicalStep: 270,
+      honestCeiling:
+        'Presentation only: every ladder row and landmark value plotted here is copied verbatim from the imp-96409 required-factor measurement; the only new step is parsing "1eK" N-labels to numeric N and taking log10 for the plotting grid. E_coll stays GUE-conditional (imp-486, UNTOUCHED); the imp-398 pinned C_F is UNTOUCHED; no admissible mollifier reshaping can inflate C_F by the required x5-6x+. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

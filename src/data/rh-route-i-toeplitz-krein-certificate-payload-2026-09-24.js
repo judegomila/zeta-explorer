@@ -18,6 +18,7 @@ export const KREIN_CERTIFICATE = Object.freeze({
   verification: Object.freeze({
     verified: true, tailOk: true, tailBracket: 0.20162408186563047, minTopTrigPoly: -0.745308294061164, coarseCells: 30000, finePoints: 44088, failingCells: 0,
     worstFm: 7.39398412783612, worstAt: 11.095000000000375, S: [1456113.1785617387, 9785.197862606296, 281.499467792101, 0, 3.994153401150067], w1SecondDerivBound: 32.802903963831554, tool: 'tmp/toeplitz-krein-verify4.py (mpmath.iv 80-bit, shifted Stirling N=8 with Binet remainders)', date: '2026-09-24',
+    honestStatus: 'imp-96633: worstFm above is a mixed-abscissa monitor artifact (sigma_2 held at the coarse-cell midpoint while nu is sampled at a nearby fine point), NOT the true single-point value -- independently recomputed F(11.095)=14.2975. It under-reports (errs safe) and does not bear on the pass/fail decision: verify4 certifies via the per-cell Taylor lower bound, tail bracket, and zero failing-cell count, not via this monitor field.',
   }),
 });
 export const KREIN_CERTIFICATE_090 = Object.freeze({

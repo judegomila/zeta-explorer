@@ -4438,6 +4438,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every gap, sigma, and reach-N value is reused verbatim from imp-96569 (SE-of-mean reach projection, an optimistic lower bound); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96777-krein-lammin-n-trend',
+      title: 'Route I Krein Floor: lambda_min(T_a[sigma_2]) vs N',
+      oneLine:
+        'Plots the imp-96749 N-trend of the Rayleigh-Ritz upper floor lambda_min(T_a[sigma_2]) at 2a in {1.00,1.05,ln3} over N=20..76, each curve normalised to its own N=20 value, with the double-precision-trustworthy window (N<=52, condB<=4.6e12) shaded and the Gram-conditioning wall onset (N=60, condB crosses 1e13) marked -- past the wall the visible decrement re-acceleration is a conditioning artifact, not spectral collapse.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96777-krein-lammin-n-trend-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96749-krein-lammin-N-trend-measurement.js (IMP96749_LADDER, IMP96749_NS, IMP96749_CONDB, IMP96749_TRUSTED, IMP96749_VERDICT; imp-96777 viz page)',
+      ticket: 'imp-96777',
+      pedagogicalStep: 292,
+      honestCeiling:
+        'Presentation only: every floor value, condB reading, and window boundary is reused verbatim from imp-96749 (Rayleigh-Ritz upper floor, not an operator positivity proof); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96671-spectral-share-vs-measured-slope',
       title: 'Route M Sigmoid Onset: Two-Scale Weight Share vs Measured Slope Fraction',
       oneLine:

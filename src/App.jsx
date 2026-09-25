@@ -1240,6 +1240,9 @@ const Imp96701FrobeniusMajorantElevenRungViz = lazy(() =>
 const Imp96702RouteMReachProjectionViz = lazy(() =>
   import('./pages/Imp96702RouteMReachProjectionViz.jsx')
 );
+const Imp96777KreinLammminNTrendViz = lazy(() =>
+  import('./pages/Imp96777KreinLammminNTrendViz.jsx')
+);
 const Imp96640RankrPowerIterationBracketViz = lazy(() =>
   import('./pages/Imp96640RankrPowerIterationBracketViz.jsx')
 );
@@ -3640,6 +3643,10 @@ function AppShell() {
           <Route
             path="/viz-imp96702-route-m-reach-projection"
             element={<Imp96702RouteMReachProjectionViz />}
+          />
+          <Route
+            path="/viz-imp96777-krein-lammin-n-trend"
+            element={<Imp96777KreinLammminNTrendViz />}
           />
           <Route
             path="/viz-imp96640-route-m-rankr-power-iteration-bracket"

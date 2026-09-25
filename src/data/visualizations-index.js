@@ -4493,6 +4493,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value (N, ratioOverGue, argminIdx) is reused verbatim from imp-96616 and every doubling/jump/oscillation figure is reused verbatim from imp-96654; only the plateau/reset flags and the log-log chart reshape are new. Changes no bound, establishes no operator positivity, no RH claim; the measured exponent stays conditional on no proven small-gaps theorem; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96723-route-m-three-ceiling-decomposition',
+      title: 'Route M Three-Ceiling Decomposition',
+      oneLine:
+        'Plots the imp-96693 audited three-ceiling Route M decomposition (rigorous trace-domination T 2.594e7 < Frobenius fit F 3.764e7 < measured M 4.109e7) as bars on a log10(N) axis with each ceiling labelled fit-vs-rigorous, and the F/T ~1.45x and M/F ~1.09x adjacency ratios labelled between rungs, showing the two legs multiply exactly to the total M/T ~1.58x ratio.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96723-route-m-three-ceiling-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (IMP96693_CEILINGS, IMP96693_RATIOS, IMP96693_DECOMPOSITION, IMP96693_VERDICT; imp-96723 viz page)',
+      ticket: 'imp-96723',
+      pedagogicalStep: 294,
+      honestCeiling:
+        'Presentation only: every ceiling value and ratio is reused verbatim from imp-96693 (itself a pure re-analysis of the imp-96684 bisection-solved ceilings, no new numerics); the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap, only the trace ceiling is a rigorous lower bound. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

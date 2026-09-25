@@ -23813,6 +23813,39 @@ export const glossary = [
       'imp-96889-krein-shiftinvert-katotemple-scout.js the Finding 3a eta drift source',
     ],
   },
+  {
+    term: 'Route M Composed-Ceiling Band Reconciliation: All-Rung CI Is Defensible, Dense CI Is a Sampling-Design Artifact (IMP96937_RECONCILED_CI_BAND)',
+    category: 'numerical',
+    definition:
+      'imp-96937 reconciled the two imp-96656 confidence intervals feeding the Route M ' +
+      'conditioning-ceiling band -- the all-rung fit (5 rungs, sigma_ln=0.0236) and the dense fit ' +
+      '(4 rungs, sigma_ln=0.1030) -- which had left the imp-96913 joint M band swinging 4.4x ' +
+      'depending on which was used. The all-rung fit spans a 25.4x longer log-N lever arm (Sxx ' +
+      '6.80 vs 0.268, Var(q)=s^2/Sxx), so nearly the entire band-width gap traces to sampling ' +
+      'design, not to extra scatter: per-point residual RMS is comparable on both subsets ' +
+      '(0.01259 all-rung vs 0.01134 dense) and R^2 actually rises when the low N=250 anchor is ' +
+      'added (0.99975 -> 0.99998), with that anchor sitting only -0.26 percent off the all-rung ' +
+      'line. The dense fit, restricted to N>=3000, mispredicts the measured N=250 cond# by -8.0 ' +
+      'percent when extrapolated down -- its narrow-range slope is biased low. So the all-rung CI ' +
+      'is the defensible composed-ceiling band, and the dense CI measures a crippled sampling ' +
+      'design (four points clustered over only a factor 2 in N), not irreducible uncertainty. ' +
+      'Folding the defensible all-rung CI through the imp-96930 shared-p decorrelation gives a ' +
+      'single reconciled joint band M in [3.919e7, 4.308e7], which restores a thin F<M separation ' +
+      '(M_lo 3.919e7 > F_hi 3.899e7, ~0.5 percent): the previously reported ~14.5 percent F/M ' +
+      'overlap was an artifact of using the non-defensible dense CI. Point ordering T<F<M and ' +
+      'compute-binds-first (~3953x) are unchanged. The reconciled band still leans on a single ' +
+      'high-leverage anchor (N=250 leverage h=0.968) and inherits the non-rigorous lam_min/lam_max ' +
+      'fit extrapolations; only the trace ceiling T is a rigorous lower bound. Sensitivity only; ' +
+      'no bound moved; no operator positivity established; interval-rigorous reach stays ' +
+      '2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96966 (adds this glossary headword for the imp-96937 reconciled all-rung CI band), 2026',
+    relatedTerms: [
+      'imp-96937-route-m-ceiling-reconciled-ci-band.js the source reconciliation (IMP96937_VERDICT, IMP96937_RECONCILED_M_BAND)',
+      'imp-96913-route-m-ceiling-joint-p-ci-band.js the joint band with the unresolved 4.4x CI swing',
+      'imp-96930-route-m-ceiling-decorrelated-joint-band.js the shared-p decorrelation folded into the reconciled band',
+      'imp-96656-route-m-conditioning-ceiling-confidence-interval.js the two CI variants and the cond# rows',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -142,10 +142,10 @@ export const IMP96693_VERDICT = Object.freeze({
 
 export const IMP96693_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Accuracy audit only: every ratio is pure ' +
-  're-analysis of the three imp-96684 bisection-solved conditioning ceilings; the Frobenius ' +
-  'and measured ceilings inherit the imp-96684 / imp-96443 log-fit extrapolation sub-gap ' +
-  '(only the trace ceiling 2.594e7 is a rigorous lower bound). No bound is claimed moved and ' +
-  'no operator positivity is established.';
+  're-analysis of the three imp-96684 bisection-solved conditioning ceilings. Only the trace ' +
+  'ceiling T=2.594e7 is a rigorous lower bound; the Frobenius ceiling F=3.764e7 and the ' +
+  'measured ceiling M=4.109e7 both rest on the imp-96684 / imp-96443 log-fit extrapolated ' +
+  '~four decades in N. No bound is claimed moved and no operator positivity is established.';
 
 // imp-96706: none of T, F, M is a real-world compute limit -- each is the N at which
 // cond#(N) hits the IEEE-double breakdown scale 1/eps. The imp-96352 wall-clock compute

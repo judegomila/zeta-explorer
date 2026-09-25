@@ -4424,6 +4424,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (eight committed rungs) and imp-96684 (three new rungs + re-fit ceilings); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96702-route-m-reach-projection',
+      title: 'Route M Reach Projection: Gap Floor vs Compute Ceiling',
+      oneLine:
+        'Plots the imp-96569 RH-vs-plateau gap (0.0154) against the two fluctuation scales it must clear (sigma_scatter 0.0125, sigma_MB 0.0089, both larger than the gap) and the nine projected reach-N corners (confidence z x drift exponent q), every one landing 1.4 to 11.6 orders of magnitude beyond the imp-96352 compute ceiling N ~ 9916.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96702-route-m-reach-projection-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96569-route-m-window-reach-projection.js (IMP96569_SCALES, IMP96569_GAP_FLOOR, IMP96569_PROJECTION, IMP96569_HEADLINE; imp-96702 viz page)',
+      ticket: 'imp-96702',
+      pedagogicalStep: 291,
+      honestCeiling:
+        'Presentation only: every gap, sigma, and reach-N value is reused verbatim from imp-96569 (SE-of-mean reach projection, an optimistic lower bound); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96671-spectral-share-vs-measured-slope',
       title: 'Route M Sigmoid Onset: Two-Scale Weight Share vs Measured Slope Fraction',
       oneLine:

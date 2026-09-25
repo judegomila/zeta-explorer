@@ -1237,6 +1237,9 @@ const Imp96683RouteMConditioningCeilingCiViz = lazy(() =>
 const Imp96701FrobeniusMajorantElevenRungViz = lazy(() =>
   import('./pages/Imp96701FrobeniusMajorantElevenRungViz.jsx')
 );
+const Imp96702RouteMReachProjectionViz = lazy(() =>
+  import('./pages/Imp96702RouteMReachProjectionViz.jsx')
+);
 const Imp96640RankrPowerIterationBracketViz = lazy(() =>
   import('./pages/Imp96640RankrPowerIterationBracketViz.jsx')
 );
@@ -3633,6 +3636,10 @@ function AppShell() {
           <Route
             path="/viz-imp96701-frobenius-majorant-eleven-rung"
             element={<Imp96701FrobeniusMajorantElevenRungViz />}
+          />
+          <Route
+            path="/viz-imp96702-route-m-reach-projection"
+            element={<Imp96702RouteMReachProjectionViz />}
           />
           <Route
             path="/viz-imp96640-route-m-rankr-power-iteration-bracket"

@@ -407,17 +407,6 @@ const DATA_MODULES = [
   // Exact H_t on [0,100]: first collision t = -0.881077 (two-body -0.743334, many-body delay 1.17-1.40), staircase phi.
   // Import-free, self-contained polynomial-heat-flow checks + baked literals; assertions < 0.1 s. No bound moves; NO QED.
   '/src/data/rh-supercritical-fluid-bridge-2026-09-24.js',
-  // rh-supercritical-fluid-bridge (2026-09-24): the de Bruijn / twin-ladder bridge written EXACTLY as a viscous Burgers
-  // fluid. Cole-Hopf: heat potential = H_t itself, w = -2 nu d_x log H solves w_tau + w w_x = nu w_xx in backward de Bruijn
-  // time with nu = 1/4 (ordinates) / 1 (P15 z = 2x) / 1 (repo tau_repo = -t/4) / 1/N (Dyson-normalised m_N) — the inviscid
-  // Dyson-Burgers of dyson-burgers-shock.js is the nu = 1/N -> 0 limit; verified on exact H_t to residual < 2e-18.
-  // Complex pair = viscous shock with Delta*b = 4 nu exactly (measured 0.990 at birth), real collision = inviscid shock.
-  // Critical point Lambda = shock-dissolution time; order parameter phi = non-real fraction; RH <=> phi(0) = 0;
-  // Rodgers-Tao <=> two-phase for all t < 0. Equation of state phi = Psi_beta(|t|/tau_*(T)), tau_* = 2 pi^2/log^2(T/2pi),
-  // exponent (beta+1)/2 (GUE 3/2; heuristic, PCC-conditional), measured on beta-Hermite samples and the first 400 zeros.
-  // Exact H_t on [0,100]: first collision t = -0.881077 (two-body -0.743334, many-body delay 1.17-1.40), staircase phi.
-  // Import-free, self-contained polynomial-heat-flow checks + baked literals; assertions < 0.1 s. No bound moves; NO QED.
-  '/src/data/rh-supercritical-fluid-bridge-2026-09-24.js',
   // imp-96066 (2026-09-23): ASSESSMENT of the P_3-adjoined Route I pencil D_S + P_3 <= L_S vs the dense
   // 2^a 3^b resonance. Answer: the pencil uses the DISCRETE Weil term P_3 (support {k ln 3}, identically zero
   // for 2a < ln 3, single boundary point v = ln 3 at 2a = ln 3), NOT the dense S={oo,2,3} Sonine remainder
@@ -20091,6 +20080,15 @@ const DATA_MODULES = [
   // model by up to 573x at the PT anchor L = 5.9e6. No re-import of imp-96486;
   // documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96559-basis-c-ppp-collapse-lmodel-validity-glossary-headword.js',
+  // 2026-09-24 adversarial re-audit of the two findings raised by the supercritical-fluid
+  // module. Finding 1 CONFIRMED overclaim: the "Route B FULLY CLOSED" per-N bound rests on the
+  // imp-366/imp-395 Step-1 gap-Lipschitz input g_min <= C_Lip W_1 (required C_Lip 1.39 @N=100 ..
+  // 45.5 @N=1e6 on Odlyzko zeros, not N-uniform; imp-2640/2642 ansatz retraction never propagated)
+  // -> dyson-burgers-shock.js G6_PER_N_BOUND corrected closed -> conditional. Finding 2 CONFIRMED:
+  // PATH_C_BASELINE_FIT literals 1.50/1.03/1.08/1.32/7.21x high at all N (fixed-step bounce; RK4
+  // dt=5e-4 reproduces the N=50 literal, not Euler) -> PATH_C_BASELINE_FIT_ACCURATE + caveat.
+  // Import-light (fluid module only). No bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/rh-bridge-route-b-overclaim-baseline-audit-2026-09-24.js',
 ];
 
 let ALL_MODULES = FAST_MODE

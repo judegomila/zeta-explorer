@@ -20526,6 +20526,11 @@ const DATA_MODULES = [
   // question. No page fix required. Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96781-imp96749-consumer-honesty-audit.js',
+  // imp-96707: second-cohort orphan/consumer audit of the 10 Route M modules above
+  // imp-96606 found unreferenced anywhere in src/ (imp-96631/87/88/89/91/97/709/722/
+  // 751/770). Extends the imp-96605 first-cohort audit. Audit only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96707-orphan-consumer-audit-cohort2.js',
 ];
 
 let ALL_MODULES = FAST_MODE

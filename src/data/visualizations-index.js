@@ -4297,6 +4297,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value (slope, ratio, r2) is reused verbatim from imp-96612; only the ratio-to-target bar reshape is new. R_r -> lam_max by SPD power/Lanczos construction, so convergence to 0.3526 measures the coefficient collective rank, not an independent prediction. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96721-sigma2-emp-vs-gue',
+      title: 'Basis-C: Empirical Sigma2 (Real Zeros) vs. Exact GUE Sigma2',
+      oneLine:
+        'Contrasts the imp-96695 empirical number variance Sigma2_emp(L) (measured from real Odlyzko zeros up to T ~ 1.13e6) against the exact GUE sine-kernel Sigma2_GUE(L), marking the L ~ 3-8 finite-height departure onset and the ~100x safe-direction shrinkage of the |rho + 1/2| corroboration signal at L=960.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96721-sigma2-emp-vs-gue-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96695-basis-c-empirical-rho-vs-gue-crossvalidation.js (IMP96695_RHO_TABLE, IMP96695_SATURATION_SWEEP; imp-96721 viz page)',
+      ticket: 'imp-96721',
+      pedagogicalStep: 281,
+      honestCeiling:
+        'Presentation only: every Sigma2/rho value is reused verbatim from imp-96695; the |rho + 1/2| signal columns are a direct arithmetic reshape of the same baked rhoEmp/rhoGue values. Measures a finite-height (Berry semiclassical) number-variance saturation effect, not a GUE-universality failure; moves no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

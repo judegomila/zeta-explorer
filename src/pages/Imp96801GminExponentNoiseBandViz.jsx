@@ -108,6 +108,35 @@ export default function Imp96801GminExponentNoiseBandViz() {
         95% band under the pure -1/3 law.
       </p>
 
+      <div
+        style={{
+          marginBottom: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#e2e8f0' }}>Reconciling imp-96616, imp-96734, and imp-96755:</strong>{' '}
+        these three results measure different things, not competing verdicts.
+        imp-96616 is a single POINT ESTIMATE -- the running-min exponent
+        b = -0.3953 over N = 50..1e6, slightly steeper than GUE -1/3.
+        imp-96734 then asked whether that steepness is a finite-N / plateau-bias
+        artifact that shrinks toward -1/3 as N grows, or persists -- and found it
+        PERSISTENT: the local exponent trend stays flat-to-steeper (not rising
+        toward -1/3) out to N ~ 1.48e6. imp-96755 asked a different question --
+        whether that persistent steepness exceeds ordinary block-extreme
+        SAMPLING NOISE under the true GUE null -- and found it does not: every
+        estimator's observed fit, including the steepest, lands inside its own
+        95% Monte-Carlo band. So the deviation from -1/3 is real and does not
+        shrink with N over the measured range, but it is also small enough that
+        a pure -1/3 process would produce it by chance about as often --
+        persistent-but-not-significant, not a contradiction.
+      </div>
+
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
         Eleven estimators: 95% null band vs observed fit, against GUE -1/3
       </h3>

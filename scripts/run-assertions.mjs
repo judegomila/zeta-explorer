@@ -20382,6 +20382,14 @@ const DATA_MODULES = [
   // rises to ~3.78-3.98e7 (~78-82% of the trace->measured gap). Self-executing *_ASSERTIONS
   // re-derive the constants in JS. Assessment only; no bound moved; NO QED.
   '/src/data/imp-96731-route-m-trace-ceiling-tightening-assessment.js',
+  // imp-96773 (2026-09-25): confirms the imp-96713 total ceiling ratio M/T = 1.5842 is genuinely
+  // FIT-INVARIANT (not a Frobenius artifact) by re-deriving it through a structurally independent
+  // third pivot, not just the imp-96684 / imp-96648 Frobenius pair. Both anchors T (trace,
+  // rigorous) and M (measured) carry NO Frobenius content, so M/T = 1.5841640857 is Frobenius-free;
+  // the Wolkowicz-Styan two-moment pivot (a different matrix inequality) and a fit-free
+  // geometric-mean pivot each reproduce it to machine precision via a different (P/T, M/P) split.
+  // Self-executing *_ASSERTIONS re-derive the ratio in JS. Accuracy audit only; no bound moved; NO QED.
+  '/src/data/imp-96773-route-m-mt-invariance-independent-pivot.js',
   // imp-96752 (2026-09-25): posts the Frobenius ||G||_F and Wolkowicz-Styan two-moment RIGOROUS
   // per-N upper bounds on lam_max(G_N) as a first-class tighter-than-trace ceiling ladder across
   // the exact Gram rungs N=7000..12000 (imp-96731 Finding 1). At every rung lam_max < WS <=

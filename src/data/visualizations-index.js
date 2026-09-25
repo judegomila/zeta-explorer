@@ -4129,6 +4129,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: SE(p), Delta_p and the separation-in-sigma are copied verbatim from the imp-96528 exponent-fit-reach verdict, and both relErr(T) measurements are copied verbatim from the imp-96493 interior scan; the only new computation is evaluating the two power laws and the cone bounds over a plotting grid. Neither exponent is established -- the fixed 10^6 Odlyzko set cannot resolve Delta_p=0.25 at better than ~1.16 sigma. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96555-route-i-concentration-ladder',
+      title: 'Route I Concentration Ladder',
+      oneLine:
+        'Charts the Route I uncertainty/concentration analysis: the classical prolate/Slepian curve lambda_0(c) with the dip time-bandwidth c_dip=0.4751 marked, the dip-window moment ladder falling from 0.3078 (free) to 0.0766 (three moments), and the pole-free sharp-pencil ratio nu_max=0.997689 sitting within 0.23% of a fully cancelling pencil.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96555-route-i-concentration-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js (UNCERTAINTY_CERTIFICATE_LITERALS.slepian; imp-96555 viz page)',
+      ticket: 'imp-96555',
+      pedagogicalStep: 269,
+      honestCeiling:
+        'Presentation only: every lambda_0(c), dip-concentration, and nu_max value plotted here is copied verbatim from the Route I uncertainty/concentration certificate module. The pure concentration bound fails on its own (nu_max=0.997689 is a 0.23% cancellation); the certificate closes D_S <= L_S unconditionally by a different route (Theorem III, constant 9.04e-4), not via this concentration argument. Changes no bound, establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

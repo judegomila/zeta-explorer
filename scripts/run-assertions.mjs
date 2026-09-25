@@ -20748,6 +20748,11 @@ const DATA_MODULES = [
   // beta = Integral_0^1 P(x)^2 dmu (x=a/k), profile-collapse verified, obstruction
   // localized to the small-a edge (bulk 2.4173 fixed, edge carries the 1/log k drift). NO QED.
   '/src/data/imp-96872-weighted-vasyunin-beta-equidistribution-profile.js',
+  // imp-96922: audits the "interval-rigorous certificate reach stays 2a <= 0.96" banner across
+  // every Route I Krein module that carries it (47 modules, 80 instances) -- confirms zero drift
+  // in the cited numeric value; 25/47 also explicitly cite the primal certificate module inline.
+  // Audit only; changes no bound; NO QED.
+  '/src/data/imp-96922-krein-096-banner-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

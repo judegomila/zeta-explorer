@@ -4353,6 +4353,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the two curves and zoom panel were generated offline from the already-committed double-precision certificateF/sigma2 against the baked certificate coefficient tables (no new numerics), then baked as literals; the worst-point and dip markers reproduce the imp-96633/imp-96651 values exactly. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96662-lammax-rankr-slope-onset',
+      title: 'Route M lam_max Rank-r Slope Accumulation: b_r vs r',
+      oneLine:
+        'Plots the imp-96612 discrete rank-r Rayleigh log-slope table b_r against the imp-96636 logistic fit (r0=2.94, k=0.86, R^2=0.996, the honest sigmoidal summary) and overlays the requested fixed-amplitude single-exponential fit (r0=3.22, R^2=0.919) to show why the exponential ansatz misses the delayed, S-shaped onset.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96662-lammax-rankr-slope-onset-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96636-route-m-lammax-slope-saturation-fit.js (both fits and the discrete b_r table)',
+      ticket: 'imp-96662',
+      pedagogicalStep: 285,
+      honestCeiling:
+        'Presentation only: both curves are baked literals computed offline from the closed-form fit parameters already reported in imp-96636 (no new curve_fit run); the imp-96636 module is not imported at runtime. Changes no bound, establishes no operator positivity; the underlying fit is a measurement of a surrogate that converges to lam_max by construction, not a closed-form derivation of the 0.3526 coefficient. Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

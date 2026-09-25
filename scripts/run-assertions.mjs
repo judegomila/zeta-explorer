@@ -20663,6 +20663,11 @@ const DATA_MODULES = [
   '/src/data/imp-96691-route-m-bohr-lift-multiplicative-szego-assessment.js',
   '/src/data/imp-96697-route-m-lammin-elementary-lower-bound-routes-assessment.js',
   '/src/data/imp-96709-route-m-drift-vif-block-bootstrap.js',
+  // imp-96832: decomposes WHY the imp-96692 AR(1) VIF (2.578) overstates the
+  // imp-96709 block-bootstrap VIF (~1.70) -- the empirical ladder ACF matches phi1
+  // only at lag 1 and is anticorrelated at lags 3..7, so the AR(1) geometric tail
+  // (+0.696 over lags>=2) is fictitious; the block bootstrap truncates it. NO QED.
+  '/src/data/imp-96832-drift-vif-ar1-geometric-tail-decomposition.js',
   '/src/data/imp-96751-route-m-frobenius-ladder-above-12000.js',
   '/src/data/imp-96770-route-m-weighted-cotangent-homogeneous-envelope.js',
   // imp-96820: Concepts glossary headword reconciling the three imp-96593 VIF

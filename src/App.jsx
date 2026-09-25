@@ -40,6 +40,7 @@ const SupercriticalPage = lazy(() => import('./pages/SupercriticalPage.jsx'));
 const DeBruijnDeparturePage = lazy(() => import('./pages/DeBruijnDeparturePage.jsx'));
 const PtFloorSensitivityAuditPage = lazy(() => import('./pages/PtFloorSensitivityAuditPage.jsx'));
 const RouteMCohort2AuditIndexPage = lazy(() => import('./pages/RouteMCohort2AuditIndexPage.jsx'));
+const ReachFrontierDatasetAuditPage = lazy(() => import('./pages/ReachFrontierDatasetAuditPage.jsx'));
 const VerifiedHeightLeverPage = lazy(() => import('./pages/VerifiedHeightLeverPage.jsx'));
 const MollifiedBarrierCertificatePage = lazy(() => import('./pages/MollifiedBarrierCertificatePage.jsx'));
 const FormalizationStatusPage = lazy(() => import('./pages/FormalizationStatusPage.jsx'));
@@ -2174,6 +2175,7 @@ function AppShell() {
           <Route path="/debruijn-departure" element={<DeBruijnDeparturePage />} />
           <Route path="/pt-floor-audit" element={<PtFloorSensitivityAuditPage />} />
           <Route path="/route-m-cohort2-audit" element={<RouteMCohort2AuditIndexPage />} />
+          <Route path="/reach-frontier-audit" element={<ReachFrontierDatasetAuditPage />} />
           <Route path="/verified-height-lever" element={<VerifiedHeightLeverPage />} />
           <Route path="/mollified-barrier-certificate" element={<MollifiedBarrierCertificatePage />} />
           <Route path="/formalization-status" element={<FormalizationStatusPage />} />

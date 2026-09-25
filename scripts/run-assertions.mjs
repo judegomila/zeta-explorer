@@ -20316,6 +20316,14 @@ const DATA_MODULES = [
   // ~1.09 sigma, below the SE-of-mean model's 1.74 sigma. Documentation only; no
   // bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96719-route-m-drift-covariance-reach-inflation-glossary-headword.js',
+  // imp-96710: derives the Berry semiclassical number-variance saturation scale
+  // L_sat(T) = log(T/2pi)/(2pi log2) (shortest orbit p=2) and confirms its height
+  // scaling -- Sigma2_emp measured on three zeros6 height cuts saturates earlier at
+  // lower T (L_sat 1.69/2.22/2.78), the empirical departure scale tracks L_sat at a
+  // constant ratio ~0.52, and the plateau grows at the predicted log-log rate
+  // (obs 0.054 vs Berry 0.050). Quantifies the imp-96695 finite-height attribution.
+  // Measurement/derivation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96710-berry-satscale-vs-height.js',
 ];
 
 let ALL_MODULES = FAST_MODE

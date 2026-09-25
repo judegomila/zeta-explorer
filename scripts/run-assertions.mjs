@@ -20697,6 +20697,12 @@ const DATA_MODULES = [
   // combination shrinks the ~0.95 conditioning burden. Measurement only; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96851-sigma-peak-share-cc-etrunc-joint-sensitivity.js',
+  // imp-96871: peak-LOCATION sensitivity of the sigma peak. The siblings measured
+  // only the HEIGHT sigma_max; this measures how the argmax N_max ~ 9.22e5 moves:
+  // dlogN_max/dlogC_C = 0 EXACTLY (C_C factors out of the argmin) while
+  // dlogN_max/dlogE_trunc ~ -1.37 -- location and height respond to orthogonal
+  // levers. Measurement only; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96871-sigma-peak-location-cc-etrunc-sensitivity.js',
   // imp-96850: reciprocity decouples the coupled weighted two-argument Vasyunin second moment
   // T(N) exactly to a single-denominator sum; derived growth law c = 2 beta (6/pi^2) log N ~ 3.542
   // (matching imp-96828), residual = a closed form for the scalar beta. Derivation+measurement; NO QED.

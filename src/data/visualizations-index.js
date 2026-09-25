@@ -4185,6 +4185,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every window part/energy value plotted here is copied verbatim from the certificate module\'s own baked anatomy literal (no re-derivation, no fresh solve); the minimizer itself is not interval-verified, only the T=400/N=320 Galerkin lower bound is. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96577-route-i-certificate-constant-ladder',
+      title: 'Route I: Certificate Constant vs. Truncation T',
+      oneLine:
+        'Plots the Route I certificate floor-cost ladder c(T) (rigorous lower bounds 8.2047e-4 at T=200 rising to 9.2918e-4 at T=800) against 1/T, alongside the from-above pencil-map Ritz value 9.46e-4, bracketing the true D_S<=L_S constant C* into [9.2918e-4, 9.46e-4].',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96577-route-i-certificate-constant-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-route-i-uncertainty-concentration-certificate-2026-09-24.js (UNCERTAINTY_CERTIFICATE_LITERALS.certificate.constantReconciliation; imp-96577 viz page)',
+      ticket: 'imp-96577',
+      pedagogicalStep: 273,
+      honestCeiling:
+        'Presentation only: every ladder value, extrapolant, and bracket endpoint plotted here is copied verbatim from the certificate module\'s own baked constantReconciliation literal (no re-derivation, no fresh solve); c(T) is a double-precision, non-interval lower bound and the two-term fit / Ritz value are point estimates, not proved bounds. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

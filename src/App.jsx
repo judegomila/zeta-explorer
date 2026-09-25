@@ -1219,6 +1219,9 @@ const Imp96080RouteISymbolAnatomyViz = lazy(() =>
 const Imp96576RouteICertifiedMinimizerWindowAnatomyViz = lazy(() =>
   import('./pages/Imp96576RouteICertifiedMinimizerWindowAnatomyViz.jsx')
 );
+const Imp96577RouteICertificateConstantLadderViz = lazy(() =>
+  import('./pages/Imp96577RouteICertificateConstantLadderViz.jsx')
+);
 const Imp96103RouteIRemainderResonanceViz = lazy(() =>
   import('./pages/Imp96103RouteIRemainderResonanceViz.jsx')
 );
@@ -3552,6 +3555,10 @@ function AppShell() {
           <Route
             path="/viz-imp96576-route-i-window-anatomy"
             element={<Imp96576RouteICertifiedMinimizerWindowAnatomyViz />}
+          />
+          <Route
+            path="/viz-imp96577-route-i-certificate-constant-ladder"
+            element={<Imp96577RouteICertificateConstantLadderViz />}
           />
           <Route
             path="/viz-imp96103-route-i-remainder-resonance"

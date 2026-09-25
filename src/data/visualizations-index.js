@@ -4396,6 +4396,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every curve value and ceiling is reused verbatim from imp-96648 (rigorous, unconditional matrix inequalities measured on the same exact Vasyunin Gram as imp-96105/imp-96443); no re-solve. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp96683-route-m-conditioning-ceiling-ci',
+      title: 'Route M Conditioning-Ceiling Confidence Interval',
+      oneLine:
+        'Plots the imp-96656 asymmetric log-normal conditioning-ceiling confidence interval (all-rung N*=3.78e7, 95% CI [3.50e7,4.07e7]; dense N*=4.30e7, 95% CI [2.76e7,6.69e7]) as horizontal error bars on a log-N axis, marking the imp-96548 rigorous trace lower ceiling 2.59e7, the imp-96648 Frobenius sharper lower ceiling 3.75e7, and the imp-96352 compute ceiling 9916, showing compute binds ~2800x below every band edge.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96683-route-m-conditioning-ceiling-ci-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96656-route-m-conditioning-ceiling-confidence-interval.js (IMP96656_ALL, IMP96656_DENSE, IMP96656_INTERVAL; imp-96683 viz page)',
+      ticket: 'imp-96683',
+      pedagogicalStep: 289,
+      honestCeiling:
+        'Presentation only: every band edge and point estimate is reused verbatim from imp-96656 (delta-method log-normal CI), the Frobenius reference ceiling from imp-96648, and the compute ceiling from imp-96352; no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp96671-spectral-share-vs-measured-slope',
       title: 'Route M Sigmoid Onset: Two-Scale Weight Share vs Measured Slope Fraction',
       oneLine:

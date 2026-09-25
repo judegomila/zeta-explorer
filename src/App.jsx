@@ -1231,6 +1231,9 @@ const Imp96663RouteMCondfitLadderViz = lazy(() =>
 const Imp96670RouteMLammaxMajorantsViz = lazy(() =>
   import('./pages/Imp96670RouteMLammaxMajorantsViz.jsx')
 );
+const Imp96683RouteMConditioningCeilingCiViz = lazy(() =>
+  import('./pages/Imp96683RouteMConditioningCeilingCiViz.jsx')
+);
 const Imp96640RankrPowerIterationBracketViz = lazy(() =>
   import('./pages/Imp96640RankrPowerIterationBracketViz.jsx')
 );
@@ -3619,6 +3622,10 @@ function AppShell() {
           <Route
             path="/viz-imp96670-route-m-lammax-majorants"
             element={<Imp96670RouteMLammaxMajorantsViz />}
+          />
+          <Route
+            path="/viz-imp96683-route-m-conditioning-ceiling-ci"
+            element={<Imp96683RouteMConditioningCeilingCiViz />}
           />
           <Route
             path="/viz-imp96640-route-m-rankr-power-iteration-bracket"

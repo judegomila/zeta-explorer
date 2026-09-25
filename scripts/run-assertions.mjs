@@ -20349,6 +20349,17 @@ const DATA_MODULES = [
   // 0.7797 (still ~76-78%); total ratio M/T = 1.5842 invariant (F cancels). Self-executing
   // *_ASSERTIONS re-derive the ratios in JS. Accuracy audit only; no bound moved; NO QED.
   '/src/data/imp-96713-route-m-conditioning-ceiling-decomposition-reaudit.js',
+  // imp-96731 (2026-09-25): assesses whether the imp-96548 trace-domination rigorous lower
+  // ceiling T=2.594e7 can be sharpened toward the Frobenius fit F=3.775e7 (F/T=1.4555 leg).
+  // Result: the trace is NOT the tightest rigorous per-N bound -- the Frobenius/WS moment bound
+  // already sits ~1.79x below the trace at N=12000 -- so the F/T leg is an EXTRAPOLATION-rigor
+  // gap, not a bound-mechanism gap. The obstruction to raising T is one strictly one-sided open
+  // piece: a rigorous UPPER bound Int(N)<=s* log N on the imp-96667 interior second moment
+  // (reducing to a one-sided bound on the two-variable Vasyunin cotangent sum V(a,b), coprime
+  // a,b>=2), weaker than the imp-96548 Szego sub-gap. No rigorous ceiling posted; if proven, T
+  // rises to ~3.78-3.98e7 (~78-82% of the trace->measured gap). Self-executing *_ASSERTIONS
+  // re-derive the constants in JS. Assessment only; no bound moved; NO QED.
+  '/src/data/imp-96731-route-m-trace-ceiling-tightening-assessment.js',
   // imp-96638: Concepts glossary headword restating the imp-96617 verdict that the box
   // sine-kernel closed-form lag correlation is a two-SIDED ~6-7-digit approximation
   // (|DeltaCov_k| <~ 2.07e-3/L^2, Bartlett weight kills the O(1/L) term), NOT a certified

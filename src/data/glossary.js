@@ -23651,6 +23651,33 @@ export const glossary = [
       'imp-96830 the uniform cotangent-sum second moment named as the residual route to settle the true asymptotic power',
     ],
   },
+  {
+    term: 'Two-Sided Envelope Sidesteps Per-Lag Sign Partition (VIF Upper Bound Still Not Closed)',
+    category: 'numerical',
+    definition:
+      'imp-96853-vif-twosided-envelope-partition-assessment.js. imp-96812 found the box-sine finite-L ' +
+      'correction DeltaCov_k(L) genuinely lag-alternates in sign (-,+,+,+,- for k = 2..6), which is FATAL ' +
+      'to a uniform one-sided VIF upper bound (horn A) and also blocks certifying the per-lag sign CLASS ' +
+      'needed to partition lags k = 3,4,5 (positive) from k = 2,6 (negative) and bound each side ' +
+      'separately (horn B: the imp-96628 total-variation enclosure straddles zero per lag). imp-96853 ' +
+      'shows the literal sign-partition this ticket asked for is unavailable for exactly that horn-B ' +
+      'reason, but ALSO unnecessary: the imp-96628 envelope |DeltaCov_k(L)| <= C(k)/L^2 is TWO-SIDED, so ' +
+      'rho_k(L) <= rho_k(inf) + C(k)/(L^2 Sigma^2) upper-bounds every lag k >= 2 regardless of the sign of ' +
+      'DeltaCov_k -- looser than needed at the negative lags, exactly what the wrong-sign correction needs ' +
+      'at the positive lags. Summed over the whole Bartlett window (N=291), the envelope slack is only ' +
+      '5.65e-8 (~7.5e-7 of the rho_1-only head 0.075232, ~1.0e-5 of the actual finite-window value ' +
+      '0.005463), so the positive-DeltaCov lags do NOT overwhelm the VIF budget. VERDICT: the VIF upper-' +
+      'bound route is STILL NOT CLOSED, but this sidesteps both imp-96812 horns and yields a rigorous ' +
+      'conditional bound VIF_291 <= 0.0054629 (z >= 26.023), essentially the actual value. Assessment + ' +
+      'derivation, conditional on GUE / Montgomery pair correlation (UNPROVEN); changes no unconditional ' +
+      'bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-96853-vif-twosided-envelope-partition-assessment.js (shows the per-lag sign partition imp-96812 horn B blocks is unnecessary once the imp-96628 envelope is used two-sided), 2026',
+    relatedTerms: [
+      'imp-96812-boxsine-onesided-sign-assessment.js the horn A/B sign-alternation finding this routes around',
+      'imp-96628-boxsine-lagcorr-ibp-envelope.js the certified two-sided C(k)/L^2 envelope used here',
+      'imp-96593-vif-exact-tail-rigor-upgrade-assessment.js the residual obstruction items (i)/(iii) this migrates to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

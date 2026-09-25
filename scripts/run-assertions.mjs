@@ -20834,6 +20834,10 @@ const DATA_MODULES = [
   // ~ +3.0% (strictly positive) => the knee TRAILS the crossover, ordering
   // N_half < N_cross < N_knee. Measurement only; C_mb GUE-conditional (imp-486); NO QED.
   '/src/data/imp-97037-sigma-knee-vs-crossover-offset.js',
+  // imp-96987: META cross-reference index grouping the kmax-degree Route I
+  // Krein frontier cohort (imp-96845/96868/96881/96956) as a near-feasible-
+  // vs-certified family. Index/meta only; NO QED.
+  '/src/data/imp-96987-kmax-degree-frontier-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

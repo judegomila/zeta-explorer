@@ -23471,6 +23471,8 @@ export const glossary = [
       'imp-96448-direct-basis-c-anchor-floor.js the MEASURED anchor floor ~2.84e-5 (ppp collapses to ~3) this re-anchors to',
       'imp-96568-basis-c-intermediate-rung-floor-ladder.js measures the floor(L) growth as super-linear (~L^1.81) above the anchor, sharpening this crossover further to L* ~ 1.9e8',
       'imp-96588-basis-c-floor-1e8-rung-powerlaw-bend.js a further rung showing the power law BENDS steeper (exponent ~2.43), sharpening the projected reach again to L* ~ 8e7',
+      'imp-96690-basis-c-above-anchor-rung-ladder.js extends the ladder to five above-anchor rungs (log-log OLS p ~ 2.42), TIGHTENING the projected reach to L* ~ 8.1e7 -- the current best figure, superseding the imp-96568 L* ~ 1.9e8 two-rung projection',
+      'imp-96711-basis-c-corroboration-reach-cross-tab.js cross-tabulates all three L* figures (2.86e9, 1.90e8, 8.1e7) as one crossover at three successively better-measured exponents and names imp-96690 the tightest defensible current projection',
       'imp-96389-three-basis-rho-crossvalidation-table.js the three-basis (A/B/C) cross-validation table in which the basis-C L-linear floor is identified as the binding constraint',
     ],
   },

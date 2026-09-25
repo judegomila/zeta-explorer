@@ -20537,6 +20537,15 @@ const DATA_MODULES = [
   // ~2.578 (measurement CLOSED, values > 1) -- neither resolves or updates the other.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96720-vif-terminology-reconciliation-headword.js',
+  // imp-96772: extended-precision (double-double, dps=40) recompute of the imp-96749
+  // Legendre-Galerkin Krein floor lambda_min(T_a[sigma_2]) past the condB ~ 1e13 wall.
+  // The dps=40 generalized-eigenvalue solve reproduces the double-precision floor to
+  // < 1e-6 across the whole ladder up to condB = 1.1e16 (N=100), so the wall is NOT a
+  // floor-corruption wall and the imp-96749 Finding-3 "decrement re-acceleration = Gram
+  // conditioning" reading is refuted (the fixed-T descent is t-truncation, confirming
+  // imp-96768). Floor stays firmly positive, no collapse. Measurement only; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96772-krein-lammin-double-double-recompute.js',
 ];
 
 let ALL_MODULES = FAST_MODE

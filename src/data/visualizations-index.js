@@ -4535,6 +4535,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ceiling, ratio, and gap-fraction value is reused verbatim from imp-96713 (a pure re-analysis of the imp-96684/imp-96694 ceilings, no new numerics); only the trace ceiling is a rigorous lower bound, the Frobenius and measured ceilings inherit a log-fit extrapolation sub-gap. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96742-safe-direction-sign-per-rung',
+      title: 'Basis-C: Per-Rung Safe-Direction Sign d_sig(L)',
+      oneLine:
+        'Bar chart of the imp-96714 per-rung safe-direction sign d_sig(L) = |rho_emp(L)+1/2| - |rho_GUE(L)+1/2| across the imp-96430 calibration window (L=30..960), colored by whether the imp-96695 safe-direction claim holds (d_sig<0, L>=120) or fails (d_sig>0, L in {30,60}).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96742-safe-direction-sign-per-rung-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96714-safe-direction-per-rung-verification.js (IMP96714_SAFE_DIRECTION_PER_RUNG.table, safeFromL, failRungs); imp-96742 viz page',
+      ticket: 'imp-96742',
+      pedagogicalStep: 296,
+      honestCeiling:
+        'Presentation only: every d_sig(L) value and safe flag is reused verbatim from imp-96714 (itself a pure arithmetic reshape of the imp-96695 baked rhoEmp/rhoGue table); no new measurement, no recomputation from the zeros. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

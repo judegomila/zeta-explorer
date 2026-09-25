@@ -1279,6 +1279,9 @@ const Imp96739BasisCAboveAnchorLadderLstarCrossoverViz = lazy(() =>
 const Imp96741RouteMThreeCeilingDecompositionViz = lazy(() =>
   import('./pages/Imp96741RouteMThreeCeilingDecompositionViz.jsx')
 );
+const Imp96742SafeDirectionSignPerRungViz = lazy(() =>
+  import('./pages/Imp96742SafeDirectionSignPerRungViz.jsx')
+);
 const Imp96604LammaxNormalizedRatioViz = lazy(() =>
   import('./pages/Imp96604LammaxNormalizedRatioViz.jsx')
 );
@@ -3707,6 +3710,10 @@ function AppShell() {
           <Route
             path="/viz-imp96741-route-m-three-ceiling-decomposition"
             element={<Imp96741RouteMThreeCeilingDecompositionViz />}
+          />
+          <Route
+            path="/viz-imp96742-safe-direction-sign-per-rung"
+            element={<Imp96742SafeDirectionSignPerRungViz />}
           />
           <Route
             path="/viz-imp96604-lammax-normalized-ratio"

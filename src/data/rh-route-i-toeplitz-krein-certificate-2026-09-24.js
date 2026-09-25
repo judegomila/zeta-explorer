@@ -360,6 +360,22 @@ export const RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE_ASSERTIONS = Object.freeze([
         && L.splitBound.crossingTwoA < LN2 && L.splitBound.aLn2Half[0] < 0 && L.splitBound.aLn2Half[1] > 0 && KREIN_CERTIFICATE_090.eps < s2.a045[2] && KREIN_CERTIFICATE.eps < s2.a050[2] * 2;
     },
   },
+  {
+    id: 'X9-norm-growth-law-and-double-prec-wall',
+    description: 'imp-96609: the log-linear fit log10(l1) = 73.25*(2a) - 64.24 reproduces from the three baked sigma_2 anchors (0.90/0.94/0.96) to <0.13 dex, gives x5.4 per 0.01 (x29 per 0.02, within the module x30-50), segment slopes accelerate (69.2 -> 83.3) so the fit is a lower bound, and the projected double-precision LP wall (coeff dynamic range 1e9..1e12) sits in 2a in [1.00, 1.04] -- between the verified 0.96 and the observed HiGHS status-4 at 2a = 1.0; double-double (106 bits) covers the ~68 bits needed to reach ln 3',
+    holds: () => {
+      const G = TOEPLITZ_KREIN_LITERALS.normGrowthLaw; const xs = G.anchors.map((p) => p.twoA), ys = G.anchors.map((p) => Math.log10(p.l1));
+      const n = xs.length, xb = xs.reduce((a, b) => a + b) / n, yb = ys.reduce((a, b) => a + b) / n;
+      let Sxx = 0, Sxy = 0; for (let i = 0; i < n; i++) { Sxx += (xs[i] - xb) ** 2; Sxy += (xs[i] - xb) * (ys[i] - yb); }
+      const slope = Sxy / Sxx, intercept = yb - slope * xb;
+      const fitOk = near(slope, G.log10Slope, 0.05) && near(intercept, G.log10Intercept, 0.05) && ys.every((y, i) => Math.abs(y - (slope * xs[i] + intercept)) < 0.13);
+      const factOk = near(Math.pow(10, slope * 0.01), G.factorPer001, 0.05) && G.factorPer002 >= 30 - 1 && G.factorPer002 <= 50;
+      const accel = G.segmentSlopesPerUnit[1] > G.segmentSlopesPerUnit[0]; // super-exponential => log-linear underestimates
+      const wall = G.doublePrecWallTwoA; const wallOk = wall.log10L1_9 > 0.96 && wall.log10L1_9 >= 0.999 && wall.log10L1_12 <= 1.05 && wall.log10L1_9 < wall.log10L1_12;
+      const precOk = G.extendedPrecReach.bitsNeeded > G.extendedPrecReach.doubleBits && G.extendedPrecReach.doubleDoubleBits > G.extendedPrecReach.bitsNeeded;
+      return fitOk && factOk && accel && wallOk && precOk;
+    },
+  },
 ]);
 
 export default RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE;

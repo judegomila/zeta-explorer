@@ -326,6 +326,17 @@ export const RH_BRIDGE_MIRROR_DESCENT = Object.freeze({
     a2_subgap:
       'The envelope integration needs the number of nonreal zeros AND collision times inside { x >= X+1 } x { t in [0, t0] } to be finite UNIFORMLY in t, and the sup over the unbounded x-strip to be ATTAINED (a max fed by finitely many zeros, not a sequence of zeros marching in from x = +infinity as t varies). Ki-Kim-Lee gives per-t / asymptotic-in-t finiteness (for each fixed t all but finitely many zeros are real; real-eventually as t grows), NOT the uniform-over-a-compact-t-interval-on-an-unbounded-x-strip statement the argument consumes. This uniform finiteness + envelope-attainment is the precise, still-open obstruction of residual (a).',
   }),
+  residualAssessmentB: Object.freeze({
+    id: 'MIRROR_RESIDUAL_B_LARGEX_LOCALISATION_IS_RESIDUAL_A',
+    ticket: 'imp-97052',
+    residual: '(b) the P15 localisation keeping topmost nonreal zeros at x >= X+1 throughout the flow',
+    verdict:
+      'HALF-TRANSFERS: the P15 barrier supplies the LOWER-EDGE localisation t-uniformly (every nonreal zero of H_t has x > X for all t in [0, t0]); the LARGE-x half does NOT transfer and coincides with the residual (a) unbounded-strip sub-gap -- in P15 it is furnished only by the effective-approximation kill that mirror-descent is trying to replace. No new Lambda bound. PT Lambda <= 0.2 stands. NO QED.',
+    b1_transfers:
+      'B1 assumes P15 (ii) the barrier only, NOT the large-x effective kill (that is the piece the descent is meant to replace). The barrier is a rectangular-contour winding computation near x = X whose argument-principle count is constant in t BY CONSTRUCTION (H_t is nonzero on the contour for every t in [0, t0]); it is a genuine FLOW statement, not an endpoint one. Combined with RH verified below the barrier it forces the zero count in the box [0, X] x [y-range] to equal the full real count for every t, so no nonreal zero has x <= X during (0, t0]. The extra unit buffer to x >= X+1 is a minor strengthening (barrier placed at X+1, or a cheap Rouche estimate that [X, X+1] carries no nonreal zero) inside the same P15 framework. This lower-edge localisation transfers cleanly.',
+    b2_does_not_transfer:
+      'The topmost nonreal zero the descent tracks is the sup over the SEMI-INFINITE strip x >= X+1, which the single-abscissa barrier does not bound from above: a nonreal zero at arbitrarily large x is not excluded by the barrier alone. In P15 the large-x nonreal zeros are killed by the effective approximation A_t + B_t - C_t with the ratio |C_t| below |A_t + B_t| -- precisely the machinery B1 forgoes. So the localisation of the RUNNING MAX is not supplied by the barrier; it needs the uniform-in-t finiteness / envelope-attainment on the unbounded x-strip, which is exactly the still-open sub-gap of residual (a) (MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP). Residuals (a) and (b) are therefore NOT independent: the hard half of (b) IS the sub-gap of (a). Without the P15 effective approximation there is no barrier-only route to it.',
+  }),
   nextStep:
     'Prove the loss factor 2y/eta is forced: construct zero configurations satisfying every sigma > 1 (eta >= 1) wide-Poisson lower bound that H_0 satisfies, yet with pull at width y below the Palm-neutral profile near a topmost zero. This would close the mirror-descent route as a theorem (as done for Sonine / rank-one fixes) instead of leaving it to modelling.',
   verdict:
@@ -511,6 +522,20 @@ export const RH_BRIDGE_MIRROR_DESCENT_ASSERTIONS = Object.freeze([
       return drop < 0 && Number.isFinite(drop) && near(drop, closed, 1e-4) && finiteLimit &&
         a.id === 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP' && /HALF-CLOSED/.test(a.verdict) &&
         /NO QED/.test(a.verdict) && /PT Lambda <= 0\.2 stands/.test(a.verdict);
+    },
+  },
+  {
+    id: 'mirror-residual-b-localisation-half-transfers',
+    name: 'residual (b): P15 barrier supplies the lower-edge localisation t-uniformly (nonreal zeros at x > X); the large-x running-max half is the residual (a) unbounded-strip sub-gap, not an independent gap; recorded HALF-TRANSFERS with NO QED',
+    why: 'imp-97052 residual (b): the barrier is a t-uniform flow statement (argument-principle winding count constant in t), so the lower-edge localisation transfers; the semi-infinite-strip running-max localisation is only furnished in P15 by the effective-approximation kill that mirror-descent replaces, and coincides with residual (a)',
+    holds: () => {
+      const b = RH_BRIDGE_MIRROR_DESCENT.residualAssessmentB;
+      const a = RH_BRIDGE_MIRROR_DESCENT.residualAssessment;
+      return b.id === 'MIRROR_RESIDUAL_B_LARGEX_LOCALISATION_IS_RESIDUAL_A' &&
+        b.ticket === 'imp-97052' && /HALF-TRANSFERS/.test(b.verdict) && /NO QED/.test(b.verdict) &&
+        /PT Lambda <= 0\.2 stands/.test(b.verdict) &&
+        /MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP/.test(b.b2_does_not_transfer) &&
+        a.id === 'MIRROR_RESIDUAL_A_UNIFORM_FINITENESS_SUBGAP';
     },
   },
   {

@@ -20445,6 +20445,12 @@ const DATA_MODULES = [
   // no *_ASSERTIONS array and are correctly excluded.
   '/src/data/imp-96636-route-m-lammax-slope-saturation-fit.js',
   '/src/data/imp-96644-krein-payload-bundle-hygiene-check.js',
+  // imp-96666: Concepts glossary headword recording the imp-96644 residual as a
+  // standing guard -- any future page/component surfacing the Krein certificate
+  // payload must reach it via a lazy leaf (React.lazy/dynamic import()), never a
+  // static top-level import, to avoid repeating the imp-95523 eager-load bug.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96666-krein-payload-lazy-import-guard-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

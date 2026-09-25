@@ -4549,6 +4549,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every d_sig(L) value and safe flag is reused verbatim from imp-96714 (itself a pure arithmetic reshape of the imp-96695 baked rhoEmp/rhoGue table); no new measurement, no recomputation from the zeros. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp96801-gmin-exponent-noise-band',
+      title: 'Gmin Exponent Fits vs the GUE Monte-Carlo Noise Band',
+      oneLine:
+        'Horizontal error-bar chart of the imp-96755 200,000-trial Monte-Carlo sampling-noise band (Weibull-3 block-extreme null) for all eleven imp-96629/imp-96734 gmin exponent estimators, plotting each observed fit against its own 95% null band and a single GUE -1/3 cube-root reference line, showing no estimator falls outside its band.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96801-gmin-exponent-noise-band-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96755-gmin-exponent-noise-band.js (GMIN_EXPONENT_NOISE_BAND.bands, mostSignificant; imp-96801 viz page)',
+      ticket: 'imp-96801',
+      pedagogicalStep: 297,
+      honestCeiling:
+        'Presentation only: every band edge, z-score, and observed exponent is reused verbatim from imp-96755 (200,000-trial Monte Carlo of the Weibull-3 block-extreme null); no re-fit, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; measurement conditional on GUE; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

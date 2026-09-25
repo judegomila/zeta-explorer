@@ -1247,6 +1247,9 @@ const Imp96777KreinLammminNTrendViz = lazy(() =>
 const Imp96779RouteMCeilingLadderViz = lazy(() =>
   import('./pages/Imp96779RouteMCeilingLadderViz.jsx')
 );
+const Imp96801GminExponentNoiseBandViz = lazy(() =>
+  import('./pages/Imp96801GminExponentNoiseBandViz.jsx')
+);
 const Imp96723RouteMThreeCeilingDecompositionViz = lazy(() =>
   import('./pages/Imp96723RouteMThreeCeilingDecompositionViz.jsx')
 );
@@ -3668,6 +3671,10 @@ function AppShell() {
           <Route
             path="/viz-imp96779-route-m-ceiling-ladder"
             element={<Imp96779RouteMCeilingLadderViz />}
+          />
+          <Route
+            path="/viz-imp96801-gmin-exponent-noise-band"
+            element={<Imp96801GminExponentNoiseBandViz />}
           />
           <Route
             path="/viz-imp96723-route-m-three-ceiling-decomposition"

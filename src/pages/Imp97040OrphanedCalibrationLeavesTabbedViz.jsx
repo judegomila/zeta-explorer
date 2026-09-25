@@ -13,6 +13,12 @@ import {
   IMP96961_ONSET_TAIL_SERIES,
   IMP96961_HONEST_BANNER,
 } from '../data/imp-96961-bessel-onset-mass-tail-residual-viz-data.js';
+import {
+  IMP97038_NS,
+  IMP97038_ROWS,
+  IMP97038_GROWTH,
+  IMP97038_VERDICT,
+} from '../data/imp-97038-bessel-onset-mass-extended-N-viz-data.js';
 
 // imp-97040: imp-96959/imp-96960/imp-96961 were each "-viz-data" leaves with no confirmed
 // consumer (no .jsx page imported them -- see imp-96925 for the same trap on an earlier leaf).
@@ -246,10 +252,70 @@ function BesselOnsetTailPanel() {
   );
 }
 
+function BesselOnsetMassExtendedNPanel() {
+  const series = [
+    {
+      label: 'measured floor lift',
+      color: '#4ade80',
+      points: IMP97038_NS.map((N) => ({ x: N, y: IMP97038_ROWS[N].residMeasured })),
+    },
+    {
+      label: 'onset-mass prediction (unweighted)',
+      color: '#facc15',
+      points: IMP97038_NS.map((N) => ({ x: N, y: IMP97038_ROWS[N].onsetFracUnweighted })),
+    },
+  ];
+  const steps = ['124->148', '148->172', '172->196'];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-97038 extends the imp-96934 Bessel onset-mass vs measured-tail-residual comparison at
+        2a=ln3 three rungs further (N = 148, 172, 196). The robust direct floor lift keeps growing
+        but decelerates toward the onset model&apos;s linear-in-k growth rate; the first-order
+        absolute-fraction comparison becomes numerically unreliable past N~148 and its apparent
+        over-to-under flip is an artifact, not a physical crossover.
+      </p>
+      <LineChart
+        series={series}
+        xTicks={IMP97038_NS}
+        xLabel="N"
+        yFormat={(v) => v.toExponential(2)}
+        useLogY
+      />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+          <thead>
+            <tr>
+              {['step', 'ratio measured', 'ratio onset-linear', 'ratio of ratios'].map((h) => (
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {steps.map((s) => (
+              <tr key={s}>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{s}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{IMP97038_GROWTH[s].ratioMeasured.toFixed(3)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{IMP97038_GROWTH[s].ratioOnsetLinear.toFixed(3)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{IMP97038_GROWTH[s].ratioOfRatios.toFixed(3)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <HonestBanner text={IMP97038_VERDICT.answer} />
+    </div>
+  );
+}
+
 const TABS = [
   { id: 'krein-floor-margin', label: 'imp-96959: Krein floor margin', Panel: KreinFloorMarginPanel },
   { id: 'etrunc-cc-elasticity', label: 'imp-96960: E_trunc vs C_C elasticity', Panel: EtruncCcElasticityPanel },
   { id: 'bessel-onset-tail', label: 'imp-96961: Bessel onset-mass vs tail residual', Panel: BesselOnsetTailPanel },
+  { id: 'bessel-onset-mass-extended-N', label: 'imp-97038: Bessel onset-mass extended-N', Panel: BesselOnsetMassExtendedNPanel },
 ];
 
 export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
@@ -261,9 +327,9 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
       <PageHeader title="Orphaned Route I / Route M Calibration Leaves" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
-        Three viz-data leaves (imp-96959, imp-96960, imp-96961) shipped as import-light
+        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038) shipped as import-light
         reshapes of earlier calibration tables but had no consuming page. This tab set gives
-        all three a chart-ready home in one place instead of three near-duplicate pages.
+        each a chart-ready home in one place instead of near-duplicate single-purpose pages.
       </p>
 
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem', borderBottom: '1px solid #334155' }}>

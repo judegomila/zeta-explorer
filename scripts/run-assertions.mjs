@@ -20103,6 +20103,13 @@ const DATA_MODULES = [
   // dt=5e-4 reproduces the N=50 literal, not Euler) -> PATH_C_BASELINE_FIT_ACCURATE + caveat.
   // Import-light (fluid module only). No bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/rh-bridge-route-b-overclaim-baseline-audit-2026-09-24.js',
+  // imp-96643: consumer/orphan + zeros-bundle audit of imp-96612/96613/96616/96617 and the Krein
+  // certificate payload. Four of five ORPHANED (no real import statement anywhere in src/, not
+  // DATA_MODULES-registered); the payload is the sole non-orphan (really imported by the
+  // DATA_MODULES-registered rh-route-i-toeplitz-krein-certificate-2026-09-24.js), though not yet
+  // page-reachable. None of the five has any import statement; the one real transitive chain was
+  // walked three hops deep with no zeros-bundle pull found. No bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96643-orphan-consumer-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

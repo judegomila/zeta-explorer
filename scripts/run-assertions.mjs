@@ -20305,6 +20305,13 @@ const DATA_MODULES = [
   // is the sqrt(log N) concavity. Self-executing *_ASSERTIONS re-derive the constants in JS.
   // No bound moved; slope constant still open (Bettin-Conrey cotangent 2nd moment); NO QED.
   '/src/data/imp-96708-route-m-interior-second-moment-dichotomy.js',
+  // imp-96713 (2026-09-24): re-audits the imp-96693 three-ceiling residual decomposition
+  // (T<F<M, residual M/F ~1.09x, gap-fraction ~76%) under the imp-96694 N=12000-updated
+  // Frobenius ceiling F 3.7637e7 -> 3.7751e7 (+0.30%). Result: ordering survives; residual
+  // factor drops 1.0917 -> 1.0884 (still rounds to 1.09x); gap-fraction rises 0.7722 ->
+  // 0.7797 (still ~76-78%); total ratio M/T = 1.5842 invariant (F cancels). Self-executing
+  // *_ASSERTIONS re-derive the ratios in JS. Accuracy audit only; no bound moved; NO QED.
+  '/src/data/imp-96713-route-m-conditioning-ceiling-decomposition-reaudit.js',
   // imp-96638: Concepts glossary headword restating the imp-96617 verdict that the box
   // sine-kernel closed-form lag correlation is a two-SIDED ~6-7-digit approximation
   // (|DeltaCov_k| <~ 2.07e-3/L^2, Bartlett weight kills the O(1/L) term), NOT a certified

@@ -6,6 +6,8 @@ import {
   IMP96453_LANDMARKS,
   IMP96453_HONEST_BANNER,
 } from '../data/imp-96453-basis-c-corroboration-crossover-viz-data.js';
+import { IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR } from '../data/imp-96531-basis-c-crossover-measured-floor.js';
+import { IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND } from '../data/imp-96588-basis-c-floor-1e8-rung-powerlaw-bend.js';
 
 function CrossoverChart() {
   const svgW = 720;
@@ -171,6 +173,40 @@ export default function Imp96453BasisCCorroborationCrossoverViz() {
         found the true headroom is ~640, not ~3.7e5 &mdash; see that module for the reconciled
         figure. Changes no bound, establishes no operator positivity, no RH claim;
         Platt&ndash;Trudgian &Lambda; &le; 0.2 remains SOTA. NO QED.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(250,204,21,0.06)',
+          borderLeft: '3px solid #facc15',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#facc15' }}>Update &mdash; the band above is stale:</strong> the
+        crossover band [{crossoverBand[0].toExponential(2)}, {crossoverBand[1].toExponential(2)}]
+        charted above is the imp-96430 L-linear MODEL-floor band. imp-96531 re-anchored that same
+        L-linear form to the imp-96448 <em>measured</em> anchor floor and moved the crossover down
+        ~460x to L* &asymp;{' '}
+        {IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR.crossover.measuredFloor.L.toExponential(2)}{' '}
+        (&asymp;{IMP96531_BASIS_C_CROSSOVER_MEASURED_FLOOR.crossover.decadesPastAnchor.toFixed(1)}{' '}
+        decades past the anchor). imp-96588 then measured a further rung at L = 1e8 and found the
+        floor bends upward past 1e7, sharpening the projection further to L* &asymp;{' '}
+        {IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND.crossover.measuredLstarPpp3.toExponential(2)}
+        {' '}(ppp = 3) / &asymp;{' '}
+        {IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND.crossover.measuredLstarBest.toExponential(2)}
+        {' '}(best ppp = 2), only &asymp;{' '}
+        {IMP96588_BASIS_C_FLOOR_1E8_RUNG_POWERLAW_BEND.crossover.decadesPastAnchorPpp3.toFixed(1)}
+        {' '}decades past the anchor. These two figures come from different floor-growth models
+        (re-anchored L-linear vs. an above-anchor power law with a measured bend) evaluated in the
+        noisy ppp-transition regime, so neither is a converged floor &mdash; but the current
+        best (most recent, most sharpened) estimate of the corroboration reach is L* &asymp; 8e7&ndash;9.5e7,
+        roughly 1.1&ndash;1.2 decades past the PT anchor, not the multi-decade band charted above.
+        Measurement/extrapolation only; changes no bound; RH open; Platt&ndash;Trudgian &Lambda;
+        &le; 0.2 remains SOTA. NO QED.
       </div>
     </div>
   );

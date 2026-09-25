@@ -77,6 +77,14 @@
  * @see imp-96692-route-m-reach-drift-covariance-inflation.js (the AR(1) 2.578 primary this decomposes)
  * @see imp-96709-route-m-drift-vif-block-bootstrap.js (the ~1.70 block-bootstrap this reconciles it against)
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (the 21-rung ladder, source data)
+ * @see imp-96915-burnol-oscillation-frequency-periodogram.js (CORRECTION: the w=3.85 label used
+ *   throughout this file for "the imp-96487 remainder oscillation" is a 21-point Nyquist-alias
+ *   sampling artifact, not a resolvable frequency -- w=3.85 exceeds the Nyquist frequency pi=3.1416
+ *   for the unit-spaced ladder. The genuine, leave-one-out-robust anticorrelation-lobe frequency is
+ *   w=0.70 rad/sample (period ~9 lags). This correction relabels the SOURCE of the lags 3..7
+ *   anticorrelation lobe; it changes no ACF value, no VIF variant, and no decomposition number
+ *   below, so the qualitative VIF>1 conclusion and the 2.578->1.70 overstatement reading are
+ *   UNTOUCHED. See IMP96832_FREQUENCY_CORRECTION.
  *
  * Ticket: imp-96832 (accuracy, opus-4-8, api-pool). Numerics only; NO QED.
  */
@@ -90,7 +98,19 @@ export const IMP96832_INPUTS = Object.freeze({
   vifAr1: 2.57800402319117,              // imp-96692 primary (1+phi1)/(1-phi1)
   vifIntegratedAcf: 2.1356405308640385,  // imp-96692 1 + 2*tauInt
   vifBlockBootstrap: 1.6996,             // imp-96709 MBB b=3 primary (the target)
-  wBest: 3.85,                           // imp-96487 remainder oscillation frequency (source of the lobe)
+  wBest: 3.85,                           // imp-96487 remainder oscillation frequency LABEL (source of the lobe) -- SUPERSEDED, see IMP96832_FREQUENCY_CORRECTION
+});
+
+// LEDGER CORRECTION (imp-96947): imp-96915 decided that wBest=3.85 above is a 21-point
+// Nyquist-alias sampling artifact, not the genuine oscillation frequency. This constant
+// records the correction; it does not alter any ACF/VIF/decomposition value in this file.
+export const IMP96832_FREQUENCY_CORRECTION = Object.freeze({
+  supersededBy: 'imp-96915',
+  oldLabel: 3.85,
+  oldLabelIsNyquistAlias: true,           // 3.85 > pi = Nyquist frequency for unit-spaced sampling
+  genuineFrequency: 0.7006,               // rad/sample, leave-one-out sd 0.012
+  genuineFrequencyPeriodLags: 8.9686,
+  note: 'w=3.85 was never the real frequency of the imp-96487 anticorrelation lobe (lags 3..7): it lies above the Nyquist frequency pi=3.1416 for the unit-spaced 21-rung ladder and its periodogram power is identical to its alias image, the signature of an above-Nyquist alias. The genuine, leave-one-out-robust peak is w=0.70 rad/sample (period ~9 lags), which is what actually produces the lobe. This relabels the SOURCE of the lobe only -- every ACF/VIF/decomposition number in this file is unchanged, and the qualitative VIF>1 conclusion stands.',
 });
 
 // FINDING (A/B): the empirical ACF term by term vs the geometric AR(1) tail phi1^k.
@@ -235,6 +255,17 @@ const IMP96832_ASSERTIONS = [
     why: 'reconstructing the block bootstrap as a Bartlett triangular lag window over the measured ACF reproduces the imp-96709 MBB readings (b=3: 1.673 vs 1.700), confirming the block bootstrap is a truncated-lag treatment of the same ACF.',
   },
   {
+    id: 'imp96832-frequency-label-correction-propagated',
+    holds: () =>
+      IMP96832_FREQUENCY_CORRECTION.supersededBy === 'imp-96915' &&
+      IMP96832_FREQUENCY_CORRECTION.oldLabel === IMP96832_INPUTS.wBest &&
+      IMP96832_FREQUENCY_CORRECTION.oldLabelIsNyquistAlias === true &&
+      IMP96832_FREQUENCY_CORRECTION.genuineFrequency < Math.PI &&
+      IMP96832_FREQUENCY_CORRECTION.genuineFrequencyPeriodLags > 8 &&
+      IMP96832_FREQUENCY_CORRECTION.genuineFrequencyPeriodLags < 10,
+    why: 'imp-96915 decided the wBest=3.85 label is a Nyquist-alias sampling artifact and pinned the genuine anticorrelation-lobe frequency at w=0.70 (period ~9 lags); this ledger correction must stay attached to IMP96832_INPUTS.wBest.',
+  },
+  {
     id: 'imp96832-honest-banner-and-subgap-present',
     holds: () =>
       /RH open/.test(IMP96832_HONEST_BANNER) &&
@@ -260,6 +291,7 @@ export default {
   vifVariants: IMP96832_VIF_VARIANTS,
   bartlettRecon: IMP96832_BARTLETT_RECON,
   headline: IMP96832_HEADLINE,
+  frequencyCorrection: IMP96832_FREQUENCY_CORRECTION,
   verdict: IMP96832_VERDICT,
   subGap: IMP96832_SUBGAP,
   openSubGapRegistration: IMP96832_OPEN_SUBGAP_REGISTRATION,

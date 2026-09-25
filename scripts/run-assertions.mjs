@@ -20776,6 +20776,9 @@ const DATA_MODULES = [
   // imp-96999: cross-validates the imp-96428 Route M Vasyunin Gram lam_min power-law
   // exponent/amplitude. Accuracy, cross-validation only; NO QED.
   '/src/data/imp-96999-route-m-lammin-exponent-crossvalidation.js',
+  // imp-97017: machine-checks the imp-96996 STEP 1 structural fact -- the committed imp-96912
+  // 18-rung exact ||G||_F ladder is monotone non-decreasing. Verification / assertion only; NO QED.
+  '/src/data/imp-97017-frobenius-ladder-monotonicity-assertion.js',
 ];
 
 let ALL_MODULES = FAST_MODE

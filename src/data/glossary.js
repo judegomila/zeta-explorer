@@ -23835,7 +23835,13 @@ export const glossary = [
       'overlap was an artifact of using the non-defensible dense CI. Point ordering T<F<M and ' +
       'compute-binds-first (~3953x) are unchanged. The reconciled band still leans on a single ' +
       'high-leverage anchor (N=250 leverage h=0.968) and inherits the non-rigorous lam_min/lam_max ' +
-      'fit extrapolations; only the trace ceiling T is a rigorous lower bound. Sensitivity only; ' +
+      'fit extrapolations; only the trace ceiling T is a rigorous lower bound. Honest status: the ' +
+      '~0.5 percent F<M separation is thin -- comparable in size to the residual scatter on the ' +
+      'underlying fits -- and holds only for this specific reconciled all-rung CI band combined ' +
+      'with the non-rigorous lam_min power-law extrapolation; a different defensible band or fit ' +
+      'choice could close or invert the ordering. It also does not yet account for the imp-96912 ' +
+      'quad-vs-tail F-ceiling model ambiguity (6.22 percent spread between the two refit models), ' +
+      'which is itself over 12x the size of the F<M gap and could swamp it. Sensitivity only; ' +
       'no bound moved; no operator positivity established; interval-rigorous reach stays ' +
       '2a<=0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
     firstUsed: 'imp-96966 (adds this glossary headword for the imp-96937 reconciled all-rung CI band), 2026',

@@ -20728,6 +20728,11 @@ const DATA_MODULES = [
   // Loewner base problem and the Weyl bounded-perturbation split return beta < 0 (dip |sigma_2^min|
   // ~ 4336 >> mu ~ 0.55), so the seed is sign-obstructed. Derivation only; NO QED.
   '/src/data/imp-96865-krein-katotemple-lambda2-lowerbound-obstruction.js',
+  // imp-96866: supplies imp-96848 ingredient (ii) -- an N-dependent, interval-ready tail
+  // majorant on the Gegenbauer-transform diagonal |Psi_N(t)|^2 via integration by parts
+  // (the plane-wave Bessel sum majorises only term-by-term to O(1/s), a divergent
+  // tail-trace); |Psi_N|^2 <= a^{2m} t^{-2(m+1)} S_N with S_N = sum V_j^2. Derivation; NO QED.
+  '/src/data/imp-96866-krein-gegenbauer-tailtrace-majorant.js',
 ];
 
 let ALL_MODULES = FAST_MODE

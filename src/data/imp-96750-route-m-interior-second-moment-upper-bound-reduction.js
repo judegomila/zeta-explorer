@@ -119,6 +119,34 @@ export const IMP96750_CONSISTENCY = Object.freeze({
   totalSlopeMeasured667: 5.80481, // imp-96667 IMP96667_FITS.total.b
 });
 
+// imp-96771 (numerical, MEASUREMENT): reconcile the induced/t slope band (~3.50) against the
+// imp-96667 interior/total slope band (~5.66/5.80). The ~1.6x discrepancy is NOT a mis-scaling:
+// it is EXACTLY the imp-96708 H2 weight factor. T(M) = Sum I^2/(a^2 b^2) is the UNWEIGHTED series
+// (H2 == 1); Int(N) = Sum H2 I^2/(a^2 b^2) carries the weight H2 = Sum_{g<=.} 1/g^2 in [1, zeta(2)].
+// So Int and T are two readouts of ONE constant separated by a known factor bounded by zeta(2):
+//   * the two t-slopes agree to 0.2% (3.502 vs 3.495176) -- same unweighted series;
+//   * interior/t708 = 1.6183 <= zeta(2) = 1.6449, so the rigorous slope-level sandwich
+//     interiorSlope <= zeta(2)*tSlope708 (5.6564 <= 5.7493) HOLDS -- consistent, not a leak;
+//   * total/t708 = 1.6608 sits just above zeta(2) only because "total" adds the a=1 BORDER terms
+//     that are absent from the interior series T (interior + border, not interior alone).
+// VERDICT: mutually consistent; the gap is the H2 weight (zeta(2)), no mis-normalisation. NO QED.
+export const IMP96771_SLOPE_RECONCILIATION = Object.freeze({
+  zeta2: IMP96750_ZETA2, // 1.6449340668482264 -- the H2 sandwich ceiling
+  ratios: Object.freeze({
+    tInducedOverT708: (2 * IMP96750_S0_MEASURED) / 3.495176, // 1.00195 -- same unweighted series
+    interiorOverT708: 5.6564 / 3.495176, // 1.61834 -- H2-weighted, <= zeta(2)
+    totalOverT708: 5.80481 / 3.495176, // 1.66081 -- interior + a=1 border, just above zeta(2)
+  }),
+  sandwichSlopeCeiling: IMP96750_ZETA2 * 3.495176, // 5.74933 -- interiorSlope must sit at/below this
+  interiorSandwichHolds: 5.6564 <= IMP96750_ZETA2 * 3.495176, // true (5.6564 <= 5.7493)
+  totalExceedsCeilingBy: 5.80481 - IMP96750_ZETA2 * 3.495176, // +0.0555, the a=1 border contribution
+  verdict:
+    'CONSISTENT: the two t-slopes (unweighted T) agree to 0.2%; the interior/total slopes are the ' +
+    'same series carrying the imp-96708 H2 weight in [1,zeta(2)]. interiorSlope <= zeta(2)*tSlope ' +
+    'holds (5.6564 <= 5.7493); total exceeds it only by the a=1 border. The ~1.6x gap is the H2 ' +
+    'weight factor, NOT a mis-scaling. Measurement only; changes no bound; NO QED.',
+});
+
 // NEGATIVE RESULT: arithmetic-only (term-split) lower bound diverges like M log^2 M, not log M.
 // A(2,b) = C(2+b) + (1/2)(2-b) log(b/2) ~ -(1/2) b log b, so the single a=2 term forces
 // T_split(M) >= (1/16) M log^2 M (1+o(1)). Measured T_split(1200)=2801 vs true T(1200)=17.2.
@@ -252,6 +280,7 @@ export default {
   s0Measured: IMP96750_S0_MEASURED,
   sStar: IMP96750_S_STAR,
   consistency: IMP96750_CONSISTENCY,
+  slopeReconciliation: IMP96771_SLOPE_RECONCILIATION,
   splitOvershoot: IMP96750_SPLIT_OVERSHOOT,
   verdict: IMP96750_VERDICT,
   subGap: IMP96750_SUBGAP,

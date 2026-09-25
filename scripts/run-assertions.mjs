@@ -19843,6 +19843,13 @@ const DATA_MODULES = [
   // five rungs), re-bisecting the corroboration reach from L*~1.9e8 to ~8.1e7 (~1.14 decades past the PT
   // anchor). Import-light (no zeros bundle). Measurement only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96690-basis-c-above-anchor-rung-ladder.js',
+  // imp-96693 (2026-09-24): accuracy AUDIT tabulating the residual-factor decomposition of the three
+  // Route M lam_max conditioning ceilings imported from imp-96684 -- trace 2.594e7 (rigorous) < Frobenius
+  // 3.764e7 (fit) < measured 4.109e7 -- confirming M/F=1.0917 reproduces the imp-96684 residual factor
+  // 1.092, (F-T)/(M-T)=0.7722 ~= 76% gap-fraction, and M/T=1.5842 factors exactly as (F/T)*(M/F),
+  // reproducing the imp-96686 ~1.58x ceiling ratio. Import-light (no zeros bundle). Audit only; no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96693-route-m-conditioning-ceiling-residual-decomposition.js',
   // imp-96561: imp-96481 (Concepts glossary headword for the imp-96431 wide-range correction to
   // the imp-96405 M4 offset band) carries self-executing *_ASSERTIONS but was git-tracked without
   // ever being wired into this DATA_MODULES sweep, so its tripwire silently never ran. Import-light
@@ -20250,6 +20257,13 @@ const DATA_MODULES = [
   // 0.3526 is a growth RATE, not an edge VALUE. Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-96603-vasyunin-gram-multiplicative-not-toeplitz-glossary-headword.js',
+  // imp-96700: registers the three modules the imp-96605 orphan audit flagged as
+  // ORPHANED (no real import anywhere in src/, not previously DATA_MODULES-listed).
+  // Self-contained (no imports), so wiring them in here is sufficient to exercise
+  // their self-executing assertions on every run-assertions sweep.
+  '/src/data/imp-96563-route-m-lammin-rigorous-lower-bound-assessment.js',
+  '/src/data/imp-96569-route-m-window-reach-projection.js',
+  '/src/data/imp-96571-vif-rho1-bound-rigor-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

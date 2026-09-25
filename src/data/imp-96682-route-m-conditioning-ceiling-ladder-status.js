@@ -59,6 +59,16 @@
  * @see imp-96656-route-m-conditioning-ceiling-confidence-interval.js (error-bounded 95% CI)
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (pairwise ratio decomposition)
  * @see imp-96713-route-m-conditioning-ceiling-decomposition-reaudit.js (N=12000-updated re-audit)
+ * @see imp-96795-route-m-frobenius-g-factorization-route-independence-assessment.js (imp-96688 route-independence verdict, propagated below)
+ * @see imp-96688-route-m-frobenius-g-factorization-assessment.js (the orphan g-factorization assessed by imp-96795)
+ *
+ * imp-96795 UPDATE (propagated): the orphan imp-96688 Frobenius g-factorization was assessed
+ * and found NOT independent -- it re-expresses trace(G_N^2)=||G_N||_F^2, the exact second
+ * spectral moment the Frobenius rung below already majorizes lam_max with, so it collapses
+ * onto that rung rather than adding a fifth, independent ceiling number. This ladder therefore
+ * remains TWO rigor-levels deep, not three: only the trace rung is a rigorous lower ceiling;
+ * the Frobenius and measured rungs both rest on log-fit extrapolation (see
+ * IMP96682_ROUTE_INDEPENDENCE_NOTE below). No bound moved.
  *
  * Ticket: imp-96682 (content, sonnet-4-6, sonnet). Reconciliation status object only; NO QED.
  */
@@ -152,6 +162,26 @@ export const IMP96682_VERDICT = Object.freeze({
     'RH open; NO QED.',
 });
 
+// imp-96795 propagation: the orphan imp-96688 Frobenius g-factorization does NOT supply an
+// independent third ceiling number. It re-expresses trace(G_N^2) = ||G_N||_F^2 -- the exact
+// second spectral moment the Frobenius rung above already majorizes lam_max with -- so it
+// collapses onto that rung; this ladder stays two rigor-levels deep (rigorous vs fit/measured).
+export const IMP96682_ROUTE_INDEPENDENCE_NOTE = Object.freeze({
+  rigorLevels: 2, // rigorous lower (trace) vs fit/measured (Frobenius, measured)
+  rigorousRungs: Object.freeze(['traceLowerRigorous']),
+  fitOrMeasuredRungs: Object.freeze(['frobeniusLowerRigorousSharper', 'measuredComposed']),
+  orphanAssessed: 'imp-96688 (Frobenius g-factorization)',
+  orphanCollapsesOntoRung: 'frobeniusLowerRigorousSharper',
+  orphanIsIndependentFifthRung: false,
+  statement:
+    'imp-96795 assessed the orphan imp-96688 g-factorization and found it collapses exactly ' +
+    'onto the Frobenius rung of this ladder -- it re-expresses trace(G_N^2)=||G_N||_F^2, the ' +
+    'same second spectral moment that rung already majorizes lam_max with -- so it supplies NO ' +
+    'independent fifth ceiling number. The ladder remains two rigor-levels deep: only the ' +
+    'trace rung is a rigorous lower ceiling; the Frobenius and measured rungs both rest on ' +
+    'log-fit extrapolation.',
+});
+
 export const IMP96682_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation status object only: every ' +
   'ceiling value is imported unchanged from its source module (imp-96352, imp-96548 via ' +
@@ -188,6 +218,15 @@ const IMP96682_ASSERTIONS = [
     why: 'the imp-96570 independent cross-check ceilings and the imp-96656 95% CI lower edges both clear the rigorous trace lower ceiling.',
   },
   {
+    id: 'imp96682-route-independence-note-two-rigor-levels-no-fifth-rung',
+    holds: () =>
+      IMP96682_ROUTE_INDEPENDENCE_NOTE.rigorLevels === 2 &&
+      IMP96682_ROUTE_INDEPENDENCE_NOTE.orphanIsIndependentFifthRung === false &&
+      IMP96682_ROUTE_INDEPENDENCE_NOTE.orphanCollapsesOntoRung === 'frobeniusLowerRigorousSharper' &&
+      IMP96682_LADDER.some((r) => r.rung === IMP96682_ROUTE_INDEPENDENCE_NOTE.orphanCollapsesOntoRung),
+    why: 'imp-96795 found the orphan imp-96688 g-factorization collapses onto the existing Frobenius rung (re-expressing the same second spectral moment), so this ladder stays two rigor-levels deep with no independent fifth ceiling number.',
+  },
+  {
     id: 'imp96682-honesty-gate-no-qed',
     holds: () =>
       IMP96682_VERDICT.anyBoundMoved === false &&
@@ -208,6 +247,7 @@ export default {
   ladder: IMP96682_LADDER,
   ratios: IMP96682_RATIOS,
   measuredRungDetail: IMP96682_MEASURED_RUNG_DETAIL,
+  routeIndependenceNote: IMP96682_ROUTE_INDEPENDENCE_NOTE,
   verdict: IMP96682_VERDICT,
   banner: IMP96682_HONEST_BANNER,
 };

@@ -20201,6 +20201,15 @@ const DATA_MODULES = [
   // sole non-orphan (its own direct DATA_MODULES entry above). None of the seven can transitively
   // pull the zeros bundle. Audit only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96685-orphan-consumer-audit.js',
+  // imp-96605: consumer/orphan audit of the six newest Route M/sine-kernel finding modules
+  // (imp-96562, imp-96563, imp-96567, imp-96568, imp-96569, imp-96571). Three are ORPHANED
+  // (imp-96563, imp-96569, imp-96571 -- no real import statement anywhere in src/, not
+  // DATA_MODULES-registered, only mentioned as text in glossary headwords/log rows). The other
+  // three (imp-96562, imp-96567, imp-96568) are NOT orphaned -- each is really imported by a
+  // dedicated viz-data leaf feeding an App.jsx-lazy-routed page; imp-96568 also has its own direct
+  // DATA_MODULES entry. None of the six can transitively pull the zeros bundle. Audit only; no
+  // bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-96605-orphan-consumer-audit.js',
   // imp-96686: accuracy/consistency audit of every consumer citing a Route M lam_max overstatement
   // multiplier, checking each labels which imp-96548 quantity it reports (the ~1.92x N=6000 curve-
   // value ratio vs the ~1.58x conditioning-ceiling ratio). Two MISLABELS found: imp-96548 FINDING 2

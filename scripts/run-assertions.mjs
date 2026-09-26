@@ -20999,6 +20999,12 @@ const DATA_MODULES = [
   // notes the injection is a counting argument that fails from omega=5 (Hall deficiency).
   // Documentation only; no bound; NO QED.
   '/src/data/imp-97386-dp1-strictly-decreasing-glossary-headword.js',
+  // imp-97387: Concepts glossary headword recording the imp-97353 RESULT 1 exact dilation
+  // recursion M_k = (I - D_{p_k}) M_{k-1}, M_0(t) = e^{-t}, equivalently
+  // M_k = prod_{j=1}^k (I - D_{p_j}) e^{-t}: peeling the largest prime from the primorial
+  // divisor set recasts the friable Moebius partial sum as a k-fold dilation-difference of
+  // a single seed. Documentation only; no bound; NO QED.
+  '/src/data/imp-97387-friable-mertens-dilation-recursion-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

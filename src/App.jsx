@@ -1618,6 +1618,9 @@ const Imp97212RouteMResidualSignMagnitudeViz = lazy(() =>
 const Imp97213RouteMExplicitRemainderEnvelopeViz = lazy(() =>
   import('./pages/Imp97213RouteMExplicitRemainderEnvelopeViz.jsx')
 );
+const Imp97214RouteMFarfieldSlopebandVsOriginalViz = lazy(() =>
+  import('./pages/Imp97214RouteMFarfieldSlopebandVsOriginalViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4196,6 +4199,10 @@ function AppShell() {
           <Route
             path="/viz-imp97213-route-m-explicit-remainder-envelope"
             element={<Imp97213RouteMExplicitRemainderEnvelopeViz />}
+          />
+          <Route
+            path="/viz-imp97214-route-m-farfield-slopeband-vs-original"
+            element={<Imp97214RouteMFarfieldSlopebandVsOriginalViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

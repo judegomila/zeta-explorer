@@ -2,7 +2,7 @@
  * @module imp-97171-route-m-farfield-slopeband-vs-original-viz-data
  * @fileoverview imp-97171 -- VIZ DATA ONLY. Bakes a chart-ready comparison of the imp-97142
  *   propagated fPctVsLine INTERVAL (from the imp-96667 interior-slope band s* in 5.66..5.80,
- *   linearly through F(s*) = F_center * (s*/5.76)) against the ORIGINAL imp-96982 credible
+ *   linearly through F(s*) = F_center * (s* / 5.76)) against the ORIGINAL imp-96982 credible
  *   band (+1.369% floor .. +8.356% top). Shows both bands on one axis so the "entire propagated
  *   interval sits below the original floor" verdict is readable at a glance, without importing
  *   either source module. Values are literals recomputed directly from the imp-97142 formulas

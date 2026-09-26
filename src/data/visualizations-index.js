@@ -4703,6 +4703,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97133, no re-derivation. The eps(b) envelope upper-bounds the measured relative residual on every sampled b (ratio < 1 throughout); tight (ratio ~0.16-0.20) on prime b, loose by 4-5 orders of magnitude on primorial b. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97214-route-m-farfield-slopeband-vs-original',
+      title: 'Route M Far-Field Slope-Band Interval vs Original Band',
+      oneLine:
+        'Range chart on a shared fPctVsLine axis comparing the imp-97142 propagated slope-sweep interval [-2.035%, +0.389%] against the imp-96982 original credible band [+1.369%, +8.356%], with the three imp-97142 slope-sweep points (s* = 5.66/5.76/5.80) marked -- first visualization for the imp-97171 viz-data leaf.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97171-route-m-farfield-slopeband-vs-original-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97142-route-m-farfield-ceiling-slope-band-interval.js (source: propagated interval; imp-97171 viz-data leaf + imp-97214 page)',
+      ticket: 'imp-97214',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97142 and imp-96982, no re-derivation. The entire propagated interval sits below the original credible band floor, ~0.98 percentage points at the closest approach. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

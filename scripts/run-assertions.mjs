@@ -20897,6 +20897,14 @@ const DATA_MODULES = [
   // primorial P5..P8 and near-primorial smooth moduli, driven by distinct-small-prime
   // smoothness (not omega parity alone). Documentation only; no bound; NO QED.
   '/src/data/imp-97258-two-parity-residual-sign-law-glossary-headword.js',
+  // imp-97206: MEASUREMENT -- coupled N,T joint-limit extrapolation of the Krein
+  // Rayleigh floor c_sharp = lambda_min(P_a M_sigma2 P_a) at 2a=ln3. Taking T->inf
+  // FIRST removes the t-truncation artifact behind the imp-97183 fixed-T=800
+  // N-descent; the reliable-band lam(N,inf) (N=84..132) is a flat positive plateau
+  // ~0.582 (range [0.5817,0.5842]), not descending toward 0. Coercivity plausible;
+  // still a Rayleigh-Ritz UPPER-bound extrapolation, not a certified lower bound.
+  // Import-free; no bound moves; interval-rigorous reach stays 2a<=0.96; NO QED.
+  '/src/data/imp-97206-krein-csharp-coupled-nt-jointlimit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

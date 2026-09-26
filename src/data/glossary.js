@@ -24170,6 +24170,35 @@ export const glossary = [
       'imp-96938 drift calibration against the certified 2a=0.96 endpoint (imp-96938)',
     ],
   },
+  {
+    term: 'Route I Krein design-F tail-edge dip is STRUCTURAL, not a tail-discretisation artifact (imp-97032)',
+    category: 'measurement',
+    definition:
+      'The kmax=5 Route I Krein guarded-LP cutting-plane at 2a=1.00 stalls with the no-guard min ' +
+      'pointwise design F dipping below eps=1.0 in a band near the tail cutoff T (F=0.802 at ' +
+      't=35.21, imp-97013). imp-97032 tested whether this dip is a fixable tail-discretisation ' +
+      'artifact by exercising the two obvious parametrisation levers: (A) pushing the cutoff ' +
+      'T=40 -&gt; 60, and (B) densifying the top-t^5 tail block HP=0.05 -&gt; 0.01. Neither clears ' +
+      'the dip. Lever A does not converge (worst guarded residual walls at -0.1668 round 12, ' +
+      'worsening to -0.7447 round 13) and the old t~35-40 dip band LIFTS (min F 0.995) only ' +
+      'because a NEW dip appears at the new cutoff edge (global min F=0.866 at t=42.55) -- the ' +
+      'dip relocates outward with T rather than disappearing. Lever B does not converge either ' +
+      '(worst residual plateaus near -0.0615, essentially the imp-97013 baseline -0.0557); the ' +
+      'fine-grid F is only slowly lifted (0.782 -&gt; 0.953 round 3-&gt;5) and stays below eps=1.0 ' +
+      'at t=35.85. CONCLUSION: the tail-edge design-F dip is a property of the kmax=5 top-t^k ' +
+      'trig design class near ANY finite cutoff, not an artifact of where T sits or how fine the ' +
+      'tail grid is -- so a bigger T or a smaller HP will not fix it. Clearing it needs a RICHER ' +
+      'DESIGN FAMILY (a higher kmax or a different tail ansatz), not further tail parametrisation. ' +
+      'Measurement only; establishes no operator positivity; certified interval-rigorous reach ' +
+      'stays exactly 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97090 (adds this glossary headword for the imp-97032 result establishing the design-F tail-edge dip is structural, not fixable by tail parametrisation), 2026',
+    relatedTerms: [
+      'imp-97032-krein-tail-parametrisation-lever.js the source measurement (larger-T and denser-HP levers both fail to clear the dip)',
+      'imp-97013-krein-finer-fineh-3e5-convergence.js parent result exposing the design-F tail dip (FINEH=3e-5)',
+      'imp-96970-krein-kmax5-100-converged-solve-verify.js grandparent: FINEH=1e-4, residual cycles at -0.069',
+      'rh-route-i-toeplitz-krein-certificate-2026-09-24.js interval-rigorous certified reach 2a &lt;= 0.96',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

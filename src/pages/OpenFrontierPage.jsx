@@ -2845,6 +2845,29 @@ const ROUTE_M_RESIDUALS = [
     ],
     links: [],
   },
+  {
+    id: 'RouteM-4',
+    tag: 'imp-97016-fm-data-alone-does-not-reject-concave-quad',
+    color: '#a05a2c',
+    badge: 'DATA ALONE INCONCLUSIVE',
+    title: 'Route M: the exact ||G||_F data alone cannot reject the concave-quad ceiling (imp-97016) -- the far N* ~ 4e7 extrapolation, not the local shape, keeps it in play',
+    status: 'OPEN',
+    body: [
+      'Re-running the imp-96996 F < M monotonicity-partition against the freshest exact ' +
+      '||G||_F rungs (extended to N=24000 by imp-96912) leaves the picture unchanged: the ' +
+      'monotone line/tail models sit below the M_lo=3.919e7 canonical-band edge (F < M ' +
+      'preserved), but the concave quad -- still the out-of-sample best LOCAL fit by 3.40x ' +
+      'over the tail on those very rungs -- has ceiling N*=4.088e7, ABOVE M_lo (F < M ' +
+      'inverted by +4.30 percent). So F < M holds only under the Step-1 monotonicity prior, ' +
+      'not from the exact data alone: extending the exact ladder by another 0.176 decade did ' +
+      'not change which model the data favors. What keeps the quad in play is the ~3.23-decade ' +
+      'far extrapolation to N* ~ 4e7, not the local shape near N=24000; rejecting it from the ' +
+      'data alone needs exact rungs reaching a substantial fraction of that scale, which is an ' +
+      'O(N^3) V-table build currently CPU-blocked in-pool.',
+      'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Measurement/analysis only, no Gram was rebuilt, no bound is claimed moved.',
+    ],
+    links: [],
+  },
 ];
 
 // Route I (Toeplitz/Krein certificate) uniform-N gap verdict, consolidating
@@ -4999,7 +5022,7 @@ export default function OpenFrontierPage() {
       <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #a05a2c' }}>
         <strong style={{ color: '#a05a2c', fontSize: 13 }}>Route M (Nyman-Beurling Burnol/Vasyunin) numerical residuals</strong>
         <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>
-          The three records below are honest-status sub-gaps from the Route M finite-N
+          The four records below are honest-status sub-gaps from the Route M finite-N
           numerical program (Burnol-normalized ratio ladder and Vasyunin Gram
           conditioning). Each already carries its own reproducible measurement and
           honest-status banner in src/data/ but was previously referenced only in the

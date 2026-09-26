@@ -4914,6 +4914,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: the QhatFrac/QrrOverB per-b figures and the Qcross(b)/b constant are reused verbatim from imp-97349, no re-derivation of the exact Vasyunin-kernel split. The qcrossFrac/qrrFrac chart values are an approximation (measured ratio divided by the baked leading slope s0), not an exact identity. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97413-sigma-ladder-subdecade-knee',
+      title: 'Sigma(N) Decay-Exponent Ladder with the Sub-Decade Knee',
+      oneLine:
+        'The imp-33582 six-decade per-decade local decay-exponent ladder (0.0105 -> 0.4310, ramping toward the imp-3463 far-tail 1/2 asymptote) with the imp-33721 sub-decade ramp-curvature knee N* ~ 3.38e9 marked on the same log10-N axis, inside the [1e9,1e10] decade bar a full decade below the coarse [1e10,1e11] bracket imp-33701 originally reported.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97413-sigma-ladder-subdecade-knee-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-33582-sigma-postpeak-nearpeak-threshold-decay.js (source: the six-decade perDecadeLadder), src/data/imp-33721-sigma-ramp-inflection-subdecade.js (source: the sub-decade knee N* ~ 3.38e9; imp-97413 viz-data leaf + page)',
+      ticket: 'imp-97413',
+      pedagogicalStep: 390,
+      honestCeiling:
+        'Presentation only: both the exponent ladder and the knee location are reused verbatim from imp-33582 and imp-33721, no re-derivation of the sigma(N) extrapolation model or the OLS local-exponent estimator. Combines two already-published measurements on one axis; changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97390-krein-csharp-upperbrackets-sidebyside',
       title: 'Route I Krein Floor: Two Upper Brackets on c_sharp at 2a=ln3, Side by Side',
       oneLine:

@@ -21328,6 +21328,17 @@ const DATA_MODULES = [
   // perturbed as a probe not re-pinned; C_mb GUE-conditional per imp-486; no bound moved;
   // PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97565-crossover-cc-sensitivity-landmark-shift.js',
+  // imp-97564 (2026-09-26): EXTENDS the imp-97457 realizable-psi search (best band-limited attainment
+  // 43.84% of the bathtub envelope at T=12) to higher resolution on two separated axes. Grid refinement
+  // h=0.02..0.0025 at T=12 pins the fraction at 0.43837 to five digits (grid-converged, confirming
+  // imp-97457), but widening the window T=12..64 climbs R 1343.8..1549.6 and the fraction 0.43837..0.50552
+  // monotonically with decelerating increments -- so 43.84% was a [-12,12] window-TRUNCATION artifact and
+  // the true realizable fraction is ~0.51 (1/T Richardson R_inf ~ 1573, fraction ~ 0.513). The realizable
+  // psi still captures only ~half the 3065.43 envelope, so the imp-97457 realizability gap persists, but
+  // the realizable floor is deeper (~ -1573 vs the reported -1343.796) and the gap shares move toward
+  // parity. Measurement only; finite-section / 1/T-extrapolated eigenvalue not an interval enclosure;
+  // no bound moved; interval-rigorous reach stays 2a<=0.96; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97564-realizability-fraction-resolution-sweep.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -20942,6 +20942,12 @@ const DATA_MODULES = [
   // reach is optimistic past ~1e7); the qualitative monotone climb of r(b) toward 1
   // survives regardless. Audit only; no fix; NO QED.
   '/src/data/imp-97348-e1-fp-precision-honest-status.js',
+  // imp-97365: META cross-reference index grouping the Krein c_sharp lower-bound cohort
+  // (imp-97161/97182/97183/97206/97335/97336) -- the
+  // exact-open-object-measured-from-above-only family: every route toward a proven
+  // positive c_sharp lands on an upper bracket, a restatement, or a negative pointwise
+  // result. Index/meta only; NO QED.
+  '/src/data/imp-97365-krein-csharp-measured-from-above-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

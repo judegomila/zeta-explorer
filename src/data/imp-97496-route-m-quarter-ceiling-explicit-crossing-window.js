@@ -34,8 +34,8 @@
  * By imp-97481 RESULT 2, Rcorr(b) = R(1) + tail with R(1) = 1/4 - lnA = 1.2455230e-3 and, for a window with
  * min prime P0 = 379, |tail| <= (1/720)(Prod_{379<=p<=Y}(1+1/p^3) - 1) < 7.59e-10. Hence
  * Rcorr in [R(1) - 7.59e-10, R(1) + 7.59e-10], and T(b) = surrogate + Rcorr < -1/4 is GUARANTEED whenever
- *     surrogate([379,Y]) < -1/4 - R(1) - 7.59e-10 = -0.2512467720.
- * At Y* = 73,612,801 this holds (surrogate = -0.251245526 < -0.2512467720? no -- see below), i.e. the guaranteed
+ *     surrogate([379,Y]) < -1/4 - R(1) - 7.59e-10 = -0.2512455237.
+ * At Y* = 73,612,801 this holds (surrogate = -0.251245526 < -0.2512455237, by 2.26e-9), so the guaranteed
  * enclosure gives T(b) <= surrogate + R(1) + 7.59e-10 = -0.25000000226 < -1/4. RIGOROUSLY VERIFIED.
  *
  * -------------------------------------------------------------------------------

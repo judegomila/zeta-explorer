@@ -24804,6 +24804,37 @@ export const glossary = [
       'imp-97333-route-m-sign-law-proof-attempt.js the peel identity and IMP97333_SIGN_TAIL_SUBGAP',
     ],
   },
+  {
+    term: 'The imp-97423 Omega=5 Route M Two-Sided Binet Bracket',
+    category: 'result',
+    definition:
+      'Supplies the quantitative two-sided Binet estimate that imp-97396 flagged as the exact missing ' +
+      'ingredient for the omega = 5 Route M sign law. imp-97396 reduced the whole sign law T(b) &lt; 0 to ' +
+      'two per-prime inequalities (A) D(q1) &gt; D(q1q2)+D(q1q3)+D(q1q4) and (B) D(q2) &gt; D(q2q3)+D(q2q4), ' +
+      'where D_p1(e) = J(e-1) - J(p1 e-1) and J is the Binet function, but the elementary toolkit gave only ' +
+      'ONE-SIDED control of D (D &gt; 0, strictly decreasing) -- it could not bound a single D value from ' +
+      'below against a sum of smaller-argument D values from above. This module derives the rigorous ' +
+      'ENVELOPING bracket 1/(12n) - 1/(360 n^3) &lt; J(n) &lt; 1/(12n) (Stieltjes/completely-monotonic ' +
+      'remainder), producing explicit two-sided bounds Dlo(p1,e) &lt;= D_p1(e) &lt;= Dhi(p1,e) and rigorous ' +
+      'certificates certA, certB that are strictly positive across every omega = 5 family sampled (e.g. ' +
+      'certA(2;3,5,7,11) = 0.01812, certB(2;3,5,7,11) = 0.00951). It then uses the strict monotonicity of ' +
+      'Dhi(p1,e) in e to show the worst-case configuration for fixed (p1,q1) is always the three smallest ' +
+      'admissible primes above q1 -- collapsing the infinite q2,q3,q4 tuple space to one minimal config per ' +
+      '(p1,q1). The residual it leaves open is a UNIFORM-in-(p1,q1) TAIL LEMMA: the certificate margin decays ' +
+      'like (1 - 1/p1)/(12 q1)[1 - Sum 1/qj] -&gt; 0+ as q1 -&gt; infinity with no positive floor (e.g. ' +
+      '4.167e-8 at q1 = 10^6), so a finite check alone cannot cover all q1, even though the now-explicit ' +
+      'O(1/q1^3) remainder makes that tail lemma a bounded elementary calculation not carried out here. So ' +
+      'the two-sided estimate is DERIVED and the one-sided obstruction is removed, but the omega = 5 sign ' +
+      'law is not yet proved. No bound on Lambda moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH ' +
+      'open; NO QED.',
+    firstUsed: 'imp-97449 (adds this glossary headword for the imp-97423 two-sided Binet bracket reduction), 2026',
+    relatedTerms: [
+      'imp-97423-route-m-sign-law-omega5-binet-two-sided-estimate.js the source module (enveloping bracket, Dlo/Dhi, certA/certB, minimal-config monotonicity)',
+      'imp-97396-route-m-sign-law-omega5-weighted-reduction.js reduces omega=5 to (A),(B) and names the one-sided gap this module closes',
+      'imp-97352-route-m-sign-law-omega4-proof.js the omega&lt;=4 pure-injection proof and the Hall wall at omega=5',
+      'imp-97333-route-m-sign-law-proof-attempt.js the peel identity and IMP97333_SIGN_TAIL_SUBGAP',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

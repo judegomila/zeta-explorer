@@ -24722,6 +24722,34 @@ export const glossary = [
       'imp-97113-krein-bessel-asymptotic-annihilation-scope.js the 6 carrier functionals and the 94-dim v0 relaxation family that stays live',
     ],
   },
+  {
+    term: 'The imp-97440 Route-2 Unbounded-Regress Verdict (lambda_2 Lehmann-Maehly)',
+    category: 'result',
+    definition:
+      'EXECUTES the imp-97415 Route-2 Lehmann-Maehly recursion for a certified lower bound rho &lt;= ' +
+      'lambda_2 on the imp-97414 genuine FULL band-projector second moment A2 at 2a = ln3, to test whether ' +
+      'the reachable rho exceeds the 0.581059 needed to make the imp-97400 m=1 lambda_1 enclosure usable. ' +
+      'At the circular surrogate Kbig = N = 28 the recursion returns EXACTLY the Ritz upper bracket ' +
+      'lambda_2 = 83.090493 for every shift rho in the band (lambda_2, lambda_3) = (83.09, 5516.95) -- the ' +
+      'Ritz vectors are exact eigenvectors of the finite section, so it just echoes lambda_2 back, not a ' +
+      'genuine bound. As soon as Kbig &gt; N (circularity removed) the reachable lower bound collapses ' +
+      'NEGATIVE for every shift: best (least negative) -196.863 at Kbig=44, worsening MONOTONICALLY to ' +
+      '-245.345 (Kbig=60) and -275.500 (Kbig=76) as the reproducing kernel converges, running to -18507 near ' +
+      'rho = lambda_2. So the best reachable certified rho is roughly -197, more than two orders below zero ' +
+      'and four below the required 0.581059. VERDICT: imp-97415 Route 2 is CONFIRMED numerically as an ' +
+      'unbounded regress -- the genuine full-projector A2 gives NO positive lower bound on lambda_2 at any ' +
+      'Kbig &gt; N, sharing the SAME band-limited concentration / unbounded-above vacuity wall as the m=1 ' +
+      'lambda_1 bracket (imp-97414 Finding 3). Execution/measurement only; no rigorous lower bound on ' +
+      'lambda_2; no operator positivity; no bound moves; interval-rigorous reach stays 2a &lt;= 0.96; ' +
+      'Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97468 (adds this glossary headword for the imp-97440 Route-2 execution), 2026',
+    relatedTerms: [
+      'imp-97440-krein-route2-lambda2-lower-bound-execution.js the source module (Ritz band, circular Kbig=N check, genuine-projector collapse)',
+      'imp-97415-krein-lambda2-certified-lower-bound-assessment.js the on-paper Route-2 regress assessment this executes numerically',
+      'imp-97414-krein-full-projector-second-moment-execution.js the full-projector A2 primitive and the m=1 lambda_1 circular-vs-genuine collapse',
+      'imp-97400-krein-lehmann-maehly-lower-bracket-execution.js the m=1 gate needing a certified rho &lt;= lambda_2 to become usable',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

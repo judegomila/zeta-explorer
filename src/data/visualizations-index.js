@@ -4633,6 +4633,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every band value is reused verbatim from imp-96983 (itself verbatim from imp-96958). The Ritz band is an UPPER estimate, not a certified lower bound. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97068-mirror-descent-poisson-kernel',
+      title: 'Mirror-Descent Pair Lemma: the Poisson-Kernel Descent Floor',
+      oneLine:
+        'Line charts of the rh-bridge-mirror-descent-2026-09-25 PROVED pair (mirror) lemma A1: the descent-kernel floor f(2y,Delta)=2y/(Delta^2+4y^2) vs horizontal offset Delta at three heights (y0=0.165, 0.5, 1), plus the pair-lemma inequality f(a)+f(2y-a)>=f(2y) swept across a in [0,2y] at a fixed (y,Delta) example -- first visualization for this proved geometric mechanism.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97068-mirror-descent-poisson-kernel-viz-data.js',
+      paperSourcePath:
+        'src/data/rh-bridge-mirror-descent-2026-09-25.js (source: A1 pair lemma, A4 Poisson domination; imp-97068 viz-data leaf + page)',
+      ticket: 'imp-97068',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is computed with the imported f() verbatim, no re-derivation. The pair lemma and Poisson domination are proved elementary facts, but the flow-descent theorem they feed stays conditional (hypothesis open, pointwise NS-RIGID class). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

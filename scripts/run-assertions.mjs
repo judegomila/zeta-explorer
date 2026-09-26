@@ -21298,6 +21298,16 @@ const DATA_MODULES = [
   // threshold t0 = 10.531 is R-independent (|psi|^2 >= 0 makes the integrand sign follow sigma_2 alone).
   // Measurement only; no bound moved; reach 2a <= 0.96; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97580-krein-tail-bias-R-sweep-signchange.js',
+  // imp-97605 (2026-09-26): INDEPENDENTLY cross-validates the imp-97580 far-field tail-bias closed factor
+  // relBias(R) = 3(1/a - a R^2) * (I2/I1) WITHOUT the three-IBP asymptotic. The sin(a t)/t^3 and
+  // cos(a t)/t^4 edge amplitudes g_pp, g_ppp are read DIRECTLY off the finite cosine transform
+  // C(t) = int_{-a}^a g cos(xi t) dxi (composite Simpson, no IBP; 1/t^2 Richardson), reproducing the
+  // closed edge ratio 3(1/a - a R^2) to ~5 sig figs (< 2e-4 on the amplitudes) across R in [1,4]; I2/I1
+  // reproduces 2.0750138618842e-6 to full double precision. Hence the sign change lands at Rc = 1/a
+  // (measured to ~8e-5) and relBias_dir(3.36) = -2.72746e-5, matching imp-97580 and inside the imp-97497
+  // < 1e-3 bar. Cross-validation only; the IBP asymptotic is corroborated, not replaced; no bound moved;
+  // reach 2a <= 0.96; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97605-krein-tail-bias-direct-ct-crossvalidation.js',
   // imp-97583 (2026-09-26): LOCATES the exact omega where the Route M MCM hypothesis first fails, between
   // imp-97519 verified omega<=6 and imp-97432 refuted omega=11. Direct imp-97432-kernel evaluation of the
   // primorial worst case across omega=6..15 puts the onset EXACTLY at omega=11: T(p_omega#) = +1.00e-2,
@@ -21308,6 +21318,15 @@ const DATA_MODULES = [
   // the primorial is the worst case at every order. Measurement only; MCM verified-not-proved below onset,
   // FALSE from omega=11; no bound moved; PT Lambda<=0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97583-route-m-mcm-onset-omega11-primorial.js',
+  // imp-97606 (2026-09-26): WIDENS the imp-97583 RESULT 4 primorial-extremality check at the razor-thin
+  // omega=10 margin (T(p_10#) = +4.782772e-4), which had sampled only two alternatives per omega. Exact
+  // imp-97432-kernel evaluation over a broad omega=10 family -- every single-prime substitution, shift-up
+  // families k=1..5, two-prime substitutions of the two largest {23,29}, and a 20,000-trial offline random
+  // sweep (20,437 sets total) -- confirms the primorial p_10# is the STRICT minimiser: the smallest
+  // non-primorial T is +5.534829e-4 (from 29 -> 31, the tiniest perturbation), +7.52e-5 ABOVE the primorial,
+  // and NO set gives T < 0. The MCM onset stays exactly omega=11; b/4 ceiling untouched; kappa_arith
+  // unchanged; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97606-route-m-mcm-omega10-primorial-extremality-broadened.js',
   // imp-97585 (2026-09-26): MEASURES the Gronwall flow share E_flow/E_trunc across the full imp-97520
   // ladder N in {1e6 .. 1e12}, extending the single-point imp-97520 measurement (~1.91e-3 at N_half).
   // The share is MONOTONE DECREASING -- it does NOT grow toward the tail but collapses (1.4376 at 1e6

@@ -1302,6 +1302,9 @@ const Imp97452RkFloorLinearLadderViz = lazy(() =>
 const Imp97467CrossoverFractionToleranceLadderViz = lazy(() =>
   import('./pages/Imp97467CrossoverFractionToleranceLadderViz.jsx')
 );
+const Imp97485KreinRealizabilityGapViz = lazy(() =>
+  import('./pages/Imp97485KreinRealizabilityGapViz.jsx')
+);
 const Imp97471McmTowerPerLevelMarginViz = lazy(() =>
   import('./pages/Imp97471McmTowerPerLevelMarginViz.jsx')
 );
@@ -3850,6 +3853,10 @@ function AppShell() {
           <Route
             path="/viz-imp97467-crossover-fraction-tolerance-ladder"
             element={<Imp97467CrossoverFractionToleranceLadderViz />}
+          />
+          <Route
+            path="/viz-imp97485-krein-realizability-gap"
+            element={<Imp97485KreinRealizabilityGapViz />}
           />
           <Route
             path="/viz-imp97471-mcm-tower-per-level-margin"

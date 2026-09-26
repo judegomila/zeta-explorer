@@ -5053,6 +5053,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every bar height is reused verbatim from the imp-97442 baked sweep; no re-solve. Establishes no operator positivity; changes no bound; MCM stays VERIFIED (not proved) at omega=5,6 and is FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97485-krein-realizability-gap',
+      title: 'imp-97457: The Krein Bathtub Realizability Gap',
+      oneLine:
+        'The imp-97457 measurement that the best realizable band-limited density captures only 43.84% of the imp-97416 bathtub negative integral and peaks at just 52.5% of the a/pi ceiling, charted against the exact bathtub indicator, plus the gap split into comparable realizability (56.2%) and discarded far-field (43.8%) shares.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97485-krein-realizability-gap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97457-krein-bathtub-realizability-gap.js (R, gap attribution, verdict; imp-97485 viz-data leaf + page)',
+      ticket: 'imp-97485',
+      pedagogicalStep: 397,
+      honestCeiling:
+        'Presentation only: the f_bath indicator and the gap-split numbers are exact recomputation / verbatim reuse of imp-97457; the f_real curve is a labeled illustrative schematic (not the re-solved eigenfunction of P_a M_{sigma_2^-} P_a). R is a finite-section IEEE-double eigenvalue, not interval-certified. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

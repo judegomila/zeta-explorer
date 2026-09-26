@@ -63,9 +63,18 @@
  * discriminator. No bound moves; trace ceiling T ~ 2.594e7 and the T<F<M ordering unaffected;
  * PT Lambda <= 0.2 stays SOTA; RH open; NO QED.
  *
+ * HONEST-STATUS UPDATE (imp-97078, later ticket): the "O(N^3), CPU-starved, needs an offline
+ * native run" framing above is now dated. imp-97078 assessed the O(N^2 logN) Vasyunin-reciprocity
+ * rewrite named as the alternative just above and found it FEASIBLE (recursion exact to 6.9e-10,
+ * measured timing crossover confirms both complexity classes) -- but a PRODUCTION machine-precision
+ * ladder past this module's N=16000 top rung still needs a fast, uniform R = (i/2)psi period-function
+ * evaluator (imp-97078's crude asymptotic R caps the descent at ~3.3e-6, degrading near x=1/2); that
+ * evaluator sub-gap, not raw CPU, is now the blocker. No bound moves; RH open; NO QED.
+ *
  * @see imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js (the two concave models + ceilings)
  * @see imp-96792-route-m-frobenius-ladder-direct-vs-fit-gap.js (norm concave, fit over-predicts)
  * @see imp-96751-route-m-frobenius-ladder-above-12000.js (exact rungs N=13000..16000)
+ * @see imp-97078-route-m-vasyunin-reciprocity-nsq-logn-feasibility.js (FEASIBILITY UPDATE: O(N^2 logN) reciprocity rewrite is feasible; blocked on the R-evaluator sub-gap, not raw CPU)
  *
  * Ticket: imp-96912 (numerical, opus-4-8, api-pool). Fit/measurement only; NO QED.
  */
@@ -139,6 +148,19 @@ export const IMP96912_VERDICT = Object.freeze({
   qed: false,
 });
 
+// HONEST-STATUS UPDATE: imp-97078 later assessed the O(N^2 logN) reciprocity rewrite this module
+// named as the alternative to the CPU-blocked O(N^3) V-table and found it FEASIBLE, with the
+// blocker narrowed from raw compute to a specific R-evaluator sub-gap.
+export const IMP96912_SUBGAP_STATUS_UPDATE = Object.freeze({
+  updatedBy: 'imp-97078-route-m-vasyunin-reciprocity-nsq-logn-feasibility',
+  reciprocityRewriteFeasible: true,
+  achievedComplexity: 'O(N^2 logN)',
+  remainingBlocker: 'a fast, uniform R = (i/2)psi period-function evaluator on (0,1/2] (Bettin-Conrey Cor. 1); the crude asymptotic-series R caps the descent at ~3.3e-6',
+  noLongerAccurate: 'raw CPU/offline-native-run framing as the sole path past N=16000',
+  boundMoved: false,
+  qed: false,
+});
+
 // Self-executing invariants (import-light; no heavy transitive imports; pure literals only).
 const IMP96912_ASSERTIONS = [
   {
@@ -172,6 +194,15 @@ const IMP96912_ASSERTIONS = [
       IMP96912_VERDICT.boundMoved === false &&
       IMP96912_VERDICT.qed === false,
     why: 'fresh exact rungs beyond N=16000 remain compute-blocked (sub-gap), the tmp out.json is a corrupt artifact, the far-tail ambiguity is not resolved, no bound moves, and NO QED.',
+  },
+  {
+    id: 'subgap-status-update-recorded',
+    holds: () =>
+      IMP96912_SUBGAP_STATUS_UPDATE.reciprocityRewriteFeasible === true &&
+      IMP96912_SUBGAP_STATUS_UPDATE.achievedComplexity === 'O(N^2 logN)' &&
+      IMP96912_SUBGAP_STATUS_UPDATE.boundMoved === false &&
+      IMP96912_SUBGAP_STATUS_UPDATE.qed === false,
+    why: 'imp-97078 later found the O(N^2 logN) reciprocity rewrite this module named as the alternative is FEASIBLE, narrowing the blocker from raw compute to a named R-evaluator sub-gap; recorded here so this module is not read as still citing a pure CPU wall.',
   },
 ];
 

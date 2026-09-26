@@ -1314,6 +1314,9 @@ const Imp97487Bimodal1PctCrossoverViz = lazy(() =>
 const Imp97488KreinRoute2KbigSaturationViz = lazy(() =>
   import('./pages/Imp97488KreinRoute2KbigSaturationViz.jsx')
 );
+const Imp97504KreinRoute2KbigDirectFloorViz = lazy(() =>
+  import('./pages/Imp97504KreinRoute2KbigDirectFloorViz.jsx')
+);
 const Imp97471McmTowerPerLevelMarginViz = lazy(() =>
   import('./pages/Imp97471McmTowerPerLevelMarginViz.jsx')
 );
@@ -3878,6 +3881,10 @@ function AppShell() {
           <Route
             path="/viz-imp97488-krein-route2-kbig-saturation"
             element={<Imp97488KreinRoute2KbigSaturationViz />}
+          />
+          <Route
+            path="/viz-imp97504-krein-route2-kbig-direct-floor"
+            element={<Imp97504KreinRoute2KbigDirectFloorViz />}
           />
           <Route
             path="/viz-imp97471-mcm-tower-per-level-margin"

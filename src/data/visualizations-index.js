@@ -5109,6 +5109,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the measured points and fit parameters are reused verbatim from imp-97455; the fit curves are the same closed forms evaluated past the measured range. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97504-krein-route2-kbig-direct-floor',
+      title: 'imp-97482: The Route-2 Kbig Floor, Directly Built',
+      oneLine:
+        'The imp-97482 direct-build extension of the Route-2 Kbig->infinity floor past the imp-97455 Kbig=140 ceiling: four directly-measured points (-303.336 at Kbig=140 to -308.745 at Kbig=260, no extrapolation) with 40-step increments collapsing 3.006->1.524->0.879, tightening the floor to [-313.756,-308.745] inside the earlier extrapolated [-322.065,-305.866], alongside tr(A2) still converging toward ~4819.1M.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97504-krein-route2-kbig-direct-floor-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97482-krein-route2-kbig-direct-projector-floor.js (directly-built points, step deltas, tightened floor bracket; imp-97504 viz-data leaf + page)',
+      ticket: 'imp-97504',
+      pedagogicalStep: 401,
+      honestCeiling:
+        'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97482. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

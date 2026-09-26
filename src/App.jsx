@@ -1329,6 +1329,9 @@ const Imp97507KreinNscaledTgridHeatmapViz = lazy(() =>
 const Imp97508McmBasetermExtprecViz = lazy(() =>
   import('./pages/Imp97508McmBasetermExtprecViz.jsx')
 );
+const Imp97526NamedConcentrationToolVerdictTableViz = lazy(() =>
+  import('./pages/Imp97526NamedConcentrationToolVerdictTableViz.jsx')
+);
 const Imp97471McmTowerPerLevelMarginViz = lazy(() =>
   import('./pages/Imp97471McmTowerPerLevelMarginViz.jsx')
 );
@@ -3913,6 +3916,10 @@ function AppShell() {
           <Route
             path="/viz-imp97508-mcm-baseterm-extprec"
             element={<Imp97508McmBasetermExtprecViz />}
+          />
+          <Route
+            path="/viz-imp97526-named-concentration-tool-verdict-table"
+            element={<Imp97526NamedConcentrationToolVerdictTableViz />}
           />
           <Route
             path="/viz-imp97471-mcm-tower-per-level-margin"

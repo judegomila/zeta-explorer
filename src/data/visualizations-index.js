@@ -5179,6 +5179,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every point is the imp-97478 baked extended-precision ladder reused verbatim. Establishes no operator positivity; changes no bound; MCM stays VERIFIED not proved (and FALSE from omega=11 per imp-97432); kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97526-named-concentration-tool-verdict-table',
+      title: 'imp-97502: Named Concentration Tool Verdict Table',
+      oneLine:
+        'The imp-97502 tool-by-tool verdict table at 2a=ln3: Donoho-Stark, Amrein-Berthier/Nazarov, Nazarov/Turan-Nazarov reverse-Holder, and Paneah/Logvinenko-Sereda all fall to Wall A (depth 4336.198 dominates any mass-fraction ceiling, needing theta_max<1.153e-4) and Wall B (indicator/Lebesgue mass, never the signed sigma_2 weight), governed by the time-bandwidth product TBW=15.15.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97526-named-concentration-tool-verdict-table-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97502-krein-named-concentration-inequality-assessment.js (the source verdict, conversion data, and per-tool booleans; imp-97526 viz-data leaf + page)',
+      ticket: 'imp-97526',
+      pedagogicalStep: 406,
+      honestCeiling:
+        'Presentation only: every row and constant is reused verbatim from imp-97502. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

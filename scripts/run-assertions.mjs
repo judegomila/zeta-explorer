@@ -21163,6 +21163,12 @@ const DATA_MODULES = [
   // 18301.61, correcting the imp-97161 prose claim of recurring negative bands with unbounded
   // t^4 depth out to infinity. Documentation only; NO QED.
   '/src/data/imp-97417-sigma2-confined-well-correction-honest-status.js',
+  // imp-97501: UPGRADE the imp-97417 far-field positivity of sigma_2 = (t^2+1/4)^2 w_1 from
+  // SAMPLED (to t=2000-5000) to a RIGOROUS explicit-t0 margin: cos<=1 + the certificates
+  // increasing digamma L lower bound of 2 theta prime give w_1(t) >= L(t) - sqrt2 ln2 > 0 for all
+  // t >= t0 = 27 (crossing t* = 26.1023, margin 0.0616061), with the finite window [10.532,27]
+  // carrying a second-order guarded margin +8.114. No negativity recurs; NO QED.
+  '/src/data/imp-97501-sigma2-far-field-positivity-rigorous-margin.js',
 ];
 
 let ALL_MODULES = FAST_MODE

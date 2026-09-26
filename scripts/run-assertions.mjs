@@ -774,6 +774,17 @@ const DATA_MODULES = [
   // |kappa_eff|=0.0995, a golden-type local value not a constant. Derivation+measurement only; no bound
   // moved; rigorous anchor stays T=2.594e7; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97479-route-m-bettin-conrey-reciprocity-quantum-modular-obstruction.js',
+  // imp-97480 (2026-09-26): PERFORMS the Bettin-Conrey smooth/fluctuation split of V(b,a) the imp-97464
+  // sub-gap called for, and locates EXACTLY what it pins. The smooth split crossover dev_smooth(x*) = 5%
+  // gives x* = 0.94469/0.94484/0.94473 at b = 8000/16000/24000 -- b-independent, matching the measured
+  // 0.94481 to 1.5e-4 (deep-bulk a~b symmetry; dev_smooth rises monotonically 2.58% at x=0.90 to 7.76%
+  // at 0.98), so the 5% crossover is DERIVED. But for eps = 0.5%/1%/2% the smooth split OVER-predicts x*
+  // by 2.74x/2.84x/1.46x: at the measured crossover the smooth amplitude (4.2e-4/2.1e-3/1.6e-2) is 12x/
+  // 4.8x/1.2x below the triggering arithmetic spike (coprime at 0.5%, gcd=5 at 1%, gcd=2 at 2%), so the
+  // small-eps crossover is a fluctuation-envelope EXTREME-VALUE event the smooth mean cannot produce.
+  // x*(eps) is a dual-mechanism functional (envelope-set <~2%, smooth a~b-set >~2%). Resolves the
+  // imp-97464 sub-gap. Derivation only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97480-route-m-crossover-fluctuation-envelope-vs-smooth-split.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

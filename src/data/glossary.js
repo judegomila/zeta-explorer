@@ -24662,6 +24662,35 @@ export const glossary = [
       'imp-96667-route-m-frobenius-second-moment-asymptotic.js the rigorous a=1 border I(1,b) = (1/2) log b + (C+1/2) this generalizes',
     ],
   },
+  {
+    term: 'The Krein Sharp-Margin Constant c_sharp = lambda_min(P_a M_{sigma_2} P_a)',
+    category: 'concept',
+    definition:
+      'c_sharp is the sharp Krein/Toeplitz coercivity constant for the pole-free Weil symbol sigma_2(t) = ' +
+      '(t^2 + 1/4)^2 w_1(t) at half-width a: the bottom eigenvalue of the truncated (band-limited) ' +
+      'concentration operator P_a M_{sigma_2} P_a, equivalently c_sharp = inf { int sigma_2(t) F(t) dt : ' +
+      'F &gt;= 0, supp Fhat subset [-2a, 2a], int F = 1 } over band-limited probability densities F. ' +
+      'imp-97182 proves a Mercer-style EQUIVALENCE governing every attempt to certify a truncated Fejer-Riesz ' +
+      '/ de Branges square factorisation sigma_2 - c = sum of Hermitian squares as a truncated-Toeplitz ' +
+      'identity on |u| &lt;= 2a: such a decomposition with margin c exists if and only if c &lt;= c_sharp, so ' +
+      'producing the SOS with a certified positive margin is logically equivalent to certifying a lower ' +
+      'bound on c_sharp itself -- factorisation re-expresses positivity once known but cannot generate it. ' +
+      'A pointwise (symbol-level) Fejer-Riesz square sigma_2 - c = |Q(t)|^2 is unavailable for every c &gt;= 0 ' +
+      'because sigma_2 dips negative (sigma_2(0) = -0.397); the positivity is genuinely truncated, not ' +
+      'pointwise. At the binding half-width 2a = ln3, c_sharp is bracketed from ABOVE ONLY by a still-descending ' +
+      'Rayleigh-Ritz ladder (0.552 committed certificate -&gt; 0.534 Legendre -&gt; 0.476 shift-invert -&gt; ' +
+      '0.504 at N=132 dps=50, imp-97183; later coupled N,T and reproducing-kernel work in the same cohort ' +
+      'tightens this further), with NO proven positive lower bound yet established. Concept/definition only; ' +
+      'no bound on Lambda moves; interval-rigorous reach stays 2a &lt;= 0.96; PT Lambda &lt;= 0.2 remains SOTA; ' +
+      'RH open; NO QED.',
+    firstUsed: 'imp-97347 (adds this glossary headword for the c_sharp quantity named in imp-97161 and analyzed in imp-97182), 2026',
+    relatedTerms: [
+      'imp-97161-krein-concentration-lower-bound-assessment.js names c_sharp = lambda_min(P_a M_{sigma_2} P_a) as the required weighted concentration eigenvalue',
+      'imp-97182-krein-fejer-riesz-margin-factorisation-attempt.js proves the truncated SOS-with-margin-c-exists-iff-c&lt;=c_sharp equivalence and that the symbol-level square is unavailable',
+      'imp-97183-krein-csharp-extprec-ladder.js the descending upper-bracket ladder on c_sharp (0.625 -&gt; 0.504) at extended precision',
+      'imp-97206-krein-csharp-coupled-nt-jointlimit.js the coupled N,T joint-limit upper bracket on c_sharp (~0.5817-0.582) at 2a = ln3',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

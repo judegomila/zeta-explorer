@@ -4787,6 +4787,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every (b, omega, q) value is reused verbatim from imp-97269, no re-derivation of the O(b) E1 kernel. The b/4 ceiling holds class-uniformly (0 violations, b in [2,20000]) but saturates toward 1 only on primes; the smooth-class undershoot is measured, not proved uniformly. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97302-inverse-line-diag-offdiag-coleading',
+      title: 'Inverse-Line DIAG vs OFFDIAG: a Co-Leading Decomposition of M2w',
+      oneLine:
+        'Log-b line charts of the imp-97267/imp-97284 exact character-detection decomposition M2w = DIAG + OFFDIAG across b=101..1201: both components track each other and each carries roughly half of M2w at every rung -- first visualization for this measurement.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97302-inverse-line-diag-offdiag-coleading-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97267-route-m-inverse-map-kloosterman-transfer.js (source: the exact identity + b=101..401 ladder), src/data/imp-97284-inverse-line-offdiag-diag-ladder-extension.js (extension to b=1201; imp-97302 viz-data leaf + page)',
+      ticket: 'imp-97302',
+      pedagogicalStep: 302,
+      honestCeiling:
+        'Presentation only: every (b, M2w, diag, offdiag) value is reused verbatim from imp-97267 and imp-97284, no re-derivation of the exact O(b^3) character-detection kernel. OFFDIAG carries ~half of M2w at every measured b (co-leading, not a vanishing remainder), so a Weil-bound route cannot certify M2w -- the transfer stays an open EVALUATION problem. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

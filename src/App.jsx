@@ -1636,6 +1636,9 @@ const Imp97300PalmMirrorFracLadderViz = lazy(() =>
 const Imp97301E1QuarterBSaturationViz = lazy(() =>
   import('./pages/Imp97301E1QuarterBSaturationViz.jsx')
 );
+const Imp97302InverseLineDiagOffdiagCoLeadingViz = lazy(() =>
+  import('./pages/Imp97302InverseLineDiagOffdiagCoLeadingViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4238,6 +4241,10 @@ function AppShell() {
           <Route
             path="/viz-imp97301-e1-quarter-b-saturation"
             element={<Imp97301E1QuarterBSaturationViz />}
+          />
+          <Route
+            path="/viz-imp97302-inverse-line-diag-offdiag-coleading"
+            element={<Imp97302InverseLineDiagOffdiagCoLeadingViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

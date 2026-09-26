@@ -690,6 +690,17 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no bound;
   // no operator positivity; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-97428-sigma-full-vs-closed-form-cross-validation.js',
+  // imp-97433 (2026-09-26): DERIVES the uniform-in-(p1,q1) TAIL LEMMA imp-97423 named as the sole
+  // remaining sub-gap (IMP97333_SIGN_TAIL_SUBGAP) of the omega=5 Route M sign law. Explicit threshold
+  // Q0 = 7: with M(p1,e) = 1/(12(e-1)) - 1/(12(p1 e -1)), the bounds M(p1,q1) > (1-1/p1)/(12 q1) and
+  // M(p1,e) < 1/(12(e-1)) plus qj > q1 give certA > gA(q1) = 1/(24 q1) - 1/(4(q1^2-1)) - cubics, and
+  // gA(q1) > 0.00521/q1 - 0.0045/q1^3 > 0 for every q1 >= 7 (uniform in p1 >= 2 and the tail primes),
+  // while gA(5) < 0 makes Q0 = 7 sharp. Twin bound certB > gB(q2) > 0 for all q2 >= 5 settles (B)
+  // unconditionally (q2 > q1 > p1 >= 2 always). Finite q1 < 7 residual = (p1,q1) in {(2,3),(2,5),(3,5)},
+  // minimal config worst by re-verified Dhi monotonicity, all three certA positive. Closes the named
+  // sub-gap; omega=5 sign law rests on the un-re-audited imp-97396 reduction, so NO independent QED;
+  // import-light (pure Binet arithmetic); no bound moved; PT Lambda <= 0.2 SOTA; RH open.
+  '/src/data/imp-97433-route-m-sign-law-omega5-uniform-tail-lemma.js',
   // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
   // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
   // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151
@@ -20948,6 +20959,12 @@ const DATA_MODULES = [
   // positive c_sharp lands on an upper bracket, a restatement, or a negative pointwise
   // result. Index/meta only; NO QED.
   '/src/data/imp-97365-krein-csharp-measured-from-above-cohort-index.js',
+  // imp-97366: META cross-reference index grouping the Krein Route B remainder-envelope
+  // cohort (imp-97294/97312/97331/97337/97338) as the remainder-done-Obstruction-B-open
+  // family: four tickets finish and interval-certify the z^-4 combined-remainder majorant,
+  // while the fifth shows the separate degree-to-v0 inversion (Obstruction B) is exactly
+  // unreachable for that trial, so Route B still does not close. Index/meta only; NO QED.
+  '/src/data/imp-97366-krein-routeb-remainder-done-obstructionb-open-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

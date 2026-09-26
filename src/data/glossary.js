@@ -24521,6 +24521,35 @@ export const glossary = [
       'imp-97096-route-m-arith-first-moment-evaluation.js the exact kappa_arith = 0.5704960511308594 this reconciliation leaves unchanged',
     ],
   },
+  {
+    term: 'The imp-97227 Degenerate-Exact Interval Annihilation Certificate: Three Bessel Coefficients Enclosed in the Exact Singleton [0,0]',
+    category: 'obstruction',
+    definition:
+      'imp-97227-krein-interval-annihilation-certificate.js attempts the imp-97100/imp-97205 HARD factor: ' +
+      'certify, in explicit two-sided interval arithmetic, that a fixed rational Krein trial v0 annihilates ' +
+      'the t^-1, t^-2, t^-3 spherical-Bessel leading coefficients of g(t) = v0.Phih(t), so that g(t) = O(t^-4). ' +
+      'VERDICT: the three-coefficient annihilation IS certified in intervals, but only at the DEGREE level. ' +
+      'Both inputs to the six imp-97113 leading carrier functionals are exact integers -- the per-degree ' +
+      'weights (cosHalf in {1,0,-1}, tri = k(k+1)/2, quad = (k-1)k(k+1)(k+2)/8) and the imp-97134 trial ' +
+      'coefficients ((33,55,27,5) even, (143,273,165,35) odd) -- so evaluating each functional as an interval ' +
+      'sum of interval products of point-intervals yields SIX DEGENERATE ZERO-WIDTH intervals [0,0]: the ' +
+      'tightest possible enclosure, not merely a floating-point tolerance. This does NOT yet certify the full ' +
+      'g(t) = O(t^-4) BOUND for the fixed rational v0, because two further ingredients are needed and both ' +
+      'require interval special-function evaluation that is unavailable: (A) a rigorous uniform-in-z majorant ' +
+      'of the z^-4 spherical-Bessel remainder sum_k d_k R_k(z), and (B) the degree-to-v0 overlap inversion ' +
+      'd = C^T v0 (imp-97164). Both reduce to the SAME missing primitive -- interval spherical-Bessel / ' +
+      'Gegenbauer evaluation (mpmath.iv lacks it, Arb/python-flint not installed) -- the imp-97015 sub-gap ' +
+      'IMP97015_ARB_INTERVAL_BESSEL. Attempt/execution only: no interval tail majorant, no operator ' +
+      'positivity, no bound change; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= ' +
+      '0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97280 (adds this glossary headword for the imp-97227 certificate), 2026',
+    relatedTerms: [
+      'imp-97227-krein-interval-annihilation-certificate.js the source certificate and IMP97227_INTERVAL_FUNCTIONALS/IMP97227_VERDICT records',
+      'imp-97134-krein-annihilating-rational-trial-execution.js the integer-arithmetic annihilation this leaf lifts to intervals',
+      'imp-97113-krein-bessel-asymptotic-annihilation-scope.js the six leading carrier functionals and integer per-degree weights',
+      'imp-97015-ghat-cancellation-interval-enclosure.js the committed IMP97015_ARB_INTERVAL_BESSEL sub-gap this obstruction still needs',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -4,8 +4,10 @@
  *   (imp-97155) leaves TWO DISTINCT open sub-gaps, not one, so a reader does not conflate
  *   the arithmetic explicit-remainder sub-gap with the cotangent mean-value sub-gap:
  *     (1) IMP97096_ARITH_EXPLICIT_REMAINDER_BOUND_OPEN -- kappa_arith = (3/2)C - 3/8 is an
- *         EXACT leading coefficient (imp-97096), but no explicit uniform-in-b bound on its
- *         L0(b)/L1(b) Moebius/Stirling remainder has been proved yet.
+ *         EXACT leading coefficient (imp-97096). RECONCILED (imp-97222 for imp-97202): this half
+ *         is now only PARTIALLY open -- the BINDING L0 remainder E0 has a proved uniform-in-b
+ *         bound |E0(b)| <= (1/2)log b + O(log log b) with NO 2^omega prefactor; the residual left
+ *         is the explicit E1 (loose L1) uniform constant and the O(1) tail (IMP97202_SUBGAP).
  *     (2) IMP97097_COTANGENT_MEAN_VALUE_LOWER_BOUND_OPEN -- the fixed-modulus half of the
  *         cotangent first moment collapses to EXACTLY zero (imp-97097), but its varying-
  *         modulus half is an unclosed Bettin-Conrey period-function mean value, only
@@ -26,6 +28,7 @@
  */
 
 import { IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX } from './imp-97155-route-m-first-moment-evaluation-cohort-index.js';
+import { IMP97202_VERDICT, IMP97202_SUBGAP } from './imp-97202-route-m-arith-first-moment-uniform-remainder.js';
 
 export const IMP97218_TWO_OPEN_HALVES = Object.freeze({
   halves: Object.freeze([
@@ -34,8 +37,13 @@ export const IMP97218_TWO_OPEN_HALVES = Object.freeze({
       leaf: 'imp-97096',
       label: 'arithmetic explicit-remainder sub-gap',
       status:
-        'kappa_arith = (3/2)C - 3/8 = 0.5704960511... is an EXACT leading coefficient; no explicit ' +
-        'uniform-in-b remainder bound on the L0(b)/L1(b) Moebius/Stirling sums is proved yet.',
+        'kappa_arith = (3/2)C - 3/8 = 0.5704960511... is an EXACT leading coefficient. UPDATE (imp-97202): ' +
+        'the BINDING L0 remainder E0 now HAS a proved explicit uniform-in-b bound |E0(b)| <= (1/2)log b + ' +
+        '(1/2)log 2pi + 11/8 + (1/6)sigma(b)/b = (1/2)log b + O(log log b), with NO 2^omega(b) prefactor ' +
+        '(the imp-97133 2^omega was a triangle-inequality artifact). The half is NO LONGER fully open: what ' +
+        'REMAINS (IMP97202_SUBGAP uniform-E1) is the explicit uniform constant for the LOOSE, non-binding L1 ' +
+        'remainder E1 (same Moebius-moment mechanism, constant not pinned) and sharpening the R(b) tail from ' +
+        'the proved O(log log b) to the measured O(1).',
     }),
     Object.freeze({
       id: 'IMP97097_COTANGENT_MEAN_VALUE_LOWER_BOUND_OPEN',
@@ -49,16 +57,30 @@ export const IMP97218_TWO_OPEN_HALVES = Object.freeze({
   namedResiduals: IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX.namedResiduals,
   distinctSubGaps: true,
   anyBoundMoved: false,
+  // imp-97222 reconciliation: the arith half is no longer FULLY open after imp-97202.
+  reconciliation: Object.freeze({
+    arithHalfStatus: 'partially-closed', // E0 (binding remainder) proved uniform; only E1 constant + O(1) tail remain
+    e0UniformBoundProved: IMP97202_VERDICT.uniformBoundProved, // true (imp-97202)
+    twoOmegaPrefactorForced: IMP97202_VERDICT.twoOmegaPrefactorForced, // false -- triangle-inequality artifact
+    supersededBy: 'imp-97202',
+    preciseResidual: IMP97202_SUBGAP.id, // imp-97202-arith-first-moment-uniform-E1-and-O1-tail
+    residualSummary:
+      'explicit uniform constant for the loose, non-binding L1 remainder E1 (same Moebius-moment mechanism) ' +
+      'and sharpening the R(b) tail from the proved O(log log b) to the measured O(1); the cotangent half is untouched.',
+    cotangentHalfUnchanged: true, // IMP97097 stays fully open (measured ~+0.12)
+  }),
 });
 
 export const IMP97218_TWO_HALVES_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. The Route M first-moment cohort leaves TWO ' +
   'DISTINCT open sub-gaps, not one: (1) the arithmetic explicit-remainder sub-gap (imp-97096) -- ' +
-  'kappa_arith is an EXACT leading coefficient, but no explicit uniform-in-b bound on its L0(b)/' +
-  'L1(b) Moebius/Stirling remainder is proved; and (2) the cotangent mean-value sub-gap (imp-97097) ' +
-  '-- the fixed-modulus half is EXACTLY zero, but the varying-modulus half is an unclosed Bettin-' +
-  'Conrey mean value, only MEASURED (~+0.12). These are different open problems in different math; ' +
-  'closing one does not touch the other. kappa ~ 0.696 > 0 stays a measured total, not a certificate.';
+  'kappa_arith is an EXACT leading coefficient; the BINDING L0 remainder E0 now HAS a proved uniform-' +
+  'in-b bound |E0(b)| <= (1/2)log b + O(log log b) with NO 2^omega prefactor (imp-97202), so this half ' +
+  'is only PARTIALLY open -- the residual is the explicit E1 (loose L1) uniform constant and the O(1) ' +
+  'tail; and (2) the cotangent mean-value sub-gap (imp-97097) -- the fixed-modulus half is EXACTLY ' +
+  'zero, but the varying-modulus half is an unclosed Bettin-Conrey mean value, only MEASURED (~+0.12). ' +
+  'These are different open problems in different math; closing one does not touch the other. ' +
+  'kappa ~ 0.696 > 0 stays a measured total, not a certificate.';
 
 export default { status: IMP97218_TWO_OPEN_HALVES, banner: IMP97218_TWO_HALVES_BANNER };
 
@@ -85,6 +107,20 @@ const IMP97218_ASSERTIONS = [
       IMP97218_TWO_OPEN_HALVES.halves[0].leaf !== IMP97218_TWO_OPEN_HALVES.halves[1].leaf &&
       IMP97218_TWO_OPEN_HALVES.distinctSubGaps === true,
     why: 'the whole point of the ticket is that these are two DISTINCT sub-gaps from two different leaves, not one conflated gap.',
+  },
+  {
+    id: 'imp97218-arith-half-reconciled-with-imp97202',
+    holds: () =>
+      IMP97218_TWO_OPEN_HALVES.reconciliation.arithHalfStatus === 'partially-closed' &&
+      IMP97218_TWO_OPEN_HALVES.reconciliation.e0UniformBoundProved === true &&
+      IMP97218_TWO_OPEN_HALVES.reconciliation.twoOmegaPrefactorForced === false &&
+      IMP97218_TWO_OPEN_HALVES.reconciliation.preciseResidual === IMP97202_SUBGAP.id &&
+      /uniform-E1/.test(IMP97218_TWO_OPEN_HALVES.reconciliation.preciseResidual) &&
+      IMP97218_TWO_OPEN_HALVES.reconciliation.cotangentHalfUnchanged === true,
+    why:
+      'the arith half must track imp-97202: E0 (the binding L0 remainder) now has a proved uniform-in-b ' +
+      'bound with no 2^omega prefactor, so the half is only partially open -- the precise residual is the ' +
+      'imp-97202 uniform-E1 sub-gap (E1 constant + O(1) tail), while the cotangent half stays fully open.',
   },
   {
     id: 'imp97218-honesty-gate-no-qed',

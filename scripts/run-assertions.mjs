@@ -817,6 +817,17 @@ const DATA_MODULES = [
   // 0.581059 so the m=1 enclosure stays UNUSABLE at 2a=ln3. Measurement only; no operator positivity; no
   // bound moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97482-krein-route2-kbig-direct-projector-floor.js',
+  // imp-97495 (2026-09-26): PINS the Route-2 Kbig->inf lower-bound floor deeper by BUILDING the direct
+  // projector-limit A2 reproducing-kernel matrix at Kbig in {300,340,380}, past the imp-97482 Kbig=260 edge.
+  // The monotone saturating decrease continues to -309.931066 at Kbig=380 (40-step increments 0.554 -> 0.371
+  // -> 0.261; tr(A2) deltas 34786 -> 16514 toward ~4819.1M), tightening the directly-built upper edge from
+  // -308.745199. The direct Kbig=380 value has already dropped BELOW the imp-97482 geometric-tail estimate
+  // -309.781, refuting it: the measured delta ratios RISE 0.63 -> 0.70 (not the assumed geometric 0.54), so a
+  // corrected tail puts the limit ~ -310.55, shallower than the power refit -313.8; new directly-anchored
+  // bracket [-313.8,-309.931]. Still four orders below the required 0.581059 so the m=1 enclosure stays
+  // UNUSABLE at 2a=ln3. No conditioning blow-up (build 394s, g2min positive). Measurement only; no operator
+  // positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97495-krein-route2-kbig300-380-direct-floor.js',
   // imp-97481 (2026-09-26): DERIVES the imp-97461 replacement lemma RL-L (T(b) >= -1/4 for all squarefree b
   // via the primorial extremizer) and REFUTES it. Proves the general-b surrogate closed form
   // surrogate(b) = Pi(P)(lnA - c W(P)) (2x2 triangular operator on {1/x, (log x)/x}), the exact decomposition

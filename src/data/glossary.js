@@ -24059,6 +24059,39 @@ export const glossary = [
       'imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js the three near-field ceiling fits (line/+d/N/quadratic) and their N* values',
     ],
   },
+  {
+    term: '||G||_F Monotonicity as a Physical Prior Disqualifying the Quad Turnover (imp-96996)',
+    category: 'numerical',
+    definition:
+      'The Frobenius norm of the truncated Vasyunin-Gram matrix, ||G||_F(N) = sqrt(sum_{h,k<=N} ' +
+      'G_hk^2), is a sum of fixed non-negative squared entries over a NESTED, growing index set: ' +
+      'increasing N by one only appends new non-negative terms under the square root, so ' +
+      '||G||_F(N) is provably MONOTONE NON-DECREASING in N. This is a structural identity, not a ' +
+      'fitting assumption. imp-96996 used it to adjudicate the imp-96890/imp-96912 concave-quadratic ' +
+      'ceiling fit a + b logN + c (logN)^2 with c &lt; 0, which forces a downward-parabola turnover ' +
+      'at N_peak ~ 2.31e9 (every c &lt; 0 member of that family must eventually decrease). Since a ' +
+      'decreasing extrapolant contradicts the monotonicity identity, the quad is disqualified as the ' +
+      'GLOBAL/asymptotic ||G||_F form -- even though its ceiling N* = 4.1029e7 sits 1.75 decades ' +
+      'below the turnover and so is still locally monotone at the ceiling scale, and even though the ' +
+      'quad remains the near-field holdout winner. Imposing the monotonicity prior removes the quad ' +
+      '(the only candidate that inverts the imp-96976 F &lt; M ordering) and re-selects the ' +
+      'data-favoured monotone TAIL model a + b logN + d/N, whose ceiling 3.8384e7 stays below ' +
+      'M_lo = 3.919e7, PRESERVING F &lt; M. HONEST CAVEATS: this is a model-SELECTION tie-breaker ' +
+      'under a physical prior, not a rigorous bound on the ceiling value; the near-field data alone ' +
+      'still favours the quad locally; and the imp-96912 sub-gap (fresh exact ||G||_F rungs beyond ' +
+      'N = 16000) is still needed to settle F &lt; M without invoking the prior. Only the trace ' +
+      'ceiling T = 2.594e7 (imp-96352, compute N ~ 9916) is a rigorous lower bound and binds first ' +
+      'by &gt;2600x regardless of where the far-field ||G||_F ceiling settles. Documentation only; ' +
+      'establishes no operator positivity; changes no bound; RH open; Platt-Trudgian Lambda &lt;= ' +
+      '0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-97028 (adds this glossary headword for the imp-96996 STEP 1 ||G||_F monotonicity structural fact and its role as the F < M model-selection tie-breaker), 2026',
+    relatedTerms: [
+      'imp-96996-route-m-fm-quad-turnover-adjudication.js the source adjudication (monotonicity proof, turnover analysis, F < M preservation)',
+      'imp-96976-route-m-fm-separation-joint-ap-robustness.js the (A, p) robustness audit and the model-form sub-gap this adjudicates',
+      'imp-96912-route-m-frobenius-holdout-model-discriminator.js the quad-vs-tail near-field holdout and the ceilings imported here',
+      'imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js the three candidate norm models (line/+d/N/quadratic) and the turnover flag',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

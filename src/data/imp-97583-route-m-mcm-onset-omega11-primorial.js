@@ -100,6 +100,18 @@ export const IMP97583_RESULTS = Object.freeze({
   marginDropPerOrder: 2.1e-3,     // roughly constant T drop per order (surrogate-driven; Rcorr flat)
   failureGrowsMonotonically: true, // T keeps decreasing past onset toward the primorial limit
   primorialLimitTfull: -0.04577,   // -e^{-gamma}/12 + Rcorr (imp-97432 RESULT 4)
+  // imp-97604 cross-precision consistency audit of the primorial limit constant.
+  // -e^{-gamma}/12 = -0.046788290297240 exactly (NOT -0.04814); + saturated Rcorr +1.0186e-3
+  // gives -0.045769690297240 = -0.04577 (5 dp) = -0.0458 (4 dp): the -0.04577 and -0.0458 quoted
+  // in this module and imp-97432 are the SAME value at their stated precisions. imp-97432 RESULT 4
+  // and consumers imp-97465 / imp-97466 / imp-97601 all cite the identical constant -- no drift.
+  primorialLimitCrossCheck: Object.freeze({
+    negEgammaOver12: -0.046788290297240,   // -exp(-gamma)/12, exact to shown digits
+    rCorrSaturation: 1.0186e-3,            // Sum_d mu(d) R(d)/d, saturated
+    limitExact: -0.045769690297240,        // -e^{-gamma}/12 + Rcorr
+    quotedDecimalsConsistent: true,        // -0.04577 (5 dp) and -0.0458 (4 dp) round from limitExact
+    driftFound: false,                     // no module or consumer cites a drifted constant
+  }),
   primorialIsWorstCase: true,      // smallest T among sampled size-omega sets at every measured order
   staysInsideB4Band: true,         // |T| << 1/4 throughout omega 7..15
 });

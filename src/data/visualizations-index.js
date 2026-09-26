@@ -4606,6 +4606,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every grid value, extrapolant, and plateau statistic is reused verbatim from imp-97206; no re-solve, no new numerics. These are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97368-w1-sign-profile',
+      title: 'Route I Toeplitz-Krein: the w1 Residual Sign Profile Near ln3',
+      oneLine:
+        'Curve of the bare residual symbol w1(t) over [0,12] marking its three zero crossings and the deeply negative leading well through the band edge t=ln3, plus a ladder of the negMass/posMass ratio over the resolution window [0,pi/a] rising 4.541x (2a=0.96) -> 5.740x (2a=ln3) -> 6.730x (2a=1.16).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97336-w1-residual-sign-profile-near-ln3.js',
+      paperSourcePath:
+        'src/data/imp-97336-w1-residual-sign-profile-near-ln3.js (IMP97336_W1_SIGN_PROFILE, w1 from rh-route-i-toeplitz-krein-certificate-2026-09-24.js; imp-97368 viz page)',
+      ticket: 'imp-97368',
+      pedagogicalStep: 318,
+      honestCeiling:
+        'Presentation only: every landmark, zero crossing, and mass ratio is reused verbatim from imp-97336; no re-solve, no new numerics. w1 is pointwise negative at the band edge -- this is NOT an operator positivity result and establishes no lower bound. Changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97040-orphaned-calibration-leaves',
       title: 'Orphaned Route I / Route M Calibration Leaves (Tabbed)',
       oneLine:

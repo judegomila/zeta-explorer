@@ -24691,6 +24691,37 @@ export const glossary = [
       'imp-97206-krein-csharp-coupled-nt-jointlimit.js the coupled N,T joint-limit upper bracket on c_sharp (~0.5817-0.582) at 2a = ln3',
     ],
   },
+  {
+    term: 'The imp-97338 Exact Band-Inversion Contradiction (C^T v0 = d_trial)',
+    category: 'result',
+    definition:
+      'A concrete, exact structural obstruction to Route B Obstruction B (the degree-to-v0 overlap ' +
+      'inversion d = C^T v0, imp-97164), computed on the imp-97293 EXACT BigInt-rational Gegenbauer ' +
+      'overlap matrix c_{jk} (support { j+k even AND k &lt;= j+6 }). C^T is near-upper-triangular in ' +
+      '(degree k, profile j): the lowest-index feeder of degree k is profile j = k-6 (the band edge, ' +
+      'certified nonzero). Forcing the imp-97134 8-sparse trial tail d_8..d_105 = 0 from k = 105 downward ' +
+      'therefore cascades one component at a time via exact rational division, forcing v0_99 = v0_98 = ' +
+      '... = v0_2 = 0 and leaving only v0_0 (even block) and v0_1 (odd block) free. The committed ' +
+      'profile-0 row c_{0,{0,2,4,6}} = (32/35, -32/105, 32/385, -32/3003) forces FOUR DIFFERENT values of ' +
+      'v0_0 (1155/32, -5775/32, 10395/32, -15015/32) against the four even targets (33,55,27,5); the ' +
+      'profile-1 row similarly forces four different v0_1 against the four odd targets. So C^T v0 = ' +
+      'd_trial is EXACTLY inconsistent -- no v0 (rational or otherwise) reproduces the trial -- with the ' +
+      'entire cascade reached by exact rational arithmetic, no interval-Bessel evaluation required. This ' +
+      'upgrades imp-97164 Obstruction 1 from a generic rank count (100-dim column space cannot generically ' +
+      'contain an 8-sparse target) to a concrete exhibited contradiction on the real committed matrix. It ' +
+      'closes only the 8-sparse-trial inversion branch; the live imp-97113 6-functional relaxation ' +
+      '(94-dim v0 family) still needs interval control of its own nonzero tail (IMP97015_ARB_INTERVAL_BESSEL). ' +
+      'Assessment only; produces no committed v0, no interval majorant, no operator positivity; changes no ' +
+      'bound; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH ' +
+      'open; NO QED.',
+    firstUsed: 'imp-97338 (Route B Obstruction B assessment on the imp-97293 exact rational overlap matrix), 2026',
+    relatedTerms: [
+      'imp-97293-krein-committed-cjk-gegenbauer-overlap.js the exact BigInt-rational overlap matrix and its band support rule',
+      'imp-97164-krein-v0-overlap-inversion-interval-obstruction.js Obstruction 1 (generic rank) and Obstruction 2 (interval-Bessel) that this sharpens',
+      'imp-97134-krein-annihilating-rational-trial-execution.js the 8-sparse annihilating degree trial (33,55,27,5 / 143,273,165,35)',
+      'imp-97113-krein-bessel-asymptotic-annihilation-scope.js the 6 carrier functionals and the 94-dim v0 relaxation family that stays live',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -21052,6 +21052,13 @@ const DATA_MODULES = [
   // No consumer should cite MCM as a general lever for omega >= 11; residual is the direct
   // two-sided band (IMP97432_SUBGAP). Documentation only; no bound moved; NO QED.
   '/src/data/imp-97466-route-m-mcm-refuted-honest-status.js',
+  // imp-97391: META cross-reference index grouping the Route M interior second-moment
+  // separation cohort (imp-97311/97329/97330/97349/97356) as the Q(b) diagonal-skeleton /
+  // uniform-crossover program: fixed-a moment DIVERGES (wrong scale, imp-97311), the
+  // uniform a~b crossover is measured (imp-97329) and its boundary layer fully pinned in
+  // closed form (imp-97330/97356), and the log^2 b vs b^(1/2) separation is DECIDED
+  // (imp-97349). Index/meta only; NO QED.
+  '/src/data/imp-97391-route-m-diagonal-skeleton-uniform-crossover-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

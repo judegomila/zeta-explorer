@@ -4732,6 +4732,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every value is reused verbatim from imp-97140, no re-derivation. The observed sign law is omega odd => r>0 / omega even => r<0 except at the three primorial-floor exceptions (leading-term cancellation); the imp-97140 exponent string (-1)^omega(b) is data-inconsistent, corrected by imp-97167 to (-1)^(omega(b)+1). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97389-route-m-sign-law-omega-ladder',
+      title: 'Route M Sign-Law Omega-Class Ladder',
+      oneLine:
+        'Per-omega status ladder for the Route M sign law T(b) < 0 (squarefree b): PROVED elementarily through omega=4 (imp-97333 for omega<=3, imp-97352 D_{p1}-monotonicity injection for omega=4), with the sharp Hall-deficiency wall at omega=5 (6 level-2 positives vs 4 level-1 negatives) shown as the counting margin -- first visualization for this ladder.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97389-route-m-sign-law-omega-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97333-route-m-sign-law-proof-attempt.js, src/data/imp-97352-route-m-sign-law-omega4-proof.js (source: omega<=3 elementary proof, omega=4 D_{p1}-monotonicity injection, omega=5 crossover; imp-97389 viz-data leaf + page)',
+      ticket: 'imp-97389',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97333/imp-97352, no re-derivation. The domination method is proved for omega<=4 (tight 3-vs-3 match at omega=4) and fails first at omega=5 (Hall deficiency 2), reducing to the open IMP97333_SIGN_TAIL_SUBGAP. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97213-route-m-explicit-remainder-envelope',
       title: 'Route M Explicit Remainder Envelope vs Measured Residual',
       oneLine:

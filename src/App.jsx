@@ -1627,6 +1627,9 @@ const Imp97212RouteMResidualSignMagnitudeViz = lazy(() =>
 const Imp97213RouteMExplicitRemainderEnvelopeViz = lazy(() =>
   import('./pages/Imp97213RouteMExplicitRemainderEnvelopeViz.jsx')
 );
+const Imp97389RouteMSignLawOmegaLadderViz = lazy(() =>
+  import('./pages/Imp97389RouteMSignLawOmegaLadderViz.jsx')
+);
 const Imp97214RouteMFarfieldSlopebandVsOriginalViz = lazy(() =>
   import('./pages/Imp97214RouteMFarfieldSlopebandVsOriginalViz.jsx')
 );
@@ -4243,6 +4246,10 @@ function AppShell() {
           <Route
             path="/viz-imp97212-route-m-residual-sign-magnitude"
             element={<Imp97212RouteMResidualSignMagnitudeViz />}
+          />
+          <Route
+            path="/viz-imp97389-route-m-sign-law-omega-ladder"
+            element={<Imp97389RouteMSignLawOmegaLadderViz />}
           />
           <Route
             path="/viz-imp97213-route-m-explicit-remainder-envelope"

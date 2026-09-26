@@ -1651,6 +1651,9 @@ const Imp97389RouteMSignLawOmegaLadderViz = lazy(() =>
 const Imp97453RouteMSignLawMagnitudeLadderViz = lazy(() =>
   import('./pages/Imp97453RouteMSignLawMagnitudeLadderViz.jsx')
 );
+const Imp97470RouteMSignLawOmega5BinetDecayViz = lazy(() =>
+  import('./pages/Imp97470RouteMSignLawOmega5BinetDecayViz.jsx')
+);
 const Imp97409B4CeilingSignConditionOmegaClassesViz = lazy(() =>
   import('./pages/Imp97409B4CeilingSignConditionOmegaClassesViz.jsx')
 );
@@ -4305,6 +4308,10 @@ function AppShell() {
           <Route
             path="/viz-imp97453-route-m-sign-magnitude-omega-ladder"
             element={<Imp97453RouteMSignLawMagnitudeLadderViz />}
+          />
+          <Route
+            path="/viz-imp97470-route-m-sign-law-omega5-binet-decay"
+            element={<Imp97470RouteMSignLawOmega5BinetDecayViz />}
           />
           <Route
             path="/viz-imp97409-b4-ceiling-sign-condition-omega-classes"

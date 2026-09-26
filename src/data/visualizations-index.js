@@ -4760,6 +4760,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every value is reused verbatim from imp-97352/imp-97423/imp-97422, no re-derivation. Sign law proved elementarily through omega=4, reduced (not proved) at omega=5 to a uniform-(p1,q1) tail lemma; magnitude collapses to |T(b)|<=1/4 and holds for every omega GIVEN the single MCM hypothesis, which is only numerically verified through omega=4. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97470-route-m-sign-law-omega5-binet-decay',
+      title: 'Route M Omega=5 Binet Decay Law',
+      oneLine:
+        'Chart of the imp-97443 X3 decay law: the Route M omega=5 sign-law certificate certA(p1;q1) scaled as q1*certA converges monotonically to the exact constant (1-1/p1)/12 across the minimal-config ladder q1 = 10^2 .. 10^6, for p1 = 2, 3, 5, matched against the mpmath dps=60 extended-precision cross-check.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97470-route-m-sign-law-omega5-binet-decay-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97443-route-m-sign-law-omega5-binet-certificate-crossval.js (source: IMP97443_LADDER_REF extended-precision decay-law anchors; imp-97470 viz-data leaf + page)',
+      ticket: 'imp-97470',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97443, no re-derivation. Confirms the leading Binet-term decay q1*certA -> (1-1/p1)/12 but proves nothing beyond the existing imp-97443 accuracy cross-check; no bound on Lambda moved, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97409-b4-ceiling-sign-condition-omega-classes',
       title: 'b/4-Ceiling Sign Condition Across Omega Classes',
       oneLine:

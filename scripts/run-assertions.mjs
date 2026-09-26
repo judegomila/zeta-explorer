@@ -20844,6 +20844,11 @@ const DATA_MODULES = [
   // Krein frontier cohort (imp-96845/96868/96881/96956) as a near-feasible-
   // vs-certified family. Index/meta only; NO QED.
   '/src/data/imp-96987-kmax-degree-frontier-cohort-index.js',
+  // imp-97086: META cross-reference index grouping the Route M Frobenius-
+  // holdout cohort (imp-96890/96912/96981/96982/96972, ticket-list imp-96983
+  // typo corrected to imp-96972) as a near-field-vs-far-field family. Index/
+  // meta only; NO QED.
+  '/src/data/imp-97086-route-m-frobenius-holdout-cohort-index.js',
   // imp-97095: ASSESSMENT of the O(1) additive offset of the interior second moment needed to pin
   // the imp-97081 anchor F to a VALUE not a slope. Exact three-part decomposition, P1 derived,
   // obstruction shown strictly harder than the imp-96750 slope sub-gap. Reduction only; NO QED.

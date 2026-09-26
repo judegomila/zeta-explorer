@@ -670,6 +670,16 @@ const DATA_MODULES = [
   // crossover. So the argmax does NOT migrate outward -- it is pinned; the diverging-argmax premise is
   // refuted. C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96348-fartail-gap-argmax-drift.js',
+  // imp-97404 (2026-09-26): EXTENDS the imp-33582 per-decade sigma(N) decay-exponent ladder past its
+  // 1e12 endpoint on the SAME full three-term share model. Windows [1e11,1e12]..[1e14,1e15] show the
+  // local exponent keeps climbing monotonely -- 0.4310 -> 0.4646 -> 0.4777 -> 0.4828 -- with decade
+  // OLS R^2 driven to ~0.999999, and the pointwise exponent reaches ~0.4842 by 1e15 / ~0.4889 by 1e20,
+  // the residual 1/2 - p closing at every finite N. The [1e12,1e13] rung 0.4646 matches the imp-96151
+  // two-term closed-form ladder to 4 dp -- full and closed-form models agree on the far tail -- so the
+  // approach to the imp-3463 1/2 is a genuine monotone limit, not a finite ceiling. Import-light
+  // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound;
+  // no operator positivity; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-97404-sigma-fartail-exponent-ladder-past-1e12.js',
   // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
   // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
   // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151

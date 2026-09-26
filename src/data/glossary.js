@@ -23727,6 +23727,8 @@ export const glossary = [
       'imp-96876-krein-tresidual-crossval-measurement.js the refuted lambda_max(R_T) prescription (IMP96876_TRACE_VACUOUS)',
       'imp-96848-krein-tresidual-rigorous-tailtrace-bound.js the vacuous closed-form trace majorant (IMP96848_TAILTRACE_MAJORANT) this replaces',
       'imp-96806-krein-tconv-plateau-2a-ln3.js the reused build()/lam_min() solver (IMP96806_TSWEEP_LN3)',
+      'imp-96923-krein-lammax-diagnosis-superseded-note.js reconciliation note recording the imp-96876 lambda_max(R_T) diagnosis as SUPERSEDED (not wrong) by this Rayleigh mechanism',
+      'imp-96973-krein-tailtrace-vacuity-factorisation.js the exact multiplicative factorisation Tr/actual = [Tr/lammax]x[lammax/rayleigh]x[rayleigh/actual] verified across three (N,2a) rungs',
     ],
   },
   {

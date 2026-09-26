@@ -24938,6 +24938,30 @@ export const glossary = [
       'imp-97461-route-m-quarter-ceiling-survival-without-mcm-scope.js the primorial-extremizer premise this witness bypasses',
     ],
   },
+  {
+    term: 'E1(b): the sub-leading remainder of the coprime sum L1(b)',
+    category: 'definition',
+    definition:
+      'E1(b) is defined as the remainder left over once the leading asymptotic is subtracted from the ' +
+      'coprime-residue sum L1(b) = Sum_{a in R_b} a log a (R_b = {a : 1&lt;=a&lt;=b-1, (a,b)=1}): ' +
+      'E1(b) = L1(b) - phi(b) b((1/2) log b - 1/4), where phi(b) b((1/2) log b - 1/4) is the imp-97096 ' +
+      'proved LEADING term of L1(b). So E1(b) is by construction o(phi(b) b) -- it carries none of the ' +
+      'leading scale of L1, only the correction to it. The now-refuted "b/4 ceiling" |E1(b)| &lt;= b/4 ' +
+      '(imp-97265 proved on primes, imp-97290 extended to semiprimes, imp-97481 refuted in general, ' +
+      'imp-97496 named the explicit crossing witness b*) was, all along, a candidate explicit bound on ' +
+      'this L1 remainder, not a free-standing quantity. imp-97516 STEP 1 supplies the definitional bridge ' +
+      'above and STEP 2-4 show E1 enters the arithmetic first moment F_arith(b) linearly with coefficient ' +
+      '-1/2, at order O(b log b) -- a full power of b below the Theta(phi(b) b) leading scale that fixes ' +
+      'kappa_arith -- so the b/4-edge breach cannot move kappa_arith or any Lambda bound. Definitional ' +
+      'headword only; no bound on Lambda moves; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97545 (adds this glossary headword for the imp-97516 STEP 1 definitional bridge), 2026',
+    relatedTerms: [
+      'imp-97516-route-m-quarter-edge-breach-vs-first-moment-companion.js the source derivation (STEP 1 definitional bridge; STEPS 2-4 scale separation and insulation)',
+      'imp-97096-route-m-arith-first-moment-evaluation.js proves the leading asymptotic of L1(b) that E1(b) is the remainder of',
+      'The imp-97290 Leader + Inward-Correction Decomposition: E1(b) = mu(b)(b/4) + Delta(b) the exact structural decomposition of E1 itself',
+      'imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js names the explicit witness breaching the b/4 ceiling on E1',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

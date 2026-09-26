@@ -4815,6 +4815,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the majorant constant is reused verbatim from imp-97263 and the measured decay is reused verbatim from imp-97134, no re-evaluation of any spherical-Bessel function. The majorant is valid at every measured rung (bounds both trials) but loose by a factor of ~5x-210x, the price of the triangle inequality not exploiting further cross-degree cancellation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97316-committed-cjk-sparsity-band',
+      title: 'Committed c_jk Overlap: the Exact Sparsity/Band Pattern',
+      oneLine:
+        'Band-area chart of the imp-97293 committed 100x106 overlap matrix support (nonzero exactly where j+k even AND k<=j+6: 2850 of 10600 cells) plus a table of the exact high-degree anchor entries -- first visualization for this sparsity pattern.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97316-committed-cjk-sparsity-band-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97293-krein-committed-cjk-gegenbauer-overlap.js (source: exact overlap matrix, sparsity census, anchors; imp-97316 viz-data leaf + page)',
+      ticket: 'imp-97316',
+      pedagogicalStep: 316,
+      honestCeiling:
+        'Presentation only: the sparsity census and anchor values are reused verbatim from imp-97293, no re-derivation of the BigInt-rational overlap sweep. The per-row band reconstruction is a direct combinatorial reading of the proved support rule, cross-checked against the imp-97293 offline-swept total. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

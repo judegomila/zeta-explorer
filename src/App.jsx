@@ -1642,6 +1642,9 @@ const Imp97302InverseLineDiagOffdiagCoLeadingViz = lazy(() =>
 const Imp97303BesselHankelMajorantViz = lazy(() =>
   import('./pages/Imp97303BesselHankelMajorantViz.jsx')
 );
+const Imp97316CommittedCjkSparsityBandViz = lazy(() =>
+  import('./pages/Imp97316CommittedCjkSparsityBandViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4252,6 +4255,10 @@ function AppShell() {
           <Route
             path="/viz-imp97303-bessel-hankel-majorant"
             element={<Imp97303BesselHankelMajorantViz />}
+          />
+          <Route
+            path="/viz-imp97316-committed-cjk-sparsity-band"
+            element={<Imp97316CommittedCjkSparsityBandViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

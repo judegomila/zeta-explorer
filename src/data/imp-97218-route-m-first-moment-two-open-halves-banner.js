@@ -29,6 +29,7 @@
 
 import { IMP97155_ROUTE_M_FIRST_MOMENT_EVALUATION_COHORT_INDEX } from './imp-97155-route-m-first-moment-evaluation-cohort-index.js';
 import { IMP97202_VERDICT, IMP97202_SUBGAP } from './imp-97202-route-m-arith-first-moment-uniform-remainder.js';
+import { IMP97266_VERDICT } from './imp-97266-route-m-arith-tail-o1-measurement.js';
 
 export const IMP97218_TWO_OPEN_HALVES = Object.freeze({
   halves: Object.freeze([
@@ -68,6 +69,18 @@ export const IMP97218_TWO_OPEN_HALVES = Object.freeze({
       'explicit uniform constant for the loose, non-binding L1 remainder E1 (same Moebius-moment mechanism) ' +
       'and sharpening the R(b) tail from the proved O(log log b) to the measured O(1); the cotangent half is untouched.',
     cotangentHalfUnchanged: true, // IMP97097 stays fully open (measured ~+0.12)
+  }),
+  // imp-97266: sizes one of the two open pieces of the IMP97202_SUBGAP residual (the tail, not the E1 constant).
+  tailMeasurement: Object.freeze({
+    leaf: 'imp-97266',
+    status:
+      'MEASURED (not proved): the Stirling tail R(b) inside IMP97202_SUBGAP is empirically O(1), not the ' +
+      'proved O(log log b) -- it vanishes on primes and prime powers and converges (alternating, monotone ' +
+      'in magnitude) to a finite limit L ~ 0.127 on the binding primorial class. This sizes the tail half of ' +
+      'the residual; the other half (the explicit uniform E1 constant) is untouched by this measurement.',
+    measuredO1: IMP97266_VERDICT.measuredO1, // true
+    provesO1Bound: IMP97266_VERDICT.provesO1Bound, // false -- measurement only, mu-cancellation uncertified
+    measuredConstant: 0.127,
   }),
 });
 
@@ -121,6 +134,18 @@ const IMP97218_ASSERTIONS = [
       'the arith half must track imp-97202: E0 (the binding L0 remainder) now has a proved uniform-in-b ' +
       'bound with no 2^omega prefactor, so the half is only partially open -- the precise residual is the ' +
       'imp-97202 uniform-E1 sub-gap (E1 constant + O(1) tail), while the cotangent half stays fully open.',
+  },
+  {
+    id: 'imp97218-tail-measurement-tracks-imp97266',
+    holds: () =>
+      IMP97218_TWO_OPEN_HALVES.tailMeasurement.leaf === 'imp-97266' &&
+      IMP97218_TWO_OPEN_HALVES.tailMeasurement.measuredO1 === IMP97266_VERDICT.measuredO1 &&
+      IMP97218_TWO_OPEN_HALVES.tailMeasurement.measuredO1 === true &&
+      IMP97218_TWO_OPEN_HALVES.tailMeasurement.provesO1Bound === false &&
+      IMP97218_TWO_OPEN_HALVES.tailMeasurement.measuredConstant < 0.13,
+    why:
+      'the tail-measurement note must track the live imp-97266 verdict (measured O(1), not proved) so this ' +
+      'banner cannot drift from the source module if imp-97266 is ever revised.',
   },
   {
     id: 'imp97218-honesty-gate-no-qed',

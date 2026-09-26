@@ -24279,6 +24279,33 @@ export const glossary = [
       'project_route_m_lower_companion_first_moment Route M first-moment program this bound would close',
     ],
   },
+  {
+    term: 'Route M Parity Sign Law: r(b) phi(b) = (1/4) Lambda(b) + Delta_omega(b)',
+    category: 'numerical',
+    definition:
+      'imp-97167 derives the imp-97140 residual sign law from the imp-97133 Moebius/Stirling remainder. ' +
+      'Writing A(a,b) = b psi(a/b) makes r(b) an equidistribution discrepancy of psi over coprime ' +
+      'residues; Moebius inversion plus the Euler telescope give the exact identity r(b) phi(b) = ' +
+      'Sum_{m|b} mu(b/m) D(m), and expanding the Stirling/Glaisher discrepancy D(m) = (1/4) log m + K + ' +
+      'delta(m) collapses this via the classical mu*log = Lambda identity (and Sum mu(b/m) = 0 for b &gt;= ' +
+      '2) to r(b) phi(b) = (1/4) Lambda(b) + Delta_omega(b), Delta_omega(b) = Sum_{m|b} mu(b/m) delta(m). ' +
+      'On PRIME POWERS (omega=1) the von Mangoldt term gives r phi = (1/4) log p &gt; 0 directly -- this is ' +
+      'why r &gt; 0 exactly where mu(b) vanishes, i.e. the law is LIOUVILLE-type (parity of omega(b)), not ' +
+      'literally Moebius mu. For omega &gt;= 2 the Lambda term is zero and the leading tail term (-1)^omega ' +
+      'delta(1) (delta(1) = -0.084469 &lt; 0) sets sign(r(b)) = (-1)^(omega+1), correcting the imp-97140 ' +
+      'rule string to match its own data. The only violations in [200,3000] are the smoothest primorial ' +
+      'moduli (b=2310, 2730, and b=30030 upward), where the k-fold Moebius difference collapses delta(1) ' +
+      'toward the ~1e-6 floor and a subleading opposite-sign term flips r. A uniform quantitative ' +
+      'non-cancellation bound for every non-primorial b remains an open residual. Derivation only; no ' +
+      'bound moves; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97192 (adds this glossary headword for the imp-97167 parity sign-law derivation), 2026',
+    relatedTerms: [
+      'imp-97167-route-m-parity-sign-law-derivation.js the source derivation of the master formula',
+      'imp-97140-route-m-fixed-omega-residual-cohorts.js the measured sign + magnitude law this corrects',
+      'imp-97133-route-m-arith-first-moment-explicit-remainder.js the Moebius/Stirling remainder this expands',
+      'project_route_m_lower_companion_first_moment Route M first-moment program this sign law belongs to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

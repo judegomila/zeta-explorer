@@ -763,6 +763,16 @@ const DATA_MODULES = [
   // one-term kappa_eff fixed point. The 5% crossover x*=0.945 lies far outside the small-x fit window
   // (a~b symmetry). Measurement only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97464-route-m-twoterm-curvature-crossover-fit.js',
+  // imp-97477 (2026-09-26): PINS the imp-97459 "continuum threshold b ~ 2100" for the 1/6 crest crossing
+  // 1%. A dense sweep b = 2000..2400 grouped by the a-grid alignment residue r = b mod 6 (frac(b/6) =
+  // r/6) shows the crossing is NOT a single b but an alignment BAND: r=0 (a = b/6 exact) samples the
+  // 1.1130% continuum tip (always > 1%), r=1,5 ~1.05% (> 1% across window), r=2,4 shoulder classes
+  // crossing 1% at b ~ 2084 and 2116, r=3 (frac = 1/2, deepest miss) ~0.96% -- NEVER clears 1% in
+  // [2000, 2400]. Crossing band [2003 (r=5), 2116 (r=4)]; the coarse-ladder threshold ~ 2100 is its
+  // midpoint. Whether a b crosses is set entirely by frac(b/6), not the size of b. A(b) = x*(1%) b stays
+  // piecewise-linear (upper 0.199 at b <= 2050, lower 0.166 at b >= 2100). Import-light (Vasyunin
+  // recompute at a handful of b); no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97477-route-m-crest-crossover-alignment-band.js',
   // imp-97479 (2026-09-26): ATTEMPTS the Bettin-Conrey reciprocity resummation the imp-97460 RESULT 2
   // obstruction asks for -- the reciprocal Vasyunin pair V(xb,b)+V(b,xb) equals R(h/k)=V(h,k)/k+V(k,h)/h
   // at rational x. RESULT 1: on nearby coprime integer pairs r/x^2 jumps with the arithmetic of (h,k) not

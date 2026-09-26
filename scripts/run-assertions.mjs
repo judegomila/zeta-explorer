@@ -20877,6 +20877,10 @@ const DATA_MODULES = [
   // lower-bound cohort (imp-96749/imp-97100/imp-97120/imp-97121) -- the
   // Ritz-upper-bounds-insufficient family. Index/meta only; NO QED.
   '/src/data/imp-97154-krein-uniform-n-ritz-insufficiency-cohort-index.js',
+  // imp-97155: META cross-reference index grouping the Route M analytic
+  // first-moment cohort (imp-97096/imp-97097/imp-97119/imp-97122) -- the
+  // first-moment-evaluation family. Index/meta only; NO QED.
+  '/src/data/imp-97155-route-m-first-moment-evaluation-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

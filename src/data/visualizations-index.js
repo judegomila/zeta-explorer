@@ -5249,6 +5249,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the w_1(t) samples are an exact recomputation; the summary constants and confined-well boundaries are reused verbatim from imp-97501/imp-97399. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97552-e1-envelope-decay',
+      title: 'imp-97539: E1(b)/(phi(b) b) Decay vs the Analytic Envelope',
+      oneLine:
+        'The imp-97539 tabulation of ratio(b)=|E1(b)|/(phi(b) b) (the imp-97516 STEP 3 sub-leading L1 remainder) against the analytic envelope env(b)=log b log log b / b on a log-log scale across a 12-point b-ladder (primorials, prime, squarefree families); ratio(b) sits under env(b) at every point, decaying from 1.175e-3 at b=211 to 8.329e-6 at b=30011 (~1/b).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97552-e1-envelope-decay-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97539-route-m-e1-envelope-ladder.js (the tabulated 12-point ladder; imp-97552 viz-data leaf + page)',
+      ticket: 'imp-97552',
+      pedagogicalStep: 411,
+      honestCeiling:
+        'Presentation only: all (b, ratio, env) points are reused verbatim from imp-97539, log-log transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa_arith=0.5704960511 unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

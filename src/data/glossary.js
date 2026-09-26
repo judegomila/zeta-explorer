@@ -24262,18 +24262,24 @@ export const glossary = [
     definition:
       'imp-97116 reduces the Route M cotangent no-cancellation question to a single ABSOLUTE-VALUE ' +
       'bound: writing A(b) = sum_{a} |c_0(h_a/a)| over the reindexed Bettin-Conrey cotangent sums ' +
-      '(h_a = b-inverse mod a), ANY constant c &lt; kappa_arith = (3/2)C - 3/8 = 0.5704960511308594 ' +
-      '(imp-97096 exact value) in A(b) &lt;= c phi(b) b already forces kappa_cot &gt; -kappa_arith, so ' +
+      '(h_a = b-inverse mod a), the OPERATIVE threshold that forces kappa_cot &gt; -kappa_arith is ' +
+      'c &lt; (2/pi) kappa_arith = 0.36318906620753183 (imp-97204 Result 2: the -(pi/2) weight relating ' +
+      'A(b) to the F-coefficient tightens the raw-A target kappa_arith = (3/2)C - 3/8 = 0.5704960511308594 ' +
+      '(imp-97096 exact value) to this value). Any such c in A(b) &lt;= c phi(b) b already gives ' +
       'kappa = kappa_arith + kappa_cot &gt; 0 -- no signed cancellation or sign-tracking is required. ' +
-      'imp-97168 measured the worst-case downside A(b)/(phi(b) b) at 0.113 (b=31) rising to 0.143 ' +
-      '(b=401, 601), roughly 4x below the kappa_arith = 0.5705 floor it must clear (imp-97188 tracks ' +
-      'this ratio further out, still rising at b=601). The bound is only MEASURED, not proved: this ' +
-      'gap -- any explicit c &lt; 0.5705 on A(b) -- is the entire remaining Route M first-moment ' +
-      'obligation; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; kappa &gt; 0 stays measured not ' +
-      'proved; RH open; NO QED.',
+      'NOTE the two distinct constants: 0.36319 is the operative kappa_cot-lower-bound threshold, while ' +
+      '0.5705 is the raw-A statement on A(b)/(phi(b) b) named directly in imp-97180/imp-97168 without the ' +
+      '-(pi/2) weight; conflating them overstates the admissible c by pi/2. imp-97168 measured the ' +
+      'worst-case downside A(b)/(phi(b) b) at 0.113 (b=31) rising to 0.143 (b=401, 601), roughly 2.5x ' +
+      'below the operative 0.36319 threshold (and ~3.9x below the raw 0.5705 floor) it must clear ' +
+      '(imp-97188 tracks this ratio further out, still rising at b=601). The bound is only MEASURED, not ' +
+      'proved: this gap -- any explicit c &lt; 0.36319 on A(b)/(phi(b) b) -- is the entire remaining ' +
+      'Route M first-moment obligation; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; kappa &gt; 0 stays ' +
+      'measured not proved; RH open; NO QED.',
     firstUsed: 'imp-97190 (adds this glossary headword for the imp-97116 cotangent absolute-value bound), 2026',
     relatedTerms: [
       'imp-97116-route-m-cotangent-varying-modulus-abs-value-reduction.js the source reduction A(b) &lt;= c phi(b) b',
+      'imp-97204-route-m-cotangent-signed-firstmoment-lower-bound.js Result 2: the operative threshold is (2/pi) kappa_arith = 0.36319, not the raw-A 0.5705',
       'imp-97168-route-m-kappa-arith-vs-companion-target-reconciliation.js the ~4x margin reconciliation between kappa_arith and the measured cotangent downside',
       'imp-97188 extends the A(b)/phi(b)b downside ladder past b=601',
       'project_route_m_lower_companion_first_moment Route M first-moment program this bound would close',

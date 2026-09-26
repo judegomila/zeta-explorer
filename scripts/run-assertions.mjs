@@ -20852,6 +20852,14 @@ const DATA_MODULES = [
   // ground-state combination g(t) and scopes the fixed rational trial that annihilates the leading
   // t^-1,t^-2,t^-3 orders (6 carrier constraints, parity-decoupled, >= 8 degrees / 6 v0 constraints).
   '/src/data/imp-97113-krein-bessel-asymptotic-annihilation-scope.js',
+  // imp-97042: Concepts glossary headword consolidating a recurring caveat found
+  // verbatim in imp-96934, imp-96938, and imp-97012 -- every Krein/Ritz/Rayleigh
+  // operator floor quoted in the Route I/M program is an UPPER bound on the true
+  // lambda_1, never a certified LOWER bound or a proof of operator positivity; a
+  // large stable floor (imp-96938's >=12.0 margin at the certified 2a=0.96 endpoint)
+  // is reassuring but the drift pattern alone is identical to the open 2a=ln3 case.
+  // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-97042-krein-ritz-upper-bound-not-lower-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

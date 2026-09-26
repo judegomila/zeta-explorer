@@ -21187,6 +21187,12 @@ const DATA_MODULES = [
   // quantity for kappa_arith (imp-97516) -- kappa_arith unchanged, no bound moves. Documentation
   // only; NO QED.
   '/src/data/imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js',
+  // imp-97510: SUPERSEDED-TICKET note. imp-97510 asked for a meta cohort-index note grouping
+  // the Route-M b/4-ceiling chain (imp-97422 -> 97432 -> 97461 -> 97481) as one dead-route
+  // story; imp-97544 already delivered exactly that and names imp-97510 as superseded rather
+  // than needing separate execution. This note only records the supersession. No new solve;
+  // no bound moved; NO QED.
+  '/src/data/imp-97510-route-m-b4-ceiling-cohort-superseded-note.js',
   // imp-97391: META cross-reference index grouping the Route M interior second-moment
   // separation cohort (imp-97311/97329/97330/97349/97356) as the Q(b) diagonal-skeleton /
   // uniform-crossover program: fixed-a moment DIVERGES (wrong scale, imp-97311), the

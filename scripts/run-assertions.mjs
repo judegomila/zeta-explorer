@@ -20844,6 +20844,10 @@ const DATA_MODULES = [
   // Krein frontier cohort (imp-96845/96868/96881/96956) as a near-feasible-
   // vs-certified family. Index/meta only; NO QED.
   '/src/data/imp-96987-kmax-degree-frontier-cohort-index.js',
+  // imp-97095: ASSESSMENT of the O(1) additive offset of the interior second moment needed to pin
+  // the imp-97081 anchor F to a VALUE not a slope. Exact three-part decomposition, P1 derived,
+  // obstruction shown strictly harder than the imp-96750 slope sub-gap. Reduction only; NO QED.
+  '/src/data/imp-97095-route-m-interior-second-moment-o1-offset-assessment.js',
 ];
 
 let ALL_MODULES = FAST_MODE

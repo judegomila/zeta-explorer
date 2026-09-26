@@ -723,6 +723,15 @@ const DATA_MODULES = [
   // strictly stronger than the ceiling. Import-light (self-contained arithmetic kernel); no bound moved;
   // PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js',
+  // imp-97461 (2026-09-26): SCOPES the MCM-free survival of the b/4 ceiling asserted by imp-97432. Decomposes
+  // |T(b)| <= 1/4 into two one-sided edges living in DISJOINT min-prime regimes: the UPPER edge T <= 1/4 is
+  // approached only as the smallest prime factor -> infinity (all-large-prime, MCM-SAFE), so the imp-97432
+  // refutation is irrelevant to it; the LOWER edge T >= -1/4 is the primorial regime where MCM died -- its
+  // imp-97422 proof (T >= 0) is destroyed but the condition survives with margin 0.204 (|T(p_11#)| = 9.6e-4,
+  // primorial limit -e^{-gamma}/12 + Rcorr = -0.04577). Replacement for MCM = the strictly weaker two-sided
+  // extremizer (RL-U: S(b) < 0 uniformly; RL-L: primorial infimum in (-1/4,1/4)). Import-light (self-contained
+  // arithmetic kernel); scoping only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97461-route-m-quarter-ceiling-survival-without-mcm-scope.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

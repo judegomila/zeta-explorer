@@ -24550,6 +24550,35 @@ export const glossary = [
       'imp-97015-ghat-cancellation-interval-enclosure.js the committed IMP97015_ARB_INTERVAL_BESSEL sub-gap this obstruction still needs',
     ],
   },
+  {
+    term: 'IMP97015_ARB_INTERVAL_BESSEL: The Single Shared Missing Primitive Behind Two Independent Krein Obstructions',
+    category: 'obstruction',
+    definition:
+      'IMP97015_ARB_INTERVAL_BESSEL names one precise missing capability -- a two-sided interval ' +
+      'enclosure of the spherical-Bessel / Gegenbauer overlap functions used in the Krein annihilation ' +
+      'program (mpmath.iv exposes no interval Bessel / Gegenbauer / digamma, and Arb / python-flint is not ' +
+      'installed in the environment, imp-97015). It surfaces INDEPENDENTLY as the binding obstruction in ' +
+      'two otherwise-unrelated derivations: (A) imp-97227 needs it for a rigorous uniform-in-z majorant of ' +
+      'the z^-4 spherical-Bessel remainder sum_k d_k R_k(z), the missing ingredient after the three leading ' +
+      't^-1..t^-3 coefficients were certified as exact-zero-width interval singletons [0,0]; (B) imp-97164 ' +
+      'needs it to certify the degree-to-v0 overlap inversion d = C^T v0 as a two-sided interval object, ' +
+      'both for the overlap matrix entries c_{jk} themselves and for the residual higher-degree tail ' +
+      'd_8..d_105 that sets the O(t^-4) constant. Since (A) and (B) attack different steps of the same ' +
+      'program (the remainder majorant vs. the coefficient-to-trial inversion) yet both terminate at the ' +
+      'identical named sub-gap, this is not two coincidental obstructions but ONE missing primitive gating ' +
+      'the whole interval-rigorous upgrade: an Arb acb_hypgeom spherical-Bessel evaluation at working ' +
+      'precision dps &gt;= D + ceil(log10 kappa) ~ D + 11 (the guard-digit budget measured in imp-97015, ' +
+      'max log10 kappa = 10.34). Naming / cross-reference only; supplies no majorant, no inversion, no ' +
+      'operator positivity; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 ' +
+      'remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97281 (adds this glossary headword identifying the shared IMP97015_ARB_INTERVAL_BESSEL primitive), 2026',
+    relatedTerms: [
+      'imp-97015-ghat-cancellation-interval-enclosure.js the source module committing the IMP97015_ARB_INTERVAL_BESSEL sub-gap and its guard-digit budget',
+      'imp-97227-krein-interval-annihilation-certificate.js Obstruction A -- the z^-4 remainder majorant blocked by this primitive',
+      'imp-97164-krein-v0-overlap-inversion-interval-obstruction.js Obstruction B -- the degree-to-v0 overlap inversion blocked by the same primitive',
+      'imp-97113-krein-bessel-asymptotic-annihilation-scope.js the six leading carrier functionals and 94-dim v0 family both obstructions build on',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

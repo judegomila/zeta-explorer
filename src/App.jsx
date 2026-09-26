@@ -1311,6 +1311,9 @@ const Imp97486Sigma2SecondMomentProfileViz = lazy(() =>
 const Imp97487Bimodal1PctCrossoverViz = lazy(() =>
   import('./pages/Imp97487Bimodal1PctCrossoverViz.jsx')
 );
+const Imp97488KreinRoute2KbigSaturationViz = lazy(() =>
+  import('./pages/Imp97488KreinRoute2KbigSaturationViz.jsx')
+);
 const Imp97471McmTowerPerLevelMarginViz = lazy(() =>
   import('./pages/Imp97471McmTowerPerLevelMarginViz.jsx')
 );
@@ -3871,6 +3874,10 @@ function AppShell() {
           <Route
             path="/viz-imp97487-bimodal-1pct-crossover"
             element={<Imp97487Bimodal1PctCrossoverViz />}
+          />
+          <Route
+            path="/viz-imp97488-krein-route2-kbig-saturation"
+            element={<Imp97488KreinRoute2KbigSaturationViz />}
           />
           <Route
             path="/viz-imp97471-mcm-tower-per-level-margin"

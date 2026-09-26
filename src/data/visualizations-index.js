@@ -5095,6 +5095,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the d(a,b) samples are an exact recomputation; the crest tips, step point, and A(b) scale table are reused verbatim from imp-97459. Establishes no operator positivity; changes no bound; the rigorous anchor stays the trace ceiling T=2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97488-krein-route2-kbig-saturation',
+      title: 'imp-97455: The Route-2 Kbig->inf Saturation',
+      oneLine:
+        'The imp-97455 Kbig->infinity behaviour of the best-reachable Route-2 lower bound on lambda_2: measured points (-196.863 at Kbig=44 to -303.336 at Kbig=140) hug a saturation fit (R^2=0.9965) flattening toward a finite floor [-322.065,-305.866], against linear (R^2=0.799) and log (R^2=0.913) divergence fits that keep falling once extrapolated past Kbig=140 -- still four orders of magnitude below the required 0.581059.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97488-krein-route2-kbig-saturation-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97455-krein-route2-kbig-divergence-rate.js (measured points, fit parameters, finite-floor bracket; imp-97488 viz-data leaf + page)',
+      ticket: 'imp-97488',
+      pedagogicalStep: 400,
+      honestCeiling:
+        'Presentation only: the measured points and fit parameters are reused verbatim from imp-97455; the fit curves are the same closed forms evaluated past the measured range. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

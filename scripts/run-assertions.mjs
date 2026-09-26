@@ -21223,6 +21223,13 @@ const DATA_MODULES = [
   // "dominate the well by the positive mass" two-window split IS a genuine obstruction (crosses zero
   // at 2a=0.6026 < ln2, discards the band-limited cancellation). Assessment only; NO QED.
   '/src/data/imp-97537-confined-well-vs-projected-positivity-assessment.js',
+  // imp-97561: TABULATE the finite-N Galerkin lambda_min(T_a[sigma_2]) N-convergence at
+  // 2a in {1.00, 1.08, ln3, 1.1316}. Reproduces the committed T=300 table to <= 1e-3 (N=20,28,36),
+  // then shows the large-N downward drift at T=300 is a positive-tail-drop bias (dTail grows with N);
+  // tail-retained (T=800) the sub-ln3 floors stay strictly positive (~8.35/0.89/0.58) and the
+  // imp-97537 "crossing at 2a* ~ 1.1316" dissolves (T=600/T=1200 agree ~+0.475). No clean N->inf
+  // limit extractable (truncation + Gram conditioning bind before N). Tabulation only; NO QED.
+  '/src/data/imp-97561-sigma2-lambda-min-N-convergence-tabulation.js',
   // imp-97473: HONEST-STATUS note recording the imp-97444 independent confirmation of the
   // imp-97416 bathtub joint Krein floor -3065.435 at 2a=ln3 by constrained water-filling
   // (water-level bisection floor -3065.469, scipy HiGHS simplex LP floor -3065.429); all three

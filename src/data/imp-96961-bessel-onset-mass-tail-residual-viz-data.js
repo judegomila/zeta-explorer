@@ -71,7 +71,8 @@ export const IMP96961_HONEST_BANNER =
   'mass (the first-order tail residual reproduces the measured floor lift in sign and order at every ' +
   'N), but the onsets sit 13-22x below the T=3200 cutoff (it is the far tail, not the onset crossing), ' +
   'and the literal uniform-j_k^2 onset-mass model over-predicts the absolute fraction while ' +
-  'under-predicting the super-linear N-growth, leaving an unexplained component. No operator ' +
+  'under-predicting the super-linear N-growth, leaving an unexplained component. The beyond-T=3200 ' +
+  'residual itself is a Rayleigh UPPER-bound measurement, not a certified tail bound. No operator ' +
   'positivity established; interval-rigorous certificate reach stays 2a<=0.96; PT Lambda <= 0.2 ' +
   'remains SOTA; RH open; NO QED.';
 
@@ -103,7 +104,8 @@ export const IMP96961_VALIDATION = Object.freeze({
   honestBannerPresent:
     /RH open/.test(IMP96961_HONEST_BANNER) &&
     /PT Lambda <= 0.2/.test(IMP96961_HONEST_BANNER) &&
-    /NO QED/.test(IMP96961_HONEST_BANNER),
+    /NO QED/.test(IMP96961_HONEST_BANNER) &&
+    /Rayleigh UPPER-bound measurement, not a certified tail bound/.test(IMP96961_HONEST_BANNER),
 });
 
 // imp-96397: registers the IMP96961_VALIDATION checks with the build-time assertion sweep

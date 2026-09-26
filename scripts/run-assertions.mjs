@@ -763,6 +763,17 @@ const DATA_MODULES = [
   // one-term kappa_eff fixed point. The 5% crossover x*=0.945 lies far outside the small-x fit window
   // (a~b symmetry). Measurement only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97464-route-m-twoterm-curvature-crossover-fit.js',
+  // imp-97479 (2026-09-26): ATTEMPTS the Bettin-Conrey reciprocity resummation the imp-97460 RESULT 2
+  // obstruction asks for -- the reciprocal Vasyunin pair V(xb,b)+V(b,xb) equals R(h/k)=V(h,k)/k+V(k,h)/h
+  // at rational x. RESULT 1: on nearby coprime integer pairs r/x^2 jumps with the arithmetic of (h,k) not
+  // x (0.1068 -> +9.81 vs 0.1133 -> -23.62). RESULT 2: along CF convergents of a fixed irrational x, r/x^2
+  // converges parity-oscillating (quantum-modular) to an x-DEPENDENT limit kappa(x): -0.097 golden, -0.0053
+  // sqrt2-1, +2.09 1/pi -- two orders, sign-changing, so NO universal smooth O(x^2) coefficient exists.
+  // RESULT 3: the reciprocity RHS is the Bettin-Conrey quantum modular form (not real-analytic at the cusp),
+  // so it relocates the frac(nxb) wobble into non-smoothness rather than cancelling it; kappa(golden) matches
+  // |kappa_eff|=0.0995, a golden-type local value not a constant. Derivation+measurement only; no bound
+  // moved; rigorous anchor stays T=2.594e7; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97479-route-m-bettin-conrey-reciprocity-quantum-modular-obstruction.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

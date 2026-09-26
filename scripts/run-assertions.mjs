@@ -21187,6 +21187,13 @@ const DATA_MODULES = [
   // quantity for kappa_arith (imp-97516) -- kappa_arith unchanged, no bound moves. Documentation
   // only; NO QED.
   '/src/data/imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js',
+  // imp-97543: ACCURACY / CONSISTENCY AUDIT. Cross-checks the imp-97516 STEP 3 closed form
+  // kappa_arith = (3/2) C - 3/8 = 0.5704960511308594 (C = (log 2pi - gamma)/2 = 0.6303307...,
+  // imp-96750 IMP96750_C) against imp-97096s exported exact evaluation to machine precision, and
+  // confirms imp-97124 (headword), imp-97131 (honest status) and the glossary cite the identical
+  // constant -- the one-off decimals near 0.5705 are MEASURED finite-b ladder values, not the limit.
+  // No drift found; no bound moved; NO QED.
+  '/src/data/imp-97543-route-m-kappa-arith-closed-form-crosscheck.js',
   // imp-97510: SUPERSEDED-TICKET note. imp-97510 asked for a meta cohort-index note grouping
   // the Route-M b/4-ceiling chain (imp-97422 -> 97432 -> 97461 -> 97481) as one dead-route
   // story; imp-97544 already delivered exactly that and names imp-97510 as superseded rather

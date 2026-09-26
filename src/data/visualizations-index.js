@@ -4801,6 +4801,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every (b, M2w, diag, offdiag) value is reused verbatim from imp-97267 and imp-97284, no re-derivation of the exact O(b^3) character-detection kernel. OFFDIAG carries ~half of M2w at every measured b (co-leading, not a vanishing remainder), so a Weil-bound route cannot certify M2w -- the transfer stays an open EVALUATION problem. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97303-bessel-hankel-majorant',
+      title: 'Bessel-Hankel z^-4 Majorant vs the Measured Annihilating-Trial Decay',
+      oneLine:
+        'Log10 line charts of the imp-97263 closed-form majorant C(Z0) against the imp-97134 measured |g(z)| z^4 curves for the even- and odd-degree annihilating trials, plus the C(Z0)/measured looseness ratio (~5x-210x) vs z -- first visualization for this majorant.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97303-bessel-hankel-majorant-vs-measured-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97263-krein-analytic-bessel-z4-remainder-majorant.js (source: the closed-form C(Z0) majorant), src/data/imp-97134-krein-annihilating-rational-trial-execution.js (source: the measured |g(z)| z^4 trial ladder; imp-97303 viz-data leaf + page)',
+      ticket: 'imp-97303',
+      pedagogicalStep: 303,
+      honestCeiling:
+        'Presentation only: the majorant constant is reused verbatim from imp-97263 and the measured decay is reused verbatim from imp-97134, no re-evaluation of any spherical-Bessel function. The majorant is valid at every measured rung (bounds both trials) but loose by a factor of ~5x-210x, the price of the triangle inequality not exploiting further cross-degree cancellation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

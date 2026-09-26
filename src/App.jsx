@@ -1639,6 +1639,9 @@ const Imp97301E1QuarterBSaturationViz = lazy(() =>
 const Imp97302InverseLineDiagOffdiagCoLeadingViz = lazy(() =>
   import('./pages/Imp97302InverseLineDiagOffdiagCoLeadingViz.jsx')
 );
+const Imp97303BesselHankelMajorantViz = lazy(() =>
+  import('./pages/Imp97303BesselHankelMajorantViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4245,6 +4248,10 @@ function AppShell() {
           <Route
             path="/viz-imp97302-inverse-line-diag-offdiag-coleading"
             element={<Imp97302InverseLineDiagOffdiagCoLeadingViz />}
+          />
+          <Route
+            path="/viz-imp97303-bessel-hankel-majorant"
+            element={<Imp97303BesselHankelMajorantViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

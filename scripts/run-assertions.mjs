@@ -871,6 +871,17 @@ const DATA_MODULES = [
   // crossing (Y ~ 2.63e9, two-term-law estimate = residual sub-gap). Exploratory ceiling, load-bearing for
   // nothing; no bound moved; PT Lambda<=0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js',
+  // imp-97515 (2026-09-26): RIGORIZES the imp-97496 RESULT 4 P0=101 crossing (previously a two-term-law estimate).
+  // A Kahan-compensated segmented sieve of [101,Y] to 2.85e9 puts the boundary crossing at Y=2,634,715,019
+  // (confirming the estimate Y~2.63e9 essentially exactly), cross-checked by the Rosser-Schoenfeld (3.26)/(3.27)
+  // effective-Mertens enclosure (RS Prod band + two-term-law W brackets the exact surrogate, half-width 2.67e-4;
+  // L(101)=-0.388874, A(101)=2.98543 reproduced from first principles). Named robust witness b_101 =
+  // Prod_{101<=p<=2,742,754,087} p (omega=132,637,743, ~10^{1.191e9}, ~1.19 billion digits), T(b_101)=-0.25025446
+  // < -1/4. The ticket "smaller-omega" premise is REFUTED: this witness is ~30.7x MORE prime factors and ~37.3x
+  // MORE digits than the P0=379 witness b* (shallower limit => longer descent); smaller witnesses need HIGHER P0
+  // (imp-97500 optimum ~1409). Exploratory ceiling, load-bearing for nothing; no bound moved; PT Lambda<=0.2 SOTA;
+  // RH open; NO QED.
+  '/src/data/imp-97515-route-m-quarter-ceiling-p0-101-crossing-rigorous.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

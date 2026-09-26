@@ -20891,6 +20891,12 @@ const DATA_MODULES = [
   // coercivity / concentration-constant cohort (imp-97121/imp-97137/imp-97161) --
   // the c_sharp-only-bounded-from-above family. Index/meta only; NO QED.
   '/src/data/imp-97201-krein-debranges-coercivity-concentration-cohort-index.js',
+  // imp-97258: Concepts glossary headword recording the imp-97156 two-parity residual
+  // sign law -- leading Liouville-parity sign(r) = (-1)^(omega+1) dominates generically
+  // but is universally taken over by subleading Moebius-parity sign(r) = mu(b) at every
+  // primorial P5..P8 and near-primorial smooth moduli, driven by distinct-small-prime
+  // smoothness (not omega parity alone). Documentation only; no bound; NO QED.
+  '/src/data/imp-97258-two-parity-residual-sign-law-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

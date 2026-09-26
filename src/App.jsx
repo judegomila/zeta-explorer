@@ -1293,6 +1293,9 @@ const Imp97367KreinCsharpCoupledNTGridViz = lazy(() =>
 const Imp97368W1SignProfileViz = lazy(() =>
   import('./pages/Imp97368W1SignProfileViz.jsx')
 );
+const Imp97369RouteBEnclosureViz = lazy(() =>
+  import('./pages/Imp97369RouteBEnclosureViz.jsx')
+);
 const Imp96741RouteMThreeCeilingDecompositionViz = lazy(() =>
   import('./pages/Imp96741RouteMThreeCeilingDecompositionViz.jsx')
 );
@@ -3796,6 +3799,10 @@ function AppShell() {
           <Route
             path="/viz-imp97368-w1-sign-profile"
             element={<Imp97368W1SignProfileViz />}
+          />
+          <Route
+            path="/viz-imp97369-krein-routeb-enclosure"
+            element={<Imp97369RouteBEnclosureViz />}
           />
           <Route
             path="/viz-imp96741-route-m-three-ceiling-decomposition"

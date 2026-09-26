@@ -4620,6 +4620,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every landmark, zero crossing, and mass ratio is reused verbatim from imp-97336; no re-solve, no new numerics. w1 is pointwise negative at the band edge -- this is NOT an operator positivity result and establishes no lower bound. Changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97369-krein-routeb-enclosure',
+      title: 'Route I Krein Route B: Certified Per-Panel |g| Enclosure + Route C Far-Tail',
+      oneLine:
+        'Curve of |g(z)| against the imp-97337 certified interval-Bessel-library-free per-panel step enclosure near the T-truncation rung, a ladder of the true/enclosure ratio across all 572 certified panels (worst 0.9871), and the Route C far-tail envelope |g(z)| z^4 <= C_far ~ 48524.3 beyond Zfar.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97337-krein-routeb-certified-bessel-enclosure.js',
+      paperSourcePath:
+        'src/data/imp-97337-krein-routeb-certified-bessel-enclosure.js (enclosureUpper, IMP97337_ENCLOSURE, sPoly/cPoly; imp-97369 viz page)',
+      ticket: 'imp-97369',
+      pedagogicalStep: 319,
+      honestCeiling:
+        'Presentation only: reuses the exported certified enclosureUpper primitive and sPoly/cPoly verbatim; no re-derivation of the bounding argument, no new numerics. Establishes no operator positivity. Changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97040-orphaned-calibration-leaves',
       title: 'Orphaned Route I / Route M Calibration Leaves (Tabbed)',
       oneLine:

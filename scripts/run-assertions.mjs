@@ -20905,6 +20905,12 @@ const DATA_MODULES = [
   // still a Rayleigh-Ritz UPPER-bound extrapolation, not a certified lower bound.
   // Import-free; no bound moves; interval-rigorous reach stays 2a<=0.96; NO QED.
   '/src/data/imp-97206-krein-csharp-coupled-nt-jointlimit.js',
+  // imp-97325: Concepts glossary headword recording the imp-97285 exact factorization
+  // M2w = Rw * Mbar -- the Route M inverse-line mean square splits into the
+  // full-residue-averaged Bettin-Conrey surrogate Mbar (no inverse map, certified
+  // bounded) times the single open oversampling scalar Rw = X/Xbar, measured ~1.1..1.25
+  // and level with the imp-97271 OVR ~1.254 plateau. Documentation only; no bound; NO QED.
+  '/src/data/imp-97325-m2w-rw-mbar-factorization-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

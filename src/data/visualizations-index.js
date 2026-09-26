@@ -4983,6 +4983,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the decade and pointwise exponent ladders are reused verbatim from the imp-97404 measurement (itself extending imp-33582 on the inherited imp-3406/imp-33582 three-term sigma(N) model). Measurement/fit diagnostic, NOT an RH bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97452-rk-floor-linear-ladder',
+      title: 'imp-97431: The Reproducing-Kernel Krein Floor is Linear in the Half-Width a',
+      oneLine:
+        'The imp-97399 reproducing-kernel Krein floor floor(a) = -(a/pi)*18301.61 charted across 2a in (0, ln3]: exactly linear in a, strictly negative throughout the interval-rigorous reach 2a<=0.96, and approaching 0 only in the vacuous a->0 limit (never attained).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97452-krein-rk-floor-linear-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97431-krein-rk-floor-band-dependence.js (the linear-in-a floor law and measured ladder; imp-97452 viz-data leaf + page), src/data/imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (the floor at the binding 2a=ln3)',
+      ticket: 'imp-97452',
+      pedagogicalStep: 394,
+      honestCeiling:
+        'Presentation only: the floor law and every measured rung are reused verbatim from imp-97431; no re-solve. The RKHS budget alone certifies c_sharp > 0 for no band in reach; establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

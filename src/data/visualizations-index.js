@@ -5081,6 +5081,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the sigma_2(t) samples are an exact recomputation; the region boundaries and far-tail area table are reused verbatim from imp-97458. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97487-bimodal-1pct-crossover',
+      title: 'imp-97459: The Bimodal 1% Crossover',
+      oneLine:
+        'The imp-97459 bimodal x*(1%) crossover charted as two adjacent signed-deviation crests straddling 1%: a lower crest at x=1/6 whose sampled tip climbs 0.9100->1.0920% toward a fixed 1.113% continuum value, and an upper crest at x=1/5 dead-flat at 1.3934%; A(b)=x*b stays piecewise-linear across the flip.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97487-bimodal-1pct-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97459-route-m-bimodal-1pct-crossover-peaks.js (crest table, step point, A(b) scale; imp-97487 viz-data leaf + page)',
+      ticket: 'imp-97487',
+      pedagogicalStep: 399,
+      honestCeiling:
+        'Presentation only: the d(a,b) samples are an exact recomputation; the crest tips, step point, and A(b) scale table are reused verbatim from imp-97459. Establishes no operator positivity; changes no bound; the rigorous anchor stays the trace ceiling T=2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

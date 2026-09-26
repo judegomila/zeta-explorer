@@ -21205,6 +21205,14 @@ const DATA_MODULES = [
   // c_sharp upper bracket at 2a=ln3 below the imp-97206 coupled reading -- best measured
   // upper bracket stays 0.581059. Documentation only; NO QED.
   '/src/data/imp-97405-krein-csharp-third-order-honest-status.js',
+  // imp-97521: ASSESSMENT -- does an N -> inf fit of the imp-97498 fixed-T*=8000 c_sharp
+  // upper-bracket column project below the imp-97206 plateau bracket 0.581059? YES (linear-in-1/N
+  // intercept ~0.575958, ~0.005 below; raw column already below from N=100), BUT it is a finite-T*
+  // under-resolution artifact: the N=100 cell 0.580365 sits 0.000694 below its own imp-97206 inner-T ->
+  // inf value 0.581059, so the T*=8000 column is still T-under-resolved (reads spuriously low) and its
+  // N-descent is the residual t-truncation deficit; the well-posed T -> inf-first plateau (imp-97206) is
+  // flat, not descending. Not a genuine tighter upper bound; best valid bracket stays 0.581059. NO QED.
+  '/src/data/imp-97521-krein-csharp-fixedT-Ninf-vs-plateau.js',
   // imp-97417: HONEST-STATUS correction note recording the imp-97399 FINDING 1: the sigma_2
   // negativity set is a SINGLE CONFINED region with FINITE depth -4336.198 and FINITE area
   // 18301.61, correcting the imp-97161 prose claim of recurring negative bands with unbounded

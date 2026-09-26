@@ -4871,6 +4871,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the sparsity census and anchor values are reused verbatim from imp-97293, no re-derivation of the BigInt-rational overlap sweep. The per-row band reconstruction is a direct combinatorial reading of the proved support rule, cross-checked against the imp-97293 offline-swept total. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97388-second-moment-decomposition',
+      title: 'Interior Second-Moment Decomposition Q(b) = Qhat + Qcross + Qrr',
+      oneLine:
+        'Stacked-bar per-b decomposition of the imp-97349 interior second moment showing Qhat (the elementary log-polynomial skeleton, no b^(1/2)) carrying ~99.6% of Q(b), plus a zoomed panel comparing the tiny linear-in-b Qcross/Qrr slivers.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97388-route-m-interior-second-moment-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97349-route-m-diagonal-remainder-profile-separation.js (source: the Ihat/r split, Qhat/Qcross/Qrr measured table, and log^2 b separation decision; imp-97388 viz-data leaf + page)',
+      ticket: 'imp-97388',
+      pedagogicalStep: 388,
+      honestCeiling:
+        'Presentation only: the QhatFrac/QrrOverB per-b figures and the Qcross(b)/b constant are reused verbatim from imp-97349, no re-derivation of the exact Vasyunin-kernel split. The qcrossFrac/qrrFrac chart values are an approximation (measured ratio divided by the baked leading slope s0), not an exact identity. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

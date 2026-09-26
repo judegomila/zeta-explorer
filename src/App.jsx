@@ -1654,6 +1654,9 @@ const Imp97303BesselHankelMajorantViz = lazy(() =>
 const Imp97316CommittedCjkSparsityBandViz = lazy(() =>
   import('./pages/Imp97316CommittedCjkSparsityBandViz.jsx')
 );
+const Imp97388SecondMomentDecompositionViz = lazy(() =>
+  import('./pages/Imp97388SecondMomentDecompositionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4280,6 +4283,10 @@ function AppShell() {
           <Route
             path="/viz-imp97316-committed-cjk-sparsity-band"
             element={<Imp97316CommittedCjkSparsityBandViz />}
+          />
+          <Route
+            path="/viz-imp97388-second-moment-decomposition"
+            element={<Imp97388SecondMomentDecompositionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

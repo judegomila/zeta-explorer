@@ -24492,6 +24492,35 @@ export const glossary = [
       'project_route_m_lower_companion_first_moment the Route M first-moment program this intercept sub-gap belongs to',
     ],
   },
+  {
+    term: 'The imp-97223 Von Mangoldt Coefficient Reconciliation: 1/4 Is Exactly Half of 1/2',
+    category: 'numerical',
+    definition:
+      'imp-97223 resolves an apparent clash between two Route M first-moment derivations that each ' +
+      'report a von Mangoldt (Lambda) leading term with a DIFFERENT coefficient: imp-97202 gives ' +
+      'E0(b) = (1/2) Lambda(b) + [non-Lambda] on the log-a remainder E0(b) = L0(b) - phi(b)(log b - 1); ' +
+      'imp-97167 gives r(b) phi(b) = (1/4) Lambda(b) + Delta_omega(b) on the full kernel discrepancy ' +
+      'r(b) = F_arith(b)/(phi(b) b) - kappa_arith. VERDICT: the two coefficients are CONSISTENT, not a ' +
+      'discrepancy -- the imp-97202 exact identity F_arith(b) = kappa_arith phi(b) b + (1/2)(b E0(b) - E1(b)) ' +
+      'gives, after dividing by b phi(b), the exact relation r(b) phi(b) = (1/2) E0(b) - E1(b)/(2 b): imp-97167 ' +
+      'halves the imp-97202 E0, and E1(b)/(2 b) (the a log a first moment) contributes NO von Mangoldt term ' +
+      '-- verified because r(b) phi(b) - (1/4) Lambda(b) stays constant (~0.0845, matching |Delta_omega| on ' +
+      'primes) across distinct primes b = 1009, 1013 whose Lambda differ. The kernel-weight lens gives the ' +
+      'same answer at a glance: L0(b) = Sum log a carries the log with weight 1, while the imp-97167 kernel ' +
+      'psi(x) = C(1+x) + (1/2)(1-x) log x splits as C(1+x) + (1/2) log x - (1/2) x log x, i.e. weight 1/2 on ' +
+      'the L0-analog piece. Both pass through the SAME classical identity Sum_{d|b} mu(d) log d = -Lambda(b), ' +
+      'so the Stirling half-log (1/2) log(m!) becomes (1/2) log m in imp-97202 but (1/2)*(1/2) log m = ' +
+      '(1/4) log m in imp-97167 -- the factor of 2 is purely this kernel log-weight, not two different facts. ' +
+      'Accuracy cross-check only; no bound moves; both source derivations stand unchanged; kappa_arith and the ' +
+      'T ~ 2.594e7 trace anchor are untouched; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97279 (adds this glossary headword for the imp-97223 reconciliation), 2026',
+    relatedTerms: [
+      'imp-97223-route-m-vonmangoldt-coefficient-reconciliation.js the source cross-check and IMP97223_RECONCILIATION/IMP97223_VERDICT records',
+      'imp-97202-route-m-arith-first-moment-uniform-remainder.js the source of the 1/2 Lambda coefficient on E0(b) and the F_arith exact identity',
+      'imp-97167-route-m-parity-sign-law-derivation.js the source of the 1/4 Lambda coefficient on r(b) phi(b) and the Delta_omega parity tail',
+      'imp-97096-route-m-arith-first-moment-evaluation.js the exact kappa_arith = 0.5704960511308594 this reconciliation leaves unchanged',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -24,6 +24,12 @@ import {
   IMP97002_LOG10_FACTOR_SERIES,
   IMP97002_HONEST_BANNER,
 } from '../data/imp-97002-krein-vacuity-factorisation-viz-data.js';
+import {
+  IMP96974_NS,
+  IMP96974_ROWS,
+  IMP96974_JOINED_GAP_LADDER,
+  IMP96974_VERDICT,
+} from '../data/imp-96974-bessel-onset-crossover-viz-data.js';
 
 // imp-97040: imp-96959/imp-96960/imp-96961 were each "-viz-data" leaves with no confirmed
 // consumer (no .jsx page imported them -- see imp-96925 for the same trap on an earlier leaf).
@@ -377,12 +383,61 @@ function KreinVacuityFactorisationPanel() {
   );
 }
 
+function BesselOnsetCrossoverPanel() {
+  const ladderNs = Object.keys(IMP96974_JOINED_GAP_LADDER).map(Number);
+  const series = [
+    {
+      label: 'onsetGapRatio',
+      color: '#f87171',
+      points: ladderNs.map((N) => ({ x: N, y: IMP96974_JOINED_GAP_LADDER[N] })),
+    },
+  ];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-96974 extends the imp-96957 Bessel onset-mass vs sigma_2-weighted tail-fraction ladder
+        to N in {'{136,148,160}'} at 2a=ln3. The literal uniform-onset over-prediction ratio
+        (onsetGapRatio) collapses monotonically and crosses 1 between N=136 and N=148 (joined
+        seven-rung log-linear fit N_cross={IMP96974_VERDICT.crossoverAllRungsN.toFixed(1)}),
+        earlier than the four-rung projection N={IMP96974_VERDICT.crossoverPriorOnlyN.toFixed(1)}.
+      </p>
+      <LineChart series={series} xTicks={ladderNs} xLabel="N" yFormat={(v) => v.toFixed(2)} useLogY />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+          <thead>
+            <tr>
+              {['N', 'weightedTailFrac', 'onsetFracUnweighted', 'onsetGapRatio'].map((h) => (
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {IMP96974_NS.map((N) => (
+              <tr key={N}>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{N}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{IMP96974_ROWS[N].weightedTailFrac.toFixed(5)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{IMP96974_ROWS[N].onsetFracUnweighted.toFixed(5)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{IMP96974_ROWS[N].onsetGapRatio.toFixed(4)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <HonestBanner text={IMP96974_VERDICT.answer} />
+    </div>
+  );
+}
+
 const TABS = [
   { id: 'krein-floor-margin', label: 'imp-96959: Krein floor margin', Panel: KreinFloorMarginPanel },
   { id: 'etrunc-cc-elasticity', label: 'imp-96960: E_trunc vs C_C elasticity', Panel: EtruncCcElasticityPanel },
   { id: 'bessel-onset-tail', label: 'imp-96961: Bessel onset-mass vs tail residual', Panel: BesselOnsetTailPanel },
   { id: 'bessel-onset-mass-extended-N', label: 'imp-97038: Bessel onset-mass extended-N', Panel: BesselOnsetMassExtendedNPanel },
   { id: 'krein-vacuity-factorisation', label: 'imp-97002: Krein vacuity factorisation', Panel: KreinVacuityFactorisationPanel },
+  { id: 'bessel-onset-crossover', label: 'imp-96974: Bessel onset/tail crossover', Panel: BesselOnsetCrossoverPanel },
 ];
 
 export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
@@ -394,7 +449,7 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
       <PageHeader title="Orphaned Route I / Route M Calibration Leaves" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
-        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002) shipped as
+        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002, imp-96974) shipped as
         import-light reshapes of earlier calibration tables but had no consuming page. This tab
         set gives each a chart-ready home in one place instead of near-duplicate single-purpose
         pages.

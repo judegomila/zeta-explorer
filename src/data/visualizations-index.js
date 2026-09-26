@@ -5067,6 +5067,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the f_bath indicator and the gap-split numbers are exact recomputation / verbatim reuse of imp-97457; the f_real curve is a labeled illustrative schematic (not the re-solved eigenfunction of P_a M_{sigma_2^-} P_a). R is a finite-section IEEE-double eigenvalue, not interval-certified. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97486-sigma2-second-moment-profile',
+      title: 'imp-97458: The sigma_2(t) Second-Moment Profile',
+      oneLine:
+        'The imp-97458 sigma_2(t) profile at 2a=ln3 charted over t in [-12,12]: two negative wells straddling a finite positive island ([3.306,6.945], full-line area 2511.030), then an unbounded far tail beyond |t|=10.532 whose cumulative positive area diverges like T^5 ln T.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97486-sigma2-second-moment-profile-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97458-krein-csharp-discarded-positive-far-field.js (sigma_2 findings, region boundaries, far-tail table; imp-97486 viz-data leaf + page)',
+      ticket: 'imp-97486',
+      pedagogicalStep: 398,
+      honestCeiling:
+        'Presentation only: the sigma_2(t) samples are an exact recomputation; the region boundaries and far-tail area table are reused verbatim from imp-97458. Establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

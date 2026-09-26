@@ -1332,6 +1332,9 @@ const Imp97508McmBasetermExtprecViz = lazy(() =>
 const Imp97526NamedConcentrationToolVerdictTableViz = lazy(() =>
   import('./pages/Imp97526NamedConcentrationToolVerdictTableViz.jsx')
 );
+const Imp97528KreinTailConvergedDriftViz = lazy(() =>
+  import('./pages/Imp97528KreinTailConvergedDriftViz.jsx')
+);
 const Imp97471McmTowerPerLevelMarginViz = lazy(() =>
   import('./pages/Imp97471McmTowerPerLevelMarginViz.jsx')
 );
@@ -3920,6 +3923,10 @@ function AppShell() {
           <Route
             path="/viz-imp97526-named-concentration-tool-verdict-table"
             element={<Imp97526NamedConcentrationToolVerdictTableViz />}
+          />
+          <Route
+            path="/viz-imp97528-krein-tail-converged-drift"
+            element={<Imp97528KreinTailConvergedDriftViz />}
           />
           <Route
             path="/viz-imp97471-mcm-tower-per-level-margin"

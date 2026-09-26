@@ -5193,6 +5193,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every row and constant is reused verbatim from imp-97502. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97528-krein-tail-converged-drift',
+      title: 'imp-97497: Tail-Converging the Well-Capture Drift',
+      oneLine:
+        'The imp-97497 tail-convergence of the imp-97483 well-capture scalar optimum: the truncation drift tot(T)=6.56/6.83/6.97/7.22 at T=200/300/400/800 rises toward the analytic limit tot(inf)=7.53, and the exact/tail split at T0=600/800/1000 moves mass while the sum stays fixed at 7.5352.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97528-krein-tail-converged-drift-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97497-krein-welloptimum-tail-converged.js (the tail-converged drift ladder, split-point table, and verdict; imp-97528 viz-data leaf + page)',
+      ticket: 'imp-97528',
+      pedagogicalStep: 407,
+      honestCeiling:
+        'Presentation only: every point is reused verbatim from imp-97497. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

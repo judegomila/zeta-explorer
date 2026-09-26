@@ -784,6 +784,15 @@ const DATA_MODULES = [
   // on the smooth law). Import-light (bakes the mpmath ladder, live-verifies it against the closed-form law);
   // no bound moved; MCM stays VERIFIED not proved (FALSE from omega=11); PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97478-route-m-mcm-level1-baseterm-extprec.js',
+  // imp-97499 (2026-09-26): EXTENDS the imp-97478 extended-precision level-1 base term c(x)=h(x)-h(2x) far past
+  // x=2e6 (to x=1e14) using the same kernel with G(m) replaced by its exact Euler-Maclaurin closed form (imp-97478
+  // RESULT 3: R(m) recovers the E-M tail exactly), reproducing the imp-97478 incremental-sum ladder where they
+  // overlap (c(1e6)=6.711423792e-7, c(2e6)=3.500117559e-7). Confirms the scaled quantity c*x/ln x = K0 + M0/ln x:
+  // the residual c*x/ln x - K0 equals M0/ln x = 0.09549610599/ln x to all shown digits, approaching K0=1/24 from
+  // above at a 1/ln x rate (0.044629 at x=1e14), falling below 0.045 at x~2.77e12 but below 0.043 only at x~1.3e31.
+  // Import-light (bakes the mpmath ladder, live-verifies residual=M0/ln x and the threshold crossings); no bound
+  // moved; MCM stays VERIFIED not proved (FALSE from omega=11); PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97499-route-m-mcm-baseterm-scaled-approach-K0.js',
   // imp-97479 (2026-09-26): ATTEMPTS the Bettin-Conrey reciprocity resummation the imp-97460 RESULT 2
   // obstruction asks for -- the reciprocal Vasyunin pair V(xb,b)+V(b,xb) equals R(h/k)=V(h,k)/k+V(k,h)/h
   // at rational x. RESULT 1: on nearby coprime integer pairs r/x^2 jumps with the arithmetic of (h,k) not

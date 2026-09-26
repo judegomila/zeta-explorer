@@ -24775,6 +24775,35 @@ export const glossary = [
       'imp-97183-krein-csharp-extprec-ladder.js the descending extended-precision upper-bracket ladder feeding the T-reliable N rows',
     ],
   },
+  {
+    term: 'The imp-97396 Omega=5 Weighted-Domination Charging Reduction',
+    category: 'result',
+    definition:
+      'Assesses whether the imp-97352 domination-injection method (proving the Route M arithmetic tail ' +
+      'sign law T(b) &lt; 0 for omega &lt;= 4 via a one-to-one injection of level-2 positives into level-1 ' +
+      'negatives) extends to omega = 5. It does NOT extend as a pure injection (the imp-97352 Hall wall ' +
+      'stands: C(4,2) = 6 level-2 positives exceed the 4 level-1 negatives). But a WEIGHTED-domination ' +
+      'refinement is still alive at omega = 5: CHARGING each level-2 positive D(qi qj) (i&lt;j) to the ' +
+      'level-1 term of its smaller factor partitions the six level-2 terms as {q1q2,q1q3,q1q4}-&gt;q1, ' +
+      '{q2q3,q2q4}-&gt;q2, {q3q4}-&gt;q3, {}-&gt;q4, reducing the entire sign law to exactly TWO explicit ' +
+      'per-prime inequalities: (A) D(q1) &gt; D(q1q2)+D(q1q3)+D(q1q4) and (B) D(q2) &gt; D(q2q3)+D(q2q4) ' +
+      '(the level-3/level-4 tail and the q3/q4 brackets are already unconditional in the imp-97352 ' +
+      'elementary toolkit). Omega = 5 is alive because the aggregate ratio L2/L1 = 0.19 on 2*3*5*7*11 (and ' +
+      '&lt; 0.27 across sampled omega=5 families), far from the large-omega death of imp-97372 where ' +
+      'L2/L1 ~ (1/2) log log b -&gt; infinity. (A),(B) hold numerically across every family tested and to ' +
+      'leading Binet order (Sum_{j&gt;1} 1/qj &lt; 1, Sum_{j&gt;2} 1/qj &lt; 1), but the one-sided ' +
+      'elementary toolkit (D &gt; 0, D strictly decreasing) cannot prove them -- that needs the ' +
+      'quantitative two-sided Binet control of IMP97333_SIGN_TAIL_SUBGAP. So omega = 5 is the boundary of ' +
+      'the ELEMENTARY method, not of weighted domination itself. No bound on Lambda moves; Platt-Trudgian ' +
+      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97424 (adds this glossary headword for the imp-97396 weighted-domination reduction), 2026',
+    relatedTerms: [
+      'imp-97396-route-m-sign-law-omega5-weighted-reduction.js the source module (charging partition, inequalities (A)/(B), L2/L1 ratio measurements)',
+      'imp-97352-route-m-sign-law-omega4-proof.js the omega&lt;=4 pure-injection proof and the Hall wall at omega=5',
+      'imp-97372-route-m-sign-law-weighted-domination-obstruction.js the large-omega death of weighted domination (L2/L1 ~ (1/2) log log b)',
+      'imp-97333-route-m-sign-law-proof-attempt.js the peel identity and IMP97333_SIGN_TAIL_SUBGAP',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

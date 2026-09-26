@@ -20869,6 +20869,10 @@ const DATA_MODULES = [
   // is reassuring but the drift pattern alone is identical to the open 2a=ln3 case.
   // Documentation only; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-97042-krein-ritz-upper-bound-not-lower-glossary-headword.js',
+  // imp-97109: META cross-reference index grouping the Route M interior second-moment
+  // lower-companion chain (imp-96750 -> imp-97054 -> imp-97071) -- the mean-square-to-
+  // first-moment reduction lineage. Index/meta only; NO QED.
+  '/src/data/imp-97109-route-m-lower-companion-first-moment-chain-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

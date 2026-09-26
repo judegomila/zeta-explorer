@@ -25,6 +25,9 @@
  * @see imp-97455-krein-route2-kbig-divergence-rate.js (Route-2 saturates at finite floor [-322,-306])
  * @see imp-97457-krein-bathtub-realizability-gap.js (measured realizable floor -1343.796)
  * @see imp-97458-krein-csharp-discarded-positive-far-field.js (quantifies the remaining gap to +0.582)
+ * @see imp-97502-krein-named-concentration-inequality-assessment.js (folded in by imp-97522: the four named
+ *   band-limited concentration tools -- Donoho-Stark, Amrein-Berthier/Nazarov, Turan-Nazarov, Logvinenko-Sereda
+ *   -- also fail to certify c_sharp > 0, extending the imp-97161 obstruction)
  *
  * Ticket: imp-97491 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
  * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
@@ -39,6 +42,7 @@ import { IMP97415_VERDICT } from './imp-97415-krein-lambda2-certified-lower-boun
 import { IMP97416_FLOOR } from './imp-97416-krein-csharp-bathtub-joint-floor.js';
 import { IMP97455_BEST_BOUND_BY_KBIG } from './imp-97455-krein-route2-kbig-divergence-rate.js';
 import { IMP97457_REALIZABILITY, IMP97457_GAP_ATTRIBUTION } from './imp-97457-krein-bathtub-realizability-gap.js';
+import { IMP97502_VERDICT } from './imp-97502-krein-named-concentration-inequality-assessment.js';
 
 const SATURATED_KBIG_VALUES = Object.values(IMP97455_BEST_BOUND_BY_KBIG);
 const ROUTE2_SATURATION_FLOOR = Math.min(...SATURATED_KBIG_VALUES); // -303.335862 (best reachable, most negative sampled Kbig)
@@ -60,7 +64,12 @@ export const IMP97491_HONEST_STATUS = Object.freeze({
     'gives a tighter but non-certified (IEEE-double, not interval-rigorous) realizable floor -1343.796 ' +
     '(imp-97457), and imp-97458 quantifies the remaining ~3066 gap to the measured c_sharp as roughly ' +
     'evenly split between band-limited realizability loss (56.2%) and the discarded t^4 positive far field ' +
-    '(43.8%). Every Lehmann-Maehly / Route-2 spectral-gap execution regresses or collapses: the m=1 ' +
+    '(43.8%). imp-97502 extends the imp-97161 concentration assessment to the four remaining named ' +
+    'band-limited tools -- Donoho-Stark support-size, Amrein-Berthier/Nazarov annihilation, Turan-Nazarov ' +
+    'reverse-Holder, and Paneah/Logvinenko-Sereda relative-measure -- and finds none supplies c > 0 either: ' +
+    'each is an indicator/support-size statement against Lebesgue measure, never the signed sigma_2 weight, ' +
+    'and each has a constant that is vacuous or exponentially weak at the time-bandwidth product 15.15 ' +
+    'reached at 2a = ln3. Every Lehmann-Maehly / Route-2 spectral-gap execution regresses or collapses: the m=1 ' +
     'enclosure is unusable even with the genuine full-projector second moment (imp-97400, imp-97414); all ' +
     'three certified-lower-bound routes for lambda_2 fail, with the only certified rho landing at -4336.198, ' +
     'four orders below the required 0.581059 (imp-97415); the Route-2 lambda_2 recursion regresses to ' +
@@ -86,6 +95,7 @@ export const IMP97491_HONEST_STATUS = Object.freeze({
   m1EnclosureUsable: IMP97415_VERDICT.m1EnclosureUsable, // false
   gapRealizabilityShareFraction: IMP97457_GAP_ATTRIBUTION.realizabilityShareFraction, // 0.5615
   bestMeasuredUpperBracket: IMP97400_BEST_UPPER_BRACKET, // 0.581059
+  namedConcentrationToolsCertifyPositivity: IMP97502_VERDICT.anyNamedToolSuppliesC, // false (imp-97502)
   rigorousLowerBoundOnCsharpEstablished: false,
   operatorPositivityProved: false,
   boundMoves: false,
@@ -104,6 +114,7 @@ if (
     IMP97491_HONEST_STATUS.bestRigorousFloorIsNegative === true &&
     IMP97491_HONEST_STATUS.bestMeasuredUpperBracket === IMP97400_BEST_UPPER_BRACKET &&
     Math.abs(IMP97491_HONEST_STATUS.bestMeasuredUpperBracket - 0.581059) < 1e-6 &&
+    IMP97491_HONEST_STATUS.namedConcentrationToolsCertifyPositivity === false &&
     IMP97491_HONEST_STATUS.scalarFloorLadder.naiveSymbolInfimum <
       IMP97491_HONEST_STATUS.scalarFloorLadder.uniformPointwiseBudget &&
     IMP97491_HONEST_STATUS.scalarFloorLadder.uniformPointwiseBudget <

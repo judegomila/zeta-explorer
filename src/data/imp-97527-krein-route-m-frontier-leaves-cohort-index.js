@@ -53,7 +53,10 @@
  *   MEASURED/DERIVED (all cohort verdicts; no new numerics beyond what each ticket already
  *   committed).
  *   - Krein Route-2 Kbig floor tightened to bracket [-313.8,-309.931066] (imp-97495); still four
- *     orders below the required 0.581059.
+ *     orders below the required 0.581059. SUPERSEDED by imp-97513, which extends the same direct
+ *     build to Kbig in {420,460,500} and tightens the upper edge further to -310.375499, bracket
+ *     [-313.756,-310.375499] -- the floor stays ~4 orders below 0.581059 and the m=1 enclosure at
+ *     2a=ln3 remains unusable either way.
  *   - Krein well-capture scalar optimum tail-converges to 7.53+-0.01, an order of magnitude above
  *     c_sharp~0.582 (imp-97497).
  *   - Krein c_sharp fixed-T*=8000 column confirms strict N-monotone decrease, pure N-effect
@@ -76,6 +79,7 @@
  *   Platt-Trudgian Lambda <= 0.2 SOTA.
  *
  * @see imp-97495-krein-route2-kbig300-380-direct-floor.js (Route-2 Kbig={300,340,380}; tightens to -309.931066)
+ * @see imp-97513-krein-route2-kbig420-500-deep-floor.js (supersedes: Kbig={420,460,500}; tightens further to -310.375499)
  * @see imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js (explicit witness b*, T(b*)<-1/4)
  * @see imp-97497-krein-welloptimum-tail-converged.js (well-capture scalar optimum tail-converges to 7.53+-0.01)
  * @see imp-97498-krein-csharp-fixedT-common-column.js (fixed T*=8000 column isolates the pure N-effect)
@@ -159,6 +163,7 @@ export const IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX = Object.freeze
   certifiedReach: 0.96,
   requiredRhoExceeds: 0.581059,
   krein97495TightenedBracket: [-313.8, -309.931066],
+  krein97513SupersedingBracket: [-313.756, -310.375499], // imp-97513, current tightest Route-2 edge
   krein97497TailConvergedOptimum: 7.53,
   krein97498FixedTPureNEffect: 0.00256,
   routeM97496WitnessTValue: -0.25,
@@ -176,7 +181,10 @@ export const IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX = Object.freeze
   verdict:
     'INDEX/META NOTE ONLY (no new derivation). The Krein sub-cohort (imp-97495/97497/97498/97502) is one ' +
     'continuous c_sharp-lower-bound-attack sweep at 2a=ln3: Route-2 Kbig floor tightens to ' +
-    '[-313.8,-309.931066] (imp-97495, four orders below 0.581059); the well-capture scalar optimum ' +
+    '[-313.8,-309.931066] (imp-97495, four orders below 0.581059) -- SUPERSEDED by imp-97513, which ' +
+    'extends the same direct build to Kbig={420,460,500} and tightens the upper edge further to ' +
+    '[-313.756,-310.375499], still ~4 orders below 0.581059 and the m=1 enclosure at 2a=ln3 remains ' +
+    'unusable; the well-capture scalar optimum ' +
     'tail-converges to 7.53+-0.01, an order of magnitude above c_sharp (imp-97497); the fixed-T* column ' +
     'isolates a pure N-effect larger than the sliding reading suggested (imp-97498); and the last four ' +
     'named concentration inequalities all fail to supply a coercivity constant c>0 (imp-97502). The ' +
@@ -235,6 +243,18 @@ export const IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX_ASSERTIONS = [
         !overlap &&
         Array.isArray(idx.namedResiduals) &&
         idx.namedResiduals.length === 6
+      );
+    },
+  },
+  {
+    id: 'imp97527-krein97513-supersedes-krein97495-bracket',
+    why: 'imp-97513 extends the same direct Route-2 build past imp-97495 to deeper Kbig, and the ' +
+      'monotone-decreasing upper edge must strictly tighten (drop below) the imp-97495 upper edge.',
+    holds: () => {
+      const idx = IMP97527_KREIN_ROUTE_M_FRONTIER_LEAVES_COHORT_INDEX;
+      return (
+        idx.krein97513SupersedingBracket[1] < idx.krein97495TightenedBracket[1] &&
+        idx.krein97513SupersedingBracket[1] < idx.requiredRhoExceeds
       );
     },
   },

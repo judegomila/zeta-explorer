@@ -24312,6 +24312,92 @@ export const glossary = [
       'project_route_m_lower_companion_first_moment Route M first-moment program this sign law belongs to',
     ],
   },
+  {
+    term: 'kappa_cot ~ +0.12, the Cotangent-Part Coefficient of the Route M First Moment F(b)',
+    category: 'numerical',
+    definition:
+      'imp-97097 splits the Route M first moment F(b) (imp-97071) into an arithmetic part with EXACT ' +
+      'leading coefficient kappa_arith = 0.5704960511308594... (imp-97096) and a cotangent part ' +
+      '-(pi/2) Phi(b), Phi(b) = Sum_{a=2,(a,b)=1}^{b-1} (V(a,b) + V(b,a)) over the Vasyunin cotangent ' +
+      'sums V(a,q) = Sum_{m=1}^{q-1} frac(ma/q) cot(pi m/q); kappa_cot := -(pi/2) Phi(b) / (phi(b) b). ' +
+      'The fixed-modulus half Sum_{a in R_b} V(a,b) collapses EXACTLY to 0 for every b &gt;= 2, via the ' +
+      'a &lt;-&gt; b-a antisymmetry V(b-a,b) = -V(a,b) (a fixed-point-free involution of the reduced ' +
+      'residues), leaving Phi(b) = -V(1,b) + Sum_{a=2,(a,b)=1}^{b-1} V(b,a) with the boundary term ' +
+      '-V(1,b) = O(b log b) = o(phi(b) b) (rigorous). The ENTIRE leading cotangent moment therefore sits ' +
+      'in the varying-modulus half Sum_a V(b,a), where a is the modulus rather than the multiplier, so ' +
+      'no reduced-residue permutation applies; reciprocity reads it as a non-elementary Bettin-Conrey ' +
+      'period-function (Estermann/Eisenstein) average over varying moduli, numerically confirmed to ' +
+      'defy rational/log closed-form candidates. MEASURED (not proved): kappa_cot climbs 0.059 -> 0.111 ' +
+      '-> ~0.121, stabilizing near +0.12, so kappa = kappa_arith + kappa_cot ~ 0.69 &gt; 0 with no ' +
+      'cancellation of the arithmetic part -- but this positivity is a numerical reading, not a ' +
+      'certified lower bound. Derivation + measurement only; no bound moves; Platt-Trudgian ' +
+      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97220 (adds this glossary headword for the imp-97097 kappa_cot reciprocity result), 2026',
+    relatedTerms: [
+      'imp-97097-route-m-cotangent-first-moment-reciprocity.js the source reciprocity derivation and IMP97097_MEASURED/IMP97097_SUBGAP records',
+      'kappa_arith = (3/2) C - 3/8 the sibling arithmetic-part coefficient this must not be cancelled by',
+      'imp-97071 the parent lower-companion first-moment reduction F(b) = F_arith - (pi/2) Phi(b) splits',
+      'imp-97155-route-m-first-moment-evaluation-cohort-index.js groups this result with the arithmetic and boundary-term leaves',
+    ],
+  },
+  {
+    term: 'Bettin-Conrey Absolute First Moment E_a[|c_0(h_a/a)|/a] ~ 0.27 Over the Inverse Line',
+    category: 'numerical',
+    definition:
+      'imp-97180 sharpens the imp-97116 cancellation-free bound A(b) = Sum_{a=2,(a,b)=1}^{b-1} ' +
+      '|c_0(h_a/a)| &lt;= c phi(b) b (h_a = b-inverse mod a, c_0(h/k) the classical cotangent sum) to a ' +
+      'single named open quantity. An elementary termwise bound |c_0(h/a)| &lt;= K (a/h) log(2a) does NOT ' +
+      'exist: the ratio K is measured WORST (growing, not bounded) in the BULK h ~ a/2, not at small h, ' +
+      'because there |c_0(h/a)| = O(a) with no 1/h gain. Splitting A(b) = A_tail (reduced inverse ' +
+      'h &lt;= sqrt(a)) + A_bulk (h &gt; sqrt(a)) shows A_tail/(phi(b) b) -&gt; 0 (small inverses are lower ' +
+      'order) while A_bulk carries the whole constant. The remaining open input is the BETTIN-CONREY ' +
+      'ABSOLUTE FIRST MOMENT of the cotangent sum over the inverse map a |-&gt; b-inverse mod a: ' +
+      'E_a[|c_0(h_a/a)| / a], MEASURED flat at ~0.27 (0.231 at b=101 rising to ~0.27 by b=4001, with NO ' +
+      'log a growth once normalized), giving c = A(b)/(phi(b) b) stable near 0.145 -- about 3.9x below ' +
+      'kappa_arith = 0.5705 and (per imp-97204) about 2.5x below the tighter operative threshold ' +
+      '(2/pi) kappa_arith = 0.36319. This REPLACES the imp-97116 "small-inverse frequency" framing (that ' +
+      'piece is measured lower order) with the true sole obstruction: an explicit, uniform-in-b bound on ' +
+      'this absolute first moment. Assessment + measurement only; no bound is certified; Platt-Trudgian ' +
+      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97220 (adds this glossary headword for the imp-97180 absolute first moment obstruction), 2026',
+    relatedTerms: [
+      'imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js the source split A = A_tail + A_bulk and IMP97180_MEASURED/IMP97180_SUBGAP records',
+      'imp-97116-route-m-cotangent-varying-modulus-abs-value-reduction.js the origin reduction this refines (small-inverse framing corrected)',
+      'imp-97168-route-m-kappa-arith-vs-companion-target-reconciliation.js the ~4x margin reconciliation between kappa_arith and the measured downside',
+      'imp-97204-route-m-cotangent-signed-firstmoment-lower-bound.js the tighter operative threshold (2/pi) kappa_arith = 0.36319 this margin is measured against',
+    ],
+  },
+  {
+    term: 'The Two Distinct Open Sub-Gaps of the Route M First Moment (Arithmetic Remainder vs Cotangent Mean Value)',
+    category: 'numerical',
+    definition:
+      'imp-97155 warns against conflating two structurally different open problems left behind by the ' +
+      'Route M first-moment evaluation cohort (kappa = kappa_arith + kappa_cot &gt; 0, imp-97071). ' +
+      '(1) THE ARITHMETIC EXPLICIT-REMAINDER SUB-GAP (imp-97096): the exact leading coefficient ' +
+      'kappa_arith = (3/2) C - 3/8 leaves a Moebius/Stirling remainder (L0(b), L1(b), equivalently ' +
+      'E0(b)/E1(b)) with no explicit uniform-in-b bound -- a NUMBER-THEORETIC remainder-estimation ' +
+      'problem. imp-97202 subsequently proved a fully uniform, 2^omega-free bound for the binding L0/E0 ' +
+      'piece (|E0(b)| &lt;= (1/2) log b + O(log log b), the 2^omega(b) prefactor of the earlier imp-97133 ' +
+      'bound being a triangle-inequality artifact, not forced), leaving only the sibling E1/L1 constant ' +
+      'and its O(1) tail as the residual (per the imp-97222 reconciliation). ' +
+      '(2) THE COTANGENT MEAN-VALUE SUB-GAP (imp-97097/imp-97180): an absolute lower bound on the ' +
+      'varying-modulus Bettin-Conrey average Sum_{a=2,(a,b)=1}^{b-1} V(b,a) &gt;= -c phi(b) b with an ' +
+      'explicit c &lt; kappa_arith, equivalently a certified constant on the Bettin-Conrey ABSOLUTE FIRST ' +
+      'MOMENT E_a[|c_0(h_a/a)|/a] -- a genuinely ANALYTIC mean-value estimate over non-elementary ' +
+      'period functions, with NO elementary termwise route available. These two sub-gaps do not reduce ' +
+      'to each other and progress on one says nothing about the other: the first is a number-theoretic ' +
+      'remainder that keeps yielding to explicit Moebius/Stirling bookkeeping, the second is an analytic ' +
+      'mean-value problem that has so far only been sharpened, not closed. Index note only; no bound ' +
+      'moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97220 (adds this glossary headword distinguishing the two open Route M first-moment sub-gaps per the imp-97155 cohort index), 2026',
+    relatedTerms: [
+      'imp-97155-route-m-first-moment-evaluation-cohort-index.js the source cohort index distinguishing these two sub-gaps',
+      'imp-97096-route-m-arith-first-moment-evaluation.js origin of sub-gap (1), the arithmetic explicit-remainder residual',
+      'imp-97202-route-m-arith-first-moment-uniform-remainder.js closes the binding L0/E0 half of sub-gap (1), leaving only E1/L1',
+      'imp-97097-route-m-cotangent-first-moment-reciprocity.js origin of sub-gap (2), the cotangent varying-modulus mean value',
+      'project_route_m_lower_companion_first_moment Route M first-moment program both sub-gaps belong to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

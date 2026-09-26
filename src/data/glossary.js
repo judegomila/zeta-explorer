@@ -24608,6 +24608,31 @@ export const glossary = [
       'imp-97208-route-m-theorem2-tighter-remainder.js the measured |E1|&lt;=b/4 ceiling and proved prime asymptotic this decomposition builds on',
     ],
   },
+  {
+    term: 'The imp-97311 Small-a Bettin-Conrey Asymptotic: kappa_a = a/2 Exactly',
+    category: 'proof',
+    definition:
+      'imp-97311 derives the small-a asymptotic of the two-variable Vasyunin coefficient I(a,b) = ' +
+      'C(a+b) + (1/2)(a-b) log(b/a) - (pi/2)(V(a,b) + V(b,a)) as b -&gt; infinity at FIXED a, finding ' +
+      'I(a,b) = kappa_a log b + d_a + o(1) with kappa_a = a/2 EXACTLY for every fixed a &gt;= 1 (prime ' +
+      'or composite). The b log b terms cancel identically for every a (the imp-96750 O(b log b) ' +
+      'cancellation), leaving only the pure log b contribution from the arithmetic +(a/2) log b term; ' +
+      'the finite oscillating sum V(b,a) feeds only the d_a intercept, not the log-scale coefficient. ' +
+      'Numerics confirm kappa_a to 5-6 digits for a = 1..10, matching the rigorous a=1 border kappa_1 = ' +
+      '1/2 (imp-96667). CONSEQUENCE: the per-a second-moment weight kappa_a^2/a^2 = (a/2)^2/a^2 = 1/4 is ' +
+      'INDEPENDENT of a, so the moment sum Sum_a kappa_a^2/a^2 that imp-97261/imp-97292 named as the input ' +
+      'able to separate the b^(1/2) vs log^2 b candidates for the interior second moment Q(b) DIVERGES ' +
+      '(linearly in the cutoff), falsifying the imp-97261 convergent-coefficient premise. Derivation + ' +
+      'measurement only; pins no coefficient for g(b); no bound on Lambda moves; PT Lambda &lt;= 0.2 ' +
+      'remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97341 (adds this glossary headword for the imp-97311 small-a asymptotic), 2026',
+    relatedTerms: [
+      'imp-97311-route-m-bettin-conrey-smalla-kappa-moment.js the source module (derivation, moment, divergence)',
+      'imp-97261-route-m-cq-subleading-functional-form.js the log^2 b mechanism whose convergent-coefficient premise this falsifies',
+      'imp-97292-route-m-cq-subleading-extended-ladder.js proved a longer numerical ladder cannot separate the two candidates, naming this moment as the input',
+      'imp-96667-route-m-frobenius-second-moment-asymptotic.js the rigorous a=1 border I(1,b) = (1/2) log b + (C+1/2) this generalizes',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

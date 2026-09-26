@@ -22,6 +22,11 @@
  * @see imp-96934-bessel-onset-tail-residual-viz-data.js (source table, reused verbatim)
  * @see imp-96957-bessel-onset-tail-finer-ladder-viz-data.js (finer N-ladder extension, out of scope here)
  * @see imp-96960-etrunc-cc-elasticity-ladder-viz-data.js (sibling viz-data leaf convention)
+ * @see imp-97038-bessel-onset-mass-extended-N-viz-data.js (CAVEAT: extending this same
+ *   absolute-fraction comparison past N~148 makes the first-order un-readjusted-minimiser tail
+ *   decomposition numerically unreliable -- split-check degrades to 6e-4 and the weighted tail
+ *   fraction goes unphysical -- so the N=76/100/124 rungs shown here must NOT be extrapolated or
+ *   read as approaching a physical crossover)
  *
  * Ticket: imp-96961 (ux, sonnet-4-6, medium). Presentation only, RH-free;
  * changes no bound; NO QED.
@@ -72,9 +77,12 @@ export const IMP96961_HONEST_BANNER =
   'N), but the onsets sit 13-22x below the T=3200 cutoff (it is the far tail, not the onset crossing), ' +
   'and the literal uniform-j_k^2 onset-mass model over-predicts the absolute fraction while ' +
   'under-predicting the super-linear N-growth, leaving an unexplained component. The beyond-T=3200 ' +
-  'residual itself is a Rayleigh UPPER-bound measurement, not a certified tail bound. No operator ' +
-  'positivity established; interval-rigorous certificate reach stays 2a<=0.96; PT Lambda <= 0.2 ' +
-  'remains SOTA; RH open; NO QED.';
+  'residual itself is a Rayleigh UPPER-bound measurement, not a certified tail bound. CAVEAT ' +
+  '(imp-97038): the {76,100,124} rungs shown are the only ones where this absolute-fraction ' +
+  'comparison is numerically reliable -- extended past N~148 the first-order tail decomposition ' +
+  'degrades and its apparent over-to-under crossover is an artifact, not physics; do not extrapolate ' +
+  'this chart. No operator positivity established; interval-rigorous certificate reach stays ' +
+  '2a<=0.96; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.';
 
 // plain validation object (no self-executing throw; imp-96294/imp-96819 convention -- a viz-data
 // leaf must stay inert in the browser so a stale reading cannot blank a lazy-loaded page). Checked
@@ -105,7 +113,9 @@ export const IMP96961_VALIDATION = Object.freeze({
     /RH open/.test(IMP96961_HONEST_BANNER) &&
     /PT Lambda <= 0.2/.test(IMP96961_HONEST_BANNER) &&
     /NO QED/.test(IMP96961_HONEST_BANNER) &&
-    /Rayleigh UPPER-bound measurement, not a certified tail bound/.test(IMP96961_HONEST_BANNER),
+    /Rayleigh UPPER-bound measurement, not a certified tail bound/.test(IMP96961_HONEST_BANNER) &&
+    /imp-97038/.test(IMP96961_HONEST_BANNER) &&
+    /do not extrapolate this chart/.test(IMP96961_HONEST_BANNER),
 });
 
 // imp-96397: registers the IMP96961_VALIDATION checks with the build-time assertion sweep

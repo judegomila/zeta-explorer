@@ -24897,6 +24897,26 @@ export const glossary = [
       'imp-97206-krein-csharp-coupled-nt-jointlimit.js the measured c_sharp ~0.582 upper bracket',
     ],
   },
+  {
+    term: 'MCM Level-1 Base-Term Scaled Approach Law (K0, M0, imp-97499)',
+    category: 'numerical',
+    definition:
+      'The two-term asymptotic law for the level-1 MCM base term c(x) = h(x) - h(2x): the scaled ' +
+      'quantity c(x)*x/ln x = K0 + M0/ln x, with leading coefficient K0 = 1/24 = 0.041667 and drift ' +
+      'constant M0 = LN_A/2 - (ln 2)/24 = 0.09549610599 (LN_A = Glaisher-Kinkelin log-constant). ' +
+      'Extended-precision (60 dps) evaluation confirms the residual c*x/ln x - K0 equals M0/ln x to ' +
+      'all shown digits from x=1e6 to x=1e14 (two-term-law relative deviation shrinking from 1.8e-15 ' +
+      'to ~8e-32), and the scaled term stays strictly positive, monotone decreasing, and approaches ' +
+      'K0 from above without ever crossing it (still 0.044629 at x=1e14).',
+    firstUsed: 'imp-97499 (extends the imp-97478 RESULT 3 fit far past x=2e6)',
+    relatedTerms: [
+      'imp-97499-route-m-mcm-baseterm-scaled-approach-K0.js the source module (ladder to x=1e14, threshold crossings)',
+      'imp-97478-route-m-mcm-level1-baseterm-extprec.js the extended-precision ladder to x=2e6 this leaf continues',
+      'imp-97463-route-m-mcm-level1-baseterm-decay.js the double-precision fit + CAVEAT',
+      'imp-97422-route-m-quarter-ceiling-omega4-multiplicative-difference-reduction.js the h=g/m kernel',
+      'imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js MCM refuted at omega=11 (this law is VERIFIED not proved)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

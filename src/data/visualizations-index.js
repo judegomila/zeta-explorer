@@ -4592,6 +4592,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every deficit and percentage value is reused verbatim from imp-96814 (itself verbatim from imp-96768); no re-solve, no new numerics. The deficit is a LOWER bound on the true t-truncation gap. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97367-krein-csharp-coupled-nt-grid',
+      title: 'Route I Krein Floor: Coupled N x T Grid and the T-to-infinity Plateau',
+      oneLine:
+        'Line family of the imp-97206 6x4 c_sharp(N,T) Rayleigh-Ritz grid (N-spread collapsing 0.0732 -> 0.0094 as T grows) plus a scatter of the inner T->infinity extrapolant lam(N,inf), showing the reliable band N=84..132 settling on a flat positive plateau ~0.582 rather than descending toward 0.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97206-krein-csharp-coupled-nt-jointlimit.js',
+      paperSourcePath:
+        'src/data/imp-97206-krein-csharp-coupled-nt-jointlimit.js (IMP97206_GRID, IMP97206_STAGE1_LAM_N_INF, IMP97206_PLATEAU_MEAN; imp-97367 viz page)',
+      ticket: 'imp-97367',
+      pedagogicalStep: 317,
+      honestCeiling:
+        'Presentation only: every grid value, extrapolant, and plateau statistic is reused verbatim from imp-97206; no re-solve, no new numerics. These are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97040-orphaned-calibration-leaves',
       title: 'Orphaned Route I / Route M Calibration Leaves (Tabbed)',
       oneLine:

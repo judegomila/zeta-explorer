@@ -1287,6 +1287,9 @@ const Imp96822GminLadderReachFrontierViz = lazy(() =>
 const Imp96925KreinTTruncationDeficitViz = lazy(() =>
   import('./pages/Imp96925KreinTTruncationDeficitViz.jsx')
 );
+const Imp97367KreinCsharpCoupledNTGridViz = lazy(() =>
+  import('./pages/Imp97367KreinCsharpCoupledNTGridViz.jsx')
+);
 const Imp96741RouteMThreeCeilingDecompositionViz = lazy(() =>
   import('./pages/Imp96741RouteMThreeCeilingDecompositionViz.jsx')
 );
@@ -3782,6 +3785,10 @@ function AppShell() {
           <Route
             path="/viz-imp96925-krein-t-truncation-deficit"
             element={<Imp96925KreinTTruncationDeficitViz />}
+          />
+          <Route
+            path="/viz-imp97367-krein-csharp-coupled-nt-grid"
+            element={<Imp97367KreinCsharpCoupledNTGridViz />}
           />
           <Route
             path="/viz-imp96741-route-m-three-ceiling-decomposition"

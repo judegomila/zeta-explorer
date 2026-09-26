@@ -21210,6 +21210,13 @@ const DATA_MODULES = [
   // t >= t0 = 27 (crossing t* = 26.1023, margin 0.0616061), with the finite window [10.532,27]
   // carrying a second-order guarded margin +8.114. No negativity recurs; NO QED.
   '/src/data/imp-97501-sigma2-far-field-positivity-rigorous-margin.js',
+  // imp-97537: ASSESS the confined-well negativity of sigma_2 on [0,3.306] u [6.945,10.532] vs
+  // positivity of the band-limited P_a M_sigma2 P_a = T_a[sigma_2]. Part A: the well is NOT an
+  // obstruction to positivity itself -- true lambda_min stays positive through (ln3)/2 (0.552),
+  // crossing only at 2a* ~ 1.1316; band-limit caps PW_a concentration on the well. Part B: the naive
+  // "dominate the well by the positive mass" two-window split IS a genuine obstruction (crosses zero
+  // at 2a=0.6026 < ln2, discards the band-limited cancellation). Assessment only; NO QED.
+  '/src/data/imp-97537-confined-well-vs-projected-positivity-assessment.js',
   // imp-97473: HONEST-STATUS note recording the imp-97444 independent confirmation of the
   // imp-97416 bathtub joint Krein floor -3065.435 at 2a=ln3 by constrained water-filling
   // (water-level bisection floor -3065.469, scipy HiGHS simplex LP floor -3065.429); all three

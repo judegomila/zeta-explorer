@@ -24092,6 +24092,37 @@ export const glossary = [
       'imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js the three candidate norm models (line/+d/N/quadratic) and the turnover flag',
     ],
   },
+  {
+    term: 'sigma_2-Weighted Super-Cubic Tail Exponent p as Endpoint-Weighted Coefficient-Sum Growth (imp-96995)',
+    category: 'measurement',
+    definition:
+      'The measured sigma_2-weighted super-cubic tail exponent p_global = 3.228 (imp-96957) is the ' +
+      'growth exponent of the ENDPOINT-WEIGHTED MINIMISER COEFFICIENT SUM ' +
+      'S = sum_n phi_n psi_n(1) (measured q_S = 3.09 over N in {88,100,112,124}), NOT the per-mode ' +
+      'endpoint growth psi_n(1)^2 ~ n^{~12-13} and NOT the naive rank-1-endpoint-model prediction ' +
+      '2 q_S = 6.18. The minimiser coefficients phi_n decay fast enough (top-mode phi_{N-1}^2 ~ 1e-26) ' +
+      'that S grows only ~N^3 despite the much faster per-mode growth, and the variational relaxation ' +
+      'makes the actual floor lift grow nearly LINEARLY in S rather than quadratically. NO finite-order ' +
+      'perturbative model closes p: a naive rank-1 endpoint model gives exponent 6.18; first-order ' +
+      'residFO gives 4.62 because the effective tail-kernel constant K_hat = residFO*scaleB/S^2 is NOT ' +
+      'N-independent (it drifts ~N^{-1.56}); and bare second-order Rayleigh-Schroedinger PT DIVERGES ' +
+      '(exponent 10.28, faster than first-order, driven by huge high-k endpoint couplings ' +
+      'g_k ~ psi_k(1)) rather than converging toward the measured value. Only the full eigenvalue ' +
+      'difference [lam_min(A_full) - lam_min(A_lo)] reproduces p = 3.228 exactly, so p is a ' +
+      'NON-PERTURBATIVE eigenvalue-difference residue, not a finite-order expansion result. HONEST ' +
+      'CAVEATS: this identifies the collective coordinate S and rules out rank-1/first-order/' +
+      'second-order closures, but does not close p in exact closed form -- the ~4% gap between ' +
+      'q_S = 3.09 and p = 3.23 remains the imp-96995-floor-lift-eigendiff-residue-closed-form ' +
+      'sub-gap. The Rayleigh floor is an UPPER bound, not a certified lower bound. Measurement/' +
+      'derivation only; establishes no operator positivity; changes no bound; interval-rigorous reach ' +
+      'stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97030 (adds this glossary headword for the imp-96995 result identifying S as the collective coordinate behind the super-cubic tail exponent p and ruling out finite-order perturbative closures), 2026',
+    relatedTerms: [
+      'imp-96995-minimiser-coeff-spectrum-supercubic.js the source measurement (full minimiser coefficient spectrum, closure routes ruled out)',
+      'imp-96975-sigma2-tail-supercubic-derivation.js the endpoint laws L1/L2 and the sub-gap imp-96995 advances',
+      'imp-96957-bessel-onset-tail-finer-ladder-viz-data.js the measured p_global = 3.228 ladder',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

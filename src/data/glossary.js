@@ -24022,6 +24022,43 @@ export const glossary = [
       'imp-96993-rayleigh-tail-interval-enclosure.js further open work on the same rigorous-enclosure upgrade',
     ],
   },
+  {
+    term: 'Far-Field ||G||_F Ceiling Band Resolved DOWN, Not Upward (imp-97081 vs imp-96982)',
+    category: 'numerical',
+    definition:
+      'imp-96982 left the Route-M far-field Frobenius-norm conditioning-ceiling band at ' +
+      'N* ~ 4e7 as +1.37% (the +d/N model) to +8.36% (the quadratic model) vs the line ' +
+      'baseline, calling it "tilted upward" toward the quadratic since an out-of-sample ' +
+      'holdout over the exact 18-rung ||G||_F ladder favoured the quadratic\'s curvature ' +
+      'locally (N <= 16000), with no discriminator available at the far N* scale itself. ' +
+      'imp-97081 supplied that discriminator: the imp-96750 interior second-moment ' +
+      'log-asymptotic ceiling F = 3.775e7, derived from the interior SLOPE rather than from ' +
+      'refitting the near-field ladder, so it is an anchor INDEPENDENT of the curve fits it ' +
+      'is compared against. F lands at -0.30% vs the line baseline -- at/below the ' +
+      'line/+d/N cluster and ~8.0% BELOW the quadratic top end -- so the resolution runs in ' +
+      'the OPPOSITE direction from "tilted upward": the credible band narrows ~4.2x from ' +
+      '+1.37%..+8.36% (width 6.99 pp) to [F, +d/N] = [3.775e7, 3.838e7] = -0.30%..+1.37% ' +
+      '(width 1.67 pp), re-centered DOWN, and the quadratic top end (4.103e7) is rejected as ' +
+      'an unphysical curvature over-run (the concave quadratic that best fits the near field ' +
+      'must eventually turn over, peak N ~ 2.31e9, and its pre-turnover run-up inflates N* ' +
+      'above the log-asymptotic anchor rather than confirming it). STATUS: F itself rests on ' +
+      'the imp-96750 residual sub-gap (the one-sided weighted Vasyunin/Bettin-Conrey ' +
+      'cotangent second-moment upper constant s0* ~ 1.751, measured not proved, plus its O(1) ' +
+      'term to fix F as a value rather than a slope), so the narrowed band is ' +
+      'measurement-anchored, not certified. The only RIGOROUS anchor stays the trace ceiling ' +
+      'T = 2.594e7; compute (N ~ 9916, imp-96352) binds first by >2600x regardless of where ' +
+      'the far-field ceiling settles. Documentation only; establishes no operator ' +
+      'positivity; changes no bound; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; ' +
+      'NO QED.',
+    firstUsed: 'imp-97104 (adds this glossary headword recording the imp-97081 far-field ||G||_F ceiling band narrowing that resolves the imp-96982 "tilted upward" framing in the opposite direction), 2026',
+    relatedTerms: [
+      'imp-97081-route-m-farfield-ceiling-interior-anchor-discriminator.js the source narrowing (independent anchor F, rejects the quadratic top end)',
+      'imp-96982-frobenius-holdout-quadratic-favoured-glossary-headword.js the "tilted upward" framing resolved here',
+      'imp-96750-route-m-interior-second-moment-upper-bound-reduction.js F, s*, and the residual sub-gap F rests on',
+      'imp-96912-route-m-frobenius-holdout-model-discriminator.js the near-field out-of-sample holdout that favoured the quadratic locally',
+      'imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js the three near-field ceiling fits (line/+d/N/quadratic) and their N* values',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

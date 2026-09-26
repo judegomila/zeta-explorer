@@ -21169,6 +21169,11 @@ const DATA_MODULES = [
   // t >= t0 = 27 (crossing t* = 26.1023, margin 0.0616061), with the finite window [10.532,27]
   // carrying a second-order guarded margin +8.114. No negativity recurs; NO QED.
   '/src/data/imp-97501-sigma2-far-field-positivity-rigorous-margin.js',
+  // imp-97473: HONEST-STATUS note recording the imp-97444 independent confirmation of the
+  // imp-97416 bathtub joint Krein floor -3065.435 at 2a=ln3 by constrained water-filling
+  // (water-level bisection floor -3065.469, scipy HiGHS simplex LP floor -3065.429); all three
+  // routes agree to grid tolerance and the floor stays negative. Documentation only; NO QED.
+  '/src/data/imp-97473-bathtub-floor-triple-confirmation-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

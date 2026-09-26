@@ -24199,6 +24199,37 @@ export const glossary = [
       'rh-route-i-toeplitz-krein-certificate-2026-09-24.js interval-rigorous certified reach 2a &lt;= 0.96',
     ],
   },
+  {
+    term: 'Coupled (Nbig,T) Ritz-Eta Drift Extracts No Genuine Algebraic Rate (IMP97058_COUPLED_NT_SURFACE_FIT_YIELDS_NO_GENUINE_RATE)',
+    category: 'numerical',
+    definition:
+      'imp-96911 found the top Ritz eigenvalue eta of the compressed shift-invert resolvent ' +
+      'R_N=(K+m)^-1 at 2a=ln3 drifts with the evaluation-space dimension Nbig, but a single-parameter ' +
+      'fit eta = eta_inf - c*Nbig^-p at fixed T=800 failed: the exponent pinned at the search floor ' +
+      'p=0.300 (rms 5.47e-3). imp-97058 asks whether a joint two-parameter surface fit over BOTH ' +
+      'Nbig and T does better -- model eta(Nbig,T) = eta_inf - a*Nbig^-p + c*T^-q across 19 combined ' +
+      '(Nbig,T) points (the Nbig=24..240 ladder at T=800 plus a T-sensitivity grid at Nbig in ' +
+      '{120,200,240} x T in {800,1600,3200}), exponent search widened to [0.05,4.0]. Result: no ' +
+      'improvement. The best 4000-restart fit again pins p at the new, lower floor p=0.0500 (rms ' +
+      '3.983e-3, no better than the one-parameter fit) and reports an unphysical eta_inf=1.0811 -- ' +
+      'a resolvent eigenvalue that must stay below 1 (measured eta is ~0.64). The T-exponent q=0.354 ' +
+      'is itself a compromise artifact: exactly-determined per-Nbig fits (3 T-points each) give ' +
+      'wildly inconsistent q = 1.936 (Nbig=120), 0.559 (Nbig=200), and 0.0002 (Nbig=240), with one ' +
+      'fit runaway to eta_inf=-174. CONCLUSION: Nbig and T push eta in opposite directions with no ' +
+      'clean joint power law -- widening the model from one parameter to two does not recover a ' +
+      'genuine algebraic convergence rate, it only relocates the same non-convergence into an extra ' +
+      'unconstrained degree of freedom. Ritz value stays an upper bound on lambda_1(T), not a ' +
+      'certified lower bound; measurement/fit-diagnostic only; no operator positivity established; ' +
+      'interval-rigorous reach stays 2a &lt;= 0.96; RH open; Platt-Trudgian Lambda &lt;= 0.2 remains ' +
+      'SOTA; NO QED.',
+    firstUsed: 'imp-97128 (adds this glossary headword for the imp-97058 verdict that the coupled (Nbig,T) surface fit still extracts no algebraic rate), 2026',
+    relatedTerms: [
+      'imp-97058-krein-coupled-nt-surface-fit-no-rate.js the source two-parameter surface-fit scout',
+      'imp-96911-krein-eta-nconvergence-scout.js the source one-parameter Nbig-only fit this widens (pinned p=0.300)',
+      'Coupled (N,T) Resolvent-Truncation Wall (Shift-Invert Ritz Floor Bias) the imp-96911 headword this result extends',
+      'imp-96889-krein-shiftinvert-katotemple-scout.js the original Finding 3a eta drift both scouts fit',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

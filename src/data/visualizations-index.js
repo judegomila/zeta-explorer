@@ -4689,6 +4689,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97140, no re-derivation. The observed sign law is omega odd => r>0 / omega even => r<0 except at the three primorial-floor exceptions (leading-term cancellation); the imp-97140 exponent string (-1)^omega(b) is data-inconsistent, corrected by imp-97167 to (-1)^(omega(b)+1). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97213-route-m-explicit-remainder-envelope',
+      title: 'Route M Explicit Remainder Envelope vs Measured Residual',
+      oneLine:
+        'Log-log scatter of the imp-97133 explicit eps(b) remainder envelope against the measured relative L0/L1 coprime-sum residual it bounds, plus a ratio ladder by family (prime/smooth/primorial) -- first visualization for the imp-97170 viz-data leaf.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97170-route-m-explicit-remainder-envelope-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97133-route-m-arith-first-moment-explicit-remainder.js (source: eps(b) envelope and E0/E1 theorems; imp-97170 viz-data leaf + imp-97213 page)',
+      ticket: 'imp-97213',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97133, no re-derivation. The eps(b) envelope upper-bounds the measured relative residual on every sampled b (ratio < 1 throughout); tight (ratio ~0.16-0.20) on prime b, loose by 4-5 orders of magnitude on primorial b. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

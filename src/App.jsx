@@ -1615,6 +1615,9 @@ const Imp97111RouteMReachConfidenceLadderViz = lazy(() =>
 const Imp97212RouteMResidualSignMagnitudeViz = lazy(() =>
   import('./pages/Imp97212RouteMResidualSignMagnitudeViz.jsx')
 );
+const Imp97213RouteMExplicitRemainderEnvelopeViz = lazy(() =>
+  import('./pages/Imp97213RouteMExplicitRemainderEnvelopeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4189,6 +4192,10 @@ function AppShell() {
           <Route
             path="/viz-imp97212-route-m-residual-sign-magnitude"
             element={<Imp97212RouteMResidualSignMagnitudeViz />}
+          />
+          <Route
+            path="/viz-imp97213-route-m-explicit-remainder-envelope"
+            element={<Imp97213RouteMExplicitRemainderEnvelopeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

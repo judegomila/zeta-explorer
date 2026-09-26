@@ -21291,6 +21291,16 @@ const DATA_MODULES = [
   // threshold t0 = 10.531 is R-independent (|psi|^2 >= 0 makes the integrand sign follow sigma_2 alone).
   // Measurement only; no bound moved; reach 2a <= 0.96; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97580-krein-tail-bias-R-sweep-signchange.js',
+  // imp-97583 (2026-09-26): LOCATES the exact omega where the Route M MCM hypothesis first fails, between
+  // imp-97519 verified omega<=6 and imp-97432 refuted omega=11. Direct imp-97432-kernel evaluation of the
+  // primorial worst case across omega=6..15 puts the onset EXACTLY at omega=11: T(p_omega#) = +1.00e-2,
+  // +6.82e-3, +4.18e-3, +2.10e-3, +4.78e-4 (last holding), then -9.62e-4 at omega=11 (first failing,
+  // b = p_11# = 200560490130). The ticket "{7,8,9,10}" premise is refuted. The smooth surrogate goes
+  // negative one order earlier (omega=10); the saturated R-correction (+1.0186e-3) buys exactly one order.
+  // Past onset the failure deepens monotonically toward -e^{-gamma}/12+Rcorr = -0.0458, inside [-1/4,1/4];
+  // the primorial is the worst case at every order. Measurement only; MCM verified-not-proved below onset,
+  // FALSE from omega=11; no bound moved; PT Lambda<=0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97583-route-m-mcm-onset-omega11-primorial.js',
 ];
 
 let ALL_MODULES = FAST_MODE

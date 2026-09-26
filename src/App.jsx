@@ -1645,6 +1645,9 @@ const Imp97213RouteMExplicitRemainderEnvelopeViz = lazy(() =>
 const Imp97389RouteMSignLawOmegaLadderViz = lazy(() =>
   import('./pages/Imp97389RouteMSignLawOmegaLadderViz.jsx')
 );
+const Imp97453RouteMSignLawMagnitudeLadderViz = lazy(() =>
+  import('./pages/Imp97453RouteMSignLawMagnitudeLadderViz.jsx')
+);
 const Imp97409B4CeilingSignConditionOmegaClassesViz = lazy(() =>
   import('./pages/Imp97409B4CeilingSignConditionOmegaClassesViz.jsx')
 );
@@ -4291,6 +4294,10 @@ function AppShell() {
           <Route
             path="/viz-imp97389-route-m-sign-law-omega-ladder"
             element={<Imp97389RouteMSignLawOmegaLadderViz />}
+          />
+          <Route
+            path="/viz-imp97453-route-m-sign-magnitude-omega-ladder"
+            element={<Imp97453RouteMSignLawMagnitudeLadderViz />}
           />
           <Route
             path="/viz-imp97409-b4-ceiling-sign-condition-omega-classes"

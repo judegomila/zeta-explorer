@@ -4746,6 +4746,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every value is reused verbatim from imp-97333/imp-97352, no re-derivation. The domination method is proved for omega<=4 (tight 3-vs-3 match at omega=4) and fails first at omega=5 (Hall deficiency 2), reducing to the open IMP97333_SIGN_TAIL_SUBGAP. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97453-route-m-sign-magnitude-omega-ladder',
+      title: 'Route M Sign / Magnitude Omega-Ladder',
+      oneLine:
+        'Two-tab status view of the Route M b/4-ceiling cohort: the sign law T(b)<0 proved through omega=4 (imp-97352) and reduced at omega=5 to a uniform tail lemma via a two-sided Binet bracket (imp-97423), alongside the companion magnitude condition |T(b)|<=1/4 collapsed to a single MCM hypothesis, numerically verified through omega=4 (imp-97422) -- first visualization combining the sign and magnitude ladders.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97453-route-m-sign-magnitude-omega-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97352-route-m-sign-law-omega4-proof.js, src/data/imp-97423-route-m-sign-law-omega5-binet-two-sided-estimate.js, src/data/imp-97422-route-m-quarter-ceiling-omega4-multiplicative-difference-reduction.js (source: sign-law omega=4 proof and omega=5 Hall wall, omega=5 Binet-bracket certification and tail-lemma residual, magnitude reduction to the MCM hypothesis; imp-97453 viz-data leaf + page)',
+      ticket: 'imp-97453',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97352/imp-97423/imp-97422, no re-derivation. Sign law proved elementarily through omega=4, reduced (not proved) at omega=5 to a uniform-(p1,q1) tail lemma; magnitude collapses to |T(b)|<=1/4 and holds for every omega GIVEN the single MCM hypothesis, which is only numerically verified through omega=4. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97409-b4-ceiling-sign-condition-omega-classes',
       title: 'b/4-Ceiling Sign Condition Across Omega Classes',
       oneLine:

@@ -24835,6 +24835,36 @@ export const glossary = [
       'imp-97333-route-m-sign-law-proof-attempt.js the peel identity and IMP97333_SIGN_TAIL_SUBGAP',
     ],
   },
+  {
+    term: 'The imp-97457 Krein Bathtub Realizability Gap',
+    category: 'obstruction',
+    definition:
+      'MEASURES how much of the imp-97416 bathtub floor -3065.435 is actually achievable by a genuinely ' +
+      'band-limited psi. The bathtub bound is a rearrangement UPPER envelope on int sigma_2^- |psi|^2 using ' +
+      'only the two scalar budgets 0 &lt;= |psi|^2 &lt;= a/pi and int |psi|^2 = 1; its optimiser f = (a/pi) ' +
+      '1_{deepest set} is a DISCONTINUOUS indicator that no type-a = (ln3)/2 band-limited psi (resolution ' +
+      '1/a ~ 1.82) can realise. The exact best realizable value of the same integral is instead the operator ' +
+      'top eigenvalue R = lambda_max(P_a M_{sigma_2^-} P_a), measured (finite-section sinc-projector matrix, ' +
+      'grid-stable to ~1e-3) at R = 1343.796 -- only 43.84% of the 3065.435 bathtub envelope. So the ' +
+      'realizable negative-part floor is c_sharp &gt;= -1343.796, a MEASURED finite value +1721.639 above the ' +
+      'rigorous bathtub floor, and the realizable density stays L2-distance 0.2704 (64.7% of its own norm) ' +
+      'from the bathtub indicator, peaking at only 52.5% of the a/pi pointwise cap. Splitting the full gap ' +
+      'from -3065.435 to the measured c_sharp ~ +0.582 (imp-97206) gives two COMPARABLE shares: (a) band-limit ' +
+      'realizability +1721.639 (56.2%) and (b) the imp-97458 discarded t^4 positive far field +1344.378 ' +
+      '(43.8%) -- band-limit realizability is the slightly larger of the two. Honest framing: R is a ' +
+      'finite-section IEEE-double eigenvalue, NOT an interval enclosure (sub-gap ' +
+      'IMP97457_REALIZABLE_NEG_FLOOR_MEASURED_NEEDS_INTERVAL_EIGENVALUE_ENCLOSURE); measurement only, no ' +
+      'operator positivity, no bound moves, interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian ' +
+      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97489 (adds this glossary headword for the imp-97457 bathtub realizability gap), 2026',
+    relatedTerms: [
+      'imp-97457-krein-bathtub-realizability-gap.js the source module (R = lambda_max(P_a M_sigma2^- P_a), 43.84% capture, gap split)',
+      'imp-97416-krein-csharp-bathtub-joint-floor.js the bathtub floor -3065.435 and its item (a)/(b) obstruction this measures',
+      'imp-97458-krein-csharp-discarded-positive-far-field.js the discarded t^4 positive far field, the comparable 43.8% share',
+      'imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js the uniform pointwise floor -3200.029; confined well; reproducing kernel',
+      'imp-97206-krein-csharp-coupled-nt-jointlimit.js the measured c_sharp ~0.582 upper bracket',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -5151,6 +5151,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every point is the imp-97481 closed form evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling was exploratory Route-M, load-bearing for nothing; kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97507-krein-nscaled-tgrid-heatmap',
+      title: 'imp-97484: lam_min(N,T) Heatmap (N=84..164, T=4800..8000)',
+      oneLine:
+        'Heatmap / column-family grid of the imp-97484 extended well-resolved lam_min(N,T) table: every row (fixed N) lightens as T rises and every column (fixed T) darkens as N rises, with the darkest, tightest cell at (N=164, T=8000) = 0.578574, the current best directly-read resolved upper bracket on the Krein c_sharp at 2a=ln3.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97507-krein-nscaled-tgrid-heatmap-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97484-krein-csharp-nscaled-tgrid-extended.js (the source table, findings, and verdict; imp-97507 viz-data leaf + page)',
+      ticket: 'imp-97507',
+      pedagogicalStep: 404,
+      honestCeiling:
+        'Presentation only: every cell is the imp-97484 lam_min(N,T) table reused verbatim. Establishes no operator positivity; no lower bound; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

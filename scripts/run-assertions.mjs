@@ -837,6 +837,20 @@ const DATA_MODULES = [
   // UNUSABLE at 2a=ln3. No conditioning blow-up (build 394s, g2min positive). Measurement only; no operator
   // positivity; no bound moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97495-krein-route2-kbig300-380-direct-floor.js',
+  // imp-97514 (2026-09-26): ASSESSES whether the m=2 Lehmann-Maehly WINDOW enclosure for the Krein c_sharp at
+  // 2a=ln3 becomes any less vacuous than the collapsed m=1 bracket, given the generous gap lambda_2-lambda_1=
+  // 82.547450 (imp-97400/97414) and the finite Route-2 floor on lambda_2 ([-313.756,-309.931], imp-97495).
+  // Verdict: NO -- strictly MORE vacuous. (1) The generous gap is the WRONG gap: it governs the m=1 shift in
+  // (lambda_1,lambda_2), whereas the window shift lives in the ~5434-wide (lambda_2,lambda_3) gap (~66x wider),
+  // so 82.547 is orthogonal to the m=2 gate (which needs a certified lower bound on lambda_3 > 83.09). (2) The
+  // finite Route-2 floor is finite-but-negative (~ -310) and, recursed to lambda_3, shares the imp-97415
+  // concentration wall one index up (symbol infimum -4336.198 is index-blind) and cannot cross zero, so it
+  // WITNESSES the regress rather than breaking it. (3) The unbounded-above sigma_2 ~ t^4 log t forces the
+  // window shift up to rho ~ 5462.6, amplifying the pencil rho^2*tr(A2) error by ~4322x against tr(A2)~4.82e9.
+  // The turtles-all-the-way-up regress + unbounded-above operator close the m=2 window identically. SUB-GAP
+  // IMP97514_M2_WINDOW_SHIFT_IN_WRONG_GAP_AMPLIFIES_UNBOUNDED_TAIL. Assessment only; no operator positivity; no
+  // bound moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97514-krein-m2-window-enclosure-assessment.js',
   // imp-97481 (2026-09-26): DERIVES the imp-97461 replacement lemma RL-L (T(b) >= -1/4 for all squarefree b
   // via the primorial extremizer) and REFUTES it. Proves the general-b surrogate closed form
   // surrogate(b) = Pi(P)(lnA - c W(P)) (2x2 triangular operator on {1/x, (log x)/x}), the exact decomposition
@@ -21174,6 +21188,11 @@ const DATA_MODULES = [
   // (water-level bisection floor -3065.469, scipy HiGHS simplex LP floor -3065.429); all three
   // routes agree to grid tolerance and the floor stays negative. Documentation only; NO QED.
   '/src/data/imp-97473-bathtub-floor-triple-confirmation-honest-status.js',
+  // imp-97474: META cross-reference index grouping the Route M omega=5 sign-law closure
+  // thread (imp-97423/97433/97443) with the parallel MCM-hypothesis thread
+  // (imp-97432/97442) as one two-pronged cohort attacking the same b/4-ceiling question
+  // from opposite directions. Index/meta only; NO QED.
+  '/src/data/imp-97474-route-m-omega5-signlaw-mcm-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

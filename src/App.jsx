@@ -1326,6 +1326,9 @@ const Imp97506WindowSetSurrogateDepthViz = lazy(() =>
 const Imp97507KreinNscaledTgridHeatmapViz = lazy(() =>
   import('./pages/Imp97507KreinNscaledTgridHeatmapViz.jsx')
 );
+const Imp97508McmBasetermExtprecViz = lazy(() =>
+  import('./pages/Imp97508McmBasetermExtprecViz.jsx')
+);
 const Imp97471McmTowerPerLevelMarginViz = lazy(() =>
   import('./pages/Imp97471McmTowerPerLevelMarginViz.jsx')
 );
@@ -3906,6 +3909,10 @@ function AppShell() {
           <Route
             path="/viz-imp97507-krein-nscaled-tgrid-heatmap"
             element={<Imp97507KreinNscaledTgridHeatmapViz />}
+          />
+          <Route
+            path="/viz-imp97508-mcm-baseterm-extprec"
+            element={<Imp97508McmBasetermExtprecViz />}
           />
           <Route
             path="/viz-imp97471-mcm-tower-per-level-margin"

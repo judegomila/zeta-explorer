@@ -5165,6 +5165,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every cell is the imp-97484 lam_min(N,T) table reused verbatim. Establishes no operator positivity; no lower bound; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97508-mcm-baseterm-extprec',
+      title: 'imp-97478: MCM Level-1 Base Term c(x)=h(x)-h(2x), Extended Precision',
+      oneLine:
+        'The imp-97478 extended-precision (40 dps) level-1 MCM base term c(x)=h(x)-h(2x) against the closed-form two-term law (1/24)(ln x)/x + M0/x (max relative deviation 1.08e-10), and the scaled c*x/ln x drifting down toward K0=1/24=0.041667, with the corrected window-top point c(457015)=1.397144e-6 and the refuted x=5e5 double-precision "blip" annotated.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97508-mcm-baseterm-extprec-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97478-route-m-mcm-level1-baseterm-extprec.js (the baked extended-precision ladder, closed form, and verdict; imp-97508 viz-data leaf + page)',
+      ticket: 'imp-97508',
+      pedagogicalStep: 405,
+      honestCeiling:
+        'Presentation only: every point is the imp-97478 baked extended-precision ladder reused verbatim. Establishes no operator positivity; changes no bound; MCM stays VERIFIED not proved (and FALSE from omega=11 per imp-97432); kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

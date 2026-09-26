@@ -24398,6 +24398,38 @@ export const glossary = [
       'project_route_m_lower_companion_first_moment Route M first-moment program both sub-gaps belong to',
     ],
   },
+  {
+    term: 'Cauchy-Schwarz Reduction of the Cotangent Absolute First Moment to a Mean-Square M2w',
+    category: 'numerical',
+    definition:
+      'imp-97203 sharpens the imp-97180 residual sub-gap (certify c_1 = Sum_{a=2,(a,b)=1}^{b-1} ' +
+      '|c_0(h_a/a)| / Sum_a a &lt; kappa_arith = 0.5704960511308594, h_a = b-inverse mod a) with an exact, ' +
+      'unconditional finite Cauchy-Schwarz inequality: writing each term as sqrt(a) times |c_0(h_a/a)| / ' +
+      'sqrt(a) and applying Cauchy-Schwarz over the coprime residues a gives c_1 &lt;= sqrt(M2w), where ' +
+      'M2w := (Sum_a c_0(h_a/a)^2 / a) / (Sum_a a) is the a-weighted inverse-line SECOND moment. This ' +
+      'converts the sole open input from an ABSOLUTE (non-reciprocal) FIRST moment -- where no ' +
+      'reciprocity/moment machinery applies and imp-97180 ruled out every elementary termwise route -- ' +
+      'into a mean-SQUARE, for which the classical Bettin-Conrey even-moment machinery applies (no ' +
+      'absolute value). Certifying M2w &lt; 0.32546 (= 0.5705^2) therefore IMPLIES certifying c_1 &lt; ' +
+      '0.5705. MEASURED (not proved): M2w ~ 0.129 (b=101) -&gt; 0.172 (b=8009), flat, so the CS ceiling ' +
+      'sqrt(M2w) ~ 0.359 -&gt; 0.415 clears kappa_arith with margin ~1.38x -- NO overshoot, the opposite ' +
+      'of the Route M LOWER companion (imp-97071), where squaring a lower bound overshoots and forces ' +
+      'pursuit of the mean VALUE instead; here, for an UPPER bound, squaring is safe. The full-residue ' +
+      'mean square E_h[(c_0(h/a)/a)^2] ~ 0.13 (over ALL coprime h, not just the inverse line) is also ' +
+      'bounded, since the small-inverse spike c_0(1/a) ~ -(1/pi) a log a is a single residue and washes ' +
+      'out in the mean; the inverse line oversamples large-|c_0| residues by ~30% relative to this ' +
+      'full-residue mean, so the sole remaining open input is an inverse-map equidistribution ' +
+      '(Kloosterman-type) transfer absorbing that oversampling, sitting entirely inside the ~1.38x CS ' +
+      'margin. Reduction + measurement only; no bound moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; ' +
+      'RH open; NO QED.',
+    firstUsed: 'imp-97234 (adds this glossary headword for the imp-97203 Cauchy-Schwarz reduction), 2026',
+    relatedTerms: [
+      'imp-97203-route-m-cotangent-absvalue-first-moment-cauchy-schwarz.js the source reduction and IMP97203_MEASURED/IMP97203_SUBGAP records',
+      'imp-97180-route-m-cotangent-absvalue-bulk-firstmoment-obstruction.js the parent absolute-first-moment obstruction this reduction sharpens',
+      'Bettin-Conrey Absolute First Moment E_a[|c_0(h_a/a)|/a] ~ 0.27 Over the Inverse Line the term this entry converts into a mean-square input',
+      'project_route_m_lower_companion_first_moment the sibling LOWER-companion program where squaring instead overshoots',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

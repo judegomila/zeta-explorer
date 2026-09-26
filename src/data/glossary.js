@@ -24865,6 +24865,38 @@ export const glossary = [
       'imp-97206-krein-csharp-coupled-nt-jointlimit.js the measured c_sharp ~0.582 upper bracket',
     ],
   },
+  {
+    term: 'The imp-97458 Discarded t^4 Positive Far Field (Why the Krein Scalar Rearrangement Floor Is Loose)',
+    category: 'obstruction',
+    definition:
+      'QUANTIFIES the positive contribution int sigma_2^+ |psi|^2 that every scalar rearrangement floor ' +
+      '(imp-97399 uniform pointwise, imp-97416 bathtub) discards by keeping only the negative part ' +
+      'sigma_2^-. Outside the imp-97399 confined negative set, sigma_2(t) = (t^2 + 1/4)^2 w_1(t) splits into ' +
+      'a FINITE inner positive island (the gap [3.306, 6.945] between the two wells, no sign change, ' +
+      'full-line area 2511.030, grid-stable to 1e-4) and an UNBOUNDED far tail for |t| &gt; 10.532 where ' +
+      'sigma_2 stays positive to t = 5000 and int_{10.532}^{T} sigma_2 dt grows like T^5 ln(T/2pi)/5 ' +
+      '(tabulated one-sided to 9.73e14 at T = 1000, empirical exponent p -&gt; 5 from above; pointwise ' +
+      'sigma_2(t)/t^4 -&gt; 2 theta prime(t) ~ ln(t/2pi), so the fixed-amplitude sqrt2 ln2 cosine never ' +
+      'overcomes the archimedean t^4 ln t drift). Because a normalised minimiser psi lives in PW_a ' +
+      '(a = (ln3)/2, entire of exponential type), |psi|^2 cannot be compactly supported, so it necessarily ' +
+      'samples this t^4 field and pays a STRICTLY POSITIVE int sigma_2^+ |psi|^2 -- exactly the term the ' +
+      'sigma_2^- rearrangement floors set to zero (a single cap-height a/pi unit-width sample at radius R ' +
+      'already costs ~3.33e6 at R = 50 and ~4.20e10 at R = 500). This positive budget is why the measured ' +
+      'c_sharp ~ 0.582 (imp-97206) is positive while the best scalar floor stays -3065.435 (imp-97416): the ' +
+      '~3066 gap is exactly the discarded positive field, split roughly evenly with the imp-97457 band-limit ' +
+      'realizability share. The loss is therefore a genuine SPECTRAL quantity (far-field cost coupled to ' +
+      'band-limited tail decay), not a scalar budget. Measurement only; no operator positivity; no ' +
+      'coercivity constant; no bound moves; interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian ' +
+      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97490 (adds this glossary headword for the imp-97458 discarded positive far field), 2026',
+    relatedTerms: [
+      'imp-97458-krein-csharp-discarded-positive-far-field.js the source module (finite inner island 2511.030, unbounded t^4 tail, minimiser budget)',
+      'imp-97416-krein-csharp-bathtub-joint-floor.js VERDICT item (b) naming the discarded far field; the -3065.435 scalar floor',
+      'imp-97457-krein-bathtub-realizability-gap.js the comparable band-limit realizability share of the same -3065.435-to-0.582 gap',
+      'imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js the confined negative set; sigma_2 &gt; 0 for t &gt; 10.532, verified to 5000',
+      'imp-97206-krein-csharp-coupled-nt-jointlimit.js the measured c_sharp ~0.582 upper bracket',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

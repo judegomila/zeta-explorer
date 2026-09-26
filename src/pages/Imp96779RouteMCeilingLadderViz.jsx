@@ -6,6 +6,10 @@ import {
   IMP96779_VERDICT_SUMMARY,
   IMP96779_HONEST_BANNER,
 } from '../data/imp-96779-route-m-ceiling-ladder-viz-data.js';
+import {
+  IMP96918_FROBENIUS_BAND,
+  IMP96918_LATER_CORRECTION,
+} from '../data/imp-96918-route-m-ceiling-ladder-concave-reconciliation.js';
 
 // Horizontal bar chart on a shared log10(N) axis: four ladder rungs
 // (compute < trace-rigorous < Frobenius-rigorous < measured/fit), with the
@@ -144,6 +148,30 @@ export default function Imp96779RouteMCeilingLadderViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> viz-only page consuming the
         imp-96779 viz-data leaf (every bar and ratio reused verbatim from imp-96682).{' '}
         {IMP96779_HONEST_BANNER}
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(250,204,21,0.05)',
+          borderLeft: '3px solid #facc15',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+        }}
+      >
+        <strong style={{ color: '#facc15' }}>imp-96918 reconciliation (later correction imp-97081):</strong>{' '}
+        the Frobenius rung shown above ({IMP96918_FROBENIUS_BAND.incumbentStraightLine.toExponential(3)}) is
+        the LOW end of a fitted band, not a settled ceiling value -- extending the ladder to 18
+        exact rungs and modeling the norm's concavity in log N moves the fitted ceiling UP, into{' '}
+        {IMP96918_FROBENIUS_BAND.concaveTailSafer.toExponential(3)}
+        {' - '}
+        {IMP96918_FROBENIUS_BAND.concaveQuadUpper.toExponential(3)}. imp-97081 later rejected the
+        quadratic top of that band as an unphysical curvature over-run and narrowed the credible
+        band to [{IMP96918_LATER_CORRECTION.narrowedBandLo.toExponential(3)},{' '}
+        {IMP96918_LATER_CORRECTION.narrowedBandHi.toExponential(3)}]. No bound moved; wall-clock
+        compute still binds first by &ge;1500x; RH open; NO QED.
       </div>
     </div>
   );

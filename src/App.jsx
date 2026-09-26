@@ -1606,6 +1606,9 @@ const Imp97082RitzVsRigorousCrossvalRangeViz = lazy(() =>
 const Imp97068MirrorDescentPoissonKernelViz = lazy(() =>
   import('./pages/Imp97068MirrorDescentPoissonKernelViz.jsx')
 );
+const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
+  import('./pages/Imp97106PalmMirrorSurplusComparisonViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4168,6 +4171,10 @@ function AppShell() {
           <Route
             path="/viz-imp97068-mirror-descent-poisson-kernel"
             element={<Imp97068MirrorDescentPoissonKernelViz />}
+          />
+          <Route
+            path="/viz-imp97106-palm-mirror-surplus-comparison"
+            element={<Imp97106PalmMirrorSurplusComparisonViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

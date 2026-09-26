@@ -4647,6 +4647,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is computed with the imported f() verbatim, no re-derivation. The pair lemma and Poisson domination are proved elementary facts, but the flow-descent theorem they feed stays conditional (hypothesis open, pointwise NS-RIGID class). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97106-palm-mirror-surplus-comparison',
+      title: 'Palm Mirror-Count vs p_req: Surplus Comparison',
+      oneLine:
+        'Bar chart of all six imp-97080 mirror-count baselines (neutral Palm 2-slot/1-slot at the seam and at N1*, empirical 1e12 location-free/pair-replacement, empirical 1e22 location-free) against the required p_req=4.3743, each annotated with its surplus factor -- first visualization for this measurement.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97106-palm-mirror-surplus-comparison-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97080-palm-mirror-baseline-vs-preq-measurement.js (source: all baseline counts, p_req, verdict; imp-97106 viz-data leaf + page)',
+      ticket: 'imp-97106',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every count and surplus value is reused verbatim from imp-97080, no re-derivation. Only the far-height N1* Palm baseline and the 1e22 empirical block reach approximate parity (~1.0x); every seam-height / 1e12 baseline falls short of p_req. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

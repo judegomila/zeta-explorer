@@ -24123,6 +24123,53 @@ export const glossary = [
       'imp-96957-bessel-onset-tail-finer-ladder-viz-data.js the measured p_global = 3.228 ladder',
     ],
   },
+  {
+    term: 'imp-96969 Route C-direct Krein t-truncation lever cohort index: cross-links for the shift-invert bounded-resolvent family (imp-96827, imp-96889, imp-96911, imp-96935, imp-96938)',
+    category: 'meta',
+    definition:
+      'Five tickets scout the same object -- whether the shift-invert resolvent R=(K+m)^{-1} ' +
+      'reformulation of the Route C-direct Kato-Temple / Lehmann-Goerisch attack on ' +
+      'lambda_1(T_a[sigma_2]) at the binding 2a=ln3 can be pushed to a certified positive floor -- ' +
+      'but were scattered across the glossary with no single index. This entry is that index.\n\n' +
+      'imp-96827 -- direct t-truncation residual envelope (fixed N, no shift-invert). Bounds the ' +
+      'residual beyond T=4800 (geometric envelope &lt;=1.30e-3 at N=100; exponential fit ~3e-4), ' +
+      'giving a plateau 0.5805 +/- 8.1e-4 that is CLOSED-POSITIVE on its own construction.\n\n' +
+      'imp-96889 -- bounded shift-invert resolvent Kato-Temple scout. Fixes the imp-96875 residual ' +
+      'divergence (eps ~1e-5 bounded vs ~1e4 diverging), but the KT correction is then negligible ' +
+      '(~1e-12) so the floor collapses onto the Ritz value and re-expresses the same open (N,T) ' +
+      'truncation rate rather than delivering an independent certified lower bound.\n\n' +
+      'imp-96911 -- N-convergence rate of the top Ritz eta drift. CLOSES the basis-size (N) lever ' +
+      '(eta is N-independent for N&gt;=12, the trial saturates on ~12 Gegenbauer modes) and the ' +
+      'Nbig-alone lever (no algebraic convergence at fixed T; the apparent plateau is a ' +
+      'T-truncation ceiling). Leaves the joint (Nbig,T) limit open.\n\n' +
+      'imp-96935 -- shift-m sensitivity across the whole Nbig ladder. CLOSES the shift lever: the ' +
+      'recovered floor 1/eta-m is shift-invariant to 3-4 digits (eta ~ 1/(m+mu) structurally ' +
+      'cancels m out), and the (Nbig,T) drift itself is shift-invariant (2.06% relative spread ' +
+      'over a 128x change in m).\n\n' +
+      'imp-96938 -- calibration of the drift against the certified-positive 2a=0.96 endpoint. ' +
+      'Shows the (Nbig,T) drift sign structure is scheme-generic (identical at 2a=0.96, where the ' +
+      'floor never drops below 12.0089): the drift alone cannot decide the sign of lambda_1 at ' +
+      'ln3; the absolute margin is the discriminant, and it is what stays open.\n\n' +
+      'SHARED VERDICTS. Three levers are CLOSED on this construction and should not be ' +
+      're-attempted: (1) shift m (imp-96935), (2) basis size N (imp-96911), (3) Nbig alone at ' +
+      'fixed T (imp-96911). Two things stay OPEN: (a) the joint (Nbig,T) limit itself (Nbig and T ' +
+      'push the floor in opposite directions; no member of this cohort sizes a rate for it), and ' +
+      '(b) the absolute positivity margin at 2a=ln3 (order ~0.5 there vs order &gt;=12 at 0.96). ' +
+      'imp-96827 separately closes a DIFFERENT (non-shift-invert) direct T-residual to an explicit ' +
+      'positive tolerance but does not resolve (a) or (b). Rayleigh/Ritz values throughout this ' +
+      'cohort are UPPER bounds, not certified lower bounds; interval-rigorous certified reach ' +
+      'stays 2a &lt;= 0.96. No RH verdict, no QED. Platt-Trudgian Lambda &lt;= 0.2 remains the ' +
+      'rigorous SOTA throughout.',
+    firstUsed: 'imp-97063 (surfacing the imp-96969 index -- which consolidates the imp-96827/96889/96911/96935/96938 Route C-direct Krein t-truncation cohort -- as a docs/glossary note so future scouts do not re-attempt closed levers), 2026',
+    relatedTerms: [
+      'imp-96969-coupled-nt-truncation-wall-cohort-index.js the source META cross-reference index this entry surfaces',
+      'imp-96827 direct t-truncation residual envelope, closed-positive on its own construction (imp-96827)',
+      'imp-96889 bounded shift-invert Kato-Temple scout, re-expresses the open (N,T) rate (imp-96889)',
+      'imp-96911 N/Nbig convergence rate, closes basis-size and Nbig-alone levers (imp-96911)',
+      'imp-96935 shift-m sensitivity, closes the shift lever (imp-96935)',
+      'imp-96938 drift calibration against the certified 2a=0.96 endpoint (imp-96938)',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

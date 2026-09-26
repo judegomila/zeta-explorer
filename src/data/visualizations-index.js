@@ -4717,6 +4717,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97142 and imp-96982, no re-derivation. The entire propagated interval sits below the original credible band floor, ~0.98 percentage points at the closest approach. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97215-route-m-kappa-decomposition',
+      title: 'Route M Kappa Decomposition: Arithmetic + Cotangent',
+      oneLine:
+        'Two-series convergence ladder (arithmetic part drifting DOWN to its exact limit, cotangent part climbing UP to its measured limit) plus a three-bar stacked decomposition of kappa = kappa_arith + kappa_cot -- first visualization for the imp-97130 viz-data leaf.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97130-route-m-kappa-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97096-route-m-arith-first-moment-evaluation.js (source: exact kappa_arith); src/data/imp-97097-route-m-cotangent-first-moment-reciprocity.js (source: measured kappa_cot); imp-97130 viz-data leaf + imp-97215 page',
+      ticket: 'imp-97215',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97096 and imp-97097, no re-derivation. The arithmetic part is EXACT (0.5704960511...); the cotangent part is MEASURED (~0.121); their sum kappa~0.69>0 is therefore MEASURED, not proved. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

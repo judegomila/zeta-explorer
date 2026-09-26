@@ -1621,6 +1621,9 @@ const Imp97213RouteMExplicitRemainderEnvelopeViz = lazy(() =>
 const Imp97214RouteMFarfieldSlopebandVsOriginalViz = lazy(() =>
   import('./pages/Imp97214RouteMFarfieldSlopebandVsOriginalViz.jsx')
 );
+const Imp97215RouteMKappaDecompositionViz = lazy(() =>
+  import('./pages/Imp97215RouteMKappaDecompositionViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4203,6 +4206,10 @@ function AppShell() {
           <Route
             path="/viz-imp97214-route-m-farfield-slopeband-vs-original"
             element={<Imp97214RouteMFarfieldSlopebandVsOriginalViz />}
+          />
+          <Route
+            path="/viz-imp97215-route-m-kappa-decomposition"
+            element={<Imp97215RouteMKappaDecompositionViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

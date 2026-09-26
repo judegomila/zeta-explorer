@@ -21318,6 +21318,16 @@ const DATA_MODULES = [
   // dominated there by E_coll. Measurement only; no bound moved; C_mb GUE-conditional per imp-486;
   // PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97585-eflow-etrunc-share-full-ladder.js',
+  // imp-97602 (2026-09-26): MAPS the E_flow/E_trunc/E_coll triple-crossing structure across the head
+  // N in {1e2 .. 1.6e6}, extending imp-97585 (which located only E_flow=E_trunc and ASSERTED E_coll head
+  // dominance). RESULT: E_coll is the binding (largest) term at EVERY head rung -- the head-side of the
+  // bridge is collision-dominated throughout. There is NO triple-crossing point: the three pairwise
+  // crossings are widely separated with one absent -- E_flow=E_trunc at N ~ 1.597752e6 (subdominant swap
+  // at the head top edge), E_coll=E_trunc at N ~ 3.280294e9 (binding term switches E_coll -> E_trunc, far
+  // above the head), and E_flow=E_coll NEVER (E_coll > E_flow uniformly, ratio peaks ~0.1888 at N=1e2).
+  // Measurement only; no bound moved; C_mb GUE-conditional per imp-486; C_C 1/8 ansatz untouched;
+  // PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97602-e-triple-crossing-head-region.js',
   // imp-97565 (2026-09-26): MEASURES the C_C sensitivity of the imp-33723 closed-form crossover
   // N_cross = (C_C/E_trunc)^2 log T0(N_cross) and the resulting shift of the imp-33582 sigma=1/2
   // halving landmark. The C_C-elasticity is d log N_cross / d log C_C = 2/(1 - g_prime) ~ 2.09517

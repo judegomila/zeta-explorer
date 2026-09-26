@@ -24989,6 +24989,30 @@ export const glossary = [
       'b/4-ceiling explicit witness b* (imp-97496) the crossing witness whose descent this law governs',
     ],
   },
+  {
+    term: 'm=2 Lehmann-Maehly window gap-vs-gate distinction (imp-97514/imp-97548)',
+    category: 'obstruction',
+    definition:
+      'The generous measured gap lambda_2 - lambda_1 = 82.547450 governs the m=1 Temple shift, placed ' +
+      'in (lambda_1, lambda_2) = (0.543044, 83.090493) -- this is the number that recurs throughout ' +
+      'Krein cohort discussions. The m=2 Lehmann-Maehly WINDOW lives in a different, wider gap: its ' +
+      'shift rho_2 must satisfy rho_2 &gt; lambda_2 (cheap, forced by the Ritz upper bracket ' +
+      'lambda_2 &lt;= 83.090493) AND rho_2 &lt;= lambda_3, i.e. rho_2 in ' +
+      '(lambda_2, lambda_3) = (83.090493, 5516.954964), width ~5433.864 -- sixty-five times wider than ' +
+      'the m=1 gap. Citing the 82.547 reading for the m=2 window is therefore a misapplication: the ' +
+      'm=2 gate instead requires a CERTIFIED LOWER bound on the third eigenvalue lambda_3 exceeding ' +
+      '83.090493, a materially harder requirement. Relocating the binding gap does not itself supply ' +
+      'that bound -- imp-97514 FINDING 2 shows the same Route-2 recursion, applied one index up, ' +
+      'shares the imp-97415 concentration-wall floor (-4336.198026, index-blind) and never crosses ' +
+      'zero. No operator positivity established; interval-rigorous reach stays 2a &lt;= 0.96; no bound ' +
+      'moves; measured not proved; NO QED.',
+    firstUsed: 'imp-97514 (FINDING 1 identifies the gap/gate distinction); imp-97548 (adds this glossary headword)',
+    relatedTerms: [
+      'imp-97514-krein-m2-window-enclosure-assessment.js the source module (FINDING 1 gap/gate distinction, FINDING 2 lambda_3 recursion sharing the concentration wall)',
+      'imp-97400-krein-lehmann-maehly-lower-bracket-execution.js the m=1 gap 82.547450 origin',
+      'imp-97495-krein-route2-kbig300-380-direct-floor.js the lambda_3 Ritz upper bracket 5516.954964 and window shift 5462.61632',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

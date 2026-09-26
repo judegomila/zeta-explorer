@@ -5,6 +5,7 @@ import {
   IMP97068_PAIR_LEMMA_CURVE,
   IMP97068_POISSON_DOMINATION_LIMIT,
 } from '../data/imp-97068-mirror-descent-poisson-kernel-viz-data.js';
+import { IMP97141_ASSESSMENT } from '../data/imp-97141-euler-product-flow-continuity-bridge-assessment.js';
 
 // imp-97068: rh-bridge-mirror-descent-2026-09-25 proved the pair (mirror) lemma A1 -- a nonreal
 // neighbour no higher than a nonreal zero z = x + iy pulls z down by at least
@@ -182,6 +183,31 @@ export default function Imp97068MirrorDescentPoissonKernelViz() {
         {IMP97068_POISSON_DOMINATION_LIMIT.note} The best constant is exactly{' '}
         {IMP97068_POISSON_DOMINATION_LIMIT.bestConstant} at &eta; = 2y, but this value is a{' '}
         <strong>limit, never attained</strong>.
+      </div>
+
+      <div
+        style={{
+          marginTop: '1.25rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(248,113,113,0.06)',
+          borderLeft: '3px solid #f87171',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#f87171' }}>imp-97141 bridge no-go:</strong> theorem B1 (the
+        flow-descent statement above) needs a uniform lower bound M &ge; p_req&nbsp;=&nbsp;
+        {IMP97141_ASSESSMENT.pReq.toFixed(3)} over the whole continuum t &isin; (0, t0]. The
+        arithmetic Euler product available at t&nbsp;=&nbsp;0 cannot bridge that: it sits at the{' '}
+        <strong>non-binding maximum</strong> of a flow-decreasing quantity (the de Bruijn flow
+        only spreads the spacing for t &gt; 0), while the bound must bind at the far endpoint
+        t0 where no Euler product exists. Worse, the t&nbsp;=&nbsp;0 count itself, M(0)&nbsp;=
+        &nbsp;{IMP97141_ASSESSMENT.countT0.toFixed(4)}, is already{' '}
+        {IMP97141_ASSESSMENT.finding2.supShortfall.toFixed(2)}x short of p_req, so the entire
+        flow trajectory lies below p_req regardless of endpoint. Assessment only; no &Lambda;
+        bound follows; Platt&ndash;Trudgian &Lambda;&le;0.2 remains SOTA; RH open; NO QED.
       </div>
 
       <div

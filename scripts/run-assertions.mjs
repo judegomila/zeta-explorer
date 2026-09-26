@@ -20848,6 +20848,10 @@ const DATA_MODULES = [
   // the imp-97081 anchor F to a VALUE not a slope. Exact three-part decomposition, P1 derived,
   // obstruction shown strictly harder than the imp-96750 slope sub-gap. Reduction only; NO QED.
   '/src/data/imp-97095-route-m-interior-second-moment-o1-offset-assessment.js',
+  // imp-97113: measures the exact spherical-Bessel asymptotic-coefficient machinery of the Krein
+  // ground-state combination g(t) and scopes the fixed rational trial that annihilates the leading
+  // t^-1,t^-2,t^-3 orders (6 carrier constraints, parity-decoupled, >= 8 degrees / 6 v0 constraints).
+  '/src/data/imp-97113-krein-bessel-asymptotic-annihilation-scope.js',
 ];
 
 let ALL_MODULES = FAST_MODE

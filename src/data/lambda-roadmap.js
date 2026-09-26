@@ -1183,6 +1183,65 @@ export const LAMBDA_CHAIN_STEPS = [
               'Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
             by: 'imp-96093',
           },
+          // imp-97402 (assessment/scoping ONLY; changes NO bound, closes NOTHING,
+          // establishes no operator positivity, respects the imp-2519 no-overclaim
+          // guard, NO QED): can any UNCONDITIONAL partial bound on C_mb (a weaker
+          // constant, a restricted range, or a non-GUE input) shave the conditional
+          // SHARE sigma(N) = E_coll/E(N) -- which peaks at ~0.9494 near N ~ 9.22e5
+          // (imp-3220/imp-3406) -- or does the attempt reach the precise obstruction
+          // that forces GUE universality? Verdict: NO share reduction; the obstruction
+          // is pinned below.
+          shareReductionAssessment: {
+            question:
+              'Does any unconditional partial bound on C_mb (weaker constant, ' +
+              'restricted range, or non-GUE input) shave the conditional share ' +
+              'sigma(N) = E_coll/E(N), peak ~0.9494 near N ~ 9.22e5, or reach the ' +
+              'precise obstruction forcing GUE universality?',
+            directionality:
+              'A WEAKER constant is the wrong direction. sigma = E_coll/E(N) and ' +
+              'E_coll is monotone increasing in the C_mb prefactor, so replacing the ' +
+              'GUE-conditional C_mb <= 1 with an unconditional weaker C_mb <= M (M > 1) ' +
+              'INFLATES E_coll and RAISES sigma; it cannot shave the share. Only a ' +
+              'TIGHTER unconditional c < 1 would lower sigma, and imp-486 exhaustive ' +
+              'search yields no unconditional c < 1 (indeed no unconditional finite M ' +
+              'at all; GGM + Huxley fail identically). Share reduction via a partial ' +
+              'constant is therefore structurally unavailable.',
+            peakCoincidence:
+              'The share peak N ~ 9.22e5 sits INSIDE the closed window [1e4, 1e6] where ' +
+              'the imp-3725 true-flow enclosure (K_paper <= 2.4238e-6, zero GUE input) ' +
+              'holds. So the peak-region E_coll is window-locally computable without GUE ' +
+              '-- but this does NOT shave the analytic chain, which invokes C_mb <= 1 ' +
+              'N-uniformly (one constant across all N), not window-by-window. A per-window ' +
+              'unconditional value cannot be spliced into an N-uniform link without an ' +
+              'N-uniform surrogate, which is exactly what is missing (imp-36079 ' +
+              'window-local, disjoint from the far tail per imp-96093). The peak share ' +
+              'stays conditional in the assembled chain even where a local surrogate exists.',
+            preciseObstruction:
+              'C_mb is the N-UNIFORM bound on the many-body Calogero-Moser correction, ' +
+              'i.e. a uniform bound on the sum over eigenvalue interactions built from ' +
+              'the local k-point correlation functions of the zeros at unfolded scale ' +
+              'O(1). Controlling those local correlations N-uniformly IS the ESY-type ' +
+              'local law / Montgomery pair-correlation statement -- GUE universality is ' +
+              'not an incidental hypothesis attached to C_mb but the definitional content ' +
+              'of any N-uniform C_mb bound. Hence every partial route (weaker constant, ' +
+              'restricted range, alternative input) either changes no share (wrong ' +
+              'direction or window-disjoint) or silently re-imports the universality it ' +
+              'was meant to avoid. This is the precise obstruction.',
+            residualSubGap:
+              'SG-97402-cmb-uniform-nongue: whether a genuinely non-GUE route can supply ' +
+              'an N-uniform (even non-numeric) local-correlation bound distinct from the ' +
+              'ESY local law remains the same OPEN imp-486 question; this assessment ' +
+              'neither supplies nor refutes such a route.',
+            verdict:
+              'NO share reduction. No unconditional partial bound on C_mb shaves the ' +
+              'conditional share sigma(N): a weaker constant moves it the wrong way, no ' +
+              'tighter unconditional constant exists, the peak-region local surrogate is ' +
+              'not N-uniform, and any N-uniform bound is definitionally a GUE-universality ' +
+              'statement. Confirms (does not weaken) the imp-486 irreducible grade. ' +
+              'Changes NO bound; C_mb stays GUE-conditional; no unconditional Lambda ' +
+              'movement; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+            by: 'imp-97402',
+          },
         },
       ],
       caveat:

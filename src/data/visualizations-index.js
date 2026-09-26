@@ -5039,6 +5039,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every plotted point is reused verbatim from the imp-97441 x*(eps) table; no re-solve. Establishes no operator positivity; changes no bound; the imp-97437 effective-curvature fixed point fits this table only in the mid-band eps ~ 1%-2%; the rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97471-mcm-tower-per-level-margin',
+      title: 'imp-97442: The MCM Tower Per-Level Margin at omega=5,6',
+      oneLine:
+        'The imp-97442 MCM per-level minimum tower differences charted per omega (5, 6) on a log scale: the level-1 base term (~1.4e-6, largest x) is where the smallness lives, while the top induction term T(b) (level=omega, x=1) stays four orders of magnitude further from zero.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97471-mcm-tower-per-level-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97442-route-m-mcm-omega56-subgrid-verification.js (IMP97442_MEASUREMENTS.perLevelMinDiff; imp-97471 viz-data leaf + page)',
+      ticket: 'imp-97471',
+      pedagogicalStep: 396,
+      honestCeiling:
+        'Presentation only: every bar height is reused verbatim from the imp-97442 baked sweep; no re-solve. Establishes no operator positivity; changes no bound; MCM stays VERIFIED (not proved) at omega=5,6 and is FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

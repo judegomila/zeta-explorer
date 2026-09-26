@@ -773,6 +773,17 @@ const DATA_MODULES = [
   // piecewise-linear (upper 0.199 at b <= 2050, lower 0.166 at b >= 2100). Import-light (Vasyunin
   // recompute at a handful of b); no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97477-route-m-crest-crossover-alignment-band.js',
+  // imp-97478 (2026-09-26): CONFIRMS the imp-97463 level-1 base term c(x) = h(x) - h(2x) past the double-
+  // precision CAVEAT with an extended-precision (mpmath 40 dps) G(m) = Sum k ln k (single incremental pass to
+  // m = 4e6, so R(m) = G(m) - GKmain(m) is trustworthy). The x=5e5 non-monotone blip is confirmed a float
+  // artifact (true c(5e5) = 1.284522e-6, monotone between neighbours; no rise to 1.449e-6). c(x) stays
+  // strictly positive and strictly decreasing toward 0 from above through x = 2e6 (>4x past the omega=5,6
+  // window top x = 457015), obeying (1/24)(ln x)/x + M0/x to a max relative deviation of 1.08e-10, with R(m)
+  // recovering the Euler-Maclaurin leading term 1/(720 m^2) exactly. The imp-97463 double-precision window-top
+  // value 1.431333e-6 was itself in the degraded regime; the trustworthy value is 1.397144e-6 (~2.4% lower,
+  // on the smooth law). Import-light (bakes the mpmath ladder, live-verifies it against the closed-form law);
+  // no bound moved; MCM stays VERIFIED not proved (FALSE from omega=11); PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97478-route-m-mcm-level1-baseterm-extprec.js',
   // imp-97479 (2026-09-26): ATTEMPTS the Bettin-Conrey reciprocity resummation the imp-97460 RESULT 2
   // obstruction asks for -- the reciprocal Vasyunin pair V(xb,b)+V(b,xb) equals R(h/k)=V(h,k)/k+V(k,h)/h
   // at rational x. RESULT 1: on nearby coprime integer pairs r/x^2 jumps with the arithmetic of (h,k) not

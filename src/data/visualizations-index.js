@@ -4773,6 +4773,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every (lnN, palm2, frac) and (target, lnN) value is reused verbatim from imp-97189, no re-derivation of the Palm 2-slot mirror kernel. frac approaches 1 but never reaches it at any finite height; the closed-form law is only asymptotic (loose at lnN=22, tight by lnN=200). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97301-e1-quarter-b-saturation',
+      title: 'Route M: E1 b/4-Saturation Ratio Per Divisor Class',
+      oneLine:
+        'Log-b line chart of the imp-97269 saturation ratio q(b) = |E1(b)|/(b/4) across four divisor classes: primes climbing to 0.999952, while prime powers, primorials and generic composites undershoot and decay toward 0 as b grows -- first visualization for this measurement.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97269-route-m-e1-quarter-b-class-uniformity-crosscheck.js',
+      paperSourcePath:
+        'src/data/imp-97208-route-m-theorem2-tighter-remainder.js (source: the b/4 E1 constant and prime asymptotic imp-97269 cross-checks across classes; imp-97301 viz-data leaf + page)',
+      ticket: 'imp-97301',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every (b, omega, q) value is reused verbatim from imp-97269, no re-derivation of the O(b) E1 kernel. The b/4 ceiling holds class-uniformly (0 violations, b in [2,20000]) but saturates toward 1 only on primes; the smooth-class undershoot is measured, not proved uniformly. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

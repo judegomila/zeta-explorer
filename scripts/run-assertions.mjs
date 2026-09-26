@@ -753,6 +753,16 @@ const DATA_MODULES = [
   // induction top term T(b) stays ~9.4e3x higher in [1.34e-2, 2.02e-2]. Measurement only; no bound moved;
   // PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97463-route-m-mcm-level1-baseterm-decay.js',
+  // imp-97464 (2026-09-26): fits the two-term curvature model r(x) = c2 x^2 + c3 x^3 to the Route M
+  // bulk-profile deviation and tests whether it reproduces all FOUR imp-97441 crossovers
+  // x*(0.5%,1%,2%,5%) = (0.09988,0.16650,0.33131,0.94481). It does NOT: the smooth curvature is buried
+  // below the V(b,a) wobble (signed r mean 3.68e-5 vs std 1.27e-3, signal/wobble 0.029 at b=40000, 0.046
+  // at b=1000), so the fitted (c2,c3) are undetermined and sign-swinging across the fit protocol
+  // (c2 -0.036..+0.177, c3 -0.805..+0.190); under every fit the crossover c2 x + c3 x^2 = eps g(x) misses
+  // all four measured x* (dense-LS over-shoots 27%-227%, c3<0 fits saturate at 0.999), worse than the
+  // one-term kappa_eff fixed point. The 5% crossover x*=0.945 lies far outside the small-x fit window
+  // (a~b symmetry). Measurement only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97464-route-m-twoterm-curvature-crossover-fit.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

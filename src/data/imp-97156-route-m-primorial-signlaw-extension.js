@@ -131,6 +131,14 @@ export const IMP97156_VERDICT = Object.freeze({
     'extend the imp-97140 sign law sign(r(b)) = (-1)^omega(b) to higher primorials (510510, 9699690) ' +
     'and near-primorial smooth moduli to decide whether the subleading opposite-sign takeover is universal',
   leadingRule: 'sign(r(b)) = (-1)^omega(b): omega odd -> r>0, omega even -> r<0 (Liouville parity)',
+  leadingRuleSignConventionNote:
+    'The exponent STRING "(-1)^omega(b)" is the mislabeled imp-97140 orientation: taken literally (-1)^omega ' +
+    'is -1 for omega odd, contradicting the paired data omega odd -> r>0. The data-consistent leading form is ' +
+    'sign(r(b)) = (-1)^(omega(b)+1) = -(-1)^omega(b) (imp-97167 STEP-4 derivation, leading tail term ' +
+    '(-1)^omega delta(1) with delta(1) = -0.084469 < 0). This is a naming reconciliation only; the paired ' +
+    '"omega odd -> r>0, omega even -> r<0" data and all measured signs below are unchanged. Consequently the ' +
+    'primorial flippedSignLaw "sign(r) = (-1)^omega = mu(b)" IS the literal Moebius value and is genuinely ' +
+    'OPPOSITE the corrected leading (-1)^(omega+1), so the "flip" language stays exactly valid.',
   primorialTakeoverIsUniversal: true, // every primorial P5..P8 flips the leading rule
   flippedSignLaw: 'at primorials sign(r) = (-1)^omega = mu(b) (Moebius, opposite the leading Liouville rule)',
   magnitudeCollapse: '|r| ~ 1.07e-6, 3.60e-7, 3.47e-8, 2.49e-9 for P5..P8 (~10x per added small prime)',

@@ -21244,6 +21244,12 @@ const DATA_MODULES = [
   // w(x) endpoint reduction, two-term fit failure, and glossary headword all converge
   // on one wobble-locked obstruction. Index/meta only; NO QED.
   '/src/data/imp-97493-route-m-curvature-crossover-cohort-index.js',
+  // imp-97511: META cohort-index note grouping the Krein Route-2 Kbig direct-build
+  // finite-floor execution sub-family (imp-97414/97440/97455/97482) as one build-then-
+  // measure thread: builds the full-projector A2, executes Route-2 Lehmann-Maehly on it,
+  // measures the Kbig->inf saturation, and verifies it by direct build past Kbig=140.
+  // Narrower than the sibling imp-97492 eight-ticket cohort. Index/meta only; NO QED.
+  '/src/data/imp-97511-krein-route2-kbig-direct-build-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -5011,6 +5011,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the floor law and every measured rung are reused verbatim from imp-97431; no re-solve. The RKHS budget alone certifies c_sharp > 0 for no band in reach; establishes no operator positivity; changes no bound; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97467-crossover-fraction-tolerance-ladder',
+      title: 'imp-97441: The Route M Crossover Fraction x*(eps) Across Four Tolerances',
+      oneLine:
+        'The imp-97441 boundary-to-bulk crossover fraction x*(eps) = A(b)/b charted per tolerance across the b-ladder {1000..16000}: flat to 3-4 digits at eps=0.5%/2%/5%, but BIMODAL at eps=1% (steps 0.199 -> 0.1665) where two deviation crests straddle the 1% level.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97467-route-m-crossover-fraction-tolerance-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97441-route-m-crossover-fraction-tolerance-table.js (IMP97441_XSTAR_TABLE, IMP97441_BINDEPENDENCE; imp-97467 viz-data leaf + page)',
+      ticket: 'imp-97467',
+      pedagogicalStep: 395,
+      honestCeiling:
+        'Presentation only: every plotted point is reused verbatim from the imp-97441 x*(eps) table; no re-solve. Establishes no operator positivity; changes no bound; the imp-97437 effective-curvature fixed point fits this table only in the mid-band eps ~ 1%-2%; the rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

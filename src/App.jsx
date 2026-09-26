@@ -1299,6 +1299,9 @@ const Imp97418KreinCsharpFloorLadderViz = lazy(() =>
 const Imp97452RkFloorLinearLadderViz = lazy(() =>
   import('./pages/Imp97452RkFloorLinearLadderViz.jsx')
 );
+const Imp97467CrossoverFractionToleranceLadderViz = lazy(() =>
+  import('./pages/Imp97467CrossoverFractionToleranceLadderViz.jsx')
+);
 const Imp97426PerTermOverchargeLadderViz = lazy(() =>
   import('./pages/Imp97426PerTermOverchargeLadderViz.jsx')
 );
@@ -3837,6 +3840,10 @@ function AppShell() {
           <Route
             path="/viz-imp97452-rk-floor-linear-ladder"
             element={<Imp97452RkFloorLinearLadderViz />}
+          />
+          <Route
+            path="/viz-imp97467-crossover-fraction-tolerance-ladder"
+            element={<Imp97467CrossoverFractionToleranceLadderViz />}
           />
           <Route
             path="/viz-imp97426-per-term-overcharge-ladder"

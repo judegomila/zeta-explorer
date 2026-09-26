@@ -20881,6 +20881,12 @@ const DATA_MODULES = [
   // first-moment cohort (imp-97096/imp-97097/imp-97119/imp-97122) -- the
   // first-moment-evaluation family. Index/meta only; NO QED.
   '/src/data/imp-97155-route-m-first-moment-evaluation-cohort-index.js',
+  // imp-97221: bundle-hygiene sweep of the Route M viz-data leaves (imp-97130/97169/
+  // 97170/97171 plus the imp-9716x/imp-9717x cohort) -- eight of ten modules have no
+  // imports at all, imp-97130 and imp-97161 each chain through further import-free
+  // modules, none reaching zeros-to-1e6.js. Documentation only; no bound; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-97221-route-m-viz-data-leaves-import-hygiene-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

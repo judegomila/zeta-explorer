@@ -21005,6 +21005,13 @@ const DATA_MODULES = [
   // divisor set recasts the friable Moebius partial sum as a k-fold dilation-difference of
   // a single seed. Documentation only; no bound; NO QED.
   '/src/data/imp-97387-friable-mertens-dilation-recursion-glossary-headword.js',
+  // imp-97466: honest-status note recording the imp-97432 verdict: the Route M MCM hypothesis
+  // is REFUTED at omega=11 (first counterexample b = p_11# = 200560490130, T = -9.624e-4 < 0;
+  // holds through omega=10). The b/4 quarter-ceiling is NOT refuted (|T| = 9.7e-4 there,
+  // primorial limit -0.0458, inside [-1/4,1/4]) -- MCM was strictly stronger than the ceiling.
+  // No consumer should cite MCM as a general lever for omega >= 11; residual is the direct
+  // two-sided band (IMP97432_SUBGAP). Documentation only; no bound moved; NO QED.
+  '/src/data/imp-97466-route-m-mcm-refuted-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

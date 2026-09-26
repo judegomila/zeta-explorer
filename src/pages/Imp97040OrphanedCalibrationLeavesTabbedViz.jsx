@@ -35,6 +35,14 @@ import {
   IMP97039_GAP_DECOMPOSITION,
   IMP97039_HONEST_BANNER,
 } from '../data/imp-97039-vif-reconciliation-ladder.js';
+import {
+  IMP96985_ONSET_LADDER_SERIES,
+  IMP96985_GROWTH_SERIES,
+  IMP96985_T3200,
+  IMP96985_P_GLOBAL,
+  IMP96985_PROJECTED_ONSET_CROSSOVER_N,
+  IMP96985_HONEST_BANNER,
+} from '../data/imp-96985-bessel-onset-finer-ladder-viz-data.js';
 
 // imp-97040: imp-96959/imp-96960/imp-96961 were each "-viz-data" leaves with no confirmed
 // consumer (no .jsx page imported them -- see imp-96925 for the same trap on an earlier leaf).
@@ -510,6 +518,69 @@ function VifReconciliationLadderPanel() {
   );
 }
 
+function BesselOnsetFinerLadderPanel() {
+  const series = [
+    {
+      label: 'sigma_2-weighted floor-lift',
+      color: '#4ade80',
+      points: IMP96985_ONSET_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.residMeasured })),
+    },
+    {
+      label: 'onset/T3200 ratio',
+      color: '#facc15',
+      points: IMP96985_ONSET_LADDER_SERIES.map((r) => ({ x: r.log10N, y: r.tOnsetOverT3200 })),
+    },
+  ];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-96985 reshapes the imp-96957 finer Bessel onset ladder N in {'{88,100,112,124}'} at
+        2a=ln3 into a chart-ready series. The sigma_2-weighted floor-lift keeps growing
+        super-cubically (global exponent {IMP96985_P_GLOBAL.toFixed(3)}, no roll-off) while the
+        literal-onset over-prediction ratio collapses across the same ladder, projecting an
+        unverified crossover near N&asymp;{IMP96985_PROJECTED_ONSET_CROSSOVER_N.toFixed(0)} &mdash;
+        past every rung measured here and past the 2a&le;0.96 interval-verified reach.
+      </p>
+      <LineChart
+        series={series}
+        xTicks={IMP96985_ONSET_LADDER_SERIES.map((r) => r.log10N)}
+        xLabel="log10(N)"
+        yFormat={(v) => v.toExponential(2)}
+        useLogY
+      />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+          <thead>
+            <tr>
+              {['N', 'onsetGapRatio', 'weightedTailFrac', 'onsetFracUnweighted'].map((h) => (
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {IMP96985_ONSET_LADDER_SERIES.map((r) => (
+              <tr key={r.N}>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.N}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.onsetGapRatio.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.weightedTailFrac.toFixed(5)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.onsetFracUnweighted.toFixed(5)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+        Cutoff T3200 = {IMP96985_T3200}. Local step exponents:{' '}
+        {IMP96985_GROWTH_SERIES.map((g) => g.pLocal.toFixed(2)).join(', ')} (all super-cubic).
+      </div>
+      <HonestBanner text={IMP96985_HONEST_BANNER} />
+    </div>
+  );
+}
+
 const TABS = [
   { id: 'krein-floor-margin', label: 'imp-96959: Krein floor margin', Panel: KreinFloorMarginPanel },
   { id: 'etrunc-cc-elasticity', label: 'imp-96960: E_trunc vs C_C elasticity', Panel: EtruncCcElasticityPanel },
@@ -518,6 +589,7 @@ const TABS = [
   { id: 'krein-vacuity-factorisation', label: 'imp-97002: Krein vacuity factorisation', Panel: KreinVacuityFactorisationPanel },
   { id: 'bessel-onset-crossover', label: 'imp-96974: Bessel onset/tail crossover', Panel: BesselOnsetCrossoverPanel },
   { id: 'vif-reconciliation-ladder', label: 'imp-97039: VIF reconciliation ladder', Panel: VifReconciliationLadderPanel },
+  { id: 'bessel-onset-finer-ladder', label: 'imp-96985: Bessel onset finer ladder', Panel: BesselOnsetFinerLadderPanel },
 ];
 
 export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
@@ -529,8 +601,9 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
       <PageHeader title="Orphaned Route I / Route M Calibration Leaves" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
-        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002, imp-96974, imp-97039)
-        shipped as import-light reshapes of earlier calibration tables but had no consuming page.
+        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002, imp-96974, imp-97039,
+        imp-96985) shipped as import-light reshapes of earlier calibration tables but had no
+        consuming page.
         This tab set gives each a chart-ready home in one place instead of near-duplicate
         single-purpose pages.
       </p>

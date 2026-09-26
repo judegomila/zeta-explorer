@@ -743,6 +743,16 @@ const DATA_MODULES = [
   // A(b) = x* b = {199,398,666,1332,2664} stays piecewise-linear. Import-light (Vasyunin recompute at
   // b = 1000/3000 only); no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97459-route-m-bimodal-1pct-crossover-peaks.js',
+  // imp-97463 (2026-09-26): fits the decay-with-b of the imp-97442 tower global minimum -- the LEVEL-1
+  // base term c(x) = h(x) - h(2x) at the largest argument x ~ b/2. Closed-form derivation gives
+  // c(x) ~ (1/24)(ln x)/x + M0/x with M0 = LN_A/2 - (ln 2)/24 = 0.095496 (the leading coeff is 1/24, not
+  // the naive 1/6); a 2-parameter LS fit recovers K = 0.041927 (vs 1/24 = 0.041667, within 0.6%) and
+  // M = 0.093238 (vs M0, within 2.4%), matching the exact kernel c(x) to < 0.1% through x = 1e5. c(x) is
+  // strictly positive and monotone decreasing over the reliable range, approaching 0 from above without
+  // crossing; c(457015) reproduces the imp-97442 baked global minimum 1.431333219910749e-6 exactly. The
+  // induction top term T(b) stays ~9.4e3x higher in [1.34e-2, 2.02e-2]. Measurement only; no bound moved;
+  // PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97463-route-m-mcm-level1-baseterm-decay.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

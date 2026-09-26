@@ -30,6 +30,11 @@ import {
   IMP96974_JOINED_GAP_LADDER,
   IMP96974_VERDICT,
 } from '../data/imp-96974-bessel-onset-crossover-viz-data.js';
+import {
+  IMP97039_LADDER,
+  IMP97039_GAP_DECOMPOSITION,
+  IMP97039_HONEST_BANNER,
+} from '../data/imp-97039-vif-reconciliation-ladder.js';
 
 // imp-97040: imp-96959/imp-96960/imp-96961 were each "-viz-data" leaves with no confirmed
 // consumer (no .jsx page imported them -- see imp-96925 for the same trap on an earlier leaf).
@@ -431,6 +436,80 @@ function BesselOnsetCrossoverPanel() {
   );
 }
 
+function VifReconciliationLadderPanel() {
+  const series = [
+    {
+      label: 'AR(1) full geometric',
+      color: '#f87171',
+      points: IMP97039_LADDER.map((r) => ({ x: r.lag, y: r.cumAr1 })),
+    },
+    {
+      label: 'sign-change truncated',
+      color: '#facc15',
+      points: IMP97039_LADDER.map((r) => ({ x: r.lag, y: r.cumSignChange })),
+    },
+    {
+      label: 'Bartlett b=3',
+      color: '#38bdf8',
+      points: IMP97039_LADDER.map((r) => ({ x: r.lag, y: r.cumBartlett })),
+    },
+  ];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-97039 walks the imp-96832 drift-VIF reconciliation down all 12 lags of the same
+        measured ACF, under three lag treatments. The AR(1) full-geometric extrapolation
+        (red) keeps climbing past the point where the empirical ACF (rhoEmp) turns negative at
+        lag 3; the sign-change-truncated series (amber) freezes there at the integrated-ACF
+        value 2.1356; the Bartlett b=3 block-bootstrap window (blue) down-weights the two
+        retained lags further, landing at 1.6726 (imp-96709 measured MBB 1.6996).
+      </p>
+      <LineChart
+        series={series}
+        xTicks={IMP97039_LADDER.map((r) => r.lag)}
+        xLabel="lag k"
+        yFormat={(v) => v.toFixed(3)}
+      />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+          <thead>
+            <tr>
+              {['lag', 'rhoEmp', 'ar1Geo', 'cumAr1', 'cumSignChange', 'cumBartlett'].map((h) => (
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {IMP97039_LADDER.map((r) => (
+              <tr key={r.lag} style={r.isTruncationLag ? { background: 'rgba(250,204,21,0.06)' } : undefined}>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.lag}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.rhoEmp.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.ar1Geo.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.cumAr1.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.cumSignChange.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.cumBartlett.toFixed(4)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ marginTop: '1rem', fontSize: '0.8rem', color: '#64748b' }}>
+        Gap decomposition: {IMP97039_GAP_DECOMPOSITION.ar1Full.toFixed(3)} (AR(1))
+        &minus; {Math.abs(IMP97039_GAP_DECOMPOSITION.minusFictitiousGeometricTail).toFixed(3)}{' '}
+        (fictitious geometric tail) = {IMP97039_GAP_DECOMPOSITION.signChangeTruncated.toFixed(3)}{' '}
+        &minus; {Math.abs(IMP97039_GAP_DECOMPOSITION.minusBartlettDownWeighting).toFixed(3)}{' '}
+        (Bartlett down-weighting) = {IMP97039_GAP_DECOMPOSITION.bartlettB3Recon.toFixed(3)}{' '}
+        (measured MBB {IMP97039_GAP_DECOMPOSITION.measuredMbb}). Truncation point: lag{' '}
+        {IMP97039_GAP_DECOMPOSITION.truncationPointLag} (highlighted row).
+      </div>
+      <HonestBanner text={IMP97039_HONEST_BANNER} />
+    </div>
+  );
+}
+
 const TABS = [
   { id: 'krein-floor-margin', label: 'imp-96959: Krein floor margin', Panel: KreinFloorMarginPanel },
   { id: 'etrunc-cc-elasticity', label: 'imp-96960: E_trunc vs C_C elasticity', Panel: EtruncCcElasticityPanel },
@@ -438,6 +517,7 @@ const TABS = [
   { id: 'bessel-onset-mass-extended-N', label: 'imp-97038: Bessel onset-mass extended-N', Panel: BesselOnsetMassExtendedNPanel },
   { id: 'krein-vacuity-factorisation', label: 'imp-97002: Krein vacuity factorisation', Panel: KreinVacuityFactorisationPanel },
   { id: 'bessel-onset-crossover', label: 'imp-96974: Bessel onset/tail crossover', Panel: BesselOnsetCrossoverPanel },
+  { id: 'vif-reconciliation-ladder', label: 'imp-97039: VIF reconciliation ladder', Panel: VifReconciliationLadderPanel },
 ];
 
 export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
@@ -449,10 +529,10 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
       <PageHeader title="Orphaned Route I / Route M Calibration Leaves" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
-        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002, imp-96974) shipped as
-        import-light reshapes of earlier calibration tables but had no consuming page. This tab
-        set gives each a chart-ready home in one place instead of near-duplicate single-purpose
-        pages.
+        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002, imp-96974, imp-97039)
+        shipped as import-light reshapes of earlier calibration tables but had no consuming page.
+        This tab set gives each a chart-ready home in one place instead of near-duplicate
+        single-purpose pages.
       </p>
 
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem', borderBottom: '1px solid #334155' }}>

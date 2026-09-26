@@ -4746,6 +4746,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every value is reused verbatim from imp-97333/imp-97352, no re-derivation. The domination method is proved for omega<=4 (tight 3-vs-3 match at omega=4) and fails first at omega=5 (Hall deficiency 2), reducing to the open IMP97333_SIGN_TAIL_SUBGAP. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97409-b4-ceiling-sign-condition-omega-classes',
+      title: 'b/4-Ceiling Sign Condition Across Omega Classes',
+      oneLine:
+        'Per-omega magnitude ratio |Delta(b)|/(b/2) for the Route M b/4-ceiling sign+magnitude condition mu(b)Delta(b)<=0: PROVED through omega<=2 (primes imp-97265, semiprimes imp-97290), OPEN from omega=3 (imp-97393, no violation found in [2,300000], primorial magnitude ratio climbing toward 1/2 from below).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97409-b4-ceiling-sign-condition-omega-classes-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js, src/data/imp-97393-route-m-omega3-delta-sign-magnitude-sweep.js (source: leader decomposition + omega<=2 proof, omega>=3 sweep; imp-97409 viz-data leaf + page)',
+      ticket: 'imp-97409',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: primorial-ladder values reused verbatim from imp-97393; the semiprime magRatio column is an exact algebraic transform of the imp-97290 ratio field (|Delta|/(b/2) = (1-|E1|/(b/4))/2), no new numerics. The sign+magnitude condition is proved for omega<=2 and open for omega>=3, where the magnitude condition holds with slack (ratio -> 1/2 from below) but the sign condition needs retained Moebius cancellation once the naive triangle bound overcharges. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97213-route-m-explicit-remainder-envelope',
       title: 'Route M Explicit Remainder Envelope vs Measured Residual',
       oneLine:

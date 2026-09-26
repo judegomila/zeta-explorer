@@ -24579,6 +24579,35 @@ export const glossary = [
       'imp-97113-krein-bessel-asymptotic-annihilation-scope.js the six leading carrier functionals and 94-dim v0 family both obstructions build on',
     ],
   },
+  {
+    term: 'The imp-97290 Leader + Inward-Correction Decomposition: E1(b) = mu(b)(b/4) + Delta(b)',
+    category: 'proof',
+    definition:
+      'imp-97290 proves an EXACT identity for the Route M composite quarter-ceiling target E1(b) = ' +
+      'L1(b) - phi(b) b((1/2)log b - 1/4): E1(b) = mu(b)(b/4) + Delta(b), where Delta(b) = ' +
+      'Sum_{d|b, d&lt;b} mu(d) d g(b/d), g(m) = ln A + (1/12)log m + R(m) is a smooth positive ' +
+      'increasing weight with g(1) = 1/4 exactly (ln A = Glaisher-Kinkelin log-constant), and R(m) is ' +
+      'the exact Stirling-type remainder of the hyperfactorial G(m) = Sum_{k=1}^m k log k. This isolates ' +
+      'the +-b/4 LEADER cleanly as mu(b) b/4, so its sign is the Liouville-style parity (-1)^omega(b): ' +
+      'NEGATIVE on primes (odd omega, matching the imp-97265 measured E1 ~ -b/4) and POSITIVE on ' +
+      'semiprimes (even omega, matching E1 ~ +b/4). The prior imp-97265 framing attributed the leader to ' +
+      'the d=1 divisor term; this decomposition shows the true carrier is the d=b remainder R(1) = ' +
+      '1/4 - ln A, whose sign flips with parity. The decomposition reduces the ceiling |E1(b)| &lt;= b/4 ' +
+      'to a SIGN condition mu(b) Delta(b) &lt;= 0 (the correction must point inward) plus a MAGNITUDE ' +
+      'condition |Delta(b)| &lt;= b/2, and imp-97290 uses it to PROVE the full semiprime ceiling ' +
+      '|E1(pq)| &lt; pq/4 for every distinct-prime semiprime (via g(m)/m &lt;= g(2)/2 for m &gt;= 2), ' +
+      'lifting the imp-97265 prime-only proof to the first composite class. The uniform ceiling for ' +
+      'omega(b) &gt;= 3 stays an open residual (the Moebius cancellation must be retained since the ' +
+      'naive triangle bound over-charges for many-small-prime b). Honest partial; no bound on Lambda ' +
+      'moves; kappa_arith unchanged; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97317 (adds this glossary headword for the imp-97290 decomposition), 2026',
+    relatedTerms: [
+      'imp-97290-route-m-arith-quarter-ceiling-semiprime-proof.js the source proof (leader decomposition, ceiling reduction, semiprime ceiling)',
+      'imp-97265-route-m-arith-first-moment-quarter-ceiling-proof.js the prime-only ceiling this decomposition restates in the parity-leader language and lifts to semiprimes',
+      'imp-97269-route-m-e1-quarter-b-class-uniformity-crosscheck.js the per-class |E1|/(b/4) tabulation motivating the omega&gt;=3 residual',
+      'imp-97208-route-m-theorem2-tighter-remainder.js the measured |E1|&lt;=b/4 ceiling and proved prime asymptotic this decomposition builds on',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

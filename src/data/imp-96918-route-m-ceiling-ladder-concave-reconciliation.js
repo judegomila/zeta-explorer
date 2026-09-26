@@ -65,6 +65,9 @@
  * @see imp-96890-route-m-frobenius-concave-norm-ceiling-refit.js (the concave-refit F band folded in)
  * @see imp-96648-route-m-lammax-frobenius-moment-majorant.js (the incumbent 8-rung straight-line Frobenius rung)
  * @see imp-96693-route-m-conditioning-ceiling-residual-decomposition.js (T/F/M ceiling ladder, pairwise ratios)
+ * @see imp-97081-route-m-farfield-ceiling-interior-anchor-discriminator.js (LATER: rejects the
+ *   quadratic top end 4.103e7/+8.36% baked below as an unphysical curvature over-run, and narrows
+ *   the credible band to [F, +d/N] = [3.775e7, 3.838e7]; see IMP96918_LATER_CORRECTION)
  *
  * Ticket: imp-96918 (content, sonnet-4-6, sonnet). Reconciliation status object only; NO QED.
  */
@@ -123,6 +126,27 @@ export const IMP96918_VERDICT = Object.freeze({
     'first by >=1500x; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
 });
 
+// LATER CORRECTION (imp-97081, not folded into the reconciliation math above -- it postdates
+// this ticket). The quadratic upper edge baked into IMP96918_FROBENIUS_BAND.concaveQuadUpper
+// (4.103e7, +8.36%) is REJECTED by imp-97081 as an unphysical curvature over-run, using an
+// independent far-field anchor F derived from the interior second-moment slope rather than from
+// refitting the near-field ladder. Per imp-97081 the currently-credible band is the narrower
+// [F, +d/N] = [3.775e7, 3.838e7] (-0.30%..+1.37% vs the line baseline), not the wider
+// [3.838e7, 4.103e7] this reconciliation reports as "the band."
+export const IMP96918_LATER_CORRECTION = Object.freeze({
+  supersededBy: 'imp-97081',
+  quadTopEndRejected: true,
+  rejectedValue: IMP96890_CEILING.NstarQuad, // 4.103e7 -- no longer credible
+  narrowedBandLo: 3.775e7, // F, the imp-97081 interior-slope anchor
+  narrowedBandHi: IMP96890_CEILING.NstarTail, // 3.838e7, +d/N (unchanged)
+  note:
+    'imp-97081 supplies an independent far-field anchor F = 3.775e7 (from the imp-96750 interior ' +
+    'second-moment log-asymptotic slope) that lands BELOW this reconciliation\'s quadratic upper ' +
+    'edge (4.103e7) and rejects it as an unphysical curvature over-run. The currently-credible ' +
+    'band is [F, +d/N] = [3.775e7, 3.838e7], not the wider band reported above. Trace ceiling ' +
+    'T = 2.594e7 remains the only rigorous anchor; no bound moved; RH open; NO QED.',
+});
+
 export const IMP96918_HONEST_BANNER =
   'RH open; PT Lambda <= 0.2 remains SOTA; NO QED. Reconciliation status object only: every value ' +
   'below is imported unchanged from imp-96682 and imp-96890; no Gram was rebuilt, no new fit was ' +
@@ -161,6 +185,17 @@ const IMP96918_ASSERTIONS = [
       /PT Lambda <= 0.2/.test(IMP96918_HONEST_BANNER) &&
       /RH open/.test(IMP96918_HONEST_BANNER),
     why: 'reconciliation only: no bound moved, and the honesty markers are present in the banner.',
+  },
+  {
+    id: 'imp96918-later-correction-flags-quad-top-rejected',
+    holds: () =>
+      IMP96918_LATER_CORRECTION.supersededBy === 'imp-97081' &&
+      IMP96918_LATER_CORRECTION.quadTopEndRejected === true &&
+      IMP96918_LATER_CORRECTION.rejectedValue === IMP96890_CEILING.NstarQuad &&
+      IMP96918_LATER_CORRECTION.narrowedBandLo < IMP96918_LATER_CORRECTION.narrowedBandHi &&
+      /imp-97081/.test(IMP96918_LATER_CORRECTION.note),
+    why: 'a reader landing on this module must see that the quadratic top end it reports as part ' +
+      'of "the band" was later rejected by imp-97081, and be pointed at the narrower [F, +d/N] band.',
   },
 ];
 

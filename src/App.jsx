@@ -1293,6 +1293,9 @@ const Imp97367KreinCsharpCoupledNTGridViz = lazy(() =>
 const Imp97390KreinCsharpUpperBracketsSideBySideViz = lazy(() =>
   import('./pages/Imp97390KreinCsharpUpperBracketsSideBySideViz.jsx')
 );
+const Imp97418KreinCsharpFloorLadderViz = lazy(() =>
+  import('./pages/Imp97418KreinCsharpFloorLadderViz.jsx')
+);
 const Imp97368W1SignProfileViz = lazy(() =>
   import('./pages/Imp97368W1SignProfileViz.jsx')
 );
@@ -3814,6 +3817,10 @@ function AppShell() {
           <Route
             path="/viz-imp97390-krein-csharp-upperbrackets-sidebyside"
             element={<Imp97390KreinCsharpUpperBracketsSideBySideViz />}
+          />
+          <Route
+            path="/viz-imp97418-krein-csharp-floor-ladder"
+            element={<Imp97418KreinCsharpFloorLadderViz />}
           />
           <Route
             path="/viz-imp97368-w1-sign-profile"

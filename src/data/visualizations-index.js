@@ -4941,6 +4941,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every T-sweep point, extrapolated limit, plateau statistic, and joint range is reused verbatim from imp-97335/imp-97206/imp-97355; no re-solve, no new numerics. Both bars are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97418-krein-csharp-floor-ladder',
+      title: 'Route I Krein Floor Ladder at 2a=ln3, Over the Confined sigma_2 Sign Map',
+      oneLine:
+        'The certified Krein c_sharp floor ladder at 2a=ln3: naive symbol-infimum -4336.198 (imp-97335) -> reproducing-kernel confined-well floor -3200.029 (imp-97399, +1136.169, 26.2% of the way to 0) -> measured Rayleigh-Ritz upper bracket +0.582 (imp-97206), on a signed-log number line, plotted over the confined sigma_2(t) sign map the floors are computed from.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97418-krein-csharp-floor-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97335-krein-csharp-naive-lowerbound-tlimit.js (naive symbol-infimum floor -4336.198), src/data/imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (confined well + reproducing-kernel floor -3200.029), src/data/imp-97206-krein-csharp-coupled-nt-jointlimit.js (measured upper bracket ~0.582; imp-97418 viz-data leaf + page)',
+      ticket: 'imp-97418',
+      pedagogicalStep: 391,
+      honestCeiling:
+        'Presentation only: both certified floors and the measured bracket are reused verbatim from imp-97335/imp-97399/imp-97206; only the sigma_2(t) sign-map curve is recomputed pointwise (no re-solve of any bound). Neither certified value is positive; the third marker is a Rayleigh-Ritz UPPER bound, not a floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

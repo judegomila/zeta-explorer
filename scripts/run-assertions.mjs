@@ -817,6 +817,16 @@ const DATA_MODULES = [
   // 0.581059 so the m=1 enclosure stays UNUSABLE at 2a=ln3. Measurement only; no operator positivity; no
   // bound moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97482-krein-route2-kbig-direct-projector-floor.js',
+  // imp-97481 (2026-09-26): DERIVES the imp-97461 replacement lemma RL-L (T(b) >= -1/4 for all squarefree b
+  // via the primorial extremizer) and REFUTES it. Proves the general-b surrogate closed form
+  // surrogate(b) = Pi(P)(lnA - c W(P)) (2x2 triangular operator on {1/x, (log x)/x}), the exact decomposition
+  // T = surrogate + Rcorr with Rcorr -> R(1) = 1/4 - lnA = 1.2455e-3 for min prime >= 101, and the Mertens
+  // window limit surrogate([P0,Y]) -> -c e^{-gamma}/Prod_{p<P0}(1-1/p), UNBOUNDED below (-0.389 at P0=101,
+  // -0.498 at P0=379). So a finite squarefree b has T(b) < -1/4, i.e. |E1(b)| > b/4: the b/4-ceiling LOWER edge
+  // is FALSE for general b and the primorial is the SHALLOWEST window (floor -0.0468), not the extremizer
+  // imp-97432/97461 assumed. Exploratory ceiling, load-bearing for nothing; no bound moved; PT Lambda<=0.2 SOTA;
+  // RH open; NO QED.
+  '/src/data/imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

@@ -21059,6 +21059,11 @@ const DATA_MODULES = [
   // closed form (imp-97330/97356), and the log^2 b vs b^(1/2) separation is DECIDED
   // (imp-97349). Index/meta only; NO QED.
   '/src/data/imp-97391-route-m-diagonal-skeleton-uniform-crossover-cohort-index.js',
+  // imp-97405: HONEST-STATUS note recording the imp-97379 verdict that a third independent
+  // extrapolation order (2D additive fit + diagonal Richardson) does NOT push the Krein
+  // c_sharp upper bracket at 2a=ln3 below the imp-97206 coupled reading -- best measured
+  // upper bracket stays 0.581059. Documentation only; NO QED.
+  '/src/data/imp-97405-krein-csharp-third-order-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

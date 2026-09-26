@@ -7607,6 +7607,35 @@ export const glossary = [
     ],
   },
   {
+    term: 'imp-97403 INDEPENDENT CROSS-CHECK of the imp-33723 closed-form crossover N_cross and the 0.4% halving gap',
+    category: 'numerical',
+    definition:
+      'imp-97403 reproduces the imp-33723 Banach fixed point N_cross = (C_C_PINNED/E_trunc)^2 * log T0(N_cross) ' +
+      'from an INDEPENDENT inverse-height Newton solve (a fresh (T/2pi)(log(T/2pi)-1)=N root, not reusing ' +
+      'effectiveHeightForN), from a deliberately-far seed N0 = 1e9. FINDINGS: (1) the iteration contracts ' +
+      'geometrically (|g_prime(N_cross)| = 4.5423e-2, confirming the imp-33723 4.54e-2) to ' +
+      'N_cross = 3.280294351652e9 in ~8 steps. (2) An independent downslope bisection of E_coll/E_trunc = 1 ' +
+      'lands at the SAME value to relative 1.744e-15 -- confirming the imp-33723 ~1.7e-15 agreement and, ' +
+      'because the fixed point is BRACKET-FREE yet matches the bisected bracket to machine precision, ' +
+      'establishing the crossover carries NO discretization component. (3) The sigma=1/2 halving landmark ' +
+      'E_coll = E_trunc + E_flow bisects to N_half = 3.267235198192e9 (matching imp-33582 3.267235e9), giving ' +
+      'gap (N_cross - N_half)/N_cross = 3.9811e-3 (0.398%, matching imp-33723). The gap is fully accounted ' +
+      'for as the E_flow term: E_flow/E_trunc = 1.9057e-3 at N_half, and via the E_coll proportional to ' +
+      'N^-1/2 chain rule dN/N = 2*dE_coll/E_coll the flow perturbation predicts gap = 2*(E_flow/E_trunc) = ' +
+      '3.8115e-3, leaving residual 1.70e-4 -- reproducing the imp-33723 ~1.8e-4 second-order log T0 drift ' +
+      '(the factor-2 N^-1/2 linkage was implicit in imp-33723; imp-97403 makes it explicit). NO discretization ' +
+      'error, NO E_flow-attribution surprise.\n\n' +
+      'HONEST SCOPE: verification/measurement only. Reuses the inherited imp-3220/imp-3406 component model ' +
+      '(not a rigorous asymptotic); C_mb stays GUE-conditional (imp-486); the C_C 1/8 ansatz is untouched; ' +
+      'changes no bound; Platt-Trudgian Lambda<=0.2 remains the rigorous SOTA; NO QED.',
+    firstUsed: 'imp-97403 (independent extended-precision cross-check of the imp-33723 closed-form E_coll=E_trunc crossover N_cross ~ 3.280294e9 and the 0.4% gap to the imp-33582 sigma=1/2 halving landmark, confirming the 1.7e-15 agreement and the E_flow attribution with an explicit factor-2 N^-1/2 chain rule), 2026',
+    relatedTerms: [
+      'imp-33723 CLOSED-FORM crossover: the imp-3444 E_coll=E_trunc landmark as a Banach fixed point, the result this module independently reproduces (imp-33723)',
+      'imp-33601 exact identity sigma=1/2 <=> E_coll=E_trunc+E_flow, the offset attribution this module re-confirms (imp-33601)',
+      'imp-33582 accelerating sigma(N) post-peak decay, source of the empirical N_half halving landmark (imp-33582)',
+    ],
+  },
+  {
     term: 'imp-33721 KNEE-A-DECADE-BELOW: sub-decade resolution relocates the sigma-ramp inflection to N* ~ 3.38e9',
     category: 'numerical',
     definition:

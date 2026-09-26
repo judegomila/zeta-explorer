@@ -732,6 +732,17 @@ const DATA_MODULES = [
   // extremizer (RL-U: S(b) < 0 uniformly; RL-L: primorial infimum in (-1/4,1/4)). Import-light (self-contained
   // arithmetic kernel); scoping only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97461-route-m-quarter-ceiling-survival-without-mcm-scope.js',
+  // imp-97459 (2026-09-26): characterizes the imp-97441 R2 bimodal x*(1%) crossover row (0.199 ->
+  // 0.1665). The two adjacent signed-deviation (I-I_lin)/I crests that straddle 1% are the 1/6 and
+  // 1/5 cotangent resonances: the LOWER crest at x = 1/6 has a fixed continuum tip 1.113% (exact at
+  // b divisible by 6) whose SAMPLED tip climbs 0.9100 -> 0.9964 -> 1.0456 -> 1.0755 -> 1.0920% across
+  // b = 1000..16000; the UPPER crest at x = 1/5 is dead-flat 1.3934% (a = b/5 exact, always > 1%).
+  // The bimodality is grid-resolution: at b <= 2000 the 1/6 tip is sampled below 1% so the first
+  // exceedance is the 1/5 tip (x* = 0.199); at b >= 4000 it clears 1% so x* = 0.1665. Step point
+  // between b = 2000 (0.9964%) and 4000 (1.0456%); continuum threshold ~ b 2100 (alignment-jittery).
+  // A(b) = x* b = {199,398,666,1332,2664} stays piecewise-linear. Import-light (Vasyunin recompute at
+  // b = 1000/3000 only); no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97459-route-m-bimodal-1pct-crossover-peaks.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

@@ -806,6 +806,17 @@ const DATA_MODULES = [
   // x*(eps) is a dual-mechanism functional (envelope-set <~2%, smooth a~b-set >~2%). Resolves the
   // imp-97464 sub-gap. Derivation only; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97480-route-m-crossover-fluctuation-envelope-vs-smooth-split.js',
+  // imp-97482 (2026-09-26): VERIFIES the imp-97455 Route-2 Kbig->inf finite floor bracket [-322,-306] by
+  // BUILDING the direct projector-limit A2 reproducing-kernel matrix at larger Kbig (extending the executed
+  // sweep past 140 to {140,180,220,260}) rather than by geometric extrapolation. The direct build reproduces
+  // the Kbig=140 anchor (-303.335862) exactly and continues the saturating decrease to -308.745199 at
+  // Kbig=260 (40-step increments collapsing 3.006 -> 1.524 -> 0.879, ratio ~ 0.54; tr(A2) deltas collapsing
+  // 0.183M -> 0.055M toward ~4819.1M). The monotone decrease makes -308.745199 a rigorous upper edge on the
+  // converged floor; geometric-tail (-309.8) and a 10-point power refit (-313.8) pin the limit to the tighter
+  // bracket [-313.8,-308.7], inside imp-97455 [-322.065,-305.866]. Still four orders below the required
+  // 0.581059 so the m=1 enclosure stays UNUSABLE at 2a=ln3. Measurement only; no operator positivity; no
+  // bound moves; interval-rigorous reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97482-krein-route2-kbig-direct-projector-floor.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

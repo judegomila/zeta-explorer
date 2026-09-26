@@ -23997,6 +23997,31 @@ export const glossary = [
       'imp-96593-vif-exact-tail-rigor-upgrade-assessment.js the residual obstruction that motivated the envelope upgrade',
     ],
   },
+  {
+    term: 'Quadrature-Evaluation vs Rigorous-Interval-Majorant Status of the Krein Residual Quantities',
+    category: 'numerical',
+    definition:
+      'A status anchor for the imp-96973 t-truncation-vacuity factorisation chain, so its numbers are not ' +
+      'mistaken for certified bounds. ONLY the imp-96848 closed-form trace bound Tr(B^{-1} R_T) ' +
+      '(IMP96848_TAILTRACE_MAJORANT: 0 <= L - f(T) <= lambda_max(B^{-1/2} R_T B^{-1/2}) <= Tr(B^{-1} R_T), ' +
+      'derived from Weyl monotonicity with no decay assumption) is a RIGOROUS interval majorant -- it ' +
+      'remains valid even though it is numerically vacuous (~3.15e15x the actual residual at N=100, ' +
+      '2a=ln3). Every other figure in the imp-96973 factorisation -- lambda_max(R_T), the min-max Rayleigh ' +
+      'form <v0|R_T|v0> (imp-96888), the actual measured residual, and the three ratio steps (Tr/lammax, ' +
+      'lammax/rayleigh, rayleigh/actual) -- is a QUADRATURE evaluation at a fixed T-grid ' +
+      '(T in {4800,6400,9600}, Tref=12800), not a rigorous enclosure. Upgrading the sharp Rayleigh form to a ' +
+      'genuine interval majorant is the still-open sub-gap IMP96888_RAYLEIGH_TAIL_MAJORANT, being worked by ' +
+      'imp-96990/imp-96993. Documentation only; establishes no operator positivity; interval-rigorous reach ' +
+      'stays 2a <= 0.96; RH open; Platt-Trudgian Lambda <= 0.2 remains SOTA; NO QED.',
+    firstUsed: 'imp-97003 (adds this glossary headword distinguishing quadrature-only from rigorous-majorant status among the imp-96973 Krein-residual quantities), 2026',
+    relatedTerms: [
+      'imp-96848-krein-tresidual-rigorous-tailtrace-bound.js the one figure that IS a rigorous interval majorant (IMP96848_TAILTRACE_MAJORANT)',
+      'imp-96888-krein-tresidual-rayleigh-permode-bound.js the sharp Rayleigh form, quadrature-only (IMP96888_RAYLEIGH_TAIL_MAJORANT still open)',
+      'imp-96973-krein-tailtrace-vacuity-factorisation.js the three-ratio factorisation whose figures are all quadrature evaluations',
+      'imp-96990-rayleigh-tail-majorant-envelope.js open work upgrading the Rayleigh form toward a rigorous enclosure',
+      'imp-96993-rayleigh-tail-interval-enclosure.js further open work on the same rigorous-enclosure upgrade',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

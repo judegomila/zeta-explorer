@@ -21270,6 +21270,12 @@ const DATA_MODULES = [
   // over all (N,T) cells -- small-T cells are under-resolved and read spuriously low.
   // Documentation only; NO QED.
   '/src/data/imp-97512-lam-min-nt-read-guard.js',
+  // imp-97527: META cross-reference index grouping the six late-frontier leaves
+  // imp-97495/97496/97497/97498/97499/97502 into their two parent programs -- Krein
+  // (imp-97495/97497/97498/97502, the c_sharp lower-bound attack at 2a=ln3) and
+  // Route-M (imp-97496/97499, the b/4-ceiling and MCM base-term attacks) -- with each
+  // leaf's one-line verdict. Index/meta only; NO QED.
+  '/src/data/imp-97527-krein-route-m-frontier-leaves-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

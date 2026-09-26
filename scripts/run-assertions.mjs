@@ -21276,6 +21276,13 @@ const DATA_MODULES = [
   // Route-M (imp-97496/97499, the b/4-ceiling and MCM base-term attacks) -- with each
   // leaf's one-line verdict. Index/meta only; NO QED.
   '/src/data/imp-97527-krein-route-m-frontier-leaves-cohort-index.js',
+  // imp-97579 (2026-09-26): CROSS-VALIDATES the imp-97518 closed-form band-edge derivatives
+  // g_pp(a) = (8/a^2)exp(-(Ra)^2/2) and g_ppp(a) = (24/a)(1/a^2-R^2)exp(-(Ra)^2/2) of the confinement
+  // taper against 5-point/6-point central finite differences across a 10-point R ladder spanning the
+  // sign-change point Rc = 1/a: g_pp agrees to ~1e-10..1e-13 relative, g_ppp to < 1e-8 (absolute ~6e-9
+  // at Rc where the closed form vanishes), and the g_ppp sign change at R = 1/a is confirmed. Verification
+  // only; no bound moved; reach 2a <= 0.96; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97579-krein-edge-derivatives-fd-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -20887,6 +20887,10 @@ const DATA_MODULES = [
   // modules, none reaching zeros-to-1e6.js. Documentation only; no bound; NO QED;
   // PT Lambda<=0.2 SOTA.
   '/src/data/imp-97221-route-m-viz-data-leaves-import-hygiene-audit.js',
+  // imp-97201: META cross-reference index grouping the Route I de Branges
+  // coercivity / concentration-constant cohort (imp-97121/imp-97137/imp-97161) --
+  // the c_sharp-only-bounded-from-above family. Index/meta only; NO QED.
+  '/src/data/imp-97201-krein-debranges-coercivity-concentration-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

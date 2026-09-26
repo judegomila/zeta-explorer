@@ -24230,6 +24230,32 @@ export const glossary = [
       'imp-96889-krein-shiftinvert-katotemple-scout.js the original Finding 3a eta drift both scouts fit',
     ],
   },
+  {
+    term: 'Route M Boundary Cotangent Closed Asymptotic V(1,b) = -(b/pi)(log(b/(2pi))+gamma) - 1/pi + O(1/b)',
+    category: 'numerical',
+    definition:
+      'imp-97097 reduced the Route M cotangent first moment to Phi(b) = -V(1,b) + sum_a V(b,a) ' +
+      'and only MEASURED that the boundary term V(1,b) = sum_{m=1}^{b-1} (m/b) cot(pi m/b) (the ' +
+      'classical Bettin-Conrey / Dedekind cotangent sum at argument 1/b) is O(b log b) = o(phi(b) b). ' +
+      'imp-97119 derives the exact leading asymptotic rigorously via an endpoint-Laurent expansion ' +
+      'of cot(pi m/b) near m = b (peeling the singular part -b/(pi(b-m)) and summing the harmonic ' +
+      'tail) matched against the log of the product identity prod_{m=1}^{b-1} 2 sin(pi m/b) = b: ' +
+      'V(1,b) = -(b/pi)(log(b/(2pi)) + gamma) - 1/pi + O(1/b), i.e. leading coefficient -1/pi on ' +
+      'b log b with the log-bracket constant gamma - log(2pi) = -1.26066140151 and next-order term ' +
+      '-1/pi. Verified against mpmath dps=40 for b in {31,...,1025}: residual shrinks like O(1/b) ' +
+      '(-2.8e-3 at b=31 to -8.5e-5 at b=1025). By Landau phi(b) >= c b/log log b, this closes the ' +
+      'boundary-term corner rigorously: V(1,b) = o(phi(b) b) contributes nothing to the leading ' +
+      'kappa phi(b) b. Derivation only -- an elementary asymptotic of a classical cotangent sum, ' +
+      'moves no bound, establishes no operator positivity; Platt-Trudgian Lambda &lt;= 0.2 remains ' +
+      'SOTA; kappa &gt; 0 stays measured not proved; RH open; NO QED.',
+    firstUsed: 'imp-97143 (adds this glossary headword for the imp-97119 closed-form boundary cotangent asymptotic), 2026',
+    relatedTerms: [
+      'imp-97119-route-m-boundary-cotangent-asymptotic.js the source derivation and verification table',
+      'imp-97097 the parent reduction of the Route M first moment that left this boundary term only measured',
+      'imp-97139-route-m-boundary-cotangent-subleading.js follow-on sub-leading O(1/b) coefficient -pi/(36b)',
+      'project_route_m_lower_companion_first_moment Route M first-moment program this closes a corner of',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -838,6 +838,16 @@ const DATA_MODULES = [
   // imp-97432/97461 assumed. Exploratory ceiling, load-bearing for nothing; no bound moved; PT Lambda<=0.2 SOTA;
   // RH open; NO QED.
   '/src/data/imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js',
+  // imp-97496 (2026-09-26): COMPUTES the explicit crossing the imp-97481 refutation left unnamed. The P0=379
+  // window limit -0.4975 sits far below -1/4, so the (logarithmic) descent crosses -1/4 - R(1) at a merely-large
+  // Y found by EXACT finite sieve to 2e8 -- no effective Mertens needed. With the imp-97481 Rcorr enclosure
+  // |Rcorr - R(1)| < 7.59e-10 (min prime 379), the smallest guaranteed crossing is b* = Prod_{379<=p<=73,612,801} p
+  // (omega=4,317,797 prime factors, log b* = 73,606,032, ~10^{3.197e7}, ~31.97 million digits) with T(b*) =
+  // -0.25000000 < -1/4, i.e. |E1(b*)| > b* / 4 -- an EXPLICIT counterexample to the b/4-ceiling lower edge.
+  // Rosser-Schoenfeld effective Mertens remains the route only for the shallower, just-out-of-reach P0=101
+  // crossing (Y ~ 2.63e9, two-term-law estimate = residual sub-gap). Exploratory ceiling, load-bearing for
+  // nothing; no bound moved; PT Lambda<=0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),

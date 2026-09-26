@@ -4955,6 +4955,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: both certified floors and the measured bracket are reused verbatim from imp-97335/imp-97399/imp-97206; only the sigma_2(t) sign-map curve is recomputed pointwise (no re-solve of any bound). Neither certified value is positive; the third marker is a Rayleigh-Ritz UPPER bound, not a floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97426-per-term-overcharge-ladder',
+      title: 'Route M b/4-Ceiling Per-Term Over-Charge Constant Ladder by omega',
+      oneLine:
+        'The imp-97392 per-term MAGNITUDE constant maxGroup(omega) x g(2)/2 by omega=2..6 (0.3069, 0.4603, 1.2274, 2.3014, 4.9096) against the 1/2 ceiling: omega<=2,3 PROVED (below threshold), omega>=4 OVER-CHARGE (the largest signed group exceeds 1/g(2)=3.258891).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97426-per-term-overcharge-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97392-route-m-quarter-ceiling-omega3-magnitude-obstruction.js (groupCounts kernel, group table, INV_G2 crossover; imp-97426 viz-data leaf + page)',
+      ticket: 'imp-97426',
+      pedagogicalStep: 392,
+      honestCeiling:
+        'Presentation only: the ladder is reused verbatim from the imp-97392 groupCounts kernel, no re-derivation. omega>=4 is an OPEN gap, not a disproof -- the per-term bound over-charges there and a uniform proof needs the retained Moebius cancellation between the positive-mu and negative-mu signed groups. Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

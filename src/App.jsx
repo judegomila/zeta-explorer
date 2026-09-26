@@ -1296,6 +1296,9 @@ const Imp97390KreinCsharpUpperBracketsSideBySideViz = lazy(() =>
 const Imp97418KreinCsharpFloorLadderViz = lazy(() =>
   import('./pages/Imp97418KreinCsharpFloorLadderViz.jsx')
 );
+const Imp97426PerTermOverchargeLadderViz = lazy(() =>
+  import('./pages/Imp97426PerTermOverchargeLadderViz.jsx')
+);
 const Imp97368W1SignProfileViz = lazy(() =>
   import('./pages/Imp97368W1SignProfileViz.jsx')
 );
@@ -3821,6 +3824,10 @@ function AppShell() {
           <Route
             path="/viz-imp97418-krein-csharp-floor-ladder"
             element={<Imp97418KreinCsharpFloorLadderViz />}
+          />
+          <Route
+            path="/viz-imp97426-per-term-overcharge-ladder"
+            element={<Imp97426PerTermOverchargeLadderViz />}
           />
           <Route
             path="/viz-imp97368-w1-sign-profile"

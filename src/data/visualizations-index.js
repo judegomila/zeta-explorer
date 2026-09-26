@@ -5277,6 +5277,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: all (b, kappaCot, kappa) points are reused verbatim from imp-97541, stacked-decomposition transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa stays MEASURED, not proved; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97554-b4-ceiling-minb-p0',
+      title: 'imp-97500: b/4-Ceiling Counterexample Size vs Window Floor P0',
+      oneLine:
+        'The imp-97500 RESULT 3 CROSSINGS table charting the counterexample size log10(b)=Prod_{P0<=p<=Ycross} p against the window floor P0, showing an interior minimum at P0=1409 (log10(b_min)=17,823,049, ~17.82M digits) -- ~44% fewer digits than the imp-97496 boundary witness at P0=379 (~31.97M digits).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97554-b4-ceiling-minb-p0-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97500-route-m-window-surrogate-descent-rate-min-b-crossing.js (the CROSSINGS table; imp-97554 viz-data leaf + page)',
+      ticket: 'imp-97554',
+      pedagogicalStep: 413,
+      honestCeiling:
+        'Presentation only: all (P0, log10b) points are reused verbatim from imp-97500, nothing re-derived. The b/4-ceiling lower edge was already REFUTED (imp-97481) and is a dead route; this only charts the already-measured smallest-witness curve. Establishes no operator positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

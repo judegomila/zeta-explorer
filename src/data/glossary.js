@@ -24917,6 +24917,27 @@ export const glossary = [
       'imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js MCM refuted at omega=11 (this law is VERIFIED not proved)',
     ],
   },
+  {
+    term: 'b/4-ceiling explicit witness b* (imp-97496)',
+    category: 'numerical',
+    definition:
+      'The first explicit, rigorously-verified squarefree integer breaching the Route-M b/4-ceiling ' +
+      'lower edge T(b) &gt;= -1/4 (i.e. |E1(b)| &lt;= b/4), refuted in general by imp-97481 but left there ' +
+      'without a named crossing. b* = Prod_{379 &lt;= p &lt;= 73,612,801} p, the product of all primes in ' +
+      'that window, with omega(b*) = 4,317,797 prime factors and log b* = theta(73,612,801) - theta(378) ' +
+      '= 73,606,032, so b* ~ 10^{3.1967e7} (about 31.97 million decimal digits). Its exact window surrogate ' +
+      'is -0.251245526, and via the imp-97481 Rcorr enclosure (Rcorr = R(1) + tail, R(1) = 1/4 - lnA, ' +
+      '|tail| &lt; 7.59e-10 for min prime 379) this guarantees T(b*) &lt;= -0.25000000226 &lt; -1/4 -- an ' +
+      'explicit counterexample, found by an exact finite sieve (to 2e8) with no effective-Mertens appeal. ' +
+      'A comfortable-margin companion witness b_rob = Prod_{379&lt;=p&lt;=158,481,859} p clears T = -0.26000000.',
+    firstUsed: 'imp-97496 (names the explicit crossing witnessing the imp-97481 refutation)',
+    relatedTerms: [
+      'imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js the source module (exact sieve, Rcorr enclosure, both witnesses)',
+      'imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js proved the lower edge false in general; named no crossing',
+      'imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js MCM refuted; the ceiling was wrongly assumed safe',
+      'imp-97461-route-m-quarter-ceiling-survival-without-mcm-scope.js the primorial-extremizer premise this witness bypasses',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

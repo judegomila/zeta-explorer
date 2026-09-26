@@ -20993,6 +20993,12 @@ const DATA_MODULES = [
   // while the fifth shows the separate degree-to-v0 inversion (Obstruction B) is exactly
   // unreachable for that trial, so Route B still does not close. Index/meta only; NO QED.
   '/src/data/imp-97366-krein-routeb-remainder-done-obstructionb-open-cohort-index.js',
+  // imp-97386: Concepts glossary headword recording the imp-97352 D_{p1}(e) = J(e-1) -
+  // J(p1 e - 1) strict-monotonicity ingredient (from 2 sinh(t/2) >= t) and its role
+  // signing every matched pair in the omega=4 Route M sign-law domination injection;
+  // notes the injection is a counting argument that fails from omega=5 (Hall deficiency).
+  // Documentation only; no bound; NO QED.
+  '/src/data/imp-97386-dp1-strictly-decreasing-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

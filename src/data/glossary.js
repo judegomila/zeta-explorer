@@ -24460,6 +24460,38 @@ export const glossary = [
       'kappa_cot ~ +0.12, the Cotangent-Part Coefficient of the Route M First Moment F(b) the coefficient this domination two-sidedly bounds',
     ],
   },
+  {
+    term: 'Pinning F as a VALUE Is Strictly Higher-Order Than Pinning Its Slope: the imp-97207 Intercept Decomposition',
+    category: 'numerical',
+    definition:
+      'imp-97207 shows that fixing the imp-97160 far-field conditioning ceiling F as a VALUE, not ' +
+      'only a SLOPE, requires strictly more than the imp-96750 slope lemma provides. Starting from ' +
+      'the imp-96750 exact regrouping T(M) = 2 Sum_{b=3}^{M} Q(b)/b^2, assuming an asymptotic ' +
+      'Q(b) = s0 b + cQ + r(b) for the interior cotangent second moment Q(b) gives the intercept in ' +
+      'closed structural form c1_T = 2 s0 (gamma - 3/2) + 2 cQ (zeta(2) - 5/4) + 2 R, where ' +
+      'R = Sum_{b&gt;=3} r(b)/b^2. This splits into THREE constituents: (A) 2 s0 (gamma-3/2), EXACT-' +
+      'coefficient times the MEASURED leading slope s0 (~1.75-1.76 reconciled across five readouts); ' +
+      '(B) 2 cQ (zeta(2)-5/4), EXACT-coefficient times the sub-leading CONSTANT cQ that the imp-96750 ' +
+      'slope lemma only BOUNDS (Q &lt;= s0* b + O(1)) and never EVALUATES; (C) 2 R, a convergent but ' +
+      'UNEVALUATED tail-sum of the same Q(b) remainder. A coarse 4-window fit gives cQ ~ -13.4, so ' +
+      'constituent (B) DOMINATES the intercept (~-10.6 of a ~-13.9 partial total), landing near the ' +
+      'measured OLS intercept a_int=-14.929 only as a consistency check, not a derivation. The key ' +
+      'distinction this headword names: pinning the SLOPE s* needs only the leading constant s0 ' +
+      '(imp-96750/imp-96771); pinning the INTERCEPT c1 (hence F as a value) needs the NEXT-order ' +
+      'constants (cQ, R) of the SAME two-variable Vasyunin/Bettin-Conrey cotangent second moment, ' +
+      'plus a further H2-weight intercept correction between the unweighted c1_T and the H2-weighted ' +
+      'Int intercept -- a separate, strictly harder obstruction, not a restatement of the slope gap. ' +
+      'Reduction + measurement only; no bound moves; the rigorous anchor stays T=2.594e7; compute ' +
+      'N~9916 (imp-96352) binds first by &gt;2600x; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH ' +
+      'open; NO QED.',
+    firstUsed: 'imp-97252 (adds this glossary headword for the imp-97207 intercept decomposition), 2026',
+    relatedTerms: [
+      'imp-97207-route-m-farfield-intercept-derivation.js the source decomposition and IMP97207_DECOMPOSITION/IMP97207_PINNABILITY/IMP97207_SUBGAP records',
+      'imp-97160-route-m-farfield-additive-term-spread.js the far-field ceiling F this intercept fixes as a value once cQ, R are evaluated',
+      'imp-96750-route-m-interior-second-moment-upper-bound-reduction.js the source slope lemma Q(b)<=s0* b+O(1) whose O(1) is bounded but not evaluated',
+      'project_route_m_lower_companion_first_moment the Route M first-moment program this intercept sub-gap belongs to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

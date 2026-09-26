@@ -2943,6 +2943,35 @@ const KMAX5_FRONTIER_VERDICT = [
     ],
     links: [],
   },
+  {
+    id: 'Kmax5Frontier-2',
+    tag: 'imp-96970-imp-97012-imp-97050-celllocal-reproduction',
+    color: '#b58a2e',
+    badge: 'NUMERICAL REPRODUCTION, NOT A CERTIFIED REACH EXTENSION',
+    title: 'kmax=5 cell-local 2a=1.00 VERIFIED verdict independently reproduced -- still not promoted to certified reach',
+    status: 'OPEN (numerically verified once, not adversarially certified)',
+    body: [
+      'imp-96970 converged the kmax=5 solve at 2a=1.00 past the round-cap stall above; imp-97012 then ' +
+      'swapped the constant W1PP=32.80 curvature bound for the imp-96992 cell-local |w1-prime-prime| ' +
+      'enclosure. That single swap clears the full [0,40] domain: 0 failing cells (CERTIFICATE VERIFIED) ' +
+      'versus 59 failing cells under the constant bound (deepest rigorous lower bound -0.954363556514616 ' +
+      'at t~37.8) -- the pointwise F-value itself never changes, only which curvature bound the verifier ' +
+      'is allowed to use.',
+      'imp-97050 re-ran the identical cell-local pipeline through a from-scratch, independently-implemented ' +
+      'interval-arithmetic library (not the project mpmath.iv verifier) and reproduced the same verdict: ' +
+      '0 fails / VERIFIED for cell-local B, 59 fails / NOT VERIFIED for constant B, with the deepest bound ' +
+      'matching to 10 significant figures (-0.954363556048962). This rules out a single-verifier bug -- the ' +
+      'cell-local VERIFIED result at 2a=1.00 is a genuine, method-independent NUMERICAL reproduction.',
+      'HONEST STATUS: a numerical reproduction across two independent implementations is not the same as a ' +
+      'certified reach extension. Promoting 2a=1.00 requires (a) independent ADVERSARIAL re-verification of ' +
+      'the cell-local enclosure’s soundness itself, not just cross-implementation agreement on its output, ' +
+      'and (b) the separate interpretive step from a T_a[sigma_2]>=0 certificate to full operator/Weil ' +
+      'positivity (the Rayleigh floors remain upper bounds). Until then the project’s certified reach stays ' +
+      '2a<=0.96, from the Toeplitz T_a certificate route above -- a different path from this flow-positivity ' +
+      'sweep. RH is open, Platt-Trudgian Lambda<=0.2 remains SOTA. NO QED.',
+    ],
+    links: [],
+  },
 ];
 
 // Route C-direct (Kato-Temple / Lehmann-Goerisch) for the Route I Krein floor:

@@ -723,6 +723,12 @@ const DATA_MODULES = [
   // strictly stronger than the ceiling. Import-light (self-contained arithmetic kernel); no bound moved;
   // PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js',
+  // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
+  // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
+  // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),
+  // Qcross/Qrr arithmetic and linear in b (feed s0). Settles the imp-97292 b^(1/2)-vs-log^2 b
+  // degeneracy: separation is log^2 b. Documentation only; no bound moved; NO QED.
+  '/src/data/imp-97385-diagonal-skeleton-q-split-glossary-headword.js',
   // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
   // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
   // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151

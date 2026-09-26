@@ -20926,6 +20926,12 @@ const DATA_MODULES = [
   // obstruct arc; small-r finite-band dominance PROVABLY FAILS (Theta(b log b) vs
   // Theta(b^2)). Index/meta only; NO QED.
   '/src/data/imp-97346-route-m-cotangent-sign-cohort-index.js',
+  // imp-97348 (content, sonnet-4-6, sonnet): standalone honest-status note recording the
+  // imp-97315 FP-precision refinement -- neither the direct O(b) sum nor the fast Gasymp
+  // evaluator is 6-decimal-trustworthy at b ~ 1e8 (the imp-97291 "6 decimals to 2.5e9"
+  // reach is optimistic past ~1e7); the qualitative monotone climb of r(b) toward 1
+  // survives regardless. Audit only; no fix; NO QED.
+  '/src/data/imp-97348-e1-fp-precision-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

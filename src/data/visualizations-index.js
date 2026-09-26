@@ -5123,6 +5123,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97482. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97505-krein-well-capture-tradeoff',
+      title: 'imp-97483: The Well-Capture vs Far-Field-Cost Trade-off',
+      oneLine:
+        'The imp-97483 U-shaped trade-off curve for the band-limited Krein minimiser at 2a=ln3: captured negative, incurred positive, and total int sigma_2|psi|^2 vs confinement radius R, crossing to a single interior minimum at R*=3.35 (total 6.83, converging ~7.3) -- still ~12x the measured c_sharp upper bracket 0.582, with no radius closing the gap.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97505-krein-well-capture-tradeoff-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js (the measured trade-off curve, optimum, and verdict; imp-97505 viz-data leaf + page)',
+      ticket: 'imp-97505',
+      pedagogicalStep: 402,
+      honestCeiling:
+        'Presentation only: every point and constant is reused verbatim from imp-97483. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

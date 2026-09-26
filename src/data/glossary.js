@@ -24962,6 +24962,29 @@ export const glossary = [
       'imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js names the explicit witness breaching the b/4 ceiling on E1',
     ],
   },
+  {
+    term: 'Two-term-law window surrogate (L(P0) + A(P0)/log Y, imp-97496/imp-97500)',
+    category: 'numerical',
+    definition:
+      'The finite-sieve window surrogate surrogate([P0,Y]) = Pi(P)(lnA - c W(P)) (Pi = ' +
+      'Prod_{P0&lt;=p&lt;=Y}(1-1/p), W = Sum_{P0&lt;=p&lt;=Y} log p/(p-1), c = 1/12) approaches its exact ' +
+      'limit L(P0) = -c e^{-gamma}/Prod_{p&lt;P0}(1-1/p) at rate exactly A(P0)/log Y -- a genuine two-term ' +
+      'asymptotic law, not just a decaying-to-zero gap. imp-97500 confirmed gap(Y) = surrogate([P0,Y]) - ' +
+      'L(P0) obeys gap*log Y -&gt; A(P0), flat to ~5 significant figures across Y = 1e3..1e7 (five orders of ' +
+      'Y), for the measured coefficients A(2) = 0.16667, A(101) = 2.98541, A(379) = 4.46072, A(1009) = ' +
+      '5.73606, A(10007) = 9.38172 (A(P0) grows with P0: a deeper limit L(P0) comes with a larger drift ' +
+      'coefficient). A(101) and A(379) reproduce the imp-97496 two-term-law coefficients exactly, cross-' +
+      'checking the two derivations. The law explains why the earlier imp-97481 finite sieve (Y &lt;= 2e5) ' +
+      'only reached surrogate = -0.13212 for P0 = 379: the approach to L(379) = -0.4975 is purely ' +
+      'logarithmic in Y, so short sieves see almost none of the descent.',
+    firstUsed: 'imp-97496 (names the two-term law); imp-97500 (confirms gap*logY -&gt; A(P0) numerically flat across five orders of Y)',
+    relatedTerms: [
+      'imp-97500-route-m-window-surrogate-descent-rate-min-b-crossing.js the source module (DESCENT_RATE table, cross-checks A(P0), locates the min-b crossing)',
+      'imp-97496-route-m-quarter-ceiling-explicit-crossing-window.js first names the two-term law and the P0=379 explicit witness b*',
+      'imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js the original finite-sieve descent (Y&lt;=2e5) this law explains the slowness of',
+      'b/4-ceiling explicit witness b* (imp-97496) the crossing witness whose descent this law governs',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

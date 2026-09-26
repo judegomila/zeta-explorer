@@ -4606,6 +4606,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every value across all three tabs is reused verbatim from the imp-96959/imp-96960/imp-96961 viz-data leaves (themselves verbatim reshapes of imp-96938/imp-96936+imp-96950/imp-96934); no re-solve, no new numerics. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97041-nyquist-alias-periodogram',
+      title: 'imp-96832 Nyquist-Alias Relabel: Periodogram',
+      oneLine:
+        'Stem-plot periodogram of the 21-rung Burnol-ratio ladder showing the imp-96832 claimed frequency w=3.85 sitting above the Nyquist line pi=3.1416 with power identical to its resolvable alias image 2.4332, dwarfed (~13x) by the genuine leave-one-out-robust peak at w=0.70 -- first consuming page for the previously-orphaned imp-96941 viz-data leaf.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-96941-lombscargle-periodogram-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-96915-burnol-oscillation-frequency-periodogram.js (source claimed/alias/genuine-peak numbers), src/data/imp-96941-lombscargle-periodogram-viz-data.js (chart-ready reshape; imp-97041 viz page)',
+      ticket: 'imp-97041',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every frequency and power value is reused verbatim from imp-96915/imp-96941 (no re-derivation of the underlying Lomb-Scargle numerics). Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97082-ritz-vs-rigorous-crossval-range',
       title: 'Route I Krein Floor at 2a=0.96: Ritz vs Rigorous Cross-Validation',
       oneLine:

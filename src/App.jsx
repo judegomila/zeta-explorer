@@ -1597,6 +1597,9 @@ const Imp96671SpectralShareVsMeasuredSlopeViz = lazy(() =>
 const Imp97040OrphanedCalibrationLeavesTabbedViz = lazy(() =>
   import('./pages/Imp97040OrphanedCalibrationLeavesTabbedViz.jsx')
 );
+const Imp97041NyquistAliasPeriodogramViz = lazy(() =>
+  import('./pages/Imp97041NyquistAliasPeriodogramViz.jsx')
+);
 const Imp97082RitzVsRigorousCrossvalRangeViz = lazy(() =>
   import('./pages/Imp97082RitzVsRigorousCrossvalRangeViz.jsx')
 );
@@ -4150,6 +4153,10 @@ function AppShell() {
           <Route
             path="/viz-imp97040-orphaned-calibration-leaves"
             element={<Imp97040OrphanedCalibrationLeavesTabbedViz />}
+          />
+          <Route
+            path="/viz-imp97041-nyquist-alias-periodogram"
+            element={<Imp97041NyquistAliasPeriodogramViz />}
           />
           <Route
             path="/viz-imp97082-ritz-vs-rigorous-crossval-range"

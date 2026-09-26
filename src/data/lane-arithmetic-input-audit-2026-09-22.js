@@ -258,6 +258,26 @@ export const LANE_ARITHMETIC_INPUT_AUDIT = Object.freeze({
       'pointwise anti-clustering of off-line zeros near every off-line zero; implied by RH to 7.5e16; implied by no known theorem (averages over [T,2T] or windows >= T^{1/2+eps}; MV-CAP); not a zero-free region; same shape as the (ZR) repulsion object',
     rigorCaveat: 'proof uses the zero ODE dz/dt = 2 sum 1/(z - z_j) for H_t (Rodgers-Tao Sec. 3) and a sup-attainment step; both flagged for referee',
   }),
+  // C1 Palm correction (rh-bridge-mirror-descent-2026-09-25, imp-97059): the f_req = p_req / ln N
+  // reading above implicitly used the FULL mean pull ln N (mean density ln N/(2 pi) times the real
+  // Poisson kernel mass 2 pi) as the all-real baseline. That is the wrong (unconditioned) baseline.
+  // Conditioned on the topmost zero z being present (neutral rigid lattice, spacing 2 pi/ln N, the
+  // topmost pair pair-excluded, first neighbour at 1.5 s, both sides), the all-real neutral pull is
+  // only P_neutral(y0) = 2.741 = 0.204 ln N at the seam and 5.063 = 0.274 ln N at N1*, not ln N. So
+  // p_req is not a fraction f < 2/3 of an all-real window; the corrected fraction f_req_corrected =
+  // p_req / P_neutral is 1.596 at the seam (> 1: a LOCAL SURPLUS over even the all-real neutral
+  // configuration, the lane analog of the mirror 1.73x) and 0.864 at N1*. No shortage vanishes; the
+  // constant-p form demands a surplus at the seam. Model/measurement only; NS-RIGID class; no bound.
+  palmCorrection: Object.freeze({
+    baselineError: 'the f_req = p_req / ln N reading used the unconditioned full mean pull ln N as the all-real baseline; the correct conditioned-on-a-zero (neutral rigid Palm) all-real pull is smaller',
+    allRealNeutralPullSeam: 2.741, // 0.204 ln N (ln N = 13.446)
+    allRealNeutralPullN1Star: 5.063, // 0.274 ln N (ln N = 18.509)
+    fReqNaiveSeam: 0.325,
+    fReqNaiveN1Star: 0.236,
+    fReqCorrectedSeam: 1.596, // p_req / all-real neutral pull; > 1 = local surplus over all-real neutral
+    fReqCorrectedN1Star: 0.864,
+    verdict: 'the naive f_req UNDERSTATES the requirement by 1/0.204 ~ 4.9x at the seam; corrected f_req_corrected = 1.596 > 1 means the constant-p form needs a local surplus over the all-real neutral configuration at the seam (0.864 at N1*), not a sub-2/3 fraction; no-shortage framing REFUTED, matching the mirror-descent C1 correction',
+  }),
   status: 'RH open; PT Lambda <= 0.2 SOTA; Lambda < 0.145 NOT established; NO QED',
   files: [
     'src/data/imp-95218-route7-cost-curve.js',
@@ -316,6 +336,18 @@ export const LANE_ARITHMETIC_INPUT_AUDIT_ASSERTIONS = Object.freeze([
     holds: () => {
       const c = LANE_ARITHMETIC_INPUT_AUDIT.conditionalTheorem;
       return near(c.fReqAtSeam, 0.325, 5e-3) && near(c.fReqAtN1Star, 0.236, 5e-3) && c.fReqAtSeam < 2 / 3 && c.fReqAtSeam < 5 / 12;
+    },
+  },
+  {
+    id: 'laia-palm-corrected-real-fraction-is-a-surplus',
+    why: 'C1 (imp-97059): under the conditioned-on-a-zero neutral Palm baseline the all-real pull is only 0.204 ln N at the seam, so p_req is a local SURPLUS (corrected f_req = 1.596 > 1), not a sub-2/3 fraction; naive reading understates ~4.9x',
+    holds: () => {
+      const pc = LANE_ARITHMETIC_INPUT_AUDIT.palmCorrection;
+      const pReq = pRequired(TARGET.t0, TARGET.y0);
+      return near(pc.fReqCorrectedSeam, pReq / pc.allRealNeutralPullSeam, 5e-3) &&
+        near(pc.fReqCorrectedN1Star, pReq / pc.allRealNeutralPullN1Star, 5e-3) &&
+        pc.fReqCorrectedSeam > 1 && pc.fReqCorrectedSeam > pc.fReqNaiveSeam &&
+        near(pc.allRealNeutralPullSeam / Math.log(N_SEAM), 0.204, 3e-3);
     },
   },
   {

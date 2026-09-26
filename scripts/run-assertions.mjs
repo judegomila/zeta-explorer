@@ -21318,6 +21318,16 @@ const DATA_MODULES = [
   // dominated there by E_coll. Measurement only; no bound moved; C_mb GUE-conditional per imp-486;
   // PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97585-eflow-etrunc-share-full-ladder.js',
+  // imp-97565 (2026-09-26): MEASURES the C_C sensitivity of the imp-33723 closed-form crossover
+  // N_cross = (C_C/E_trunc)^2 log T0(N_cross) and the resulting shift of the imp-33582 sigma=1/2
+  // halving landmark. The C_C-elasticity is d log N_cross / d log C_C = 2/(1 - g_prime) ~ 2.09517
+  // (above the naive C_C^2 by the log T0 self-coupling factor), matched by a log-C_C central
+  // difference to 6 digits and flat in ~[2.089, 2.102] over a 0.5x..2x sweep. The halving landmark
+  // tracks slightly steeper (~2.10235) because the ~0.4% halving offset is the shrinking E_flow
+  // share (rel offset 1.376e-2 -> 1.141e-3 across the sweep). Measurement only; C_C 1/8 ansatz
+  // perturbed as a probe not re-pinned; C_mb GUE-conditional per imp-486; no bound moved;
+  // PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97565-crossover-cc-sensitivity-landmark-shift.js',
 ];
 
 let ALL_MODULES = FAST_MODE

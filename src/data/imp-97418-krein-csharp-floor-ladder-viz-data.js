@@ -9,10 +9,12 @@
  *   (1) imp-97335: naive symbol-infimum floor    c_sharp >= inf_t sigma_2  = -4336.198
  *   (2) imp-97399: reproducing-kernel confined-well floor                  = -3200.029
  *                  (+1136.169, 26.2% of the way from -4336.198 to 0)
- *   (3) imp-97206: measured Rayleigh-Ritz upper bracket (NOT a certified floor) = +0.582
+ *   (3) imp-97416: bathtub/water-filling joint floor                       = -3065.435
+ *                  (+134.594 over the reproducing-kernel floor)
+ *   (4) imp-97206: measured Rayleigh-Ritz upper bracket (NOT a certified floor) = +0.582
  *
  * This module reshapes those literals (imported directly, no transcription) into a
- * three-bar ladder plus a sign-map series of sigma_2(t) over the confined negative
+ * four-bar ladder plus a sign-map series of sigma_2(t) over the confined negative
  * well [0, 10.532] (imp-97399 Finding 1), shading the two negative sub-intervals.
  *
  * PRESENTATION ONLY. Neither certified floor is positive; no operator positivity
@@ -21,6 +23,7 @@
  *
  * @see imp-97335-krein-csharp-naive-lowerbound-tlimit.js (naive symbol-infimum floor -4336.198)
  * @see imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js (confined well + RK floor -3200.029)
+ * @see imp-97416-krein-csharp-bathtub-joint-floor.js (bathtub/water-filling joint floor -3065.435)
  * @see imp-97206-krein-csharp-coupled-nt-jointlimit.js (measured upper bracket ~0.582)
  *
  * Ticket: imp-97418 (ux, sonnet-4-6, medium). Presentation only, RH-free;
@@ -28,12 +31,13 @@
  */
 
 import { IMP97399_FLOOR, IMP97399_WELL, IMP97399_BINDING_2A } from './imp-97399-krein-csharp-reproducing-kernel-concentration-attempt.js';
+import { IMP97416_FLOOR } from './imp-97416-krein-csharp-bathtub-joint-floor.js';
 import { sigma2 } from './rh-route-i-toeplitz-krein-certificate-2026-09-24.js';
 
 export const IMP97418_BINDING_2A = IMP97399_BINDING_2A;
 
-// Three-bar floor ladder: naive well-depth floor -> reproducing-kernel confined-well
-// floor -> measured (not certified) upper bracket.
+// Four-bar floor ladder: naive well-depth floor -> reproducing-kernel confined-well
+// floor -> bathtub/water-filling joint floor -> measured (not certified) upper bracket.
 export const IMP97418_LADDER_BARS = Object.freeze([
   Object.freeze({
     key: 'naive',
@@ -47,6 +51,13 @@ export const IMP97418_LADDER_BARS = Object.freeze([
     label: 'imp-97399: reproducing-kernel confined-well floor',
     value: IMP97399_FLOOR.reproducingKernelFloor, // -3200.029
     color: '#facc15',
+    isCertifiedFloor: true,
+  }),
+  Object.freeze({
+    key: 'bathtub',
+    label: 'imp-97416: bathtub/water-filling joint floor',
+    value: IMP97416_FLOOR.bathtubJointFloor, // -3065.435
+    color: '#fb923c',
     isCertifiedFloor: true,
   }),
   Object.freeze({
@@ -91,17 +102,19 @@ export const IMP97418_HONEST_BANNER =
 
 const IMP97418_ASSERTIONS = [
   {
-    id: 'imp97418-ladder-three-bars-monotone-improving',
+    id: 'imp97418-ladder-four-bars-monotone-improving',
     holds: () => {
       const B = IMP97418_LADDER_BARS;
-      return B.length === 3 &&
-        B[0].value < B[1].value && B[1].value < B[2].value &&
-        B[0].isCertifiedFloor === true && B[1].isCertifiedFloor === true && B[2].isCertifiedFloor === false &&
+      return B.length === 4 &&
+        B[0].value < B[1].value && B[1].value < B[2].value && B[2].value < B[3].value &&
+        B[0].isCertifiedFloor === true && B[1].isCertifiedFloor === true &&
+        B[2].isCertifiedFloor === true && B[3].isCertifiedFloor === false &&
         Math.abs(B[0].value - -4336.198) < 1e-2 &&
         Math.abs(B[1].value - -3200.029) < 0.5 &&
-        Math.abs(B[2].value - 0.582) < 1e-6;
+        Math.abs(B[2].value - -3065.435) < 0.5 &&
+        Math.abs(B[3].value - 0.582) < 1e-6;
     },
-    why: 'the three ladder rungs must be strictly increasing (naive < reproducing-kernel < measured), with only the first two being certified floors and the third an upper bracket.',
+    why: 'the four ladder rungs must be strictly increasing (naive < reproducing-kernel < bathtub < measured), with only the first three being certified floors and the fourth an upper bracket.',
   },
   {
     id: 'imp97418-improvement-matches-26pct',

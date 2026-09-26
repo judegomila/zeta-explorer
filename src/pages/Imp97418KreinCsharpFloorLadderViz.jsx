@@ -12,12 +12,12 @@ import {
 } from '../data/imp-97418-krein-csharp-floor-ladder-viz-data.js';
 
 // imp-97418: visualization of the certified Krein c_sharp floor ladder at 2a=ln3.
-// Panel 1 places the three rungs (naive well-depth floor -4336.198, reproducing-
-// kernel confined-well floor -3200.029, measured Rayleigh-Ritz upper bracket
-// +0.582) on a signed-log number line so the huge naive/RK magnitudes and the
-// near-zero measured value are all visible at once. Panel 2 shows the sigma_2(t)
-// sign map the floors are computed from, with the two confined negative
-// sub-intervals shaded.
+// Panel 1 places the four rungs (naive well-depth floor -4336.198, reproducing-
+// kernel confined-well floor -3200.029, bathtub/water-filling joint floor -3065.435,
+// measured Rayleigh-Ritz upper bracket +0.582) on a signed-log number line so the
+// huge naive/RK magnitudes and the near-zero measured value are all visible at
+// once. Panel 2 shows the sigma_2(t) sign map the floors are computed from, with
+// the two confined negative sub-intervals shaded.
 
 const signedLog = (v) => Math.sign(v) * Math.log10(1 + Math.abs(v));
 
@@ -167,12 +167,15 @@ export default function Imp97418KreinCsharpFloorLadderViz() {
         symbol-infimum floor -4336.198 to -3200.029 (+{IMP97418_IMPROVEMENT_OVER_NAIVE.toFixed(3)},
         {' '}{IMP97418_PERCENT_OF_GAP_TO_ZERO.toFixed(1)}% of the way to 0), by using the
         confinement of sigma_2&apos;s negativity set (imp-97399 Finding 1) shown below.
+        imp-97416 then coupled that pointwise budget with the mass constraint via a
+        bathtub/water-filling argument, lifting the floor further to -3065.435 (+134.594).
         The measured value imp-97206 reports (+0.582) is positive, but reaching it
-        rigorously still requires a joint weighted estimate, not a uniform pointwise one.
+        rigorously still requires a genuinely spectral estimate, not a scalar
+        rearrangement bound.
       </p>
 
       <h3 style={{ color: '#e2e8f0', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
-        The floor ladder: naive &rarr; reproducing-kernel &rarr; measured
+        The floor ladder: naive &rarr; reproducing-kernel &rarr; bathtub &rarr; measured
       </h3>
       <FloorLadderPanel />
 

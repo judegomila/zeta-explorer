@@ -21220,6 +21220,11 @@ const DATA_MODULES = [
   // (imp-97432/97442) as one two-pronged cohort attacking the same b/4-ceiling question
   // from opposite directions. Index/meta only; NO QED.
   '/src/data/imp-97474-route-m-omega5-signlaw-mcm-cohort-index.js',
+  // imp-97492: META cross-reference index grouping the Krein c_sharp lower-bound
+  // obstruction cohort (imp-97399/97414/97415/97416/97440/97455/97457/97458) as one
+  // chronological floor-sharpening thread (-3200.029 -> -3065.435 -> -1343.796) with both
+  // named Lehmann-Maehly routes closed off. Index/meta only; NO QED.
+  '/src/data/imp-97492-krein-csharp-lower-bound-obstruction-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

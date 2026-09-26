@@ -21128,6 +21128,11 @@ const DATA_MODULES = [
   // c_sharp upper bracket at 2a=ln3 below the imp-97206 coupled reading -- best measured
   // upper bracket stays 0.581059. Documentation only; NO QED.
   '/src/data/imp-97405-krein-csharp-third-order-honest-status.js',
+  // imp-97417: HONEST-STATUS correction note recording the imp-97399 FINDING 1: the sigma_2
+  // negativity set is a SINGLE CONFINED region with FINITE depth -4336.198 and FINITE area
+  // 18301.61, correcting the imp-97161 prose claim of recurring negative bands with unbounded
+  // t^4 depth out to infinity. Documentation only; NO QED.
+  '/src/data/imp-97417-sigma2-confined-well-correction-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -71,6 +71,10 @@
  * @see imp-96569-route-m-window-reach-projection.js (SE-of-mean LOWER-bound reach)
  * @see imp-96601-route-m-reach-verdict-glossary-headword.js (headword flagging the caveat)
  * @see imp-96487-route-m-burnol-ratio-asymptotic-remainder-model.js (drift degeneracy, ladder)
+ * @see imp-96944-w385-nyquist-alias-glossary-headword.js (imp-96915 found the imp-96832
+ *   rung-index-domain reading of w=3.85 was a Nyquist-alias artifact; w_best here is the
+ *   DIFFERENT L-domain (rad/logN) MB fit frequency, unaffected by that correction --
+ *   IMP96692_VIF.note below records the reconciliation)
  *
  * Ticket: imp-96692 (numerical, opus-4-8, api-pool). Numerics only; NO QED.
  */
@@ -99,7 +103,7 @@ export const IMP96692_VIF = Object.freeze({
   oscillationCoherence: 4.645302223026322, // rungsPerL*(T_L/2), T_L = 2pi/w_best
   T_L: 1.6319961836830095,
   zInflation: 1.605616399764019,       // sqrt(ar1): z_eff = z*sqrt(VIF)
-  note: 'the measured drift covariance inflates the mean variance ~2.1x-2.6x (up to ~4.6x under the oscillation-coherence bound); this is equivalent to requiring the reach of an SE-of-mean decision at z_eff = z*1.606.',
+  note: 'the measured drift covariance inflates the mean variance ~2.1x-2.6x (up to ~4.6x under the oscillation-coherence bound); this is equivalent to requiring the reach of an SE-of-mean decision at z_eff = z*1.606. RECONCILIATION (imp-97048): w_best=3.85 here is rad per unit L=logN, not the rung-index-domain reading imp-96915/imp-96944 found to be a Nyquist-alias artifact; converted to rung-index units (dividing by rungsPerL=5.6926) it gives ~0.676 rad/rung, consistent with -- not contradicted by -- the genuine imp-96915 w=0.70 rad/rung peak, so this VIF estimate stands unchanged.',
 });
 
 // FINDING (C): the reach re-solved with the AR(1) drift covariance (primary VIF).

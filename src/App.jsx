@@ -1624,6 +1624,9 @@ const Imp97214RouteMFarfieldSlopebandVsOriginalViz = lazy(() =>
 const Imp97215RouteMKappaDecompositionViz = lazy(() =>
   import('./pages/Imp97215RouteMKappaDecompositionViz.jsx')
 );
+const Imp97216RouteMPerClassSaturationRatioViz = lazy(() =>
+  import('./pages/Imp97216RouteMPerClassSaturationRatioViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4210,6 +4213,10 @@ function AppShell() {
           <Route
             path="/viz-imp97215-route-m-kappa-decomposition"
             element={<Imp97215RouteMKappaDecompositionViz />}
+          />
+          <Route
+            path="/viz-imp97216-route-m-per-class-saturation-ratio"
+            element={<Imp97216RouteMPerClassSaturationRatioViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -4731,6 +4731,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97096 and imp-97097, no re-derivation. The arithmetic part is EXACT (0.5704960511...); the cotangent part is MEASURED (~0.121); their sum kappa~0.69>0 is therefore MEASURED, not proved. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97216-route-m-per-class-saturation-ratio',
+      title: 'Route M Per-Class Remainder Saturation Ratios',
+      oneLine:
+        'Log-b ladder of the imp-97158 saturation ratio r0(b) = |E0(b)|/bound across three b-classes: primes climbing toward the exact 1/4 asymptote, prime powers decaying with the exponent, and primorials collapsing by orders of magnitude -- first visualization for this measurement.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97158-route-m-theorem1-remainder-sharpness.js',
+      paperSourcePath:
+        'src/data/imp-97133-route-m-arith-first-moment-explicit-remainder.js (source: the Theorem-1/2 constants whose sharpness imp-97158 measures; imp-97216 page)',
+      ticket: 'imp-97216',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97158, no re-derivation. The named constant 2^omega(b)(log b+2) is sharp only on primes (ratio -> 1/4, a finite factor-4 overhead); it is orders too large on prime powers and primorials (mu-sign cancellation the triangle bound discards). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

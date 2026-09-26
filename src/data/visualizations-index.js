@@ -4745,6 +4745,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97158, no re-derivation. The named constant 2^omega(b)(log b+2) is sharp only on primes (ratio -> 1/4, a finite factor-4 overhead); it is orders too large on prime powers and primorials (mu-sign cancellation the triangle bound discards). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97217-krein-csharp-nt-coupled-descent',
+      title: 'Krein c_sharp Coupled N/T Descent Ladder and T-Sweep',
+      oneLine:
+        'Two-panel view of the imp-97183 extended-precision c_sharp = lambda_min(P_a M_sigma2 P_a) floor at 2a=ln3: the fixed-T=800 N-ladder descends with no stabilisation past the double-precision wall, while a T-sweep at N=100 rises and levels toward ~0.58, the two truncations pushing lambda_min in opposite directions.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97183-krein-csharp-extprec-ladder.js',
+      paperSourcePath:
+        'src/data/imp-97121-krein-uniform-n-floor-certificate-scope.js (source: coupled N/T tail framing; imp-97183 extended-precision ladder + imp-97217 page)',
+      ticket: 'imp-97217',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97183, no re-derivation. Rayleigh-Ritz floors are upper bounds only; the still-moving bracket ~[0.50, 0.58] is consistent with a positive limit but neither converges nor crosses zero. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -1627,6 +1627,9 @@ const Imp97215RouteMKappaDecompositionViz = lazy(() =>
 const Imp97216RouteMPerClassSaturationRatioViz = lazy(() =>
   import('./pages/Imp97216RouteMPerClassSaturationRatioViz.jsx')
 );
+const Imp97217KreinCsharpNTCoupledDescentViz = lazy(() =>
+  import('./pages/Imp97217KreinCsharpNTCoupledDescentViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4217,6 +4220,10 @@ function AppShell() {
           <Route
             path="/viz-imp97216-route-m-per-class-saturation-ratio"
             element={<Imp97216RouteMPerClassSaturationRatioViz />}
+          />
+          <Route
+            path="/viz-imp97217-krein-csharp-nt-coupled-descent"
+            element={<Imp97217KreinCsharpNTCoupledDescentViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

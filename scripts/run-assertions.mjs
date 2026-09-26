@@ -21225,6 +21225,12 @@ const DATA_MODULES = [
   // chronological floor-sharpening thread (-3200.029 -> -3065.435 -> -1343.796) with both
   // named Lehmann-Maehly routes closed off. Index/meta only; NO QED.
   '/src/data/imp-97492-krein-csharp-lower-bound-obstruction-cohort-index.js',
+  // imp-97493: META cross-reference index grouping the Route M Vasyunin bulk-profile
+  // curvature-crossover cohort (imp-97437/97441/97459/97460/97464/97472): analytic
+  // fixed point + kappa_eff, four-tolerance table, 1/6-1/5 resonance mechanism, exact
+  // w(x) endpoint reduction, two-term fit failure, and glossary headword all converge
+  // on one wobble-locked obstruction. Index/meta only; NO QED.
+  '/src/data/imp-97493-route-m-curvature-crossover-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

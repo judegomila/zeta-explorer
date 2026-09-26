@@ -4969,6 +4969,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the ladder is reused verbatim from the imp-97392 groupCounts kernel, no re-derivation. omega>=4 is an OPEN gap, not a disproof -- the per-term bound over-charges there and a uniform proof needs the retained Moebius cancellation between the positive-mu and negative-mu signed groups. Changes no bound, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97427-sigma-fartail-exponent-ladder',
+      title: 'sigma(N) Far-Tail Decay-Exponent Ladder Past 1e12',
+      oneLine:
+        'The imp-97404 extended sigma(N) per-decade local decay exponent past 1e12: 0.4310 [1e11,1e12] -> 0.4646 -> 0.4777 -> 0.4828 [1e14,1e15], decade R^2 climbing to ~0.999999, and the pointwise exponent p(N) 0.4526 (1e12) -> 0.4842 (1e15) -> 0.4889 (1e20) approaching the imp-3463 1/2 asymptote from below.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97427-sigma-fartail-exponent-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97404-sigma-fartail-exponent-ladder-past-1e12.js (extendedLadder, pointwise, farTailExponent; imp-97427 viz-data leaf + page)',
+      ticket: 'imp-97427',
+      pedagogicalStep: 393,
+      honestCeiling:
+        'Presentation only: the decade and pointwise exponent ladders are reused verbatim from the imp-97404 measurement (itself extending imp-33582 on the inherited imp-3406/imp-33582 three-term sigma(N) model). Measurement/fit diagnostic, NOT an RH bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

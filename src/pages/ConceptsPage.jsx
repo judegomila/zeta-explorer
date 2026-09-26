@@ -1393,6 +1393,15 @@ const CONCEPTS = [
     formula: "T{=}60,\\,HP{=}0.05{:}\\ \\text{residual walls at}\\ {-}0.167\\to{-}0.745;\\quad T{=}40,\\,HP{=}0.01{:}\\ \\text{residual plateaus}\\ {\\approx}{-}0.061\\ (F{=}0.953\\ \\text{at}\\ t{\\approx}35.9)",
     intuition: "Neither lever drives the guarded residual to >=0. Pushing the cutoff T from 40 to 60 does lift the OLD dip band (t~35-40 rises from F=0.802 to F~0.995, now above eps) -- but a NEW dip of comparable depth appears right at the new edge (F=0.866 at t~42.6), and the worst residual over the run walls non-monotonically, worsening to -0.745. Densifying the periodic tail block instead (HP 0.05 -> 0.01, ~31k tail rows/round) slowly lifts the fine-grid F (0.782 -> 0.953 over rounds) but plateaus near the original -0.056 residual with F still below eps. The pattern is the same either way: the dip is an edge effect of the kmax=5 top-family that tracks wherever the cutoff currently sits, not a discretisation artifact that a bigger T or finer tail spacing can dissolve. So the binding constraint is genuinely the design class, and clearing it needs a RICHER FAMILY (higher kmax or a different tail ansatz), not further tail parametrisation. Certified interval-rigorous reach is unchanged at 2a<=0.96; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
   },
+  {
+    id: 'imp-97161-single-cosine-arithmetic-obstruction',
+    category: 'proof',
+    term: 'imp-97161: At 2a = ln3 the Route I Arithmetic Obstruction Is a Single Rank-Controlled Cosine Perturbation at Frequency ln2, Lifted by (D^2+1/4)^2',
+    symbol: 'K_{\\sigma_2}(u) = (D^2+\\tfrac14)^2\\big[K_{\\mathrm{arch}}(u) + K_{\\mathrm{prime}}(u)\\big],\\quad |u|\\le 2a',
+    definition: "imp-97161 assesses the pole-free Weil symbol sigma_2(t)=(t^2+1/4)^2 w_1(t) at the binding half-width 2a=ln3, where w_1 is a smooth archimedean (log-drift) term plus a single arithmetic term -sqrt2 ln2 cos(t ln2). On the band |u|<=2a the inverse-Fourier kernel splits exactly as (D^2+1/4)^2 acting on an archimedean part K_arch plus a prime part K_prime consisting of two point masses at lags u=+-ln2.",
+    formula: "\\ln 2 = 0.693147 < 2a=\\ln 3 = 1.098612 < 2\\ln 2 = \\ln 4 = 1.386294",
+    intuition: "The prime frequency ln2 sits inside the certificate band ln3, but its next harmonic 2ln2=ln4 sits just outside it (ln4 > ln3) -- so at exactly 2a=ln3 only ONE prime cosine harmonic is captured by the kernel. That is why p=2 is the binding prime and 2a=ln3 is the threshold in the committed Toeplitz-Krein certificate: the entire arithmetic content of the obstruction, at this band, reduces to a single rank-controlled cosine term riding on top of an otherwise smooth archimedean kernel. Framing only -- the sharp coercivity constant c_sharp = lambda_min(P_a M_{sigma_2} P_a) implied by this splitting is bounded from above by finite-N numerics only (0.552/0.534/0.476, still descending), with no proven positive lower bound yet; RH open; NO QED; Platt-Trudgian Lambda <= 0.2 remains SOTA.",
+  },
 ];
 
 // Minimal, hand-maintained map from imp-NNNN references that appear inside glossary

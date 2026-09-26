@@ -5263,6 +5263,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: all (b, ratio, env) points are reused verbatim from imp-97539, log-log transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa_arith=0.5704960511 unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97553-kappa-decomposition',
+      title: 'imp-97541: kappa = kappa_arith + kappa_cot(b) Decomposition',
+      oneLine:
+        'The imp-97541 kappa decomposition kappa(b)=kappa_arith+kappa_cot(b) as a stacked area across an 11-point b-ladder: constant kappa_arith=0.5704960511 base plus climbing kappa_cot(b) (0.0588 at b=31 toward the conjectural 1/8 limit), with combined kappa(b) approaching the KAPPA_LIMIT ~0.6955 (matching the memory route_m_lower_companion figure ~0.696).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97553-route-m-kappa-decomposition-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97541-route-m-kappa-cot-extended-measurement.js (the tabulated 11-point ladder; imp-97553 viz-data leaf + page)',
+      ticket: 'imp-97553',
+      pedagogicalStep: 412,
+      honestCeiling:
+        'Presentation only: all (b, kappaCot, kappa) points are reused verbatim from imp-97541, stacked-decomposition transform only, no new measurement. Establishes no operator positivity; changes no bound; kappa stays MEASURED, not proved; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

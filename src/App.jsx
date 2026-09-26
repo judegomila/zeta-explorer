@@ -1314,6 +1314,9 @@ const Imp97551W1LowerFarFieldMarginViz = lazy(() =>
 const Imp97552E1EnvelopeDecayViz = lazy(() =>
   import('./pages/Imp97552E1EnvelopeDecayViz.jsx')
 );
+const Imp97553KappaDecompositionViz = lazy(() =>
+  import('./pages/Imp97553KappaDecompositionViz.jsx')
+);
 const Imp97487Bimodal1PctCrossoverViz = lazy(() =>
   import('./pages/Imp97487Bimodal1PctCrossoverViz.jsx')
 );
@@ -3911,6 +3914,10 @@ function AppShell() {
           <Route
             path="/viz-imp97552-e1-envelope-decay"
             element={<Imp97552E1EnvelopeDecayViz />}
+          />
+          <Route
+            path="/viz-imp97553-kappa-decomposition"
+            element={<Imp97553KappaDecompositionViz />}
           />
           <Route
             path="/viz-imp97487-bimodal-1pct-crossover"

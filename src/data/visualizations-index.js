@@ -5124,6 +5124,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97482. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97550-krein-route2-lambda-floor-trace',
+      title: 'imp-97513: The Route-2 Lambda_2 Floor, Kbig=420-500',
+      oneLine:
+        'The imp-97513 direct-build extension of the Route-2 Kbig->infinity lambda_2 floor past the imp-97495 Kbig=380 edge: four directly-measured points (-309.931066 at Kbig=380 to -310.375499 at Kbig=500, no extrapolation) with 40-step increments collapsing 0.190536->0.143344->0.110553 (ratios still rising 0.730->0.771, not plateaued), tightening the floor bracket to [-313.756,-310.375499], alongside tr(A2) still converging toward ~4819.1M.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97550-krein-route2-lambda-floor-trace-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97513-krein-route2-kbig420-500-deep-floor.js (directly-built points, step deltas, tightened floor bracket; imp-97550 viz-data leaf + page)',
+      ticket: 'imp-97550',
+      pedagogicalStep: 409,
+      honestCeiling:
+        'Presentation only: every point, step delta, and bracket is reused verbatim from imp-97513. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97505-krein-well-capture-tradeoff',
       title: 'imp-97483: The Well-Capture vs Far-Field-Cost Trade-off',
       oneLine:

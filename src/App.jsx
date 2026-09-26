@@ -1320,6 +1320,9 @@ const Imp97504KreinRoute2KbigDirectFloorViz = lazy(() =>
 const Imp97505KreinWellCaptureTradeoffViz = lazy(() =>
   import('./pages/Imp97505KreinWellCaptureTradeoffViz.jsx')
 );
+const Imp97550KreinRoute2LambdaFloorTraceViz = lazy(() =>
+  import('./pages/Imp97550KreinRoute2LambdaFloorTraceViz.jsx')
+);
 const Imp97506WindowSetSurrogateDepthViz = lazy(() =>
   import('./pages/Imp97506WindowSetSurrogateDepthViz.jsx')
 );
@@ -3906,6 +3909,10 @@ function AppShell() {
           <Route
             path="/viz-imp97504-krein-route2-kbig-direct-floor"
             element={<Imp97504KreinRoute2KbigDirectFloorViz />}
+          />
+          <Route
+            path="/viz-imp97550-krein-route2-lambda-floor-trace"
+            element={<Imp97550KreinRoute2LambdaFloorTraceViz />}
           />
           <Route
             path="/viz-imp97505-krein-well-capture-tradeoff"

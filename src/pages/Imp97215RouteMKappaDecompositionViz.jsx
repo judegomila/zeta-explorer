@@ -5,6 +5,7 @@ import {
   IMP97130_DECOMPOSITION_BARS,
   IMP97130_VERDICT,
 } from '../data/imp-97130-route-m-kappa-decomposition-viz-data.js';
+import { IMP97218_TWO_OPEN_HALVES } from '../data/imp-97218-route-m-first-moment-two-open-halves-banner.js';
 
 // imp-97215: the imp-97130 viz-data leaf (kappa = kappa_arith + kappa_cot decomposition) had no
 // chart consumer yet. This page renders the two component convergence ladders (arithmetic part
@@ -173,6 +174,30 @@ export default function Imp97215RouteMKappaDecompositionViz() {
         <strong style={{ color: '#94a3b8' }}>Status:</strong> kappa_total &asymp;{' '}
         {IMP97130_VERDICT.kappaTotal.toFixed(4)}, positive but MEASURED not proved. Platt&ndash;Trudgian
         &Lambda; &le; 0.2 remains SOTA; RH open; NO QED.
+      </div>
+
+      <div
+        style={{
+          marginTop: '0.75rem',
+          padding: '0.75rem 1rem',
+          background: 'rgba(148,163,184,0.04)',
+          borderLeft: '3px solid #334155',
+          borderRadius: '0 4px 4px 0',
+          fontSize: '0.8rem',
+          color: '#64748b',
+          maxWidth: 700,
+        }}
+      >
+        <strong style={{ color: '#94a3b8' }}>Two distinct open sub-gaps</strong> (not one): the
+        "EXACT" arithmetic bar above still carries its own unclosed remainder estimate, separate
+        from the cotangent bar's own unclosed mean-value estimate.
+        <ul style={{ margin: '0.4rem 0 0', paddingLeft: '1.1rem' }}>
+          {IMP97218_TWO_OPEN_HALVES.halves.map((half) => (
+            <li key={half.id} style={{ marginBottom: '0.3rem' }}>
+              <span style={{ color: '#94a3b8' }}>{half.label}</span> ({half.leaf}): {half.status}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

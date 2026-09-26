@@ -21301,6 +21301,16 @@ const DATA_MODULES = [
   // the primorial is the worst case at every order. Measurement only; MCM verified-not-proved below onset,
   // FALSE from omega=11; no bound moved; PT Lambda<=0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97583-route-m-mcm-onset-omega11-primorial.js',
+  // imp-97585 (2026-09-26): MEASURES the Gronwall flow share E_flow/E_trunc across the full imp-97520
+  // ladder N in {1e6 .. 1e12}, extending the single-point imp-97520 measurement (~1.91e-3 at N_half).
+  // The share is MONOTONE DECREASING -- it does NOT grow toward the tail but collapses (1.4376 at 1e6
+  // down to 1.3029e-5 at 1e12), reproducing ~1.905727e-3 at N_half. It crosses E_flow = E_trunc
+  // (share = 1) at N ~ 1.597752e6 and drops under the 1e-3 bar at N ~ 6.933193e9, just above the
+  // halving landmark; so E_flow is never the binding term of the E(N) bridge on the tail side of
+  // N_half, and the only non-negligible flow region is the head, far below the PT verified height and
+  // dominated there by E_coll. Measurement only; no bound moved; C_mb GUE-conditional per imp-486;
+  // PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97585-eflow-etrunc-share-full-ladder.js',
 ];
 
 let ALL_MODULES = FAST_MODE

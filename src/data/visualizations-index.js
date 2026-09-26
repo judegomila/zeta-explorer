@@ -4675,6 +4675,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97060, no re-derivation. Only the trace ceiling T ~ 2.594e7 is rigorous; the 1-percent confidence rung (~2.01e7, ~49 percent of N*) is a downward extrapolation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97212-route-m-residual-sign-magnitude',
+      title: 'Route M Residual Sign / Magnitude Ladder',
+      oneLine:
+        'Signed-log scatter of the imp-97140 fixed-omega(b) residual r(b) vs b colored by omega(b) parity (highlighting the three sweep exceptions at b=2310, 2730, 30030), plus a log-axis omega -> GM|r(b)| magnitude ladder with the non-clean consecutive ratios (12.43/1.47/2.46) labelled -- first visualization for this measurement.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97169-route-m-residual-sign-magnitude-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97140-route-m-fixed-omega-residual-cohorts.js (source: cohort rows, sign law, magnitude ladder; imp-97169 viz-data leaf + imp-97212 page)',
+      ticket: 'imp-97212',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97140, no re-derivation. The observed sign law is omega odd => r>0 / omega even => r<0 except at the three primorial-floor exceptions (leading-term cancellation); the imp-97140 exponent string (-1)^omega(b) is data-inconsistent, corrected by imp-97167 to (-1)^(omega(b)+1). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

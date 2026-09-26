@@ -1612,6 +1612,9 @@ const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
 const Imp97111RouteMReachConfidenceLadderViz = lazy(() =>
   import('./pages/Imp97111RouteMReachConfidenceLadderViz.jsx')
 );
+const Imp97212RouteMResidualSignMagnitudeViz = lazy(() =>
+  import('./pages/Imp97212RouteMResidualSignMagnitudeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4182,6 +4185,10 @@ function AppShell() {
           <Route
             path="/viz-imp97111-route-m-reach-confidence-ladder"
             element={<Imp97111RouteMReachConfidenceLadderViz />}
+          />
+          <Route
+            path="/viz-imp97212-route-m-residual-sign-magnitude"
+            element={<Imp97212RouteMResidualSignMagnitudeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

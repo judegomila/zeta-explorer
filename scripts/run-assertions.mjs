@@ -680,6 +680,16 @@ const DATA_MODULES = [
   // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound;
   // no operator positivity; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-97404-sigma-fartail-exponent-ladder-past-1e12.js',
+  // imp-97428 (2026-09-26): CROSS-VALIDATES the full three-term share model sigma_full against the
+  // imp-96151 two-term closed form sigma_CF across the far-tail band [1e11..1e15], extending the
+  // imp-97404 single-rung 0.4646 cross-check at 1e12 to the whole band. Per-decade OLS exponents
+  // coincide to 4 dp at every rung (0.4310/0.4311 -> 0.4646/0.4646 -> 0.4777/0.4777 -> 0.4828/0.4828),
+  // exponent difference shrinking -3.00e-5 -> -7.83e-8 (order/decade); the relative share gap collapses
+  // 8.27e-5 (1e11) -> 2.64e-8 (1e15) in lockstep with the dropped E_flow/E_coll ratio 5.07e-4 -> 1.16e-5,
+  // so the closed form IS the full model past ~1e13. Import-light (effectiveHeightForN + C_C_PINNED).
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no bound;
+  // no operator positivity; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-97428-sigma-full-vs-closed-form-cross-validation.js',
   // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
   // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
   // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151

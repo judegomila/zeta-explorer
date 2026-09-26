@@ -5137,6 +5137,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every point and constant is reused verbatim from imp-97483. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97506-window-set-surrogate-depth',
+      title: 'imp-97481: Window-Set Surrogate Depth vs Min-Prime P0',
+      oneLine:
+        'The imp-97481 exact Mertens window-set limit -c e^{-gamma}/Prod_{p<P0}(1-1/p) vs min-prime P0: the primorial (P0=2) sits at the SHALLOWEST floor -0.046788, and the limit sinks unboundedly (-0.388874 at P0=101, -0.497500 at P0=379), crossing the -1/4-R(1)=-0.251246 threshold well before P0=101 -- refuting the imp-97461 primorial-extremizer premise and the b/4-ceiling lower edge.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97506-window-set-surrogate-depth-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js (the exact closed form, kernel, and verdict; imp-97506 viz-data leaf + page)',
+      ticket: 'imp-97506',
+      pedagogicalStep: 403,
+      honestCeiling:
+        'Presentation only: every point is the imp-97481 closed form evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling was exploratory Route-M, load-bearing for nothing; kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

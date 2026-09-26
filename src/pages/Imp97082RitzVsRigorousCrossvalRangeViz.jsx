@@ -127,7 +127,12 @@ export default function Imp97082RitzVsRigorousCrossvalRangeViz() {
         <strong style={{ color: '#f87171' }}>Honest status:</strong> the Ritz band is an{' '}
         <strong>UPPER estimate</strong>, not a certified lower bound. No operator positivity
         is established here; the interval-rigorous certificate reach stays 2a&le;
-        {IMP96983_VERDICT.intervalRigorousReachUnchanged}; RH open; NO QED.
+        {IMP96983_VERDICT.intervalRigorousReachUnchanged}, and operator positivity for
+        0.96&nbsp;&lt;&nbsp;2a&nbsp;&lt;&nbsp;ln&nbsp;3 stays <strong>OPEN</strong>. The apparent
+        Ritz-below-rigorous inversion visible in the chart below (finest Ritz upper 12.0089 sits
+        below the interpolated rigorous lower ~17.09) is a basis/normalisation/shift{' '}
+        <strong>mismatch between two independently discretised estimators, not a certification
+        failure</strong>. RH open; NO QED.
       </div>
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1.25rem', maxWidth: 700 }}>

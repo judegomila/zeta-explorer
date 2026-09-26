@@ -23,17 +23,25 @@
  *
  * VERIFICATION / ASSERTION ONLY. Asserts NO operator positivity; moves NO bound; makes NO ceiling
  * rigorous. The F < M model-selection argument still rests on the non-rigorous lam_min N^-p and
- * ||G||_F log-fit extrapolations; only the trace ceiling T is a rigorous lower bound; the imp-96912
- * sub-gap (fresh EXACT rungs beyond N = 16000, O(N^3) V-table CPU-blocked in-pool) still stands.
- * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
+ * ||G||_F log-fit extrapolations; only the trace ceiling T is a rigorous lower bound. CROSS-LINK
+ * (this ticket): the "fresh EXACT rungs beyond N = 16000" sub-gap named above has since been
+ * ADVANCED, not left open -- imp-96912-route-m-frobenius-ladder-extension-above-16000.js delivered
+ * exactly those 6 rungs (to N = 24000), and imp-97016-route-m-fm-dataalone-extended-ladder.js
+ * re-ran the F < M partition against them and found the data-favoured quad STILL inverts F < M.
+ * So the live sub-gap tracked by IMP96912_SUBGAP is no longer "rungs beyond N = 16000" but "exact
+ * rungs FAR beyond N = 24000" (the ~3.2-decade extrapolation gap); readers should follow that
+ * pointer, not the stale N = 16000 framing. PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
  *
  * @see imp-96996-route-m-fm-quad-turnover-adjudication.js (STEP 1 structural monotonicity, stated but not machine-checked)
  * @see imp-96912-route-m-frobenius-holdout-model-discriminator.js (the frozen 18-rung exact ||G||_F ladder checked here)
+ * @see imp-96912-route-m-frobenius-ladder-extension-above-16000.js (delivered the 6 fresh exact rungs to N=24000; IMP96912_SUBGAP is the current tracker)
+ * @see imp-97016-route-m-fm-dataalone-extended-ladder.js (re-runs F<M against those fresh rungs; data alone still does not settle it)
  *
  * Ticket: imp-97017 (accuracy, opus-4-8, api-pool). Verification / assertion only; NO QED.
  */
 
 import { IMP96912_LADDER } from './imp-96912-route-m-frobenius-holdout-model-discriminator.js';
+import { IMP96912_SUBGAP } from './imp-96912-route-m-frobenius-ladder-extension-above-16000.js';
 
 // Walk the frozen 18-rung exact ||G||_F ladder and record the per-rung increments (deltas in the
 // Frobenius norm) and the N-gaps, so the monotone-non-decreasing structural fact is checked against
@@ -71,6 +79,15 @@ export const IMP97017_MONOTONICITY_CHECK = Object.freeze({
   // first (low-N) one and the smallest is a late (high-N) one, so the ladder is concave but rising.
   incrementsDecelerate: deltas[0] > deltas[deltas.length - 1],
   steps: IMP97017_STEPS,
+});
+
+// CROSS-LINK: the sub-gap this module cites ("fresh EXACT rungs beyond N=16000") has moved on --
+// imp-96912's ladder-extension module delivered those rungs and imp-97016 re-tested F<M against
+// them (still not settled data-alone). Point future readers at the CURRENT tracker, not this one.
+export const IMP97017_SUBGAP_CROSSLINK = Object.freeze({
+  staleFraming: 'fresh EXACT rungs beyond N=16000 still needed',
+  advancedBy: ['imp-96912-route-m-frobenius-ladder-extension-above-16000', 'imp-97016-route-m-fm-dataalone-extended-ladder'],
+  currentSubGapId: IMP96912_SUBGAP.id,
 });
 
 export const IMP97017_VERDICT = Object.freeze({
@@ -142,6 +159,16 @@ const IMP97017_ASSERTIONS = [
       /RH open/.test(IMP97017_HONEST_BANNER),
     why: 'verification only: no bound moved, no operator positivity asserted, the monotone-non-decreasing fact is confirmed, the imp-96912 sub-gap stands, and the honesty markers are present.',
   },
+  {
+    id: 'imp97017-crosslink-points-to-current-subgap-tracker',
+    holds: () =>
+      IMP97017_SUBGAP_CROSSLINK.advancedBy.length === 2 &&
+      IMP97017_SUBGAP_CROSSLINK.advancedBy.includes('imp-96912-route-m-frobenius-ladder-extension-above-16000') &&
+      IMP97017_SUBGAP_CROSSLINK.advancedBy.includes('imp-97016-route-m-fm-dataalone-extended-ladder') &&
+      typeof IMP97017_SUBGAP_CROSSLINK.currentSubGapId === 'string' &&
+      IMP97017_SUBGAP_CROSSLINK.currentSubGapId === IMP96912_SUBGAP.id,
+    why: 'the sub-gap this module cites ("fresh exact rungs beyond N=16000") was advanced by imp-96912 (delivered the rungs) and imp-97016 (re-tested F<M against them); this cross-link keeps the pointer live against the imp-96912 SUBGAP export rather than a frozen prose string.',
+  },
 ];
 
 for (const a of IMP97017_ASSERTIONS) {
@@ -153,6 +180,7 @@ for (const a of IMP97017_ASSERTIONS) {
 export default {
   monotonicityCheck: IMP97017_MONOTONICITY_CHECK,
   steps: IMP97017_STEPS,
+  subGapCrossLink: IMP97017_SUBGAP_CROSSLINK,
   verdict: IMP97017_VERDICT,
   banner: IMP97017_HONEST_BANNER,
 };

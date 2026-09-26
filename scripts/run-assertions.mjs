@@ -882,6 +882,15 @@ const DATA_MODULES = [
   // (imp-97500 optimum ~1409). Exploratory ceiling, load-bearing for nothing; no bound moved; PT Lambda<=0.2 SOTA;
   // RH open; NO QED.
   '/src/data/imp-97515-route-m-quarter-ceiling-p0-101-crossing-rigorous.js',
+  // imp-97503 (2026-09-26): MEASURES the edge-taper-ORDER sensitivity of the imp-97483 smooth
+  // well-capture optimum. Generalising the taper (1-(xi/a)^2)^k and jointly optimising over the
+  // confinement radius R at 2a=ln3, the optimum is NON-MONOTONIC in k: 6.83 (k=2) -> 2.30 (k=3, sweet
+  // spot) -> 10.36 (k=4) -> 372.77 (k=6). A k=3 sweet spot cuts the gap from ~12x to ~4x c_sharp~0.582,
+  // but higher orders over-broaden the main lobe (R*->0) and the far cost balloons; the best smooth-family
+  // member across all orders stays ~4x above c_sharp. Refines imp-97483 FINDING 3 (the ~12x was partly a
+  // single-order artifact) while CONFIRMING the gap is spectral, not a profile-family limitation. No bound
+  // moved; reach stays 2a<=0.96; PT Lambda<=0.2 SOTA; NO QED.
+  '/src/data/imp-97503-krein-taper-order-sensitivity-sweep.js',
   // imp-97385: Concepts glossary headword recording the imp-97330 uniform diagonal skeleton
   // Ihat(a,b) = (a/2) log(b/a) + a(C+1/2) and the imp-97349 split Q(b) = Qhat + Qcross + Qrr of
   // the interior second moment -- Qhat elementary/log-polynomial (~99.6% of Q, no b^(1/2) term),
@@ -21171,6 +21180,13 @@ const DATA_MODULES = [
   // No consumer should cite MCM as a general lever for omega >= 11; residual is the direct
   // two-sided band (IMP97432_SUBGAP). Documentation only; no bound moved; NO QED.
   '/src/data/imp-97466-route-m-mcm-refuted-honest-status.js',
+  // imp-97544: CONSOLIDATED honest-status note superseding imp-97466's stale "ceiling survives"
+  // framing. The Route-M b/4-ceiling is a DEAD ROUTE: refuted (imp-97481), with explicit witnesses
+  // at P0=379 (imp-97496), the rigorized P0=101 crossing (imp-97515), and the size-optimal
+  // interior witness at P0~1409 (imp-97500). The breach is harmless: E1(b) is not the binding
+  // quantity for kappa_arith (imp-97516) -- kappa_arith unchanged, no bound moves. Documentation
+  // only; NO QED.
+  '/src/data/imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js',
   // imp-97391: META cross-reference index grouping the Route M interior second-moment
   // separation cohort (imp-97311/97329/97330/97349/97356) as the Q(b) diagonal-skeleton /
   // uniform-crossover program: fixed-a moment DIVERGES (wrong scale, imp-97311), the

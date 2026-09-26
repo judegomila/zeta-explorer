@@ -5265,6 +5265,21 @@ export default function OpenFrontierPage() {
         </div>
       ))}
 
+      <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #f87171' }}>
+        <strong style={{ color: '#f87171', fontSize: 13 }}>Honest status: Krein uniform-N cohort (imp-97154)</strong>
+        <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>
+          imp-97154 groups four uniform-N Krein-floor tickets (imp-96749, imp-97100, imp-97120,
+          imp-97121) as a single RITZ-UPPER-BOUNDS-INSUFFICIENT family. Every quantity measured
+          across this cohort &mdash; the Rayleigh-tail quadrature estimate (imp-97100) and the Ritz
+          eigenvalue estimate (imp-97120) &mdash; is an <strong>UPPER bound</strong> on the true
+          lambda_min(T_a[sigma_2]) (Rayleigh-Ritz variational principle), <strong>never a certified
+          lower bound</strong>. The uniform-in-N positivity question (IMP96749_UNIFORM_N_GAP_UNSETTLED)
+          stays open; the interval-rigorous certified reach remains exactly 2a &le; 0.96. No Ritz or
+          Rayleigh value from this cohort should be re-cited as a certified floor. RH open;
+          Platt-Trudgian Lambda &le; 0.2 remains SOTA; NO QED.
+        </p>
+      </div>
+
       <div className="card" style={{ marginBottom: 18, borderLeft: '3px solid #b5542e' }}>
         <strong style={{ color: '#b5542e', fontSize: 13 }}>kmax=5 Krein cutting-plane frontier: near-feasible vs. certified</strong>
         <p style={{ fontSize: 13, color: '#877b67', margin: '8px 0 0', lineHeight: 1.65 }}>

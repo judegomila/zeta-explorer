@@ -4899,6 +4899,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the QhatFrac/QrrOverB per-b figures and the Qcross(b)/b constant are reused verbatim from imp-97349, no re-derivation of the exact Vasyunin-kernel split. The qcrossFrac/qrrFrac chart values are an approximation (measured ratio divided by the baked leading slope s0), not an exact identity. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97390-krein-csharp-upperbrackets-sidebyside',
+      title: 'Route I Krein Floor: Two Upper Brackets on c_sharp at 2a=ln3, Side by Side',
+      oneLine:
+        'imp-97335 fixed-N=100 T-sweep converging to its extrapolated T-to-infinity limit ~0.5822, plotted alongside a three-bar comparison against the imp-97206 coupled N,T plateau (~0.5817) and its joint range [0.5817,0.5842], showing the two independent brackets agree to ~0.0011.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97390-krein-csharp-upperbrackets-sidebyside-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97355-krein-csharp-tlimit-vs-coupled-crossval.js (the two-bracket reconciliation; imp-97335/imp-97206 source values; imp-97390 viz-data leaf + page)',
+      ticket: 'imp-97390',
+      pedagogicalStep: 389,
+      honestCeiling:
+        'Presentation only: every T-sweep point, extrapolated limit, plateau statistic, and joint range is reused verbatim from imp-97335/imp-97206/imp-97355; no re-solve, no new numerics. Both bars are Rayleigh-Ritz UPPER bounds, not a certified floor. Changes no bound, establishes no operator positivity, no RH claim; interval-rigorous certificate reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

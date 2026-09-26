@@ -1290,6 +1290,9 @@ const Imp96925KreinTTruncationDeficitViz = lazy(() =>
 const Imp97367KreinCsharpCoupledNTGridViz = lazy(() =>
   import('./pages/Imp97367KreinCsharpCoupledNTGridViz.jsx')
 );
+const Imp97390KreinCsharpUpperBracketsSideBySideViz = lazy(() =>
+  import('./pages/Imp97390KreinCsharpUpperBracketsSideBySideViz.jsx')
+);
 const Imp97368W1SignProfileViz = lazy(() =>
   import('./pages/Imp97368W1SignProfileViz.jsx')
 );
@@ -3801,6 +3804,10 @@ function AppShell() {
           <Route
             path="/viz-imp97367-krein-csharp-coupled-nt-grid"
             element={<Imp97367KreinCsharpCoupledNTGridViz />}
+          />
+          <Route
+            path="/viz-imp97390-krein-csharp-upperbrackets-sidebyside"
+            element={<Imp97390KreinCsharpUpperBracketsSideBySideViz />}
           />
           <Route
             path="/viz-imp97368-w1-sign-profile"

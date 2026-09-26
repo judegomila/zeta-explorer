@@ -21283,6 +21283,14 @@ const DATA_MODULES = [
   // at Rc where the closed form vanishes), and the g_ppp sign change at R = 1/a is confirmed. Verification
   // only; no bound moved; reach 2a <= 0.96; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97579-krein-edge-derivatives-fd-crossvalidation.js',
+  // imp-97580 (2026-09-26): MEASURES the confinement far-field tail bias against the exact symbol
+  // sigma_2 as the Gaussian width R sweeps across the imp-97518 sign-change radius Rc = 1/a. The bias
+  // factors exactly as 3 (1/a - a R^2) * (I2/I1) with I2/I1 = 2.075e-6 R-independent, so it vanishes and
+  // changes sign exactly at Rc = 1/a; but it is only ~2.7e-5 relative at the imp-97497 far-field optimum
+  // R* = 3.36 (inside the < 1e-3 bar) and Rc = 1.82 is far from R*, so no cost moves. The positivity
+  // threshold t0 = 10.531 is R-independent (|psi|^2 >= 0 makes the integrand sign follow sigma_2 alone).
+  // Measurement only; no bound moved; reach 2a <= 0.96; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97580-krein-tail-bias-R-sweep-signchange.js',
 ];
 
 let ALL_MODULES = FAST_MODE

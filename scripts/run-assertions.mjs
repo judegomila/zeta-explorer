@@ -712,6 +712,17 @@ const DATA_MODULES = [
   // sub-gap; omega=5 sign law rests on the un-re-audited imp-97396 reduction, so NO independent QED;
   // import-light (pure Binet arithmetic); no bound moved; PT Lambda <= 0.2 SOTA; RH open.
   '/src/data/imp-97433-route-m-sign-law-omega5-uniform-tail-lemma.js',
+  // imp-97432 (2026-09-26): attempts to PROVE the imp-97422 MCM hypothesis (all iterated multiplicative
+  // differences of h = g/m non-negative) and instead REFUTES it. Exact reweighted-mean characterization:
+  // iterDiff(H,{p1..pj},x) >= 0 <=> tilted diagonal mean E_mu[T] = t + Sum I1(s_i)/I0(s_i) >= j - lnA/c,
+  // and the exponential tilt (e^{-u} down-weights large steps) keeps E_mu below the arithmetic mean, so the
+  // surrogate difference first goes negative at order 10 (iterDiff(H,{2..29},1) = -5.40e-4). The remainder
+  // correction Rcorr = Sum mu(d) R(d)/d is bounded (saturation +1.0186e-3, anchor R(1) = 1/4 - lnA), so full
+  // T(p_11#) = -9.624e-4 < 0 at b = p_11# = 200560490130 -- MCM is FALSE. The b/4 ceiling is NOT refuted
+  // (|T| = 9.6e-4 there; primorial limit -e^{-gamma}/12 + Rcorr = -0.0458, inside [-1/4,1/4]); MCM was
+  // strictly stronger than the ceiling. Import-light (self-contained arithmetic kernel); no bound moved;
+  // PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js',
   // imp-96162 (2026-09-23): recovers the imp-3220 U-shape PEAK the imp-96151 two-term closed form
   // misses (imp-96151 F2, right arm only) with ONE explicit pre-crossover rising factor r_pre(N) =
   // 1 + E_flow/E_trunc: sigma_rec(N) = 1/(1 + sqrt(N/N_cross) sqrt(L_cross/L) r_pre). The imp-96151

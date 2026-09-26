@@ -1630,6 +1630,9 @@ const Imp97216RouteMPerClassSaturationRatioViz = lazy(() =>
 const Imp97217KreinCsharpNTCoupledDescentViz = lazy(() =>
   import('./pages/Imp97217KreinCsharpNTCoupledDescentViz.jsx')
 );
+const Imp97300PalmMirrorFracLadderViz = lazy(() =>
+  import('./pages/Imp97300PalmMirrorFracLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4224,6 +4227,10 @@ function AppShell() {
           <Route
             path="/viz-imp97217-krein-csharp-nt-coupled-descent"
             element={<Imp97217KreinCsharpNTCoupledDescentViz />}
+          />
+          <Route
+            path="/viz-imp97300-palm-mirror-frac-ladder"
+            element={<Imp97300PalmMirrorFracLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

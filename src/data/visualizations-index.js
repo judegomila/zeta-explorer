@@ -4759,6 +4759,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97183, no re-derivation. Rayleigh-Ritz floors are upper bounds only; the still-moving bracket ~[0.50, 0.58] is consistent with a positive limit but neither converges nor crosses zero. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97300-palm-mirror-frac-ladder',
+      title: 'Palm Mirror-Count Frac-of-Mean: an Infinitely-Slow Approach to 1',
+      oneLine:
+        'Line chart of the imp-97189 extended ladder: measured frac(lnN) vs the closed-form approach law 1-12.12/lnN (visibly separate at lnN=22, converging by lnN=200), plus the frac-target-vs-lnN bisection table (0.90 at lnN~120.5, 0.99 at ~1212) -- first visualization for this measurement.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97300-palm-mirror-frac-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97189-palm-mirror-frac-of-mean-extended-ladder.js (source: extended rung table, fracTargets bisection table; imp-97300 viz-data leaf + page)',
+      ticket: 'imp-97300',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every (lnN, palm2, frac) and (target, lnN) value is reused verbatim from imp-97189, no re-derivation of the Palm 2-slot mirror kernel. frac approaches 1 but never reaches it at any finite height; the closed-form law is only asymptotic (loose at lnN=22, tight by lnN=200). Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

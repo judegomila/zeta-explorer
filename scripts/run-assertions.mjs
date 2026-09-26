@@ -690,6 +690,17 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no bound;
   // no operator positivity; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-97428-sigma-full-vs-closed-form-cross-validation.js',
+  // imp-97438 (2026-09-26): measures the COMPLEMENT of the imp-97428 agreement band -- the same
+  // full-vs-closed-form cross-validation BELOW 1e11, spanning N_cross ~ 3.28e9, where the dropped
+  // Gronwall E_flow term is NOT negligible and the two models DIVERGE. The relative share gap GROWS
+  // as N drops through the crossover (8.27e-5 at 1e11 -> 5.73e-3 at 1e8, ~69x) in lockstep with the
+  // retained E_flow/E_coll ratio (5.07e-4 -> 6.82e-3); at N_cross the closed form pins sigma_CF = 1/2
+  // EXACTLY while the full model gives 0.49953 (~0.1% below). The 1e11 rung gap 8.27e-5 reproduces the
+  // imp-97428 boundary value to the digit, so the bands join continuously -- agreement above,
+  // divergence below. Import-light (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486
+  // UNTOUCHED; far-tail exponent 1/2 per imp-3463; changes no bound; no operator positivity; NO QED;
+  // PT Lambda<=0.2 SOTA.
+  '/src/data/imp-97438-sigma-full-vs-closed-form-below-crossover.js',
   // imp-97433 (2026-09-26): DERIVES the uniform-in-(p1,q1) TAIL LEMMA imp-97423 named as the sole
   // remaining sub-gap (IMP97333_SIGN_TAIL_SUBGAP) of the omega=5 Route M sign law. Explicit threshold
   // Q0 = 7: with M(p1,e) = 1/(12(e-1)) - 1/(12(p1 e -1)), the bounds M(p1,q1) > (1-1/p1)/(12 q1) and

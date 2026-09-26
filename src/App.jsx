@@ -1609,6 +1609,9 @@ const Imp97068MirrorDescentPoissonKernelViz = lazy(() =>
 const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
   import('./pages/Imp97106PalmMirrorSurplusComparisonViz.jsx')
 );
+const Imp97111RouteMReachConfidenceLadderViz = lazy(() =>
+  import('./pages/Imp97111RouteMReachConfidenceLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4175,6 +4178,10 @@ function AppShell() {
           <Route
             path="/viz-imp97106-palm-mirror-surplus-comparison"
             element={<Imp97106PalmMirrorSurplusComparisonViz />}
+          />
+          <Route
+            path="/viz-imp97111-route-m-reach-confidence-ladder"
+            element={<Imp97111RouteMReachConfidenceLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

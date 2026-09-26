@@ -4661,6 +4661,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every count and surplus value is reused verbatim from imp-97080, no re-derivation. Only the far-height N1* Palm baseline and the 1e22 empirical block reach approximate parity (~1.0x); every seam-height / 1e12 baseline falls short of p_req. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97111-route-m-reach-confidence-ladder',
+      title: 'Route M Reach-Threshold Confidence Ladder',
+      oneLine:
+        'Bar chart of the imp-97060 confidence table (target ceiling spread S*=10/5/1 percent -> N_top on a log10 axis spanning ~4.07e3 to ~2.01e7) plus the 9-rung anchor back-check (signed law-minus-exact residual, percentage points, at each imp-97033 truncation rung) -- first visualization for this cross-validation.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97111-route-m-reach-confidence-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97060-route-m-fm-discriminant-crossvalidation.js (source: confidence table, anchor back-check, verdict; imp-97111 viz-data leaf + page)',
+      ticket: 'imp-97111',
+      pedagogicalStep: 301,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97060, no re-derivation. Only the trace ceiling T ~ 2.594e7 is rigorous; the 1-percent confidence rung (~2.01e7, ~49 percent of N*) is a downward extrapolation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

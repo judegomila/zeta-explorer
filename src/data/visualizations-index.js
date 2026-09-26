@@ -5235,6 +5235,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every curve is the imp-97500 two-term law evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling lower edge was already refuted (imp-97481) and is a dead route; kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97551-w1lower-farfield-margin',
+      title: 'imp-97501: The Rigorous Far-Field Positivity Margin',
+      oneLine:
+        'The imp-97501 rigorous far-field margin of sigma_2(t)=(t^2+1/4)^2 w_1(t): the actual oscillating w_1(t) charted against its strictly increasing rigorous lower bound w1Lower(t)=L(t)-sqrt2 ln2, crossing zero at t*=26.1023 and giving margin 0.0616061 at the clean threshold t0=27, alongside the confined negative well [0,3.306]u[6.945,10.532] and the guarded bridge window [10.532,27].',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97551-w1lower-farfield-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97501-sigma2-far-field-positivity-rigorous-margin.js (the rigorous margin, t*, t0, guarded window; imp-97551 viz-data leaf + page)',
+      ticket: 'imp-97551',
+      pedagogicalStep: 410,
+      honestCeiling:
+        'Presentation only: the w_1(t) samples are an exact recomputation; the summary constants and confined-well boundaries are reused verbatim from imp-97501/imp-97399. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

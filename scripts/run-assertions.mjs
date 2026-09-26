@@ -20921,6 +20921,11 @@ const DATA_MODULES = [
   // bounded) times the single open oversampling scalar Rw = X/Xbar, measured ~1.1..1.25
   // and level with the imp-97271 OVR ~1.254 plateau. Documentation only; no bound; NO QED.
   '/src/data/imp-97325-m2w-rw-mbar-factorization-glossary-headword.js',
+  // imp-97346: META cross-reference index grouping the Route M cotangent sign-of-S(b)
+  // cohort (imp-97181/97226/97270/97287/97314) -- reframe/measure/reconcile/reframe/
+  // obstruct arc; small-r finite-band dominance PROVABLY FAILS (Theta(b log b) vs
+  // Theta(b^2)). Index/meta only; NO QED.
+  '/src/data/imp-97346-route-m-cotangent-sign-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

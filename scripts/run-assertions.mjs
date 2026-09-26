@@ -21250,6 +21250,11 @@ const DATA_MODULES = [
   // measures the Kbig->inf saturation, and verifies it by direct build past Kbig=140.
   // Narrower than the sibling imp-97492 eight-ticket cohort. Index/meta only; NO QED.
   '/src/data/imp-97511-krein-route2-kbig-direct-build-cohort-index.js',
+  // imp-97512: citable read-guard note for the imp-97484 lam_min(N,T) table: the valid
+  // c_sharp bracket is the largest-T (most-resolved) cell of a row, NOT the global min
+  // over all (N,T) cells -- small-T cells are under-resolved and read spuriously low.
+  // Documentation only; NO QED.
+  '/src/data/imp-97512-lam-min-nt-read-guard.js',
 ];
 
 let ALL_MODULES = FAST_MODE

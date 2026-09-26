@@ -19,6 +19,11 @@ import {
   IMP97038_GROWTH,
   IMP97038_VERDICT,
 } from '../data/imp-97038-bessel-onset-mass-extended-N-viz-data.js';
+import {
+  IMP97002_FACTOR_SERIES,
+  IMP97002_LOG10_FACTOR_SERIES,
+  IMP97002_HONEST_BANNER,
+} from '../data/imp-97002-krein-vacuity-factorisation-viz-data.js';
 
 // imp-97040: imp-96959/imp-96960/imp-96961 were each "-viz-data" leaves with no confirmed
 // consumer (no .jsx page imported them -- see imp-96925 for the same trap on an earlier leaf).
@@ -311,11 +316,73 @@ function BesselOnsetMassExtendedNPanel() {
   );
 }
 
+function KreinVacuityFactorisationPanel() {
+  const series = [
+    {
+      label: 'log10(step1: sum-vs-single)',
+      color: '#4ade80',
+      points: IMP97002_LOG10_FACTOR_SERIES.map((r, i) => ({ x: i, y: r.log10Step1 })),
+    },
+    {
+      label: 'log10(step2: spectral gap)',
+      color: '#f87171',
+      points: IMP97002_LOG10_FACTOR_SERIES.map((r, i) => ({ x: i, y: r.log10Step2 })),
+    },
+    {
+      label: 'log10(step3: trial-vector slack)',
+      color: '#38bdf8',
+      points: IMP97002_LOG10_FACTOR_SERIES.map((r, i) => ({ x: i, y: r.log10Step3 })),
+    },
+  ];
+  return (
+    <div>
+      <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
+        imp-97002 reshapes the imp-96973 three-rung Tr(B<sup>-1</sup>R_T)/actual vacuity
+        factorisation (sum-vs-single &times; spectral-gap &times; trial-vector-slack) into
+        chart-ready rows. The spectral-gap factor carries all ~13-15 orders of magnitude at every
+        rung while the other two stay uniformly benign (&lt;2x), so the log10 series is plotted
+        here (points indexed 0-2 = the three tabulated (N,2a) rungs, see table below for labels).
+      </p>
+      <LineChart series={series} xTicks={series[0].points.map((p) => p.x)} xLabel="rung index" yFormat={(v) => v.toFixed(1)} />
+      <Legend series={series} />
+      <div style={{ marginTop: '1rem', overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.75rem', color: '#94a3b8' }}>
+          <thead>
+            <tr>
+              {['rung', 'N', '2a', 'step1', 'step2', 'step3', 'total', 'recomposed'].map((h) => (
+                <th key={h} style={{ textAlign: 'right', padding: '0.25rem 0.6rem', borderBottom: '1px solid #334155' }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {IMP97002_FACTOR_SERIES.map((r) => (
+              <tr key={r.rung}>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.rung}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.N}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.twoA.toFixed(4)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.step1SumVsSingle.toFixed(3)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.step2SpectralGap.toExponential(3)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.step3TrialSlack.toFixed(3)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.total.toExponential(3)}</td>
+                <td style={{ textAlign: 'right', padding: '0.2rem 0.6rem' }}>{r.recomposed.toExponential(3)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <HonestBanner text={IMP97002_HONEST_BANNER} />
+    </div>
+  );
+}
+
 const TABS = [
   { id: 'krein-floor-margin', label: 'imp-96959: Krein floor margin', Panel: KreinFloorMarginPanel },
   { id: 'etrunc-cc-elasticity', label: 'imp-96960: E_trunc vs C_C elasticity', Panel: EtruncCcElasticityPanel },
   { id: 'bessel-onset-tail', label: 'imp-96961: Bessel onset-mass vs tail residual', Panel: BesselOnsetTailPanel },
   { id: 'bessel-onset-mass-extended-N', label: 'imp-97038: Bessel onset-mass extended-N', Panel: BesselOnsetMassExtendedNPanel },
+  { id: 'krein-vacuity-factorisation', label: 'imp-97002: Krein vacuity factorisation', Panel: KreinVacuityFactorisationPanel },
 ];
 
 export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
@@ -327,9 +394,10 @@ export default function Imp97040OrphanedCalibrationLeavesTabbedViz() {
       <PageHeader title="Orphaned Route I / Route M Calibration Leaves" />
 
       <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginBottom: '1rem', maxWidth: 700 }}>
-        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038) shipped as import-light
-        reshapes of earlier calibration tables but had no consuming page. This tab set gives
-        each a chart-ready home in one place instead of near-duplicate single-purpose pages.
+        Viz-data leaves (imp-96959, imp-96960, imp-96961, imp-97038, imp-97002) shipped as
+        import-light reshapes of earlier calibration tables but had no consuming page. This tab
+        set gives each a chart-ready home in one place instead of near-duplicate single-purpose
+        pages.
       </p>
 
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem', borderBottom: '1px solid #334155' }}>

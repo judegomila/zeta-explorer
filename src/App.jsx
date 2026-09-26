@@ -1323,6 +1323,9 @@ const Imp97505KreinWellCaptureTradeoffViz = lazy(() =>
 const Imp97506WindowSetSurrogateDepthViz = lazy(() =>
   import('./pages/Imp97506WindowSetSurrogateDepthViz.jsx')
 );
+const Imp97549TwoTermLawDescentSurrogateViz = lazy(() =>
+  import('./pages/Imp97549TwoTermLawDescentSurrogateViz.jsx')
+);
 const Imp97507KreinNscaledTgridHeatmapViz = lazy(() =>
   import('./pages/Imp97507KreinNscaledTgridHeatmapViz.jsx')
 );
@@ -3911,6 +3914,10 @@ function AppShell() {
           <Route
             path="/viz-imp97506-window-set-surrogate-depth"
             element={<Imp97506WindowSetSurrogateDepthViz />}
+          />
+          <Route
+            path="/viz-imp97549-two-term-law-descent-surrogate"
+            element={<Imp97549TwoTermLawDescentSurrogateViz />}
           />
           <Route
             path="/viz-imp97507-krein-nscaled-tgrid-heatmap"

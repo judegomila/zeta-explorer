@@ -121844,7 +121844,7 @@ export const IMPROVEMENT_QUEUE = [
     category: 'numerical',
     priority: 'medium',
     status: 'in-progress-subagent',
-    inflightTaskId: 'api-pool-w2-1790464031671',
+    inflightTaskId: 'api-pool-w3-1790464214317',
     proofSection: 'S-frontier',
     description: "imp-97538 residual IMP97538_ROUTE2_FLOOR_DEEP_END_STILL_EXTRAPOLATED: the directly-built upper edge tightened to -310.692227 at Kbig=720 but the 40-step-equivalent delta ratio ROSE 0.771 to 0.829 and never plateaued, leaving the converged floor unpinned between the directly-anchored -310.692227 and the power-saturation refit -313.756. EXTEND the same executed build (tmp/imp-97440-route2-lambda2-lowerbound.py, mpmath dps=50, N=28, T=200, rho=5462.61632) to Kbig in {800,900,1000} to test whether the ratio finally plateaus and pins the limit, watching for conditioning blow-up (g2min). Measurement only; heavy offline compute -- respect the RAM ceiling and run one copy; no rigorous lower bound on lambda_2; no bound moves; NO QED.",
     rationale: 'Frontier scout: imp-97538 named residual IMP97538_ROUTE2_FLOOR_DEEP_END_STILL_EXTRAPOLATED',

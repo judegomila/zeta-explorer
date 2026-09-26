@@ -5207,6 +5207,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every point is reused verbatim from imp-97497. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97549-two-term-law-descent-surrogate',
+      title: 'imp-97500: Two-Term-Law Descent Surrogate vs log Y',
+      oneLine:
+        'The imp-97500 two-term law surrogate([P0,Y]) = L(P0) + A(P0)/log Y for min-primes P0 in {2,101,379,1009,10007} vs log Y, overlaid with the exact -1/4-R(1)=-0.251246 crossing threshold and the baked exact crossing points (P0=379 at Y=73,612,801, P0=1009 at Y=42,333,157, P0=10007 at Y=75,415,303); P0=2 and P0=101 never reach the threshold within the charted window.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97549-two-term-law-descent-surrogate-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97500-route-m-window-surrogate-descent-rate-min-b-crossing.js (the two-term law, kernel, and verdict; imp-97549 viz-data leaf + page)',
+      ticket: 'imp-97549',
+      pedagogicalStep: 408,
+      honestCeiling:
+        'Presentation only: every curve is the imp-97500 two-term law evaluated verbatim. Establishes no operator positivity; changes no bound; the b/4-ceiling lower edge was already refuted (imp-97481) and is a dead route; kappa_arith unchanged; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

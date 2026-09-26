@@ -24750,6 +24750,31 @@ export const glossary = [
       'imp-97400-krein-lehmann-maehly-lower-bracket-execution.js the m=1 gate needing a certified rho &lt;= lambda_2 to become usable',
     ],
   },
+  {
+    term: 'The imp-97439 Krein c_sharp N-Bracket Non-Convergence-of-Rate Verdict',
+    category: 'result',
+    definition:
+      'Tests whether the N-direction Rayleigh-Ritz bracket sequence lambda_1(N) on c_sharp at 2a = ln3 ' +
+      '(inner T -&gt; infinity limit taken per N) has a power-law tail that Richardson/Aitken extrapolation ' +
+      'can lock onto. Restricted to the T-reliable subset (inner fit exponent p_T &gt;= 1.5: N = 84, 100, ' +
+      '116, 132), the sequence is NON-MONOTONE with an accelerating step (first differences -0.000359, ' +
+      '+0.000565, +0.001022), so no power-law tail exists: a Lstar + A*N^-q fit degenerates to a negative ' +
+      'rate (q ~ -0.009), and the two consecutive Aitken Delta-squared accelerants disagree with each other ' +
+      '(0.581279 vs 0.580360, spread 0.000918) and both land below the drifting sequence -- the accelerator ' +
+      'returns noise, not a limit. The apparent late-N rise is diagnosed as a COUPLED-T-TRUNCATION ARTIFACT: ' +
+      'the inner fit exponent p_T degrades monotonically with N (2.44 -&gt; 1.77) because the fixed T-grid ' +
+      '{800, 1600, 2400, 3200} under-resolves the inner limit at larger N (corr(p_T, lambda) = -0.826), not ' +
+      'genuine N-growth of c_sharp. The only measurable quantity is a flat plateau over N = 84..132: mean ' +
+      '0.581687 +/- 0.000590, range [0.581059, 0.582646], containing the committed inner-N=100 value ' +
+      '0.581059. Still an upper bracket only; no positive lower bound established; no bound on Lambda moves; ' +
+      'interval-rigorous reach stays 2a &lt;= 0.96; PT Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97469 (adds this glossary headword for the imp-97439 non-convergence-of-rate diagnosis), 2026',
+    relatedTerms: [
+      'imp-97439-krein-csharp-nbracket-richardson-nonconvergence.js the source module (bracket sequence, Aitken accelerants, coupled-T-truncation diagnosis, plateau)',
+      'imp-97206-krein-csharp-coupled-nt-jointlimit.js the coupled N,T joint-limit upper bracket this N-only sequence is compared against',
+      'imp-97183-krein-csharp-extprec-ladder.js the descending extended-precision upper-bracket ladder feeding the T-reliable N rows',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

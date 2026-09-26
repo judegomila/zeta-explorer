@@ -143,6 +143,52 @@ const FIT = fitSlopeAndConstant(IMP97207_QOVERB_WINDOWS);
 export const IMP97207_S0_FIT = FIT.s0; // ~1.763 (leading slope; measured)
 export const IMP97207_CQ_FIT = FIT.cQ; // ~-13.4 (sub-leading constant; measured, coarse)
 
+// -- imp-97243 (accuracy, RECONCILIATION): pin the interior leading slope s0 = lim_{b->oo} Q(b)/b
+// as ONE documented value with stated uncertainty. c1_T is LINEAR in s0 (constituent (A) above), so
+// a single s0 with a band is needed. FIVE independent readouts of the SAME constant diverge only by
+// their finite-size bias DIRECTION, not by any scaling error:
+//   (1) imp-96750 top-window Q(b)/b mean (b~1050):     1.751     -- finite-b, biased LOW (cQ<0)
+//   (2) imp-97207 4-window b->oo extrapolation:        1.7626    -- limit estimate (this leaf)
+//   (3) imp-96708 unweighted T-slope / 2:              1.747588  -- finite-N OLS, unweighted (LOW)
+//   (4) imp-96667 interior Int-slope / (2 zeta2):      1.71934   -- H2 weight < zeta(2) at finite N (LOW)
+//   (5) imp-96667 total Int-slope   / (2 zeta2):       1.76445   -- adds the a=1 border (HIGH)
+// The imp-96771 H2 slope factor is what converts the H2-weighted Int-slopes back to s0: divide by
+// 2 zeta(2) (readouts 4,5); the unweighted T-slope divides by 2 (readout 3). Readouts (1),(3),(4)
+// under-estimate the limit because the sub-leading cQ<0 and the finite H2 weight (< zeta(2)) both
+// bias a finite-b interior reading DOWNward; readout (5) over-estimates because it appends the a=1
+// border absent from the interior series. The genuine interior limit is therefore BRACKETED below by
+// the largest finite-b interior reading (1.751) and above by the extrapolation (1.7626), giving the
+// reconciled interior slope s0 = 1.757 +/- 0.006. Readouts (4)=1.719 (lower finite-b) and (5)=1.764
+// (border-inclusive) sit just outside this core bracket as consistent cross-checks in the expected
+// bias directions. Because c1_T = 2 s0 (gamma-3/2) + ..., the +/-0.006 propagates to about +/-0.011
+// in constituent (A). Reconciliation/measurement only; no bound moved; NO QED.
+const IMP97243_TWO_ZETA2 = 2 * IMP97207_ZETA2; // 3.289868133696453 (the imp-96771 H2 sandwich factor)
+const IMP97243_S0_TOP_WINDOW = 1.751; // imp-96750 IMP96750_S0_MEASURED (top-window mean; biased LOW)
+export const IMP97243_S0_RECONCILIATION = Object.freeze({
+  readouts: Object.freeze({
+    topWindow96750: IMP97243_S0_TOP_WINDOW, // 1.751   finite-b interior, LOW
+    extrapolation97207: IMP97207_S0_FIT, // ~1.7626  b->oo limit estimate
+    tSlopeHalf96708: 3.495176 / 2, // 1.747588 finite-N unweighted T-slope / 2, LOW
+    interiorViaH2: 5.6564 / IMP97243_TWO_ZETA2, // 1.71934 Int interior slope / 2 zeta(2), LOW (H2<zeta2)
+    totalViaH2: 5.80481 / IMP97243_TWO_ZETA2, // 1.76445 Int total slope / 2 zeta(2), HIGH (a=1 border)
+  }),
+  h2SlopeFactor: IMP97243_TWO_ZETA2, // imp-96771: Int-slope = 2 zeta(2) s0; T-slope = 2 s0
+  coreBracket: Object.freeze({
+    low: IMP97243_S0_TOP_WINDOW, // 1.751  largest finite-b interior reading (limit is above this)
+    high: IMP97207_S0_FIT, // ~1.7626 b->oo extrapolation (limit is at/below this)
+  }),
+  reconciledS0: (IMP97243_S0_TOP_WINDOW + IMP97207_S0_FIT) / 2, // ~1.757 central interior slope
+  uncertaintyHalfWidth: (IMP97207_S0_FIT - IMP97243_S0_TOP_WINDOW) / 2, // ~0.006 (core-bracket half-width)
+  c1TConstituentAUncertainty: Math.abs(2 * IMP97207_COEFF_S0) * ((IMP97207_S0_FIT - IMP97243_S0_TOP_WINDOW) / 2), // ~0.011
+  verdict:
+    'The interior leading slope s0 = lim Q(b)/b is ONE constant read five ways; the numbers differ ' +
+    'only by finite-size bias direction (cQ<0 and finite H2<zeta(2) bias interior readings LOW; the ' +
+    'a=1 border biases the total HIGH), not by mis-scaling. Reconciled interior slope s0 = 1.757 ' +
+    '+/- 0.006 (core bracket [1.751 largest finite-b, 1.7626 extrapolation]); the imp-96771 H2 factor ' +
+    '2 zeta(2) maps Int-slopes to s0. Since c1_T is linear in s0 this band gives +/- 0.011 on ' +
+    'constituent (A). Reconciliation/measurement only; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.',
+});
+
 // -- The intercept decomposition c1_T = 2 s0 (gamma-3/2) + 2 cQ (zeta(2)-5/4) + 2 R (R unknown). --
 // Constituents (A) and (B); constituent (C) = 2 R is left symbolic (unevaluated).
 export const IMP97207_DECOMPOSITION = Object.freeze({
@@ -273,6 +319,24 @@ const IMP97207_ASSERTIONS = [
       /UNPINNED/.test(IMP97207_PINNABILITY.rStatus) &&
       /UNPINNED/.test(IMP97207_PINNABILITY.h2WeightStatus) &&
       /subleading-cotangent-constant/.test(IMP97207_SUBGAP.id),
+  },
+  {
+    id: 'imp97243-s0-reconciliation-single-value-with-band',
+    why: 'the five s0 readouts must reconcile to ONE interior slope with a stated band: all lie in ' +
+      '[1.71,1.77], the core bracket is ordered (top-window < extrapolation), the reconciled value ' +
+      'sits inside it, and the imp-96771 H2 factor equals 2 zeta(2).',
+    holds: () => {
+      const R = IMP97243_S0_RECONCILIATION;
+      const vals = Object.values(R.readouts);
+      const allInBand = vals.every((v) => v > 1.71 && v < 1.77);
+      const bracketOrdered = R.coreBracket.low < R.coreBracket.high;
+      const reconciledInside =
+        R.reconciledS0 > R.coreBracket.low && R.reconciledS0 < R.coreBracket.high &&
+        Math.abs(R.reconciledS0 - 1.757) < 0.01;
+      const bandPositive = R.uncertaintyHalfWidth > 0 && R.uncertaintyHalfWidth < 0.02;
+      const h2FactorExact = Math.abs(R.h2SlopeFactor - 2 * IMP97207_ZETA2) < 1e-12;
+      return allInBand && bracketOrdered && reconciledInside && bandPositive && h2FactorExact;
+    },
   },
   {
     id: 'imp97207-honesty-gate-no-qed',

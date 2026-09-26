@@ -24430,6 +24430,36 @@ export const glossary = [
       'project_route_m_lower_companion_first_moment the sibling LOWER-companion program where squaring instead overshoots',
     ],
   },
+  {
+    term: 'Termwise Domination |S(b)| &lt;= A(b): the Signed Cotangent Lower Bound Is NOT a Separate Open Problem',
+    category: 'numerical',
+    definition:
+      'imp-97204 shows that the imp-97097 SIGNED varying-modulus half S(b) = Sum_{a=2,(a,b)=1}^{b-1} ' +
+      'V(b,a) -- whose sign controls kappa_cot &gt; -kappa_arith -- needs NO independent Bettin-Conrey ' +
+      'input beyond the ABSOLUTE program already under attack (imp-97180 -&gt; imp-97203). The exact ' +
+      'termwise triangle inequality |S(b)| = |Sum_a V(b,a)| &lt;= Sum_a |V(b,a)| = A(b) holds for every ' +
+      'b &gt;= 2 (no hypothesis), so any absolute bound A(b) &lt;= c phi(b) b already gives the two-sided ' +
+      '|kappa_cot| &lt;= (pi/2)(c + o(1)) via the imp-97119 boundary asymptotic. RESULT 2 sharpens the ' +
+      'operative threshold: because the cotangent part of F carries the -(pi/2) weight (imp-97097), the ' +
+      'target on the absolute constant is c &lt; (2/pi) kappa_arith = 0.36318906620753183, TIGHTER than the ' +
+      'raw c &lt; kappa_arith = 0.5705 named for the absolute program alone -- conflating the two overstates ' +
+      'the admissible c by a factor of pi/2. MEASURED (not proved): the signed and absolute varying-modulus ' +
+      'halves are S(b)/(phi(b) b) ~ -0.079 vs A(b)/(phi(b) b) ~ 0.146 (b=2003), a cancellation ratio ' +
+      '|S|/A ~ 0.54 stable -- so a DIRECT signed bound would be ~46% sharper, but is NOT needed for ' +
+      'positivity, since domination already secures kappa_cot &gt; -kappa_arith once the absolute constant ' +
+      'clears 0.36319 (measured c ~ 0.145, ~2.5x margin). A direct signed bound would instead require the ' +
+      'SIGNED Bettin-Conrey mean value Sum_a c_0(h_a/a) over the inverse line -- no absolute value or ' +
+      'square, so neither the even-moment machinery (imp-97203) nor the a &lt;-&gt; b-a antisymmetry ' +
+      '(imp-97097) applies, leaving it strictly harder and still non-elementary. Reduction + measurement ' +
+      'only; no bound moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97235 (adds this glossary headword for the imp-97204 termwise domination result), 2026',
+    relatedTerms: [
+      'imp-97204-route-m-cotangent-signed-firstmoment-lower-bound.js the source domination |S(b)| &lt;= A(b) and IMP97204_MEASURED/IMP97204_SUBGAP records',
+      'Route M Cotangent Absolute-Value Bound A(b) &lt;= c phi(b) b -- the Sole Open Input to kappa &gt; 0 the absolute program this signed bound is dominated by',
+      'Cauchy-Schwarz Reduction of the Cotangent Absolute First Moment to a Mean-Square M2w the imp-97203 sharpening this domination reduces to',
+      'kappa_cot ~ +0.12, the Cotangent-Part Coefficient of the Route M First Moment F(b) the coefficient this domination two-sidedly bounds',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

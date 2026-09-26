@@ -20873,6 +20873,10 @@ const DATA_MODULES = [
   // lower-companion chain (imp-96750 -> imp-97054 -> imp-97071) -- the mean-square-to-
   // first-moment reduction lineage. Index/meta only; NO QED.
   '/src/data/imp-97109-route-m-lower-companion-first-moment-chain-index.js',
+  // imp-97154: META cross-reference index grouping the uniform-N Krein-floor
+  // lower-bound cohort (imp-96749/imp-97100/imp-97120/imp-97121) -- the
+  // Ritz-upper-bounds-insufficient family. Index/meta only; NO QED.
+  '/src/data/imp-97154-krein-uniform-n-ritz-insufficiency-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

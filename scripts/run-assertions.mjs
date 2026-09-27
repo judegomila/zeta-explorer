@@ -6094,6 +6094,18 @@ const DATA_MODULES = [
   // imp-33721/imp-33767). Tabulation only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-34441-3p28e9-landmark-cluster-reconciliation.js',
+  // imp-97781: re-differences the imp-33721 quarter-decade sigma(N) exponent-ramp knee and pins its
+  // offset from the imp-3444 E_coll=E_trunc crossover (N_cross~3.280294e9) and sigma=1/2 halving
+  // landmark, then SWAPS the imp-398 E_flow (Gronwall) amplitude to measure the knee-to-crossover
+  // offset sensitivity. Baseline (amp=1) reproduces imp-33721 (log10 N*~9.5286) and imp-33767/imp-34441
+  // (knee_vs_cross~+2.95%, knee_vs_half~+3.36%). N_cross is EXACTLY E_flow-independent (no flow term in
+  // E_coll=E_trunc), so all offset sensitivity lives in the knee. Despite E_flow/E_trunc~1.9e-3 at the
+  // knee the offset is strongly flow-sensitive: E_flow OFF raises it to ~+4.74%, x2 drops it to ~+1.20%,
+  // slope ~-1.77 pts per unit amplitude -- a curvature (D2) landmark amplifies the tiny flow term ~1000x.
+  // Refines imp-33767: the KNEE POSITION itself is E_flow-displaced, not just the halving landmark.
+  // MEASUREMENT/sensitivity only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-97781-knee-crossover-eflow-sensitivity.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix

@@ -25086,6 +25086,35 @@ export const glossary = [
       'imp-398 the Gronwall flow-prefactor amplitude C_F entering E_flow = C_F*(logT0/T0)*Gronwall',
     ],
   },
+  {
+    term: 'w_lin leading-Laurent linear coefficient / wobble-limited fit floor (imp-97618, imp-97645)',
+    category: 'result',
+    definition:
+      'w_lin(x) = 2C/pi + log(x)/pi - x/pi (C = (log 2pi - gamma)/2 = 0.6303307007539063) is the forced ' +
+      'leading Laurent expansion of the Estermann-function double pole at s=1 (imp-97460), obtained as ' +
+      'the z -&gt;&nbsp;0 specialisation w(x) = lim_{b-&gt;oo} (V(xb,b) + V(b,xb))/b of the Bettin-Conrey ' +
+      'Vasyunin cotangent-sum transform. Direct evaluation at b = 400000 (imp-97618) matches the const ' +
+      'target 2C/pi to 5.2e-4 and the log target 1/pi to 9.7e-5, but the LINEAR target -1/pi only to ' +
+      '6.4e-3, because the linear term sits at the O(x)/O(x^2) boundary of the leading block, where the ' +
+      'imp-97460 arithmetic wobble tail first contaminates the small-x fit nodes. imp-97645 re-ran the ' +
+      'same limit at b = 1e6 (linErr 1.28e-2) and b = 2e6 (linErr 6.46e-3): the linear error is ' +
+      'NON-MONOTONE in b and PLATEAUS at ~6e-3 rather than shrinking, while the raw residual ' +
+      'w(x) - w_lin(x) is already b-converged at b = 400000 (reproduces to ~1e-4 at b = 2e6). So the ' +
+      '~6e-3 floor is the O(x^2) wobble tail sampled on the fixed small-x fit grid (the imp-97597 ' +
+      'RESULT 3 mixed-kernel eps*z^2 sub-gap), not a finite-b truncation artifact -- isolating the ' +
+      'linear coefficient below 6e-3 needs a wobble-model subtraction or a finer/smaller-x node grid, ' +
+      'not larger b. HONEST SCOPE: numerical cross-check only; w_lin itself is already forced by ' +
+      'imp-97460 and no coefficient is newly pinned; no bound moves; the rigorous anchor stays the ' +
+      'trace ceiling T = 2.594e7 (compute binds first by &gt;2600x); no operator positivity; Platt-Trudgian ' +
+      'Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97618 (b=400000 Vasyunin direct-limit cross-check of w_lin); imp-97645 (b=1e6/2e6 re-run showing the linear-coefficient error plateaus rather than tightens; adds this glossary headword)',
+    relatedTerms: [
+      'imp-97618-wlin-leading-laurent-crossval.js the b=400000 baseline cross-check (const/log/linear fit errors)',
+      'imp-97645-wlin-largeb-linear-coeff-crossval.js the b=1e6/2e6 re-run confirming the ~6e-3 plateau is wobble, not finite-b',
+      'imp-97460 the Estermann double-pole analytic route that forces w_lin(x) and its O(x^2) arithmetic wobble tail',
+      'imp-97597 the RESULT 3 mixed-kernel (epsilon*z^2) sub-gap this wobble floor localises to',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

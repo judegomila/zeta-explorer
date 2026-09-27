@@ -2317,7 +2317,15 @@ export const LAMBDA_ROADMAP = {
     'C_mb without ANY unconditional o(sqrt(N)/log(N)) bound -- even a replacement as ' +
     'loose as ~1.5e4 at N~1e13 is unavailable off-GUE. Measurement only on the ' +
     'inherited surrogate; changes no bound; C_mb remains GUE-conditional (imp-486); ' +
-    'NO QED.',
+    'NO QED. ' +
+    'NOTED (imp-97596): the four scattered sigma(N) landmarks above (peak ~9.22e5, ' +
+    'below-0.9 ~2.57e7, halving ~3.27e9, below-0.1 ~3.21e11 -- imp-33582/imp-3406/' +
+    'imp-33723) are now tabulated as one cross-validated object by imp-97520, which ' +
+    'also re-checks the halving landmark against the imp-33723 closed-form N_cross to ' +
+    '~0.4% (residual = Gronwall E_flow gap, imp-33601). This prose is retained for ' +
+    'narrative continuity; new consumers should cite imp-97520 as the canonical ' +
+    'tabulated ladder. Cross-reference only; changes no bound; C_mb remains ' +
+    'GUE-conditional (imp-486); NO QED.',
   bounds: LAMBDA_BOUNDS,
   chain: LAMBDA_CHAIN_STEPS,
   verification: VERIFICATION_EFFORTS,

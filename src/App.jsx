@@ -1690,6 +1690,9 @@ const Imp97082RitzVsRigorousCrossvalRangeViz = lazy(() =>
 const Imp97068MirrorDescentPoissonKernelViz = lazy(() =>
   import('./pages/Imp97068MirrorDescentPoissonKernelViz.jsx')
 );
+const Imp97652TailModelFractionBandViz = lazy(() =>
+  import('./pages/Imp97652TailModelFractionBandViz.jsx')
+);
 const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
   import('./pages/Imp97106PalmMirrorSurplusComparisonViz.jsx')
 );
@@ -4466,6 +4469,10 @@ function AppShell() {
           <Route
             path="/viz-imp97068-mirror-descent-poisson-kernel"
             element={<Imp97068MirrorDescentPoissonKernelViz />}
+          />
+          <Route
+            path="/viz-imp97652-tail-model-fraction-band"
+            element={<Imp97652TailModelFractionBandViz />}
           />
           <Route
             path="/viz-imp97106-palm-mirror-surplus-comparison"

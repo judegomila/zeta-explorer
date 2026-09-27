@@ -5515,6 +5515,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ratio and extrapolated value is reused verbatim from imp-97599 (a measurement, not a derivation); no new computation. Decides only the tail model (algebraic); no constant is pinned as rigorous. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97652-tail-model-fraction-band',
+      title: 'imp-97626: Realizable-Fraction Tail-Model Band (Full Ladder vs Asymptotic Tail)',
+      oneLine:
+        'Grouped-bar and band-range charts of the imp-97626 three tail-model fits (1/T, 1/T^2, (log T)/T) to the window ladder: the full T=12..64 ladder spreads the realizable fraction 0.508..0.543, while restricting to the asymptotic tail T=28..64 collapses all three models into the tight 0.508..0.520 band bracketing the imp-97564 two-rung headline 0.5132.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97652-tail-model-fraction-band-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97626-window-extrapolation-model-spread.js (IMP97626_FIT_FULL/IMP97626_FIT_TAIL4/IMP97626_SPREAD/IMP97626_TWO_RUNG_FRACTION reused verbatim; imp-97652 viz-data leaf + page)',
+      ticket: 'imp-97652',
+      pedagogicalStep: 429,
+      honestCeiling:
+        'Presentation only: every fraction and band value is reused verbatim from imp-97626 (a measurement, not a derivation); no new computation. Eigenvalues are baked finite-section IEEE-double, not interval-enclosed; R_inf is an extrapolation, not a certified limit. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -5501,6 +5501,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every T-value and set is reused verbatim from imp-97606 (a measurement, not a derivation); no new computation. The b/4 ceiling is untouched; no bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97651-tra2-ratio-drift',
+      title: 'imp-97599: tr(A2) Uniform-80-Block Ratio Drift Toward 1',
+      oneLine:
+        'Bar chart of the imp-97599 successive 80-step tr(A2) ratio climbing from r1=0.687945 to r2=0.717237 (toward 1, the algebraic-tail signature), alongside a cluster chart showing the geometric/Aitken/algebraic extrapolators still converging near 4818.77M, ~0.333M below the imp-97482 named ~4819.1M line.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97651-tra2-ratio-drift-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97599-tra2-third-block-tail-decision.js (IMP97599_UNIFORM_BLOCKS/IMP97599_EXTRAPOLATION/IMP97599_CROSSCHECK reused verbatim; imp-97651 viz-data leaf + page)',
+      ticket: 'imp-97651',
+      pedagogicalStep: 428,
+      honestCeiling:
+        'Presentation only: every ratio and extrapolated value is reused verbatim from imp-97599 (a measurement, not a derivation); no new computation. Decides only the tail model (algebraic); no constant is pinned as rigorous. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

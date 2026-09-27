@@ -1789,6 +1789,9 @@ const Imp97631SigmaLandmarkElasticityComparisonViz = lazy(() =>
 const Imp97635Omega10ExtremalityMarginViz = lazy(() =>
   import('./pages/Imp97635Omega10ExtremalityMarginViz.jsx')
 );
+const Imp97651Tra2RatioDriftViz = lazy(() =>
+  import('./pages/Imp97651Tra2RatioDriftViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4595,6 +4598,10 @@ function AppShell() {
           <Route
             path="/viz-imp97635-omega10-extremality-margin"
             element={<Imp97635Omega10ExtremalityMarginViz />}
+          />
+          <Route
+            path="/viz-imp97651-tra2-ratio-drift"
+            element={<Imp97651Tra2RatioDriftViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

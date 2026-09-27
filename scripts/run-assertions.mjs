@@ -21397,6 +21397,19 @@ const DATA_MODULES = [
   // (sum +0.2516 at L2 -> +7.4e-5 at L4). Measurement only; C_C 1/8 and E_trunc 3.06e-5 perturbed as
   // probes not re-pinned; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97623-additivity-residual-multi-landmark-crosscheck.js',
+  // imp-97642 (2026-09-27): INDEPENDENTLY VERIFIES the imp-97622 unified downslope-landmark C_C-elasticity
+  // closed form E = 2/(1 + 2 d ln R/dx - d ln L/dx) with a higher-order 5-point central-difference stencil
+  // and a refined eps ladder. The 5-point stencil agrees with the imp-97622 2-point stencil to every printed
+  // digit at all four step sizes (max deviation ~4e-10), confirming +2.55535443 (L2), +2.10234724 (L3,
+  // reproducing the imp-97565 halving 2/(1 - g_prime) = 2.102347) and +2.07902469 (L4). Refining the
+  // imp-97598 log-C_C central difference eps 0.02 -> 0.001 shows it converges monotonically to +2.5553554,
+  // matching the closed form to six digits -- the earlier 4-digit agreement was the eps = 0.01 finite-diff
+  // overshoot (+2.5554486), not a modelling gap. Freezing the remainder (d ln R/dx -> 0) collapses all three
+  // into the 0.042-wide g_prime band 2.079..2.121; L2 keeps +0.434 excess entirely from the -0.160 flow term
+  // 2 d ln R/dx (L3 +0.007, L4 +0.0001), confirming the E_flow flow share is the sole reason L2 is steepest.
+  // Verification only; C_C 1/8 ansatz perturbed as a probe not re-pinned; C_mb GUE-conditional per imp-486;
+  // no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97642-l2-cc-elasticity-independent-verify.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

@@ -5319,6 +5319,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from imp-97441 and imp-97459, merged into one row-aligned table and chart, nothing re-derived. Establishes no operator positivity; changes no bound; the rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97572-csharp-floor-ladder',
+      title: 'imp-97492: The c_sharp Floor-Sharpening Ladder, Residual Shares Made Explicit',
+      oneLine:
+        'Charts the imp-97492 Krein c_sharp floor-sharpening ladder (-4336.198 -> -3200.029 -> -3065.435 -> -1343.796 realizable -> ~0.581059 measured) on one axis, with the two named residual shares (realizability +1721.639, 56.2%; discarded t^4 far field +1344.378, 43.8%) that exactly close the gap.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97572-csharp-floor-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97492-krein-csharp-lower-bound-obstruction-cohort-index.js (source cohort index; imp-97572 viz-data leaf + page)',
+      ticket: 'imp-97572',
+      pedagogicalStep: 415,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from the imp-97492 cohort index, nothing re-derived. No rigorous positive lower bound on c_sharp exists; interval-rigorous certified reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

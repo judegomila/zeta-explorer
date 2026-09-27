@@ -1750,6 +1750,9 @@ const Imp97388SecondMomentDecompositionViz = lazy(() =>
 const Imp97570CrossoverCrestCombinedViz = lazy(() =>
   import('./pages/Imp97570CrossoverCrestCombinedViz.jsx')
 );
+const Imp97572CsharpFloorLadderViz = lazy(() =>
+  import('./pages/Imp97572CsharpFloorLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4504,6 +4507,10 @@ function AppShell() {
           <Route
             path="/viz-imp97570-crossover-crest-combined"
             element={<Imp97570CrossoverCrestCombinedViz />}
+          />
+          <Route
+            path="/viz-imp97572-csharp-floor-ladder"
+            element={<Imp97572CsharpFloorLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

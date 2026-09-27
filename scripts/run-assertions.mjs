@@ -4926,6 +4926,18 @@ const DATA_MODULES = [
   // conditional-share diagnostic; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED.
   // 6 assertions.
   '/src/data/imp-33860-sigma-deeptail-001-crossover-closed-form.js',
+  // imp-97838: EXTENDS the imp-33743 general-threshold closed form N_cross(thr)=(C_C(1-thr)/(E_trunc
+  // thr))^2 log T0 -- which imp-33743 evaluated ONLY at thr=0.1 -- to a near-peak thr=0.9 and a
+  // deep-tail thr=0.01, and TABULATES the closed-form-vs-empirical residual across the full family
+  // (0.9,0.5,0.1,0.01) to test the E_flow-vanishing explanation. RESULT: the residual falls
+  // MONOTONICALLY 2.46e-1 -> 3.99e-3 -> 7.38e-5 -> 8.79e-7 as the crossover walks down the tail,
+  // tracking the leading predictor 2*E_flow/E_trunc = 2.18e-1 -> 3.81e-3 -> 7.10e-5 -> 8.51e-7 over
+  // ~5.5 decades; the linear predictor curves (ratio ~1.12) only near the peak where E_flow/E_trunc
+  // ~0.11 is no longer tiny, relaxing to ~1.03 in the tail; restoring E_flow closes the gap to <6e-15
+  // at EVERY threshold. Confirms the E_flow explanation as a threshold-wide law, not a single-landmark
+  // coincidence. Derivation/measurement only; conditional-share diagnostic; imp-3066/imp-486/C_C
+  // ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-97838-threshold-landmark-residual-trend.js',
   // imp-33857: CROSS-VALIDATES the imp-33844 closed-form hump peak (p_ecoll^2 ln10/8 at sigma=1/2, the
   // E_coll=E_trunc crossover, placed at decade k=9) against the imp-33843/imp-33810 widening-fit
   // denominator over the SAME k=6..11 ladder. Both code paths compute ONE curvature quantity

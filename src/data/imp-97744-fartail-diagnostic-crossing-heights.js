@@ -19,12 +19,13 @@
  *     T0 = 2pi * e^L,        L = 1/(1 - t),
  *
  * and the Riemann-von Mangoldt relation N = (T0/2pi)(log(T0/2pi) - 1) = (L - 1) e^L pins the
- * crossing height. For the three targets t = 0.99, 0.995, 0.999 the log-argument L is exactly
- * 100, 200, 1000, so the crossings are:
+ * crossing height. For the four targets t = 0.99, 0.995, 0.999, 0.9999 the log-argument L is
+ * exactly 100, 200, 1000, 10000, so the crossings are:
  *
- *     t = 0.990:  L = 100,   T0 = 2pi e^100  ~ 1.68899e44,   N = 99  e^100  ~ 2.66124e45
- *     t = 0.995:  L = 200,   T0 = 2pi e^200  ~ 4.54021e87,   N = 199 e^200  ~ 1.43797e89
- *     t = 0.999:  L = 1000,  T0 = 2pi e^1000 ~ 1.23783e435,  N = 999 e^1000 ~ 1.96810e437
+ *     t = 0.9900:  L = 100,    T0 = 2pi e^100   ~ 1.68899e44,   N = 99   e^100   ~ 2.66124e45
+ *     t = 0.9950:  L = 200,    T0 = 2pi e^200   ~ 4.54021e87,   N = 199  e^200   ~ 1.43797e89
+ *     t = 0.9990:  L = 1000,   T0 = 2pi e^1000  ~ 1.23783e435,  N = 999  e^1000  ~ 1.96810e437
+ *     t = 0.9999:  L = 10000,  T0 = 2pi e^10000 ~ 5.53349e4343, N = 9999 e^10000 ~ 8.80594e4346
  *
  * These are computed in base-10 log space (dg_dt of the double-precision ceiling e^709 is
  * exceeded well before 1e89, so N is carried as a mantissa times a power of ten). log10 N =
@@ -42,10 +43,15 @@
  *   (F4) SELF-CONSISTENCY: the pinned log10 N values agree with imp-97723 crossings (45.4/89.2/
  *        437.3, bisection of the FULL model including the vanishing sigma term) to < 0.1 in
  *        log10 N, confirming the sigma contribution is negligible at these heights.
+ *   (F5) THE 0.9999 RUNG (new) IS PINNED AT L = 10000: T0 ~ 5.53349e4343 (log10 T0 = 4343.7430),
+ *        N ~ 8.80594e4346 (log10 N = 4346.9448). It sits 3909.65 orders of magnitude in log10 N
+ *        above the 0.999 rung: a ten-fold jump in L buys only one more nine, because L = 1/(1 - t)
+ *        makes the crossing height grow like e^(1/(1-t)). The rung is ~4046 orders past the
+ *        imp-97723 1e300 sampling ceiling, so it has no bisection counterpart (F4 not asserted).
  *
  * The punchline: imp-97723 F2 reported the 0.99 and 0.995 crossings only to the nearest order of
  * magnitude. Inverting the exact slope 1 - 1/log(T0/2pi) = t with L = 1/(1 - t) and applying RvM
- * pins them at N ~ 2.66124e45, 1.43797e89, and (new) 1.96810e437, with the matching T0 heights.
+ * pins them at N ~ 2.66124e45, 1.43797e89, 1.96810e437, and (new) 8.80594e4346, with matching T0.
  *
  * CLOSED-FORM PINNING / MEASUREMENT ONLY. Conditional-share diagnostic, NOT an RH bound. Uses the
  * inherited imp-3406/imp-97702/imp-97723 component model and RvM inverse, NOT a rigorous
@@ -78,6 +84,7 @@ function pinCrossing(t) {
   const log10N = L * LOG10E + Math.log10(L - 1);
   const expT0 = Math.floor(log10T0);
   const expN = Math.floor(log10N);
+  const ref = IMP97723_CROSSINGS_LOG10N[String(t)];
   return {
     target: t,
     L: +L.toFixed(6),
@@ -87,14 +94,15 @@ function pinCrossing(t) {
     log10_N: +log10N.toFixed(4),
     N_mantissa: +Math.pow(10, log10N - expN).toFixed(5),
     N_exp10: expN,
-    // Self-consistency vs the imp-97723 full-model bisection (F4).
-    log10N_vs_imp97723: +Math.abs(
-      log10N - IMP97723_CROSSINGS_LOG10N[String(t)]
-    ).toFixed(4),
+    // Self-consistency vs the imp-97723 full-model bisection (F4). The 0.9999 rung
+    // lies ~4046 orders past the imp-97723 1e300 sampling ceiling, so no bisection
+    // counterpart exists there: report null rather than a spurious NaN comparison.
+    log10N_vs_imp97723:
+      ref === undefined ? null : +Math.abs(log10N - ref).toFixed(4),
   };
 }
 
-const CROSSINGS = [0.99, 0.995, 0.999].map(pinCrossing);
+const CROSSINGS = [0.99, 0.995, 0.999, 0.9999].map(pinCrossing);
 
 export const IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS = {
   id: 'imp-97744',
@@ -124,6 +132,13 @@ export const IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS = {
       'The pinned log10 N (45.4251/89.1577/437.2940) agree with the imp-97723 full-model ' +
       'bisection crossings (45.4/89.2/437.3) to < 0.06 in log10 N, confirming the sigma term is ' +
       'negligible at these heights so the bare slope inversion is the correct pin.',
+    F5_cross_0p9999:
+      'The 0.9999 crossing (new rung) is pinned at L = 10000: T0 = 2pi e^10000 ~ 5.53349e4343 ' +
+      '(log10 T0 = 4343.7430) and N = 9999 e^10000 ~ 8.80594e4346 (log10 N = 4346.9448). It sits ' +
+      '3909.65 orders of magnitude in log10 N above the 0.999 rung (437.2940) -- a ten-fold jump ' +
+      'in L (1000 -> 10000) buys only one more nine, since L = 1/(1 - t) makes the crossing height ' +
+      'grow like e^(1/(1-t)). No imp-97723 bisection counterpart exists (the rung is ~4046 orders ' +
+      'past the imp-97723 1e300 sampling ceiling), so F4 self-consistency is not asserted here.',
   },
   isRigorous: false,
   verdict:
@@ -192,18 +207,47 @@ export const IMP97744_FARTAIL_DIAGNOSTIC_CROSSING_HEIGHTS_ASSERTIONS = [
     },
   },
   {
+    // (F5) The 0.9999 crossing (new rung) is pinned at N ~ 8.80594e4346, T0 ~ 5.53349e4343.
+    id: 'imp97744-cross-0p9999-pinned',
+    description: '0.9999 crossing: L = 10000, N mantissa ~ 8.80594 at 10^4346, T0 mantissa ~ 5.53349 at 10^4343',
+    holds: () => {
+      const r = CROSSINGS.find((x) => x.target === 0.9999);
+      return (
+        r &&
+        Math.abs(r.L - 10000) < 1e-4 &&
+        r.N_exp10 === 4346 &&
+        Math.abs(r.N_mantissa - 8.80594) < 1e-3 &&
+        r.T0_exp10 === 4343 &&
+        Math.abs(r.T0_mantissa - 5.53349) < 1e-3
+      );
+    },
+  },
+  {
+    // (F5) The 0.9999 rung has no imp-97723 bisection counterpart (past the 1e300 ceiling).
+    id: 'imp97744-cross-0p9999-no-bisection-counterpart',
+    description: '0.9999 rung reports null self-consistency (no imp-97723 bisection counterpart past the 1e300 ceiling)',
+    holds: () => {
+      const r = CROSSINGS.find((x) => x.target === 0.9999);
+      return r && r.log10N_vs_imp97723 === null;
+    },
+  },
+  {
     // (F4) Pinned log10 N agree with the imp-97723 full-model bisection to < 0.1.
     id: 'imp97744-self-consistent-with-imp97723',
-    description: 'pinned log10 N match the imp-97723 full-model bisection crossings to < 0.1 in log10 N',
-    holds: () => CROSSINGS.every((r) => r.log10N_vs_imp97723 < 0.1),
+    description: 'pinned log10 N match the imp-97723 full-model bisection crossings to < 0.1 in log10 N (rungs with a bisection counterpart)',
+    holds: () =>
+      CROSSINGS.filter((r) => r.log10N_vs_imp97723 !== null).every(
+        (r) => r.log10N_vs_imp97723 < 0.1
+      ),
   },
   {
     // Monotonicity: higher target -> higher crossing height (log10 N strictly increasing).
     id: 'imp97744-crossings-monotone',
-    description: 'log10 N strictly increases with the diagnostic target (0.99 < 0.995 < 0.999)',
+    description: 'log10 N strictly increases with the diagnostic target (0.99 < 0.995 < 0.999 < 0.9999)',
     holds: () =>
       CROSSINGS[0].log10_N < CROSSINGS[1].log10_N &&
-      CROSSINGS[1].log10_N < CROSSINGS[2].log10_N,
+      CROSSINGS[1].log10_N < CROSSINGS[2].log10_N &&
+      CROSSINGS[2].log10_N < CROSSINGS[3].log10_N,
   },
   {
     // Honesty gate: closed-form pinning only, no QED, PT stays SOTA.

@@ -25038,6 +25038,29 @@ export const glossary = [
       'imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js defines the confinement family g(xi) and the band |xi| &lt;= a',
     ],
   },
+  {
+    term: 'Krein far-field tail-bias sign-change radius Rc = 1/a (imp-97580/imp-97518)',
+    category: 'result',
+    definition:
+      'The imp-97518 endpoint-asymptotic bias term g_ppp(a) = (24/a)(1/a^2 - R^2) exp(-(R a)^2/2) ' +
+      'vanishes at R = 1/a, and imp-97580 shows this is exactly where the endpoint-asymptotic ' +
+      'tail-integral bias against the exact symbol sigma_2 changes sign: relBias(R) = ' +
+      '3 (1/a - a R^2) * (I2/I1), with I2/I1 = 2.075e-6 an R-independent ratio of tail integrals, so ' +
+      'relBias is positive for R &lt; Rc, zero at Rc, negative for R &gt; Rc. At 2a = ln3, ' +
+      'Rc = 1/a = 1.8204785. This sign-change radius sits far below the imp-97497 far-field-cost ' +
+      'optimum R* = 3.36 -- at R* the relative bias is already only -2.727e-5, an order of magnitude ' +
+      'inside the imp-97497 &lt; 1e-3 tail error bar, so tuning R to Rc would zero an already-negligible ' +
+      'bias without moving the far-field cost. The far-field positivity margin t0 = 10.531 (last sign ' +
+      'change of sigma_2 into all-positive) is R-independent, since |psi_R(t)|^2 &gt;= 0 for every R makes ' +
+      'the integrand sign follow sigma_2 alone. Measurement only; no operator positivity; no bound moves; ' +
+      'interval-rigorous reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97518 (closed-form derivation of g_ppp(a) and its zero at R = 1/a); imp-97580 (R-sweep confirming the tail-bias sign change at Rc = 1/a and that it sits far below the far-field optimum R*)',
+    relatedTerms: [
+      'imp-97580-krein-tail-bias-R-sweep-signchange.js the source module (tail-bias factorization, Rc = 1/a, R-independent positivity threshold)',
+      'imp-97518-krein-tail-endpoint-asymptotic-closed-form.js the closed-form g_pp(a), g_ppp(a) derivation',
+      'imp-97497-krein-welloptimum-tail-converged.js the far-field-cost optimum R* = 3.36',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -22075,6 +22075,12 @@ const DATA_MODULES = [
   // B_inf=lnA+gamma/12 carry ~40.6 sig figs at dps=40, ~30 figs of headroom over the ~10 stored.
   // Documentation only; no bound moves; NO QED.
   '/src/data/imp-97790-route-m-storage-limit-honest-status.js',
+  // imp-97832 (sonnet-4-6, content): HONEST-STATUS NOTE restating, standalone, the imp-97721 result
+  // that the exact three-axis cancellation DIAG3 = E_CC + E_ET + E_CF == 0 survives the imp-97662
+  // individual-elasticity square-root fold at the L1 interior sigma peak (sigma_max ~ 0.949429,
+  // N_peak ~ 9.22e5) as a SCALING SYMMETRY (sigma degree-0 homogeneous in (c,e,f)), not a
+  // transversality artifact of the downslope landmarks. Documentation only; no bound moves; NO QED.
+  '/src/data/imp-97832-diag3-peak-scaling-symmetry-honest-status.js',
   // imp-97841 (opus-4-8, numerical/cross-validation): CROSS-VALIDATES the imp-97823 g^(-1/2) sqrt(10)-per-decade
   // kernel-fold law at a SECOND, structurally distinct fold node -- the imp-97662 C_C-elasticity fold
   // E = 2/(1 + 2 dlnR/dx - dlnL/dx) instead of the reconstruction kernel |K| = |1/(N sigma_N)|. Running the

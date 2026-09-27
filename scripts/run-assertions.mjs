@@ -21410,6 +21410,19 @@ const DATA_MODULES = [
   // Verification only; C_C 1/8 ansatz perturbed as a probe not re-pinned; C_mb GUE-conditional per imp-486;
   // no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97642-l2-cc-elasticity-independent-verify.js',
+  // imp-97644 (2026-09-27): EXTENDS the imp-97623 two-axis additivity to a THIRD axis -- the imp-398 C_F
+  // flow prefactor / Gronwall E_flow amplitude -- at the three imp-97520 landmarks (sigma = 0.9/0.5/0.1).
+  // Adding C_F as a multiplicative perturbation reveals the three-axis diagonal is an EXACT scaling symmetry:
+  // scaling C_C, E_trunc and C_F together leaves sigma = E_coll/E_N invariant (degree-0 homogeneous), so
+  // DIAG3 == 0 (machine-zero at every landmark and both eps steps). First-order additivity DIAG3 = E_CC +
+  // E_ET + E_CF then FORCES the three single-axis elasticities to sum to zero: the measured sum (+3.282e-7
+  // at L2 down to +5.684e-11 at L4) quarters when eps = 1e-3 -> 5e-4 (ratios ~4.0), so SUM3 = O(eps^2) -> 0.
+  // The flow term does NOT break additivity -- it participates in the symmetry: E_CF/E_ET = E_flow/E_trunc to
+  // ~2e-7 (E_CF is the E_trunc elasticity scaled by the flow share of E_N, a linear denominator-additive
+  // perturbation), equivalently E_CF = -(E_CC + E_ET) to ~1e-6. Measurement only; C_C 1/8, E_trunc 3.06e-5
+  // and the imp-398 C_F prefactor perturbed as probes not re-pinned; C_mb GUE-conditional per imp-486; no
+  // bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97644-three-axis-additivity-flow-prefactor.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

@@ -692,6 +692,16 @@ const DATA_MODULES = [
   // Import-light (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED;
   // far-tail exponent 1/2 per imp-3463; changes no bound; no operator positivity; NO QED; PT SOTA.
   '/src/data/imp-97702-sigma-fartail-exponent-residual-half-loglaw.js',
+  // imp-97722 (2026-09-26): INDEPENDENT (non-OLS, from-source) cross-check of the imp-97706 doubled
+  // Route M gap-law residual ladder (23 rungs, p=2e6..4.93e8). Re-derives both imp-97706 headline
+  // claims on the identical rungs from code that shares nothing with the imp-97687 OLS/bootstrap route:
+  // the eight sign-changes reproduce EXACTLY off a raw |residual| monotonicity count (indices
+  // 5,12,13,16,17,19,21,22 = the 8 negative finite-difference exponents = baked IMP97706_RISE_RUNGS_COMBINED),
+  // and the "outruns every fixed power <= 3" conclusion survives the endpoint slope (~10.29, no fit) and
+  // the Theil-Sen median of all 253 pairwise slopes (~10.62), with a from-scratch OLS recompute (10.560017)
+  // matching the baked imp-97706 exponent to a ~1e-5 round-off floor. No code-shared bug detected.
+  // Import-light (imp-97706 -> imp-97659 baked literals only). MCM refuted from omega=11; no bound moves; NO QED.
+  '/src/data/imp-97722-route-m-deep-ladder-independent-crosscheck.js',
   // imp-97428 (2026-09-26): CROSS-VALIDATES the full three-term share model sigma_full against the
   // imp-96151 two-term closed form sigma_CF across the far-tail band [1e11..1e15], extending the
   // imp-97404 single-rung 0.4646 cross-check at 1e12 to the whole band. Per-decade OLS exponents

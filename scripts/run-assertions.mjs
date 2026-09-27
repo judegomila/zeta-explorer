@@ -22246,6 +22246,11 @@ const DATA_MODULES = [
   // imp-97822 (floor-elasticity, ~100x the E_flow axis), mirroring the imp-97846 cohort index.
   // Index/meta only; no bound moved; NO QED.
   '/src/data/imp-124782-sigma-ramp-knee-cohort-index.js',
+  // imp-124801: Concepts glossary headword recording the imp-97838 threshold-crossover accuracy
+  // law -- the imp-33743 leading closed-form crossover residual is set, to leading order, by the
+  // single ratio 2*E_flow/E_trunc across the whole threshold family. Documentation only; no bound
+  // moved; NO QED.
+  '/src/data/imp-124801-threshold-crossover-accuracy-law-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

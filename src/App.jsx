@@ -1714,6 +1714,9 @@ const Imp97716WrapperElasticity5PointViz = lazy(() =>
 const Imp97745FarTailDiagnosticAsymptoteViz = lazy(() =>
   import('./pages/Imp97745FarTailDiagnosticAsymptoteViz.jsx')
 );
+const Imp97806FullSigmaDiagnosticCurveViz = lazy(() =>
+  import('./pages/Imp97806FullSigmaDiagnosticCurveViz.jsx')
+);
 const Imp97746McmDpsCapScalingViz = lazy(() =>
   import('./pages/Imp97746McmDpsCapScalingViz.jsx')
 );
@@ -4528,6 +4531,10 @@ function AppShell() {
           <Route
             path="/viz-imp97745-fartail-diagnostic-asymptote"
             element={<Imp97745FarTailDiagnosticAsymptoteViz />}
+          />
+          <Route
+            path="/viz-imp97806-full-sigma-diagnostic-curve"
+            element={<Imp97806FullSigmaDiagnosticCurveViz />}
           />
           <Route
             path="/viz-imp97746-mcm-dps-cap-scaling"

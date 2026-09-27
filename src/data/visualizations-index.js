@@ -5655,6 +5655,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder value, rise index, and slope estimate is reused verbatim from imp-97722 (an independent, non-OLS cross-check, not a new computation). Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97806-full-sigma-diagnostic-curve',
+      title: 'imp-97723: Full Sigma Diagnostic Curve -- Hump, Local Minimum, Rise-to-1',
+      oneLine:
+        'Symlog-scaled line chart of the full imp-97723 diagnostic (1/2-p)*2 log T0 across log10 N = 2..50, showing the small-N hump (diag ~14.9 at log10 N ~7.77), the local minimum (diag ~0.976 at log10 N ~18.77), and the slow rise toward exactly 1 (crossing 0.99 near log10 N ~45.4), with all three landmarks marked.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97806-full-sigma-diagnostic-curve-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97782-fartail-diagnostic-hump-peak-pin.js (hump peak), src/data/imp-97777-fartail-diagnostic-local-minimum-pin.js (local minimum), src/data/imp-97723-sigma-fartail-diagnostic-asymptote-one.js (rise-to-1 crossing) -- all three landmarks reused verbatim; imp-97806 viz-data leaf + page',
+      ticket: 'imp-97806',
+      pedagogicalStep: 439,
+      honestCeiling:
+        'Presentation only: the continuous curve is a fresh sampling of the byte-for-byte imp-97723/imp-97759 closed form; the three marked landmarks are reused verbatim from their pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

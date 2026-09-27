@@ -21906,6 +21906,18 @@ const DATA_MODULES = [
   // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned
   // 3.06e-5; changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-124773-fartail-diag-value-floor-insensitivity.js',
+  // imp-124774 (2026-09-27): CROSS-VALIDATES whether the sqrt(10) = 3.162278 per-decade rate reported by
+  // imp-97823 (interior-peak kernel |K| ~ g^(-1/2)), imp-34528 (far-tail sigma ~ N^(-1/2)) and imp-35663
+  // (E_flow remnant span-ratio) is one asymptotic mechanism or a coincident number. Deriving where the 1/2
+  // comes from in each: a FOLD-JACOBIAN exponent in imp-97823 (1/(order-2 max), generic to any smooth peak,
+  // of the gap g), a DIRECT N^(-1/2) collision-amplitude exponent in imp-34528 (the genuine RvM balance, of
+  // N), and a RECIPROCAL-OF-2 power in imp-35663 (remnant ~ u^(-2), u = log N). The distinguishing
+  // fingerprint separates them: three distinct approach signs (imp-97823 two-sided/bracketing, imp-34528
+  // from below, imp-35663 from above) and two distinct residual-decay constants (imp-97823 ~1/sqrt(10) per
+  // decade of gap; imp-34528 ~1/2 per decade of N). Same NUMBER, three distinct mechanisms; the only shared
+  // root is the RvM T0 ~ 2 pi N / log N scaffold. Import-light (baked literals). Cross-validation only;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-124774-sqrt10-mechanism-crossvalidation.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

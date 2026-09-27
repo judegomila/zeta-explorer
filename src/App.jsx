@@ -1762,6 +1762,9 @@ const Imp97588McmBaseTermK0ApproachViz = lazy(() =>
 const Imp97612CuspSeparationViz = lazy(() =>
   import('./pages/Imp97612CuspSeparationViz.jsx')
 );
+const Imp97613EflowShareDecayViz = lazy(() =>
+  import('./pages/Imp97613EflowShareDecayViz.jsx')
+);
 const Imp97589SigmaLandmarkLadderViz = lazy(() =>
   import('./pages/Imp97589SigmaLandmarkLadderViz.jsx')
 );
@@ -4539,6 +4542,10 @@ function AppShell() {
           <Route
             path="/viz-imp97612-cusp-separation"
             element={<Imp97612CuspSeparationViz />}
+          />
+          <Route
+            path="/viz-imp97613-eflow-share-decay"
+            element={<Imp97613EflowShareDecayViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

@@ -5389,6 +5389,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every mean/sd value is reused verbatim from imp-97576 (a measurement, not a derivation); kappa_smooth is NOT pinned to an exact value, only its cusp-limit smallness is measured. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97613-eflow-share-decay',
+      title: 'imp-97585: Gronwall Flow-Share Decay E_flow/E_trunc',
+      oneLine:
+        'Log-log line chart of the imp-97585 decade ladder N in {1e6 .. 1e12}: the Gronwall flow share E_flow/E_trunc collapsing monotonically (1.4376 -> 1.3029e-5), with the share=1 crossing (N~1.60e6), the share=1e-3 crossing (N~6.93e9), and the halving landmark N_half~3.27e9 overlaid.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97613-eflow-share-decay-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97585-eflow-etrunc-share-full-ladder.js (LADDER and landmarks baked verbatim; imp-97613 viz-data leaf + page)',
+      ticket: 'imp-97613',
+      pedagogicalStep: 420,
+      honestCeiling:
+        'Presentation only: every ladder/landmark value is reused verbatim from imp-97585 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

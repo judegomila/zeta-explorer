@@ -1717,6 +1717,9 @@ const Imp97745FarTailDiagnosticAsymptoteViz = lazy(() =>
 const Imp97806FullSigmaDiagnosticCurveViz = lazy(() =>
   import('./pages/Imp97806FullSigmaDiagnosticCurveViz.jsx')
 );
+const Imp97729FarTailResidualTwoPieceCrossoverViz = lazy(() =>
+  import('./pages/Imp97729FarTailResidualTwoPieceCrossoverViz.jsx')
+);
 const Imp97746McmDpsCapScalingViz = lazy(() =>
   import('./pages/Imp97746McmDpsCapScalingViz.jsx')
 );
@@ -4535,6 +4538,10 @@ function AppShell() {
           <Route
             path="/viz-imp97806-full-sigma-diagnostic-curve"
             element={<Imp97806FullSigmaDiagnosticCurveViz />}
+          />
+          <Route
+            path="/viz-imp97729-fartail-residual-twopiece-crossover"
+            element={<Imp97729FarTailResidualTwoPieceCrossoverViz />}
           />
           <Route
             path="/viz-imp97746-mcm-dps-cap-scaling"

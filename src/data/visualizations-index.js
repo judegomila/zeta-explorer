@@ -5669,6 +5669,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the continuous curve is a fresh sampling of the byte-for-byte imp-97723/imp-97759 closed form; the three marked landmarks are reused verbatim from their pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97729-fartail-residual-twopiece-crossover',
+      title: 'imp-97702: Far-Tail Residual Two-Piece Split & Crossover',
+      oneLine:
+        'Log-y line chart and table showing the imp-97702 residual split into the power-law piece (1/2)sigma (falling ~27x from 1e12 to 1e15) and the nearly-flat logarithmic piece a(1-sigma), crossing at N ~ 3.553e12 (log10 N ~ 12.551), plus the deep-tail diagnostic (1/2-p)*2 log T0 settling to ~0.981 by 1e24.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97729-fartail-residual-twopiece-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97702-sigma-fartail-exponent-residual-half-loglaw.js (ladder, crossover, logAsymptote.resid_times_2logT0 reused verbatim; imp-97729 viz-data leaf + page)',
+      ticket: 'imp-97729',
+      pedagogicalStep: 440,
+      honestCeiling:
+        'Presentation only: every piece value, crossover height, and asymptote reading is reused verbatim from imp-97702 (a measurement/decomposition, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

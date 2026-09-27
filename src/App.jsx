@@ -1774,6 +1774,9 @@ const Imp97589SigmaLandmarkLadderViz = lazy(() =>
 const Imp97627McmMarginCollapseLadderViz = lazy(() =>
   import('./pages/Imp97627McmMarginCollapseLadderViz.jsx')
 );
+const Imp97628McmSurrogateVsFullhOnsetViz = lazy(() =>
+  import('./pages/Imp97628McmSurrogateVsFullhOnsetViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4560,6 +4563,10 @@ function AppShell() {
           <Route
             path="/viz-imp97627-mcm-margin-collapse-ladder"
             element={<Imp97627McmMarginCollapseLadderViz />}
+          />
+          <Route
+            path="/viz-imp97628-mcm-surrogate-vs-fullh-onset"
+            element={<Imp97628McmSurrogateVsFullhOnsetViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

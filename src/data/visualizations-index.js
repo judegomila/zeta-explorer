@@ -5431,6 +5431,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder/limit value is reused verbatim from imp-97583/imp-97601 (measurements, not derivations); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97628-mcm-surrogate-vs-fullh-onset',
+      title: 'imp-97583: Route-M MCM Surrogate vs Full-h Onset',
+      oneLine:
+        'Two-line chart comparing the smooth surrogate iterDiff(H,p_omega#,1) (first negative at omega=10, -5.40e-4) against the full-h value T(p_omega#) (first negative at omega=11, -9.62e-4), showing the near-flat +1.019e-3 R-correction buys exactly one order of reprieve.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97628-mcm-surrogate-vs-fullh-onset-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97583-route-m-mcm-onset-omega11-primorial.js (ladder baked verbatim; imp-97628 viz-data leaf + page)',
+      ticket: 'imp-97628',
+      pedagogicalStep: 423,
+      honestCeiling:
+        'Presentation only: every surrogate/Rcorr/full-h value is reused verbatim from imp-97583 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

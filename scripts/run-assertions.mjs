@@ -21894,6 +21894,18 @@ const DATA_MODULES = [
   // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned 3.06e-5;
   // changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-97795-fartail-diagnostic-three-landmark-floor-table.js',
+  // imp-124773 (2026-09-27): TABULATES the far-tail (sigma -> 0) diag-VALUE floor elasticity that
+  // imp-97802 F3 asserted (far-tail landmarks floor-INsensitive) but never gave a number for, as the
+  // numeric contrast to the imp-97802 hump peak value elasticity -4.09. Holding the imp-97795 landmark
+  // HEIGHTS fixed (local minimum log10 N = 18.77232, 0.99-crossing height 45.42508, deep probes 60 and
+  // 100) and swapping only the imp-33708 0.5x..5x E_trunc floor, d diag / d log10(factor) is -2.41e-3 at
+  // the minimum height (sigma ~ 3.3e-5), -5.55e-16 at the crossing height (sigma ~ 2.5e-18) and EXACTLY 0
+  // (below double precision) by log10 N = 60 -- ~1.7e3 to ~7.4e15 times smaller than the hump -4.09,
+  // collapsing monotonically with sigma. Fixing the height isolates the pure value response (no abscissa
+  // slide), so the minimum elasticity is ~27% below the imp-97795 re-pinned -3.29e-3. Import-light
+  // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned
+  // 3.06e-5; changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-124773-fartail-diag-value-floor-insensitivity.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

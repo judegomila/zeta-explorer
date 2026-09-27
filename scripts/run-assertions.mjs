@@ -22197,6 +22197,14 @@ const DATA_MODULES = [
   // the NAMED SUB-GAP where the two-term (A, B) model fails (~40% ratio miss, quartic-and-higher fold). Inherited
   // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124766-cubic-fold-coefficient-B-inverse-fit.js',
+  // imp-124830 (opus-4-8, numerical/derivation): DERIVES the imp-97823/imp-124776 kernel per-decade growth
+  // sqrt(10) = 10^(1/2) from the near-peak fold sigma = sigma_max - A*dx^2 - ..., separating the fold-ORDER-2
+  // exponent -1/2 (fixes the sqrt(10) ratio, curvature A CANCELS) from the curvature MAGNITUDE (fixes only the
+  // amplitude C = 1/(2 sqrt(A))). Cross-checks C_meas = |K|*sqrt(g) -> C_pred = 1/(2 sqrt(A)) = 8.816882 (both
+  // arms bracket it) and MEASURES the deep-window (g = 1e-6..1e-8) |ratio - sqrt(10)| decaying ~1/sqrt(10) per
+  // decade on both arms. Inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound
+  // moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124830-kernel-sqrt10-curvature-derivation.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.
@@ -22207,6 +22215,12 @@ const DATA_MODULES = [
   // validation, imp-97823 exact-sqrt(10) decade-ratio pin) as one near-peak-elasticity family,
   // mirroring the imp-97092 cohort index. Index/meta only; no bound moved; NO QED.
   '/src/data/imp-97846-kernel-fold-diag3-cohort-index.js',
+  // imp-124782: META cross-reference cohort index grouping the sigma-ramp knee cohort --
+  // imp-33721 (sub-decade knee discovery), imp-97708 (bracket-robustness), imp-97781 (E_flow
+  // sensitivity), imp-97804 (closed-form derivation), imp-97805 (amplification ratio, A ~ 9.5),
+  // imp-97822 (floor-elasticity, ~100x the E_flow axis), mirroring the imp-97846 cohort index.
+  // Index/meta only; no bound moved; NO QED.
+  '/src/data/imp-124782-sigma-ramp-knee-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

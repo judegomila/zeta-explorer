@@ -5586,6 +5586,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every local exponent and residual ratio value is reused verbatim from imp-97640 (a measurement, not a derivation); no new computation. The precision-limited third rung is flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97715-route-m-exponent-robustness',
+      title: 'imp-97687: Route-M Average Exponent Robustness Bands vs Fixed Power q=3',
+      oneLine:
+        'Error-bar chart and tables showing the imp-97687 robustness bands for the imp-97659 ~10.18 Route-M average decay exponent -- a tight leave-one-out (jackknife) band [9.985,10.334] and a wider seeded-bootstrap 95% band [8.19,11.02] -- both clearing the fixed q=3 reference, plus the abscissa/model contrast (10.18 against log(log p) vs 0.62 against log p).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97715-route-m-exponent-robustness-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97687-route-m-avg-exponent-robustness.js (IMP97687_ROBUSTNESS reused verbatim; imp-97715 viz-data leaf + page)',
+      ticket: 'imp-97715',
+      pedagogicalStep: 437,
+      honestCeiling:
+        'Presentation only: every band and exponent value is reused verbatim from imp-97687 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97745-fartail-diagnostic-asymptote',
       title: 'imp-97723: Far-Tail Diagnostic (1/2-p)*2 log T0 Asymptote-to-One',
       oneLine:

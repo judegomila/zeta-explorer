@@ -21770,6 +21770,19 @@ const DATA_MODULES = [
   // sensitivity only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear only as symbolic differentiation
   // axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124810-bisection-tol-roundoff-floor-sweep.js',
+  // imp-124854 (2026-09-27): CROSS-VALIDATES the imp-124810 round-off floor law R ~ (resolution)/ln((1+eps)/(1-eps))
+  // by sweeping the stencil eps (not just TOL) across decades at an extended TOL = 1e-13 and the machine-limit TOL = 0.
+  // It decomposes the imp-124810 direct-E_CF floor R into TWO eps-scaling terms: (E1) an O(eps^2) 2-point-stencil
+  // TRUNCATION term R ~ a*eps^2 with a ~ 1.08e-6, TOL-INDEPENDENT (a*(1e-3)^2 ~ 1.08e-12 reproduces the imp-124849
+  // dps-invariant true stencil floor 1.0819e-12); and (E2) a ROUND-OFF term R ~ (bisection resolution)/logStep that is
+  // ULP-set (~1e-15) at machine TOL and TOL-set at extended TOL -- CONFIRMING the imp-124810 eps-log-step clause. (E3)
+  // R(eps) is thus a U-curve MINIMIZED at the crossover eps ~ 1e-3 where R = 4.46e-13 = the imp-124810 R_inf; so R_inf
+  // is a crossover minimum NOT a monotone floor, and (per imp-124849) under-estimates the pure eps^2 truncation. The
+  // imp-124810 formula is CONFIRMED in structure and CORRECTED in interpretation. Import-light module; 9 node-verified
+  // self-executing assertions. Accuracy/cross-validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor
+  // appear only as symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0
+  // untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124854-ecf-floor-eps-logstep-sweep.js',
   // imp-124770 (2026-09-27): TABULATES the imp-97665 EXACT pair-ratio identity E_CF/E_ET = E_flow/E_trunc AS A
   // LADDER across the imp-97520 landmarks L2..L7 (sigma 0.9/0.5/0.1/0.02/0.005/0.001) as a direct numerical
   // cross-check. Reusing the imp-97665/imp-97821 5-point O(eps^4) machinery verbatim, the measured E_CF/E_ET

@@ -32,6 +32,12 @@
  * @see imp-97502-krein-named-concentration-inequality-assessment.js (folded in by imp-97522: the four named
  *   band-limited concentration tools -- Donoho-Stark, Amrein-Berthier/Nazarov, Turan-Nazarov, Logvinenko-Sereda
  *   -- also fail to certify c_sharp > 0, extending the imp-97161 obstruction)
+ * @see imp-97564-realizability-fraction-resolution-sweep.js (CAVEAT, imp-97633: the -1343.796 realizable floor
+ *   below is a T=12 WINDOW-TRUNCATED measurement -- widening the window to T=64 deepens it to -1549.627, with a
+ *   1/T extrapolation to ~-1573; window-truncation, not grid resolution, was the hidden limitation)
+ * @see imp-97620-infinite-line-eigenvalue-certification-attempt.js (the ~1573 extrapolated magnitude is NOT
+ *   certified -- only the structural bracket R in [1549.627, 3065.429] (i.e. c_sharp >= -R) is rigorous;
+ *   certification pending)
  *
  * Ticket: imp-97491 (content, sonnet-4-6, sonnet). Honest-status note only; no bound on Lambda moves;
  * PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
@@ -47,6 +53,8 @@ import { IMP97416_FLOOR } from './imp-97416-krein-csharp-bathtub-joint-floor.js'
 import { IMP97538_FLOOR } from './imp-97538-krein-route2-kbig560-720-deep-floor.js';
 import { IMP97457_REALIZABILITY, IMP97457_GAP_ATTRIBUTION } from './imp-97457-krein-bathtub-realizability-gap.js';
 import { IMP97502_VERDICT } from './imp-97502-krein-named-concentration-inequality-assessment.js';
+import { IMP97564_RESOLUTION } from './imp-97564-realizability-fraction-resolution-sweep.js';
+import { IMP97620_CERTIFICATION } from './imp-97620-infinite-line-eigenvalue-certification-attempt.js';
 
 // imp-97586: re-pointed to the imp-97538 directly-built Kbig=720 edge -310.692227 (corrected-tail central
 // ~-310.87, bracket [-313.756,-310.692227]), superseding the earlier imp-97513 -310.375499 edge.
@@ -69,7 +77,11 @@ export const IMP97491_HONEST_STATUS = Object.freeze({
     'gives a tighter but non-certified (IEEE-double, not interval-rigorous) realizable floor -1343.796 ' +
     '(imp-97457), and imp-97458 quantifies the remaining ~3066 gap to the measured c_sharp as roughly ' +
     'evenly split between band-limited realizability loss (56.2%) and the discarded t^4 positive far field ' +
-    '(43.8%). imp-97502 extends the imp-97161 concentration assessment to the four remaining named ' +
+    '(43.8%). CAVEAT (imp-97564/imp-97633): the -1343.796 realizable floor is grid-converged but WINDOW-' +
+    'TRUNCATED at T=12 -- widening the window to T=64 deepens the measured floor to -1549.627, and a 1/T ' +
+    'extrapolation puts the infinite-line limit near -1573 (imp-97620 certifies only the structural bracket ' +
+    '[-3065.429, -1549.627]; the specific ~-1573 value stays uncertified). This deepens the realizable floor ' +
+    'without changing the qualitative verdict below. imp-97502 extends the imp-97161 concentration assessment to the four remaining named ' +
     'band-limited tools -- Donoho-Stark support-size, Amrein-Berthier/Nazarov annihilation, Turan-Nazarov ' +
     'reverse-Holder, and Paneah/Logvinenko-Sereda relative-measure -- and finds none supplies c > 0 either: ' +
     'each is an indicator/support-size statement against Lebesgue measure, never the signed sigma_2 weight, ' +
@@ -98,6 +110,20 @@ export const IMP97491_HONEST_STATUS = Object.freeze({
   },
   bestRigorousFloor: IMP97416_FLOOR.bathtubJointFloor, // -3065.435
   bestRigorousFloorIsNegative: true,
+  // imp-97633 caveat: the -1343.796 measuredRealizableFloor above (imp-97457) is grid-converged but
+  // WINDOW-TRUNCATED at T=12. imp-97564 widened the window to T=64 and found the floor deepens to
+  // -1549.627, with a 1/T extrapolation to ~-1573; imp-97620 certifies only the structural bracket, not
+  // the specific ~-1573 value. Deepens the realizable floor citation; does not change the verdict.
+  measuredRealizableFloorWindowCaveat: Object.freeze({
+    reportedFloorIsWindowTruncated: true,
+    truncationWindowT: 12,
+    widestMeasuredWindowT: 64,
+    widestMeasuredFloor: -1549.627, // imp-97564 T=64 rung (IMP97564_WINDOW_LADDER last entry .R)
+    extrapolatedFloor: IMP97564_RESOLUTION.extrapRealizableFloor, // ~-1573 (1/T Richardson, NOT certified)
+    certifiedStructuralBracket: IMP97620_CERTIFICATION.certifiedBracket, // R in [1549.627, 3065.429], i.e. c_sharp >= -R
+    extrapolatedValueCertified: false,
+    certificationPending: 'imp-97620',
+  }),
   route2SaturationFloor: ROUTE2_SATURATION_FLOOR, // imp-97538 directly-built Kbig=720 edge, -310.692227
   m1EnclosureUsable: IMP97415_VERDICT.m1EnclosureUsable, // false
   gapRealizabilityShareFraction: IMP97457_GAP_ATTRIBUTION.realizabilityShareFraction, // 0.5615
@@ -129,6 +155,12 @@ if (
     IMP97491_HONEST_STATUS.scalarFloorLadder.bathtubJointFloor <
       IMP97491_HONEST_STATUS.scalarFloorLadder.measuredRealizableFloor &&
     IMP97491_HONEST_STATUS.scalarFloorLadder.measuredRealizableFloor < IMP97491_HONEST_STATUS.bestMeasuredUpperBracket &&
+    IMP97491_HONEST_STATUS.measuredRealizableFloorWindowCaveat.reportedFloorIsWindowTruncated === true &&
+    IMP97491_HONEST_STATUS.measuredRealizableFloorWindowCaveat.widestMeasuredFloor <
+      IMP97491_HONEST_STATUS.scalarFloorLadder.measuredRealizableFloor &&
+    IMP97491_HONEST_STATUS.measuredRealizableFloorWindowCaveat.extrapolatedFloor <
+      IMP97491_HONEST_STATUS.measuredRealizableFloorWindowCaveat.widestMeasuredFloor &&
+    IMP97491_HONEST_STATUS.measuredRealizableFloorWindowCaveat.extrapolatedValueCertified === false &&
     IMP97491_HONEST_STATUS.rigorousLowerBoundOnCsharpEstablished === false &&
     IMP97491_HONEST_STATUS.operatorPositivityProved === false &&
     IMP97491_HONEST_STATUS.boundMoves === false &&
@@ -138,8 +170,9 @@ if (
   throw new Error(
     'imp-97491-krein-csharp-lower-bound-cohort-honest-status assertion FAILED: the cohort must record as ' +
       'NOT certifying c_sharp > 0 at 2a=ln3, with a strictly negative best rigorous floor (-3065.435) below ' +
-      'the strictly negative measured realizable floor (-1343.796) below the positive measured upper ' +
-      'bracket (0.581059).'
+      'the strictly negative measured realizable floor (-1343.796, itself window-truncated at T=12 per the ' +
+      'imp-97564/imp-97633 caveat -- widening to T=64 deepens it to -1549.627, extrapolating to ~-1573) ' +
+      'below the positive measured upper bracket (0.581059).'
   );
 }
 

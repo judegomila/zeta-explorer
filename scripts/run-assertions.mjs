@@ -22148,6 +22148,11 @@ const DATA_MODULES = [
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.
   // Verified import-light (plain `node --input-type=module` load passes standalone). No bound moves; NO QED.
   '/src/data/imp-97780-route-m-decay-exponent-reconciliation.js',
+  // imp-97846: META cross-reference cohort index grouping the kernel-fold / DIAG3-fold-survival
+  // modules (imp-97662 square-root fold discovery, imp-97721 DIAG3-survives-the-fold cross-
+  // validation, imp-97823 exact-sqrt(10) decade-ratio pin) as one near-peak-elasticity family,
+  // mirroring the imp-97092 cohort index. Index/meta only; no bound moved; NO QED.
+  '/src/data/imp-97846-kernel-fold-diag3-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

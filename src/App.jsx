@@ -1765,6 +1765,9 @@ const Imp97612CuspSeparationViz = lazy(() =>
 const Imp97613EflowShareDecayViz = lazy(() =>
   import('./pages/Imp97613EflowShareDecayViz.jsx')
 );
+const Imp97614TailBiasRSweepViz = lazy(() =>
+  import('./pages/Imp97614TailBiasRSweepViz.jsx')
+);
 const Imp97589SigmaLandmarkLadderViz = lazy(() =>
   import('./pages/Imp97589SigmaLandmarkLadderViz.jsx')
 );
@@ -4546,6 +4549,10 @@ function AppShell() {
           <Route
             path="/viz-imp97613-eflow-share-decay"
             element={<Imp97613EflowShareDecayViz />}
+          />
+          <Route
+            path="/viz-imp97614-tailbias-Rsweep"
+            element={<Imp97614TailBiasRSweepViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

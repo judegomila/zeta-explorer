@@ -5403,6 +5403,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every ladder/landmark value is reused verbatim from imp-97585 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97614-tailbias-Rsweep',
+      title: 'imp-97580: Far-Field Tail-Bias Sign Change relBias(R)',
+      oneLine:
+        'Line chart of the imp-97580 far-field tail-bias relBias(R) = 3(1/a - a R^2) * (I2/I1) across the R ladder, marking the sign-change radius Rc = 1/a = 1.8205 (bias exactly zero) and the imp-97497 far-field-cost optimum R* = 3.36 (bias -2.727e-5, inside the < 1e-3 tail bar).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97614-tailbias-Rsweep-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97580-krein-tail-bias-R-sweep-signchange.js (IMP97580_R_SWEEP baked verbatim; imp-97614 viz-data leaf + page)',
+      ticket: 'imp-97614',
+      pedagogicalStep: 421,
+      honestCeiling:
+        'Presentation only: every R-sweep value is reused verbatim from imp-97580 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

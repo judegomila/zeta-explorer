@@ -6181,6 +6181,16 @@ const DATA_MODULES = [
   // power law. MEASUREMENT/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-124786-knee-floor-residual-quadratic-fit.js',
+  // imp-124806: DECIDES whether the imp-124772 F2 sign-symmetric p_knee residual curvature (a2 ~ -1.79e-2,
+  // ruled genuine-vs-noise by imp-124786) is instead a FLOOR-LADDER ENDPOINT ARTIFACT, by re-fitting the
+  // same quadratic (imp-97822 floorSweep reused verbatim) after dropping both extreme floors (0.5x, 5x)
+  // and under a full leave-one-out jackknife. FINDING: NOT an endpoint artifact -- the interior-8 fit
+  // gives a2 ~ -1.82e-2 (a ~-0.84 full-ladder SE shift, t ~ -42, if anything MORE negative), and every
+  // LOO refit keeps a2 in ~[-1.89e-2, -1.69e-2], same sign, all |t| > 40; the endpoints carry no dominant
+  // leverage toward zero. Complements imp-124786 by ruling out the endpoint null. Concave-DOWN orientation
+  // (imp-124786 correction). MEASUREMENT/robustness only; C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-124806-knee-floor-residual-curvature-endpoint-robustness.js',
   // imp-124787: tests whether an O(W^2) Richardson model closes the ~1% undershoot of the imp-124771
   // LINEAR (two-finest-bracket) W -> 0 extrapolation of the knee amplification A(W) ~ 9.33 against the
   // imp-97804 closed-form A ~ 9.42. Reuses the imp-124771 A(W) ladder verbatim (W in {0.25,0.20,0.15,

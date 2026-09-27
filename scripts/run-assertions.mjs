@@ -21408,6 +21408,15 @@ const DATA_MODULES = [
   // quantification only; eigenvalues baked finite-section IEEE-double, R_inf an extrapolation not an
   // enclosure; no bound moved; interval-rigorous reach stays 2a<=0.96; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97626-window-extrapolation-model-spread.js',
+  // imp-97637 (2026-09-27): ASSESSES whether a certified interval-enclosed infinite-line Krein eigenvalue is
+  // reachable well enough to collapse the imp-97626 realizable-fraction band [0.508, 0.543] to a point. Measures
+  // the achievable fixed-T (T=64, h=0.01, N=12800) finite-section eigenvalue enclosure width via the symmetric
+  // residual/Weyl bound r ~ N*eps*||A_T|| (||A_T|| <= 3065.429): half-width ~9e-9 absolute / ~3e-12 in fraction
+  // units, ~10 orders of magnitude below the band. FEASIBLE but INSUFFICIENT -- a per-window enclosure certifies
+  // only one rung R(T), never R_inf; the band is tail-extrapolation-model uncertainty, so the binding requirement
+  // is a proven truncation-tail law (imp-97620/imp-97638), not eigenvalue certification. Feasibility/scale
+  // assessment only; no verified eigensolve executed; no bound moved; interval-rigorous reach 2a<=0.96; NO QED.
+  '/src/data/imp-97637-eigenvalue-enclosure-feasibility-vs-tail-band.js',
 ];
 
 let ALL_MODULES = FAST_MODE

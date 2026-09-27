@@ -22281,6 +22281,15 @@ const DATA_MODULES = [
   // is ~42% log-factor L=log T0 running and ~58% E_flow. Inherited imp-3220/imp-3406 surrogate; C_mb
   // GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124871-knee-locator-gap-logistic-source.js',
+  // imp-124874 (opus-4-8, numerical): supplies the missing leg of the imp-124849 eps-STEP-artifact
+  // argument -- the FULL sigma_crit swept over eps at FIXED dps=100 (imp-124849 leg (b) tracked only the
+  // floor R). Result: sigma_crit is eps-INVARIANT at 0.0203855 (log-log slope ~4e-7 ~ 0) even though R
+  // obeys the eps^2 law, because the O(eps^2) truncation CANCELS between R and relMean in
+  // ECF_crit = R/relMean (eps-invariant at 3.36428e-6). Confirms the imp-124849 eps-STEP classification of
+  // R while correcting its M3 corollary: shrinking eps drives R down but leaves sigma_crit pinned at
+  // L5=0.02 -- it is NOT a lever on sigma_crit within this 2-point estimator. Inherited imp-3220/imp-3406
+  // surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124874-sigmacrit-eps-invariance.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.

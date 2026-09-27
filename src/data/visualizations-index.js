@@ -5487,6 +5487,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: both elasticity axes are reused verbatim from imp-97584 and imp-97598 (prior measurements, not derivations); no new computation. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97635-omega10-extremality-margin',
+      title: 'imp-97606: omega=10 Primorial Extremality Margin (Primorial vs Nearest Competitor)',
+      oneLine:
+        'Bar chart measuring the imp-97606 omega=10 primorial-extremality margin up from the T=0 MCM-failure line: the primorial p_10#={2,3,5,7,11,13,17,19,23,29} holds at T=+4.782772e-4 (the strict minimiser over 20,437 tested sets) while the nearest non-primorial competitor {..,23,31} (29 -> 31) sits +7.520579e-5 above it at T=+5.534829e-4, with no tested set crossing zero.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97635-omega10-extremality-margin-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97606-route-m-mcm-omega10-primorial-extremality-broadened.js (IMP97606_OMEGA10_EXTREMALITY reused verbatim; imp-97635 viz-data leaf + page)',
+      ticket: 'imp-97635',
+      pedagogicalStep: 427,
+      honestCeiling:
+        'Presentation only: every T-value and set is reused verbatim from imp-97606 (a measurement, not a derivation); no new computation. The b/4 ceiling is untouched; no bound moves; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

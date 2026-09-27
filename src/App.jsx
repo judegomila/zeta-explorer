@@ -1786,6 +1786,9 @@ const Imp97630Lambda2FloorSpreadWaterfallViz = lazy(() =>
 const Imp97631SigmaLandmarkElasticityComparisonViz = lazy(() =>
   import('./pages/Imp97631SigmaLandmarkElasticityComparisonViz.jsx')
 );
+const Imp97635Omega10ExtremalityMarginViz = lazy(() =>
+  import('./pages/Imp97635Omega10ExtremalityMarginViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4588,6 +4591,10 @@ function AppShell() {
           <Route
             path="/viz-imp97631-sigma-landmark-elasticity-comparison"
             element={<Imp97631SigmaLandmarkElasticityComparisonViz />}
+          />
+          <Route
+            path="/viz-imp97635-omega10-extremality-margin"
+            element={<Imp97635Omega10ExtremalityMarginViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

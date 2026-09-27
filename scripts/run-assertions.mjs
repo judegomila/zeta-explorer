@@ -21717,6 +21717,11 @@ const DATA_MODULES = [
   // validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as
   // differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97821-diag3-sixth-landmark-crossvalidation.js',
+  // imp-124785 (2026-09-27): imp-97823-kernel-decade-growth-sqrt10.js was missing from this DATA_MODULES sweep
+  // despite being import-light (only effectiveHeightForN + C_C_PINNED, both resolving to the small ../math/
+  // zeta.js table, never the 20.8MB zeros-to-1e6.js bundle); registers it so its 8 self-executing assertions
+  // (deep-window g^(-1/2) fold law, sqrt(10) per-decade growth, arm-bracketing running correction) are covered.
+  '/src/data/imp-97823-kernel-decade-growth-sqrt10.js',
   // imp-97835 (2026-09-27): CHARACTERIZES the imp-97821 M3 non-monotone L6 DIAG3 eps-ladder by decomposing the
   // direct-E_CF measurement error as err(eps) = T*eps^2 + R/eps (O(eps^2) truncation vs landmark-bisection round-
   // off) across the three deep landmarks L4/L5/L6 (|E_CF| ~ 7.4e-5 / 3.2e-6 / 2.4e-7). The truncation coefficient

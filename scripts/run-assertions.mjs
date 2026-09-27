@@ -6204,6 +6204,17 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 7 assertions.
   '/src/data/imp-124787-knee-amp-quadratic-richardson.js',
+  // imp-124807: quantifies the "residual concavity" imp-124771 blamed for the ~1% linear-chord undershoot
+  // of the knee amplification A(W) vs the imp-97804 closed-form A ~ 9.42. Reuses the imp-124771 ladder
+  // verbatim, runs the second-order Richardson over the FINEST THREE brackets (W=0.15,0.125,0.10; equal
+  // h=0.025), and extracts the curvature coefficient a2 ~ 40 (implied d2A/dW2 ~ 79). FINDING: the fitted
+  // curvature correction a2 W^2 ~ 0.40 at W=0.10 is ~4.5x the ~0.09 gap it should explain, driving the
+  // W -> 0 limit to A ~ 9.83 (+4.3%) OVER the closed form; a2 is set by a single ~0.05 second difference of
+  // 4-decimal data, i.e. jitter-dominated -- confirming imp-124787 from the other side. Reconciliation
+  // stands at the FINITE-BRACKET level (A(0.10) ~ 9.40). SUB-GAP: a jitter-suppressed knee estimator is
+  // needed. MEASUREMENT/sensitivity only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-124807-knee-amp-three-finest-residual-concavity.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix

@@ -22112,6 +22112,12 @@ const DATA_MODULES = [
   // on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT
   // Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97841-fold-universal-sqrt10-crossvalidation.js',
+  // imp-97844 (sonnet-4-6, content): HONEST-STATUS NOTE restating, standalone, the imp-97823 M2 finding
+  // that the naive full-ladder shared-kernel |K| per-decade growth (2.90 upslope / 3.36 downslope, over
+  // g = 1e-1..1e-7) is NOT sqrt(10) purely because of an O(sqrt(g)) running correction from the cubic
+  // term near the peak -- the DEEP window (g = 1e-5..1e-8) LS slope brackets -1/2 to ~1e-3 and growth
+  // converges onto sqrt(10) on both arms. Documentation only; no bound moves; NO QED.
+  '/src/data/imp-97844-kernel-fold-running-correction-honest-status.js',
   // imp-97793 (sonnet-4-6, meta): META provenance roll-up EXTENDING the imp-97754 roll-up to the
   // next seven-module cohort (imp-97757/97758/97759/97761/97762/97763/97764), classifying each by
   // evidence class (sensitivity / cross-validation / consumer-audit) and confirming each carries

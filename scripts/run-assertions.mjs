@@ -702,6 +702,19 @@ const DATA_MODULES = [
   // matching the baked imp-97706 exponent to a ~1e-5 round-off floor. No code-shared bug detected.
   // Import-light (imp-97706 -> imp-97659 baked literals only). MCM refuted from omega=11; no bound moves; NO QED.
   '/src/data/imp-97722-route-m-deep-ladder-independent-crosscheck.js',
+  // imp-97723 (2026-09-26): DECIDES the imp-97702 open question -- whether the far-tail diagnostic
+  // (1/2 - p)*2 log T0 converges to EXACTLY 1 or floors at ~0.98 -- by extending the grid to 1e300
+  // (the double-precision RvM ceiling) and fitting a two-term a-coefficient model. Deep in the tail
+  // the diagnostic equals the EXACT Riemann-von Mangoldt slope (1-sigma)*(1 - 1/log(T0/2pi)) +
+  // sigma*log T0 (matched to the central-difference floor < 3e-6 on [1e18,1e300]), so it converges
+  // to EXACTLY 1 (CASE i): it climbs monotonically 0.9805 (1e24) -> 0.9989 (1e300), crossing 0.99
+  // only near 1e45 -- the ~0.98 is the finite-height value of 1 - 1/log(T0/2pi), not a constant
+  // offset. The two-term fit a = (1/(2 log T0))(1 + c/log T0 + ...) gives c(L) = -log T0/(log T0 -
+  // ln 2pi) -> -1 from below (measured -1.0358 at 1e24 -> -1.0040 at 1e200, matched to round-off),
+  // a NEGATIVE next-order coefficient whose sign drives the from-below approach. Import-light
+  // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; far-tail
+  // exponent 1/2 per imp-3463; changes no bound; no operator positivity; NO QED; PT SOTA.
+  '/src/data/imp-97723-sigma-fartail-diagnostic-asymptote-one.js',
   // imp-97428 (2026-09-26): CROSS-VALIDATES the full three-term share model sigma_full against the
   // imp-96151 two-term closed form sigma_CF across the far-tail band [1e11..1e15], extending the
   // imp-97404 single-rung 0.4646 cross-check at 1e12 to the whole band. Per-decade OLS exponents
@@ -21616,6 +21629,20 @@ const DATA_MODULES = [
   // arm alone. Measurement only; C_C 1/8 ansatz perturbed as a probe not re-pinned; C_mb GUE-conditional per
   // imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97683-fold-amplitude-independent-crosscheck.js',
+  // imp-97725 (2026-09-27): PINS the imp-97662/imp-97683 square-root-fold amplitude K ~ 0.423330 ANALYTICALLY via
+  // the imp-97700 implicit-differentiation route, replacing bare finite differences / the least-squares fit. The
+  // NUMERATOR is closed form: C_C enters E_coll only as a bare prefactor (rho = R/E_coll ~ 1/C_C) and the peak
+  // LOCATION is C_C-invariant, so d sigma_max/d ln C_C = rho_min/(1+rho_min)^2 = sigma_max(1-sigma_max) = 4.801356e-2
+  // EXACTLY (matches the measured value to 6 figures, no finite difference). The curvature has exact structure
+  // A = -sigma_xx(x_peak)/2 = phi_xx(x_peak)*sigma_max(1-sigma_max)/2 with phi_xx = (lnR)_xx - (1/2)(lnL)_xx read from
+  // the SMOOTH R(N), L(N) (no bisected root, no quantization floor): phi_xx = 1.339604e-1 -> A = 3.215959e-3, matching
+  // imp-97662 (3.21595e-3) and imp-97683 (3.215955e-3). Hence K = sigma_max(1-sigma_max)/(2 sqrt(A)) =
+  // sqrt(sigma_max(1-sigma_max)/(2 phi_xx)) = 0.423330. SUB-GAP (not closed): K is NOT a universal constant -- the
+  // denominator carries phi_xx, a second log-derivative of the Riemann-von Mangoldt inverse height map with no
+  // elementary closed form, so 0.4233 inherits the surrogate curvature; the analytic pin is the STRUCTURE, not a pure
+  // number. Derivation only; C_C 1/8 ansatz untouched; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda
+  // <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97725-fold-amplitude-analytic-pin.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and
@@ -21655,6 +21682,12 @@ const DATA_MODULES = [
   // decomposition) that both locate the same undecided geometric-vs-algebraic tail model. Index/meta
   // only; NO QED.
   '/src/data/imp-97636-route2-kbig-truncation-tail-cohort-index.js',
+  // imp-97657: META cross-reference index grouping the five Route-M MCM margin/limit tickets
+  // (imp-97432, imp-97583, imp-97601, imp-97606, imp-97619) by role: onset (refutation + exact
+  // omega=11 location), extremality (omega=10 margin robust over 20,437 sets), margin-collapse-
+  // rate (exact decrement law, drifts not constant), and B_inf closed form (shifted
+  // Euler-Mascheroni constant lnA + gamma/12). Index/meta only; NO QED.
+  '/src/data/imp-97657-route-m-mcm-margin-limit-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

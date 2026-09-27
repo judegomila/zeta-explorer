@@ -21613,6 +21613,21 @@ const DATA_MODULES = [
   // perturbed only symbolically as differentiation axes, not re-pinned; C_mb GUE-conditional per imp-486; no
   // bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97710-diag3-fourth-landmark-crossvalidation.js',
+  // imp-97821 (2026-09-27): PUSHES the imp-97710 far-downslope DIAG3 cross-validation one rung deeper to a SIXTH
+  // landmark L6 at sigma = 0.005 (a further 4x drop in sigma; N ~ 1.96e14, ~18x past L5) in the flow-collapsed
+  // far tail, reusing the imp-97710 central-difference machinery verbatim. The Euler degree-0 cancellation holds
+  // even deeper: closed-form NUM = -6.86e-19 and reconstructed elasticity sum = -2.87e-16 stay machine-zero, and
+  // the reconstructed E_CC = +2.063508 / E_ET = -2.063508 reproduce a DIRECT single-axis measurement to ~1e-9
+  // relative with the dominant pair cancelling to E_CC + E_ET = -E_CF ~ 2.4e-7 (a smaller residual than L5 as the
+  // flow share vanishes). The collapsed E_CF = -2.39e-7 is ~13.5x smaller than the L5 value -3.25e-6 and is
+  // stencil-noise-limited (direct-match relative error ~1e-5..1e-4, growing as eps shrinks). The direct DIAG3 is
+  // NON-monotone in eps (+4.0e-9 at 1e-3, round-off ~3.5e-16 at 1e-4, ~7.1e-10 back at 1e-5) -- unlike the L5
+  // clean O(eps^2) quartering -- because the tiny E_CF finite difference hits the landmark-bisection round-off;
+  // every rung stays < 1e-8, so DIAG3 is still a pure stencil / noise floor, NOT a real residual, at this sixth
+  // independent landmark. Import-light module; 10 node-verified self-executing assertions. Measurement/cross-
+  // validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as
+  // differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97821-diag3-sixth-landmark-crossvalidation.js',
   // imp-97720 (2026-09-26): EXTENDS the imp-97668 first-order amplitude audit to SECOND order -- the 3x3 mixed
   // second-derivative (Hessian) of ln sigma in the three log-amplitude axes (C_C, E_trunc, C_F) at L2/L3/L4.
   // Settles the ticket question: degree-0 homogeneity does NOT force the second-order amplitude couplings to

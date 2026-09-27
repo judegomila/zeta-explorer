@@ -21594,6 +21594,17 @@ const DATA_MODULES = [
   // assertions. Measurement/audit only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear only as
   // symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97720-diag3-second-order-hessian.js',
+  // imp-97760 (2026-09-27): assesses whether the imp-97644 three-axis DIAG3 == 0 scaling symmetry extends to a
+  // FOURTH axis -- the imp-3406/imp-33582 Gronwall/A1 factor exp(TC_A1_TRAP) that multiplies E_flow. Result: NO.
+  // The A1 factor enters E_flow purely multiplicatively (like C_F), so E_flow ~ C_F*A1 and the A1 axis is
+  // DEGENERATE with C_F (E_A1 == E_CF to machine precision). Scaling all four amplitudes over-scales the single
+  // flow term (E_flow -> exp(2s)), so DIAG4 == E_CF != 0 (NOT machine-zero): DIAG4 == 0 FAILS. Additivity itself
+  // survives (DIAG4 = E_CC+E_ET+E_CF+E_A1 to O(eps^2)); the four-term constraint reduces to E_CF via the imp-97644
+  // three-axis zero, and the corrected diagonal (C_F, A1 each by s/2) is machine-zero -- the genuine symmetry is
+  // 3-dimensional. 6 node-verified self-executing assertions. Measurement/derivation only; C_C 1/8, E_trunc
+  // 3.06e-5, C_F prefactor and Gronwall/A1 factor perturbed only as probes; C_mb GUE-conditional per imp-486
+  // untouched; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97760-four-axis-additivity-gronwall-a1.js',
   // imp-97721 (2026-09-27): CROSS-VALIDATES the exact three-axis diagonal DIAG3 = E_CC + E_ET + E_CF == 0
   // (imp-97689/imp-97710 Euler degree-0 additivity) in the imp-97662 near-peak fold regime -- at abscissae
   // straddling the imp-97520 L1 peak (N_peak ~ 9.22e5, sigma_max ~ 0.9494) on BOTH arms (upslope and downslope).

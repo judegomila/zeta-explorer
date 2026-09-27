@@ -21498,6 +21498,21 @@ const DATA_MODULES = [
   // assertions. Derivation/measurement only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed
   // as probes not re-pinned; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97665-flow-etrunc-elasticity-identity-derivation.js',
+  // imp-97689 (2026-09-26): DERIVES the FULL three-axis identity E_CC + E_ET + E_CF = 0 analytically -- now
+  // INCLUDING the numerator (E_coll = C_C) response that imp-97665 set aside -- closing the imp-97644
+  // STRUCTURE (1)/(2) numerics into an exact common-factor identity. Implicit differentiation gives E_p =
+  // -(p sigma_p)/(N_L sigma_N) with a common kernel K = -1/(N_L sigma_N), so the elasticity sum equals
+  // K*(c sigma_c + e sigma_e + f sigma_f); the closed-form partials c sigma_c = sigma(1-sigma) (numerator),
+  // e sigma_e = -e sigma/E_N and f sigma_f = -E_flow sigma/E_N (denominator) sum to sigma(1-sigma) -
+  // (1-sigma) sigma = 0 exactly by Euler degree-0 homogeneity (e + E_flow = E_N - E_coll), so E_CC + E_ET +
+  // E_CF = K*0 = 0 for every level and N_L. Verified in closed form (no amplitude finite differencing): the
+  // partial sum NUM is machine-zero (|NUM| < 1e-15) at all three landmarks (below the imp-97644 O(eps^2) SUM3
+  // ~1e-7), and the reconstructed E_CC/E_ET/E_CF reproduce the imp-97644 +2.555355/-2.303723/-2.516314e-1 (L2)
+  // single-axis values while summing to machine-zero. Import-light module; 7 node-verified self-executing
+  // assertions. Derivation/verification only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear
+  // only symbolically as differentiation axes, not re-pinned; C_mb GUE-conditional per imp-486; no bound moved;
+  // PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97689-diag3-additivity-euler-derivation.js',
   // imp-97661 (2026-09-26): PORTS the imp-97644 three-axis scaling symmetry to the imp-97520 L1 INTERIOR PEAK
   // (N ~ 9.22e5, sigma_max ~ 0.9494), a TANGENCY dsigma/dN = 0 rather than a downslope level crossing. Replaces
   // the bisection crossing with a ternary-search maximum and measures the peak-location elasticities. The

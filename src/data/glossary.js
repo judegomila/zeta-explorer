@@ -25163,6 +25163,34 @@ export const glossary = [
       'imp-97647 the omega=10 primorial-extremality gap (+7.520579e-5) whose ordering is unchanged under the extended cap',
     ],
   },
+  {
+    term: 'Fold-amplitude K NOT-universal (numerator/denominator split, imp-97725)',
+    category: 'caveat',
+    definition:
+      'The imp-97662/imp-97683 square-root-fold amplitude K in E = d(ln N)/d(ln C_C) ~ &plusmn;K/sqrt(sigma_max - s) ' +
+      'splits, via the imp-97700 implicit-differentiation route, into K = sigma_max(1-sigma_max) / (2 sqrt(A)) = ' +
+      'sqrt(sigma_max(1-sigma_max) / (2 phi_xx)). Only the NUMERATOR sigma_max(1-sigma_max) is closed form: since ' +
+      'C_C enters E_coll as a bare prefactor (rho = R/E_coll ~ 1/C_C) and the peak location x_peak is C_C-invariant, ' +
+      'd sigma_max/d ln C_C = rho_min/(1+rho_min)^2 = sigma_max(1-sigma_max) EXACTLY, no finite difference needed. ' +
+      'The DENOMINATOR 2 sqrt(A) carries phi_xx = (ln R)_xx - (1/2)(ln L)_xx, the second log-derivative of the ' +
+      'smooth R(N) and L(N) = ln T0(N) where T0 = effectiveHeightForN is the Riemann-von Mangoldt INVERSE height ' +
+      'map. That inverse map has no elementary closed form, so phi_xx -- and hence the measured value K = 0.423330 ' +
+      '-- is a numerical property of the inherited imp-3406/imp-33582 surrogate curvature at this particular peak, ' +
+      'not a dimensionless universal constant. What is pinned analytically is the STRUCTURE K = sqrt(S/(2 phi_xx)) ' +
+      'with S = sigma_max(1-sigma_max) exact; the numeric value 0.4233 inherits the model dependence of phi_xx. ' +
+      'HONEST SCOPE: derivation/measurement only; component model is the inherited imp-3220/imp-3406 extrapolation, ' +
+      'not a rigorous asymptotic; C_C 1/8 ansatz (imp-2642/imp-2643) untouched; no bound moves; no operator ' +
+      'positivity; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97725 (implicit-differentiation pin of K, isolating the closed-form numerator from the phi_xx-dependent denominator; adds this glossary headword)',
+    relatedTerms: [
+      'imp-97725-fold-amplitude-analytic-pin.js the closed-form numerator sigma_max(1-sigma_max) and the phi_xx curvature split',
+      'imp-97662-cc-elasticity-peak-divergence.js the fold law and first K route ~0.423330',
+      'imp-97683-fold-amplitude-independent-crosscheck.js the even-poly fit / 5-point cross-check of K and A',
+      'imp-97700-gexp-identity-analytic-crossing.js the implicit-differentiation route that differentiates the smooth model',
+      'imp-97743 the E_trunc-floor sensitivity of K (0.5x..5x), confirming K is floor-dependent not universal',
+      'imp-97735 the height-ladder drift of K, confirming K is also height-dependent not universal',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

@@ -5683,6 +5683,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every piece value, crossover height, and asymptote reading is reused verbatim from imp-97702 (a measurement/decomposition, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97730-diag3-stencil-refine',
+      title: 'imp-97703: DIAG3 5-Point Stencil Refine -- 3-Point Truncation vs Machine-Zero Floor',
+      oneLine:
+        'Grouped log-y bar chart comparing |DIAG3| under the 3-point O(eps^2) vs 5-point O(eps^4) central-difference stencil at the L2/L3/L4 landmarks (cuts of ~6.2e4x/1.2e3x/48x), plus an eps-halving ladder at L2 showing the 3-point residual quartering each step, the textbook O(eps^2) truncation signature.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97730-diag3-5point-stencil-refine-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97703-diag3-5point-stencil-refine.js (perLandmark, step_probed.eps_ladder, diagnostics.L2_three_point_quartering_ratios reused verbatim; imp-97730 viz-data leaf + page)',
+      ticket: 'imp-97730',
+      pedagogicalStep: 441,
+      honestCeiling:
+        'Presentation only: every landmark value and eps-ladder reading is reused verbatim from imp-97703 (a finite-difference cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

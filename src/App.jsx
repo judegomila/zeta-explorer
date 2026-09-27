@@ -1720,6 +1720,9 @@ const Imp97806FullSigmaDiagnosticCurveViz = lazy(() =>
 const Imp97729FarTailResidualTwoPieceCrossoverViz = lazy(() =>
   import('./pages/Imp97729FarTailResidualTwoPieceCrossoverViz.jsx')
 );
+const Imp97730Diag3StencilRefineViz = lazy(() =>
+  import('./pages/Imp97730Diag3StencilRefineViz.jsx')
+);
 const Imp97746McmDpsCapScalingViz = lazy(() =>
   import('./pages/Imp97746McmDpsCapScalingViz.jsx')
 );
@@ -4542,6 +4545,10 @@ function AppShell() {
           <Route
             path="/viz-imp97729-fartail-residual-twopiece-crossover"
             element={<Imp97729FarTailResidualTwoPieceCrossoverViz />}
+          />
+          <Route
+            path="/viz-imp97730-diag3-stencil-refine"
+            element={<Imp97730Diag3StencilRefineViz />}
           />
           <Route
             path="/viz-imp97746-mcm-dps-cap-scaling"

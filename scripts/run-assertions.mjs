@@ -21802,6 +21802,22 @@ const DATA_MODULES = [
   // E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes; C_mb
   // GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124811-pairratio-reldiff-ecf-roundoff-law.js',
+  // imp-124813 (2026-09-27): EXTENDS the imp-124770 pair-ratio identity ladder ONE rung deeper -- the L8 landmark at
+  // sigma = 5e-4 (N = 2.26e16, the natural halving of L7 = 1e-3) -- and pins the practical double-precision depth
+  // limit of the DIRECT 5-point E_CF/E_ET cross-check via the surviving-digit column d_L = -log10 |reldiff|. At L8
+  // the direct check still confirms the imp-97665 identity to |reldiff| = 9.5e-4 < 1e-3 (~3.0 sig digits). The
+  // surviving digits fall monotonically 11.24 -> 3.02 down L2..L8 but the per-rung loss DECELERATES into a floor
+  // (final L7 -> L8 loss only 0.15 digits vs 1.53 for L6 -> L7), so the direct check has bottomed out near ~3 digits.
+  // A deeper probe pins the breach: |reldiff| stays ~1e-3 (~3 digits, round-off-oscillating) down to sigma ~ 2.5e-4
+  // but jumps to 3.3e-2 (~1.5 digits) by sigma = 1e-4, decisively breaching the 1e-3 ceiling. So the PRACTICAL
+  // double-precision depth limit of the direct cross-check is ~3 significant digits (L8, sigma ~ 5e-4, N ~ 2e16);
+  // past sigma ~ 1e-4 it saturates the landmark-bisection round-off floor (imp-124769/imp-124810) and extended
+  // precision (imp-124808/imp-124788) is required. The identity itself stays EXACT (the imp-97665 common-factor
+  // cancellation is flow-share-independent); this is a DIRECT-check precision limit, NOT a deviation -- the identity
+  // is NOT claimed to fail. Import-light module; 7 node-verified self-executing assertions. Numerical/cross-validation
+  // only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes;
+  // C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124813-pairratio-L8-doubleprec-depth-limit.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

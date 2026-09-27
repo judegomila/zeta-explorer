@@ -21327,6 +21327,16 @@ const DATA_MODULES = [
   // and NO set gives T < 0. The MCM onset stays exactly omega=11; b/4 ceiling untouched; kappa_arith
   // unchanged; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97606-route-m-mcm-omega10-primorial-extremality-broadened.js',
+  // imp-97647 (2026-09-27): RE-EVALUATES the imp-97606 omega=10 primorial-extremality gap +7.520579e-5 with
+  // larger imp-97432-kernel divisor caps (d <= 5000, 10000) and the exact 1/(720 d^3) tail bound to test
+  // whether the razor-thin ordering is a truncation artifact of the d <= 1000 cap. It is NOT: raising the cap
+  // moves the gap by only ~-1.3e-10, and the rigorous omitted-divisor budget (< 5.69e-11 combined) bounds any
+  // cap -> infinity shift to about 1.3e6 times smaller than the gap, so the primorial stays the strict
+  // minimiser. In fact the double-kernel Rexact(d) is Gexact-GKmain cancellation-noise-dominated past d ~ 1000
+  // (noise ratio ~139 at 2000, ~5096 at 5000, wrong sign at 10000), so d <= 1000 is the reliable pre-
+  // cancellation cap. MCM onset stays omega=11; b/4 ceiling untouched; no bound moved; PT Lambda <= 0.2 SOTA;
+  // RH open; NO QED.
+  '/src/data/imp-97647-route-m-mcm-omega10-cap-robustness.js',
   // imp-97585 (2026-09-26): MEASURES the Gronwall flow share E_flow/E_trunc across the full imp-97520
   // ladder N in {1e6 .. 1e12}, extending the single-point imp-97520 measurement (~1.91e-3 at N_half).
   // The share is MONOTONE DECREASING -- it does NOT grow toward the tail but collapses (1.4376 at 1e6

@@ -25115,6 +25115,37 @@ export const glossary = [
       'imp-97597 the RESULT 3 mixed-kernel (epsilon*z^2) sub-gap this wobble floor localises to',
     ],
   },
+  {
+    term: 'MCM kernel precision cap-scaling law d*(eps) ~ eps^{-1/4} (imp-97704, imp-97724)',
+    category: 'result',
+    definition:
+      'The Route-M MCM divisor-sum kernel Rexact(d) = Gexact(d) - GKmain(d) recovers the true ' +
+      'Euler-Maclaurin remainder R(d) ~ 1/(720 d^2) as a small difference of two O(d^2 log d) terms, so at ' +
+      'evaluation precision eps the absolute cancellation error is ~ (d^2 log d) eps and the recovered-remainder ' +
+      'signal-to-noise ratio SNR(d; eps) = R(d) / error(d; eps) is proportional to 1/(d^4 log d * eps). The ' +
+      'trustworthy exact-Rexact cap d*(eps) is where SNR = 1, giving d*(eps)^4 log d*(eps) proportional to 1/eps, ' +
+      'i.e. d*(eps) proportional to eps^{-1/4} to leading order (with a predicted slow-log correction making the ' +
+      'local slope 1/(4 + 1/ln d*) &lt; 1/4). imp-97704 asserted this scaling from a single measured double noise-ratio ' +
+      'pair (exponent 3.93 against the theoretical 4) and estimated a dps=30 extension factor ~3247x (d <= 1000 ' +
+      'double cap to ~2.7-3.2e6). imp-97724 then MATERIALIZED the law by running the kernel at three working ' +
+      'precisions (dps = 16/24/30), measuring d*(dps=16) = 1233, d*(dps=24) = 97965, d*(dps=30) = 2847849 (the ' +
+      'dps=30 point landing inside the imp-97704-predicted window), and fitting the OLS exponent to 0.2401 across ' +
+      'the three precisions (pairwise 0.2375-0.2439), all within the predicted deficit below 1/4 = 0.25. In both ' +
+      'legs the extended cap changes no conclusion: the cap-independent rigorous 1/(720 d^3) tail budget ' +
+      '(&lt; 5.69e-11 combined) bounds any cap-to-infinity shift of the +7.520579e-5 omega=10 ordering gap a ' +
+      'million-fold below it, so the primorial extremality and the omega=11 MCM onset are unchanged. HONEST ' +
+      'SCOPE: numerical cross-check only, not a proved theorem; the kernel is precision-limited by design ' +
+      '(cancellation of two large terms), not by analytic tail-term count; no operator positivity; no bound ' +
+      'moves; MCM stays refuted from omega=11; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97704 (single-point cap-scaling assertion and dps=30 extension estimate); imp-97724 (three-precision dps=16/24/30 fit measuring the 0.240 exponent; adds this glossary headword)',
+    relatedTerms: [
+      'imp-97704-mcm-kernel-precision-cap-scaling.js the single-point eps^{-1/4} derivation and ~3247x dps=30 estimate',
+      'imp-97724-mcm-dps-cap-scaling-fit.js the three-precision (dps=16/24/30) materialized fit, exponent 0.240',
+      'imp-97685 the RESULT-3 diagnosis that the double cap is set by kernel precision, not tail-term count',
+      'imp-97666 the two-term Euler-Maclaurin remainder R(d) = 1/(720 d^2) - 1/(5040 d^4) the cancellation is measured against',
+      'imp-97647 the omega=10 primorial-extremality gap (+7.520579e-5) whose ordering is unchanged under the extended cap',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

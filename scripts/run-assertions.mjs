@@ -21539,6 +21539,19 @@ const DATA_MODULES = [
   // perturbed only symbolically as differentiation axes, not re-pinned; C_mb GUE-conditional per imp-486; no
   // bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97710-diag3-fourth-landmark-crossvalidation.js',
+  // imp-97720 (2026-09-26): EXTENDS the imp-97668 first-order amplitude audit to SECOND order -- the 3x3 mixed
+  // second-derivative (Hessian) of ln sigma in the three log-amplitude axes (C_C, E_trunc, C_F) at L2/L3/L4.
+  // Settles the ticket question: degree-0 homogeneity does NOT force the second-order amplitude couplings to
+  // zero. The off-diagonal log-Hessian entries are nonzero (H_ce = sigma * E_trunc/E_N = +8.11e-2/+2.495e-1/
+  // +9.00e-2 at L2/L3/L4), each matching the exact doubly-centered closed form H_ij = delta_ij(a_i - b_i) -
+  // (a_i a_j - b_i b_j) with numerator shares a = (1,0,0) and denominator shares b = (sigma, E_trunc/E_N,
+  // E_flow/E_N) to < 3e-7 relative. What the homogeneity DOES force is the diagonal CONTRACTION: the row and
+  // column sums of the log-Hessian vanish to the O(h^2) stencil floor (~1e-8, quartering with h) -- the exact
+  // second-order Euler relation sum_j H_ij = d/du_i(DIAG3) = 0. So DIAG3 == 0 survives beyond first order as a
+  // contraction identity, not as vanishing couplings. Import-light module; 7 node-verified self-executing
+  // assertions. Measurement/audit only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear only as
+  // symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97720-diag3-second-order-hessian.js',
   // imp-97661 (2026-09-26): PORTS the imp-97644 three-axis scaling symmetry to the imp-97520 L1 INTERIOR PEAK
   // (N ~ 9.22e5, sigma_max ~ 0.9494), a TANGENCY dsigma/dN = 0 rather than a downslope level crossing. Replaces
   // the bisection crossing with a ternary-search maximum and measures the peak-location elasticities. The

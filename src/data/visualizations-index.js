@@ -5417,6 +5417,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every R-sweep value is reused verbatim from imp-97580 (a measurement, not a derivation); no new computation. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97627-mcm-margin-collapse-ladder',
+      title: 'imp-97583/imp-97601: Route-M MCM Margin-Collapse Ladder T(p_omega#)',
+      oneLine:
+        'Line chart of the Route-M MCM primorial holding margin T(p_omega#) vs omega (1.00e-2, 6.82e-3, 4.18e-3, 2.10e-3, 4.78e-4 -> first negative -9.62e-4 at omega=11), overlaying the imp-97601 gap-to-limit law gap(omega)~0.166635/log p_omega and the -e^{gamma}/12+Rcorr primorial limit asymptote (~-0.0458).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97627-mcm-margin-collapse-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97583-route-m-mcm-onset-omega11-primorial.js + src/data/imp-97601-route-m-mcm-margin-collapse-rate-law.js (ladder/limit baked verbatim; imp-97627 viz-data leaf + page)',
+      ticket: 'imp-97627',
+      pedagogicalStep: 422,
+      honestCeiling:
+        'Presentation only: every ladder/limit value is reused verbatim from imp-97583/imp-97601 (measurements, not derivations); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

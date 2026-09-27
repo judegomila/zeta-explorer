@@ -1771,6 +1771,9 @@ const Imp97614TailBiasRSweepViz = lazy(() =>
 const Imp97589SigmaLandmarkLadderViz = lazy(() =>
   import('./pages/Imp97589SigmaLandmarkLadderViz.jsx')
 );
+const Imp97627McmMarginCollapseLadderViz = lazy(() =>
+  import('./pages/Imp97627McmMarginCollapseLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4553,6 +4556,10 @@ function AppShell() {
           <Route
             path="/viz-imp97614-tailbias-Rsweep"
             element={<Imp97614TailBiasRSweepViz />}
+          />
+          <Route
+            path="/viz-imp97627-mcm-margin-collapse-ladder"
+            element={<Imp97627McmMarginCollapseLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

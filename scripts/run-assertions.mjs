@@ -702,6 +702,15 @@ const DATA_MODULES = [
   // matching the baked imp-97706 exponent to a ~1e-5 round-off floor. No code-shared bug detected.
   // Import-light (imp-97706 -> imp-97659 baked literals only). MCM refuted from omega=11; no bound moves; NO QED.
   '/src/data/imp-97722-route-m-deep-ladder-independent-crosscheck.js',
+  // imp-97739 (2026-09-26): EXTENDS the imp-97706 dps=35 Route M gap-law residual ladder six rungs PAST
+  // p ~ 4.93e8 (omega=28e6..38e6, p=5.33e8..7.36e8) to decide whether the ~10.56 decay exponent stabilizes
+  // or keeps drifting. Both overlap anchors (omega=5.7e6, 26e6) reproduce their stored literals exactly.
+  // RESULT: it does NOT stabilize -- endpoint 10.29->10.96, Theil-Sen 10.62->10.84, OLS 10.56->10.71 (all
+  // drift UP), and the sign-change count rises 8->10 (two of the six new rung-pairs are rises), so the
+  // PNT/Mertens oscillation persists. The QUALITATIVE "outruns every fixed power <= 3" conclusion is
+  // untouched (all estimators >> 3, frac>3 ~0.91). Import-light (imp-97722 baked ladder). MCM refuted from
+  // omega=11; no bound moves; NO QED.
+  '/src/data/imp-97739-route-m-ladder-exponent-stability.js',
   // imp-97723 (2026-09-26): DECIDES the imp-97702 open question -- whether the far-tail diagnostic
   // (1/2 - p)*2 log T0 converges to EXACTLY 1 or floors at ~0.98 -- by extending the grid to 1e300
   // (the double-precision RvM ceiling) and fitting a two-term a-coefficient model. Deep in the tail

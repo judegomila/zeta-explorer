@@ -1759,6 +1759,9 @@ const Imp97587KreinFarprofileEnvelopeViz = lazy(() =>
 const Imp97588McmBaseTermK0ApproachViz = lazy(() =>
   import('./pages/Imp97588McmBaseTermK0ApproachViz.jsx')
 );
+const Imp97589SigmaLandmarkLadderViz = lazy(() =>
+  import('./pages/Imp97589SigmaLandmarkLadderViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4525,6 +4528,10 @@ function AppShell() {
           <Route
             path="/viz-imp97588-mcm-baseterm-K0-approach"
             element={<Imp97588McmBaseTermK0ApproachViz />}
+          />
+          <Route
+            path="/viz-imp97589-sigma-landmark-ladder"
+            element={<Imp97589SigmaLandmarkLadderViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

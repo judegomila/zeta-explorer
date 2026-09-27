@@ -5361,6 +5361,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value reuses the imp-97499/imp-97519 closed-form law and baked crossing/drift values verbatim, nothing re-derived. No bound moves; MCM stays VERIFIED at omega<=6 and FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97589-sigma-landmark-ladder',
+      title: 'imp-97520: sigma(N) Conditional-Share Landmark Ladder',
+      oneLine:
+        'Charts the imp-97520 sigma(N) = E_coll/E_N conditional-share decay curve on a log-N axis with the four tabulated landmarks overlaid: interior peak (sigma~0.949429 at N~9.22e5), below-0.9 crossing (N~2.57e7), halving crossing (N~3.27e9), and below-0.1 crossing (N~3.21e11).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97589-sigma-landmark-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97520-sigma-conditional-share-landmark-ladder.js (four-landmark ladder object baked verbatim; imp-97589 viz-data leaf + page)',
+      ticket: 'imp-97589',
+      pedagogicalStep: 418,
+      honestCeiling:
+        'Presentation only: the curve re-evaluates the exact inherited imp-3406/imp-33582/imp-33601/imp-33723 sigma(N) sub-terms and the four landmarks are pulled verbatim from the imp-97520 tabulated ladder, nothing re-derived. No bound moves; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

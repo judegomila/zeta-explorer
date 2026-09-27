@@ -122,6 +122,12 @@ export const IMP97640_RESULTS = Object.freeze({
   deepDeltaWiggles: true,                   // imp-97639 delta non-monotone corroborates the non-power decay
   precisionLimited: 'third rung (1299709 -> 1999993) exponent 7.495 is precision-limited (residual ratio 1.25, 7-sig-fig cancellation)',
   subGap: 'IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6',
+  // imp-97697: imp-97659 performed the dps=30 extended-precision recompute this sub-gap called for
+  // (mirroring the imp-97650 tr(A2) reconciliation pattern) -- reconciled here at the source module,
+  // not only in the downstream imp-97673/imp-97691 honest-status notes, so the retirement is
+  // discoverable directly from the ticket that named the gap.
+  subGapStatus: 'resolved',
+  subGapResolvedBy: 'imp-97659',
 });
 
 export const IMP97640_VERDICT = Object.freeze({
@@ -226,6 +232,14 @@ const IMP97640_ASSERTIONS = [
       return sawRise && IMP97640_VERDICT.correctionIsPntStrength === true;
     },
     why: 'the imp-97639 deep delta ladder rises at p ~ 3.2e7 (non-monotone), corroborating that the residual-feeding deficit is a PNT/Mertens wiggle, not a fixed inverse power.',
+  },
+  {
+    id: 'imp97640-subgap-resolution-recorded',
+    holds: () =>
+      IMP97640_RESULTS.subGapStatus === 'resolved' &&
+      IMP97640_RESULTS.subGapResolvedBy === 'imp-97659' &&
+      IMP97640_RESULTS.subGap === 'IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6',
+    why: 'imp-97697 assessed the named sub-gap and confirmed imp-97659 resolved it (extended-precision recompute), so the resolution is reconciled here at the source module alongside the original named string, matching the imp-97650 tr(A2) reconciliation pattern.',
   },
   {
     id: 'imp97640-honesty-gate-no-qed',

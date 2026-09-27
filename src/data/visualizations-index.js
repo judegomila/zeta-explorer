@@ -5557,6 +5557,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every residual and ratio value is reused verbatim from imp-97623 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97670-three-axis-elasticity',
+      title: 'imp-97644: Three-Axis Elasticities (E_CC, E_ET, E_CF) Across Sigma Landmarks',
+      oneLine:
+        'Grouped bar chart and table showing the imp-97644 single-axis crossing-elasticities E_CC, E_ET and E_CF at the three imp-97520 sigma landmarks (L2, L3, L4): C_C and E_trunc sit close to +/-2 and nearly cancel while the C_F flow-prefactor elasticity is a small same-sign-as-E_ET correction that shrinks outward (2.5e-1 -> 4.0e-3 -> 7.4e-5), and the three-axis diagonal DIAG3 stays machine-zero throughout.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97670-three-axis-elasticity-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97644-three-axis-additivity-flow-prefactor.js (IMP97644_THREE_AXIS_ADDITIVITY_FLOW_PREFACTOR.perLandmark reused verbatim; imp-97670 viz-data leaf + page)',
+      ticket: 'imp-97670',
+      pedagogicalStep: 432,
+      honestCeiling:
+        'Presentation only: every elasticity and diagonal value is reused verbatim from imp-97644 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

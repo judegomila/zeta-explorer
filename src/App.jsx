@@ -1699,6 +1699,9 @@ const Imp97653TailBiasFloorViz = lazy(() =>
 const Imp97654AdditivityResidualEpsSquaredCollapseViz = lazy(() =>
   import('./pages/Imp97654AdditivityResidualEpsSquaredCollapseViz.jsx')
 );
+const Imp97670ThreeAxisElasticityViz = lazy(() =>
+  import('./pages/Imp97670ThreeAxisElasticityViz.jsx')
+);
 const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
   import('./pages/Imp97106PalmMirrorSurplusComparisonViz.jsx')
 );
@@ -4487,6 +4490,10 @@ function AppShell() {
           <Route
             path="/viz-imp97654-additivity-residual-eps-squared-collapse"
             element={<Imp97654AdditivityResidualEpsSquaredCollapseViz />}
+          />
+          <Route
+            path="/viz-imp97670-three-axis-elasticity"
+            element={<Imp97670ThreeAxisElasticityViz />}
           />
           <Route
             path="/viz-imp97106-palm-mirror-surplus-comparison"

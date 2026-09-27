@@ -1723,6 +1723,9 @@ const Imp97729FarTailResidualTwoPieceCrossoverViz = lazy(() =>
 const Imp97730Diag3StencilRefineViz = lazy(() =>
   import('./pages/Imp97730Diag3StencilRefineViz.jsx')
 );
+const Imp97732WlinResidualHalfDependenceViz = lazy(() =>
+  import('./pages/Imp97732WlinResidualHalfDependenceViz.jsx')
+);
 const Imp97746McmDpsCapScalingViz = lazy(() =>
   import('./pages/Imp97746McmDpsCapScalingViz.jsx')
 );
@@ -4549,6 +4552,10 @@ function AppShell() {
           <Route
             path="/viz-imp97730-diag3-stencil-refine"
             element={<Imp97730Diag3StencilRefineViz />}
+          />
+          <Route
+            path="/viz-imp97732-wlin-residual-halfdependence"
+            element={<Imp97732WlinResidualHalfDependenceViz />}
           />
           <Route
             path="/viz-imp97746-mcm-dps-cap-scaling"

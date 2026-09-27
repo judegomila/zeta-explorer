@@ -5697,6 +5697,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every landmark value and eps-ladder reading is reused verbatim from imp-97703 (a finite-difference cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97732-wlin-residual-halfdependence',
+      title: 'imp-97705: w_lin Residual Half-Dependence Drift vs Factorization-Independence',
+      oneLine:
+        'Line chart of the residual value w(x)-w_lin(x) at four x nodes across phase-window half=100/200/400, showing the monotonic window-averaging drift (x=0.25: -5.3256e-3 -> -5.2414e-3 -> -5.0952e-3), alongside a table of the factorization relative-span bands per half showing the large-magnitude nodes stay sub-1% -- the fixed point is the factorization-independence, not the residual value.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97732-wlin-residual-halfdependence-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97705-wlin-residual-halforder-refinement.js (IMP97705_RESID_BY_HALF, IMP97705_REL_SPAN_PCT reused verbatim; imp-97732 viz-data leaf + page)',
+      ticket: 'imp-97732',
+      pedagogicalStep: 442,
+      honestCeiling:
+        'Presentation only: every residual value and relative-span reading is reused verbatim from imp-97705 (a discretization-refinement cross-check, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

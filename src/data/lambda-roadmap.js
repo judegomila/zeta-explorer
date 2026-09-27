@@ -930,6 +930,90 @@ export const LAMBDA_CHAIN_STEPS = [
               'Lambda <= 0.2 stays SOTA; NO QED.',
             by: 'imp-97690',
           },
+          // imp-97707 (assessment/derivation ONLY; discharges nothing, moves no
+          // bound, no operator positivity, respects the imp-2519 no-overclaim
+          // guard, NO QED): the prior fields graded the C_H CONSTANT
+          // (imp-95234 cHEstimateFactorization) and ruled OUT the sigma-share
+          // lever (imp-97690). This field walks the WHOLE Step-4 bridge
+          // end-to-end -- G6 structural port -> G6a Hoelder modulus -> the
+          // E_coll coefficient C_C = C_H * sqrt(C_KH) with C_H = C_shock *
+          // C_Lip / 4 -- grading every constant in one place, so the single
+          // unproven-at-finite-N dependency is pinned in a single citable trace
+          // and the minimal closing statement is stated exactly.
+          step4ConstantTraceObstruction: {
+            question:
+              'Tracing the G6 structural bridge |Lambda - (-t_c(N))| <= E(N) ' +
+              'through the G6a Hoelder-1/2 shock modulus into the E_coll ' +
+              'coefficient, which SINGLE constant (or dependency) is unproven ' +
+              'at finite N, and what is the minimal statement that would close ' +
+              'the bridge unconditionally?',
+            bridgeChain:
+              'G6 records the structural bridge Lambda <= -t_c(N) + E(N) ' +
+              '(imp-345/366/387 composition). E(N) = E_coll + E_trunc + E_flow. ' +
+              'E_coll = C_C * sqrt(log T0 / N) with C_C = C_H * sqrt(C_KH). G6a ' +
+              'is the two-point modulus |tau_c(x) - tau_c(x_prime)| <= C_H ' +
+              '|x - x_prime|^{1/2} that supplies C_H = C_shock * C_Lip / 4. So ' +
+              'the whole bridge terminates on the constants {C_shock, C_KH, ' +
+              'C_H, C_Lip}; E_trunc and E_flow are a SEPARATE gate ' +
+              '(G-Etrunc-Eflow-constants) not the G6/G6a load-path.',
+            constantTrace: [
+              {
+                constant: 'C_shock (cusp-law prefactor g_min ~ C_shock * W_1^{1/2})',
+                grade: 'DISCHARGED O(1)',
+                value: 'C_shock < 1/3',
+                source: 'ch-wall-frontier-verdict-2026-06-26',
+              },
+              {
+                constant: 'C_KH = pi * C_Selberg (Selberg/Koksma-Hlawka quadrature factor in C_C)',
+                grade: 'DISCHARGED rigorous',
+                value: 'C_KH = 3 pi',
+                source: 'imp-2641 (imp-2643 / imp-2633 ledger)',
+              },
+              {
+                constant: 'C_H (Hoelder-1/2 coefficient, the G6a modulus output)',
+                grade: 'ANSATZ not a bound',
+                value: 'carried as C_H = 1/8 (the exact single-particle quadratic-tangency C_collision^{-1}, imp-395), which silently sets C_shock * C_Lip = 1/2',
+                source: 'imp-395 g6a-sub-constant-value + imp-95234',
+              },
+              {
+                constant: 'C_Lip (gap-Lipschitz backward-flow Gronwall Jacobian)',
+                grade: 'NOT N-UNIFORM -- PROVABLY DIVERGENT (RH-hard-confirmed)',
+                value: 'C_Lip -> infinity as N -> infinity; lower bound C_Lip >= C_shock / (2 sqrt(W_1)) at the colliding nearest pair',
+                source: 'imp-3010 ch-lip-three-proofs-table-2026-06-30 + imp-2640 Gronwall discharge NEGATIVE + ch-wall-frontier-verdict-2026-06-26',
+              },
+            ],
+            soleUnprovenDependency:
+              'C_Lip. Three of the four terminal constants are discharged O(1) ' +
+              'numbers (C_shock, C_KH) or a derived ansatz (C_H = 1/8) whose ' +
+              'only unproven input is again C_Lip: writing C_H = C_shock * ' +
+              'C_Lip / 4 and equating to 1/8 forces C_shock * C_Lip = 1/2, and ' +
+              'since C_shock < 1/3 this demands a FINITE N-uniform C_Lip > 3/2 ' +
+              '-- exactly the quantity three independent proofs show does not ' +
+              'exist. So the entire Step-4 obstruction localizes on the single ' +
+              'factor C_Lip, and it is not merely unproven but provably ' +
+              'divergent (worse than open).',
+            minimalClosingStatement:
+              'A finite N-uniform gap-Lipschitz constant C_Lip -- equivalently ' +
+              '(imp-35147 C1 / route R2) a uniform pointwise LOWER bound on the ' +
+              'nearest-pair minimal gap g_min(mu_N) >= c / N^{alpha} holding for ' +
+              'every N with an N-independent c > 0. This is the sole missing ' +
+              'ingredient: supplying it turns C_H into a genuine finite constant ' +
+              'and the assembled E_coll into an unconditional upper bound. No ' +
+              'sub-RH object supplies it (imp-35101 TYPE, imp-36214 SIGN, ' +
+              'imp-35147 STRENGTH all negative); the requirement is ' +
+              'RH-equivalent as N -> infinity.',
+            verdict:
+              'The G6/G6a/C_H bridge is discharged at every constant EXCEPT the ' +
+              'single Gronwall factor C_Lip, which provably diverges. The ' +
+              'precise obstruction blocking the unconditional Lambda theorem is ' +
+              'the absence of a finite N-uniform C_Lip (equivalently a uniform ' +
+              'nearest-pair minimal-gap lower bound); nothing in Routes B/C, ' +
+              'which close only the Step-3 lim-sup skeleton, touches this ' +
+              'factor. G6a_shock_lipschitz remains OPEN; C_mb stays ' +
+              'GUE-conditional (imp-486); Platt-Trudgian Lambda <= 0.2 stays ' +
+              'SOTA; NO QED.',
+            by: 'imp-97707',
+          },
           closed: false,
         },
         {

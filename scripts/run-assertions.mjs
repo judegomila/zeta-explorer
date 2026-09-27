@@ -21665,6 +21665,20 @@ const DATA_MODULES = [
   // symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched;
   // PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124769-ecf-stencil-noise-floor-crossover.js',
+  // imp-124770 (2026-09-27): TABULATES the imp-97665 EXACT pair-ratio identity E_CF/E_ET = E_flow/E_trunc AS A
+  // LADDER across the imp-97520 landmarks L2..L7 (sigma 0.9/0.5/0.1/0.02/0.005/0.001) as a direct numerical
+  // cross-check. Reusing the imp-97665/imp-97821 5-point O(eps^4) machinery verbatim, the measured E_CF/E_ET
+  // matches the analytic E_flow/E_trunc to < 1e-3 relative at every rung (reproducing the imp-97665 L2/L3/L4
+  // reldiffs 5.8e-12/4.8e-10/2.3e-8 verbatim), and the relative agreement degrades MONOTONICALLY as the flow
+  // share E_flow/E_N collapses toward the far tail (|reldiff| 5.8e-12 -> 6.8e-4 across L2 -> L7, N 2.6e7 ->
+  // 5.4e15), exactly tracking |E_CF| into the landmark-bisection round-off floor (imp-124769). The identity
+  // stays EXACT (the common-factor cancellation is flow-share-independent); only the direct cross-check
+  // precision is |E_CF|-limited, so the deep-tail L6/L7 loss of digits (~1e-5/1e-4) is a stencil/round-off
+  // artefact, not a deviation. Import-light module; 8 node-verified self-executing assertions. Accuracy/cross-
+  // validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as
+  // differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT
+  // Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124770-pair-ratio-identity-landmark-ladder.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

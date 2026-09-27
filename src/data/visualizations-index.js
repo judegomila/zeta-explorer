@@ -5572,6 +5572,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every elasticity and diagonal value is reused verbatim from imp-97644 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97812-tra2-ratio-ladder',
+      title: 'imp-97684: tr(A2) Uniform-Block Ratio Ladder, Algebraic vs Geometric',
+      oneLine:
+        'Line chart and drift bar chart showing the imp-97684 tr(A2) five-block ratio ladder r1..r4 climbing monotonically toward 1 (0.687945 -> 0.717237 -> 0.741517 -> 0.761970) with a decelerating increment at every step -- the algebraic (power-law) tail signature, versus the flat ratio a geometric tail would require.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97812-tra2-ratio-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97684-tra2-fifth-block-tail-confirmation.js (IMP97684_LADDER/IMP97684_UNIFORM_BLOCKS/IMP97684_EXTRAPOLATION reused verbatim; imp-97812 viz-data leaf + page)',
+      ticket: 'imp-97812',
+      pedagogicalStep: 446,
+      honestCeiling:
+        'Presentation only: every ratio, drift and extrapolated limit is reused verbatim from imp-97684 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97671-gap-law-decay-exponent',
       title: 'imp-97640: Gap-Law Residual Local Decay Exponent vs Fixed Powers q=2, q=3',
       oneLine:

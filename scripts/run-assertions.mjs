@@ -21768,6 +21768,16 @@ const DATA_MODULES = [
   // only symbolically as differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0
   // untouched; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124788-extprec-pairratio-deep-landmark.js',
+  // imp-124808 (2026-09-27): RESOLVES the imp-124788 single-point ~3.33e-14 pair-ratio floor into two independent
+  // sweeps at the deep landmarks L6/L7 (offline tmp/imp-124808-extprec-pairratio-two-axis.py). AXIS A (fixed eps=1e-3,
+  // dps 30->120): |reldiff| is dps-invariant at 3.3333e-14, so the imp-124788 floor is NOT working-precision-limited.
+  // AXIS B (fixed dps=100, eps 1e-2->1e-6): |reldiff| obeys a clean O(eps^4) law (log-log slope 4.000, ~1e4 drop per
+  // eps decade down to 3.33e-26) that extrapolates to 0. The imp-124788 floor is pure 5-point stencil truncation
+  // (eps^4/30) and the imp-97665 EXACT identity E_CF/E_ET = E_flow/E_trunc carries ZERO residual drift at L6/L7 to
+  // arbitrary precision. Import-light module; 6 node-verified self-executing assertions. Numerical/cross-validation
+  // only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes;
+  // C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124808-extprec-pairratio-two-axis.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

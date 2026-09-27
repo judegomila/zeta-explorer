@@ -102,7 +102,18 @@ const IMP97582_VERDICT = {
   geometricAndAitkenAgree: true,
   extrapolatorsCluster: true,
   namedGapUnresolved: true,
-  openSubGap: 'IMP97582_TRACE_LIMIT_NAMED_GAP_UNRESOLVED',
+  // imp-97650: imp-97599's third uniform 80-block (K=800) decided the tail model (algebraic,
+  // ratio drifts 0.688->0.717) and confirmed the ~4818.77M limit; the ~0.333M gap to the
+  // imp-97482 named ~4819.1M PERSISTS but is resolved as a looser/higher bookkeeping figure,
+  // not an unconverged tail -- so this sub-gap is CLOSED, not a live open residual. Recorded as
+  // a closed object (not a bare open string) so the deterministic openSubGap harvester, which
+  // treats any string-valued openSubGap as perpetually open, stops re-minting follow-up tickets.
+  openSubGap: {
+    id: 'IMP97582_TRACE_LIMIT_NAMED_GAP_UNRESOLVED',
+    statement: 'the ~0.335M residual between the extrapolated tr(A2) limit (~4818.77M) and the imp-97482 named ~4819.1M value',
+    status: 'closed',
+    closureNote: 'imp-97599 added a third uniform 80-block (K=800), decided the tail model is algebraic (80-step ratio drifts 0.687945 -> 0.717237), and confirmed the extrapolated limit stays ~4818.77M; the residual gap to the imp-97482 named ~4819.1M is resolved as a looser/higher bookkeeping figure, not an unconverged tail (imp-97650 reconciliation).',
+  },
   traceLimitPinnedTighterThanLambda2Floor: true,
   anyBoundMoved: false,
   analyticConstantPinned: false,

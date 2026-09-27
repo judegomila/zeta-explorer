@@ -5628,6 +5628,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every diagnostic value, overlay value, and crossing height is reused verbatim from imp-97723 (a measurement/closed-form derivation, not a new computation). Conditional-share diagnostic, NOT an RH bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97765-fartail-crossing-heights',
+      title: 'imp-97744: Far-Tail Diagnostic Crossing Heights, Pinned (0.99/0.995/0.999)',
+      oneLine:
+        'Bar chart and table showing the imp-97744 closed-form crossing heights where the far-tail diagnostic reaches 0.99 (N ~ 2.66124e45), 0.995 (N ~ 1.43797e89), and 0.999 (N ~ 1.96810e437), pinned by inverting L = 1/(1-t) and applying the Riemann-von Mangoldt relation N = (L-1) e^L.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97765-fartail-crossing-heights-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97744-fartail-diagnostic-crossing-heights.js (crossings reused verbatim; imp-97765 viz-data leaf + page)',
+      ticket: 'imp-97765',
+      pedagogicalStep: 444,
+      honestCeiling:
+        'Presentation only: every L, log10 T0, log10 N, and mantissa value is reused verbatim from imp-97744 (a closed-form measurement, not a new computation). Conditional-share diagnostic, NOT an RH bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97746-mcm-dps-cap-scaling',
       title: 'imp-97724: MCM Kernel Cap-Scaling Ladder d*(dps) vs 1/eps',
       oneLine:

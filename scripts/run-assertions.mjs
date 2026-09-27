@@ -21616,6 +21616,20 @@ const DATA_MODULES = [
   // assertions. Measurement/audit only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear only as
   // symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97720-diag3-second-order-hessian.js',
+  // imp-97820 (2026-09-27): TABULATES the imp-97720 diag3 log-Hessian off-diagonal triple (H_ce, H_cf, H_ef)
+  // across a dense sigma ladder [0.9..0.02] spanning the imp-97520 anchors L2/L3/L4 plus the imp-97710 far-
+  // downslope L5, and tests each off-diagonal sigma-trajectory. Result: the three couplings do NOT behave the
+  // same. The dominant H_ce = sigma*(E_trunc/E_N) PEAKS AT AN INTERIOR sigma ~ 1/2 (golden-section peak
+  // sigma* ~ 0.498, a near sigma*(1-sigma) parabola since the flow share is negligible) -- a crossing resonance,
+  // NOT monotone (+8.11e-2 L2 -> +2.495e-1 near 0.5 -> +1.96e-2 L5). The two flow-touching off-diagonals H_cf =
+  // sigma*(E_flow/E_N) and H_ef = (E_trunc/E_N)*(E_flow/E_N) DECREASE MONOTONICALLY down the whole ladder because
+  // the collapsing flow share b_f dominates both (H_cf +8.86e-3 -> +3.06e-8, H_ef +8.88e-4 -> +1.51e-6). Every
+  // entry matches the exact closed-form share product (H_ce to < 3e-7 relative across all rungs; H_cf/H_ef degrade
+  // only at the deepest rung where the ~1e-8 coupling hits the O(h^2) stencil floor). Import-light module; 9 node-
+  // verified self-executing assertions. Measurement/audit only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F
+  // prefactor appear only as symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT
+  // Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97820-diag3-offdiagonal-sigma-trajectory.js',
   // imp-97760 (2026-09-27): assesses whether the imp-97644 three-axis DIAG3 == 0 scaling symmetry extends to a
   // FOURTH axis -- the imp-3406/imp-33582 Gronwall/A1 factor exp(TC_A1_TRAP) that multiplies E_flow. Result: NO.
   // The A1 factor enters E_flow purely multiplicatively (like C_F), so E_flow ~ C_F*A1 and the A1 axis is

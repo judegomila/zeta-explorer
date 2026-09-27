@@ -5473,6 +5473,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every anchor/magnitude/share value is reused verbatim from imp-97600 (a measurement/diagnosis, not a derivation); no new computation. No rigorous lower bound on lambda_2 produced; the floor stays four orders below the required 0.581059; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97631-sigma-landmark-elasticity-comparison',
+      title: 'imp-97584/imp-97598: Sigma-Landmark Elasticity Comparison (E_trunc vs C_C Sign Flip)',
+      oneLine:
+        'Grouped bar chart pairing the imp-97584 E_trunc-elasticity and imp-97598 C_C-elasticity of the four imp-97520 sigma(N) landmarks: the three downslope landmarks sign-flip (-2.30/-2.10/-2.08 vs +2.56/+2.10/+2.08) while the interior peak L1 goes from shallow-but-nonzero (-1.373) on E_trunc to exactly zero on C_C, since a constant multiplicative prefactor of E_coll cannot move the extremum it helps define.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97631-sigma-landmark-elasticity-comparison-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97584-sigma-landmark-etrunc-sensitivity.js + src/data/imp-97598-sigma-landmark-cc-sensitivity.js (both ELASTICITY objects reused verbatim; imp-97631 viz-data leaf + page)',
+      ticket: 'imp-97631',
+      pedagogicalStep: 426,
+      honestCeiling:
+        'Presentation only: both elasticity axes are reused verbatim from imp-97584 and imp-97598 (prior measurements, not derivations); no new computation. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -36,8 +36,12 @@
  *     imp-97664 -- CROSS-CHECK: reconciles the imp-97645 non-monotone b-ladder spike at b=1e6; shows
  *       it is NOT a phase-average window-width artifact (the linErr is roughly half-independent and
  *       stays ~2x the b=2e6 baseline across all tested widths) -- it is a genuine arithmetic
- *       b-fluctuation at the small-x fit nodes (b=1e6=2^6*5^6 samples a larger wobble deviation there
- *       than b=2e6=2^7*5^6).
+ *       b-fluctuation at the small-x fit nodes. CORRECTION (imp-97718, per imp-97688's refutation):
+ *       the spike is a finite-b MAGNITUDE effect (b=1e6 vs b=2e6), NOT a factorization effect --
+ *       imp-97688 later showed four denominators of comparable magnitude but different factorizations
+ *       (including b=1e6's own 2^6*5^6) all give the same elevated linErr, refuting the original
+ *       "smooth factorization" causal gloss this bullet used to carry; the window-artifact ruling
+ *       itself is untouched.
  *
  *   WHY GROUP THESE (not re-derive). Read individually, the six tickets look like a derivation
  *   attempt (imp-97597), a restated verdict (imp-97611), two numerical cross-checks that each rule
@@ -90,6 +94,8 @@
  * @see imp-97660-wobble-model-subtraction-linear-coeff.js (tests smooth subtraction + grid refinement; both fail)
  * @see imp-97663-route-m-kappa-smooth-measured-band-reflection-constraint.js (feeds measured band back into an order-of-magnitude constraint)
  * @see imp-97664-wlin-b1e6-halfwidth-artifact-test.js (rules out phase-average window-width artifact)
+ * @see imp-97688-wlin-linerr-factorization-independence.js (refutes this file's original factorization causal gloss)
+ * @see imp-97718-b1e6-wobble-subgap-retirement-assessment.js (assessment directing the correction above)
  *
  * Ticket: imp-97696 (meta, low, sonnet-4-6). Documentation/index only; establishes nothing; NO QED;
  * Platt-Trudgian Lambda <= 0.2 SOTA.

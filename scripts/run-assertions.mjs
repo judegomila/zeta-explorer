@@ -22283,6 +22283,12 @@ const DATA_MODULES = [
   // this exact ladder leaves all three exponents essentially unchanged. Documentation only; no
   // bound moved; NO QED.
   '/src/data/imp-124803-qexponent-storage-limit-honest-status.js',
+  // imp-124815: import-light viz-data leaf plus routed page charting the imp-124770 pair-ratio
+  // identity ladder -- measured 5-point E_CF/E_ET against analytic E_flow/E_trunc, and |reldiff|
+  // between them, across landmarks L2..L7 as the flow share E_flow/E_N collapses toward the far
+  // tail. Every row reused verbatim from imp-124770 (a measurement, not a derivation); no new
+  // computation. Presentation only; no bound moved; NO QED.
+  '/src/data/imp-124815-pairratio-ladder-viz-data.js',
 ];
 
 let ALL_MODULES = FAST_MODE

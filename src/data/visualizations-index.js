@@ -5586,6 +5586,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every ratio, drift and extrapolated limit is reused verbatim from imp-97684 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp124815-pairratio-ladder',
+      title: 'imp-124770: Pair-Ratio Identity Ladder, Measured vs Analytic',
+      oneLine:
+        'Log-scale line chart plus bar chart showing the imp-124770 pair-ratio identity cross-check across landmarks L2..L7: measured 5-point E_CF/E_ET tracks analytic E_flow/E_trunc closely at every rung while |reldiff| between them grows monotonically 5.8e-12 -> 6.8e-4 as the flow share E_flow/E_N collapses toward the far tail.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-124815-pairratio-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-124770-pair-ratio-identity-landmark-ladder.js (IMP124770_PAIR_RATIO_IDENTITY_LANDMARK_LADDER.ladder reused verbatim; imp-124815 viz-data leaf + page)',
+      ticket: 'imp-124815',
+      pedagogicalStep: 447,
+      honestCeiling:
+        'Presentation only: every ratio and reldiff value is reused verbatim from imp-124770 (a measurement, not a derivation); no new computation. The identity itself stays exact at every rung; the growing |reldiff| is a stencil/round-off artefact (imp-124769), not a deviation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97671-gap-law-decay-exponent',
       title: 'imp-97640: Gap-Law Residual Local Decay Exponent vs Fixed Powers q=2, q=3',
       oneLine:

@@ -1708,6 +1708,9 @@ const Imp97671GapLawDecayExponentViz = lazy(() =>
 const Imp97812TrA2RatioLadderViz = lazy(() =>
   import('./pages/Imp97812TrA2RatioLadderViz.jsx')
 );
+const Imp124815PairRatioLadderViz = lazy(() =>
+  import('./pages/Imp124815PairRatioLadderViz.jsx')
+);
 const Imp97715RouteMExponentRobustnessViz = lazy(() =>
   import('./pages/Imp97715RouteMExponentRobustnessViz.jsx')
 );
@@ -4540,6 +4543,10 @@ function AppShell() {
           <Route
             path="/viz-imp97812-tra2-ratio-ladder"
             element={<Imp97812TrA2RatioLadderViz />}
+          />
+          <Route
+            path="/viz-imp124815-pairratio-ladder"
+            element={<Imp124815PairRatioLadderViz />}
           />
           <Route
             path="/viz-imp97671-gap-law-decay-exponent"

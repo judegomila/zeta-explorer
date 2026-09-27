@@ -21864,6 +21864,22 @@ const DATA_MODULES = [
   // prefactor used only as anchor literals; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0
   // untouched; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124836-invariant-product-discriminator-general-test.js',
+  // imp-124869 (2026-09-27): APPLIES the imp-124836 general drift discriminator D_min = max(R/|X|_max, tau) to a
+  // SECOND collapsing quantity -- the direct central-difference E_CF elasticity ladder of imp-124769/imp-124849
+  // (identity under test: E_CF^direct = E_CF^recon across L2..L6). From the imp-124769 anchors tau = relTrunc_mean
+  // ~ 3.25e-7 (O(eps^2) 2-point truncation floor), R ~ 4.46e-13 (landmark-bisection round-off floor), |X|_max =
+  // |E_CF|(L2) = 0.2516, so R/|X|_max ~ 1.77e-12. Because tau DOMINATES R/|X|_max, this ladder sits in the
+  // TRUNCATION-LIMITED (imp-124836 FAILURE) regime across L2..L5 -- the OPPOSITE regime from the imp-124811
+  // pair-ratio (round-off-limited): the invariant product P = errCF DECREASES (P-vs-|X| slope +0.98, spread 1.68e5,
+  // NOT flat) while reldiff is flat (slope -0.02), so a decreasing P is ambiguous and the flat-P discriminator
+  // cannot certify drift-freeness here. The certified drift cap is D <= D_min = tau ~ 3.25e-7, ~3.5e4x WEAKER than
+  // the imp-124811 cap ~9.3e-12 (the pair-ratio identity truncation cancels to O(eps^4), tau ~ 3.33e-14). The valid
+  // round-off-limited regime begins only below the imp-124769 crossover |E_CF|_crit ~ 1.37e-6 / sigma_crit ~ 0.0127
+  // (L6 and deeper, per imp-124849) -- a second, independent instance confirming the failure regime is real.
+  // Import-light module (baked from imp-124769); 8 node-verified self-executing assertions. Cross-validation only;
+  // C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor untouched; C_mb GUE-conditional per imp-486; no bound
+  // moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124869-ecf-ladder-drift-discriminator.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

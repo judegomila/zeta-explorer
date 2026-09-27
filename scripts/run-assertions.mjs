@@ -21891,6 +21891,16 @@ const DATA_MODULES = [
   // chain uses deterministic Math calls with no browser/Node divergence risk.
   // AUDIT-ONLY, no fix applied. 4 assertions.
   '/src/data/imp-97849-fartail-crossing-heights-import-light-audit.js',
+  // imp-124775 (2026-09-27, proof): pin the imp-34791-flagged E_trunc
+  // "Guth-Maynard tail" exponent and prefactor for the G-Etrunc-Eflow-constants
+  // gap. EXPONENT half discharged: at sigma=3/4 the Guth-Maynard 2024 density
+  // exponent (30/13)(1-s)=15/26 beats Ingham 3/5, so kappa is pinned to the exact
+  // rational 11/26 (vs the imp-34791 Ingham lock 2/5); the 3->5 parts correction
+  // carries verbatim (2/kappa_GM=52/11). PREFACTOR half OBSTRUCTED: Guth-Maynard
+  // is asymptotic (ineffective o(1) in the exponent + unnamed constant), so the
+  // sharpest EXPLICIT input stays Chourasiya-Simonic (16.7x short). No bound
+  // moves; PT Lambda<=0.2 SOTA. 5 self-executing assertions.
+  '/src/data/imp-124775-etrunc-guth-maynard-tail-exponent.js',
 ];
 
 let ALL_MODULES = FAST_MODE

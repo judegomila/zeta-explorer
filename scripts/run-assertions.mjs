@@ -6106,6 +6106,16 @@ const DATA_MODULES = [
   // MEASUREMENT/sensitivity only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-97781-knee-crossover-eflow-sensitivity.js',
+  // imp-97800: COMPANION to imp-97781 -- measures the knee_vs_half offset (Nstar/N_half-1) across the
+  // SAME imp-398 E_flow amplitude sweep amp in {0,0.5,1,2,5,10}, locates the amp where the knee falls
+  // below the MOVING N_half, and reports the two local slopes together. knee_vs_half > knee_vs_cross at
+  // every positive amp (offset against the lower N_half), coinciding at amp=0 where N_half=N_cross
+  // (~+4.74%). The knee falls below N_half at amp~3.54, LATER than below N_cross at amp~2.70 (refining
+  // the imp-97781 coarse "by amp~5"). Slopes near amp=1: d(knee_vs_cross)/d(amp)~-1.77 pp/unit
+  // (reproduces imp-97781) and d(knee_vs_half)/d(amp)~-1.36 pp/unit -- the half slope is shallower
+  // because N_half tracks the knee down. MEASUREMENT/sensitivity only; C_mb GUE-conditional per imp-486
+  // UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-97800-knee-vs-half-eflow-sensitivity.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix

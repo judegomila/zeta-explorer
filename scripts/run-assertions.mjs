@@ -21552,6 +21552,22 @@ const DATA_MODULES = [
   // assertions. Measurement/audit only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear only as
   // symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97720-diag3-second-order-hessian.js',
+  // imp-97721 (2026-09-27): CROSS-VALIDATES the exact three-axis diagonal DIAG3 = E_CC + E_ET + E_CF == 0
+  // (imp-97689/imp-97710 Euler degree-0 additivity) in the imp-97662 near-peak fold regime -- at abscissae
+  // straddling the imp-97520 L1 peak (N_peak ~ 9.22e5, sigma_max ~ 0.9494) on BOTH arms (upslope and downslope).
+  // The individual crossing elasticities diverge (shared kernel |K| grows ~sqrt(10) per decade of gap, ~101 ->
+  // 291 -> 894 upslope, the imp-97662 square-root fold) yet the exact cancellation survives: RECON_SUM = K*NUM
+  // stays machine-zero (< 1e-12, NUM ~ 1e-17 Euler amplified only to ~1e-14 by K ~ 900) and the DIRECT diagonal
+  // (scaling) perturbation DIAG3 stays at the bisection floor (< 1e-6) on both near-peak arms. Root cause: sigma =
+  // E_coll/E_N is degree-0 homogeneous in (c,e,f) (invariance ~2e-16 at the peak), so the WHOLE curve -- peak
+  // included -- is pointwise invariant under (c,e,f)->lambda(c,e,f); DIAG3 == 0 is a SCALING SYMMETRY, not a
+  // transversality artefact of the downslope landmarks, and holds identically where each individual elasticity
+  // blows up. The summed-triple direct (each axis separately) is O(eps^2) but its coefficient itself diverges near
+  // the fold, so the diagonal perturbation is the robust instrument. Import-light module; 9 node-verified
+  // self-executing assertions. Measurement/cross-validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F
+  // prefactor appear only as symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT
+  // Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97721-diag3-peak-upslope-crossvalidation.js',
   // imp-97661 (2026-09-26): PORTS the imp-97644 three-axis scaling symmetry to the imp-97520 L1 INTERIOR PEAK
   // (N ~ 9.22e5, sigma_max ~ 0.9494), a TANGENCY dsigma/dN = 0 rather than a downslope level crossing. Replaces
   // the bisection crossing with a ternary-search maximum and measures the peak-location elasticities. The

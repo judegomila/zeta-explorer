@@ -21539,6 +21539,18 @@ const DATA_MODULES = [
   // the closed form to gap ~ 3e-3 then degrades near the fold. Measurement only; C_C 1/8 ansatz perturbed as a
   // probe not re-pinned; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97662-cc-elasticity-peak-divergence.js',
+  // imp-97683 (2026-09-27): INDEPENDENT cross-check of the imp-97662 square-root-fold amplitude K ~ 0.423330 at
+  // the imp-97520 L1 sigma(N) peak by a SECOND route sharing no finite-difference step with imp-97662. Curvature
+  // A from a degree-6 EVEN-polynomial least-squares fit of sigma(x) about the peak = 3.215955e-3 (stable across
+  // half-widths 3e-3..2e-2, apex reproducing sigma_max to ~1e-15); peak-height sensitivity d sigma_max/d ln C_C
+  // from a 5-point O(h^4) stencil = +4.801356e-2 (stable across h); so K = 0.048014/(2 sqrt(0.00321595)) =
+  // 0.423330, reproducing imp-97662 to all 6 reported figures. The imp-97662 UPSLOPE-branch spread is RESOLVED as
+  // a finite-gap fold asymmetry, not a real |K| split: extending the closed-form gap ladder to 1e-8 both branches
+  // converge to |K| ~ 0.42333 (down +0.423269, up -0.423391), and because the leading finite-gap correction is
+  // antisymmetric between the arms the branch AVERAGE (|down|+|up|)/2 converges to 0.423330 = K faster than either
+  // arm alone. Measurement only; C_C 1/8 ansatz perturbed as a probe not re-pinned; C_mb GUE-conditional per
+  // imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97683-fold-amplitude-independent-crosscheck.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

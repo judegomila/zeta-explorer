@@ -12,6 +12,10 @@
  */
 
 import { IMP97724_DPS_CAP_FIT } from './imp-97724-mcm-dps-cap-scaling-fit.js';
+// imp-97736 cross-reference: the dps=36 rung + the finding that the imp-97724 SNR-threshold exponent gap
+// (0.240 vs 0.215) is dominated by cap-metric jitter, not the slow-log correction. Imported here so its
+// self-executing assertions run wherever this bundled leaf loads.
+import { IMP97736_CAP_JITTER } from './imp-97736-mcm-cap-jitter-dps36.js';
 
 const { capsSnr1, fittedExponentSnr1, fittedExponentSnr10, theoreticalExponent, dps30Cap, dps16Cap } =
   IMP97724_DPS_CAP_FIT;
@@ -55,6 +59,14 @@ export const IMP97746_THEORY_LINE = Object.freeze({
   slope: theoreticalExponent,
   intercept: THEORY_INTERCEPT,
   at: (dps) => theoreticalExponent * dps + THEORY_INTERCEPT,
+});
+
+// imp-97736 reconciliation of the SNR-threshold exponent gap (surfaced from this bundled leaf).
+export const IMP97746_SNR_GAP_XREF = Object.freeze({
+  publishedGap: IMP97736_CAP_JITTER.gapPublished, // ~0.0251 (imp-97724 0.2401 vs 0.2150)
+  fullPrecGap: IMP97736_CAP_JITTER.gapFullPrec3, // ~0.0094 -- halved under a consistent full-precision constant
+  dps36Snr1: IMP97736_CAP_JITTER.dps36Snr1Measured, // 45836990
+  discrepancyIsJitterNotBias: IMP97736_CAP_JITTER.discrepancyIsJitterNotBias,
 });
 
 export const IMP97746_SUMMARY = Object.freeze({

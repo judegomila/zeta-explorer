@@ -5208,6 +5208,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every row and constant is reused verbatim from imp-97502. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97569-confined-well-sign-map',
+      title: 'imp-97537: Confined Well vs Projected Positivity',
+      oneLine:
+        'The imp-97537 sigma_2(t) sign map -- confined well [0,3.306] u [6.945,10.532], intervening positive band, measured positive out to t=27, rigorously proven positive t>=27 (imp-97501) -- alongside the true (finite-N Galerkin) soft lambda_min(T_a[sigma_2]) curve, which stays positive through 2a=ln3 and crosses zero only at 2a*~1.1316, past ln3.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97569-confined-well-sign-map-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97537-confined-well-vs-projected-positivity-assessment.js (the source assessment, well/band boundaries, and lambda_min crossing; imp-97569 viz-data leaf + page)',
+      ticket: 'imp-97569',
+      pedagogicalStep: 414,
+      honestCeiling:
+        'Presentation only: sign-map boundaries and lambda_min samples are reused verbatim from imp-97537. Establishes no operator positivity; changes no bound; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97528-krein-tail-converged-drift',
       title: 'imp-97497: Tail-Converging the Well-Capture Drift',
       oneLine:

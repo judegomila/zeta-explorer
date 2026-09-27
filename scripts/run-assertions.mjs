@@ -724,6 +724,16 @@ const DATA_MODULES = [
   // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; far-tail
   // exponent 1/2 per imp-3463; changes no bound; no operator positivity; NO QED; PT SOTA.
   '/src/data/imp-97723-sigma-fartail-diagnostic-asymptote-one.js',
+  // imp-97740 (2026-09-26): LOCATES the height at which the imp-97723 sigma*log T0 correction term drops
+  // below the H=1e-5 central-difference stencil floor, so the far-tail diagnostic (1/2 - p)*2 log T0
+  // reduces to the bare RvM slope 1 - 1/log(T0/2pi). The stencil floor is MEASURED directly as the median
+  // deep-tail |diag_measured - diagModel| (k=40..300, term < 1e-13 there, pure roundoff) ~ 8.0e-7. The
+  // sigma*log T0 term falls ~1 order per 1.5 decades and crosses the floor between N=1e25 (term 1.64e-6,
+  // above) and N=1e26 (term 5.50e-7, below); the fine crossover is at log10 N ~ 25.70 (N ~ 5.0e25),
+  // sigma ~ 1.34e-8, log T0 ~ 57.0, term ~ 7.6e-7 = the floor. Past ~1e26 the diagnostic is the bare RvM
+  // slope at stencil resolution. Import-light (effectiveHeightForN + C_C_PINNED). Resolution statement on
+  // the inherited surrogate; C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound; NO QED; PT SOTA.
+  '/src/data/imp-97740-sigma-fartail-term-stencil-floor-crossover.js',
   // imp-97428 (2026-09-26): CROSS-VALIDATES the full three-term share model sigma_full against the
   // imp-96151 two-term closed form sigma_CF across the far-tail band [1e11..1e15], extending the
   // imp-97404 single-rung 0.4646 cross-check at 1e12 to the whole band. Per-decade OLS exponents

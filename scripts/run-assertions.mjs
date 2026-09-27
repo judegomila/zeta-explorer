@@ -21397,6 +21397,17 @@ const DATA_MODULES = [
   // (sum +0.2516 at L2 -> +7.4e-5 at L4). Measurement only; C_C 1/8 and E_trunc 3.06e-5 perturbed as
   // probes not re-pinned; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97623-additivity-residual-multi-landmark-crosscheck.js',
+  // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
+  // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
+  // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and
+  // (log T)/T tail models by least squares. Full-ladder spread is wide (fraction 0.508..0.543, R_inf
+  // 1557..1664) because the small-T rungs (T=12,20) are pre-asymptotic; restricting to the tail (T>=28)
+  // collapses the three-model spread to [0.508, 0.520], bracketing the two-rung 0.513. Report the
+  // fraction as ~0.513 with a tail-model band [0.508, 0.520] (conservative [0.508, 0.543]); best fit is
+  // 1/T^2 (R2 0.9967) at the low end ~0.508. Gap persists under every model. Measurement-uncertainty
+  // quantification only; eigenvalues baked finite-section IEEE-double, R_inf an extrapolation not an
+  // enclosure; no bound moved; interval-rigorous reach stays 2a<=0.96; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97626-window-extrapolation-model-spread.js',
 ];
 
 let ALL_MODULES = FAST_MODE

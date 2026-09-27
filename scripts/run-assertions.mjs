@@ -22267,6 +22267,13 @@ const DATA_MODULES = [
   // single ratio 2*E_flow/E_trunc across the whole threshold family. Documentation only; no bound
   // moved; NO QED.
   '/src/data/imp-124801-threshold-crossover-accuracy-law-glossary-headword.js',
+  // imp-124803: standalone honest-status note recording that the imp-97640 RESULT 3 q-exponent
+  // precision limit is a STORAGE artifact of the 7-sig-fig baked residual ladder (imp-2546 rule),
+  // not a constant-precision limit -- imp-97763 shows the kernel constants carry ~30 figures of
+  // headroom over storage, and imp-124789 confirms directly that a dps=40 re-materialization of
+  // this exact ladder leaves all three exponents essentially unchanged. Documentation only; no
+  // bound moved; NO QED.
+  '/src/data/imp-124803-qexponent-storage-limit-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

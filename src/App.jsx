@@ -1759,6 +1759,9 @@ const Imp97587KreinFarprofileEnvelopeViz = lazy(() =>
 const Imp97588McmBaseTermK0ApproachViz = lazy(() =>
   import('./pages/Imp97588McmBaseTermK0ApproachViz.jsx')
 );
+const Imp97612CuspSeparationViz = lazy(() =>
+  import('./pages/Imp97612CuspSeparationViz.jsx')
+);
 const Imp97589SigmaLandmarkLadderViz = lazy(() =>
   import('./pages/Imp97589SigmaLandmarkLadderViz.jsx')
 );
@@ -4532,6 +4535,10 @@ function AppShell() {
           <Route
             path="/viz-imp97589-sigma-landmark-ladder"
             element={<Imp97589SigmaLandmarkLadderViz />}
+          />
+          <Route
+            path="/viz-imp97612-cusp-separation"
+            element={<Imp97612CuspSeparationViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

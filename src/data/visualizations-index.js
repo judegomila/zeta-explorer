@@ -5375,6 +5375,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the curve re-evaluates the exact inherited imp-3406/imp-33582/imp-33601/imp-33723 sigma(N) sub-terms and the four landmarks are pulled verbatim from the imp-97520 tabulated ladder, nothing re-derived. No bound moves; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97612-cusp-separation',
+      title: 'imp-97576: Two-Scale Cusp Separation (Average Shrinks, Wobble Grows)',
+      oneLine:
+        'Log-log line chart of the imp-97576 cusp x0 -> 0 ladder: the Gauss-Kuzmin average |mean(r/x^2)| falling monotonically (7.68e-2 -> 2.61e-3) against the pointwise wobble sd rising monotonically (3.21e-3 -> 2.72e-2), crossing the 1e-2 kappa_smooth upper bound near x0=0.01-0.005.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97612-cusp-separation-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97576-route-m-gauss-kuzmin-wobble-average.js (IMP97576_CUSP_LADDER FINDING 2/3 baked verbatim; imp-97612 viz-data leaf + page)',
+      ticket: 'imp-97612',
+      pedagogicalStep: 419,
+      honestCeiling:
+        'Presentation only: every mean/sd value is reused verbatim from imp-97576 (a measurement, not a derivation); kappa_smooth is NOT pinned to an exact value, only its cusp-limit smallness is measured. Changes no bound, establishes no operator positivity, no RH claim; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

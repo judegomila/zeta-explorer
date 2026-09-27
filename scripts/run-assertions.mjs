@@ -21628,6 +21628,18 @@ const DATA_MODULES = [
   // validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as
   // differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97821-diag3-sixth-landmark-crossvalidation.js',
+  // imp-97835 (2026-09-27): CHARACTERIZES the imp-97821 M3 non-monotone L6 DIAG3 eps-ladder by decomposing the
+  // direct-E_CF measurement error as err(eps) = T*eps^2 + R/eps (O(eps^2) truncation vs landmark-bisection round-
+  // off) across the three deep landmarks L4/L5/L6 (|E_CF| ~ 7.4e-5 / 3.2e-6 / 2.4e-7). The truncation coefficient
+  // is T = tau*|E_CF| with a UNIVERSAL relative curvature tau ~ 1/3 (0.333 / 0.333 / 0.336; fitted T-vs-|E_CF|
+  // exponent 0.998), while the round-off floor R ~ 2.2e-15 (ln-N units) is landmark-independent. The crossover
+  // therefore scales as eps* = (R/(2T))^(1/3) ~ |E_CF|^(-1/3): measured eps* = 3.4e-4 -> 1.0e-3 -> 2.5e-3 down
+  // L4/L5/L6 (fitted exponent -0.347 vs analytic -1/3), rising above 1e-3 by L6 so the imp-97821 {1e-3..1e-5}
+  // window falls on the round-off branch and reads non-monotone -- the M3 signature explained quantitatively.
+  // Import-light module; 9 node-verified self-executing assertions. Measurement/characterization only; C_C 1/8,
+  // E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes; C_mb
+  // GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97835-diag3-ecf-crossover-eps-scaling.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

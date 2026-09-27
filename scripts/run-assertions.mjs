@@ -680,6 +680,18 @@ const DATA_MODULES = [
   // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; changes no bound;
   // no operator positivity; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-97404-sigma-fartail-exponent-ladder-past-1e12.js',
+  // imp-97702 (2026-09-26): DECIDES the functional form of the imp-33582/imp-97404 residual to the
+  // imp-3463 1/2 asymptote across [1e12,1e15] (and deeper). The pointwise residual splits EXACTLY as
+  // 1/2 - p = (1/2)sigma + a(1-sigma), a = (1/2)d ln(log T0)/d ln N, reproducing the measured value to
+  // the dropped E_flow term (decompError 1.08e-5 -> 2.4e-8). The power-law piece (1/2)sigma ~ N^-1/2
+  // falls ~1/sqrt(10)/decade while the log piece a ~ 1/(2 log T0) is nearly flat; the two cross at
+  // N ~ 3.553e12 (log10 ~ 12.551), so past ~1e13 the residual is logarithmic-dominated. Deep-tail
+  // diagnostics confirm the asymptote is LOGARITHMIC, not power-law: (1/2-p)*2 log T0 -> ~0.98 (out to
+  // 1e24) and the residual power in log T0 drifts from ~-2.7 (1e14) to ~-1 (1e18/1e20). So the exponent
+  // approaches 1/2 only ~1/log T0 -- the sigma-exponent view of the imp-33644 log-T0 saturation.
+  // Import-light (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED;
+  // far-tail exponent 1/2 per imp-3463; changes no bound; no operator positivity; NO QED; PT SOTA.
+  '/src/data/imp-97702-sigma-fartail-exponent-residual-half-loglaw.js',
   // imp-97428 (2026-09-26): CROSS-VALIDATES the full three-term share model sigma_full against the
   // imp-96151 two-term closed form sigma_CF across the far-tail band [1e11..1e15], extending the
   // imp-97404 single-rung 0.4646 cross-check at 1e12 to the whole band. Per-decade OLS exponents

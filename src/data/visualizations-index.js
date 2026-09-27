@@ -5599,6 +5599,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every diagnostic value, overlay value, and crossing height is reused verbatim from imp-97723 (a measurement/closed-form derivation, not a new computation). Conditional-share diagnostic, NOT an RH bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97746-mcm-dps-cap-scaling',
+      title: 'imp-97724: MCM Kernel Cap-Scaling Ladder d*(dps) vs 1/eps',
+      oneLine:
+        'Log-log chart and table showing the imp-97724 trustworthy exact-Rexact cap d*(dps) climbing from 1233 (dps=16) to 2847849 (dps=30), against the OLS-fitted eps^{-1/4} exponent line (slope 0.2401) and the theoretical 1/4 line, with the SNR=1 vs SNR>=10 threshold-robustness comparison.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97746-mcm-dps-cap-scaling-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97724-mcm-dps-cap-scaling-fit.js (capsSnr1, fittedExponentSnr1/10 reused verbatim; imp-97746 viz-data leaf + page)',
+      ticket: 'imp-97746',
+      pedagogicalStep: 435,
+      honestCeiling:
+        'Presentation only: every cap value and fitted slope is reused verbatim from imp-97724 (a measured multi-precision fit, not a new computation). The extended cap does not alter the omega=10 gap or the omega=11 MCM onset. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

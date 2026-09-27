@@ -1708,6 +1708,9 @@ const Imp97671GapLawDecayExponentViz = lazy(() =>
 const Imp97745FarTailDiagnosticAsymptoteViz = lazy(() =>
   import('./pages/Imp97745FarTailDiagnosticAsymptoteViz.jsx')
 );
+const Imp97746McmDpsCapScalingViz = lazy(() =>
+  import('./pages/Imp97746McmDpsCapScalingViz.jsx')
+);
 const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
   import('./pages/Imp97106PalmMirrorSurplusComparisonViz.jsx')
 );
@@ -4508,6 +4511,10 @@ function AppShell() {
           <Route
             path="/viz-imp97745-fartail-diagnostic-asymptote"
             element={<Imp97745FarTailDiagnosticAsymptoteViz />}
+          />
+          <Route
+            path="/viz-imp97746-mcm-dps-cap-scaling"
+            element={<Imp97746McmDpsCapScalingViz />}
           />
           <Route
             path="/viz-imp97106-palm-mirror-surplus-comparison"

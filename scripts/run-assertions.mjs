@@ -21737,6 +21737,18 @@ const DATA_MODULES = [
   // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned
   // 3.06e-5; changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-97782-fartail-diagnostic-hump-peak-pin.js',
+  // imp-97795 (2026-09-27): CO-TABULATES the three imp-97723 full-diagnostic landmarks in ONE comparative
+  // 0.5x..5x E_trunc floor-sensitivity table: the imp-97782 hump peak (log10 N = 7.76832, diag = 14.89166,
+  // sigma = 0.86502), the imp-97777 local minimum (log10 N = 18.77232, diag = 0.9760709, sigma ~ 3e-5) and
+  // the imp-97759 far-tail 0.99 crossing (log10 N = 45.42508), all under the identical imp-97723 component
+  // model (parent pins reproduced to full double precision). On the common location-relative-floor-shift
+  // axis the three span ~12.6 orders of magnitude (2.31e-1 -> 1.30e-1 -> 5.35e-14), monotone decreasing as
+  // sigma at the landmark falls 0.865 -> ~3e-5 -> ~0; on the value axis the peak elasticity ~ -4.09 (~27.5%)
+  // dwarfs the minimum ~ -3.29e-3 (~0.34%) by ~1.2e3, while the crossing value is pinned by construction --
+  // a single sigma-driven mechanism (floor bites where sigma near 1, vanishes deep in the tail). Import-light
+  // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned 3.06e-5;
+  // changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-97795-fartail-diagnostic-three-landmark-floor-table.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

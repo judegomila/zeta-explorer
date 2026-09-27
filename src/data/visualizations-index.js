@@ -5585,6 +5585,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every local exponent and residual ratio value is reused verbatim from imp-97640 (a measurement, not a derivation); no new computation. The precision-limited third rung is flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97745-fartail-diagnostic-asymptote',
+      title: 'imp-97723: Far-Tail Diagnostic (1/2-p)*2 log T0 Asymptote-to-One',
+      oneLine:
+        'Line chart and table showing the imp-97723 far-tail diagnostic (1/2-p)*2 log T0 climbing monotonically from 0.9805 (1e24) to 0.9989 (1e300) against the exact RvM-slope overlay 1 - 1/log(T0/2pi), with the 0.99 and 0.995 crossing heights marked.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97745-fartail-diagnostic-asymptote-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97723-sigma-fartail-diagnostic-asymptote-one.js (diagLadder, crossings reused verbatim; imp-97745 viz-data leaf + page)',
+      ticket: 'imp-97745',
+      pedagogicalStep: 434,
+      honestCeiling:
+        'Presentation only: every diagnostic value, overlay value, and crossing height is reused verbatim from imp-97723 (a measurement/closed-form derivation, not a new computation). Conditional-share diagnostic, NOT an RH bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

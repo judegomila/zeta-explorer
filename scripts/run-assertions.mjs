@@ -21357,6 +21357,17 @@ const DATA_MODULES = [
   // perturbed as a probe not re-pinned; C_mb GUE-conditional per imp-486; no bound moved;
   // PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97565-crossover-cc-sensitivity-landmark-shift.js',
+  // imp-97622 (2026-09-27): DERIVES a closed form for the imp-97598 steepest sigma(N) landmark L2
+  // (sigma first below 0.9, N ~ 2.57e7) C_C-elasticity ~+2.555, the only downslope landmark that
+  // lacked one. The unified downslope form is d(ln N)/d(ln C_C) = 2/(1 + 2 d ln R/dx - d ln L/dx),
+  // x = ln N, R = E_trunc + E_flow: it gives +2.555354 (vs the imp-97598 central difference +2.5554),
+  // reproduces the imp-97565 halving 2/(1 - g_prime) = +2.102347 at L3 and near +2 at L4, and
+  // collapses to 2/(1 - g_prime) when the E_flow share is negligible. L2 is steepest because its
+  // crossing sits where the Gronwall flow share is still live (d ln R/dx ~ -0.080), shrinking the
+  // denominator below (1 - g_prime); the peak L1 stays excluded (extremum of R/E_coll, C_C cancels).
+  // Derivation only; C_C 1/8 ansatz perturbed as a probe not re-pinned; C_mb GUE-conditional per
+  // imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97622-sigma-l2-cc-elasticity-closed-form.js',
   // imp-97564 (2026-09-26): EXTENDS the imp-97457 realizable-psi search (best band-limited attainment
   // 43.84% of the bathtub envelope at T=12) to higher resolution on two separated axes. Grid refinement
   // h=0.02..0.0025 at T=12 pins the fraction at 0.43837 to five digits (grid-converged, confirming
@@ -21368,6 +21379,13 @@ const DATA_MODULES = [
   // parity. Measurement only; finite-section / 1/T-extrapolated eigenvalue not an interval enclosure;
   // no bound moved; interval-rigorous reach stays 2a<=0.96; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97564-realizability-fraction-resolution-sweep.js',
+  // imp-97568 (2026-09-26): Concepts glossary headword recording the imp-97460 exact curvature
+  // reduction r(x) = -(pi/2)[w(x) - w_lin(x)] and the wobble-masking obstruction: the wobble-averaged
+  // smooth curvature |kappa_smooth| <~ 1e-2 sits an order of magnitude below both the wobble RMS
+  // ~4.1e-2 and the imp-97437 effective parameter kappa_eff = 0.0995, showing kappa_eff measures the
+  // arithmetic wobble amplitude rather than the smooth curvature. Documentation only; no bound moved;
+  // NO QED.
+  '/src/data/imp-97568-curvature-wobble-masking-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

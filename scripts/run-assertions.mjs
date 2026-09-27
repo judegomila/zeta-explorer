@@ -21460,6 +21460,20 @@ const DATA_MODULES = [
   // and the imp-398 C_F prefactor perturbed as probes not re-pinned; C_mb GUE-conditional per imp-486; no
   // bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97644-three-axis-additivity-flow-prefactor.js',
+  // imp-97668 (2026-09-26): AUDITS the imp-97644 STRUCTURE (1) claim "every term of E_N carries one amplitude
+  // linearly" across the FULL inherited imp-3406/imp-33582 component model by exposing all six constants as
+  // independent probes (C_H, C_KH via sqrt, E_trunc, C_F, the Gronwall FACTOR, the Gronwall EXPONENT via exp).
+  // FOUR are strict LINEAR term-prefactors -- C_H (E_coll, elasticity == E_CC), E_trunc (== E_ET), C_F (E_flow,
+  // == E_CF) and the Gronwall factor (== E_CF, degenerate with C_F): strictly denominator-additive, the
+  // symmetry axes. The TWO inside a non-linear wrapper do NOT create a new leverage direction: C_KH (sqrt) has
+  // elasticity 0.5*E_CC to ~1e-7 and the Gronwall exponent (exp) has TC_A1_TRAP*E_CF to ~1e-4 -- each collapses
+  // onto a single existing axis at a fixed weight. The only genuinely non-linear map, the T0(N) height
+  // mapping, is the fixed abscissa (pinned by N), not an amplitude. So DIAG3 == 0 (machine-zero) for both the
+  // term-prefactor triple {C_H,E_trunc,C_F} and the degenerate triple {G,E_trunc,C_H}: no hidden non-linear
+  // amplitude breaks the exact scaling symmetry -- imp-97644 STRUCTURE (1) survives the full audit. Audit only;
+  // C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed as probes not re-pinned; C_mb
+  // GUE-conditional per imp-486 untouched; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97668-nonlinear-amplitude-audit.js',
   // imp-97665 (2026-09-26): DERIVES the imp-97644 STRUCTURE (3) crossing identity E_CF/E_ET = E_flow/E_trunc
   // EXACTLY and confirms the ~2e-7 imp-97644 residual was truncation. Implicit-differentiating the level
   // condition sigma(N_L(p), p) = level gives E_p = -(p sigma_p)/(N_L sigma_N); since E_trunc and C_F enter

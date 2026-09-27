@@ -22271,6 +22271,16 @@ const DATA_MODULES = [
   // grid-alignment artifact. Inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486;
   // no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124847-knee-locator-gap-thirdgrid-stencil-form.js',
+  // imp-124871 (opus-4-8, numerical): DERIVES the analytic source of the imp-124847 ~0.0335 knee-locator
+  // gap. sigma = E_coll/(E_trunc+E_flow+E_coll) is EXACTLY the logistic 1/(1+e^u) in
+  // u = ln((E_trunc+E_flow)/E_coll); both knee locators are conditions on that single running field. For a
+  // pure power law (u linear) both coincide at the inflection u=0 (sigma=1/2); they split only through the
+  // curvature of u -- ramp-inflection ~ 2b/a^2 vs exponent-curvature ~ 6b/a^2 + 4c/a^3 (a=u_x,b=u_xx,c=u_xxx).
+  // The predicted ramp-knee u matches the measured knee-u to 4 digits; the elasticity gap equals the
+  // E_trunc-running of the knee separation to 5 digits (-0.033492 vs the 0.03349 gap); the driving curvature
+  // is ~42% log-factor L=log T0 running and ~58% E_flow. Inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124871-knee-locator-gap-logistic-source.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.

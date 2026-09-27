@@ -862,6 +862,74 @@ export const LAMBDA_CHAIN_STEPS = [
               'Lambda <= 0.2 stays SOTA; NO QED.',
             by: 'imp-95234',
           },
+          // imp-97690 (assessment/scoping ONLY; discharges nothing, no operator
+          // positivity, respects the imp-2519 no-overclaim guard, NO QED): the
+          // prior Step-5 assessments graded the sigma(N) decay against the
+          // E_coll MAGNITUDE and the conditional SHARE (imp-96093 far-tail,
+          // imp-97402 share-reduction). This field instead asks whether the same
+          // post-peak decay supplies any quantitative footing on the STEP-4
+          // G6/G6a/C_H two-point Hoelder modulus, and pins the precise
+          // category mismatch that forbids it.
+          sigmaDecayStep4LeverAssessment: {
+            question:
+              'Does the imp-33582 post-peak decay of the conditional share ' +
+              'sigma(N) = E_coll/E(N) (peak sigma_max ~ 0.949 near N ~ 9.22e5, ' +
+              'halved at N ~ 3.27e9, below 0.1 only at N ~ 3.21e11) supply any ' +
+              'quantitative lever on the OPEN Step-4 G6/G6a/C_H bridge -- the ' +
+              'pointwise two-point Hoelder-1/2 shock modulus -- or is it in the ' +
+              'wrong category to move that bridge at all?',
+            categoryMismatch:
+              'sigma(N) is an AGGREGATE energy-share: it compares the total ' +
+              'collision energy E_coll to the assembled E(N) across the whole ' +
+              'ensemble. The Step-4 bridge is instead the POINTWISE statement ' +
+              '|tau_c(x) - tau_c(x_prime)| <= C_H |x - x_prime|^{1/2} required at ' +
+              'EVERY x, hence controlled at the SINGLE worst x where the spacing ' +
+              'is smallest (the nearest-pair shock front). A vanishing aggregate ' +
+              'share is fully compatible with an UNBOUNDED pointwise modulus at ' +
+              'the measure-zero smallest-gap front: this is exactly the ' +
+              'imp-35147 C2 (wrong-aggregation: an average cannot bound the ' +
+              'single smallest-spacing point) and C3 (wrong-front: the extreme ' +
+              'gap is precisely what a share washes out) defect. The sigma ' +
+              'decay carries no worst-point, all-height, pointwise content.',
+            localizedObstruction:
+              'The Step-4 obstruction localizes ENTIRELY on the factor C_Lip ' +
+              '(imp-95234 cHEstimateFactorization: C_H = C_shock * C_Lip / 4, ' +
+              'every factor O(1) except C_Lip). C_Lip is a nearest-pair-front ' +
+              'Gronwall Jacobian that PROVABLY diverges as the nearest pair ' +
+              'collides (C_Lip >= C_shock / (2 sqrt(W_1)) -> infinity). The ' +
+              'sigma(N) decay is a magnitude/share of E_coll; it neither bounds ' +
+              'nor even sees C_Lip, whose divergence lives at the exact front ' +
+              'the aggregate share suppresses. A shrinking share therefore ' +
+              'shaves nothing off the single divergent factor gating C_H.',
+            circularity:
+              'Compounding the mismatch: sigma(N) is itself COMPUTED with the ' +
+              'GUE-conditional C_mb <= 1 (imp-96093), so the small-share premise ' +
+              'presupposes the very conditionality a Step-4 lever would need to ' +
+              'be independent of. Even the magnitude reading cannot be asserted ' +
+              'unconditionally, so no unconditional Step-4 footing is extracted.',
+            verdict:
+              'NO quantitative lever. The sigma(N) post-peak decay supplies no ' +
+              'footing on the Step-4 G6/G6a/C_H bridge: it is an aggregate ' +
+              'energy-share in the wrong statistical category for the pointwise ' +
+              'worst-front modulus (imp-35147 C2/C3 wrong-aggregation), it does ' +
+              'not touch the localized provably-divergent factor C_Lip ' +
+              '(imp-95234), and it is circular on the GUE-conditional C_mb ' +
+              '(imp-96093 / imp-486). The shrinking conditional share confirms ' +
+              '(does not weaken) the imp-486 conditionality.',
+            residualSubGap:
+              'SG-97690-step4-pointwise: the only object that would move Step-4 ' +
+              'remains a UNIFORM pointwise nearest-pair minimal-gap lower bound ' +
+              '(imp-35147 C1 / route R2), RH-hard with no known sub-RH route; ' +
+              'this assessment neither supplies nor refutes one and is confined ' +
+              'to ruling the sigma-share lever OUT.',
+            conclusion:
+              'The sigma(N) decay is a Step-5 aggregate-magnitude diagnostic, ' +
+              'orthogonal to the Step-4 pointwise worst-front modulus; it moves ' +
+              'no bound. G6a_shock_lipschitz remains OPEN; C_mb stays ' +
+              'GUE-conditional (imp-486); changes no bound; Platt-Trudgian ' +
+              'Lambda <= 0.2 stays SOTA; NO QED.',
+            by: 'imp-97690',
+          },
           closed: false,
         },
         {

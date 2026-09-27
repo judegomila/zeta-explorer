@@ -5670,6 +5670,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: the continuous curve is a fresh sampling of the byte-for-byte imp-97723/imp-97759 closed form; the three marked landmarks are reused verbatim from their pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97748-fold-amplitude-landmark-decomposition',
+      title: 'imp-97725: Fold-Amplitude Numerator vs Denominator Across L1..L4',
+      oneLine:
+        'Log-scale grouped bar chart and table decomposing the imp-97725 fold amplitude K = sqrt(S/(2 phi_xx)) into its exact numerator S = sigma(1-sigma) and its curvature denominator phi_xx across the imp-97520 L1..L4 landmark ladder, showing S peak at the L3 halving landmark (algebraic max 0.25) against a monotonically falling phi_xx.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97748-fold-amplitude-landmark-decomposition.js',
+      paperSourcePath:
+        'src/data/imp-97725-fold-amplitude-analytic-pin.js (K = sqrt(S/(2 phi_xx)) pin, peak-local); src/data/imp-97520-sigma-conditional-share-landmark-ladder.js (L1..L4 landmark N values, reused verbatim); imp-97748 viz-data leaf + page',
+      ticket: 'imp-97748',
+      pedagogicalStep: 443,
+      honestCeiling:
+        'Presentation/decomposition only: K is the imp-97725 fold amplitude only at the peak (L1); the L2/L3/L4 entries evaluate the same closed-form numerator and smooth-model curvature off the peak as a diagnostic, not an extended fold law. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97729-fartail-residual-twopiece-crossover',
       title: 'imp-97702: Far-Tail Residual Two-Piece Split & Crossover',
       oneLine:

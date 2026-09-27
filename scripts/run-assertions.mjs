@@ -22246,6 +22246,15 @@ const DATA_MODULES = [
   // control removes only ~1/3 of the curvature (slope -2.106 -> -2.018), so it is mostly intrinsic.
   // Inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT SOTA; NO QED.
   '/src/data/imp-124832-knee-floor-elasticity-curvature-quadratic-fit.js',
+  // imp-124847 (opus-4-8, accuracy): third INDEPENDENT grid for the imp-124814/imp-124826 ~0.033
+  // knee-locator gap, built from fourth-order 5-point central-difference stencils (a different stencil
+  // ORDER from the 3-point O(h^2) family used by imp-97822/imp-124814/imp-124826) on a non-commensurate
+  // step 0.0017 and offset origin 7.03. Reproduces both floor-elasticities (exponent-curvature ~ -2.1064,
+  // ramp-inflection ~ -2.0729) to ~5e-5 and holds the gap at ~0.0335 -- the offset is stencil-FORM-stable,
+  // not only resolution-stable (imp-124826): a genuine definition-dependence, not a 3-point-stencil or
+  // grid-alignment artifact. Inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486;
+  // no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124847-knee-locator-gap-thirdgrid-stencil-form.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.

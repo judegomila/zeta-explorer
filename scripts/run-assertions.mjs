@@ -21818,6 +21818,13 @@ const DATA_MODULES = [
   // rate (exact decrement law, drifts not constant), and B_inf closed form (shifted
   // Euler-Mascheroni constant lnA + gamma/12). Index/meta only; NO QED.
   '/src/data/imp-97657-route-m-mcm-margin-limit-cohort-index.js',
+  // imp-97754: META provenance roll-up cataloguing the imp-97722/imp-97723/imp-97724/imp-97725
+  // measurement/cross-validation cohort by evidence class (independent code-path cross-
+  // validation, grid-extension asymptote decision, multi-precision exponent fit, analytic pin
+  // via implicit differentiation); confirms all four carry the honest no-QED / PT-SOTA banner,
+  // either as an explicit `isRigorous: false` field (imp-97723, imp-97725) or as prose
+  // (imp-97722, imp-97724). Index/meta only; no bound moved; NO QED.
+  '/src/data/imp-97754-late-frontier-provenance-rollup.js',
 ];
 
 let ALL_MODULES = FAST_MODE

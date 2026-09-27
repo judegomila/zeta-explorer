@@ -25013,6 +25013,31 @@ export const glossary = [
       'imp-97495-krein-route2-kbig300-380-direct-floor.js the lambda_3 Ritz upper bracket 5516.954964 and window shift 5462.61632',
     ],
   },
+  {
+    term: 'Confinement far-profile closed form (imp-97518): psi_R(t) ~ -(1/pi) g_pp(a) sin(a t)/t^3',
+    category: 'result',
+    definition:
+      'The imp-97497 far tail of the confinement family psi_R(t) = (1/pi) int_0^a g(xi) cos(xi t) dxi, ' +
+      'g(xi) = (1-(xi/a)^2)^2 exp(-(R xi)^2/2) on the band |xi| &lt;= a, a = (ln3)/2 -- validated only ' +
+      'numerically by imp-97497 (ratio 0.9969 -&gt; 0.9999 as t ~ 203..1004) -- is now PROVED in closed ' +
+      'form by three integrations by parts of the finite cosine transform. The order-2 zero of the taper ' +
+      'at the band edge (g(a) = g_prime(a) = 0) kills the first two boundary terms; the first surviving ' +
+      'edge term (g_pp(a) != 0) gives psi_R(t) ~ -(1/pi) g_pp(a) sin(a t)/t^3 with the EXACT amplitude ' +
+      'g_pp(a) = (8/a^2) exp(-(R a)^2/2), confirming analytically what imp-97497 had only from a numerical ' +
+      'fit. The next-order 1/t^4 endpoint-asymptotic bias is -(1/pi) g_ppp(a) cos(a t)/t^4 with ' +
+      'g_ppp(a) = (24/a)(1/a^2 - R^2) exp(-(R a)^2/2); its relative coefficient 3(1/a - a R^2) vanishes ' +
+      'against sin at the sin^2 peaks, explaining why the imp-97497 peak validation is so tight, and in ' +
+      '|psi|^2 it shows up as the oscillatory cross term whose tail integral is bounded below 1e-3 -- ' +
+      'matching the imp-97497 error bar exactly. HONEST SCOPE: derivation only; measurement stays ' +
+      'measurement; no operator positivity; no coercivity constant; no bound moves; interval-rigorous ' +
+      'reach stays 2a &lt;= 0.96; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97518 (three-IBP closed-form derivation of the imp-97497 far profile and its bias term), 2026',
+    relatedTerms: [
+      'imp-97518-krein-tail-endpoint-asymptotic-closed-form.js the source module (closed forms for g_pp(a), g_ppp(a), and the two-term endpoint asymptotic)',
+      'imp-97497-krein-welloptimum-tail-converged.js the numerically-validated tail model this module proves',
+      'imp-97483-krein-well-capture-vs-farfield-cost-tradeoff.js defines the confinement family g(xi) and the band |xi| &lt;= a',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

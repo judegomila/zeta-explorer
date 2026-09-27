@@ -5347,6 +5347,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: the curve samples reuse the imp-97518 closed-form functions and the imp-97497 peak-validation ratios verbatim, nothing re-derived. Establishes no operator positivity; changes no bound; interval-rigorous certified reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97588-mcm-baseterm-K0-approach',
+      title: 'imp-97519: Route M MCM Base-Term Approach to K0=1/24',
+      oneLine:
+        'Charts the imp-97519 Route M MCM level-1 base-term scaled quantity c(x)*x/ln x = K0 + M0/ln x approaching K0=1/24 across x=1e6..1e40, marking the 0.045 crossing at x~2.77e12 and the 0.043 crossing at x~1.2737e31, plus the residual = scaled(x)-K0 tracking M0/ln x exactly on a log-log panel.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97588-mcm-baseterm-K0-approach-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97519-route-m-mcm-baseterm-043-crossing-spotcheck.js (K0, M0, crossing043, driftLadder baked verbatim; imp-97588 viz-data leaf + page)',
+      ticket: 'imp-97588',
+      pedagogicalStep: 417,
+      honestCeiling:
+        'Presentation only: every value reuses the imp-97499/imp-97519 closed-form law and baked crossing/drift values verbatim, nothing re-derived. No bound moves; MCM stays VERIFIED at omega<=6 and FALSE from omega=11 (imp-97432); Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

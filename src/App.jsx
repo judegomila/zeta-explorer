@@ -1756,6 +1756,9 @@ const Imp97572CsharpFloorLadderViz = lazy(() =>
 const Imp97587KreinFarprofileEnvelopeViz = lazy(() =>
   import('./pages/Imp97587KreinFarprofileEnvelopeViz.jsx')
 );
+const Imp97588McmBaseTermK0ApproachViz = lazy(() =>
+  import('./pages/Imp97588McmBaseTermK0ApproachViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4518,6 +4521,10 @@ function AppShell() {
           <Route
             path="/viz-imp97587-krein-farprofile-envelope"
             element={<Imp97587KreinFarprofileEnvelopeViz />}
+          />
+          <Route
+            path="/viz-imp97588-mcm-baseterm-K0-approach"
+            element={<Imp97588McmBaseTermK0ApproachViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

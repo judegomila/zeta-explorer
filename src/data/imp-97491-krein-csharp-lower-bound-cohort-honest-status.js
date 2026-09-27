@@ -22,8 +22,9 @@
  * @see imp-97415-krein-lambda2-certified-lower-bound-assessment.js (all three lambda_2 lower-bound routes fail)
  * @see imp-97416-krein-csharp-bathtub-joint-floor.js (best rigorous floor -3065.435)
  * @see imp-97440-krein-route2-lambda2-lower-bound-execution.js (Route-2 regress confirmed, ~-197 to -275)
- * @see imp-97513-krein-route2-kbig420-500-deep-floor.js (Route-2 tightened edge -310.375499 at Kbig=500,
- *   corrected-tail central ~-310.75, bracket [-313.756,-310.375499] -- supersedes the imp-97495 -309.931066 edge)
+ * @see imp-97538-krein-route2-kbig560-720-deep-floor.js (Route-2 tightened edge -310.692227 at Kbig=720,
+ *   corrected-tail central ~-310.87, bracket [-313.756,-310.692227] -- supersedes the imp-97513 -310.375499 edge)
+ * @see imp-97513-krein-route2-kbig420-500-deep-floor.js (earlier tightened edge -310.375499 at Kbig=500; superseded by imp-97538)
  * @see imp-97495-krein-route2-kbig300-380-direct-floor.js (earlier tightened edge -309.931066 at Kbig=380; superseded by imp-97513)
  * @see imp-97455-krein-route2-kbig-divergence-rate.js (earlier saturation fit [-322,-306]; superseded by imp-97495)
  * @see imp-97457-krein-bathtub-realizability-gap.js (measured realizable floor -1343.796)
@@ -43,13 +44,13 @@ import { IMP97399_FLOOR } from './imp-97399-krein-csharp-reproducing-kernel-conc
 import { IMP97400_BEST_UPPER_BRACKET } from './imp-97400-krein-lehmann-maehly-lower-bracket-execution.js';
 import { IMP97415_VERDICT } from './imp-97415-krein-lambda2-certified-lower-bound-assessment.js';
 import { IMP97416_FLOOR } from './imp-97416-krein-csharp-bathtub-joint-floor.js';
-import { IMP97513_FLOOR } from './imp-97513-krein-route2-kbig420-500-deep-floor.js';
+import { IMP97538_FLOOR } from './imp-97538-krein-route2-kbig560-720-deep-floor.js';
 import { IMP97457_REALIZABILITY, IMP97457_GAP_ATTRIBUTION } from './imp-97457-krein-bathtub-realizability-gap.js';
 import { IMP97502_VERDICT } from './imp-97502-krein-named-concentration-inequality-assessment.js';
 
-// imp-97547: re-pointed to the imp-97513 directly-built Kbig=500 edge -310.375499 (corrected-tail central
-// ~-310.75, bracket [-313.756,-310.375499]), superseding the earlier imp-97495 -309.931066 edge.
-const ROUTE2_SATURATION_FLOOR = IMP97513_FLOOR.directMeasuredKbig500; // -310.375499 (directly-built upper edge on the converged floor)
+// imp-97586: re-pointed to the imp-97538 directly-built Kbig=720 edge -310.692227 (corrected-tail central
+// ~-310.87, bracket [-313.756,-310.692227]), superseding the earlier imp-97513 -310.375499 edge.
+const ROUTE2_SATURATION_FLOOR = IMP97538_FLOOR.directMeasuredKbig720; // -310.692227 (directly-built upper edge on the converged floor)
 
 export const IMP97491_HONEST_STATUS = Object.freeze({
   ticket: 'imp-97491',
@@ -78,8 +79,8 @@ export const IMP97491_HONEST_STATUS = Object.freeze({
     'three certified-lower-bound routes for lambda_2 fail, with the only certified rho landing at -4336.198, ' +
     'four orders below the required 0.581059 (imp-97415); the Route-2 lambda_2 recursion regresses to ' +
     'roughly -197 through -275 as circularity is removed (imp-97440) and saturates at a finite floor, ' +
-    'directly built at Kbig=500 to a tightened upper edge -310.375499 (corrected-tail central ~-310.75, ' +
-    'bracket [-313.756,-310.375499], imp-97513 -- superseding the earlier imp-97495 -309.931066 edge) rather ' +
+    'directly built at Kbig=720 to a tightened upper edge -310.692227 (corrected-tail central ~-310.87, ' +
+    'bracket [-313.756,-310.692227], imp-97538 -- superseding the earlier imp-97513 -310.375499 edge) rather ' +
     'than diverging, still four orders below the required 0.581059. Meanwhile the best reading of c_sharp itself stays a ' +
     'measured UPPER bracket +0.581059 (imp-97206 coupled N,T plateau), unmoved by two independent extra ' +
     'extrapolation checks (imp-97379, imp-97405). So the honest state at 2a = ln3 is: rigorous floor ' +
@@ -97,7 +98,7 @@ export const IMP97491_HONEST_STATUS = Object.freeze({
   },
   bestRigorousFloor: IMP97416_FLOOR.bathtubJointFloor, // -3065.435
   bestRigorousFloorIsNegative: true,
-  route2SaturationFloor: ROUTE2_SATURATION_FLOOR, // imp-97513 directly-built Kbig=500 edge, -310.375499
+  route2SaturationFloor: ROUTE2_SATURATION_FLOOR, // imp-97538 directly-built Kbig=720 edge, -310.692227
   m1EnclosureUsable: IMP97415_VERDICT.m1EnclosureUsable, // false
   gapRealizabilityShareFraction: IMP97457_GAP_ATTRIBUTION.realizabilityShareFraction, // 0.5615
   bestMeasuredUpperBracket: IMP97400_BEST_UPPER_BRACKET, // 0.581059

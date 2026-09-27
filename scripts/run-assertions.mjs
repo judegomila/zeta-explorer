@@ -6169,6 +6169,19 @@ const DATA_MODULES = [
   // power law. MEASUREMENT/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
   // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-124786-knee-floor-residual-quadratic-fit.js',
+  // imp-124787: tests whether an O(W^2) Richardson model closes the ~1% undershoot of the imp-124771
+  // LINEAR (two-finest-bracket) W -> 0 extrapolation of the knee amplification A(W) ~ 9.33 against the
+  // imp-97804 closed-form A ~ 9.42. Reuses the imp-124771 A(W) ladder verbatim (W in {0.25,0.20,0.15,
+  // 0.125,0.10} at PPD=120) and fits a quadratic in three subset variants. FINDING: the quadratic does
+  // NOT close the gap -- it OVERCORRECTS unstably, the W -> 0 limit swinging from ~9.10 (all-5 LSQ) to
+  // ~9.83 (3-finest exact), spread ~0.73 (~8% of A), an order of magnitude beyond the ~1% gap. The
+  // point-to-point slope dA/dW is non-monotone (~0.09,1.20,2.60,0.62), so A(W) is D2-crossing-jitter-
+  // limited, not cleanly concave; the imp-124771 "mild concavity" gloss is not confirmable at higher
+  // order. Reconciliation stands at the FINITE-BRACKET level (A(0.10) ~ 9.40, ~0.3%), not via an O(W^2)
+  // extrapolation. SUB-GAP: a jitter-suppressed knee estimator is needed. MEASUREMENT/sensitivity only;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 7 assertions.
+  '/src/data/imp-124787-knee-amp-quadratic-richardson.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix

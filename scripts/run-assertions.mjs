@@ -20374,6 +20374,17 @@ const DATA_MODULES = [
   // and sigma is saturated (E_coll0/E_rig=18.77) at the peak. Measurement only; C_H<=0.127
   // stays UNPROVEN; no bound; NO QED; PT Lambda<=0.2 SOTA.
   '/src/data/imp-96370-sigma-peak-ch-sensitivity.js',
+  // imp-124833: sweep the E_coll amplitude f=C_C/C_C_pinned=C_H/(1/8) across a plausible
+  // band [1/2,2] and tabulate the imp-3220/imp-3406 conditional-share peak-height elasticity
+  // d ln sigma_max / d ln C_C. Finding: peak LOCATION is exactly amplitude-invariant
+  // (N_peak~9.2186e5 at both extremes, zero dex -- C_C is a pure prefactor) and along the
+  // invariant peak sigma_max(f)=f/(f+R), R=0.0532646, so the peak-height elasticity =
+  // R/(f+R) = 1 - sigma_max EXACTLY (the unsaturated remainder): 0.0505710 at the ansatz
+  // f=1, falling 0.0962733 (f=1/2) -> 0.0259414 (f=2) as the share saturates; a numeric
+  // central difference matches to 8 digits. So the empirical-vs-analytic conditional-gap
+  // headline is robust to the open Step-4 C_H bridge, elastic only at its own unsaturated
+  // remainder. Measurement only; C_H stays UNPROVEN; no bound; NO QED; PT Lambda<=0.2 SOTA.
+  '/src/data/imp-124833-sigma-peak-cc-amplitude-elasticity.js',
   '/src/data/imp-96314-covariance-deviation-viz-data.js',
   '/src/data/imp-96316-etrunc-sensitivity-viz-data.js',
   '/src/data/imp-96318-confident-span-crossing-viz-data.js',

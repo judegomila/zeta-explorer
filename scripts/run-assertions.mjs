@@ -21439,6 +21439,18 @@ const DATA_MODULES = [
   // and the imp-398 C_F prefactor perturbed as probes not re-pinned; C_mb GUE-conditional per imp-486; no
   // bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97644-three-axis-additivity-flow-prefactor.js',
+  // imp-97661 (2026-09-26): PORTS the imp-97644 three-axis scaling symmetry to the imp-97520 L1 INTERIOR PEAK
+  // (N ~ 9.22e5, sigma_max ~ 0.9494), a TANGENCY dsigma/dN = 0 rather than a downslope level crossing. Replaces
+  // the bisection crossing with a ternary-search maximum and measures the peak-location elasticities. The
+  // symmetry specialises and STRENGTHENS: DIAG3 == 0 (peak invariant under joint scaling) and moreover sigma_max
+  // itself is invariant (reldiff ~ 0 under joint 1.3x scaling, whole degree-0 curve fixed). Being a tangency, the
+  // symmetry FACTORIZES: E_CC == 0 exactly (numerator-prefactor invariance -- the peak condition is scale-free in
+  // the C_C multiplier on E_coll) AND E_ET + E_CF == 0 exactly (denominator joint-scaling invariance, DIAG_DEN
+  // == 0). The only nonzero peak elasticities are the equal-and-opposite E_trunc/C_F see-saw E_ET ~ -1.37323 =
+  // -E_CF; the numerator C_C has no leverage on the tangency, unlike the crossings where all three axes coupled.
+  // Measurement only; C_C 1/8, E_trunc 3.06e-5 and imp-398 C_F prefactor perturbed as probes; C_mb GUE-conditional
+  // per imp-486 untouched; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97661-peak-landmark-elasticity-scaling-symmetry.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

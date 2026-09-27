@@ -25061,6 +25061,31 @@ export const glossary = [
       'imp-97497-krein-welloptimum-tail-converged.js the far-field-cost optimum R* = 3.36',
     ],
   },
+  {
+    term: 'Three-axis crossing-elasticity additivity / scaling symmetry (DIAG3==0, imp-97644)',
+    category: 'result',
+    definition:
+      'Extending the imp-97623 two-axis (C_C, E_trunc) additivity check to a third amplitude, the ' +
+      'imp-398 flow prefactor C_F, imp-97644 measures the crossing-elasticity diagonal ' +
+      'DIAG3 = E_CC + E_ET + E_CF at three sigma landmarks (sigma = E_coll/E_N = 0.9, 0.5, 0.1) and ' +
+      'finds it machine-zero at every landmark, both at eps=1e-3 and eps=5e-4 (residual SUM3 quarters ' +
+      'under eps-halving, ratio ~4.00, the signature of pure O(eps^2) central-difference truncation). ' +
+      'DIAG3 is exactly the chain-rule derivative of the crossing point N_L under a common rescaling of ' +
+      'all three amplitudes together, so DIAG3==0 means sigma = E_coll/E_N is degree-0 homogeneous in ' +
+      '(C_C, E_trunc, C_F): jointly scaling the three amplitudes leaves the crossing N_L exactly fixed, ' +
+      'forcing the exact identity E_CC + E_ET + E_CF = 0. The new axis C_F enters only linearly: ' +
+      'E_CF/E_ET matches E_flow/E_trunc to ~2e-7 relative at all three landmarks (equivalently ' +
+      'E_CF ~= -(E_CC+E_ET) to ~1e-6), the fingerprint of a denominator-additive amplitude (C_F enters ' +
+      'E_N only through the additive term E_flow) rather than a nonlinear driver of the crossing. ' +
+      'HONEST SCOPE: numerical cross-check only, not a proved theorem; no operator positivity; no bound ' +
+      'moves; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97644 (three-axis C_C/E_trunc/C_F additivity cross-check extending the imp-97623 two-axis law); imp-97669 (adds this glossary headword)',
+    relatedTerms: [
+      'imp-97644-three-axis-additivity-flow-prefactor.js the source module (DIAG3 measurement, SUM3 eps^2 truncation check, E_CF linearity)',
+      'imp-97623-additivity-residual-multi-landmark-crosscheck.js the two-axis (C_C, E_trunc) additivity law this extends',
+      'imp-398 the Gronwall flow-prefactor amplitude C_F entering E_flow = C_F*(logT0/T0)*Gronwall',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

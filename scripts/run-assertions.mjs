@@ -21525,6 +21525,20 @@ const DATA_MODULES = [
   // only symbolically as differentiation axes, not re-pinned; C_mb GUE-conditional per imp-486; no bound moved;
   // PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97689-diag3-additivity-euler-derivation.js',
+  // imp-97710 (2026-09-26): CROSS-VALIDATES the imp-97689 Euler-additivity reconstruction away from the three
+  // imp-97520 anchor landmarks by adding a FOURTH, far-downslope landmark L5 at sigma = 0.02 (N ~ 1.08e13, ~34x
+  // past L4). At L5 the closed-form amplitude-partial sum NUM = 1.78e-18 and the reconstructed elasticity sum =
+  // 7.9e-17 stay machine-zero (Euler degree-0 cancellation holds off-anchor), and the reconstructed E_CC =
+  // +2.069669 / E_ET = -2.069666 reproduce a DIRECT central-difference single-axis measurement to < 1e-8
+  // relative (the collapsed E_CF = -3.2456e-6 to < 1e-4, stencil-noise-limited by its small magnitude). The
+  // direct diagonal DIAG3 quarters with eps (4.82e-9 at 1e-3, 7.1e-11 at 1e-4) to round-off at 1e-5, confirming
+  // the imp-97644 ~1e-7 SUM3 was central-difference truncation at a fourth independent landmark too. Far
+  // downslope E_flow has collapsed so the identity reduces to E_CC ~ -E_ET, a different regime than the
+  // flow-heavy L2, and the derivation still holds. Import-light module; 8 node-verified self-executing
+  // assertions. Measurement/cross-validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor
+  // perturbed only symbolically as differentiation axes, not re-pinned; C_mb GUE-conditional per imp-486; no
+  // bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97710-diag3-fourth-landmark-crossvalidation.js',
   // imp-97661 (2026-09-26): PORTS the imp-97644 three-axis scaling symmetry to the imp-97520 L1 INTERIOR PEAK
   // (N ~ 9.22e5, sigma_max ~ 0.9494), a TANGENCY dsigma/dN = 0 rather than a downslope level crossing. Replaces
   // the bisection crossing with a ternary-search maximum and measures the peak-location elasticities. The

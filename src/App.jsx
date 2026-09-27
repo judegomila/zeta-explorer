@@ -1753,6 +1753,9 @@ const Imp97570CrossoverCrestCombinedViz = lazy(() =>
 const Imp97572CsharpFloorLadderViz = lazy(() =>
   import('./pages/Imp97572CsharpFloorLadderViz.jsx')
 );
+const Imp97587KreinFarprofileEnvelopeViz = lazy(() =>
+  import('./pages/Imp97587KreinFarprofileEnvelopeViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4511,6 +4514,10 @@ function AppShell() {
           <Route
             path="/viz-imp97572-csharp-floor-ladder"
             element={<Imp97572CsharpFloorLadderViz />}
+          />
+          <Route
+            path="/viz-imp97587-krein-farprofile-envelope"
+            element={<Imp97587KreinFarprofileEnvelopeViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

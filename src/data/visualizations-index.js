@@ -5333,6 +5333,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every value is reused verbatim from the imp-97492 cohort index, nothing re-derived. No rigorous positive lower bound on c_sharp exists; interval-rigorous certified reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97587-krein-farprofile-envelope',
+      title: 'imp-97518: The Confinement Far-Profile 1/t^3 Envelope',
+      oneLine:
+        'Charts the imp-97518 closed-form confinement far profile psi_R(t) ~ -(1/pi) g_pp(a) sin(a t)/t^3 oscillating inside its +-1/t^3 envelope, |psi_R(t)|^2 inside the 1/t^6 envelope on a log-log axis, and the imp-97497 sin^2-peak validation ratios climbing 0.9969 -> 0.9992 -> 0.9999 toward 1 as t grows from 203 to 1004.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97587-krein-farprofile-envelope-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97518-krein-tail-endpoint-asymptotic-closed-form.js (gppEdge/gpppEdge/biasRelCoeff closed forms); src/data/imp-97497-krein-welloptimum-tail-converged.js (R*=3.36, peak-validation ratios; imp-97587 viz-data leaf + page)',
+      ticket: 'imp-97587',
+      pedagogicalStep: 416,
+      honestCeiling:
+        'Presentation only: the curve samples reuse the imp-97518 closed-form functions and the imp-97497 peak-validation ratios verbatim, nothing re-derived. Establishes no operator positivity; changes no bound; interval-rigorous certified reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

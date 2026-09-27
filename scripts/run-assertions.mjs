@@ -21952,6 +21952,16 @@ const DATA_MODULES = [
   // B_inf=lnA+gamma/12 carry ~40.6 sig figs at dps=40, ~30 figs of headroom over the ~10 stored.
   // Documentation only; no bound moves; NO QED.
   '/src/data/imp-97790-route-m-storage-limit-honest-status.js',
+  // imp-97841 (opus-4-8, numerical/cross-validation): CROSS-VALIDATES the imp-97823 g^(-1/2) sqrt(10)-per-decade
+  // kernel-fold law at a SECOND, structurally distinct fold node -- the imp-97662 C_C-elasticity fold
+  // E = 2/(1 + 2 dlnR/dx - dlnL/dx) instead of the reconstruction kernel |K| = |1/(N sigma_N)|. Running the
+  // imp-97823 deep-window LS-slope instrument on |E| gives slope p = -0.500593 (down) / -0.499359 (up), growth
+  // 3.166598 / 3.157617 vs sqrt(10) = 3.162278, residual ~4e-4 -- matching the kernel result to the deep-limit
+  // floor with the same opposite-side bracketing and ~1/sqrt(10) cubic running correction. The g^(-1/2) law is
+  // therefore FOLD-UNIVERSAL (generic quadratic-fold Jacobian), not peak-kernel-specific. Cross-validation only
+  // on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT
+  // Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97841-fold-universal-sqrt10-crossvalidation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -5543,6 +5543,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every floor, signal, and margin value is reused verbatim from imp-97625 (an assessment, not a derivation); no new computation. Assessment only; the m=1/m=2 Krein enclosure stays unusable at 2a = ln3; interval-rigorous reach stays 2a <= 0.96. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97654-additivity-residual-eps-squared-collapse',
+      title: 'imp-97623: Additivity-Residual eps^2 Collapse Across Sigma Landmarks',
+      oneLine:
+        'Log-log residual-vs-eps chart and a ratio bar chart showing the imp-97623 additivity residual |DIAG - (E_CC + E_ET)| quarters at every one of the three imp-97520 sigma landmarks (L2, L3, L4) when the central-difference step halves from eps=1e-3 to eps=5e-4, the O(eps^2) truncation signature that drives the true residual to zero.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97654-additivity-residual-eps-squared-collapse-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97623-additivity-residual-multi-landmark-crosscheck.js (IMP97623_ADDITIVITY_RESIDUAL_MULTI_LANDMARK_CROSSCHECK reused verbatim; imp-97654 viz-data leaf + page)',
+      ticket: 'imp-97654',
+      pedagogicalStep: 431,
+      honestCeiling:
+        'Presentation only: every residual and ratio value is reused verbatim from imp-97623 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -21460,6 +21460,20 @@ const DATA_MODULES = [
   // Measurement only; C_C 1/8, E_trunc 3.06e-5 and imp-398 C_F prefactor perturbed as probes; C_mb GUE-conditional
   // per imp-486 untouched; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97661-peak-landmark-elasticity-scaling-symmetry.js',
+  // imp-97662 (2026-09-26): CHARACTERISES the imp-97622/imp-97642 C_C-elasticity closed form E = 2/(1 + 2 d ln
+  // R/dx - d ln L/dx) as the target level is swept toward the imp-97520 L1 interior peak sigma_max ~ 0.949429,
+  // where the downslope and upslope crossings merge into a TANGENCY. The elasticity DIVERGES as an inverse
+  // square root E ~ +/- K/sqrt(sigma_max - s) -- the generic square-root fold, +K downslope, -K upslope. The
+  // closed-form denominator D = 1 + 2 d ln R/dx - d ln L/dx IS the peak condition (D = 0 at x_peak), so E = 2/D
+  // blows up structurally; because the peak LOCATION is C_C-invariant (d x_peak/d ln C_C = 0) the only surviving
+  // term is the moving ceiling sigma_max(C_C), giving amplitude K = (d sigma_max/d ln C_C)/(2 sqrt(A)) with
+  // A = -curvature/2. Numerically A ~ 3.21595e-3, d sigma_max/d ln C_C ~ +0.048014, K ~ 0.423330; E*sqrt(gap)
+  // -> +/-0.4233 on both branches and the decade ratio ~ 0.313 matches 1/sqrt(10) = 0.31623 (a pole 1/gap would
+  // give 0.1). Consistent with (not contradicting) the imp-97598/imp-97661 peak-LOCATION elasticity 0: the
+  // maximiser stays fixed while its level sets slide without bound. Numeric log-C_C central difference tracks
+  // the closed form to gap ~ 3e-3 then degrades near the fold. Measurement only; C_C 1/8 ansatz perturbed as a
+  // probe not re-pinned; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97662-cc-elasticity-peak-divergence.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

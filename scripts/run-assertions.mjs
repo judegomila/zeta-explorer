@@ -21914,6 +21914,14 @@ const DATA_MODULES = [
   // sharpest EXPLICIT input stays Chourasiya-Simonic (16.7x short). No bound
   // moves; PT Lambda<=0.2 SOTA. 5 self-executing assertions.
   '/src/data/imp-124775-etrunc-guth-maynard-tail-exponent.js',
+  // imp-97773 (sonnet-4-6, ux): HONEST-STATUS BANNER restating, standalone, that the
+  // imp-97725 fold amplitude K=0.423330 is NOT a universal constant: it is
+  // floor-dependent (imp-97743: K spans 0.363295..0.606688 over a 0.5x..5x E_trunc
+  // sweep, exponent ~+0.221) and height-dependent (imp-97735: denominator phi_xx
+  // drifts down by a factor ~1449 over N=1e6..1e32 with no plateau). Re-exports the
+  // two measured sensitivities verbatim, no re-derivation. Documentation only; no
+  // bound moves; NO QED.
+  '/src/data/imp-97773-fold-amplitude-not-universal-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

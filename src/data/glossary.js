@@ -352,6 +352,23 @@ export const glossary = [
     link: '/route-map',
   },
   {
+    term: 'C_H = 1/8 ansatz (Step-4)',
+    category: 'proof-status',
+    definition:
+      'The specific numerical value C_H = 1/8 used to evaluate C_C = (1/8) sqrt(3 pi) in the ' +
+      'dominant E_coll term of the Step-4 bridge is an ANSATZ (a plugged-in placeholder), NOT a ' +
+      'discharged upper bound (imp-2642 verdict: negative). Since C_H = C_shock * C_Lip / 4, the ' +
+      '1/8 value silently fixes C_shock * C_Lip = 1/2 -- a specific product with no proof that it ' +
+      'bounds the true Holder-1/2 modulus. C_shock alone is pinned (imp-2786, approx 0.2692 at ' +
+      'N*=1e4); the unbounded factor is C_Lip, whose only known bound (Gronwall, 2/g^2) diverges ' +
+      'at the collision scale (imp-2640). Pinning the Step-4 constants therefore does not close ' +
+      'Step 4: the RH-hard G6a Holder-modulus obligation still gates it, and even a fully ' +
+      'discharged E(N) would not move the Lambda bound on its own.',
+    firstUsed: 'imp-2642 / imp-2701 (C_H rigor lock, 2026)',
+    relatedTerms: ['C_H wall', 'C_shock (Holder-1/2 shock modulus)', 'C_Lip', 'Gronwall', 'E_coll'],
+    link: '/route-map',
+  },
+  {
     term: 'Vortex field',
     category: 'visualization',
     definition:

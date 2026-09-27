@@ -25249,6 +25249,39 @@ export const glossary = [
       'imp-97735 the height-ladder drift of K, confirming K is also height-dependent not universal',
     ],
   },
+  {
+    term: 'Knee bracket-width robustness (imp-97708, log10 N* = 9.5291)',
+    category: 'numerical',
+    definition:
+      'imp-33701 differenced the imp-33582 six-decade sigma(N) = E_coll/E(N) local-exponent ramp on ' +
+      'COARSE whole-decade brackets and could only localize the single ramp-acceleration (D2) sign ' +
+      'change -- the knee -- to the [1e10,1e11] decade. imp-33721 re-differenced on quarter-decade ' +
+      'sub-brackets and relocated the knee a full decade down to N* ~ 3.38e9. imp-97708 decides ' +
+      'between the two readings by computing the bracketing-FREE pointwise ramp curvature ' +
+      'c(N) = d2p/d(log10 N)^2 (p = -d ln sigma/d ln N), the W -> 0 limit of the OLS bracket ' +
+      'estimator with no window at all. That pointwise curvature has EXACTLY ONE zero-crossing over ' +
+      '[1e8,1e12], at log10 N* = 9.5291 (N* = 3.381e9), stable to 4 decimals across central-difference ' +
+      'steps h in {5e-5..1e-3} -- coinciding with the imp-33721 sub-bracket knee, so ~3.38e9 is a ' +
+      'genuine property of sigma, not a differencing artifact. Sweeping bracket width W in ' +
+      '{0.1,0.125,0.15,0.2,0.25,0.3,0.4,0.5}-decade shows every W &lt;= 0.3 converges to the pointwise ' +
+      'value (max deviation ~0.0008 in log10), while at W &gt;= 0.4 the single crossing DISAPPEARS ' +
+      'entirely -- the resolution threshold sits between W=0.3 (resolves) and W=0.4 (lost). The ' +
+      'imp-33701 whole-decade ladder (W=1.0) sits far past that threshold, so its [1e10,1e11] reading ' +
+      'reconciles as pure resolution loss: decade-averaging smears the curvature until the sub-decade ' +
+      'crossing cannot survive, and the apparent knee lands a decade high. HONEST SCOPE: ' +
+      'measurement/fit only on the inherited imp-3220/imp-3406 extrapolation surrogate, not a ' +
+      'rigorous asymptotic; the C_mb GUE-conditional per imp-486 is untouched; no bound moves; no ' +
+      'operator positivity; imp-3066 K_a &gt;= 0 untouched; Platt-Trudgian Lambda &lt;= 0.2 remains ' +
+      'SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97708 (bracketing-free pointwise curvature reconciling the imp-33701/imp-33721 knee-location discrepancy; adds this glossary headword)',
+    relatedTerms: [
+      'imp-97708-sigma-knee-bracket-width-sensitivity.js the bracketing-free pointwise curvature + bracket-width ladder',
+      'imp-33721-sigma-ramp-inflection-subdecade.js the sub-decade knee relocation to N* ~ 3.38e9 this reconciles',
+      'imp-33701-sigma-postpeak-ramp-curvature-inflection.js the whole-decade ladder reading reconciled as resolution loss',
+      'imp-33582-sigma-postpeak-nearpeak-threshold-decay.js the six-decade exponent ladder whose knee this pins down',
+      'imp-3444-e-coll-e-trunc-crossover.js the E_coll=E_trunc crossover ~3.28e9, the halving-point twin of this knee',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

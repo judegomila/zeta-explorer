@@ -1747,6 +1747,9 @@ const Imp97413SigmaLadderSubdecadeKneeViz = lazy(() =>
 const Imp97388SecondMomentDecompositionViz = lazy(() =>
   import('./pages/Imp97388SecondMomentDecompositionViz.jsx')
 );
+const Imp97570CrossoverCrestCombinedViz = lazy(() =>
+  import('./pages/Imp97570CrossoverCrestCombinedViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4497,6 +4500,10 @@ function AppShell() {
           <Route
             path="/viz-imp97413-sigma-ladder-subdecade-knee"
             element={<Imp97413SigmaLadderSubdecadeKneeViz />}
+          />
+          <Route
+            path="/viz-imp97570-crossover-crest-combined"
+            element={<Imp97570CrossoverCrestCombinedViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

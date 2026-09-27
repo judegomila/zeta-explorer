@@ -5305,6 +5305,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: all (P0, log10b) points are reused verbatim from imp-97500, nothing re-derived. The b/4-ceiling lower edge was already REFUTED (imp-97481) and is a dead route; this only charts the already-measured smallest-witness curve. Establishes no operator positivity; changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97570-crossover-crest-combined',
+      title: 'imp-97441 / imp-97459: The Bimodal 1% Crossover Merged With Its Two Crests',
+      oneLine:
+        'Merges the imp-97441 four-tolerance crossover-fraction table x*(eps) with the imp-97459 crest-amplitude table on the same b-ladder axis, pinning the eps=1% branch flip (0.199->0.1665) to the row where the 1/6 crest amplitude crosses the 1% line while the 1/5 crest and the other three tolerances stay flat.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97570-crossover-crest-combined-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97441-route-m-crossover-fraction-tolerance-table.js (x*(eps) table); src/data/imp-97459-route-m-bimodal-1pct-crossover-peaks.js (crest table, step point; imp-97570 viz-data leaf + page)',
+      ticket: 'imp-97570',
+      pedagogicalStep: 414,
+      honestCeiling:
+        'Presentation only: every value is reused verbatim from imp-97441 and imp-97459, merged into one row-aligned table and chart, nothing re-derived. Establishes no operator positivity; changes no bound; the rigorous anchor stays T = 2.594e7; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

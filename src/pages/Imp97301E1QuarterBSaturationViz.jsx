@@ -148,7 +148,10 @@ export default function Imp97301E1QuarterBSaturationViz() {
         {IMP97301_SUMMARY.primesMinQ.toFixed(3)} to {IMP97301_SUMMARY.primesMaxQ.toFixed(5)} on
         primes, while the smallest q reached across every smooth class is as low as{' '}
         {IMP97301_SUMMARY.smoothClassesMinQ.toFixed(5)}. The ceiling{' '}
-        <code>|E1(b)| &le; {IMP97301_SUMMARY.ceiling}</code> holds class-uniformly.
+        <code>|E1(b)| &le; {IMP97301_SUMMARY.ceiling}</code> holds class-uniformly on this
+        dense sweep (b &le; 20000) &mdash; it does <strong>not</strong> hold in general: imp-97481
+        later proved the ceiling FALSE for general squarefree b (explicit witness far beyond this
+        range), and imp-97544 records the b/4-ceiling lower edge as a DEAD ROUTE.
       </p>
 
       <div

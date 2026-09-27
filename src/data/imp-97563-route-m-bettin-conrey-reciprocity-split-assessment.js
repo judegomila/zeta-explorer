@@ -151,6 +151,7 @@ export const IMP97563_VERDICT = Object.freeze({
   smoothCurvatureUpperBound: IMP97563_KAPPA_SMOOTH_UPPER,
   anyBoundMoved: false,
   operatorPositivityEstablished: false,
+  qed: false,
   computeBindsFirst: true, // N ~ 9916 (imp-96352) binds by >2600x
   conclusion:
     'The Bettin-Conrey reciprocity split DOES separate the smooth curvature from the wobble, but only ' +
@@ -251,6 +252,7 @@ const IMP97563_ASSERTIONS = [
       'intrinsic, no constant pinned, no bound moved, compute binds first, markers + sub-gap present.',
     holds: () =>
       IMP97563_VERDICT.anyBoundMoved === false &&
+      IMP97563_VERDICT.qed === false &&
       IMP97563_VERDICT.reciprocityIsolatesSmoothPsi === true &&
       IMP97563_VERDICT.reciprocityMakesPointwiseSmooth === false &&
       IMP97563_VERDICT.isQuantumModularForm === true &&

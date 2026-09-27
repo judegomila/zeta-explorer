@@ -115,6 +115,9 @@ export const IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER = {
     'halving, below-0.1) as one object and cross-validate the halving landmark against the ' +
     'imp-33723 closed-form N_cross at a common precision',
   isRigorous: false,
+  operatorPositivityProved: false,
+  boundMoves: false,
+  qed: false,
   model:
     'sigma(N) = E_coll / (E_trunc + E_flow + E_coll) with the exact inherited imp-3406/imp-33582 ' +
     'sub-terms (E_coll = C_C sqrt(log T0/N), E_flow = C_F (log T0/T0) e^{TC_A1}, E_trunc = 3.06e-5).',
@@ -202,9 +205,12 @@ export const IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER_ASSERTIONS = [
   },
   {
     id: 'imp97520-honesty-gate-no-qed',
-    description: 'measurement only: isRigorous false, no QED, Platt-Trudgian stays SOTA',
+    description: 'measurement only: isRigorous false, no operator positivity, no bound moves, structured qed false, no QED, Platt-Trudgian stays SOTA',
     holds: () =>
       IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.isRigorous === false &&
+      IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.operatorPositivityProved === false &&
+      IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.boundMoves === false &&
+      IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.qed === false &&
       /NO QED/.test(IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.note) &&
       /remains SOTA/.test(IMP97520_SIGMA_CONDITIONAL_SHARE_LANDMARK_LADDER.note),
   },

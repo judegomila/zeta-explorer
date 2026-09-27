@@ -21723,6 +21723,18 @@ const DATA_MODULES = [
   // differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT
   // Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124770-pair-ratio-identity-landmark-ladder.js',
+  // imp-124788 (2026-09-27): LIFTS the imp-124770 pair-ratio ladder to mpmath dps=60 to confirm the imp-124770 M2
+  // attribution -- that the deep-tail agreement loss of the imp-97665 EXACT identity E_CF/E_ET = E_flow/E_trunc was
+  // a double-precision round-off artefact, not a deviation. Re-running the imp-124770/imp-97665 5-point O(eps^4)
+  // machinery at dps=60 (offline tmp/imp-124788-extprec-pairratio.py), the deep-landmark |reldiff| collapses from
+  // the double-precision 2.01e-5 (L6) / 6.80e-4 (L7) to a flat ~3.33e-14 dps floor at every rung L4..L7 (factor
+  // ~6.0e8 / ~2.0e10 tighter), BELOW even the L4 double level 2.27e-8. The double monotone degradation vanishes:
+  // once |E_CF| (2.4e-7 at L6, 1.2e-8 at L7, below the imp-124769 ~1.4e-6 double round-off floor) is resolved, the
+  // identity is confirmed exact seven decades deep in N. Import-light module; 7 node-verified self-executing
+  // assertions. Numerical/cross-validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed
+  // only symbolically as differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0
+  // untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124788-extprec-pairratio-deep-landmark.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

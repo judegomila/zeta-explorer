@@ -5600,6 +5600,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: every band and exponent value is reused verbatim from imp-97687 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97716-wrapper-elasticity-5point',
+      title: 'imp-97686: Wrapper-Elasticity 5-Point Stencil Residuals, E_CKH vs E_GEXP',
+      oneLine:
+        'Grouped bar chart and table showing the imp-97686 3-point vs 5-point stencil residual precision for the two E_N wrapper elasticities: the sqrt wrapper E_CKH gains ~5 orders at every landmark (cured to ~1e-12..1e-13), while the exp wrapper E_GEXP gains precision only at the flow-heavy L2 (~4.3x) and falls inside the bisection-quantization noise floor at L3/L4.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97716-wrapper-elasticity-5point-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97686-wrapper-elasticity-5point-refine.js (IMP97686_WRAPPER_ELASTICITY_5POINT_REFINE.perLandmark reused verbatim; imp-97716 viz-data leaf + page)',
+      ticket: 'imp-97716',
+      pedagogicalStep: 438,
+      honestCeiling:
+        'Presentation only: every residual and improvement-factor value is reused verbatim from imp-97686 (a measurement, not a new computation). Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97745-fartail-diagnostic-asymptote',
       title: 'imp-97723: Far-Tail Diagnostic (1/2-p)*2 log T0 Asymptote-to-One',
       oneLine:

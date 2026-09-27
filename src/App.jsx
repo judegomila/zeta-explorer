@@ -1708,6 +1708,9 @@ const Imp97671GapLawDecayExponentViz = lazy(() =>
 const Imp97715RouteMExponentRobustnessViz = lazy(() =>
   import('./pages/Imp97715RouteMExponentRobustnessViz.jsx')
 );
+const Imp97716WrapperElasticity5PointViz = lazy(() =>
+  import('./pages/Imp97716WrapperElasticity5PointViz.jsx')
+);
 const Imp97745FarTailDiagnosticAsymptoteViz = lazy(() =>
   import('./pages/Imp97745FarTailDiagnosticAsymptoteViz.jsx')
 );
@@ -4517,6 +4520,10 @@ function AppShell() {
           <Route
             path="/viz-imp97715-route-m-exponent-robustness"
             element={<Imp97715RouteMExponentRobustnessViz />}
+          />
+          <Route
+            path="/viz-imp97716-wrapper-elasticity-5point"
+            element={<Imp97716WrapperElasticity5PointViz />}
           />
           <Route
             path="/viz-imp97745-fartail-diagnostic-asymptote"

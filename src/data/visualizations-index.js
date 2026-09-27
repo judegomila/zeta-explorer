@@ -5445,6 +5445,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every surrogate/Rcorr/full-h value is reused verbatim from imp-97583 (a measurement, not a derivation); no new computation. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97629-realizable-fraction-window-climb',
+      title: 'imp-97564: Realizable-Fraction Window Climb (correcting imp-97457 43.84%)',
+      oneLine:
+        'Bar chart of the imp-97564 realizable/bathtub fraction climbing 0.43837 (T=12) -> 0.50552 (T=64) with decelerating increments as the window half-width widens, plus the 1/T Richardson extrapolation to ~0.513 (R_inf~1573), correcting the imp-97457 43.84% figure as a window-truncation artifact rather than a saturated value.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97629-realizable-fraction-window-climb-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97564-realizability-fraction-resolution-sweep.js (window ladder baked verbatim; imp-97629 viz-data leaf + page)',
+      ticket: 'imp-97629',
+      pedagogicalStep: 424,
+      honestCeiling:
+        'Presentation only: every R/fraction/extrapolation value is reused verbatim from imp-97564 (a measurement, not a derivation); no new computation. Realizability gap still persists (~half the envelope); no bound moved; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

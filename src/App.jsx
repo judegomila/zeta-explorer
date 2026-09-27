@@ -1777,6 +1777,9 @@ const Imp97627McmMarginCollapseLadderViz = lazy(() =>
 const Imp97628McmSurrogateVsFullhOnsetViz = lazy(() =>
   import('./pages/Imp97628McmSurrogateVsFullhOnsetViz.jsx')
 );
+const Imp97629RealizableFractionWindowClimbViz = lazy(() =>
+  import('./pages/Imp97629RealizableFractionWindowClimbViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4567,6 +4570,10 @@ function AppShell() {
           <Route
             path="/viz-imp97628-mcm-surrogate-vs-fullh-onset"
             element={<Imp97628McmSurrogateVsFullhOnsetViz />}
+          />
+          <Route
+            path="/viz-imp97629-realizable-fraction-window-climb"
+            element={<Imp97629RealizableFractionWindowClimbViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

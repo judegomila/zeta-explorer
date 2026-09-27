@@ -102,7 +102,7 @@ const IMP97582_VERDICT = {
   geometricAndAitkenAgree: true,
   extrapolatorsCluster: true,
   namedGapUnresolved: true,
-  subGap: 'IMP97582_TRACE_LIMIT_NAMED_GAP_UNRESOLVED',
+  openSubGap: 'IMP97582_TRACE_LIMIT_NAMED_GAP_UNRESOLVED',
   traceLimitPinnedTighterThanLambda2Floor: true,
   anyBoundMoved: false,
   analyticConstantPinned: false,

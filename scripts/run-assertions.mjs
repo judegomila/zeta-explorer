@@ -6138,6 +6138,16 @@ const DATA_MODULES = [
   // E_flow-independent (imp-97781 F2); C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
   '/src/data/imp-97805-knee-eflow-amplification-ratio.js',
+  // imp-124771: reconciles the imp-97805 discrete amplification A ~ 9.54 (PPD-refined at bracket width
+  // W = 0.25) against the imp-97804 continuous closed-form A ~ 9.42 (~1.3% residual). Decides it is a
+  // finite-BRACKET-WIDTH artifact, NOT a PPD discretization bias: holding a fine PPD = 120 and narrowing
+  // the bracket, A(W) falls monotonically (9.542 at W=0.25 -> 9.397 at W=0.10), matching the closed-form
+  // W -> 0 knee to ~0.3% (a 4.8x collapse of the residual). PPD is exonerated: at W=0.10 A is PPD-stable
+  // to ~0.02% across PPD 40..200, so PPD refinement converges A at every fixed W. Both values correct at
+  // their respective bracket widths; the closed form is the W -> 0 limit. MEASUREMENT/sensitivity only;
+  // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
+  // 6 assertions.
+  '/src/data/imp-124771-knee-amp-bracket-width-reconcile.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix

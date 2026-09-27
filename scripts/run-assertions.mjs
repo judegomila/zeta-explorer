@@ -21818,6 +21818,20 @@ const DATA_MODULES = [
   // only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes;
   // C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124813-pairratio-L8-doubleprec-depth-limit.js',
+  // imp-124828 (2026-09-27): RE-RUNS the imp-124811 pair-ratio |reldiff| ladder (L2..L7, same 5-point O(eps^4)
+  // stencil, eps = 1e-3) at mpmath dps in {30,50,80} (offline tmp/imp-124828-extprec-pairratio-Pladder.py) to
+  // decide whether the imp-124811 invariant product P = |reldiff|*|E_CF|, flat at geomean R ~ 2.34e-12 in double
+  // precision, is a fixed model constant or a double-precision round-off floor. At extended precision the geomean
+  // P collapses ~6 decades to 1.538e-18 (P_ext/R = 6.57e-7), the flat ladder shatters (double-precision max/min
+  // ~ 8.5 -> 2.886e8) as P collapses down the ladder tracking the collapsing |E_CF|, and the log-log slope flips
+  // from -1.085 to +0.121 -- so R was a PURE double-precision landmark-bisection round-off floor, not a model
+  // constant. |reldiff| plateaus at the imp-124808 dps-invariant O(eps^4) stencil floor 3.333e-14 (|E_CF|-
+  // independent), identical at dps 30/50/80, so the residual is stencil truncation and the imp-97665 identity
+  // carries no drift (consistent with imp-124808 D = 0). Import-light baked-literal module; 8 node-verified
+  // self-executing assertions. Numerical/cross-validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F
+  // prefactor perturbed only symbolically as differentiation axes; C_mb GUE-conditional per imp-486; no bound
+  // moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124828-extprec-pairratio-Pladder.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

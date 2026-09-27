@@ -25164,6 +25164,34 @@ export const glossary = [
     ],
   },
   {
+    term: 'MCM cap-metric jitter (+/-30% scatter, imp-97736)',
+    category: 'caveat',
+    definition:
+      'The imp-97724 trustworthy-cap d*(eps) (the checkpoint where the recovered-remainder relative error rel(d) ' +
+      'first fails a threshold for 3 consecutive checkpoints) is NOT a clean deterministic crossing: rel(d) ' +
+      'oscillates between ~0.03 and ~4.6 across the whole window d in [1.8e6, 2.9e6] near the dps=30 crossing ' +
+      'before settling above 1, so the 3-consecutive-fails rule latches onto whichever checkpoint triplet happens ' +
+      'to clear the threshold. A tiny 6.25e-17 change in the Glaisher-Kinkelin log-constant (17-digit literal vs ' +
+      'full mpmath precision) flips individual crossings and moves the dps=30 SNR=1 cap 2847849 -> 2182639, a ' +
+      '~30 percent swing from a change many orders of magnitude below the cap itself. This jitter, not a physical ' +
+      'threshold bias, explains most of the imp-97724 0.240-vs-0.215 SNR=1-vs-SNR>=10 exponent gap: under a ' +
+      'CONSISTENT full-precision constant across dps 16/24/30 the gap HALVES from 0.0251 to 0.0094, and both ' +
+      'thresholds converge to ~1/4-modulo-slow-log exponents that agree within the jitter band. There is no ' +
+      'threshold trend to extract beyond this: the residual after removing the jitter and the literal-precision ' +
+      'contamination is consistent with noise, not a resolvable systematic. HONEST SCOPE: measurement/accuracy ' +
+      'diagnosis of the cap metric only; no operator positivity; no bound moves; the cap-independent 1/(720 d^3) ' +
+      'tail budget (&lt; 5.69e-11) dwarfs any cap-to-infinity shift regardless of the exact cap value, so MCM ' +
+      'stays refuted and the onset stays omega=11; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97736 (dps=36 extension + jitter/contamination diagnosis of the imp-97724 cap metric; adds this glossary headword)',
+    relatedTerms: [
+      'imp-97736-mcm-cap-jitter-dps36.js the dps=36 measurement and the jitter/full-precision-Glaisher diagnosis',
+      'imp-97724-mcm-dps-cap-scaling-fit.js the source 0.240-vs-0.215 SNR-threshold exponent gap being reconciled',
+      'MCM kernel precision cap-scaling law d*(eps) ~ eps^{-1/4} (imp-97704, imp-97724) the underlying scaling law this jitter sits on top of',
+      'imp-97783 the clean full-precision exponent set superseding the 17-digit-literal-contaminated dps>=30 caps',
+      'imp-97801 the SNR-monotonicity audit confirming the SNR=30-vs-SNR=10 inversion is jitter, not an anomaly',
+    ],
+  },
+  {
     term: 'Fold-amplitude K NOT-universal (numerator/denominator split, imp-97725)',
     category: 'caveat',
     definition:

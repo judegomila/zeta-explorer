@@ -21343,6 +21343,15 @@ const DATA_MODULES = [
   // cancellation cap. MCM onset stays omega=11; b/4 ceiling untouched; no bound moved; PT Lambda <= 0.2 SOTA;
   // RH open; NO QED.
   '/src/data/imp-97647-route-m-mcm-omega10-cap-robustness.js',
+  // imp-97666 (2026-09-27): DERIVES the leading asymptotic constant of the imp-97432 MCM kernel remainder
+  // Rexact(d) = Gexact(d) - GKmain(d) that imp-97647 RESULT 2 asserted but did not derive. Via the Euler-
+  // Maclaurin expansion of Sum_{k=1}^{m} k log k (f = x log x), the first n-dependent omitted term is the B_4
+  // term: B_4/4! * f_ppp(n) = (-1/720)*(-1/n^2) = +1/(720 n^2), so the +1/720 leading constant is -B_4/4! =
+  // (1/30)/24 and the power is exactly m^-2. Next term is B_6/6! * f^(5) = -1/(5040 n^4), giving the observed
+  // Rexact(m)*720*m^2 = 1 - (1/7)/m^2. Clean-regime ladder (m <= 100) confirms scaled -> 1 to ~1e-6 with
+  // log-log slope -1.99994. The imp-97647 tail budget Sum 1/(720 d^3) now rests on a derived constant.
+  // Derivation only; onset stays omega=11; MCM refuted; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97666-route-m-mcm-tail-constant-euler-maclaurin.js',
   // imp-97585 (2026-09-26): MEASURES the Gronwall flow share E_flow/E_trunc across the full imp-97520
   // ladder N in {1e6 .. 1e12}, extending the single-point imp-97520 measurement (~1.91e-3 at N_half).
   // The share is MONOTONE DECREASING -- it does NOT grow toward the tail but collapses (1.4376 at 1e6

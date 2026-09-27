@@ -22289,6 +22289,13 @@ const DATA_MODULES = [
   // tail. Every row reused verbatim from imp-124770 (a measurement, not a derivation); no new
   // computation. Presentation only; no bound moved; NO QED.
   '/src/data/imp-124815-pairratio-ladder-viz-data.js',
+  // imp-124851: QUANTIFIES the imp-124812 B1 hinge for the degree-2 (m=2) amplitude departure -- the one
+  // order the imp-97668 first-order six-probe audit resolves. Deforming the collision numerator by a
+  // degree-excess weight w yields the exact law DIAG3(w) = w*E_CC (crossing) and NUM(w) = w*sigma(1-sigma)
+  // (pointwise); inverting the measured DIAG3 machine-zero confines the degree-2 fraction to
+  // w_max ~ 4e-10 (1e-9 gate) / ~1e-12 (round-off), with a negligible finite-t homogeneity defect.
+  // Assessment/derivation only; conditional-share diagnostic; no bound moved; NO QED.
+  '/src/data/imp-124851-diag3-degree2-coefficient-bound.js',
 ];
 
 let ALL_MODULES = FAST_MODE

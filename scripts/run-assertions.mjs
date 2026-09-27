@@ -21283,6 +21283,12 @@ const DATA_MODULES = [
   // Route-M (imp-97496/97499, the b/4-ceiling and MCM base-term attacks) -- with each
   // leaf's one-line verdict. Index/meta only; NO QED.
   '/src/data/imp-97527-krein-route-m-frontier-leaves-cohort-index.js',
+  // imp-97594: META cross-reference index grouping the five late-frontier leaves
+  // imp-97518/97519/97520/97538/97563 into Krein (imp-97518/97538, c_sharp lower-bound
+  // attack at 2a=ln3), Route-M (imp-97519/97563, MCM base-term and bulk-profile-curvature
+  // attacks), and the standalone Sigma-landmark tabulation (imp-97520), extending the
+  // imp-97527 index that stops at imp-97502. Index/meta only; NO QED.
+  '/src/data/imp-97594-krein-route-m-sigma-frontier-leaves-cohort-index.js',
   // imp-97579 (2026-09-26): CROSS-VALIDATES the imp-97518 closed-form band-edge derivatives
   // g_pp(a) = (8/a^2)exp(-(Ra)^2/2) and g_ppp(a) = (24/a)(1/a^2-R^2)exp(-(Ra)^2/2) of the confinement
   // taper against 5-point/6-point central finite differences across a 10-point R ladder spanning the

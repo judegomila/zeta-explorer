@@ -21697,6 +21697,20 @@ const DATA_MODULES = [
   // constant on EITHER axis. Cross-validation only; C_C 1/8 + C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc pinned
   // 3.06e-5; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97757-fold-amplitude-axis-crosstab.js',
+  // imp-97777 (2026-09-27): PINS the imp-97759 F1 local minimum of the FULL imp-97723 far-tail diagnostic
+  // (start of the rising branch that carries the imp-97744 crossings) by derivative root-finding, and
+  // measures its imp-33708 0.5x..5x E_trunc-floor sensitivity. Bisecting d diag/d(log10 N) to its root
+  // reproduces the imp-97759 golden-section landmark to full double precision: log10 N = 18.77232,
+  // diag = 0.9760709 (|deriv| < 1e-9, a genuine stationary point). Under the floor swap the minimum
+  // LOCATION is strongly sensitive -- it moves 2.43 decades (19.497 at 0.5x -> 17.065 at 5x, elasticity
+  // d log10 N_min/d log10(factor) ~ -2.43, since a lower floor lifts sigma and pushes the balance point
+  // deeper into the tail) -- while its VALUE is nearly insensitive, moving only 3.29e-3 (~0.34%, elasticity
+  // ~ -3.3e-3). So the floor slides WHERE the diagnostic bottoms out but barely changes HOW LOW it goes:
+  // the ~0.976 depth is a robust landmark, its abscissa is soft -- the OPPOSITE regime from the far-tail
+  // crossings (imp-97759 F3, floor-insensitive location to < 1e-11). Import-light (effectiveHeightForN +
+  // C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned 3.06e-5; changes no bound; no
+  // operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-97777-fartail-diagnostic-local-minimum-pin.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

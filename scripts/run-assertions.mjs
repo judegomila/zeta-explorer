@@ -22320,6 +22320,18 @@ const DATA_MODULES = [
   // decades by raising the stencil order, not a working-precision round-off floor. Inherited
   // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124888-highorder-directcf-stencil.js',
+  // imp-124891 (opus-4-8, numerical): fits the explicit quadratic log10 N*_peak = a + p*log10 E_trunc
+  // + c*(log10 E_trunc)^2 over the imp-33684 ten-floor interior-peak ladder to isolate the E_flow
+  // softening imp-124848 F2 named but never fit. The c term collapses the residual (R^2 0.99961 ->
+  // 0.99999677, RMS ~7.84e-3 -> ~7.10e-4 decades, ~11x) and the curvature c_peak ~ -0.0878 is ~4.9x
+  // the far-tail knee c_far ~ -0.0179 fit on the same grid. Because both ladders share the floor grid,
+  // slope_OLS = p + c*D with a shared D ~ -8.609, so the apparent -1.412-vs--2.106 exponent gap
+  // (~0.6947) splits EXACTLY: 0.0929 linear-coefficient (~13.4%; p_peak ~ -2.167 vs p_far ~ -2.260,
+  // peak marginally shallower) + 0.6019 curvature (~86.6%). The interior peak and far tail share a
+  // common ~E_trunc^(-2.1..-2.26) linear elasticity; the softening is an E_flow curvature tilt confined
+  // to the peak window, not a different elasticity. Inherited imp-3220/imp-3406 surrogate; C_mb
+  // GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124891-interior-peak-quadratic-curvature-fit.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.

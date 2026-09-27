@@ -54,6 +54,16 @@
  * the omega=11 MCM onset unchanged. MCM stays refuted from omega=11; the b/4 ceiling is untouched; kappa_arith
  * unchanged; no bound on Lambda moves; PT Lambda <= 0.2 SOTA; RH open; NO QED.
  *
+ * HONEST-STATUS UPDATE (post-hoc, does not change this module's data). The dps=30 rung of CAPS_SNR1/CAPS_SNR10
+ * above was evaluated against the imp-97432 truncated 17-digit Glaisher literal, not a full-precision
+ * log(glaisher). imp-97783 reran the same cap ladder under a consistent full-precision Glaisher constant at
+ * every dps and found the fitted exponents 0.2401 (SNR=1) / 0.2150 (SNR>=10) recorded here are CONTAMINATED:
+ * the clean full-precision exponent set collapses to a tight 0.2216-0.2285 band (spread 0.0069, ~3.7x tighter
+ * than this module's 0.2401-vs-0.2150 spread 0.0251) with no threshold trend. This does not change RESULT 3 or
+ * the VERDICT above -- the omega=11 onset and cap-independent tail budget are untouched -- but the exponent
+ * VALUES 0.2401/0.2150 exported here should be read against imp-97783's clean set, not taken as the final word.
+ *
+ * @see imp-97783-mcm-cap-fullprec-exponent-set.js  (CLEAN full-precision exponent set; flags this module's dps=30 contamination)
  * @see imp-97704-mcm-kernel-precision-cap-scaling.js  (asserted eps^{-1/4} at one point; predicted 2.7-3.2e6)
  * @see imp-97685-mcm-tail-budget-two-term-euler-maclaurin.js  (cap set by kernel precision, not tail-term count)
  * @see imp-97666-route-m-mcm-tail-constant-euler-maclaurin.js  (two-term Euler-Maclaurin remainder used as reference)

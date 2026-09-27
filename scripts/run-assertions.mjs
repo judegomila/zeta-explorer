@@ -22310,6 +22310,16 @@ const DATA_MODULES = [
   // interior exponent is locator-FORM-stable, not a ternary-search-argmax artifact. Inherited
   // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124875-interior-peak-elasticity-fivepoint-stencil.js',
+  // imp-124888 (opus-4-8, numerical): stencil-ORDER cross-check of the imp-124849 M2 attribution of the
+  // DIAG3 E_CF floor R=1.0819e-12 (eps=1e-3, slope 2.000) to the O(eps^2) 2-point directCF. Ports the
+  // imp-124849 mpmath machinery verbatim and swaps ONLY directCF: a 2-point baseline, a 3-point O(eps^2)
+  // same-order control, and a 5-point O(eps^4) higher-order central difference of ln N_L in ln f. The
+  // 2-point reproduces M2 exactly; the 5-point drops R to 1.082e-19 at eps=1e-3 (slope 4.00, ~1e7x lower);
+  // the 3-point gives slope 2.000 at exactly half the 2-point floor (coefficient-only diff). CONFIRMS R is
+  // the O(eps^2) truncation term of the 2-point directCF -- a stencil-ORDER truncation floor tunable ~7
+  // decades by raising the stencil order, not a working-precision round-off floor. Inherited
+  // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124888-highorder-directcf-stencil.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.

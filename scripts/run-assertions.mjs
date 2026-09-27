@@ -21643,6 +21643,18 @@ const DATA_MODULES = [
   // number. Derivation only; C_C 1/8 ansatz untouched; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda
   // <= 0.2 SOTA; NO QED.
   '/src/data/imp-97725-fold-amplitude-analytic-pin.js',
+  // imp-97735 (2026-09-27): MEASURES whether the imp-97725 fold amplitude K = sqrt(sigma_max(1-sigma_max)/(2 phi_xx))
+  // stabilizes across a height ladder deep into the tail, since its denominator carries phi_xx = (lnR)_xx -
+  // (1/2)(lnL)_xx, a second log-derivative of the Riemann-von Mangoldt inverse height map T0(N) with no elementary
+  // closed form (the imp-97725 SUB-GAP). Same inherited surrogate + same 5-point smooth-model stencil. RESULT: K does
+  // NOT stabilize. The numerator S is fixed at the unique interior peak, but phi_xx DRIFTS MONOTONICALLY DOWNWARD with
+  // no plateau -- from 1.339604e-1 at the peak (N ~ 9.22e5) to 9.42e-5 at N = 1e32, a factor ~1449 along the ladder and
+  // still falling -- because E_flow -> 0 pins R at the E_trunc floor so (lnR)_xx -> 0, leaving phi_xx -> -(1/2)(lnL)_xx
+  // ~ 1/(2 (lnN)^2) -> 0 (tail law matched to ~2-3% out to 1e32). So K = 0.4233 is a numerical property of the surrogate
+  // curvature at the peak height, NOT a dimensionless universal constant; there is no reachable plateau. Measurement
+  // only; C_C 1/8 ansatz + C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc pinned 3.06e-5; no bound moved; PT Lambda
+  // <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97735-fold-amplitude-height-ladder-drift.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

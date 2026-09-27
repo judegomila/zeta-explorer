@@ -21723,6 +21723,20 @@ const DATA_MODULES = [
   // C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned 3.06e-5; changes no bound; no
   // operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-97777-fartail-diagnostic-local-minimum-pin.js',
+  // imp-97782 (2026-09-27): COMPANION to imp-97777 -- PINS the imp-97759 small-N HUMP peak of the FULL
+  // imp-97723 far-tail diagnostic by derivative root-finding and measures its imp-33708 0.5x..5x
+  // E_trunc-floor sensitivity. Bisecting d diag/d(log10 N) to its root pins the peak at log10 N =
+  // 7.76832, diag = 14.89166 (sigma = 0.86502, |deriv| < 1e-8, a genuine stationary point) -- reproducing
+  // the imp-97759 sketch (peak ~ 14.8 near N ~ 1e8, sigma*log T0 term dominant). Under the floor swap the
+  // peak is strongly sensitive in BOTH location -- it moves 1.79 decades (8.317 at 0.5x -> 6.524 at 5x,
+  // elasticity ~ -1.79) -- AND value -- it moves 4.094 (16.131 -> 12.037, ~27.5%, elasticity ~ -4.09).
+  // Because sigma ~ 0.865 is near 1 at the hump, the E_trunc floor directly modulates the dominant
+  // sigma*log T0 term, so the peak is the OPPOSITE extreme from the far-tail crossings (imp-97759 F3,
+  // floor-insensitive location to < 1e-11) AND the robust minimum value (imp-97777 F3, ~0.34%). Where
+  // sigma near 1 the floor matters most; deep in the tail (sigma -> 0) it does not. Import-light
+  // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned
+  // 3.06e-5; changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-97782-fartail-diagnostic-hump-peak-pin.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

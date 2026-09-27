@@ -21652,6 +21652,19 @@ const DATA_MODULES = [
   // E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes; C_mb
   // GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97835-diag3-ecf-crossover-eps-scaling.js',
+  // imp-124769 (2026-09-27): PINS the imp-97821 M3 crossover sigma / E_CF magnitude at which the direct E_CF
+  // finite-difference round-off overtakes the O(eps^2) truncation and makes the DIAG3 eps-ladder non-monotone.
+  // Across the landmark ladder L2..L6 (sigma 0.9/0.5/0.1/0.02/0.005) the E_CF headline-step error errCF(1e-3) =
+  // |E_CF_direct - E_CF_recon| follows a clean O(eps^2) truncation power law errCF ~ relTrunc*|E_CF| with relTrunc
+  // a stable ~3.25e-7 plateau across L2..L4, bottoms at the landmark-bisection round-off floor R ~ 4.46e-13 at L5,
+  // then turns back UP at L6. Equating the regimes pins the crossover at |E_CF|_crit = R/relTrunc ~ 1.37e-6 /
+  // sigma_crit ~ 0.0127, BETWEEN L5 (sigma 0.02, |E_CF| ~ 3.25e-6, clean) and L6 (sigma 0.005, |E_CF| ~ 2.39e-7,
+  // round-off): the eps = 1e-3 rung -- hence the DIAG3 ladder -- stays truncation-clean above it and becomes
+  // round-off-dominated / non-monotone below it. Import-light module; 8 node-verified self-executing assertions.
+  // Measurement/cross-validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear only as
+  // symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched;
+  // PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124769-ecf-stencil-noise-floor-crossover.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

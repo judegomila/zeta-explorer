@@ -22210,6 +22210,15 @@ const DATA_MODULES = [
   // decade on both arms. Inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound
   // moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124830-kernel-sqrt10-curvature-derivation.js',
+  // imp-124832 (opus-4-8, accuracy): FITS the imp-124814 fresh-locator residual hump (log10 N* on
+  // log10 E_trunc) to a quadratic curvature term c ~ -1.79e-2 per (decade E_trunc)^2, dropping the RMS
+  // residual ~20x below the linear fit (R2 ~ 0.99999998). ASSESSES it as a DISTINCT locator-specific
+  // effect -- the curvature of the third-order-in-N knee abscissa along the single E_trunc axis -- NOT a
+  // manifestation of the imp-97720 fixed-N amplitude Hessian (degree-0 homogeneous, doubly centered,
+  // positive off-diagonals ~ +0.08..+0.25, a different derivative space). A freeze-the-running-log-factor
+  // control removes only ~1/3 of the curvature (slope -2.106 -> -2.018), so it is mostly intrinsic.
+  // Inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT SOTA; NO QED.
+  '/src/data/imp-124832-knee-floor-elasticity-curvature-quadratic-fit.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.

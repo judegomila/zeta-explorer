@@ -21628,6 +21628,19 @@ const DATA_MODULES = [
   // validation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as
   // differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97821-diag3-sixth-landmark-crossvalidation.js',
+  // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
+  // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
+  // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N
+  // gives A = 3.2160e-3 and B = 2.6240e-4 (both stencil-stable across h = 0.02..0.15), so the running amplitude
+  // coefficient beta = B/A^(3/2) = 1.4388. The B-prediction of the deep per-decade deviation from sqrt(10),
+  // +/- beta*(sqrt(10)-1)*sqrt(g), reproduces the imp-97823-measured deviations to < 1% on BOTH arms (downslope +,
+  // upslope -), so the imp-97823 running correction IS the cubic-fold term with the independently measured B. The
+  // cubic fold predicts EXACT arm antisymmetry; the measured departure dev_down + dev_up is < 1% of the deviation
+  // and decays ~1/10 per decade (the residual quartic C fold, O(g) symmetric vs O(sqrt(g)) antisymmetric). Import-
+  // light module; 9 node-verified self-executing assertions. Measurement/cross-validation only; C_C 1/8, E_trunc
+  // 3.06e-5 and the imp-398 C_F prefactor appear only as the fixed surrogate; C_mb GUE-conditional per imp-486; no
+  // bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97833-cubic-fold-curvature-B.js',
   // imp-97720 (2026-09-26): EXTENDS the imp-97668 first-order amplitude audit to SECOND order -- the 3x3 mixed
   // second-derivative (Hessian) of ln sigma in the three log-amplitude axes (C_C, E_trunc, C_F) at L2/L3/L4.
   // Settles the ticket question: degree-0 homogeneity does NOT force the second-order amplitude couplings to

@@ -21902,6 +21902,10 @@ const DATA_MODULES = [
   // of the imp-97723 far-tail diagnostic crossing heights (L = 1/(1 - t), N = (L - 1) e^L).
   // Documentation only; no bound moved; NO QED.
   '/src/data/imp-97769-fartail-crossing-height-glossary-headword.js',
+  // imp-97794: Concepts glossary headword recording the imp-97759 E_trunc-floor-sensitivity
+  // crossover of the full far-tail diagnostic (N ~ 1e20.7, decay ~ N^(-1/2)). Documentation
+  // only; no bound moved; NO QED.
+  '/src/data/imp-97794-fartail-floor-sensitivity-crossover-glossary-headword.js',
   // imp-97839 (opus-4-8, api-pool, S-frontier): ASSESSMENT -- does the imp-33582
   // far-tail sigma(N) = E_coll/E(N) DECAY RATE (per-decade exponent ramping toward
   // 1/2) give any QUANTITATIVE HANDLE on the lambda-roadmap Step-4 unsupplied

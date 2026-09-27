@@ -4938,6 +4938,18 @@ const DATA_MODULES = [
   // coincidence. Derivation/measurement only; conditional-share diagnostic; imp-3066/imp-486/C_C
   // ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-97838-threshold-landmark-residual-trend.js',
+  // imp-124791: FITS the next-order O((E_flow/E_trunc)^2) coefficient of the imp-97838 crossover
+  // residual across a finer near-peak family thr in {0.8,0.85,0.9,0.93}, where imp-97838 D2 flagged
+  // visible curvature (rel/(2*E_flow/E_trunc)~1.125 at thr=0.9) but never fit it. RESULT: the excess
+  // y=rel/(2*E_flow/E_trunc)-1 is LINEAR in E_flow/E_trunc to R^2=0.999877 with slope a1=0.6418, so
+  // the curvature is a genuine quadratic term rel=2r+c2 r^2+... with order-unity POSITIVE coefficient
+  // c2=2a1=1.284 (free fit). The constant logT0 drift is the deep-tail intercept y0=2.88e-2 (matching
+  // the imp-97838 ~2.8e-6 absolute rel-2r at thr=0.1), cleanly separated from the quadratic term;
+  // drift-anchoring gives c2=1.546, so c2 brackets [1.284,1.546], the ~0.26 spread being the residual
+  // cubic tail at thr=0.93 (SUBGAP-124791-cubic-tail). Explains the imp-97838 ~25% under-prediction at
+  // thr=0.9 as the r^2 term. Derivation/measurement only; conditional-share diagnostic;
+  // imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-124791-threshold-crossover-quadratic-coefficient.js',
   // imp-33857: CROSS-VALIDATES the imp-33844 closed-form hump peak (p_ecoll^2 ln10/8 at sigma=1/2, the
   // E_coll=E_trunc crossover, placed at decade k=9) against the imp-33843/imp-33810 widening-fit
   // denominator over the SAME k=6..11 ladder. Both code paths compute ONE curvature quantity

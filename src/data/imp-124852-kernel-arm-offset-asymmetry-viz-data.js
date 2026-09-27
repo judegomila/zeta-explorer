@@ -84,6 +84,48 @@ export const IMP124852_CONVERGENCE_FIT = Object.freeze({
   expected_slope: 0.5, // |offset| ~ sqrt(g): the O(sqrt(g)) cubic-fold running correction
 });
 
+// ---------------------------------------------------------------------------
+// imp-124893: collapse slope of the SYMMETRIC residual offset_sum = up + down.
+//
+// The leading finite-gap correction is antisymmetric (each arm ~ g^(1/2), opposite
+// signs), so it cancels in up + down and the residual is set by the next, symmetric
+// order. Fit log10|offset_sum| vs log10(g) over the deep window to read that order and
+// compare it to the per-arm 1/2 rate measured above.
+//
+// Caveat: the deep-window offset rows carry arm offsets stored to 4 significant figures,
+// so at g = 1e-8 the two arms are equal after rounding and their sum collapses to a
+// double-precision subtraction-cancellation artifact (~ -4.4e-16, below the
+// toExponential(4) storage floor), NOT a physical residual. That row is EXCLUDED from
+// the fit (a naive 3-point slope reads a spurious ~5.65 pinned by the float floor); the
+// fit uses the two genuine rows g = 1e-6, 1e-7 whose offset_sum sits above the floor.
+const SUM_FLOOR = 1e-12; // below this, offset_sum is a rounding-cancellation artifact, not a residual
+export const IMP124852_SUM_COLLAPSE_FIT = (() => {
+  const genuine = IMP124852_DEEP_OFFSET_VS_GAP.filter((r) => Math.abs(r.offset_sum) > SUM_FLOOR);
+  const fit = offsetSlope(genuine, (r) => r.offset_sum);
+  const armSlope = 0.5 * (IMP124852_CONVERGENCE_FIT.upslope.slope_p + IMP124852_CONVERGENCE_FIT.downslope.slope_p);
+  const excessPower = +(fit.slope_p - armSlope).toFixed(6);
+  const slopeRatio = +(fit.slope_p / armSlope).toFixed(4);
+  const extraShrink = +Math.pow(10, -excessPower).toFixed(6);
+  return Object.freeze({
+    window: 'deep genuine rows (g = 1e-6, 1e-7); g = 1e-8 excluded as a rounding-cancellation artifact',
+    genuine_rows: genuine.length,
+    sum_slope_p: fit.slope_p, // log10|offset_sum| vs log10(g), ~1.036 (~g^1)
+    arm_slope_p: +armSlope.toFixed(6), // averaged per-arm slope, ~0.5 (~g^(1/2))
+    excess_power: excessPower, // how many extra powers of g the sum carries over an arm, ~+0.54 (~+1/2)
+    slope_ratio: slopeRatio, // sum slope / arm slope, ~2.07 (one extra half-power)
+    extra_shrink_per_decade: extraShrink, // 10^-excess_power, ~0.291 ~ 1/sqrt(10)
+    reading:
+      'The symmetric residual offset_sum = up + down collapses as g^' + fit.slope_p.toFixed(3)
+      + ' (roughly g^1) versus the per-arm g^' + armSlope.toFixed(3) + ' (~g^(1/2)) rate: slope ratio ~'
+      + slopeRatio.toFixed(2) + ', an extra power ~' + excessPower.toFixed(3) + ' of g (one extra half-power) '
+      + 'giving an extra ~' + extraShrink.toFixed(3) + ' ~ 1/sqrt(10) shrink per decade beyond the arm, because '
+      + 'the leading antisymmetric g^(1/2) term cancels in the sum and the next SYMMETRIC order (~g^1) survives. '
+      + 'The g = 1e-8 deep row is excluded: its offset_sum is a 4-sig-fig subtraction-cancellation artifact at '
+      + 'the double-precision floor, and a naive 3-point fit reads a spurious ~5.65. Measurement only; '
+      + 'conditional-share diagnostic; C_mb GUE-conditional per imp-486 untouched; changes no bound; NO QED.',
+  });
+})();
+
 const DEEP_LAST = IMP124852_DEEP_OFFSET_VS_GAP[IMP124852_DEEP_OFFSET_VS_GAP.length - 1];
 
 export const IMP124852_SUMMARY = Object.freeze({
@@ -158,6 +200,15 @@ const IMP124852_OFFSET_ASSERTIONS = [
       IMP124852_DEEP_OFFSET_VS_GAP.every(
         (r) => Math.abs(r.offset_sum) < 0.2 * Math.abs(r.up_offset) + 1e-12,
       ),
+  },
+  {
+    id: 'imp124893-sum-collapses-at-double-arm-slope',
+    description: 'the symmetric offset_sum decays at ~2x the per-arm slope (extra ~+1/2 power of g), on the two genuine deep rows',
+    holds: () =>
+      IMP124852_SUM_COLLAPSE_FIT.genuine_rows === 2
+      && Math.abs(IMP124852_SUM_COLLAPSE_FIT.slope_ratio - 2) < 0.2
+      && Math.abs(IMP124852_SUM_COLLAPSE_FIT.excess_power - 0.5) < 0.1
+      && Math.abs(IMP124852_SUM_COLLAPSE_FIT.extra_shrink_per_decade - 1 / Math.sqrt(10)) < 5e-2,
   },
   {
     id: 'imp124852-honesty-gate-no-qed',

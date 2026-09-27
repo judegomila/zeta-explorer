@@ -21865,6 +21865,32 @@ const DATA_MODULES = [
   // of the imp-97723 far-tail diagnostic crossing heights (L = 1/(1 - t), N = (L - 1) e^L).
   // Documentation only; no bound moved; NO QED.
   '/src/data/imp-97769-fartail-crossing-height-glossary-headword.js',
+  // imp-97839 (opus-4-8, api-pool, S-frontier): ASSESSMENT -- does the imp-33582
+  // far-tail sigma(N) = E_coll/E(N) DECAY RATE (per-decade exponent ramping toward
+  // 1/2) give any QUANTITATIVE HANDLE on the lambda-roadmap Step-4 unsupplied
+  // E(N) -> 0 modulo? Verdict: NO HANDLE (rate companion to the imp-95465 limit-
+  // level no-escape). The log-slopes decompose exactly (E_trunc constant):
+  // d ln sigma/d ln N = d ln(E - E_trunc)/d ln N - d ln E/d ln N. Far tail:
+  // d ln(E - E_trunc)/d ln N -> -1/2 (the E_coll collapse / floor-approach rate),
+  // while d ln E/d ln N = sigma_R d ln(E - E_trunc)/d ln N -> 0 (exact chain-rule
+  // identity, residual < 1e-9; residual share sigma_R -> 0). So the imp-33582
+  // exponent -> 1/2 is a handle on the WRONG target -- the speed of E(N) -> E_trunc
+  // (a positive floor), never toward 0. A handle on E(N) -> 0 must drive the
+  // N-independent E_trunc (imp-34791) or the RH-equivalent C_H bridge (imp-35147),
+  // both outside the height/collapse channel sigma measures; sole scoped route is
+  // the OPEN vanishing-strip Knob A (imp-35149 R3). Import-light, six self-
+  // executing assertions. Assessment only; changes no bound; imp-2621 stays
+  // refuted, imp-35164 stands; NO QED; PT Lambda <= 0.2 remains SOTA.
+  '/src/data/imp-97839-sigma-decay-rate-vs-step4-en-vanishing-handle.js',
+  // imp-97849 (sonnet-4-6, S-frontier): AUDIT of whether the imp-97765 far-tail-
+  // crossing-heights viz-data leaf (and its routed page) transitively imports the
+  // 16.7MB zeros-to-1e6.js bundle, or risks a self-executing assertion throw in
+  // browser V8 that would blank the lazy-loaded page. FINDING: no gap -- the chain
+  // (imp-97765 -> imp-97744, which imports nothing) never reaches the zeros bundle,
+  // the page imports only PageHeader.jsx + the leaf, and every assertion in the
+  // chain uses deterministic Math calls with no browser/Node divergence risk.
+  // AUDIT-ONLY, no fix applied. 4 assertions.
+  '/src/data/imp-97849-fartail-crossing-heights-import-light-audit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

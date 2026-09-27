@@ -17,12 +17,16 @@
  * @see imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js (source refutation + exported verdict)
  * @see imp-97432-route-m-mcm-hypothesis-refuted-ceiling-safe.js (asserted the ceiling survives via primorial premise)
  * @see imp-97461-route-m-quarter-ceiling-survival-without-mcm-scope.js (restated survival via the unformalized RL-L)
+ * @see imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js (later CONSOLIDATED
+ *   status note this correction feeds into -- imp-97544 folds this narrower correction plus every
+ *   downstream witness/harmlessness result into one up-to-date banner; cite imp-97544 going forward)
  *
  * Ticket: imp-97509 (content, sonnet-4-6, sonnet). Honest-status correction note only; no bound on
  * Lambda moves; PT Lambda <= 0.2 remains SOTA; RH open; NO QED.
  */
 
 import { IMP97481_VERDICT } from './imp-97481-route-m-quarter-ceiling-lower-edge-refuted-window-sets.js';
+import { IMP97544_STATUS } from './imp-97544-route-m-b4-ceiling-dead-route-consolidated-honest-status.js';
 
 export const IMP97509_HONEST_STATUS = Object.freeze({
   ticket: 'imp-97509',
@@ -42,6 +46,7 @@ export const IMP97509_HONEST_STATUS = Object.freeze({
   correctsImp97432Imp97461CeilingSurvivesConclusion: true,
   ceilingWasLoadBearingForLambdaOrKappaArith: false,
   anyBoundMoved: IMP97481_VERDICT.anyBoundMoved, // false
+  consolidatedInto: 'imp-97544',
   qed: false,
 });
 
@@ -55,12 +60,15 @@ if (
     IMP97509_HONEST_STATUS.correctsImp97432Imp97461CeilingSurvivesConclusion === true &&
     IMP97509_HONEST_STATUS.ceilingWasLoadBearingForLambdaOrKappaArith === false &&
     IMP97509_HONEST_STATUS.anyBoundMoved === false &&
+    IMP97509_HONEST_STATUS.consolidatedInto === 'imp-97544' &&
+    IMP97544_STATUS.ceilingRefuted === IMP97509_HONEST_STATUS.ceilingRefuted &&
     IMP97509_HONEST_STATUS.qed === false
   )
 ) {
   throw new Error(
     'imp-97509-route-m-quarter-ceiling-correction-honest-status assertion FAILED: the imp-97481 refutation ' +
-      'of the imp-97432/imp-97461 "b/4-ceiling survives" conclusion must hold.'
+      'of the imp-97432/imp-97461 "b/4-ceiling survives" conclusion must hold, and must agree with the ' +
+      'later imp-97544 consolidated status it feeds into.'
   );
 }
 

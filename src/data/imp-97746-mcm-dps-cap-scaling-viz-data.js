@@ -28,6 +28,16 @@ const CAPS_SNR10 = Object.freeze([
   { dps: 30, cap: 1173276 },
 ]);
 
+// imp-97736 caveat: the dps>=30 cap-metric readings are jitter-limited, not clean measurements -- the
+// recovered-remainder relative error oscillates 0.03..4.6 near the crossing, and a 6.25e-17 change in the
+// Glaisher constant (17-digit literal vs full precision) moves this cap 2847849 -> 2182639 (~30 percent).
+// Attached per-row below so any consumer charting this point sees the caveat, not just the gap reconciliation.
+const JITTER_CAVEAT_DPS_GE_30 =
+  'imp-97736 caveat: this cap is jitter-limited, not a clean measurement -- the recovered-remainder relative ' +
+  'error oscillates 0.03..4.6 near the crossing, and a 6.25e-17 change in the Glaisher constant (17-digit ' +
+  'literal vs full precision) moves this cap 2847849 -> 2182639 (~30 percent). Do not read +/-30 percent ' +
+  'swings in dps>=30 caps as a scaling-law violation.';
+
 // log10(1/eps) = dps exactly (eps = 10^{-dps}), so dps doubles as the x-axis in log-log space.
 export const IMP97746_ROWS = Object.freeze(
   capsSnr1.map((row, i) =>
@@ -38,6 +48,7 @@ export const IMP97746_ROWS = Object.freeze(
       log10CapSnr1: Math.log10(row.cap),
       capSnr10: CAPS_SNR10[i].cap,
       log10CapSnr10: Math.log10(CAPS_SNR10[i].cap),
+      jitterCaveat: row.dps >= 30 ? JITTER_CAVEAT_DPS_GE_30 : null,
     })
   )
 );
@@ -127,6 +138,14 @@ const IMP97746_VIZ_DATA_ASSERTIONS = [
     id: 'imp97746-honesty-gate-no-qed',
     description: 'the verdict restates no-bound-moved / NO-QED honesty markers',
     holds: () => /does not/.test(IMP97746_SUMMARY.verdict) && /NO QED/.test(IMP97746_SUMMARY.verdict),
+  },
+  {
+    id: 'imp97746-dps30-row-carries-jitter-caveat',
+    description: 'the imp-97736 cap-metric jitter caveat is attached to the dps>=30 row(s), absent below',
+    holds: () =>
+      IMP97746_ROWS.every((r) =>
+        r.dps >= 30 ? /jitter-limited/.test(r.jitterCaveat) : r.jitterCaveat === null
+      ),
   },
 ];
 

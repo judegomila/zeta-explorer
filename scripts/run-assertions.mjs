@@ -21968,6 +21968,15 @@ const DATA_MODULES = [
   // the mandatory isRigorous-false-or-equivalent-prose / NO-QED / PT-Lambda<=0.2-SOTA banner.
   // Index/meta only; no bound moved; NO QED.
   '/src/data/imp-97793-late-frontier-provenance-rollup-ii.js',
+  // imp-124766 (opus-4-8, numerical/measurement): INVERTS the imp-97823 wide-ladder |K| = |1/(N sigma_N)|
+  // observables to FIT the cubic-fold coefficient B (and quadratic A) back out -- the two-arm SUM fixes
+  // A_fit = 1/(g*SUM^2) ~ 3.215955e-3, the arm ASYMMETRY fixes beta = B/A^(3/2) ~ 1.43862, giving
+  // B_fit = 2.6237e-4 (positive) -- recovering the imp-97833 derivative-measured A/B/beta to < 1.2e-3 by an
+  // independent method, with the per-decade ratio-asymmetry route agreeing to < 1e-4. The fitted (A, beta)
+  // reproduce the measured decade ratios to < 1e-2 on both arms for g <= 1e-2; the shallowest decade g = 1e-1 is
+  // the NAMED SUB-GAP where the two-term (A, B) model fails (~40% ratio miss, quartic-and-higher fold). Inherited
+  // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124766-cubic-fold-coefficient-B-inverse-fit.js',
 ];
 
 let ALL_MODULES = FAST_MODE

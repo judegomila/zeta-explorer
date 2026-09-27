@@ -83,6 +83,9 @@
  * remains SOTA.
  *
  * @see imp-97702-sigma-fartail-exponent-residual-half-loglaw (splits the residual; leaves the ~0.98 floor-vs-asymptote open)
+ * @see imp-97744-fartail-diagnostic-crossing-heights (sharpens F2's order-of-magnitude "near 1e45 / near
+ *      1e89" crossings to the exact closed-form heights N ~ 2.66124e45 / 1.43797e89 / 1.96810e437 by
+ *      inverting the bare RvM slope; self-consistent with this module's full-model bisection to < 0.06 in log10 N)
  * @see imp-97404-sigma-fartail-exponent-ladder-past-1e12 (exponent ladder to 1e15, residual "closing")
  * @see imp-33644-etrunc-ecoll-ladder-1e18-fartail (log T0 saturation holds the E_coll-exponent gap open)
  * @see imp-3463-sigma-fartail-decay (far-tail exponent -> 1/2 from below)

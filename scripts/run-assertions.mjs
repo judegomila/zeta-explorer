@@ -6148,6 +6148,17 @@ const DATA_MODULES = [
   // C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED.
   // 6 assertions.
   '/src/data/imp-124771-knee-amp-bracket-width-reconcile.js',
+  // imp-124772: CERTIFIES the imp-97822 knee floor-elasticity p_knee ~ -2.099 -- fit from only the
+  // 0.5x/2x floors (a two-point chord that cannot separate a power law from curvature) -- by fitting
+  // the exponent by ordinary least squares over the FULL imp-33708 0.5x..5x floor ladder (all ten
+  // factors, reusing the imp-97822 floorSweep). p_knee_lsq ~ -2.106 (within ~0.007 of the two-floor
+  // chord), R^2 ~ 0.99999, RMS residual ~ 1.6e-3 decades, max-abs residual ~ 3.0e-3 decades over a
+  // ~2.1-decade span: a genuine clean dimensional N* ~ E_trunc^(-2) power law, tracking the imp-33708
+  // far-tail halving exponent (~ -2.099) and refuting the softer imp-33684 interior-peak -1.375
+  // (~0.73 gap). A faint sign-symmetric ~3e-3-decade curvature remains but is negligible against that
+  // gap. MEASUREMENT/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-124772-knee-floor-elasticity-multifloor-fit.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix
@@ -22018,6 +22029,11 @@ const DATA_MODULES = [
   // the NAMED SUB-GAP where the two-term (A, B) model fails (~40% ratio miss, quartic-and-higher fold). Inherited
   // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124766-cubic-fold-coefficient-B-inverse-fit.js',
+  // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
+  // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
+  // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.
+  // Verified import-light (plain `node --input-type=module` load passes standalone). No bound moves; NO QED.
+  '/src/data/imp-97780-route-m-decay-exponent-reconciliation.js',
 ];
 
 let ALL_MODULES = FAST_MODE

@@ -21364,6 +21364,19 @@ const DATA_MODULES = [
   // height, so the wiggle cannot be correlated -- settling it needs the extended-precision deep gap/law recompute
   // imp-97640 already flagged. Measurement only; MCM refuted from omega=11; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97667-route-m-residual-delta-sign-correlation.js',
+  // imp-97679 (2026-09-27): RE-RUNS the imp-97667 residual-vs-delta test on the imp-97659 dps=30 deep
+  // residual ladder, now that it overlaps the imp-97639 delta ladder. The ladders share FIVE heights
+  // (1999993, 7368787, 15485863, 32452843, 49979687) instead of the single overlap imp-97667 had, so the
+  // sub-gap IMP97667_SIGN_CORRELATION_NEEDS_OVERLAPPING_DEEP_RESIDUAL_LADDER is RESOLVED. Over those rungs
+  // the residual MAGNITUDE tracks the imp-97639 delta magnitude wiggle rung-by-rung: 4/4 direction agreement,
+  // the rise coincident at p = 15485863 -> 32452843 (the imp-97639 p ~ 3.2e7 wiggle = the imp-97659 negative
+  // exponent rung), Pearson +0.993. The SIGN relationship stays a FIXED structural anti-correlation
+  // (residual < 0, delta > 0 -- both magnitude-wiggling, neither sign-oscillating) via the shared bracket
+  // undershoot residual ~ -e^-gamma*delta/(12 log p), and the residual is still NOT proportional to delta
+  // (overshoot 2.82 .. 3.80, positive competing gap self-correction on every rung, per imp-97667 RESULT 3).
+  // Net: the imp-97640 PNT/Mertens attribution is CORROBORATED at the magnitude level while the residual
+  // carries a second competing correction. Measurement only; MCM refuted from omega=11; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97679-route-m-residual-delta-deep-overlap-correlation.js',
   // imp-97585 (2026-09-26): MEASURES the Gronwall flow share E_flow/E_trunc across the full imp-97520
   // ladder N in {1e6 .. 1e12}, extending the single-point imp-97520 measurement (~1.91e-3 at N_half).
   // The share is MONOTONE DECREASING -- it does NOT grow toward the tail but collapses (1.4376 at 1e6
@@ -21531,6 +21544,18 @@ const DATA_MODULES = [
   // is a proven truncation-tail law (imp-97620/imp-97638), not eigenvalue certification. Feasibility/scale
   // assessment only; no verified eigensolve executed; no bound moved; interval-rigorous reach 2a<=0.96; NO QED.
   '/src/data/imp-97637-eigenvalue-enclosure-feasibility-vs-tail-band.js',
+  // imp-97682 (2026-09-26): DERIVATION + MEASUREMENT of the exact O(x^2) arithmetic wobble term of w(x)
+  // from the imp-97597 psi_s integral representation. RESULT 1: the exact term = (pi/2)[P2 - L2], a
+  // signed zeta(2) Eisenstein-period vs gamma_1 double-pole difference whose normalisation is the SAME
+  // uncomputed scalar kappaK from imp-97597 RESULT 3 -- so the subtraction route does NOT evade the
+  // obstruction (no number pinned). RESULT 2: the frozen imp-97660 b=400000 residuals show the effective
+  // x^2 coefficient resid/x^2 SIGN-SWINGS (full range [-0.871,+0.019], stable [-0.132,+0.019]), so the
+  // exact term is a genuinely arithmetic FUNCTION of x, not a constant*x^2 -- no fixed kappa can subtract
+  // it (why imp-97660 saw the smooth-x^2 subtraction make linErr worse). RESULT 3: the observed amplitude
+  // sits at the (pi/2)|gamma_1| ~= 0.11438 L2 scale, ~two orders below the (pi/2)*zeta(2) ~= 2.58386 P2
+  // scale. Linear coefficient stays forced at -1/pi, NOT pinnable below ~6e-3; RESULT 3 sub-gap STANDS;
+  // no bound moved; anchor T = 2.594e7; compute binds first by >2600x; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97682-exact-x2-wobble-term-kappaK-equivalence.js',
 ];
 
 let ALL_MODULES = FAST_MODE

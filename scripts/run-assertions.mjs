@@ -21685,6 +21685,18 @@ const DATA_MODULES = [
   // only; C_C 1/8 ansatz + C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc pinned 3.06e-5; no bound moved; PT Lambda
   // <= 0.2 SOTA; NO QED.
   '/src/data/imp-97735-fold-amplitude-height-ladder-drift.js',
+  // imp-97757 (2026-09-27): CROSS-TABULATES the imp-97725 fold amplitude K = sqrt(sigma_max(1-sigma_max)/(2 phi_xx))
+  // across BOTH perturbation axes on one shared grid g in [0.5, 2.0] (g = 1 reproduces the pin on both axes): the
+  // imp-97743 E_trunc floor swap (recompute the peak fold) and the imp-97735 height walk (local fold at N = N_peak*g).
+  // RESULT: FLOOR-DOMINATED, OPPOSITE-SIGNED, DIFFERENT CHANNELS. The floor axis is the stronger lever (local
+  // elasticity dlnK/dln g = +0.2205, reproducing imp-97743 K ~ E_trunc^(+0.221); full-sweep K factor 1.358) than the
+  // height axis (-0.1234; factor 1.182), and the two move K in OPPOSITE directions because they act through different
+  // parts of K -- the floor through the numerator S (S factor ~1.635, sigma_max toward 1/2) and the height through the
+  // denominator phi_xx (factor ~1.401, S frozen at the sigma-peak). Comparable magnitude, opposite sign, so no
+  // cancellation makes K stationary -- SHARPENING the shared imp-97725 sub-gap that K = 0.4233 is not a universal
+  // constant on EITHER axis. Cross-validation only; C_C 1/8 + C_mb GUE-conditional (imp-486) UNTOUCHED; E_trunc pinned
+  // 3.06e-5; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97757-fold-amplitude-axis-crosstab.js',
   // imp-97626 (2026-09-27): BOUNDS the imp-97564 window -> infinite-line extrapolation-MODEL uncertainty.
   // imp-97564 FINDING 2 extrapolated R_inf ~ 1573 (realizable fraction ~ 0.513) from a two-rung 1/T
   // Richardson step (T=48,64 only). This leaf refits the full T=12..64 ladder under 1/T, 1/T^2, and

@@ -5613,6 +5613,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every cap value and fitted slope is reused verbatim from imp-97724 (a measured multi-precision fit, not a new computation). The extended cap does not alter the omega=10 gap or the omega=11 MCM onset. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97747-route-m-deep-ladder',
+      title: 'imp-97722: Route M Deep-Ladder Gap-Law Residual Decay',
+      oneLine:
+        'Scatter chart and table showing the imp-97722 23-rung Route M gap-law residual ladder log|residual| vs log(log p) (p from 2e6 to ~4.93e8), with the 8 sign-change (RISE) rungs at indices 5,12,13,16,17,19,21,22 highlighted and the endpoint (~10.29), Theil-Sen (~10.62), and OLS (~10.56) slope estimates overlaid.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97747-route-m-deep-ladder-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97722-route-m-deep-ladder-independent-crosscheck.js (IMP97722_LADDER, rise indices, slope estimates reused verbatim; imp-97747 viz-data leaf + page)',
+      ticket: 'imp-97747',
+      pedagogicalStep: 436,
+      honestCeiling:
+        'Presentation only: every ladder value, rise index, and slope estimate is reused verbatim from imp-97722 (an independent, non-OLS cross-check, not a new computation). Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

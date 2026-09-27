@@ -1711,6 +1711,9 @@ const Imp97745FarTailDiagnosticAsymptoteViz = lazy(() =>
 const Imp97746McmDpsCapScalingViz = lazy(() =>
   import('./pages/Imp97746McmDpsCapScalingViz.jsx')
 );
+const Imp97747RouteMDeepLadderViz = lazy(() =>
+  import('./pages/Imp97747RouteMDeepLadderViz.jsx')
+);
 const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
   import('./pages/Imp97106PalmMirrorSurplusComparisonViz.jsx')
 );
@@ -4515,6 +4518,10 @@ function AppShell() {
           <Route
             path="/viz-imp97746-mcm-dps-cap-scaling"
             element={<Imp97746McmDpsCapScalingViz />}
+          />
+          <Route
+            path="/viz-imp97747-route-m-deep-ladder"
+            element={<Imp97747RouteMDeepLadderViz />}
           />
           <Route
             path="/viz-imp97106-palm-mirror-surplus-comparison"

@@ -61,6 +61,9 @@
  *
  * @see imp-97619-route-m-mcm-binf-mertens-closed-form.js (residual ladder; sub-gap: next order = PNT/Mertens error)
  * @see imp-97639-route-m-mcm-binf-deep-mertens-crosscheck.js (deep delta ladder to p ~ 5e7; delta wiggles)
+ * @see imp-97659-route-m-gap-law-decay-extprec.js (dps=30 recompute: resolves this sub-gap -- exponent OSCILLATES)
+ * @see imp-97706-route-m-deep-ladder-extension.js (dps=35 further extension: the imp-97659 single sign-change
+ *      RECURS on eight rungs -- periodic oscillation, not a one-off -- and the bootstrap band narrows)
  *
  * Ticket: imp-97640 (numerical, opus-4-8, api-pool). Gap-law residual decay exponent q ~ 7-9, climbing; NO QED.
  */
@@ -128,6 +131,12 @@ export const IMP97640_RESULTS = Object.freeze({
   // discoverable directly from the ticket that named the gap.
   subGapStatus: 'resolved',
   subGapResolvedBy: 'imp-97659',
+  // imp-97791: imp-97706 (dps=35) extended the imp-97659 deep ladder past p=9.9e7 to p~4.93e8 and
+  // FURTHER reconciles this same sub-gap: the imp-97659 single residual sign-change (one negative-slope
+  // rung) RECURS on eight rungs of the combined 23-rung ladder -- a periodic oscillation, not a one-off --
+  // and the imp-97687 bootstrap band NARROWS from [8.2,11.0] to [9.80,11.22] while ">3" still holds in
+  // 100% of resamples. The resolution below is the FULL chain, not imp-97659 alone.
+  subGapResolutionChain: ['imp-97659', 'imp-97706'],
 });
 
 export const IMP97640_VERDICT = Object.freeze({
@@ -240,6 +249,15 @@ const IMP97640_ASSERTIONS = [
       IMP97640_RESULTS.subGapResolvedBy === 'imp-97659' &&
       IMP97640_RESULTS.subGap === 'IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6',
     why: 'imp-97697 assessed the named sub-gap and confirmed imp-97659 resolved it (extended-precision recompute), so the resolution is reconciled here at the source module alongside the original named string, matching the imp-97650 tr(A2) reconciliation pattern.',
+  },
+  {
+    id: 'imp97640-subgap-resolution-chain-includes-imp97706',
+    holds: () =>
+      Array.isArray(IMP97640_RESULTS.subGapResolutionChain) &&
+      IMP97640_RESULTS.subGapResolutionChain[0] === 'imp-97659' &&
+      IMP97640_RESULTS.subGapResolutionChain[1] === 'imp-97706' &&
+      IMP97640_RESULTS.subGapResolutionChain.length === 2,
+    why: 'imp-97791 reconciles this sub-gap against the FULL later chain, not imp-97659 alone -- imp-97706 (dps=35) extended the ladder past p=9.9e7 and turned the single imp-97659 sign-change into a recurring periodic oscillation while narrowing the bootstrap band, so both modules must be recorded as the resolution.',
   },
   {
     id: 'imp97640-honesty-gate-no-qed',

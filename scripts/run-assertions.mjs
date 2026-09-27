@@ -21386,6 +21386,17 @@ const DATA_MODULES = [
   // arithmetic wobble amplitude rather than the smooth curvature. Documentation only; no bound moved;
   // NO QED.
   '/src/data/imp-97568-curvature-wobble-masking-glossary-headword.js',
+  // imp-97623 (2026-09-27): CROSS-CHECKS the imp-97603 additivity residual DIAG - (E_CC + E_ET) ~ 2e-8
+  // (diagonal C_C/E_trunc = const elasticity equals the sum of the two single-axis elasticities) --
+  // measured there only at the sigma = 1/2 halving crossover at one step eps = 1e-3 -- at two further
+  // imp-97520 landmarks (L2 sigma = 0.9, N ~ 2.57e7; L4 sigma = 0.1, N ~ 3.21e11) and at a halved step
+  // eps = 5e-4. Additivity holds at all three landmarks, and halving eps quarters the residual at each
+  // (ratios ~4.0), so the residual is the central-difference O(eps^2) truncation error, NOT a real
+  // quantity: the true additivity residual is zero and the ~2e-8 at the halving point is a step-size
+  // artifact, structural not a coincidence. The single-axis near-cancellation sharpens as sigma falls
+  // (sum +0.2516 at L2 -> +7.4e-5 at L4). Measurement only; C_C 1/8 and E_trunc 3.06e-5 perturbed as
+  // probes not re-pinned; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97623-additivity-residual-multi-landmark-crosscheck.js',
 ];
 
 let ALL_MODULES = FAST_MODE

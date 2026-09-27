@@ -61,6 +61,8 @@
  * @see imp-97659-route-m-gap-law-decay-extprec.js (dps=30 ladder p=2e6..9.9e7; single sign-change, avg ~10.18)
  * @see imp-97687-route-m-avg-exponent-robustness.js (11-rung bootstrap band [8.2,11.0])
  * @see imp-97619-route-m-mcm-binf-mertens-closed-form.js (B_inf = lnA + gamma/12; next order = PNT/Mertens error)
+ * @see imp-97640-route-m-gap-law-residual-decay-exponent.js (sub-gap IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6;
+ *      the periodic-oscillation finding here RE-CONFIRMS the imp-97659 resolution at dps=35, per imp-97780/imp-97791)
  *
  * Ticket: imp-97706 (numerical, opus-4-8, api-pool). Deep-ladder extension: sign-change RECURS, band NARROWS; NO QED.
  */
@@ -176,6 +178,10 @@ export const IMP97706_RESULTS = Object.freeze({
   bandNarrows: true,                               // Q1: [8.2,11.0] w~2.8 -> [9.80,11.22] w~1.42
   fractionExceedsThree: IMP97706_BOOTSTRAP.fractionExceedsThree, // 1.0
   outrunsFixedPowerConclusionHolds: true,
+  // imp-97640/imp-97780/imp-97791 cite this leaf as RE-CONFIRMING the imp-97640 sub-gap resolution at
+  // dps=35 (the periodic recurrence here rules out the imp-97659 single sign-change being a one-off), but
+  // that fact was previously recorded only downstream, not at this source module -- audited by imp-97816.
+  reconfirmsImp97640SubGap: 'IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6',
 });
 
 export const IMP97706_VERDICT = Object.freeze({
@@ -261,6 +267,14 @@ const IMP97706_ASSERTIONS = [
     id: 'imp97706-combined-exponent-still-exceeds-three',
     holds: () => IMP97706_COMBINED_EXPONENT > 3 && Math.abs(IMP97706_COMBINED_EXPONENT - 10.56) < 0.4,
     why: 'the combined 23-rung average exponent ~10.56 still far exceeds 3 (imp-97659 ~10.18 on 11 rungs), so the residual outruns every fixed power <= 3.',
+  },
+  {
+    id: 'imp97706-reconfirms-imp97640-subgap-recorded',
+    holds: () =>
+      IMP97706_RESULTS.reconfirmsImp97640SubGap === 'IMP97640_RESIDUAL_DECAY_EXPONENT_PRECISION_LIMITED_PAST_2E6' &&
+      IMP97706_VERDICT.signChangeRecurs === true &&
+      IMP97706_VERDICT.isPeriodicNotOneOff === true,
+    why: 'imp-97640 (subGapResolutionChain) and imp-97780 (subGapReconfirmedAtDps35By) both cite this leaf as re-confirming the imp-97640 sub-gap resolution at dps=35; that fact is now recorded here too (imp-97816 consistency audit), not only downstream.',
   },
   {
     id: 'imp97706-honesty-gate-no-qed',

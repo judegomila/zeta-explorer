@@ -22290,6 +22290,17 @@ const DATA_MODULES = [
   // L5=0.02 -- it is NOT a lever on sigma_crit within this 2-point estimator. Inherited imp-3220/imp-3406
   // surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124874-sigmacrit-eps-invariance.js',
+  // imp-124875 (opus-4-8, accuracy): cross-validates the imp-124848 sigma INTERIOR-PEAK floor-elasticity
+  // p_peak ~ -1.412 under a change of peak-LOCATOR FORM. imp-124848 measured -1.412 by re-using the
+  // imp-33684 sensitivityTable verbatim -- a table whose peak coordinates were located by ternary-search
+  // argmax. This ports the imp-124847 fourth-order 5-point central-difference family to the interior peak:
+  // re-derives every peak from scratch as the zero-crossing (+ -> -) of the O(h^4) 5-point first
+  // derivative of sigma, on a non-commensurate step 0.0013 and offset origin 3.03. Reproduces p_peak ~
+  // -1.4117 (to 6 decimals of the imp-124848 OLS slope), the R^2 ~ 0.99961 / RMS ~ 7.8e-3 fit envelope,
+  // the sign-symmetric residual shape, and the ~0.69 gap to the far-tail knee -2.106 -- the softer
+  // interior exponent is locator-FORM-stable, not a ternary-search-argmax artifact. Inherited
+  // imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124875-interior-peak-elasticity-fivepoint-stencil.js',
   // imp-97815 (sonnet-4-6, bug): registry-completeness fix -- the imp-97780 Route-M decay-exponent
   // reconciliation module (imports only the baked imp-97706 dps=35 ladder, no heavy zeros bundle) was
   // absent from DATA_MODULES so its 6 self-executing assertions silently never ran under the sweep.

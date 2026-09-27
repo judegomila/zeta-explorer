@@ -5529,6 +5529,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every fraction and band value is reused verbatim from imp-97626 (a measurement, not a derivation); no new computation. Eigenvalues are baked finite-section IEEE-double, not interval-enclosed; R_inf is an extrapolation, not a certified limit. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97653-tail-bias-floor',
+      title: 'imp-97625: Tail-Bias Signal vs Edge-Amplitude Measurement Floor',
+      oneLine:
+        'Log-scale ladder and margin charts comparing the imp-97625 far-field tail bias |relBias(3.36)| = 2.727e-5 against two independent edge-amplitude measurement floors (zero-crossing 9.42e-10, R*-local 2.91e-9) and the imp-97497 < 1e-3 tail bar, showing the negative sign is resolvable ~1e4x above the floor and 36.7x below the tail bar.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97653-krein-tail-bias-floor-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97625-krein-tail-bias-signal-vs-floor-assessment.js (IMP97625_FLOOR_ASSESSMENT/IMP97625_VERDICT reused verbatim; imp-97653 viz-data leaf + page)',
+      ticket: 'imp-97653',
+      pedagogicalStep: 430,
+      honestCeiling:
+        'Presentation only: every floor, signal, and margin value is reused verbatim from imp-97625 (an assessment, not a derivation); no new computation. Assessment only; the m=1/m=2 Krein enclosure stays unusable at 2a = ln3; interval-rigorous reach stays 2a <= 0.96. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

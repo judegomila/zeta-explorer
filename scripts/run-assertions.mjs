@@ -21583,6 +21583,13 @@ const DATA_MODULES = [
   // scale. Linear coefficient stays forced at -1/pi, NOT pinnable below ~6e-3; RESULT 3 sub-gap STANDS;
   // no bound moved; anchor T = 2.594e7; compute binds first by >2600x; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97682-exact-x2-wobble-term-kappaK-equivalence.js',
+  // imp-97636: META cross-reference index grouping the Route-2 Krein-Lehmann lambda_2-floor
+  // Kbig-truncation-tail cohort: the direct-build chain imp-97482 -> imp-97513 -> imp-97538
+  // (tightens the bound's upper edge while its delta ratio keeps rising instead of plateauing) and
+  // the two diagnosis leaves imp-97582 (tr(A2) trace-limit named-gap) and imp-97600 (floor-spread
+  // decomposition) that both locate the same undecided geometric-vs-algebraic tail model. Index/meta
+  // only; NO QED.
+  '/src/data/imp-97636-route2-kbig-truncation-tail-cohort-index.js',
 ];
 
 let ALL_MODULES = FAST_MODE

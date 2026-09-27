@@ -21861,6 +21861,10 @@ const DATA_MODULES = [
   // either as an explicit `isRigorous: false` field (imp-97723, imp-97725) or as prose
   // (imp-97722, imp-97724). Index/meta only; no bound moved; NO QED.
   '/src/data/imp-97754-late-frontier-provenance-rollup.js',
+  // imp-97769: Concepts glossary headword recording the imp-97744 closed-form RvM-inverse pin
+  // of the imp-97723 far-tail diagnostic crossing heights (L = 1/(1 - t), N = (L - 1) e^L).
+  // Documentation only; no bound moved; NO QED.
+  '/src/data/imp-97769-fartail-crossing-height-glossary-headword.js',
 ];
 
 let ALL_MODULES = FAST_MODE

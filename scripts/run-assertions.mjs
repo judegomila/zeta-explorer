@@ -21962,6 +21962,12 @@ const DATA_MODULES = [
   // on the inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT
   // Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97841-fold-universal-sqrt10-crossvalidation.js',
+  // imp-97793 (sonnet-4-6, meta): META provenance roll-up EXTENDING the imp-97754 roll-up to the
+  // next seven-module cohort (imp-97757/97758/97759/97761/97762/97763/97764), classifying each by
+  // evidence class (sensitivity / cross-validation / consumer-audit) and confirming each carries
+  // the mandatory isRigorous-false-or-equivalent-prose / NO-QED / PT-Lambda<=0.2-SOTA banner.
+  // Index/meta only; no bound moved; NO QED.
+  '/src/data/imp-97793-late-frontier-provenance-rollup-ii.js',
 ];
 
 let ALL_MODULES = FAST_MODE

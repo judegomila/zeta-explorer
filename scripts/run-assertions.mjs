@@ -6116,6 +6116,16 @@ const DATA_MODULES = [
   // because N_half tracks the knee down. MEASUREMENT/sensitivity only; C_mb GUE-conditional per imp-486
   // UNTOUCHED; imp-3066 K_a>=0 untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-97800-knee-vs-half-eflow-sensitivity.js',
+  // imp-97805: computes the imp-97781 F3 "~1000x" E_flow amplification as an EXPLICIT dimensionless ratio
+  // A = |d(N*/N_cross-1)/d amp| / (E_flow/E_trunc at the knee) on the IDENTICAL imp-33721 quarter-decade D2
+  // estimator. RESULT: A ~ 9.55 at the baseline grid (W=0.25, PPD=40), O(10) NOT ~1000 -- the "~1000x" was a
+  // units artifact (a pp offset slope -1.77 pp/amp vs the raw ratio ~1.9e-3). Confirms the imp-97804 closed-form
+  // A ~ 9.4, now measured directly on the discrete estimator. Grid-robust: PPD refinement converges A to ~9.54,
+  // the amp step is irrelevant (offset locally linear), bracket width W is the only material knob (A~9.54 at
+  // W=0.20 -> ~10.11 at W=1/3, estimator degenerates at W=0.5). MEASUREMENT/sensitivity only; N_cross
+  // E_flow-independent (imp-97781 F2); C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
+  // PT Lambda<=0.2 SOTA; no QED. 7 assertions.
+  '/src/data/imp-97805-knee-eflow-amplification-ratio.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix

@@ -21946,6 +21946,12 @@ const DATA_MODULES = [
   // two measured sensitivities verbatim, no re-derivation. Documentation only; no
   // bound moves; NO QED.
   '/src/data/imp-97773-fold-amplitude-not-universal-honest-status.js',
+  // imp-97790 (sonnet-4-6, content): HONEST-STATUS NOTE restating, standalone, the imp-97763
+  // decision that the imp-97742 Route M residual ladder ~10.46-sig-fig minimum agreement is a
+  // STORAGE limit (baked ~10-digit literals), not a constant-precision limit: lnA=log(glaisher) /
+  // B_inf=lnA+gamma/12 carry ~40.6 sig figs at dps=40, ~30 figs of headroom over the ~10 stored.
+  // Documentation only; no bound moves; NO QED.
+  '/src/data/imp-97790-route-m-storage-limit-honest-status.js',
 ];
 
 let ALL_MODULES = FAST_MODE

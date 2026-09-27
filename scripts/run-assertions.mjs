@@ -21761,6 +21761,17 @@ const DATA_MODULES = [
   // (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc pinned
   // 3.06e-5; changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
   '/src/data/imp-97782-fartail-diagnostic-hump-peak-pin.js',
+  // imp-97802 (2026-09-27): COMPLETES the imp-97782 hump-peak elasticity TRIPLE. imp-97782 reported the
+  // peak LOCATION elasticity (~ -1.79) and diag-VALUE elasticity (~ -4.09) under the imp-33708 0.5x..5x
+  // E_trunc floor swap but never the peak SIGMA-value elasticity. Re-pinning the peak at each factor (same
+  // derivative root-find, sub-terms reused byte-for-byte) the peak sigma moves only 0.05337 (0.87747 at
+  // 0.5x -> 0.82410 at 5x, ~6.17%, elasticity d sigma_peak / d log10 factor ~ -0.0534) -- the SMALLEST
+  // leg. The diag-value leg is ~76.7x the sigma-value leg because the peak also slides ~1.79 decades so
+  // log T0 at the peak changes too: the value sensitivity lives mostly in the slide, not the sigma value.
+  // sigma_peak stays in [0.824, 0.878] -- always near 1 -- so the sigma * log T0 term stays dominant.
+  // Import-light (effectiveHeightForN + C_C_PINNED). C_mb GUE-conditional per imp-486 UNTOUCHED; E_trunc
+  // pinned 3.06e-5; changes no bound; no operator positivity; NO QED; PT Lambda <= 0.2 SOTA.
+  '/src/data/imp-97802-fartail-hump-peak-sigma-value-elasticity.js',
   // imp-97795 (2026-09-27): CO-TABULATES the three imp-97723 full-diagnostic landmarks in ONE comparative
   // 0.5x..5x E_trunc floor-sensitivity table: the imp-97782 hump peak (log10 N = 7.76832, diag = 14.89166,
   // sigma = 0.86502), the imp-97777 local minimum (log10 N = 18.77232, diag = 0.9760709, sigma ~ 3e-5) and

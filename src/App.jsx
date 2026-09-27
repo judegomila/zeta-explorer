@@ -1702,6 +1702,9 @@ const Imp97654AdditivityResidualEpsSquaredCollapseViz = lazy(() =>
 const Imp97670ThreeAxisElasticityViz = lazy(() =>
   import('./pages/Imp97670ThreeAxisElasticityViz.jsx')
 );
+const Imp97671GapLawDecayExponentViz = lazy(() =>
+  import('./pages/Imp97671GapLawDecayExponentViz.jsx')
+);
 const Imp97106PalmMirrorSurplusComparisonViz = lazy(() =>
   import('./pages/Imp97106PalmMirrorSurplusComparisonViz.jsx')
 );
@@ -4494,6 +4497,10 @@ function AppShell() {
           <Route
             path="/viz-imp97670-three-axis-elasticity"
             element={<Imp97670ThreeAxisElasticityViz />}
+          />
+          <Route
+            path="/viz-imp97671-gap-law-decay-exponent"
+            element={<Imp97671GapLawDecayExponentViz />}
           />
           <Route
             path="/viz-imp97106-palm-mirror-surplus-comparison"

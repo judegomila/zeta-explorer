@@ -5571,6 +5571,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every elasticity and diagonal value is reused verbatim from imp-97644 (a measurement, not a derivation); no new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; establishes no operator positivity; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97671-gap-law-decay-exponent',
+      title: 'imp-97640: Gap-Law Residual Local Decay Exponent vs Fixed Powers q=2, q=3',
+      oneLine:
+        'Bar chart and table showing the imp-97640 consecutive-rung local decay exponent q of the imp-97619 MCM gap-law residual (6.839, 8.713, 7.495 across p=7919..1999993) against the fixed-power q=2 and q=3 reference lines, with the third rung flagged precision-limited (residual ratio 1.25, 7-sig-fig cancellation).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97671-gap-law-decay-exponent-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97640-route-m-gap-law-residual-decay-exponent.js (IMP97640_LOCAL_EXPONENTS reused verbatim; imp-97671 viz-data leaf + page)',
+      ticket: 'imp-97671',
+      pedagogicalStep: 433,
+      honestCeiling:
+        'Presentation only: every local exponent and residual ratio value is reused verbatim from imp-97640 (a measurement, not a derivation); no new computation. The precision-limited third rung is flagged, not resolved. Changes no bound; MCM stays refuted from omega=11; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

@@ -22290,6 +22290,15 @@ const DATA_MODULES = [
   // L5=0.02 -- it is NOT a lever on sigma_crit within this 2-point estimator. Inherited imp-3220/imp-3406
   // surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124874-sigmacrit-eps-invariance.js',
+  // imp-124887 (opus-4-8, numerical): closes the imp-124849 M3 threshold search by EXTENDING the imp-124874
+  // sigma_crit-vs-eps sweep three decades to eps=1e-8 at FIXED dps=100. Result: NO eps in [1e-3,1e-8] drives
+  // sigma_crit below L6=0.005 -- it is pinned at 0.0203855 (L5) for eps 1e-3..1e-6 (ECF_crit=R/relMean
+  // eps-invariant at 3.3643e-6) then drifts slightly UPWARD (0.0204200 at 1e-8) as the errCF subtractions
+  // reach the cancellation scale, i.e. AWAY from L6. So shrinking eps is not a lever on sigma_crit and past
+  // eps~1e-6 is mildly counterproductive; the L6 non-monotonicity is unreachable in the 2-point directCF
+  // estimator. Inherited imp-3220/imp-3406 surrogate; C_mb GUE-conditional per imp-486; no bound moves; PT
+  // Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124887-sigmacrit-eps-threshold.js',
   // imp-124875 (opus-4-8, accuracy): cross-validates the imp-124848 sigma INTERIOR-PEAK floor-elasticity
   // p_peak ~ -1.412 under a change of peak-LOCATOR FORM. imp-124848 measured -1.412 by re-using the
   // imp-33684 sensitivityTable verbatim -- a table whose peak coordinates were located by ternary-search

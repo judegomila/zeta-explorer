@@ -21848,6 +21848,22 @@ const DATA_MODULES = [
   // prefactor perturbed only symbolically as differentiation axes; C_mb GUE-conditional per imp-486; no bound
   // moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124828-extprec-pairratio-Pladder.js',
+  // imp-124836 (2026-09-27): FORMALIZES the imp-124811 ad-hoc invariant-product discriminator P = |reldiff|*|X|
+  // (flat P => round-off floor R; decreasing P => identity drift D) into a GENERAL finite-difference identity
+  // cross-check test with explicit validity conditions. The unified error model is P = (D + tau)*|X| + R,
+  // separating a genuine relative drift D, the relative O(eps^p) truncation floor tau, and the absolute round-off
+  // floor R. FLAT P certifies drift-freeness ONLY in the round-off-limited regime R >> (D + tau)*|X|_max (reldiff
+  // ~ R/|X|, slope -1); then |D| <= R/|X|_max + tau. The test FAILS in the truncation-limited regime: a decreasing
+  // P (slope +1) is ALGEBRAICALLY IDENTICAL for a genuine drift and a pure truncation floor (both enter as the sum
+  // D + tau), so a decreasing P is NOT proof of drift -- the very regime imp-124828 entered at extended precision
+  // (R collapsed, reldiff plateaued at the |X|-independent stencil floor tau = 3.333e-14). tau and D separate only
+  // by eps/precision scaling (tau ~ eps^p refines by 2^p under eps/2; D invariant). The certifiable sensitivity
+  // floor is D_min = max(R/|X|_max, tau) ~ 9.3e-12 for the imp-124811 instance, consistent with the imp-124808
+  // dps=100 D = 0. Import-light synthetic-ladder module (four canonical regimes A/B/C/D); 10 node-verified
+  // self-executing assertions. Formalization/derivation only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F
+  // prefactor used only as anchor literals; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0
+  // untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124836-invariant-product-discriminator-general-test.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

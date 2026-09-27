@@ -74,6 +74,11 @@
  * ASSESSMENT ONLY. C_mb stays GUE-conditional (imp-486); no bound changes, no positivity,
  * no bridge closure, no RH claim, NO QED. Platt-Trudgian Lambda <= 0.2 remains SOTA.
  *
+ * @see imp-97822-sigma-knee-etrunc-floor-elasticity (imp-97822 K2: the imp-97708 sigma-ramp KNEE
+ *   floor-elasticity ~ -2.099 matches this module's sigma = 0.5 halving exponent BYTE-FOR-BYTE --
+ *   the knee sits in the same E_flow-negligible tail as the halving landmark it is ~3.3% above, so
+ *   it inherits this clean dimensional N ~ E_trunc^(-2) floor-scaling rather than the softer
+ *   imp-33684 interior-peak ~ -1.375)
  * @see imp-33582-sigma-postpeak-nearpeak-threshold-decay (the far-tail landmarks perturbed here)
  * @see imp-33684-sigma-interior-peak-etrunc-model-sensitivity (SAME floor swap on the INTERIOR PEAK, exponent ~ -1.375)
  * @see imp-33606-sigma-postpeak-threshold-model-sensitivity (E_coll sub-leading 1/log swap on these landmarks -- DIFFERENT axis)

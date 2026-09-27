@@ -5459,6 +5459,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
       honestCeiling:
         'Presentation only: every R/fraction/extrapolation value is reused verbatim from imp-97564 (a measurement, not a derivation); no new computation. Realizability gap still persists (~half the envelope); no bound moved; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
+    Object.freeze({
+      route: '/viz-imp97630-lambda2-floor-spread-waterfall',
+      title: 'imp-97600: Lambda_2 Floor Spread Waterfall (5.6% Geometric Tail + 94.4% Tail-Model Disagreement)',
+      oneLine:
+        'Floating-bar waterfall decomposing the imp-97538 lambda_2 floor bracket spread (3.063773) into its two measured descent steps from the rigorous upper edge -310.692227: 5.6% honest geometric K-truncation tail to the corrected-tail estimate -310.865, then 94.4% tail-MODEL disagreement on nu_max down to the imp-97482 power-refit deep end -313.756, with the m=2 discretization and enclosure-arithmetic sources both at 0%.',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97630-lambda2-floor-spread-waterfall-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97600-lambda2-floor-spread-decomposition.js (spread decomposition baked verbatim; imp-97630 viz-data leaf + page)',
+      ticket: 'imp-97630',
+      pedagogicalStep: 425,
+      honestCeiling:
+        'Presentation only: every anchor/magnitude/share value is reused verbatim from imp-97600 (a measurement/diagnosis, not a derivation); no new computation. No rigorous lower bound on lambda_2 produced; the floor stays four orders below the required 0.581059; interval-rigorous reach stays 2a<=0.96; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
   ]),
 });
 

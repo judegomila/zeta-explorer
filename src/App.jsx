@@ -1780,6 +1780,9 @@ const Imp97628McmSurrogateVsFullhOnsetViz = lazy(() =>
 const Imp97629RealizableFractionWindowClimbViz = lazy(() =>
   import('./pages/Imp97629RealizableFractionWindowClimbViz.jsx')
 );
+const Imp97630Lambda2FloorSpreadWaterfallViz = lazy(() =>
+  import('./pages/Imp97630Lambda2FloorSpreadWaterfallViz.jsx')
+);
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 function PageLoader() {
@@ -4574,6 +4577,10 @@ function AppShell() {
           <Route
             path="/viz-imp97629-realizable-fraction-window-climb"
             element={<Imp97629RealizableFractionWindowClimbViz />}
+          />
+          <Route
+            path="/viz-imp97630-lambda2-floor-spread-waterfall"
+            element={<Imp97630Lambda2FloorSpreadWaterfallViz />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

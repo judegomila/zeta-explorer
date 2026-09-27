@@ -25191,6 +25191,36 @@ export const glossary = [
       'imp-97735 the height-ladder drift of K, confirming K is also height-dependent not universal',
     ],
   },
+  {
+    term: 'Fold-amplitude floor-robustness (imp-97743, K ~ E_trunc^0.221)',
+    category: 'caveat',
+    definition:
+      'Running the imp-33708/imp-33723 0.5x..5x E_trunc-floor rescaling sweep on the imp-97725 fold amplitude ' +
+      'K = sqrt(sigma_max(1-sigma_max)/(2 phi_xx)) shows K moves only GENTLY with the floor, unlike the landmark ' +
+      'N-coordinates it is derived alongside. K rises monotonically from 0.363295 (0.5x) through the baseline ' +
+      '0.423330 (1.0x, reproducing the imp-97725 pin exactly) to 0.606688 (5x) -- a factor ~1.67 across the full ' +
+      '10x sweep -- following the shallow power law K ~ E_trunc^(+0.221) measured from the 0.5x/2x floors, so a ' +
+      '&plusmn;10% floor perturbation moves K by only ~ -2.30% / +2.12% (K in [0.413610, 0.432320]). This |exponent| ' +
+      '~0.221 is an order of magnitude below the imp-33708 far-tail landmark N ~E_trunc^(-2.0) and the imp-33684 ' +
+      'interior-peak N_max ~E_trunc^(-1.375), and the SIGN flips: K GROWS with the floor while the landmark N ' +
+      'SHRINKS. MECHANISM: a bigger floor pulls the peak share sigma_max down toward 1/2, so the numerator ' +
+      'S = sigma_max(1-sigma_max) rises (0.037303 -> 0.081637) while the curvature denominator phi_xx falls only ' +
+      'mildly (~E_trunc^(-0.087)); the two partially cancel inside K = sqrt(S/(2 phi_xx)), making K the LEAST ' +
+      'floor-sensitive rung of the cohort. This CONFIRMS the imp-97725 sub-gap that K is not a universal constant, ' +
+      'while sharpening it in the opposite direction from what the landmark-N cohort might suggest: K is robust ' +
+      'qualitatively (well-defined for every positive floor) and only gently fragile quantitatively. HONEST SCOPE: ' +
+      'measurement/sensitivity only on the inherited imp-3220/imp-3406 extrapolation surrogate, not a rigorous ' +
+      'asymptotic; E_trunc base pin 3.06e-5 unchanged (only rescaled as a perturbation); no bound moves; no ' +
+      'operator positivity; Platt-Trudgian Lambda &lt;= 0.2 remains SOTA; RH open; NO QED.',
+    firstUsed: 'imp-97743 (0.5x..5x E_trunc-floor sweep on the imp-97725 fold amplitude K, measuring the shallow +0.221 exponent; adds this glossary headword)',
+    relatedTerms: [
+      'imp-97743-fold-amplitude-etrunc-floor-sensitivity.js the 0.5x..5x floor sweep measuring K ~ E_trunc^(+0.221)',
+      'imp-97725-fold-amplitude-analytic-pin.js the K = sqrt(S/(2 phi_xx)) pin whose floor sensitivity is measured here',
+      'imp-33708-sigma-fartail-landmark-etrunc-model-sensitivity.js the SAME floor swap on the far-tail landmark N ~E_trunc^(-2.0)',
+      'imp-33684-sigma-interior-peak-etrunc-model-sensitivity.js the SAME floor swap on the interior-peak N_max ~E_trunc^(-1.375)',
+      'imp-97735 the height-ladder drift of K, confirming K is also height-dependent not universal',
+    ],
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════

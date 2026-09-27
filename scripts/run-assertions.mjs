@@ -21352,6 +21352,18 @@ const DATA_MODULES = [
   // log-log slope -1.99994. The imp-97647 tail budget Sum 1/(720 d^3) now rests on a derived constant.
   // Derivation only; onset stays omega=11; MCM refuted; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
   '/src/data/imp-97666-route-m-mcm-tail-constant-euler-maclaurin.js',
+  // imp-97667 (2026-09-27): TESTS the imp-97640 RESULT 2 PNT/Mertens attribution by asking whether the
+  // gap-law residual SIGN tracks the imp-97639 deep-Mertens delta oscillation SIGN rung-by-rung. INCONCLUSIVE:
+  // both quantities are single-signed (all four residuals < 0, all six deltas > 0), so the imp-97639 wiggle is
+  // a MAGNITUDE wiggle, not a sign oscillation -- there is nothing to correlate, only a FIXED anti-correlation
+  // (residual < 0 <=> delta > 0). That fixed relation is STRUCTURAL: residual ~ -e^-gamma*delta/(12 log p) via
+  // the shared bracket undershoot (bracket = lnA + M/12, B_inf = lnA + gamma/12), an algebraic identity, not
+  // PNT evidence. At the lone overlap height p = 1999993 the delta-only prediction -2.582e-6 overshoots the
+  // actual residual -8.352e-7 by ~3.09x (a competing +1.75e-6 gap self-correction), so the residual is not even
+  // proportional to delta. The residual ladder (p <= 2e6) and delta ladder (p >= 2e6) overlap at exactly ONE
+  // height, so the wiggle cannot be correlated -- settling it needs the extended-precision deep gap/law recompute
+  // imp-97640 already flagged. Measurement only; MCM refuted from omega=11; no bound moved; PT Lambda <= 0.2 SOTA; RH open; NO QED.
+  '/src/data/imp-97667-route-m-residual-delta-sign-correlation.js',
   // imp-97585 (2026-09-26): MEASURES the Gronwall flow share E_flow/E_trunc across the full imp-97520
   // ladder N in {1e6 .. 1e12}, extending the single-point imp-97520 measurement (~1.91e-3 at N_half).
   // The share is MONOTONE DECREASING -- it does NOT grow toward the tail but collapses (1.4376 at 1e6
@@ -21448,6 +21460,17 @@ const DATA_MODULES = [
   // and the imp-398 C_F prefactor perturbed as probes not re-pinned; C_mb GUE-conditional per imp-486; no
   // bound moved; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-97644-three-axis-additivity-flow-prefactor.js',
+  // imp-97665 (2026-09-26): DERIVES the imp-97644 STRUCTURE (3) crossing identity E_CF/E_ET = E_flow/E_trunc
+  // EXACTLY and confirms the ~2e-7 imp-97644 residual was truncation. Implicit-differentiating the level
+  // condition sigma(N_L(p), p) = level gives E_p = -(p sigma_p)/(N_L sigma_N); since E_trunc and C_F enter
+  // only the denominator E_N additively their partials share the crossing kernel -(sigma/E_N)/(N_L sigma_N),
+  // which cancels in the ratio to leave E_CF/E_ET = E_flow/E_trunc for every level and N_L (no approximation,
+  // independent of the height mapping and the N-derivative). A 5-point O(eps^4) stencil drops the reldiff to
+  // 5.8e-12 (L2), 4.8e-10 (L3), 2.3e-8 (L4) at eps = 1e-3 -- below the 3-point 2e-7 -- so the imp-97644 value
+  // was central-difference truncation, not a real deviation. Import-light module; 6 node-verified self-executing
+  // assertions. Derivation/measurement only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed
+  // as probes not re-pinned; C_mb GUE-conditional per imp-486; no bound moved; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-97665-flow-etrunc-elasticity-identity-derivation.js',
   // imp-97661 (2026-09-26): PORTS the imp-97644 three-axis scaling symmetry to the imp-97520 L1 INTERIOR PEAK
   // (N ~ 9.22e5, sigma_max ~ 0.9494), a TANGENCY dsigma/dN = 0 rather than a downslope level crossing. Replaces
   // the bisection crossing with a ternary-search maximum and measures the peak-location elasticities. The

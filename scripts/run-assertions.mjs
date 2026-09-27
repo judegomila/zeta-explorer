@@ -6159,6 +6159,16 @@ const DATA_MODULES = [
   // gap. MEASUREMENT/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0 untouched;
   // PT Lambda<=0.2 SOTA; no QED. 6 assertions.
   '/src/data/imp-124772-knee-floor-elasticity-multifloor-fit.js',
+  // imp-124786: CHARACTERIZES the imp-124772 F2 faint sign-symmetric p_knee residual U (~3e-3 decades)
+  // by fitting a quadratic in log10 E_trunc to the same imp-97822 floorSweep (reused verbatim). The
+  // quadratic coefficient a2 ~ -1.79e-2 decades/centered-decade^2 has SE ~ 3.6e-4, so t ~ -50 on 7 dof
+  // (95% critical |t| ~ 2.36) -- a GENUINE higher-order curvature term, not fit noise. Adding the
+  // quadratic drops the RMS residual from ~1.59e-3 to ~8.4e-5 decades (~19x, near the 4-decimal storage
+  // floor; F ~ 2.5e3 on (1,7) dof). The curvature is concave-DOWN and ~120x smaller than the linear
+  // slope -2.10, so p_knee runs mildly with floor depth but N* ~ E_trunc^(-2.1) remains the leading
+  // power law. MEASUREMENT/fit only; C_mb GUE-conditional per imp-486 UNTOUCHED; imp-3066 K_a>=0
+  // untouched; PT Lambda<=0.2 SOTA; no QED. 6 assertions.
+  '/src/data/imp-124786-knee-floor-residual-quadratic-fit.js',
   // imp-34413: bisects the imp-34247 pole-leakage metric leak(k)=100|dy/dk(k)-P|/|P| on its rising
   // pole-side branch to pin the exact 1% crossing at k~18.10597, refining the imp-34247 coarse
   // k=18..18.5 bracket; also finds a deep ~0.009% interior minimum at k~17.80. Coverage-audit fix

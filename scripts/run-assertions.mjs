@@ -21742,6 +21742,18 @@ const DATA_MODULES = [
   // symbolic differentiation axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched;
   // PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124769-ecf-stencil-noise-floor-crossover.js',
+  // imp-124810 (2026-09-27): SWEEPS the imp-124769 round-off floor R (~4.5e-13) and crossover sigma_crit (~0.013)
+  // against the ln N_L landmark-bisection tolerance TOL. While tolerance-limited (TOL 1e-9..1e-13) R falls ~one
+  // decade per decade of TOL (R ~ 4.3e-7, 1.4e-9, 3.9e-11), i.e. R ~ TOL / ln((1+eps)/(1-eps)) -- the floor IS the
+  // bisection resolution. But R SATURATES at the double-precision floor R_inf ~ 4.46e-13 once TOL <= ~1e-15 and is
+  // IDENTICAL to the TOL = 0 machine-limit (imp-124769) solve (R(1e-15) = R(1e-16) = R(0)), recovering the clean
+  // relTrunc ~ 3.25e-7 plateau and sigma_crit ~ 0.0127 only there. So a tighter bisection CANNOT lower R further,
+  // and sigma_crit stays STRICTLY between L6 (0.005) and L5 (0.02): the DIAG3 eps-ladder non-monotonicity at L6 is a
+  // double-precision-limited artifact NOT curable by tightening the landmark solve (only extended precision, per
+  // imp-124808, could move it). Import-light module; 8 node-verified self-executing assertions. Measurement/
+  // sensitivity only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor appear only as symbolic differentiation
+  // axes; C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124810-bisection-tol-roundoff-floor-sweep.js',
   // imp-124770 (2026-09-27): TABULATES the imp-97665 EXACT pair-ratio identity E_CF/E_ET = E_flow/E_trunc AS A
   // LADDER across the imp-97520 landmarks L2..L7 (sigma 0.9/0.5/0.1/0.02/0.005/0.001) as a direct numerical
   // cross-check. Reusing the imp-97665/imp-97821 5-point O(eps^4) machinery verbatim, the measured E_CF/E_ET

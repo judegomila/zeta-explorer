@@ -21790,6 +21790,18 @@ const DATA_MODULES = [
   // only; C_C 1/8, E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes;
   // C_mb GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
   '/src/data/imp-124808-extprec-pairratio-two-axis.js',
+  // imp-124811 (2026-09-27): FITS the imp-124770 pair-ratio cross-check |reldiff| directly against the measured
+  // |E_CF| across L2..L7 as a law (same 5-point O(eps^4) stencil, same landmarks, eps = 1e-3). A log-log OLS of
+  // |reldiff| vs |E_CF| has slope -1.085 (within ~9% of the predicted -1), confirming the inverse-|E_CF| round-off
+  // law |reldiff| ~ R/|E_CF| over eight decades of |E_CF| (2.5e-1 -> 1.2e-8). The invariant product
+  // P = |reldiff|*|E_CF| stays flat (max/min ~ 8.5, geomean R ~ 2.34e-12) and does NOT decrease down the ladder,
+  // so there is no |E_CF|-proportional identity-drift signature (a constant drift D would make P = D*|E_CF| + R
+  // decay toward the deep tail): the |reldiff| growth is pure |E_CF|-linear precision loss. The flow-heavy L2 rung
+  // caps any residual identity drift D <= 5.8e-12, below R and consistent with the imp-124808 extended-precision
+  // D = 0. Import-light module; 8 node-verified self-executing assertions. Accuracy/cross-validation only; C_C 1/8,
+  // E_trunc 3.06e-5 and the imp-398 C_F prefactor perturbed only symbolically as differentiation axes; C_mb
+  // GUE-conditional per imp-486; no bound moved; imp-3066 K_a >= 0 untouched; PT Lambda <= 0.2 SOTA; NO QED.
+  '/src/data/imp-124811-pairratio-reldiff-ecf-roundoff-law.js',
   // imp-97833 (2026-09-27): MEASURES the cubic-fold curvature coefficient B directly from the imp-97662/imp-97721
   // sigma-peak fold and shows it QUANTITATIVELY predicts the imp-97823 M2 |K| running correction and its up/down
   // arm antisymmetry. Fitting sigma(x) = sigma_max - A(x-x_peak)^2 - B(x-x_peak)^3 by 5-point stencils in x = ln N

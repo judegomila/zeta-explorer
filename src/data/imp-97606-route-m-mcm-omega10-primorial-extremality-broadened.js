@@ -136,6 +136,35 @@ const IMP97606_ASSERTIONS = [
     why: 'the omega=10 minimiser is the positive primorial margin, so no non-primorial 10-set crosses zero -- the MCM onset stays exactly omega=11.',
   },
   {
+    // imp-97624: guard the baked family-D summary from silent drift by REPLAYING the first 50
+    // deterministic-LCG omega=10 sets from the offline scout (identical LCG, same V8 arithmetic)
+    // and recomputing each against the imp-97432 kernel at import.
+    id: 'imp97606-family-d-lcg-subset-crossvalidation',
+    holds: () => {
+      const primT = K.Tfull(PRIMORIAL10, CUT);
+      // exact replay of tmp/imp-97606-omega10-broad-family.mjs family-D LCG (seed + generator identical).
+      let seed = 123456789;
+      const rnd = () => { seed = (1103515245 * seed + 12345) & 0x7fffffff; return seed / 0x7fffffff; };
+      let minSub = Infinity, anyNeg = false, anyBelowPrim = false;
+      for (let trial = 0; trial < 50; trial++) {
+        const pool = POOL.slice();
+        const set = [];
+        while (set.length < 10) { const idx = Math.floor(rnd() * pool.length); set.push(pool.splice(idx, 1)[0]); }
+        set.sort((a, b) => a - b);
+        if (new Set(set).size !== 10) return false;
+        const T = K.Tfull(set, CUT);
+        if (T < 0) anyNeg = true;
+        if (T < primT) anyBelowPrim = true;
+        if (T < minSub) minSub = T;
+      }
+      // reported minimiser {2,3,5,7,11,13,17,19,23,31} T = +5.534829e-4 recomputed against the kernel.
+      const repT = K.Tfull([2, 3, 5, 7, 11, 13, 17, 19, 23, 31], CUT);
+      return !anyNeg && !anyBelowPrim && minSub > primT &&
+        Math.abs(repT - 5.534829e-4) < 5e-7 && repT > primT;
+    },
+    why: 'replaying the first 50 offline family-D LCG omega=10 sets against the imp-97432 kernel at import reproduces the baked claim -- no set gives T<0 or T below the primorial +4.78e-4, and the reported minimiser recomputes to +5.534829e-4 -- so the baked family-D summary cannot drift silently against the kernel.',
+  },
+  {
     id: 'imp97606-honesty-gate-no-qed',
     holds: () =>
       IMP97606_OMEGA10_EXTREMALITY.onsetOmega === 11 &&

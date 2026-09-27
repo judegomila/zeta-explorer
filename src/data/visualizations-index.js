@@ -5684,6 +5684,20 @@ export const VISUALIZATIONS_INDEX = Object.freeze({
         'Presentation only: the continuous curve is a fresh sampling of the byte-for-byte imp-97723/imp-97759 closed form; the three marked landmarks are reused verbatim from their pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
     }),
     Object.freeze({
+      route: '/viz-imp97787-fartail-hump-min-crossover',
+      title: 'imp-97759: Far-Tail Diagnostic -- Hump, Minimum, Floor-Sensitivity Crossover',
+      oneLine:
+        'Symlog-scaled line chart of the imp-97759 non-monotone far-tail diagnostic across log10 N = 2..50, reusing the imp-97806 curve and marking the small-N hump (diag ~14.9 at log10 N ~7.77), the local minimum (diag ~0.976 at log10 N ~18.77), and the imp-97759 >1% E_trunc-floor-sensitivity crossover (diag ~0.977 at log10 N ~20.7).',
+      mathBucket: 'measurement',
+      dataModule: 'src/data/imp-97787-fartail-diagnostic-hump-min-crossover-viz-data.js',
+      paperSourcePath:
+        'src/data/imp-97806-full-sigma-diagnostic-curve-viz-data.js (curve + hump/minimum, reused verbatim), src/data/imp-97759-fartail-crossing-etrunc-floor-sensitivity-crossover.js (crossover landmark, reused verbatim); imp-97787 viz-data leaf + page',
+      ticket: 'imp-97787',
+      pedagogicalStep: 445,
+      honestCeiling:
+        'Presentation only: the curve is reused byte-for-byte from imp-97806; all three marked landmarks are reused verbatim from their source pinning modules, not a new computation. Conditional-share diagnostic on the inherited imp-3220/imp-3406 extrapolation, not a rigorous asymptotic. Changes no bound; Platt-Trudgian Lambda <= 0.2 remains SOTA; RH open; NO QED.',
+    }),
+    Object.freeze({
       route: '/viz-imp97748-fold-amplitude-landmark-decomposition',
       title: 'imp-97725: Fold-Amplitude Numerator vs Denominator Across L1..L4',
       oneLine:

@@ -22373,6 +22373,16 @@ const DATA_MODULES = [
   // w_max ~ 4e-10 (1e-9 gate) / ~1e-12 (round-off), with a negligible finite-t homogeneity defect.
   // Assessment/derivation only; conditional-share diagnostic; no bound moved; NO QED.
   '/src/data/imp-124851-diag3-degree2-coefficient-bound.js',
+  // imp-124897: TESTS the imp-33743 attribution directly with a controlled A/B toggle -- recompute the
+  // sigma < 0.1 far-tail crossover fixed point with E_flow off (X = E_trunc) vs on (X = E_trunc + E_flow),
+  // everything else identical, and measure the E_flow-induced shift dN = (N_zero - N_flow)/N_zero ~ 7.377e-5.
+  // RESULT: the E_flow-restored root reproduces the imp-33582 bisection to ~1.3e-15, so the shift equals the
+  // closed-form-vs-empirical residual to ~1.8e-11 relative -- fraction explained = 1.0000000000, deciding
+  // the ~7.4e-5 residual IS the flow term (not a grid/rounding artifact). Of the shift the leading
+  // 2*E_flow/E_trunc = 7.098e-5 covers ~96.2% and the slow logT0 self-consistency drift ~2.80e-6 the rest,
+  // with the (1+r)^2 curvature (~1.3e-9) negligible. Measurement/decision only; conditional-share
+  // diagnostic; imp-3066/imp-486/C_C ansatz untouched; PT Lambda<=0.2 SOTA; no QED. 5 assertions.
+  '/src/data/imp-124897-eflow-fartail-residual-attribution.js',
 ];
 
 let ALL_MODULES = FAST_MODE

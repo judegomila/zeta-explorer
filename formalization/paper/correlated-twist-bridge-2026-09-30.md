@@ -240,3 +240,11 @@ moment estimates for random multiplicative functions, see
 [Harper, *Moments of random multiplicative functions, II*](https://arxiv.org/abs/1804.04114).
 No random-function estimate from that paper is asserted to apply to the
 deterministic all-minus assignment.
+
+## Renormalization follow-up
+
+The [renormalized bridge analysis](renormalized-twist-bridge-2026-09-30.md)
+constructs a nonzero analytic limit after sign-dependent subtraction, rules
+out deterministic pointwise rescaling at the center, and tracks the removed
+counterterm through an exact two-variable zeta reconstruction. The required
+inverse-counterterm continuation remains RH-equivalent.

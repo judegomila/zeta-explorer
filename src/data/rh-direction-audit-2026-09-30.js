@@ -4,7 +4,7 @@ export const RH_DIRECTION_AUDIT = Object.freeze({
   recommendation: 'Prioritize exact arithmetic positivity: twin ladder / Weil / Route I certificates.',
   reason: 'This direction has an exact RH criterion, explicit finite-support arithmetic, and coefficient payloads that can be independently replayed. The all-support construction remains open.',
   routes: Object.freeze([
-    { name: 'Twin ladder + bridge → Weil / Toeplitz–Krein', status: 'Best direct RH direction', next: 'Replay the local certificates; reach log(3); include p=3 beyond that threshold.' },
+    { name: 'Twin ladder + bridge → Weil / Toeplitz–Krein', status: 'Best direct RH direction', next: 'Review the two-prime interval certificate at width 1.3; prove a construction covering unbounded supports and every contributing prime power.' },
     { name: 'Freezing permutations / correlated barriers', status: 'Best quantitative Λ direction', next: 'Close the named finite and tail obligations. Positive candidate bounds do not establish RH.' },
     { name: 'Fluid mechanics / Burgers', status: 'Exact reformulations and useful dynamics', next: 'Prove the missing infinite-system or zero-exclusion estimate.' },
     { name: 'Heisenberg / uncertainty', status: 'A tool for the positivity problem', next: 'Preserve signed cancellation; failure of one split bound does not exclude every uncertainty argument.' },
@@ -19,5 +19,6 @@ export const RH_DIRECTION_AUDIT = Object.freeze({
     'The continuum diagonal has zero product measure; a positive comparison kernel needs a separate signed residual identity.',
   ]),
   rhProved: false,
+  localTwoPrimeCertificate: Object.freeze({ width: 1.3, gap: 0.0000005, status: 'Computer-assisted local certificate; analytic reduction supplied; not formally verified or refereed.' }),
   newLambdaBound: false,
 });

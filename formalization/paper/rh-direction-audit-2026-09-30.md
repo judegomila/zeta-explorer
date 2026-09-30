@@ -15,7 +15,7 @@ This review is based on `editorial-redesign` at `488fc05ce2bfffaa5379b312f168536
 | Supercritical fluids / superwires | Models, scaling proposals, numerical diagnostics | A proved connection to the exact completed zeta function and its zeros | Exploratory |
 | Gödel witnesses | Logical analogies and witness constructions | A formal theorem about the specified system and RH | Exploratory; no independence conclusion follows from an analogy |
 
-The key advantage of Route I is that its local result can be checked without accepting the project's qualitative narrative. The new checker independently passes both the `2a=0.90` and `2a=0.96` payloads. That supports a local positivity result; it does not establish a global extension, a new Λ bound, a novelty claim, or RH.
+The key advantage of Route I is that its local result can be checked without accepting the project's qualitative narrative. The first checker independently passes both the `2a=0.90` and `2a=0.96` payloads. A subsequent [two-prime proof attempt](weil-two-prime-certificate-2026-09-30.md) supplies a different certificate at `2a=1.3`, using interval finite sections with analytic complement bounds. These are local results; they do not establish an all-support extension, a new Λ bound, a novelty claim, or RH.
 
 The superwire evidence needs particularly careful interpretation: `src/math/branched-flow.js` stops a classical ray once it reaches a prescribed strip near `sigma=1/2`, and its caustic comparison uses known zero heights as initial data. Such outputs do not establish asymptotic confinement or an independent prediction of zeros. A finite prime model also needs a justified relation to analytic continuation in the critical strip. These observations identify what to prove next; they do not refute every physical approach.
 
@@ -159,7 +159,7 @@ The first check allows replacement of `(t²+1/4)²` by the smaller `t⁴` in the
 
 ## 6. Concrete extension contract
 
-First target a certificate at `2a=log(3)`; after that, test the rational width `2a=11/10`. Since `log3<11/10<log4`, the **exact** next symbol is
+The initial extension target was `2a=log(3)`, then the rational width `2a=11/10`. The follow-up certificate now covers `2a=13/10`, and hence both targets, by a different method. Since `log3<11/10<13/10<log4`, the **exact** next symbol is
 
 \[
 \sigma_{2,3}(t)=(t^2+1/4)^2\left[
@@ -170,7 +170,7 @@ First target a certificate at `2a=log(3)`; after that, test the rational width `
 
 The scope-check command verifies this threshold and refuses to reuse either old payload. Their exterior atoms begin inside the enlarged autocorrelation support, so their vanishing-pairing argument is invalid there. The new `p=3` symbol correction changes sign between `t=0` and `t=π/log3`; this observation alone does not determine the sign of its compressed operator.
 
-A successful extension must supply:
+An extension using the exterior-atom method must supply:
 
 - New exact coefficient data with every exterior atom at or beyond the target width.
 - A global lower bound for `σ₂,₃+ν`, including between-node and infinite-tail control.
@@ -185,7 +185,7 @@ For later widths `B=2a`, the exact prime part is
 
 Boundary shifts vanish on the smooth compact core, so including equality does not change the form. At `B>log4`, the `p²=4` term must be added as well. Pushing the `p=2`-only model past `log3` and extrapolating its eigenvalues cannot certify this family.
 
-**No two-prime positivity certificate is produced here.** The recorded experiment checks the arithmetic and rejection of invalid reuse. Optimizer failure, a positive finite Galerkin matrix, or a finite-frequency check would each leave this contract open. To reach RH, the construction must eventually cover unbounded supports; success at `11/10` would be a useful local milestone only.
+The original scope-check experiment only checks the arithmetic and rejects invalid payload reuse. The [follow-up finite-section certificate](weil-two-prime-certificate-2026-09-30.md) proves a local lower bound at `2a=13/10` without exterior atoms. It encloses quadrature error, the infinite Legendre complement, both moment penalties, and the infinite frequency tail. Its 192-bit and 256-bit interval runs pass. A positive finite Galerkin matrix alone would not suffice. To reach RH, the construction must still cover unbounded supports.
 
 ## Reproduce and review
 
@@ -196,6 +196,7 @@ python scripts/audit-route-i-certificate.py --self-test
 python scripts/audit-route-i-certificate.py --certificate 090
 python scripts/audit-route-i-certificate.py --certificate 096
 python scripts/audit-route-i-certificate.py --two-prime-diagnostic
+python scripts/certify-weil-two-prime.py
 ```
 
 The JS checks include explicit pole-sign/parity and signed-residual counterexamples, plus consistency checks on the corrected data. The Python checks include digamma enclosures, the curvature constant, a negative between-endpoint test, and invalid-support rejection. Exhausting the adaptive cell budget yields an error and no certificate, not a mathematical refutation.

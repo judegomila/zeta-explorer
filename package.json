@@ -4,6 +4,7 @@
   "description": "Interactive experiments in zeta-zero geometry and the Riemann hypothesis.",
   "main": "index.js",
   "scripts": {
+    "audit:rh": "node scripts/audit-rh-direction.mjs",
     "dev": "vite build && node server.js",
     "build": "(node scripts/fleet-status-writer.mjs || true) && node scripts/audit-nav-links.mjs && node scripts/check-bundle-sizes.mjs && vite build",
     "mount:observatory": "node observatory/scripts/mount.mjs",

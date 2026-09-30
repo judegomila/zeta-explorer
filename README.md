@@ -12,7 +12,7 @@ The goal is RH itself. The sharpest measurable axis is the de Bruijn–Newman co
 > - `Λ ≤ 0.14` — a **conditional completion contract, not a bound**: the permutation-architecture paper reduces the strict sub-0.14 route to exactly one open family (`|C_E,17| < 0.2797` on `690988 ≤ N ≤ 54799999`). One provenance gap in its numerical anchor is recorded openly on `/permutation-architecture`.
 > - The public `Λ ≤ 0.1875` certificate package (Mosaic Intelligence, Zenodo) remains an external unrefereed claim, locally repaired and reproducible.
 
-**Research direction audit (2026-09-30):** prioritize the exact arithmetic positivity branch of the twin-ladder / Weil / Toeplitz–Krein program for direct RH work; retain freezing permutations as the quantitative Λ program. The audit corrects the pole-free criterion, pole sign, flow-blindness scope, and continuum-diagonal/Volterra claims. It supplies an independent interval replay of the 0.90 and 0.96 payloads, without extending the support range or establishing RH.
+**Research direction audit (2026-09-30):** prioritize the exact arithmetic positivity branch of the twin-ladder / Weil / Toeplitz–Krein program for direct RH work; retain freezing permutations as the quantitative Λ program. The audit corrects the pole-free criterion, pole sign, flow-blindness scope, and continuum-diagonal/Volterra claims. It supplies independent interval replays of the 0.90 and 0.96 payloads. A follow-up [two-prime certificate](formalization/paper/weil-two-prime-certificate-2026-09-30.md) covers support width 1.3 using interval finite sections and analytic bounds on the full complement. This is a local computer-assisted result, not RH or a refereed novelty claim.
 
 Read the [audit and two-prime extension contract](formalization/paper/rh-direction-audit-2026-09-30.md). Reproduce:
 
@@ -22,6 +22,7 @@ python -m pip install -r scripts/requirements-rh-audit.txt
 python scripts/audit-route-i-certificate.py --self-test
 python scripts/audit-route-i-certificate.py --certificate 090
 python scripts/audit-route-i-certificate.py --certificate 096
+python scripts/certify-weil-two-prime.py
 ```
 
 **Author:** Jude Gomila, with an AI fleet (Claude, Codex, ChatGPT) under human direction · **Live app:** `npm run dev` · **Papers:** `research-inputs/` (the consolidated twin-ladder paper, the permutation-architecture paper, the twistor framework note)
@@ -99,4 +100,3 @@ Build-time discipline: `npm run build` runs a nav-link audit, bundle-size tripwi
 Functional language only; candidates are candidates until refereed; contracts are not bounds; internal drafts that didn't survive are "corrected/superseded," never implied publications; every numeric claim carries a grade and a tripwire; RH remains open.
 
 **License:** MIT
-

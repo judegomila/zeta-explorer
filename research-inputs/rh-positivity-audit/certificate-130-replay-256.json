@@ -1,0 +1,37 @@
+{
+  "status": "certified",
+  "scope": "local pole-free Weil form; not RH",
+  "width": "1.3",
+  "gap": "0.0000005",
+  "precision_bits": 256,
+  "N": 128,
+  "T": 80,
+  "gauss_order": 32,
+  "panels": 160,
+  "penalty": "1000",
+  "tail_identity_floor": "29/100",
+  "active_primes": [
+    2,
+    3
+  ],
+  "frequency_tail_lower_enclosure": "[0.295316713006160443126863264479037973241826195215178086758090961655592536683 +/- 2.47e-76]",
+  "holomorphic_bound_enclosure": "[78.5611524820534341798648464440565081459115431315119455198680408946591456115 +/- 1.02e-74]",
+  "quadrature_operator_error_enclosure": "[2.344892732931406275921172851495762390356880047709545225378051638392440062871e-13 +/- 3.49e-89]",
+  "truncation_operator_error_enclosure": "[6.7393622796136995496702198998021011232306746882321865171844908062255008250e-18 +/- 9.84e-93]",
+  "moment_operator_error_enclosure": "[1.269994177499545214284467107607952167369085521000051164270682579486331759770e-34 +/- 1.22e-110]",
+  "blocks": [
+    {
+      "parity": 0,
+      "dimension": 64,
+      "minimum_ldl_pivot_lower": "[0.02949108329484539748743205099096038011517585544661605415211998580065371349987 +/- 2.50e-78]"
+    },
+    {
+      "parity": 1,
+      "dimension": 64,
+      "minimum_ldl_pivot_lower": "[0.04370614232025525557721912296287335963340706351635881677461237556981343471525 +/- 3.76e-78]"
+    }
+  ],
+  "script_sha256": "998143ab749f4ed2e529cf3c4b75f7c3f4a0c415806e6e641cb3d2e53f53d635",
+  "python_flint_version": "0.8.0",
+  "elapsed_seconds": 13.705
+}

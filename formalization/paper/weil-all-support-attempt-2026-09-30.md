@@ -291,3 +291,11 @@ the same signed compressed arithmetic operator. A valid result must preserve
 all tests, both pole conditions, all contributing prime powers, and every
 cross-window term. Neither the derived identity nor the project's physical or
 logical analogies establish that sign estimate by themselves.
+
+## Prime-5 extension follow-up
+
+The [prime-5 extension](prime5-extension-2026-09-30.md) certifies width 1.65
+with gap 10⁻¹⁴ by retaining the exact edge-pair operator and its full inverse.
+It also supplies a certified counterexample to the sufficient collar estimate
+(2) at that width, while the complete form remains positive on the same test.
+The all-support inequality (5) is still unproved.

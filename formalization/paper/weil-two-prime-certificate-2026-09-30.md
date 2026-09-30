@@ -295,3 +295,8 @@ arithmetic content.
 The present result crosses the first additional-prime threshold. It does not
 establish that all-width theorem, and the many named attacks cannot substitute
 for it merely by being combined.
+
+**Follow-up:** [Attempting the all-support step](weil-all-support-attempt-2026-09-30.md)
+extends the local certificate to width 1.6 with the prime-square term, proves an
+exact compensated arithmetic identity, and records the remaining sign estimate.
+It does not complete RH.

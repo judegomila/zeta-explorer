@@ -17,6 +17,8 @@ This review is based on `editorial-redesign` at `488fc05ce2bfffaa5379b312f168536
 
 The key advantage of Route I is that its local result can be checked without accepting the project's qualitative narrative. The first checker independently passes both the `2a=0.90` and `2a=0.96` payloads. A subsequent [two-prime proof attempt](weil-two-prime-certificate-2026-09-30.md) supplies a different certificate at `2a=1.3`, using interval finite sections with analytic complement bounds. These are local results; they do not establish an all-support extension, a new Λ bound, a novelty claim, or RH.
 
+The [all-support follow-up](weil-all-support-attempt-2026-09-30.md) now certifies width `1.6`, including the `p²=4` term. It derives an exact compensated prime-counting identity for arbitrary widths and identifies its unproved signed inequality. The local milestone is completed; the requested all-support proof is not.
+
 The superwire evidence needs particularly careful interpretation: `src/math/branched-flow.js` stops a classical ray once it reaches a prescribed strip near `sigma=1/2`, and its caustic comparison uses known zero heights as initial data. Such outputs do not establish asymptotic confinement or an independent prediction of zeros. A finite prime model also needs a justified relation to analytic continuation in the critical strip. These observations identify what to prove next; they do not refute every physical approach.
 
 ## 1. The correct all-support target

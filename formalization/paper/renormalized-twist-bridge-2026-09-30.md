@@ -270,3 +270,12 @@ For the classical tools used here, see [DLMF §27.4](https://dlmf.nist.gov/27.4)
 [Sourav Chatterjee, *Stats 310A lecture notes*, Theorem 7.10.1](https://souravchatterjee.su.domains/stat310a-lecture-notes.pdf)
 (Lindeberg–Feller). The renormalization and counterterm calculations are derived
 above; these references are not cited as proving them.
+
+## Direct completion attempt
+
+The [counterterm completion analysis](counterterm-completion-attempt-2026-09-30.md)
+reduces the frozen-bridge correction to absolutely convergent prime sums,
+constructs entire prime-power approximants, and proves that a specified
+cutoff-independent compact upper bound would complete RH. The required bound
+is unproved; finite positivity and symmetry are tested against an off-axis
+control and do not suffice.

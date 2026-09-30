@@ -171,3 +171,8 @@ The underlying classical Euler products, including the Liouville and squarefree
 quotients, are listed in [DLMF §27.4](https://dlmf.nist.gov/27.4), equations
 27.4.3, 27.4.7, and 27.4.8. The derivations here specify the domains and the
 extra theorem the proposed sign-flipping construction would need.
+
+The [correlated-twist follow-up](correlated-twist-bridge-2026-09-30.md) constructs
+weighted reciprocal-zeta recovery and an explicitly positive finite direct/dual
+product. It proves why the simple norm bound and the raw infinite product do
+not close the continuation step.

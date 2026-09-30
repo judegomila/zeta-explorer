@@ -17,7 +17,7 @@
 //   CONTRACT      = Lambda <= 0.14 completion contract (fail-closed; a contract,
 //                   not a bound), reduced to one open family on /permutation-architecture
 //   ESTIMATE      = finite-N* = 1e4 modeled figure, gated on the undischargeable C_H
-//   RH-EQUIVALENT = Volterra ||V|| <= 1 collapse (a rename, not a reduction)
+//   CORRECTED     = bare Volterra equivalence refuted; exact signed positivity remains open
 //   REFUTED       = the thin-strip sub-RH shortcut is a dead artifact (imp-2630)
 //   OPEN-HARD     = C_H / G6a is the confirmed wall for Dyson/collision routes;
 //                   the known discharge routes are closed, so it is not a live lever
@@ -25,9 +25,15 @@
 // Intentionally has NO imports so it stays light and never drags in the
 // 16.7MB zeros bundle through a page import.
 
-export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-08-28';
+export const STATE_OF_PROGRAM_SUMMARY_DATE = '2026-09-30';
 
 export const STATE_OF_PROGRAM_TRUTHS = [
+  {
+    badge: 'RESEARCH PRIORITY', color: '#22d3ee',
+    title: 'Prioritize exact arithmetic positivity for direct RH work',
+    body: 'The twin-ladder / Weil / Toeplitz–Krein direction has an exact criterion and independently replayable finite-support certificates. All-support pole-free positivity already suffices for RH; it needs neither a separate pole-inclusive bridge nor a uniform positive margin. Extending the exact arithmetic form to unbounded supports remains open. No new Λ bound follows.',
+    route: '/what-we-know', routeLabel: 'September 30 direction audit and corrected claims',
+  },
   {
     badge: 'PEER-REVIEWED BENCHMARK',
     color: '#34d399',
@@ -93,14 +99,10 @@ export const STATE_OF_PROGRAM_TRUTHS = [
       'rigorous-modulo-C_H, never as an unconditional finite-N beat.',
   },
   {
-    badge: 'RH-EQUIVALENT',
+    badge: 'CORRECTED',
     color: '#a78bfa',
-    title: 'The Volterra ‖V‖ ≤ 1 collapse is RH-EQUIVALENT, not a reduction',
-    body:
-      'The §15-27 collapse to a single statement ‖V‖ ≤ 1 is a faithful reformulation of RH — it renames RH, it ' +
-      'does not reduce it. The much-cited ~5000× empirical margin was a homogeneity artifact, not slack against a ' +
-      'real bound. Proving it would be proving RH; the same is true of Beurling-Nyman, de Branges, Connes-Weil, ' +
-      'and the normalized-R / Conj-26.3 target.',
+    title: 'The bare Volterra collapse is refuted; exact signed positivity remains open',
+    body: 'A small bare Volterra norm is not an RH certificate. For a finite matrix K=P+S with P>0, the exact condition is I+P^(-1/2) S P^(-1/2)>=0. A norm bound of 1 is sufficient but not necessary for a general signed residual. The continuum diagonal has zero product measure, so a positive comparison kernel requires a separate derivation.',
   },
   {
     badge: 'REFUTED',
@@ -109,9 +111,7 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     body:
       'The one route that once looked like a sub-RH shortcut — the thin-strip E_trunc / κ_T beat — is a frozen-κ ' +
       'height-mismatch artifact and is structurally dead (imp-2630): κ_T was frozen at T0=3000 but multiplied against ' +
-      'T0=1e13; the height-consistent value grows with height and never drops below 0.2 at scale. The §15-27 Volterra ' +
-      '‖V‖ ≤ 1 collapse is a faithful reformulation of RH, not a reduction below it. Net: there is no shortcut below ' +
-      'RH anywhere in the map.',
+      'T0=1e13; the height-consistent value grows with height and never drops below 0.2 within that calculation. This refutes the stated shortcut, not every possible route to RH.',
   },
   {
     badge: 'OPEN-HARD',
@@ -130,3 +130,4 @@ export const STATE_OF_PROGRAM_TRUTHS = [
     routeLabel: 'What we know: the wall and no-go landscape',
   },
 ];
+

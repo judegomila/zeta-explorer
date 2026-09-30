@@ -1,115 +1,40 @@
 /**
- * rh-route-i-toeplitz-krein-certificate (2026-09-24) — the Route I crux D_S <= L_S (Weil positivity on pole-free
- * L^2(-a,a), ln 2 < 2a < ln 3) attacked as a TRUNCATED TOEPLITZ POSITIVITY problem with a Krein-type (spectral-gap)
- * certificate. RESULT: (i) the exact Toeplitz reformulation is sharpened — the CC "Q-trick" symbol
- * sigma_1 = (t^2+1/4) w_1 encodes the HALF-pole-free form (only hhat(i/2) = 0) and is itself only marginally positive
- * near ln 3 (|lambda_min| < 2e-4, sign not resolved numerically), whereas the pole-free form is EXACTLY
- * T_a[sigma_2] >= 0 on all of L^2(-a,a) with sigma_2 = (t^2+1/4)^2 w_1 (lambda_min = 0.55 at (ln 3)/2, crossing at 2a =
- * 1.13); (ii) a machine-verified certificate (interval arithmetic, mpmath.iv, Binet–Stirling remainders) proves
- * T_a[sigma_2] >= 0, hence pole-free Weil positivity, for every support 2a <= X0 with X0 = 0.96 > ln 2 = 0.6931 — a
- * rigorous statement past the Yoshida/Connes–Consani range ln 2 — see KREIN_CERTIFICATE (main, 154 atoms, l1 = 1.5e6)
- * and the compact KREIN_CERTIFICATE_090 (X0 = 0.9, 150 atoms, l1 = 53.8); (iii) the two-window
- * "uncertainty" bound lambda_min(T[sigma^+]) - lambda_max(T[sigma^-]) fails already at 2a = 0.6026 < ln 2 and is
- * therefore not a route even to ln 2; (iv) the obstruction to reaching ln 3 with this method is quantified: any
- * certificate margin eps must be <= lambda_min(T_a[sigma_2]) = 0.55 (relative margin 1.3e-4 of the dip depth 4336),
- * and the double-precision LP producing the certificate hits its conditioning wall between 2a = 0.96 and 2a = 1.0
- * (HiGHS status 4 / infeasible at eps <= lambda_min). No positivity for 2a > X0 is claimed. RH open; PT Lambda <= 0.2
- * stands; NO QED.
+ * Route I Toeplitz–Krein certificates; audited 2026-09-30.
  *
- * ---------------------------------------------------------------------------------------------------------------
- * 0. SETTING. For h in L^2(-a,a), hhat(t) = int h(x) e^{-itx} dx (entire, PW_a). With w(t) = 2theta'(t) - m_2(t),
- *    2theta'(t) = Re psi(1/4 + it/2) - ln pi, m_2 = 2 ln2 sum_{k>=1} 2^{-k/2} cos(k t ln 2), the Weil form for supports
- *    2a <= ln 3 is  W(h) = pole(h) + (1/2pi) int w |hhat|^2  (only n = 2^k contribute; g(ln 3) = 0 by continuity at
- *    2a = ln 3). On the pole-free subspace {hhat(+-i/2) = 0} the pole term vanishes. Since cos(k t ln 2) for k >= 2 has
- *    Fourier support {+-k ln 2} with 2 ln 2 = 1.386 > ln 3, the terms k >= 2 contribute nothing on 2a <= ln 3, so on the
- *    whole range the symbol may be taken as  w_1(t) = 2theta'(t) - sqrt2 ln2 cos(t ln 2).
+ * Fourier convention: hhat(t)=int h(x) exp(-itx) dx. Work first on
+ * C_c^infinity(-a,a); unrestricted L² is not the domain of the unbounded symbol.
+ * If hhat(+/-i/2)=0, h=Qg for a compact smooth g, Q=-d²/dx²+1/4.
+ * For 2a<=log(3), the exact pole-free form is
+ *   (1/2pi) int sigma2(t)|ghat(t)|² dt,
+ *   sigma2=(t²+1/4)² [Re psi(1/4+it/2)-log(pi)-sqrt(2)log(2)cos(t log(2))].
  *
- * 1. EXACT TOEPLITZ REFORMULATION (elementary, Paley–Wiener only; no Akhiezer factorisation needed).
- *    (a) hhat(i/2) = 0  <=>  hhat = (t - i/2) fhat with f in L^2(-a,a)  (fhat := hhat/(t - i/2) is entire of type a and in
- *        L^2(R), so f in L^2(-a,a) by Paley–Wiener). Hence  {W-form on hhat(i/2) = 0}  =  <T_a[sigma_1] f, f>,
- *        sigma_1 = (t^2+1/4) w_1.  This is the CC Q-trick form of the sibling module (qTrickLamMin): it is the
- *        HALF-pole-free statement, STRONGER than pole-free positivity.
- *    (b) hhat(+-i/2) = 0  <=>  hhat = (t^2+1/4) ghat, g in L^2(-a,a)  (h = Q g, Q = -d^2/dx^2 + 1/4, on the dense subspace
- *        C_c^oo). Hence  pole-free Weil positivity on L^2(-a,a)  <=>  T_a[sigma_2] >= 0 on L^2(-a,a),
- *        sigma_2 = (t^2+1/4)^2 w_1,  i.e. (1/2pi) int sigma_2 |ghat|^2 >= 0 for all g in C_c^oo(-a,a).
- *        Equivalently T_a[sigma_1] >= 0 on the codimension-1 subspace {fhat(-i/2) = 0}.
- *    Margins (Legendre–Galerkin, basis (a^2-x^2)^m P_n, N <= 48, t-quadrature to 300–800):
- *      lambda_min(T_a[sigma_1]) on all of L^2:  0.0400 (a = 0.45), 0.0253 (0.46), 0.0156 (0.47), 0.00925 (0.48),
- *        0.00288 (0.50), 7.9e-4 (0.52), 2.1e-4 (0.54), and at (ln 3)/2 between -1.2e-4 and +1.4e-4 depending on the
- *        t-cutoff (300 vs 800): the half-pole-free form is NOT established positive at ln 3 and may fail before it.
- *      lambda_min(T_a[sigma_2]) (||g||^2-normalised, m = 3, N = 36): 56.1 (0.45), 7.74 (0.50), 2.69 (0.52), 0.817 (0.54),
- *        0.552 ((ln 3)/2), 0.492 (0.555), 0.475 (0.56), -6.6 (0.5658), -61 (0.58): positive through ln 3 with the
- *        crossing at 2a = 1.13 (the p = 2-only crossing of the sibling pencil module, 2a* = 1.1316).
- *      The natural target of a proof is therefore T_a[sigma_2] >= 0 (relative margin 0.552/4336 = 1.3e-4 at ln 3),
- *      not T_a[sigma_1] >= 0 (relative margin ~1e-4/50 = 2e-6, sign unresolved).
+ * Certificate lemma: each exterior atom t^k trig_k(x_j t), x_j>=2a,
+ * has inverse Fourier support outside the smooth autocorrelation support.
+ * Its pairing with |ghat|² vanishes. Thus sigma2+nu>=0 on ALL of R
+ * suffices for every smooth test at that support, not just a finite trial space.
  *
- * 2. CERTIFICATE LEMMA (Krein spectral-gap sufficiency). Let X0 > 0 and
- *        nu(t) = sum_{k=0}^{4} sum_j c_{k,j} t^k trig_k(x_j t),   trig_k = cos (k even), sin (k odd),   x_j >= X0.
- *    Each atom is even in t and has Fourier support {+-x_j} (derivatives of point masses), so for f in C_c^oo(-a,a)
- *    with 2a <= X0:  int nu |fhat|^2 dt = 2pi sum (polynomial in d/dx of g)(+-x_j) = 0, g = f * f~ in C_c^oo(-2a, 2a).
- *    Hence  sigma_2 + nu >= 0 on R  ==>  <T_a[sigma_2] f, f> = (1/2pi) int (sigma_2 + nu)|fhat|^2 >= 0  for every 2a <= X0,
- *    i.e. pole-free Weil positivity for ALL supports 2a <= X0 from ONE pointwise inequality. (The converse — existence
- *    of such nu whenever T_a[sigma_2] > 0 — is the Krein extension theorem for the positive-definite distribution
- *    (sigma_2)^vee on (-2a, 2a); it is not needed for the sufficiency direction used here.) Necessity of a margin:
- *    sigma_2 + nu >= eps forces eps <= lambda_min(T_a[sigma_2]); at (ln 3)/2 this is 0.552.
+ * scripts/audit-route-i-certificate.py independently replays the 0.90 and 0.96
+ * payloads with exact decimal coefficients and lattice locations ks/50.
+ * Acceptance uses interval endpoints, a between-endpoint curvature bound,
+ * a full-period top-family bound, and a monotone infinite-tail estimate.
+ * The older verify4 mixed interval calculations with NumPy rounding slack;
+ * its recorded flags and nominal LP margins are not the new verification.
  *
- * 3. THE CERTIFICATES (payload module). Atoms on the lattice x_j = k_j dx, dx = 0.02, k_j >= 48 (x_j >= X0 = 0.96;
- *    the compact certificate has k_j >= 45, X0 = 0.9), X <= 8, degree families k = 0..4, T = 60, eps = 8 (resp. 20),
- *    eps_rel = 1e-3, found by a cutting-plane LP (HiGHS, scipy 1.18; round-2 iterate, the LP margin is NOT what is
- *    certified — the interval verifier certifies F >= 0 only) with a
- *    second-order between-grid guard  F(t) >= F(t_i) - (h^2/8) sup|F''|  and margin eps + eps_rel sigma_2^+, then
- *    VERIFIED with interval arithmetic (tmp/toeplitz-krein-verify4.py; log baked in KREIN_CERTIFICATE.verification):
- *      - 2theta' and its derivative: shifted digamma (Re z -> 12.25) + Stirling N = 8 with the Binet remainder bounds
- *        |R_N| <= |B_{2N+2}|/((2N+2)(Re w)^{2N+2}), |R'_N| <= |B_{2N+2}|/(Re w)^{2N+3} (mpmath.iv, 80 bits);
- *      - on [0, T]: coarse cells (2e-3 up to t = 40) with sigma_2(m), sigma_2'(m) enclosed and |sigma_2''| bounded by
- *        (12t^2+1)|w_1| + 8t(t^2+1/4)|w_1'| + (t^2+1/4)^2 * 33 (|w_1''| <= zeta(3,1/4)/2 + sqrt2 (ln 2)^3 < 33), fine
- *        sub-cells for nu with the Lagrange bound (1/2) sup|nu''| r^2 and an explicit float64 rounding slack;
- *      - tail t >= T: F(t) >= t^4 [ L(t) - sqrt2 ln2 + min_R p_4 - sum_{k<4} S_k / t^{4-k} ], L(t) = ln(t/2) - 1/t -
- *        4 sum_{k<12}(k+1/4)/t^2 - 1/(3t^2) - 5e-7 - ln pi an increasing rigorous lower bound of 2theta', p_4 the
- *        (periodic, period 2pi/dx) t^4-family trigonometric polynomial, minimised rigorously over one period.
- *    THEOREM (machine-verified, interval arithmetic). For every 0 < a <= 0.48 and every h in L^2(-a,a) with
- *    hhat(+-i/2) = 0:   sum_gamma |hhat(gamma)|^2  =  (1/2pi) int (2theta' - m_2) |hhat|^2 dt  >=  0.
- *    2a = 0.96 exceeds ln 2 = 0.6931 by 0.267 (verified certificates at X0 = 0.90, 0.94, 0.96; worst midpoint values
- *    F ~ 20.0 / 8.3 / > 0). Relation to the same-day siblings: rh-route-i-direct-sonine-trace-certificate (dual LP
- *    certificates, IEEE double + Lipschitz safety, NOT interval, the same range 2a <= 0.96) and
- *    rh-route-i-uncertainty-concentration-certificate (primal Galerkin lower bound with Bernstein tail, IEEE double,
- *    all a <= (ln 3)/2, margin 9.04e-4) are floating-point computer-assisted arguments; the present certificates are
- *    the first INTERVAL-RIGOROUS ones (every enclosure outward-rounded, digamma remainders explicit). The published
- *    proved range remains 2a <= ln 2 (Yoshida 1992; Connes–Consani 2021).
+ * Correct zero side, without assuming RH:
+ *   sum_rho hhat(z_rho) conjugate(hhat(conjugate(z_rho))), z_rho=(rho-1/2)/i.
+ * Writing sum |hhat(gamma)|² over real ordinates already presumes real zeros.
  *
- * 4. THE UNCERTAINTY (TWO-WINDOW) BOUND — REFUTED AS A ROUTE. Slepian concentration of PW_a in the dip
- *    (6.945, 10.532): lambda_max = 0.396 (a = (ln 2)/2), 0.532 (0.45), 0.559 (0.50), 0.572 ((ln 3)/2); sup_f (1/2pi)
- *    int sigma_1^- |fhat|^2 / ||f||^2 = 12.0, 17.5, 18.2, 18.3. The split bound lambda_min(T[sigma_1^+]) -
- *    lambda_max(T[sigma_1^-]) (exact two-window version of "positive mass minus dip depth times concentrable
- *    fraction") is +0.23 at a = 0.30 and -5.94 at a = (ln 2)/2, crossing zero at 2a = 0.6026 < ln 2, while the true
- *    lambda_min is 6.42 resp. 1.59 there. Splitting the symbol discards the cancellation between the well, the dip and
- *    the positive band [3.3, 6.9] that a PW_a function is FORCED to sample simultaneously (resolution pi/a); the Krein
- *    certificate is the exact dual of this cancellation and supersedes every split bound. (Consistent with the
- *    sibling rh-route-i-uncertainty-concentration-certificate, layer (I): sign-window floor operator lambda_min =
- *    -1.019 on pole-free h; concentration alone closes the gap only with three vanishing moments.)
+ * The next target is log(3), then the TWO-prime form with the p=3 term.
+ * Values of the p=2-only model beyond log(3) do not describe the exact Weil form.
+ * Galerkin minima below are numerical Ritz diagnostics, not lower bounds for
+ * the infinite-dimensional infimum. LP failures and coefficient-growth fits
+ * do not prove an intrinsic barrier or prescribe sufficient precision.
  *
- * 5. OBSTRUCTION TO ln 3 WITH THIS METHOD (precise). (a) eps <= lambda_min(T_a[sigma_2]) = 0.552 at (ln 3)/2 against a
- *    symbol of size 4.3e3 (dip) to 1.7e7 (t = 60): the LP must resolve F to a relative 1e-4..1e-11, beyond HiGHS
- *    (status 4 "numerical difficulties" at a >= 0.50 for sigma_2 with eps = 4 <= lambda_min(0.5) = 7.7, and for
- *    sigma_1 already at a = 0.46 with eps = 0.02 <= lambda_min = 0.025). (b) The t^4 family (the cheap atoms) is capped by
- *    the LOG growth of 2theta': the tail needs min p_4 > -(2theta'(T) - sqrt2 ln 2) = -(ln(T/2pi) - 0.98), i.e. |c_4|
- *    of order 1–4 for T = 60–1000, so the dip (needs +0.63 t^4 at t = 9) must be filled by lower-degree atoms with
- *    large coefficients, and the certificate norm grows steeply in a. (c) Without the guard/tail structure the LP
- *    exploits gaps between grid points (sigma_1 certificates at a = 0.45 with l1 = 4947–23911 that fail between the
- *    nodes); with it, honest norms are l1 = 496 (sigma_1, crude tail) / 21.6 (sigma_1, periodic tail) / 53.8 (sigma_2,
- *    eps = 20) at a = 0.45, then 3.1e4 (a = 0.47) and 1.5e6 (a = 0.48): the sigma_2 certificate norm grows by a factor
- *    30–50 per 0.02 in 2a, extrapolating to ~1e10 at 2a = 1.0 and ~1e17 at ln 3 — beyond IEEE double, which is why
- *    a = 0.50 already returns HiGHS status 4/15. Reaching ln 3 needs either an extended-precision LP for eps ~ 0.5 or an analytic
- *    (non-LP) Krein extension of (sigma_2)^vee — the latter is the actual open problem.
- *
- * 6. HONEST VERDICT. Proved and machine-verified: pole-free Weil positivity for 2a <= 0.96 (past ln 2). Corrected:
- *    the Toeplitz target for the pole-free form is sigma_2 = (t^2+1/4)^2 w_1, not sigma_1. Refuted: the two-window
- *    uncertainty bound (fails below ln 2). Open: 0.96 < 2a < ln 3, with the precise numerical margin 0.552 and the LP
- *    conditioning wall documented. Nothing about RH follows; PT Lambda <= 0.2 stands; NO QED.
- *
- * Import-light (Route I twoThetaPrime + payload; no zeros bundle). Assertions ~5 s: symbol landmarks, the
- * Q-identity hhat = (t^2+1/4) ghat, certificate structure (lattice, X0), sampled positivity of sigma_2 + nu with the
- * second-order guard on [0, 12] and sampled on [12, T], the periodic tail bracket, baked-table consistency.
+ * All-support pole-free positivity already suffices for RH (Connes–Consani,
+ * arXiv:2006.13771, Appendix C, Proposition C.1). No pole-inclusive bridge or
+ * separate uniform positive margin is required. The support extension remains
+ * open; no new Lambda bound or RH proof is claimed by this audit.
+ * See formalization/paper/rh-direction-audit-2026-09-30.md.
  */
 
 import { twoThetaPrime } from './rh-route-i-semilocal-sonine-trace-identity-2026-09-23.js';
@@ -121,7 +46,7 @@ const LN2 = Math.LN2, LN3 = Math.log(3), SQRT2 = Math.SQRT2, PI = Math.PI;
 export const w1 = (t) => twoThetaPrime(t) - SQRT2 * LN2 * Math.cos(t * LN2);
 /** half-pole-free symbol (CC Q-trick): T_a[sigma_1] >= 0 <=> Weil form >= 0 on {hhat(i/2) = 0} */
 export const sigma1 = (t) => (t * t + 0.25) * w1(t);
-/** pole-free symbol: T_a[sigma_2] >= 0 on L^2(-a,a) <=> Weil form >= 0 on {hhat(+-i/2) = 0} */
+/** Pole-free symbol on the smooth compact test core; close the form before extending its domain. */
 export const sigma2 = (t) => (t * t + 0.25) ** 2 * w1(t);
 
 /** nu(t) = sum_k sum_j c_{k,j} t^k trig_k(x_j t) for a certificate {xs, c0..c4} */
@@ -210,36 +135,26 @@ export const TOEPLITZ_KREIN_LITERALS = Object.freeze({
     projectedL1Log10: { a100: 9.02, a102: 10.48, a104: 11.95, aLn3: 16.24 }, // module upper estimate: ~1e10 (1.0), ~1e17 (ln3)
     doublePrecWallTwoA: { log10L1_9: 0.9998, log10L1_10: 1.0134, log10L1_11: 1.0271, log10L1_12: 1.0407 }, // wall in [1.00, 1.04]
     extendedPrecReach: { l1Log10AtLn3: 16.24, decadesToHold: 20.2, bitsNeeded: 68, doubleBits: 53, doubleDoubleBits: 106 }, // double-double (106 bits) comfortably reaches ln3
-    note: 'measurement/projection only; NO QED. Confirms norm growth IS the obstruction: double-prec walls out at 2a ~ 1.0, reaching ln3 needs ~68-bit (double-double) LP',
+    note: 'Measurement/projection only; NO QED. Coefficient growth is an observed search difficulty. This fit proves neither an intrinsic barrier nor that a given precision will suffice.',
   },
-  // imp-96632: DISTINCT projection from normGrowthLaw -- fit the CERTIFIED interval-verified eps-margin decay
-  // directly (not the l1-norm) vs support 2a, from the same three baked verified sigma_2 rungs. The certified eps
-  // (round-2 cutting-plane LP margin, interval-confirmed) is EXACTLY LINEAR in 2a: (0.90,20),(0.94,12),(0.96,8) have
-  // segment slopes -200/-200 per unit 2a (R^2 = 1.00000000), giving eps(2a) = 200*(1 - 2a). It reaches eps -> 0 at
-  // 2a* = 1.000000 (a* = 0.500000), which coincides EXACTLY with the observed LP double-precision wall (a >= 0.50,
-  // HiGHS status 4/15) and with the normGrowthLaw l1-explosion wall 2a in [1.00, 1.04] -- an independent second
-  // observable confirming the same wall. a* = 0.50 falls SHORT of (ln 3)/2 = 0.549306 by 0.049306 (2a short of
-  // ln 3 = 1.098612 by 0.098612). HONEST SUB-GAP (eps-fit-3anchor): (i) the eps here is the CERTIFIED LP margin, NOT
-  // the true positivity margin lambda_min(T_a[sigma_2]) -- lambda_min stays positive well past 2a = 1.0 (~7.7 at
-  // a=0.50, sign flip only near a=0.5658 per lambdaMinSigma2), so a* = 0.50 marks where the DOUBLE-PRECISION LP can
-  // no longer emit a positive-margin certificate, not where positivity fails; (ii) only 3 baked anchors, no fresh
-  // fine-grid LP sweep; the perfect linearity is empirical over the narrow 0.90-0.96 window.
+  // Historical fit to nominal LP design parameters, not certified spectral margins.
+  // Perfect linearity of three chosen parameters proves no reach/conditioning barrier.
   epsMarginDecay: {
     anchors: [{ twoA: 0.90, eps: 20, verified: true }, { twoA: 0.94, eps: 12, verified: true }, { twoA: 0.96, eps: 8, verified: true }],
     segmentSlopesPerUnit: [-200.0, -200.0], // 0.90->0.94, 0.94->0.96: identical => exactly linear in 2a
     lsFit: { slope: -200.0, intercept: 200.0, r2: 1.0 }, // eps = slope * (2a) + intercept
-    epsZeroTwoA: 1.000000, epsZeroA: 0.500000, // certified-margin wall (extrapolated eps -> 0)
+    epsZeroTwoA: 1.000000, epsZeroA: 0.500000, // nominal-design extrapolation (not a proved wall)
     coincidesWithLpWallA: 0.50, coincidesWithNormGrowthWallTwoA: [1.00, 1.04], // same wall, three independent observables
     ln3HalfShortfallA: 0.049306, ln3ShortfallTwoA: 0.098612, // a* below (ln 3)/2 = 0.549306
-    note: 'projection only; NO QED; interval-rigorous range stays exactly the certified rungs 2a <= 0.96. eps here is the certified LP margin, not lambda_min positivity (which persists past 2a=1.0)',
+    note: 'projection only; NO QED; interval-rigorous range stays exactly the certified rungs 2a <= 0.96. eps here is a nominal LP design parameter, not a certified achieved margin or a proven spectral infimum',
   },
 });
 
 export const RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE = Object.freeze({
   id: 'rh-route-i-toeplitz-krein-certificate-2026-09-24',
   title: 'Toeplitz/Krein certificate for pole-free Weil positivity past ln 2: sigma_2 = (t^2+1/4)^2 w_1, interval-verified for 2a <= 0.96; ln 3 obstruction quantified',
-  status: 'THEOREM (machine-verified, interval arithmetic) for 2a <= 0.96; OPEN for 0.96 < 2a < ln 3; NO QED; RH open; PT Lambda <= 0.2 stands',
-  reformulation: 'pole-free Weil positivity on L^2(-a,a) <=> T_a[(t^2+1/4)^2 w_1] >= 0 on L^2(-a,a) (hhat = (t^2+1/4) ghat); the CC Q-trick symbol (t^2+1/4) w_1 is the half-pole-free form, only marginally positive near ln 3 (|lambda_min| < 2e-4, sign unresolved)',
+  status: 'INDEPENDENT INTERVAL REPLAY for smooth pole-free tests, 2a<=0.96; extension OPEN; no new RH or Lambda bound',
+  reformulation: 'On smooth compact tests, hhat(+/-i/2)=0 iff h=Qg with compact smooth g. The pole-free form becomes (1/2pi) int sigma2 |ghat|². Extending this statement to a closed form requires domain control.',
   certificate: { X0: KREIN_CERTIFICATE.twoA, dx: KREIN_CERTIFICATE.dx, atoms: KREIN_CERTIFICATE.xs.length, kmax: KREIN_CERTIFICATE.kmax, T: KREIN_CERTIFICATE.T, eps: KREIN_CERTIFICATE.eps, epsRel: KREIN_CERTIFICATE.eps_rel, l1: KREIN_CERTIFICATE.l1, verification: KREIN_CERTIFICATE.verification,
     // imp-96677: eps=8.0 above is the NOMINAL LP design margin baked into the payload; the imp-96651 finer scan
     // found the coefficients only ACHIEVE rawFfloor=7.9867 (at t=9.0254) and the full design-condition floor
@@ -248,8 +163,8 @@ export const RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE = Object.freeze({
     achievedMargin: { rawFfloor: KREIN_096_ACHIEVED_MARGIN.achieved.rawFfloor.value, rawFfloorAt: KREIN_096_ACHIEVED_MARGIN.achieved.rawFfloor.at, epsAchieved: KREIN_096_ACHIEVED_MARGIN.achieved.designConditionFloor.epsAchieved, epsAchievedAt: KREIN_096_ACHIEVED_MARGIN.achieved.designConditionFloor.at, positivityUnaffected: KREIN_096_ACHIEVED_MARGIN.positivityUnchanged },
   },
   compactCertificate: { X0: KREIN_CERTIFICATE_090.twoA, atoms: KREIN_CERTIFICATE_090.xs.length, l1: KREIN_CERTIFICATE_090.l1, eps: KREIN_CERTIFICATE_090.eps, verification: KREIN_CERTIFICATE_090.verification },
-  theorem: 'for every 0 < a <= 0.48 and h in L^2(-a,a) with hhat(+-i/2) = 0: (1/2pi) int (2theta\' - m_2)|hhat|^2 >= 0 (pole-free Weil positivity, support 2a <= 0.96 > ln 2; compact certificate for 2a <= 0.9)',
-  obstruction: 'eps <= lambda_min(T_a[sigma_2]) = 0.552 at (ln 3)/2 (relative 1.3e-4 of the dip 4336; symbol up to 1.7e7 on the verified window); double-precision LP wall at a >= 0.50; t^4 atoms capped by the log growth of 2theta\' (tail needs min p_4 > -(ln(T/2pi) - 0.98)); the analytic Krein extension of (sigma_2)^vee on (-ln 3, ln 3) is the open problem',
+  theorem: 'For every 0<a<=0.48 and smooth h compactly supported in (-a,a) with hhat(+/-i/2)=0, the pole-free Weil form is nonnegative. Independent interval replay at 2a=0.90 and 0.96; no support extension or RH conclusion.',
+  obstruction: 'Open: a certificate at log(3), followed by the exact p=2,3 form beyond log(3). The displayed Galerkin values and LP failures are diagnostics, not spectral lower bounds or impossibility theorems.',
   uncertaintyBound: 'two-window split bound crosses zero at 2a = 0.6026 < ln 2: not a route even to ln 2',
   literals: TOEPLITZ_KREIN_LITERALS,
 });
@@ -315,13 +230,13 @@ export const KREIN_EXTENSION_ASSESSMENT = Object.freeze({
     forConstructiveCertificate: false,
     reasons: [
       'lambda_min = 0.552 is a finite-N (N = 36) Galerkin Rayleigh floor, an upper bound on the true infinite-dim lambda_min, monotone decreasing in N (0.6174/0.5786/0.5521 at N = 20/28/36), not proven bounded away from 0 in the limit',
-      'Krein existence is non-constructive (Hahn-Banach / M. Riesz); the finite trig-polynomial exterior nu has l1 norm exploding 53.8 -> 3.2e4 -> 1.5e6 (x30-50 per 0.02 in 2a) as the extension measure concentrates on the p = 2 lattice t ~ 2^k and the symbol range reaches 1.7e7',
+      'The stored coefficient norms grow 53.8 -> 3.2e4 -> 1.5e6. These observations do not prove a required concentration law or a particular support for an extension measure.',
     ],
   },
-  analyticObstruction: 'a UNIFORM-IN-N spectral gap: lambda_min(T_a[sigma_2]) >= c > 0 for the true operator on all of PW_a for 0.96 < 2a < ln 3 (not the N = 36 truncation), equivalently an explicit de Branges / canonical-system Weyl function realising the extension with the exterior mass as a singular 2^k spectrum -- a positive-definite-extension / spectral-gap problem, NOT an arithmetic-precision problem (extended precision postpones the l1 blow-up but supplies no uniform lower bound)',
-  lpWallIsSymptom: 'the double-precision LP wall (HiGHS status 4 at a >= 0.50) is a conditioning symptom of the l1 blow-up, not the underlying mathematics',
+  analyticObstruction: 'Open: prove nonnegativity for every smooth test, or construct a globally verified exterior certificate. A strictly positive spectral gap is a sufficient stronger target, not a necessary extra requirement. No prescribed singular spectrum has been established.',
+  lpWallIsSymptom: 'The observed double-precision LP failures diagnose the current search; they do not prove a mathematical barrier. Higher precision may help, but must still produce a verified certificate.',
   subGap: 'KREIN-EXT-UNIFORM-N',
-  verdict: 'analytic Krein extension is the correct route (equivalent reformulation); the live sub-gap is an infinite-dimensional / uniform-in-N positivity (spectral gap) of T_a[sigma_2] replacing the LP wall. NO QED; no positivity for 2a > 0.96 claimed; RH open; PT Lambda <= 0.2 stands',
+  verdict: 'Analytic positive extension and independently verified numerical certificates are live approaches. Their all-test positivity target remains open beyond 2a=0.96; no strict spectral-gap requirement, new Lambda bound, or RH proof is established here.',
 });
 
 const near = (x, y, tol) => Math.abs(x - y) <= tol;
@@ -411,3 +326,4 @@ export const RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE_ASSERTIONS = Object.freeze([
 ]);
 
 export default RH_ROUTE_I_TOEPLITZ_KREIN_CERTIFICATE;
+

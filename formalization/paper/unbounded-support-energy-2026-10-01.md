@@ -243,11 +243,16 @@ on each finite R-window once all contributing primes have been conditioned.
 For each fixed finite conditioning the weighted energy is still finite
 almost surely. But the elementary expectation bound loses the reciprocal
 probability of the event: forcing r independent signs costs at most a factor
-2^r in that estimate. No conditioning-independent bound follows. Passing to
-all primes needs a separate uniform-integrability or deterministic
-cancellation estimate. This is precisely the missing step, not a permissible
-interchange of average and limit. Signed recovery weights would likewise
-need a proved norm bound.
+2^r in that estimate. A subsequent
+[completion attempt](all-plus-recovery-attempt-2026-10-01.md) establishes the
+stronger obstruction: the raw conditional means have a moving cutoff edge
+whose weighted energy grows as a positive constant times Y^(1-2 epsilon).
+For epsilon<1/2 a raw conditioning-independent energy bound is false even
+under RH. The follow-up removes this edge by exact continuum subtraction;
+the uniform bound for that centered recovery remains unproved. It also
+shows that any fixed positive bias retains the original deterministic
+mean. Signed recovery weights would likewise need a separately proved norm
+bound; no interchange of average and limit closes the argument.
 
 ## 5. The dyadic refinement identity does not reduce the separation
 
@@ -401,7 +406,9 @@ remaining problem is the signed, one-sided prime-pair bound (6), or another
 estimate implying the equivalent weighted energy criterion.
 
 The next useful proof attempt must control those arithmetic correlations
-uniformly in the endpoint, or supply a justified uniform bound while
-recovering the all-plus twist. More finite windows, Gram positivity alone,
+uniformly in the endpoint, or bound a valid centered recovery of the all-plus
+twist. The [completion attempt](all-plus-recovery-attempt-2026-10-01.md)
+rejects a uniform bound for raw conditioning and supplies the corrected
+endpoint identity. More finite windows, Gram positivity alone,
 fine-scale pointwise disappearance, and an almost-sure random bound do not
 supply that implication. No completed RH proof is claimed.

@@ -27,6 +27,8 @@ The [unbounded-support follow-up](formalization/paper/unbounded-support-translat
 
 The [energy and refinement attempt](formalization/paper/unbounded-support-energy-2026-10-01.md) isolates a one-sided bound on signed pairs of distinct prime powers; the diagonal already has an unconditional cubic bound. It derives a global weighted energy bound for **almost every multiplicative prime-sign twist**, but does **not** transfer that result to ordinary zeta's all-plus assignment. Exact refinement preserves the large-separation problem, and a sharp prime cutoff creates an exponential boundary artifact. Twelve rational/512-bit check groups cover these identities and continuous finite energy integrals through separation 6. The deterministic global bound and RH remain unproved; independent review is required.
 
+The [all-plus completion attempt](formalization/paper/all-plus-recovery-attempt-2026-10-01.md) proves that the **raw uniform conditioning bound is false**, because its moving edge has exponentially growing energy even under RH. It constructs a centered recovery with an exact, checked endpoint identity, but does not prove its uniform bound. Any fixed positive sign bias retains the original deterministic mean; termwise absolute prime-pair bounds also grow exponentially. Nine rational/512-bit audit groups pass. These findings reject proposed shortcuts and correct the recovery target; they do not complete the proof or improve the unconditional growth exponent.
+
 Reproduce:
 
 ```sh
@@ -46,6 +48,7 @@ python scripts/audit-prime7-acceptance.py
 python scripts/certify-prime7-extension.py
 python scripts/audit-unbounded-translation.py
 python scripts/audit-unbounded-energy.py
+python scripts/audit-all-plus-recovery.py
 ```
 
 **Author:** Jude Gomila, with an AI fleet (Claude, Codex, ChatGPT) under human direction · **Live app:** `npm run dev` · **Papers:** `research-inputs/` (the consolidated twin-ladder paper, the permutation-architecture paper, the twistor framework note)

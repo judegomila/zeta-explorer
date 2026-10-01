@@ -242,6 +242,12 @@ only the old symbol in the frequency estimates:
 
 ## 6. Scope and next obstruction
 
+**Follow-up (2026-10-01):** the [prime-7 extension](prime7-extension-2026-10-01.md)
+now certifies width 2 with gap 10⁻²⁴, using the geometry derived below.
+The statements of unfinished prime-7 work in this section describe the status
+of this earlier prime-5 calculation; the later note contains the completed
+local check. All-support positivity remains unproved.
+
 The useful conclusion is that retaining the signed edge interaction can
 succeed where a simple collar-energy bound is false. The lemma is general,
 but this certificate is local. It proves no uniform estimate for unbounded

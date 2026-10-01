@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "acceptance and rejection controls; not a Weil certificate",
+  "precision_bits": 256,
+  "checks": [
+    "positive ill-conditioned Hilbert-16 Gram matrix accepted",
+    "indefinite matrix rejected",
+    "positive midpoint with sign-uncertain input rejected",
+    "invalid baseline floor rejected before quadrature, no receipt emitted",
+    "missing prime 7 rejected before quadrature, no receipt emitted",
+    "unimplemented prime power 8 rejected before quadrature, no receipt emitted"
+  ],
+  "hilbert16_congruence_margin_lower": "[0.9999999999999999999999999999999999999999999999999999999610034672079128932675 +/- 4.52e-77]",
+  "checker_sha256": "2524e5188bbe57c4df3f8c6db959795d1a0df6ea4ad90be41da30b1f9058b507",
+  "script_sha256": "8a7f336e9a394a4cfa4176e983b137a9fc7c8701014e8c6b8b83501f4a6b6dd7"
+}

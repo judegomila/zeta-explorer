@@ -19,7 +19,9 @@ Read the [audit and two-prime extension contract](formalization/paper/rh-directi
 The [all-support follow-up](formalization/paper/weil-all-support-attempt-2026-09-30.md) extends the local certificate to width **1.6**, with every contributing prime power (`2,3,4`). It derives an exact signed remainder identity at arbitrary width, but does **not** prove the inequality needed for RH. It also records why adding prime powers is not a positive update and why the current constant tail bound becomes too expensive to scale directly.
 
 
-The [prime-5 extension](formalization/paper/prime5-extension-2026-09-30.md) certifies width **1.65** with gap **10⁻¹⁴**, retaining the new edge coupling exactly. Both 184-dimensional parity blocks pass at 512 bits with full complement bounds. A separately certified test shows that replacing the coupling by a crude collar penalty fails, although the full Weil form is positive on that test. The next prime-7 transition has an explicit four-node block decomposition; its full positivity is not yet certified. These are local, unrefereed results, not RH.
+The [prime-5 extension](formalization/paper/prime5-extension-2026-09-30.md) certifies width **1.65** with gap **10⁻¹⁴**, retaining the new edge coupling exactly. Both 184-dimensional parity blocks pass at 512 bits with full complement bounds. A separately certified test shows that replacing the coupling by a crude collar penalty fails, although the full Weil form is positive on that test.
+
+The [prime-7 extension](formalization/paper/prime7-extension-2026-10-01.md) now certifies width **2** with gap **10⁻²⁴** for smooth pole-free tests supported in (-1,1). It retains the exact four-node interactions of primes 5 and 7 and includes all contributing prime powers (`2,3,4,5,7`). Both 288-dimensional blocks pass a 768-bit interval congruence check with full complement bounds. Direct interval LDL was initially inconclusive; the successful check preserves all input uncertainty. The next prime-power-8 step has an eight-node decomposition and a verified baseline, but its full positivity remains uncertified. These are local results requiring independent review, not RH or formally verified theorems.
 
 Reproduce:
 
@@ -35,6 +37,9 @@ python scripts/certify-weil-window.py
 python scripts/audit-prime5-blocks.py
 python scripts/audit-prime5-collar.py
 python scripts/certify-prime5-extension.py
+python scripts/audit-prime7-blocks.py
+python scripts/audit-prime7-acceptance.py
+python scripts/certify-prime7-extension.py
 ```
 
 **Author:** Jude Gomila, with an AI fleet (Claude, Codex, ChatGPT) under human direction · **Live app:** `npm run dev` · **Papers:** `research-inputs/` (the consolidated twin-ladder paper, the permutation-architecture paper, the twistor framework note)

@@ -299,3 +299,12 @@ with gap 10⁻¹⁴ by retaining the exact edge-pair operator and its full inver
 It also supplies a certified counterexample to the sufficient collar estimate
 (2) at that width, while the complete form remains positive on the same test.
 The all-support inequality (5) is still unproved.
+
+## Prime-7 extension follow-up
+
+The [prime-7 extension](prime7-extension-2026-10-01.md) certifies width 2 with
+gap 10⁻²⁴, retaining the exact four-node interactions of primes 5 and 7.
+Both 288-dimensional parity blocks pass interval congruence checks at 768 bits,
+including all omitted-space and frequency-tail bounds. This extends the local
+result to tests supported in (-1,1); it does not establish (5) at unbounded
+width. The next prime-power-8 decomposition is derived but not positivity-certified.

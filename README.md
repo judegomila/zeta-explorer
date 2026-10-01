@@ -25,6 +25,8 @@ The [prime-7 extension](formalization/paper/prime7-extension-2026-10-01.md) now 
 
 The [unbounded-support follow-up](formalization/paper/unbounded-support-translation-2026-10-01.md) derives an RH-equivalent growth criterion for **one fixed pole-free test and its two signed translates**. A subexponential bound on their interaction would suffice; that bound is **not proved**. The note gives the exact prime-power formula, its Laplace-transform proof, and a limitation of the current scalar-baseline method. Interval checks cover seven two-dimensional test spaces with separations 2 through 14; they do not enlarge the full-space width-2 certificate. Independent review of the reduction remains necessary.
 
+The [energy and refinement attempt](formalization/paper/unbounded-support-energy-2026-10-01.md) isolates a one-sided bound on signed pairs of distinct prime powers; the diagonal already has an unconditional cubic bound. It derives a global weighted energy bound for **almost every multiplicative prime-sign twist**, but does **not** transfer that result to ordinary zeta's all-plus assignment. Exact refinement preserves the large-separation problem, and a sharp prime cutoff creates an exponential boundary artifact. Twelve rational/512-bit check groups cover these identities and continuous finite energy integrals through separation 6. The deterministic global bound and RH remain unproved; independent review is required.
+
 Reproduce:
 
 ```sh
@@ -43,6 +45,7 @@ python scripts/audit-prime7-blocks.py
 python scripts/audit-prime7-acceptance.py
 python scripts/certify-prime7-extension.py
 python scripts/audit-unbounded-translation.py
+python scripts/audit-unbounded-energy.py
 ```
 
 **Author:** Jude Gomila, with an AI fleet (Claude, Codex, ChatGPT) under human direction · **Live app:** `npm run dev` · **Papers:** `research-inputs/` (the consolidated twin-ladder paper, the permutation-architecture paper, the twistor framework note)

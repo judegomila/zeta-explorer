@@ -176,3 +176,11 @@ The [correlated-twist follow-up](correlated-twist-bridge-2026-09-30.md) construc
 weighted reciprocal-zeta recovery and an explicitly positive finite direct/dual
 product. It proves why the simple norm bound and the raw infinite product do
 not close the continuation step.
+
+The [unbounded-energy follow-up](unbounded-support-energy-2026-10-01.md)
+derives an unconditional weighted energy bound for almost every completely
+multiplicative prime-sign twist of the fixed spline interaction. It keeps
+even prime powers and correlations between odd powers of the same prime.
+Positive averaging cannot recover all zeta coefficients without collapsing
+to the all-plus assignment; finite conditioning still needs a uniform bound.
+The ordinary zeta estimate remains unproved.

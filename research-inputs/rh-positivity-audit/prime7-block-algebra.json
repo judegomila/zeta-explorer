@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "independent prime-7 geometry and integration checks; not RH",
+  "checks": [
+    "collar partition and free interior measure",
+    "reflection block inverse",
+    "pair inverse",
+    "wrong inverse sign rejected",
+    "chain norm and positive baseline",
+    "36 translation entries versus direct polynomial integrals",
+    "36 inverse-Gram entries versus exact-degree Gauss quadrature",
+    "mixed-parity entries vanish",
+    "omitted prime-7 edge detected",
+    "prime-8 geometry and collar partition",
+    "16 prime-8 translation entries versus polynomial integrals",
+    "prime-8 baseline norm and admissible old tail floor"
+  ],
+  "precision_bits": 320,
+  "omitted_prime7_constant_test_difference": "[0.07956453766004419862418576340206184111235773513433923780033213062352235277686800698889035712135 +/- 6.31e-96]",
+  "next_prime_power_8": {
+    "geometry_checks_width": "43/20",
+    "chain_norm_upper": "13/10",
+    "minimum_baseline_ldl_pivot_lower": "[0.26538640233341906502952788739345726924690414067743637456004586561542897138825964509301171619229 +/- 3.96e-96]",
+    "old_tail_floor_T440": "[1.3069239200587606891683962561523691233450351672813190284010618548579735814581683291946759846980 +/- 5.01e-95]",
+    "prime8_positivity_certified": false
+  },
+  "script_sha256": "c0a82b8f7ddd9dc947c553e0cadbb6107cd0400f3e99f32c4ce0f5f6f0c3b7ad"
+}

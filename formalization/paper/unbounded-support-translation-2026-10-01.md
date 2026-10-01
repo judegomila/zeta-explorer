@@ -338,3 +338,12 @@ The next proof obligation is (11)'s subexponential bound, with constants
 independent of R. A finite sample, a fitted oscillation, or bounds with a fixed
 positive exponential rate do not satisfy it. No further window enlargement
 has been substituted for that obligation in this follow-up.
+
+The [energy and refinement follow-up](unbounded-support-energy-2026-10-01.md)
+attacks this obligation using a mean-square criterion. Its diagonal is
+unconditionally polynomially bounded; the missing estimate is a one-sided
+upper bound for signed prime-pair correlations. Almost every multiplicative
+prime-sign twist satisfies a global weighted energy bound, but recovery of
+the ordinary all-plus assignment remains unjustified. Exact refinement and
+cutoff-boundary controls explain why two other shortcuts fail. No global
+untwisted estimate is proved.

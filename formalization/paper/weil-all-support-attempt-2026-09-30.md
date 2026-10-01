@@ -308,3 +308,14 @@ Both 288-dimensional parity blocks pass interval congruence checks at 768 bits,
 including all omitted-space and frequency-tail bounds. This extends the local
 result to tests supported in (-1,1); it does not establish (5) at unbounded
 width. The next prime-power-8 decomposition is derived but not positivity-certified.
+
+## Unbounded-support reduction follow-up
+
+The [fixed-test translation reduction](unbounded-support-translation-2026-10-01.md)
+derives a different global target: subexponential growth of the interaction
+between one explicit pole-free spline and a translated copy. Its Laplace
+transform detects every off-line zero without a zero list or growing test
+dimension. The exact signed prime-error convolution is supplied, but its
+growth bound is unproved. The note also shows that the scalar-baseline version
+of the exact spatial-block method retains an exponential norm obstruction.
+Finite two-copy checks do not change the full-space width-2 certificate.

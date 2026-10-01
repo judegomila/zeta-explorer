@@ -231,6 +231,12 @@ matrices. Thus midpoint positivity by itself is not accepted.
 
 ## 6. What remains for RH
 
+The subsequent [unbounded-support reduction](unbounded-support-translation-2026-10-01.md)
+targets a single fixed test at all translation separations. It also quantifies
+why the scalar baseline used here does not remove the global cutoff cost.
+The required growth estimate remains open; the prime-power-8 construction below
+is retained as a possible local extension, not an all-support induction.
+
 A certificate at a single finite support width covers smaller centered
 intervals by inclusion. It does not certify any larger width. The classical
 criterion requires all compact pole-free tests, equivalently an unbounded

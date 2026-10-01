@@ -4,7 +4,7 @@ export const RH_DIRECTION_AUDIT = Object.freeze({
   recommendation: 'Prioritize exact arithmetic positivity: twin ladder / Weil / Route I certificates.',
   reason: 'This direction has an exact RH criterion, explicit finite-support arithmetic, and coefficient payloads that can be independently replayed. The all-support construction remains open.',
   routes: Object.freeze([
-    { name: 'Twin ladder + bridge → Weil / Toeplitz–Krein', status: 'Best direct RH direction', next: 'Review the width-2 certificate retaining exact prime-5 and prime-7 interactions; test the derived prime-power-8 blocks. All-support positivity remains open.' },
+    { name: 'Twin ladder + bridge → Weil / Toeplitz–Krein', status: 'Best direct RH direction', next: 'Target the derived fixed-test translation criterion: prove subexponential growth of the exact signed prime interaction. The full-space certificate remains at width 2; the global bound is unproved.' },
     { name: 'Freezing permutations / correlated barriers', status: 'Best quantitative Λ direction', next: 'Close the named finite and tail obligations. Positive candidate bounds do not establish RH.' },
     { name: 'Fluid mechanics / Burgers', status: 'Exact reformulations and useful dynamics', next: 'Prove the missing infinite-system or zero-exclusion estimate.' },
     { name: 'Heisenberg / uncertainty', status: 'A tool for the positivity problem', next: 'Preserve signed cancellation; failure of one split bound does not exclude every uncertainty argument.' },
@@ -21,5 +21,6 @@ export const RH_DIRECTION_AUDIT = Object.freeze({
   rhProved: false,
   localTwoPrimeCertificate: Object.freeze({ width: 1.3, gap: 0.0000005, status: 'Computer-assisted local certificate; analytic reduction supplied; not formally verified or refereed.' }),
   localWindowCertificate: Object.freeze({ width: 2, gap: 1e-24, primePowers: Object.freeze([2, 3, 4, 5, 7]), status: '768-bit interval congruence certificate with exact prime-5/7 interactions and full complement bounds; independent review and the all-support inequality remain outstanding.' }),
+  unboundedSupportReduction: Object.freeze({ testFamily: 'One fixed pole-free spline and its two signed translates.', criterion: 'For every epsilon>0, |k(R)| <= C_epsilon exp(epsilon R) for all R>1.', globalBoundProved: false, status: 'Equivalence derived, pending independent review; finite two-copy diagnostics do not certify all supports.' }),
   newLambdaBound: false,
 });

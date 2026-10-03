@@ -1,0 +1,118 @@
+{
+  "as_of_utc": "2026-10-03",
+  "target": {
+    "t": "24727519/200000000",
+    "y": "1/5",
+    "conditional_endpoint": "28727519/200000000",
+    "strict_cap": "29/200",
+    "cap_slack": "272481/200000000"
+  },
+  "global_claim_status": "not_certified",
+  "entries": [
+    {
+      "id": "normalization_and_strip_transfer",
+      "status": "published_theorem_inspected",
+      "source": "https://arxiv.org/html/1904.12438",
+      "locator": "Equations (1),(4); Theorem 3.2; Proposition 3.3",
+      "role": "Exact H normalization and global strip -> Lambda endpoint"
+    },
+    {
+      "id": "finite_RH_height",
+      "status": "published_theorem_inspected",
+      "source": "https://arxiv.org/html/2004.09765",
+      "locator": "Theorem 1 and Corollary 2",
+      "height": "3000175332800",
+      "required_height": "6000000185827/2",
+      "margin": "350479773/2",
+      "role": "Supplies initial input at X; does not supply RH at height 3e16"
+    },
+    {
+      "id": "inherited_intermediate_barrier",
+      "status": "statement_and_proof_account_inspected_not_replayed_here",
+      "source": "https://github.com/judegomila/dbn-lambda-01787854-candidate-audit/blob/a74738deb6d5e0f76887cb36901da08b68dca705/BARRIER_CERTIFICATE.md",
+      "sha256": "81bea0505d1a5f127e24703910244960ee7813b726f6ff873bfc79370407ceac",
+      "role": "Claimed closed [X,X+1]+i[.1809,1], t\u2208[0,129/800]; exact new-row containment independently checked"
+    },
+    {
+      "id": "historical_fourteen_frontier",
+      "status": "research_report_read_global_gate_explicitly_unproved",
+      "library_file_id": "libfile_c24a91113cb08191968eacd7a862570a",
+      "title": "V4_EXECUTION_REPORT.md",
+      "role": "One positive-width five-shell source cell and carrier reduction, no global correlated-center bound"
+    },
+    {
+      "id": "historical_seams_shells_tail",
+      "status": "reported_completed_in_source_not_independently_replayed_here",
+      "library_file_id": "libfile_5baf163673088191a5213afc8838ee70",
+      "title": "multilevel_freeze_architecture.md",
+      "role": "Reported shell, joins, seam and N\u226554800000 tail modules; exact domain/hypothesis verification still required for inheritance"
+    },
+    {
+      "id": "historical_archive",
+      "status": "resolved_but_supported_materialization_failed_HTTP_502",
+      "library_file_id": "libfile_4e9c8cb748f881919a3ab81b768c3c02",
+      "title": "hb_global_014_phase_continuation_v3_bundle.tar.gz",
+      "role": "No archive hash or fresh verifier replay claimed"
+    },
+    {
+      "id": "new_local_cell",
+      "status": "outward_rounded_local_certificate_passed",
+      "local_file": "local_cell_certificate.json",
+      "code": "certify_local_cell.py",
+      "role": "690988 terms, directed enclosures and effective error on positive-area x/y cell; excludes H zeros there only",
+      "precision_replays": [
+        40,
+        60
+      ],
+      "replay_scope": "Same implementation at higher precision; not independent implementation",
+      "replay_comparison": "local_replay_comparison.json"
+    },
+    {
+      "id": "coherent_scalar_affine_gate",
+      "status": "finite_algebraic_lemma_proved_and_exact_tests_passed",
+      "local_file": "verify_exact_gates.py",
+      "role": "Vertex maximum retains shared parameters; data-specific Taylor remainder/global coverage not supplied"
+    },
+    {
+      "id": "global_final_time_half_strip",
+      "status": "not_proved",
+      "role": "Must certify every required x/y and all seams, then cover tail with explicit overlap"
+    },
+    {
+      "id": "positive_time_swept_tube_alternative",
+      "status": "reduction_report_read_tube_nonvanishing_not_proved",
+      "library_file_id": "libfile_8d8eacb1f85481918818e95001f5faa3",
+      "title": "LAMBDA_014_REPULSION_MOVING_BARRIER_VERDICT.md",
+      "role": "Alternative to unverified 3e16-height RH input, not an already certified replacement"
+    },
+    {
+      "id": "phase_screens",
+      "status": "nonrigorous_diagnostics_complete",
+      "local_file": "probe_results.json",
+      "role": "45 samples; no continuum, global or theorem inference"
+    },
+    {
+      "id": "new_independent_coarse_analytic_tail",
+      "status": "analytic_proof_checked_with_directed_constant_checks",
+      "proof": "ANALYTIC_TAIL.md",
+      "checker": "verify_coarse_tail_constants.py",
+      "results": "coarse_tail_constant_results.json",
+      "review": "TAIL_REVIEW.md",
+      "domain": {
+        "heat_time": "24727519/200000000",
+        "y": [
+          "1/5",
+          "1"
+        ],
+        "N_min": "100000000000000000"
+      },
+      "normalized_modulus_lower": "43/500",
+      "role": "Uniform infinite tail including index seams, independent of unavailable historical archive; does not fill huge finite gap.",
+      "review_status": "Independent in-task source and inequality audit passed"
+    }
+  ],
+  "remaining_finite_index_range": [
+    "690988",
+    "99999999999999999"
+  ]
+}

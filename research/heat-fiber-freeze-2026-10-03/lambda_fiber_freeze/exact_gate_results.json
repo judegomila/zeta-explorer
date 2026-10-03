@@ -1,0 +1,41 @@
+{
+  "exact_target_arithmetic": true,
+  "target_endpoint": "28727519/200000000",
+  "target_cap_slack": "272481/200000000",
+  "verified_height_margin": "350479773/2",
+  "inherited_barrier_containment_arithmetic": true,
+  "inherited_barrier_certificate_replayed_here": false,
+  "affine_vertex_supremum_exact_test": true,
+  "shared_affine_squared_bound": "9/80",
+  "independent_fiber_squared_bound": "1613/400",
+  "signed_cross_term": "-159/100",
+  "graph_leakage_counterexample_verified": true,
+  "rows": [
+    {
+      "y": "1809/10000",
+      "endpoint": "7/50",
+      "endpoint_decimal": 0.14,
+      "strict_cap_slack": "1/200"
+    },
+    {
+      "y": "1/5",
+      "endpoint": "28727519/200000000",
+      "endpoint_decimal": 0.143637595,
+      "strict_cap_slack": "272481/200000000"
+    },
+    {
+      "y": "103/500",
+      "endpoint": "28971119/200000000",
+      "endpoint_decimal": 0.144855595,
+      "strict_cap_slack": "28881/200000000"
+    },
+    {
+      "y": "413/2000",
+      "endpoint": "113249/781250",
+      "endpoint_decimal": 0.14495872,
+      "strict_cap_slack": "129/3125000"
+    }
+  ],
+  "global_final_time_certificate_available": false,
+  "lambda_lt_0145_proved": false
+}

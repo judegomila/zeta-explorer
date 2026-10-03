@@ -35,13 +35,13 @@ await fill('rt-window-l','1.500000001');check(document.querySelector('.rt-window
 await click(button('Signed certified window'));await fill('rt-window-a','0.25000003');check(document.querySelector('.rt-window-result').classList.contains('rt-outside'),'width beyond perturbation interval not certified');
 await click(button('Signed certified window'));await fill('rt-window-a','0.25000000000000000001');check(document.querySelector('.rt-window-result').dataset.evidenceMethod==='width-perturbation','literal nearby width does not get tighter point certificate');
 await click(button('Signed certified window'));await fill('rt-window-l','1.50000000000000000001');check(document.querySelector('.rt-window-result').classList.contains('rt-outside'),'literal L beyond endpoint not rounded into certificate');
-await click(button('Nearby-width theorem'));check(document.querySelector('.rt-window-result').dataset.evidenceMethod==='width-perturbation' && text().includes('0.99999000'),'nearby-width preset and bound');
+await click(button('Nearby-width theorem'));check(document.getElementById('rt-window-l').value==='1.5','preset replaces displayed long endpoint decimal');check(document.querySelector('.rt-window-result').dataset.evidenceMethod==='width-perturbation' && text().includes('0.99999000'),'nearby-width preset and bound');
 await fill('rt-window-a','0.25000002');check(document.querySelector('.rt-window-result').dataset.evidenceMethod==='width-perturbation','closed perturbation endpoint');
 await fill('rt-window-a','0.25000002000000000001');check(document.querySelector('.rt-window-result').classList.contains('rt-outside'),'literal decimal beyond perturbation interval rejected');
 await fill('rt-window-a','');check(document.querySelector('.rt-window-result').classList.contains('rt-outside'),'empty numeric input safe');
-await click(button('Common small window'));check(document.querySelector('.rt-window-result').classList.contains('rt-proved'),'analytical window state');
+await click(button('Common small window'));check(document.getElementById('rt-window-a').value==='0.5'&&document.getElementById('rt-window-l').value==='1.022591164','common preset values match displayed decimals');check(document.querySelector('.rt-window-result').classList.contains('rt-proved'),'analytical window state');
 check(text().includes('0.70710678'),'analytical bound recomputed');
-await click(button('Signed certified window'));await click(button('Signed certified window'));check(document.querySelectorAll('.rt-window-result').length===1,'repeated preset no duplicate state');
+await fill('rt-window-a','0.25000000000000000001');await click(button('Signed certified window'));check(document.getElementById('rt-window-a').value==='0.25','point preset replaces displayed nearby decimal');await click(button('Signed certified window'));check(document.querySelectorAll('.rt-window-result').length===1,'repeated preset no duplicate state');
 const links=()=>[...document.querySelectorAll('.rt-view-nav a')];
 await click(links().find(e=>e.textContent==='Geometric illustration'));await act(async()=>{});
 check(window.location.search.includes('keep=yes')&&window.location.search.includes('model=illustration'),'model navigation preserves query parameters');

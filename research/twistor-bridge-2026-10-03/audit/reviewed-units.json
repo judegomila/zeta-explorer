@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-03",
+  "kind": "independent mathematical proof and wording review; not proof-assistant verification",
+  "reviewed_sha256": {
+    "width_stability.tex": "5163ed226646d02a7a1acacba5386b4f658052e29f6d690475a2443a20b47742",
+    "global_growth.tex": "df0fe3ab40cd0c1e2e88c97b81e1526824663eb5e1e22916332ac06be9558290",
+    "cocycle_structure.tex": "c626cdb77bab0b0865ce3c2aabcc347fcedc6484bfd857cc723fd234e0f3ef7a",
+    "foundation.tex": "8371091a5e7014ff37c608bc99701c1175d092c141a4332357ec00220a6bb3bb",
+    "src/components/RigorousTwistorModel.jsx": "52dd1444f1d7b1ed19a72d1a93bc85ed8acc53df96086d8cc8a7662dfa065fe0"
+  },
+  "certificate_rerun": false
+}

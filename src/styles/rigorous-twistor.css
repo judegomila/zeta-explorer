@@ -74,6 +74,7 @@
 .rt-window-result p { font-size:14px; }
 .rt-scope-grid { margin:22px 0; }
 .rt-scope-grid > div { padding:4px 12px 4px 0; }
+.rt-scope-grid > .rt-scope-wide { grid-column:1/-1; padding:18px; background:#eef4f7; border:1px solid #bdd0dd; border-radius:7px; }
 .rt-results { margin:0; padding:0; list-style:none; }
 .rt-results > li { display:flex; align-items:flex-start; gap:18px; padding:18px 0; border-bottom:1px solid var(--hairline); }
 .rt-results .rt-badge { flex-shrink:0; }

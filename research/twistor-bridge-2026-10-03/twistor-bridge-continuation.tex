@@ -19,7 +19,7 @@
 \begin{document}
 \maketitle
 \vspace{-1em}
-\noindent\textbf{Results.} The exact wide split-twistor bridge cannot be divided into identical holomorphic operator stages, even with angular mixing. The actual completed arithmetic ratio has a negative delay kernel before the first prime enters, ruling out a positive scalar convolution model for every thin width. A constructive continuation nevertheless gives compact arithmetic Hankel operators at every positive width, and an explicit nontrivial window with norm at most $2^{-a}<1$. A further interval certificate proves norm at most $0.99998$ at width $a=1/4$ for every truncation $L\leq3/2$, crossing the first prime threshold. Global spectral control remains unresolved. None of these results proves RH or excludes other twistor constructions.
+\noindent\textbf{Results and remaining target.} The real projective Fourier construction and its chosen rational-prime completion give an exact wide bridge at $a=3/2$. Its angular constant mode leaves the thin arithmetic inequality unresolved. The report supplies scoped subdivision obstructions, a full signed interval certificate with norm at most $0.99998$ at $a=1/4$, and a proved nearby width interval with norm at most $0.99999$ through truncation $L=3/2$. A reviewed application of Suzuki's results identifies the global target precisely: any finite bound uniform in $L$, separately at widths tending to zero, would suffice for RH; a uniform positive gap is unnecessary. Exact weighted translation gives a passive nonidentical-stage construction, but its chosen norm conceals the scalar difficulty. The needed comparison of two known wide defect spaces remains unproved. No result here proves RH, and literature novelty has not been assessed.
 
 \section{Established construction and the actual gap}
 Write
@@ -27,7 +27,7 @@ Write
  \xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),\qquad
  X(w)=\xi(\tfrac12+w),\qquad R_a(w)=\frac{X(w-a)}{X(w+a)}.
 \]
-The split-twistor construction in the 1 October report [1] acts on
+The split-twistor construction developed in the 1 October report [1], with its foundational calculation included below, acts on
 \[
  \HH=L^2_{\rm even}(S^3)=\widehat{\bigoplus}_{m\geq0}\HH_m,
  \qquad \HH_m=\mathcal Y_{2m}(S^3),\quad d_m=\dim\HH_m=(2m+1)^2.
@@ -42,11 +42,76 @@ The empty product is one. Both are holomorphic contractions on $\CP=\{\Rea w>0\}
 \[
  R_{3/2}(w)=\frac{\xi(w-1)}{\xi(w+2)}
  =\frac{(w-1)(w-2)}{(w+1)(w+2)}
- \frac{L(2-w)}{L(2+w)},\qquad L(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s).
+ \frac{\Lambda(2-w)}{\Lambda(2+w)},\qquad \Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s).
 \]
-It is derived by real and prime-place Fourier factors, initially in $|\Rea w|<1$, followed by meromorphic continuation. The geometry is $\mathbb{RP}^3$ and its dual, with $SL(4,\mathbb R)$ acting on homogeneous degree $-2-w$ distributions. The parameter reflection is $w\mapsto-w$; the fixed thickness $3/2$ is not the homogeneity parameter.
+It is derived by real and prime-place Fourier factors, initially in $|\Rea w|<1$, followed by meromorphic continuation. The geometry is $\mathbb{RP}^3$ and its dual, with $SL(4,\mathbb R)$ acting on homogeneous degree $-2-w$ distributions. The prime factors and completion normalization are specified additional arithmetic choices. The parameter reflection is $w\mapsto-w$; the fixed thickness $3/2$ is not the homogeneity parameter.
 
-The wide-shift contractivity is unconditional [2]. For the candidate $T_a=R_aA$, the constant harmonic is an eigenvector with eigenvalue $R_a$. Hence $\|T_a(w)\|=|R_a(w)|$ at regular points in $\CP$. Proving that these families are Schur for every $a>0$, or a sequence $a\downarrow0$, remains equivalent to RH [1,3]. The present investigation asks whether a passive wide bridge can be subdivided to manufacture that missing family.
+The wide-shift contractivity is unconditional for every $a\geq1/2$ [2]. For the candidate $T_a=R_aA$, the constant harmonic is an eigenvector with eigenvalue $R_a$. Hence $\|T_a(w)\|=|R_a(w)|$ at regular points in $\CP$. Proving that these families are Schur for every $a>0$, or a sequence $a\downarrow0$, remains equivalent to RH [1,3]. The present investigation asks whether a passive wide bridge can be subdivided to manufacture that missing family.
+
+\subsection*{The geometry and its precise representation domain}
+Here is the foundational calculation, including the choices needed to interpret it. Let $V=\mathbb R^4$ have a volume density. Real projective twistor space and its actual dual are $\mathbb P(V)$ and $\mathbb P(V^*)$. Compactified split conformal spacetime is $\operatorname{Gr}(2,V)$; a two-plane $E$ corresponds to the twistor line $\mathbb P(E)$ and the dual line $\mathbb P(E^\circ)$. Incidence is the natural pairing $W(Z)=0$. The conformal group is locally $SL(4,\mathbb R)\simeq\operatorname{Spin}_0(3,3)$, associated with spacetime signature $(2,2)$. This does not impose a metric of signature $(2,2)$ on $V$ itself.
+
+For smooth even angular data, define homogeneous sections by
+\[
+ f(rZ)=|r|^{-2-w}f(Z),\qquad r\ne0.
+\]
+These are smooth density characters, not holomorphic line bundles of fractional degree. Initially, $-2<\Rea w<2$ gives the elementary locally integrable distribution interpretation on both sides. With Fourier kernel $e^{-2\pi iW(Z)}$ and compatible dual densities, distributional Fourier transformation gives
+\[
+ \mathcal F_w:\mathcal H_w(V)\longrightarrow\mathcal H_{-w}(V^*),\quad
+ \mathcal F_w\pi_w(g)=\pi^*_{-w}(g)\mathcal F_w,
+\]
+where $\pi_w(g)f(Z)=f(g^{-1}Z)$ and $\pi^*_{-w}(g)h(W)=h(g^TW)$. The covariance follows by the substitution $Z=gY$, and ordinary Fourier inversion gives the even identity at generic parameters. Meromorphic homogeneous distribution continuation handles other parameters, with exceptional weights treated explicitly.
+
+Choose an auxiliary Euclidean pairing only to identify the two compact pictures. Then the normalized operator has the twisted covariance
+\[
+ A(w)\pi_w(g)=\pi_{-w}(g^{-T})A(w).
+\]
+It is a generalized principal-series intertwiner for the projective maximal parabolic [4], rather than an untwisted commuting operator or a pointwise map between projective points. The harmonic spaces are $K=SO(4)$ types. In particular, the constant harmonic is $K$-fixed and is not a $G$-invariant subrepresentation at generic $w$.
+
+At $w=0$, the projective scalar X-ray transform has the correct weight. In a matrix chart $Z=(\mu,\lambda)$ and $E_x=\{(x\lambda,\lambda)\}$, it is
+\[
+ (\mathcal Pf)(x)=\int_{\mathbb{RP}^1}f(x\lambda,\lambda)|\lambda\wedge d\lambda|.
+\]
+The two powers of the density cancel the degree $-2$. Differentiation under the integral gives
+\[
+ (\partial_{x_{11}}\partial_{x_{22}}-\partial_{x_{12}}\partial_{x_{21}})\mathcal Pf=0.
+\]
+since both integrands contain $\lambda_1\lambda_2\partial_{\mu_1}\partial_{\mu_2}f$. With compatible plane densities,
+\[
+ \mathcal P^*(\mathcal F_0f)(E^\circ)=\mathcal Pf(E).
+\]
+On a degree-$2m$ harmonic, complementary circle averages differ by $(-1)^m$, exactly the Fourier sign. Smooth harmonic expansion proves the identity. This classical split Penrose/X-ray statement [5] is asserted at the scalar weight $w=0$; the same unweighted map does not extend to all $w$ as one massless scalar representation.
+
+\subsection*{Local factors and what the arithmetic completion chooses}
+Put $\alpha=2+w$. Gaussian Mellin integration gives
+\[
+ \mathcal F(|Z|^{-\alpha})(W)=\gamma_\infty(\alpha)|W|^{\alpha-4},\qquad
+ \gamma_\infty(\alpha)=\pi^{\alpha-2}\frac{\Gamma((4-\alpha)/2)}{\Gamma(\alpha/2)}.
+\]
+For a degree-$\ell$ spherical harmonic, the scalar is
+$i^{-\ell}\pi^{\alpha-2}\Gamma((4+\ell-\alpha)/2)/\Gamma((\ell+\alpha)/2)$.
+Dividing by the constant coefficient yields the product in \eqref{eq:model}.
+
+At each prime, separately choose $\mathbb Q_p^4$, the max norm, the lattice $\mathbb Z_p^4$, a conductor-$\mathbb Z_p$ additive character, and Haar volume $\operatorname{vol}(\mathbb Z_p^4)=1$. At a unit dual vector, the shells with norm $p^k$, $k\leq0$, have trivial character; the shell $k=1$ has character integral $-1$, and later shells contribute zero. Thus
+\[
+ \gamma_p(\alpha)=(1-p^{-4})\sum_{k\leq0}p^{k(4-\alpha)}-p^{-\alpha}
+ =\frac{1-p^{-\alpha}}{1-p^{\alpha-4}}.
+\]
+The unramified spherical product converges for $|\Rea w|<1$ and gives
+\[
+ C_4(w)=\gamma_\infty(2+w)\prod_p\gamma_p(2+w)
+ =\frac{\Lambda(2-w)}{\Lambda(2+w)},\quad
+ \Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\]
+Selecting $B_4(w)=(w-1)(w-2)/((w+1)(w+2))$ to complete $\Lambda$ to $\xi$, and then using the global functional equation, gives $B_4C_4=R_{3/2}$. These arithmetic choices are extra data; covariance does not uniquely force them. No bounded adelic operator on all ramified types is claimed. Outside the initial strip the product is a meromorphically continued scalar identity, not a convergent cascade of local bounded maps.
+
+Indeed, $\gamma_p(2+w)>1$ for every prime and every real $0<w<1$. The local finite-place spherical maps are expansive in this normalization. The completed wide bound uses the separate classical shifted-$\xi$ inequality [2], which is unconditional for every width $a\geq1/2$. Only $a=3/2$ has been obtained from the present four-dimensional local-factor construction. In the analogous dimension-$n$ calculation the completed width is $(n-1)/2$; analytic continuation in $n$ alone supplies no noninteger-dimensional twistor or $p$-adic space.
+
+\subsection*{Bounded operators and distribution continuation are different claims}
+For generic $w$, gamma-ratio asymptotics give
+$b_m(w)=(-1)^m C(w)m^{-w}(1+O(m^{-1}))$ [7]. Hence $A(w)$ is compact and operator-norm holomorphic in $\CP$, with norm one. At positive even $w$, the product formula gives finite rank. Its unitary values on $i\mathbb R$ are strong-operator boundary limits, not norm limits: for $0<x<2$, $\|A(x)-A(0)\|=1$. At generic $\Rea w<0$, the multipliers grow, so $A(w)$ is not a bounded operator on the fixed $\HH$. Distributional Fourier inversion must not be read as bounded invertibility of this compact operator. The value $A(2)=P_0$ is a normalized continued limit at an exceptional raw homogeneous weight.
+
+The chosen Euclidean compact-picture norm is $K$-invariant; the whole group action is unitary at imaginary $w$, not at arbitrary complex $w$. Thus the passive transfer interpretation refers to that specified norm, rather than a uniquely selected physical energy.
 
 \section{A local obstruction without a symmetry assumption}
 At the positive real point $w=2$, exact completion gives
@@ -161,7 +226,7 @@ Equivalently, the undivided arithmetic target remains
 \]
 The conjugate in this formula is essential. A right-half-plane zero of multiplicity $m$ would make $D$ negative immediately to its left, so the target is not a harmless choice of normalization.
 
-\textbf{Current conclusion.} The split twistor and dual-twistor transform, its prime completion, and its wide operator are explicit. The added result is a proved obstruction to identical-stage geometric thinning, together with sharp constructions showing its limits. The arithmetic positivity theorem is still open. This is a useful restriction on the next construction, not a new zero-free region.
+\textbf{What the geometric construction establishes.} The split twistor and dual-twistor transform, its prime completion, and its wide operator are explicit. The added result is a proved obstruction to identical-stage geometric thinning, together with sharp constructions showing its limits. The global arithmetic positivity theorem is still open. The following sections add local arithmetic control and identify the exact all-window estimate still required.
 
 \section{The actual arithmetic ratio has a negative delay interval}
 The scalar arithmetic obstruction can be made more specific than a generic counterexample. Use a separate complex variable $z$, with
@@ -243,7 +308,9 @@ The negative scalar kernel does not prevent positive operator energy forms. Defi
 \]
 Here $a$ is the arithmetic width and $L$ is the truncation endpoint. The endpoint is distinct from the width parameter used in \eqref{eq:cocycle}.
 
-\begin{proposition}[Compactness at every positive width]\label{prop:compact}
+Suzuki already states compact self-adjointness for every positive width in the discussion after Theorem 2.3 [3]. We include the elementary proof and the distinction from the Hilbert--Schmidt range.
+
+\begin{proposition}[Classical finite-window compactness]\label{prop:compact}
 For every fixed $a>0$ and $L>1$, $\mathsf H_{a,L}$ is a bounded compact self-adjoint operator on $L^2((0,L),\dd x)$. It is not Hilbert--Schmidt when $0<a\leq1/2$.
 \end{proposition}
 \begin{proof}
@@ -292,7 +359,7 @@ There is a structural reason the inverse estimate cannot be uniform at zero widt
 
 \textbf{What this does and does not close.} Compactness removes a local operator-definition obstacle below the Hilbert--Schmidt threshold. The explicit norm bound proves both Fredholm inverses on a common nonzero window. It does not supply the canonical Hamiltonian or its global positivity; ordinary Fredholm determinant formulas require additional justification below their trace-ideal thresholds. The bound tends to 1 as $a\downarrow0$, and the inverse estimate grows like $1/(a\log2)$.
 
-The first nontrivial prime threshold is $L=\sqrt2$, where $xy=2$ enters. Sign changes already occur in the $n=1$ kernel whenever entries satisfy $3/2<xy<2$, so a nonnegative-kernel argument cannot cover all larger windows. Neither fact by itself disproves $\|\mathsf H_{a,L}\|<1$; the next missing theorem is spectral control for the signed, coupled arithmetic kernel as $L$ increases, with quantified behavior as $a\downarrow0$. The local propositions are derived here from the explicit classical kernel; their literature novelty has not been assessed.
+The first nontrivial prime threshold is $L=\sqrt2$, where $xy=2$ enters. Sign changes already occur in the $n=1$ kernel whenever entries satisfy $3/2<xy<2$, so a nonnegative-kernel argument cannot cover all larger windows. Neither fact by itself disproves $\|\mathsf H_{a,L}\|<1$; the next missing theorem is spectral control for the signed, coupled arithmetic kernel as $L$ increases, with quantified behavior as $a\downarrow0$. Compactness is credited above to Suzuki. The explicit common-window constant is derived here from his kernel; equivalent bounds elsewhere in the literature have not been assessed.
 
 \section{A certified obstruction after the first prime threshold}
 The next bounded test used $a=1/4$ and $L=3/2$, beyond the first prime threshold $L=\sqrt2$. Put $V=2\log(3/2)$ and $b=\log2$. In logarithmic coordinates the signed kernel on $[-V/2,V/2]$ is
@@ -471,13 +538,323 @@ Both displayed gaps exceed $1/50000$, proving Theorem~\ref{thm:signed}.
 
 \textbf{Scope of the advance.} The first-prime signed window is now certified, despite its absolute-kernel norm being greater than one. The reusable mechanism is an exact Fourier dilation, an analytic tail bound, and a finite verified Schur complement. This resolves one fixed width and a bounded truncation range. Uniform estimates as $a\downarrow0$, arbitrarily large $L$, and the global RH implication remain unproved. Literature novelty has not been assessed.
 
+\section{A proved interval of arithmetic widths}
+The one-width certificate has a quantitative open neighborhood. This is obtained by an analytical perturbation bound, rather than interpolation between numerical samples.
+
+\begin{proposition}[Uniform width stability]\label{prop:widthlipschitz}
+For $a,b\in[1/5,3/10]$ and $1<L\leq3/2$,
+\[
+ \|\mathsf H_{a,L}-\mathsf H_{b,L}\|\leq500|a-b|.
+\]
+Consequently, throughout
+\[
+ \frac14-\frac1{50000000}\leq a\leq\frac14+\frac1{50000000},
+ \qquad 1<L\leq\frac32,
+\]
+we have
+\[
+ \|\mathsf H_{a,L}\|\leq\frac{99999}{100000}=0.99999,
+ \qquad I\pm\mathsf H_{a,L}\succeq\frac1{100000}I.
+\]
+The width interval is $[0.24999998,0.25000002]$.
+\end{proposition}
+\begin{proof}
+It suffices to work at $L=3/2$ and then compress. Set $V=2\log(3/2)<1$, $q(t)=1-e^{-2t}$, and write
+\[
+ f_a(t)=e^{-t/2}g_a(e^{-t})=C_a(A_a(t)-P_a(t)),\qquad
+ C_a=\frac{2\pi^a}{\Gamma(a)},
+\]
+\[
+ A_a(t)=e^{-(5/2-a)t}q(t)^{a-1},\quad
+ P_a(t)=ae^{(1/2-a)t}I_a(t),\quad
+ I_a(t)=\int_0^{q(t)}x^{a-1}(1-x)^{1/2-a}\,dx.
+\]
+All bounds below hold for $a\in[1/5,3/10]$ and $0<t\leq V$. Log-convexity gives $\Gamma(1+a)\geq e^{-\gamma a}$, so $C_a<2$. The digamma recurrence and monotonicity on $[1,2]$ give $|\psi(a)|<6$, hence $|\partial_a\log C_a|<8$.
+
+Since $q(t)\geq2t/(1+2t)\geq2t/3$, we have $A_a(t)\leq(3/2)t^{-4/5}$ and
+$|\partial_a A_a(t)|\leq(3/2)t^{-4/5}(t-\log t+1/2)$. Integrating up to $V<1$ yields
+\[
+ \int A_a\leq\frac{15}{2},\qquad
+ \int|\partial_a A_a|\leq\frac32\left(\frac56+25+\frac52\right)=\frac{85}{2}.
+\]
+Also $I_a\leq5$. Since $-\log(1-x)\leq2t<2$ on its interval,
+\[
+ |\partial_a I_a|\leq\int_0^1x^{-4/5}(-\log x+2)\,dx=35.
+\]
+The inequalities $e^{(1/2-a)t}<3/2$ and $a\leq3/10$ therefore imply
+\[
+ \int P_a\leq\frac94,\qquad
+ \int|\partial_aP_a|\leq\frac32\left(5(1+3/10)+(3/10)35\right)=\frac{51}{2}.
+\]
+Consequently
+\[
+ \|f_a\|_1\leq\frac{39}{2}<20,\qquad
+ \|\partial_af_a\|_1\leq2\left[8\left(\frac{15}{2}+\frac94\right)+\frac{85}{2}+\frac{51}{2}\right]=292<300.
+\]
+The logarithmic arithmetic kernel is
+$K_a(t)=f_a(t)+\rho_a f_a(t-\log2)\mathbf1_{t>\log2}$,
+where $\rho_a=(2^a-2^{-a})/\sqrt2$. For $a\leq1/2$,
+$0\leq\rho_a\leq1/2$ and $0<\rho_a'\leq(3/2)\log2<3/2$.
+Thus
+\[
+ \|\partial_aK_a\|_{L^1(0,V)}
+ \leq\frac32\,292+\frac32\frac{39}{2}
+ =\frac{1869}{4}<500.
+\]
+The displayed integrable majorants justify differentiation in $L^1$ and the fundamental theorem of calculus. Young's convolution inequality, after reflection, proves the operator Lipschitz bound. Finally Theorem~\ref{thm:signed} gives
+$49999/50000+500/50000000=99999/100000$.
+\end{proof}
+This fixed positive interval does not approach zero width. Its role is to establish genuine parameter stability of the local certificate; it supplies no all-width or all-window conclusion.
+
+% Independent audit addendum; not a proof of RH.
+% Assumes the continuation report's exact h_a and finite-window compactness.
+\section{An exact all-window boundedness criterion}
+Fix $a>0$, and let $h_a$ be the real, locally integrable arithmetic kernel
+defined above, supported in $[1,\infty)$.  Define the finite-window operators
+directly by
+\[
+ (H_{a,L}f)(x)=\int_0^L h_a(xy)f(y)\,dy,
+ \qquad f\in L^2((0,L),dx),\quad L>1.
+\]
+Their boundedness and compactness do not assume the existence of a bounded
+global operator.
+
+\begin{theorem}[All-window alternative]\label{thm:allwindow}
+For each fixed $a>0$, the following are equivalent:
+\begin{enumerate}
+\item $\sup_{L>1}\|H_{a,L}\|<\infty$;
+\item $\|H_{a,L}\|\leq1$ for every $L>1$;
+\item $R_a(w)=\xi(1/2+w-a)/\xi(1/2+w+a)$ is holomorphic and bounded by one
+      on $\operatorname{Re}w>0$.
+\end{enumerate}
+The function $L\mapsto\|H_{a,L}\|$ is nondecreasing.  Its limit as
+$L\to\infty$ is $1$ when these conditions hold and $+\infty$ otherwise.
+\end{theorem}
+
+\begin{proof}
+For $1<L_1<L_2$, the first operator is the orthogonal compression of the
+second, so its norm is no larger.  Suppose condition (1) holds with bound
+$C$.  For compactly supported $f\in L^2((0,\infty),dx)$ and $L$ beyond
+its support, $H_{a,L}f$ is the restriction to $(0,L)$ of a single locally
+defined function.  The uniform norm bound and monotone convergence give
+a global $L^2$ function $H_af$ with $\|H_af\|\leq C\|f\|$.  Density
+therefore yields a bounded global extension $H_a$.
+
+The operator
+\[
+ (Jf)(x)=x^{-1}f(x^{-1})
+\]
+is unitary on $L^2((0,\infty),dx)$.  Substituting $y=t^{-1}$ yields
+\[
+ (H_aJf)(x)=\int_0^\infty h_a(x/t)f(t)\,\frac{dt}{t}.
+\]
+For $f\in L^2((1,\infty),dx)$, support of $h_a$ restricts the integral
+to $1\leq t\leq x$.  Local $L^1$ convolution bounds in logarithmic
+coordinates, followed by truncation of $f$, identify this integral with
+the bounded extension $H_aJf$ for every such $f$.  Thus condition (3) of
+Suzuki's Theorem 2.2 [3] holds, with $\omega=a$.  It follows
+that $\Theta_a(z)=R_a(-iz)$ is inner in the upper half-plane, giving (3).
+
+Conversely, (3), the reflection symmetries of $\xi$, and Suzuki's
+Lemma 4.1 identify the global arithmetic kernel operator $H_a$ as an
+isometry.  Consequently all finite compressions have norm at most one,
+giving (2).  Condition (2) plainly gives (1).
+
+When these conditions hold, the compressions converge strongly to $H_a$
+as $L\to\infty$, so their norm supremum is $\|H_a\|=1$.  Otherwise (1)
+fails and monotonicity implies that their norms tend to infinity.
+\end{proof}
+
+\begin{corollary}[The required small-width estimate]
+Let $a_n>0$ tend to zero.  If for each $n$ there exists a finite constant
+$C_n$ such that
+\[
+ \|H_{a_n,L}\|\leq C_n\qquad\hbox{for every }L>1,
+\]
+then RH holds.  No uniformity of $C_n$ in $n$, and no strictly positive
+gap below one uniform in $L$, is required.
+\end{corollary}
+
+\begin{proof}
+The theorem makes every $R_{a_n}$ holomorphic in the right half-plane.
+If $X(w)=\xi(1/2+w)$ had a zero $\lambda$ with positive real part,
+then for sufficiently small $a_n$ the point $w=\lambda-a_n$ lies in that
+half-plane.  The denominator of $R_{a_n}$ vanishes there, while its
+numerator $X(\lambda-2a_n)$ does not, by isolation of the zero $\lambda$.
+This is a pole, a contradiction.  Evenness of $X$ excludes zeros with
+negative real part as well.
+\end{proof}
+
+\paragraph{Scope.}
+The all-window bounds in this corollary are not established here.
+The finite certificate $a=1/4$, $1<L\leq3/2$ does not provide them.
+This criterion identifies the remaining arithmetic estimate; it neither
+derives the scalar factor from twistor geometry nor constructs a
+canonical-system Hamiltonian.  The latter requires separate regularity
+and normalization arguments.
+
+
+\textbf{A fixed-width cancellation warning.} The sequence of widths is essential in the zero-isolation argument. A single Schur ratio is not, on its own, a general zero-free-strip theorem for the underlying entire function. For example,
+\[
+ P(w)=(w^2-a^2)(w^2-9a^2),\qquad
+ \frac{P(w-a)}{P(w+a)}=\frac{w-4a}{w+4a}
+\]
+is Schur despite the zero at $3a$. Common shifted zeros cancel. Replacing $P(w)$ by $P(w-i\tau)P(w+i\tau)$ gives a nonreal-zero version. This is a logical counterexample, not a counterexample for $\xi$. Suzuki's Proposition 1.2 uses every width above a threshold; a consequence from just one width needs an additional argument.
+
+\section{Unconditional global growth and the remaining improvement}
+The local-to-global criterion asks for boundedness, not a positive gap uniform in $L$. A weaker global estimate is already available without RH.
+\begin{proposition}[A global bound with a truncation loss]\label{prop:globalgrowth}
+For every $a>0$ and $L>1$,
+\[
+ \|\mathsf H_{a,L}\|\leq L.
+\]
+For $a\geq1/2$, the known wide-shift result gives the stronger bound $1$.
+\end{proposition}
+\begin{proof}
+For $x\geq1/2$, evenness and reality of $X$ give
+\[
+ |R_a(x+it)|=|R_x(a+it)|\leq1.
+\]
+On the right side, $x$ is a width at least $1/2$, and $a+it\in\CP$; the classical wide-shift theorem applies. Moreover $R_a(w+1/2)$ is holomorphic on $\CP$, since the denominator's $\xi$ argument has real part greater than $1+a$. Thus it is a Schur multiplier.
+
+The Euler-domain Laplace identity is
+\[
+ R_a(w)=\int_0^\infty e^{-wu}K_a(u)\,du,
+ \qquad K_a(u)=e^{-u/2}q_a(u),\qquad \Rea w>a+1/2.
+\]
+The bounded Hardy multiplier $R_a(w+1/2)$ therefore has causal convolution kernel $\widetilde K_a(u)=e^{-u/2}K_a(u)$. Here identification is justified first on an absolutely convergent Euler line and then by uniqueness of the Laplace transform of causal distributions. It is not an identification inferred merely from unimodular critical-line boundary values. The associated full convolution, and hence convolution followed by reflection, has $L^2$ norm at most one.
+
+In logarithmic coordinates on $[-\ell,\ell]$, $\ell=\log L$, let $\widetilde{\mathsf H}$ be the compression of that damped Hankel operator. Then
+\[
+ \mathsf H_{a,L}=M_{e^{v/2}}\,\widetilde{\mathsf H}\,M_{e^{v/2}},
+ \qquad \|M_{e^{v/2}}\|=e^{\ell/2}=\sqrt L.
+\]
+This proves the bound. The zero part on $(0,1/L)$ does not change it.
+\end{proof}
+Thus one precise unresolved improvement is from the unconditional bound $N_a(L)\leq L$ to $N_a(L)\leq C_a<\infty$, for each width in a sequence tending to zero. The latter estimate would automatically sharpen to $N_a(L)\leq1$ by the all-window theorem. The damping proof pays exactly the displayed truncation-dependent cost; discarding it without an independent estimate would reintroduce the missing arithmetic assertion.
+
+There is also an equivalent scalar tail target in Suzuki's Appendix A. Define the real step-response defect
+\[
+ E_a(u)=1-\int_0^u K_a(v)\,dv\qquad(u\geq0).
+\]
+It is explicitly computable by a finite arithmetic sum at every $u$:
+\[
+ E_a(u)=1-\sum_{n\leq e^u}\frac{c_a(n)}{\sqrt n}
+ \int_0^{u-\log n} e^{-t/2}g_a(e^{-t})\,dt.
+\]
+Suzuki's Theorem A.1(2) states, in these logarithmic coordinates, that
+\begin{equation}\label{eq:stepcriterion}
+ R_a\text{ is Schur}\quad\Longleftrightarrow\quad
+ \int_0^\infty |E_a(u)|^2\,du<\infty.
+\end{equation}
+Indeed, his integrated kernel satisfies
+$\sqrt{x}\,h_a^{\langle1\rangle}(x)=\int_0^{\log x}K_a(v)\,dv$,
+and $dx/x=du$. This is an existing arithmetic criterion, not a consequence invented from finite-window data.
+
+The damping argument above gives a noncircular global estimate for this same scalar function:
+\begin{equation}\label{eq:dampedenergy}
+ \int_0^\infty e^{-u}|E_a(u)|^2\,du\leq2(1-R_a(1))\qquad(a>0).
+\end{equation}
+To prove it, let $C$ be causal convolution with multiplier $R_a(w+1/2)$ and take $f(u)=e^{-u/2}$ on $u>0$. Then $\|f\|_2^2=1$ and Laplace transformation gives
+$(I-C)f=e^{-u/2}E_a(u)$. Evaluation of the Laplace transform of $Cf$ at $1/2$ gives $\langle Cf,f\rangle=R_a(1)$, which is real. Since $C$ is contractive,
+$\|(I-C)f\|^2\leq2-2R_a(1)$.
+
+Removing the factor $e^{-u}$ in this finite-energy estimate, separately for widths approaching zero, would meet the actual RH-strength criterion \eqref{eq:stepcriterion}. A weighted estimate by itself does not imply the unweighted one. This locates a single arithmetic tail estimate for further work, with all prime coefficients and completion signs retained.
+
+\section{An exact nonidentical-stage semigroup and its limitation}
+The width cocycle does allow a genuine composition law once spectral translation is included. Its existence alone does not constrain the arithmetic zeros.
+
+\begin{proposition}[Weighted translation realization]\label{prop:weighted}
+Let $X$ be any nonzero entire function, with no zero-free assumption. Define
+\[
+ \mathcal E_X=\{Xg:g\in H^2(\CP)\},\qquad \|Xg\|_{\mathcal E_X}=\|g\|_{H^2}.
+\]
+For $a\geq0$, set
+\[
+ S_a(Xg)(w)=X(w)g(w+2a).
+\]
+Then $(S_a)$ is a strongly continuous contraction semigroup. At regular points,
+\[
+ (S_af)(w)=\frac{X(w)}{X(w+2a)}f(w+2a)=R_a(w+a)f(w+2a).
+\]
+Its generator is $2(f'-X'f/X)$ on $\{Xg:g,g'\in H^2(\CP)\}$, with the expression interpreted by cancellation at zeros of $X$.
+\end{proposition}
+\begin{proof}
+Multiplication by $X$ is an isometry from $H^2$ onto $\mathcal E_X$ by definition and is injective. Horizontal translations $g(w)\mapsto g(w+2a)$ form a strongly continuous contraction semigroup on Hardy space: under the Laplace realization they multiply by $e^{-2at}$ on $L^2(0,\infty)$. Conjugating by this isometry gives every assertion, including the derivative formula.
+\end{proof}
+This construction differs from the pointwise roots excluded in Theorem~\ref{thm:root}. It shifts $w$, and its norm depends on $X$ by construction. Every function in $\mathcal E_X$ vanishes at each zero of $X$. In the usual Hardy normalization, its evaluation kernel is
+\[
+ k_X(w,z)=\frac{X(w)\overline{X(z)}}{w+\bar z},\qquad
+ \|k_{X,w}\|=\frac{|X(w)|}{\sqrt{2\Rea w}}.
+\]
+At regular points, the evaluation inequality induced by $S_a$ reduces to
+\[
+ \left|\frac{X(w)}{X(w+2a)}\right|
+ \frac{|X(w+2a)|}{\sqrt{2(\Rea w+2a)}}
+ \leq\frac{|X(w)|}{\sqrt{2\Rea w}}.
+\]
+The arithmetic factors cancel, leaving the elementary Hardy translation inequality. Therefore this passive realization does not yield a bound of one on $R_a$ with unit-norm scalar input/output vectors. At zeros, cancellation uses the function's vanishing jets and cannot be interpreted as division of arbitrary point values.
+
+\begin{proposition}[A sharp cocycle counterfamily]
+For $\beta,\tau>0$, put
+\[
+ Y(w)=((w-\beta)^2+\tau^2)((w+\beta)^2+\tau^2),\qquad
+ r_a(w)=Y(w-a)/Y(w+a).
+\]
+The function $Y$ is even, real under conjugation, and positive on the real axis. Its ratios satisfy the exact width cocycle, but $r_a$ is Schur precisely when $a\geq\beta$.
+\end{proposition}
+\begin{proof}
+The cocycle follows by cancellation. If $a\geq\beta$, then
+\[
+ r_a(w)=\prod_{\epsilon,\eta\in\{\pm1\}}
+ \frac{w-(a-\epsilon\beta)-i\eta\tau}
+      {w+(a-\epsilon\beta)-i\eta\tau},
+\]
+which is a product of right-half-plane Blaschke factors; a factor of width zero is removed. If $0<a<\beta$, $w=\beta-a+i\tau$ is an uncancelled pole. The numerator there is $Y(\beta-2a+i\tau)\ne0$. The other statements follow directly from the polynomial.
+\end{proof}
+For example, $\beta=1/4$, $\tau=1$ gives passive bridges at every $a\geq1/2$, including $3/2$, but a pole at $w=1/8+i$ when $a=1/8$. Multiplying these ratios by the same angular $A(w)$ preserves wide passivity and the constant-mode obstruction. The positive-Laplace-measure control in the foundational report already demonstrates a related limitation; this polynomial family makes the width threshold and cocycle particularly explicit. Neither control possesses the full Riemann arithmetic, and neither refutes RH.
+
+\section{The comparison a geometric continuation would still need}
+One can state the missing positivity as a comparison between two spaces that are independently well-defined and positive. For $0<a\leq1$, set
+\[
+ \Phi_a(w)=R_{3/2}(w+3/2-a)=\frac{X(w-a)}{X(w+3-a)},\qquad
+ \Psi_a(w)=R_{3/2-a}(w+3/2)=\frac{X(w+a)}{X(w+3-a)}.
+\]
+Both are unconditionally Schur by the established wide-shift theorem. The common denominator is zero-free on $\CP$ since its $\xi$ argument has real part greater than $5/2$. Let
+$K_f(w,z)=(1-f(w)\overline{f(z)})/(w+\bar z)$.
+
+\begin{proposition}[Exact defect-space comparison]\label{prop:comparison}
+For the displayed $\Phi_a,\Psi_a$, the following are equivalent:
+\begin{enumerate}
+\item $R_a$ is holomorphic and contractive on $\CP$;
+\item $K_{\Phi_a}-K_{\Psi_a}$ is a positive semidefinite kernel;
+\item the canonical inclusion of reproducing kernel spaces
+$\mathcal H(K_{\Psi_a})\hookrightarrow\mathcal H(K_{\Phi_a})$ is contractive.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+If $R_a$ is Schur, then $\Phi_a=R_a\Psi_a$ and
+\[
+ K_{\Phi_a}-K_{\Psi_a}=\Psi_a(w)\overline{\Psi_a(z)}K_{R_a}(w,z)\succeq0.
+\]
+Conversely positivity on the diagonal implies $|\Phi_a(w)|\leq|\Psi_a(w)|$. At zeros of $\Psi_a$, this inequality forces at least the same vanishing order in $\Phi_a$, so $\Phi_a/\Psi_a=R_a$ extends holomorphically and is bounded by one. The equivalence with contractive inclusion is the elementary reproducing-kernel order criterion; see [6] for the de Branges--Rovnyak framework.
+\end{proof}
+The unnormalized kernel whose sign is required is explicitly
+\[
+ \frac{X(w+a)\overline{X(z+a)}-X(w-a)\overline{X(z-a)}}{w+\bar z}.
+\]
+The harmless nonvanishing common denominator does not affect its positivity. Thus a successful geometric continuation could supply a genuine contractive comparison between the two known wide defect spaces, with the specified arithmetic identification. Merely constructing both spaces, a scalar cocycle, or the $X$-weighted semigroup does not supply this comparison. Its diagonal condition is already the thin scalar inequality; it must not be assumed as an energy definition or described as an independent proof. At the angular constant mode there is no additional positive geometric term available to repair a failure.
+
 \section*{Verification and sources}
-The accompanying script checks the harmonic dimensions and derivatives exactly with rational symbolic arithmetic, verifies the completion value and cocycle numerically at 70 decimal digits, and checks finite cyclic-root identities. These are reproducibility diagnostics; the proofs above establish the stated theorems. No claim of literature priority is made.
+The accompanying script checks the harmonic dimensions and derivatives exactly with rational symbolic arithmetic, verifies the completion value and cocycle numerically at 70 decimal digits, and checks finite cyclic-root identities. These are reproducibility diagnostics; the proofs above establish the stated theorems. The structural continuation also includes exact checks of the cocycle counterfamily and rational perturbation constants, plus an independent domain and normalization audit. The kernel-norm and comparison arguments are analytical proofs, not inferences from plotted samples. No claim of literature priority is made.
 
 \begin{enumerate}[label={[\arabic*]}]
-\item \emph{Split Twistor Bridge V2}, 1 October 2026, pp. 2--9. Existing project report containing the exact homogeneous Fourier family, prime factors, incidence map at the self-dual weight, and constant-mode reduction. This continuation does not replace that report.
+\item \emph{Split Twistor Bridge V2}, 1 October 2026, pp. 2--9. Earlier project report. The present report now includes the foundational Fourier, incidence, local-factor and normalization calculations, with the domain qualifications needed to read them independently.
 \item J. C. Lagarias, \emph{Zero Spacing Distributions for Differenced L-Functions}, Acta Arithmetica 120 (2005), 159--184; corrected preprint, Lemma 2.1. \url{https://arxiv.org/abs/math/0601653}.
-\item M. Suzuki, \emph{A canonical system of differential equations arising from the Riemann zeta-function}, revised 2016. \url{https://arxiv.org/abs/1204.1827}.
+\item M. Suzuki, \emph{A canonical system of differential equations arising from the Riemann zeta-function}, revised 2016. Section 2 supplies the kernels and states all-positive-width compactness; Theorem 2.2 and Lemma 4.1 supply the innerness and global-operator implications used here. \url{https://arxiv.org/abs/1204.1827}.
 \item G. \'Olafsson, A. Pasquale and B. Rubin, \emph{Analytic and Group-Theoretic Aspects of the Cosine Transform} (2012). Background on Fourier normalization and generalized principal-series intertwiners. \url{https://arxiv.org/abs/1209.1822}.
+\item M. Aryapoor, \emph{The Penrose Transform in the Split Signature}. Classical geometric background. \url{https://arxiv.org/abs/0812.3692}.
+\item J. A. Ball and V. Bolotnikov, \emph{de Branges--Rovnyak spaces: basics and theory}, Section 3.4. \url{https://arxiv.org/abs/1405.2980}.
+\item NIST Digital Library of Mathematical Functions, gamma-ratio asymptotic, equation 5.11.13. \url{https://dlmf.nist.gov/5.11.E13}.
 \end{enumerate}
 \end{document}

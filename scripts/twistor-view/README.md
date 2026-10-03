@@ -24,3 +24,11 @@ Recorded on 3 October 2026:
 - The full repository build/assertion sweep was not run in this partial source snapshot; the existing PR CI must supply those checks.
 
 This model uses numerical samples only as diagnostics. Neither numerical agreement nor these UI tests are proofs of RH.
+
+## Structural-audit follow-up
+
+The revised view adds the precise dual action and bounded-operator domains, the independent arithmetic normalization choices, known scalar Schur range a>=1/2, and the exact all-window boundedness target. It does not promote the universal X-weighted Hardy semigroup or exponentially weighted tail-energy estimate into a thin-width proof.
+
+The nearby-width scope [0.24999998,0.25000002], 1<L<=1.5, uses the original point interval certificate plus a proved analytical width perturbation bound. Its norm bound is 0.99999. The tighter 0.99998 remains selected only at the exact quarter-width. Certificate controls compare literal decimals using exact rational arithmetic, including digits beyond binary64 precision.
+
+Follow-up local validation: 2,359 mathematical/scope/formula checks, 27 DOM interaction checks, and the focused production build passed. Eleven new exact structural checks and the refreshed scientific manifest also passed. The original PR commit's full application CI and automatic-preview desktop browser checks passed; those must be checked again against the follow-up commit before claiming its completion. Mobile rendering and the existing WebGL-dependent illustration remain outside the verified visual coverage.

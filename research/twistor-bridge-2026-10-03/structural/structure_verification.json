@@ -1,0 +1,61 @@
+{
+  "scope": "Exact identities and arithmetic of analytical bounds; no all-window estimate or RH proof.",
+  "passed": 11,
+  "checks": [
+    {
+      "name": "even_polynomial",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "exact_width_cocycle",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "blaschke_factorization",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "uncancelled_thin_pole",
+      "passed": true,
+      "value": "-65/544 - 65*I/2176"
+    },
+    {
+      "name": "kernel_L1_bound",
+      "passed": true,
+      "value": "39/2"
+    },
+    {
+      "name": "width_derivative_bound",
+      "passed": true,
+      "value": "292"
+    },
+    {
+      "name": "arithmetic_kernel_derivative_bound",
+      "passed": true,
+      "value": "1869/4"
+    },
+    {
+      "name": "uniform_width_interval_bound",
+      "passed": true,
+      "value": "99999/100000"
+    },
+    {
+      "name": "width_interval_inside_comparison_range",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "defect_kernel_identity",
+      "passed": true,
+      "value": null
+    },
+    {
+      "name": "single_width_zero_cancellation",
+      "passed": true,
+      "value": null
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+\subsection*{The geometry and its precise representation domain}
+Here is the foundational calculation, including the choices needed to interpret it. Let $V=\mathbb R^4$ have a volume density. Real projective twistor space and its actual dual are $\mathbb P(V)$ and $\mathbb P(V^*)$. Compactified split conformal spacetime is $\operatorname{Gr}(2,V)$; a two-plane $E$ corresponds to the twistor line $\mathbb P(E)$ and the dual line $\mathbb P(E^\circ)$. Incidence is the natural pairing $W(Z)=0$. The conformal group is locally $SL(4,\mathbb R)\simeq\operatorname{Spin}_0(3,3)$, associated with spacetime signature $(2,2)$. This does not impose a metric of signature $(2,2)$ on $V$ itself.
+
+For smooth even angular data, define homogeneous sections by
+\[
+ f(rZ)=|r|^{-2-w}f(Z),\qquad r\ne0.
+\]
+These are smooth density characters, not holomorphic line bundles of fractional degree. Initially, $-2<\Rea w<2$ gives the elementary locally integrable distribution interpretation on both sides. With Fourier kernel $e^{-2\pi iW(Z)}$ and compatible dual densities, distributional Fourier transformation gives
+\[
+ \mathcal F_w:\mathcal H_w(V)\longrightarrow\mathcal H_{-w}(V^*),\quad
+ \mathcal F_w\pi_w(g)=\pi^*_{-w}(g)\mathcal F_w,
+\]
+where $\pi_w(g)f(Z)=f(g^{-1}Z)$ and $\pi^*_{-w}(g)h(W)=h(g^TW)$. The covariance follows by the substitution $Z=gY$, and ordinary Fourier inversion gives the even identity at generic parameters. Meromorphic homogeneous distribution continuation handles other parameters, with exceptional weights treated explicitly.
+
+Choose an auxiliary Euclidean pairing only to identify the two compact pictures. Then the normalized operator has the twisted covariance
+\[
+ A(w)\pi_w(g)=\pi_{-w}(g^{-T})A(w).
+\]
+It is a generalized principal-series intertwiner for the projective maximal parabolic [4], rather than an untwisted commuting operator or a pointwise map between projective points. The harmonic spaces are $K=SO(4)$ types. In particular, the constant harmonic is $K$-fixed and is not a $G$-invariant subrepresentation at generic $w$.
+
+At $w=0$, the projective scalar X-ray transform has the correct weight. In a matrix chart $Z=(\mu,\lambda)$ and $E_x=\{(x\lambda,\lambda)\}$, it is
+\[
+ (\mathcal Pf)(x)=\int_{\mathbb{RP}^1}f(x\lambda,\lambda)|\lambda\wedge d\lambda|.
+\]
+The two powers of the density cancel the degree $-2$. Differentiation under the integral gives
+\[
+ (\partial_{x_{11}}\partial_{x_{22}}-\partial_{x_{12}}\partial_{x_{21}})\mathcal Pf=0.
+\]
+since both integrands contain $\lambda_1\lambda_2\partial_{\mu_1}\partial_{\mu_2}f$. With compatible plane densities,
+\[
+ \mathcal P^*(\mathcal F_0f)(E^\circ)=\mathcal Pf(E).
+\]
+On a degree-$2m$ harmonic, complementary circle averages differ by $(-1)^m$, exactly the Fourier sign. Smooth harmonic expansion proves the identity. This classical split Penrose/X-ray statement [5] is asserted at the scalar weight $w=0$; the same unweighted map does not extend to all $w$ as one massless scalar representation.
+
+\subsection*{Local factors and what the arithmetic completion chooses}
+Put $\alpha=2+w$. Gaussian Mellin integration gives
+\[
+ \mathcal F(|Z|^{-\alpha})(W)=\gamma_\infty(\alpha)|W|^{\alpha-4},\qquad
+ \gamma_\infty(\alpha)=\pi^{\alpha-2}\frac{\Gamma((4-\alpha)/2)}{\Gamma(\alpha/2)}.
+\]
+For a degree-$\ell$ spherical harmonic, the scalar is
+$i^{-\ell}\pi^{\alpha-2}\Gamma((4+\ell-\alpha)/2)/\Gamma((\ell+\alpha)/2)$.
+Dividing by the constant coefficient yields the product in \eqref{eq:model}.
+
+At each prime, separately choose $\mathbb Q_p^4$, the max norm, the lattice $\mathbb Z_p^4$, a conductor-$\mathbb Z_p$ additive character, and Haar volume $\operatorname{vol}(\mathbb Z_p^4)=1$. At a unit dual vector, the shells with norm $p^k$, $k\leq0$, have trivial character; the shell $k=1$ has character integral $-1$, and later shells contribute zero. Thus
+\[
+ \gamma_p(\alpha)=(1-p^{-4})\sum_{k\leq0}p^{k(4-\alpha)}-p^{-\alpha}
+ =\frac{1-p^{-\alpha}}{1-p^{\alpha-4}}.
+\]
+The unramified spherical product converges for $|\Rea w|<1$ and gives
+\[
+ C_4(w)=\gamma_\infty(2+w)\prod_p\gamma_p(2+w)
+ =\frac{\Lambda(2-w)}{\Lambda(2+w)},\quad
+ \Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\]
+Selecting $B_4(w)=(w-1)(w-2)/((w+1)(w+2))$ to complete $\Lambda$ to $\xi$, and then using the global functional equation, gives $B_4C_4=R_{3/2}$. These arithmetic choices are extra data; covariance does not uniquely force them. No bounded adelic operator on all ramified types is claimed. Outside the initial strip the product is a meromorphically continued scalar identity, not a convergent cascade of local bounded maps.
+
+Indeed, $\gamma_p(2+w)>1$ for every prime and every real $0<w<1$. The local finite-place spherical maps are expansive in this normalization. The completed wide bound uses the separate classical shifted-$\xi$ inequality [2], which is unconditional for every width $a\geq1/2$. Only $a=3/2$ has been obtained from the present four-dimensional local-factor construction. In the analogous dimension-$n$ calculation the completed width is $(n-1)/2$; analytic continuation in $n$ alone supplies no noninteger-dimensional twistor or $p$-adic space.
+
+\subsection*{Bounded operators and distribution continuation are different claims}
+For generic $w$, gamma-ratio asymptotics give
+$b_m(w)=(-1)^m C(w)m^{-w}(1+O(m^{-1}))$ [7]. Hence $A(w)$ is compact and operator-norm holomorphic in $\CP$, with norm one. At positive even $w$, the product formula gives finite rank. Its unitary values on $i\mathbb R$ are strong-operator boundary limits, not norm limits: for $0<x<2$, $\|A(x)-A(0)\|=1$. At generic $\Rea w<0$, the multipliers grow, so $A(w)$ is not a bounded operator on the fixed $\HH$. Distributional Fourier inversion must not be read as bounded invertibility of this compact operator. The value $A(2)=P_0$ is a normalized continued limit at an exceptional raw homogeneous weight.
+
+The chosen Euclidean compact-picture norm is $K$-invariant; the whole group action is unitary at imaginary $w$, not at arbitrary complex $w$. Thus the passive transfer interpretation refers to that specified norm, rather than a uniquely selected physical energy.

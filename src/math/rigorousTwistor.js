@@ -5,6 +5,11 @@
  */
 export const COMMON_WINDOW_SAFE = 1.022591164; // Rounded DOWN from exp(exp(-gamma)/(8*pi)).
 export const SIGNED_WINDOW = Object.freeze({ a: 1 / 4, L: 3 / 2, bound: 49999 / 50000 });
+// Point certificate plus the report's proved L1 width-perturbation estimate.
+// Decimal strings keep these exact rational endpoints out of floating-point gating.
+export const NEARBY_WIDTH_WINDOW = Object.freeze({
+  aMin: '0.24999998', aMax: '0.25000002', L: 3 / 2, bound: 99999 / 100000,
+});
 export const abs = ([re, im]) => Math.hypot(re, im);
 export const multiply = ([a, b], [c, d]) => [a * c - b * d, a * d + b * c];
 const finiteComplex = (z) => Array.isArray(z) && z.length === 2 && z.every(Number.isFinite);
@@ -81,16 +86,50 @@ export function arithmeticDiagnostic(w, a) {
   return { ok: true, value, magnitude: abs(value), discrepancy, certified: false };
 }
 
-/** Exact scope selection. No approximate equality or extrapolation is allowed. */
+/** Parse the literal input, preserving decimal precision for certificate gating. */
+function decimalFraction(value) {
+  if ((typeof value !== 'string' && typeof value !== 'number')
+    || (typeof value === 'number' && !Number.isFinite(value))) return null;
+  const text = String(value).trim();
+  if (text.length > 96 || !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?$/i.test(text)) return null;
+  const [mantissa, exponentText = '0'] = text.toLowerCase().split('e');
+  const exponent = Number(exponentText);
+  if (!Number.isInteger(exponent) || Math.abs(exponent) > 324) return null;
+  const sign = mantissa.startsWith('-') ? -1n : 1n;
+  const [whole, fractional = ''] = mantissa.replace(/^[+-]/, '').split('.');
+  const digits = BigInt((whole || '0') + fractional);
+  const scale = fractional.length - exponent;
+  return {
+    n: sign * digits * (scale < 0 ? 10n ** BigInt(-scale) : 1n),
+    d: scale > 0 ? 10n ** BigInt(scale) : 1n,
+    approximate: Number(text),
+  };
+}
+
+const compare = (x, y) => x.n * y.d - y.n * x.d;
+const zero = { n: 0n, d: 1n }, one = { n: 1n, d: 1n };
+const quarter = { n: 1n, d: 4n }, threeHalves = { n: 3n, d: 2n };
+const commonWindow = decimalFraction(String(COMMON_WINDOW_SAFE));
+const nearbyWidthMin = decimalFraction(NEARBY_WIDTH_WINDOW.aMin);
+const nearbyWidthMax = decimalFraction(NEARBY_WIDTH_WINDOW.aMax);
+
+/** Exact decimal scope selection. No epsilon equality or extrapolation. */
 export function windowEvidence(a, L) {
-  if (!Number.isFinite(a) || !Number.isFinite(L) || a <= 0 || L <= 1) {
-    return { kind: 'outside', bound: null, title: 'Choose a > 0 and L > 1' };
+  const width = decimalFraction(a), endpoint = decimalFraction(L);
+  if (!width || !endpoint || compare(width, zero) <= 0n || compare(endpoint, one) <= 0n
+    || !Number.isFinite(width.approximate) || width.approximate <= 0) {
+    return { kind: 'outside', bound: null, title: 'Choose finite decimal a > 0 and L > 1' };
   }
-  if (a <= 1 && L <= COMMON_WINDOW_SAFE) {
-    return { kind: 'proved', bound: 2 ** -a, title: 'Analytical common-window bound', exact: '2^{-a}' };
+  if (compare(width, one) <= 0n && compare(endpoint, commonWindow) <= 0n) {
+    return { kind: 'proved', method: 'analytic', bound: 2 ** -width.approximate, title: 'Analytical common-window bound', exact: '2^{-a}', gapLabel: '(1 − 2⁻ᵃ)' };
   }
-  if (a === SIGNED_WINDOW.a && L <= SIGNED_WINDOW.L) {
-    return { kind: 'certified', bound: SIGNED_WINDOW.bound, title: 'Signed Fourier-tail certificate', exact: '\\frac{49999}{50000}' };
+  if (compare(width, quarter) === 0n && compare(endpoint, threeHalves) <= 0n) {
+    return { kind: 'certified', method: 'point', bound: SIGNED_WINDOW.bound, title: 'Signed Fourier-tail certificate', exact: '\\frac{49999}{50000}', gapLabel: '1/50000' };
   }
-  return { kind: 'outside', bound: null, title: 'Outside the two bounds implemented here' };
+  if (compare(width, nearbyWidthMin) >= 0n && compare(width, nearbyWidthMax) <= 0n
+    && compare(endpoint, threeHalves) <= 0n) {
+    return { kind: 'certified', method: 'width-perturbation', bound: NEARBY_WIDTH_WINDOW.bound,
+      title: 'Certified point + analytic width perturbation', exact: '\\frac{99999}{100000}', gapLabel: '1/100000' };
+  }
+  return { kind: 'outside', bound: null, title: 'Outside the implemented contraction bounds' };
 }

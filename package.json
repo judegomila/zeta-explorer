@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite build && node server.js",
-    "build": "node scripts/verify-debranges-gram-certificates.mjs && node scripts/audit-nav-links.mjs && node scripts/check-bundle-sizes.mjs && vite build",
+    "build": "npm run test:twistor && node scripts/verify-debranges-gram-certificates.mjs && node scripts/audit-nav-links.mjs && node scripts/check-bundle-sizes.mjs && vite build",
     "preview": "vite preview",
     "assert": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs && node scripts/reproduce-headline-numbers.mjs",
     "assert:pr": "node scripts/run-assertions.mjs --fail-inject && node scripts/audit-nav-links.mjs && node scripts/run-assertions.mjs --fast --since-ref=origin/main && node scripts/reproduce-headline-numbers.mjs && node scripts/smoke-tests.mjs",
@@ -18,7 +18,8 @@
     "test:pages": "node scripts/check-page-health.mjs",
     "test:buttons": "node scripts/test-buttons.mjs",
     "test:all": "node scripts/smoke-tests.mjs && node scripts/check-page-health.mjs && node scripts/test-buttons.mjs",
-    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs"
+    "verify:heavy-imports": "node scripts/verify-no-heavy-page-imports.mjs",
+    "test:twistor": "node --no-warnings scripts/test-rigorous-twistor.mjs"
   },
   "repository": {
     "type": "git",

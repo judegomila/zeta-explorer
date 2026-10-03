@@ -1,0 +1,483 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\BB}{\mathcal B}
+\newcommand{\CP}{\mathbb C_+}
+\newcommand{\Rea}{\operatorname{Re}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\dd}{\mathrm d}
+\title{Twistor bridge continuation}
+\author{Research continuation for Jude Gomila}
+\date{3 October 2026}
+\begin{document}
+\maketitle
+\vspace{-1em}
+\noindent\textbf{Results.} The exact wide split-twistor bridge cannot be divided into identical holomorphic operator stages, even with angular mixing. The actual completed arithmetic ratio has a negative delay kernel before the first prime enters, ruling out a positive scalar convolution model for every thin width. A constructive continuation nevertheless gives compact arithmetic Hankel operators at every positive width, and an explicit nontrivial window with norm at most $2^{-a}<1$. A further interval certificate proves norm at most $0.99998$ at width $a=1/4$ for every truncation $L\leq3/2$, crossing the first prime threshold. Global spectral control remains unresolved. None of these results proves RH or excludes other twistor constructions.
+
+\section{Established construction and the actual gap}
+Write
+\[
+ \xi(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2)\zeta(s),\qquad
+ X(w)=\xi(\tfrac12+w),\qquad R_a(w)=\frac{X(w-a)}{X(w+a)}.
+\]
+The split-twistor construction in the 1 October report [1] acts on
+\[
+ \HH=L^2_{\rm even}(S^3)=\widehat{\bigoplus}_{m\geq0}\HH_m,
+ \qquad \HH_m=\mathcal Y_{2m}(S^3),\quad d_m=\dim\HH_m=(2m+1)^2.
+\]
+Its normalized Fourier part and completed arithmetic bridge are
+\begin{equation}\label{eq:model}
+ A(w)|_{\HH_m}=b_m(w)I,\quad
+ b_m(w)=\prod_{j=1}^{m}\frac{w-2j}{w+2j},\qquad
+ T(w)=R_{3/2}(w)A(w).
+\end{equation}
+The empty product is one. Both are holomorphic contractions on $\CP=\{\Rea w>0\}$. The arithmetic identity is
+\[
+ R_{3/2}(w)=\frac{\xi(w-1)}{\xi(w+2)}
+ =\frac{(w-1)(w-2)}{(w+1)(w+2)}
+ \frac{L(2-w)}{L(2+w)},\qquad L(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s).
+\]
+It is derived by real and prime-place Fourier factors, initially in $|\Rea w|<1$, followed by meromorphic continuation. The geometry is $\mathbb{RP}^3$ and its dual, with $SL(4,\mathbb R)$ acting on homogeneous degree $-2-w$ distributions. The parameter reflection is $w\mapsto-w$; the fixed thickness $3/2$ is not the homogeneity parameter.
+
+The wide-shift contractivity is unconditional [2]. For the candidate $T_a=R_aA$, the constant harmonic is an eigenvector with eigenvalue $R_a$. Hence $\|T_a(w)\|=|R_a(w)|$ at regular points in $\CP$. Proving that these families are Schur for every $a>0$, or a sequence $a\downarrow0$, remains equivalent to RH [1,3]. The present investigation asks whether a passive wide bridge can be subdivided to manufacture that missing family.
+
+\section{A local obstruction without a symmetry assumption}
+At the positive real point $w=2$, exact completion gives
+\begin{equation}\label{eq:degeneration}
+ R_{3/2}(2)=\frac{15}{2\pi^2}>0,\qquad
+ T(2)=\frac{15}{2\pi^2}P_0,\qquad A(2)=P_0,
+\end{equation}
+where $P_0$ is the projection onto the constants. Each nonconstant multiplier has a simple zero there:
+\begin{equation}\label{eq:slope}
+ b'_m(2)=\frac{(-1)^{m-1}}{2m(m+1)}\ne0\quad(m\geq1).
+\end{equation}
+Indeed, differentiate the first factor, whose derivative at 2 is $1/4$, and telescope the remaining product $\prod_{j=2}^{m}(1-j)/(1+j)$.
+
+\begin{theorem}[No holomorphic operator root]\label{thm:root}
+Let $B=A$ or $B=T$. For every integer $q\geq2$, there is no neighborhood $D$ of $2$ and holomorphic map $Q:D\to\BB(\HH)$ such that
+\[
+ Q(w)^q=B(w)\qquad(w\in D).
+\]
+No rotation equivariance, normality, or contractivity of $Q$ is assumed.
+\end{theorem}
+\begin{proof}
+Shrink $D$ to a disk of radius less than 1 lying in $\CP$, with $R_{3/2}$ nonzero on $D$. Set $r=1$ for $B=A$, or $r=R_{3/2}$ for $B=T$, and write $t_m=rb_m$. For $w\in D\setminus\{2\}$ all $t_m$ are nonzero and
+\[
+ |b_{m+1}(w)|=|b_m(w)|\left|\frac{w-2m-2}{w+2m+2}\right|<|b_m(w)|.
+\]
+The strict inequality follows from
+$|w+c|^2-|w-c|^2=4c\Rea w>0$ for $c>0$. Thus the eigenvalues $t_m(w)$ are pairwise distinct, and their eigenspaces are exactly $\HH_m$.
+
+If $Q^q=B$, then $QB=BQ$. For $v\in\HH_m$, this gives $B(Qv)=t_mQv$, so $Qv\in\HH_m$ on the punctured disk. Continuity extends this invariance to $w=2$. Therefore $Q_m=Q|_{\HH_m}$ is a holomorphic $d_m\times d_m$ matrix and
+\[
+ Q_m(w)^q=t_m(w)I_{d_m},\qquad (\det Q_m(w))^q=t_m(w)^{d_m}.
+\]
+For $m\geq1$, $t_m$ has a simple zero at 2, by \eqref{eq:degeneration}--\eqref{eq:slope}. Taking zero orders yields
+\[
+ q\,\ord_{w=2}(\det Q_m)=d_m.
+\]
+In particular $q$ divides both $d_1=9$ and $d_2=25$. Since their greatest common divisor is 1, this is impossible for $q\geq2$.
+\end{proof}
+
+The proof is local, uses no information about nontrivial zeta zeros, and remains valid for $r(w)A(w)$ whenever $r$ is holomorphic and nonzero at 2. Therefore changing to any nonsingular scalar normalization there does not fix the obstruction. It also survives an invertible holomorphic similarity transformation. Even a globally continuous operator root on a punctured disk is impossible: taking determinant winding numbers around the puncture gives the same divisibility contradiction.
+
+Deleting the constant harmonic does not help. Nor does deleting finitely many low angular modes: any two remaining adjacent nonconstant harmonic spaces have coprime dimensions $(2m+1)^2$ and $(2m+3)^2$, and the same argument applies. The obstruction is therefore present in the geometric sector itself, independently of the arithmetic constant mode.
+
+\section{Finite enlargement gives a sharp boundary}
+\begin{theorem}[Exact amplification criterion]\label{thm:amp}
+For a positive integer $r$, the amplified bridge $B(w)\otimes I_r$ admits a holomorphic $q$th root near $2$ if and only if $q$ divides $r$. When $q\mid r$, a root holomorphic and contractive on all of $\CP$ exists.
+\end{theorem}
+\begin{proof}
+For necessity, the preceding proof has eigenspace dimensions $9r$ and $25r$, so $q$ divides their greatest common divisor $r$.
+
+For sufficiency, first take $r=q$ and define the cyclic block operator on $\HH^{\oplus q}$ by
+\begin{equation}\label{eq:companion}
+ C_q(B)(x_1,\ldots,x_q)=(Bx_q,x_1,\ldots,x_{q-1}).
+\end{equation}
+After $q$ steps each coordinate has passed through $B$ exactly once, so $C_q(B)^q=B^{\oplus q}$. It is holomorphic and
+\[
+ \|C_q(B)x\|^2=\|Bx_q\|^2+\sum_{j=1}^{q-1}\|x_j\|^2\leq\|x\|^2.
+\]
+For $r=qk$, take $k$ copies of this construction.
+\end{proof}
+
+\begin{corollary}[No finitely amplified thickness semigroup]
+For fixed finite $r$, there is no family $S_t(w)$, $t\geq0$, of holomorphic bounded operators on $\HH\otimes\mathbb C^r$ satisfying
+\[
+ S_{t+u}(w)=S_t(w)S_u(w),\qquad S_1(w)=B(w)\otimes I_r.
+\]
+In particular a continuous passive semigroup with this exact endpoint cannot exist on that space.
+\end{corollary}
+\begin{proof}
+Choose an integer $q\geq2$ that does not divide $r$. Then $S_{1/q}^q=S_1$, contradicting Theorem~\ref{thm:amp}. No continuity in $t$ was needed.
+\end{proof}
+
+\textbf{Scope.} This excludes identical-stage pointwise subdivision of this transfer operator, including arbitrary finite copies of its complete angular space. It does not exclude every finite-dimensional auxiliary construction with a different endpoint, a compression, different source and target spaces, unbounded maps, or a family without the semigroup law. Unequal passive cascades are also not ruled out.
+
+\section{Infinite memory permits subdivision but supplies no arithmetic}
+The obstruction is not an assertion that passive semigroups cannot be built. An explicit construction shows exactly what an enlargement can do. On $\mathcal K=L^2([0,1);\HH)$, for $t\geq0$ and $0\leq x<1$, set
+\begin{equation}\label{eq:delay}
+ (U_t(w)f)(x)=B(w)^{n(x,t)}f\bigl(x+t-n(x,t)\bigr),
+ \qquad n(x,t)=\lfloor x+t\rfloor.
+\end{equation}
+Values at the finitely many partition boundaries are immaterial in $L^2$.
+
+\begin{proposition}[Explicit passive delay enlargement]
+The operators in \eqref{eq:delay} form a strongly continuous contraction semigroup in $t$. For each fixed $t$, they are holomorphic in $w\in\CP$, and $U_1(w)=I_{L^2([0,1))}\otimes B(w)$.
+\end{proposition}
+\begin{proof}
+Adding $t$ and $u$ adds the number of wraps around the interval, so powers of $B$ multiply and $U_tU_u=U_{t+u}$. The map $x\mapsto x+t\pmod1$ preserves Lebesgue measure, and $\|B^n\|\leq1$; hence $\|U_tf\|\leq\|f\|$. For fixed $t$, $n(x,t)$ takes at most two consecutive integer values, and its partition is independent of $w$. Thus $U_t(w)$ is a finite sum of fixed bounded translation and restriction operators multiplied by powers of the holomorphic family $B(w)$.
+
+Strong continuity at $t=0$ follows from continuity of translations in $L^2$, while the wrapped interval has measure $t$ and its contribution tends to zero for each $f$. The semigroup law then gives strong continuity at every $t\geq0$. At $t=1$ every point wraps once, proving the endpoint identity.
+\end{proof}
+
+This infinite-dimensional auxiliary coordinate evades the finite-multiplicity determinant argument. It applies to \emph{every} holomorphic contraction $B$, so its existence contains no special fact about the Riemann arithmetic. Neither $C_q(B)$ nor $U_t$ has been identified with $T_{(3/2)t}$; merely assigning it that name would not establish the identity.
+
+\section{The exact condition a successful continuation must add}
+The shifted scalar ratios do not obey the pointwise semigroup law. They instead satisfy the meromorphic cocycle
+\begin{equation}\label{eq:cocycle}
+ R_{a+b}(w)=R_a(w-b)\,R_b(w+a).
+\end{equation}
+This is immediate by cancellation of the middle factors $X(w+a-b)$. However $w-b$ can lie outside $\CP$ even when $w\in\CP$, so a Schur bound on each right half-plane does not transfer through this identity to a proof of thinning. Extracting ordinary roots is not the correct algebraic operation for these arithmetic shifts.
+
+A constructive continuation therefore needs more than passive geometric subdivision. It must derive a bounded input/output coefficient equal to
+\[
+ R_a(w)=\frac{\xi(1/2+w-a)}{\xi(1/2+w+a)}
+\]
+for arbitrarily small positive $a$, from a positive realization justified independently of that coefficient's Schur property. If the coefficient is recovered by unit-norm input/output vectors, passivity would give $|R_a(w)|\leq1$. Holomorphicity must also be proved, rather than inserted by assuming the absence of its possible poles.
+
+Equivalently, the undivided arithmetic target remains
+\[
+ D(x,t)=\Rea\!\left(X'(x+it)\overline{X(x+it)}\right)
+       =\tfrac12\partial_x|X(x+it)|^2\geq0
+ \quad(x>0,\ t\in\mathbb R).
+\]
+The conjugate in this formula is essential. A right-half-plane zero of multiplicity $m$ would make $D$ negative immediately to its left, so the target is not a harmless choice of normalization.
+
+\textbf{Current conclusion.} The split twistor and dual-twistor transform, its prime completion, and its wide operator are explicit. The added result is a proved obstruction to identical-stage geometric thinning, together with sharp constructions showing its limits. The arithmetic positivity theorem is still open. This is a useful restriction on the next construction, not a new zero-free region.
+
+\section{The actual arithmetic ratio has a negative delay interval}
+The scalar arithmetic obstruction can be made more specific than a generic counterexample. Use a separate complex variable $z$, with
+\[
+ F_a(z)=\frac{\xi(z-a)}{\xi(z+a)}=R_a(z-\tfrac12),\qquad
+ \phi_{a,\sigma}(t)=\frac{F_a(\sigma+it)}{F_a(\sigma)},\qquad \sigma>1+a.
+\]
+The variables $a$ and $\sigma$ in this section are width and Euler-domain real part; neither is the angular spectral variable $w$ at the root obstruction.
+
+\begin{theorem}[No positive scalar delay model at thin widths]\label{thm:negative}
+For $0<a\leq1$ and $\sigma>1+a$, $\phi_{a,\sigma}$ is not the characteristic function of any probability measure. In particular, this excludes a positive scalar convolution-kernel realization even in the absolutely convergent Euler domain. It does not exclude Schur contractivity or a positive Hilbert-space energy realization.
+\end{theorem}
+\begin{proof}
+The Euler expansion is
+\[
+ \frac{\zeta(z-a)}{\zeta(z+a)}=\sum_{n\geq1}c_a(n)n^{-z},\qquad
+ c_a(n)=n^a\prod_{p\mid n}(1-p^{-2a})\geq0,\quad c_a(1)=1.
+\]
+Define, for $0<y<1$,
+\begin{equation}\label{eq:g}
+ g_a(y)=\frac{2\pi^a}{\Gamma(a)}\left[
+ y^{2-a}(1-y^2)^{a-1}
+ -a y^{a-1}\int_{y^2}^{1}t^{1/2-a}(1-t)^{a-1}\,\dd t\right].
+\end{equation}
+This is Suzuki's archimedean kernel [3, Section 2]. A direct beta integral and interchange of the two integrals verify
+\[
+ \int_0^1 g_a(y)y^{z-1}\,\dd y
+ =\pi^a\frac{(z-a)(z-a-1)}{(z+a)(z+a-1)}
+   \frac{\Gamma((z-a)/2)}{\Gamma((z+a)/2)}.
+\]
+Consequently, the full additive Laplace kernel is
+\begin{equation}\label{eq:q}
+ q_a(u)=\sum_{n\leq e^u}c_a(n)g_a(ne^{-u}),\qquad
+ F_a(z)=\int_0^\infty e^{-zu}q_a(u)\,\dd u
+ \quad(\Rea z>1+a).
+\end{equation}
+Threshold values, which may be singular, are interpreted almost everywhere. There is no extra factor $e^{-u}$ in $q_a$.
+
+To prove a negative interval, put $M=(1-y^2)/y^2$. The bracket in \eqref{eq:g}, divided by $y^{a-1}$, is
+\[
+ yM^{a-1}-a\int_0^M v^{a-1}(1+v)^{-3/2}\,\dd v.
+\]
+If $U_a$ has density $au^{a-1}$ on $(0,1)$, then $U_a$ is stochastically smaller than a uniform variable for $0<a\leq1$. Since $(1+Mu)^{-3/2}$ is decreasing,
+\[
+ \frac{a}{M^a}\int_0^M v^{a-1}(1+v)^{-3/2}\,\dd v
+ \geq\int_0^1(1+Mv)^{-3/2}\,\dd v
+ =\frac{2(1-y)}{M}.
+\]
+The bracket in \eqref{eq:g} is therefore at most $y^{a-1}M^{a-1}(3y-2)$, and $g_a(y)<0$ for $y<2/3$. On the prime-free interval
+\begin{equation}\label{eq:negativeinterval}
+ \log(3/2)<u<\log2,
+\end{equation}
+only $n=1$ occurs in \eqref{eq:q}, so $q_a(u)=g_a(e^{-u})<0$.
+
+The measure $e^{-\sigma u}q_a(u)\dd u$ has finite total variation. For completeness, beta inversion writes $g_a(e^{-u})$ as a positive integrable beta kernel minus its convolution with $2ae^{-(a-1)u}$. Its damped absolute integral is bounded by
+\[
+ \pi^a\frac{\Gamma((\sigma-a)/2+1)}{\Gamma((\sigma+a)/2+1)}
+ \left(1+\frac{2a}{\sigma+a-1}\right).
+\]
+Multiply this bound by the convergent positive series $\sum c_a(n)n^{-\sigma}$ to obtain finite total variation for the full kernel. Since $F_a(\sigma)>0$, the normalized signed measure
+\[
+ F_a(\sigma)^{-1}e^{-\sigma u}q_a(u)\,\dd u
+\]
+has mass one and Fourier transform $\phi_{a,\sigma}$, using the $e^{-itu}$ convention. It has negative mass on \eqref{eq:negativeinterval}. Uniqueness of the Fourier transform of finite measures rules out any alternative positive probability measure.
+\end{proof}
+
+At $a=1$ the inversion is elementary:
+\[
+ F_1(z)=2\pi\frac{z-2}{z(z+1)}\frac{\zeta(z-1)}{\zeta(z+1)},\qquad
+ g_1(e^{-u})=2\pi(3e^{-u}-2).
+\]
+Changing Euler or Dirichlet coefficients with $n\geq2$ cannot change the negative interval, since those delays begin at $\log2$. A successful construction must allow a signed impulse response or a different, genuinely coupled state realization. Positive arithmetic coefficients alone are insufficient after the exact $z(z-1)$ completion.
+
+\section{Compact arithmetic operators and an explicit local spectral gap}
+The negative scalar kernel does not prevent positive operator energy forms. Define Suzuki's multiplicative kernel and truncated Hankel operator by
+\[
+ h_a(x)=x^{-1}q_a(\log x)\ (x>1),\qquad h_a(x)=0\ (x<1),\qquad
+ (\mathsf H_{a,L}f)(x)=\int_0^Lh_a(xy)f(y)\,\dd y.
+\]
+Here $a$ is the arithmetic width and $L$ is the truncation endpoint. The endpoint is distinct from the width parameter used in \eqref{eq:cocycle}.
+
+\begin{proposition}[Compactness at every positive width]\label{prop:compact}
+For every fixed $a>0$ and $L>1$, $\mathsf H_{a,L}$ is a bounded compact self-adjoint operator on $L^2((0,L),\dd x)$. It is not Hilbert--Schmidt when $0<a\leq1/2$.
+\end{proposition}
+\begin{proof}
+The support condition $xy\geq1$ confines the nonzero part to $[1/L,L]^2$. Only finitely many thresholds $xy=n\leq L^2$ occur. The beta formula gives a locally integrable singularity of order $(xy-n)^{a-1}$ on its supported side, plus bounded or smoother terms. If $0<a<1$, remove strips $|xy-n|<\varepsilon$ around these thresholds. The remaining bounded kernel defines a Hilbert--Schmidt operator. Since $x,y$ stay bounded away from zero, the absolute row and column integrals of the removed singular parts are $O(\varepsilon^a)$; the Schur test proves norm convergence as $\varepsilon\downarrow0$. For $a\geq1$ the kernel is bounded on this compact square and the claim is immediate. Reality and symmetry in $x,y$ give self-adjointness.
+
+At $xy=1$, the nonzero leading coefficient of the first singularity gives square magnitude proportional to $(xy-1)^{2a-2}$. Its two-dimensional integral diverges for $a\leq1/2$, so the kernel is not square integrable and the operator is not Hilbert--Schmidt.
+\end{proof}
+
+Let $\gamma$ denote Euler's constant, and set
+\begin{equation}\label{eq:window}
+ \ell_0=\frac{e^{-\gamma}}{8\pi},\qquad L_0=e^{\ell_0}.
+\end{equation}
+\begin{theorem}[A common nontrivial window for all thin widths]\label{thm:local}
+For every $0<a\leq1$,
+\[
+ \|\mathsf H_{a,L_0}\|\leq2^{-a}<1,\qquad
+ I\pm\mathsf H_{a,L_0}\succeq(1-2^{-a})I.
+\]
+In particular both signs are invertible, with inverse norm at most $(1-2^{-a})^{-1}$. No RH assumption is used.
+\end{theorem}
+\begin{proof}
+On its nonzero subspace, the unitary map $(\mathcal Uf)(v)=e^{v/2}f(e^v)$ takes the operator to the interval $[-\ell_0,\ell_0]$ with kernel
+\[
+ K_a(v+v')=e^{-(v+v')/2}g_a(e^{-(v+v')})\,\mathbf1_{v+v'>0}.
+\]
+There is only the $n=1$ term, since $e^{2\ell_0}<2$.
+The kernel is nonnegative on this interval. Indeed, for $y=e^{-u}$ and $M=(1-y^2)/y^2$,
+$a\int_0^Mv^{a-1}(1+v)^{-3/2}\dd v\leq M^a$, so the bracket in \eqref{eq:g} is at least $y^{a-1}M^{a-1}(y-M)$. Here $0<u\leq2\ell_0<1/12$, so $y>1-u>11/12$ and $y^3+y^2>1$, hence $y>M$.
+
+For $0<a\leq1$, discard the subtractive term of \eqref{eq:g} and use $1-e^{-2u}\geq2ue^{-2u}$ to obtain
+\[
+ 0\leq K_a(u)\leq g_a(e^{-u})
+ \leq\frac{(2\pi)^a}{\Gamma(a)}u^{a-1}\quad(0<u\leq2\ell_0).
+\]
+Every row and column integral is therefore at most
+\[
+ \frac{(4\pi\ell_0)^a}{\Gamma(1+a)}
+ \leq(4\pi e^\gamma\ell_0)^a=2^{-a}.
+\]
+The second inequality follows from convexity of $\log\Gamma$, namely $\log\Gamma(1+a)\geq-\gamma a$. The Schur test gives the norm bound, and self-adjointness gives the two positive energy forms and inverse estimates.
+\end{proof}
+
+\textbf{Positivity distinction.} A nonnegative kernel preserves nonnegative functions but need not define a positive quadratic form. Here the Hankel operator is indefinite: a bump at negative logarithmic coordinates has zero self-pairing but can have positive cross-pairing with a bump at positive coordinates. Subtracting a sufficiently small multiple of the latter gives a negative quadratic form. The positive operators proved above are $I+\mathsf H$ and $I-\mathsf H$.
+
+There is a structural reason the inverse estimate cannot be uniform at zero width. As $a\downarrow0$, the positive kernels $K_a$ have mass tending to 1 on $(0,2\ell_0)$, and mass tending to zero outside every neighborhood of 0. The beta-kernel formula proves this; the subtractive convolution has mass $O(a)$ on a fixed compact interval. Thus they form a one-sided approximate identity, and the logarithmic operators converge strongly to reflection $Jf(v)=f(-v)$. Their norms tend to 1. Even and odd test functions show that neither inverse family $I\pm\mathsf H$ can remain uniformly bounded. Convergence is not in operator norm, since each truncated operator is compact while $J$ is not.
+
+\textbf{What this does and does not close.} Compactness removes a local operator-definition obstacle below the Hilbert--Schmidt threshold. The explicit norm bound proves both Fredholm inverses on a common nonzero window. It does not supply the canonical Hamiltonian or its global positivity; ordinary Fredholm determinant formulas require additional justification below their trace-ideal thresholds. The bound tends to 1 as $a\downarrow0$, and the inverse estimate grows like $1/(a\log2)$.
+
+The first nontrivial prime threshold is $L=\sqrt2$, where $xy=2$ enters. Sign changes already occur in the $n=1$ kernel whenever entries satisfy $3/2<xy<2$, so a nonnegative-kernel argument cannot cover all larger windows. Neither fact by itself disproves $\|\mathsf H_{a,L}\|<1$; the next missing theorem is spectral control for the signed, coupled arithmetic kernel as $L$ increases, with quantified behavior as $a\downarrow0$. The local propositions are derived here from the explicit classical kernel; their literature novelty has not been assessed.
+
+\section{A certified obstruction after the first prime threshold}
+The next bounded test used $a=1/4$ and $L=3/2$, beyond the first prime threshold $L=\sqrt2$. Put $V=2\log(3/2)$ and $b=\log2$. In logarithmic coordinates the signed kernel on $[-V/2,V/2]$ is
+\[
+ K(v)=e^{-v/2}\left[g_{1/4}(e^{-v})
+ +(2^{1/4}-2^{-1/4})g_{1/4}(2e^{-v})\mathbf1_{v>b}\right]\mathbf1_{v>0}.
+\]
+Only $n=1,2$ occur. Let $\mathsf H_{|K|}$ denote the operator obtained by replacing $K$ with $|K|$. For the normalized constant test function, and any measurable $\eta$ with $|\eta|\leq1$,
+\begin{equation}\label{eq:witness}
+ \|\mathsf H_{|K|}\|\geq\frac1V\int_0^V(V-v)|K(v)|\,\dd v
+ \geq\frac1V\int_0^V(V-v)\eta(v)K(v)\,\dd v.
+\end{equation}
+Choose the successive signs $+1,-1,+1,-1$ on the intervals with cuts
+\[
+ 0,\quad 3/10,\quad\log2,\quad3/4,\quad V.
+\]
+No root isolation or assumption about the sign of $K$ is needed for the second inequality.
+
+\begin{proposition}[Computer-assisted absolute-kernel obstruction]
+For this exact width and window, the rightmost integral in \eqref{eq:witness} lies in
+\[
+ [1.0494529987629657540,\ 1.0651499622678697025].
+\]
+Consequently $\|\mathsf H_{|K|}\|>1$. Methods that discard the kernel's signs and then bound the absolute-kernel operator by 1 cannot establish contractivity here.
+\end{proposition}
+\begin{proof}[Certificate]
+The script \texttt{certify\_absolute\_obstruction.py} uses outward-rounded interval arithmetic at 40 decimal digits. It splits at the displayed cuts and the prime threshold. For each component starting at its singularity, the substitution $v=b_j+d x^4$ cancels the endpoint power $t^{-3/4}$ exactly. The resulting continuous integrands are enclosed on 128 rectangles per segment and component.
+
+The incomplete beta term is evaluated with
+\[
+ B_z(1/4,5/4)=z^{1/4}\sum_{k\geq0}\frac{c_kz^k}{k+1/4},\qquad
+ c_0=1,\quad c_k=c_{k-1}\frac{k-1-1/4}{k}.
+\]
+All $c_k$ for $k\geq1$ are negative. Here $0\leq z\leq65/81$ exactly. The omitted series after degree 40 has absolute value at most
+\[
+ \frac{|c_{41}|}{41+1/4}\frac{(65/81)^{41}}{1-65/81}
+ <2.924\times10^{-8}.
+\]
+The script encloses that remainder with its correct negative sign. It uses the decreasing function $(1-e^{-2t})/t$, with its limit 2 at zero, to avoid an undefined endpoint division. Summing the interval integrals gives the displayed enclosure. The complete executable certificate and interval output are supplied in the reproducible bundle.
+\end{proof}
+
+\textbf{Numerical motivation for the signed certificate.} Singularity-integrated, 1024-cell Galerkin compressions at width $1/4$ gave the numerical norms
+\[
+ \begin{array}{c|ccc}
+ L&1.3&\sqrt2&1.5\\\hline
+ \|P_N\mathsf H P_N\|\text{ (diagnostic)}
+ &0.993768391046&0.999654874214&0.999961720777.
+ \end{array}
+\]
+These are finite-compression diagnostics, not validated upper bounds on the full signed operator. The elementary singular-strip remainder bound is much larger than the apparent gaps.
+
+A direct block certificate would retain cancellation as follows. For a projection $P$ and $Q=I-P$, validated bounds
+\[
+ \|P\mathsf H P\|\leq\alpha,\quad
+ \|Q\mathsf H Q\|\leq\beta<1,\quad
+ \|Q\mathsf H P\|\leq\varepsilon,\qquad
+ \alpha+\frac{\varepsilon^2}{1-\beta}<1
+\]
+would imply positivity of both $I\pm\mathsf H$ by the block Schur complement. This requires the complete cross-block norm, not just convergence of Ritz values or the residual of one vector. The elementary cell-projection estimate did not close this condition. The next section supplies a sharper Fourier-dilation Schur certificate for the specific window $a=1/4$, $L=3/2$.
+
+\section{A validated signed certificate beyond the first prime}
+\begin{theorem}[Computer-assisted signed contraction]\label{thm:signed}
+At the fixed width $a=1/4$, for every $1<L\leq3/2$,
+\[
+ \|\mathsf H_{1/4,L}\|\leq\frac{49999}{50000}=0.99998,
+ \qquad I\pm\mathsf H_{1/4,L}\succeq\frac1{50000}I.
+\]
+This is a full infinite-dimensional operator bound. It uses no hypothesis about zeta zeros. The arithmetic and matrix enclosures use outward-rounded \texttt{mpmath.iv} arithmetic, rather than a proof-assistant formalization.
+\end{theorem}
+We prove the endpoint $L=3/2$; the other windows are its orthogonal compressions in the original $L^2((0,L),\dd x)$ formulation. The zero part of the operator does not affect the norm. Put $V=2\log(3/2)$ and retain the signed kernel $K$ above.
+
+\subsection*{Fourier dilation and an exact finite Schur complement}
+Extend $K|_{(0,V)}$ by zero to the circle of length $2V$. Its Fourier multipliers are
+\[
+ \lambda_k=\int_0^V K(v)e^{-i\omega_kv}\,\dd v,
+ \qquad \omega_k=\frac{\pi k}{V}.
+\]
+There is no normalization divisor in $\lambda_k$. The periodic Hankel operator is the Fourier multiplier followed by reflection. Restriction to $[-V/2,V/2]$ recovers the desired operator exactly: negative sums lie in the zero half of the circle. In the normalized real basis consisting of the constant, cosines and sines, the multiplier-reflection operator has the blocks
+\[
+ D_0=\lambda_0,\qquad
+ D_k=\begin{pmatrix}\Rea\lambda_k&-\Im\lambda_k\\-\Im\lambda_k&-\Rea\lambda_k\end{pmatrix},
+ \quad \|D_k\|=|\lambda_k|.
+\]
+Keep $|k|\leq16$, so the finite matrix $D$ has dimension 33. Let $W$ restrict these orthonormal circle modes to the active interval and put $G=W^*W$. We prove below that all omitted blocks have norm less than $\delta=17/20$. Since restriction is a contraction, for each sign $s=\pm1$,
+\begin{equation}\label{eq:majorant}
+ s\mathsf H\preceq \delta I+W(sD-\delta I)W^*.
+\end{equation}
+This retains the low-frequency signed form exactly and charges the tail only for the energy in omitted modes.
+
+Set $\alpha=1-\delta=3/20$, $B_s=sD-\delta I$, and
+\begin{equation}\label{eq:inertia}
+ S_s=B_s^{-1}-G/\alpha.
+\end{equation}
+Every $B_s$ is certified invertible. The block matrix with entries $\alpha I,W,W^*,B_s^{-1}$ has these two Schur complements, giving
+\[
+ n_-(\alpha I-WB_sW^*)=n_-(S_s)-n_-(B_s).
+\]
+The nullities also agree. Thus equal negative counts and invertibility of $S_s$ prove strict positivity of the right side of $I-s\mathsf H\succeq\alpha I-WB_sW^*$. No bound on an uncomputed cross block is being assumed.
+
+The Gram matrix is explicit. In the complex basis, $G_{kk}=1/2$ and
+\[
+ G_{kj}=\frac{\sin(\pi(k-j)/2)}{\pi(k-j)}\quad(k\ne j).
+\]
+The real cosine and sine Gram blocks are obtained by taking their sums and differences. All sine numerators are exactly $0$, $1$, or $-1$.
+
+\subsection*{Analytic control of every omitted mode}
+Write $f(t)=e^{-t/2}g_a(e^{-t})$ and $d=(2\pi)^a/\Gamma(a)$, here with $a=1/4$. For $t>0$,
+\[
+ f(t)=d\,t^{a-1}F(t)-P(t),\quad
+ F(t)=e^{-3t/2}\left(\frac{t}{\sinh t}\right)^{1-a},\quad
+ P(t)=\frac{2a\pi^a}{\Gamma(a)}e^{(1/2-a)t}
+ B_{1-e^{-2t}}(a,3/2-a).
+\]
+The function $P$ is increasing and $P(0)=0$. For $0<t\leq T$,
+\[
+ -F'(t)\leq L_T,\quad 1-F(t)\leq L_Tt,
+ \qquad L_T=\frac32+\frac{(1-a)T}{3}.
+\]
+Indeed, $0<F\leq1$ and $\coth t-1/t\leq t/3$; the latter follows, for example, by differentiating the power series for $\sinh t$ and comparing coefficients. Consequently the absolutely continuous remainder $r(t)=f(t)-dt^{a-1}$ satisfies $r(0)=0$ and
+\[
+ \operatorname{TV}_{[0,T]}r\leq d(2-a)L_T\frac{T^a}{a}+P(T)=:E_T.
+\]
+Subtract the full Fourier transform $d\Gamma(a)(i\omega)^{-a}$ of the leading power, then integrate both remainders by parts. Combining their endpoint terms before taking absolute values gives
+\begin{equation}\label{eq:tail}
+ \left|\int_0^T f(t)e^{-i\omega t}\,\dd t\right|
+ \leq (2\pi)^a|\omega|^{-a}
+ +\frac{|f(T)|+E_T+dT^{a-1}}{|\omega|}.
+\end{equation}
+The improper power transform is justified by Abel damping or ordinary oscillatory convergence; its tail derivative is integrable.
+
+The two arithmetic terms have $T_1=V$, $T_2=V-\log2$, and weights $1$ and $\rho=(2^{1/4}-2^{-1/4})/\sqrt2$. Summing \eqref{eq:tail}, including the unit-modulus phase of the second term, proves
+\[
+ |\lambda_k|\leq A|\omega_k|^{-1/4}+B|\omega_k|^{-1},\qquad
+ A<1.973173,\quad B<8.583348.
+\]
+The executable certificate encloses the unrounded expressions directly. At $|k|=17$ the bound is less than $0.822974956342<17/20$, and it decreases for larger $|k|$. This proves the infinite tail estimate used in \eqref{eq:majorant}.
+
+\subsection*{Validated coefficients and matrix inertia}
+No oscillatory numerical quadrature is required for the finite coefficients. Put $C=2\pi^a/\Gamma(a)$, $Q=1-e^{-2T}$,
+$p=a-1/2+i\omega$, and $r=(5/2-a+i\omega)/2$. Integration by parts gives the exact identity
+\[
+ \int_0^T f(t)e^{-i\omega t}\,\dd t
+ =C\left[\left(\frac12-\frac ap\right)B_Q(a,r)
+       +\frac ap e^{-pT}B_Q(a,3/2-a)\right].
+\]
+Here $p\ne0$, including at $\omega=0$. For complex $r$, evaluate
+\[
+ B_Q(a,r)=Q^a\sum_{j\geq0}\frac{c_jQ^j}{a+j},\qquad
+ c_0=1,\quad c_j=c_{j-1}\frac{j-r}{j}.
+\]
+After degree $M=512$, a rigorous tail radius is
+\[
+ \frac{|c_{M+1}|Q^{a+M+1}}{(a+M+1)(1-\eta)},\qquad
+ \eta=Q\max\left(1,\left|1-\frac{r}{M+2}\right|\right)<1.
+\]
+To see this, $|1-r/n|^2$ is a convex quadratic in $1/n$; its maximum for $n\geq M+2$ is attained at an endpoint. The remaining denominator ratio is at most one. Both real and imaginary tail errors are enclosed by this radius.
+
+At 80 decimal digits, the script builds interval matrices $S_s$ and obtains candidate real congruence matrices $Q_s$ from an ordinary eigensolver. Each binary floating-point entry of $Q_s$ is then embedded exactly in interval arithmetic. The script verifies $\|Q_s^TQ_s-I\|<1$, hence invertibility, and strict signed diagonal dominance of $Q_s^TS_sQ_s$ by interval Gershgorin bounds. Thus the eigensolver is only a source of candidates; none of its asserted eigenvalues is trusted.
+
+The independently reproduced certificate gives
+\[
+ \begin{array}{c|cc|cc}
+ s&n_-(B_s)&n_-(S_s)&\min|\operatorname{spec}S_s|\text{ lower bound}
+ &I-s\mathsf H\text{ gap lower bound}\\\hline
+ +1&28&28&0.0009903747686385&0.0000222801224437\\
+ -1&29&29&0.07828557549575&0.00174098138915
+ \end{array}
+\]
+The smallest singular value of either $B_s$ exceeds $0.01372913754369$. For completeness, if $g$ bounds the spectral distance of $S_s$ from zero, the Woodbury formula and $\|W\|\leq1$ give
+\[
+ (\alpha I-WB_sW^*)^{-1}
+ =\alpha^{-1}I+\alpha^{-2}WS_s^{-1}W^*,\qquad
+ \alpha I-WB_sW^*\succeq\frac{\alpha^2g}{1+\alpha g}I.
+\]
+Both displayed gaps exceed $1/50000$, proving Theorem~\ref{thm:signed}.
+
+\textbf{Scope of the advance.} The first-prime signed window is now certified, despite its absolute-kernel norm being greater than one. The reusable mechanism is an exact Fourier dilation, an analytic tail bound, and a finite verified Schur complement. This resolves one fixed width and a bounded truncation range. Uniform estimates as $a\downarrow0$, arbitrarily large $L$, and the global RH implication remain unproved. Literature novelty has not been assessed.
+
+\section*{Verification and sources}
+The accompanying script checks the harmonic dimensions and derivatives exactly with rational symbolic arithmetic, verifies the completion value and cocycle numerically at 70 decimal digits, and checks finite cyclic-root identities. These are reproducibility diagnostics; the proofs above establish the stated theorems. No claim of literature priority is made.
+
+\begin{enumerate}[label={[\arabic*]}]
+\item \emph{Split Twistor Bridge V2}, 1 October 2026, pp. 2--9. Existing project report containing the exact homogeneous Fourier family, prime factors, incidence map at the self-dual weight, and constant-mode reduction. This continuation does not replace that report.
+\item J. C. Lagarias, \emph{Zero Spacing Distributions for Differenced L-Functions}, Acta Arithmetica 120 (2005), 159--184; corrected preprint, Lemma 2.1. \url{https://arxiv.org/abs/math/0601653}.
+\item M. Suzuki, \emph{A canonical system of differential equations arising from the Riemann zeta-function}, revised 2016. \url{https://arxiv.org/abs/1204.1827}.
+\item G. \'Olafsson, A. Pasquale and B. Rubin, \emph{Analytic and Group-Theoretic Aspects of the Cosine Transform} (2012). Background on Fourier normalization and generalized principal-series intertwiners. \url{https://arxiv.org/abs/1209.1822}.
+\end{enumerate}
+\end{document}

@@ -1,9 +1,11 @@
-import React, { Suspense } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import RigorousTwistorModel from '../components/RigorousTwistorModel.jsx';
 import { EditorialHeader } from '../components/editorial/PostLayout.jsx';
-import TwistorViz from '../components/TwistorViz.jsx';
-import TwistorDiagram3D from '../components/TwistorDiagram3D.jsx';
 import { InlineMath, BlockMath } from '../components/KaTeXMath.jsx';
+
+const TwistorViz = lazy(() => import('../components/TwistorViz.jsx'));
+const TwistorDiagram3D = lazy(() => import('../components/TwistorDiagram3D.jsx'));
 
 // Editorial (warm) re-theme: full-width column, identical structure/content.
 // Interactive visualizations (TwistorDiagram3D, TwistorViz) kept exactly as-is.
@@ -19,12 +21,35 @@ function cardBaseLeft(color) {
 }
 
 export default function TwistorPage() {
+  const [searchParams] = useSearchParams();
+  const illustration = searchParams.get('model') === 'illustration';
+  const viewLink = (model) => {
+    const next = new URLSearchParams(searchParams);
+    next.set('model', model);
+    return { search: '?' + next.toString() };
+  };
+  return <div className="ed-root">
+    <EditorialHeader ticker={<span>attack &middot; twistor</span>} />
+    <div className="ed-full rt-page" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+      <h1 className="ed-h1">Twistor Duality</h1>
+      <nav className="rt-view-nav" aria-label="Twistor model views">
+        <Link to={viewLink('rigorous')} aria-current={!illustration ? 'page' : undefined}>Rigorous model</Link>
+        <Link to={viewLink('illustration')} aria-current={illustration ? 'page' : undefined}>Geometric illustration</Link>
+      </nav>
+      {illustration ? <>
+        <div className="rt-note"><strong>Illustration / analogy.</strong> The original visuals below use a Euclidean spinor encoding and a scalar functional-equation bridge. They are not the split-real representation-theoretic model. The toy incidence also vanishes when cos(t log 2) = 0 away from the critical line; neither its vector norm nor its weighted Euler product proves RH.</div>
+        <Suspense fallback={<p role="status">Loading the original illustration…</p>}><TwistorIllustration /></Suspense>
+      </> : <RigorousTwistorModel />}
+    </div>
+  </div>;
+}
+
+function TwistorIllustration() {
   return (
     <div className="ed-root">
-      <EditorialHeader ticker={<span>attack &middot; twistor</span>} />
-      <div className="ed-full" style={{ maxWidth: '72rem', padding: '28px 34px 70px' }}>
+      <div>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="ed-h1" style={{ marginBottom: 10 }}>Twistor Duality</h1>
+          <h2 className="ed-h2" style={{ marginBottom: 10 }}>Original geometric illustration</h2>
           <p style={{ color: 'var(--ink-soft)', fontSize: 15, lineHeight: 1.65, maxWidth: 760 }}>
             Map the Twin-Ladder Bridge twin-ladder model into Penrose twistor geometry. The twistor
             correspondence reframes the direct/dual ladder pair as a twistor/dual-twistor pair
@@ -431,3 +456,4 @@ export default function TwistorPage() {
     </div>
   );
 }
+

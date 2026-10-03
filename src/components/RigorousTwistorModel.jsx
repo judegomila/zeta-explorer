@@ -40,8 +40,10 @@ export default function RigorousTwistorModel() {
   const [real, setReal] = useState(0.7);
   const [imag, setImag] = useState(2);
   const [a, setA] = useState(1.5);
-  const [windowA, setWindowA] = useState(0.25);
-  const [windowL, setWindowL] = useState(1.5);
+  // Preserve literal decimals through preset resets: Number props can leave
+  // a numerically equivalent but different visible string in React number inputs.
+  const [windowA, setWindowA] = useState('0.25');
+  const [windowL, setWindowL] = useState('1.5');
   const scalar = useMemo(() => arithmeticDiagnostic([real, imag], a), [real, imag, a]);
   const rows = useMemo(() => Array.from({ length: 9 }, (_, m) => {
     const b = angularMultiplier([real, imag], m);
@@ -181,9 +183,9 @@ export default function RigorousTwistorModel() {
         <label htmlFor="rt-window-l">Truncation endpoint L
           <input id="rt-window-l" type="number" min="1.001" max="3" step="any" value={windowL} onChange={(e) => setWindowL(e.target.value)} /></label>
         <div className="rt-presets">
-          <button type="button" onClick={() => { setWindowA(0.25); setWindowL(1.5); }}>Signed certified window</button>
-          <button type="button" onClick={() => { setWindowA(0.5); setWindowL(COMMON_WINDOW_SAFE); }}>Common small window</button>
-          <button type="button" onClick={() => { setWindowA('0.25000001'); setWindowL(1.5); }}>Nearby-width theorem</button>
+          <button type="button" onClick={() => { setWindowA('0.25'); setWindowL('1.5'); }}>Signed certified window</button>
+          <button type="button" onClick={() => { setWindowA('0.5'); setWindowL(String(COMMON_WINDOW_SAFE)); }}>Common small window</button>
+          <button type="button" onClick={() => { setWindowA('0.25000001'); setWindowL('1.5'); }}>Nearby-width theorem</button>
         </div>
       </div>
       <div className={'rt-window-result rt-' + evidence.kind} data-evidence-method={evidence.method || 'outside'} role="status" aria-live="polite">

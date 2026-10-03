@@ -1,0 +1,23 @@
+{
+  "same_implementation_precision_corroboration": true,
+  "independent_implementation": false,
+  "all_60dps_intervals_nested_in_40dps": true,
+  "checks": {
+    "index": true,
+    "f": true,
+    "abs_f": true,
+    "effective_error": true,
+    "P97_disk_radius_including_error": true,
+    "nonvanishing_margin": true
+  },
+  "certificates": [
+    {
+      "file": "local_cell_certificate.json",
+      "sha256": "737425c9b82c5c007beb1f096521761a82ee347da1ccfdef3eed69244c6111f7"
+    },
+    {
+      "file": "local_cell_certificate_60dps.json",
+      "sha256": "2e55a773c326ac68ded67d76e057b3811c335f9c0903ccda096b9b21cf167b7b"
+    }
+  ]
+}

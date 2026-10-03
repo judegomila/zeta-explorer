@@ -1,0 +1,108 @@
+{
+  "scope": "Exact symbolic identities only; no Lambda bound certified.",
+  "checks": 25,
+  "results": [
+    {
+      "name": "commutator_m0",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m0",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m1",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m1",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m2",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m2",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m3",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m3",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m4",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m4",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m5",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m5",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m6",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m6",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m7",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m7",
+      "exact_pass": true
+    },
+    {
+      "name": "commutator_m8",
+      "exact_pass": true
+    },
+    {
+      "name": "conjugated_generator_m8",
+      "exact_pass": true
+    },
+    {
+      "name": "ratio_drift",
+      "exact_pass": true
+    },
+    {
+      "name": "m1_residual",
+      "exact_pass": true
+    },
+    {
+      "name": "fixed_width_cancellation_counterexample",
+      "exact_pass": true
+    },
+    {
+      "name": "mellin_mode_heat",
+      "exact_pass": true
+    },
+    {
+      "name": "prime_cross_exponent",
+      "exact_pass": true
+    },
+    {
+      "name": "schur_factorization",
+      "exact_pass": true
+    },
+    {
+      "name": "target_bound_arithmetic",
+      "exact_pass": true,
+      "bound": "28727519/200000000",
+      "decimal": "0.143637595"
+    }
+  ]
+}

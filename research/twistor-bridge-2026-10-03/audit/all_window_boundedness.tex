@@ -1,0 +1,91 @@
+% Independent audit addendum; not a proof of RH.
+% Assumes the continuation report's exact h_a and finite-window compactness.
+\section{An exact all-window boundedness criterion}
+Fix $a>0$, and let $h_a$ be the real, locally integrable arithmetic kernel
+defined above, supported in $[1,\infty)$.  Define the finite-window operators
+directly by
+\[
+ (H_{a,L}f)(x)=\int_0^L h_a(xy)f(y)\,dy,
+ \qquad f\in L^2((0,L),dx),\quad L>1.
+\]
+Their boundedness and compactness do not assume the existence of a bounded
+global operator.
+
+\begin{theorem}[All-window alternative]
+For each fixed $a>0$, the following are equivalent:
+\begin{enumerate}
+\item $\sup_{L>1}\|H_{a,L}\|<\infty$;
+\item $\|H_{a,L}\|\leq1$ for every $L>1$;
+\item $R_a(w)=\xi(1/2+w-a)/\xi(1/2+w+a)$ is holomorphic and bounded by one
+      on $\operatorname{Re}w>0$.
+\end{enumerate}
+The function $L\mapsto\|H_{a,L}\|$ is nondecreasing.  Its limit as
+$L\to\infty$ is $1$ when these conditions hold and $+\infty$ otherwise.
+\end{theorem}
+
+\begin{proof}
+For $1<L_1<L_2$, the first operator is the orthogonal compression of the
+second, so its norm is no larger.  Suppose condition (1) holds with bound
+$C$.  For compactly supported $f\in L^2((0,\infty),dx)$ and $L$ beyond
+its support, $H_{a,L}f$ is the restriction to $(0,L)$ of a single locally
+defined function.  The uniform norm bound and monotone convergence give
+a global $L^2$ function $H_af$ with $\|H_af\|\leq C\|f\|$.  Density
+therefore yields a bounded global extension $H_a$.
+
+The operator
+\[
+ (Jf)(x)=x^{-1}f(x^{-1})
+\]
+is unitary on $L^2((0,\infty),dx)$.  Substituting $y=t^{-1}$ yields
+\[
+ (H_aJf)(x)=\int_0^\infty h_a(x/t)f(t)\,\frac{dt}{t}.
+\]
+For $f\in L^2((1,\infty),dx)$, support of $h_a$ restricts the integral
+to $1\leq t\leq x$.  Local $L^1$ convolution bounds in logarithmic
+coordinates, followed by truncation of $f$, identify this integral with
+the bounded extension $H_aJf$ for every such $f$.  Thus condition (3) of
+Suzuki's Theorem 2.2 \cite{Suzuki2016} holds, with $\omega=a$.  It follows
+that $\Theta_a(z)=R_a(-iz)$ is inner in the upper half-plane, giving (3).
+
+Conversely, (3), the reflection symmetries of $\xi$, and Suzuki's
+Lemma 4.1 identify the global arithmetic kernel operator $H_a$ as an
+isometry.  Consequently all finite compressions have norm at most one,
+giving (2).  Condition (2) plainly gives (1).
+
+When these conditions hold, the compressions converge strongly to $H_a$
+as $L\to\infty$, so their norm supremum is $\|H_a\|=1$.  Otherwise (1)
+fails and monotonicity implies that their norms tend to infinity.
+\end{proof}
+
+\begin{corollary}[The required small-width estimate]
+Let $a_n>0$ tend to zero.  If for each $n$ there exists a finite constant
+$C_n$ such that
+\[
+ \|H_{a_n,L}\|\leq C_n\qquad\hbox{for every }L>1,
+\]
+then RH holds.  No uniformity of $C_n$ in $n$, and no strictly positive
+gap below one uniform in $L$, is required.
+\end{corollary}
+
+\begin{proof}
+The theorem makes every $R_{a_n}$ holomorphic in the right half-plane.
+If $X(w)=\xi(1/2+w)$ had a zero $\lambda$ with positive real part,
+then for sufficiently small $a_n$ the point $w=\lambda-a_n$ lies in that
+half-plane.  The denominator of $R_{a_n}$ vanishes there, while its
+numerator $X(\lambda-2a_n)$ does not, by isolation of the zero $\lambda$.
+This is a pole, a contradiction.  Evenness of $X$ excludes zeros with
+negative real part as well.
+\end{proof}
+
+\paragraph{Scope.}
+The all-window bounds in this corollary are not established here.
+The finite certificate $a=1/4$, $1<L\leq3/2$ does not provide them.
+This criterion identifies the remaining arithmetic estimate; it neither
+derives the scalar factor from twistor geometry nor constructs a
+canonical-system Hamiltonian.  The latter requires separate regularity
+and normalization arguments.
+
+% Bibliography entry for integration:
+% \bibitem{Suzuki2016} M. Suzuki, A canonical system of differential equations
+% arising from the Riemann zeta-function, arXiv:1204.1827, revised version,
+% Theorem 2.2 and Lemma 4.1. https://arxiv.org/abs/1204.1827

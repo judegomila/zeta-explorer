@@ -1,0 +1,83 @@
+\section{An exact nonidentical-stage semigroup and its limitation}
+The width cocycle does allow a genuine composition law once spectral translation is included. Its existence alone does not constrain the arithmetic zeros.
+
+\begin{proposition}[Weighted translation realization]\label{prop:weighted}
+Let $X$ be any nonzero entire function, with no zero-free assumption. Define
+\[
+ \mathcal E_X=\{Xg:g\in H^2(\CP)\},\qquad \|Xg\|_{\mathcal E_X}=\|g\|_{H^2}.
+\]
+For $a\geq0$, set
+\[
+ S_a(Xg)(w)=X(w)g(w+2a).
+\]
+Then $(S_a)$ is a strongly continuous contraction semigroup. At regular points,
+\[
+ (S_af)(w)=\frac{X(w)}{X(w+2a)}f(w+2a)=R_a(w+a)f(w+2a).
+\]
+Its generator is $2(f'-X'f/X)$ on $\{Xg:g,g'\in H^2(\CP)\}$, with the expression interpreted by cancellation at zeros of $X$.
+\end{proposition}
+\begin{proof}
+Multiplication by $X$ is an isometry from $H^2$ onto $\mathcal E_X$ by definition and is injective. Horizontal translations $g(w)\mapsto g(w+2a)$ form a strongly continuous contraction semigroup on Hardy space: under the Laplace realization they multiply by $e^{-2at}$ on $L^2(0,\infty)$. Conjugating by this isometry gives every assertion, including the derivative formula.
+\end{proof}
+This construction differs from the pointwise roots excluded in Theorem~\ref{thm:root}. It shifts $w$, and its norm depends on $X$ by construction. Every function in $\mathcal E_X$ vanishes at each zero of $X$. In the usual Hardy normalization, its evaluation kernel is
+\[
+ k_X(w,z)=\frac{X(w)\overline{X(z)}}{w+\bar z},\qquad
+ \|k_{X,w}\|=\frac{|X(w)|}{\sqrt{2\Rea w}}.
+\]
+At regular points, the evaluation inequality induced by $S_a$ reduces to
+\[
+ \left|\frac{X(w)}{X(w+2a)}\right|
+ \frac{|X(w+2a)|}{\sqrt{2(\Rea w+2a)}}
+ \leq\frac{|X(w)|}{\sqrt{2\Rea w}}.
+\]
+The arithmetic factors cancel, leaving the elementary Hardy translation inequality. Therefore this passive realization does not yield a bound of one on $R_a$ with unit-norm scalar input/output vectors. At zeros, cancellation uses the function's vanishing jets and cannot be interpreted as division of arbitrary point values.
+
+\begin{proposition}[A sharp cocycle counterfamily]
+For $\beta,\tau>0$, put
+\[
+ Y(w)=((w-\beta)^2+\tau^2)((w+\beta)^2+\tau^2),\qquad
+ r_a(w)=Y(w-a)/Y(w+a).
+\]
+The function $Y$ is even, real under conjugation, and positive on the real axis. Its ratios satisfy the exact width cocycle, but $r_a$ is Schur precisely when $a\geq\beta$.
+\end{proposition}
+\begin{proof}
+The cocycle follows by cancellation. If $a\geq\beta$, then
+\[
+ r_a(w)=\prod_{\epsilon,\eta\in\{\pm1\}}
+ \frac{w-(a-\epsilon\beta)-i\eta\tau}
+      {w+(a-\epsilon\beta)-i\eta\tau},
+\]
+which is a product of right-half-plane Blaschke factors; a factor of width zero is removed. If $0<a<\beta$, $w=\beta-a+i\tau$ is an uncancelled pole. The numerator there is $Y(\beta-2a+i\tau)\ne0$. The other statements follow directly from the polynomial.
+\end{proof}
+For example, $\beta=1/4$, $\tau=1$ gives passive bridges at every $a\geq1/2$, including $3/2$, but a pole at $w=1/8+i$ when $a=1/8$. Multiplying these ratios by the same angular $A(w)$ preserves wide passivity and the constant-mode obstruction. The positive-Laplace-measure control in the foundational report already demonstrates a related limitation; this polynomial family makes the width threshold and cocycle particularly explicit. Neither control possesses the full Riemann arithmetic, and neither refutes RH.
+
+\section{The comparison a geometric continuation would still need}
+One can state the missing positivity as a comparison between two spaces that are independently well-defined and positive. For $0<a\leq1$, set
+\[
+ \Phi_a(w)=R_{3/2}(w+3/2-a)=\frac{X(w-a)}{X(w+3-a)},\qquad
+ \Psi_a(w)=R_{3/2-a}(w+3/2)=\frac{X(w+a)}{X(w+3-a)}.
+\]
+Both are unconditionally Schur by the established wide-shift theorem. The common denominator is zero-free on $\CP$ since its $\xi$ argument has real part greater than $5/2$. Let
+$K_f(w,z)=(1-f(w)\overline{f(z)})/(w+\bar z)$.
+
+\begin{proposition}[Exact defect-space comparison]\label{prop:comparison}
+For the displayed $\Phi_a,\Psi_a$, the following are equivalent:
+\begin{enumerate}
+\item $R_a$ is holomorphic and contractive on $\CP$;
+\item $K_{\Phi_a}-K_{\Psi_a}$ is a positive semidefinite kernel;
+\item the canonical inclusion of reproducing kernel spaces
+$\mathcal H(K_{\Psi_a})\hookrightarrow\mathcal H(K_{\Phi_a})$ is contractive.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+If $R_a$ is Schur, then $\Phi_a=R_a\Psi_a$ and
+\[
+ K_{\Phi_a}-K_{\Psi_a}=\Psi_a(w)\overline{\Psi_a(z)}K_{R_a}(w,z)\succeq0.
+\]
+Conversely positivity on the diagonal implies $|\Phi_a(w)|\leq|\Psi_a(w)|$. At zeros of $\Psi_a$, this inequality forces at least the same vanishing order in $\Phi_a$, so $\Phi_a/\Psi_a=R_a$ extends holomorphically and is bounded by one. The equivalence with contractive inclusion is the elementary reproducing-kernel order criterion; see [6] for the de Branges--Rovnyak framework.
+\end{proof}
+The unnormalized kernel whose sign is required is explicitly
+\[
+ \frac{X(w+a)\overline{X(z+a)}-X(w-a)\overline{X(z-a)}}{w+\bar z}.
+\]
+The harmless nonvanishing common denominator does not affect its positivity. Thus a successful geometric continuation could supply a genuine contractive comparison between the two known wide defect spaces, with the specified arithmetic identification. Merely constructing both spaces, a scalar cocycle, or the $X$-weighted semigroup does not supply this comparison. Its diagonal condition is already the thin scalar inequality; it must not be assumed as an energy definition or described as an independent proof. At the angular constant mode there is no additional positive geometric term available to repair a failure.

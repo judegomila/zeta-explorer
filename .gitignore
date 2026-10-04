@@ -42,3 +42,6 @@ scripts/.rh-lit-seen.json
 
 # Vercel CLI local state / prebuilt build output (must NOT be committed — causes stale-prebuilt deploys)
 .vercel/
+scripts/.deploy-hook-url-editorial
+scripts/.deploy-editorial-state
+scripts/.deploy-editorial.log
